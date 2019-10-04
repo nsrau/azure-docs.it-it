@@ -9,6 +9,8 @@
   items:
     - name: Attività iniziali
       href: video-indexer-get-started.md
+    - name: Invitare gli utenti
+      href: invite-users.md
 - name: Esercitazioni
   items:
     - name: Usare l'API Video Indexer

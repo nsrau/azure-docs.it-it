@@ -448,8 +448,6 @@
           href: sql-database-geo-replication-portal.md
         - name: Configurare la sicurezza per le repliche geografiche
           href: sql-database-geo-replication-security-config.md
-        - name: Configurare il gruppo di failover
-          href: sql-database-configure-failover-group.md
         - name: Provare le funzionalità in memoria
           href: sql-database-in-memory-sample.md
         - name: Abilitare l'ottimizzazione automatica
@@ -588,6 +586,8 @@
               href: sql-database-xevent-code-ring-buffer.md
     - name: Configurare le funzionalità
       items:
+        - name: Configurare il gruppo di failover
+          href: sql-database-configure-failover-group.md
         - name: Configurare l'autorizzazione di Azure AD
           href: sql-database-aad-authentication-configure.md
         - name: Accesso condizionale

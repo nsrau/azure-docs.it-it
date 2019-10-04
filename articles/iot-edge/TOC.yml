@@ -135,14 +135,14 @@
           href: how-to-update-iot-edge.md
     - name: Effettuare il provisioning automatico con il servizio Device Provisioning
       items:
-        - name: Attestazione con chiave simmetrica
-          href: how-to-auto-provision-symmetric-keys.md
         - name: Attestazione TPM
           items:
             - name: Linux
               href: how-to-auto-provision-simulated-device-linux.md
             - name: Windows
               href: how-to-auto-provision-simulated-device-windows.md
+        - name: Attestazione con chiave simmetrica
+          href: how-to-auto-provision-symmetric-keys.md
     - name: Sviluppare ed eseguire il debug di moduli personalizzati
       items:
         - name: Visual Studio 2019
