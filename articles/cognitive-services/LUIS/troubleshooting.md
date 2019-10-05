@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: 3907a244bc2d85e7225f94b15150298fd80a032f
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 8adc052e732fdc54bd3b51873fdcf13a55f1f490
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382348"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971975"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
@@ -220,6 +220,10 @@ Per altre informazioni, vedere correggere il codice di stato HTTP [403](#i-recei
 
 Per altre informazioni, vedere correggere il codice di stato HTTP [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) e [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) .
 
+### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>È stata creata una chiave di creazione, ma non viene visualizzata nel portale LUIS. Cosa è successo?
+
+Le chiavi di creazione sono disponibili nel portale LUIS dopo [la migrazione all'esperienza di creazione della chiave](luis-migration-authoring.md).  
+
 ## <a name="app-management"></a>Gestione app
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>Come si scarica un log delle espressioni degli utenti?
@@ -325,7 +329,7 @@ Le funzionalità seguenti sono state rilasciate alla conferenza Build 2019:
 * [Entità elenco dinamico](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [Entità esterne](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
-Video
+Video:
 
 * [Come usare l'intelligenza artificiale per la conversazione di Azure per la scalabilità dell'azienda per la prossima generazione](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 

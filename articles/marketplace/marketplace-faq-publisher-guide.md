@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 10/2/2019
+ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: 4096b9201afc98f6e5eb239cf9e6883ac69b6e79
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 1c6e381f5f05bc285b50521c9a57e8b5189a7478
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827994"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969571"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Domande frequenti sul Marketplace commerciale Microsoft
 
@@ -130,7 +130,7 @@ La sottoscrizione di Azure è inclusa nei prezzi della soluzione fornitori di so
 
 + *Per utente:* Le sottoscrizioni SaaS possono essere valutate in base ai singoli utenti, fatturate mensilmente o annualmente. 
 
-Per informazioni dettagliate sui prezzi specifici dell'offerta, vedere la pagina dei dettagli [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) della soluzione in o all'interno del [portale di Azure].
+Per informazioni dettagliate sui prezzi specifici dell'offerta, vedere la pagina dei dettagli della soluzione in [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) o all'interno del [portale di Azure].
 
 > [!Note]
 > Gli addebiti per l'utilizzo di Azure, ad eccezione delle tariffe mensili, sono applicabili a tutti i modelli di determinazione dei prezzi, se non diversamente indicato.
@@ -171,7 +171,7 @@ Sì, per i clienti con contratto Enterprise Agreement l'amministratore delle reg
 
 **Quali metodi di pagamento sono supportati per gli acquisti nel Marketplace commerciale?**
 
-I clienti possono acquistare offerte da Azure Marketplace e Microsoft AppSource usando carte di credito. Se si dispone di una sottoscrizione di Azure esistente, gli acquisti da Azure Marketplace utilizzeranno il metodo di pagamento configurato per l'account e verranno visualizzati nella stessa fattura di una voce separata. Alcune offerte usano l'impegno monetario di Azure, ma la maggior parte degli acquisti in ommercial Marketplace non inducono Enterprise Agreement impegni anche se il consumo dell'infrastruttura di Azure.
+I clienti possono acquistare offerte da Azure Marketplace e Microsoft AppSource usando carte di credito. Se si dispone di una sottoscrizione di Azure esistente, gli acquisti da Azure Marketplace utilizzeranno il metodo di pagamento configurato per l'account e verranno visualizzati nella stessa fattura di una voce separata. Alcune offerte utilizzano un impegno monetario di Azure, ma la maggior parte degli acquisti di Marketplace commerciali non inducono Enterprise Agreement impegni anche se il consumo dell'infrastruttura di Azure.
 
 **È possibile applicare i crediti della sottoscrizione di Azure o i fondi dell'impegno monetario dell'account alle offerte di Azure Marketplace?**
 
@@ -302,7 +302,7 @@ Sì, per la pubblicazione in Azure Marketplace è necessario essere membri MPN. 
 
 **Quali sono i criteri per pubblicare una soluzione in Azure Marketplace?**
 
-Per pubblicare in Azure Marketplace, i partner devono dimostrare che l'applicazione viene eseguita in Azure o ne estende le funzionalità. Gli editori sono tenuti a offrire ai clienti una [contratto di servizio](https://azure.microsoft.com/support/legal/sla/), informativa [sulla privacy](https://privacy.microsoft.com/privacystatement)e il supporto telefonico e online. Diversi carichi di lavoro prevedono requisiti aggiuntivi. Per altre indicazioni, vedere [Azure Marketplace Participation Policies](./marketplace-participation-policy.md) (Criteri di partecipazione ad Azure Marketplace) e la [Guida alla pubblicazione](marketplace-publishers-guide.md).
+Per pubblicare in Azure Marketplace, i partner devono dimostrare che l'applicazione viene eseguita in Azure o ne estende le funzionalità. Gli editori sono tenuti a offrire ai clienti una [contratto di servizio](https://azure.microsoft.com/support/legal/sla/), [informativa sulla privacy](https://privacy.microsoft.com/privacystatement)e il supporto telefonico e online. Diversi carichi di lavoro prevedono requisiti aggiuntivi. Per altre indicazioni, vedere [Azure Marketplace Participation Policies](./marketplace-participation-policy.md) (Criteri di partecipazione ad Azure Marketplace) e la [Guida alla pubblicazione](marketplace-publishers-guide.md).
 
 **Sono previste tariffe per la pubblicazione in Azure Marketplace?**
 
@@ -326,7 +326,7 @@ Per altre informazioni e per iniziare ad abilitare una versione di valutazione c
 
 Per evitare duplicati, gli editori devono prima di tutto verificare che non sia già stato registrato un [account Dev Center](deprecated/register-dev-center.md). Una volta effettuata questa verifica, il passaggio successivo consiste nell'eseguire la registrazione [accedendo](https://account.microsoft.com/account/) con un account Microsoft, che verrà associato all'account per sviluppatori.
 
-Se non si dispone già di un account Microsoft, è possibile [creare un account](https://signup.live.com/) (ad esempio contoso_marketplace@live.com:).
+Se non si dispone già di un account Microsoft, è possibile [creare un account](https://signup.live.com/) (ad esempio: contoso_marketplace@live.com).
 
 **Perché è necessario disporre di un account Dev Center?**
 
@@ -375,15 +375,15 @@ Per altre informazioni, vedere [Eliminare le offerte](./cloud-partner-portal/man
 
 *App O365:*
 
-1.  Accedere a <https://sellerdashboard.microsoft.com> con l'account di sviluppo.
+1.  Accedere a <https://sellerdashboard.microsoft.com> con l'account dev.
 1.  Ritirare il componente aggiuntivo.
 
     > [!NOTE]
     > Le app scompaiono da un elenco esistente dopo 90 giorni.
 
-*App Power BI:*
+**Perché le modifiche non vengono riflesse nell'offerta?**
 
-Contattare: [Anjana Sompur (Slalom Consulting LLC)](mailto:v-ansomp@microsoft.com).
+Le modifiche apportate all'interno del centro per i partner vengono aggiornate nel sistema e archiviano i fronti una volta ripubblicata l'offerta. Assicurarsi di aver inviato l'offerta per la pubblicazione dopo qualsiasi modifica.
 
 ### <a name="benefits-and-go-to-market-gtm-resources"></a>Vantaggi e risorse go-to-market
 
@@ -463,6 +463,16 @@ Le transazioni possono essere eseguite nelle 17 valute seguenti: AUD, BRL, CAD, 
 **Qual è la differenza tra livello gratuito e versione di valutazione gratuita del software?**
 
 Un'offerta di sottoscrizione con livello gratuito rimane sempre gratuita.  Un'offerta di versione di valutazione gratuita del software (Prova adesso) è una sottoscrizione a pagamento, gratuita solo per un periodo di tempo limitato.
+
+**Qual è il processo per convalidare il flusso di acquisto e provisioning end-to-end?**
+
+Durante il processo di pubblicazione, verrà fornito l'accesso a un'anteprima dell'offerta. L'accesso è limitato agli utenti specificati nella scheda Anteprima e si tratta di un'offerta Live non visibile a chiunque. È possibile acquistare questo e testare il processo; Tuttavia, l'importo totale verrà addebitato in base alla configurazione dell'offerta.
+
+Per completare un acquisto a un prezzo molto basso, Microsoft consiglia di pubblicare un piano privato per impostarlo a un prezzo che è possibile accettare come costo dei test. Zero è supportato, ma non rifletterà l'esperienza completa come una sottoscrizione a pagamento.
+
+**Microsoft fornirà un rimborso al di fuori delle politiche standard?**
+
+Sì, dopo la richiesta tramite il ticket di supporto, Microsoft elaborerà i crediti per il cliente se lo si ritiene appropriato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

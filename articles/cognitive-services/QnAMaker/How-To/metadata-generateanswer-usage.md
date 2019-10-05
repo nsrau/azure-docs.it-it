@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 10/02/2019
 ms.author: diberry
-ms.openlocfilehash: 2f9b624ffcc04963046ad817bb2bc9c025161506
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 03e04853e93bb78391476a365b20550d471e1dbb
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300257"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971804"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Ottenere una risposta con l'API e i metadati di GenerateAnswer
 
@@ -48,7 +48,7 @@ Dopo aver pubblicato la Knowledge base, dal portale di [QnA Maker](https://www.q
 Per ottenere i dettagli dell'endpoint:
 1. Accedere a [https://www.qnamaker.ai](https://www.qnamaker.ai).
 1. In **Knowledge**base selezionare **Visualizza codice** per la Knowledge base.
-    ![Screenshot delle Knowledge base](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
+    @no__t 0Screenshot delle Knowledge base @ no__t-1
 1. Ottenere i dettagli dell'endpoint GenerateAnswer.
 
     ![Schermata dei dettagli dell'endpoint](../media/qnamaker-how-to-metadata-usage/view-code.png)
@@ -64,7 +64,7 @@ Per ottenere i dettagli dell'endpoint:
 La richiesta POST USA:
 
 * [Parametri URI](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters) obbligatori
-* [Proprietà di intestazione](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)obbligatoria `Authorization`,, per la sicurezza
+* [Proprietà di intestazione](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)obbligatoria, `Authorization`, per la sicurezza
 * [Proprietà del corpo](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)obbligatorie. 
 
 L'URL di GenerateAnswer ha il formato seguente: 
@@ -73,7 +73,7 @@ L'URL di GenerateAnswer ha il formato seguente:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-Ricordarsi di impostare la proprietà dell'intestazione `Authorization` http di con un valore della `EndpointKey` stringa con uno spazio finale, quindi la chiave dell'endpoint trovata nella pagina **Impostazioni** .
+Ricordarsi di impostare la proprietà dell'intestazione HTTP di `Authorization` con un valore della stringa `EndpointKey` con uno spazio finale, quindi la chiave dell'endpoint trovata nella pagina **Impostazioni** .
 
 Un esempio di corpo JSON ha un aspetto simile al seguente:
 
@@ -161,7 +161,7 @@ Il bot di supporto presenta [un esempio](https://github.com/microsoft/BotBuilder
 
 ## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>Usare i metadati per filtrare le risposte in base ai tag dei metadati personalizzati
 
-L'aggiunta di metadati consente di filtrare le risposte in base a questi tag dei metadati. Aggiungere la colonna metadati dal menu **Opzioni di visualizzazione** . Aggiungere metadati alla Knowledge base selezionando l'icona dei **+** metadati per aggiungere una coppia di metadati. Questa coppia è costituita da una chiave e un valore.
+L'aggiunta di metadati consente di filtrare le risposte in base a questi tag dei metadati. Aggiungere la colonna metadati dal menu **Opzioni di visualizzazione** . Aggiungere metadati alla Knowledge base selezionando l'icona dei metadati **+** per aggiungere una coppia di metadati. Questa coppia è costituita da una chiave e un valore.
 
 ![Screenshot dell'aggiunta di metadati](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
@@ -219,9 +219,9 @@ La risposta a GenerateAnswer contiene le informazioni sui metadati corrispondent
 
 ## <a name="match-questions-only-by-text"></a>Corrisponde solo alle domande, testo
 
-Per impostazione predefinita, QnA Maker cerca le domande e le risposte. Se si desidera cercare solo le `RankerType=QuestionOnly` domande, per generare una risposta, utilizzare nel corpo post della richiesta GenerateAnswer.
+Per impostazione predefinita, QnA Maker cerca le domande e le risposte. Se si desidera cercare solo le domande, per generare una risposta, utilizzare il `RankerType=QuestionOnly` nel corpo POST della richiesta GenerateAnswer.
 
-È possibile eseguire ricerche nella KB pubblicata, usando `isTest=false`o nella KB di test usando. `isTest=true`
+È possibile eseguire ricerche nella KB pubblicata, usando `isTest=false` o nella KB di test usando `isTest=true`.
 
 ```json
 {
@@ -249,4 +249,4 @@ Per impostazione predefinita, QnA Maker cerca le domande e le risposte. Se si de
 La pagina di **pubblicazione** fornisce anche le informazioni per generare una risposta con [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) e [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
 
 > [!div class="nextstepaction"]
-> [Creare una knowledge base](./create-knowledge-base.md)
+> [Creazione di un bot della Knowledge base](../tutorials/integrate-qnamaker-luis.md)

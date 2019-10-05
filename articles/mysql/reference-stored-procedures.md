@@ -1,19 +1,19 @@
 ---
-title: Stored procedure per database di Azure per MySQL
-description: Questo articolo presenta le stored procedure specifiche per database di Azure per MySQL.
+title: Stored procedure per la gestione di database di Azure per MySQL
+description: Informazioni sulle stored procedure in database di Azure per MySQL sono utili per configurare la replica dei dati, impostare il fuso orario e terminare le query.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/19/2019
-ms.openlocfilehash: f01a0bf68e510133058dc0075f27cfcf6241c7a8
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 34598278ac7f432c5976de86eaf5dcf477c7e81a
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156176"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970331"
 ---
-# <a name="azure-database-for-mysql-stored-procedures"></a>Stored procedure per database di Azure per MySQL
+# <a name="azure-database-for-mysql-management-stored-procedures"></a>Stored procedure per la gestione di database di Azure per MySQL
 
 Le stored procedure sono disponibili nel database di Azure per i server MySQL per semplificare la gestione del server MySQL. Ciò include la gestione delle connessioni, delle query e della configurazione di Replica dei dati in ingresso del server.  
 
@@ -39,9 +39,9 @@ Le stored procedure seguenti sono disponibili nel database di Azure per MySQL pe
 
 |**Nome della stored procedure**|**Parametri di input**|**Parametri di output**|**Nota sull'utilizzo**|
 |-----|-----|-----|-----|
-|*MySQL. AZ _kill*|processlist_id|N/D|Equivale a [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command. Termina la connessione associata al processlist_id fornito dopo la terminazione di qualsiasi istruzione che la connessione è in esecuzione.|
-|*MySQL. AZ _kill_query*|processlist_id|N/D|Equivale a [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command. Termina l'istruzione attualmente in esecuzione per la connessione. Lascia attiva la connessione.|
-|*MySQL. AZ _load_timezone*|N/D|N/D|Carica le tabelle del fuso orario per `time_zone` consentire l'impostazione del parametro sui valori denominati, ad esempio "US/Pacific".|
+|*MySQL. AZ _kill*|processlist_id|N/D|Equivale al comando [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) . Termina la connessione associata al processlist_id fornito dopo la terminazione di qualsiasi istruzione che la connessione è in esecuzione.|
+|*MySQL. AZ _kill_query*|processlist_id|N/D|Equivale al comando [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) . Termina l'istruzione attualmente in esecuzione per la connessione. Lascia attiva la connessione.|
+|*MySQL. AZ _load_timezone*|N/D|N/D|Carica le tabelle del fuso orario per consentire l'impostazione del parametro `time_zone` su valori denominati, ad esempio "US/Pacific".|
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come configurare [replica dei dati in ingresso](howto-data-in-replication.md)

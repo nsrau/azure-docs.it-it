@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: mbullwin
-ms.openlocfilehash: d0b3c6124af30cb9ad870ad5f2600495ab872698
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 4eda37fab14a45a0bb5159beaabb9522046d1580
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983661"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969650"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Indirizzi IP usati da Application Insights e Log Analytics
 Il servizio [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) usa diversi indirizzi IP. Potrebbe essere necessario conoscere questi indirizzi se l'app che si sta monitorando è ospitata dietro un firewall.
@@ -52,7 +52,7 @@ Configurazione di Status Monitor: necessaria solo quando si apportano modifiche.
 | Configurazione |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Configurazione |`auth.gfx.ms` | |`443` |
 | Configurazione |`login.live.com` | |`443` |
-| Installazione | `globalcdn.nuget.org`, `packages.nuget.org` ,`api.nuget.org/v3/index.json` `nuget.org`, `api.nuget.org`,`dc.services.vsallin.net` | |`443` |
+| Installazione | `globalcdn.nuget.org`, `packages.nuget.org`, `api.nuget.org/v3/index.json` `nuget.org`, `api.nuget.org`, `dc.services.vsallin.net` | |`443` |
 
 ## <a name="availability-tests"></a>Test di disponibilità
 Questo è l'elenco di indirizzi da cui vengono eseguiti i [test Web della disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) . Se si vogliono eseguire test Web sull'app, ma il server Web è limitato alla fornitura di servizi a client specifici, è necessario consentire il traffico in ingresso dai server di test della disponibilità.
@@ -172,7 +172,7 @@ East US
 | --- | --- | --- | --- |
 | API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |23.96.58.253<br/>13.78.151.158<br/>40.74.59.40<br/>40.70.42.246<br/>40.117.198.0<br/>137.116.226.91<br/>52.163.88.44<br/>52.189.210.240<br/>13.77.201.34<br/>13.78.149.206<br/>52.232.28.146<br/>52.175.241.170<br/>20.36.36.66<br/>52.147.29.101<br/>40.115.155.252<br/>20.188.34.152<br/>52.141.32.103 |80,443 |
 | Documentazione API |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |23.96.58.253<br/>13.78.151.158<br/>40.74.59.40<br/>40.70.42.246<br/>40.117.198.0<br/>137.116.226.91<br/>52.163.88.44<br/>52.189.210.240<br/>13.77.201.34<br/>13.78.149.206<br/>52.232.28.146<br/>52.175.241.170<br/>20.36.36.66<br/>52.147.29.101<br/>40.115.155.252<br/>20.188.34.152<br/>52.141.32.103 |80,443 |
-| Estensione delle annotazioni della pipeline di Azure |aigs1.aisvc.visualstudio.com |dynamic|443 |
+| Estensione delle annotazioni della pipeline di Azure |aigs1.aisvc.visualstudio.com |dinamico|443 |
 
 ## <a name="log-analytics-api"></a>API di Log Analytics
 
@@ -185,9 +185,9 @@ East US
 
 | Scopo | URI | IP | Porte |
 | --- | --- | --- | --- |
-| Portale di Analisi | analytics.applicationinsights.io | dynamic | 80,443 |
-| RETE CDN | applicationanalytics.azureedge.net | dynamic | 80,443 |
-| Contenuti multimediali e rete CDN | applicationanalyticsmedia.azureedge.net | dynamic | 80,443 |
+| Portale di Analisi | analytics.applicationinsights.io | dinamico | 80,443 |
+| RETE CDN | applicationanalytics.azureedge.net | dinamico | 80,443 |
+| Contenuti multimediali e rete CDN | applicationanalyticsmedia.azureedge.net | dinamico | 80,443 |
 
 Nota: il dominio *.applicationinsights.io è di proprietà del team Application Insights.
 
@@ -195,8 +195,8 @@ Nota: il dominio *.applicationinsights.io è di proprietà del team Application 
 
 | Scopo | URI | IP | Porte |
 | --- | --- | --- | --- |
-| Portale | portal.loganalytics.io | dynamic | 80,443 |
-| RETE CDN | applicationanalytics.azureedge.net | dynamic | 80,443 |
+| Portale | portal.loganalytics.io | dinamico | 80,443 |
+| RETE CDN | applicationanalytics.azureedge.net | dinamico | 80,443 |
 
 Nota: il dominio *.loganalytics.io è di proprietà del team di Log Analytics.
 
@@ -204,15 +204,15 @@ Nota: il dominio *.loganalytics.io è di proprietà del team di Log Analytics.
 
 | Scopo | URI | IP | Porte |
 | --- | --- | --- | --- |
-| Estensione Application Insights | stamp2.app.insightsportal.visualstudio.com | dynamic | 80,443 |
-| Rete CDN estensione Application Insights | insightsportal-prod2-cdn.aisvc.visualstudio.com<br/>insightsportal-prod2-asiae-cdn.aisvc.visualstudio.com<br/>insightsportal-cdn-aimon.applicationinsights.io | dynamic | 80,443 |
+| Estensione Application Insights | stamp2.app.insightsportal.visualstudio.com | dinamico | 80,443 |
+| Rete CDN estensione Application Insights | insightsportal-prod2-cdn.aisvc.visualstudio.com<br/>insightsportal-prod2-asiae-cdn.aisvc.visualstudio.com<br/>insightsportal-cdn-aimon.applicationinsights.io | dinamico | 80,443 |
 
 ## <a name="application-insights-sdks"></a>Application Insights SDK
 
 | Scopo | URI | IP | Porte |
 | --- | --- | --- | --- |
-| Rete CDN Application Insights JS SDK | az416426.vo.msecnd.net | dynamic | 80,443 |
-| Application Insights Java SDK | aijavasdk.blob.core.windows.net | dynamic | 80,443 |
+| Rete CDN Application Insights JS SDK | az416426.vo.msecnd.net | dinamico | 80,443 |
+| Application Insights Java SDK | aijavasdk.blob.core.windows.net | dinamico | 80,443 |
 
 ## <a name="alert-webhooks"></a>Webhook degli avvisi
 
@@ -224,9 +224,9 @@ Nota: il dominio *.loganalytics.io è di proprietà del team di Log Analytics.
 
 | Scopo | URI | IP | Porte |
 | --- | --- | --- | --- |
-| Agente | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73 | 443
-| Portale | gateway.azureserviceprofiler.net | dynamic | 443
-| Archiviazione | *.core.windows.net | dynamic | 443
+| Agente | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
+| Portale | gateway.azureserviceprofiler.net | dinamico | 443
+| Archiviazione | *.core.windows.net | dinamico | 443
 
 ## <a name="snapshot-debugger"></a>Debugger di snapshot
 
@@ -235,6 +235,6 @@ Nota: il dominio *.loganalytics.io è di proprietà del team di Log Analytics.
 
 | Scopo | URI | IP | Porte |
 | --- | --- | --- | --- |
-| Agente | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73 | 443
-| Portale | ppe.gateway.azureserviceprofiler.net | dynamic | 443
-| Archiviazione | *.core.windows.net | dynamic | 443
+| Agente | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
+| Portale | ppe.gateway.azureserviceprofiler.net | dinamico | 443
+| Archiviazione | *.core.windows.net | dinamico | 443

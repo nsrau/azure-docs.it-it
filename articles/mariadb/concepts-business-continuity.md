@@ -1,21 +1,21 @@
 ---
-title: Panoramica della continuità aziendale con Database di Azure per MariaDB
-description: Panoramica della continuità aziendale con Database di Azure per MariaDB.
+title: Comprendere la continuità aziendale nel database di Azure per MariaDB
+description: Informazioni sulla continuità aziendale (ripristino temporizzato, interruzione del data center, ripristino geografico) quando si usa il servizio database di Azure per MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 4c64f920bf56195ad53ac8acbf3f9199090f0a8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d364c3a5fafaca514baade25cd3f5b4c0f10dc26
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61043017"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973603"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-mariadb"></a>Panoramica della continuità aziendale con Database di Azure per MariaDB
+# <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Comprendere la continuità aziendale nel database di Azure per MariaDB
 
-Questa panoramica descrive le funzionalità offerte da Database di Azure per MariaDB per la continuità aziendale e il ripristino di emergenza. Informazioni sulle opzioni per il ripristino da eventi di arresto improvviso che potrebbero provocare la perdita di dati o la disattivazione del database e dell'applicazione. Informazioni sulle operazioni da eseguire quando si verifica un errore generato da un utente o da un'applicazione che influisce sull'integrità dei dati, se in un'area di Azure si verifica un'interruzione o quando l'applicazione richiede manutenzione.
+Questo articolo descrive le funzionalità offerte da database di Azure per MariaDB per la continuità aziendale e il ripristino di emergenza. Informazioni sulle opzioni per il ripristino da eventi di arresto improvviso che potrebbero provocare la perdita di dati o la disattivazione del database e dell'applicazione. Informazioni sulle operazioni da eseguire quando si verifica un errore generato da un utente o da un'applicazione che influisce sull'integrità dei dati, se in un'area di Azure si verifica un'interruzione o quando l'applicazione richiede manutenzione.
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Funzionalità che è possibile usare per assicurare la continuità aziendale
 

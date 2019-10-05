@@ -1,17 +1,17 @@
 ---
 title: Ottenere Azure Cosmos DB metriche da monitoraggio di Azure
-description: ''
+description: Informazioni su come visualizzare diverse categorie di metriche di Azure Cosmos DB da monitoraggio di Azure usando portale di Azure.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
-ms.openlocfilehash: 762c910336fa2b50a46eda23cf66d8a7aa383c52
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 905eca99c137af2fd40a1243de8fabd15314477c
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241230"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973748"
 ---
 # <a name="monitor-and-debug-azure-cosmos-db-metrics-from-azure-monitor"></a>Monitorare ed eseguire il debug di metriche di Azure Cosmos DB da monitoraggio di Azure
 
@@ -60,7 +60,7 @@ Questo articolo descrive le metriche di Azure Cosmos DB diverse che è possibile
 
 ### <a name="request-unit-metrics"></a>Metriche delle unità richiesta
 
-|Metrica (nome visualizzato della metrica)|Unità (tipo di aggregazione)|DESCRIZIONE|Dimensioni| Granularità temporali| Mapping metrica legacy | Utilizzo |
+|Metrica (nome visualizzato della metrica)|Unità (tipo di aggregazione)|Descrizione|Dimensioni| Granularità temporali| Mapping metrica legacy | Utilizzo |
 |---|---|---|---| ---| ---| ---|
 | MongoRequestCharge (costo richiesta Mongo) | Conteggio (totale) |Unità richiesta Mongo utilizzate| DatabaseName, CollectionName, Region, CommandName, ErrorCode| Tutti |Mongo Query Request Charge (Addebito richieste di query Mongo), Mongo Update Request Charge (Addebito richieste di aggiornamento Mongo), Mongo Delete Request Charge (Addebito richieste di eliminazione Mongo), Mongo Insert Request Charge (Addebito richieste di inserimento Mongo), Mongo Count Request Charge (Addebito richieste di conteggio Mongo)| Usata per monitorare le unità richiesta Mongo in un minuto.|
 | TotalRequestUnits (Totale unità richiesta)| Conteggio (totale) | Unità richiesta utilizzate| DatabaseName, CollectionName, Region, StatusCode |Tutti| TotalRequestUnits| Usata per monitorare l'utilizzo delle unità richiesta totali con una granularità di un minuto. Per ottenere la media delle unità richiesta utilizzate al secondo, usare il tipo di aggregazione Totale al minuto e dividere per 60.|
@@ -92,7 +92,7 @@ Questo articolo descrive le metriche di Azure Cosmos DB diverse che è possibile
 
 ### <a name="cassandra-api-metrics"></a>Metriche dell'API Cassandra
 
-|Metrica (nome visualizzato della metrica)|Unità (tipo di aggregazione)|DESCRIZIONE|Dimensioni| Granularità temporali| Utilizzo |
+|Metrica (nome visualizzato della metrica)|Unità (tipo di aggregazione)|Descrizione|Dimensioni| Granularità temporali| Utilizzo |
 |---|---|---|---| ---| ---|
 | CassandraRequests (richieste Cassandra) | Conteggio (conteggio) | Numero di richieste dell'API Cassandra| DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType| Tutti| Usata per monitorare le richieste di Cassandra con una granularità di un minuto. Per ottenere la media delle richieste al secondo, usare il tipo di aggregazione Conteggio al minuto e dividere per 60.|
 | CassandraRequestCharges (addebiti per le richieste Cassandra) | Conteggio (Sum, min, Max, AVG) | Unità richiesta utilizzate dalle richieste dell'API Cassandra| DatabaseName, CollectionName, Region, OperationType, ResourceType| Tutti| Usata per monitorare le UR usate al minuto da un account dell'API Cassandra.|

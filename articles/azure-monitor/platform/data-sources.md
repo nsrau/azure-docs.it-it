@@ -6,18 +6,17 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: bwren
-ms.openlocfilehash: dabc336a1f92169ab573e7cf29e1a7a069ae20b1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 164d1db1a80ef577792740f67a27a856a4ba4c3b
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262041"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972921"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Origini dei dati di monitoraggio per monitoraggio di Azure
 Monitoraggio di Azure è basato su una [piattaforma di dati di monitoraggio comune](data-platform.md) che include [log](data-platform-logs.md) e [metriche](data-platform-metrics.md). La raccolta dei dati in questa piattaforma consente di analizzare i dati di più risorse insieme usando un set comune di strumenti in monitoraggio di Azure. I dati di monitoraggio possono anche essere inviati ad altre posizioni per supportare determinati scenari e alcune risorse possono scrivere in altre posizioni prima di poter essere raccolti in log o metriche.
@@ -61,8 +60,8 @@ I [report di Azure Active Directory](../../active-directory/reports-monitoring/o
 | Destination | Descrizione | Riferimenti |
 |:---|:---|:---|
 | Log di Monitoraggio di Azure | Configurare Azure AD log da raccogliere in monitoraggio di Azure per analizzarli con altri dati di monitoraggio. | [Integrare i log di Azure AD con i log di monitoraggio di Azure (anteprima)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Archiviazione di Azure | Esportare i log di Azure AD in archiviazione di Azure per l'archiviazione. | [Esercitazione: Archiviare i log di Azure AD in un account di archiviazione di Azure (anteprima)](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Hub eventi | Eseguire lo streaming dei log Azure AD ad altre posizioni tramite hub eventi. | [Esercitazione: Trasmettere i log Azure Active Directory a un hub eventi di Azure (](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)anteprima). |
+| Archiviazione di Azure | Esportare i log di Azure AD in archiviazione di Azure per l'archiviazione. | [Esercitazione: Archiviare i log di Azure AD in un account di archiviazione di Azure (anteprima) ](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Hub eventi | Eseguire lo streaming dei log Azure AD ad altre posizioni tramite hub eventi. | [Esercitazione: Trasmettere i log Azure Active Directory a un hub eventi di Azure (anteprima) ](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
 
 
 

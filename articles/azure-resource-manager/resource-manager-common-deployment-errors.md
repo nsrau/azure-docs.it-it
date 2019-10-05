@@ -6,20 +6,20 @@ author: tfitzmac
 keywords: errore di distribuzione, distribuzione di azure, distribuire in azure
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 08/30/2019
+ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0e03cd3747fe6770be7dddaf36d634547ed75b39
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: ac700592a63e88936593c24f8f7ce06a08e289ce
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718949"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972679"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
 Questo argomento descrive alcuni errori comuni che possono verificarsi durante la distribuzione di risorse in Azure e fornisce indicazioni sulla relativa risoluzione. Se non si trova il codice di errore per l'errore di distribuzione specifico, vedere [Trovare il codice di errore](#find-error-code).
 
-Se si stanno cercando informazioni su un codice di errore e tali informazioni non sono disponibili in questo articolo, è possibile segnalarle. Nella parte inferiore della pagina è possibile lasciare il feedback. Il feedback viene registrato con i problemi di GitHub. 
+Se si stanno cercando informazioni su un codice di errore e tali informazioni non sono disponibili in questo articolo, è possibile segnalarle. Nella parte inferiore della pagina è possibile lasciare il feedback. Il feedback viene registrato con i problemi di GitHub.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -34,7 +34,9 @@ Se si stanno cercando informazioni su un codice di errore e tali informazioni no
 | AuthorizationFailed | L'account o l'entità servizio non dispone dell'accesso sufficiente per completare la distribuzione. Selezionare il ruolo a cui appartiene l'account e il relativo accesso per l'ambito della distribuzione.<br><br>Questo errore può essere visualizzato quando un provider di risorse richiesto non è registrato. | [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Risoluzione degli errori di registrazione del provider di risorse](resource-manager-register-provider-errors.md) |
 | RichiestaNonValida | I valori della distribuzione inviati non corrispondono ai valori previsti da Resource Manager. Per informazioni sulla risoluzione dei problemi, controllare il messaggio di stato interno. | [Informazioni di riferimento sul modello](/azure/templates/) e [Località supportate](resource-location.md) |
 | Conflitto | Si sta richiedendo un'operazione non consentita nello stato corrente della risorsa. Il ridimensionamento del disco, ad esempio, è consentito solo quando viene creata o deallocata una macchina virtuale. | |
-| DeploymentActive | Attendere il completamento della distribuzione simultanea al gruppo di risorse. | |
+| DeploymentActiveAndUneditable | Attendere il completamento della distribuzione simultanea al gruppo di risorse. | |
+| DeploymentNameInvalidCharacters | Il nome della distribuzione può contenere solo lettere, cifre,'-',' .' o ' _'. | |
+| DeploymentNameLengthLimitExceeded | I nomi di distribuzione sono limitati a 64 caratteri.  | |
 | DeploymentFailed | DeploymentFailed è un errore generale che non fornisce i dettagli necessari per risolvere l'errore. Nei dettagli cercare un codice di errore che fornisca maggiori informazioni. | [Trovare il codice di errore](#find-error-code) |
 | DeploymentQuotaExceeded | Se si raggiunge il limite di 800 distribuzioni per gruppo di risorse, eliminare dalla cronologia le distribuzioni che non sono più necessarie. | [Risolvere l'errore quando il numero di distribuzioni supera 800](deployment-quota-exceeded.md) |
 | DnsRecordInUse | Il nome del record DNS deve essere univoco. Immettere un nome diverso. | |
@@ -124,13 +126,13 @@ Vengono visualizzati maggiori dettagli sulla distribuzione. Selezionare l'opzion
 
 ![distribuzione non riuscita](./media/resource-manager-common-deployment-errors/deployment-failed.png)
 
-Viene visualizzato il messaggio di errore e i codici di errore. Si noti che sono presenti due codici di errore. Il primo codice di errore, **DeploymentFailed**, è un errore generale che non fornisce i dettagli necessari per risolvere l'errore. Il secondo codice di errore, **StorageAccountNotFound**, contiene i dettagli necessari. 
+Viene visualizzato il messaggio di errore e i codici di errore. Si noti che sono presenti due codici di errore. Il primo codice di errore, **DeploymentFailed**, è un errore generale che non fornisce i dettagli necessari per risolvere l'errore. Il secondo codice di errore, **StorageAccountNotFound**, contiene i dettagli necessari.
 
 ![dettagli dell'errore](./media/resource-manager-common-deployment-errors/error-details.png)
 
 ## <a name="enable-debug-logging"></a>Abilitazione della registrazione di debug
 
-In alcuni casi sono necessarie maggiori informazioni sulla richiesta e sulla risposta per conoscere la causa dell'errore. Durante la distribuzione è possibile richiedere la registrazione di informazioni aggiuntive durante la distribuzione. 
+In alcuni casi sono necessarie maggiori informazioni sulla richiesta e sulla risposta per conoscere la causa dell'errore. Durante la distribuzione è possibile richiedere la registrazione di informazioni aggiuntive durante la distribuzione.
 
 ### <a name="powershell"></a>PowerShell
 

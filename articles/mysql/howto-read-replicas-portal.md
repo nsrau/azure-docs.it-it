@@ -1,17 +1,17 @@
 ---
-title: Creare e gestire le repliche in lettura in Database di Azure per MySQL
-description: Questo articolo descrive come configurare e gestire le repliche in lettura in Database di Azure per MySQL usando il portale.
+title: Creare & gestire le repliche di lettura (portale di Azure)-database di Azure per MySQL
+description: Informazioni su come configurare e gestire le repliche di lettura nel database di Azure per MySQL usando il portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 275c7bc8127855712c191141ef681526da7c377b
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: a90e9cccf8b59dabbee8415818c0e819ba1b26c3
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309493"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972880"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Come creare e gestire le repliche in lettura in Database di Azure per MySQL con il portale di Azure
 

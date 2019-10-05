@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: e96d501196a629c7e37de7e5ad66b68863bf556f
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: b2973a8e826ab8cc8da29f1ec9678d6a6e4fa975
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097904"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971858"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Anteprima: ridimensiona automaticamente un cluster per soddisfare le richieste dell'applicazione in Azure Kubernetes Service (AKS)
 
@@ -90,21 +90,21 @@ az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
   --node-count 1 \
-  --vm-set-type VirtualMachineScaleSets \
+  ---enable-vmss \
   --enable-cluster-autoscaler \
   --min-count 1 \
   --max-count 3
 ```
 
 > [!NOTE]
-> Se si specifica *--kubernetes-Version* durante l'esecuzione `az aks create`, tale versione deve soddisfare o superare il numero di versione minimo richiesto come indicato nella sezione precedente [prima di iniziare](#before-you-begin) .
+> Se si specifica *--kubernetes-Version* quando si esegue `az aks create`, tale versione deve soddisfare o superare il numero di versione minimo richiesto come indicato nella sezione precedente [prima di iniziare](#before-you-begin) .
 
 Sono necessari alcuni minuti per creare il cluster e configurare le impostazioni del componente di scalabilità automatica del cluster.
 
 ## <a name="change-the-cluster-autoscaler-settings"></a>Modificare le impostazioni del componente di scalabilità automatica del cluster
 
 > [!IMPORTANT]
-> Se nella sottoscrizione è abilitata la funzionalità per *più pool di agenti* , passare alla [sezione scalabilità automatica con più pool di agenti](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). I cluster con più pool di agenti abilitati richiedono l' `az aks nodepool` uso del set di comandi per modificare le proprietà specifiche `az aks`del pool di nodi anziché. Nelle istruzioni seguenti si presuppone che non siano stati abilitati più pool di nodi. Per verificare se è abilitato, eseguire `az feature  list -o table` e `Microsoft.ContainerService/multiagentpoolpreview`cercare.
+> Se nella sottoscrizione è abilitata la funzionalità per *più pool di agenti* , passare alla [sezione scalabilità automatica con più pool di agenti](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). I cluster con più pool di agenti abilitati richiedono l'uso del set di comandi `az aks nodepool` per modificare le proprietà specifiche del pool di nodi anziché `az aks`. Nelle istruzioni seguenti si presuppone che non siano stati abilitati più pool di nodi. Per verificare se è abilitato, eseguire `az feature  list -o table` e cercare `Microsoft.ContainerService/multiagentpoolpreview`.
 
 Nel passaggio precedente per creare un cluster AKS o aggiornare un pool di nodi esistente, il numero minimo di nodi del cluster AutoScaler è stato impostato su *1*e il numero massimo di nodi è stato impostato su *3*. Se le richieste delle applicazioni cambiano, potrebbe essere necessario regolare il numero di nodi del componente di scalabilità automatica del cluster.
 
@@ -159,7 +159,7 @@ az aks nodepool update \
   --max-count 5
 ```
 
-Il servizio di scalabilità automatica del cluster può essere disabilitato con [AZ AKS nodepool Update][az-aks-nodepool-update] e passando il `--disable-cluster-autoscaler` parametro.
+Il servizio di scalabilità automatica del cluster può essere disabilitato con [AZ AKS nodepool Update][az-aks-nodepool-update] e passando il parametro `--disable-cluster-autoscaler`.
 
 ```azurecli-interactive
 az aks nodepool update \

@@ -1,17 +1,17 @@
 ---
 title: Piani tariffari del Database di Azure per MySQL
-description: Questo articolo descrive i piani tariffari di Database di Azure per MySQL.
+description: Informazioni sui vari piani tariffari per database di Azure per MySQL, incluse le generazioni di calcolo, i tipi di archiviazione, le dimensioni di archiviazione, Vcore, la memoria e i periodi di conservazione dei backup.
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 087a88322175b1908ab591a5b9afb5ae45227bb1
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: f53f260ebe80ce2e3d6d6349e3fa892fa3c021a3
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71177967"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972821"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Piani tariffari di Database di Azure per MySQL
 
@@ -22,7 +22,7 @@ ms.locfileid: "71177967"
 | Generazione di calcolo | Generazione 4, Generazione 5 | Generazione 4, Generazione 5 | Generazione 5 |
 | vCore | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memoria per vCore | 2 GB | 5 GB | 10 GB |
-| Dimensioni archiviazione | Da 5 GB a 1 TB | Da 5 GB a 4 TB | Da 5 GB a 4 TB |
+| Dimensioni della risorsa di archiviazione | Da 5 GB a 1 TB | Da 5 GB a 4 TB | Da 5 GB a 4 TB |
 | Tipo di archiviazione | Archiviazione Standard di Azure | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
 | Periodo di conservazione dei backup dei database | Da 7 a 35 giorni | Da 7 a 35 giorni | Da 7 a 35 giorni |
 
@@ -47,9 +47,9 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 |    | **Basic** | **Utilizzo generico** | **Con ottimizzazione per la memoria** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo di archiviazione | Archiviazione Standard di Azure | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
-| Dimensioni archiviazione | Da 5 GB a 1 TB | Da 5 GB a 4 TB | Da 5 GB a 4 TB |
+| Dimensioni della risorsa di archiviazione | Da 5 GB a 1 TB | Da 5 GB a 4 TB | Da 5 GB a 4 TB |
 | Dimensioni di incremento dell'archiviazione | 1 GB | 1 GB | 1 GB |
-| Input/output al secondo | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo |
+| Operazioni di I/O al secondo | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo |
 
 È possibile aggiungere ulteriore capacità di archiviazione durante e dopo la creazione del server e consentire al sistema di aumentare automaticamente le dimensioni di archiviazione in base al consumo di spazio di archiviazione del carico di lavoro. 
 
@@ -67,9 +67,9 @@ Sono stati aumentati i limiti di archiviazione nei livelli per utilizzo generico
 |              | **Utilizzo generico** | **Con ottimizzazione per la memoria** |
 |:-------------|:--------------------|:---------------------|
 | Tipo di archiviazione | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
-| Dimensioni archiviazione | da 32 GB a 16 TB| da 32 GB a 16 TB |
+| Dimensioni della risorsa di archiviazione | da 32 GB a 16 TB| da 32 GB a 16 TB |
 | Dimensioni di incremento dell'archiviazione | 1 GB | 1 GB |
-| Input/output al secondo | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS| 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS |
+| Operazioni di I/O al secondo | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS| 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS |
 
 > [!IMPORTANT]
 > Archiviazione di grandi dimensioni è attualmente disponibile in anteprima pubblica nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Europa settentrionale, Europa occidentale, Regno Unito meridionale, Regno Unito occidentale, Asia sudorientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Australia orientale, Australia sud-orientale.
@@ -81,7 +81,7 @@ Sono stati aumentati i limiti di archiviazione nei livelli per utilizzo generico
 
 ### <a name="reaching-the-storage-limit"></a>Raggiungimento del limite di archiviazione
 
-I server con meno di 100 GB di spazio di archiviazione con provisioning sono contrassegnati come di sola lettura se lo spazio di archiviazione disponibile è inferiore a 512 MB o 5% delle dimensioni di archiviazione con provisioning. I server con più di 100 GB di spazio di archiviazione con provisioning sono contrassegnati come di sola lettura quando lo spazio di archiviazione disponibile è inferiore a 5 GB.
+I server con meno di 100 GB di spazio di archiviazione con provisioning sono contrassegnati come di sola lettura se lo spazio di archiviazione disponibile è inferiore a 512 MB o al 5% delle dimensioni di archiviazione con provisioning. I server con più di 100 GB di spazio di archiviazione con provisioning sono contrassegnati come di sola lettura quando lo spazio di archiviazione disponibile è inferiore a 5 GB.
 
 Se, ad esempio, è stato effettuato il provisioning di 110 GB di spazio di archiviazione e l'utilizzo effettivo supera 105 GB, il server è contrassegnato come di sola lettura. In alternativa, se è stato effettuato il provisioning di 5 GB di spazio di archiviazione, il server è contrassegnato come di sola lettura quando lo spazio di archiviazione disponibile è inferiore a 256 MB.
 

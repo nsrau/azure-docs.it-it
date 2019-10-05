@@ -6,10 +6,9 @@ metadata:
   description: 'Informazioni su come creare, eseguire e condividere notebook di Jupyter tramite il servizio ospitato Azure Notebooks.'
   services: notebooks
   author: kraigb
-  manager: douge
+  manager: barbkess
   ms.service: azure-notebooks
   ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 12/04/2018
   ms.author: kraigb

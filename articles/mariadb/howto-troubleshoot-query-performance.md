@@ -1,17 +1,17 @@
 ---
-title: Risoluzione dei problemi relativi alle prestazioni delle query in Database di Azure per MariaDB
-description: Questo articolo descrive come usare EXPLAIN per risolvere i problemi di prestazioni delle query in Database di Azure per MariaDB.
+title: Risolvere i problemi relativi alle prestazioni delle query nel database di Azure per MariaDB
+description: Informazioni su come usare EXPLAIN per risolvere i problemi relativi alle prestazioni delle query nel database di Azure per MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/09/2018
-ms.openlocfilehash: 672635c8d8c84fa16c106ae79e97332fd740928d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a2f5e7e7c9ca39c092e13242ecdac2675b09fc0d
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60745163"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973495"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Come usare EXPLAIN per profilare le prestazioni delle query in Database di Azure per MariaDB
 **EXPLAIN** è uno strumento comodo per ottimizzare le query. L'istruzione EXPLAIN può essere usata per ottenere informazioni sulla modalità di esecuzione delle istruzioni SQL. L'output seguente mostra un esempio di esecuzione di un'istruzione EXPLAIN.
@@ -161,9 +161,9 @@ possible_keys: NULL
 
 L'istruzione EXPLAIN mostra ora che MariaDB è in grado di usare l'indice combinato per evitare ulteriori operazioni di ordinamento perché l'indice è già ordinato.
  
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
  
-L'uso di EXPLAIN e di diversi tipi di indici può aumentare sensibilmente le prestazioni. Il fatto che sia presente un indice sulla tabella non significa necessariamente che MariaDB sia in grado di usarlo per le query. Verificare sempre i presupposti usando EXPLAIN e ottimizzare le query con gli indici.
+L'uso di EXPLAIN e di diversi tipi di indici può aumentare sensibilmente le prestazioni. La presenza di un indice nella tabella non implica necessariamente che MariaDB possa utilizzarlo per le query. Verificare sempre i presupposti usando EXPLAIN e ottimizzare le query con gli indici.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per trovare risposte dai colleghi alle domande più pressanti o per pubblicare una nuova domanda o risposta, visitare il [forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMariadb) o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).

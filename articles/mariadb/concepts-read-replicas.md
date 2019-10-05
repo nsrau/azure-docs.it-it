@@ -1,17 +1,17 @@
 ---
 title: Leggere le repliche nel database di Azure per MariaDB
-description: Questo articolo descrive le repliche di lettura per il database di Azure per MariaDB.
+description: 'Informazioni sulle repliche di lettura nel database di Azure per MariaDB: scelta delle aree, creazione di repliche, connessione alle repliche, monitoraggio della replica e arresto della replica.'
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 5018cab1213fb99f4c3b07944d0cb3172d1cd2c7
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 29725c302887448689f4aafd86f1f834d81c23ed
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123221"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973583"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Leggere le repliche nel database di Azure per MariaDB
 
@@ -40,10 +40,10 @@ La funzionalità di lettura della replica utilizza la replica asincrona. La funz
 
 È possibile avere un server master in qualsiasi [database di Azure per l'area MariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Un server master può avere una replica nell'area abbinata o nelle aree di replica universale. L'immagine seguente mostra le aree di replica disponibili a seconda dell'area master.
 
-[![Leggere le aree di replica](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[aree della replica ![Read](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Aree di replica universale
-È sempre possibile creare una replica di lettura in una delle aree seguenti, indipendentemente dalla posizione in cui si trova il server master. Queste sono le aree di replica universale:
+È possibile creare una replica di lettura in una delle aree seguenti, indipendentemente dalla posizione in cui si trova il server master. Le aree di replica universale supportate includono:
 
 Australia orientale, Australia sudorientale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Regno Unito occidentale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2.
 
@@ -78,7 +78,7 @@ Quando si crea una replica, questa non eredita le regole del firewall o l'endpoi
 
 La replica eredita l'account amministratore dal server master. Tutti gli account utente nel server master vengono replicati nelle repliche in lettura. È possibile connettersi a una replica in lettura solo tramite gli account utente che sono disponibili nel server master.
 
-È possibile connettersi alla replica usando il nome host e un account utente valido, come per un normale database di Azure per il server MariaDB. Per un server denominato la **replica** con il **nome utente amministratore**amministratore, è possibile connettersi alla replica usando l'interfaccia della riga di comando di MySQL:
+È possibile connettersi alla replica usando il nome host e un account utente valido, come per un normale database di Azure per il server MariaDB. Per un server denominato la **replica** con il **nome utente amministratore amministratore,** è possibile connettersi alla replica usando l'interfaccia della riga di comando di MySQL:
 
 ```bash
 mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
@@ -90,7 +90,7 @@ Quando richiesto, immettere la password per l'account dell'utente.
 
 Il database di Azure per MariaDB fornisce la metrica di **ritardo della replica in secondi** in monitoraggio di Azure. Questa metrica è disponibile per solo le repliche.
 
-Questa metrica viene calcolata usando `seconds_behind_master` la metrica disponibile nel comando `SHOW SLAVE STATUS` di MariaDB.
+Questa metrica viene calcolata usando la metrica `seconds_behind_master` disponibile nel comando `SHOW SLAVE STATUS` di MariaDB.
 
 Impostare un avviso per informare l'utente quando il ritardo di replica raggiunge un valore che non è accettabile per il carico di lavoro.
 
@@ -114,7 +114,7 @@ Le repliche in lettura sono attualmente disponibili solo nei livelli di prezzo p
 
 ### <a name="master-server-restart"></a>Riavvio del server master
 
-Quando si crea una replica per un master senza repliche, il master viene innanzitutto riavviato per prepararsi per la replica. Tenere in considerazione questo aspetto ed eseguire queste operazioni durante un periodo di scarso traffico.
+Quando si crea una replica per un master senza repliche, il master viene innanzitutto riavviato per prepararsi per la replica. Prendere in considerazione questo aspetto ed eseguire queste operazioni durante un periodo di minore attività.
 
 ### <a name="new-replicas"></a>Nuove repliche
 
@@ -141,13 +141,13 @@ Gli utenti del server master vengono replicati nelle repliche in lettura. È pos
 
 ### <a name="server-parameters"></a>Parametri del server
 
-Per evitare che i dati risultino fuori dalla sincronizzazione e per evitare potenziali perdite o danneggiamenti dei dati, alcuni parametri del server vengono bloccati dall'aggiornamento quando si usano le repliche di lettura.
+Per evitare che i dati siano esclusi dalla sincronizzazione e scongiurarne potenziali perdite o danneggiamenti, alcuni parametri del server vengono bloccati dall'aggiornamento quando si usano repliche di lettura.
 
 I parametri del server seguenti sono bloccati nei server master e di replica:
 - [`innodb_file_per_table`](https://mariadb.com/kb/en/library/innodb-system-variables/#innodb_file_per_table) 
 - [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
-Il [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) parametro è bloccato nei server di replica.
+Il parametro [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) è bloccato nei server di replica.
 
 ### <a name="other"></a>Altro
 

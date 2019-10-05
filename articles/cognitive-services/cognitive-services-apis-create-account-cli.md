@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: cd00f49aea08e5c94a9206b64f66f4424ef3ca04
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: d50b0858ac7c4c0e5e0263bd157e044d0fec4489
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057644"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972677"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Creare una risorsa di servizi cognitivi usando l'interfaccia della riga di comando di Azure
 
@@ -60,7 +60,7 @@ az account list-locations \
 
 Dopo aver creato la località di Azure, creare un nuovo gruppo di risorse nell'interfaccia della riga di comando di Azure usando il comando [AZ Group create](/cli/azure/group#az-group-create) .
 
-Nell'esempio seguente sostituire la località `westus2` di Azure con una delle località di Azure disponibili per la sottoscrizione.
+Nell'esempio seguente sostituire la località di Azure `westus2` con una delle località di Azure disponibili per la sottoscrizione.
 
 ```azurecli-interactive
 az group create \
@@ -133,7 +133,7 @@ az cognitiveservices account list-kinds
 
 Per creare e sottoscrivere una nuova risorsa di servizi cognitivi, usare il comando [AZ cognitiveservices account create](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create) . Questo comando aggiunge una nuova risorsa fatturabile al gruppo di risorse creato in precedenza. Quando si crea la nuova risorsa, è necessario conoscerne il "tipo" di servizio che si vuole usare, oltre al piano tariffario (o SKU) e a una località di Azure:
 
-È possibile creare una risorsa F0 (gratuita) per il rilevatore `anomaly-detector-resource` di anomalie, denominato con il comando seguente.
+È possibile creare una risorsa F0 (gratuita) per il rilevatore di anomalie, denominato `anomaly-detector-resource` con il comando seguente.
 
 ```azurecli-interactive
 az cognitiveservices account create \
@@ -170,6 +170,16 @@ I piani tariffari (e l'importo fatturato) si basano sul numero di transazioni in
 * funzionalità del servizio abilitate all'interno del piano tariffario.
 * Costo di una quantità predefinita di transazioni. Il superamento di questo importo comporterà un addebito aggiuntivo come specificato nei dettagli relativi ai [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) per il servizio.
 
+## <a name="get-current-quota-usage-for-your-resource"></a>Ottenere l'utilizzo della quota corrente per la risorsa
+
+Usare il comando [AZ cognitiveservices account list-Usage](https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) per ottenere l'utilizzo della risorsa del servizio cognitivo.
+
+```azurecli-interactive
+az cognitiveservices account list-usage \
+    --name anomaly-detector-resource \
+    --resource-group cognitive-services-resource-group \
+    --subscription subscription-name
+```
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Documentazione di QnA Maker
   description: QnA Maker è un servizio API basato sul cloud che crea un livello di domande e risposte simile a una conversazione sui dati. QnA Maker consente di sviluppare un servizio di domande e risposte a partire dal contenuto semistrutturato, ad esempio documenti con domande frequenti, URL e manuali di prodotti. Il servizio QnA Maker risponde alle domande degli utenti in un linguaggio naturale associandole alle migliori risposte possibili presenti nelle domande e risposte della knowledge base.
-  ms.openlocfilehash: 8e47211194be3653c3d0ba060b573bad446162ba
-  ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+  ms.openlocfilehash: 091d2007d115c5e08904af6081d0f67b2eb60071
+  ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/20/2019
-  ms.locfileid: "71155099"
+  ms.lasthandoff: 10/05/2019
+  ms.locfileid: "71971459"
 landingContent:
 - title: Informazioni su QnA Maker
   linkLists:
@@ -26,6 +26,10 @@ landingContent:
       url: overview/overview.md
     - text: Portale di QnA Maker
       url: https://www.qnamaker.ai
+  - linkListType: whats-new
+    links:
+    - text: Novità
+      url: whats-new.md
   - linkListType: concept
     links:
     - text: Ciclo di vita di sviluppo
@@ -45,7 +49,7 @@ landingContent:
   - linkListType: get-started
     links:
     - text: 'Guida introduttiva: Creare una nuova knowledge base'
-      url: how-to/create-knowledge-base.md
+      url: quickstarts/create-publish-knowledge-base.md
     - text: 'Guida introduttiva: Aggiungere domande e risposte'
       url: quickstarts/add-question-metadata-portal.md
   - linkListType: how-to-guide

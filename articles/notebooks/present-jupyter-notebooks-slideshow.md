@@ -4,21 +4,20 @@ description: Come configurare le celle per la modalità presentazione in un note
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: c372175b-beb5-4b45-b2f8-34cb06990117
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 405fe71676de311ed7e59ea72798ff4fd2db0f62
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 04612dc8892a544397251580b3494badc84e2ad5
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60237272"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973104"
 ---
 # <a name="run-a-notebook-slideshow"></a>Eseguire la presentazione di un notebook
 
@@ -60,7 +59,7 @@ Se si prende un notebook casuale e lo si usa per una presentazione, si vedrà ch
     | Diapositiva | La cella è una diapositiva primaria, a cui è possibile accedere usando le frecce DESTRA e SINISTRA del controllo di navigazione. |
     | Diapositiva secondaria | La cella si trova "sotto" una diapositiva primaria a cui è possibile accedere usando la freccia GIÙ del controllo di navigazione. La freccia SU consente di tornare alla diapositiva primaria. Le diapositive secondarie vengono usate per il materiale secondario che è possibile ignorare nel percorso principale di una presentazione ma che, se necessario, è immediatamente disponibile. |
     | Frammento | Il contenuto della cella viene visualizzato nel contesto della diapositiva o della diapositiva secondaria precedente quando si usa la freccia di navigazione GIÙ (viene rimosso un frammento quando si usa la freccia SU). È possibile usare un frammento con una cella di codice per far apparire il codice all'interno di una diapositiva oppure è possibile usare più frammenti per far apparire i punti di elenco uno per volta (vedere l'esempio nella sezione successiva). Poiché i frammenti vengono disposti nella diapositiva corrente, quelli in eccesso non saranno visibili oltre la fine della finestra del browser. |
-    | Skip | La cella non viene visualizzata nella presentazione. |
+    | Ignora | La cella non viene visualizzata nella presentazione. |
     | Note | La cella contiene le note del relatore, che non vengono visualizzate nella presentazione. |
 
 1. Inizialmente, è consigliabile scegliere l'opzione **Presentazione** per ogni cella. È quindi possibile eseguire la presentazione e apportare le modifiche necessarie.

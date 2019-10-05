@@ -1,21 +1,21 @@
 ---
 title: Query Store nel database di Azure per MySQL
-description: Questo articolo descrive la funzionalità Query Store di database di Azure per MySQL
+description: Informazioni sulla funzionalità Query Store di database di Azure per MySQL che consentono di tenere traccia delle prestazioni nel tempo.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 884824b6f6fd8bf5b4c7730813c4363fae018375
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: e938baa21f9d2351b3270f4fa2411bf8ecb547d4
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950585"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972809"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Monitorare le prestazioni di database di Azure per MySQL con Query Store
 
-**Si applica a:**  database di Azure per MySQL 5,7
+**Si applica a:** database  Azure per MySQL 5,7
 
 > [!IMPORTANT]
 > Query Store è in anteprima.
@@ -37,7 +37,7 @@ Query Store è una funzionalità con consenso esplicito e non è quindi attivo p
 ### <a name="enable-query-store-using-the-azure-portal"></a>Abilitare Query Store con il portale di Azure
 
 1. Accedere al portale di Azure e selezionare il database di Azure per il server MySQL.
-1. Nella sezione  **Impostazioni** **** delmenuselezionareparametri server.
+1. Selezionare **parametri Server** in le **Impostazioni** section del menu.
 1. Cercare il parametro query_store_capture_mode.
 1. Impostare il valore su tutti e **Salva**.
 
@@ -78,8 +78,8 @@ Di seguito sono riportati alcuni esempi di come è possibile ottenere informazio
 | **Osservazione** | **Azione** |
 |---|---|
 |Attese di blocco elevate | Controllare il testo delle query interessate e identificare le entità di destinazione. Cercare in Query Store altre query che modificano la stessa entità e che vengono eseguite spesso e/o hanno durata elevata. Dopo aver identificato tali query, valutare la possibilità di modificare la logica dell'applicazione per migliorare la concorrenza o usare un livello di isolamento meno restrittivo. |
-|Attese di I/O del buffer elevate | Trovare le query con un numero elevato di letture fisiche in Query Store. Se corrispondono alle query con attese di i/o elevate, prendere in considerazione l'introduzione di un indice sull'entità sottostante per eseguire ricerche anziché analisi. Questo ridurrebbe al minimo il sovraccarico di I/O delle query. Controllare le **raccomandazioni sulle prestazioni**per il server nel portale per verificare se sono presenti indicazioni relative agli indici per questo server che consentono di ottimizzare le query. |
-|Attese di memoria elevate | Trovare le query con il maggiore utilizzo di memoria in Query Store. Queste query probabilmente ritardano l'avanzamento delle query interessate. Controllare le **raccomandazioni sulle prestazioni**per il server nel portale per verificare se sono presenti indicazioni relative agli indici che consentono di ottimizzare le query.|
+|Attese di I/O del buffer elevate | Trovare le query con un numero elevato di letture fisiche in Query Store. Se corrispondono alle query con attese di i/o elevate, prendere in considerazione l'introduzione di un indice sull'entità sottostante per eseguire ricerche anziché analisi. Questo ridurrebbe al minimo il sovraccarico di I/O delle query. Controllare le **raccomandazioni**per le prestazioni @no__t 1per il server nel portale per verificare se sono presenti indicazioni relative agli indici per questo server che consentono di ottimizzare le query. |
+|Attese di memoria elevate | Trovare le query con il maggiore utilizzo di memoria in Query Store. Queste query probabilmente ritardano l'avanzamento delle query interessate. Controllare le **raccomandazioni**per le prestazioni @no__t 1per il server nel portale per verificare se sono presenti indicazioni sugli indici che consentono di ottimizzare le query.|
 
 ## <a name="configuration-options"></a>Opzioni di configurazione
 
@@ -89,7 +89,7 @@ Per la configurazione dei parametri di Query Store sono disponibili le opzioni s
 
 | **Parametro** | **Descrizione** | **Default** | **Range** |
 |---|---|---|---|
-| query_store_capture_mode | Attivare o disattivare la funzionalità archivio query in base al valore. Nota: Se performance_schema è disattivato, l'attivazione di query_store_capture_mode attiverà performance_schema e un subset di strumenti dello schema di prestazioni necessari per questa funzionalità. | TUTTO | NESSUNO, TUTTI |
+| query_store_capture_mode | Attivare o disattivare la funzionalità archivio query in base al valore. Nota: Se performance_schema è disattivato, l'attivazione di query_store_capture_mode attiverà performance_schema e un subset di strumenti dello schema di prestazioni necessari per questa funzionalità. | ALL | NESSUNO, TUTTI |
 | query_store_capture_interval | Intervallo di acquisizione di query Store in minuti. Consente di specificare l'intervallo in cui vengono aggregate le metriche della query | 15 | 5 - 60 |
 | query_store_capture_utility_queries | Attivazione o disattivazione per acquisire tutte le query di utilità in esecuzione nel sistema. | NO | SÌ, NO |
 | query_store_retention_period_in_days | Intervallo di tempo in giorni per la conservazione dei dati nell'archivio query. | 7 | 1-30 |
@@ -104,11 +104,11 @@ Le opzioni seguenti si applicano specificamente alle statistiche di attesa.
 > [!NOTE]
 > Attualmente **query_store_capture_mode** sostituisce questa configurazione, vale a dire che **query_store_capture_mode** e **query_store_wait_sampling_capture_mode** devono essere abilitati per tutte le statistiche di attesa per il funzionamento. Se **query_store_capture_mode** è disattivato, le statistiche di attesa sono disattivate, perché le statistiche di attesa usano il performance_schema abilitato e la query_text acquisita da query Store.
 
-Usare il [portale di Azure](howto-server-parameters.md) o l' [interfaccia](howto-configure-server-parameters-using-cli.md) della riga di comando di Azure per ottenere o impostare un valore diverso per un parametro.
+Usare l'interfaccia della riga di comando di [Azure](howto-configure-server-parameters-using-cli.md) [portale di Azure](howto-server-parameters.md) o  per Get o impostare un valore diverso per un parametro.
 
 ## <a name="views-and-functions"></a>Viste e funzioni
 
-Visualizzare e gestire Query Store usando le viste e le funzioni seguenti. Tutti gli utenti del [ruolo public Privilege Select](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) possono usare queste viste per visualizzare i dati in query Store. Queste visualizzazioni sono disponibili solo nel database **MySQL** .
+Visualizzare e gestire Query Store usando le viste e le funzioni seguenti. Tutti gli utenti del [ruolo public Privilege Select](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) possono usare queste viste per visualizzare i dati in query Store. Queste visualizzazioni sono disponibili solo in **mysql** database.
 
 Le query vengono normalizzate esaminandone la struttura dopo la rimozione di valori letterali e costanti. Due query identiche tranne per i valori letterali avranno lo stesso hash.
 
@@ -116,21 +116,21 @@ Le query vengono normalizzate esaminandone la struttura dopo la rimozione di val
 
 Questa vista restituisce tutti i dati in Query Store. Contiene una riga per ogni specifico ID database, ID utente e ID query.
 
-| **Nome** | **Tipo di dati** | **IS_NULLABLE** | **Descrizione** |
+| **Name** | **Tipo di dati** | **IS_NULLABLE** | **Descrizione** |
 |---|---|---|---|
 | `schema_name`| varchar(64) | NO | Nome dello schema |
 | `query_id`| bigint(20) | NO| ID univoco generato per la query specifica. se la stessa query viene eseguita in uno schema diverso, verrà generato un nuovo ID |
 | `timestamp_id` | timestamp| NO| Timestamp in cui viene eseguita la query. Questa operazione si basa sulla configurazione di query_store_interval|
 | `query_digest_text`| longtext| NO| Testo della query normalizzata dopo la rimozione di tutti i valori letterali|
 | `query_sample_text` | longtext| NO| Primo aspetto della query effettiva con valori letterali|
-| `query_digest_truncated` | bit| YES| Indica se il testo della query è stato troncato. Il valore sarà Yes se la query è più lunga di 1 KB|
+| `query_digest_truncated` | bit| Sì| Indica se il testo della query è stato troncato. Il valore sarà Yes se la query è più lunga di 1 KB|
 | `execution_count` | bigint(20)| NO| Il numero di volte in cui la query è stata eseguita per questo ID timestamp/durante il periodo di intervallo configurato|
 | `warning_count` | bigint(20)| NO| Numero di avvisi generati dalla query durante l'esecuzione interna|
 | `error_count` | bigint(20)| NO| Numero di errori generati dalla query durante l'intervallo|
-| `sum_timer_wait` | Double| YES| Tempo di esecuzione totale della query durante l'intervallo|
-| `avg_timer_wait` | Double| YES| Tempo medio di esecuzione per la query durante l'intervallo|
-| `min_timer_wait` | Double| YES| Tempo di esecuzione minimo per la query|
-| `max_timer_wait` | Double| YES| Tempo massimo di esecuzione|
+| `sum_timer_wait` | Double| Sì| Tempo di esecuzione totale della query durante l'intervallo|
+| `avg_timer_wait` | Double| Sì| Tempo medio di esecuzione per la query durante l'intervallo|
+| `min_timer_wait` | Double| Sì| Tempo di esecuzione minimo per la query|
+| `max_timer_wait` | Double| Sì| Tempo massimo di esecuzione|
 | `sum_lock_time` | bigint(20)| NO| Quantità totale di tempo impiegato per tutti i blocchi per l'esecuzione di questa query durante questo intervallo di tempo|
 | `sum_rows_affected` | bigint(20)| NO| Numero di righe interessate|
 | `sum_rows_sent` | bigint(20)| NO| Numero di righe inviate al client|
@@ -149,7 +149,7 @@ Questa vista restituisce tutti i dati in Query Store. Contiene una riga per ogni
 
 Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene una riga per ogni specifico ID database, ID utente, ID query ed evento.
 
-| **Nome**| **Tipo di dati** | **IS_NULLABLE** | **Descrizione** |
+| **Name**| **Tipo di dati** | **IS_NULLABLE** | **Descrizione** |
 |---|---|---|---|
 | `interval_start` | timestamp | NO| Inizio intervallo (incremento di 15 minuti)|
 | `interval_end` | timestamp | NO| Fine intervallo (incremento di 15 minuti)|
@@ -163,7 +163,7 @@ Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene 
 
 ### <a name="functions"></a>Funzioni
 
-| **Nome**| **Descrizione** |
+| **Name**| **Descrizione** |
 |---|---|
 | `mysql.az_purge_querystore_data(TIMESTAMP)` | Elimina tutti i dati dell'archivio query prima del timestamp specificato |
 | `mysql.az_procedure_purge_querystore_event(TIMESTAMP)` | Elimina tutti i dati degli eventi di attesa prima del timestamp specificato |
@@ -171,8 +171,8 @@ Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene 
 
 ## <a name="limitations-and-known-issues"></a>Limitazioni e problemi noti
 
-- Se un server MySQL dispone del parametro `default_transaction_read_only` on, query Store non è in grado di acquisire i dati.
-- Query Store funzionalità può essere interrotta se rileva query Unicode lunghe (\>= 6000 byte).
+- Se un server MySQL dispone del parametro `default_transaction_read_only` in, Query Store non può acquisire dati.
+- Query Store funzionalità può essere interrotta se rileva query Unicode lunghe (\> = 6000 byte).
 - Il periodo di memorizzazione per le statistiche di attesa è di 24 ore.
 - Per le statistiche di attesa viene usato Sample ti Capture a frazione di eventi. La frequenza può essere modificata utilizzando il parametro `query_store_wait_sampling_frequency`.
 

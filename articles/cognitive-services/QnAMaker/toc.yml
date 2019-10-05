@@ -4,10 +4,12 @@
   items:
     - name: Informazioni su QnA Maker
       href: Overview/overview.md
+    - name: Novità
+      href: whats-new.md
 - name: Guide introduttive
   items:
     - name: Creare una nuova knowledge base
-      href: How-To/create-knowledge-base.md
+      href: quickstarts/create-publish-knowledge-base.md
     - name: Aggiungere domande con i metadati
       href: quickstarts/add-question-metadata-portal.md
     - name: Ottenere la risposta

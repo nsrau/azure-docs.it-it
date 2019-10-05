@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ffc77d2a175d300be306b1566324b2551e38aeab
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 155ca71ae30559cc79e090a8a7bbc12c896b637f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266875"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973006"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 
@@ -293,6 +293,10 @@ Yes
 **La crittografia del servizio di archiviazione è abilitata per impostazione predefinita quando si crea un nuovo disco gestito?**
 
 Sì.
+
+**Il volume di avvio è crittografato per impostazione predefinita in un disco gestito?**
+
+Sì. Per impostazione predefinita, tutti i dischi gestiti sono crittografati, incluso il disco del sistema operativo.
 
 **Chi gestisce le chiavi di crittografia?**
 

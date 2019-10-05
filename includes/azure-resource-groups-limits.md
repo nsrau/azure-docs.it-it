@@ -4,14 +4,14 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 25928ef35da1ce4b3824303a5d46749c32aa701f
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 1190798b234f9c73e02fda41c03ffa296246be63
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "69626353"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71975312"
 ---
-| Risorsa | Limite predefinito | Limite massimo |
+| Resource | Limite predefinito | Limite massimo |
 | --- | --- | --- |
 | Risorse per [gruppo di risorse](../articles/azure-resource-manager/resource-group-overview.md#resource-groups), per tipo di risorsa |800 |Alcuni tipi di risorse possono superare il limite di 800. Vedere [risorse non limitate a 800 di istanze per gruppo di risorse](../articles/azure-resource-manager/resources-without-rg-limit.md). |
 | Distribuzioni per gruppo di risorse nella cronologia della distribuzione |800<sup>1</sup> |800 |
@@ -21,7 +21,7 @@ ms.locfileid: "69626353"
 | Lunghezza della chiave dei tag |512 |512 |
 | Lunghezza del valore dei tag |256 |256 |
 
-<sup>1</sup> Se si raggiunge il limite di 800 distribuzioni per gruppo di risorse, eliminare le distribuzioni dalla cronologia che non sono più necessarie. L'eliminazione di una voce dalla cronologia di distribuzione non influisce sulle risorse distribuite. È possibile eliminare le voci dalla cronologia usando [az group deployment delete](/cli/azure/group/deployment) nell'interfaccia della riga di comando di Azure o [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) in PowerShell.  Per uno script di PowerShell che automatizza l'eliminazione delle distribuzioni in uno scenario di integrazione continua e recapito continuo (CI/CD), vedere [Remove-Deployments. ps1](https://gist.github.com/bmoore-msft/ed33fb940dafb09380174b7fca57651f).
+<sup>1</sup> Se si raggiunge il limite di 800 distribuzioni per gruppo di risorse, eliminare le distribuzioni dalla cronologia che non sono più necessarie. L'eliminazione di una voce dalla cronologia di distribuzione non influisce sulle risorse distribuite. Per altre informazioni, vedere [risolvere un errore quando il numero di distribuzioni supera 800](../articles/azure-resource-manager/deployment-quota-exceeded.md).
 
 #### <a name="template-limits"></a>Limiti del modello
 

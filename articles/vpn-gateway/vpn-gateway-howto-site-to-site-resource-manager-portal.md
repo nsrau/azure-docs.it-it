@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9fb62d74025869c3442308f9e4ac9fb8fc02669b
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 96a8b8d33f713faf96e7a96b32e9e41ca669e6cb
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266545"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970823"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Creare una connessione da sito a sito nel portale di Azure
 
@@ -42,18 +42,17 @@ Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti
 
 Gli esempi di questo articolo usano i valori seguenti. È possibile usare questi valori per creare un ambiente di test o farvi riferimento per comprendere meglio gli esempi di questo articolo. Per altre informazioni sulle impostazioni generali del gateway VPN, vedere [Informazioni sulle impostazioni del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-* **Nome della rete virtuale:** VNet1
+* **Nome rete virtuale:** VNet1
 * **Spazio di indirizzi:** 10.1.0.0/16
 * **Sottoscrizione:** sottoscrizione che si vuole usare
 * **Gruppo di risorse:** TestRG1
-* **Località:** East US
+* **Area:** East US
 * **Subnet:** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (facoltativa per questo esercizio)
-* **Nome subnet del gateway:** GatewaySubnet (compilato automaticamente nel portale)
 * **Intervallo di indirizzi subnet del gateway:** 10.1.255.0/27
 * **Nome del gateway di rete virtuale:** VNet1GW
-* **IP pubblico:** VNet1GWIP
-* **Tipo VPN:** basato su route
-* **Tipo di connessione:** da sito a sito (IPsec)
+* **Nome dell'indirizzo IP pubblico**: VNet1GWIP
+* **Tipo di VPN:** basato su route
+* **Tipo di connessione**: da sito a sito (IPsec)
 * **Tipo di gateway:** VPN
 * **Nome del gateway di rete locale:** Site1
 * **Nome connessione:** VNet1toSite1
@@ -69,6 +68,16 @@ Questo passaggio illustra come creare il gateway di rete virtuale per la rete vi
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
+### <a name="example-settings"></a>Impostazioni di esempio
+
+* **Dettagli istanza > Area:** East US
+* **Rete virtuale > rete virtuale:** VNet1
+* **Dettagli istanza > Nome:** VNet1GW
+* **Dettagli istanza > tipo di gateway:** VPN
+* **Dettagli istanza > tipo VPN:** basato su route
+* **Rete virtuale > intervallo di indirizzi subnet del gateway:** 10.1.255.0/27
+* **Indirizzo IP pubblico > nome dell'indirizzo IP pubblico:** VNet1GWIP
+
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
@@ -77,6 +86,13 @@ Questo passaggio illustra come creare il gateway di rete virtuale per la rete vi
 ## <a name="LocalNetworkGateway"></a>3. Creare il gateway di rete locale
 
 Il gateway di rete locale in genere fa riferimento al percorso locale. Assegnare al sito un nome che Azure possa usare come riferimento, quindi specificare l'indirizzo IP del dispositivo VPN locale con cui si creerà una connessione. Specificare anche i prefissi degli indirizzi IP che verranno instradati tramite il gateway VPN al dispositivo VPN. I prefissi degli indirizzi specificati sono quelli disponibili nella rete locale. Se la rete locale viene modificata o è necessario modificare l'indirizzo IP pubblico del dispositivo VPN, è possibile aggiornare facilmente i valori in un secondo momento.
+
+**Valori di esempio**
+
+* **Name:** Site1
+* **Gruppo di risorse:** TestRG1
+* **Località:** East US
+
 
 [!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]
 

@@ -1,26 +1,26 @@
 ---
-title: Advanced Threat Protection - Database di Azure per MySQL | Microsoft Docs
-description: Advanced Threat Protection individua le attività di database anomale che indicano la presenza di potenziali minacce alla sicurezza nel database.
+title: Concetti di Advanced Threat Protection-database di Azure per MySQL
+description: Informazioni sui concetti relativi a Advanced Threat Protection, che rileva le attività anomale del database che indicano potenziali minacce alla sicurezza per il database.
 author: bolzmj
 ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.openlocfilehash: 10fa2a409437c8cc48bcd1a674cc3832f086dcf2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 23f8679a2ae7d9dc299db42e45b5b06d42f94536
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60526017"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970461"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Advanced Threat Protection per Database di Azure per MySQL
 
 Advanced Threat Protection per Database di Azure per MySQL rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database.
 
 > [!NOTE]
-> Advanced Threat Protection è disponibile in anteprima pubblica.
+> Advanced Threat Protection è in anteprima pubblica.
 
-Advanced Threat Protection fa parte dell'offerta Advanced Data Security (Sicurezza dei dati avanzata), che è un pacchetto unificato per le funzionalità avanzate di sicurezza. Advanced Threat Protection siano accessibili e gestite tramite il [portale di Azure](https://portal.azure.com) o tramite [API REST](/rest/api/mysql/serversecurityalertpolicies). La funzionalità è disponibile per i server per utilizzo generico e ottimizzate per la memoria.
+Advanced Threat Protection fa parte dell'offerta Advanced Data Security (Sicurezza dei dati avanzata), che è un pacchetto unificato per le funzionalità avanzate di sicurezza. È possibile accedere e gestire Advanced Threat Protection tramite il [portale di Azure](https://portal.azure.com) o l' [API REST](/rest/api/mysql/serversecurityalertpolicies). La funzionalità è disponibile per i server per utilizzo generico e con ottimizzazione per la memoria.
 
 > [!NOTE]
 > La funzionalità Advanced Threat Protection **non** è disponibile nelle aree seguenti di cloud sovrano e Azure per enti pubblici: US Gov Texas, US Gov Arizona, US Gov Iowa, US Gov Virginia, US DoD (area orientale), US DoD (area centrale), Germania centrale, Germania settentrionale, Cina orientale, Cina orientale 2. Visitare [i prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) per verificare la disponibilità generale del prodotto.

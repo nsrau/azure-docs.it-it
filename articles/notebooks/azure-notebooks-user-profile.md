@@ -4,21 +4,20 @@ description: Come creare e gestire il profilo utente e l'ID utente con Azure Not
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 7d069d86-660f-4c94-b6e3-0c0f38c52d0e
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: b8c21b908ca9162a7e44c7af1e222babc6ee1eb7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1fddefeb2a54ae775a9016799ffff1963eab247e
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631954"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970158"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Profilo e ID utente per i Azure Notebooks
 
@@ -46,7 +45,7 @@ Accanto al nome utente temporaneo compare anche il comando **Configura ID utente
 
 È anche possibile modificare l'ID utente in qualsiasi momento nella pagina del profilo.
 
-Un ID utente deve essere composto tra quattro e disporre di sedici lettere, numeri e trattini. Non sono consentiti altri caratteri e l'ID utente non può iniziare o terminare con un trattino né è possibile utilizzare più trattini in fila. Poiché gli ID utente sono univoci per tutti gli account Azure Notebooks, si potrebbe essere visualizzato il messaggio, "ID utente è già in uso." (Il messaggio viene visualizzato anche se si prova a usare un marchio registrato di Microsoft come un ID utente.) In questi casi, scegliere un ID utente diversi.
+Un ID utente deve essere composto da un numero di lettere, un numero e un segno meno compreso tra quattro e sedici. Non sono consentiti altri caratteri e l'ID utente non può iniziare o terminare con un trattino né è possibile utilizzare più trattini in fila. Poiché gli ID utente sono univoci in tutti gli account di Azure Notebooks, è possibile che venga visualizzato il messaggio "l'ID utente è già in uso". Il messaggio viene visualizzato anche se si tenta di usare un marchio Microsoft come ID utente. In questi casi, scegliere un ID utente diverso.
 
 > [!Important]
 > La modifica del proprio ID rende non valido qualsiasi URL eventualmente condiviso con l'ID precedente. È possibile modificare l'ID usando l'ID precedente per riconvalidare i collegamenti. Tuttavia, nel frattempo un altro utente può richiedere un ID inutilizzato.
@@ -57,7 +56,7 @@ Il profilo è composto da informazioni visualizzabili pubblicamente nella URL, `
 
 Per modificare il profilo, usare il comando **Modifica le informazioni del profilo** nella pagina del profilo. Le sezioni del profilo sono le seguenti:
 
-| `Section` | Sommario |
+| `Section` | Contenuto |
 | --- | --- |
 | Foto profilo | Un'immagine che viene visualizzata nella pagina del profilo. |
 | Informazioni account | Il nome visualizzato, l'ID utente e l'account di posta elettronica pubblico. In questo caso l'account di posta elettronica fornisce agli altri utenti un mezzo di contatto e può essere diverso dall'[account](azure-notebooks-user-account.md) usato per accedere ad Azure Notebooks stesso. |

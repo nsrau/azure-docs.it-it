@@ -1,17 +1,18 @@
 ---
 title: Risolvere problemi relativi ad Azure Migrate | Microsoft Docs
 description: Viene fornita una panoramica dei problemi noti del servizio Azure Migrate, nonché suggerimenti per la risoluzione di errori comuni.
-author: rayne-wiselman
+author: musa-57
+ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: raynew
-ms.openlocfilehash: 49c43d393ef0722424088e0073942b56787f1bc7
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.author: hamusa
+ms.openlocfilehash: 468c87e176cc61c48ba4caabd1c5a26f94d5fb5b
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067816"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970644"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Risolvere i problemi relativi ad Azure Migrate
 
@@ -87,8 +88,8 @@ Per eliminare un progetto nella versione precedente di Azure Migrate:
 ### <a name="delete-a-workspace"></a>Eliminazione di un'area di lavoro
 
 Passare all'area di lavoro Log Analytics collegata al progetto.
-* Se il progetto Azure migrate non è stato eliminato, è possibile trovare il collegamento all'area di lavoro in **Essentials** > **Server Assessment**.
-       ![Area di lavoro LA](./media/troubleshooting-general/loganalytics-workspace.png)
+* Se il progetto Azure Migrate non è stato eliminato, è possibile trovare il collegamento all'area di lavoro in **Essentials** > **Server Assessment**.
+       Area di lavoro ![LA @ no__t-1
 
      * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it.
 
@@ -111,7 +112,7 @@ Se viene visualizzato l'errore "il file manifesto specificato non è valido: Voc
 2. Se la distribuzione ha ancora esito negativo e si usa il client VMware vSphere per distribuire il file OVF, provare a distribuirlo tramite il client Web di vSphere. Se la distribuzione non riesce ancora, provare a usare un altro Web browser.
 3. Se si usa il client Web vSphere e si prova a distribuirlo in server vCenter 6,5 o 6,7, provare a distribuire gli OVA direttamente nell'host ESXi:
    - Connettersi direttamente all'host ESXi (invece di server vCenter) con il client Web (https://<*indirizzo IP host*>/UI).
-   - In **Home** > **Inventory**selezionare **file** > **deploy OVF template**. Passare a OVA e completare la distribuzione.
+   - Nell'**inventario** **Home** >  selezionare **file** > **deploy OVF template**. Passare a OVA e completare la distribuzione.
 4. Se l'errore di distribuzione persiste, contattare il supporto di Azure Migrate.
 
 ## <a name="appliance-cant-connect-to-the-internet"></a>Appliance non è in grado di connettersi a Internet
@@ -200,7 +201,7 @@ Se è stata distribuita un'appliance che individua continuamente l'ambiente loca
 - Sono necessari fino a 30 minuti affinché i dati di individuazione raccolti dal dispositivo vengano riflessi nel portale.
 - Se dopo 30 minuti non vengono visualizzate informazioni aggiornate, aggiornare i dati attenendosi alla procedura seguente:
 
-    1. In **Server** > **Azure migrate Assessment server**selezionare **Panoramica**.
+    1. In **server** > **Azure migrate valutazione server**Selezionare **Panoramica**.
     2. In **Gestisci**selezionare **integrità agente**
     3. Selezionare **Aggiorna agente**.
     1. Attendere il completamento dell'operazione di aggiornamento. Verranno ora visualizzate informazioni aggiornate.
@@ -210,7 +211,7 @@ Se è stata distribuita un'appliance che individua continuamente l'ambiente loca
 - Sono necessari fino a 30 minuti affinché i dati di individuazione raccolti dal dispositivo vengano riflessi nel portale.
 - Se dopo 30 minuti non vengono visualizzate informazioni aggiornate, aggiornare i dati attenendosi alla procedura seguente:
 
-    1. In **Server** > **Azure migrate Assessment server**selezionare **Panoramica**.
+    1. In **server** > **Azure migrate valutazione server**Selezionare **Panoramica**.
     2. In **Gestisci**selezionare **integrità agente**
     3. Selezionare **Aggiorna agente**.
     1. Attendere il completamento dell'operazione di aggiornamento. Verranno ora visualizzate informazioni aggiornate.
@@ -332,7 +333,7 @@ Dopo aver installato gli agenti di visualizzazione delle dipendenze nelle VM loc
 
 Per VM di Windows:
 1. Nel pannello di controllo avviare MMA.
-2. Nelle **Proprietà** > di Microsoft Monitoring Agent**Azure log Analytics (OMS)** assicurarsi che lo **stato** dell'area di lavoro sia verde.
+2. Nelle **proprietà Microsoft Monitoring Agent** > **Azure log Analytics (OMS)** , verificare che lo **stato** dell'area di lavoro sia verde.
 3. Se lo stato non è verde, provare a rimuovere l'area di lavoro e aggiungerlo di nuovo a MMA.
 
       ![Finestra di dialogo Proprietà MMA](./media/troubleshooting-general/mma-status.png)

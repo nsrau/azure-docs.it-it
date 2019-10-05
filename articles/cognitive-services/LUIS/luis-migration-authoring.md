@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: 8e732496c4523646f02ef461b7d3c52314c28dae
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 19852fe3a6925ada3dea141a1472683ee264f6d5
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932835"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973304"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Eseguire la migrazione a una chiave di creazione delle risorse di Azure
 
@@ -63,9 +63,9 @@ Verrà richiesto di eseguire la migrazione se:
 
 * **Facoltativamente**, eseguire il backup delle app dall'elenco di app del portale Luis esportando ogni app o usando l' [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40)di esportazione.
 * **Facoltativamente**, salvare l'elenco collaborator's di ogni app. Questo elenco di messaggi di posta elettronica viene fornito come parte del processo di migrazione.
-* **Obbligatorio**, è necessario avere una [sottoscrizione di Azure](https://azure.microsoft.com/free/). Una parte del processo di sottoscrizione richiede informazioni sulla fatturazione. Tuttavia, è possibile usare il piano tariffario gratuito (`F0`) quando si usa Luis. 
+* **Obbligatorio**, è necessario avere una [sottoscrizione di Azure](https://azure.microsoft.com/free/). Una parte del processo di sottoscrizione richiede informazioni sulla fatturazione. È tuttavia possibile usare il piano tariffario gratuito (`F0`) quando si usa LUIS. 
 
-La`F0` creazione di un' **app Luis è gratuita**, indicata dal livello. [Altre informazioni sui piani tariffari](luis-boundaries.md#key-limits).
+La creazione di un' **app Luis è gratuita**, indicata dal livello `F0`. [Altre informazioni sui piani tariffari](luis-boundaries.md#key-limits).
 
 Se non si ha una sottoscrizione di Azure, [iscriversi](https://azure.microsoft.com/free/). 
 
@@ -99,6 +99,10 @@ Ogni utente di LUIS deve eseguire la migrazione, inclusi collaboratori/collabora
 Il proprietario dell'app deve [aggiungere la posta elettronica alla risorsa di creazione di Azure come collaboratore](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource). 
 
 Dopo il processo di migrazione, le app di cui si è proprietari sono disponibili nella pagina **app personali** del portale Luis.  
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+Le chiavi di authoring LUIS sono visibili solo nel portale LUIS al termine del processo di migrazione. Se si creano le chiavi di creazione, ad esempio con l'interfaccia della riga di comando LUIS, l'utente deve comunque completare il processo di migrazione. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

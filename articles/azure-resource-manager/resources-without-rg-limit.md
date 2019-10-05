@@ -4,14 +4,14 @@ description: Elenca i tipi di risorse di Azure che possono avere più di 800 ist
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 7/30/2019
+ms.date: 10/4/2019
 ms.author: tomfitz
-ms.openlocfilehash: eec448dcbf1c550b6b0a0ee0f17505fd6ddd3c74
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 6677290999049dead40f39e9a840735810c7c763
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194748"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973313"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Risorse non limitate a 800 di istanze per gruppo di risorse
 
@@ -41,6 +41,10 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 * snapshot
 * virtualMachines
 
+## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
+
+* containerGroups
+
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 * registries/buildTasks
@@ -68,7 +72,7 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
-* services
+* servizi
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
@@ -81,6 +85,14 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 
 * integrationAccounts
 * flussi di lavoro
+
+## <a name="microsoftnetapp"></a>Microsoft.NetApp
+
+* netAppAccounts
+* netAppAccounts/capacityPools
+* netAppAccounts/capacityPools/volumi
+* netAppAccounts/capacityPools/Volumes/mountTargets
+* netAppAccounts/capacityPools/volumi/snapshot
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -132,6 +144,15 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
 * jobcollections
+
+## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
+
+* applicazioni
+* containerGroups
+* gateways
+* Reti
+* segreti
+* volumi
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 

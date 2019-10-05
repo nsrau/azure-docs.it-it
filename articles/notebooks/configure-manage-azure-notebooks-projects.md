@@ -4,21 +4,20 @@ description: Come gestire i metadati, i file e l'ambiente del progetto e la proc
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: kraigb
-ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fca98594be08f04b2f266f3aa574837ac024ecf4
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596733"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973124"
 ---
 # <a name="manage-and-configure-projects"></a>Gestire e configurare progetti
 
@@ -37,7 +36,7 @@ Azure Notebooks avvia la macchina virtuale sottostante ogni volta che viene eseg
 
 ## <a name="compute-tier"></a>Livello di calcolo
 
-Per impostazione predefinita, i progetti eseguiti **calcolo gratuito** livello, che è limitato a 4 GB di memoria e 1 GB di dati di evitare abusi. È possibile ignorare queste limitazioni e aumentare la potenza di calcolo usando un'altra macchina virtuale che è stato effettuato il provisioning in una sottoscrizione di Azure. Per altre informazioni, vedere [come usare macchine virtuali Data Science](use-data-science-virtual-machine.md).
+Per impostazione predefinita, i progetti vengono eseguiti nel livello di **calcolo gratuito** , limitato a 4GB di memoria e 1 GB di dati per evitare abusi. È possibile ignorare queste limitazioni e aumentare la potenza di calcolo usando una macchina virtuale diversa di cui è stato effettuato il provisioning in una sottoscrizione di Azure. Per altre informazioni, vedere [come usare le macchine virtuali di Data Science](use-data-science-virtual-machine.md).
 
 ## <a name="edit-project-metadata"></a>Modificare i metadati del progetto
 
@@ -46,7 +45,7 @@ Nel dashboard del progetto selezionare **Project Settings** (Impostazioni proget
 | Impostazione | Descrizione |
 | --- | --- |
 | Project name (Nome progetto) | Nome descrittivo del progetto usato da Azure Notebooks per scopi di visualizzazione. Ad esempio: "Hello World in Python". |
-| ID progetto | Identificatore personalizzato che diventa parte dell'URL usato per condividere un progetto. Questo ID può usare solo lettere, numeri e trattini, è limitato a 30 caratteri e non può essere un' [riservato ID progetto](create-clone-jupyter-notebooks.md#reserved-project-ids). Se si hanno subbi sul tipo di ID da usare, in genere si sceglie la versione in caratteri minuscoli del nome del progetto convertendo gli spazi in segni meno, ad esempio "my-notebook-project" (troncato, se necessario per rispettare i limiti di lunghezza). |
+| ID progetto | Identificatore personalizzato che diventa parte dell'URL usato per condividere un progetto. Questo ID può utilizzare solo lettere, numeri e trattini, è limitato a 30 caratteri e non può essere un [ID di progetto riservato](create-clone-jupyter-notebooks.md#reserved-project-ids). Se si hanno subbi sul tipo di ID da usare, in genere si sceglie la versione in caratteri minuscoli del nome del progetto convertendo gli spazi in segni meno, ad esempio "my-notebook-project" (troncato, se necessario per rispettare i limiti di lunghezza). |
 | Public project (Progetto pubblico) | Se impostato, consente a chiunque disponga del collegamento di accedere al progetto. Quando si crea un progetto privato, deselezionare questa opzione. |
 | Hide clones (Nascondi cloni) | Se impostata, gli altri utenti non possono vedere l'elenco dei cloni creati per il progetto. Questa impostazione è particolarmente utile nei progetti che vengono condivisi con molti utenti non appartenenti alla stessa organizzazione, ad esempio quando si usa un notebook per l'insegnamento in aula. |
 
@@ -69,7 +68,7 @@ Il comando **+ New** (Nuovo) (tasto di scelta rapida: n) consente di creare nuov
 | **File vuoto** | Un file in cui è possibile archiviare qualsiasi contenuto, tra cui testo, dati e così via. | Crea un campo di modifica nell'elenco di file del progetto in cui è necessario specificare il nome del file. |
 | **Markdown** | Un file markdown. | Crea un campo di modifica nell'elenco di file del progetto in cui è necessario specificare il nome del file. |
 
-### <a name="upload-files"></a>Caricare file
+### <a name="upload-files"></a>Carica file
 
 Il comando **Upload** (Carica) offre due opzioni di importazione dei dati da altre posizioni: **From URL** (Da URL) e **From Computer** (Da computer). Per altre informazioni, vedere [Usare file di dati in progetti di Azure Notebooks](work-with-project-data-files.md).
 
@@ -86,10 +85,10 @@ Ogni elemento nell'elenco di file del progetto offre una serie di comandi tramit
 | Run in Jupyter Lab (Esegui in JupyterLab) | j | Esegue un notebook in JupyterLab, un'interfaccia più orientata agli sviluppatori rispetto a quella normalmente associata a Jupyter. |
 | Anteprima | p | Apre un'anteprima HTML del file; per i notebook, l'anteprima è un rendering di sola lettura del notebook. Per altre informazioni, vedere la sezione [Anteprima](#preview). |
 | Edit file (Modifica file) | i | Apre il file per la modifica. |
-| Download | d | Scarica un file con estensione zip contenente il file o il contenuto di una cartella. |
-| Rinominare | a | Richiede un nuovo nome per il file o la cartella. |
-| Delete | x | Richiede una conferma e quindi rimuove definitivamente il file dal progetto. Non è possibile rimuovere un'eliminazione. |
-| Spostamento | m | Sposta un file in una cartella diversa dello stesso progetto. |
+| Scarica | giorni | Scarica un file con estensione zip contenente il file o il contenuto di una cartella. |
+| Rinomina | a | Richiede un nuovo nome per il file o la cartella. |
+| Eliminazione | x | Richiede una conferma e quindi rimuove definitivamente il file dal progetto. Non è possibile rimuovere un'eliminazione. |
+| Sposta | m | Sposta un file in una cartella diversa dello stesso progetto. |
 
 #### <a name="preview"></a>Anteprima
 
@@ -100,9 +99,9 @@ La pagina di anteprima supporta vari comandi della barra degli strumenti con tas
 | Comando | Tasto di scelta rapida | Azione |
 | --- | --- | --- |
 | Condividi | s | Consente di visualizzare la finestra popup di condivisione da cui è possibile ottenere un collegamento, condividere sui social media, ottenere HTML per l'incorporamento e inviare un messaggio di posta elettronica. |
-| Clone | c  | Consente di clonare il notebook nel proprio account. |
+| Clona | c  | Consente di clonare il notebook nel proprio account. |
 | Esegui | r | Consente di eseguire il notebook, se si è autorizzati a eseguire questa operazione. |
-| Download | d | Scarica una copia del notebook. |
+| Scarica | giorni | Scarica una copia del notebook. |
 
 ## <a name="configure-the-project-environment"></a>Configurare l'ambiente del progetto
 

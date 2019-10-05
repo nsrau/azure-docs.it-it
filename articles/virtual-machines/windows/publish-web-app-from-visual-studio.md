@@ -3,7 +3,7 @@ title: Pubblicare un'app Web in una macchina virtuale di Azure da Visual Studio
 description: Pubblicare un'applicazione Web ASP.NET in una macchina virtuale di Azure da Visual Studio
 services: virtual-machines-windows
 author: ghogen
-manager: douge
+manager: jillfra
 tags: azure-service-management
 ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
 ms.prod: visual-studio-dev15
@@ -13,16 +13,16 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 4b8e3ddf1cf5d61f730ce01a35ee0813b47ad2d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e5db9b4e46019aa386057d51d956ff11d90f498
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66305923"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970873"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Pubblicare un'app Web ASP.NET in una macchina virtuale di Azure da Visual Studio
 
-Questo documento descrive come pubblicare un'applicazione web ASP.NET in una macchina virtuale di Azure (VM) tramite il **macchine virtuali di Microsoft Azure** funzionalità di pubblicazione in Visual Studio 2019.  
+Questo documento descrive come pubblicare un'applicazione Web ASP.NET in una macchina virtuale (VM) di Azure usando la funzionalità di pubblicazione **macchine virtuali di Microsoft Azure** in Visual Studio 2019.  
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per usare Visual Studio per pubblicare un progetto ASP.NET in una macchina virtuale di Azure, la macchina virtuale deve essere configurata correttamente.
@@ -34,7 +34,7 @@ Per usare Visual Studio per pubblicare un progetto ASP.NET in una macchina virtu
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Pubblicare l'app Web ASP.NET nella macchina virtuale di Azure con Visual Studio
 La sezione seguente descrive come pubblicare un'applicazione Web ASP.NET esistente in una macchina virtuale di Azure.
 
-1. Aprire la soluzione app web in Visual Studio 2019.
+1. Aprire la soluzione app Web in Visual Studio 2019.
 2. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Pubblica**.
 3. Usare la freccia a destra della pagina per scorrere le opzioni di pubblicazione fino a trovare **Macchine virtuali di Microsoft Azure**.  
 
@@ -58,7 +58,7 @@ La sezione seguente descrive come pubblicare un'applicazione Web ASP.NET esisten
 
 7. Fare clic su OK per avviare la pubblicazione.
 
-8. Quando richiesto per le credenziali, specificare il nome utente e la password di un account utente nella macchina virtuale è configurata con diritti di pubblicazione di destinazione. Queste credenziali sono in genere il nome utente amministratore e la password usati durante la creazione della macchina virtuale.  
+8. Quando vengono richieste le credenziali, fornire il nome utente e la password di un account utente nella macchina virtuale di destinazione configurata con diritti di pubblicazione. Queste credenziali sono in genere il nome utente amministratore e la password usati durante la creazione della macchina virtuale.  
 
    ![Accesso a WebDeploy]
 
@@ -99,14 +99,14 @@ Le impostazioni saranno simili a quanto segue:
 ![Impostazioni di pubblicazione - Pagina di connessione]
 
 #### <a name="save-user-name-and-password"></a>Salvare nome utente e password
-- Evitare di fornire le informazioni di autenticazione ogni volta che pubblica. A tale scopo, popolare la **nome utente** e **Password** campi e selezionare il **Salva password** casella.
+- Evitare di fornire informazioni di autenticazione ogni volta che si pubblica. A tale scopo, popolare i campi **nome utente** e **password** e selezionare la casella **Salva password** .
 - Usare il pulsante **Convalida connessione** per verificare di avere immesso le informazioni esatte.
 
 #### <a name="deploy-to-clean-web-server"></a>Eseguire la distribuzione in un server Web pulito
 
-- Se si desidera assicurarsi che il server web ha una copia pulita dell'applicazione web dopo ogni caricamento e che nessun altro file vengono lasciato da una distribuzione precedente, è possibile controllare la **Rimuovi file aggiuntivi nella destinazione** lacaselladicontrollo **Impostazioni** scheda.
+- Per assicurarsi che il server Web disponga di una copia pulita dell'applicazione Web dopo ogni caricamento e che nessun altro file venga lasciato da una distribuzione precedente, è possibile selezionare la casella di controllo **Rimuovi file aggiuntivi nella destinazione** nella scheda **Impostazioni** .
 
-- Avviso: Pubblicazione con questa impostazione consente di eliminare tutti i file presenti sul server web (directory wwwroot). Assicurarsi di conoscere lo stato del computer prima di eseguire la pubblicazione con questa opzione abilitata. 
+- Avviso: La pubblicazione con questa impostazione Elimina tutti i file presenti nel server Web (directory wwwroot). Assicurarsi di conoscere lo stato del computer prima di eseguire la pubblicazione con questa opzione abilitata. 
 
 ![Impostazioni di pubblicazione - Pagina Impostazioni]
 

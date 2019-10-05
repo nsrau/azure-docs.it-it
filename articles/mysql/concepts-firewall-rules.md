@@ -1,17 +1,17 @@
 ---
 title: Regole di firewall per il server MySQL del database di Azure
-description: Descrive le regole di firewall per il server MySQL del database di Azure.
+description: Informazioni sull'uso delle regole del firewall per abilitare le connessioni al database di Azure per il server MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/22/2019
-ms.openlocfilehash: e84dfb35a435e32cd14b244b29044d700c79d14d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 1d75b9e7d997b0c62c7e235187907f0556318efe
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203593"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970412"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Regole di firewall per il server MySQL del database di Azure
 I firewall impediscono qualsiasi accesso al server di database finché non vengono specificati i computer autorizzati. Il firewall concede l'accesso al server in base all'indirizzo IP di origine di ogni richiesta.
@@ -59,7 +59,7 @@ Quando l'accesso al servizio Database di Microsoft Azure per server MySQL non si
 
    * Ottenere indirizzi IP statici per i computer client, quindi aggiungere gli indirizzi IP come regole del firewall.
 
-* **L'IP del server sembra essere pubblico:** Le connessioni al database di Azure per il server MySQL vengono instradate tramite un gateway di Azure accessibile pubblicamente. Tuttavia, l'indirizzo IP del server effettivo è protetto dal firewall. Per altre informazioni, vedere l' [articolo sull'architettura della connettività](concepts-connectivity-architecture.md). 
+* **L'IP del server sembra essere pubblico:** Le connessioni al Database di Azure per MySQL vengono instradate tramite un gateway di Azure accessibile pubblicamente. Tuttavia, l'indirizzo IP del server effettivo è protetto dal firewall. Per altre informazioni, vedere l' [articolo sull'architettura della connettività](concepts-connectivity-architecture.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

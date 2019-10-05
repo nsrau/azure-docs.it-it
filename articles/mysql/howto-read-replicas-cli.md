@@ -1,17 +1,17 @@
 ---
-title: Creare e gestire le repliche di lettura nel database di Azure per MySQL-interfaccia della riga di comando di Azure, API REST
-description: Questo articolo descrive come configurare e gestire le repliche di lettura nel database di Azure per MySQL usando l'interfaccia della riga di comando di Azure, l'API REST
+title: Creare & gestire le repliche di lettura-database di Azure per MySQL
+description: Informazioni su come configurare e gestire le repliche di lettura nel database di Azure per MySQL usando l'interfaccia della riga di comando di Azure o l'API REST.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/14/2019
-ms.openlocfilehash: 5bec4e7284e78506372d395bf022055fa31998e3
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 741b50bdb2ec9c8d29a9f759e46209856de3a49c
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993545"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970319"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Come creare e gestire le repliche di lettura nel database di Azure per MySQL usando l'interfaccia della riga di comando di Azure e l'API REST
 
@@ -44,7 +44,7 @@ Il comando `az mysql server replica create` richiede i parametri seguenti:
 | name | mydemoreplicaserver | Nome del nuovo server di replica creato. |
 | source-server | mydemoserver | Nome o ID del server master esistente in base al quale eseguire la replica. |
 
-Per creare una replica di lettura tra aree, usare `--location` il parametro. L'esempio dell'interfaccia della riga di comando seguente crea la replica negli Stati Uniti occidentali.
+Per creare una replica di lettura tra aree, usare il parametro `--location`. L'esempio dell'interfaccia della riga di comando seguente crea la replica negli Stati Uniti occidentali.
 
 ```azurecli-interactive
 az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
@@ -133,7 +133,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > [!NOTE]
 > Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l' [articolo leggere i concetti relativi alla replica](concepts-read-replicas.md). 
 
-Se il `azure.replication_support` parametro non è stato impostato su **replica** in un per utilizzo generico o in un server master con ottimizzazione per la memoria e il server è stato riavviato, viene visualizzato un errore. Completare questi due passaggi prima di creare una replica.
+Se il parametro `azure.replication_support` non è stato impostato su **replica** in un per utilizzo generico o in un server master con ottimizzazione per la memoria e il server è stato riavviato, viene visualizzato un errore. Completare questi due passaggi prima di creare una replica.
 
 Una replica viene creata usando le stesse impostazioni di calcolo e di archiviazione del database master. Dopo aver creato una replica, è possibile modificare diverse impostazioni in modo indipendente dal server master: la generazione di calcolo, i vCore, l'archiviazione e il periodo di conservazione dei backup. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
 

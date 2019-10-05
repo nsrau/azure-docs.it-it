@@ -1,18 +1,18 @@
 ---
 title: Risoluzione dei problemi relativi al failback in un'istanza locale durante il ripristino di emergenza di macchine virtuali VMware in Azure con Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive le soluzioni agli errori di failback e riprotezione che possono verificarsi durante il ripristino di emergenza di macchine virtuali VMware in Azure con Azure Site Recovery.
-author: vDonGlover
-manager: JarrettRenshaw
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: v-doglov
-ms.openlocfilehash: c598c5e238458c010500579c5371622b85e71de0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: raynew
+ms.openlocfilehash: c27e72333618f73b67eec9b5c0c3a70239a1c0b3
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565192"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970846"
 ---
 # <a name="troubleshoot-vcenter-discovery-failures"></a>Risoluzione dei problemi di individuazione di vCenter
 
@@ -20,9 +20,9 @@ Questo articolo consente di risolvere i problemi che si verificano a causa di er
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>Valori non numerici nella proprietà maxSnapShots
 
-Nelle versioni precedenti 9.20, vCenter disconnette durante il recupero di un valore non numerico per la proprietà `snapshot.maxSnapShots` proprietà in una macchina virtuale.
+Nelle versioni precedenti alla 9,20, vCenter si disconnette quando recupera un valore non numerico per la proprietà @no__t proprietà-0 in una macchina virtuale.
 
-Questo problema identificato dall'ID di errore 95126.
+Questo problema è identificato dall'ID errore 95126.
 
     ERROR :: Hit an exception while fetching the required informationfrom vCenter/vSphere.Exception details:
     System.FormatException: Input string was not in a correct format.
@@ -32,51 +32,51 @@ Questo problema identificato dall'ID di errore 95126.
     
 Per risolvere il problema:
 
-- Identificare la macchina virtuale e impostare il valore su un valore numerico (macchina virtuale Modifica impostazioni in vCenter).
+- Identificare la macchina virtuale e impostare il valore su un valore numerico (impostazioni di modifica della macchina virtuale in vCenter).
 
 Oppure
 
-- Aggiornare il server di configurazione a 9.20 o versione successiva.
+- Aggiornare il server di configurazione alla versione 9,20 o successiva.
 
-## <a name="proxy-configuration-issues-for-vcenter-connectivity"></a>Problemi di configurazione proxy per la connettività di vCenter
+## <a name="proxy-configuration-issues-for-vcenter-connectivity"></a>Problemi di configurazione del proxy per la connettività vCenter
 
-vCenter individuazione rispetta le impostazioni di proxy predefinito di sistema configurate dall'utente del sistema. Il servizio DRA rispetta le impostazioni del proxy fornite dall'utente durante l'installazione del server di configurazione tramite il programma di installazione unificata o il modello con estensione OVA. 
+vCenter Discovery rispetta le impostazioni proxy predefinite del sistema configurate dall'utente del sistema. Il servizio DRA rispetta le impostazioni proxy fornite dall'utente durante l'installazione del server di configurazione tramite il programma di installazione di Unified Setup o il modello OVA. 
 
-In generale, viene utilizzato il proxy per comunicare su reti pubbliche; quali la comunicazione con Azure. Se il proxy è configurato e vCenter è in un ambiente locale, non sarà in grado di comunicare con i DRA.
+In generale, il proxy viene utilizzato per comunicare con le reti pubbliche; come la comunicazione con Azure. Se il proxy è configurato e vCenter si trova in un ambiente locale, non sarà in grado di comunicare con DRA.
 
 Quando viene rilevato questo problema, si verificano le situazioni seguenti:
 
-- Il server vCenter \<vCenter > non è raggiungibile a causa dell'errore: Il server remoto ha restituito un errore: Non disponibile (503) server
+- Il server vCenter \<vCenter > non è raggiungibile a causa dell'errore: Il server remoto ha restituito un errore: (503) Server non disponibile
 - Il server vCenter \<vCenter > non è raggiungibile a causa dell'errore: Il server remoto ha restituito un errore: Impossibile connettersi al server remoto.
-- Impossibile connettersi al server vCenter/ESXi.
+- Non è possibile connettersi al server vCenter/ESXi.
 
 Per risolvere il problema:
 
-Scaricare il [lo strumento PsExec](https://aka.ms/PsExec). 
+Scaricare lo [strumento PsExec](https://aka.ms/PsExec). 
 
-Utilizzare lo strumento PsExec per accedere al contesto utente di sistema e determinare se l'indirizzo del proxy è configurato. È quindi possibile aggiungere vCenter all'elenco di esclusione eseguendo la procedura seguente.
+Utilizzare lo strumento PsExec per accedere al contesto utente del sistema e determinare se l'indirizzo proxy è configurato. È quindi possibile aggiungere vCenter all'elenco di bypass usando le procedure seguenti.
 
 Per la configurazione del proxy di individuazione:
 
-1. Aprire Internet Explorer nel contesto utente di sistema utilizzando lo strumento PsExec.
+1. Aprire IE nel contesto utente del sistema usando lo strumento PsExec.
     
-    psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
+    PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"
 
-2. Modificare le impostazioni di proxy in Internet Explorer per ignorare l'indirizzo IP di vCenter.
+2. Modificare le impostazioni del proxy in Internet Explorer per ignorare l'indirizzo IP di vCenter.
 3. Riavviare il servizio tmanssvc.
 
 Per la configurazione del proxy DRA:
 
-1. Aprire un prompt dei comandi e aprire la cartella Provider di Microsoft Azure Site Recovery.
+1. Aprire un prompt dei comandi e aprire la cartella del provider Microsoft Azure Site Recovery.
  
-    **CD C:\Program Files\Microsoft Azure Site Recovery Provider**
+    **CD c:\Programmi\Microsoft Azure Site Recovery provider**
 
-3. Dal prompt dei comandi, eseguire il comando seguente.
+3. Al prompt dei comandi eseguire il comando seguente.
    
-   **DRCONFIGURATOR. File EXE / Configura /AddBypassUrls [IP indirizzo/FQDN di vCenter Server fornito al momento dell'aggiunta di vCenter]**
+   **DRCONFIGURATOR. EXE/Configure/AddBypassUrls [indirizzo IP/FQDN del server vCenter fornito al momento dell'aggiunta di vCenter]**
 
-4. Riavviare il servizio provider DRA.
+4. Riavviare il servizio del provider DRA.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Gestire il server di configurazione per il ripristino di emergenza di VM VMware](https://docs.microsoft.com/azure/site-recovery/vmware-azure-manage-configuration-server#refresh-configuration-server) 
+[Gestire il server di configurazione per il ripristino di emergenza di macchine virtuali VMware](https://docs.microsoft.com/azure/site-recovery/vmware-azure-manage-configuration-server#refresh-configuration-server) 

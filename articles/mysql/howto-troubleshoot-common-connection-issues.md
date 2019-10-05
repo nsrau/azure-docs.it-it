@@ -1,18 +1,18 @@
 ---
-title: Risolvere i problemi di connessione a Database di Azure per MySQL | Microsoft Docs
-description: Informazioni su come risolvere i problemi di connessione a Database di Azure per MySQL.
+title: Risolvere i problemi di connessione a Database di Azure per MySQL
+description: Informazioni su come risolvere i problemi di connessione a database di Azure per MySQL, inclusi errori temporanei che richiedono tentativi, problemi del firewall e interruzioni.
 keywords: connessione mysql,stringa di connessione,problemi di connettività,errore temporaneo,errore di connessione
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/09/2018
-ms.openlocfilehash: faf378a81a6db24acc676bed82fe495cfb108612
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0203ceeb36352a16814345f5ecdff8271691fd0
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61421843"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972837"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Risolvere i problemi di connessione a Database di Azure per MySQL
 
@@ -48,7 +48,7 @@ Se l'applicazione continua a non riuscire a connettersi a Database di Azure per 
 
 * Configurazione firewall del server: assicurarsi che il firewall del server Database di Azure per MySQL sia configurato per consentire le connessioni dal client, inclusi i server proxy e i gateway.
 * Configurazione del firewall client: il firewall nel client deve consentire le connessioni al server di database. È necessario consentire gli indirizzi IP e le porte del server, nonché i nomi di applicazioni, ad esempio MySQL, in alcuni firewall.
-* Errore utente: Si potrebbe essere stato digitato erroneamente parametri di connessione, ad esempio il nome del server nella stringa di connessione o la mancanza di un  *\@servername* suffisso nel nome utente.
+* Errore utente: È possibile che i parametri di connessione digitati in modo improprio, ad esempio il nome del server nella stringa di connessione o un suffisso *\@servername* mancante nel nome utente.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passaggi per risolvere problemi di connettività permanenti
 

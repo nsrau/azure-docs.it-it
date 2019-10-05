@@ -6,19 +6,22 @@ manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: e846db86ce95bd32d21727a4a5ec3195458cb9eb
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.date: 10/04/2019
+ms.openlocfilehash: 48ef7aeb1804aca9001288f6babd302b9c3a8347
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936884"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969545"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
 Per iniziare a creare offerte SaaS (software as a Service), prima di tutto è necessario [creare un account del centro](./create-account.md) per i partner e aprire il [Dashboard del Marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), con la scheda **Panoramica** selezionata.
 
 ![Dashboard del Marketplace commerciale nel centro per i partner](./media/new-offer-overview.png)
+
+>[!Note]
+> Dopo la pubblicazione di un'offerta, le modifiche apportate all'offerta nel centro per i partner verranno aggiornate solo nel sistema e archiviano i front-end dopo la nuova pubblicazione. Assicurarsi di inviare l'offerta per la pubblicazione dopo avere apportato le modifiche.
 
 Selezionare l' **offerta + nuova...** , quindi selezionare la voce **di menu software come servizio** . 
 
@@ -35,7 +38,7 @@ Verrà visualizzata la finestra di dialogo **nuova offerta** .
 
 - **Offer ID** (ID offerta): Identificatore univoco per ogni offerta nell'account. Questo ID sarà visibile ai clienti nell'indirizzo URL per l'offerta del Marketplace e i modelli Azure Resource Manager (se applicabile). L'ID offerta deve essere minuscolo, alfanumerico (inclusi trattini e caratteri di sottolineatura, ma senza spazi vuoti). Questa operazione è limitata a 50 caratteri e non può essere modificata dopo aver selezionato *Crea*.  
 Esempio: test-offer-1
-<br>Risultato dell'URL:`https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
+<br>Risultato dell'URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
 - **Alias offerta**: Nome usato per fare riferimento all'offerta nel portale del centro per i partner. Questo nome non verrà usato nel Marketplace ed è diverso dal nome dell' *offerta* e da altri valori che verranno visualizzati ai clienti. Questo valore non può essere modificato dopo aver selezionato *Crea*.
 
@@ -107,7 +110,7 @@ La tabella seguente illustra un esempio di suddivisione dei costi e dei pagament
 #### <a name="csp-program-opt-in"></a>Consenso esplicito al programma CSP
 Il programma [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) consente alle offerte software di raggiungere milioni di clienti Microsoft qualificati con un investimento minimo di marketing e vendite.
 
-- **Canali Rendere disponibile l'offerta nel programma** CSP (casella di controllo)
+- **Channels: Rendere disponibile l'offerta nel programma CSP @ no__t-0 (casella di controllo)
 
 La scelta di rendere disponibile l'offerta nel programma CSP consente ai provider di soluzioni cloud di vendere il prodotto come parte di una soluzione in bundle ai clienti. 
 
@@ -137,7 +140,7 @@ Raccogliere le informazioni di contatto del cliente connettendosi al sistema CRM
 
 Un test drive è un ottimo modo per presentare l'offerta ai potenziali clienti offrendo loro la possibilità di provare prima di acquistare, ottenendo una maggiore conversione e la generazione di lead altamente qualificati. [Altre informazioni sulle unità di test.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-- **Abilitare una test drive** casella 
+- **Abilita una test drive** (casella di controllo) 
 
 Abilitando test drive, verrà richiesto di configurare un ambiente dimostrativo per consentire ai clienti di provare l'offerta per un periodo di tempo fisso. 
 
@@ -220,9 +223,9 @@ Nella scheda elenco offerte vengono visualizzate le lingue (e i mercati) in cui 
 
 Fornire i dettagli da visualizzare nel Marketplace, incluse le descrizioni dell'offerta e le risorse di marketing.
 
-- **Nome** (obbligatorio): Il nome definito qui verrà visualizzato come titolo dell'inserzione dell'offerta nei Marketplace scelti. Il nome viene prepopolato in base alla **nuova** voce dell'offerta precedente.  Questo può essere registrato.  Questo non deve contenere spazi vuoti, emoji (a meno che non siano i marchi e i simboli di copyright) e deve essere limitato a 50 caratteri.
-- **Riepilogo** di (obbligatorio): Fornire una breve descrizione dell'offerta da usare nei risultati della ricerca nell'elenco dei Marketplace. In questo campo è possibile immettere fino a 100 caratteri di testo.
-- **Descrizione** di (obbligatorio): Fornire una descrizione dell'offerta da visualizzare nella panoramica degli annunci del Marketplace. Si consiglia di includere una proposta di valore, i vantaggi principali, le associazioni di categoria o di settore, le opportunità di acquisto in-app, le divulgazioni richieste e un collegamento per ottenere ulteriori informazioni.
+- **Nome** (obbligatorio): Il nome definito qui verrà visualizzato come titolo dell'inserzione dell'offerta nei Marketplace scelti. Il nome viene prepopolato in base alla **nuova** voce dell'offerta precedente.  Questo può essere registrato.  Questa operazione non deve contenere Emoji (a meno che non siano il marchio e i simboli di copyright) e deve avere un limite di 50 caratteri.
+- **Riepilogo** (obbligatorio): Fornire una breve descrizione dell'offerta da usare nei risultati della ricerca nell'elenco dei Marketplace. In questo campo è possibile immettere fino a 100 caratteri di testo.
+- **Descrizione** (obbligatoria): Fornire una descrizione dell'offerta da visualizzare nella panoramica degli annunci del Marketplace. Si consiglia di includere una proposta di valore, i vantaggi principali, le associazioni di categoria o di settore, le opportunità di acquisto in-app, le divulgazioni richieste e un collegamento per ottenere ulteriori informazioni.
 In questo campo è possibile immettere fino a 3.000 caratteri di testo. Per altri suggerimenti, vedere l'articolo [scrivere un'ottima descrizione dell'app](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
 - **Parole chiave di ricerca**: Immettere fino a tre parole chiave di ricerca che i clienti possono usare per trovare l'offerta nel Marketplace.
 - **Istruzioni introduttive** (obbligatorio): Spiega come configurare e iniziare a usare la tua app per i potenziali clienti.  Questa Guida introduttiva può contenere collegamenti a documentazione online più dettagliata. In questo campo è possibile immettere fino a 3.000 caratteri di testo. 
@@ -310,7 +313,7 @@ Per rendere più accattivante la descrizione dell'offerta, è possibile usare i 
 
 #### <a name="links"></a>Collegamenti
 
-- **Informativa sulla privacy** (obbligatorio): Collegamento all'informativa sulla privacy dell'organizzazione. L'utente è responsabile di garantire che l'applicazione sia conforme alle leggi e alle normative sulla privacy e per fornire un'informativa sulla privacy valida
+- **Informativa sulla privacy** (obbligatoria): Collegamento all'informativa sulla privacy dell'organizzazione. L'utente è responsabile di garantire che l'applicazione sia conforme alle leggi e alle normative sulla privacy e per fornire un'informativa sulla privacy valida
 - **Materiali di marketing del programma CSP** (facoltativo): È necessario fornire un collegamento ai materiali di marketing se si sceglie di estendere l'offerta al programma [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . CSP estende l'offerta a una gamma più ampia di clienti qualificati, permettendo ai partner CSP di aggregare, commercializzare e rivendere l'offerta. Questi rivenditori dovranno avere accesso ai materiali per il marketing dell'offerta. Per ulteriori informazioni, vedere la pagina relativa ai [Servizi go-to-Market](https://partner.microsoft.com/reach-customers/gtm).
 - **Collegamenti utili** (facoltativo): Documenti online supplementari facoltativi sull'app o sui servizi correlati elencati fornendo un **titolo** e un **URL**. Aggiungere altri collegamenti utili facendo clic su **+ Aggiungi URL**.
 
@@ -327,9 +330,9 @@ Per rendere più accattivante la descrizione dell'offerta, è possibile usare i 
 #### <a name="files-and-images"></a>File e immagini
 
 - **Documenti** (obbligatorio): Aggiungere i documenti di marketing correlati per l'offerta, in formato PDF, specificando almeno uno (1) e un massimo di tre (3) documenti per ogni offerta.
-- **Immagini** di (facoltativo): Sono disponibili più posizioni in cui le immagini del logo dell'offerta possono apparire in tutti i Marketplace, richiedendo le dimensioni seguenti: Small: 48 x 48 pixel _(obbligatorio),_ medio: 90 x 90 pixel, grande: 216 x 216 pixel _(obbligatorio),_ Wide: 255 x 115 pixel e Hero: 815 x 290 pixel. Tutte le immagini devono essere presenti in. Formato PNG.
+- **Immagini** (facoltativo): Sono disponibili più posizioni in cui le immagini del logo dell'offerta possono apparire in tutti i Marketplace, richiedendo le dimensioni seguenti: Small: 48 x 48 pixel _(obbligatorio),_ medio: 90 x 90 pixel, grande: 216 x 216 pixel _(obbligatorio),_ Wide: 255 x 115 pixel e Hero: 815 x 290 pixel. Tutte le immagini devono essere presenti in. Formato PNG.
 - **Schermate** (obbligatorio): Aggiungere screenshot che dimostrano l'offerta. È possibile aggiungere un massimo di cinque (5) schermate e dimensionarle a 1280 x 720 pixel. Tutte le immagini devono essere presenti in. Formato PNG.
-- **Video** di (facoltativo): Aggiungere collegamenti a video che dimostrano l'offerta. È possibile usare collegamenti a video di YouTube e/o Vimeo che vengono visualizzati insieme all'offerta ai clienti. Sarà inoltre necessario immettere un'immagine di anteprima del video, ridimensionata a 1280 x 720 pixel in formato PNG. È possibile visualizzare un massimo di quattro video per ogni offerta.
+- **Video** (facoltativo): Aggiungere collegamenti a video che dimostrano l'offerta. È possibile usare collegamenti a video di YouTube e/o Vimeo che vengono visualizzati insieme all'offerta ai clienti. Sarà inoltre necessario immettere un'immagine di anteprima del video, ridimensionata a 1280 x 720 pixel in formato PNG. È possibile visualizzare un massimo di quattro video per ogni offerta.
 
 Ricordarsi di **salvare** prima di procedere alla sezione successiva.
 
@@ -345,7 +348,7 @@ La scheda **Anteprima** consente di definire un pubblico di **Anteprima** limita
 > [!IMPORTANT]
 > È necessario selezionare **Go Live** prima che l'offerta venga pubblicata in tempo reale per il pubblico del Marketplace dopo aver verificato l'offerta in anteprima.
 
-- **Definire un gruppo di destinatari di anteprima: Aggiungere un solo indirizzo di posta elettronica dell'account AAD/MSA per riga, insieme a una descrizione facoltativa.**
+- @no__t 0Define un pubblico di anteprima: Aggiungere un solo indirizzo di posta elettronica dell'account AAD/MSA per riga, insieme a una descrizione facoltativa. **
 
 È possibile aggiungere fino a dieci (10) indirizzi di posta elettronica manualmente oppure 20 (20) se si carica un file CSV, per account Microsoft (MSA) o Azure Active Directory account esistenti per consentire la convalida dell'offerta prima della pubblicazione in tempo reale. Aggiungendo questi account, si definisce un gruppo di destinatari a cui verrà consentito l'accesso in anteprima all'offerta prima che venga pubblicata nei Marketplace. Se l'offerta è già attiva, è comunque possibile definire un pubblico di anteprima per testare eventuali modifiche o aggiornamenti all'offerta.
 
@@ -356,11 +359,11 @@ La scheda **Anteprima** consente di definire un pubblico di **Anteprima** limita
 
 La scheda **configurazione tecnica** definisce i dettagli tecnici (percorso URL, webhook, ID tenant e ID app) usati per connettersi all'offerta. Questa connessione consente di effettuare il provisioning dell'offerta per il cliente finale se sceglie di acquisirla. I diagrammi che descrivono l'utilizzo dei campi raccolti sono disponibili nella documentazione per le [API di evasione Saas](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
 
-- **URL della pagina di destinazione** (obbligatorio): Definire l'URL del sito su cui i clienti potranno atterrare dopo aver acquisito l'offerta dal Marketplace. Questo URL sarà l'endpoint che riceve un token quando un cliente viene indirizzato alla pagina. Questo token può essere scambiato per i dettagli del provisioning usando Risolvi nelle API di evasione. Questi dettagli e altri utenti raccolti possono essere usati come parte di una pagina Web interattiva del cliente integrata nell'esperienza per completare la registrazione e attivare l'acquisto.
+- **URL pagina di destinazione** (obbligatorio): Definire l'URL del sito su cui i clienti potranno atterrare dopo aver acquisito l'offerta dal Marketplace. Questo URL sarà l'endpoint che riceve un token quando un cliente viene indirizzato alla pagina. Questo token può essere scambiato per i dettagli del provisioning usando Risolvi nelle API di evasione. Questi dettagli e altri utenti raccolti possono essere usati come parte di una pagina Web interattiva del cliente integrata nell'esperienza per completare la registrazione e attivare l'acquisto.
 
-- **Webhook di connessione** (obbligatorio): Per tutti gli eventi asincroni che Microsoft deve inviare all'utente per conto del cliente (ad esempio, La sottoscrizione SaaS non è più valida), è necessario fornire un webhook di connessione. Se non si dispone già di un sistema di Webhook, la configurazione più semplice consiste nel disporre di un'app per la logica endpoint HTTP che resterà in ascolto di tutti gli eventi da inviare e quindi di gestirli in modo\/appropriato (ad esempio https:/prod-1westus.Logic.Azure.com:443/Work). Per altre informazioni, vedere [Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Webhook di connessione** (obbligatorio): Per tutti gli eventi asincroni che Microsoft deve inviare all'utente per conto del cliente (ad esempio, La sottoscrizione SaaS non è più valida), è necessario fornire un webhook di connessione. Se non si dispone già di un sistema di Webhook, la configurazione più semplice consiste nell'avere un'app per la logica endpoint HTTP che resterà in ascolto di tutti gli eventi che vengono inviati e quindi gestirli in modo appropriato, ad esempio https: \//prod-1westus. Logic. Azure. com: 443/work ). Per altre informazioni, vedere [Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
-- **ID tenant Azure ad** (obbligatorio): All'interno portale di Azure è necessario [creare un'app Azure Active Directory (ad)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) in modo che sia possibile convalidare la connessione tra i due servizi dietro una comunicazione autenticata. Per trovare l' [ID tenant](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), passare alla Azure Active Directory e selezionare **Proprietà**, quindi cercare il numero **ID directory** elencato (ad esempio 50c464d3-4930-494c-963C-1e951d15360e).
+- **Azure ad ID tenant** (obbligatorio): All'interno portale di Azure è necessario [creare un'app Azure Active Directory (ad)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) in modo che sia possibile convalidare la connessione tra i due servizi dietro una comunicazione autenticata. Per trovare l' [ID tenant](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), passare alla Azure Active Directory e selezionare **Proprietà**, quindi cercare il numero **ID directory** elencato (ad esempio 50c464d3-4930-494c-963C-1e951d15360e).
 
 - **ID app Azure ad** (obbligatorio): Sono necessari anche l' [ID applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) e una chiave di autenticazione. Per ottenere tali valori, passare alla Azure Active Directory e selezionare **registrazioni app**, quindi cercare il numero di **ID dell'applicazione** elencato (ad esempio 50c464d3-4930-494c-963C-1e951d15360e). Per trovare la chiave di autenticazione, passare a **Impostazioni** e selezionare **chiavi**. Sarà necessario fornire una descrizione e una durata, quindi verrà fornito un valore numerico.
 
@@ -413,14 +416,14 @@ La possibilità di configurare una versione di valutazione gratuita è disponibi
 >[!Note]
 >Una volta pubblicata l'offerta transazionale con una versione di valutazione gratuita, non è possibile disabilitarla per quel piano. Verificare che questa impostazione sia corretta per la prima pubblicazione, in modo da evitare di dover ricreare il piano.
 
-Per ottenere informazioni sulle sottoscrizioni dei clienti che attualmente partecipano a una versione di valutazione gratuita `isFreeTrial`, usare la nuova proprietà API, che verrà contrassegnata come true o false. Per ulteriori informazioni, vedere l' [API di sottoscrizione Saas Get](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) .
+Per ottenere informazioni sulle sottoscrizioni dei clienti che attualmente partecipano a una versione di valutazione gratuita, usare la nuova proprietà API `isFreeTrial`, che verrà contrassegnata come true o false. Per ulteriori informazioni, vedere l' [API di sottoscrizione Saas Get](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) .
 
 >[!Note]
 >Le versioni di valutazione gratuite non sono supportate per i piani che sfruttano il servizio di misurazione del Marketplace.
 
 #### <a name="markets"></a>Mercati
 
-- **Modificare i mercati** opzionale
+- **Modificare i mercati** (facoltativo)
 
 Ogni piano deve essere disponibile in almeno un mercato. Selezionare la casella di controllo per qualsiasi località di mercato in cui si desidera rendere disponibile questo piano. Una casella di ricerca e un pulsante per la selezione dei paesi in cui vengono riportate le imposte, in cui Microsoft si impegnano le vendite e le imposte per conto dell'utente, vengono fornite informazioni utili. 
 
@@ -458,7 +461,7 @@ Esaminare attentamente i prezzi prima della pubblicazione, in quanto esistono al
 
 #### <a name="privacy"></a>Privacy
 
-- Si **tratta di un piano privato** (Casella di controllo facoltativo)
+- Si **tratta di un piano privato** (casella di controllo facoltativo)
 
 Selezionare questa casella per rendere il piano privato e visibile solo ai destinatari di propria scelta. Una volta pubblicato come piano privato, è possibile aggiornare il gruppo di destinatari o scegliere di rendere disponibile il piano a tutti. Una volta che un piano è stato pubblicato come visibile a tutti, deve rimanere visibile a tutti gli utenti. Il piano non può essere configurato nuovamente come piano privato.
 
@@ -466,7 +469,7 @@ Selezionare questa casella per rendere il piano privato e visibile solo ai desti
 
 Assegnare i destinatari che avranno accesso a questo piano privato. L'accesso viene assegnato usando gli ID tenant con l'opzione per includere una descrizione di ogni ID tenant assegnato. È possibile aggiungere un massimo di 10 ID tenant oppure 20.000 ID tenant dei clienti se si importa un file di foglio di calcolo con estensione CSV.
 
-Un tenant è una rappresentazione di un'organizzazione, con un ID rappresentato come GUID (identificatore univoco globale, un numero intero a 128 bit usato per identificare le risorse). È un'istanza dedicata di Azure AD che un'organizzazione o uno sviluppatore di app riceve quando crea una relazione con Microsoft, come l'iscrizione ad Azure, Microsoft Intune o Microsoft 365. Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD. Per controllare il tenant, accedere al portale di Azure con l'account che si vuole usare per gestire l'applicazione. Se si dispone già di un tenant, verrà effettuata automaticamente la connessione e si vedrà il nome del tenant direttamente sotto il nome dell'account. Se si passa il puntatore sul nome dell'account nella parte superiore destra del portale di Azure, verranno visualizzati il nome utente, l'indirizzo di posta elettronica, un ID di directory/tenant (GUID) e il dominio. Se l'account è associato a più tenant, è possibile selezionare il nome dell'account per aprire un menu che consente di spostarsi tra i tenant. Ogni tenant ha un proprio ID. È anche possibile cercare l'ID tenant dell'organizzazione usando un URL del nome di dominio in [https://www.whatismytenantid.com](https://www.whatismytenantid.com):.
+Un tenant è una rappresentazione di un'organizzazione, con un ID rappresentato come GUID (identificatore univoco globale, un numero intero a 128 bit usato per identificare le risorse). È un'istanza dedicata di Azure AD che un'organizzazione o uno sviluppatore di app riceve quando crea una relazione con Microsoft, come l'iscrizione ad Azure, Microsoft Intune o Microsoft 365. Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD. Per controllare il tenant, accedere al portale di Azure con l'account che si vuole usare per gestire l'applicazione. Se si dispone già di un tenant, verrà effettuata automaticamente la connessione e si vedrà il nome del tenant direttamente sotto il nome dell'account. Se si passa il puntatore sul nome dell'account nella parte superiore destra del portale di Azure, verranno visualizzati il nome utente, l'indirizzo di posta elettronica, un ID di directory/tenant (GUID) e il dominio. Se l'account è associato a più tenant, è possibile selezionare il nome dell'account per aprire un menu che consente di spostarsi tra i tenant. Ogni tenant ha un proprio ID. È anche possibile cercare l'ID tenant dell'organizzazione usando un URL del nome di dominio in: [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
 Sebbene le offerte SaaS usino gli ID tenant per definire un pubblico privato, altri tipi di offerta possono usare gli ID sottoscrizione di Azure (che sono anche rappresentati come GUID).
 

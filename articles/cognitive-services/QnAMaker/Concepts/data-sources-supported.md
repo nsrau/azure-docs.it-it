@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 1a9f3eb0ea79a0cd79850e721d081b00dc582a31
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 4bd1386c68f3173c19b282c1e01ecff545c4bcd7
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695286"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972056"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origini dati per i contenuti QnA Maker
 
@@ -34,9 +34,9 @@ La tabella seguente riepiloga i tipi di contenuto e di formato di file supportat
 |\* Excel|File domanda-risposta strutturato<br> (tra cui RTF, supporto HTML)|[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |\* TXT/TSV|File domanda-risposta strutturato|[Esempio chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
-I **file TSV e XLS**, dalle Knowledge base esportate, possono essere usati solo importando i file dalla pagina **Impostazioni** nel portale di QnA Maker. Non possono essere utilizzate come origini dati durante la creazione della Knowledge base o dalla funzionalità Aggiungi file o URL nella pagina **Impostazioni** . 
+### <a name="import-and-export-knowledge-base"></a>Importazione ed esportazione della Knowledge base
 
-Altre informazioni sull'uso di [documenti a più turni](). 
+I **file TSV e XLS**, dalle Knowledge base esportate, possono essere usati solo importando i file dalla pagina **Impostazioni** nel portale di QnA Maker. Non possono essere utilizzati come origini dati durante la creazione della Knowledge base o nella funzionalità **+ Aggiungi file** o **Aggiungi URL** nella pagina **Impostazioni** . 
 
 ## <a name="data-source-locations"></a>Percorsi di origine dati
 
@@ -205,7 +205,7 @@ Nuova riga tra due frasi.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|!
 |Caratteri di escape Markdown|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![formato per l'URL corsivo](../media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |Elenco ordinato|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>Nell'esempio precedente viene usata la numerazione automatica incorporata in Markdown.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>Nell'esempio precedente viene usata la numerazione esplicita.|![formato dell'elenco ordinato](../media/qnamaker-concepts-datasources/format-ordered-list.png)|
 |Elenco non ordinato|`\n * item1 \n * item2`<br>oppure<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![formato dell'elenco non ordinato](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
-|Elenchi annidati|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>È possibile annidare insieme elenchi ordinati e non ordinati. La scheda, `\t`, indica il livello di rientro dell'elemento figlio.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![formato per un elenco non ordinato annidato](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![formato dell'elenco ordinato annidato](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
+|Elenchi annidati|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>È possibile annidare insieme elenchi ordinati e non ordinati. La scheda `\t` indica il livello di rientro dell'elemento figlio.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![formato per un elenco non ordinato annidato](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![formato dell'elenco ordinato annidato](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
 \* QnA Maker non elabora l'immagine in alcun modo. Si tratta del ruolo dell'applicazione client per il rendering dell'immagine. 
 
@@ -213,10 +213,10 @@ Se si vuole aggiungere contenuto usando le API della Knowledge base di aggiornam
 
 | Mantieni HTML  | Rappresentazione nella richiesta API  | Rappresentazione in KB |
 |-----------|---------|-------------------------|
-| Yes | \&lt; br\&gt; | &lt;BR&gt; |
-| Yes | \&lt; H3\&gt; intestazione\&lt;/H3\&gt; | &lt;/H3&gt;intestazione&lt;H3&gt; |
+| Yes | \&LT; BR @ no__t-1GT; | &lt;BR @ no__t-1 |
+| Yes | \&LT; H3 @ no__t-1GT; header @ no__t-2LT;/H3 @ no__t-3GT; | &lt;h3 @ no__t-1header @ no__t-2/H3 @ no__t-3 |
 
-Inoltre, CR LF (\r\n) viene convertito in \n nella KB. LF (\n) viene mantenuto così com'è. Se si vuole eseguire l'escape di qualsiasi sequenza di escape come \t o \n, è possibile usare la barra rovesciata\\, ad esempio:'\\\\\\r\\n'è\\t'
+Inoltre, CR LF (\r\n) viene convertito in \n nella KB. LF (\n) viene mantenuto così com'è. Se si vuole eseguire l'escape di qualsiasi sequenza di escape come \t o \n, è possibile usare la barra rovesciata, ad esempio:' \\ @ no__t-1r @ no__t-2 @ no__t-3N ' è \\ @ no__t-5T '
 
 ## <a name="editing-your-knowledge-base-locally"></a>Modificare la knowledge base in locale
 

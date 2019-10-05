@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: b558e046f3402fdfa127192788d7d3ee1307ddeb
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 93f17ea9d2ffa33d1dca9da3eb60f75165e8ed61
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937026"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973340"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funzioni di stringa nei modelli di Azure Resource Manager
 
@@ -408,11 +408,11 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | Attività | Type | Value |
 | ---- | ---- | ----- |
 | stringTrue | Booleano | True |
-| stringFalse | Booleano | False |
-| objectTrue | Booleano | True |
-| objectFalse | Booleano | False |
-| arrayTrue | Booleano | True |
-| arrayFalse | Booleano | False |
+| stringFalse | Bool | False |
+| objectTrue | Bool | True |
+| objectFalse | Bool | False |
+| arrayTrue | Bool | True |
+| arrayFalse | Bool | False |
 
 ## <a name="datauri"></a>dataUri
 
@@ -585,9 +585,9 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Attività | Type | Value |
 | ---- | ---- | ----- |
-| arrayEmpty | Booleano | True |
-| objectEmpty | Booleano | True |
-| stringEmpty | Booleano | True |
+| arrayEmpty | Bool | True |
+| objectEmpty | Bool | True |
+| stringEmpty | Bool | True |
 
 ## <a name="endswith"></a>endsWith
 
@@ -648,12 +648,12 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Attività | Type | Value |
 | ---- | ---- | ----- |
-| startsTrue | Booleano | True |
-| startsCapTrue | Booleano | True |
-| startsFalse | Booleano | False |
-| endsTrue | Booleano | True |
-| endsCapTrue | Booleano | True |
-| endsFalse | Booleano | False |
+| startsTrue | Bool | True |
+| startsCapTrue | Bool | True |
+| startsFalse | Bool | False |
+| endsTrue | Bool | True |
+| endsCapTrue | Bool | True |
+| endsFalse | Bool | False |
 
 ## <a name="first"></a>first
 
@@ -705,7 +705,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | Attività | Type | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Stringa | one |
-| stringOutput | Stringa | R |
+| stringOutput | Stringa | O |
 
 ## <a name="format"></a>format
 
@@ -1097,7 +1097,7 @@ Questa funzione può essere usata solo all'interno di un'espressione per il valo
 
 La funzione newGuid differisce dalla funzione [GUID](#guid) perché non accetta parametri. Quando si chiama GUID con lo stesso parametro, viene restituito ogni volta lo stesso identificatore. Utilizzare il GUID quando è necessario generare in modo affidabile lo stesso GUID per un ambiente specifico. Usare newGuid quando è necessario un identificatore diverso ogni volta, ad esempio la distribuzione di risorse in un ambiente di test.
 
-Se si usa l' [opzione per ridistribuire una distribuzione riuscita in precedenza](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)e la distribuzione precedente include un parametro che usa newGuid, il parametro non viene rivalutato. Al contrario, il valore del parametro della distribuzione precedente viene riutilizzato automaticamente nella distribuzione di rollback.
+Se si usa l' [opzione per ridistribuire una distribuzione riuscita in precedenza](rollback-on-error.md)e la distribuzione precedente include un parametro che usa newGuid, il parametro non viene rivalutato. Al contrario, il valore del parametro della distribuzione precedente viene riutilizzato automaticamente nella distribuzione di rollback.
 
 In un ambiente di test, potrebbe essere necessario distribuire ripetutamente le risorse che risiedono solo per un breve periodo di tempo. Anziché costruire nomi univoci, è possibile usare newGuid con [uniqueString](#uniquestring) per creare nomi univoci.
 
@@ -1471,12 +1471,12 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Attività | Type | Value |
 | ---- | ---- | ----- |
-| startsTrue | Booleano | True |
-| startsCapTrue | Booleano | True |
-| startsFalse | Booleano | False |
-| endsTrue | Booleano | True |
-| endsCapTrue | Booleano | True |
-| endsFalse | Booleano | False |
+| startsTrue | Bool | True |
+| startsCapTrue | Bool | True |
+| startsFalse | Bool | False |
+| endsTrue | Bool | True |
+| endsCapTrue | Bool | True |
+| endsFalse | Bool | False |
 
 ## <a name="string"></a>string
 
@@ -2110,7 +2110,7 @@ Restituisce il valore DateTime corrente (UTC) nel formato specificato. Se non vi
 
 Questa funzione può essere usata solo all'interno di un'espressione per il valore predefinito di un parametro. L'uso di questa funzione in qualsiasi altra posizione in un modello restituisce un errore. La funzione non è consentita in altre parti del modello perché restituisce un valore diverso ogni volta che viene chiamato. La distribuzione dello stesso modello con gli stessi parametri non produrrebbe in modo affidabile gli stessi risultati.
 
-Se si usa l' [opzione per ridistribuire una distribuzione riuscita in precedenza](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)e la distribuzione precedente include un parametro che usa UtcNow, il parametro non viene rivalutato. Al contrario, il valore del parametro della distribuzione precedente viene riutilizzato automaticamente nella distribuzione di rollback.
+Se si usa l' [opzione per ridistribuire una distribuzione riuscita in precedenza](rollback-on-error.md)e la distribuzione precedente include un parametro che usa UtcNow, il parametro non viene rivalutato. Al contrario, il valore del parametro della distribuzione precedente viene riutilizzato automaticamente nella distribuzione di rollback.
 
 Prestare attenzione nella ridistribuzione di un modello che si basa sulla funzione utcNow per un valore predefinito. Quando si esegue la ridistribuzione e non si fornisce un valore per il parametro, la funzione viene rivalutata. Se si desidera aggiornare una risorsa esistente anziché crearne una nuova, passare il valore del parametro dalla distribuzione precedente.
 

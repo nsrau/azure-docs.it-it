@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: abee645f8929c10856f662b1504b163b58d953a5
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: ca7136f6e1c24d32ff5d6e3e53878c11fb5f1edb
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036019"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71975311"
 ---
 ## <a name="application-performance-indicators"></a>Indicatori di prestazioni dell'applicazione
 
@@ -21,7 +21,7 @@ ms.locfileid: "70036019"
 
 In questa sezione verranno illustrati gli indicatori di prestazioni comuni nel contesto dell'Archiviazione Premium. Nella sezione seguente, Recupero dei requisiti dell'applicazione, verrà illustrato come misurare questi indicatori di prestazioni dell'applicazione. In Ottimizzazione delle prestazioni dell'applicazione verranno descritti infine i fattori che influiscono su questi indicatori di prestazioni e verranno fornite indicazioni utili per l'ottimizzazione degli indicatori.
 
-## <a name="iops"></a>Input/output al secondo
+## <a name="iops"></a>Operazioni di I/O al secondo
 
 IOPS, o operazioni di input/output al secondo, indica il numero di richieste inviate dall'applicazione ai dischi di archiviazione in un secondo. Un'operazione di input/output può essere di lettura, scrittura, sequenziale o casuale. Le applicazioni OLTP (Online Transaction Processing) come un sito Web per la rivendita online devono elaborare immediatamente molte richieste utente concomitanti. Le richieste utente sono transazioni di database con un numero elevato di inserimenti e aggiornamenti, che devono essere elaborate rapidamente dall'applicazione. Le applicazioni OLTP richiedono quindi valori molto elevati per IOPS. Queste applicazioni gestiscono milioni di richieste I/O di piccole dimensioni e casuali. Se si crea un'applicazione di questo tipo, sarà necessario progettare l'infrastruttura dell'applicazione in modo che sia ottimizzata per IOPS. Nella sezione successiva, *Ottimizzazione delle prestazioni dell'applicazione*, verranno illustrati in modo dettagliato tutti i fattori da valutare per ottenere valori elevati per IOPS.
 
@@ -135,7 +135,7 @@ Per altre informazioni sulle dimensioni delle macchine virtuali e le operazioni 
 
 ## <a name="nature-of-io-requests"></a>Natura delle richieste I/O
 
-Una richiesta I/O è un'unità di operazioni di input/output che verrà eseguita dall'applicazione. L'identificazione della natura delle richieste I/O, ovvero casuali o sequenziali, di lettura o scrittura, grandi o piccole, consentirà di determinare i requisiti relativi alle prestazioni per l'applicazione. È importante comprendere la natura delle richieste di i/o, per prendere le decisioni appropriate durante la progettazione dell'infrastruttura dell'applicazione.
+Una richiesta I/O è un'unità di operazioni di input/output che verrà eseguita dall'applicazione. L'identificazione della natura delle richieste I/O, ovvero casuali o sequenziali, di lettura o scrittura, grandi o piccole, consentirà di determinare i requisiti relativi alle prestazioni per l'applicazione. È importante comprendere la natura delle richieste di i/o, per prendere le decisioni appropriate durante la progettazione dell'infrastruttura dell'applicazione. IOs deve essere distribuito in modo uniforme per ottenere le migliori prestazioni possibili.
 
 La dimensione di I/O è uno dei fattori più importanti. Le dimensioni di I/O sono le dimensioni della richiesta di operazioni di input/output generata dall'applicazione. Le dimensioni di I/O hanno un impatto significativo sulle prestazioni, in particolare sui valori di IOPS e larghezza di banda che l'applicazione è in grado di ottenere. La formula seguente illustra la relazione tra IOPS, dimensioni di i/o e larghezza di banda/velocità effettiva.  
     ![](media/premium-storage-performance/image1.png)
@@ -152,7 +152,7 @@ Se si usa un'applicazione che consente la modifica delle dimensioni di I/O, usar
 * Dimensioni di I/O minori per ottenere valori di IOPS più elevati. Ad esempio, 8 KB per un'applicazione OLTP.  
 * Dimensioni di I/O maggiori per ottenere valori di larghezza di banda/velocità effettiva più elevati. Ad esempio, 1024 KB per un'applicazione di tipo data warehouse.
 
-Ecco un esempio di come è possibile calcolare i valori di IOPS e larghezza di banda/velocità effettiva per l'applicazione. Prendere in considerazione un'applicazione che usa un disco P30. Il valore massimo di IOPS e larghezza di banda/velocità effettiva che può essere raggiunto da un disco P30 è pari a 5000 IOPS e 200 MB al secondo, rispettivamente. Se l'applicazione richiede il valore di IOPS massimo dal disco P30 e si usano dimensioni di I/O minori, ad esempio 8 KB, il valore di larghezza di banda risultante che si potrà ottenere è pari a 40 MB al secondo. Se l'applicazione richiede il valore massimo di larghezza di banda/velocità effettiva dal disco P30 e si usano dimensioni di I/O maggiori, ad esempio 1024 KB, il valore di IOPS risultante sarà più basso, ad esempio 200 IOPS. È quindi necessario perfezionare le dimensioni di I/O in modo che soddisfino i requisiti relativi a IOPS e velocità effettiva/larghezza di banda dell'applicazione. La tabella seguente riepiloga le diverse dimensioni di I/O e i valori di IOPS e velocità effettiva corrispondenti per un disco P30.
+Ecco un esempio di come è possibile calcolare i valori di IOPS e larghezza di banda/velocità effettiva per l'applicazione. Prendere in considerazione un'applicazione che usa un disco P30. Il valore massimo di IOPS e larghezza di banda/velocità effettiva che può essere raggiunto da un disco P30 è pari a 5000 IOPS e 200 MB al secondo, rispettivamente. Se l'applicazione richiede il valore di IOPS massimo dal disco P30 e si usano dimensioni di I/O minori, ad esempio 8 KB, il valore di larghezza di banda risultante che si potrà ottenere è pari a 40 MB al secondo. Se l'applicazione richiede il valore massimo di larghezza di banda/velocità effettiva dal disco P30 e si usano dimensioni di I/O maggiori, ad esempio 1024 KB, il valore di IOPS risultante sarà più basso, ad esempio 200 IOPS. È quindi necessario perfezionare le dimensioni di I/O in modo che soddisfino i requisiti relativi a IOPS e velocità effettiva/larghezza di banda dell'applicazione. Nella tabella seguente sono riepilogate le diverse dimensioni di i/o e il valore di IOPS e velocità effettiva corrispondenti per un disco P30.
 
 | Requisiti dell'applicazione | Dimensioni di I/O | IOPS | Velocità effettiva/Larghezza di banda |
 | --- | --- | --- | --- |
@@ -174,7 +174,7 @@ Quando si inizia a progettare un'applicazione, uno dei primi passaggi da eseguir
 
 Le macchine virtuali a scalabilità elevata sono disponibili in dimensioni diverse con un numero diverso di core CPU, memoria, sistema operativo e dimensioni del disco temporaneo. Ogni dimensione di VM prevede anche un numero massimo di dischi dati che possono essere collegati alla VM. La dimensione di VM scelta influirà quindi sulla quantità di elaborazione, memoria e capacità di archiviazione disponibile per l'applicazione. Influisce anche sui costi di calcolo e archiviazione. Ad esempio, sono riportate di seguito le specifiche per la VM di dimensione massima per le serie DS, DSv2 e GS:
 
-| Dimensioni macchina virtuale | Core CPU | Memoria | Dimensioni di disco della VM | Max. dischi dati | Dimensioni cache | Input/output al secondo | Limiti di I/O della cache della larghezza di banda |
+| Dimensioni macchina virtuale | Core CPU | Memoria | Dimensioni di disco della VM | Max. dischi dati | Dimensioni cache | Operazioni di I/O al secondo | Limiti di I/O della cache della larghezza di banda |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS14 |16 |112 GB |Sistema operativo = 1023 GB <br> SSD locale = 224 GB |32 |576 GB |50.000 IOPS <br> 512 MB al secondo |4\.000 IOPS e 33 MB al secondo |
 | Standard_GS5 |32 |448 GB |Sistema operativo = 1023 GB <br> SSD locale = 896 GB |64 |4224 GB |80.000 IOPS <br> 2.000 MB al secondo |5\.000 IOPS e 50 MB al secondo |
@@ -189,7 +189,7 @@ Si supponga, ad esempio, che i requisiti dell'applicazione siano pari a 4.000 IO
 *Costo operativo*  
 In molti casi è possibile che il costo operativo complessivo con l'Archiviazione Premium sia inferiore al costo dell'uso dell'Archiviazione Standard.
 
-Ad esempio, si consideri un'applicazione che richiede 16.000 IOPS. Per ottenere queste prestazioni, è necessaria una VM D14\_di Azure IaaS standard, che può fornire un numero massimo di IOPS di 16.000 usando i dischi di archiviazione standard da 1 TB 32. Ogni disco di archiviazione standard da 1 TB può ottenere un massimo di 500 IOPS. Il costo stimato di questa VM al mese sarà pari a $ 1.570. Il costo mensile di 32 dischi di archiviazione Standard sarà pari a $ 1.638. Il costo totale mensile stimato sarà pari a $ 3.208.
+Ad esempio, si consideri un'applicazione che richiede 16.000 IOPS. Per ottenere queste prestazioni, è necessaria una macchina virtuale di Azure IaaS standard @ no__t-0D14, che può fornire un numero massimo di IOPS di 16.000 usando i dischi da 1 TB di archiviazione standard 32. Ogni disco di archiviazione standard da 1 TB può ottenere un massimo di 500 IOPS. Il costo stimato di questa VM al mese sarà pari a $ 1.570. Il costo mensile di 32 dischi di archiviazione Standard sarà pari a $ 1.638. Il costo totale mensile stimato sarà pari a $ 3.208.
 
 Se tuttavia la stessa applicazione è ospitata nell'Archiviazione Premium, sarà necessaria una dimensione di VM minore e saranno necessari meno dischi di Archiviazione Premium. Ciò consente una riduzione del costo complessivo. Una VM Standard\_StandardDS13 può soddisfare il requisito di 16.000 IOPS con quattro dischi P30. La VM DS13 offre un valore massimo di IOPS pari a 25.600 e ogni disco P30 ha un valore massimo di IOPS pari a 5.000. Questa configurazione consente complessivamente di ottenere 5.000 x 4 = 20.000 IOPS. Il costo stimato di questa VM al mese sarà pari a $ 1.003. Il costo mensile di quattro dischi di Archiviazione Premium P30 sarà pari a $ 544,34. Il costo totale mensile stimato sarà pari a $ 1.544.
 
@@ -209,13 +209,9 @@ Quando si esegue Linux con l'Archiviazione Premium, verificare se sono disponibi
 
 ## <a name="premium-storage-disk-sizes"></a>Dimensioni dei dischi di Archiviazione Premium
 
-Archiviazione Premium di Azure offre otto dimensioni dei dischi GA e tre dimensioni del disco attualmente disponibili in anteprima. Ogni dimensione del disco ha un limite di scalabilità diverso per IOPS, larghezza di banda e archiviazione. Scegliere la dimensione del disco di Archiviazione Premium appropriata, in base ai requisiti dell'applicazione e le dimensioni delle VM a scalabilità elevata. Nella tabella seguente sono illustrate le dimensioni di 11 dischi e le relative funzionalità. Le dimensioni di disco P4, P6, P15, P60, P70 e P80 sono attualmente supportate solo per Managed Disks.
+Archiviazione Premium di Azure offre un'ampia gamma di dimensioni per poter scegliere una soluzione più adatta alle proprie esigenze. Ogni dimensione del disco ha un limite di scalabilità diverso per IOPS, larghezza di banda e archiviazione. Scegliere la dimensione del disco di Archiviazione Premium appropriata, in base ai requisiti dell'applicazione e le dimensioni delle VM a scalabilità elevata. La tabella seguente illustra le dimensioni dei dischi e le relative funzionalità. Le dimensioni di disco P4, P6, P15, P60, P70 e P80 sono attualmente supportate solo per Managed Disks.
 
-| Tipo di disco Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
-|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Dimensioni disco           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1\.024 GiB (1 TiB)    | 2\.048 GiB (2 TiB)    | 4\.095 GiB (4 TiB)    | 8\.192 GiB (8 TiB)    | 16.384 GiB (16 TiB)    | 32.767 GiB (32 TiB)    |
-| IOPS per disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500              | 15.000              | 20.000              |
-| Velocità effettiva per disco | 25 MiB al secondo  | 50 MiB al secondo  | 100 MiB al secondo |125 MiB al secondo | 150 MiB al secondo | 200 MiB al secondo | 250 MiB al secondo | 250 MiB al secondo | 480 MiB al secondo | 750 MiB al secondo | 750 MiB al secondo |
+[!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
 Il numero di dischi scelto dipende dalla dimensione scelta per il disco. È possibile usare un singolo disco P50 o più dischi P10 per soddisfare i requisiti dell'applicazione. Valutare le considerazioni elencate di seguito quando si effettua la scelta.
 

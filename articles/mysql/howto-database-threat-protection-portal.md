@@ -1,17 +1,17 @@
 ---
-title: Advanced Threat Protection - Database di Azure per MySQL | Microsoft Docs
-description: La Protezione dalle minacce individua le attività di database che indicano la presenza di potenziali minacce alla sicurezza nel database.
+title: Advanced Threat Protection-database di Azure per MySQL
+description: Informazioni su come configurare Advanced Threat Protection per rilevare attività di database anomale che indicano potenziali minacce alla sicurezza per il database.
 author: bolzmj
 ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 76f6c15fc1e186e254c4edbb53a2a0ccf7050b3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe058433cfe4c6c9f89f14d2c74e33ff1b8372ac
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61458943"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970496"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Advanced Threat Protection per Database di Azure per MySQL
 
@@ -54,7 +54,7 @@ Si riceverà una notifica tramite posta elettronica al rilevamento di attività 
 
 ## <a name="explore-threat-detection-alerts"></a>Esplorare gli avvisi di rilevamento minacce
 
-Rilevamento minacce del database SQL integra i suoi avvisi con il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/). Un riquadro sul rilevamento minacce live di SQL all'interno dei pannelli del database e di SQL ATP nel portale di Azure tiene traccia dello stato delle minacce attive.
+Rilevamento minacce del database SQL integra i suoi avvisi con il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/). Un riquadro Live SQL Threat detection tiene traccia dello stato delle minacce attive nel database e nelle pagine di SQL ATP nel portale di Azure.
 
 Fare clic su **Avviso rilevamento minacce**per avviare la pagina degli avvisi del Centro sicurezza di Azure e ottenere una panoramica delle minacce SQL attive rilevate nel database.
 
