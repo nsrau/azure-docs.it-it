@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: a0faaeee369a2227f6018141e5aa5d18c9037e9d
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 556a8029b9b5f831ac3ace7ed0fcc474fb2e262e
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161988"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978101"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinare le cause di non conformità
 
@@ -192,7 +191,7 @@ Audit that an application is installed inside Windows VMs.                Compli
 Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
 ```
 
-## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>Cronologia modifiche (anteprima)
+## <a name="a-namechange-historychange-history-preview"></a>cronologia di @no__t 0Change (anteprima)
 
 Come parte di una nuova versione di **anteprima pubblica**, gli ultimi 14 giorni di cronologia delle modifiche sono disponibili per tutte le risorse di Azure che supportano l' [eliminazione in modalità completa](../../../azure-resource-manager/complete-mode-deletion.md). La cronologia modifiche fornisce informazioni dettagliate su quando è stata rilevata una modifica e offre un _diff visivo_ per ogni modifica. Il rilevamento delle modifiche viene attivato quando vengono aggiunte, rimosse o modificate le proprietà del Gestione risorse.
 
@@ -221,5 +220,5 @@ I dati della cronologia delle modifiche vengono forniti da [Azure Resource Graph
 - Leggere [Informazioni sugli effetti di Criteri](../concepts/effects.md).
 - Informazioni su come [creare criteri a livello di codice](programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](getting-compliance-data.md).
-- Informazioni su come monitorare e [aggiornare le risorse non](remediate-resources.md)conformi.
+- Informazioni su come monitorare e [aggiornare le risorse non conformi](remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 7f890ddf7aff63189a720f3d604b00610af7a933
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: d14cd996fe0e5a67cc3b554fe1e12146cd6b8e1c
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949858"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981073"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matrice di supporto per il backup con Backup di Microsoft Azure server o System Center DPM
 
@@ -24,9 +24,11 @@ ms.locfileid: "68949858"
 
 MAB è un prodotto server che può essere usato per eseguire il backup di server fisici, macchine virtuali e app locali in esecuzione su di essi.
 
-MAB si basa su System Center DPM e fornisce funzionalità simili con due differenze:
+MAB si basa su System Center DPM e fornisce funzionalità simili con alcune differenze:
+
 - Per eseguire il server di Backup di Microsoft Azure non è necessaria alcuna licenza System Center.
 - Per gli oggetti MAB e DPM, Azure offre un'archiviazione di backup a lungo termine. DPM inoltre consente di eseguire il backup dei dati per l'archiviazione a lungo termine su nastro. Questa funzionalità non è disponibile con il server di Backup di Microsoft Azure.
+- È possibile eseguire il backup di un server DPM primario con un server DPM secondario. Il server secondario proteggerà il database del server primario e le repliche delle origini dati archiviate nel server primario. Se si verifica un errore nel server primario, il server secondario può continuare a proteggere i carichi di lavoro protetti dal server primario, finché il server primario non sarà nuovamente disponibile.  Questa funzionalità non è disponibile con il server di Backup di Microsoft Azure.
 
 È possibile scaricare MAB dall' [area download Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=57520). Può essere eseguito in locale o in una macchina virtuale di Azure.
 
@@ -56,7 +58,6 @@ Per altre informazioni:
 --- | --- | ---
 **Backup di carichi di lavoro e computer locali** | L'agente protezione DPM/MAB viene eseguito nei computer di cui si vuole eseguire il backup.<br/><br/> Agente MARS nel server DPM/MAB.<br/> La versione minima dell'agente di Servizi di ripristino di Microsoft Azure o dell'agente di Backup di Azure richiesta per l'abilitazione di questa funzionalità è la 2.0.8719.0.  | DPM/MAB deve essere eseguito in locale.
 
-
 ## <a name="supported-deployments"></a>Distribuzioni supportate
 
 DPM/MAB può essere distribuito come riepilogato nella tabella seguente.
@@ -66,7 +67,6 @@ DPM/MAB può essere distribuito come riepilogato nella tabella seguente.
 **Distribuito in locale** | Server fisico<br/><br/>Macchina virtuale Hyper-V<br/><br/> Macchina virtuale VMware | Se DPM/MAB è installato come macchina virtuale VMware, esegue solo il backup di macchine virtuali VMware e carichi di lavoro in esecuzione in tali macchine virtuali.
 **Distribuito come macchina virtuale di Azure Stack** | Solo server di Backup di Microsoft Azure | Non è possibile usare DPM per eseguire il backup di macchine virtuali di Azure Stack.
 **Distribuito come macchina virtuale di Azure** | Protegge le macchine virtuali e i carichi di lavoro di Azure in esecuzione in tali macchine virtuali | DPM/MAB in esecuzione in Azure non può eseguire il backup dei computer locali.
-
 
 ## <a name="supported-mabs-and-dpm-operating-systems"></a>Sistemi operativi supportati per il server di Backup di Microsoft Azure e DPM
 
@@ -79,8 +79,6 @@ Backup di Azure può eseguire il backup di istanze di DPM/MAB che eseguono uno d
 **Server di Backup di Microsoft Azure in locale** | Sistemi operativi a 64 bit supportati:<br/><br/> MAB V3 e versioni successive: Windows Server 2019 (standard, Datacenter, Essentials). <br/><br/> MAB V2 e versioni successive: Windows Server 2016 (standard, Datacenter, Essentials).<br/><br/> Tutte le versioni del server di Backup di Microsoft Azure:  Windows Server 2012 R2.<br/><br/>Tutte le versioni del server di Backup di Microsoft Azure: Windows Storage Server 2012 R2.
 **DPM in locale** | Server fisico/macchina virtuale Hyper-V: System Center 2012 SP1 o versioni successive.<br/><br/> Macchina virtuale VMware: System Center 2012 R2 con Update 5 o versioni successive.
 
-
-
 ## <a name="management-support"></a>Supporto della gestione
 
 **Problema** | **Dettagli**
@@ -90,7 +88,6 @@ Backup di Azure può eseguire il backup di istanze di DPM/MAB che eseguono uno d
 **Archiviazione** | Modern backup storage (MBS) è supportato da DPM 2016/MAB V2 e versioni successive. Non è disponibile per il server di Backup di Microsoft Azure v1.
 **Aggiornamento del server di Backup di Microsoft Azure** | È possibile installare direttamente il server di Backup di Microsoft Azure v3 oppure eseguire l'aggiornamento dal server di Backup di Microsoft Azure v2 al server di Backup di Microsoft Azure v3. [Altre informazioni](backup-azure-microsoft-azure-backup.md#upgrade-mabs)
 **Spostamento del server di Backup di Microsoft Azure** | Se si usa MBS, è possibile spostare il server di Backup di Microsoft Azure in un nuovo server conservando l'archivio.<br/><br/> Il server deve avere lo stesso nome dell'originale. Non è possibile cambiare il nome se si intende mantenere lo stesso pool di archiviazione e usare lo stesso database del server di Backup di Microsoft Azure per archiviare i punti di ripristino dei dati.<br/><br/> Si dovrà disporre di un backup del database del server di Backup di Microsoft Azure perché sarà necessario ripristinarlo.
-
 
 ## <a name="mabs-support-on-azure-stack"></a>Supporto per il server di Backup di Microsoft Azure in Azure Stack
 
@@ -129,9 +126,9 @@ Per il corretto funzionamento dei backup, è necessaria la connettività al serv
 
 **Server di Backup di Microsoft Azure ad Azure** | **Sottoscrizione** | **Backup/ripristino**
 --- | --- | ---
-Connessione attivata | Attivo | Eseguire il backup nel disco di DPM/MAB.<br/><br/> Esegui il backup in Azure.<br/><br/> Ripristinare dal disco.<br/><br/> Ripristinare da Azure.
+Connessione attivata | Attive | Eseguire il backup nel disco di DPM/MAB.<br/><br/> Esegui il backup in Azure.<br/><br/> Ripristinare dal disco.<br/><br/> Ripristinare da Azure.
 Connessione attivata | Scaduta/sottoposta a deprovisioning | Nessun backup su disco o in Azure.<br/><br/> Se la sottoscrizione è scaduta, è possibile eseguire il ripristino dal disco o da Azure.<br/><br/> Se la sottoscrizione viene ritirata, non è possibile eseguire il ripristino dal disco o da Azure. I punti di ripristino di Azure vengono eliminati.
-Nessuna connettività per più di 15 giorni | Attivo | Nessun backup su disco o in Azure.<br/><br/> È possibile eseguire il ripristino dal disco o da Azure.
+Nessuna connettività per più di 15 giorni | Attive | Nessun backup su disco o in Azure.<br/><br/> È possibile eseguire il ripristino dal disco o da Azure.
 Nessuna connettività per più di 15 giorni | Scaduta/sottoposta a deprovisioning | Nessun backup su disco o in Azure.<br/><br/> Se la sottoscrizione è scaduta, è possibile eseguire il ripristino dal disco o da Azure.<br/><br/> Se la sottoscrizione viene ritirata, non è possibile eseguire il ripristino dal disco o da Azure. I punti di ripristino di Azure vengono eliminati.
 
 ## <a name="dpmmabs-storage-support"></a>Supporto dell'archiviazione per DPM o il server di Backup di Microsoft Azure
@@ -144,8 +141,8 @@ I dati di cui viene eseguito il backup in DPM/MAB vengono archiviati nell'archiv
 **Archiviazione del server di Backup di Microsoft Azure in una macchina virtuale di Azure** | I dati vengono archiviati nei dischi di Azure collegati alla macchina virtuale DPM/MAB e gestiti in DPM/MAB. Il numero di dischi che è possibile usare per il pool di archiviazione DPM/MAB è limitato dalle dimensioni della macchina virtuale.<br/><br/> Macchina virtuale A2: 4 dischi; macchina virtuale A3: 8 dischi; macchina virtuale A4: 16 dischi, con dimensioni massime di 1 TB per ogni disco. Ciò determina il pool di archiviazione di backup totale disponibile.<br/><br/> La quantità di dati di cui è possibile eseguire il backup dipende dal numero e dalle dimensioni dei dischi collegati.
 **Conservazione dei dati del server di Backup di Microsoft Azure in una macchina virtuale di Azure** | Si consiglia di conservare i dati per un giorno nel disco di Azure DPM/MAB ed eseguire il backup da DPM/MAB nell'insieme di credenziali per un periodo di conservazione più lungo. In questo modo è possibile proteggere una maggiore quantità di dati tramite l'offload nel servizio Backup di Azure.
 
-
 ### <a name="modern-backup-storage-mbs"></a>Modern Backup Storage (MBS)
+
 Da DPM 2016/MAB V2 (in esecuzione su Windows Server 2016) e versioni successive, è possibile sfruttare i vantaggi di Modern backup storage (MBS).
 
 - I backup di MBS vengono archiviati in un disco ReFS (Resilient File System).
@@ -153,11 +150,9 @@ Da DPM 2016/MAB V2 (in esecuzione su Windows Server 2016) e versioni successive,
 - Quando si aggiungono volumi al pool di archiviazione DPM/MAB locale, questi vengono configurati con lettere di unità. È quindi possibile configurare l'archiviazione dei carichi di lavoro in volumi diversi.
 - Quando si creano gruppi protezione dati per eseguire il backup dei dati in DPM o nel server di Backup di Microsoft Azure, si seleziona l'unità che si intende usare. Ad esempio, è possibile archiviare i backup per SQL o altri carichi di lavoro di IOPS elevati in un'unità a prestazioni elevate e archiviare i carichi di lavoro di cui è stato eseguito il backup con minore frequenza in un'unità di prestazioni inferiore.
 
-
 ## <a name="supported-backups-to-mabs"></a>Backup nel server di Backup di Microsoft Azure supportati
 
 La tabella seguente riepiloga gli elementi di cui è possibile eseguire il backup nel server di Backup di Microsoft Azure da computer locali e macchine virtuali di Azure.
-
 
 **Backup** | **Versioni** | **Server di Backup di Microsoft Azure** | **Dettagli** |
 --- | --- | --- | --- |
@@ -177,13 +172,9 @@ La tabella seguente riepiloga gli elementi di cui è possibile eseguire il backu
 **Hyper-V in Windows Server 2016**<br/><br/> **Windows Server 2008 R2 (con SP1)** | Server di Backup di Microsoft Azure v3, v2 | In locale. | **Agente del server di Backup di Microsoft Azure nell'host Hyper-V**: Backup di intere macchine virtuali e file di dati host. Backup di macchine virtuali con archiviazione locale, macchine virtuali in cluster con archiviazione in volumi condivisi cluster e macchine virtuali con archiviazione in file server SMB.<br/><br/> **Agente del server di Backup di Microsoft Azure in una macchina virtuale guest**: Backup dei carichi di lavoro in esecuzione nella macchina virtuale. Volumi condivisi cluster.<br/><br/> **Ripristino**: macchina virtuale, ripristino a livello di elemento di disco rigido virtuale/volume/cartelle/file.<br/><br/> **Macchine virtuali Linux**: Eseguire il backup quando Hyper-V è in esecuzione in Windows Server 2012 R2 e versioni successive. Il ripristino per le macchine virtuali Linux è per l'intera macchina. |
 **Macchine virtuali VMware: vCenter/vSphere ESXi 5.5/6.0/6.5** | Server di Backup di Microsoft Azure v3, v2 | In locale. | Eseguire il backup di macchine virtuali VMware in CSVs, NFS e archiviazione SAN.<br/><br/> Ripristino dell'intera macchina virtuale.<br/><br/> Backup di Windows/Linux.<br/><br/> Ripristino a livello di elemento di cartella/file solo per le macchine virtuali Windows.<br/><br/> Le vApp VMware non sono supportate.<br/><br/> Il ripristino per le macchine virtuali Linux è per l'intera macchina. |
 
-
-
 ## <a name="supported-backups-to-dpm"></a>Backup in DPM supportati
 
 La tabella seguente riepiloga gli elementi di cui è possibile eseguire il backup in DPM da computer locali e macchine virtuali di Azure.
-
-
 
 **Backup** | **DPM** | **Dettagli**
 --- | --- | ---
@@ -204,11 +195,8 @@ La tabella seguente riepiloga gli elementi di cui è possibile eseguire il backu
 **Hyper-V in Windows Server 2016**<br/><br/> **Windows Server 2012 R2/2012** (Datacenter/Standard)<br/><br/> **Windows Server 2008 R2 (con SP1)** | Hyper-V su 2016 supportato per DPM 2016 e versioni successive.<br/><br/> In locale. | **Agente del server di Backup di Microsoft Azure nell'host Hyper-V**: Backup di intere macchine virtuali e file di dati host. Backup di macchine virtuali con archiviazione locale, macchine virtuali in cluster con archiviazione in volumi condivisi cluster e macchine virtuali con archiviazione in file server SMB.<br/><br/> **Agente del server di Backup di Microsoft Azure in una macchina virtuale guest**: Backup dei carichi di lavoro in esecuzione nella macchina virtuale. Volumi condivisi cluster.<br/><br/> **Ripristino**: macchina virtuale, ripristino a livello di elemento di disco rigido virtuale/volume/cartelle/file.<br/><br/> **Macchine virtuali Linux**: Eseguire il backup quando Hyper-V è in esecuzione in Windows Server 2012 R2 e versioni successive. Il ripristino per le macchine virtuali Linux è per l'intera macchina.
 **Macchine virtuali VMware: vCenter/vSphere ESXi 5.5/6.0/6.5** | Server di Backup di Microsoft Azure v3, v2 <br/><br/> DPM 2012 R2 richiede l'aggiornamento cumulativo 1 di System Center <br/><br/>In locale. | Eseguire il backup di macchine virtuali VMware in CSVs, NFS e archiviazione SAN.<br/><br/> Ripristino dell'intera macchina virtuale.<br/><br/> Backup di Windows/Linux.<br/><br/> Ripristino a livello di elemento di cartella/file solo per le macchine virtuali Windows.<br/><br/> Le vApp VMware non sono supportate.<br/><br/> Il ripristino per le macchine virtuali Linux è per l'intera macchina.
 
-
 - I carichi di lavoro del cluster sottoposti a backup da DPM/MAB devono trovarsi nello stesso dominio di DPM/MAB o in un dominio figlio o trusted.
 - È possibile usare l'autenticazione NTLM/del certificato per eseguire il backup dei dati in gruppi di lavoro o domini non attendibili.
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: 51129f89f45d65007f8a7f37df0353121ebdbdd8
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: ac8d4d2519ce918a943cfe1e93ed2c5c7afd9a47
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338377"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978047"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
@@ -122,7 +121,7 @@ Criteri di Azure usa la proprietà **complianceStatus** dei provider di risorse 
 > [!NOTE]
 > Il criterio **DeployIfNotExists** è necessario affinché i criteri **AuditIfNotExists** restituiscano i risultati. Senza **DeployIfNotExists**, il criterio **AuditIfNotExists** Mostra le risorse "0 di 0" come stato.
 
-Tutti i criteri predefiniti per la configurazione guest sono inclusi in un'iniziativa per raggruppare le definizioni da usare nelle assegnazioni. L'iniziativa predefinita denominata *[Anteprima]: Controllare le impostazioni di sicurezza delle password nei computer* Linux e Windows contiene 18 criteri. Esistono sei coppie **DeployIfNotExists** e **AuditIfNotExists** per Windows e tre coppie per Linux. La logica di [definizione dei criteri](definition-structure.md#policy-rule) convalida che viene valutato solo il sistema operativo di destinazione.
+Tutti i criteri predefiniti per la configurazione guest sono inclusi in un'iniziativa per raggruppare le definizioni da usare nelle assegnazioni. L'iniziativa predefinita denominata *[Anteprima]: Controllare le impostazioni di sicurezza delle password nei computer Linux e Windows @ no__t-0 contiene 18 criteri. Esistono sei coppie **DeployIfNotExists** e **AuditIfNotExists** per Windows e tre coppie per Linux. La logica di [definizione dei criteri](definition-structure.md#policy-rule) convalida che viene valutato solo il sistema operativo di destinazione.
 
 ### <a name="multiple-assignments"></a>Più assegnazioni
 
@@ -145,7 +144,7 @@ Dove `<version>` si riferisce al numero di versione corrente.
 
 ### <a name="collecting-logs-remotely"></a>Raccolta di log in modalità remota
 
-Il primo passaggio per la risoluzione dei problemi relativi alle configurazioni o ai moduli di configurazione `Test-GuestConfigurationPackage` Guest consiste nell'usare il cmdlet seguendo la procedura descritta in [testare un pacchetto di configurazione Guest](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).
+Il primo passaggio per la risoluzione dei problemi relativi alle configurazioni o ai moduli di configurazione Guest consiste nell'usare il cmdlet `Test-GuestConfigurationPackage` che segue i passaggi descritti in [testare un pacchetto di configurazione Guest](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).
 Se l'operazione non riesce, la raccolta dei log del client può aiutare a diagnosticare i problemi.
 
 #### <a name="windows"></a>Windows
@@ -184,5 +183,5 @@ Gli esempi per la configurazione Guest per i criteri sono disponibili nei percor
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
-- Informazioni su come monitorare e [aggiornare le risorse non](../how-to/remediate-resources.md)conformi.
+- Informazioni su come monitorare e [aggiornare le risorse non conformi](../how-to/remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

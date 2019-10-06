@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 6b79b34b1db6c201a8f132e4c608e251edb3666a
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 9671ddcf98ae97c0a3df49cce008faf403f5dcd2
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735416"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981101"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per backup di Azure
 
@@ -59,7 +59,7 @@ Ecco cosa è supportato se si vuole eseguire il backup dei computer locali:
 **Limite** | **Dettagli**
 --- | ---
 **Dischi dati delle macchine virtuali di Azure** | Limite di 16
-**Dimensioni del disco dati della macchina virtuale di Azure** | I singoli dischi possono essere fino a 4.095 GB
+**Dimensioni del disco dati della macchina virtuale di Azure** | Supporta il backup di macchine virtuali con ogni dimensione di disco fino a 30 TB e un massimo di 256 TB combinati per tutti i dischi in una macchina virtuale.
 
 ### <a name="azure-vm-backup-options"></a>Opzioni di backup delle VM di Azure
 
@@ -116,10 +116,10 @@ Backup di Azure supporta la crittografia per i dati in transito e inattivi.
 
 **Computer** | **In movimento** | **Inattivi**
 --- | --- | ---
-**Computer Windows locali senza DPM/MAB** | ![Sì][green] | ![Sì][green]
-**Macchine virtuali di Azure** | ![Sì][green] | ![Sì][green]
-**Computer Windows locali o macchine virtuali di Azure con DPM** | ![Sì][green] | ![Sì][green]
-**Computer Windows locali o macchine virtuali di Azure con MAB** | ![Sì][green] | ![Sì][green]
+**Computer Windows locali senza DPM/MAB** | ![Yes][green] | ![Yes][green]
+**Macchine virtuali di Azure** | ![Yes][green] | ![Yes][green]
+**Computer Windows locali o macchine virtuali di Azure con DPM** | ![Yes][green] | ![Yes][green]
+**Computer Windows locali o macchine virtuali di Azure con MAB** | ![Yes][green] | ![Yes][green]
 
 ## <a name="compression-support"></a>Supporto della compressione
 
@@ -130,9 +130,9 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 
 **Computer** | **Compressione in MABS/DPM (TCP)** | **Comprimi nell'insieme di credenziali (HTTPS)**
 --- | --- | ---
-**Backup diretto di computer Windows locali** | ND | ![Sì][green]
-**Backup di macchine virtuali di Azure con l'estensione VM** | ND | ND
-**Eseguire il backup in computer locali o Azure usando MAB/DPM** | ![Yes][green] | ![Sì][green]
+**Backup diretto di computer Windows locali** | NA | ![Yes][green]
+**Backup di macchine virtuali di Azure con l'estensione VM** | NA | NA
+**Eseguire il backup in computer locali o Azure usando MAB/DPM** | ![Yes][green] | ![Yes][green]
 
 ## <a name="retention-limits"></a>Limiti di conservazione
 

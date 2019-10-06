@@ -6,17 +6,16 @@ ms.author: dacoulte
 ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 8d3cee73d8614c4aea2d2883cdcf2f049b1b8f67
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 5c62fdb698dddf293d339904fd0c854052d636eb
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232938"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981054"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
-La creazione di ambienti coerenti su larga scala è davvero efficace solo se esiste un meccanismo che mantenga tale coerenza. Questo articolo spiega il funzionamento del blocco risorse di Azure Blueprint. Per un esempio di blocco delle risorse e dell'applicazione delle assegnazioni di _rifiuto_, vedere l'esercitazione [protezione di nuove risorse](../tutorials/protect-new-resources.md) .
+La creazione di ambienti coerenti su larga scala è davvero efficace solo se esiste un meccanismo che mantenga tale coerenza. Questo articolo spiega il funzionamento del blocco risorse di Azure Blueprint. Per un esempio di blocco delle risorse e dell'applicazione delle _assegnazioni di rifiuto_, vedere l'esercitazione [protezione di nuove risorse](../tutorials/protect-new-resources.md) .
 
 ## <a name="locking-modes-and-states"></a>Modalità di blocco e stati
 
@@ -25,7 +24,7 @@ Le modalità di blocco non possono tuttavia essere modificate al di fuori di Blu
 
 Le risorse create dagli artefatti nell'assegnazione di un progetto hanno quattro stati: **Non bloccato**, **Sola lettura**, **Impossibile modificare/eliminare** e **Impossibile eliminare**. Ciascun tipo di artefatto può essere in stato **Non bloccato**. La tabella seguente può essere usata per determinare lo stato di una risorsa:
 
-|Modalità|Tipo di risorsa artefatto|Stato|Descrizione|
+|Modalità|Tipo di risorsa artefatto|State|Descrizione|
 |-|-|-|-|
 |Non bloccare|*|Non bloccato|Le risorse non sono protette da Blueprints. Questo stato viene usato anche per le risorse aggiunte a un artefatto del gruppo di risorse **Sola lettura** o **Non eliminare** all'esterno dell'assegnazione di un progetto.|
 |Sola lettura|Gruppo di risorse|Impossibile modificare/eliminare|Il gruppo di risorse è di sola lettura e i relativi tag non possono essere modificati. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|

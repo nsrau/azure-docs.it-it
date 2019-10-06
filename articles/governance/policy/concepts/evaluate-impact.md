@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: b24a0e9f3f557ea2ac425db7caeed63959d18dd8
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 2aee31d3e874f709d5ec30ed4ddc0ba0445d4130
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181405"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980753"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Valutare l'effetto di un nuovo criterio di Azure
 
@@ -37,8 +36,8 @@ Per questo motivo, le definizioni dei criteri devono essere definite strettament
 
 ## <a name="audit-existing-resources"></a>Controllare le risorse esistenti
 
-Prima di cercare di gestire risorse nuove o aggiornate con la nuova definizione dei criteri, è consigliabile vedere come valuta un subset limitato di risorse esistenti, ad esempio un gruppo di risorse di test. Utilizzare la [modalità](./assignment-structure.md#enforcement-mode)
-di imposizione_disabilitata_ (DoNotEnforce) nell'assegnazione dei criteri per impedire che venga [creato un trigger](./effects.md) o le voci del log attività.
+Prima di cercare di gestire risorse nuove o aggiornate con la nuova definizione dei criteri, è consigliabile vedere come valuta un subset limitato di risorse esistenti, ad esempio un gruppo di risorse di test. Utilizzare la [modalità di imposizione](./assignment-structure.md#enforcement-mode)
+_disabled_ (DoNotEnforce) nell' [assegnazione dei criteri](./effects.md) per impedire che venga creato il trigger o le voci del log attività.
 
 Questo passaggio consente di valutare i risultati di conformità del nuovo criterio sulle risorse esistenti senza influire sul flusso di lavoro. Verificare che non siano presenti risorse conformi contrassegnate come non conformi (_falso positivo_) e che tutte le risorse che si prevede siano non conformi siano contrassegnate correttamente.
 Dopo che il subset iniziale di risorse è stato convalidato come previsto, espandere lentamente la valutazione per tutte le risorse esistenti.
@@ -76,5 +75,5 @@ L'implementazione e l'assegnazione della definizione dei criteri non è il passa
 - Informazioni sulla [struttura di assegnazione dei criteri](./assignment-structure.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
-- Informazioni su come monitorare e [aggiornare le risorse non](../how-to/remediate-resources.md)conformi.
+- Informazioni su come monitorare e [aggiornare le risorse non conformi](../how-to/remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

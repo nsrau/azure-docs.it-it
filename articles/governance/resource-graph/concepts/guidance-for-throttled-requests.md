@@ -1,51 +1,50 @@
 ---
-title: Linee guida per le richieste limitate
-description: Informazioni su come creare query migliorate per evitare le richieste di Graph di Azure Resource da limitata.
+title: Istruzioni per le richieste con limitazioni
+description: Informazioni su come creare query migliori per evitare la limitazione delle richieste al grafico delle risorse di Azure.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/19/2019
 ms.topic: conceptual
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: c644d230846d9c644c3845348431eef36c8279c8
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 85d68beb27ab27a2ada9acbf9482d35dec438c06
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276899"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980278"
 ---
-# <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Linee guida per le richieste limitate nel grafico di risorse di Azure
+# <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Linee guida per le richieste limitate in Azure Resource Graph
 
-Durante la creazione di utilizzo a livello di codice e frequente dei dati dei grafi di risorse di Azure, considerazione deve essere effettuata per influisce sul modo in cui limitazione i risultati delle query. La modifica dei dati di modalità richiesta utili e organizzazione evitare limitazioni e mantenere il flusso di dati in modo tempestivo sulle risorse di Azure.
+Quando si crea un uso programmatico e frequente dei dati del grafo delle risorse di Azure, è necessario considerare il modo in cui la limitazione influisca sui risultati delle query. La modifica del modo in cui i dati vengono richiesti può aiutare l'utente e l'organizzazione a evitare la limitazione e mantenere il flusso dei dati tempestivi sulle risorse di Azure.
 
-Questo articolo descrive quattro aree e i modelli correlati per la creazione di query nel grafico di risorse di Azure:
+Questo articolo illustra quattro aree e modelli correlati alla creazione di query in Azure Resource Graph:
 
-- Comprendere le intestazioni di limitazione delle richieste
-- L'invio in batch query
-- Scaglionamento query
-- L'impatto di impaginazione
+- Informazioni sulle intestazioni di limitazione
+- Invio in batch di query
+- Query di sfalsamento
+- L'effetto della paginazione
 
-## <a name="understand-throttling-headers"></a>Comprendere le intestazioni di limitazione delle richieste
+## <a name="understand-throttling-headers"></a>Informazioni sulle intestazioni di limitazione
 
-Graph di Azure Resource alloca il numero di quota per ogni utente in base a un intervallo di tempo. Ad esempio, un utente può inviare al massimo 15 query all'interno di ogni finestra di 5 secondi senza limitazioni. Il valore di quota è determinato da diversi fattori e è soggette a modifiche.
+Il grafico risorse di Azure alloca il numero di quota per ogni utente in base a un intervallo di tempo. Ad esempio, un utente può inviare al massimo 15 query all'interno di ogni finestra di 5 secondi senza limitazioni. Il valore della quota è determinato da molti fattori ed è soggetto a modifiche.
 
-In ogni risposta alla query, Graph di Azure Resource aggiunge due intestazioni di limitazione delle richieste:
+In ogni risposta alla query, Azure Resource Graph aggiunge due intestazioni di limitazione:
 
 - `x-ms-user-quota-remaining` (int): quota di risorse rimanenti per l'utente. Questo valore è associato al conteggio delle query.
-- `x-ms-user-quota-resets-after` (hh:mm:ss): La durata di tempo fino a quando non viene reimpostato il consumo di quota dell'utente.
+- `x-ms-user-quota-resets-after` (hh:mm:ss): Durata dell'intervallo di tempo fino a quando non viene reimpostato il consumo della quota
 
-Per illustrare come funzionano le intestazioni, esaminiamo una risposta alla query con l'intestazione e i valori della `x-ms-user-quota-remaining: 10` e `x-ms-user-quota-resets-after: 00:00:03`.
+Per illustrare il funzionamento delle intestazioni, viene ora esaminata una risposta di query con l'intestazione e i valori di `x-ms-user-quota-remaining: 10` e `x-ms-user-quota-resets-after: 00:00:03`.
 
-- Entro 3 secondi, al massimo 10 query possono essere inviate senza limitazioni.
-- In 3 secondi e i valori della `x-ms-user-quota-remaining` e `x-ms-user-quota-resets-after` reimposteranno `15` e `00:00:05` rispettivamente.
+- Nei prossimi 3 secondi, è possibile inviare al massimo 10 query senza limitazioni.
+- In 3 secondi, i valori di `x-ms-user-quota-remaining` e `x-ms-user-quota-resets-after` verranno reimpostati rispettivamente su `15` e `00:00:05`.
 
-Per vedere un esempio dell'uso di intestazioni _backoff_ le richieste di query, vedere l'esempio nella [Query in parallelo](#query-in-parallel).
+Per un esempio dell'uso delle intestazioni per _backoff_ sulle richieste di query, vedere l'esempio in [query in parallelo](#query-in-parallel).
 
-## <a name="batching-queries"></a>L'invio in batch query
+## <a name="batching-queries"></a>Invio in batch di query
 
-Query per la sottoscrizione, gruppo di risorse o singola risorsa di invio in batch è più efficiente rispetto alla parallelizzazione delle query. Il costo di quota di una query di dimensioni maggiori è spesso inferiore rispetto al costo di quota di numerose query di piccole dimensioni e di destinazione. Le dimensioni del batch consigliata sarà minore _300_.
+L'invio in batch di query in base alla sottoscrizione, al gruppo di risorse o a una singola risorsa è più efficiente delle query parallelizzazione. Il costo della quota di una query di dimensioni maggiori è spesso inferiore al costo della quota di molte query di piccole e di destinazione. È consigliabile che le dimensioni del batch siano minori di _300_.
 
-- Esempio di approccio non ottimizzato
+- Esempio di approccio poco ottimizzato
 
   ```csharp
   // NOT RECOMMENDED
@@ -66,7 +65,7 @@ Query per la sottoscrizione, gruppo di risorse o singola risorsa di invio in bat
   }
   ```
 
-- Esempio #1 di un approccio di invio in batch ottimizzato
+- Esempio #1 di un approccio di batch ottimizzato
 
   ```csharp
   // RECOMMENDED
@@ -89,7 +88,7 @@ Query per la sottoscrizione, gruppo di risorse o singola risorsa di invio in bat
   }
   ```
 
-- Ad esempio #2 un approccio di invio in batch ottimizzato
+- Esempio #2 di un approccio di batch ottimizzato
 
   ```csharp
   // RECOMMENDED
@@ -113,23 +112,23 @@ Query per la sottoscrizione, gruppo di risorse o singola risorsa di invio in bat
   }
   ```
 
-## <a name="staggering-queries"></a>Scaglionamento query
+## <a name="staggering-queries"></a>Query di sfalsamento
 
-A causa della modalità viene applicata la limitazione delle richieste, è consigliabile usare le query a essere sfalsate. Vale a dire, anziché inviare 60 query al contempo, scaglionare le query nelle quattro finestre di 5 secondi:
+A causa del modo in cui viene applicata la limitazione, è consigliabile scaglionare le query. In altre termini, anziché inviare le query 60 contemporaneamente, è necessario sfalsare le query in quattro finestre di 5 secondi:
 
-- Pianificazione scaglionati non query
+- Pianificazione di query non sfalsate
 
-  | Conteggio di query         | 60  | 0    | 0     | 0     |
+  | Conteggio query         | 60  | 0    | 0     | 0     |
   |---------------------|-----|------|-------|-------|
   | Intervallo di tempo (sec) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-- Scaglionati pianificazione di query
+- Pianificazione di query sfalsate
 
-  | Conteggio di query         | 15  | 15   | 15    | 15    |
+  | Conteggio query         | 15  | 15   | 15    | 15    |
   |---------------------|-----|------|-------|-------|
   | Intervallo di tempo (sec) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-Di seguito è riportato un esempio di il rispettando le intestazioni di limitazione delle richieste quando si eseguono query di Graph di Azure Resource:
+Di seguito è riportato un esempio di come rispettare le intestazioni di limitazione durante l'esecuzione di query su Graph di risorse di Azure:
 
 ```csharp
 while (/* Need to query more? */)
@@ -151,9 +150,9 @@ while (/* Need to query more? */)
 }
 ```
 
-### <a name="query-in-parallel"></a>Query in parallelo
+### <a name="query-in-parallel"></a>Esecuzione di query in parallelo
 
-Anche se l'invio in batch è preferibile la parallelizzazione, vi sono casi in cui le query non possono essere facilmente eseguite in batch. In questi casi, è possibile eseguire una query di Graph di risorse di Azure mediante l'invio di più query in parallelo. Di seguito è riportato un esempio relativo alla _backoff_ base di intestazioni in questi scenari di limitazione:
+Anche se la suddivisione in batch è consigliata rispetto alla parallelizzazione, in alcuni casi non è possibile eseguire facilmente il batch delle query. In questi casi, è possibile eseguire una query sul grafico delle risorse di Azure inviando più query in modo parallelo. Di seguito è riportato un esempio di come _backoff_ in base alle intestazioni di limitazione in scenari di questo tipo:
 
 ```csharp
 IEnumerable<IEnumerable<string>> queryBatches = /* Batches of queries  */
@@ -187,11 +186,11 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 
 ## <a name="pagination"></a>Paginazione
 
-Poiché Azure risorsa Graph restituisce al massimo 1000 voci in risposta a una singola query, potrebbe essere necessario [impaginare](./work-with-data.md#paging-results) le query per ottenere il set di dati completo, si sta cercando. Tuttavia, alcuni client Graph di Azure Resource gestire in modo diverso rispetto ad altri la paginazione.
+Poiché il grafico risorse di Azure restituisce al massimo 1000 voci in una singola risposta di query, potrebbe essere necessario [impaginare](./work-with-data.md#paging-results) le query per ottenere il set di dati completo che si sta cercando. Tuttavia, alcuni client di Azure Resource Graph gestiscono l'impaginazione in modo diverso rispetto ad altri.
 
 - SDK per C#
 
-  Quando si usa ResourceGraph SDK, è necessario gestire la paginazione passando il token skip restituito dalla risposta alla query precedente per la query successiva che impaginata. Questa progettazione significa che è necessario raccogliere i risultati di tutte le chiamate impaginate e combinarli alla fine. In questo caso, ogni query impaginati che si inviano accetta una quota di query:
+  Quando si usa ResourceGraph SDK, è necessario gestire la paginazione passando il skip token restituito dalla risposta precedente alla query impaginata successiva. Questo progetto significa che è necessario raccogliere i risultati di tutte le chiamate impaginate e combinarli insieme alla fine. In questo caso, ogni query impaginata inviata accetta una quota di query:
 
   ```csharp
   var results = new List<object>();
@@ -214,9 +213,9 @@ Poiché Azure risorsa Graph restituisce al massimo 1000 voci in risposta a una s
   }
   ```
 
-- Comando di Azure / Azure PowerShell
+- INTERFACCIA della riga di comando di Azure/Azure PowerShell
 
-  Quando si usa Azure PowerShell o CLI di Azure, le query di Graph di Azure Resource vengono automaticamente impaginate per il recupero di al massimo 5000 voci. I risultati della query di restituire un elenco combinato di voci da tutte le chiamate impaginate. In questo caso, a seconda del numero di voci nel risultato della query, una singola query impaginate può usare più di una quota di query. Nell'esempio seguente, ad esempio, una singola esecuzione della query potrebbe usare quota query fino a cinque:
+  Quando si usa l'interfaccia della riga di comando di Azure o Azure PowerShell, le query in Azure Resource Graph vengono impaginate automaticamente per recuperare al massimo 5000 voci. I risultati della query restituiscono un elenco combinato di voci da tutte le chiamate impaginate. In questo caso, a seconda del numero di voci nel risultato della query, una singola query impaginata può utilizzare più di una quota di query. Nell'esempio seguente, ad esempio, una singola esecuzione della query può utilizzare fino a cinque quote di query:
 
   ```azurecli-interactive
   az graph query -q 'project id, name, type' -top 5000
@@ -226,19 +225,19 @@ Poiché Azure risorsa Graph restituisce al massimo 1000 voci in risposta a una s
   Search-AzGraph -Query 'project id, name, type' -Top 5000
   ```
 
-## <a name="still-get-throttled"></a>Ancora applicata la limitazione?
+## <a name="still-get-throttled"></a>È ancora stato limitato?
 
-Se sono state applicate limitazioni dopo che esercitano consigli sopra indicati, contattare il team all'indirizzo [ resourcegraphsupport@microsoft.com ](mailto:resourcegraphsupport@microsoft.com).
+Se viene applicata la limitazione dopo aver eseguito i consigli indicati in precedenza, contattare il team al [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com).
 
-Fornire questi dettagli:
+Specificare i dettagli seguenti:
 
-- Le esigenze di driver specifico caso d'uso e di business per un aumento del limite della limitazione.
-- Il numero di risorse è possibile utilizzare? Il numero di controllo vengono restituiti da una singola query?
-- Quali sono i tipi di risorse ti interessa?
-- Che cos'è il modello di query? X query ogni Y secondi e così via.
+- Il caso d'uso specifico e il driver aziendale necessitano di un limite di limitazione maggiore.
+- Quante risorse sono accessibili? Il numero di restituzione di una singola query.
+- Quali tipi di risorse sono interessati?
+- Qual è il modello di query? X query per Y secondi e così via.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere il linguaggio in uso nel [query Starter](../samples/starter.md).
-- Vedere avanzata utilizza [query avanzate](../samples/advanced.md).
-- Informazioni su come [esplorare risorse](explore-resources.md).
+- Vedere il linguaggio in uso nelle [query Starter](../samples/starter.md).
+- Vedere uso avanzato nelle [query avanzate](../samples/advanced.md).
+- Scopri come [esplorare le risorse](explore-resources.md).

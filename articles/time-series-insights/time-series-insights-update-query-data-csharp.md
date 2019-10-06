@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: da4e9626b2bf5b180cddba012af81059dd8b67fe
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 6d2395dcfae5d512412048a683a7f1397967499e
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883273"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978657"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Eseguire query sui dati dall'ambiente Azure Time Series Insights anteprima usandoC#
 
@@ -31,7 +31,7 @@ L'esempio mostra alcuni esempi di base relativi all'uso dell'API Query:
 1. Come esempio della richiesta di Web Socket, vengono richiesti dati relativi alle aggregazioni di eventi per l'ambiente di interesse. Vengono richiesti dati per l'intero intervallo di tempo di disponibilità.
 
 > [!NOTE]
-> Questo codice di esempio è disponibile anche [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample)in.
+> Questo codice di esempio è disponibile anche in [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample).
 
 ## <a name="c-example"></a>Esempio in C#
 
@@ -44,4 +44,4 @@ L'esempio mostra alcuni esempi di base relativi all'uso dell'API Query:
 
 - Per altre informazioni sull'esecuzione di query, vedere informazioni di [riferimento sull'API di query](https://docs.microsoft.com/rest/api/time-series-insights/preview-query).
 
-- Informazioni su come [connettere un'app JavaScript a una singola pagina](tutorial-create-tsi-sample-spa.md) a Time Series Insights.
+- Leggere le informazioni su come [connettere un'app JavaScript usando l'SDK client](https://github.com/microsoft/tsiclient) per Time Series Insights.

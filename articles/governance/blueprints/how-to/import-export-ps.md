@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/03/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: f7bc3610841bcc3c40435f077073ffa0d55acd93
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 30e734c99a87364acfba9a58d83fe9a377958607
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70243178"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978451"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importare ed esportare definizioni di progetto con PowerShell
 
@@ -25,7 +24,7 @@ I progetti di Azure possono essere completamente gestiti tramite portale di Azur
   - Test automatizzato delle definizioni di progetto negli ambienti di test
   - Supporto delle pipeline di integrazione continua e distribuzione continua (CI/CD)
 
-Qualunque sia il motivo, la gestione delle definizioni del progetto come codice presenta vantaggi. Questo articolo illustra come usare i `Import-AzBlueprintWithArtifact` comandi e `Export-AzBlueprintWithArtifact` nel modulo [AZ. Blueprint](https://powershellgallery.com/packages/Az.Blueprint/) .
+Qualunque sia il motivo, la gestione delle definizioni del progetto come codice presenta vantaggi. Questo articolo illustra come usare i comandi `Import-AzBlueprintWithArtifact` e `Export-AzBlueprintWithArtifact` nel modulo [AZ. Blueprint](https://powershellgallery.com/packages/Az.Blueprint/) .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,16 +34,16 @@ Questo articolo presuppone una conoscenza professionale moderata dei progetti di
 - Informazioni sulle [fasi di distribuzione](../concepts/deployment-stages.md) e [il ciclo di vita del progetto](../concepts/lifecycle.md)
 - [Creazione](../create-blueprint-powershell.md) e [gestione](./manage-assignments-ps.md) delle definizioni e delle assegnazioni del progetto con PowerShell
 
-Se non è già installato, seguire le istruzioni riportate in [aggiungere il modulo AZ. Blueprint](./manage-assignments-ps.md#add-the-azblueprint-module) per installare e convalidare il modulo **AZ. Blueprint** dalla PowerShell Gallery.
+Se il modulo **Az.Blueprint** non è già installato, seguire le istruzioni contenute in [Aggiungere il modulo Az.Blueprint](./manage-assignments-ps.md#add-the-azblueprint-module) per installarlo e convalidarlo da PowerShell Gallery.
 
 ## <a name="folder-structure-of-a-blueprint-definition"></a>Struttura di cartelle di una definizione di progetto
 
 Prima di esaminare l'esportazione e l'importazione di progetti, esaminiamo il modo in cui i file che compongono la definizione di progetto sono strutturati. La definizione di un progetto deve essere archiviata nella relativa cartella.
 
 > [!IMPORTANT]
-> Se non viene passato alcun valore al parametro **Name** del `Import-AzBlueprintWithArtifact` cmdlet, viene usato il nome della cartella in cui viene archiviata la definizione del progetto.
+> Se non viene passato alcun valore al parametro **Name** del cmdlet `Import-AzBlueprintWithArtifact`, viene usato il nome della cartella in cui viene archiviata la definizione del progetto.
 
-Insieme alla definizione del progetto, che deve essere denominata `blueprint.json`, sono gli elementi in cui è costituita la definizione del progetto. Ogni artefatto deve trovarsi nella sottocartella `artifacts`denominata.
+Insieme alla definizione del progetto, che deve essere denominata `blueprint.json`, sono gli elementi in cui è costituita la definizione del progetto. Ogni artefatto deve trovarsi nella sottocartella denominata `artifacts`.
 Insieme, la struttura della definizione del progetto come file JSON nelle cartelle dovrebbe essere simile alla seguente:
 
 ```text
@@ -64,13 +63,13 @@ Insieme, la struttura della definizione del progetto come file JSON nelle cartel
 
 I passaggi per l'esportazione della definizione di progetto sono semplici. L'esportazione della definizione del progetto può essere utile per la condivisione, il backup o l'inserimento nel controllo del codice sorgente.
 
-- **Progetto** necessaria
+- **Progetto** [obbligatorio]
   - Specifica la definizione del progetto
   - Usare `Get-AzBlueprint` per ottenere l'oggetto di riferimento
-- **OutputPath** necessaria
+- **OutputPath** [obbligatorio]
   - Specifica il percorso in cui salvare i file JSON di definizione del progetto
   - I file di output si trovano in una sottocartella con il nome della definizione di progetto
-- **Versione** di opzionale
+- **Versione** (facoltativa)
   - Specifica la versione da restituire se l'oggetto di riferimento del **progetto** contiene riferimenti a più di una versione.
 
 1. Ottenere un riferimento alla definizione del progetto da esportare dalla sottoscrizione rappresentata come `{subId}`:
@@ -82,7 +81,7 @@ I passaggi per l'esportazione della definizione di progetto sono semplici. L'esp
    $bpDefinition = Get-AzBlueprint -SubscriptionId '{subId}' -Name 'MyBlueprint' -Version '1.1'
    ```
 
-1. Usare il `Export-AzBlueprintWithArtifact` cmdlet per esportare la definizione di progetto specificata:
+1. Usare il cmdlet `Export-AzBlueprintWithArtifact` per esportare la definizione di progetto specificata:
 
    ```azurepowershell-interactive
    Export-AzBlueprintWithArtifact -Blueprint $bpDefinition -OutputPath 'C:\Blueprints'
@@ -94,19 +93,19 @@ Quando si dispone di una [definizione di progetto esportata](#export-your-bluepr
 
 Per esempi di definizioni di progetto predefinite, vedere il [repository GitHub Azure Blueprint](https://github.com/Azure/azure-blueprints/tree/master/samples/builtins).
 
-- **Nome** necessaria
+- **Nome** [obbligatorio]
   - Specifica il nome della nuova definizione di progetto
-- **InputPath** necessaria
+- **InputPath** [obbligatorio]
   - Specifica il percorso da cui creare la definizione del progetto
   - Deve corrispondere alla [struttura di cartelle richiesta](#folder-structure-of-a-blueprint-definition)
-- **Managementgroupid nelle** opzionale
+- **Managementgroupid nelle** (facoltativo)
   - ID del gruppo di gestione in cui salvare la definizione del progetto se non l'impostazione predefinita del contesto corrente
   - È necessario specificare **managementgroupid nelle** o **SubscriptionId**
-- **SubscriptionId** opzionale
+- **SubscriptionId** (facoltativo)
   - ID sottoscrizione in cui salvare la definizione del progetto se non è il contesto corrente predefinito
   - È necessario specificare **managementgroupid nelle** o **SubscriptionId**
 
-1. Usare il `Import-AzBlueprintWithArtifact` cmdlet per importare la definizione di progetto specificata:
+1. Usare il cmdlet `Import-AzBlueprintWithArtifact` per importare la definizione del progetto specificata:
 
    ```azurepowershell-interactive
    # Login first with Connect-AzAccount if not using Cloud Shell

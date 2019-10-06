@@ -6,21 +6,18 @@ ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: a01cee2ba803a048e426507b57b96d0833743636
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 5326e765701a42323ea62df8d35128c4117b2ed9
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181379"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981427"
 ---
-# <a name="azure-policy-assignment-structure"></a>Struttura di assegnazione dei criteri di Azure
+# <a name="azure-policy-assignment-structure"></a>Struttura di assegnazione di Criteri di Azure
 
 Le assegnazioni di criteri vengono usate dai criteri di Azure per definire quali risorse vengono assegnate durante i criteri o le iniziative. L'assegnazione di criteri può determinare i valori dei parametri per il gruppo di risorse in fase di assegnazione, rendendo possibile il riutilizzo delle definizioni dei criteri che indirizzano le stesse proprietà delle risorse con diverse esigenze di conformità.
 
-Lo schema usato dai Criteri di Azure è reperibile qui: [https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policyassignments](/azure/templates/microsoft.authorization/2019-01-01/policyassignments)
-
-Si usa JSON per creare un'assegnazione di criteri. La definizione dei criteri contiene gli elementi per:
+Si usa JSON per creare un'assegnazione di criteri. L'assegnazione di criteri contiene elementi per:
 
 - nome visualizzato
 - description
@@ -76,7 +73,7 @@ Se **enforcementMode** non è specificato nella definizione di un criterio o di 
 ## <a name="policy-definition-id"></a>ID definizione dei criteri
 
 Questo campo deve essere il nome completo del percorso di una definizione di criteri o di una definizione di iniziativa.
-`policyDefinitionId`è una stringa e non una matrice. Se più criteri vengono spesso assegnati insieme, è consigliabile usare invece un' [iniziativa](./definition-structure.md#initiatives) .
+`policyDefinitionId` è una stringa e non una matrice. Se più criteri vengono spesso assegnati insieme, è consigliabile usare invece un' [iniziativa](./definition-structure.md#initiatives) .
 
 ## <a name="parameters"></a>Parametri
 
@@ -94,12 +91,12 @@ Questa progettazione rende possibile il riutilizzo di una definizione di criteri
 }
 ```
 
-In questo esempio, i parametri definiti in precedenza nella definizione dei criteri `prefix` sono `suffix`e. Questa particolare assegnazione di criteri `prefix` imposta a **depta** e `suffix` a **-LC**. La stessa definizione di criteri è riutilizzabile con un diverso set di parametri per un reparto diverso, riducendo la duplicazione e la complessità delle definizioni dei criteri, garantendo al tempo stesso flessibilità.
+In questo esempio, i parametri definiti in precedenza nella definizione dei criteri sono `prefix` e `suffix`. Questa specifica assegnazione di criteri imposta `prefix` su **depta** e `suffix` su **-LC**. La stessa definizione di criteri è riutilizzabile con un diverso set di parametri per un reparto diverso, riducendo la duplicazione e la complessità delle definizioni dei criteri, garantendo al tempo stesso flessibilità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni sulla [struttura della definizione dei criteri](./definition-structure.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
-- Informazioni su come monitorare e [aggiornare le risorse non](../how-to/remediate-resources.md)conformi.
+- Informazioni su come monitorare e [aggiornare le risorse non conformi](../how-to/remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

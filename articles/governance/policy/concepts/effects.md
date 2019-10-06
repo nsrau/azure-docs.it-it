@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: 06a5ffbef2b841acc7ea7ecc82d05dfccbc0cab1
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 991cfb54dc511c284c5f5d0cf1807d5dd42b34ea
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147007"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978069"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -26,7 +25,7 @@ Questi effetti sono attualmente supportati in una definizione dei criteri:
 - [Negare](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabilitato](#disabled)
-- [EnforceRegoPolicy](#enforceregopolicy) anteprima
+- [EnforceRegoPolicy](#enforceregopolicy) (anteprima)
 - [Modificare](#modify)
 
 ## <a name="order-of-evaluation"></a>Ordine di valutazione
@@ -65,7 +64,7 @@ Un effetto Append ha solo una matrice **details** obbligatoria. Essendo una matr
 
 ### <a name="append-examples"></a>Esempi di Append
 
-Esempio 1: Coppia **campo/valore** singola che usa un [alias](definition-structure.md#aliases) non **\*[]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Quando l'alias diverso da **[\*]** è una matrice, l'effetto accoda il **valore** come intera matrice. Se la matrice esiste già, si verifica un evento Deny per effetto del conflitto.
+Esempio 1: Coppia **campo/valore** singola che usa un [alias](definition-structure.md#aliases) non **[\*]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Quando l'alias diverso da **[\*]** è una matrice, l'effetto accoda il **valore** come intera matrice. Se la matrice esiste già, si verifica un evento Deny per effetto del conflitto.
 
 ```json
 "then": {
@@ -97,7 +96,7 @@ Esempio 2 coppia **campo/valore** singola che usa un [alias](definition-structur
 
 ## <a name="modify"></a>Modifica
 
-La modifica viene utilizzata per aggiungere, aggiornare o rimuovere tag in una risorsa durante la creazione o l'aggiornamento. Un esempio comune è l'aggiornamento di tag per le risorse, ad esempio costCenter. Un criterio di modifica deve essere `mode` sempre impostato su _indicizzato_. È possibile correggere le risorse non conformi esistenti con un' [attività di correzione](../how-to/remediate-resources.md).
+La modifica viene utilizzata per aggiungere, aggiornare o rimuovere tag in una risorsa durante la creazione o l'aggiornamento. Un esempio comune è l'aggiornamento di tag per le risorse, ad esempio costCenter. Un criterio di modifica deve sempre avere `mode` impostato su _indicizzato_. È possibile correggere le risorse non conformi esistenti con un' [attività di correzione](../how-to/remediate-resources.md).
 Una singola regola di modifica può avere un numero qualsiasi di operazioni.
 
 > [!IMPORTANT]
@@ -116,14 +115,14 @@ La proprietà **Details** dell'effetto di modifica include tutte le sottoproprie
 - **roleDefinitionIds** [required]
   - Questa proprietà deve contenere una matrice di stringhe che corrispondono all'ID ruolo di controllo degli accessi in base al ruolo accessibile dalla sottoscrizione. Per altre informazioni, vedere [Correzione: configurare la definizione dei criteri](../how-to/remediate-resources.md#configure-policy-definition).
   - Il ruolo definito deve includere tutte le operazioni concesse al ruolo [collaboratore](../../../role-based-access-control/built-in-roles.md#contributor) .
-- **operazioni** di necessaria
+- **operazioni** [obbligatorio]
   - Matrice di tutte le operazioni di tag da completare sulle risorse corrispondenti.
   - Proprietà:
-    - **operazione** di necessaria
+    - **operazione** [obbligatorio]
       - Definisce l'azione da intraprendere su una risorsa corrispondente. Le opzioni sono: _addOrReplace_, _Aggiungi_, _Rimuovi_. _Add_ si comporta in modo analogo all'effetto [Append](#append) .
-    - **campo** di necessaria
+    - **Field** [obbligatorio]
       - Tag da aggiungere, sostituire o rimuovere. I nomi di tag devono rispettare la stessa convenzione di denominazione per gli altri [campi](./definition-structure.md#fields).
-    - **valore** di opzionale
+    - **valore** (facoltativo)
       - Valore su cui impostare il tag.
       - Questa proprietà è obbligatoria se l' **operazione** è _addOrReplace_ o _Add_.
 
@@ -131,9 +130,9 @@ La proprietà **Details** dell'effetto di modifica include tutte le sottoproprie
 
 La matrice di proprietà **Operations** consente di modificare diversi tag in modi diversi rispetto a una singola definizione di criteri. Ogni operazione è costituita da proprietà **Operation**, **Field**e **value** . L'operazione determina l'attività di monitoraggio e aggiornamento per i tag, il campo determina quale tag viene modificato e il valore definisce la nuova impostazione per il tag. L'esempio seguente apporta le modifiche seguenti ai Tag:
 
-- Imposta il `environment` tag su "test", anche se esiste già con un valore diverso.
+- Imposta il tag `environment` su "test", anche se esiste già con un valore diverso.
 - Rimuove il tag `TempResource`.
-- Imposta il `Dept` tag sul parametro del criterio _deptname_ configurato nell'assegnazione dei criteri.
+- Imposta il tag `Dept` sul parametro del criterio _deptname_ configurato nell'assegnazione dei criteri.
 
 ```json
 "details": {
@@ -167,7 +166,7 @@ Per la proprietà **Operation** sono disponibili le opzioni seguenti:
 
 ### <a name="modify-examples"></a>Modificare esempi
 
-Esempio 1: Aggiungere il `environment` tag e sostituire i `environment` tag esistenti con "test":
+Esempio 1: Aggiungere il tag `environment` e sostituire i tag esistenti `environment` con "test":
 
 ```json
 "then": {
@@ -187,7 +186,7 @@ Esempio 1: Aggiungere il `environment` tag e sostituire i `environment` tag esis
 }
 ```
 
-Esempio 2 Rimuovere il `env` tag e aggiungere il `environment` tag o sostituire i `environment` tag esistenti con un valore con parametri:
+Esempio 2 Rimuovere il tag `env` e aggiungere il tag `environment` o sostituire i tag `environment` esistenti con un valore con parametri:
 
 ```json
 "then": {
@@ -241,7 +240,7 @@ Audit viene usato per creare un evento di avviso nel log attività quando viene 
 
 ### <a name="audit-evaluation"></a>Valutazione di Audit
 
-Il controllo è l'ultimo effetto controllato dai criteri di Azure durante la creazione o l'aggiornamento di una risorsa. I criteri di Azure inviano quindi la risorsa al provider di risorse. Audit funziona allo stesso modo per una richiesta di risorse e un ciclo di valutazione. Criteri di Azure aggiunge `Microsoft.Authorization/policies/audit/action` un'operazione al log attività e contrassegna la risorsa come non conforme.
+Il controllo è l'ultimo effetto controllato dai criteri di Azure durante la creazione o l'aggiornamento di una risorsa. I criteri di Azure inviano quindi la risorsa al provider di risorse. Audit funziona allo stesso modo per una richiesta di risorse e un ciclo di valutazione. Criteri di Azure aggiunge un'operazione `Microsoft.Authorization/policies/audit/action` al log attività e contrassegna la risorsa come non conforme.
 
 ### <a name="audit-properties"></a>Proprietà di Audit
 
@@ -263,7 +262,7 @@ AuditIfNotExists consente il controllo sulle risorse che corrispondono alla cond
 
 ### <a name="auditifnotexists-evaluation"></a>Valutazione di AuditIfNotExists
 
-AuditIfNotExists viene eseguito dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento di risorse e ha restituito un codice di stato con esito positivo. L'effetto Audit si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true. Criteri di Azure aggiunge `Microsoft.Authorization/policies/audit/action` un'operazione al log attività in modo analogo all'effetto di controllo. Quando è attivato, la risorsa che ha soddisfatto la condizione **if** è la risorsa contrassegnata come non conforme.
+AuditIfNotExists viene eseguito dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento di risorse e ha restituito un codice di stato con esito positivo. L'effetto Audit si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true. Criteri di Azure aggiunge un'operazione `Microsoft.Authorization/policies/audit/action` al log attività allo stesso modo dell'effetto di controllo. Quando è attivato, la risorsa che ha soddisfatto la condizione **if** è la risorsa contrassegnata come non conforme.
 
 ### <a name="auditifnotexists-properties"></a>Proprietà di AuditIfNotExists
 
@@ -432,7 +431,7 @@ Esempio: valuta i database SQL Server per determinare se transparentDataEncrypti
 
 ## <a name="enforceregopolicy"></a>EnforceRegoPolicy
 
-Questo effetto viene utilizzato con la *modalità* di definizione dei `Microsoft.ContainerService.Data`criteri. Viene usato per passare le regole di controllo dell'ammissione definite con [rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) per [aprire l'agente criteri](https://www.openpolicyagent.org/) (OPA) nel [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md).
+Questo effetto viene usato con una *modalità* di definizione dei criteri di `Microsoft.ContainerService.Data`. Viene usato per passare le regole di controllo dell'ammissione definite con [rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) per [aprire l'agente criteri](https://www.openpolicyagent.org/) (OPA) nel [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
 > [Criteri di Azure per Kubernetes](rego-for-aks.md) è in anteprima pubblica e supporta solo le definizioni di criteri predefinite.
@@ -446,11 +445,11 @@ Ogni 5 minuti, viene completata un'analisi completa del cluster e i risultati ve
 
 La proprietà **Details** dell'effetto EnforceRegoPolicy include le sottoproprietà che descrivono la regola di controllo dell'ammissione di rego.
 
-- **policyId** necessaria
+- **policyId** [obbligatorio]
   - Un nome univoco passato come parametro alla regola di controllo dell'ammissione rego.
-- **criteri** di necessaria
+- **criteri** [obbligatorio]
   - Specifica l'URI della regola di controllo dell'ammissione rego.
-- **policyParameters** opzionale
+- **policyParameters** [facoltativo]
   - Definisce tutti i parametri e i valori da passare al criterio rego.
 
 ### <a name="enforceregopolicy-example"></a>Esempio di EnforceRegoPolicy
@@ -517,5 +516,5 @@ Ogni assegnazione viene valutata singolarmente. Di conseguenza, non c'è alcuna 
 - Vedere la [struttura delle definizioni di Criteri di Azure](definition-structure.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
-- Informazioni su come monitorare e [aggiornare le risorse non](../how-to/remediate-resources.md)conformi.
+- Informazioni su come monitorare e [aggiornare le risorse non conformi](../how-to/remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

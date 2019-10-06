@@ -7,13 +7,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 430cf7cde22cc8de337d33e1f083121503d084f5
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: f95f9a592085fd93fba5e6b11a1a75609eb70295
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802351"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980935"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Distribuire l'esempio di progetto PCI-DSS v 3.2.1
 
@@ -83,7 +82,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
      Lasciare invariata l'opzione predefinita _Identità gestita assegnata dal sistema_.
 
-   - Parametri dell'elemento
+   - Parametri artefatto
 
      I parametri definiti in questa sezione si applicano all'artefatto in cui sono definiti. Si tratta di [parametri dinamici](../../concepts/parameters.md#dynamic-parameters), in quanto vengono definiti durante l'assegnazione del progetto. Per un elenco completo di parametri di artefatti e relative descrizioni, vedere la [tabella di parametri degli artefatti](#artifact-parameters-table).
 
@@ -98,7 +97,7 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 
 |Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
-|\[Anteprima\] controllare PCI v 3.2.1:2018 controlla e distribuire estensioni VM specifiche per supportare i requisiti di controllo|Assegnazione criteri|Elenco di tipi di risorse | Controlla l'impostazione di diagnostica per i tipi di risorse selezionati. Il valore predefinito è tutte le risorse selezionate| 
+|\[Preview @ no__t-1 audit PCI v 3.2.1:2018 controlla e Distribuisci specifiche estensioni VM per supportare i requisiti di controllo|Assegnazione criteri|Elenco di tipi di risorse | Controlla l'impostazione di diagnostica per i tipi di risorse selezionati. Il valore predefinito è tutte le risorse selezionate| 
 |Località consentite|Assegnazione criteri|Elenco di percorsi consentiti|Elenco di percorsi di data center consentiti per la distribuzione di qualsiasi risorsa in. Questo elenco è personalizzabile nelle località di Azure desiderate a livello globale. Selezionare le località che si desidera consentire.| 
 |Percorsi consentiti per i gruppi di risorse|Assegnazione criteri |Località consentita |Questo criterio consente di limitare le posizioni in cui l'organizzazione può creare gruppi di risorse. Usare per imporre requisiti di conformità geografica.| 
 |Distribuisci il controllo nei server SQL|Assegnazione criteri|Giorni di conservazione|Al conservazione dati in numero di giorni. Il valore predefinito è 180, ma PCI richiede 365.| 
@@ -109,8 +108,8 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 Ora che sono stati esaminati i passaggi per distribuire l'esempio di progetto PCI-DSS v 3.2.1, vedere gli articoli seguenti per informazioni sulla panoramica e sul mapping dei controlli:
 
 > [!div class="nextstepaction"]
-> [PCI-DSS v 3.2.1 Blueprint-Panoramica](./index.md)
-> [PCI-DSS v 3.2.1-progetto-mapping di controllo](./control-mapping.md)
+> [PCI-DSS v 3.2.1 Blueprint-Overview](./index.md)
+> [PCI-DSS v 3.2.1 Blueprint-Control mapping](./control-mapping.md)
 
 Altri articoli sui progetti e su come usarli:
 

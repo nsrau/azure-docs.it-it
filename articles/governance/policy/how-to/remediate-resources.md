@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: d6ca7827200815cf9b9b1c7ac697d06f9c6b306d
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 219a3c56f9e4e4c9e132fa759b017fac63ade766
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147057"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977983"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Correggere le risorse non conformi con Criteri di Azure
 
@@ -161,7 +160,7 @@ Le risorse distribuite tramite un'**attività di correzione** vengono aggiunte n
 
 ### <a name="create-a-remediation-task-through-azure-cli"></a>Creare un'attività di correzione tramite l'interfaccia della riga di comando di Azure
 
-Per creare un' **attività di correzione** con l'interfaccia della riga di comando `az policy remediation` di Azure, usare i comandi. Sostituire `{subscriptionId}` con l'ID sottoscrizione e `{myAssignmentId}` con il **deployIfNotExists** o **modificare** l'ID di assegnazione dei criteri.
+Per creare un' **attività di correzione** con l'interfaccia della riga di comando di Azure, usare i comandi `az policy remediation`. Sostituire `{subscriptionId}` con l'ID sottoscrizione e `{myAssignmentId}` con il **deployIfNotExists** o **modificare** l'ID di assegnazione dei criteri.
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -174,7 +173,7 @@ Per altri comandi ed esempi di monitoraggio e aggiornamento, vedere i comandi [A
 
 ### <a name="create-a-remediation-task-through-azure-powershell"></a>Creare un'attività di correzione tramite Azure PowerShell
 
-Per creare un' **attività di correzione** con Azure PowerShell, usare i `Start-AzPolicyRemediation` comandi. Sostituire `{subscriptionId}` con l'ID sottoscrizione e `{myAssignmentId}` con il **deployIfNotExists** o **modificare** l'ID di assegnazione dei criteri.
+Per creare un' **attività di correzione** con Azure PowerShell, usare i comandi `Start-AzPolicyRemediation`. Sostituire `{subscriptionId}` con l'ID sottoscrizione e `{myAssignmentId}` con il **deployIfNotExists** o **modificare** l'ID di assegnazione dei criteri.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 08/21/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: 4cd4d89f276770cba401d7941a975fad8e49c8cd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: abf6d22f2010db9bff97c7a93354c1cf8e1e1644
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000534"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976618"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Risolvere gli errori usando il grafico delle risorse di Azure
 
@@ -69,11 +68,11 @@ I clienti che eseguono query sull'API REST di Azure Resource Graph ottengono una
 
 #### <a name="cause"></a>Causa
 
-L'API REST di Azure Resource Graph supporta solo `Content-Type` una di **Application/JSON**. Per impostazione predefinita, alcuni strumenti REST o gli agenti sono di **testo/normale**, che non sono supportati dall'API REST.
+L'API REST di Azure Resource Graph supporta solo un `Content-Type` di **Application/JSON**. Per impostazione predefinita, alcuni strumenti REST o gli agenti sono di **testo/normale**, che non sono supportati dall'API REST.
 
 #### <a name="resolution"></a>Risoluzione
 
-Verificare che lo strumento o l'agente che si sta usando per eseguire query in Azure Resource Graph disponga `Content-Type` dell'intestazione API REST configurata per **Application/JSON**.
+Verificare che lo strumento o l'agente usato per eseguire query nel grafico risorse di Azure disponga dell'intestazione API REST `Content-Type` configurato per **Application/JSON**.
 ### <a name="rest-403"></a>Scenario: Nessuna autorizzazione di lettura per tutte le sottoscrizioni nell'elenco
 
 #### <a name="issue"></a>Problema

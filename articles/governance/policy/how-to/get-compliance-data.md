@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: d9aadc477c3f39cfbb108d2f3eece0c9e0b06264
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: ff50619d7b3d5bc803e8ee8d9e4cbf4389a4191f
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239153"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978097"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
@@ -90,8 +89,8 @@ La tabella seguente illustra il funzionamento dei diversi effetti dei criteri in
 
 | Stato della risorsa | Effetto | Valutazione dei criteri | Stato di conformità |
 | --- | --- | --- | --- |
-| Esiste | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non conforme |
-| Esiste | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Conforme |
+| Esistente | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non conforme |
+| Esistente | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Conforme |
 | Nuovo | Audit, AuditIfNotExist\* | True | Non conforme |
 | Nuovo | Audit, AuditIfNotExist\* | False | Conforme |
 
@@ -413,7 +412,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
 
-Se si dispone di un'area di `AzureActivity` [lavoro log Analytics](../../../log-analytics/log-analytics-overview.md) con dalla [soluzione analisi log attività](../../../azure-monitor/platform/activity-log-collect.md) legata alla sottoscrizione, è anche possibile visualizzare i risultati di non conformità del ciclo di valutazione usando semplici query kusto `AzureActivity` e il tavolo. Con i dettagli dei log di Monitoraggio di Azure è possibile configurare gli avvisi in modo da individuare le risorse non conformi.
+Se si dispone di un' [area di lavoro log Analytics](../../../log-analytics/log-analytics-overview.md) con `AzureActivity` dalla [soluzione analisi log attività](../../../azure-monitor/platform/activity-log-collect.md) legata alla sottoscrizione, è anche possibile visualizzare i risultati di non conformità del ciclo di valutazione usando semplici query Kusto e la tabella `AzureActivity`. Con i dettagli dei log di Monitoraggio di Azure è possibile configurare gli avvisi in modo da individuare le risorse non conformi.
 
 
 ![Conformità dei criteri di Azure con i log di monitoraggio di Azure](../media/getting-compliance-data/compliance-loganalytics.png)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: eb5de6bf42769e7fd04782fc52d93764d1d7a3d6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e341cc5beeb8e8362a848bb1e208ddf1dc773978
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093915"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976789"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrare Cloud Foundry con Azure
 
@@ -65,7 +65,7 @@ Il database per l'autenticazione e gli account utente. Archivia i dati correlati
 Per impostazione predefinita, è possibile usare un database di sistema locale (MySQL). Per la disponibilità elevata e la scalabilità, usare i servizi Azure PostgreSQL o MySQL gestiti. Leggere le istruzioni per [abilitare Azure MySQL/PostgreSQL per CCDB, UAADB e altri database di sistema con Cloud Foundry open source](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/configure-cf-external-databases-using-azure-mysql-postgres-service).
 
 ## <a name="5-open-service-broker"></a>5. Open Service Broker
-La tecnologia Service Broker di Azure offre un'interfaccia coerente per la gestione dell'accesso delle applicazioni ai servizi di Azure. Il nuovo [progetto Open Service Broker per Azure](https://github.com/Azure/open-service-broker-azure) offre un modo semplice e unico per fornire i servizi alle applicazioni in Cloud Foundry, OpenShift e Kubernetes. Vedere il [pacchetto Azure Open Service Broker for PCF](https://network.pivotal.io/products/azure-open-service-broker-pcf/) per istruzioni per la distribuzione in PCF.
+La tecnologia Service Broker di Azure offre un'interfaccia coerente per la gestione dell'accesso delle applicazioni ai servizi di Azure. Il nuovo [progetto Open Service Broker per Azure](https://github.com/Azure/open-service-broker-azure) offre un modo semplice e unico per fornire i servizi alle applicazioni in Cloud Foundry, OpenShift e Kubernetes. Vedere il [pacchetto Azure Open Service Broker for PCF](https://pivotal.io/platform/services-marketplace/data-management/microsoft-azure) per istruzioni per la distribuzione in PCF.
 
 ## <a name="6-metrics-and-logging"></a>6. Metriche e registrazione
 Azure Log Analytics ugello è un componente Cloud Foundry, che consente di trasmettere le metriche dalla [Cloud Foundry loggregator firehose](https://docs.cloudfoundry.org/loggregator/architecture.html) ai [log di monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/). Questo strumento consente di raccogliere, visualizzare e analizzare le metriche relative a prestazioni e integrità del sistema CF tra più distribuzioni.
@@ -91,7 +91,7 @@ Sfruttando i servizi di Azure proprietari, è possibile ridurre i costi di ammin
 
 Pivotal ha lanciato [Small Footprint ERT](https://docs.pivotal.io/pivotalcf/2-0/customizing/small-footprint.html) per i clienti PCF, i cui componenti si trovano in sole 4 macchine virtuali, che eseguono fino a 2500 istanze delle applicazioni. La versione di valutazione è ora disponibile tramite [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Le funzionalità di integrazione di Azure sono disponibili per la prima volta con [Cloud Foundry Open Source](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/), prima che siano disponibili su pivotal Cloud Foundry. Le funzionalità contrassegnate con * non son ancora disponibili tramite PCF. Cloud Foundry integrazione con Azure Stack non è trattato in questo documento.
 Per il supporto di PCF per le funzionalità contrassegnate con * o per l'integrazione di Cloud Foundry con Azure Stack, contattare l'account manager Pivotal e Microsoft per informazioni aggiornate. 
 

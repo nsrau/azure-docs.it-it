@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: f4eb1b69a1464cacaf666e49f4aff7422d63611d
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 906cff017c3f80cb1bdd369453b18564d19eb492
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264526"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981162"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Casi d'uso di Anteprima di Azure Time Series Insights
 
@@ -38,7 +38,7 @@ Azure Time Series Insights è un'offerta di piattaforma distribuita come servizi
 
 Esplorare e analizzare immediatamente miliardi di eventi per rilevare anomalie e individuare tendenze nascoste nei dati. Time Series Insights offre prestazioni near real-time per i carichi di lavoro di analisi di IoT e DevOps.
 
-[![Esplora dati](media/v2-update-use-cases/data-explorer.svg)](media/v2-update-use-cases/data-explorer.svg#lightbox)
+[![Data Explorer](media/v2-update-use-cases/data-explorer.svg)](media/v2-update-use-cases/data-explorer.svg#lightbox)
 
 La maggior parte dei clienti accetta che la quantità minima di tempo necessaria per ottenere informazioni è una delle funzionalità principali di Time Series Insights:
 
@@ -56,11 +56,11 @@ Esistono tre modi principali per interagire con i dati archiviati in Time Series
 
 - Il secondo modo per iniziare è usare JavaScript SDK per incorporare rapidamente diagrammi e grafici avanzati nell'applicazione Web. Con poche righe di codice, è possibile creare query avanzate. Usarle per popolare grafici a linee, grafici a torta, grafici a barre, mappe termiche, griglie dati e altro ancora. Tutti questi elementi sono predefiniti se si usa l'SDK. L'SDK astrae anche le API di query di Time Series Insights. È possibile usarle per creare predicati simili a SQL per eseguire query sui dati da visualizzare in un dashboard. Per le soluzioni ibride a livello di presentazione, Time Series Insights offre URL con parametri. Forniscono punti di connessione ottimali con lo strumento di esplorazione di Anteprima di Time Series Insights per un'analisi dettagliata dei dati.
 
-    * Per ulteriori informazioni su JavaScript SDK, vedere la [libreria client di Time Series Insights JS](tutorial-explore-js-client-lib.md) e la documentazione di [Time Series Insights client](https://github.com/Microsoft/tsiclient) .
+    * Per ulteriori informazioni su JavaScript SDK, vedere la [libreria client Time Series Insights JS](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) e la documentazione del [client di Time Series Insights](https://github.com/Microsoft/tsiclient) .
 
     * Per altre informazioni su come condividere gli URL e la nuova interfaccia utente, vedere [visualizzare i dati in esplora Azure Time Series Insights Preview](time-series-insights-update-explorer.md).
 
-- Il terzo modo per iniziare consiste nell'usare le API avanzate per eseguire query sui dati archiviati in Time Series Insights. Time Series Insights dispone di `from`operatori `first`temporali, `to`ad esempio, `last`, e. Dispone di aggregazioni e trasformazioni `average` `max`, ad esempio `min`,, `split by`, `order by`, e `DateHistogram`. `has`Include anche operatori di filtro `and`, ad esempio `in`,, `or`, `greater than`, e `REGEX`. Tutti questi operatori consentono alle applicazioni downstream di trovare rapidamente tendenze e modelli interessanti nei dati. Usarli per popolare le visualizzazioni personalizzate e poter individuare le anomalie.
+- Il terzo modo per iniziare consiste nell'usare le API avanzate per eseguire query sui dati archiviati in Time Series Insights. Time Series Insights dispone di operatori temporali, ad esempio `from`, `to`, `first` e `last`. Dispone di aggregazioni e trasformazioni come `average`, `min`, `max`, `split by`, `order by` e `DateHistogram`. Include anche operatori di filtro, ad esempio `has`, `in`, `and`, `or`, `greater than` e `REGEX`. Tutti questi operatori consentono alle applicazioni downstream di trovare rapidamente tendenze e modelli interessanti nei dati. Usarli per popolare le visualizzazioni personalizzate e poter individuare le anomalie.
 
 ## <a name="operational-analysis-and-driving-process-efficiency"></a>Analisi operativa e miglioramento dell'efficienza dei processi
 
@@ -86,7 +86,7 @@ Time Series Insights offre l'esplorazione dei dati quasi in tempo reale e inform
 
 Ottenere l'integrazione con servizi di analisi avanzati come Machine Learning e Azure Databricks. Time Series Insights inserisce dati non elaborati da milioni di dispositivi. Aggiunge dati contestuali che possono essere utilizzati senza problemi da un gruppo di servizi di analisi di Azure.
 
-[![Analisi](media/v2-update-use-cases/advanced-analytics.svg)](media/v2-update-use-cases/advanced-analytics.svg#lightbox)
+[![Analytics](media/v2-update-use-cases/advanced-analytics.svg)](media/v2-update-use-cases/advanced-analytics.svg#lightbox)
 
 L'analisi avanzata e l'apprendimento automatico utilizzano ed elaborano grandi volumi di dati. Questi dati vengono usati per prendere decisioni basate sui dati ed eseguire analisi predittive. Nei casi d'uso delle soluzioni IoT, gli algoritmi di analisi avanzata apprendono dai dati raccolti da milioni di dispositivi. Questi dispositivi trasmettono i dati più volte al secondo. I dati raccolti dai dispositivi IoT non sono elaborati. Non includono informazioni contestuali, ad esempio la posizione del dispositivo e l'unità di misura del sensore che effettua la lettura. Di conseguenza, i dati non elaborati sono difficili da utilizzare direttamente per l'analisi avanzata.
 

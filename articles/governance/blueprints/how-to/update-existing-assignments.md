@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: e5697d00c2b0a869667d74e93c3ccae593bf200b
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: bf1fdca5476f66249eb5b73bbcbf5913142eb0d3
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231939"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978488"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Come aggiornare un'assegnazione di progetto esistente
 
@@ -46,9 +45,9 @@ Quando viene assegnato un progetto, l'assegnazione può essere aggiornata. Esist
 
 La distribuzione delle assegnazioni aggiornate segue alcune regole importanti. Queste regole definiscono che cosa accade alle risorse già distribuite. La modifica richiesta e il tipo di risorsa dell'artefatto distribuito o aggiornato determinano le azioni che vengono eseguite.
 
-- Assegnazioni di ruolo
+- Assegnazioni di ruoli
   - Se cambia il ruolo o l'assegnatario del ruolo (utente, gruppo o app), viene creata una nuova assegnazione di ruolo. Le assegnazioni di ruolo distribuite in precedenza vengono mantenute.
-- Assegnazioni dei criteri
+- Assegnazioni di criteri
   - Se vengono modificati i parametri dell'assegnazione dei criteri, l'assegnazione esistente viene aggiornata.
   - Se viene modificata la definizione dell'assegnazione dei criteri, viene creata una nuova assegnazione di criteri. Le assegnazioni di criteri distribuite in precedenza vengono mantenute.
   - Se l'artefatto dell'assegnazione dei criteri viene rimosso dal progetto, l'assegnazione di criteri distribuita viene mantenuta.

@@ -7,13 +7,12 @@ ms.author: dacoulte
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: b5cf0cf5dc8a0964d981c5537b6fa41f1c6c2058
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 2e810c810fd2c143f3d3e43a6ff1df87a150fa3b
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968497"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981635"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Distribuire gli esempi di progetto Federal PBMM per il Canada
 
@@ -83,7 +82,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
      Lasciare invariata l'opzione predefinita _Identità gestita assegnata dal sistema_.
 
-   - Parametri dell'elemento
+   - Parametri artefatto
 
      I parametri definiti in questa sezione si applicano all'artefatto in cui sono definiti. Si tratta di [parametri dinamici](../../concepts/parameters.md#dynamic-parameters), in quanto vengono definiti durante l'assegnazione del progetto. Per un elenco completo di parametri di artefatti e relative descrizioni, vedere la [tabella di parametri degli artefatti](#artifact-parameters-table).
 
@@ -99,8 +98,8 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
 |\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione criteri |Area di lavoro Log Analytics per VM Linux |Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione criteri |Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Linux da aggiungere all'ambito |Una matrice vuota può essere usata per indicare l'assenza di parametri facoltativi:`[]` |
-|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione criteri |Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Windows da aggiungere all'ambito |Una matrice vuota può essere usata per indicare l'assenza di parametri facoltativi:`[]` |
+|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione criteri |Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Linux da aggiungere all'ambito |È possibile utilizzare una matrice vuota per indicare che non sono presenti parametri facoltativi: `[]` |
+|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione criteri |Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Windows da aggiungere all'ambito |È possibile utilizzare una matrice vuota per indicare che non sono presenti parametri facoltativi: `[]` |
 |\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione criteri |Area di lavoro Log Analytics per VM Windows |Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
 |\[Anteprima\]: Controllare i controlli PBMM federali del Canada e distribuire estensioni VM specifiche per supportare i requisiti di controllo |Assegnazione criteri |ID dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate |Si tratta dell'ID (GUID) dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate. |
 |\[Anteprima\]: Controllare i controlli PBMM federali del Canada e distribuire estensioni VM specifiche per supportare i requisiti di controllo |Assegnazione criteri |Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica |Elenco di tipi di risorse da controllare se l'impostazione del log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
@@ -117,7 +116,7 @@ Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 Ora che sono stati esaminati i passaggi per distribuire l'esempio Canada Federal PBMM, vedere gli articoli seguenti per informazioni sulla panoramica e sul mapping dei controlli:
 
 > [!div class="nextstepaction"]
-> [Canada Federal PBMM Blueprints-Panoramica](./index.md)
+> [Blueprints Federal PBMM per il Canada-panoramica](./index.md)
 > [Canada Federal PBMM Blueprints-controllo mapping](./control-mapping.md)
 
 Altri articoli sui progetti e su come usarli:

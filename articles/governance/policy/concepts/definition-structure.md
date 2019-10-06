@@ -6,20 +6,19 @@ ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: b2b38fe2d9a2bf4c645e5b1cda4b8fba356353d3
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 27cf1539fc98b2ad7f1b82e194989c1619ab99fb
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181195"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980700"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
 Le definizioni dei criteri delle risorse vengono usati da Criteri di Azure per stabilire le convenzioni delle risorse. Ogni definizione descrive la conformità della risorsa e le azioni da intraprendere quando una risorsa non è conforme.
 Definendo le convenzioni, è possibile controllare i costi e gestire più facilmente le risorse. È ad esempio possibile specificare che vengano consentiti solo determinati tipi di macchine virtuali. In alternativa, è possibile richiedere che tutte le risorse abbiano un tag specifico. I criteri vengono ereditati da tutte le risorse figlio. Se un criterio viene applicato a un gruppo di risorse, è applicabile a tutte le risorse in tale gruppo.
 
-Lo schema usato dai Criteri di Azure è reperibile qui: [https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policydefinitions](/azure/templates/microsoft.authorization/2019-01-01/policydefinitions)
+Lo schema di definizione dei criteri è disponibile qui: [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
 
 Per creare una definizione di criterio è possibile usare JSON. La definizione dei criteri contiene gli elementi per:
 
@@ -84,7 +83,7 @@ Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** s
 
 ### <a name="resource-provider-modes"></a>Modalità del provider di risorse
 
-L'unica modalità del provider di risorse supportata `Microsoft.ContainerService.Data` attualmente è la gestione delle regole del controller di ammissione nel [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md).
+L'unica modalità del provider di risorse supportata attualmente è `Microsoft.ContainerService.Data` per la gestione delle regole del controller di ammissione nel [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
 > [Criteri di Azure per Kubernetes](rego-for-aks.md) è in anteprima pubblica e supporta solo le definizioni di criteri predefinite.
@@ -247,7 +246,7 @@ Una condizione valuta se una funzione di accesso **field** o **value** soddisfa 
 Quando si usano le condizioni **like** e **notLike**, è possibile inserire un carattere jolly `*` nel valore.
 Il valore non deve contenere più di un carattere jolly `*`.
 
-Quando si usano le condizioni **match** e **notMatch** , `#` fornire per trovare la corrispondenza `?` con una cifra, `.` per una lettera, per trovare la corrispondenza con qualsiasi carattere e qualsiasi altro carattere in modo che corrisponda al carattere effettivo.
+Quando si usano le condizioni **match** e **notMatch** , specificare `#` in modo che corrisponda a una cifra, `?` per una lettera, `.` in modo che corrisponda a qualsiasi carattere e a qualsiasi altro carattere in modo che corrisponda al carattere effettivo.
 **match** e **notMatch** fanno distinzione tra maiuscole e minuscole. Alternative senza distinzione tra maiuscole e minuscole sono disponibili in **matchInsensitively** e **notMatchInsensitively**. Ad esempio, vedere [Consentire modelli nome multipli](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Campi
@@ -367,7 +366,7 @@ L'utilizzo delle _funzioni di modello_ in **value** consente numerose funzioni a
 }
 ```
 
-La regola dei criteri di esempio precedente USA [substring ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) per confrontare i primi tre caratteri di **nome** in **ABC**. Se il **nome** è più breve di tre caratteri, `substring()` la funzione genera un errore. Questo errore fa sì che i criteri diventino un effetto **negato** .
+La regola dei criteri di esempio precedente USA [substring ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) per confrontare i primi tre caratteri di **nome** in **ABC**. Se il **nome** è più breve di tre caratteri, la funzione `substring()` genera un errore. Questo errore fa sì che i criteri diventino un effetto **negato** .
 
 Utilizzare invece la funzione [if ()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) per verificare se i primi tre caratteri del **nome** corrispondono a **ABC** senza consentire a un **nome** più breve di tre caratteri di generare un errore:
 
@@ -385,7 +384,7 @@ Utilizzare invece la funzione [if ()](../../../azure-resource-manager/resource-g
 }
 ```
 
-Con la regola dei criteri modificata `if()` , controlla la lunghezza del **nome** prima di provare a `substring()` ottenere un valore con meno di tre caratteri. Se il **nome** è troppo breve, viene invece restituito il valore "Not Starting with ABC" e viene confrontato con **ABC**. Una risorsa con un nome breve che non inizia con **ABC** continua ad avere esito negativo sulla regola dei criteri, ma non causa più errori durante la valutazione.
+Con la regola dei criteri modificata, `if()` controlla la lunghezza del **nome** prima di provare a ottenere un `substring()` su un valore con meno di tre caratteri. Se il **nome** è troppo breve, viene invece restituito il valore "Not Starting with ABC" e viene confrontato con **ABC**. Una risorsa con un nome breve che non inizia con **ABC** continua ad avere esito negativo sulla regola dei criteri, ma non causa più errori durante la valutazione.
 
 ### <a name="effect"></a>Effetto
 
@@ -517,7 +516,7 @@ Molti degli alias disponibili hanno una versione che viene visualizzata come un 
 
 L'alias ' Normal ' rappresenta il campo come valore singolo. Questo campo è per gli scenari di confronto con corrispondenza esatta quando l'intero set di valori deve essere esattamente come definito, non più e non meno.
 
-L' **alias\*[]** rende possibile il confronto con il valore di ogni elemento nella matrice e proprietà specifiche di ogni elemento. Questo approccio consente di confrontare le proprietà degli elementi per gli scenari "If None of", "if any of" o "if all of". Utilizzando **ipRules [\*]** , un esempio convaliderebbe che ogni _azione_ è _negata_, ma non preoccupante del numero di regole esistenti o del _valore_ IP. Questa regola di esempio controlla la presenza di eventuali corrispondenze di **ipRules [\*]. Value** in **10.0.4.1** e applica **effectType** solo se non trova almeno una corrispondenza:
+L'alias **[\*]** rende possibile il confronto con il valore di ogni elemento nella matrice e proprietà specifiche di ogni elemento. Questo approccio consente di confrontare le proprietà degli elementi per gli scenari "If None of", "if any of" o "if all of". Utilizzando **ipRules [\*]** , un esempio convaliderebbe che ogni _azione_ sia _negata_, ma non preoccupante del numero di regole esistenti o del _valore_ IP. Questa regola di esempio controlla la presenza di eventuali corrispondenze di **ipRules [\*]. valore** in **10.0.4.1** e applica **effectType** solo se non trova almeno una corrispondenza:
 
 ```json
 "policyRule": {
@@ -539,7 +538,7 @@ L' **alias\*[]** rende possibile il confronto con il valore di ogni elemento nel
 }
 ```
 
-Per ulteriori informazioni, vedere [la pagina relativa alla\*valutazione dell'alias []](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+Per ulteriori informazioni, vedere [la pagina relativa alla valutazione dell'alias [\*]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Iniziative
 
@@ -625,5 +624,5 @@ L'esempio seguente illustra come creare un'iniziativa per la gestione di due tag
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
-- Informazioni su come monitorare e [aggiornare le risorse non](../how-to/remediate-resources.md)conformi.
+- Informazioni su come monitorare e [aggiornare le risorse non conformi](../how-to/remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).
