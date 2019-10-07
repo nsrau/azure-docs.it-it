@@ -9,18 +9,17 @@ editor: ''
 tags: connectors
 ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
 ms.service: logic-apps
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 10332b95e0d385d7155003efcc52b4bae3969313
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60538244"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973759"
 ---
 # <a name="get-started-with-the-query-action"></a>Introduzione all'azione di query
 Con l'azione di query è possibile usare batch e matrici per poter eseguire flussi di lavoro per:
@@ -70,7 +69,7 @@ Un asterisco (*) indica che è un campo obbligatorio.
 | `Display name` | Nome proprietà | Descrizione |
 | --- | --- | --- |
 | Da* |from |La matrice da filtrare |
-| Condizione* |dove |La condizione da valutare per ogni elemento |
+| Condizione* |where |La condizione da valutare per ogni elemento |
 
 <br>
 

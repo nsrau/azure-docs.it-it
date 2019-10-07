@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 10e0f24642d54c43d6c818773d0eb17815ab784b
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: b6ac528d0d2916f513be4e2a72bff061bdad8e58
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996913"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718655"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Esercitazione: Configurare HTTPS in un dominio personalizzato della rete CDN di Azure
 
@@ -190,7 +190,7 @@ La convalida automatica richiede in genere qualche ora. Se il dominio non viene 
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>Il dominio personalizzato non è mappato all'endpoint della rete CDN
 
 >[!NOTE]
->Se si usa **Rete CDN di Azure di Akamai**, il dominio personalizzato deve essere mappato all'endpoint CDN con un record CNAME come indicato in precedenza.  Questa funzionalità è attualmente presente nel backlog. 
+>Se si usa la **rete CDN di Azure di Akamai**, è necessario configurare il record CNAME seguente per consentire la convalida automatica del dominio: "_acme-challenge.<custom domain hostname> -> CNAME -> <custom domain hostname>.ak-acme-challenge.azureedge.net"
 
 Se la voce di record CNAME contiene il sottodominio cdnverify, seguire le istruzioni riportate in questo passaggio.
 

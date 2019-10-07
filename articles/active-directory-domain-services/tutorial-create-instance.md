@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 8c346b75b30737645721d8b39a655a85ed446fae
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 536ada668db724ca50d7db820aff173f7222bab2
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71229534"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336848"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Esercitazione: Creare e configurare un'istanza di Azure Active Directory Domain Services
 
@@ -42,7 +42,8 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Per abilitare Azure AD DS, sono necessari privilegi di *amministratore globale* nel tenant di Azure AD.
 * Per creare le risorse di Azure AD DS richieste, sono necessari privilegi di *collaboratore* nella sottoscrizione di Azure.
-* Il tenant di Azure AD deve essere [configurato per la reimpostazione delle password self-service][configure-sspr].
+
+Nonostante non sia necessario per Azure Active Directory Domain Services, è consigliabile [configurare la reimpostazione della password self-service][configure-sspr] per il tenant di Azure AD. Gli utenti possono modificare la password senza questa funzionalità, ma la reimpostazione della password self-service è utile se dimenticano la password e devono reimpostarla.
 
 > [!IMPORTANT]
 > Dopo aver creato un dominio gestito Azure Active Directory Domain Services, non è possibile spostare l'istanza in un gruppo di risorse, una rete virtuale o una sottoscrizione diversa. Quando si distribuisce l'istanza di Azure Active Directory Domain Services, prestare attenzione a selezionare la sottoscrizione, il gruppo di risorse, l'area e la rete virtuale più appropriati.

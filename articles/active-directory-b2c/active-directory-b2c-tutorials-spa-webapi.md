@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6d354ab25125b0df90ac3d6852d7eafe5d5aba46
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 60fe9569b0e6e92ae161271439ecbf1b04788ed4
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064685"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694600"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Esercitazione: Concedere l'accesso a un'API Web ASP.NET Core da un'applicazione a pagina singola con Azure Active Directory B2C
 
@@ -38,32 +38,15 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="add-a-web-api-application"></a>Aggiungere un'applicazione API Web
 
-Per poter accettare e rispondere a richieste di risorse protette da parte di applicazioni client che presentano un token di accesso, le risorse API Web devono prima essere registrate nel tenant.
-
-1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
-1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-1. Selezionare **Applicazioni** e quindi **Aggiungi**.
-1. Immettere un nome per l'applicazione. Ad esempio, *webapi1*.
-1. Per **Includi app Web/API Web** e **Consenti il flusso implicito**, selezionare **Sì**.
-1. Per **URL di risposta**, immettere un endpoint a cui Azure AD B2C deve restituire eventuali token richiesti dall'applicazione. In questa esercitazione, l'esempio viene eseguito in locale ed è in ascolto su `https://localhost:5000`.
-1. Per **URI ID app** immettere un identificatore dell'endpoint API per l'URI visualizzato. Per l'esercitazione, immettere `api`, in modo che l'URI completo sia simile a `https://contosotenant.onmicrosoft.com/api`.
-1. Fare clic su **Create**(Crea).
-1. Selezionare l'applicazione *webapi1* per aprire la relativa pagina delle proprietà.
-1. Prendere nota dell'**ID applicazione** visualizzato nella pagina delle proprietà. Questo ID sarà necessario in un passaggio successivo durante la configurazione dell'applicazione Web.
+[!INCLUDE [active-directory-b2c-appreg-webapi](../../includes/active-directory-b2c-appreg-webapi.md)]
 
 ## <a name="configure-scopes"></a>Configurare gli ambiti
 
 Gli ambiti consentono di regolamentare l'accesso alle risorse protette. Vengono usati dall'API Web per implementare il controllo degli accessi in base all'ambito. Alcuni utenti possono avere ad esempio accesso sia in lettura che in scrittura, mentre altri possono avere autorizzazioni di sola lettura. In questa esercitazione si definiscono autorizzazioni di lettura e scrittura per l'API Web.
 
-1. Selezionare **Applicazioni**, quindi selezionare *webapi1* per aprire la relativa pagina delle proprietà, se non è già aperta.
-1. Selezionare **Ambiti pubblicati**.
-1. Immettere `Hello.Read` come **AMBITO** e `Read access to hello` come **DESCRIZIONE**.
-1. Immettere `Hello.Write` come **AMBITO** e `Write access to hello` come **DESCRIZIONE**.
-1. Selezionare **Salva**.
-1. Prendere nota del **VALORE AMBITO COMPLETO** per l'ambito `Hello.Read` da usare in un passaggio successivo durante la configurazione dell'applicazione a pagina singola. Il valore dell'ambito completo è simile a `https://yourtenant.onmicrosoft.com/api/Hello.Read`.
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-Gli ambiti pubblicati possono essere usati per concedere a un'app client autorizzazioni per l'API Web.
+Prendere nota del **VALORE AMBITO COMPLETO** per l'ambito `demo.read` da usare in un passaggio successivo durante la configurazione dell'applicazione a pagina singola. Il valore dell'ambito completo è simile a `https://yourtenant.onmicrosoft.com/api/demo.read`.
 
 ## <a name="grant-permissions"></a>Concedere le autorizzazioni
 
@@ -71,12 +54,7 @@ Per chiamare un'API Web protetta da un'altra applicazione, è necessario concede
 
 Nell'esercitazione preliminare è stata creata un'applicazione Web denominata *webapp1*. In questa esercitazione si configurerà l'applicazione in modo che chiami l'API Web creata in una sezione precedente, *webapi1*.
 
-1. Passare al tenant B2C nel portale di Azure
-1. Selezionare **Applicazioni** e quindi *webapp1*.
-1. Selezionare **Accesso all'API** e quindi **Aggiungi**.
-1. Nell'elenco a discesa **Seleziona API** selezionare *webapi1*.
-1. Nell'elenco a discesa **Seleziona ambiti** selezionare gli ambiti **Hello.Read** e **Hello.Write** definiti in precedenza.
-1. Fare clic su **OK**.
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 L'applicazione a pagina singola viene registrata per la chiamata dell'API Web protetta. Un utente esegue l'autenticazione con Azure AD B2C per usare l'applicazione a pagina singola. L'app a pagina singola ottiene una concessione di autorizzazione da Azure AD B2C per l'accesso all'API Web protetta.
 
@@ -101,8 +79,8 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
       "ClientId": "<webapi-application-ID>",
       "Policy": "B2C_1_signupsignin1",
 
-      "ScopeRead": "Hello.Read",
-      "ScopeWrite": "Hello.Write"
+      "ScopeRead": "demo.read",
+      "ScopeWrite": "demo.write"
     },
     ```
 
@@ -154,7 +132,7 @@ In questa sezione l'applicazione a pagina singola viene aggiornata per chiamare 
 Per cambiare le impostazioni nell'applicazione a pagina singola:
 
 1. Aprire il file *index.html* nel progetto [active-directory-b2c-javascript-msal-singlepageapp][github-js-spa] scaricato o clonato dall'esercitazione precedente.
-1. Configurare l'esempio con l'URI dell'ambito *Hello.Read* creato in precedenza e l'URL dell'API Web.
+1. Configurare l'esempio con l'URI dell'ambito *demo.read* creato in precedenza e l'URL dell'API Web.
     1. Nella definizione `appConfig` sostituire il valore `b2cScopes` con l'URI completo dell'ambito (il **VALORE AMBITO COMPLETO** annotato in precedenza).
     1. Sostituire il valore `webApi` con il valore `applicationURL` specificato nella sezione precedente.
 
@@ -163,7 +141,7 @@ Per cambiare le impostazioni nell'applicazione a pagina singola:
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
     var appConfig = {
-      b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/Hello.Read"],
+      b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/demo.read"],
       webApi: "http://localhost:5000/"
     };
     ```

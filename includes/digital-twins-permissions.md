@@ -5,15 +5,15 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: include
-ms.date: 09/24/2019
+ms.date: 09/30/2019
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: 1fc30ea5aa843329b6227bfa564b3d10e2273cd7
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 6e808fb64d004f117a3c25946ad97e26ddfadaa3
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310493"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802383"
 ---
 >[!NOTE]
 >Questa sezione fornisce istruzioni relative alla [nuova esperienza di registrazione app Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Se sono ancora presenti registrazioni app native legacy, è possibile continuare a usarle se sono ancora supportate. Se inoltre per qualche motivo la nuova modalità di registrazione app non funziona nella configurazione in uso, è possibile provare a creare un'app AAD nativa legacy. Vedere [Registrare un'app Gemelli digitali di Azure con Azure Active Directory legacy](../articles/digital-twins/how-to-use-legacy-aad.md) per altre informazioni. 
@@ -39,16 +39,18 @@ ms.locfileid: "71310493"
 
 1. Aprire il riquadro **Autorizzazioni API** per la app registrazione app. Selezionare il pulsante **Aggiungi un'autorizzazione**. Nel riquadro **Richiedi le autorizzazioni dell'API** selezionare la scheda **API usate dall'organizzazione** e quindi cercare:
     
-    1. **Gemelli digitali di Azure**. Selezionare l'API **Gemelli digitali di Azure**.
+    1. `Azure Digital Twins`. Selezionare l'API **Gemelli digitali di Azure**.
 
         [![Cercare l'API Gemelli digitali di Azure](./media/digital-twins-permissions/aad-aap-search-api-dt.png)](./media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
 
-    1. In alternativa, è possibile cercare **Azure Smart Spaces**. Selezionare l'API **Azure Smart Spaces Service** (Servizio Spazi intelligenti Azure).
+    1. In alternativa, cercare `Azure Smart Spaces Service`. Selezionare l'API **Azure Smart Spaces Service** (Servizio Spazi intelligenti Azure).
 
         [![Cercare l'API Azure Smart Spaces](./media/digital-twins-permissions/aad-app-search-api.png)](./media/digital-twins-permissions/aad-app-search-api.png#lightbox)
 
-    > [!NOTE]
-    > Il nome esatto che verrà visualizzato durante la ricerca può variare a seconda del tenant di Azure a cui si appartiene.
+    > [!IMPORTANT]
+    > Il nome e l'ID dell'API di Azure AD che verranno visualizzati dipendono dal tenant:
+    > * Gli account dei clienti e dei tenant di test devono cercare `Azure Digital Twins`.
+    > * Gli altri account Microsoft devono cercare `Azure Smart Spaces Service`.
 
 1. L'API selezionata viene visualizzata come **Gemelli digitali di Azure** nello stesso riquadro **Richiedi le autorizzazioni dell'API**. Selezionare il menu a discesa **Lettura (1)** e quindi la casella di controllo **Read.Write**. Selezionare il pulsante **Aggiungi autorizzazioni**.
 

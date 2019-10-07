@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6cde60ee31b1654d79affd6e9050f426365ba29f
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 0c7d88d76a3fea87b3cfe4032186140f38c263d3
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240965"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71693399"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Esercitazione: Sviluppare moduli IoT Edge per dispositivi Windows
 
@@ -134,7 +134,7 @@ L'estensione Azure IoT Edge Tools fornisce modelli di progetto per tutti i lingu
    | ----- | ----- |
    | Modello di Visual Studio | Selezionare **C# Module** (Modulo C#). | 
    | Nome modulo | Accettare il valore predefinito **IotEdgeModule1**. | 
-   | URL del repository | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata in base al valore del nome del progetto di modulo. Sostituire **localhost:5000** con il valore del server di accesso in Registro Azure Container. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. <br><br> Il repository di immagini finale sarà simile a \<nome registro\>.azurecr.io/iotedgemodule1. |
+   | URL del repository | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata in base al valore del nome del progetto di modulo. Sostituire **localhost:5000** con il valore del server di accesso in Registro Azure Container. È possibile recuperare il valore di **Server di accesso** dalla pagina **Panoramica** del registro contenitori nel portale di Azure. <br><br> Il repository di immagini finale sarà simile a \<nome registro\>.azurecr.io/iotedgemodule1. |
 
       ![Configurare il progetto per il dispositivo di destinazione, il tipo di modulo e il registro contenitori](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
@@ -143,33 +143,38 @@ L'estensione Azure IoT Edge Tools fornisce modelli di progetto per tutti i lingu
 Una volta che il nuovo progetto viene caricato nella finestra di Visual Studio, dedicare un po' di tempo ad acquisire familiarità con i file creati: 
 
 * Progetto IoT Edge denominato **CSharpTutorialApp**.
-    * La cartella **Modules** (Moduli) contiene i puntatori ai moduli inclusi nel progetto. In questo caso sarà semplicemente IotEdgeModule1. 
-    * Il file **deployment.template.json** è un modello che aiuta a creare un manifesto della distribuzione. Un *manifesto della distribuzione* è un file che definisce esattamente i moduli da distribuire in un dispositivo, come configurarli e il modo in cui comunicano tra loro e con il cloud. 
+  * La cartella **Modules** (Moduli) contiene i puntatori ai moduli inclusi nel progetto. In questo caso sarà semplicemente IotEdgeModule1. 
+  * Il file nascosto con estensione **env** contiene le credenziali per il registro contenitori. Queste credenziali vengono condivise con il dispositivo IoT Edge in modo che possa accedere per eseguire il pull delle immagini dei contenitori.
+  * Il file **deployment.template.json** è un modello che aiuta a creare un manifesto della distribuzione. Un *manifesto della distribuzione* è un file che definisce esattamente i moduli da distribuire in un dispositivo, come configurarli e il modo in cui comunicano tra loro e con il cloud.
+    > [!TIP]
+    > Nella sezione relativa alle credenziali del registro l'indirizzo viene inserito automaticamente in base alle informazioni fornite durante la creazione della soluzione. Nome utente e password fanno tuttavia riferimento alle variabili archiviate nel file con estensione env. Ciò serve per garantire la sicurezza, in quanto il file con estensione env è ignorato da git, mentre il modello di distribuzione no.
 * Un progetto di modulo IoT Edge denominato **IotEdgeModule1**.
-    * Il file **program.cs** contiene il codice del modulo C# predefinito disponibile con il modello di progetto. Il modulo predefinito accetta l'input da un'origine e lo passa all'hub IoT. 
-    * Il file **module.json** contiene i dettagli del modulo, tra cui il repository di immagini completo, la versione delle immagini e il documento Dockerfile da usare per ogni piattaforma supportata.
+  * Il file **program.cs** contiene il codice del modulo C# predefinito disponibile con il modello di progetto. Il modulo predefinito accetta l'input da un'origine e lo passa all'hub IoT. 
+  * Il file **module.json** contiene i dettagli del modulo, tra cui il repository di immagini completo, la versione delle immagini e il documento Dockerfile da usare per ogni piattaforma supportata.
 
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>Fornire le credenziali del registro all'agente IoT Edge
 
-Il runtime IoT Edge richiede le credenziali del registro per eseguire il pull delle immagini dei contenitori nel dispositivo IoT Edge. Aggiungere queste credenziali al modello di distribuzione. 
+Il runtime IoT Edge richiede le credenziali del registro per eseguire il pull delle immagini dei contenitori nel dispositivo IoT Edge. L'estensione IoT Edge cerca di eseguire il pull delle informazioni del registro contenitori da Azure e di inserirle nel modello di distribuzione.
 
-1. Aprire il file **deployment.template.json**.
+1. Aprire il file **deployment.template.json** nella soluzione del modulo.
 
-2. Trovare la proprietà **registryCredentials** nelle proprietà desiderate di $edgeAgent. 
-
-3. Aggiornare la proprietà con le credenziali, usando questo formato: 
+1. Trovare la proprietà **registryCredentials** nelle proprietà desiderate di $edgeAgent e verificare che contenga le informazioni corrette.
 
    ```json
    "registryCredentials": {
      "<registry name>": {
-       "username": "<username>",
-       "password": "<password>",
+       "username": "$CONTAINER_REGISTRY_USERNAME_<registry name>",
+       "password": "$CONTAINER_REGISTRY_PASSWORD_<registry name>",
        "address": "<registry name>.azurecr.io"
      }
    }
    ```
 
-4. Salvare il file deployment.template.json. 
+1. Aprire il file con estensione **env** nella soluzione del modulo. Il file in Esplora soluzioni è nascosto per impostazione predefinita, pertanto per visualizzarlo potrebbe essere necessario selezionare il pulsante **Mostra tutti i file**.
+
+1. Aggiungere i valori di **Nome utente** e **Password** copiati da Registro Azure Container.
+
+1. Salvare le modifiche al file con estensione env.
 
 ### <a name="review-the-sample-code"></a>Esaminare il codice di esempio
 

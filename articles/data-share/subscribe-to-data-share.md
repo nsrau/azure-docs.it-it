@@ -1,17 +1,17 @@
 ---
-title: 'Esercitazione: Accettare e ricevere dati con Condivisione dati di Azure (anteprima)'
+title: 'Esercitazione: Accettare e ricevere dati - Condivisione dati di Azure (anteprima)'
 description: 'Esercitazione: Accettare e ricevere dati con Condivisione dati di Azure (anteprima)'
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: fc63c1a0b3b496de8e5ecea58f79f1db9d872e80
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 235ef25b2d655c4388dee5bdcf88d179f3373697
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838433"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327406"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share-preview"></a>Esercitazione: Accettare e ricevere dati con Condivisione dati di Azure (anteprima)
 

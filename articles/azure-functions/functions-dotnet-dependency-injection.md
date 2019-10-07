@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: e1cf67abcc44a3ca134e5435137869d4fff1a7eb
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: de8782edcc8b9c64621f1ca67d4bb810c926afaf
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162353"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973378"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usare l'inserimento di dipendenze in funzioni di Azure per .NET
 
@@ -37,9 +37,9 @@ Prima di poter usare l'inserimento di dipendenze, è necessario installare i pac
 
 ## <a name="register-services"></a>Registrare i servizi
 
-Per registrare servizi, creare un metodo per configurare e aggiungere componenti a un' `IFunctionsHostBuilder` istanza di.  L'host di funzioni di Azure crea un' `IFunctionsHostBuilder` istanza di e la passa direttamente al metodo.
+Per registrare i servizi, creare un metodo per configurare e aggiungere componenti a un'istanza di `IFunctionsHostBuilder`.  L'host di funzioni di Azure crea un'istanza di `IFunctionsHostBuilder` e la passa direttamente al metodo.
 
-Per registrare il metodo, aggiungere l' `FunctionsStartup` attributo dell'assembly che specifica il nome del tipo usato durante l'avvio.
+Per registrare il metodo, aggiungere l'attributo dell'assembly `FunctionsStartup` che specifica il nome del tipo usato durante l'avvio.
 
 ```csharp
 using System;
@@ -72,15 +72,15 @@ namespace MyNamespace
 
 Una serie di passaggi di registrazione viene eseguita prima e dopo l'elaborazione della classe Startup da parte del runtime. Pertanto, tenere presenti gli elementi seguenti:
 
-- *La classe startup è destinata solo alla configurazione e alla registrazione.* Evitare di usare i servizi registrati all'avvio durante il processo di avvio. Ad esempio, non provare a registrare un messaggio in un logger registrato durante l'avvio. Questo punto del processo di registrazione è troppo presto perché i servizi siano disponibili per l'uso. Dopo l' `Configure` esecuzione del metodo, il runtime di funzioni continua a registrare dipendenze aggiuntive, che possono influire sul funzionamento dei servizi.
+- *La classe startup è destinata solo alla configurazione e alla registrazione.* Evitare di usare i servizi registrati all'avvio durante il processo di avvio. Ad esempio, non provare a registrare un messaggio in un logger registrato durante l'avvio. Questo punto del processo di registrazione è troppo presto perché i servizi siano disponibili per l'uso. Dopo l'esecuzione del metodo `Configure`, il runtime di funzioni continua a registrare dipendenze aggiuntive, che possono influire sul funzionamento dei servizi.
 
-- *Il contenitore di inserimento delle dipendenze include solo tipi registrati in modo esplicito*. Gli unici servizi disponibili come tipi iniettabili sono quelli che vengono impostati nel `Configure` metodo. Di conseguenza, i tipi specifici di funzioni come `BindingContext` e `ExecutionContext` non sono disponibili durante l'installazione o come tipi iniettabili.
+- *Il contenitore di inserimento delle dipendenze include solo tipi registrati in modo esplicito*. Gli unici servizi disponibili come tipi iniettabili sono quelli che vengono impostati nel metodo `Configure`. Di conseguenza, i tipi specifici di funzioni come `BindingContext` e `ExecutionContext` non sono disponibili durante l'installazione o come tipi iniettabili.
 
 ## <a name="use-injected-dependencies"></a>Usa dipendenze inserite
 
 L'inserimento del costruttore viene usato per rendere disponibili le dipendenze in una funzione. L'uso dell'inserimento del costruttore richiede che non si usino classi statiche.
 
-Nell'esempio seguente viene illustrato come `IMyService` inserire `HttpClient` le dipendenze e in una funzione attivata tramite http. Questo esempio usa il pacchetto [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) necessario per registrare un `HttpClient` all'avvio.
+Nell'esempio seguente viene illustrato il modo in cui le dipendenze `IMyService` e `HttpClient` vengono inserite in una funzione attivata tramite HTTP. Questo esempio usa il pacchetto [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) necessario per registrare un `HttpClient` all'avvio.
 
 ```csharp
 using System;
@@ -126,13 +126,13 @@ Le app di funzioni di Azure forniscono le stesse durate dei servizi dell' [inser
 
 - **Temporaneo**: I servizi temporanei vengono creati a ogni richiesta del servizio.
 - Con **ambito**: La durata del servizio con ambito corrisponde a una durata di esecuzione della funzione. I servizi con ambito vengono creati una volta per ogni esecuzione. Le richieste successive per quel servizio durante l'esecuzione riutilizzeranno l'istanza del servizio esistente.
-- **Singleton**: La durata del servizio singleton corrisponde alla durata dell'host e viene riutilizzata tra le esecuzioni di funzioni su tale istanza. I servizi di durata singleton sono consigliati per le connessioni e i `SqlConnection` client `HttpClient` , ad esempio le istanze di o.
+- **Singleton**: La durata del servizio singleton corrisponde alla durata dell'host e viene riutilizzata tra le esecuzioni di funzioni su tale istanza. I servizi di durata singleton sono consigliati per le connessioni e i client, ad esempio `SqlConnection` o `HttpClient`.
 
 Visualizzare o scaricare un [esempio di diverse durate dei servizi](https://aka.ms/functions/di-sample) su GitHub.
 
 ## <a name="logging-services"></a>Servizi di registrazione
 
-Se è necessario un provider di registrazione personalizzato, registrare un tipo personalizzato come `ILoggerProvider` istanza di. Application Insights viene aggiunto automaticamente da funzioni di Azure.
+Se è necessario un provider di registrazione personalizzato, registrare un tipo personalizzato come istanza `ILoggerProvider`. Application Insights viene aggiunto automaticamente da funzioni di Azure.
 
 > [!WARNING]
 > - Non aggiungere `AddApplicationInsightsTelemetry()` alla raccolta di servizi durante la registrazione dei servizi in conflitto con i servizi forniti dall'ambiente.
@@ -155,9 +155,11 @@ La sostituzione dei servizi forniti dall'host non è attualmente supportata.  Se
 
 ## <a name="working-with-options-and-settings"></a>Utilizzo di opzioni e impostazioni
 
-I valori definiti nelle [impostazioni dell'app](./functions-how-to-use-azure-function-app-settings.md#settings) sono disponibili `IConfiguration` in un'istanza di, che consente di leggere i valori delle impostazioni dell'app nella classe Startup.
+I valori definiti nelle [impostazioni dell'app](./functions-how-to-use-azure-function-app-settings.md#settings) sono disponibili in un'istanza `IConfiguration`, che consente di leggere i valori delle impostazioni dell'app nella classe Startup.
 
-È possibile estrarre valori dall' `IConfiguration` istanza di in un tipo personalizzato. La copia dei valori delle impostazioni dell'app in un tipo personalizzato consente di testare facilmente i servizi rendendo questi valori inseribili. Si consideri la classe seguente che include una proprietà denominata coerente con un'impostazione dell'app.
+È possibile estrarre valori dall'istanza `IConfiguration` in un tipo personalizzato. La copia dei valori delle impostazioni dell'app in un tipo personalizzato consente di testare facilmente i servizi rendendo questi valori inseribili. Le impostazioni lette nell'istanza di configurazione devono essere semplici coppie chiave/valore.
+
+Si consideri la classe seguente che include una proprietà denominata coerente con un'impostazione dell'app.
 
 ```csharp
 public class MyOptions
@@ -166,7 +168,7 @@ public class MyOptions
 }
 ```
 
-Dall'interno del `Startup.Configure` metodo, è possibile estrarre i valori `IConfiguration` dall'istanza di nel tipo personalizzato usando il codice seguente:
+Dall'interno del metodo `Startup.Configure` è possibile estrarre i valori dall'istanza `IConfiguration` nel tipo personalizzato usando il codice seguente:
 
 ```csharp
 builder.Services.AddOptions<MyOptions>()
@@ -176,9 +178,9 @@ builder.Services.AddOptions<MyOptions>()
                                            });
 ```
 
-La `Bind` chiamata di copia i valori che hanno nomi di proprietà corrispondenti dalla configurazione all'istanza personalizzata. L'istanza options è ora disponibile nel contenitore IoC per inserire in una funzione.
+La chiamata a `Bind` copia i valori che hanno nomi di proprietà corrispondenti dalla configurazione all'istanza personalizzata. L'istanza options è ora disponibile nel contenitore IoC per inserire in una funzione.
 
-L'oggetto Options viene inserito nella funzione come un'istanza dell'interfaccia generica `IOptions` . Utilizzare la `Value` proprietà per accedere ai valori presenti nella configurazione.
+L'oggetto Options viene inserito nella funzione come un'istanza dell'interfaccia generica `IOptions`. Usare la proprietà `Value` per accedere ai valori presenti nella configurazione.
 
 ```csharp
 using System;

@@ -1,21 +1,21 @@
 ---
 title: "Esercitazione: Compilare un'applicazione di apprendimento automatico Spark in Azure HDInsight"
 description: Esercitazione - Istruzioni dettagliate su come compilare applicazioni di Machine Learning Apache Spark nei cluster HDInsight Spark usando Jupyter notebook.
-ms.service: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.author: hrasheed
-ms.openlocfilehash: e1a52072ab3309454742d2d3e8582b58a33666e3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e77414da964d548b64250bbf98f86bee1529f2ab
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448697"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327002"
 ---
-# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Esercitazione: Compilare un'applicazione di apprendimento automatico Apache Spark in Azure HDInsight 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Esercitazione: Compilare un'applicazione di apprendimento automatico Apache Spark in Azure HDInsight
 
 In questa esercitazione si apprenderà come usare [Jupyter Notebook](https://jupyter.org/) per creare un'applicazione di apprendimento automatico [Apache Spark](https://spark.apache.org/) per Azure HDInsight.
 
@@ -43,7 +43,7 @@ In questa applicazione si usa una [pipeline ML](https://spark.apache.org/docs/2.
 
 1. Creare un notebook di Jupyter usando il kernel PySpark. Per le istruzioni, vedere [Creare un notebook Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-1. Importare i tipi richiesti per questo scenario. Incollare il frammento di codice seguente in una cella vuota e quindi premere **MAIUSC+INVIO**. 
+1. Importare i tipi richiesti per questo scenario. Incollare il frammento di codice seguente in una cella vuota e quindi premere **MAIUSC+INVIO**.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -60,7 +60,7 @@ In questa applicazione si usa una [pipeline ML](https://spark.apache.org/docs/2.
     from numpy import array
     ```
 
-3. Caricare i dati (hvac.csv), analizzarli e usarli per eseguire il training del modello. 
+1. Caricare i dati (hvac.csv), analizzarli e usarli per eseguire il training del modello.
 
     ```PySpark
     # Define a type called LabelDocument
@@ -72,7 +72,7 @@ In questa applicazione si usa una [pipeline ML](https://spark.apache.org/docs/2.
         if (values[3] > values[2]):
             hot = 1.0
         else:
-            hot = 0.0        
+            hot = 0.0
 
         textValue = str(values[4]) + " " + str(values[5])
 
@@ -87,7 +87,7 @@ In questa applicazione si usa una [pipeline ML](https://spark.apache.org/docs/2.
 
     Nel frammento di codice definire una funzione che confronta la temperatura effettiva con quella di destinazione. Se la temperatura effettiva è maggiore, l’edificio è caldo ed è contrassegnato dal valore **1.0**. In caso contrario, l'edificio è freddo ed è contrassegnato dal valore **0.0**.
 
-4. Configurare la pipeline di machine learning Spark che è costituita da tre fasi: tokenizer, hashingTF, e lr.
+1. Configurare la pipeline di machine learning Spark che è costituita da tre fasi: tokenizer, hashingTF, e lr.
 
     ```PySpark
     tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
@@ -98,18 +98,18 @@ In questa applicazione si usa una [pipeline ML](https://spark.apache.org/docs/2.
 
     Per altre informazioni sulla pipeline e sul suo funzionamento, vedere [Pipeline di apprendimento automatico di Apache Spark](https://spark.apache.org/docs/latest/ml-pipeline.html).
 
-5. Adattare la pipeline al documento di formazione.
+1. Adattare la pipeline al documento di formazione.
 
     ```PySpark
     model = pipeline.fit(training)
     ```
 
-6. Verificare il documento di formazione per controllare lo stato di avanzamento con l'applicazione.
+1. Verificare il documento di formazione per controllare lo stato di avanzamento con l'applicazione.
 
     ```PySpark
     training.show()
     ```
-   
+
     L'output è simile a:
 
     ```output
@@ -145,7 +145,7 @@ In questa applicazione si usa una [pipeline ML](https://spark.apache.org/docs/2.
 
     Si noti come la temperatura effettiva è inferiore alla temperatura di destinazione. Questo dato indica che l'edificio è freddo. Nell'output di training, il valore per **label** nella prima riga è **0.0**, che indica che l'edificio non è caldo.
 
-7. Preparazione per l'esecuzione del training modello rispetto a un set di dati. A tale scopo, passare un ID di sistema e gli anni di utilizzo del sistema (indicati come **SystemInfo** nell'output di training) in modo che il modello possa prevedere se l'edificio con queste caratteristiche sarà più caldo (contrassegnato da 1.0) o più freddo (contrassegnato da 0.0).
+1. Preparazione per l'esecuzione del training modello rispetto a un set di dati. A tale scopo, passare un ID di sistema e gli anni di utilizzo del sistema (indicati come **SystemInfo** nell'output di training) in modo che il modello possa prevedere se l'edificio con queste caratteristiche sarà più caldo (contrassegnato da 1.0) o più freddo (contrassegnato da 0.0).
 
     ```PySpark
     # SystemInfo here is a combination of system ID followed by system age
@@ -159,7 +159,7 @@ In questa applicazione si usa una [pipeline ML](https://spark.apache.org/docs/2.
         .map(lambda x: Document(*x)).toDF()
     ```
 
-8. Infine, eseguire stime sui dati di test.
+1. Infine, eseguire stime sui dati di test.
 
     ```PySpark
     # Make predictions on test documents and print columns of interest
@@ -182,9 +182,10 @@ In questa applicazione si usa una [pipeline ML](https://spark.apache.org/docs/2.
 
    Nella prima riga di stima, si noterà che per un sistema HVAC con ID 20 e 25 anni di utilizzo 25 anni, l’edificio è caldo (**stima = 1.0**). Il primo valore per DenseVector (0.49999) corrisponde alla stima 0.0 e il secondo valore (0.5001) corrisponde alla stima 1.0. Nell'output, anche se il secondo valore è solo leggermente superiore, viene illustrato il modello **stima=1.0**.
 
-10. Arrestare il notebook per rilasciare le risorse. Per fare ciò, dal menu **File** del notebook fare clic su **Close and Halt** (Chiudi e interrompi). Questa azione spegne e chiude il notebook.
+1. Arrestare il notebook per rilasciare le risorse. Per fare ciò, dal menu **File** del notebook fare clic su **Close and Halt** (Chiudi e interrompi). Questa azione spegne e chiude il notebook.
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Usare la libreria Anaconda scikit-learn per Machine Learning Spark
+
 I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre la libreria **scikit-learn** per Machine Learning. La libreria include inoltre diversi set di dati che è possibile usare per compilare applicazioni di esempio direttamente da un notebook Jupyter. Per esempi sull'uso della libreria scikit-learn, vedere [ https://scikit-learn.org/stable/auto_examples/index.html ](https://scikit-learn.org/stable/auto_examples/index.html).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
@@ -197,11 +198,11 @@ Se non si intende continuare a usare questa applicazione, eliminare il cluster c
 
 1. Selezionare **Cluster HDInsight** in **Servizi**.
 
-1. Nell'elenco di cluster HDInsight visualizzato, selezionare **...** accanto al cluster creato per questa esercitazione.
+1. Nell'elenco di cluster HDInsight visualizzato selezionare **...** accanto al cluster creato per questa esercitazione.
 
 1. Selezionare **Elimina**. Selezionare **Sì**.
 
-![Eliminare un cluster HDInsight](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Eliminare cluster HDInsight")
+![Eliminazione di un cluster HDInsight nel portale di Azure](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Eliminazione del cluster HDInsight")
 
 ## <a name="next-steps"></a>Passaggi successivi
 

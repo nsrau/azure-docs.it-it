@@ -7,12 +7,12 @@ ms.date: 06/24/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 55f336e0888b4f480a03610ab035cd6a1a755a2e
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 1b72ea0558a2cf36efec6b25a31b30c1379d8cc8
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309504"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350747"
 ---
 # <a name="control-mapping-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto NIST SP 800-53 R4
 
@@ -86,7 +86,7 @@ Le funzionalità di individuazione e classificazione dei dati offerte da Sicurez
 
 ## <a name="ac-17-1-remote-access--automated-monitoring--control"></a>AC-17 (1) Accesso remoto | Monitoraggio/Controllo automatico
 
-Questo progetto consente di monitorare e controllare l'accesso remoto assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) per verificare che il debug remoto per l'applicazione del Servizio app di Azure sia disattivato e altre definizioni di criteri per controllare le macchine virtuali Linux che consentono connessioni remote da account senza password. Il progetto assegna anche una definizione di Criteri di Azure per il monitoraggio dell'accesso illimitato agli account di archiviazione. Il monitoraggio di questi indicatori è utile per verificare la conformità dei metodi di accesso remoto ai criteri di sicurezza.
+Questo progetto consente di monitorare e controllare l'accesso remoto assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) per monitorare la disattivazione del debug remoto per l'applicazione del servizio app di Azure. Il progetto assegna anche definizioni di criteri che controllano le macchine virtuali Linux che consentono connessioni remote da account senza password. Il progetto assegna inoltre una definizione di Criteri di Azure che permette di monitorare l'accesso senza restrizioni agli account di archiviazione. Il monitoraggio di questi indicatori è utile per verificare la conformità dei metodi di accesso remoto ai criteri di sicurezza.
 
 - \[Anteprima\]: Controlla le macchine virtuali Linux che non consentono connessioni remote da account senza password
 - \[Anteprima\]: Distribuisci requisiti per controllare le macchine virtuali Linux che consentono connessioni remote da account senza password

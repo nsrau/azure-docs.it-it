@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 09/30/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe6da9b1557293ee9002681c6ce90c1c6c62a25b
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: c3f3d7eb0fe544316aec1ce1ece45b2c7c1d9085
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231249"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694728"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
@@ -50,6 +50,9 @@ Per la disponibilità elevata nell'ambiente di produzione è consigliabile avere
 
 1. Individuare fisicamente il server del connettore vicino ai server applicazioni per ottimizzare le prestazioni tra il connettore e l'applicazione. Per altre informazioni, vedere [Considerazioni sulla topologia di rete](application-proxy-network-topology.md).
 1. Il server del connettore e i server applicazioni Web devono appartenere allo stesso dominio di Active Directory o essere suddivisi tra domini trusting. Avere i server nello stesso dominio o in domini trusting è un requisito per l'uso di Single Sign-On (SSO) con l'autenticazione integrata di Windows e la delega vincolata Kerberos (KCD). Se il server del connettore e i server applicazioni Web risiedono in domini di Active Directory diversi, è necessario usare la delega basata su risorse per l'accesso Single Sign-On. Per altre informazioni, vedere [KCD for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md) (KDC per l'Accesso Single Sign-On con il proxy di applicazione).
+
+> [!WARNING]
+> Se si è distribuito il proxy di protezione password di Azure AD, non installare tale proxy e Azure AD Application Proxy insieme nello stesso computer. Azure AD Application Proxy e il proxy di protezione password di Azure AD installano versioni diverse del servizio Azure AD Connect Agent Updater. Queste diverse versioni sono incompatibili se installate insieme nello stesso computer.
 
 #### <a name="tls-requirements"></a>Requisiti TLS
 
