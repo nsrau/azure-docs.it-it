@@ -113,7 +113,7 @@
           href: security-center-identity-access.md
     - name: Applicare difese cloud
       items:
-        - name: Gestire l'accesso Just-in-Time
+        - name: Gestire l'accesso JIT
           href: security-center-just-in-time.md
         - name: Controlli delle applicazioni adattivi
           href: security-center-adaptive-application.md
@@ -147,6 +147,8 @@
   items:
     - name: API REST
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+    - name: Note sulla versione
+      href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Ritiro di funzionalità e API (luglio 2019)
       href: security-center-features-retirement-july2019.md
     - name: Valutazione e consigli per la protezione degli endpoint
