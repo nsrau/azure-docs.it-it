@@ -85,7 +85,7 @@
           href: join-rhel-linux-vm.md
         - name: Ubuntu Server
           href: join-ubuntu-linux-vm.md
-    - name: Distribuire applicazioni in Azure Active Directory Domain Services
+    - name: Distribuire applicazioni
       items:
         - name: Distribuire Azure AD Application Proxy
           href: deploy-azure-app-proxy.md
@@ -95,11 +95,17 @@
       items:
         - name: Errori comuni
           href: troubleshoot.md
-        - name: Errori relativi a tenant non corrispondenti
+        - name: Problemi di aggiunta al dominio
+          href: troubleshoot-domain-join.md
+        - name: Account bloccati
+          href: troubleshoot-account-lockout.md
+        - name: Problemi di accesso
+          href: troubleshoot-sign-in.md
+        - name: Risolvere gli errori relativi ai tenant non corrispondenti
           href: mismatched-tenant-error.md
         - name: Domini sospesi
           href: suspension.md
-        - name: LDAP sicuro
+        - name: Problemi relativi a LDAP sicuro
           href: tshoot-ldaps.md
         - name: Problemi noti
           items:

@@ -36,22 +36,30 @@
       items:
         - name: Scenari comuni
           href: entitlement-management-scenarios.md
-        - name: Creare un nuovo pacchetto di accesso
-          href: entitlement-management-access-package-create.md
-        - name: Modificare un pacchetto di accesso
-          href: entitlement-management-access-package-edit.md
-        - name: Creare un catalogo
-          href: entitlement-management-catalog-create.md
-        - name: Richiedere l'accesso
-          href: entitlement-management-request-access.md
-        - name: Approvare le richieste
-          href: entitlement-management-request-approve.md
-        - name: Delegare attività
-          href: entitlement-management-delegate.md
-        - name: Visualizzare report e log
-          href: entitlement-management-reports.md
-        - name: Risolvere problemi
-          href: entitlement-management-troubleshoot.md
+        - name: Amministratori e responsabili di reparto
+          items:
+            - name: Delegare attività
+              href: entitlement-management-delegate.md
+            - name: Creare un catalogo di risorse
+              href: entitlement-management-catalog-create.md
+            - name: Visualizzare report e log
+              href: entitlement-management-reports.md
+            - name: Risolvere problemi
+              href: entitlement-management-troubleshoot.md
+        - name: Project manager
+          items:
+            - name: Creare un nuovo pacchetto di accesso
+              href: entitlement-management-access-package-create.md
+            - name: Modificare un pacchetto di accesso
+              href: entitlement-management-access-package-edit.md
+        - name: Responsabili approvazione
+          items:
+            - name: Approvare le richieste
+              href: entitlement-management-request-approve.md
+        - name: Richiedenti
+          items:
+            - name: Richiedere l'accesso
+              href: entitlement-management-request-access.md
     - name: Verifiche di accesso
       items:
         - name: Gruppi e app

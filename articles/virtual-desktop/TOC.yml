@@ -54,7 +54,7 @@
       href: install-office-on-wvd-master-image.md
     - name: Configurare la GPU per Desktop virtuale Windows
       href: configure-vm-gpu.md
-    - name: Ridimensionare automaticamente gli host della sessione
+    - name: Ridimensionare dinamicamente gli host della sessione
       href: set-up-scaling-script.md
     - name: Personalizzare il feed per gli utenti di Desktop virtuale Windows
       href: customize-feed-for-virtual-desktop-users.md
@@ -84,7 +84,7 @@
   items:
     - name: 'Panoramica della risoluzione dei problemi, feedback e supporto'
       href: troubleshoot-set-up-overview.md
-    - name: Identificare i problemi con la funzionalità di diagnostica
+    - name: Identificare e diagnosticare i problemi
       href: diagnostics-role-service.md
     - name: Creazione di pool di host e tenant
       href: troubleshoot-set-up-issues.md

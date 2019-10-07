@@ -82,6 +82,8 @@
       href: functions-deployment-technologies.md
     - name: Eventi e messaggistica
       items:
+        - name: Elaborazione affidabile degli eventi
+          href: functions-reliable-event-processing.md
         - name: Progettazione per input identico
           href: functions-idempotent.md
     - name: Trigger e associazioni

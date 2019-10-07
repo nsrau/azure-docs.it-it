@@ -143,6 +143,10 @@
       items:
         - name: Sicurezza e criteri
           href: security-policy.md
+        - name: Azure Disk Encryption
+          href: disk-encryption-overview.md
+        - name: Criteri di sicurezza integrati
+          href: virtual-machines-linux-security-controls.md
     - name: Stati e ciclo di vita
       href: states-lifecycle.md
     - name: Monitoraggio
@@ -151,8 +155,6 @@
       href: backup-recovery.md
     - name: Linee guida per l'infrastruttura
       href: infrastructure-example.md
-    - name: Criteri di sicurezza integrati
-      href: virtual-machines-linux-security-controls.md
 - name: Guide alle procedure
   items:
     - name: Creare VM
@@ -179,7 +181,29 @@
         - name: Accesso just-in-time
           href: ../../security-center/security-center-just-in-time.md
         - name: Crittografare il contenuto
-          href: encrypt-disks.md
+          items:
+            - name: Scenari di crittografia dei dischi per Linux
+              href: disk-encryption-linux.md
+            - name: Crittografia di VM con l'interfaccia della riga di comando di Azure
+              href: disk-encryption-cli-quickstart.md
+            - name: Crittografia di VM con Azure PowerShell
+              href: disk-encryption-powershell-quickstart.md
+            - name: Key Vault per Crittografia dischi di Azure
+              href: disk-encryption-key-vault.md
+            - name: Script di esempio per la crittografia dei dischi
+              href: disk-encryption-sample-scripts.md
+            - name: Risoluzione dei problemi di crittografia dei dischi
+              href: disk-encryption-troubleshooting.md
+            - name: Domande frequenti sulla crittografia del disco
+              href: disk-encryption-faq.md
+            - name: Crittografia dischi - versione precedente (AAD)
+              items:
+                - name: Panoramica
+                  href: disk-encryption-overview-aad.md
+                - name: Key Vault per Crittografia dischi di Azure
+                  href: disk-encryption-key-vault-aad.md
+                - name: Scenari di crittografia dei dischi per Linux
+                  href: disk-encryption-linux-aad.md
         - name: Usare i controlli di accesso
           href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Usare i criteri

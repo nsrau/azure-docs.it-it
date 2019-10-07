@@ -1,19 +1,19 @@
 ### YamlMime:Landing
 title: Documentazione del Servizio Migrazione del database di Azure
-summary: Il Servizio Migrazione del database di Azure consente migrazioni senza problemi da più origini di database alle piattaforme dati di Azure con tempi di inattività minimi. Il servizio usa Data Migration Assistant per generare report di valutazione che offrono indicazioni utili in merito alle modifiche necessarie prima di eseguire una migrazione. Quando si è pronti a iniziare il processo di migrazione, il Servizio Migrazione del database di Azure esegue tutti i passaggi necessari.
+summary: Servizio Migrazione del database di Azure consente migrazioni senza problemi da più origini di database alle piattaforme dati di Azure con tempi di inattività minimi. Il servizio usa Data Migration Assistant per generare report di valutazione che offrono indicazioni utili in merito alle modifiche necessarie prima di eseguire una migrazione. Quando si è pronti a iniziare il processo di migrazione, il Servizio Migrazione del database di Azure esegue tutti i passaggi necessari.
 metadata:
   description: " Informazioni su come usare il Servizio Migrazione del database di Azure per consentire migrazioni senza problemi da più origini di database alle piattaforme dati di Azure con tempi di inattività minimi."
   author: HJToland3
   ms.author: jtoland
-  ms.date: 10/02/2019
+  ms.date: 10/04/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: e3688c4795590fa2b74421055a6cf6f80d2d2d17
-  ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+  ms.openlocfilehash: 41b2733152a93705c81134ccbb75866bf6f0af1b
+  ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/02/2019
-  ms.locfileid: "71802136"
+  ms.lasthandoff: 10/03/2019
+  ms.locfileid: "71843002"
 landingContent:
 - title: Informazioni sul Servizio Migrazione del database di Azure
   linkLists:
@@ -55,7 +55,7 @@ landingContent:
     links:
     - text: Consultare il blog
       url: https://techcommunity.microsoft.com/t5/Microsoft-Data-Migration/bg-p/MicrosoftDataMigration
-- title: Eseguire la migrazione di SQL Server al database SQL di Azure (database singolo)
+- title: Eseguire la migrazione di SQL Server nel database SQL di Azure
   linkLists:
   - linkListType: tutorial
     links:
@@ -63,43 +63,33 @@ landingContent:
       url: tutorial-sql-server-azure-sql-online.md
     - text: Eseguire la migrazione offline di SQL Server al database SQL di Azure (database singolo)
       url: tutorial-sql-server-to-azure-sql.md
-    - text: Eseguire la migrazione online di RDS SQL Server al database SQL di Azure (database singolo) o all'istanza gestita di database SQL di Azure
+    - text: Eseguire la migrazione online di SQL Server a Istanza gestita di database SQL di Azure
+      url: tutorial-sql-server-managed-instance-online.md
+    - text: Eseguire la migrazione offline di SQL Server a Istanza gestita di database SQL di Azure
+      url: tutorial-sql-server-to-managed-instance.md
+    - text: Eseguire la migrazione online di RDS SQL Server al database SQL di Azure (database singolo) o a Istanza gestita di database SQL di Azure
       url: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
   - linkListType: how-to-guide
     links:
     - text: Usare PowerShell per eseguire la migrazione di SQL Server al database SQL di Azure (database singolo)
       url: howto-sql-server-to-azure-sql-powershell.md
+    - text: Usare PowerShell per eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure
+      url: howto-sql-server-to-azure-sql-mi-powershell.md
     - text: Eseguire la migrazione di pacchetti SSIS al database SQL di Azure (database singolo)
       url: how-to-migrate-ssis-packages.md
-  - linkListType: concept
-    links:
-    - text: Problemi noti - Migrazione online al database SQL di Azure (database singolo)
-      url: known-issues-azure-sql-online.md
-- title: Eseguire la migrazione di SQL Server all'istanza gestita di database SQL di Azure
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Eseguire la migrazione online di SQL Server all'istanza gestita di database SQL di Azure
-      url: tutorial-sql-server-managed-instance-online.md
-    - text: Eseguire la migrazione offline di SQL Server all'istanza gestita di database SQL di Azure
-      url: tutorial-sql-server-to-managed-instance.md
-    - text: Eseguire la migrazione online di RDS SQL Server al database SQL di Azure (database singolo) o all'istanza gestita di database SQL di Azure
-      url: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
-  - linkListType: how-to-guide
-    links:
-    - text: Usare PowerShell per eseguire la migrazione di SQL Server all'istanza gestita di database SQL di Azure
-      url: howto-sql-server-to-azure-sql-mi-powershell.md
     - text: Ridistribuire pacchetti SSIS all'istanza gestita di database SQL di Azure
       url: how-to-migrate-ssis-packages-managed-instance.md
   - linkListType: concept
     links:
-    - text: Topologie di rete per migrazioni all'istanza gestita di database SQL di Azure
+    - text: Problemi noti - Migrazione online al database SQL di Azure (database singolo)
+      url: known-issues-azure-sql-online.md
+    - text: Topologie di rete per migrazioni a Istanza gestita di database SQL di Azure
       url: resource-network-topologies.md
   - linkListType: video
     links:
     - text: Eseguire la migrazione di SQL Server 2008 all'istanza gestita di database SQL di Azure
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
-- title: Eseguire la migrazione di PostgreSQL a Database di Azure per PostgreSQL - Server singolo
+- title: Eseguire la migrazione di PostgreSQL al database di Azure per PostgreSQL
   linkLists:
   - linkListType: tutorial
     links:
@@ -109,17 +99,17 @@ landingContent:
       url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
   - linkListType: concept
     links:
-    - text: Problemi noti - Migrazione online a Database di Azure per PostgreSQL - Server singolo
+    - text: Problemi noti - Migrazione online da PostgreSQL a Database di Azure per PostgreSQL - Server singolo
       url: known-issues-azure-postgresql-online.md
   - linkListType: video
     links:
-    - text: Eseguire la migrazione di PostgreSQL a Database di Azure per PostgreSQL
+    - text: Eseguire la migrazione di PostgreSQL al database di Azure per PostgreSQL
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/
 - title: Eseguire la migrazione di MySQL a Database di Azure per MySQL
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Eseguire la migrazione online di MySQL a Database di Azure per MySQL
+    - text: Eseguire la migrazione online di MySQL al database di Azure per MySQL
       url: tutorial-mysql-azure-mysql-online.md
     - text: Eseguire la migrazione online di RDS MySQL al database di Azure per MySQL
       url: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
@@ -145,9 +135,13 @@ landingContent:
     links:
     - text: Eseguire la migrazione online di Oracle a Database di Azure per PostgreSQL - Server singolo
       url: tutorial-oracle-azure-postgresql-online.md
+  - linkListType: concept
+    links:
+    - text: Problemi noti - Migrazione online da Oracle a Database di Azure per PostgreSQL - Server singolo
+      url: known-issues-oracle-azure-postgresql-online.md
   - linkListType: video
     links:
-    - text: Eseguire la migrazione di Oracle al database SQL di Azure (database singolo)
+    - text: Eseguire la migrazione di Oracle a Database SQL di Azure (database singolo)
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
 - title: Strumenti e indicazioni
   linkLists:

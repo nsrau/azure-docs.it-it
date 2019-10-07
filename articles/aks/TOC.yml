@@ -191,6 +191,8 @@
       items:
         - name: Creare un'entità servizio
           href: kubernetes-service-principal.md
+        - name: Usare le identità gestite (anteprima)
+          href: use-managed-identity.md
         - name: Limitare l'accesso al file di configurazione del cluster
           href: control-kubeconfig-access.md
         - name: Proteggere il traffico di pod con i criteri di rete

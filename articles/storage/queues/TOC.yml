@@ -33,7 +33,7 @@
       items:
         - name: Panoramica della sicurezza
           href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Crittografia degli account di archiviazione
+        - name: Crittografia di Archiviazione di Azure
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Authorization
           href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
@@ -132,7 +132,7 @@
                   href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: Usare l'API REST di Archiviazione di Azure
                   href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Configurare le chiavi gestite dal cliente per la crittografia del servizio
+        - name: Usare le chiavi gestite dal cliente per la crittografia
           items:
             - name: Portale
               href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
