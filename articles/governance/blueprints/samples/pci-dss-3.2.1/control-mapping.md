@@ -7,22 +7,21 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 2ec299a79f852c553763439290b014a91d3a9414
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: fca86163cdfc8790da007a1f0f9264534b512cdd
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918595"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981492"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mapping di controllo dell'esempio di progetto PCI-DSS v 3.2.1
 
 L'articolo seguente illustra in dettaglio come il progetto di esempio di Azure Blueprints PCI-DSS v 3.2.1 Blueprint esegue il mapping ai controlli PCI-DSS v 3.2.1. Per ulteriori informazioni sui controlli, vedere la pagina relativa a [PCI-DSS v 3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf).
 
-I mapping seguenti sono ai controlli **PCI-DSS v 3.2.1:2018** . Usare la barra di spostamento a destra per passare direttamente a uno specifico mapping. Molti controlli mappati vengono implementati con un'iniziativa di [Criteri di Azure](../../../policy/overview.md). Per esaminare l'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**. Quindi, trovare e selezionare i  **\[controlli\] di anteprima PCI v 3.2.1:2018 e distribuire estensioni VM specifiche per supportare i requisiti di controllo** predefiniti Initiative.
+I mapping seguenti sono ai controlli **PCI-DSS v 3.2.1:2018** . Usare la barra di spostamento a destra per passare direttamente a uno specifico mapping. Molti controlli mappati vengono implementati con un'iniziativa di [Criteri di Azure](../../../policy/overview.md). Per esaminare l'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**. Individuare e selezionare i **controlli \[Preview @ no__t-2 audit PCI v 3.2.1:2018 e distribuire estensioni VM specifiche per supportare i requisiti di controllo** predefiniti Initiative.
 
 > [!IMPORTANT]
-> Ogni controllo seguente è associato a una o più definizioni di [criteri di Azure](../../../policy/overview.md) . Questi criteri possono aiutare a [valutare la conformità](../../../policy/how-to/get-compliance-data.md) con il controllo; Tuttavia, spesso non si tratta di una corrispondenza 1:1 o completa tra un controllo e uno o più criteri. Di conseguenza, la **conformità** nei criteri di Azure si riferisce solo ai criteri stessi; Ciò non garantisce che l'utente sia completamente conforme a tutti i requisiti di un controllo. Inoltre, in questo momento lo standard di conformità include controlli che non vengono risolti da alcuna definizione di criteri di Azure. La conformità in criteri di Azure è quindi solo una visualizzazione parziale dello stato di conformità generale. Le associazioni tra i controlli e le definizioni di criteri di Azure per questo esempio di progetto di conformità possono cambiare nel tempo. Per visualizzare la cronologia delle modifiche, vedere la [cronologia dei commit di GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md).
+> Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../../../policy/overview.md). Questi criteri possono aiutare a [valutare la conformità](../../../policy/how-to/get-compliance-data.md) con il controllo. In molti casi tuttavia non si tratta di una corrispondenza 1:1 o completa tra un controllo e uno o più criteri. Di per sé, **Conforme** in Criteri di Azure si riferisce solo ai criteri stessi e non garantisce che l'utente sia completamente conforme a tutti i requisiti di un controllo. Inoltre, in questo momento lo standard di conformità include controlli che non vengono gestiti da alcuna definizione di Criteri di Azure. La conformità in Criteri di Azure è quindi solo una visualizzazione parziale dello stato di conformità generale. Le associazioni tra i controlli e le definizioni di Criteri di Azure per questo esempio di progetto di conformità possono cambiare nel tempo. Per visualizzare la cronologia delle modifiche, vedere la [cronologia dei commit di GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md).
 
 ## <a name="132-and-134-boundary-protection"></a>per la protezione del limite 1.3.2 e 1.3.4
 
@@ -132,7 +131,7 @@ Questo progetto consente di gestire e controllare la rete assegnando le definizi
 Ora che è stato esaminato il mapping dei controlli del modello PCI-DSS v 3.2.1, vedere gli articoli seguenti per informazioni sulla panoramica e su come distribuire questo esempio:
 
 > [!div class="nextstepaction"]
-> [PCI-DSS v 3.2.1 Blueprint-Panoramica](./index.md)
+> [PCI-DSS v 3.2.1 Blueprint-panoramica](./index.md)
 > [PCI-DSS v 3.2.1 Blueprint-procedura di distribuzione](./deploy.md)
 
 ## <a name="addition-articles-about-blueprints-and-how-to-use-them"></a>Altri articoli sui progetti e su come usarli:

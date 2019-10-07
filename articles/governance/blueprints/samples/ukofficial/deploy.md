@@ -7,13 +7,12 @@ ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 21c5ad69a5e2b09e973b7b348690f554fca5dbe2
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: e2109c5b524c0b38886327bf4c1ea7087380b40f
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802324"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978235"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Distribuire gli esempi ufficiali del Regno Unito e del piano NHS UK
 
@@ -83,7 +82,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
      Lasciare invariata l'opzione predefinita _Identità gestita assegnata dal sistema_.
 
-   - Parametri dell'elemento
+   - Parametri artefatto
 
      I parametri definiti in questa sezione si applicano all'artefatto in cui sono definiti. Si tratta di [parametri dinamici](../../concepts/parameters.md#dynamic-parameters), in quanto vengono definiti durante l'assegnazione del progetto. Per un elenco completo di parametri di artefatti e relative descrizioni, vedere la [tabella di parametri degli artefatti](#artifact-parameters-table).
 
@@ -96,7 +95,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
 La tabella seguente contiene un elenco dei parametri degli artefatti del progetto:
 
-Nome dell'artefatto|Tipo di artefatto|Nome parametro|DESCRIZIONE|
+Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
 |Progetto Initiative per il Regno Unito ufficiale o il NHS UK|Assegnazione criteri |Tipi di risorse per controllare i log di diagnostica (criterio: Progetto Initiative per il Regno Unito ufficiale o il NHS UK |Elenco di tipi di risorse da controllare se l'impostazione del log di diagnostica è nota abilitata.  Per i valori accettabili, vedere [servizi, schemi e categorie supportati per i log di diagnostica di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
 |\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione criteri |Facoltativo: Elenco di immagini di macchina virtuale con sistema operativo Linux supportato da aggiungere all'ambito (criterio: \[Anteprima\]: Distribuire Log Analytics Agent per macchine virtuali Linux) |Opzionale Il valore predefinito è _None_. Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
@@ -107,8 +106,8 @@ Nome dell'artefatto|Tipo di artefatto|Nome parametro|DESCRIZIONE|
 Ora che sono stati esaminati i passaggi per distribuire gli esempi ufficiale del Regno Unito e del SSN UK, vedere gli articoli seguenti per informazioni sulla panoramica e sul mapping dei controlli:
 
 > [!div class="nextstepaction"]
-> [Ufficiale del Regno Unito e](./index.md)
-> piani di NHS del Regno Unito-panoramica sul[mapping ufficiale del Regno Unito e del SSN UK-controllo](./control-mapping.md)
+> [Gazzetta ufficiale e UK NHS Blueprints-panoramica](./index.md)
+> [UK ufficiale e UK NHS Blueprints-controllo mapping](./control-mapping.md)
 
 Altri articoli sui progetti e su come usarli:
 
