@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: 8d7bb201a9d01725f933105a4a0beb85c82ca105
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: d1de29124825a7f398b9722bb2455d1105e9c9f7
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203705"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023652"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Scegliere il livello di hub IoT più adatto per la soluzione
 
@@ -35,11 +35,11 @@ Il livello Standard dell'hub IoT supporta tutte le funzionalità ed è necessari
 
 Per ogni hub IoT è possibile scegliere un solo tipo di [edizione](https://azure.microsoft.com/pricing/details/iot-hub/) all'interno di un livello. Ad esempio, è possibile creare un hub delle cose con più unità di S1, ma non con una combinazione di unità da diverse edizioni, ad esempio S1 e S2.
 
-| Capacità | Piano Basic | Livello gratuito/standard |
+| Capacità | Livello Basic | Livello gratuito/standard |
 | ---------- | ---------- | ------------- |
 | [Telemetria da dispositivo a cloud](iot-hub-devguide-messaging.md) | Yes | Yes |
 | [Identità per dispositivo](iot-hub-devguide-identity-registry.md) | Yes | Yes |
-| [Routing di messaggi](iot-hub-devguide-messages-read-custom.md) e [integrazione con Griglia di eventi](iot-hub-event-grid.md) | Yes | Yes |
+| [Routing di messaggi](iot-hub-devguide-messages-read-custom.md), [arricchimenti di messaggi](iot-hub-message-enrichments-overview.md)e [integrazione di griglia di eventi](iot-hub-event-grid.md) | Yes | Yes |
 | [Protocolli HTTP, AMQP e MQTT](iot-hub-devguide-protocols.md) | Yes | Yes |
 | [Servizio Device Provisioning](../iot-dps/about-iot-dps.md) | Yes | Yes |
 | [Monitoraggio e diagnostica](iot-hub-monitor-resource-health.md) | Yes | Yes |
@@ -51,7 +51,7 @@ Per ogni hub IoT è possibile scegliere un solo tipo di [edizione](https://azure
 
 L'hub IoT offre inoltre un livello gratuito adatto per il testing e la valutazione. Include tutte le funzionalità del livello standard, ma offre un supporto limitato delle funzionalità di messaggistica. Non è possibile eseguire l'aggiornamento dal livello gratuito al livello Basic o Standard.
 
-## <a name="partitions"></a>Partizioni
+## <a name="partitions"></a>Partitions
 
 Gli hub IoT di Azure contengono molti componenti di base di [Hub eventi di Azure](../event-hubs/event-hubs-features.md), tra cui le [partizioni](../event-hubs/event-hubs-features.md#partitions). I flussi di eventi per gli hub IoT vengono in genere popolati con dati di telemetria in ingresso che vengono segnalati da vari dispositivi IoT. Il partizionamento del flusso di eventi consente di ridurre le contese che si verificano durante la lettura e la scrittura simultanee nei flussi di eventi.
 
@@ -70,7 +70,7 @@ Con la migrazione dal livello di base al livello standard la configurazione dell
 
 La differenza a livello di funzionalità supportate tra i livelli Basic e Standard dell'hub IoT è che alcune chiamate API non funzionano con gli hub di livello Basic. La tabella seguente illustra le API disponibili:
 
-| API | Piano Basic | Livello gratuito/standard |
+| API | Livello Basic | Livello gratuito/standard |
 | --- | ---------- | ------------- |
 | [Eliminazione dispositivo](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Yes | Yes |
 | [Recupero dispositivo](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Yes | Yes |

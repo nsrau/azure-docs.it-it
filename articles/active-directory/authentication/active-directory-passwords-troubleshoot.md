@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30fd1ebf8a59c80764335be47c986ea77f5d1438
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c4f236f2f2fdbf2736f87f754f48387f9f41850d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879181"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024628"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Risolvere i problemi di reimpostazione della password self-service
 
@@ -105,7 +105,7 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Se l'origine dell'evento è PasswordResetService
 
-| Codice | Nome o messaggio | DESCRIZIONE |
+| Codice | Nome o messaggio | Descrizione |
 | --- | --- | --- |
 | 31001 | PasswordResetStart | Questo evento indica che il servizio locale ha rilevato una richiesta di reimpostazione della password per un utente federato, con autenticazione pass-through o con sincronizzazione dell'hash delle password originata dal cloud. Si tratta del primo evento di ogni operazione di writeback per la reimpostazione della password. |
 | 31002 | PasswordResetSuccess | Questo evento indica che un utente ha selezionato una nuova password durante un'operazione di reimpostazione della password. È stato determinato che la password soddisfa i requisiti aziendali per le password. La password è stata scritta correttamente nell'ambiente Active Directory locale. |
@@ -174,6 +174,9 @@ Per una maggiore granularità, fare riferimento all'elenco degli [intervalli di 
 
 Per altre informazioni, vedere i prerequisiti di connettività nell'articolo [Prerequisiti di Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md).
 
+> [!NOTE]
+> SSPR può anche avere esito negativo se l'account è configurato per l'account in servizi di dominio Active Directory in locale se le impostazioni "password non scade mai" o "non è possibile modificare la password". 
+
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Riavviare il servizio di sincronizzazione Azure AD Connect
 
 Per risolvere i problemi di connettività o altri problemi temporanei, riavviare il servizio di sincronizzazione Azure AD Connect:
@@ -229,7 +232,7 @@ Per eseguire il writeback delle password, Azure AD Connect richiede l'autorizzaz
 
 1. Accedere al server Azure AD Connect e avviare **Synchronization Service Manager** selezionando **Start** > **Synchronization Service**.
 1. Nella scheda **Connettori** selezionare il connettore **Active Directory Domain Services** locale e quindi selezionare **Proprietà**.  
-   ![Synchronization Service Manager che illustra come modificare le proprietà](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+   ![Synchronization Service Manager che Mostra come modificare le proprietà @ no__t-1  
   
 1. Nella finestra popup selezionare **Connetti a foresta Active Directory** e annotare la proprietà **Nome utente**. Questa proprietà corrisponde all'account di Active Directory Domain Services usato da Azure AD Connect per eseguire la sincronizzazione della directory. Per consentire ad Azure AD Connect di eseguire il writeback delle password l'account di Active Directory Domain Services deve avere l'autorizzazione di reimpostazione della password.  
 
@@ -270,7 +273,7 @@ Per garantire un supporto adeguato, verrà richiesto il maggior numero di dettag
 
   * Se è visualizzata una pagina senza un codice di supporto nella parte inferiore, premere F12 ed eseguire una ricerca di SID e CID, quindi inviare i due risultati al personale del supporto tecnico.
 * **Data, ora e fuso orario**: includere la data e l'ora precise *con il fuso orario* di quando si è verificato l'errore.
-* **ID utente**: indicare l'ID dell'utente che ha visualizzato l'errore. Un esempio è *l'\@utente contoso.com*.
+* **ID utente**: indicare l'ID dell'utente che ha visualizzato l'errore. Un esempio è *User\@contoso.com*.
    * Indicare se si tratta di un utente federato,
    * Si tratta di un utente con autenticazione pass-through?
    * Si tratta di un utente con sincronizzazione di hash della password?

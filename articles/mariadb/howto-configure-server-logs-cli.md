@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: 9fff9f13e5ce6bf8a7805f7794d3e71eb4030104
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ffc724ef5133ee25643a966d2b6d8448a4c3a920
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065694"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023607"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure
 È possibile scaricare i log del server di Database di Azure per MariaDB usando l'interfaccia della riga di comando di Azure, l'utilità della riga di comando di Azure.
@@ -25,7 +25,7 @@ Per proseguire con questa guida, si richiedono:
 ## <a name="configure-logging-for-azure-database-for-mariadb"></a>Configurare la registrazione per Database di Azure per MariaDB
 Per configurare il server per l'accesso al log delle query lente di MariaDB, seguire la procedura seguente:
 1. Attivare la registrazione impostando il parametro **slow\_query\_log** su ON.
-2. Regolare gli altri parametri, ad esempio **long\_query\_time** e **log\_slow\_admin\_statements**.
+2. Regolare gli altri parametri, ad esempio **long\_query\_time** e **log\_slow\_admin\_statements**.
 
 Per informazioni su come impostare il valore di questi parametri tramite l'interfaccia della riga di comando di Azure, vedere [Personalizzare i parametri di configurazione server usando l'interfaccia della riga di comando di Azure](howto-configure-server-parameters-cli.md).
 
@@ -38,7 +38,7 @@ az mariadb server configuration list --resource-group myresourcegroup --server m
 ```
 
 ## <a name="list-logs-for-azure-database-for-mariadb-server"></a>Elencare i log del server per Database di Azure per MariaDB
-Per elencare i file di log query lente disponibile per il server, eseguire la [elenco di server-logs mariadb az](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list) comando.
+Per elencare i file di log di query lente disponibili per il server, eseguire il comando [AZ mariadb server-logs list](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list) .
 
 È possibile elencare i file di log per il server **mydemoserver.mariadb.database.azure.com** nel gruppo di risorse **myresourcegroup**. Quindi indirizzare l'elenco dei file di log a un file di testo denominato **log\_files\_list.txt**.
 ```azurecli-interactive
@@ -53,4 +53,4 @@ az mariadb server-logs download --name mysql-slow-mydemoserver-2018110800.log --
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Scopri [log di query lente nel Database di Azure per MariaDB](concepts-server-logs.md).
+- Informazioni sui [log di query lente nel database di Azure per MariaDB](concepts-server-logs.md).

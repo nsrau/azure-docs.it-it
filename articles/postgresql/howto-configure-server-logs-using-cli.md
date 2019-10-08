@@ -1,18 +1,18 @@
 ---
-title: Configurare e accedere ai log del server per PostgreSQL - Server singolo con CLI di Azure
-description: Questo articolo descrive come configurare e accedere ai log del server in Database di Azure per PostgreSQL - singolo Server tramite la riga di comando di Azure.
+title: Configurare e accedere ai log del server per PostgreSQL-server singolo con l'interfaccia della riga di comando di Azure
+description: Questo articolo descrive come configurare e accedere ai log del server in database di Azure per PostgreSQL-server singolo usando la riga di comando dell'interfaccia della riga di comando di Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 4702db31ffeb15481584b9638f5be1aa640ff39e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb33debaa23ad8625b6ddc1cc63738b13bcd19e1
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067202"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023634"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure
 È possibile scaricare i log degli errori del server PostgreSQL usando l'interfaccia della riga di comando di Azure. L'accesso ai log delle transazioni non è tuttavia supportato. 
@@ -25,12 +25,12 @@ Per proseguire con questa guida, si richiedono:
 ## <a name="configure-logging"></a>Configurare la registrazione
 È possibile configurare il server per l'accesso ai log di query e ai log degli errori. I log degli errori possono contenere informazioni su checkpoint, connessioni e vuoto automatico.
 1. Abilitare la registrazione.
-2. Per abilitare la registrazione delle query, aggiornare **log\_statement**  e  **log\_min\_duration\_statement**.
+2. Per abilitare la registrazione delle query, aggiornare **log\_statement** e **log\_min\_duration\_statement**.
 3. Abilitare il periodo di conservazione.
 
 Per altre informazioni, vedere [Personalizzare i parametri di configurazione server usando l'interfaccia della riga di comando di Azure](howto-configure-server-parameters-using-cli.md).
 
-## <a name="list-logs"></a>Elencare i log
+## <a name="list-logs"></a>Elenca log
 Per elencare i file di log disponibili per il server, eseguire il comando [az postgres server-logs list](/cli/azure/postgres/server-logs).
 
 È possibile elencare i file di log per il server **mydemoserver.postgres.database.azure.com** nel gruppo di risorse **myresourcegroup**. Quindi indirizzare l'elenco dei file di log a un file di testo denominato **log\_files\_list.txt**.

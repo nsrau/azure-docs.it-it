@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8cb5c82e551ed6299f754f518ebeebca0be4964d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: ca17d049d988b2bc8b60249d99c03f70c555d3fb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679311"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023730"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure AD B2C
 
@@ -25,7 +25,7 @@ Il flusso delle credenziali password del proprietario della risorsa (ROPC) è un
 
 In Azure Active Directory B2C (Azure AD B2C) sono supportate le opzioni seguenti:
 
-- **Client nativo**: l'interazione dell'utente durante l'autenticazione avviene quando il codice viene eseguito in un dispositivo lato utente. Il dispositivo può essere un'applicazione per dispositivi mobili in esecuzione in un sistema operativo nativo, ad esempio Android, o in un browser, ad esempio JavaScript.
+- **Client nativo**: l'interazione dell'utente durante l'autenticazione avviene quando il codice viene eseguito in un dispositivo lato utente. Il dispositivo può essere un'applicazione mobile in esecuzione in un sistema operativo nativo, ad esempio Android e iOS.
 - **Flusso client pubblico**: nella chiamata API vengono inviate solo le credenziali utente, raccolte da un'applicazione. Le credenziali dell'applicazione non vengono inviate.
 - **Aggiunta di nuove attestazioni**: il contenuto del token ID può essere modificato per aggiungere nuove attestazioni.
 
@@ -51,7 +51,7 @@ I flussi seguenti non sono supportati:
    `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
 
 
-## <a name="register-an-application"></a>Registra un'applicazione
+## <a name="register-an-application"></a>Registrare un'applicazione
 
 [!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 

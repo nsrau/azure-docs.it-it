@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/19/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: b51d984726cfd178189e7fe1a994c35c7efaed36
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a48c1352e4628d8e1776a9479aceac7c294a2ea1
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124082"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72023067"
 ---
 La tabella seguente descrive i limiti predefiniti per gli account di archiviazione BLOB V1, V2 e per utilizzo generico di Azure. Il limite di *ingresso* si riferisce a tutti i dati delle richieste inviate a un account di archiviazione. Il limite in *uscita* fa riferimento a tutti i dati delle risposte ricevute da un account di archiviazione.
 
-| Risorsa | Limite predefinito |
+| Resource | Limite predefinito |
 | --- | --- |
 | Numero di account di archiviazione per ogni area per ogni sottoscrizione, inclusi gli account sia Standard che Premium | 250 |
 | Capacità massima dell'account di archiviazione | 2 PiB per Stati Uniti ed Europa e 500 TiB per tutte le altre aree (incluso il Regno Unito)<sup>1</sup>|
@@ -29,9 +29,10 @@ La tabella seguente descrive i limiti predefiniti per gli account di archiviazio
 | Numero massimo in uscita per gli account di archiviazione per utilizzo generico V1 (aree degli Stati Uniti) | 20 Gbps se RA-GRS/GRS è abilitata, 30 Gbps per con ridondanza locale/ZRS<sup>2</sup> |
 | Numero massimo in uscita per gli account di archiviazione per utilizzo generico V1 (aree non statunitensi) | 10 Gbps se RA-GRS/GRS è abilitato, 15 Gbps per con ridondanza locale/ZRS<sup>2</sup> |
 
-<sup>1</sup> Gli account di archiviazione standard di Azure supportano limiti di capacità superiori e limiti più elevati per il traffico in ingresso per richiesta. Per richiedere un incremento dei limiti di archiviazione per il traffico in ingresso, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/). Per altre informazioni, vedere l' [annuncio di account di archiviazione](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)con scalabilità più grandi.
+<sup>1</sup> Gli account di archiviazione standard di Azure supportano limiti di capacità superiori e limiti più elevati per il traffico in ingresso per richiesta. Per richiedere un incremento dei limiti di archiviazione per il traffico in ingresso, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/). Per altre informazioni, vedere l' [annuncio di account di archiviazione con scalabilità più grandi](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
-<sup>2</sup> se è abilitato l'accesso in lettura (RA-GRS/ra-GZRS), le destinazioni in uscita per la posizione secondaria sono identiche a quelle della posizione primaria. Le opzioni di [replica di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) includono:[!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
+<sup>2</sup> se è abilitato l'accesso in lettura (RA-GRS/ra-GZRS), le destinazioni in uscita per la posizione secondaria sono identiche a quelle della posizione primaria. Le opzioni di [replica di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) includono:  
+[!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
 
 > [!NOTE]
 > Per la maggior parte degli scenari, è consigliabile usare un account di archiviazione di uso generico V2. È possibile aggiornare facilmente un account di archiviazione BLOB di Azure o di uso generico V1 a un account per utilizzo generico V2 senza tempi di inattività e senza la necessità di copiare i dati.

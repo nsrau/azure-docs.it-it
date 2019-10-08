@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: d5326a3a154ed6f193b5527a0150ad84c843c273
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d5f64f0a9abfa736c1db0e562b6f18ecfc1f6de5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570438"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023824"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Distribuire ed esplorare un'app SaaS multi-tenant che usa il modello di database per tenant con il database SQL
 
@@ -74,7 +74,7 @@ Scegliere ora i nomi e annotarli.
 
 1. Per monitorare lo stato di distribuzione, selezionare **Notifiche** (l'icona a forma di campanella a destra della casella di ricerca). La distribuzione dell'app SaaS Wingtip Tickets richiede circa cinque minuti.
 
-   ![La distribuzione è riuscita](media/saas-dbpertenant-get-started-deploy/succeeded.png)
+   ![Distribuzione completata](media/saas-dbpertenant-get-started-deploy/succeeded.png)
 
 ## <a name="download-and-unblock-the-wingtip-tickets-management-scripts"></a>Scaricare e sbloccare gli script di gestione di Wingtip Tickets
 
@@ -102,7 +102,7 @@ Prima di eseguire uno script, aggiornare il gruppo di risorse e i valori utente 
 
 Sono presenti riferimenti a questi valori in quasi ogni script.
 
-## <a name="run-the-application"></a>Esecuzione dell'applicazione
+## <a name="run-the-application"></a>Eseguire l'applicazione
 
 L'app illustra le sedi che ospitano gli eventi. I tipi di sede includono sale concerto, jazz club e club sportivi. Nell'app Wingtip Tickets le sedi sono registrate come tenant. Una sede registrata come tenant consente la visualizzazione dell'elenco di eventi e la vendita dei biglietti ai clienti. Ogni sede è associata a un sito Web personalizzato in cui sono elencati i relativi eventi e dove è possibile la vendita dei biglietti.
 
@@ -114,9 +114,9 @@ Una pagina centrale **Events Hub** (Hub eventi) visualizza un elenco di collegam
 
     ![Hub eventi](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
-2. Selezionare  **Fabrikam Jazz Club**  nella pagina Hub eventi.
+2. Selezionare **Fabrikam Jazz Club** nell'hub eventi.
 
-    ![Eventi](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
+    ![Events](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
 ### <a name="azure-traffic-manager"></a>Gestione traffico di Azure
 
@@ -220,14 +220,14 @@ Aggiornare la pagina Events Hub per includere il nuovo tenant nell'elenco.
 
 Dopo aver avviato l'esecuzione di un carico sulla raccolta di tenant, è possibile esaminare alcune delle risorse distribuite.
 
-1. Nel  [portale di Azure](https://portal.azure.com) passare all'elenco di server SQL. Aprire quindi il server  **catalog-dpt-&lt;UTENTE&gt;**  .
+1. Nel  [portale di Azure](https://portal.azure.com) passare all'elenco di server SQL. Aprire quindi il server **catalog-dpt-&lt;UTENTE&gt;** .
     - Il server di catalogo contiene due database, **tenantcatalog** e **basetenantdb**, un database modello che viene copiato per creare nuovi tenant.
 
    ![Database](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Tornare all'elenco di istanze di SQL Server.
 
-3. Aprire il server **tenants1-dpt-&lt;UTENTE&gt;**   che include i database tenant.
+3. Aprire il server **tenants1-dpt-&lt;UTENTE&gt;** che include i database tenant.
 
 4. Vedere gli elementi seguenti:
 
@@ -240,7 +240,7 @@ Dopo aver avviato l'esecuzione di un carico sulla raccolta di tenant, è possibi
 
 Dopo che *LoadGenerator.ps1* viene eseguito per alcuni minuti, dovrebbe essere disponibile una quantità sufficiente di dati per iniziare a esaminare alcune funzionalità di monitoraggio. Queste funzionalità sono integrate nei pool e nei database.
 
-Passare al server **tenants1-dpt-&lt;utente&gt;** e selezionare  **Pool1**  per visualizzare l'utilizzo di risorse per il pool. Nei grafici seguenti il generatore di carico viene eseguito per un'ora.
+Passare al server **tenants1-dpt-&lt;utente&gt;** e selezionare **Pool1** per visualizzare l'utilizzo di risorse per il pool. Nei grafici seguenti il generatore di carico viene eseguito per un'ora.
 
    ![Monitorare il pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 

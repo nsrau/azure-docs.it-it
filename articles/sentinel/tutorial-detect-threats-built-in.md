@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: fdb34173e0ca52f57a004e3a5b4a076e423ff5bd
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 6d61b94a50716966ac0b3c75551ddd9d8e291965
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240108"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024469"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Esercitazione: Rileva le minacce predefinite
 
@@ -29,7 +29,7 @@ ms.locfileid: "71240108"
 > Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Dopo aver [connesso le origini](quickstart-onboard.md) dati ad Azure Sentinel, è necessario ricevere una notifica quando si verifica un evento sospetto. Per consentire l'esecuzione di questa operazione, è possibile usare i modelli predefiniti disponibili in Azure Sentinel. Questi modelli sono stati progettati dal team di esperti di sicurezza e analisti di Microsoft in base a minacce note, vettori di attacco comuni e catene di escalation delle attività sospette. Dopo aver abilitato questi modelli, verranno automaticamente cercati eventuali attività sospette nell'ambiente in uso. Molti modelli possono essere personalizzati per cercare, o filtrare, le attività in base alle esigenze. Gli avvisi generati da questi modelli creeranno eventi imprevisti che è possibile assegnare ed esaminare nell'ambiente in uso.
+Dopo aver [connesso le origini dati](quickstart-onboard.md)@no__t 1per di Azure Sentinel, è necessario ricevere una notifica quando si verifica qualcosa di sospetto. Per consentire l'esecuzione di questa operazione, è possibile usare i modelli predefiniti disponibili in Azure Sentinel. Questi modelli sono stati progettati dal team di esperti di sicurezza e analisti di Microsoft in base a minacce note, vettori di attacco comuni e catene di escalation delle attività sospette. Dopo aver abilitato questi modelli, verranno automaticamente cercati eventuali attività sospette nell'ambiente in uso. Molti modelli possono essere personalizzati per cercare, o filtrare, le attività in base alle esigenze. Gli avvisi generati da questi modelli creeranno eventi imprevisti che è possibile assegnare ed esaminare nell'ambiente in uso.
 
 Questa esercitazione consente di rilevare le minacce con Azure Sentinel:
 
@@ -39,7 +39,7 @@ Questa esercitazione consente di rilevare le minacce con Azure Sentinel:
 
 ## <a name="about-out-of-the-box-detections"></a>Informazioni sui rilevamenti predefiniti
 
-Per visualizzare tutti i rilevamenti predefiniti, passare a **Analytics** e quindi a **modelli di regole**. Questa scheda contiene tutte le regole predefinite di Sentinel di Azure.
+Per visualizzare tutti i rilevamenti predefiniti, passare a **Analytics** e quindi a **modelli di regole**. Questa scheda contiene tutte le regole predefinite di Azure Sentinel.
 
    ![Usare i rilevamenti predefiniti per individuare le minacce con Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 
@@ -58,7 +58,7 @@ Sono disponibili i tipi di modello seguenti:
  
 1. Verrà visualizzata la creazione guidata regola, in base al modello selezionato. Tutti i dettagli sono riempiti automaticamente e, per le **regole pianificate** o **le regole di sicurezza Microsoft**, è possibile personalizzare la logica per adattarla meglio alla propria organizzazione o creare regole aggiuntive basate sul modello predefinito. Dopo aver seguito i passaggi della creazione guidata regola e aver completato la creazione di una regola basata sul modello, la nuova regola verrà visualizzata nella scheda **regole attive** .
 
-Per ulteriori informazioni sui campi della procedura guidata, vedere [esercitazione: Creare regole analitiche personalizzate per rilevare minacce](tutorial-detect-threats-custom.md)sospette.
+Per ulteriori informazioni sui campi della procedura guidata, vedere [Tutorial: Creare regole analitiche personalizzate per rilevare le minacce sospette @ no__t-0.
 
 
 

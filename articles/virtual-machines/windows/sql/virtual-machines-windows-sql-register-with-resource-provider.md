@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2bf7118d1f4be065969312d1fb9b0cf77e820d48
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b0a7221107f05ff2239bd77cc18e7ffedc18efc1
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262890"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023589"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrare una macchina virtuale SQL Server in Azure con il provider di risorse VM SQL
 
@@ -43,6 +43,11 @@ Per usare il provider di risorse VM SQL, è necessario registrare anche il provi
   > [!NOTE]
   > Non sono previsti requisiti di licenza aggiuntivi associati alla registrazione con il provider di risorse. La registrazione con il provider di risorse VM SQL offre un metodo semplificato per soddisfare i requisiti di notifica a Microsoft che la Vantaggio Azure Hybrid è stata abilitata al posto della gestione dei moduli di registrazione delle licenze per ogni risorsa. 
 
+Per ulteriori informazioni sui vantaggi derivanti dall'utilizzo del provider di risorse VM SQL, vedere il video [Channel9](https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure?WT.mc_id=dataexposed-c9-niner) seguente: 
+
+<iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Vantaggi del provider di risorse VM SQL durante l'installazione automatica di SQL Server in Azure-video Microsoft Channel 9"></iframe>
+
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per registrare la macchina virtuale di SQL Server con il provider di risorse, è necessario quanto segue: 
@@ -61,7 +66,7 @@ La registrazione con il provider di risorse VM SQL in modalità Lightweight gara
 
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
-Usare il frammento di codice seguente per eseguire la registrazione con il provider di risorse VM SQL se l'estensione SQL Server IaaS è già installata nella macchina virtuale. Per la registrazione con il provider di risorse VM SQL è necessario specificare il tipo di licenza di SQL Server, ovvero con pagamento in base al consumo (`PAYG`) o vantaggio Azure Hybrid (`AHUB`). 
+Usare il frammento di codice seguente per eseguire la registrazione con il provider di risorse VM SQL se l'estensione SQL Server IaaS è già installata nella macchina virtuale. Per la registrazione con il provider di risorse VM SQL è necessario specificare il tipo di licenza di SQL Server, ovvero con pagamento in base al consumo (`PAYG`) o Vantaggio Azure Hybrid (`AHUB`). 
 
 Registrare la macchina virtuale SQL Server usando il frammento di codice di PowerShell seguente:
 
@@ -159,7 +164,7 @@ Per registrare l'istanza di SQL Server 2008 o 2008 R2 nell'istanza di Windows Se
 
 ### <a name="command-line"></a>Riga di comando
 
-Verificare lo stato di registrazione della macchina virtuale SQL Server corrente usando AZ CLI o PowerShell. `ProvisioningState`indicherà `Succeeded` se la registrazione è stata completata. 
+Verificare lo stato di registrazione della macchina virtuale SQL Server corrente usando AZ CLI o PowerShell. `ProvisioningState` mostrerà `Succeeded` se la registrazione ha avuto esito positivo. 
 
 # <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
 

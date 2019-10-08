@@ -14,19 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 53f339d5450965c992f6528ff294e0d37ec2f7f6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 53d65d5577f8905d66da80e99cab6647f0a4dc4c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446289"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025027"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Abilitare la sincronizzazione offline per l'app per dispositivi mobili Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 > [!NOTE]
-> Visual Studio App Center investe in nuovi e integrati servizi fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare **compilare**, **Test** e **Distribuisci** servizi per impostare le pipeline di integrazione continua e recapito. Dopo aver distribuito l'app, gli sviluppatori possono monitorare lo stato e sull'utilizzo di app using il **Analitica** e **diagnostica** servizi e Coinvolgi gli utenti utilizzando il **Push** servizio. Gli sviluppatori possono inoltre sfruttare **Auth** di autenticare gli utenti e **dati** service per rendere persistente e sincronizzare i dati dell'app nel cloud. Consulta [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-offline-data) oggi stesso.
->
+> Visual Studio App Center supporta end-to-end e servizi integrati centrali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare i servizi di **compilazione**, **test** e **distribuzione** per configurare la pipeline di integrazione e recapito continua. Una volta distribuita l'app, gli sviluppatori possono monitorare lo stato e l'utilizzo dell'app usando i servizi di **analisi** e **diagnostica** e coinvolgere gli utenti che usano il servizio di **push** . Gli sviluppatori possono inoltre sfruttare l' **autenticazione** per autenticare gli utenti e il servizio **dati** per salvare in modo permanente e sincronizzare i dati delle app nel cloud.
+> Se si intende integrare servizi cloud nell'applicazione per dispositivi mobili, iscriversi con App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) oggi stesso.
 
 ## <a name="overview"></a>Panoramica
 Questa esercitazione descrive la funzionalità di sincronizzazione offline di App per dispositivi mobili di Azure per Xamarin.Forms. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete. Le modifiche vengono archiviate in un database locale. Quando il dispositivo torna online, vengono sincronizzate con il servizio remoto.
@@ -45,7 +45,7 @@ Il codice per la sincronizzazione offline viene incluso nel progetto usando le d
 3. (Facoltativo) Per supportare i dispositivi Windows, installare uno dei pacchetti di runtime SQLite seguenti:
 
    * **Runtime di Windows 8.1:** Installare [SQLite per Windows 8.1][3].
-   * **Windows Phone 8.1:** Installare [SQLite per Windows Phone 8.1][4].
+   * **Windows Phone 8.1:** Installare [SQLite per Windows Phone 8,1][4].
    * **Piattaforma UWP (Universal Windows Platform)** Installare [SQLite per la piattaforma UWP (Universal Windows Platform)][5].
 
      Anche se la Guida introduttiva non contiene un Windows universale, la piattaforma UWP (Universal Windows Platform) è supportata con Xamarin Forms.
@@ -150,13 +150,13 @@ In questa sezione viene riconnessa l'app al back-end mobile, azione che consente
 
 1. Riaprire il file Constants.cs. Correggere il valore `applicationURL` in modo che faccia riferimento all'URL corretto.
 2. Ricompilare ed eseguire l'app client. L'app prova a eseguire la sincronizzazione con il back-end dell'app per dispositivi mobili dopo l'avvio. Verificare che non vengano registrate eccezioni nella console di debug.
-3. (Facoltativo) Visualizzare i dati aggiornati usando Esplora oggetti di SQL Server o uno strumento REST come Fiddler oppure [Postman][6]. Si noti che i dati sono stati sincronizzati tra il database di back-end e l'archivio locale.
+3. Opzionale È possibile visualizzare i dati aggiornati usando Esplora oggetti di SQL Server o uno strumento REST come Fiddler o [postazione][6]. Si noti che i dati sono stati sincronizzati tra il database di back-end e l'archivio locale.
 
     Si noti che i dati sono stati sincronizzati tra il database e l'archivio locale e includono gli elementi aggiunti mentre l'app era disconnessa.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure][2]
-* [PROCEDURA per le App per dispositivi mobili di Azure .NET SDK][8]
+* [SDK di .NET per app per dispositivi mobili di Azure][8]
 
 <!-- URLs. -->
 [1]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

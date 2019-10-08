@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 026689b68244052c3ad7cb50cd90d7319b6760ef
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: fbab3eff3d7f742c2542e4264ef1b2124c5f15e5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71229413"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024618"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Esercitazione: Esaminare gli eventi imprevisti con Sentinel di Azure
 
@@ -35,7 +35,7 @@ Questo articolo illustra le attività seguenti:
 > [!div class="checklist"]
 > * Analizzare gli eventi imprevisti
 > * Usare il grafico di analisi
-> * Rispondi alle minacce
+> * Rispondere alle minacce
 
 Un evento imprevisto può includere più avvisi. Si tratta di un'aggregazione di tutte le evidenze rilevanti per un'indagine specifica. Viene creato un evento imprevisto in base alle regole analitiche create nella pagina di **analisi** . Le proprietà correlate agli avvisi, ad esempio la gravità e lo stato, vengono impostate a livello di evento imprevisto. Quando si lascia che Azure Sentinel conosca quali tipi di minacce si sta cercando e come trovarli, è possibile monitorare le minacce rilevate esaminando gli eventi imprevisti.
 
@@ -44,7 +44,7 @@ Un evento imprevisto può includere più avvisi. Si tratta di un'aggregazione di
 
 ## <a name="how-to-investigate-incidents"></a>Come analizzare gli eventi imprevisti
 
-1. Selezionare **eventi imprevisti**. Nella pagina **eventi imprevisti**è possibile verificare il numero di eventi imprevisti, il numero di eventi aperti, il numero di eventi impostati **in corso**e il numero di eventi chiusi. Per ogni evento imprevisto, è possibile visualizzare l'ora in cui si è verificata e lo stato dell'evento imprevisto. Esaminare la gravità per decidere quali eventi imprevisti gestire per primi.
+1. Selezionare **eventi imprevisti**. Nella pagina **eventi imprevisti** è possibile verificare il numero di eventi imprevisti, il numero di eventi aperti, il numero di eventi impostati **in corso**e il numero di eventi chiusi. Per ogni evento imprevisto, è possibile visualizzare l'ora in cui si è verificata e lo stato dell'evento imprevisto. Esaminare la gravità per decidere quali eventi imprevisti gestire per primi.
 
     ![Visualizza gravità evento imprevisto](media/tutorial-investigate-cases/incident-severity.png)
 
@@ -54,7 +54,7 @@ Un evento imprevisto può includere più avvisi. Si tratta di un'aggregazione di
 
 1. Per visualizzare ulteriori dettagli sugli avvisi e le entità nell'evento imprevisto, selezionare **Visualizza dettagli completi** nella pagina evento imprevisto ed esaminare le schede pertinenti che riepilogano le informazioni sull'evento imprevisto. Nella scheda **avvisi** esaminare l'avviso stesso. È possibile visualizzare tutte le informazioni rilevanti relative all'avviso, ovvero la query che ha attivato l'avviso, il numero di risultati restituiti per ogni query e la possibilità di eseguire PlayBook negli avvisi. Per eseguire il drill-down anche ulteriormente nell'evento imprevisto, selezionare il numero di **eventi**. Verrà visualizzata la query che ha generato i risultati e gli eventi che hanno attivato l'avviso in Log Analytics. Nella scheda **entità** è possibile visualizzare tutte le entità di cui è stato eseguito il mapping come parte della definizione della regola di avviso.
 
-    ![Visualizza i dettagli dell'avviso](media/tutorial-investigate-cases/alert-details.png)
+    ![Visualizza dettagli avviso](media/tutorial-investigate-cases/alert-details.png)
 
 1. Se si sta esaminando attivamente un evento imprevisto, è consigliabile impostare lo stato dell'evento imprevisto su **in corso** fino a quando non lo si chiude.
 
@@ -78,14 +78,14 @@ Il grafico di indagine fornisce:
 
 Per usare il grafico di analisi:
 
-1. Selezionare un evento imprevisto, quindi fare clic **su**Cerca. In questo modo si passa al grafico di analisi. Il grafico fornisce una mappa illustrativa delle entità connesse direttamente all'avviso e ogni risorsa è connessa.
+1. Selezionare un evento imprevisto, quindi fare clic **su**Cerca. In questo modo si passa al grafico di analisi. Il grafico fornisce una mappa illustrativa delle entità connesse direttamente all'avviso e ogni risorsa è connessa.
 
    > [!IMPORTANT] 
    > È possibile esaminare l'evento imprevisto solo se sono stati usati i campi di mapping delle entità quando si configura la regola di analisi. Il grafico di indagine richiede che l'evento imprevisto originale includa entità.
 
-   ![Visualizza mappa](media/tutorial-investigate-cases/map1.png)
+   ![Visualizzare la mappa](media/tutorial-investigate-cases/map1.png)
 
-1. Selezionare un'entità per aprire il riquadro **entità** in modo da poter esaminare le informazioni relative a tale entità.
+1. Selezionare un'entità per aprire il riquadro **entità** in modo da poter esaminare le informazioni relative a tale entità.
 
     ![Visualizza entità nella mappa](media/tutorial-investigate-cases/map-entities.png)
   
@@ -95,9 +95,9 @@ Per usare il grafico di analisi:
 
    Ad esempio, in un computer è possibile richiedere avvisi correlati. Se si seleziona una query di esplorazione, i titoli risultanti vengono aggiunti di nuovo al grafico. In questo esempio, se si selezionano gli **avvisi correlati** , nel grafico vengono restituiti gli avvisi seguenti:
 
-    ![Visualizza gli avvisi correlati](media/tutorial-investigate-cases/related-alerts.png)
+    ![Visualizza avvisi correlati](media/tutorial-investigate-cases/related-alerts.png)
 
-1. Per ogni query di esplorazione, è possibile selezionare l'opzione per aprire i risultati degli eventi non elaborati e la query utilizzata in Log Analytics, selezionando **gli eventi\>** .
+1. Per ogni query di esplorazione, è possibile selezionare l'opzione per aprire i risultati degli eventi non elaborati e la query usata in Log Analytics, selezionando **Events @ no__t-1**.
 
 1. Per comprendere l'evento imprevisto, il grafico fornisce una sequenza temporale parallela.
 

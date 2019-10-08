@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d227b4cf7090cdc3177c7045d6137f30a13f71b
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f4e4dc33d670c5f6c5ebefa21ccf1a1ff941e913
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931964"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024573"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedura: Blocca l'autenticazione legacy per Azure AD con accesso condizionale   
 
@@ -52,8 +52,8 @@ In questa sezione viene illustrato come configurare un criterio di accesso condi
 
 Prima di poter bloccare l'autenticazione legacy nella directory, è prima di tutto necessario comprendere se gli utenti hanno app che usano l'autenticazione legacy e come influiscono sulla directory complessiva. È possibile usare i log di accesso Azure AD per capire se si usa l'autenticazione legacy.
 
-1. Passare al **portale di Azure** > **Azure Active Directory** > **accessi**.
-1. Aggiungere la colonna app client se non viene visualizzata facendo clic su **colonne** > **client App**.
+1. Passare alla **portale di Azure** > **Azure Active Directory** **accessi** > .
+1. Aggiungere la colonna app client se non viene visualizzata facendo clic su **colonne** > **app client**.
 1. **Aggiungere filtri** > **app client** > selezionare tutte le opzioni per **altri client** e fare clic su **applica**.
 
 Con il filtro vengono visualizzati solo i tentativi di accesso eseguiti dai protocolli di autenticazione legacy. Se si fa clic su ogni singolo tentativo di accesso, vengono visualizzati altri dettagli. Il campo **app client** nella scheda **informazioni di base** indicherà quale protocollo di autenticazione legacy è stato usato.
@@ -101,7 +101,7 @@ Per altre informazioni, vedere [Come distribuire un nuovo criterio](best-practic
 
 ## <a name="what-you-should-know"></a>Informazioni utili
 
-Il blocco dell'accesso con **altri client** blocca anche PowerShell per Exchange Online usando l'autenticazione di base.
+Il blocco dell'accesso con **altri client** blocca anche PowerShell per Exchange Online e Dynamics 365 usando l'autenticazione di base.
 
 La configurazione di un criterio per **Altri client** blocca l'intera organizzazione per determinati client come SPConnect. Questo blocco si verifica perché l'autenticazione di client meno recenti avviene in modo imprevisto. Questo problema non si applica alle principali applicazioni di Office, come i client di Office meno recenti.
 
