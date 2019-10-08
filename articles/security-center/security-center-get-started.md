@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 138d3fd74b95fe8d51593fcbb2cedda017e35d80
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 689949b2b6fea1dcd06741fd3fc19c9371a96784
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202159"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676384"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Guida introduttiva: Caricamento della sottoscrizione di Azure al livello Standard del Centro di sicurezza
 Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione dalle minacce per carichi di lavoro cloud ibridi. Mentre il livello gratuito offre sicurezza limitata delle risorse di Azure, il livello Standard estende le funzionalità in locale e in altri ambienti cloud. Il livello Standard del Centro sicurezza consente di individuare e risolvere le vulnerabilità di sicurezza, di applicare i controlli su applicazioni e accessi per bloccare le attività dannose, di rilevare le minacce usando funzioni di analisi e di intelligenza e di rispondere rapidamente in caso di attacco. È possibile provare il livello Standard del Centro sicurezza gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
@@ -72,8 +72,8 @@ Dopo aver abilitato il provisioning automatico, il Centro sicurezza installa Mic
 
 Per abilitare il provisioning automatico di Microsoft Monitoring Agent:
 
-1. selezionare **Criteri di sicurezza** nel menu principale Centro sicurezza.
-2. Sulla riga della sottoscrizione, selezionare **Modifica impostazioni>** .
+1. Scegliere **Prezzi e impostazioni** dal menu principale del Centro sicurezza.
+2. Nella riga della sottoscrizione fare clic sulla sottoscrizione di cui si vogliono modificare le impostazioni.
 3. Nella scheda **Raccolta dati**, impostare **Provisioning automatico** su **Sì**.
 4. Selezionare **Salva**.
 ---
@@ -86,15 +86,15 @@ Grazie a queste nuove informazioni sulle macchine virtuali di Azure, il Centro s
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Altre guide introduttive ed esercitazioni della raccolta si basano su questa. Se si prevede di usare le guide introduttive e le esercitazioni successive, continuare a eseguire il livello Standard e tenere abilitato il provisioning automatico. Se non si intende proseguire oppure si vuole tornare al livello gratuito:
 
-1. Tornare al menu principale del Centro sicurezza e selezionare **Criteri di sicurezza**.
-2. Sulla riga della sottoscrizione che si vuole riportare al livello gratuito, selezionare **Modifica impostazioni>** .
+1. Tornare al menu principale del Centro sicurezza e selezionare **Prezzi e impostazioni**.
+2. Fare clic sulla sottoscrizione per cui si vuole tornare al livello gratuito.
 3. Selezionare **Piano tariffario** e quindi **Gratuito** per modificare il livello della sottoscrizione da Standard a Gratuito.
 5. Selezionare **Salva**.
 
 Se si vuole disabilitare il provisioning automatico:
 
-1. Tornare al menu principale del Centro sicurezza e selezionare **Criteri di sicurezza**.
-2. Sulla riga della sottoscrizione per la quale si vuole disabilitare il provisioning automatico, selezionare **Modifica impostazioni>** .
+1. Tornare al menu principale del Centro sicurezza e selezionare **Prezzi e impostazioni**.
+2. Selezionare la sottoscrizione per cui si vuole disabilitare il provisioning automatico.
 3. Nella scheda **Raccolta dati**, impostare **Provisioning automatico** su **No**.
 4. Selezionare **Salva**.
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 05/21/2018
+ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 964f5624a3a588a1520a08365c5fa9c783114e48
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 67ebce2130bf5594d3c8c671934f7141a02eb60d
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958831"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694657"
 ---
 # <a name="introduction-to-classroom-labs"></a>Introduzione ai lab per le classi
 Azure Lab Services consente di configurare rapidamente un ambiente di lab per le classi nel cloud. Un docente crea un lab per le classi, esegue il provisioning delle macchine virtuali Windows o Linux, installa il software e gli strumenti necessari e li rende disponibili per gli studenti. Gli studenti nella classe si connettono alle macchine virtuali del lab e le usano per i progetti, per i compiti o per gli esercizi in classe. 
@@ -33,6 +33,9 @@ Gli utenti che vengono invitati a partecipare al lab ottengono accesso immediato
 
 ## <a name="cost-optimization-and-tracking"></a>Verifica e ottimizzazione dei costi  
 È possibile tenere sotto controllo il budget controllando il numero esatto di ore per cui gli utenti del lab possono usare le macchine virtuali. È possibile impostare pianificazioni nel lab per permettere agli utenti di usare le macchine virtuali solo durante fasce orarie designate o configurare orari ricorrenti per l'arresto e l'avvio automatici. È possibile tenere traccia dell'utilizzo e dei limiti impostati dei singoli utenti.
+
+## <a name="example-class-types"></a>Esempio di tipi di classe
+È possibile configurare lab per diversi tipi di classi con Azure Lab Services. Per alcuni esempi di tipi di classi per cui è possibile configurare i lab con Azure Lab Services, vedere l'articolo [Esempi di tipi di classe in Azure Lab Services](class-types.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Leggere informazioni introduttive sulla configurazione di un account lab necessario per creare un lab per le classi con Azure Lab Services:

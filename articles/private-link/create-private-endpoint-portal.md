@@ -7,18 +7,22 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 15b4d3208be693a5b8d858d30b663347515f5a68
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: d7c2aee3ad73552a57776af5ce6585b36518d169
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130280"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687063"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Creare un endpoint privato con il portale di Azure
 
 Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato. Questa guida di avvio rapido illustrerà come creare una VM in una rete virtuale di Azure e un server di database SQL con un endpoint privato di Azure usando Azure PowerShell. Si potrà quindi accedere in modo sicuro al server di database SQL dalla VM.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+
+> [!NOTE]
+> Gli endpoint privati non sono consentiti in combinazione con gli endpoint di servizio nella stessa subnet.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -210,30 +214,31 @@ Dopo aver creato *myVm*, connettersi alla macchina virtuale da Internet come ill
     Name:    myserver.privatelink.database.windows.net
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
-3. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
+    ```
+3. Installare [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
-4. In **Connect to server**, enter or select this information:
+4. In **Connetti a server** immettere o selezionare queste informazioni:
 
-    | Setting | Value |
+    | Impostazione | Valore |
     | ------- | ----- |
-    | Server type| Select **Database Engine**.|
-    | Server name| Select *myserver.database.windows.net* |
-    | User name | Enter a password provided during the SQL server creation. |
-    |Password |Enter a password provided during the SQL server creation. |
-    |Remember password|Select **Yes**.|
+    | Tipo di server| Selezionare **Motore di database**.|
+    | Nome server| Selezionare *myserver.database.windows.net* |
+    | Nome utente | Immettere una password specificata durante la creazione di SQL Server. |
+    |Password |Immettere una password specificata durante la creazione di SQL Server. |
+    |Memorizza password|Selezionare **Sì**.|
     |||
-1. Select **Connect**.
-2. Browse databases from left menu.
-3. (Optionally) Create or query information from mydatabase.
-4. Close the remote desktop connection to *myVm*. 
+1. Selezionare **Connetti**.
+2. Esplorare i database dal menu a sinistra.
+3. (Facoltativamente) Creare o eseguire query sulle informazioni di mydatabase.
+4. Chiudere la connessione Desktop remoto a  *myVm*. 
 
-## Clean up resources 
-When you're done using the private endpoint, SQL server, and the VM, delete the resource group and all of the resources it contains: 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
-2. Select **Delete resource group**. 
-3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+## <a name="clean-up-resources"></a>Pulire le risorse 
+Quando non si ha più bisogno dell'endpoint privato, del server SQL e della macchina virtuale, rimuovere il gruppo di risorse e tutte le risorse che contiene: 
+1. Immettere *myResourceGroup* nella casella **Cerca** nella parte superiore del portale e selezionare *myResourceGroup* nei risultati della ricerca. 
+2. Selezionare **Elimina gruppo di risorse**. 
+3. Immettere myResourceGroup in **DIGITARE IL NOME DEL GRUPPO DI RISORSE** e selezionare **Elimina**.
 
-## Next steps
+## <a name="next-steps"></a>Passaggi successivi
 
-In this quickstart, you created a VM on a virtual network, a SQL database server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the SQL database server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint?](private-endpoint-overview.md).
+In questa Guida introduttiva sono stati creati una macchina virtuale in una rete virtuale, un server di database SQL e un endpoint privato per l'accesso privato. È stata effettuata la connessione a una macchina virtuale da Internet ed è stata stabilita una comunicazione al server di database SQL usando Collegamento privato. Per altre informazioni sugli endpoint privati, vedere [Informazioni sull'endpoint privato di Azure](private-endpoint-overview.md).
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 02ddaf4878367524291ce54a4e12fc9b4fee4cd2
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: f89d7935af10ebb477125c598a01278a4ceef0bd
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490279"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326934"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Informazioni sulla fattura del contratto Enterprise di Azure
 
@@ -28,10 +28,10 @@ Il credito della propria organizzazione include l'impegno monetario. L'impegno m
 
 Questa sezione non si applica ai clienti di Azure in Australia, Giappone o Singapore. Se ci si trova in uno di questi paesi/aree geografiche, vedere [Fatture per altri clienti](#invoices-for-other-customers).
 
-Si riceve una fattura di Azure quando si verifica una delle condizioni seguenti durante il periodo di fatturazione:
+Si riceve una fattura di Azure quando si verifica uno degli eventi seguenti durante il periodo di fatturazione:
 
 - **Eccedenza del servizio**: gli addebiti per l'utilizzo della propria organizzazione superano il saldo del credito.
-- **Addebiti fatturati separatamente**: i servizi usati dall'organizzazione non sono coperti dal credito. Si riceve una fattura per i servizi seguenti indipendentemente dal saldo del credito:
+- **Addebiti fatturati separatamente**: i servizi usati dall'organizzazione non sono coperti dal credito. Si riceve una fattura per i servizi seguenti nonostante il saldo del credito:
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -43,7 +43,7 @@ Si riceve una fattura di Azure quando si verifica una delle condizioni seguenti 
     - Visual Studio Enterprise (annuale)
     - Visual Studio Professional (mensile)
     - Visual Studio Professional (annuale)
-- **Addebiti per Azure Marketplace**: gli acquisti e l'utilizzo di Azure Marketplace non sono coperti dal credito della propria organizzazione. Pertanto, si riceve una fattura per gli addebiti del Marketplace indipendentemente dal saldo del credito. In Enterprise Portal un amministratore dell'organizzazione può abilitare e disabilitare gli acquisti nel Marketplace.
+- **Addebiti per Azure Marketplace**: gli acquisti e l'utilizzo di Azure Marketplace non sono coperti dal credito della propria organizzazione. Quindi, si riceve una fattura per gli addebiti del Marketplace nonostante il saldo del credito. In Enterprise Portal un amministratore dell'organizzazione può abilitare e disabilitare gli acquisti nel Marketplace.
 
 ## <a name="review-charges-for-most-customers"></a>Controllare gli addebiti per la maggior parte dei clienti
 Questa sezione non si applica ai clienti di Azure in Australia, Giappone o Singapore. Se ci si trova in uno di questi paesi, vedere [Controllare gli addebiti per altri clienti](#review-charges-for-other-customers).
@@ -54,7 +54,7 @@ La fattura mostra tutto l'utilizzo di Azure, seguito da eventuali addebiti del M
 
 Confrontare l'importo totale combinato mostrato in Enterprise Portal in **Report** > **Riepilogo utilizzo** con la fattura di Azure. Gli importi in **Riepilogo utilizzo** non includono l'imposta.
 
-1. Accedere a [Enterprise Portal](https://ea.azure.com).
+1. Accedere al [Portale Enterprise](https://ea.azure.com).
 1. Selezionare **Report**.
 1. Nell'angolo superiore destro della scheda passare dalla vista **M** alla **C** e abbinare il periodo alla fattura.  
     ![Screenshot che mostra l'opzione M + C nel Riepilogo utilizzo](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png).
@@ -66,10 +66,10 @@ Confrontare l'importo totale combinato mostrato in Enterprise Portal in **Report
 
 Questa sezione si applica solo ai clienti di Azure in Australia, Giappone o Singapore.
 
-Si ricevono una o più fatture di Azure quando si verifica quanto segue:
+Si ricevono una o più fatture di Azure quando si verifica uno degli eventi seguenti:
 
 - **Eccedenza del servizio**: gli addebiti per l'utilizzo della propria organizzazione superano il saldo del credito.
-- **Addebiti fatturati separatamente**: i servizi usati dall'organizzazione non sono coperti dal credito. Si riceve una fattura per i servizi seguenti indipendentemente dal saldo del credito:
+- **Addebiti fatturati separatamente**: i servizi usati dall'organizzazione non sono coperti dal credito. Si riceve una fattura per i servizi seguenti:
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop

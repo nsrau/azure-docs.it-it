@@ -111,7 +111,7 @@ Per i sistemi Linux che supportano sysctl per la configurazione dei parametri de
 1. Riavviare o aggiornare sysctl eseguendo <br>
     `sysctl -p`
 
-Per altre informazioni sulle configurazioni di kernel di Linux, inclusi `unknown_nmi_panic`, `panic_on_io_nmi` e `panic_on_unrecovered_nmi`, consultare: [Documentation for /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt) (Documentazione per /proc/sys/kernel/*). Per la documentazione specifica per la distribuzione in NMI e per i passaggi per configurare Linux per creare un dump di arresto anomalo del sistema quando riceve un NMI, vedere i collegamenti seguenti:
+Per altre informazioni sulle configurazioni di kernel di Linux, inclusi `unknown_nmi_panic`, `panic_on_io_nmi` e `panic_on_unrecovered_nmi`, consultare: [Documentation for /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt) (Documentazione per /proc/sys/kernel/) Per la documentazione specifica per la distribuzione in NMI e per i passaggi per configurare Linux per creare un dump di arresto anomalo del sistema quando riceve un NMI, vedere i collegamenti seguenti:
  
 ### <a name="ubuntu"></a>Ubuntu 
  - [Dump di arresto anomalo del kernel](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)

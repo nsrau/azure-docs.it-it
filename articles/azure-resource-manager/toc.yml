@@ -71,6 +71,8 @@
         - name: Usare il controllo integrità in Deployment Manager
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
+        - name: Aggiornare lo script di distribuzione VS ad Az Powershell
+          href: vs-azure-tools-update-deploy-script-to-az-powershell.md
         - name: Risoluzione dei problemi relativi alla distribuzione di modelli
           href: resource-manager-tutorial-troubleshoot.md
 - name: Esempi
@@ -141,14 +143,17 @@
           displayName: deployment
           href: resource-group-template-deploy-portal.md
         - name: Distribuire - interfaccia della riga di comando
-          displayName: 'deployment,rollback on error,redeploy'
+          displayName: deployment
           href: resource-group-template-deploy-cli.md
         - name: Distribuire - PowerShell
-          displayName: 'deployment,rollback on error,redeploy'
+          displayName: deployment
           href: resource-group-template-deploy.md
         - name: Distribuire - API REST
-          displayName: 'deployment,rollback on error,redeploy'
+          displayName: deployment
           href: resource-group-template-deploy-rest.md
+        - name: Ridistribuire in caso di errore
+          displayName: rollback
+          href: rollback-on-error.md
         - name: Proteggere il modello tramite token di firma di accesso condiviso
           href: secure-template-with-sas-token.md
         - name: Eseguire la distribuzione in più gruppi di risorse o sottoscrizioni

@@ -4,15 +4,15 @@ description: Informazioni su come eseguire l'onboarding di un cliente nella gest
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 09/19/2019
+ms.date: 09/30/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: a199dde6b9e36683b817f908e385aabcc431ce16
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: b2e935a3a5ff2b6da99ad693f2d4e924ae811caf
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155136"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694840"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure
 
@@ -113,11 +113,11 @@ az role definition list --name "<roleName>" | grep name
 
 ## <a name="create-an-azure-resource-manager-template"></a>Creare un modello di Azure Resource Manager
 
-Per eseguire l'onboarding del cliente, sarà necessario creare un modello di [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) che includa quanto segue:
+Per eseguire l'onboarding del cliente, sarà necessario creare un modello di [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) per l'offerta con le informazioni seguenti. I valori **mspOfferName** e **mspOfferDescription** sono visibili al cliente quando si visualizzano i dettagli dell'offerta nella [pagina Provider di servizi](view-manage-service-providers.md) del portale di Azure.
 
 |Campo  |Definizione  |
 |---------|---------|
-|**mspName**     |Nome del provider di servizi         |
+|**mspOfferName**     |Nome che descrive questa definizione. Questo valore viene visualizzato al cliente come titolo dell'offerta.         |
 |**mspOfferDescription**     |Breve descrizione dell'offerta (ad esempio, "Offerta di gestione di macchine virtuali Contoso")      |
 |**managedByTenantId**     |ID del tenant.         |
 |**authorizations**     |Valori **principalId** per gli utenti, i gruppi o i nomi dell'entità servizio del tenant, ognuno dei quali ha un **principalIdDisplayName** per consentire ai clienti di comprendere lo scopo dell'autorizzazione ed è associato a un valore **roleDefinitionId** predefinito per specificare il livello di accesso         |
@@ -132,9 +132,9 @@ Per eseguire l'onboarding della sottoscrizione di un cliente, usare il modello d
 |Sottoscrizione (quando si usa un'offerta pubblicata in Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> Il processo descritto qui richiede una distribuzione separata per ogni sottoscrizione di cui eseguire l'onboarding.
-> 
-> Le distribuzioni separate sono necessarie anche se si esegue l'onboarding di più gruppi di risorse all'interno di sottoscrizioni diverse. Tuttavia, l'onboarding di più gruppi di risorse all'interno di una singola sottoscrizione può essere eseguito in una sola distribuzione.
+> Il processo descritto qui richiede una distribuzione separata per ogni sottoscrizione di cui eseguire l'onboarding. Le distribuzioni separate sono necessarie anche se si esegue l'onboarding di più gruppi di risorse all'interno di sottoscrizioni diverse. Tuttavia, l'onboarding di più gruppi di risorse all'interno di una singola sottoscrizione può essere eseguito in una sola distribuzione.
+>
+> Le distribuzioni separate sono necessarie anche se si applicano più offerte alla stessa sottoscrizione (o gruppi di risorse all'interno di una sottoscrizione). Ogni offerta applicata deve usare un diverso **mspOfferName**.
 
 L'esempio seguente illustra un file **resourceProjection.parameters.json** modificato che verrà usato per eseguire l'onboarding di una sottoscrizione. I file di parametri dei gruppi di risorse (disponibili nella cartella [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management)) sono simili, ma includono anche un parametro**rgName** per identificare i gruppi di risorse specifici di cui eseguire l'onboarding.
 
@@ -143,7 +143,7 @@ L'esempio seguente illustra un file **resourceProjection.parameters.json** modif
     "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "mspName": {
+        "mspOfferName": {
             "value": "Fabrikam Managed Services - Interstellar"
         },
         "mspOfferDescription": {

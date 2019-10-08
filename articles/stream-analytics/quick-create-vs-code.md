@@ -4,15 +4,15 @@ description: Questo argomento di avvio rapido descrive come iniziare a creare un
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/06/2019
+ms.date: 09/16/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 894f43a7da0abd129123d5c4ddf2bb95347c42c5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 3301be3a067982cb90e663fe3782319eb0b90ba0
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825306"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673142"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Guida introduttiva: Creare un processo cloud di Analisi di flusso di Azure in Visual Studio Code (Anteprima)
 
@@ -60,8 +60,8 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
    
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
-   |Sottoscrizione  | \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure da usare. |
-   |Gruppo di risorse   |   asaquickstart-resourcegroup  |   Selezionare **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse per l'account. |
+   |Subscription  | \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure da usare. |
+   |Resource group   |   asaquickstart-resourcegroup  |   Selezionare **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse per l'account. |
    |Region  |  \<Selezionare l'area più vicina agli utenti\> | Selezionare la posizione geografica in cui è possibile ospitare l'hub IoT. Usare la località più vicina agli utenti. |
    |Nome hub IoT  | MyASAIoTHub  |   Scegliere un nome per l'hub IoT.   |
 
@@ -109,7 +109,7 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
 
     ![Creare il nome del progetto](./media/quick-create-vs-code/create-project-name.png)
 
-3. Il nuovo progetto verrà aggiunto all'area di lavoro. Un progetto ASA è costituito dallo script di query **(*.asaql)**, da un file **JobConfig.json** e da un file di configurazione **asaproj.json**.
+3. Il nuovo progetto verrà aggiunto all'area di lavoro. Un progetto ASA è costituito dallo script di query **(*.asaql)** , da un file **JobConfig.json** e da un file di configurazione **asaproj.json**.
 
    ![File di progetto di Analisi di flusso di Azure in VS Code](./media/quick-create-vs-code/asa-project-files.png)
 
@@ -119,6 +119,25 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
 
 > [!Note]
 > Quando si aggiungono gli input e gli output dal riquadro comandi, i percorsi corrispondenti verranno automaticamente aggiunti in **asaproj.json**. Se si aggiungono o si rimuovono direttamente gli input o gli output sul disco, è necessario aggiungerli o rimuoverli manualmente da **asaproj.json**. È possibile scegliere di inserire gli input e gli output in un'unica posizione e in seguito farvi riferimento in diversi processi, specificando i percorsi in ogni file **asaproj.json**.
+
+## <a name="define-the-transformation-query"></a>Definire la query di trasformazione
+
+1. Aprire **myASAproj.asaql** dalla cartella del progetto.
+
+2. Aggiungere la query seguente:
+
+   ```sql
+   SELECT * 
+   INTO Output
+   FROM Input
+   HAVING Temperature > 27
+   ```
+## <a name="test-with-sample-data"></a>Test con dati di esempio
+Prima di eseguire la query nel cloud, è possibile testare la query con dati di esempio locali per verificare la logica di query.
+
+Per altri dettagli, seguire le istruzioni riportate in [Testare con dati di esempio](vscode-local-run.md). 
+
+ ![Test con dati di esempio in VS Code](./media/quick-create-vs-code/vscode-localrun.gif)
 
 ## <a name="define-an-input"></a>Definire un input
 
@@ -134,7 +153,7 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
 
    ![Selezionare uno script ASA in Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
 
-4. Come nome del file di input immettere **IoTHub.json**.
+4. Come nome del file di input immettere **IoTHub**.
 
 5. Modificare **IoTHub.json** con i valori seguenti. Mantenere i valori predefiniti per i campi non menzionati di seguito. È possibile usare CodeLens per immettere una stringa, selezionare da un elenco a discesa o modificare il testo direttamente nel file.
 
@@ -142,8 +161,11 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
    |-------|---------------|-----------|
    |NOME|Input|Immettere un nome per identificare l'input del processo.|
    |IoTHubNamespace|MyASAIoTHub|Scegliere o immettere il nome dell'hub IoT. I nomi dell'hub IoT vengono rilevati automaticamente se sono stati creati nella stessa sottoscrizione.|
-   |EndPoint|Messaggistica| |
    |SharedAccessPolicyName|iothubowner| |
+
+   ![Configurare l'input in Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
+
+
 
 ## <a name="define-an-output"></a>Definire un output
 
@@ -155,9 +177,9 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
 
 3. Scegliere lo script di query ASA che userà l'input.
 
-4. Come nome del file di output immettere **BlobStorage.json**.
+4. Come nome del file di output immettere **BlobStorage**.
 
-5. Modificare **BlobStorage.json** con i valori seguenti. Mantenere i valori predefiniti per i campi non menzionati di seguito. Usare CodeLens per immettere una stringa o selezionare da un elenco a discesa.
+5. Modificare **BlobStorage** con i valori seguenti. Mantenere i valori predefiniti per i campi non menzionati di seguito. Usare CodeLens per selezionare da un elenco a discesa o immettere una stringa. 
 
    |Impostazione|Valore consigliato|DESCRIZIONE|
    |-------|---------------|-----------|
@@ -166,18 +188,7 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
    |Contenitore|container1|Selezionare il contenitore esistente creato nell'account di archiviazione.|
    |Modello di percorso|output|Immettere il nome di un percorso di file da creare all'interno del contenitore.|
 
-## <a name="define-the-transformation-query"></a>Definire la query di trasformazione
-
-1. Aprire **myASAproj.asaql** dalla cartella del progetto.
-
-2. Aggiungere la query seguente:
-
-   ```sql
-   SELECT * 
-   INTO Output
-   FROM Input
-   HAVING Temperature > 27
-   ```
+ ![Configurare l'output in Visual Studio Code](./media/quick-create-vs-code/configure-output.png)
 
 ## <a name="compile-the-script"></a>Compilare lo script
 
@@ -211,7 +222,10 @@ Esistono due modi per attivare la compilazione dello script:
 
 5. Selezionare **Invia ad Azure**. I log sono disponibili nella finestra di output. 
 
-6. Al termine della creazione del processo, è possibile visualizzarlo in Esplora analisi di flusso.
+6. Al termine della creazione del processo, è possibile visualizzarlo in **Esplora analisi di flusso**.
+
+![Elencare i processi in Esplora analisi di flusso](./media/quick-create-vs-code/list-job.png)
+
 
 ## <a name="run-the-iot-simulator"></a>Eseguire il simulatore IoT
 

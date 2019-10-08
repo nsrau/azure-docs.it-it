@@ -16,14 +16,14 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc, seo-javascript-september2019
 monikerRange: vsts
-ms.openlocfilehash: c59df73e7fa1d19db4c83a1c9a317f9b69ec8a37
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 9fc276626d2a863f7f2e53cd7312ab8b3be513dd
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091175"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815775"
 ---
-#  <a name="create-a-cicd-pipeline-for--nodejs-with-azure-devops-projects"></a>Creare una pipeline CI/CD per Node.js con Azure DevOps Projects 
+#  <a name="quickstart-create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-projects"></a>Guida introduttiva: Creare una pipeline CI/CD in Azure Pipelines per Node.js con Azure DevOps Projects
 
 Azure DevOps Projects offre un'esperienza semplificata per la creazione di risorse di Azure e la configurazione di una pipeline di integrazione continua (CI, Continuous Integration) e recapito continuo (CD, Continuous Delivery) per l'app Node.js in Azure Pipelines.  
 

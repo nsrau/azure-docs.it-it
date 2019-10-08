@@ -1,22 +1,22 @@
 ---
-title: Informazioni sull'anteprima di Desktop virtuale Windows  - Azure
-description: Panoramica dell'anteprima di Desktop virtuale Windows.
+title: Informazioni su Desktop virtuale Windows  - Azure
+description: Panoramica di Desktop virtuale Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 440ebfffec9378e0dad1fd04e0880c90571bb0f1
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 97087b7fdc6e4cdaccf922a1c72f35284c7a7040
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301005"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676558"
 ---
-# <a name="what-is-windows-virtual-desktop-preview"></a>Informazioni sull'anteprima di Desktop virtuale Windows 
+# <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows 
 
-Ora disponibile in anteprima pubblica, l'anteprima di Desktop virtuale Windows è un servizio di virtualizzazione per desktop e app che viene eseguito sul cloud.
+Desktop virtuale Windows è un servizio di virtualizzazione per desktop e app eseguito sul cloud.
 
 Di seguito è riportato cosa si può fare quando si esegue Desktop virtuale Windows in Azure:
 
@@ -88,7 +88,19 @@ Le macchine virtuali Azure che create per Desktop virtuale Windows devono essere
 >[!NOTE]
 >Se è necessaria una sottoscrizione di Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita di un mese](https://azure.microsoft.com/free/). Se si usa la versione di valutazione gratuita di Azure, è necessario usare Azure AD Domain Services per mantenere Windows Server Active Directory sincronizzato con Azure Active Directory.
 
-Desktop virtuale Windows comprende i desktop e le app Windows distribuiti agli utenti e la soluzione di gestione ospitata come servizio in Azure da Microsoft. Durante l'anteprima pubblica, i desktop e le app possono essere distribuiti in macchine virtuali (VM) in qualsiasi area di Azure e la soluzione di gestione e i dati per queste macchine virtuali risiederanno negli Stati Uniti (area Stati Uniti orientali 2). Questo potrebbe comportare il trasferimento dei dati negli Stati Uniti mentre si testa il servizio durante l'anteprima pubblica. Si inizierà a scalare orizzontalmente la soluzione di gestione e la localizzazione dei dati in tutte le aree di Azure a partire dalla disponibilità generale.
+Le macchine virtuali Azure create per Desktop virtuale Windows devono avere l'accesso TCP 443 in uscita agli URL seguenti:
+
+* *.wvd.microsoft.com
+* *.blob.core.windows.net
+* *.core.windows.net
+* *.servicebus.windows.net
+* prod.warmpath.msftcloudes.com
+* catalogartifact.azureedge.net
+
+>[!NOTE]
+>L'apertura di questi URL è essenziale per la distribuzione affidabile di Desktop virtuale Windows. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio. Questi URL corrispondono solo a siti e risorse di Desktop virtuale Windows e non includono URL per altri servizi come Azure AD.
+
+Desktop virtuale Windows comprende i desktop e le app Windows distribuiti agli utenti e la soluzione di gestione ospitata come servizio in Azure da Microsoft. I desktop e le app possono essere distribuiti in macchine virtuali (VM) in qualsiasi area di Azure e la soluzione di gestione e i dati per queste macchine virtuali risiederanno negli Stati Uniti (area Stati Uniti orientali 2). Questo potrebbe comportare il trasferimento dei dati negli Stati Uniti.
 
 Per prestazioni ottimali, assicurarsi che la rete soddisfi i requisiti seguenti:
 
@@ -108,11 +120,28 @@ I seguenti client Desktop remoto supportano Desktop virtuale Windows:
 Desktop virtuale Windows supporta le immagini di sistema operativo seguenti:
 
 * Windows 10 Enterprise multisessione
+* Windows 10 Enterprise
+* Windows 7 Enterprise
+* Windows Server 2019
 * Windows Server 2016
+* Windows Server 2012 R2
+
+Le opzioni di automazione e distribuzione disponibili variano a seconda del sistema operativo e della versione scelta, come illustrato nella tabella seguente: 
+
+|Sistema operativo|Raccolta immagini di Azure|Distribuzione manuale della macchina virtuale|Integrazione del modello di Azure Resource Manager|Effettuare il provisioning dei pool di host in Azure Marketplace|Aggiornamenti dell'agente di Desktop virtuale Windows|
+|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
+|Windows 10 multisessione, versione 1903|Sì|Sì|Sì|Sì|Automatico|
+|Windows 10 multisessione, versione 1809|Sì|Sì|No|No|Automatico|
+|Windows 10 Enterprise, versione 1903|Sì|Sì|Sì|Sì|Automatico|
+|Windows 10 Enterprise, versione 1809|Sì|Sì|No|No|Automatico|
+|Windows 7 Enterprise|Sì|Sì|No|No|Manuale|
+|Windows Server 2019|Sì|Sì|No|No|Automatico|
+|Windows Server 2016|Sì|Sì|Sì|Sì|Automatico|
+|Windows Server 2012 R2|Sì|Sì|No|No|Automatico|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per iniziare, è necessario creare un tenant. Per altre informazioni su come creare un tenant, continuare con l'esercitazione sulla creazione di un tenant.
 
 > [!div class="nextstepaction"]
-> [Creare un tenant nell'anteprima di Desktop virtuale Windows](tenant-setup-azure-active-directory.md)
+> [Creare un tenant in Desktop virtuale Windows](tenant-setup-azure-active-directory.md)

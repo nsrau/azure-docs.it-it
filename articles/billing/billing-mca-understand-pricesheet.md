@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 09/26/2019
 ms.author: banders
-ms.openlocfilehash: 4d83228fbec395d604e5ce3f988d2a6157f21eed
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 2259c9f05b157226c30a0e32e791ba540fa5af99
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490654"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338321"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Termini presenti nell'elenco prezzi del Contratto del cliente Microsoft
 
@@ -30,27 +30,32 @@ La sezione seguente descrive i termini importanti visualizzati nell'elenco prezz
 
 | **Nome campo**   | **Descrizione**   |
 | --- | --- |
+| basePrice  | Prezzo di mercato al momento dell'accesso del cliente o prezzo del mercato al momento dell'avvio del contatore di servizi, se è dopo l'accesso.   |
 | billingAccountId  | Identificatore univoco per l'account di fatturazione.   |
 | billingAccountName  | Nome dell'account di fatturazione.  |
+| billingCurrency | Valuta in cui vengono pubblicati gli addebiti |
 | billingProfileId  | Identificatore univoco per il profilo di fatturazione.   |
 | billingProfileName  | Nome del profilo di fatturazione configurato per la ricezione delle fatture. I prezzi nell'elenco prezzi sono associati a questo profilo di fatturazione. |
-| productOrderName  | Nome del piano del prodotto acquistato. |
-| serviceFamily  | Tipo di servizio di Azure. Ad esempio: calcolo, analisi, sicurezza |
+| currency | Valuta in cui sono riflessi tutti i prezzi. |
+| discount | Lo sconto sul prezzo offerto per il livello di laurea, il livello gratuito, la quantità inclusa o gli sconti negoziati quando applicabile. Rappresentato come una percentuale. |
+| effectiveEndDate  | Data di fine del prezzo effettivo. |
+| effectiveStartDate  | Data di inizio in cui il prezzo diventa effettivo. |
+| includedQuantity | Quantità di un servizio specifico che un cliente è autorizzato a utilizzare senza addebiti incrementali. |
+| marketPrice | Il prezzo di mercato attuale, prevalente per un determinato servizio. |
+| meterId  | Identificatore univoco del contatore. |
+| meterCategory  | Nome della categoria di classificazione per il contatore. Ad esempio, _Servizi cloud_, _Rete_, ecc. |
+| meterName  | Nome del contatore. Il contatore rappresenta la risorsa distribuibile di un servizio di Azure. |
+| meterSubCategory  | Nome della categoria di sottoclassificazione del contatore.  |
+| meterType  |  Nome del tipo di contatore. |
+| meterRegion  | Nome dell'area in cui è disponibile il contatore per il servizio. Identifica la posizione del datacenter per determinati servizi il cui prezzo dipende dalla posizione stessa.    |
 | Prodotto  | Nome del prodotto che determina un incremento dei costi. Ad esempio: database SQL di base e database SQL standard  |
 | productId  | Identificatore univoco per il prodotto di cui viene utilizzato il contatore. |
-| unitOfMeasure  | Identifica l'unità di misura per la fatturazione del servizio. I servizi di calcolo, ad esempio, vengono fatturati all'ora. |
-| meterId  | Identificatore univoco del contatore. |
-| meterName  | Nome del contatore. Il contatore rappresenta la risorsa distribuibile di un servizio di Azure. |
-| meterCategory  | Nome della categoria di classificazione per il contatore. Ad esempio, _Servizi cloud_, _Rete_, ecc. |
-| meterType  |  Nome del tipo di contatore. |
-| meterSubCategory  | Nome della categoria di sottoclassificazione del contatore.  |
-| meterRegion  | Nome dell'area in cui è disponibile il contatore per il servizio. Identifica la posizione del datacenter per determinati servizi il cui prezzo dipende dalla posizione stessa.    |
-| tierId  | Identifica il piano tariffario quando applicabile. Questo valore viene usato insieme a tierMinimumUnits per l'impostazione dei prezzi a livelli quando i prezzi variano in base al numero di unità utilizzate.    |
+| productOrderName  | Nome del piano del prodotto acquistato. |
+| serviceFamily  | Tipo di servizio di Azure. Ad esempio: calcolo, analisi, sicurezza |
 | tierMinimumUnits  | Definisce il limite minimo dell'intervallo di livelli per il quale vengono definiti i prezzi. Se, ad esempio, l'intervallo è compreso tra 0 e 100, tierMinimumUnits sarà 0.  |
-| effectiveStartDate  | Data di inizio in cui il prezzo diventa effettivo. |
-| effectiveEndDate  | Data di fine del prezzo effettivo. |
+| unitOfMeasure  | Identifica l'unità di misura per la fatturazione del servizio. I servizi di calcolo, ad esempio, vengono fatturati all'ora. |
 | unitPrice  | Prezzo per unità al momento della fatturazione (non il prezzo effettivo combinato) in base a un contatore e un nome dell'ordine del prodotto.  Note: Il prezzo unitario non è uguale al prezzo effettivo nei download dei dettagli di utilizzo in caso di servizi con prezzi differenziati tra i livelli.  Nel caso di servizi con prezzi per più livelli, il prezzo effettivo è una tariffa combinata tra i livelli e non mostra un prezzo unitario specifico del livello. Il prezzo combinato o il prezzo effettivo è il prezzo netto per la quantità utilizzata che si estende tra più livelli (dove ogni livello ha un prezzo unitario specifico). |
-| basePrice  | Prezzo di mercato al momento dell'accesso del cliente o prezzo del mercato al momento dell'avvio del contatore di servizi, se è dopo l'accesso.   |
+
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificare l'accesso a un Contratto del cliente Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

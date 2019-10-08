@@ -12,48 +12,42 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2019
 ms.author: jaserano
-ms.openlocfilehash: 45f6f181ddbf7e76662f76c433d8ff68c18f0de1
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 7795007b5bb27b9da540c6c3bcb0df45d1e17d80
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "69657086"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718709"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Risolvere i problemi di pagamento di Azure
 
-Si verifica un problema quando si prova ad aggiornare le informazioni di pagamento di un account nel portale di Microsoft Azure o nel Centro account di Azure. Prima di risolvere il problema, considerare le linee guida seguenti:
+Si verifica un problema o un errore quando si prova ad aggiornare le informazioni di pagamento di un account nel portale di Microsoft Azure o nel Centro account di Azure.
 
-- Assicurarsi che le informazioni fornite per il profilo dell'account di Azure, ad esempio indirizzo di posta elettronica di contatto, indirizzo e numero di telefono, siano corrette.
-- Assicurarsi che le informazioni della carta di credito siano corrette.
-- Assicurarsi che non sia già presente un account Microsoft con le stesse informazioni.
+Per risolvere il problema, selezionare l'argomento riportato di seguito che rispecchia maggiormente l'errore verificatosi.
 
-## <a name="issues"></a>Problemi
-
-Per risolvere eventuali errori, selezionare il problema che si verifica quando si prova a eseguire l'iscrizione ad Azure.
-
-### <a name="unable-to-remove-a-credit-card-from-a-saved-billing-payment-method"></a>Impossibile rimuovere una carta di credito da un metodo di pagamento salvato
+## <a name="unable-to-remove-a-credit-card-from-a-saved-billing-payment-method"></a>Impossibile rimuovere una carta di credito da un metodo di pagamento salvato
 
 Per impostazione predefinita non è possibile rimuovere una carta di credito dalla sottoscrizione attiva.
 
 Se è necessario eliminare una carta esistente, è necessario aggiungerne una nuova alla sottoscrizione in modo che lo strumento di pagamento precedente possa essere eliminato correttamente oppure è necessario annullare la sottoscrizione. In tal modo la sottoscrizione viene eliminata definitivamente e la carta rimossa.
 
-### <a name="unable-to-delete-an-old-payment-method-after-adding-a-new-payment-method"></a>Impossibile eliminare un vecchio metodo di pagamento dopo averne aggiunto uno nuovo
+## <a name="unable-to-delete-an-old-payment-method-after-adding-a-new-payment-method"></a>Impossibile eliminare un vecchio metodo di pagamento dopo averne aggiunto uno nuovo
 
 Il nuovo strumento di pagamento potrebbe non essere associato alla sottoscrizione. Per associare lo strumento di pagamento alla sottoscrizione, vedere [Aggiungere, aggiornare o rimuovere una carta di debito o di credito per Azure](billing-how-to-change-credit-card.md).
 
 Per risolvere i problemi di carta rifiutata, vedere [Risolvere un problema di carta rifiutata all'iscrizione ad Azure](billing-troubleshoot-declined-card.md).
 
-### <a name="unable-to-delete-a-payment-method-because-of-cannot-delete-payment-method-error"></a>Impossibile eliminare un metodo di pagamento a causa del messaggio di errore *Impossibile eliminare il metodo di pagamento*
+## <a name="unable-to-delete-a-payment-method-because-of-cannot-delete-payment-method-error"></a>Impossibile eliminare un metodo di pagamento a causa del messaggio di errore *Impossibile eliminare il metodo di pagamento*
 
 Ciò si verifica perché c'è un saldo scoperto. Risolvere eventuali saldi scoperti prima di eliminare il metodo di pagamento.
 
-### <a name="unable-to-see-subscriptions-under-my-account-to-update-the-payment-method"></a>Impossibile visualizzare le sottoscrizioni nell'account per aggiornare il metodo di pagamento
+## <a name="unable-to-see-subscriptions-under-my-account-to-update-the-payment-method"></a>Impossibile visualizzare le sottoscrizioni nell'account per aggiornare il metodo di pagamento
 
 È possibile che si stia usando un ID di posta elettronica diverso da quello usato per le sottoscrizioni.
 
 Per risolvere questo problema, vedere [Errore di accesso Non sono state trovate sottoscrizioni per il portale di Azure o il Centro account di Azure](billing-no-subscriptions-found.md).
 
-### <a name="unable-to-make-payment-for-a-subscription"></a>Impossibile effettuare il pagamento di una sottoscrizione
+## <a name="unable-to-make-payment-for-a-subscription"></a>Impossibile effettuare il pagamento di una sottoscrizione
 
 Se viene visualizzato il messaggio di errore seguente: *Il pagamento è scaduto. Si è verificato un problema con il metodo di pagamento* o *Siamo spiacenti, non è possibile salvare le informazioni. Chiudere il browser e riprovare.* , potrebbe esserci un pagamento in sospeso sulla carta, perché quest'ultima è stata rifiutata dall'ente finanziario.
 
@@ -65,7 +59,7 @@ Contattare la banca per i seguenti problemi:
 - La carta ha un limite di credito e il saldo deve essere regolato.
 - Sulla carta è abilitato un pagamento ricorrente.
 
-### <a name="unable-to-change-payment-method-because-of-browser-issues-browser-does-not-respond-does-not-load-and-so-on"></a>Impossibile modificare il metodo di pagamento a causa di problemi del browser (il browser non risponde, non carica, e così via)
+## <a name="unable-to-change-payment-method-because-of-browser-issues-browser-does-not-respond-does-not-load-and-so-on"></a>Impossibile modificare il metodo di pagamento a causa di problemi del browser (il browser non risponde, non carica, e così via)
 
 Disconnettersi da tutte le sessioni di Azure attive e quindi seguire la procedura descritta nell'articolo [Esplorare InPrivate in Microsoft Edge](https://support.microsoft.com/help/4026200/microsoft-edge-browse-inprivate) per avviare una sessione InPrivate in Microsoft Edge o Internet Explorer.
 
@@ -77,11 +71,11 @@ Nella sessione privata, seguire la procedura descritta in [come cambiare una car
 - Usare un altro browser
 - Eliminare i cookie memorizzati nella cache
 
-### <a name="my-subscription-is-still-disabled-after-updating-the-payment-method"></a>La sottoscrizione è ancora disabilitata dopo aver aggiornato il metodo di pagamento.
+## <a name="my-subscription-is-still-disabled-after-updating-the-payment-method"></a>La sottoscrizione è ancora disabilitata dopo aver aggiornato il metodo di pagamento.
 
 Questo problema si verifica perché c'è un saldo scoperto. Risolvere eventuali saldi scoperti prima di eliminare il metodo di pagamento.
 
-### <a name="unable-to-change-payment-method-because-of-an-xml-error-response-page"></a>Impossibile modificare il metodo di pagamento a causa di un errore XML nella pagina di risposta
+## <a name="unable-to-change-payment-method-because-of-an-xml-error-response-page"></a>Impossibile modificare il metodo di pagamento a causa di un errore XML nella pagina di risposta
 
 Si riceve questo messaggio se si usa il [portale di Azure](https://portal.azure.com/) per aggiungere una nuova carta di credito.
 
@@ -96,7 +90,7 @@ Altri articoli sulla risoluzione dei problemi per la fatturazione e le sottoscri
 - [Non sono state trovate sottoscrizioni](billing-no-subscriptions-found.md)
 - [Vista dei costi Enterprise disabilitata](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
-## <a name="contact-us-for-help"></a>Contattaci per assistenza
+## <a name="contact-us-for-help"></a>Contattare Microsoft per richiedere assistenza
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

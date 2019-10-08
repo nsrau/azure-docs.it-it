@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/21/2018
+ms.date: 09/26/2019
 ms.author: manayar
-ms.openlocfilehash: 98c183d65a18c186b515df8ec02ba26b8c2c4143
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 73580814dcfe8f967684aca4ce433a40e7bbedc0
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258314"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679394"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Che cosa sono i set di scalabilità delle macchine virtuali?
 I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di VM identiche con bilanciamento del carico. Il numero di istanze di macchine virtuali può aumentare o diminuire automaticamente in risposta alla domanda o a una pianificazione definita. I set di scalabilità garantiscono disponibilità elevata per le applicazioni e consentono di gestire in modo centralizzato, configurare e aggiornare un numero elevato di macchine virtuali. Con i set di scalabilità di macchine virtuali è possibile creare servizi su larga scala per aree quali calcolo, Big Data e carichi di lavoro contenitore.
@@ -62,6 +62,11 @@ I set di scalabilità sono costituiti da macchine virtuali. I set di scalabilit�
 
 Non sono previsti costi aggiuntivi per i set di scalabilità. Si paga solo per le risorse di calcolo sottostanti, come le istanze VM, il bilanciamento del carico o l'archiviazione su dischi gestiti. Le funzionalità di automazione e gestione, come la scalabilità automatica e la ridondanza, sono soggette a spese aggiuntive per l'uso di macchine virtuali.
 
+## <a name="how-to-monitor-your-scale-sets"></a>Come monitorare i set di scalabilità
+
+Usare il [Monitoraggio di Azure per le macchine virtuali](../azure-monitor/insights/vminsights-overview.md), che prevede un semplice processo di onboarding e automatizza la raccolta di importanti contatori delle prestazioni di CPU, memoria, disco e rete dalle macchine virtuali nel set di scalabilità. Include anche funzionalità di monitoraggio e visualizzazioni predefinite aggiuntive che consentono di concentrarsi sulla disponibilità e sulle prestazioni dei set di scalabilità.
+
+Abilitare il monitoraggio per l'[applicazione del set di scalabilità di macchine virtuali](../azure-monitor/app/azure-vm-vmss-apps.md) con Application Insights per raccogliere informazioni dettagliate sull'applicazione tra cui visualizzazioni pagina, richieste di applicazioni ed eccezioni. Verificare ulteriormente la disponibilità dell'applicazione configurando un [test di disponibilità](../azure-monitor/app/monitor-web-app-availability.md) per simulare il traffico utente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per cominciare, creare un set di scalabilità di macchine virtuali nel portale di Azure.

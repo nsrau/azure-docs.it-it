@@ -371,7 +371,7 @@
               href: delete-vault.md
     - name: Ripristino di emergenza per le app
       items:
-        - name: Configurare il ripristino di emergenza in Azure per app locali
+        - name: Informazioni sul ripristino di emergenza per le app locali
           href: site-recovery-workload.md
         - name: Active Directory e DNS
           href: site-recovery-active-directory.md
