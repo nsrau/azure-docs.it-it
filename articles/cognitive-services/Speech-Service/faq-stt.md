@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: a437927f6ad43f4c3a90433faa5b9fa6f964aa5c
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: bde68a70ac047433e86b7e06bc5f4a56bdd28595
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839241"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028504"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
@@ -33,7 +33,7 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 **D: È sempre necessario creare un modello conversione voce/testo personalizzato?**
 
-**R**:  No. Se l'applicazione usa un linguaggio quotidiano generico, non è necessario personalizzare un modello. Se l'applicazione viene usata in un ambiente in cui il rumore di fondo è scarso o addirittura assente, non è necessario personalizzare un modello.
+**R**: No. Se l'applicazione usa un linguaggio quotidiano generico, non è necessario personalizzare un modello. Se l'applicazione viene usata in un ambiente in cui il rumore di fondo è scarso o addirittura assente, non è necessario personalizzare un modello.
 
 È possibile distribuire modelli di base e personalizzati nel portale e quindi sottoporli a test di accuratezza. Questa funzionalità può essere usata per misurare l'accuratezza di un modello di base rispetto a un modello personalizzato.
 
@@ -63,13 +63,13 @@ I set di dati precedente e nuovo devono essere combinati in un unico file ZIP (p
 
 **R**: Le distribuzioni NON vengono aggiornate automaticamente.
 
-Se è stato adattato e distribuito un modello con baseline V1.0, tale distribuzione rimarrà invariata. I clienti possono rimuovere le autorizzazioni modello distribuito, adattare nuovamente utilizzando la versione più recente della linea di base e distribuire di nuovo.
+Se è stato adattato e distribuito un modello con baseline V1.0, tale distribuzione rimarrà invariata. I clienti possono rimuovere le autorizzazioni del modello distribuito, riadattarlo utilizzando la versione più recente della linea di base e ridistribuirlo.
 
 **D: Che cosa è necessario fare se serve una concorrenza più elevata per il modello distribuito rispetto a ciò che viene offerto nel portale?**
 
 **R**: È possibile aumentare le prestazioni del modello in incrementi di 20 richieste simultanee.
 
-Contattare [supporto vocale](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) se è necessaria una maggiore scalabilità.
+Se è necessaria una scala più elevata, contattare il [supporto vocale](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) .
 
 **D: è possibile scaricare il modello ed eseguirlo in locale?**
 
@@ -83,9 +83,9 @@ Contattare [supporto vocale](mailto:speechsupport@microsoft.com?subject=Request%
 
 **R**: L'API REST limita le richieste a 25 ogni 5 secondi. Informazioni dettagliate sono disponibili nelle pagine relative al [Riconoscimento vocale](speech-to-text.md).
 
-**D: Come addebito per l'audio a doppio canale?**
+**D: Come viene addebitato l'audio a doppio canale?**
 
-**R**: Se si invia separatamente ogni canale (ogni canale nel proprio file), viene addebitato per la durata di ciascun file. Se si invia un singolo file con ogni canale multiplex insieme, ti verrà addebitata per la durata del file singolo.
+**R**: Se si invia ogni canale separatamente (ogni canale nel proprio file), l'addebito verrà addebitato in base alla durata di ogni file. Se si invia un singolo file con ogni canale multiplexato insieme, verrà addebitato il costo della durata del singolo file.
 
 > [!IMPORTANT]
 > In caso di altri problemi di privacy che impediscono l'uso del Servizio di riconoscimento vocale personalizzato, contattare uno dei canali di supporto.
@@ -96,9 +96,9 @@ Contattare [supporto vocale](mailto:speechsupport@microsoft.com?subject=Request%
 
 **R**: Il limite attuale per un set di dati è 2 GB. Tale limite è dovuto ai vincoli di dimensione dei file per il caricamento HTTP. 
 
-**D: È possibile comprimere i file di testo per caricare file di dimensioni maggiori?** 
+**D: È possibile comprimere i file di testo per caricare file di dimensioni maggiori?** 
 
-**R**:  No. Attualmente sono ammessi solo file di testo non compressi.
+**R**: No. Attualmente sono ammessi solo file di testo non compressi.
 
 **D: Il report sui dati segnala che alcune espressioni hanno avuto esito negativo. Qual è il problema?**
 
@@ -140,7 +140,7 @@ Contattare [supporto vocale](mailto:speechsupport@microsoft.com?subject=Request%
 
 **R**: I risultati mostrano un confronto tra il modello di base e quello personalizzato. Perché la personalizzazione sia proficua, è necessario che sia più efficiente del modello di base.
 
-**D: Come è possibile rilevare la percentuale di parole errate nei modelli di base per verificare se c'è stato un miglioramento?** 
+**D: Come è possibile rilevare la percentuale di parole errate nei modelli di base per verificare se c'è stato un miglioramento?** 
 
 **R**: I risultati dei test offline mostrano l'accuratezza di base del modello personalizzato e il miglioramento rispetto al modello di base.
 

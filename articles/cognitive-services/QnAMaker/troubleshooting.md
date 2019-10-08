@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 00d3d63ff1a5b4d5dab0534e039145b97091af87
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 51d21dca1d8a5223e67cb7ea8489800989cff55c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802162"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026023"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Risoluzione dei problemi per QnA Maker
 
@@ -99,7 +99,7 @@ Per altre informazioni, vedere [Posizioni della data factory](./Concepts/data-so
 
 ### <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>Gli aggiornamenti apportati alla Knowledge Base non sono riflesse nella pubblicazione. Perché?
 
-Ogni operazione di modifica, nell'aggiornamento di tabelle, nel test o nell'impostazione, deve essere salvata prima di poter essere pubblicata. Fare clic sul pulsante  **Save and train**  (Salva ed esegui training) dopo ogni operazione di modifica.
+Ogni operazione di modifica, nell'aggiornamento di tabelle, nel test o nell'impostazione, deve essere salvata prima di poter essere pubblicata. Assicurarsi di fare clic sul pulsante **Salva e Train** dopo ogni operazione di modifica.
 
 ### <a name="does-the-knowledge-base-support-rich-data-or-multimedia"></a>La Knowledge Base supporta i dati avanzati o i contenuti multimediali?
 
@@ -123,7 +123,7 @@ Aggiornare il servizio app quando viene visualizzata l'icona di avviso accanto a
 
 Se si elimina un indice di Ricerca di Azure, l'operazione è definitiva e l'indice non può essere recuperato. 
 
-### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>Ho eliminato l' `testkb` indice nel servizio di ricerca. Come si risolve questo problema? 
+### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>Ho eliminato l'indice `testkb` nel servizio di ricerca. Come si risolve questo problema? 
 
 Non è possibile recuperare i dati precedenti. Creare una nuova risorsa di QnA Maker e creare di nuovo la Knowledge base.
 
@@ -139,7 +139,7 @@ Per usare più lingue e knowledge base, l'utente deve creare una risorsa di QnA 
 
 Il nome della risorsa di Ricerca di Azure è il nome della risorsa QnA Maker a cui vengono aggiunte alcune lettere casuali alla fine del nome. La distinzione tra più risorse di ricerca per QnA Maker risulta quindi più difficile. Creare un servizio separato di Ricerca di Azure (assegnandogli un nome nel modo desiderato) e collegarlo al servizio QnA. I passaggi sono simili ai passaggi necessari per [aggiornare una ricerca di Azure](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-search-service).
 
-### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>Quando QnA Maker restituisce `Runtime core is not initialized,` come risolvere il problema?
+### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>Quando QnA Maker restituisce `Runtime core is not initialized,` come risolverlo?
 
 Lo spazio su disco per il servizio app potrebbe essere pieno. Passaggi per la correzione dello spazio su disco:
 
@@ -147,7 +147,7 @@ Lo spazio su disco per il servizio app potrebbe essere pieno. Passaggi per la co
 1. Sempre nel servizio app, selezionare strumenti di **sviluppo**, **strumenti avanzati**, quindi **fare**clic su. Verrà visualizzata una nuova finestra del browser.
 1. Selezionare **console di debug**, quindi **cmd** per aprire uno strumento da riga di comando. 
 1. Passare alla directory _site/wwwroot/data/QnAMaker/_ .
-1. Rimuovere tutte le cartelle il cui nome inizia `rd`con. 
+1. Rimuovere tutte le cartelle il cui nome inizia con `rd`. 
 
     Non **eliminare** gli elementi seguenti:
 
@@ -179,7 +179,7 @@ Seguire le istruzioni riportate in [questa](./Tutorials/create-qna-bot.md) docum
 
 Con queste informazioni, andare al servizio app del bot nella portale di Azure. In **Impostazioni-> configurazione > Impostazioni applicazione**modificare tali valori.  
 
-La chiave dell'endpoint della Knowledge base è etichettata `QnAAuthkey` nel servizio ABS. 
+La chiave dell'endpoint della Knowledge base è denominata `QnAAuthkey` nel servizio ABS. 
 
 ### <a name="can-two-or-more-client-applications-share-a-knowledge-base"></a>Due o più applicazioni client possono condividere una Knowledge base? 
 
