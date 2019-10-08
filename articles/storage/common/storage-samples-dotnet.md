@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 57249bd2fa4d3c8aefe19a85ec9a2b6b584b00d2
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 9d6e441adeb7025e09b8d73764d2defab439dd90
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743946"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350913"
 ---
 # <a name="azure-storage-samples-using-net"></a>Esempi di Archiviazione di Azure che usano .NET
 
@@ -98,5 +98,6 @@ Per istruzioni su come installare e iniziare a utilizzare le librerie client di 
 Per informazioni su esempi con altri linguaggi:
 
 * Java: [Esempi di Archiviazione di Azure che usano Java](storage-samples-java.md)
+* JavaScript/Node.js: [Esempi di Archiviazione di Azure che usano JavaScript](storage-samples-javascript.md)
 * Python: [Esempi di Archiviazione di Azure che usano Python](storage-samples-python.md)
 * Tutti gli altri linguaggi: [Esempi di Archiviazione di Azure](../storage-samples.md)

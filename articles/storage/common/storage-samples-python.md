@@ -7,16 +7,16 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 5d823059842bf539f00ad372127fc8b636c74b65
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 3fc18646270bbec3836845bcf317afc2c1d3a6df
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70745968"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71351153"
 ---
 # <a name="azure-storage-samples-using-python"></a>Esempi di Archiviazione di Azure che usano Python
 
-La tabella seguente fornisce una panoramica del repository di esempi e degli scenari presentati in ogni esempio. Fare clic sui collegamenti per visualizzare il codice di esempio corrispondente in GitHub.
+Le tabelle seguenti forniscono una panoramica del repository di esempi e degli scenari presentati in ogni esempio. Fare clic sui collegamenti per visualizzare il codice di esempio corrispondente in GitHub.
 
 ## <a name="blob-samples"></a>Esempi di BLOB
 
@@ -99,4 +99,5 @@ Per informazioni su esempi con altri linguaggi:
 
 * .NET: [Esempi di Archiviazione di Azure che usano .NET](storage-samples-dotnet.md)
 * Java: [Esempi di Archiviazione di Azure che usano Java](storage-samples-java.md)
+* JavaScript/Node.js: [Esempi di Archiviazione di Azure che usano JavaScript](storage-samples-javascript.md)
 * Tutti gli altri linguaggi: [Esempi di Archiviazione di Azure](storage-samples.md)

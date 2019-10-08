@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 2289c21fcc172c8dffd7d6b3f9c0e2e11736e71a
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 174f0f3d8984e102e098b4c981d3784f50c7d7c6
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265996"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345229"
 ---
 # <a name="quickstart-personalize-client-library-for-net"></a>Guida introduttiva: Libreria client di Personalizza esperienze per .NET
 
@@ -33,9 +33,17 @@ Introduzione alla libreria client di Personalizza esperienze per .NET. Seguire q
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
 
-## <a name="setting-up"></a>Configurazione
+## <a name="using-this-quickstart"></a>Uso di questo avvio rapido
 
-### <a name="create-a-personalizer-azure-resource"></a>Creare una risorsa di Azure di Personalizza esperienze
+Per usare questo avvio rapido, è necessario eseguire diversi passaggi:
+
+* Nel portale di Azure creare una risorsa di Personalizza esperienze
+* Nella pagina **Impostazioni** della risorsa di Personalizza esperienze nel portale di Azure modificare la frequenza di aggiornamento del modello
+* In un editor di codice creare un file di codice e modificarlo
+* Dalla riga di comando o dal terminale installare l'SDK dalla riga di comando
+* Dalla riga di comando o dal terminale eseguire il file di codice
+
+## <a name="create-a-personalizer-azure-resource"></a>Creare una risorsa di Azure di Personalizza esperienze
 
 I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per Personalizza esperienze usando il [portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) nel computer locale. È anche possibile:
 
@@ -50,15 +58,15 @@ Dopo aver ottenuto una chiave dalla sottoscrizione di valutazione o dalla risors
 
 Nella portale di Azure i valori della chiave e dell'endpoint sono disponibili nella pagina **Avvio rapido**.
 
-### <a name="change-the-model-update-frequency"></a>Modificare la frequenza di aggiornamento del modello
+## <a name="change-the-model-update-frequency"></a>Modificare la frequenza di aggiornamento del modello
 
-Nella risorsa Personalizza esperienze del portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. In questo modo il training del servizio verrà eseguito rapidamente e sarà possibile visualizzare il cambiamento dell'azione più alta in classifica per ogni iterazione.
+Nella pagina **Impostazioni** della risorsa di Personalizza esperienze nel portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. In questo modo il training del servizio verrà eseguito rapidamente e sarà possibile visualizzare il cambiamento dell'azione più alta in classifica per ogni iterazione.
 
 ![Modificare la frequenza di aggiornamento del modello](./media/settings/configure-model-update-frequency-settings.png)
 
 Quando viene creata per la prima volta un'istanza di un ciclo di Personalizza esperienze, non è disponibile alcun modello, perché non sono state effettuate chiamate all'API per le ricompense da cui eseguire il training. Le chiamate a Classifica restituiranno uguali probabilità per ogni elemento. L'applicazione dovrà sempre classificare il contenuto usando l'output di RewardActionId.
 
-### <a name="create-a-new-c-application"></a>Creare una nuova applicazione C#
+## <a name="create-a-new-c-application"></a>Creare una nuova applicazione C#
 
 Creare una nuova applicazione .NET Core nell'ambiente di sviluppo integrato o nell'editor preferito. 
 
@@ -84,7 +92,7 @@ Build succeeded.
 ...
 ```
 
-### <a name="install-the-sdk"></a>Installare l'SDK
+## <a name="install-the-sdk"></a>Installare l'SDK
 
 Nella directory dell'applicazione installare la libreria client di Personalizza esperienze per .NET con il comando seguente:
 

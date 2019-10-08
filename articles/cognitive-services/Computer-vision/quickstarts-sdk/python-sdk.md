@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2019
+ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: 8d47ae84fd489b4841d8bcf7755da6c30cf6035d
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: ab6a0d5c2a4c4623506d90b76b77462abb8fe4af
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967007"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719500"
 ---
 # <a name="quickstart-computer-vision-client-library-for-python"></a>Guida introduttiva: Libreria client di Visione artificiale per Python
 
@@ -64,7 +64,7 @@ Quindi, creare le variabili per l'endpoint e la chiave di Azure della risorsa.
 È possibile installare la libreria client con:
 
 ```console
-pip install --upgrade azure-cognitiveservices-Computer Vision
+pip install --upgrade azure-cognitiveservices-vision-computervision
 ```
 
 ## <a name="object-model"></a>Modello a oggetti
@@ -128,7 +128,7 @@ Il codice seguente rileva gli oggetti comuni nell'immagine e li stampa nella con
 
 Il codice seguente rileva i marchi e i logo aziendali nell'immagine e li stampa nella console. Per altre informazioni, vedere [Rilevamento di marchi](../concept-brand-detection.md).
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_objects)]
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_brands)]
 
 ### <a name="detect-faces"></a>Rilevare visi
 
@@ -136,9 +136,9 @@ Il codice seguente restituisce i visi rilevati nell'immagine con le rispettive c
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_faces)]
 
-### <a name="detect-adult-or-racy-content"></a>Rilevare contenuto per adulti o spinto
+### <a name="detect-adult-racy-or-gory-content"></a>Rilevare contenuto per adulti, spinto o cruento
 
-Il codice seguente stampa la presenza rilevata di contenuto per adulti o spinto nell'immagine. Per altre informazioni, vedere [Contenuto per adulti o spinto](../concept-detecting-adult-content.md).
+Il codice seguente stampa la presenza rilevata di contenuto per adulti nell'immagine. Per altre informazioni, vedere [Contenuto per adulti, spinto o cruento](../concept-detecting-adult-content.md).
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_adult)]
 

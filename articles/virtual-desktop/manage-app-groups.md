@@ -1,22 +1,22 @@
 ---
-title: Gestire gruppi di app per l'anteprima di Desktop virtuale Windows - Azure
-description: Descrive come configurare i tenant dell'anteprima di Desktop virtuale Windows in Azure Active Directory.
+title: Gestire gruppi di app per Desktop virtuale Windows - Azure
+description: Descrive come configurare i tenant di Desktop virtuale Windows in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 2bec7e490443727fa294e7be9412bb20ae66e691
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: e158c0a6090493bec0169c144f030300de921516
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163245"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679446"
 ---
-# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Esercitazione: Gestire gruppi di app per l'anteprima di Desktop virtuale Windows
+# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop"></a>Esercitazione: Gestire gruppi di app per Desktop virtuale Windows
 
-Il gruppo di app predefinito creato per un nuovo pool di host dell'anteprima di Desktop virtuale Windows pubblica anche il desktop completo. È inoltre possibile creare uno o più gruppi di applicazioni RemoteApp per il pool di host. Seguire questa esercitazione per creare un gruppo di app RemoteApp e pubblicare singole app nel menu **Start**.
+Il gruppo di app predefinito creato per un nuovo pool di host di Desktop virtuale Windows pubblica anche il desktop completo. È inoltre possibile creare uno o più gruppi di applicazioni RemoteApp per il pool di host. Seguire questa esercitazione per creare un gruppo di app RemoteApp e pubblicare singole app nel menu **Start**.
 
 In questa esercitazione si apprenderà come:
 

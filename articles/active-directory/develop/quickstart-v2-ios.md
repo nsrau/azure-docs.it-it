@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b8637bb1a1ba397750bd04c88c6535fa3d1caa0
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: bdb1ae92b17bef281e3b82a8c1a21344fa37f0da
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309644"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345543"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app iOS o macOS
 
@@ -94,11 +94,11 @@ In una finestra del terminale passare alla cartella con il codice di esempio sca
 > 1. Estrarre il file con estensione zip e aprire il progetto in XCode.
 > 1. Modificare **ViewController.swift** e sostituire la riga che inizia con 'let kClientID' con il frammento di codice seguente. Aggiornare il valore per `kClientID` con l'ID client salvato al momento della registrazione dell'app nel portale in un passaggio precedente di questo avvio rapido:
 >    ```swift
->    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+>    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. Aprire le impostazioni del progetto. Nella sezione **Identità** immettere l'**Identificatore del bundle** immesso nel portale.
 > 1. Solo per iOS, fare clic con il pulsante destro del mouse su **Info.plist** e scegliere **Apri come** > **Codice sorgente**.
-> 1. Solo per iOS, nel nodo radice dict sostituire `Enter_the_bundle_Id_Here` con l'***ID bundle*** immesso nel portale.
+> 1. Solo per iOS, nel nodo radice dict sostituire `CFBundleURLSchemes` con il valore di ***ID bundle*** immesso nel portale.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -120,11 +120,11 @@ In una finestra del terminale passare alla cartella con il codice di esempio sca
 > 1. Estrarre il file con estensione zip e aprire il progetto in XCode.
 > 1. Modificare **ViewController.swift** e sostituire la riga che inizia con 'let kClientID' con il frammento di codice seguente. Aggiornare il valore per `kClientID` con l'ID client salvato al momento della registrazione dell'app nel portale in un passaggio precedente di questo avvio rapido:
 >    ```swift
->    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+>    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. Aprire le impostazioni del progetto. Nella sezione **Identità** immettere l'**Identificatore del bundle** immesso nel portale.
 > 1. Solo per iOS, fare clic con il pulsante destro del mouse su **Info.plist** e scegliere **Apri come** > **Codice sorgente**.
-> 1. Solo per iOS, nel nodo radice dict sostituire `Enter_the_bundle_Id_Here` con l'***ID bundle*** usato nel portale.
+> 1. Solo per iOS, nel nodo radice dict sostituire `Enter_the_bundle_Id_Here` con il valore di ***ID bundle*** usato nel portale.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>

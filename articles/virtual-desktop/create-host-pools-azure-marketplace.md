@@ -1,22 +1,22 @@
 ---
-title: Creare un pool di host dell'anteprima di Desktop virtuale Windows tramite Azure Marketplace - Azure
-description: Come creare un pool di host dell'anteprima di Desktop virtuale Windows tramite Azure Marketplace.
+title: Creare un pool di host di Desktop virtuale Windows tramite Azure Marketplace - Azure
+description: Come creare un pool di host di Desktop virtuale Windows tramite Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: d6628f1522880f650bfd8c728fe46fd050a8e6a0
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c0b93529872de774e1a6e915ef8254c5c0e0a1a9
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208376"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676717"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Esercitazione: Creare un pool di host con Azure Marketplace
 
-I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant dell'anteprima di Desktop virtuale Windows. Ogni pool di host può contenere un gruppo di app con cui gli utenti possono interagire come farebbero in un desktop fisico.
+I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant di Desktop virtuale Windows. Ogni pool di host può contenere un gruppo di app con cui gli utenti possono interagire come farebbero in un desktop fisico.
 
 Questa esercitazione descrive come creare un pool di host all'interno di un tenant di Desktop virtuale Windows usando un'offerta di Microsoft Azure Marketplace. Le attività includono:
 
@@ -80,7 +80,7 @@ Per il pannello **Virtual machine settings** (Impostazioni macchina virtuale):
 3. Selezionare la rete virtuale che ha connettività con il server Active Directory e quindi scegliere una subnet in cui ospitare le macchine virtuali.
 4. Selezionare **OK**.
 
-### <a name="windows-virtual-desktop-preview-tenant-information"></a>Informazioni sul tenant dell'anteprima di Desktop virtuale Windows
+### <a name="windows-virtual-desktop-tenant-information"></a>Informazioni sul tenant di Desktop virtuale Windows
 
 Per il pannello **Windows Virtual Desktop tenant information** (Informazioni tenant Desktop virtuale Windows):
 

@@ -1,22 +1,22 @@
 ---
-title: Creare entità servizio e assegnazioni di ruolo usando PowerShell nell'anteprima di Desktop virtuale Windows - Azure
-description: Come creare entità servizio e assegnare ruoli usando PowerShell nell'anteprima di Desktop virtuale Windows.
+title: Creare entità servizio e assegnazioni di ruolo di Desktop virtuale Windows usando PowerShell - Azure
+description: Come creare entità servizio e assegnare ruoli usando PowerShell in Desktop virtuale Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: dbde4ccede7f27ae494c8326babc7ec69b4a1266
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 87057d29d9d95ac0ebca298e40ca0d8c2aa9b0b1
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984997"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679626"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Esercitazione: Creare entità servizio e assegnazioni di ruolo con PowerShell
 
-Le entità servizio sono identità che è possibile creare in Azure Active Directory per assegnare ruoli e autorizzazioni per uno scopo specifico. Nell'anteprima di Desktop virtuale Windows è possibile creare un'entità servizio per:
+Le entità servizio sono identità che è possibile creare in Azure Active Directory per assegnare ruoli e autorizzazioni per uno scopo specifico. In Desktop virtuale Windows è possibile creare un'entità servizio per:
 
 - Automatizzare specifiche attività di gestione di Desktop virtuale Windows.
 - Usarle come credenziali al posto degli utenti con autenticazione MFA obbligatoria quando si esegue qualsiasi modello di Azure Resource Manager in Desktop virtuale Windows.

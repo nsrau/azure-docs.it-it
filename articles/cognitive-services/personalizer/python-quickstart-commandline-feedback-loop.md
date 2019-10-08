@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 014a5f264b9beed666f718cda52d197381d58876
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 4409f04f9fd370b862ee62f9595ffca9fe6e4406
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266247"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802538"
 ---
 # <a name="quickstart-personalize-client-library-for-python"></a>Guida introduttiva: Libreria client di Personalizza esperienze per Python
 
@@ -33,9 +33,19 @@ Introduzione alla libreria client di Personalizza esperienze per Python. Seguire
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
 
-## <a name="setting-up"></a>Configurazione
+## <a name="using-this-quickstart"></a>Uso di questo avvio rapido
 
-### <a name="create-a-personalizer-azure-resource"></a>Creare una risorsa di Azure di Personalizza esperienze
+
+Per usare questo avvio rapido, è necessario eseguire diversi passaggi:
+
+* Nel portale di Azure creare una risorsa di Personalizza esperienze
+* Nella pagina **Impostazioni** della risorsa di Personalizza esperienze nel portale di Azure modificare la frequenza di aggiornamento del modello
+* In un editor di codice creare un file di codice e modificarlo
+* Dalla riga di comando o dal terminale installare l'SDK dalla riga di comando
+* Dalla riga di comando o dal terminale eseguire il file di codice
+
+
+## <a name="create-a-personalizer-azure-resource"></a>Creare una risorsa di Azure di Personalizza esperienze
 
 I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per Personalizza esperienze usando il [portale di Azure](https://portal.azure.com/) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) nel computer locale. Per informazioni dettagliate, vedere [Come creare una risorsa di Servizi cognitivi con il portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). È anche possibile:
 
@@ -50,7 +60,7 @@ Dopo aver ottenuto una chiave dalla sottoscrizione di valutazione o dalla risors
 Nel portale di Azure i valori della chiave e dell'endpoint sono disponibili nella pagina **Avvio rapido**.
 
 
-### <a name="install-the-python-library-for-personalizer"></a>Installare la libreria Python per Personalizza esperienze
+## <a name="install-the-python-library-for-personalizer"></a>Installare la libreria Python per Personalizza esperienze
 
 Installare la libreria client di Personalizza esperienze per Python con il comando seguente:
 
@@ -58,11 +68,9 @@ Installare la libreria client di Personalizza esperienze per Python con il coman
 pip install azure-cognitiveservices-personalizer
 ```
 
-Se si usa l'ambiente di sviluppo integrato di Visual Studio, la libreria client è disponibile come pacchetto NuGet scaricabile.
+## <a name="change-the-model-update-frequency"></a>Modificare la frequenza di aggiornamento del modello
 
-### <a name="change-the-model-update-frequency"></a>Modificare la frequenza di aggiornamento del modello
-
-Nella risorsa Personalizza esperienze del portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. In questo modo il training del servizio verrà eseguito rapidamente e sarà possibile visualizzare il cambiamento dell'azione più alta in classifica per ogni iterazione.
+Nella pagina **Impostazioni** della risorsa di Personalizza esperienze nel portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. In questo modo il training del servizio verrà eseguito rapidamente e sarà possibile visualizzare il cambiamento dell'azione più alta in classifica per ogni iterazione.
 
 ![Modificare la frequenza di aggiornamento del modello](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -92,13 +100,15 @@ Creare una nuova applicazione Python nell'IDE o nell'editor preferito, denominat
 
 ## <a name="add-the-dependencies"></a>Aggiungere le dipendenze
 
-Dalla directory del progetto aprire il file **Program.cs** nell'ambiente di sviluppo integrato o nell'editor preferito. Sostituire il codice `using` esistente con le direttive `using` seguenti:
+Dalla directory del progetto aprire il file **sample.py** nell'ambiente di sviluppo integrato o nell'editor preferito. Aggiungere quanto segue:
 
 [!code-python[Add module dependencies](~/samples-personalizer/quickstarts/python/sample.py?name=Dependencies)]
 
 ## <a name="add-personalizer-resource-information"></a>Aggiungere le informazioni sulla risorsa di Personalizza esperienze
 
-Nella classe **Program** creare le variabili per la chiave e l'endpoint di Azure della risorsa estratti dalle variabili di ambiente, denominate `PERSONALIZER_RESOURCE_KEY` e `PERSONALIZER_RESOURCE_ENDPOINT`. Se le variabili di ambiente sono state create dopo l'avvio dell'applicazione, per accedere alle variabili sarà necessario chiudere e ricaricare l'editor, la shell o l'ambiente di sviluppo integrato in cui sono in esecuzione. I metodi verranno creati in un secondo momento in questo argomento di avvio rapido.
+Creare le variabili per la chiave e l'endpoint di Azure della risorsa estratti dalle variabili di ambiente denominate `PERSONALIZER_RESOURCE_KEY` e `PERSONALIZER_RESOURCE_ENDPOINT`. Se le variabili di ambiente sono state create dopo l'avvio dell'applicazione, per accedere alle variabili sarà necessario chiudere e ricaricare l'editor, la shell o l'ambiente di sviluppo integrato in cui sono in esecuzione. I metodi verranno creati in un secondo momento in questo argomento di avvio rapido.
+
+Il nome della risorsa fa parte dell'URL dell'endpoint: `https://<your-resource-name>.api.cognitive.microsoft.com/`.
 
 [!code-python[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/samples-personalizer/quickstarts/python/sample.py?name=AuthorizationVariables)]
 
@@ -110,7 +120,7 @@ Si creerà ora un metodo per restituire un client di Personalizza esperienze. Il
 
 ## <a name="get-content-choices-represented-as-actions"></a>Ottenere scelte di contenuto rappresentate come azioni
 
-Le azioni rappresentano le scelte di contenuto che si vuole classificare con Personalizza esperienze. Aggiungere i metodi seguenti alla classe Program per ottenere l'input di un utente dalla riga di comando per l'ora del giorno e la preferenza alimentare attuale.
+Le azioni rappresentano le scelte di contenuto che si vuole classificare con Personalizza esperienze. Aggiungere i metodi seguenti per ottenere l'input di un utente dalla riga di comando per l'ora del giorno e la preferenza alimentare corrente.
 
 [!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=getActions)]
 
@@ -122,7 +132,7 @@ Le azioni rappresentano le scelte di contenuto che si vuole classificare con Per
 
 Il ciclo di apprendimento di Personalizza esperienze è un ciclo di chiamate [rank](#request-a-rank) e [reward](#send-a-reward). In questa guida di avvio rapido ogni chiamata di classificazione, per personalizzare il contenuto, è seguita da una chiamata di ricompensa, per indicare a Personalizza esperienze come il servizio ha classificato il contenuto. 
 
-Il codice seguente nel metodo `main` del programma esegue un ciclo in cui chiede all'utente di indicare le sue preferenze dalla riga di comando, invia tali informazioni a Personalizza esperienze per la classificazione, presenta all'utente una selezione in forma di classifica da cui scegliere, quindi invia una ricompensa a Personalizza esperienze per segnalare l'accuratezza del servizio nella classificazione della selezione.
+Il codice seguente esegue un ciclo in cui chiede all'utente di indicare le proprie preferenze alla riga di comando, invia tali informazioni a Personalizza esperienze per la classificazione, presenta all'utente una selezione sotto forma di classifica da cui scegliere e quindi invia una ricompensa a Personalizza esperienze per segnalare l'accuratezza del servizio nella classificazione della selezione.
 
 [!code-python[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/python/sample.py?name=mainLoop&highlight=9,10,29)]
 

@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 915388b850b1b046dae91a20540881480694a944
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: db62f003f7eb8dd272305b86712cf1d721797114
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967050"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719549"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
-Il servizio Visione artificiale di Azure consente agli sviluppatori di accedere ad algoritmi avanzati che elaborano le immagini e restituiscono informazioni. Per analizzare un'immagine, è possibile caricare un'immagine o specificare un URL di immagine. Gli algoritmi di elaborazione immagini consentono di analizzare il contenuto in modi diversi, in base alle funzionalità visive rilevanti. Visione artificiale può ad esempio determinare se un'immagine include contenuti per adulti o spinti o può individuare tutti i visi umani in un'immagine.
+Il servizio Visione artificiale di Azure consente agli sviluppatori di accedere ad algoritmi avanzati che elaborano le immagini e restituiscono informazioni. Per analizzare un'immagine, è possibile caricare un'immagine o specificare un URL di immagine. Gli algoritmi di elaborazione immagini consentono di analizzare il contenuto in modi diversi, in base alle funzionalità visive rilevanti. Visione artificiale può ad esempio determinare se un'immagine include contenuto per adulti o può individuare tutti i visi umani in un'immagine.
 
 È possibile usare Visione artificiale nell'applicazione usando un SDK nativo oppure chiamando direttamente l'API REST. Questa pagina illustra su vasta scala le operazioni eseguibili con Visione artificiale.
 
@@ -52,7 +52,7 @@ Il servizio Visione artificiale di Azure consente agli sviluppatori di accedere 
 
 ## <a name="moderate-content-in-images"></a>Moderare i contenuti nelle immagini
 
-È possibile usare Visione artificiale per [rilevare i contenuti per adulti e spinti](concept-detecting-adult-content.md) in un'immagine e restituire un punteggio di attendibilità per entrambi i tipi di contenuto. È possibile impostare il filtro per il rilevamento dei contenuti spinti e per adulti tramite un indicatore di scorrimento in base alle preferenze dell'utente.
+È possibile usare Visione artificiale per [rilevare i contenuti per adulti](concept-detecting-adult-content.md) in un'immagine e restituire punteggi di attendibilità per le diverse classificazioni. La soglia per contrassegnare i contenuti può essere impostata tramite un indicatore di scorrimento in base alle preferenze dell'utente.
 
 ## <a name="use-containers"></a>Usare i contenitori
 

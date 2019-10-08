@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 03a036ce5381130af4bbcea88c87d77cd93cf6a9
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: e2816d8e6fdd900473cceebb20c96794f3f9f0f9
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743881"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350886"
 ---
 # <a name="azure-storage-samples"></a>Esempi di archiviazione di Azure
 
@@ -40,13 +40,7 @@ Per esplorare gli esempi di Python, scaricare la [libreria client di archiviazio
 ## <a name="nodejs-samples"></a>Esempi di Node. js
 Per esplorare gli esempi di Node. js, scaricare la [libreria client di archiviazione Node. js](https://github.com/Azure/azure-storage-node).
 
-* [Caricamento BLOB](https://github.com/Azure/azure-storage-node/tree/master/examples/blobuploader)
-* [Caricare e scaricare BLOB](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/blobuploaddownloadsample.js)
-* [Token di continuazione](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js)
-* [Criterio di ripetizione](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/retrypolicysample.js)
-* [Firma di accesso condiviso](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/sassample.js)
-* [Snapshot](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/snapshotsample.js)
-* [Query di tabella](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/tablequerysample.js)
+* [Esempi di Archiviazione di Azure che usano JavaScript/Node.js](storage-samples-javascript.md)
 
 ## <a name="c-samples"></a>Esempi C++.
 Per esplorare gli esempi di C++, scaricare la [libreria client di archiviazione di C++](https://www.nuget.org/packages/wastorage/) da NuGet.
@@ -71,4 +65,5 @@ Gli articoli seguenti indicizzano ciascuno degli esempi per servizio (BLOB, file
 
 * [Esempi di Archiviazione di Azure che usano .NET](storage-samples-dotnet.md)
 * [Esempi di Archiviazione di Azure che usano Java](storage-samples-java.md)
+* [Esempi di Archiviazione di Azure che usano JavaScript](storage-samples-javascript.md)
 * [Esempi di Archiviazione di Azure che usano Python](storage-samples-python.md)

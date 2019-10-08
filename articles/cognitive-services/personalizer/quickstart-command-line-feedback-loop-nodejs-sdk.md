@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: ab593ae33f11fe3e39846c50e9f43f73f80894ba
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: b7ea28f98340d3c3547b0ed66771b3982a03143d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265968"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345257"
 ---
 # <a name="quickstart-personalize-client-library-for-nodejs"></a>Guida introduttiva: Libreria client di Personalizza esperienze per Node.js
 
@@ -31,11 +31,21 @@ Iniziare a usare la libreria client di Personalizza esperienze per Node.js. Segu
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
-* Versione corrente di [Node.js](https://nodejs.org).
+* Versione corrente di [Node.js](https://nodejs.org) e npm.
 
-## <a name="setting-up"></a>Configurazione
+## <a name="using-this-quickstart"></a>Uso di questo avvio rapido
 
-### <a name="create-a-personalizer-azure-resource"></a>Creare una risorsa di Azure di Personalizza esperienze
+
+Per usare questo avvio rapido, è necessario eseguire diversi passaggi:
+
+* Nel portale di Azure creare una risorsa di Personalizza esperienze
+* Nella pagina **Impostazioni** della risorsa di Personalizza esperienze nel portale di Azure modificare la frequenza di aggiornamento del modello
+* In un editor di codice creare un file di codice e modificarlo
+* Dalla riga di comando o dal terminale installare l'SDK dalla riga di comando
+* Dalla riga di comando o dal terminale eseguire il file di codice
+
+
+## <a name="create-a-personalizer-azure-resource"></a>Creare una risorsa di Azure di Personalizza esperienze
 
 I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per Personalizza esperienze usando il [portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) nel computer locale. È anche possibile:
 
@@ -50,7 +60,7 @@ Dopo aver ottenuto una chiave dalla sottoscrizione di valutazione o dalla risors
 Nel portale di Azure i valori della chiave e dell'endpoint sono disponibili nella pagina **Avvio rapido**.
 
 
-### <a name="create-a-new-nodejs-application"></a>Creare una nuova applicazione Node.js
+## <a name="create-a-new-nodejs-application"></a>Creare una nuova applicazione Node.js
 
 In una finestra della console, ad esempio cmd, PowerShell o Bash, creare e passare a una nuova directory per l'app. 
 
@@ -64,7 +74,7 @@ Eseguire il comando `npm init -y` per creare un file `package.json`.
 npm init -y
 ```
 
-### <a name="install-the-nodejs-library-for-personalizer"></a>Installare la libreria Node.js per Personalizza esperienze
+## <a name="install-the-nodejs-library-for-personalizer"></a>Installare la libreria Node.js per Personalizza esperienze
 
 Installare la libreria client di Personalizza esperienze per Node.js con il comando seguente:
 
@@ -78,9 +88,9 @@ Installare i pacchetti NPM rimanenti per questa guida di avvio rapido:
 npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 ```
 
-### <a name="change-the-model-update-frequency"></a>Modificare la frequenza di aggiornamento del modello
+## <a name="change-the-model-update-frequency"></a>Modificare la frequenza di aggiornamento del modello
 
-Nella risorsa Personalizza esperienze del portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. In questo modo il training del servizio verrà eseguito rapidamente e sarà possibile visualizzare il cambiamento dell'azione più alta in classifica per ogni iterazione.
+Nella pagina **Impostazioni** della risorsa di Personalizza esperienze nel portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. In questo modo il training del servizio verrà eseguito rapidamente e sarà possibile visualizzare il cambiamento dell'azione più alta in classifica per ogni iterazione.
 
 ![Modificare la frequenza di aggiornamento del modello](./media/settings/configure-model-update-frequency-settings.png)
 

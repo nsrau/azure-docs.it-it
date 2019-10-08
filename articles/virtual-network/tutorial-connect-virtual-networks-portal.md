@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 943cad871330e2f3b6e13b33dca582ab545fe4be
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a83980c3d4d03f53a19918ed213c965e50baa406
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726561"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720048"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Esercitazione: Connettere reti virtuali con il peering reti virtuali usando il portale di Azure
 
@@ -54,7 +54,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
     |Spazio degli indirizzi|10.0.0.0/16|
     |Sottoscrizione| Selezionare la propria sottoscrizione.|
     |Gruppo di risorse| Selezionare **Crea nuovo** e immettere *myResourceGroup*.|
-    |Località| Selezionare **Stati Uniti orientali**.|
+    |Location| Selezionare **Stati Uniti orientali**.|
     |Nome della subnet|Subnet1|
     |Intervallo di indirizzi subnet|10.0.0.0/24|
 
@@ -66,7 +66,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
     |---|---|
     |NOME|myVirtualNetwork2|
     |Spazio degli indirizzi|10.1.0.0/16|
-    |Gruppo di risorse| Selezionare **Usa esistente** e quindi **myResourceGroup**.|
+    |Resource group| Selezionare **Usa esistente** e quindi **myResourceGroup**.|
     |Intervallo di indirizzi subnet|10.1.0.0/24|
 
 ## <a name="peer-virtual-networks"></a>Eseguire il peering delle reti virtuali
@@ -80,27 +80,18 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
     |Impostazione|Valore|
     |---|---|
-    |NOME|myVirtualNetwork1-myVirtualNetwork2|
-    |Sottoscrizione| Selezionare la propria sottoscrizione.|
-    |Rete virtuale|myVirtualNetwork2 - per selezionare la rete virtuale *myVirtualNetwork2*, selezionare **Rete virtuale** e quindi **myVirtualNetwork2**. È possibile selezionare una rete virtuale nella stessa area o in un'area differente.|
+    |Nome del peering da myVirtualNetwork1 alla rete virtuale remota|myVirtualNetwork1-myVirtualNetwork2 - Al caricamento della pagina, verrà visualizzata la frase "rete virtuale remota" qui. Dopo aver scelto la rete virtuale remota, la frase "rete virtuale remota" verrà sostituita dal nome effettivo della rete.|
+    |Subscription| Selezionare la propria sottoscrizione.|
+    |Rete virtuale|myVirtualNetwork2 - per selezionare la rete virtuale *myVirtualNetwork2*, selezionare **Rete virtuale** e quindi **myVirtualNetwork2 (myResourceGroup)** . È possibile selezionare una rete virtuale nella stessa area o in un'area differente.|
+    |Nome del peering da myVirtualNetwork2 a myVirtualNetwork1|myVirtualNetwork2-myVirtualNetwork1|
 
-    ![Impostazioni del peering](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
+    ![Impostazioni del peering](./media/tutorial-connect-virtual-networks-portal/peering-settings-bidirectional.png)
 
-    Lo stato riportato sotto **STATO PEERING** è *Avviato*, come illustrato nell'immagine seguente:
+    Lo stato riportato in **STATO PEERING** è *Connesso*, come illustrato nell'immagine seguente:
 
-    ![Stato peering](./media/tutorial-connect-virtual-networks-portal/peering-status.png)
+    ![Stato peering](./media/tutorial-connect-virtual-networks-portal/peering-status-connected.png)
 
     Se lo stato non viene visualizzato, aggiornare il browser.
-
-4. Nella **casella di ricerca** nella parte superiore del portale di Azure iniziare a digitare *MyVirtualNetwork2*. Selezionare **myVirtualNetwork2** quando viene visualizzato nei risultati della ricerca.
-5. Ripetere i passaggi da 2 a 3, con le modifiche seguenti, quindi scegliere **OK**:
-
-    |Impostazione|Valore|
-    |---|---|
-    |NOME|myVirtualNetwork2-myVirtualNetwork1|
-    |Rete virtuale|myVirtualNetwork1|
-
-    Lo stato riportato sotto **STATO PEERING** è *Connesso*. Azure avrà modificato anche lo stato del peering *myVirtualNetwork2-myVirtualNetwork1* da *Avviato* a *Connesso*. Il peering reti virtuali non è completamente stabilito finché lo stato del peering per entrambe le reti virtuali non è *Connesso*. 
 
 ## <a name="create-virtual-machines"></a>Creare macchine virtuali
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: quickstart
-ms.date: 07/25/2019
+ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: 6d40eb9bf3b90fb66002b964aca0db42b76094bb
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 9c73d28952a165f07711d1aace665bbe742f0124
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261988"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718475"
 ---
 # <a name="quickstart-computer-vision-client-library-for-java"></a>Guida introduttiva: Libreria client di Visione artificiale per Java
 
@@ -184,9 +184,9 @@ Il codice seguente restituisce i visi rilevati nell'immagine con le rispettive c
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
 
-### <a name="detect-adult-or-racy-content"></a>Rilevare contenuto per adulti o spinto
+### <a name="detect-adult-racy-or-gory-content"></a>Rilevare contenuto per adulti, spinto o cruento
 
-Il codice seguente stampa la presenza rilevata di contenuto per adulti o spinto nell'immagine. Per altre informazioni, vedere [Contenuto per adulti o spinto](../concept-detecting-adult-content.md).
+Il codice seguente stampa la presenza rilevata di contenuto per adulti nell'immagine. Per altre informazioni, vedere [Contenuto per adulti, spinto o cruento](../concept-detecting-adult-content.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_adult)]
 

@@ -1,22 +1,22 @@
 ---
-title: Creare un tenant nell'anteprima di Desktop virtuale Windows - Azure
-description: Descrive come configurare i tenant dell'anteprima di Desktop virtuale Windows in Azure Active Directory.
+title: Creare un tenant in Desktop virtuale Windows - Azure
+description: Descrive come configurare i tenant di Desktop virtuale Windows in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/06/2019
 ms.author: helohr
-ms.openlocfilehash: 66441e852ebe0a391a5807b90eeadae230130815
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 04a65442e86168239f08fb71303b8d9e9e152e72
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734458"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679464"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Esercitazione: Creare un tenant nell'anteprima di Desktop virtuale Windows
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Esercitazione: Creare un tenant in Desktop virtuale Windows
 
-La creazione di un tenant nell'anteprima di Desktop virtuale Windows è il primo passaggio per lo sviluppo di una soluzione di virtualizzazione desktop. Un tenant è un gruppo di uno o più pool di host. Ogni pool di host è costituito da più host di sessione, in esecuzione come macchine virtuali in Azure e registrati nel servizio Desktop virtuale Windows. Ogni pool di host è inoltre costituito da uno o più gruppi di app usati per pubblicare le risorse delle applicazioni desktop e remote per gli utenti. Con un tenant è possibile creare pool di host e gruppi di app, assegnare utenti e stabilire connessioni tramite il servizio.
+La creazione di un tenant di Desktop virtuale Windows è il primo passaggio per lo sviluppo di una soluzione di virtualizzazione desktop. Un tenant è un gruppo di uno o più pool di host. Ogni pool di host è costituito da più host di sessione, in esecuzione come macchine virtuali in Azure e registrati nel servizio Desktop virtuale Windows. Ogni pool di host è inoltre costituito da uno o più gruppi di app usati per pubblicare le risorse delle applicazioni desktop e remote per gli utenti. Con un tenant è possibile creare pool di host e gruppi di app, assegnare utenti e stabilire connessioni tramite il servizio.
 
 In questa esercitazione si apprenderà come:
 
@@ -107,7 +107,7 @@ Per trovare l'ID sottoscrizione di Azure:
 3. Cercare **ID sottoscrizione** e quindi passare il puntatore del mouse sul valore fino a visualizzare l'icona degli Appunti. Selezionare l'icona degli Appunti e incollare l'ID in una posizione da cui sia possibile usarlo in seguito come valore **AzureSubscriptionId**.
    ![Screenshot delle proprietà della sottoscrizione di Azure. Il puntatore del mouse passa sull'icona degli Appunti per copiare e incollare "ID sottoscrizione".](media/tenant-subscription-id.png)
 
-## <a name="create-a-windows-virtual-desktop-preview-tenant"></a>Creare un tenant dell'anteprima di Desktop virtuale Windows
+## <a name="create-a-windows-virtual-desktop-tenant"></a>Creare un tenant di Desktop virtuale Windows
 
 Dopo aver concesso le autorizzazioni al servizio Desktop virtuale Windows per eseguire query su Azure Active Directory e aver assegnato il ruolo TenantCreator a un account utente, è possibile creare il tenant di Desktop virtuale Windows.
 

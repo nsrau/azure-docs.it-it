@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/02/2019
 ms.author: dylankil
-ms.openlocfilehash: 5e33108c9fc674abaf980a1272cca31aa21cffff
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 6404a5d49bd7af1ed5d74299f03eda8d0bb14b89
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991129"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326419"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Esercitazione: Avviare lo strumento di lettura immersiva usando il progetto di esempio Python
 
@@ -113,7 +113,7 @@ pip install jinja2
 Installare virtualenv, uno strumento per creare ambienti Python isolati.
 
 ```cmd
-pip install pip install virtualenv
+pip install virtualenv
 ```
 
 Installare virtualenvwrapper-win. L'idea alla base di virtualenvwrapper è semplificare l'uso di virtualenv.
@@ -126,6 +126,12 @@ Installare il modulo requests. Si tratta di una libreria HTTP concessa in licenz
 
 ```cmd
 pip install requests
+```
+
+Installare il modulo python-dotenv. Questo modulo legge la coppia chiave-valore dal file con estensione ENV e la aggiunge alla variabile di ambiente.
+
+```cmd
+pip install python-dotenv
 ```
 
 Creare un ambiente virtuale
@@ -251,6 +257,12 @@ Installare il modulo requests. Si tratta di una libreria HTTP concessa in licenz
 
 ```bash
 pip install requests --user
+```
+
+Installare il modulo python-dotenv. Questo modulo legge la coppia chiave-valore dal file con estensione ENV e la aggiunge alla variabile di ambiente.
+
+```bash
+pip install python-dotenv --user
 ```
 
 Scegliere una cartella in cui mantenere gli ambienti virtuali ed eseguire questo comando

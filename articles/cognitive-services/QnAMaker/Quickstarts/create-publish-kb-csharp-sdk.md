@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/21/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 8e52a37376e91e5c529cddd9b211d81c4b2fa442
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 31bd85ca9b106758dbb7bfd399b7a493ea7fea9f
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203849"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803095"
 ---
 # <a name="quickstart-qna-maker-client-library-for-net"></a>Guida introduttiva: Libreria client di QnA Maker per .NET
 
@@ -30,6 +30,8 @@ Usare la libreria client di QnA Maker per .NET per:
 
 [Documentazione di riferimento](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/) | [Esempi C#](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp)
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
@@ -41,7 +43,7 @@ Usare la libreria client di QnA Maker per .NET per:
 
 I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per QnA Maker usando il [portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) nel computer locale. 
 
-Dopo aver ottenuto una chiave dalla risorsa, [creare una variabile di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave denominata `QNAMAKER_SUBSCRIPTION_KEY`.
+Dopo aver ottenuto una chiave e un endpoint per la risorsa, [creare la variabile di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) `QNAMAKER_SUBSCRIPTION_KEY` per la chiave. Il nome della risorsa viene usato nell'URL dell'endpoint.
 
 ### <a name="create-a-new-c-application"></a>Creare una nuova applicazione C#
 
@@ -113,13 +115,16 @@ Nel metodo **main** creare una variabile per la chiave di Azure della risorsa, e
 
 Creare quindi un oggetto [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.apikeyserviceclientcredentials?view=azure-dotnet) con la propria chiave e usarlo con l'endpoint per creare un oggetto [QnAMakerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-dotnet).
 
-Se la chiave non si trova nell'area `westus` come in questo codice di esempio, modificare la località per la variabile **Endpoint**. La località è riportata nella pagina **Panoramica** per la risorsa QnA Maker nel portale di Azure.
+Impostare la variabile `<your-custom-domain>` di **Endpoint** sul nome del dominio personalizzato. La località è riportata nella pagina **Panoramica** per la risorsa QnA Maker nel portale di Azure.
 
-[!code-csharp[Authorization to resource key](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=Authorization)]
+```csharp
+var subscriptionKey = Environment.GetEnvironmentVariable("QNAMAKER_SUBSCRIPTION_KEY");
+var client = new QnAMakerClient(new ApiKeyServiceClientCredentials(subscriptionKey)) { Endpoint = "https://<your-custom-domain>.api.cognitive.microsoft.com" };
+```
 
 ## <a name="authenticate-the-runtime-for-generating-an-answer"></a>Autenticare il runtime per la generazione di una risposta
 
-Nel metodo **main** creare una variabile per la chiave di Azure della risorsa, estratta dalle variabili di ambiente denominate `QNAMAKER_ENDPOINT_HOSTNAME` e `QNAMAKER_ENDPOINT_KEY`. Quando si pubblica la knowledge base, vengono restituiti questi valori. Dopo la pubblicazione, è possibile trovare queste impostazioni nella pagina di **impostazioni** del portale di QnA Maker. 
+Nel metodo **main** creare una variabile per l'autenticazione della risorsa, estratta dalle variabili di ambiente denominate `QNAMAKER_ENDPOINT_HOSTNAME` e `QNAMAKER_ENDPOINT_KEY`. Quando si pubblica la knowledge base, vengono restituiti questi valori. Dopo la pubblicazione, è possibile trovare queste impostazioni nella pagina di **impostazioni** del portale di QnA Maker. 
 
 Creare un oggetto [QnAMakerRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerruntimeclient?view=azure-dotnet) per eseguire una query sulla knowledge base e generare una risposta o eseguire il training da apprendimento attivo.
 
