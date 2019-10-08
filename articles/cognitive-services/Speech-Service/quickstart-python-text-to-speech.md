@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 0afe5897c723e22405d9bde2e9c9e729d0373a06
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a2e43b72bda65c5f1e7515888ac33b0ac806e64c
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553665"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803252"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Avvio rapido: Eseguire la sintesi vocale con Python
 
@@ -101,7 +101,7 @@ In questa sezione si creerà la richiesta e si salverà la risposta di sintesi v
 Creare quindi il corpo della richiesta nel formato SSML (Speech Synthesis Markup Language). Questo esempio definisce la struttura e usa l'input `tts` creato in precedenza.
 
 >[!NOTE]
-> Questo esempio usa il carattere voce `ZiraRUS`. Per un elenco completo di voci e lingue fornite da Microsoft, vedere [Supporto per le lingue](language-support.md).
+> Questo esempio usa il carattere voce `Guy24KRUS`. Per un elenco completo di voci e lingue fornite da Microsoft, vedere [Supporto per le lingue](language-support.md).
 > Se si vuole creare una voce unica, riconoscibile per il proprio marchio, vedere [Creazione di caratteri voce personalizzati](how-to-customize-voice-font.md).
 
 Si creerà infine una richiesta da inviare al servizio. Se la richiesta ha esito positivo e viene restituito un codice di stato 200, la risposta di sintesi vocale viene scritta in un file con timestamp.
@@ -173,5 +173,6 @@ Assicurarsi di rimuovere eventuali informazioni riservate dal codice sorgente de
 ## <a name="see-also"></a>Vedere anche
 
 * [Informazioni di riferimento sull'API Sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
+* [Uso di Python e Speech SDK per la sintesi vocale](quickstart-text-to-speech-python.md)
 * [Creazione di caratteri voce personalizzati](how-to-customize-voice-font.md)
 * [Esempi di campioni vocali per la creazione di una voce personalizzata](record-custom-voice-samples.md)

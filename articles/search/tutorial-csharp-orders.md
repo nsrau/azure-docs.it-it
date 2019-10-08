@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.author: v-pettur
 author: PeterTurcan
 ms.date: 06/21/2019
-ms.openlocfilehash: 32e253b4e131d753ab6937d0aa2a49bda471e091
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 684ce33e5ecf587aa2030a817680f2d405225117
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466504"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327655"
 ---
 # <a name="c-tutorial-order-the-results---azure-search"></a>Esercitazione per C#: Ordinare i risultati - Ricerca di Azure
 
@@ -320,7 +320,7 @@ Per abilitare l'ordinamento, non è necessario modificare alcun modello. La visu
 
     ![Visualizzazione delle tariffe delle camere](./media/tutorial-csharp-create-first-app/azure-search-orders-rooms.png)
 
-La proprietà **OrderBy** dei parametri di ricerca non accetterà una voce **Rooms.BaseRate** per fornire la tariffa più bassa, anche se le camere sono già ordinate in base alla tariffa (ma non lo sono). Per visualizzare gli alberghi nel set di dati di esempio, ordinati in base alla tariffa della camera, è necessario ordinare i risultati nel controller home e inviarli alla visualizzazione nell'ordine desiderato.
+La proprietà **OrderBy** dei parametri di ricerca non accetterà una voce come **Rooms.BaseRate** per fornire la tariffa più bassa, neanche se le camere fossero già ordinate in base alla tariffa. In questo caso, le camere non sono ordinate in base alla tariffa. Per visualizzare gli alberghi nel set di dati di esempio, ordinati in base alla tariffa della camera, è necessario ordinare i risultati nel controller home e inviarli alla visualizzazione nell'ordine desiderato.
 
 ## <a name="order-results-based-on-multiple-values"></a>Ordinare i risultati in base a più valori
 

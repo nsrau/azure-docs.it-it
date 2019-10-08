@@ -1,30 +1,27 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale, Java (Windows, Linux, macOS) - Servizio Voce'
+title: 'Guida introduttiva: Sintesi vocale, Java (Windows, Linux, macOS) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva si imparerà a creare una semplice applicazione Java per acquisire e trascrivere i contenuti vocali dell'utente dal microfono del computer.
+description: In questo argomento di avvio rapido si imparerà a creare una semplice applicazione Java per acquisire, eseguire la sintesi vocale e riprodurre la voce con l'altoparlante predefinito.
 services: cognitive-services
-author: fmegen
+author: yulin-li
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
-ms.author: fmegen
-ms.openlocfilehash: 9438cd1345d324b068db8837216afb39241cb2a2
+ms.date: 09/19/2019
+ms.author: yulili
+ms.openlocfilehash: 832525ae1441fca85f8df661b4a187c0be8d91dc
 ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802483"
+ms.locfileid: "71803698"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per Java
+# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-java"></a>Guida introduttiva: Sintesi vocale con Speech SDK per Java
 
-Sono disponibili guide di avvio rapido anche per la [traduzione con sintesi vocale](quickstart-translate-speech-java-jre.md), l'[assistente virtuale voice-first](quickstart-virtual-assistant-java-jre.md) e la [sintesi vocale](quickstart-text-to-speech-java-jre.md).
+Sono disponibili guide di avvio rapido anche per il [riconoscimento vocale](quickstart-java-jre.md), la [traduzione con sintesi vocale](quickstart-translate-speech-java-jre.md) e l'[assistente virtuale voice-first](quickstart-virtual-assistant-java-jre.md).
 
-Se si vuole, è possibile scegliere un linguaggio di programmazione e/o un ambiente diverso:<br/>
-[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
-In questo articolo, si crea un'applicazione console Java usando [Speech SDK](speech-sdk.md). Avviene la trascrizione del riconoscimento vocale in tempo reale dal microfono del PC. L'applicazione è compilata con il pacchetto Speech SDK Maven ed Eclipse Java IDE (v4.8) in Windows a 64 bit, Linux a 64 bit (Ubuntu 16.04, Ubuntu 18.04, Debian 9) o in macOS 10.13 o versioni successive. Viene eseguito su un ambiente Java 8 runtime a 64 bit (JRE).
+In questo articolo, si crea un'applicazione console Java usando [Speech SDK](speech-sdk.md). Eseguire la sintesi vocale e riprodurre la voce con l'altoparlante predefinito del PC. L'applicazione è compilata con il pacchetto Speech SDK Maven ed Eclipse Java IDE (v4.8) in Windows a 64 bit, Linux a 64 bit (Ubuntu 16.04, Ubuntu 18.04, Debian 9) o in macOS 10.13 o versioni successive. Viene eseguito su un ambiente Java 8 runtime a 64 bit (JRE).
 
 > [!NOTE]
 > Per Speech Device SDK e il dispositivo Roobo, vedere [Speech Devices SDK](speech-devices-sdk.md).
@@ -71,7 +68,7 @@ Se si esegue Windows (64 bit), assicurarsi di avere installato Microsoft Visual 
 
 1. Sostituire tutto il codice in `Main.java` con il frammento di codice seguente:
 
-   [!code-java[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/src/speechsdk/quickstart/Main.java#code)]
+   [!code-java[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/java-jre/src/speechsdk/quickstart/Main.java#code)]
 
 1. Sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione.
 
@@ -82,9 +79,7 @@ Se si esegue Windows (64 bit), assicurarsi di avere installato Microsoft Visual 
 ## <a name="build-and-run-the-app"></a>Compilare ed eseguire l'app
 
 Premere F11 o selezionare **Esegui** > **Debug**.
-I successivi 15 secondi di input vocale dal microfono verranno riconosciuti e registrati nella finestra della console.
-
-![Screenshot della console dopo il riconoscimento corretto](media/sdk/qs-java-jre-07-console-output.png)
+Immettere un testo quando viene richiesto e si sentirà l'audio sintetizzato riprodotto dall'altoparlante predefinito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -95,7 +90,7 @@ Esempi aggiuntivi, ad esempio per eseguire il riconoscimento vocale da un file a
 
 ## <a name="see-also"></a>Vedere anche
 
+- [Guida introduttiva: Riconoscimento vocale, Java (Windows, Linux, macOS)](quickstart-java-jre.md)
 - [Guida introduttiva: Traduzione vocale, Java (Windows, Linux, macOS)](quickstart-translate-speech-java-jre.md)
-- [Guida introduttiva: Sintesi vocale, Java (Windows, Linux, macOS)](quickstart-text-to-speech-java-jre.md)
-- [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
-- [Personalizzare modelli linguistici](how-to-customize-language-model.md)
+- [Personalizzare i carattere voce](how-to-customize-voice-font.md)
+- [Registrare esempi vocali](record-custom-voice-samples.md)

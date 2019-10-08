@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 01a2b9d5bad7d490f5ee9f6a21af5bc1308bdab1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d87fd06b45d1d3636c442d962daa79cf526e74f2
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553658"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803274"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in Objective-C in iOS con Speech SDK
+
+Sono disponibili guide di avvio rapido anche per la [sintesi vocale](quickstart-text-to-speech-objectivec-ios.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -34,8 +36,6 @@ Prima di iniziare, ecco un elenco di prerequisiti:
 ## <a name="get-the-speech-sdk-for-ios"></a>Ottenere Speech SDK per iOS
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-La versione corrente di Speech SDK di Servizi cognitivi è `1.6.0`.
 
 Speech SDK di Servizi cognitivi per iOS viene attualmente distribuito come un Framework di Cocoa.
 Può essere scaricato da [questa pagina](https://aka.ms/csspeech/iosbinary). Scaricare il file nella home directory.
@@ -87,7 +87,7 @@ Sostituire il codice XML generato automaticamente con questo codice:
     <string>Need microphone access for speech recognition from microphone.</string>
     ```
 
-## <a name="building-and-running-the-sample"></a>Compilazione ed esecuzione dell'esempio
+## <a name="build-and-run-the-sample"></a>Compilare ed eseguire l'esempio
 
 1. Rendere visibile l'output di debug (**Visualizza** > **Area di debug** > **Attivare Console**).
 1. Scegliere il simulatore iOS o un dispositivo iOS connesso al computer di sviluppo come destinazione per l'app dall'elenco nel menu **Prodotto** > **Destinazione**.

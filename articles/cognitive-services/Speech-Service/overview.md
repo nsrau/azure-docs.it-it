@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 0aa4286d8cb630f221613bebd13f7ea722224ac6
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 993064a36bd12c95e83ffb7c9635c3e4dfcec0f0
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70068836"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803353"
 ---
 # <a name="what-are-the-speech-services"></a>Informazioni sui servizi Voce
 
@@ -41,6 +41,8 @@ Queste funzionalità costituiscono i servizi Voce di Azure. Per altre informazio
 
 Informazioni sulle novità relative ai servizi Voce di Azure.
 
+* Settembre 2019
+  * Rilasciato Speech SDK 1.7.0. Per un elenco completo di aggiornamenti, miglioramenti e problemi noti, vedere [Note sulla versione](releasenotes.md).
 * Agosto 2019
   * **Nuova esercitazione**: [Abilitare la voce per il bot con Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
   * Aggiunta di un nuovo modo di parlare, [`chat`](speech-synthesis-markup.md#adjust-speaking-styles), per la voce `en-US-JessaNeural`. 

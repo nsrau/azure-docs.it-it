@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: d0f0abade5d1eea952c5abde293ae90745ee9b04
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 1ba0a965de356cfbe7d9a1cfc8d6d2e8da092934
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640646"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327184"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Esercitazione per C#: effettuare una ricerca per indicizzazione in un database SQL di Azure con gli indicizzatori di Ricerca di Azure
 
@@ -230,7 +230,7 @@ Il codice viene eseguito localmente in Visual Studio, connettendosi al servizio 
 
 + Informazioni sulla connessione al database in **appsettings.json**. Dovrebbe trattarsi della stringa di connessione ADO.NET ottenuta dal portale, modificata in modo da includere un nome utente e una password validi per il database. L'account utente deve avere l'autorizzazione necessaria per recuperare i dati.
 
-+ Limiti delle risorse. Occorre ricordare che il servizio condiviso (gratuito) prevede limiti di 3 indici, indicizzatori e origini dati. Un servizio che ha raggiunto il limite massimo non può creare nuovi oggetti.
++ Limiti delle risorse. Tenere presente che il livello gratuito prevede limiti di 3 indici, indicizzatori e origini dati. Un servizio che ha raggiunto il limite massimo non può creare nuovi oggetti.
 
 ## <a name="search-the-index"></a>Eseguire ricerche nell'indice 
 

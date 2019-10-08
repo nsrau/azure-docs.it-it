@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: dbc9c2adc2663d3ba0ec3f9ea17b758ca2723441
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0846af20a2ee993742f648840bcbe49e187f6db9
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553706"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803180"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Guida introduttiva: Eseguire la sintesi vocale in C++ su Linux con Speech SDK
 
@@ -30,8 +30,6 @@ Per completare questa guida di avvio rapido, è necessaria una chiave di sottosc
 ## <a name="install-speech-sdk"></a>Installare Speech SDK
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-La versione corrente di Speech SDK di Servizi cognitivi è `1.6.0`.
 
 Speech SDK per Linux è utilizzabile per compilare applicazioni sia a 64 bit che a 32 bit. Le librerie necessarie e i file di intestazione possono essere scaricati come file tar da https://aka.ms/csspeech/linuxbinary.
 
@@ -109,6 +107,12 @@ Scaricare e installare SDK come indicato di seguito:
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libasound.so.2
   ```
 
+* In un sistema **ARM64** (64 bit), eseguire il comando seguente per compilare l'applicazione.
+
+  ```sh
+  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/arm64" -l:libasound.so.2
+  ```
+
 ## <a name="run-the-app"></a>Esecuzione dell'app
 
 1. Configurare il percorso di libreria del caricatore in modo da puntare alla libreria Speech SDK.
@@ -123,6 +127,12 @@ Scaricare e installare SDK come indicato di seguito:
 
      ```sh
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
+     ```
+
+   * In un sistema**ARM64** (64 bit), immettere il comando seguente.
+
+     ```sh
+     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/arm64"
      ```
 
 1. Eseguire l'applicazione.

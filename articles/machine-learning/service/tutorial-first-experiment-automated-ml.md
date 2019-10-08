@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/26/2019
-ms.openlocfilehash: 38c319fb89e8c763f8231c18cbb59bef099193e2
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3ddd228488d8ba4adc6780db1f65fdb634291d3b
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259324"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350512"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Esercitazione: Creare il primo modello di classificazione con apprendimento automatico
 
@@ -50,7 +50,7 @@ Per creare un'area di lavoro è necessario usare il portale di Azure, una consol
 
 ## <a name="create-and-run-the-experiment"></a>Creare ed eseguire l'esperimento
 
-Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento nella pagina di destinazione dell'area di lavoro, un'interfaccia consolidata che include strumenti di Machine Learning per l'esecuzione di scenari di data science per esperti di data science di qualsiasi livello di competenza.
+Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento nella pagina di destinazione dell'area di lavoro, un'interfaccia consolidata che include strumenti di Machine Learning per l'esecuzione di scenari di data science per esperti di data science di qualsiasi livello di competenza. La pagina di destinazione dell'area di lavoro non è supportata nei browser Internet Explorer.
 
 1. Effettuare l'accesso alla [pagina di destinazione dell'area di lavoro](https://ml.azure.com/workspaceportal/).
 
@@ -99,23 +99,21 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
        
     1. Verificare che il modulo **Settings and preview** (Impostazioni e anteprima) venga popolato come segue, quindi selezionare **Avanti**.
         
-        Campo|Valore per l'esercitazione
-        ---|---
-        Formato file| Delimitato
-        Delimitatore| Virgola
-        Codifica| UTF-8
-        Intestazioni di colonna| Tutti i file hanno le stesse intestazioni
-        Ignora righe | Nessuna
+        Campo|DESCRIZIONE| Valore per l'esercitazione
+        ---|---|---
+        Formato file|Definisce il layout e il tipo di dati archiviati in un file.| Delimitato
+        Delimitatore|Uno o più caratteri per specificare il limite tra&nbsp; aree distinte indipendenti in testo normale o altri flussi di dati. |Virgola
+        Codifica|Identifica la tabella dello schema bit-carattere da usare per leggere il set di dati.| UTF-8
+        Intestazioni di colonna| Indica come verranno considerate le intestazioni del set di dati, se presenti.| Tutti i file hanno le stesse intestazioni
+        Ignora righe | Indica quante righe vengono eventualmente ignorate nel set di dati.| Nessuna
     
-    1. Il modulo **Schema** consente di configurare ulteriormente i dati per questo esperimento. Per questo esempio, selezionare l'interruttore relativo alla caratteristica **day_of_week** in modo da non includerla per questo esperimento. Selezionare **Fine** per completare il caricamento del file e la creazione del set di dati per l'esperimento.
-
         ![Configurazione della scheda Anteprima](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
 
 1. Selezionare **Classificazione** come attività di stima.
 
 1. Selezionare **y** come colonna di destinazione, che indica le stime da eseguire. Questa colonna indica se il client ha sottoscritto o meno un deposito a termine.
 
-1. Espandere **Impostazioni avanzate** e completare i campi come indicato di seguito.
+1. Espandere **Impostazioni avanzate** e completare i campi come indicato di seguito. Queste impostazioni consentono un maggior controllo del processo di training. Altrimenti, vengono applicate le impostazioni predefinite in base alla selezione dell'esperimento e ai dati.
 
    >[!NOTE]
    > In questa esercitazione non viene impostato un punteggio di metrica o un numero massimo di core come soglia per le iterazioni. E non vengono neanche bloccati i test degli algoritmi.
@@ -138,10 +136,10 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
 
 ##  <a name="explore-iteration-results"></a>Esplorare i risultati di un'iterazione
 
-Con l'avanzare dell'esperimento, la schermata aggiorna il **grafico** e l'**elenco delle iterazioni** con le diverse iterazioni (modelli) create mentre vengono completate, ordinate in base a punteggio di metrica. Per impostazione predefinita, il modello che riceve il punteggio più alto in base alla metrica **AUC_weighted** scelta si trova all'inizio dell'elenco.
+Mentre l'esperimento continua, la schermata aggiorna il **grafico** e l'**elenco delle iterazioni** con le diverse iterazioni (modelli) create e completate. Per impostazione predefinita, le iterazioni vengono ordinate in base al punteggio della metrica. Per questa esercitazione, il modello che riceve il punteggio più alto in base alla metrica **AUC_weighted** scelta si trova all'inizio dell'elenco.
 
 Mentre si aspetta che le iterazioni dell'esperimento finiscano, selezionare il **nome** di un'iterazione completata per esplorare i dettagli sulle relative prestazioni. 
-   
+
 Di seguito sono illustrati i grafici e le metriche di esecuzione generate per ogni iterazione, ad esempio una curva di precisione/richiamo, una matrice di confusione, i punteggi di accuratezza ponderati e così via. 
 
 ![Dettagli sull'esecuzione delle iterazioni](media/tutorial-1st-experiment-automated-ml/run-detail.gif)
@@ -199,6 +197,7 @@ In questa esercitazione di Machine Learning automatizzato è stata usata la pagi
 + Altre informazioni sulla [pre-elaborazione](how-to-create-portal-experiments.md#preprocess).
 + Altre informazioni sulla [profilatura dei dati](how-to-create-portal-experiments.md#profile).
 + [Funzionalità automatizzate di Machine Learning](concept-automated-ml.md).
++ Per altre informazioni sulle metriche e sui grafici di classificazione, vedere l'articolo [Informazioni sui risultati di Machine Learning automatizzato](how-to-understand-automated-ml.md#classification).
 
 >[!NOTE]
 > Questo set di dati di marketing bancario viene reso disponibile in [Creative Comm (CCO: Public Domain) License](https://creativecommons.org/publicdomain/zero/1.0/). Tutti i diritti per i singoli contenuti del database vengono concessi in licenza ai sensi della [licenza relativa ai contenuti del database](https://creativecommons.org/publicdomain/zero/1.0/) e resi disponibili in [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Questo set di dati era originariamente disponibile all'interno del [database di Machine Learning UCI](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
