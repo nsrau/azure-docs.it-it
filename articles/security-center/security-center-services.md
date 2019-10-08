@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: ad662cdeb0a87e57eb9e3e7480d120be1c6c729e
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d756f9dfbd0012f884bb0c4a1e27efc76d613234
+ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218252"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71982831"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Funzionalità supportate disponibili nel centro sicurezza di Azure
 
@@ -39,20 +39,21 @@ Le sezioni seguenti illustrano le funzionalità del Centro sicurezza disponibili
 |----|----|----|----|----|----|----|----|
 |**Environment**|**Azure**||**Non Azure**|**Azure**||**Non Azure**||
 ||**Macchina virtuale**|**Set di scalabilità della macchina virtuale**||**Macchina virtuale**|**Set di scalabilità della macchina virtuale**|
-|Avvisi di rilevamento minacce VMBA|✔|✔|✔|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|Indicazioni (gratuite) rilevamento minacce (standard)|
+|Avvisi di rilevamento delle minacce per l'analisi comportamentale delle macchine virtuali|✔|✔|✔|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|Indicazioni (gratuite) rilevamento minacce (standard)|
 |Avvisi di rilevamento delle minacce di rete|✔|✔|x|✔|✔|x|Standard|
 |Integrazione di Microsoft Defender ATP|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|x|X|x|Standard|
 |Patch mancanti|✔|✔|✔|✔|✔|✔|Gratuito|
 |Configurazioni della sicurezza|✔|✔|✔|✔|✔|✔|Gratuito|
 |Valutazione di Endpoint Protection|✔|✔|✔|x|X|x|Gratuito|
-|Accesso JIT alle VM|✔|x|x|✔|x|x|Standard|
+|Accesso just-in-time alle macchine virtuali|✔|x|x|✔|x|x|Standard|
 |Controlli applicazione adattivi|✔|x|✔|✔|x|✔|Standard|
-|FIM|✔|✔|✔|✔|✔|✔|Standard|
+|Monitoraggio dell'integrità dei file|✔|✔|✔|✔|✔|✔|Standard|
 |Valutazione della crittografia del disco|✔|✔|x|✔|✔|x|Gratuito|
 |Distribuzione di terze parti|✔|x|x|✔|x|x|Gratuito|
 |Valutazione NSG|✔|✔|x|✔|✔|x|Gratuito|
 |Rilevamento delle minacce senza file|✔|✔|✔|x|X|x|Standard|
 |Mappa di rete|✔|✔|x|✔|✔|x|Standard|
+|Protezione avanzata adattiva per la rete|✔|x|x|✔|x|x|Standard|
 |Controlli adattivi della rete|✔|✔|x|✔|✔|x|Standard|
 |Dashboard di conformità normativa & report|✔|✔|✔|✔|✔|✔|Standard|
 |Raccomandazioni e rilevamento delle minacce nei contenitori IaaS ospitati da Docker|x|X|x|✔|✔|✔|Standard|
@@ -120,7 +121,7 @@ Le risorse PaaS seguenti sono supportate dal centro sicurezza di Azure:
 
 \* Queste funzionalità sono attualmente supportate in anteprima pubblica.
 
-\*\*Le raccomandazioni Azure Active Directory (Azure AD) sono disponibili solo per le sottoscrizioni standard.
+\* @ no__t-1 Azure Active Directory (Azure AD) consigli sono disponibili solo per le sottoscrizioni standard.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 62387fe7ddbde75e79724c77dd7eeedd5cae64c3
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: abcd6dc8c50b819dd02347b938602af7f2152d04
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201863"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996629"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guida alla pianificazione e alla gestione del Centro sicurezza di Azure
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud che pianificano l'uso del Centro sicurezza di Azure.
@@ -203,7 +203,7 @@ Quando si aggiungono nuove risorse all'ambiente Azure, come VM o database SQL, i
 
 ### <a name="hardening-access-and-applications"></a>Applicare la protezione avanzata all'accesso e alle applicazioni
 
-Come parte delle operazioni di sicurezza è consigliabile adottare misure preventive per limitare l'accesso alle VM e controllare le applicazioni in esecuzioni sulle VM. Bloccando il traffico in ingresso nelle VM di Azure si riduce l'esposizione agli attacchi e si offre al tempo stesso un accesso facilitato per la connessione alle VM quando necessario. Usare la funzionalità [Accesso Just-In-Time alla VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) per applicare la protezione avanzata all'accesso alle VM.
+Come parte delle operazioni di sicurezza è consigliabile adottare misure preventive per limitare l'accesso alle VM e controllare le applicazioni in esecuzioni sulle VM. Bloccando il traffico in ingresso nelle VM di Azure si riduce l'esposizione agli attacchi e si offre al tempo stesso un accesso facilitato per la connessione alle VM quando necessario. Usare la funzionalità di accesso [just-in-time alle VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) per rafforzare l'accesso alle VM.
 
 È possibile usare i [controlli delle applicazioni adattivi](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) per limitare le applicazioni che possono essere eseguite nelle macchine virtuali situate in Azure. Tra gli altri vantaggi, questo semplifica la protezione delle macchine virtuali da malware. Usando Machine Learning, il Centro sicurezza analizza i processi in esecuzione nella macchina virtuale per creare regole di inserimento nell'elenco elementi consentiti.
 

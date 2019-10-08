@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9bc0d1b31ebeaecce8b4be8699cf87811047b6f9
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 77c90cccbbfa5865878ae4dc47e5009697560ed3
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123268"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001306"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -238,8 +238,8 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | US Gov Iowa | 12076:51109 |
 | US Gov Virginia | 12076:51105 |
 | US Gov Texas | 12076:51108 |
-| US DoD Central | 12076:51209 |
-| US DoD East | 12076:51205 |
+| US DoD (area centrale) | 12076:51209 |
+| US DoD (area orientale) | 12076:51205 |
 
 
 | **Servizio dei cloud nazionali** | **Valore della community BGP** |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: a5d11be7d4fbe7f23b5584775c5d9a57c2214155
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b2b4dc1aa9486e432fb2fae48343c21fba620221
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200993"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996685"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Guida di orientamento alla preparazione del Centro sicurezza di Azure
 Questo documento fornisce una guida di orientamento alla preparazione utile per iniziare a usare il Centro sicurezza di Azure.
@@ -89,16 +89,16 @@ Articoli
 
 ## <a name="advanced-cloud-defense"></a>Difesa cloud avanzata
 
-Le macchine virtuali di Azure possono sfruttare i vantaggi delle funzionalità di difesa cloud avanzata del Centro sicurezza. Queste funzionalità includono l'accesso Just-In-Time (JIT) alle macchine virtuali e i controlli applicazione adattivi.
+Le macchine virtuali di Azure possono sfruttare i vantaggi delle funzionalità di difesa cloud avanzata del Centro sicurezza. Queste funzionalità includono l'accesso just-in-time alle macchine virtuali (VM) e i controlli applicazione adattivi.
 
 Usare le risorse seguenti per ottenere informazioni sull'uso di queste funzionalità nel Centro sicurezza.
 
 Video  
-* [Azure Security Center – Just-in-Time VM Access](https://youtu.be/UOQb2FcdQnU) (Centro sicurezza di Azure - Accesso JIT alle VM)
+* [Centro sicurezza di Azure: accesso just-in-time alle macchine virtuali](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center - Adaptive Application Controls](https://youtu.be/wWWekI1Y9ck) (Centro sicurezza di Azure - Controlli delle applicazioni adattivi)
 
 Articoli    
-* [Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [Gestire l'accesso alle macchine virtuali con Just-in-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 * [Controlli delle applicazioni adattivi nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
 ## <a name="hands-on-activities"></a>Attività pratiche

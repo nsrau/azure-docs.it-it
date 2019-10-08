@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b38b359821d3d4926085fee8e412fbe06155739
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: e9bc0cf3ab0d168a55ab04913bdc71eed5c5fced
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350622"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001225"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -37,6 +37,14 @@ I data scientist, gli analisti e gli sviluppatori di tutti i settori possono usa
 + Utilizzare data science procedure consigliate
 + Fornire risoluzione dei problemi agile
 
+I casi d'uso comuni di Machine Learning sono:
++ [Rilevamento di frodi](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)
++ [Previsione marketing](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing/auto-ml-classification-bank-marketing.ipynb)
++ [Previsione della domanda](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
++ [Previsioni di vendita](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)
++ [Stima delle prestazioni](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance/auto-ml-regression-hardware-performance.ipynb)
++ [Stima della durabilità del materiale](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-concrete-strength/auto-ml-regression-concrete-strength.ipynb)
+
 ## <a name="how-automated-ml-works"></a>Funzionamento del Machine Learning automatico
 
 Con **Azure Machine Learning**è possibile progettare ed eseguire gli esperimenti di training di Machine Learning automatici con i passaggi seguenti:
@@ -55,7 +63,7 @@ Con **Azure Machine Learning**è possibile progettare ed eseguire gli esperiment
 
 Durante il training, Azure Machine Learning crea alcune pipeline parallele che tentano algoritmi e parametri diversi. Si arresterà quando si raggiungeranno i criteri di uscita definiti nell'esperimento.
 
-È anche possibile esaminare le informazioni sull'esecuzione registrata, che [contengono le metriche](how-to-understand-automated-ml.md) raccolte durante l'esecuzione. L'esecuzione del training produce un oggetto (`.pkl` file) serializzato Python che contiene il modello e la pre-elaborazione dei dati.
+È anche possibile esaminare le informazioni sull'esecuzione registrata, che [contengono le metriche](how-to-understand-automated-ml.md) raccolte durante l'esecuzione. L'esecuzione del training produce un oggetto serializzato Python (file `.pkl`) che contiene il modello e la pre-elaborazione dei dati.
 
 Sebbene la creazione di modelli sia automatizzata, è anche possibile [scoprire quanto siano importanti o rilevanti le funzionalità](how-to-configure-auto-train.md#explain) dei modelli generati.
 
@@ -74,7 +82,7 @@ In ogni esperimento di Machine Learning automatizzato, i dati vengono pre-elabor
 
 In ogni esperimento di Machine Learning automatizzato, i dati vengono ridimensionati o normalizzati automaticamente per consentire agli algoritmi di ottenere risultati ottimali.  Durante il training del modello, viene applicata una delle tecniche di ridimensionamento o di normalizzazione seguenti a ogni modello.
 
-|Normalizzazione scalabile&nbsp;&&nbsp;| Descrizione |
+|Ridimensionamento di @ no__t-0 @ no__t-1 @ no__t-2normalization| Descrizione |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Standardizzare le funzionalità rimuovendo la media e il ridimensionamento in varianza unità  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Trasforma le funzionalità ridimensionando ogni funzionalità in base al valore minimo e massimo della colonna  |
@@ -90,7 +98,7 @@ Sono disponibili anche funzionalità avanzate di pre-elaborazione e conteggi, ad
 
 + Portale di Azure: Selezionare la casella di controllo **pre-elaborazione** nelle **Impostazioni avanzate** [con questi passaggi](how-to-create-portal-experiments.md).
 
-+ SDK per Python: Oggetto `"preprocess": True` che specifica per la [ `AutoMLConfig` classe](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
++ SDK per Python: Specifica `"preprocess": True` per la [classe `AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 
 ## <a name="time-series-forecasting"></a>Previsione di serie temporali
@@ -165,7 +173,7 @@ Il Machine Learning automatico è disponibile anche in altre soluzioni Microsoft
 
 Vedere gli esempi e informazioni su come creare modelli usando Machine Learning automatico:
 
-+ Seguire l' [esercitazione: Eseguire automaticamente il training di un modello di regressione con Machine Learning automatizzato di Azure](tutorial-auto-train-models.md)
++ Seguire il [Tutorial: Eseguire automaticamente il training di un modello di regressione con Azure Automatic Machine Learning @ no__t-0
 
 + Configurare le impostazioni per l'esperimento di training automatico:
   + In portale di Azure interfaccia o nella pagina di destinazione dell'area di lavoro (anteprima) [usare questi passaggi](how-to-create-portal-experiments.md).

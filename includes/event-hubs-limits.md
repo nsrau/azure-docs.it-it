@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: a20481ea42a0772ab42322e912cfce67877734d6
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 8c836582798f40cf6e9ffff264c1612cb4037f74
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71830110"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996882"
 ---
 Le tabelle seguenti forniscono le quote e i limiti specifici di [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/). Per informazioni sui prezzi di Hub eventi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -52,8 +52,8 @@ L'offerta Hub eventi Dedicato viene fatturata a un prezzo mensile fisso, con un 
 | Hub eventi |  1000 per spazio dei nomi |
 | Eventi in ingresso | Incluso |
 | Dimensioni del messaggio | 1 MB |
-| Partizioni | 2000 per CU |
+| Partitions | 2000 per CU |
 | Gruppi di consumer | Nessun limite per CU, 1000 per hub eventi |
 | Connessioni negoziate | 100 K incluse |
-| Conservazione messaggi | Fino a 7 giorni, 10 TB inclusi per CU |
+| Conservazione dei messaggi | 90 giorni, 10 TB inclusi per CU |
 | Acquisizione | Incluso |

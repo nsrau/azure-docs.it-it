@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: e55755e3edcc54d0d75c937c4d18b845b0282833
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 4fdd99b3e9efc108960217cddfc8a397eadf99b6
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972744"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001578"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Gestire Azure Resource Manager gruppi di risorse usando l'interfaccia della riga di comando di Azure
 
@@ -78,7 +78,7 @@ Vedere [distribuire le risorse in un gruppo di risorse esistente](./manage-resou
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Distribuire un gruppo di risorse e le risorse
 
-È possibile creare un gruppo di risorse e distribuire le risorse nel gruppo usando un modello di Gestione risorse. Per altre informazioni, vedere [Creare un gruppo di risorse e distribuire risorse](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+È possibile creare un gruppo di risorse e distribuire le risorse nel gruppo usando un modello di Gestione risorse. Per altre informazioni, vedere [Creare un gruppo di risorse e distribuire risorse](./deploy-to-subscription.md#resource-group-and-resources).
 
 ## <a name="redeploy-when-deployment-fails"></a>Eseguire nuovamente la distribuzione se non è riuscita
 

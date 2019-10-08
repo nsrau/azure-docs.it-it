@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9344feeadc5f4146c3b3f853082cd9255100af5c
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: b5c24a2340775712f1105448b2aacfdc9a75f1a6
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949644"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001717"
 ---
 # <a name="scim-user-provisioning-with-azure-active-directory"></a>Provisioning utenti di SCIM con Azure Active Directory
 
-System for Cross-Domain Identity Management (SCIM) è un protocollo standardizzato e uno schema che mira a garantire una maggiore coerenza nella modalità di gestione delle identità tra i sistemi. Quando un'applicazione supporta un endpoint SCIM per la gestione degli utenti, il Azure AD servizio di provisioning utenti può inviare richieste per creare, modificare o eliminare utenti e gruppi assegnati a questo endpoint.
+System for Cross-Domain Identity Management ([scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards)) è un protocollo standardizzato e uno schema che mira a garantire una maggiore coerenza nella modalità di gestione delle identità tra i sistemi. Quando un'applicazione supporta un endpoint SCIM per la gestione degli utenti, il Azure AD servizio di provisioning utenti può inviare richieste per creare, modificare o eliminare utenti e gruppi assegnati a questo endpoint.
 
 Molte delle applicazioni per le quali Azure AD supporta il [provisioning utente automatico pre-integrato](../saas-apps/tutorial-list.md) implementano SCIM come mezzo per ricevere le notifiche di modifica dell'utente.  Oltre a questi, i clienti possono connettere le applicazioni che supportano un profilo specifico della [specifica del protocollo SCIM 2,0](https://tools.ietf.org/html/rfc7644) usando l'opzione di integrazione generica "non raccolta" nel portale di Azure.
 

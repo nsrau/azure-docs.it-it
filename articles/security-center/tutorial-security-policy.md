@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: memildin
-ms.openlocfilehash: 488210e4f2c5d3a8a978079d0c7293ce091d998b
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: fce8c75dadbb255a357b85bf85049423f50d18ec
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338780"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996345"
 ---
 # <a name="working-with-security-policies"></a>Utilizzo dei criteri di sicurezza
 
@@ -226,7 +226,7 @@ Questo esempio illustra come rimuovere un'assegnazione:
 |Controllo SQL |Monitora i database SQL non controllati nel Centro sicurezza di Azure |sqlAuditingMonitoringEffect|
 |Aggiornamenti del sistema |Monitora gli aggiornamenti di sistema mancanti nel Centro sicurezza di Azure |systemUpdatesMonitoringEffect|
 |Crittografia di archiviazione |Controlla crittografia BLOB mancante per gli account di archiviazione |storageEncryptionMonitoringEffect|
-|Accesso alla rete JIT |Monitora i possibili accessi JIT alla rete nel Centro sicurezza di Azure |jitNetworkAccessMonitoringEffect |
+|Accesso alla rete JIT |Monitorare il possibile accesso JIT (just-in-Time) di rete nel centro sicurezza di Azure |jitNetworkAccessMonitoringEffect |
 |Controlli applicazione adattivi |Monitora il possibile elenco elementi consentiti dell'app nel Centro sicurezza di Azure |adaptiveApplicationControlsMonitoringEffect|
 |Gruppi di sicurezza di rete |Monitora gli accessi di rete permissivi nel Centro sicurezza di Azure |networkSecurityGroupsMonitoringEffect| 
 |Configurazioni della sicurezza |Monitora le vulnerabilità del sistema operativo nel Centro sicurezza di Azure |systemConfigurationsMonitoringEffect| 

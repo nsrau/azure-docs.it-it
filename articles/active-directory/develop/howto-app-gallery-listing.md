@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a97c10303a1ce74e53f46c21176c876faed307e7
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: bd20928816a30ad2843ce6c876bd77152dcd69e1
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958645"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001744"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory
 
@@ -36,7 +36,7 @@ Questo articolo illustra come elencare un'applicazione nella raccolta di applica
 - Ricerca rapida per l'individuazione dell'applicazione nella raccolta.
 - Uso di questa integrazione per tutti i clienti con account Free, Basic e Premium di Azure AD.
 - Esercitazione dettagliata per la configurazione per i clienti reciproci.
-- I clienti che usano il sistema per la gestione delle identità tra domini (SCIM) possono usare il provisioning per la stessa app.
+- I clienti che usano il sistema per la gestione delle identità tra domini ([scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)) possono usare il provisioning per la stessa app.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

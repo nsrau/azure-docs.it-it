@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: ac700592a63e88936593c24f8f7ce06a08e289ce
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 185570992ad0308b500da30bca212a0495bcb0fa
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972679"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001631"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
@@ -44,6 +44,7 @@ Se si stanno cercando informazioni su un codice di errore e tali informazioni no
 | InUseSubnetCannotBeDeleted | Questo errore può essere ricevuto quando si tenta di aggiornare una risorsa e la richiesta viene elaborata eliminando e creando la risorsa. Assicurarsi di specificare tutti i valori invariati. | [Aggiornare una risorsa](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Ottenere il token di accesso per il tenant appropriato. È possibile ottenere solo il token dal tenant a cui appartiene l'account. | |
 | InvalidContentLink | È probabile che si sia tentato di eseguire il collegamento a un modello annidato che non è disponibile. Ricontrollare l'URI specificato per il modello annidato. Se il modello si trova in un account di archiviazione, verificare che l'URI sia accessibile. Potrebbe essere necessario passare un token SAS. Attualmente, non è possibile collegarsi a un modello che si trova in un account di archiviazione dietro un [firewall di archiviazione di Azure](../storage/common/storage-network-security.md). Provare a trasferire il modello in un altro repository, ad esempio GitHub. | [Modelli collegati](resource-group-linked-templates.md) |
+| InvalidDeploymentLocation | Quando si esegue la distribuzione a livello di sottoscrizione, è stato specificato un percorso diverso per un nome di distribuzione usato in precedenza. | [Distribuzioni a livello di sottoscrizione](deploy-to-subscription.md) |
 | InvalidParameter | Uno dei valori forniti per una risorsa non corrisponde al valore previsto. Questo errore può dipendere da molte condizioni diverse. Ad esempio, è possibile che una password non sia sufficiente o che un nome di BLOB non sia corretto. Il messaggio di errore dovrebbe indicare il valore che deve essere corretto. | |
 | InvalidRequestContent | I valori di distribuzione includono valori non riconosciuti oppure mancano i valori obbligatori. Confermare i valori per il tipo di risorsa. | [Informazioni di riferimento sul modello](/azure/templates/) |
 | InvalidRequestFormat | Abilitare la registrazione del debug quando si esegue la distribuzione e verificare il contenuto della richiesta. | [Registrazione del debug](#enable-debug-logging) |

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
-ms.openlocfilehash: 8f90cc3b41eab1847b0d4483b92a282d46af765b
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 71e1f8be2af5556d86996175e8a1ddbccc9c7de1
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309294"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001677"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Risolvere i problemi di integrità back-end nel gateway applicazione
 ==================================================
@@ -81,13 +81,13 @@ Dopo aver ricevuto lo stato di un server back-end non integro per tutti i server
 Il messaggio visualizzato nella colonna **Dettagli** fornisce informazioni dettagliate sul problema e, in base a tali informazioni, è possibile iniziare la risoluzione del problema.
 
 > [!NOTE]
-> La richiesta di probe predefinita viene inviata nel formato \<protocollo\>://127.0.0.1:\<porta\>/. Ad esempio, http://127.0.0.1:80 per un probe http sulla porta 80. Solo i codici di stato HTTP da 200 a 399 sono considerati integri. Il protocollo e la porta di destinazione vengono ereditati dalle impostazioni HTTP. Se si vuole che il gateway applicazione Probe su un protocollo, un nome host o un percorso diverso e riconosca un codice di stato diverso come integro, configurare un probe personalizzato e associarlo alle impostazioni HTTP.
+> La richiesta di probe predefinita viene inviata nel formato \<protocol @ no__t-1://127.0.0.1: \<Port @ no__t-3/. Ad esempio, http://127.0.0.1:80 per un probe http sulla porta 80. Solo i codici di stato HTTP da 200 a 399 sono considerati integri. Il protocollo e la porta di destinazione vengono ereditati dalle impostazioni HTTP. Se si vuole che il gateway applicazione Probe su un protocollo, un nome host o un percorso diverso e riconosca un codice di stato diverso come integro, configurare un probe personalizzato e associarlo alle impostazioni HTTP.
 
 <a name="error-messages"></a>messaggi di errore
 ------------------------
 #### <a name="backend-server-timeout"></a>Timeout server back-end
 
-**Messaggio:** Il tempo impiegato dal back-end per rispondere al\'Probe di integrità del gateway applicazione è superiore alla soglia di timeout nell'impostazione del probe.
+**Messaggio:** Il tempo impiegato dal back-end per rispondere al Probe di integrità del gateway applicazione @ no__t-0 è superiore alla soglia di timeout nell'impostazione del probe.
 
 **Causa:** Dopo che il gateway applicazione ha inviato una richiesta di probe HTTP (S) al server back-end, attende una risposta dal server back-end per un periodo configurato. Se il server back-end non risponde entro il periodo configurato (il valore di timeout), viene contrassegnato come non integro fino a quando non viene riavviata la risposta entro il periodo di timeout configurato.
 
@@ -131,7 +131,7 @@ Controllare anche se NSG/UDR/firewall blocca l'accesso all'IP e alla porta di qu
 
 **Soluzione:** Se viene visualizzato questo errore, attenersi alla procedura seguente:
 
-1.  Verificare se è possibile connettersi al server back-end sulla porta indicata nelle impostazioni HTTP usando un browser o PowerShell. Ad esempio, eseguire il comando seguente:`Test-NetConnection -ComputerName
+1.  Verificare se è possibile connettersi al server back-end sulla porta indicata nelle impostazioni HTTP usando un browser o PowerShell. Ad esempio, eseguire il comando seguente: `Test-NetConnection -ComputerName
     www.bing.com -Port 443`
 
 1.  Se la porta indicata non è la porta desiderata, immettere il numero di porta corretto per la connessione del gateway applicazione al server back-end
@@ -155,7 +155,7 @@ Controllare anche se NSG/UDR/firewall blocca l'accesso all'IP e alla porta di qu
     ```
 1.  Se non si riscontrano problemi con NSG o UDR, controllare il server back-end per individuare problemi relativi all'applicazione che impediscono ai client di stabilire una sessione TCP sulle porte configurate. Ecco alcuni aspetti da controllare:
 
-    a.  Aprire un prompt dei comandi (Win + R\> -cmd), `netstat`immettere e premere INVIO.
+    a.  Aprire un prompt dei comandi (Win + R-\> cmd), immettere `netstat` e premere INVIO.
 
     b.  Controllare se il server è in ascolto sulla porta configurata. Esempio:
     ```
@@ -168,15 +168,15 @@ Controllare anche se NSG/UDR/firewall blocca l'accesso all'IP e alla porta di qu
 
 #### <a name="http-status-code-mismatch"></a>Mancata corrispondenza del codice di stato HTTP
 
-**Messaggio:** Il codice di stato della\'risposta http back-end non corrisponde all'impostazione del probe. Previsto: {HTTPStatusCode0} ricevuto: {HTTPStatusCode1}.
+**Messaggio:** Il codice di stato della risposta HTTP back-end @ no__t-0 non corrisponde all'impostazione del probe. Previsto: {HTTPStatusCode0} ricevuto: {HTTPStatusCode1}.
 
-**Causa:** Una volta stabilita la connessione TCP e viene eseguito un handshake SSL (se SSL è abilitato), il gateway applicazione invierà il probe come richiesta HTTP GET al server back-end. Come descritto in precedenza, il probe predefinito sarà \<il\>protocollo://127.0.0.1\<:\>Port/e considera i codici di stato della risposta in Rage 200 fino a 399 come integri. Se il server restituisce un altro codice di stato, verrà contrassegnato come non integro con questo messaggio.
+**Causa:** Una volta stabilita la connessione TCP e viene eseguito un handshake SSL (se SSL è abilitato), il gateway applicazione invierà il probe come richiesta HTTP GET al server back-end. Come descritto in precedenza, il probe predefinito sarà \<protocol @ no__t-1://127.0.0.1: \<Port @ no__t-3/e considera i codici di stato della risposta in Rage 200 fino a 399 come integri. Se il server restituisce un altro codice di stato, verrà contrassegnato come non integro con questo messaggio.
 
 **Soluzione:** A seconda del codice di risposta del server back-end, è possibile eseguire i passaggi seguenti. Di seguito sono elencati alcuni codici di stato comuni:
 
 | **Error (Errore) (Error (Errore)e)** | **Actions** |
 | --- | --- |
-| Mancata corrispondenza del codice di stato Probe: Ricevuto 401 | Verificare che il server back-end richieda l'autenticazione. I probe del gateway applicazione non possono passare le credenziali per l'autenticazione a questo punto. Consentire \"HTTP 401\" in una corrispondenza del codice di stato probe o eseguire il probe in un percorso in cui il server non richiede l'autenticazione. | |
+| Mancata corrispondenza del codice di stato Probe: Ricevuto 401 | Verificare che il server back-end richieda l'autenticazione. I probe del gateway applicazione non possono passare le credenziali per l'autenticazione a questo punto. Consentire \"HTTP 401 @ no__t-1 in una corrispondenza del codice di stato probe o eseguire il probe in un percorso in cui il server non richiede l'autenticazione. | |
 | Mancata corrispondenza del codice di stato Probe: Ricevuto 403 | Accesso non consentito. Controllare se l'accesso al percorso è consentito nel server back-end. | |
 | Mancata corrispondenza del codice di stato Probe: Ricevuto 404 | Pagina non trovata. Controllare se il percorso del nome host è accessibile nel server back-end. Modificare il nome host o il parametro Path in un valore accessibile. | |
 | Mancata corrispondenza del codice di stato Probe: Ricevuto 405 | Le richieste di probe per il gateway applicazione usano il metodo HTTP GET. Controllare se il server consente questo metodo. | |
@@ -189,7 +189,7 @@ Per creare un probe personalizzato, attenersi alla [seguente procedura](https://
 
 #### <a name="http-response-body-mismatch"></a>Mancata corrispondenza del corpo della risposta HTTP
 
-**Messaggio:** Il corpo della risposta\'http back-end non corrisponde all'impostazione del probe. Il corpo della risposta ricevuta non contiene {String}.
+**Messaggio:** Il corpo della risposta HTTP backend @ no__t-0 non corrisponde all'impostazione del probe. Il corpo della risposta ricevuta non contiene {String}.
 
 **Causa:** Quando si crea un probe personalizzato, è possibile contrassegnare un server back-end come integro associando una stringa dal corpo della risposta. Ad esempio, è possibile configurare il gateway applicazione in modo che accetti "non autorizzato" come stringa per la corrispondenza. Se la risposta del server back-end per la richiesta del probe contiene la stringa non **autorizzata**, verrà contrassegnata come integro. In caso contrario, verrà contrassegnato come non integro con questo messaggio.
 
@@ -218,7 +218,7 @@ Affinché un certificato SSL venga considerato attendibile, il certificato del s
 
 1.  Immettere `certmgr.msc` e premere INVIO. È anche possibile cercare gestione certificati dal menu **Start** .
 
-1.  Individuare il certificato, in genere `\Certificates - Current User\\Personal\\Certificates\`in e aprirlo.
+1.  Individuare il certificato, in genere in `\Certificates - Current User\\Personal\\Certificates\` e aprirlo.
 
 1.  Selezionare il certificato radice e quindi fare clic su **Visualizza certificato**.
 
@@ -259,20 +259,22 @@ OpenSSL> s_client -connect 10.0.0.4:443 -servername www.example.com -showcerts
 ```
 Se l'output non Mostra la catena completa del certificato restituito, esportare di nuovo il certificato con la catena completa, incluso il certificato radice. Configurare il certificato nel server back-end. 
 
-CONNESSIONE STABILITA (00000188) \
-Depth = 0 ou = controllo del dominio convalidato, \*CN =. example.com \
-verifica errore: num = 20: Impossibile ottenere il certificato dell'autorità emittente locale \
-Verifica restituzione: 1 \
-Depth = 0 ou = controllo del dominio convalidato, \*CN =. example.com \
-verifica errore: num = 21: Impossibile verificare il primo certificato \
-Verifica restituzione: 1 \
-\-\-\-\
-Catena di certificati \
- 0 s:/OU = controllo dominio convalidato/CN = *. example. com \
-   i:/C = US/St = Arizona/L = Scottsdale/O = GoDaddy. com, Inc./ou =http://certs.godaddy.com/repository//CN=Go Daddy Secure Certificate Authority-G2 \
-\-----BEGIN CERTIFICATE-----\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
-\------CERTIFICATO----END
+```
+  CONNECTED(00000188)\
+  depth=0 OU = Domain Control Validated, CN = \*.example.com\
+  verify error:num=20:unable to get local issuer certificate\
+  verify return:1\
+  depth=0 OU = Domain Control Validated, CN = \*.example.com\
+  verify error:num=21:unable to verify the first certificate\
+  verify return:1\
+  \-\-\-\
+  Certificate chain\
+   0 s:/OU=Domain Control Validated/CN=*.example.com\
+     i:/C=US/ST=Arizona/L=Scottsdale/O=GoDaddy.com, Inc./OU=http://certs.godaddy.com/repository//CN=Go Daddy Secure Certificate Authority - G2\
+  \-----BEGIN CERTIFICATE-----\
+  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
+  \-----END CERTIFICATE-----
+```
 
 #### <a name="backend-certificate-invalid-common-name-cn"></a>Nome comune (CN) del certificato back-end non valido
 
@@ -300,7 +302,7 @@ Per Windows:
 
 1.  Immettere **certmgr. msc** e premere INVIO. È anche possibile cercare gestione certificati dal menu **Start** .
 
-1.  Individuare il certificato (in genere `\Certificates - Current User\\Personal\\Certificates`in) e aprire il certificato.
+1.  Individuare il certificato (in genere in `\Certificates - Current User\\Personal\\Certificates`) e aprire il certificato.
 
 1.  Nella scheda **Dettagli** controllare l' **oggetto**del certificato.
 
@@ -317,7 +319,7 @@ Per Linux con OpenSSL:
 
 #### <a name="backend-certificate-is-invalid"></a>Il certificato back-end non è valido
 
-**Messaggio:** Il certificato back-end non è valido. La \"data corrente non è compresa nell'intervallo\" valido \"da e\" valido a data del certificato.
+**Messaggio:** Il certificato back-end non è valido. La data corrente non si trova all'interno del \"Valid da @ no__t-1 e \"Valid all'intervallo di date @ no__t-3 nel certificato.
 
 **Causa:** Ogni certificato viene specificato con un intervallo di validità e la connessione HTTPS non sarà protetta, a meno che il certificato SSL del server non sia valido. I dati correnti devono essere compresi nell'intervallo **valido da** e **valido a** . In caso contrario, il certificato viene considerato non valido e verrà creato un problema di sicurezza in cui il gateway applicazione contrassegna il server back-end come non integro.
 

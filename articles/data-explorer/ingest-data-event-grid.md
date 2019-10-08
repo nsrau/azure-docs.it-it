@@ -1,24 +1,24 @@
 ---
 title: Inserire BLOB di Azure in Esplora dati di Azure
-description: In questo articolo descrive come inviare i dati dell'account di archiviazione a Esplora dati di Azure usando una sottoscrizione di griglia di eventi.
+description: Questo articolo illustra come inviare i dati dell'account di archiviazione ad Azure Esplora dati usando una sottoscrizione di griglia di eventi.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 5854a8974a4d2a9dbc1aa690dc2340fd806f4219
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 3c2407472cd15326c295f70c69606fc5ee663f72
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490123"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996785"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Inserire BLOB in Esplora dati di Azure tramite la sottoscrizione delle notifiche di Griglia di eventi
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e scalabile per dati di log e di telemetria. Consente l'inserimento continuo (caricamento di dati) dai BLOB scritti nei contenitori di BLOB. 
 
-In questo articolo descrive come impostare un' [griglia di eventi di Azure](/azure/event-grid/overview) sottoscrizione e instradare gli eventi a Esplora dati di Azure tramite un hub eventi. Per iniziare, è necessario avere un account di archiviazione con una sottoscrizione di Griglia di eventi che invia notifiche a Hub eventi di Azure. Si creerà quindi una connessione dati a Griglia di eventi e si esaminerà il flusso di dati attraverso l'intero sistema.
+Questo articolo illustra come impostare una sottoscrizione di griglia di [eventi di Azure](/azure/event-grid/overview) e come indirizzare gli eventi ad Azure Esplora dati tramite un hub eventi. Per iniziare, è necessario avere un account di archiviazione con una sottoscrizione di Griglia di eventi che invia notifiche a Hub eventi di Azure. Si creerà quindi una connessione dati a Griglia di eventi e si esaminerà il flusso di dati attraverso l'intero sistema.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,7 +38,7 @@ In questo articolo descrive come impostare un' [griglia di eventi di Azure](/azu
 
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | NOME | *test-grid-connection* | Il nome della griglia di eventi da creare.|
+    | Attività | *test-grid-connection* | Il nome della griglia di eventi da creare.|
     | Schema di eventi | *Schema griglia di eventi* | Lo schema da usare per la griglia di eventi. |
     | Tipo di argomento | *Account di archiviazione* | Il tipo di argomento della griglia di eventi. |
     | Risorsa argomento | *gridteststorage* | nome dell'account di archiviazione. |
@@ -77,7 +77,7 @@ Creare una tabella in Esplora dati di Azure a cui verranno inviati i dati da Hub
 
 ## <a name="create-an-event-grid-data-connection-in-azure-data-explorer"></a>Creare una connessione dati di Griglia di eventi in Esplora dati di Azure
 
-A questo punto, connettersi alla griglia di eventi da Esplora dati di Azure per consentire il passaggio del flusso di dati dal contenitore di BLOB alla tabella di test.
+Connettersi ora alla griglia di eventi da Azure Esplora dati, in modo che il flusso di dati nel contenitore BLOB venga trasmesso alla tabella di test. 
 
 1. Selezionare **Notifiche** sulla barra degli strumenti per verificare che la distribuzione dell'hub eventi abbia avuto esito positivo.
 
@@ -87,7 +87,7 @@ A questo punto, connettersi alla griglia di eventi da Esplora dati di Azure per 
 
 1. Selezionare **Inserimento dati** > **Aggiungi connessione dati**.
 
-    ![Inserimento di dati](media/ingest-data-event-grid/data-ingestion-create.png)
+    ![Inserimento dati](media/ingest-data-event-grid/data-ingestion-create.png)
 
 1.  Selezionare il tipo di connessione: **Archiviazione BLOB**.
 
@@ -112,7 +112,7 @@ A questo punto, connettersi alla griglia di eventi da Esplora dati di Azure per 
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
     | Tabella | *TestTable* | Tabella creata in **TestDatabase**. |
-    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. Opzioni di compressione supportati: File zip e GZip |
+    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. Opzioni di compressione supportate: Zip e GZip |
     | Mapping di colonne | *TestMapping* | Mapping creato in **TestDatabase** che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**.|
     | | |
     
@@ -157,7 +157,7 @@ Salvare i dati in un file e caricarlo con questo script:
 > [!NOTE]
 > Esplora dati di Azure prevede un criterio di aggregazione (invio in batch) per l'inserimento di dati in modo da ottimizzare il processo di inserimento.
 Per impostazione predefinita, il criterio viene impostato su 5 minuti.
-Sarà possibile modificarlo in un secondo momento, se necessario. In questo articolo è possibile prevedere una latenza di pochi minuti.
+Sarà possibile modificarlo in un secondo momento, se necessario. In questo articolo si può prevedere una latenza di pochi minuti.
 
 1. Nella griglia di eventi del portale di Azure si noterà un picco di attività durante l'esecuzione dell'app.
 
@@ -196,4 +196,4 @@ Se non si prevede di usare nuovamente la griglia di eventi, eliminare **test-hub
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)
+* [Eseguire query sui dati in Azure Esplora dati](web-query-data.md)

@@ -14,22 +14,22 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 5c539570e4127a6715ea63fe8ec617d3cfa83ba1
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.custom: seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: 1aba29f8ed7cacb8f2911ae2d37358869e6a7730
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671998"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001131"
 ---
 # <a name="use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Usare le code del bus di servizio in Azure con node. js e il pacchetto Azure-SB
 > [!div class="op_multi_selector" title1="Linguaggio di programmazione" title2="Pacchetto node. js"]
 > - [(Node. js | Azure-SB)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node. js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
-In questa esercitazione si apprenderà come creare applicazioni node. js per inviare e ricevere messaggi da una coda del bus di servizio usando il pacchetto [Azure-SB](https://www.npmjs.com/package/azure-sb) . Gli esempi sono scritti in JavaScript e usano il [modulo di Azure](https://www.npmjs.com/package/azure) node. js che usa internamente il `azure-sb` pacchetto.
+In questa esercitazione si apprenderà come creare applicazioni node. js per inviare e ricevere messaggi da una coda del bus di servizio di Azure usando il pacchetto [Azure-SB](https://www.npmjs.com/package/azure-sb) . Gli esempi sono scritti in JavaScript e usano il [modulo di Azure](https://www.npmjs.com/package/azure) node. js che usa internamente il pacchetto Azure-SB.
 
-Il pacchetto [Azure-SB](https://www.npmjs.com/package/azure-sb) usa le [API di runtime REST del bus di servizio](/rest/api/servicebus/service-bus-runtime-rest). È possibile ottenere un'esperienza più rapida usando il [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) nuovo pacchetto che usa il [protocollo AMQP 1,0](service-bus-amqp-overview.md)più veloce. Per altre informazioni sul nuovo pacchetto, vedere [come usare le code del bus di servizio con node. js e @azure/service-bus il pacchetto](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package). in caso contrario, continuare a leggere per vedere come usare il pacchetto di [Azure](https://www.npmjs.com/package/azure) .
+Il pacchetto [Azure-SB](https://www.npmjs.com/package/azure-sb) usa le [API di runtime REST del bus di servizio](/rest/api/servicebus/service-bus-runtime-rest). È possibile ottenere un'esperienza più rapida usando il nuovo [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) che usa il [protocollo AMQP 1,0](service-bus-amqp-overview.md)più veloce. Per altre informazioni sul nuovo pacchetto, vedere [come usare le code del bus di servizio con node. js e il pacchetto @azure/service-bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package). in caso contrario, continuare a leggere per vedere come usare il pacchetto di [Azure](https://www.npmjs.com/package/azure) .
 
 ## <a name="prerequisites"></a>Prerequisiti
 - Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
@@ -75,7 +75,7 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Configurare una connessione del bus di servizio di Azure
-Il modulo di Azure legge la variabile di ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` per ottenere le informazioni necessarie per la connessione al bus di servizio. Se questa variabile di ambiente non è impostata, è necessario specificare le informazioni sull' `createServiceBusService`account quando si chiama.
+Il modulo di Azure legge la variabile di ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` per ottenere le informazioni necessarie per la connessione al bus di servizio. Se questa variabile di ambiente non è impostata, è necessario specificare le informazioni sull'account quando si chiama `createServiceBusService`.
 
 Per un esempio di impostazione delle variabili di ambiente nell' [portale di Azure][Azure portal] per un sito Web di Azure, vedere [applicazione Web Node. js con archiviazione][Node.js Web Application with Storage].
 
@@ -124,7 +124,7 @@ Dopo avere eseguito la pre-elaborazione sulle opzioni della richiesta, il metodo
 function (returnObject, finalCallback, next)
 ```
 
-In questo callback, e dopo l'elaborazione `returnObject` di (la risposta dalla richiesta al server), il callback deve richiamare `next` se esiste per continuare a elaborare altri filtri o richiamare `finalCallback`, che termina la chiamata al servizio. .
+In questo callback, e dopo l'elaborazione del `returnObject` (la risposta dalla richiesta al server), il callback deve richiamare `next` se esiste per continuare a elaborare altri filtri o richiamare `finalCallback`, che termina la chiamata al servizio.
 
 In Azure SDK per Node.js sono inclusi due filtri che implementano la logica di ripetizione dei tentativi, `ExponentialRetryPolicyFilter` e `LinearRetryPolicyFilter`. Il codice seguente crea un oggetto `ServiceBusService` che usa `ExponentialRetryPolicyFilter`:
 
@@ -158,7 +158,7 @@ I messaggi vengono ricevuti da una coda usando il metodo `receiveQueueMessage` n
 
 Il comportamento predefinito di lettura ed eliminazione del messaggio nell'ambito dell'operazione di ricezione è il modello più semplice ed è adatto per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio quando si verifica un errore. Per comprendere meglio questo comportamento, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio ha contrassegnato il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a utilizzare nuovamente i messaggi, il messaggio utilizzato prima dell'arresto anomalo verrà perso.
 
-Se il `isPeekLock` parametro è impostato su **true**, la ricezione diventa un'operazione in due fasi, che rende possibile il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio o averlo archiviato in modo affidabile per una successiva elaborazione, l'applicazione esegue la seconda fase del processo di ricezione chiamando il metodo `deleteMessage` e specificando il messaggio da eliminare come parametro. Il metodo `deleteMessage` contrassegna il messaggio come utilizzato e lo rimuove dalla coda.
+Se il parametro `isPeekLock` è impostato su **true**, la ricezione diventa un'operazione in due fasi, che rende possibile il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio o averlo archiviato in modo affidabile per una successiva elaborazione, l'applicazione esegue la seconda fase del processo di ricezione chiamando il metodo `deleteMessage` e specificando il messaggio da eliminare come parametro. Il metodo `deleteMessage` contrassegna il messaggio come utilizzato e lo rimuove dalla coda.
 
 L'esempio seguente illustra come ricevere ed elaborare messaggi usando `receiveQueueMessage`. L'esempio prima di tutto riceve ed elimina un messaggio, quindi riceve un messaggio con `isPeekLock` impostato su **true** e infine elimina il messaggio con `deleteMessage`:
 

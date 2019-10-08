@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: danlep
-ms.openlocfilehash: c62987031a73aa4840c1d036689a3c52fb4dc4a0
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e2686dcd5615c42abf78cbf4575bab6008024718
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914672"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001395"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizzare le compilazioni e la manutenzione delle immagini del contenitore con le attività ACR
 
@@ -44,7 +44,7 @@ Il ciclo di sviluppo interno, processo iterativo di scrittura di codice, compila
 
 Prima di eseguire il commit della prima riga di codice, la funzione [attività rapida](container-registry-tutorial-quick-task.md) di Attività del Registro Azure Container può offrire un'esperienza di sviluppo integrato eseguendo l'offload delle build di un'immagine del contenitore in Azure. Con questa funzionalità è possibile verificare le definizioni delle compilazioni automatiche e rilevare problemi potenziali prima di eseguire il commit di codice.
 
-Usando il formato `docker build` familiare, il comando [AZ ACR Build][az-acr-build] nell'interfaccia della riga di comando di Azure accetta un [contesto](#context-locations) (il set di file da compilare), invia le attività ACR e, per impostazione predefinita, effettua il push dell'immagine compilata al relativo registro al termine del completamento.
+Con il noto formato `docker build`, il comando [AZ ACR Build][az-acr-build] nell'interfaccia della riga di comando di Azure accetta un [contesto](#context-locations) (il set di file da compilare), invia le attività ACR e, per impostazione predefinita, effettua il push dell'immagine compilata al relativo registro al termine del completamento.
 
 Per un'introduzione, vedere la Guida introduttiva per [compilare ed eseguire un'immagine del contenitore](container-registry-quickstart-task-cli.md) in Azure container Registry.  
 
@@ -63,7 +63,7 @@ Le attività ACR supportano i trigger seguenti quando si imposta un repository G
 
 | Trigger | Abilitato per impostazione predefinita |
 | ------- | ------------------ |
-| Esegui commit | Yes |
+| Commit | Yes |
 | Richiesta pull | No |
 
 Per configurare il trigger, è necessario fornire all'attività un token di accesso personale (PAT) per impostare il webhook nel repository GitHub o Azure DevOps.
@@ -118,17 +118,18 @@ Altre informazioni sulle attività in più passaggi in [Run multi-step build, te
 
 La tabella seguente mostra alcuni esempi di percorsi di contesto supportati per ACR Tasks:
 
-| Posizione contesto | DESCRIZIONE | Esempio |
+| Posizione contesto | Descrizione | Esempio |
 | ---------------- | ----------- | ------- |
 | File system locale | File contenuti in una directory nel file System locale. | `/home/user/projects/myapp` |
 | Ramo master GitHub | File nel master (o altra impostazione predefinita) di un repository GitHub.  | `https://github.com/gituser/myapp-repo.git` |
 | Ramo GitHub | Ramo specifico di un repository GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | Sottocartella di GitHub | File all'interno di una sottocartella in un repository GitHub. Esempio mostra la combinazione di una specifica di Branch e sottocartella. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Sottocartella DevOps di Azure | File all'interno di una sottocartella in un repository di Azure. Esempio mostra la combinazione di specifiche di Branch e sottocartelle. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | File tarball remoto | File in un archivio compresso in un server Web remoto. | `http://remoteserver/myapp.tar.gz` |
 
 ## <a name="image-platforms"></a>Piattaforme immagine
 
-Per impostazione predefinita, le attività ACR compilano immagini per il sistema operativo Linux e l'architettura amd64. Specificare il `--platform` tag per compilare immagini Windows o immagini Linux per altre architetture. Specificare il sistema operativo e, facoltativamente, un'architettura supportata nel formato del sistema operativo/ `--platform Linux/arm`architettura (ad esempio,). Per le architetture ARM, è possibile specificare facoltativamente una variante nel formato sistema operativo/architettura/variante ( `--platform Linux/arm64/v8`ad esempio,):
+Per impostazione predefinita, le attività ACR compilano immagini per il sistema operativo Linux e l'architettura amd64. Specificare il tag `--platform` per compilare immagini Windows o immagini Linux per altre architetture. Specificare il sistema operativo e, facoltativamente, un'architettura supportata nel formato del sistema operativo/architettura (ad esempio, `--platform Linux/arm`). Per le architetture ARM, è possibile specificare facoltativamente una variante nel formato sistema operativo/architettura/variante, ad esempio `--platform Linux/arm64/v8`:
 
 | OS | Architettura|
 | --- | ------- | 
@@ -139,7 +140,7 @@ Per impostazione predefinita, le attività ACR compilano immagini per il sistema
 
 Ogni esecuzione di attività genera l'output del log che è possibile esaminare per determinare se i passaggi dell'attività sono stati eseguiti correttamente. Se si usa il comando [AZ ACR Build](/cli/azure/acr#az-acr-build), [AZ ACR Run](/cli/azure/acr#az-acr-run)o [AZ ACR task run](/cli/azure/acr/task#az-acr-task-run) per attivare l'attività, l'output del log per l'esecuzione dell'attività viene trasmesso alla console e archiviato anche per un successivo recupero. Quando un'attività viene attivata automaticamente, ad esempio da un commit del codice sorgente o da un aggiornamento di un'immagine di base, i log delle attività vengono archiviati solo. Visualizzare i log per un'attività eseguita nel portale di Azure o usare il comando [AZ ACR Task logs](/cli/azure/acr/task#az-acr-task-logs) .
 
-Per impostazione predefinita, i dati e i log per le esecuzioni delle attività in un registro vengono conservati per 30 giorni e quindi eliminati automaticamente. Se si vogliono archiviare i dati per un'esecuzione di attività, abilitare l'archiviazione usando il comando [AZ ACR task update-Run](/cli/azure/acr/task#az-acr-task-update-run) . Nell'esempio seguente viene abilitata l'archiviazione per l'esecuzione dell'attività *CF11* nel registro di sistema del registro di *sistema.*
+Per impostazione predefinita, i dati e i log per le esecuzioni delle attività in un registro vengono conservati per 30 giorni e quindi eliminati automaticamente. Se si vogliono archiviare i dati per un'esecuzione di attività, abilitare l'archiviazione usando il comando [AZ ACR task update-Run](/cli/azure/acr/task#az-acr-task-update-run) . Nell'esempio seguente viene abilitata l'archiviazione per l'esecuzione dell'attività *CF11* *nel registro di*sistema del registro di sistema.
 
 ```azurecli
 az acr task update-run --registry myregistry --run-id cf11 --no-archive false

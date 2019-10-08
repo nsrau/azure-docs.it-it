@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 010c6b00161c7a0a004932528fa4f608aa7c5e23
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ab6d213e83c2d7eba95c6c9a6dca5edc1f0f2215
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850672"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996516"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Il primo runbook del flusso di lavoro PowerShell
 
@@ -103,16 +103,16 @@ Il runbook creato è ancora in modalità bozza. È necessario pubblicarlo prima 
 1. Verrà aperto un riquadro per il processo del runbook creato. È possibile chiudere questo riquadro, ma in questo caso lo si lascerà aperto per poter controllare lo stato del processo.
 1. Lo stato del processo è visualizzato in **Riepilogo processi** e corrisponde agli stati osservati quando è stato testato il runbook.
 
-   ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
+   ![Riepilogo processi](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
 
 1. Quando lo stato del runbook risulta *Completato*fare clic su **Output**. Viene aperto il riquadro Output dove si può vedere il testo *Hello World*.
 
-   ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)
+   ![Riepilogo processi](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)
 
 1. Chiudere il riquadro Output.
 1. Fare clic su **Tutti i log** per aprire il riquadro Flussi relativo al processo del runbook. è necessario visualizzare solo *Hello World* nel flusso di output, ma questa vista può mostrare altri flussi per un processo Runbook, ad esempio verbose ed Error Se il Runbook scrive in essi.
 
-   ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
+   ![Riepilogo processi](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 
 1. Chiudere la pagina dei flussi e la pagina del processo per tornare alla pagina MyFirstRunbook.
 1. Fare clic su **processi** per aprire la pagina processi per questo runbook. In questa pagina sono elencati tutti i processi creati da questo runbook. Dovrebbe essere elencato un solo processo, perché il processo è stato eseguito una sola volta.
@@ -123,7 +123,7 @@ Il runbook creato è ancora in modalità bozza. È necessario pubblicarlo prima 
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Passaggio 5: Aggiungere l'autenticazione per gestire le risorse di Azure
 
-Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività utile. Si vuole fare in modo che gestisca le risorse di Azure. Tuttavia, a meno che non sia stata eseguita l'autenticazione con le credenziali a cui si fa riferimento nei [prerequisiti](#prerequisites). A questo scopo si userà il cmdlet **Connect-AzureRmAccount**.
+Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività utile. Si vuole fare in modo che gestisca le risorse di Azure. Tuttavia, a meno che non sia stata eseguita l'autenticazione con le credenziali a cui si fa riferimento nei [prerequisiti](#prerequisites). A tale scopo, usare il cmdlet **Connect-AzAccount** .
 
 1. Aprire l'editor di testo facendo clic su **Modifica** nel pannello MyFirstRunbook-Workflow.
 2. Non è più necessaria la riga **Write-Output**, quindi andare avanti ed eliminarla.
@@ -132,17 +132,17 @@ Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività 
 
    ```powershell-interactive
    # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave –Scope Process
+   Disable-AzContextAutosave –Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
-   $AzureContext = Select-AzureRmSubscription -SubscriptionId $Conn.SubscriptionID
+   $AzureContext = Select-AzSubscription -SubscriptionId $Conn.SubscriptionID
    ```
 
    > [!IMPORTANT]
-   > **Add-AzureRmAccount** e **Login-AzureRmAccount** sono ora alias per **Connect-AzureRMAccount**. Se il cmdlet **Connect-AzureRMAccount**  non esiste, è possibile usare **Add-AzureRmAccount**  o **Login-AzureRmAccount** oppure [aggiornare i moduli](automation-update-azure-modules.md) nell'account di Automazione alle versioni più recenti.
+   > **Add-AzAccount** e **login-AzAccount** sono ora alias per **Connect-AzAccount**. Se il cmdlet **Connect-AzAccount** non esiste, è possibile usare **Add-AzAccount** o **login-AzAccount**oppure è possibile aggiornare i [moduli](automation-update-azure-modules.md) nell'account di automazione alle versioni più recenti.
 
 > [!NOTE]
 > Potrebbe essere necessario [aggiornare i moduli](automation-update-azure-modules.md), anche se è stato appena creato un nuovo account di automazione.
@@ -154,22 +154,22 @@ Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività 
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Passaggio 6 - aggiungere il codice per avviare una macchina virtuale
 
-Ora che il runbook esegue l'autenticazione per la sottoscrizione di Azure è possibile gestire le risorse. Si aggiunge un comando per avviare una macchina virtuale. È possibile selezionare qualsiasi macchina virtuale nella sottoscrizione di Azure e per il momento si sta codificando il nome in Runbook. Se si gestiscono risorse tra più sottoscrizioni, è necessario usare il parametro **-AzureRmContext** insieme a [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
+Ora che il runbook esegue l'autenticazione per la sottoscrizione di Azure è possibile gestire le risorse. Si aggiunge un comando per avviare una macchina virtuale. È possibile selezionare qualsiasi macchina virtuale nella sottoscrizione di Azure e per il momento si sta codificando il nome in Runbook. Se si gestiscono risorse tra più sottoscrizioni, è necessario usare il parametro **-AzContext** insieme a [Get-AzContext](/powershell/module/az.accounts/get-azcontext).
 
-1. Dopo *Connect-AzureRmAccount* digitare *Start-AzureRmVM -Name 'NomeVM' -ResourceGroupName 'NomeGruppoDiRisorse'* specificando il nome e il nome del gruppo di risorse della macchina virtuale da avviare.
+1. Dopo *Connect-AzAccount*, digitare *Start-AzVM-Name ' VMName '-ResourceGroupName ' nomegruppodirisorse '* specificando il nome e il nome del gruppo di risorse della macchina virtuale da avviare.
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
    {
-   # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave –Scope Process
+   # Ensures you do not inherit an AzContext in your runbook
+   Disable-AzContextAutosave –Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
-   $AzureContext = Select-AzureRmSubscription -SubscriptionId $Conn.SubscriptionID
+   $AzureContext = Select-AzSubscription -SubscriptionId $Conn.SubscriptionID
 
-   Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName' -AzureRmContext $AzureContext
+   Start-AzVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName' -AzContext $AzureContext
    }
    ```
 
@@ -180,7 +180,7 @@ Ora che il runbook esegue l'autenticazione per la sottoscrizione di Azure è pos
 
 Ora il runbook avvia la macchina virtuale specificata nel runbook, ma sarebbe più utile se si potesse specificare la macchina virtuale quando si avvia il runbook. Per fornire questa funzionalità, si aggiungeranno dei parametri di input al runbook.
 
-1. Aggiungere parametri per *VMName* e *ResourceGroupName* al runbook e usare queste variabili con il cmdlet **Start-AzureRmVM** come nell'esempio seguente.
+1. Aggiungere i parametri per *VMName* e *ResourceGroupName* al Runbook e usare queste variabili con il cmdlet **Start-AzVM** come nell'esempio riportato di seguito.
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
@@ -189,12 +189,12 @@ Ora il runbook avvia la macchina virtuale specificata nel runbook, ma sarebbe pi
      [string]$VMName,
      [string]$ResourceGroupName
     )
-   # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave –Scope Process
+   # Ensures you do not inherit an AzContext in your runbook
+   Disable-AzContextAutosave –Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-   Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
+   Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Start-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
    }
    ```
 

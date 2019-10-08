@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: memildin
-ms.openlocfilehash: 0663e97dabe8b5f50ee9605f0bc9319c7a2aa13c
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 356bfc28984ecc1bc6990c10378a3df155593e94
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201235"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996700"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Eseguire l'aggiornamento al piano Standard del Centro sicurezza per la sicurezza avanzata
 Il Centro sicurezza di Azure offre la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro in esecuzione in Azure, in locale e in altri cloud. Offre visibilità e controllo su carichi di lavoro cloud ibridi, difese attive che riducono l'esposizione a minacce e il rilevamento intelligente che consente di tenere il passo con gli attacchi informatici in rapida evoluzione.
@@ -41,14 +41,14 @@ Per ottenere il livello Standard:
 
 1. Selezionare **prezzi & impostazioni** nel menu principale del **Centro sicurezza** .
 2. Selezionare la sottoscrizione che si desidera aggiornare al livello Standard.
-3. Selezionareil piano tariffario.
+3. Selezionare il piano **tariffario**.
 4. Selezionare **Standard** per eseguire l'aggiornamento.
 5. Fare clic su **Salva**.
 
-I prezzi nell'immagine sono solo a scopo esemplificativo. ![Prezzi del Centro sicurezza](./media/security-center-pricing/get-standard.png)
+I prezzi nell'immagine sono solo a scopo esemplificativo. @no__t-prezzi di 0Security Center @ no__t-1
 
 > [!NOTE]
-> Per abilitare tutte le funzionalità del Centro sicurezza, è necessario applicare il piano tariffario Standard alla sottoscrizione contenente le macchine virtuali applicabili. La configurazione dei prezzi per un'area di lavoro non abilita solo l'accesso JIT alla macchina virtuale, i controlli dell'applicazione adattivi e i rilevamenti di rete per le risorse di Azure.
+> Per abilitare tutte le funzionalità del Centro sicurezza, è necessario applicare il piano tariffario Standard alla sottoscrizione contenente le macchine virtuali applicabili. La configurazione dei prezzi per un'area di lavoro non Abilita l'accesso just-in-time alle macchine virtuali, i controlli delle applicazioni adattivi e i rilevamenti di rete per le risorse di Azure.
 >
 >
 
@@ -64,7 +64,7 @@ Il Centro sicurezza offre maggiore sicurezza e protezione dalle minacce per i ca
 In questo articolo sono stati presentati i prezzi del Centro sicurezza. Per altre informazioni sulla sicurezza e la protezione avanzate dalle minacce del livello Standard, vedere:
 
 - [Rilevamento delle minacce avanzato](security-center-threat-report.md)
-- [Accesso JIT alla macchina virtuale](security-center-just-in-time.md)
+- [Controllo di accesso just-in-time alle macchine virtuali](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
 ms.author: memildin
-ms.openlocfilehash: 7de0d7bacdf2194b3e1a303842c56a6a017d8d62
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 28761b78b49ad0774594b45db4587c710fc7d810
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202778"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996731"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Protezione avanzata della rete adattiva nel centro sicurezza di Azure
 Informazioni su come configurare la protezione avanzata della rete adattiva nel centro sicurezza di Azure.
@@ -37,24 +37,24 @@ Ad esempio, supponiamo che la regola NSG esistente consenta il traffico da 140.2
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Visualizzare gli avvisi e le regole di protezione avanzata della rete adattiva
 
-1. Nel centro **sicurezza selezionare** -> rete**Adaptive Network hardening**. Le VM di rete sono elencate in tre schede separate:
-   * **Risorse**non integre: Macchine virtuali che attualmente presentano raccomandazioni e avvisi attivati eseguendo l'algoritmo di protezione avanzata della rete adattiva. 
+1. In centro sicurezza, selezionare **rete** ->  protezione**avanzata della rete adattiva**. Le VM di rete sono elencate in tre schede separate:
+   * **Risorse non integre**: Macchine virtuali che attualmente presentano raccomandazioni e avvisi attivati eseguendo l'algoritmo di protezione avanzata della rete adattiva. 
    * **Risorse integre**: VM senza avvisi e raccomandazioni.
-   * **Risorse**non analizzate: Macchine virtuali in cui non è possibile eseguire l'algoritmo di protezione avanzata della rete adattiva a causa di uno dei motivi seguenti:
+   * **Risorse non analizzate**: Macchine virtuali in cui non è possibile eseguire l'algoritmo di protezione avanzata della rete adattiva a causa di uno dei motivi seguenti:
       * Le **macchine virtuali sono macchine virtuali classiche**: Sono supportate solo macchine virtuali Azure Resource Manager.
       * **I dati disponibili sono insufficienti**: Per generare raccomandazioni accurate per la protezione avanzata del traffico, il Centro sicurezza richiede almeno 30 giorni di dati sul traffico.
       * **La macchina virtuale non è protetta da ASC standard**: Solo le VM impostate sul piano tariffario standard del Centro sicurezza sono idonee per questa funzionalità.
 
      ![risorse non integre](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
-2. Dalla scheda **risorse** non integre selezionare una macchina virtuale per visualizzare gli avvisi e le regole di protezione avanzata consigliate da applicare.
+2. Dalla scheda **risorse non integre** selezionare una macchina virtuale per visualizzare gli avvisi e le regole di protezione avanzata consigliate da applicare.
 
     ![protezione avanzata degli avvisi](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
 
 ## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Esaminare e applicare le regole consigliate per la protezione avanzata della rete adattiva
 
-1. Dalla scheda **risorse** non integre selezionare una macchina virtuale. Sono elencati gli avvisi e le regole di protezione avanzata consigliate.
+1. Dalla scheda **risorse non integre** selezionare una macchina virtuale. Sono elencati gli avvisi e le regole di protezione avanzata consigliate.
 
      ![regole di protezione avanzata](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
@@ -131,9 +131,9 @@ Alcune linee guida importanti per la modifica di una regola di protezione avanza
 
 ### Eliminare una regola <a name ="delete-rule"></a>
 
-Quando necessario, è possibile eliminare una regola consigliata. Ad esempio, è possibile determinare che l'applicazione di una regola consigliata potrebbe bloccare il traffico legittimo.
+Quando necessario, è possibile eliminare una regola consigliata per la sessione corrente. Ad esempio, è possibile determinare che l'applicazione di una regola consigliata potrebbe bloccare il traffico legittimo.
 
-*Per eliminare una regola di protezione avanzata della rete adattiva:*
+*Per eliminare una regola di protezione avanzata della rete adattiva per la sessione corrente:*
 
 1. Nella scheda **regole** fare clic sui tre puntini di sospensione (...) alla fine della riga della regola, quindi fare clic su **Elimina**.  
 

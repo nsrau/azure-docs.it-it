@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 10/02/2019
-ms.openlocfilehash: a360d836f1ef09b0bb87e2af39aeab0460034cd4
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 74fd8abbe78395a75d9c0a49eb717fb8ceecd11e
+ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71935615"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71982778"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse dell'istanza gestita di database SQL di Azure
 
@@ -47,8 +47,8 @@ La quantità di spazio di OLTP in memoria in [business critical](sql-database-se
 
 | Spazio OLTP in memoria  | **Quinta generazione** | **Quarta generazione** |
 | --- | --- | --- |
-| 4 vCore  | 3,14 GB | |   
-| 8 vCore  | 6,28 GB | 8 GB |
+| 4 vcore  | 3,14 GB | |   
+| 8 vcore  | 6,28 GB | 8 GB |
 | 16 vcore | 15,77 GB | 20 GB |
 | 24 vcore | 25,25 GB | 36 GB |
 | 32 vcore | 37,94 GB | |
@@ -58,12 +58,15 @@ La quantità di spazio di OLTP in memoria in [business critical](sql-database-se
 
 ## <a name="service-tier-characteristics"></a>Caratteristiche del livello di servizio
 
-Istanza gestita ha due livelli di servizio: [Per utilizzo generico](sql-database-service-tier-general-purpose.md) e [business critical](sql-database-service-tier-business-critical.md). Questi livelli forniscono [funzionalità diverse](sql-database-service-tiers-general-purpose-business-critical.md), come descritto nella tabella seguente:
+Istanza gestita ha due livelli di servizio: [Per utilizzo generico](sql-database-service-tier-general-purpose.md) e [business critical](sql-database-service-tier-business-critical.md). Questi livelli forniscono [funzionalità diverse](sql-database-service-tiers-general-purpose-business-critical.md), come descritto nella tabella seguente.
+
+> [!Important]
+> Business critical livello di servizio fornisce una copia incorporata aggiuntiva dell'istanza (replica secondaria) che può essere utilizzata per il carico di lavoro di sola lettura. Se è possibile separare le query di lettura e scrittura e le query di sola lettura/analisi/report, si riceveranno due volte Vcore e memoria per lo stesso prezzo. La replica secondaria potrebbe ritardare pochi secondi alla base dell'istanza primaria, quindi è progettata per l'offload del carico di lavoro di report/analisi che non richiede lo stato di dati esatto. Nella tabella seguente, le **query** di sola lettura sono le query eseguite sulla replica secondaria.
 
 | **Funzionalità** | **Utilizzo generico** | **Business Critical** |
 | --- | --- | --- |
-| Numero di vCore\* | Quarta generazione: 8, 16, 24<br/>Quinta generazione: 4, 8, 16, 24, 32, 40, 64, 80 | Quarta generazione: 8, 16, 24 <br/> Quinta generazione: 4, 8, 16, 24, 32, 40, 64, 80 |
-| Memoria massima | Quarta generazione: 56 GB-168 GB (7 GB/vCore)<br/>Quinta generazione: 20,4 GB-408 GB (5.1 GB/vCore)<br/>Aggiungere altri Vcore per ottenere una maggiore quantità di memoria. | Quarta generazione: 56 GB-168 GB (7 GB/vCore)<br/>Quinta generazione: 20,4 GB-408 GB (5.1 GB/vCore)<br/>Aggiungere altri Vcore per ottenere una maggiore quantità di memoria. |
+| Numero di vCore\* | Quarta generazione: 8, 16, 24<br/>Quinta generazione: 4, 8, 16, 24, 32, 40, 64, 80 | Quarta generazione: 8, 16, 24 <br/> Quinta generazione: 4, 8, 16, 24, 32, 40, 64, 80 <br/>\*Same numero di Vcore è dedicato per le query di sola lettura. |
+| Memoria massima | Quarta generazione: 56 GB-168 GB (7 GB/vCore)<br/>Quinta generazione: 20,4 GB-408 GB (5.1 GB/vCore)<br/>Aggiungere altri Vcore per ottenere una maggiore quantità di memoria. | Quarta generazione: 56 GB-168 GB (7 GB/vCore)<br/>Quinta generazione: 20,4 GB-408 GB (5.1 GB/vCore) per le query di lettura/scrittura<br/>+ 20,4 GB aggiuntivi-408 GB (5.1 GB/vCore) per le query di sola lettura.<br/>Aggiungere altri Vcore per ottenere una maggiore quantità di memoria. |
 | Dimensioni massime archiviazione istanze (riservate) | -2 TB per 4 Vcore (solo quinta generazione)<br/>-8 TB per altre dimensioni | Quarta generazione: 1 TB <br/> Quinta generazione: <br/>-1 TB per 4, 8, 16 vcore<br/>- 2 TB per 24 vCore<br/>- 4 TB per 32, 40, 64, 80 vCore |
 | Dimensioni massime del database | Fino alla dimensione dell'istanza attualmente disponibile (max 2 TB-8 TB, a seconda del numero di VCore). | Fino alla dimensione dell'istanza attualmente disponibile (max 1 TB-4 TB a seconda del numero di VCore). |
 | Dimensioni max di tempDB | Limitato a 24 GB/vCore (96-1.920 GB) e alle dimensioni di archiviazione dell'istanza attualmente disponibili.<br/>Aggiungere altri Vcore per ottenere ulteriore spazio in TempDB. | Fino alle dimensioni di archiviazione dell'istanza attualmente disponibili. Le dimensioni del file di log TempDB sono attualmente limitate a 24 GB/vCore. |
@@ -71,11 +74,11 @@ Istanza gestita ha due livelli di servizio: [Per utilizzo generico](sql-database
 | Numero massimo di file di database per istanza | Fino a 280, a meno che non sia stata raggiunta la dimensione di archiviazione dell'istanza o il limite di [spazio di allocazione di archiviazione su disco Premium](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) | 32.767 file per database, a meno che non sia stato raggiunto il limite delle dimensioni di archiviazione dell'istanza. |
 | Dimensioni massime file di dati | Limitato alle dimensioni di archiviazione delle istanze attualmente disponibili (max 2 TB-8 TB) e [allo spazio di allocazione dell'archiviazione su disco Premium di Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limitato alle dimensioni di archiviazione delle istanze attualmente disponibili (fino a 1 TB-4 TB). |
 | Dimensioni massime file di log | Limitato a 2 TB e alle dimensioni di archiviazione dell'istanza attualmente disponibili. | Limitato a 2 TB e alle dimensioni di archiviazione dell'istanza attualmente disponibili. |
-| Dati/Log di IOPS (approssimativi) | Fino a 30-40 K IOPS per istanza *, 500-7500 per file<br/>\*[Aumentare le dimensioni del file per ottenere più IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 k-110 K (1375 IOPS/vCore)<br/>Aggiungere altri Vcore per ottenere prestazioni di i/o migliori. |
+| Dati/Log di IOPS (approssimativi) | Fino a 30-40 K IOPS per istanza *, 500-7500 per file<br/>\*[aumenta le dimensioni del file per ottenere più IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 k-110 K (1375 IOPS/vCore)<br/>Aggiungere altri Vcore per ottenere prestazioni di i/o migliori. |
 | Limite velocità effettiva scrittura log (per istanza) | 3 MB/s per ogni vCore<br/>Massimo 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
-| Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[Aumentare le dimensioni del file per ottenere prestazioni di i/o migliori](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Non limitato. |
+| Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[aumentano le dimensioni del file per ottenere prestazioni di i/o migliori](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Non limitato. |
 | Latenza IO di archiviazione (approssimativa) | 5-10 ms | 1-2 ms |
-| OLTP in memoria | Non supportate | Disponibile |
+| OLTP in memoria | Non supportate | Disponibile, [le dimensioni dipendono dal numero di vCore](#in-memory-oltp-available-space) |
 | Numero massimo di sessioni | 30000 | 30000 |
 | [Repliche di sola lettura](sql-database-read-scale-out.md) | 0 | 1 (incluso nel prezzo) |
 
@@ -139,9 +142,9 @@ La tabella seguente illustra i **limiti internazionali predefiniti** per i tipi 
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional e MSDN Platforms|2|32|
 
-\*Per la pianificazione delle distribuzioni, tenere presente che il livello di servizio business critical (BC) richiede quattro (4) volte più capacità vCore rispetto al livello di servizio per utilizzo generico (GP). Esempio: 1 GP vCore = 1 unità vCore e 1 BC vCore = 4 unità vCore. Per semplificare l'analisi del consumo rispetto ai limiti predefiniti, riepilogare le unità vCore in tutte le subnet dell'area in cui vengono distribuite le istanze gestite e confrontare i risultati con i limiti di unità di istanza per il tipo di sottoscrizione. Il **numero massimo di unità vCore** viene applicato a ogni sottoscrizione in un'area. Non esiste alcun limite per le singole subnet, ad eccezione del fatto che la somma di tutti i Vcore distribuiti tra più subnet deve essere minore o uguale al **numero massimo di unità vCore**.
+\* per la pianificazione delle distribuzioni, tenere presente che il livello di servizio business critical (BC) richiede quattro (4) volte più capacità vCore rispetto al livello di servizio per utilizzo generico (GP). Esempio: 1 GP vCore = 1 unità vCore e 1 BC vCore = 4 unità vCore. Per semplificare l'analisi del consumo rispetto ai limiti predefiniti, riepilogare le unità vCore in tutte le subnet dell'area in cui vengono distribuite le istanze gestite e confrontare i risultati con i limiti di unità di istanza per il tipo di sottoscrizione. Il **numero massimo di unità vCore** viene applicato a ogni sottoscrizione in un'area. Non esiste alcun limite per le singole subnet, ad eccezione del fatto che la somma di tutti i Vcore distribuiti tra più subnet deve essere minore o uguale al **numero massimo di unità vCore**.
 
-\*\*I limiti di subnet e vCore maggiori sono disponibili nelle aree geografiche seguenti: Australia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Europa occidentale, Stati Uniti occidentali 2.
+\* @ no__t-1 subnet di dimensioni maggiori e limiti di vCore sono disponibili nelle aree geografiche seguenti: Australia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Europa occidentale, Stati Uniti occidentali 2.
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Ottenere una quota maggiore per l'istanza gestita di SQL
 

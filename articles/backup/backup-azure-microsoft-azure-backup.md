@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3f427726a128eed426a64bc533075ba0cdde9544
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 7a0f1f7dd79be250370fa97096a0cbf6dfc7f637
+ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241064"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71982848"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 
@@ -184,11 +184,14 @@ Al termine del processo di estrazione, selezionare la casella per avviare il fil
 
     Per la configurazione di SSRS, usare i valori seguenti: 
     - Account del servizio: ' Usa account predefinito ' deve essere servizio di rete
-    - URL servizio Web: ' Directory virtuale ' deve essere ReportServer_<SQLInstanceName>
-    - Database DatabaseName deve essere ReportServer $<SQLInstanceName>
-    - URL del portale Web: ' Directory virtuale ' deve essere reports_<SQLInstanceName>
+    - URL servizio Web: ' Directory virtuale ' deve essere ReportServer_ @ no__t-0
+    - Database DatabaseName deve essere ReportServer $ <SQLInstanceName>
+    - URL del portale Web: ' Directory virtuale ' deve essere reports_ @ no__t-0
 
     [Altre informazioni](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sulla configurazione di SSRS.
+
+    > [!NOTE]
+    > Le licenze per SQL Server utilizzate come database per MAB sono regolate dalle [condizioni di Microsoft Online Services](https://www.microsoft.com/en-us/licensing/product-licensing/products) (OST). Secondo OST, è possibile usare SQL Server in bundle con MAB solo come database per MAB.
 
 4. Specificare un percorso di installazione dei file del server di Backup di Microsoft Azure e fare clic su **Avanti**.
 
@@ -270,7 +273,7 @@ Ecco i passaggi necessari se si vuole spostare MABS in un nuovo server, mantenen
 9. Ripristinare il DPMDB da SQL
 10. Dalla riga di comando di amministratore nel nuovo server cambiare directory per passare al percorso di installazione e alla cartella bin di Backup di Microsoft Azure
 
-    Esempio di percorso: C:\Windows\System32 > CD "C:\Programmi\Microsoft Azure Backup\DPM\DPM\bin\"
+    Esempio di percorso: C:\Windows\System32 > CD "C:\Programmi\Microsoft Azure Backup\DPM\DPM\bin @ no__t-0
 
 11. In backup di Azure eseguire DPMSYNC-SYNC
 

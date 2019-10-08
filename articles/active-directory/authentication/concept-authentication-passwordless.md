@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc633780d8b816d8fc2e313bb1955a5719979efe
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: ab48579c6eda085d77e2a6ab080b0a4a1ce806bd
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240877"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000325"
 ---
 # <a name="what-is-passwordless"></a>Informazioni sull'accesso senza password
 
@@ -57,12 +57,12 @@ Una chiave di sicurezza **deve** implementare le seguenti funzionalità ed esten
 
 I provider seguenti offrono chiavi di sicurezza FIDO2 di diversi fattori di forma che sono noti come compatibili con l'esperienza Paswordless. Microsoft consiglia ai clienti di valutare le proprietà di sicurezza di queste chiavi contattando il fornitore e l'Alleanza FIDO.
 
-| Provider | Contatto |
+| Provider | Contatti |
 | --- | --- |
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
 | Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |
 | HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
-| Ensurity | [https://ensurity.com/contact-us.html](https://ensurity.com/contact-us.html) |
+| Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
 | eWBM | [https://www.ewbm.com/page/sub1_5](https://www.ewbm.com/page/sub1_5) |
 
 Se si è un fornitore e si desidera ottenere il dispositivo in questo elenco, contattare [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com).

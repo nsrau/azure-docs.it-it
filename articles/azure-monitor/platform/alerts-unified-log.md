@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 5/31/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: f78f7c37fafd7f0b29f76220206b9adfb62f52c9
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: d0314e94e627a42ab55f9e91017acac0cdc8b541
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677742"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001613"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Avvisi del log in Monitoraggio di Azure
 
@@ -127,16 +127,25 @@ Dato che l'avviso è configurato per attivarsi nel caso in cui il totale delle v
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Regola di avviso di ricerca log - attivazione e stato
 
-La regola di avviso di ricerca log funziona sulla logica dichiarata dall'utente in base alla configurazione e alla query di analisi personalizzata usata. Poiché la logica di monitoraggio che include la condizione esatta o il motivo per cui deve essere attivata la regola di avviso è incapsulata in una query di analisi, che può variare in ogni regola di avviso del log. Gli avvisi di Azure hanno informazioni scarse sullo scenario di causa radice (o) specifico sottostante che viene valutato quando la condizione di soglia della regola di avviso di ricerca log viene soddisfatta o superata. Gli avvisi del log vengono quindi definiti senza stato. E le regole di avviso del log continueranno a essere attivate, purché la condizione di avviso venga soddisfatta dal risultato della query di analisi personalizzata fornita. Senza l'avviso ogni viene risolto, perché la logica dell'esatta causa radice di un errore di monitoraggio viene nascosta nella query di analisi fornita dall'utente. Non esiste attualmente alcun meccanismo per gli avvisi di monitoraggio di Azure per dedurre definitivamente la causa principale da risolvere.
+Le regole di avviso di ricerca log funzionano solo sulla logica compilata nella query. Il sistema di avvisi non dispone di alcun contesto dello stato del sistema, della finalità o della causa radice implicita nella query. Di conseguenza, gli avvisi del log sono denominati senza stato. Le condizioni vengono valutate come "TRUE" o "FALSE" ogni volta che vengono eseguite.  Verrà generato un avviso ogni volta che la valutazione della condizione di avviso è "TRUE", indipendentemente dal fatto che venga attivata in precedenza.    
 
-Ci consentirà di vedere lo stesso con un esempio pratico. Si supponga di disporre di una regola di avviso del log denominata *Contoso-Log-Alert*, in base alla configurazione nell' [esempio fornito per il tipo di avviso del log di tipo numero di risultati](#example-of-number-of-records-type-log-alert) , in cui la query di avviso personalizzata è progettata per cercare il codice risultato 500 nei log.
+Questo comportamento viene ora visualizzato con un esempio pratico. Si supponga di disporre di una regola di avviso del log denominata *Contoso-Log-Alert*, che è configurata come illustrato nell' [esempio relativo all'avviso di log dei tipi di risultati](#example-of-number-of-records-type-log-alert). La condizione è una query di avviso personalizzata progettata per cercare il codice risultato 500 nei log. Se nei log si trovano più codici di risultato 500, la condizione dell'avviso è true. 
 
-- Alle 1:05 PM quando contoso-Log-Alert è stato eseguito da avvisi di Azure, i risultati della ricerca log hanno restituito zero record con il codice risultato 500. Poiché zero è al di sotto della soglia e l'avviso non viene generato.
-- Alla successiva iterazione alle 1:10 PM quando contoso-Log-Alert è stato eseguito da avvisi di Azure, i risultati della ricerca nei log hanno fornito cinque record con codice risultato 500. Poiché cinque supera la soglia e l'avviso viene generato con le azioni associate, viene attivato.
-- Alle 1:15 PM quando contoso-Log-Alert è stato eseguito da avvisi di Azure, i risultati della ricerca log fornivano due record con codice risultato 500. Poiché due superano la soglia e l'avviso viene generato con le azioni associate viene attivato.
-- Ora alla successiva iterazione alle 1:20 PM quando contoso-Log-Alert è stato eseguito da avviso di Azure, i risultati della ricerca nei log sono stati restituiti con il codice risultato 500. Poiché zero è al di sotto della soglia e l'avviso non viene generato.
+A ogni intervallo riportato di seguito, il sistema di avvisi di Azure valuta la condizione per *Contoso-Log-Alert*.
 
-Tuttavia, nel caso indicato in precedenza, alle 1:15 PM-gli avvisi di Azure non possono determinare che i problemi sottostanti visualizzati a 1:10 vengono mantenuti e in caso di errori di rete. Poiché la query fornita dall'utente può tenere conto dei record precedenti, è possibile che gli avvisi di Azure siano sicuri. Poiché la logica per l'avviso è incapsulata nella query di avviso, è possibile che i due record con codice risultato 500 visualizzato a 1:15 PM non siano già visibili alle 1:10 PM. Quindi, per errare sul lato della cautela, quando contoso-Log-Alert viene eseguito alle 1:15 PM, l'azione configurata viene nuovamente attivata. Ora alle 1:20, quando vengono visualizzati zero record con il codice risultato 500, gli avvisi di Azure non possono essere certi che la causa del codice di risultato 500 è stata rilevata alle 1:10 e 1:15 PM è stata risolta e gli avvisi di monitoraggio di Azure possono dedurre in modo sicuro i problemi di errore 500 che non si verificheranno per lo stesso motivo di nuovo. Di conseguenza, contoso-Log-Alert non cambierà in risolto nel dashboard degli avvisi di Azure e/o le notifiche inviate indicando la risoluzione dell'avviso. In alternativa, l'utente che riconosce la condizione esatta o il motivo per la logica incorporata nella query di analisi può [contrassegnare l'avviso come chiuso](alerts-managing-alert-states.md) se necessario.
+
+| Time    | Numero di record restituiti dalla query di ricerca nei log | Condizione del log valutazione | Risultato 
+| ------- | ----------| ----------| ------- 
+| 1:05 PM | 0 record | 0 non è > 0, quindi FALSE |  L'avviso non viene attivato. Non è stata chiamata alcuna azione.
+| 1:10 PM | 2 record | 2 > 0, quindi TRUE  | Avvisi attivati e gruppi di azioni chiamati. Stato dell'avviso attivo.
+| 1:15 PM | 5 record | 5 > 0 TRUE  | Avvisi attivati e gruppi di azioni chiamati. Stato dell'avviso attivo.
+| 1:20 PM | 0 record | 0 non è > 0, quindi FALSE |  L'avviso non viene attivato. Non è stata chiamata alcuna azione. Lo stato dell'avviso è rimasto attivo.
+
+Utilizzando il caso precedente come esempio:
+
+Alle 1:15 gli avvisi di Azure non possono determinare se i problemi sottostanti rilevati a 1:10 vengono mantenuti e se i record sono errori di rete nuovi o ripetizioni di errori precedenti alle ore 1:22:00. È possibile che la query fornita dall'utente non tenga conto dei record precedenti e che il sistema non lo conosca. Il sistema di avvisi di Azure è stato creato in modo da essere in errore sul lato dell'attenzione e genera nuovamente l'avviso e le azioni associate alle 1:15 PM. 
+
+Alle 1:20, quando vengono visualizzati zero record con il codice risultato 500, gli avvisi di Azure non possono essere certi che la causa del codice di risultato 500 visualizzato alle 1:10 e 1:15 è ora risolta. Non sa se i problemi di errore 500 si verificheranno di nuovo per gli stessi motivi. Di conseguenza, *Contoso-Log-Alert* non cambia in **risolto** nel dashboard avvisi di Azure e/o le notifiche non vengono inviate indicando che l'avviso è stato risolto. Solo l'utente, che conosce la condizione esatta o il motivo della logica incorporata nella query di analisi, può [contrassegnare l'avviso come chiuso](alerts-managing-alert-states.md) se necessario.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Prezzi e fatturazione degli avvisi dei log
 

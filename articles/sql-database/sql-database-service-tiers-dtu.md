@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 03f16987941f79f9161ccbc172bb2ca1a7139384
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: e735d8832912f5b512b7cfe015ca47efbe641da7
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773215"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000438"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Livelli di servizio nel modello di acquisto basato su DTU
 
@@ -35,8 +35,8 @@ La scelta di un livello di servizio dipende soprattutto dai requisiti in termini
 | :-- | --: |--:| --:|
 |Carico di lavoro di destinazione|Sviluppo e produzione|Sviluppo e produzione|Sviluppo e produzione|
 |Contratto di servizio relativo al tempo di attività|99,99%|99,99%|99,99%|
-|Conservazione backup|7 giorni|35 giorni|35 giorni|
-|CPU|Basso|Basso, medio, elevato|Medio, elevato|
+|Conservazione del backup massima|7 giorni|35 giorni|35 giorni|
+|CPU|Low|Basso, medio, elevato|Medio, elevato|
 |Velocità effettiva di I/O (approssimativa) |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
 |Latenza di I/O (approssimativa)|5 ms (lettura), 10 ms (scrittura)|5 ms (lettura), 10 ms (scrittura)|2 ms (lettura/scrittura)|
 |Indicizzazione ColumnStore |N/D|S3 e superiore|Supportato|
@@ -52,7 +52,7 @@ Le dimensioni di calcolo per i database singoli sono espresse in unità di trans
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
-| Dimensioni massime di archiviazione | 2 GB | 1 TB | 4 TB  |
+| Dimensioni massime archiviazione | 2 GB | 1 TB | 4 TB  |
 | DTU massime | 5 | 3000 | 4000 | 
 |||||
 
@@ -112,7 +112,7 @@ Il carico di lavoro è costituito da nove tipi di transazioni, come illustrato n
 | Operazioni aggiornamento intense |UPDATE, principalmente non in memoria, lettura/scrittura |
 | Operazioni inserimento leggere |INSERT, in memoria, lettura/scrittura |
 | Operazioni inserimento intense |INSERT, principalmente non in memoria, lettura/scrittura |
-| Eliminare |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
+| Eliminazione |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
 | Operazioni CPU intense |SELECT, in memoria, carico CPU relativamente pesante, sola lettura |
 
 ### <a name="workload-mix"></a>Combinazione di carichi di lavoro
@@ -128,7 +128,7 @@ Le transazioni vengono selezionate casualmente da una distribuzione ponderata co
 | Operazioni aggiornamento intense |3 |
 | Operazioni inserimento leggere |3 |
 | Operazioni inserimento intense |2 |
-| Eliminare |2 |
+| Eliminazione |2 |
 | Operazioni CPU intense |10 |
 
 ### <a name="users-and-pacing"></a>Utenti e velocità

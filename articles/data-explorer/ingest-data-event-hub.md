@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: a83e2163c9aa970932f2eea8e2e04a715107ac7f
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: a0568d3c3258fe082fe8451820fe7a25390cfe78
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950264"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996780"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Inserire dati dall'hub eventi in Esplora dati di Azure
 
@@ -61,7 +61,7 @@ In questo articolo vengono generati dati di esempio e inviati a un hub eventi. I
     | Location | *Stati Uniti occidentali* | Per questo articolo, selezionare *Stati Uniti occidentali* . Per un sistema di produzione, selezionare l'area più appropriata in base alle esigenze. Per prestazioni ottimali creare lo spazio dei nomi dell'hub eventi nella stessa località del cluster Kusto (più importante per spazi dei nomi dell'hub eventi con velocità effettiva elevata).
     | Nome spazio dei nomi | Nome dello spazio dei nomi univoco | Scegliere un nome univoco per identificare lo spazio dei nomi. Ad esempio, *spazionomitest*. Il nome di dominio *servicebus.windows.net* viene accodato al nome specificato. Il nome può contenere solo lettere, numeri e trattini. Il nome deve iniziare con una lettera e deve terminare con una lettera o un numero. La lunghezza del valore deve essere compresa tra 6 e 50 caratteri.
     | Nome hub eventi | *test-hub* | L'hub eventi si trova nello spazio dei nomi, che fornisce un contenitore di ambito univoco. Il nome dell'hub eventi deve essere univoco all'interno dello spazio dei nomi. |
-    | Nome del gruppo di consumer | *test-group* | I gruppi di consumer consentono a più applicazioni di avere ognuna una visualizzazione distinta del flusso di eventi. |
+    | Consumer group name (Nome gruppo di consumer) | *test-group* | I gruppi di consumer consentono a più applicazioni di avere ognuna una visualizzazione distinta del flusso di eventi. |
     | | |
 
 1. Selezionare **Acquisto** per indicare che si stanno creando risorse nella sottoscrizione.
@@ -114,7 +114,7 @@ A questo punto è possibile connettersi all'hub eventi da Esplora dati di Azure.
     | Spazio dei nomi dell'hub eventi | Nome dello spazio dei nomi univoco | Nome scelto in precedenza che identifica lo spazio dei nomi. |
     | Hub eventi | *test-hub* | Hub eventi creato. |
     | Gruppo di consumer | *test-group* | Gruppo di consumer definito nell'hub eventi creato. |
-    | Proprietà del sistema per gli eventi | Selezionare le proprietà rilevanti | [Proprietà del sistema dell'hub eventi](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations) |
+    | Proprietà del sistema per gli eventi | Selezionare le proprietà rilevanti | [Proprietà di sistema dell'hub eventi](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Se sono presenti più record per ogni messaggio di evento, le proprietà di sistema verranno aggiunte alla prima. Quando si aggiungono le proprietà di sistema, [creare](/azure/kusto/management/tables#create-table) o [aggiornare](/azure/kusto/management/tables#alter-table-and-alter-merge-table) lo schema e il [mapping](/azure/kusto/management/mappings) della tabella per includere le proprietà selezionate. |
     | | |
 
     Tabella di destinazione:
@@ -126,7 +126,7 @@ A questo punto è possibile connettersi all'hub eventi da Esplora dati di Azure.
     |---|---|---|
     | Tabella | *TestTable* | Tabella creata in **TestDatabase**. |
     | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, multiriga JSON, PSV, SOHSV, SCSV, TSV, TSVE e TXT. Opzioni di compressione supportate: GZip |
-    | Mapping colonne | *TestMapping* | Mapping creato in **TestDatabase** che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**. Obbligatorio per JSON, MULTILINE JSON o AVRO e facoltativo per gli altri formati.|
+    | Mapping colonne | *TestMapping* | Il [mapping](/azure/kusto/management/mappings) creato in **TestDatabase**, che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**. Obbligatorio per JSON, MULTILINE JSON o AVRO e facoltativo per gli altri formati.|
     | | |
 
     > [!NOTE]

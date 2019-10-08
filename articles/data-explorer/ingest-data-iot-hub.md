@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 327fd5352a3f067638c7f9ceb51e2de9e284d845
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: ef66e6a69b6d33b16a558293fe29b8adf51cd137
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947839"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996750"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>Inserire i dati dall'hub Internet in Esplora dati di Azure (anteprima)
 
@@ -80,8 +80,7 @@ A questo punto è possibile connettersi all'hub Internet delle cose da Azure Esp
     | Hub IoT | Nome dell'hub IoT |
     | Criteri di accesso condiviso | Nome dei criteri di accesso condiviso. Deve disporre delle autorizzazioni di lettura |
     | Gruppo di consumer |  Il gruppo di consumer definito nell'endpoint predefinito dell'hub Internet |
-    | Proprietà del sistema per gli eventi | Se sono presenti più record per ogni messaggio di evento, le proprietà del sistema di [eventi dell'hub](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages) Internet verranno aggiunte alla prima.|
-    | | 
+    | Proprietà del sistema per gli eventi | [Proprietà del sistema di eventi dell'hub](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages)Internet. Quando si aggiungono le proprietà di sistema, [creare](/azure/kusto/management/tables#create-table) o [aggiornare](/azure/kusto/management/tables#alter-table-and-alter-merge-table) lo schema e il [mapping](/azure/kusto/management/mappings) della tabella per includere le proprietà selezionate. | | | 
 
     > [!NOTE]
     > In caso di [failover manuale](/azure/iot-hub/iot-hub-ha-dr#manual-failover), è necessario ricreare la connessione dati.
@@ -95,7 +94,7 @@ A questo punto è possibile connettersi all'hub Internet delle cose da Azure Esp
     |---|---|---|
     | Tabella | *TestTable* | Tabella creata in **TestDB**. |
     | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, multiriga JSON, PSV, SOHSV, SCSV, TSV, TSVE e TXT. |
-    | Mapping colonne | *TestMapping* | Il mapping creato in **TestDB**, che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestDB**. Obbligatorio per JSON, multiriga JSON e AVRO e facoltativo per altri formati.|
+    | Mapping colonne | *TestMapping* | Il [mapping](/azure/kusto/management/mappings) creato in **TestDB**, che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestDB**. Obbligatorio per JSON, multiriga JSON e AVRO e facoltativo per altri formati.|
     | | |
 
     > [!NOTE]
