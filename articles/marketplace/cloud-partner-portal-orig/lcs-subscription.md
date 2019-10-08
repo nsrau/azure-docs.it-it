@@ -1,40 +1,22 @@
 ---
 title: Sottoscrizione di LCS
-description: Introduzione a un'esercitazione per creare una sottoscrizione.
+description: Questo articolo CPP è stato deprecato, collegato all'articolo del PC; è stata "Introduzione a un'esercitazione per la creazione di una sottoscrizione".
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 43d27f832d5eb456de60e86257e2be8575f94bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 58733bec13c99f2c871c1782d56db8304386dc44
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935209"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034378"
 ---
 # <a name="lcs-subscription"></a>Sottoscrizione di LCS
 
-In questa esercitazione verrà illustrato come creare una sottoscrizione. Questa sottoscrizione offre un tenant di test di Microsoft Online e un progetto di Microsoft Dynamics Lifecycle Services in cui è possibile distribuire un ambiente. Verranno anche configurati utenti aggiuntivi nel tenant di Microsoft Online e si acquisirà maggior dimestichezza con le funzionalità di gestione dei servizi seguenti. Le competenze che si acquisiranno sono le seguenti:
+Il [portale cloud partner](https://cloudpartner.azure.com/) non supporta più la creazione e la gestione di Dynamics 365 per le offerte per Finanza e operazioni. Questa funzionalità è stata invece spostata nel portale del [centro](https://partner.microsoft.com/)per i partner Microsoft. Per altre informazioni, vedere [creare una nuova offerta di Dynamics 365 per le operazioni](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
 
-- Sottoscrizione e creazione di un nuovo tenant di prova di Microsoft Online.
-- Accesso ai progetti Lifecycle Services.
-- Uso di funzionalità in Lifecycle Services.
-- Aggiunta di utenti a Microsoft Azure Active Directory e al client.
-- Visualizzazione di risorse nel messaggio di posta elettronica della sottoscrizione.
-
-## <a name="key-terms"></a>Termini chiave
-
-**Tenant dei Microsoft Online Services**: un tenant è il gruppo che include tutte le sottoscrizioni e gli utenti dell'organizzazione. Il tenant viene creato nello stesso momento della prima sottoscrizione ai Microsoft Online Services.
-
-**Sottoscrizione**: una sottoscrizione offre un ambiente online. Questo ambiente consente di usare Dynamics 365 for Operations nel cloud e anche di vedere come distribuire nel cloud le personalizzazioni che vengono sviluppate.
-
-**Microsoft Azure Active Directory** -l'ambiente cloud include Azure Active Directory (AD), che consente di gestire utenti, gruppi, ruoli di sicurezza e le licenze per le applicazioni online, in modo analogo al modo in cui che devono essere gestiti in locale ambienti.
-
-**Utenti**: gli utenti dei servizi per i quali l'organizzazione ha eseguito la sottoscrizione sono gestiti in Azure AD. È possibile aggiungere e assegnare ai ruoli di sicurezza qualsiasi utente del tenant.
-
-**Sviluppatori e amministratori**: gli sviluppatori e gli amministratori sono gli utenti che hanno anche accesso a Lifecycle Services che consente di gestire progetti e ambienti. Questi utenti sono anche utenti finali.
-
-Per altre informazioni, vedere [Sottoscrizione a LCS](https://docs.microsoft.com/dynamics365/operations/dev-itpro/dev-tools/sign-up-preview-subscription).
+Prima di creare una nuova offerta di Dynamics 365 per le operazioni, è necessario leggere [creare un account del centro](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per i partner e quindi aprire il [Dashboard del Marketplace commerciale](https://partner.microsoft.com/dashboard/directory) con la pagina **Panoramica** selezionata. Per creare l'offerta, seguire le istruzioni riportate in [creare una nuova offerta di Dynamics 365 per le operazioni](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) .

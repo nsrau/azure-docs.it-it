@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 07934e3c7d9f61ecb4153e6a169882509a81dc75
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: fb401226e9697afb71dfa7a30f9814e07c3422c2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241034"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028074"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Advanced Threat Protection con il Centro sicurezza di Azure
 
@@ -70,7 +70,7 @@ Per caricare i server nel centro sicurezza, fare clic su **Vai al centro sicurez
 
 ## <a name="enable-microsoft-defender-atp-integration"></a>Abilita l'integrazione di Microsoft Defender ATP
 
-Per visualizzare se l'integrazione di Microsoft Defender ATP è abilitata, selezionare **& impostazioni prezzi** del **centro** > sicurezza > fare clic sulla sottoscrizione.
+Per visualizzare se l'integrazione di Microsoft Defender ATP è abilitata, selezionare il **Centro sicurezza** >  **& le impostazioni dei prezzi** > fare clic sulla sottoscrizione.
 In questa schermata è possibile visualizzare le integrazioni attualmente abilitate.
 
   ![Pagina delle impostazioni di rilevamento delle minacce del Centro sicurezza di Azure con l'integrazione di Microsoft Defender ATP abilitata](media/security-center-wdatp/enable-integrations.png)
@@ -107,7 +107,7 @@ Per generare un avviso di test di Microsoft Defender ATP benigno:
 
 3. Se il comando ha esito positivo, verrà visualizzato un nuovo avviso nel dashboard del Centro sicurezza di Azure e nel portale di Microsoft Defender ATP. Possono trascorrere alcuni minuti prima che l'avviso venga visualizzato.
 
-4. Per esaminare l'avviso nel Centro sicurezza, passare ad **Avvisi di sicurezza** >  **Suspicious Powershell CommandLine** (Riga di comando PowerShell sospetta).
+4. Per esaminare l'avviso nel Centro sicurezza, passare a **Avvisi di sicurezza** >  **Suspicious Powershell CommandLine** (Riga di comando PowerShell sospetta).
 
 5. Nella finestra di analisi selezionare il collegamento per passare al portale di Microsoft Defender ATP.
 

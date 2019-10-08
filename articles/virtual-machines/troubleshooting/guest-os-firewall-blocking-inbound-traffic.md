@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 6e90b164fac4ea1123f5f9a43eea1169d93d9a04
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 0cbd1a24f5c460e248d55777735da6809befba63
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154034"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028804"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Il firewall del sistema operativo guest della macchina virtuale di Azure blocca il traffico in ingresso
 
@@ -102,7 +102,7 @@ Connettersi alla [console seriale e quindi aprire un'istanza di PowerShell](seri
 
 #### <a name="mitigation-2"></a>Mitigazione 2
 
-1.  Eseguire una query sui profili firewall per determinare se il criterio firewall in ingresso è impostato su  *BlockInboundAlways*:
+1.  Eseguire una query sui profili firewall per determinare se i criteri del firewall in ingresso sono impostati su *BlockInboundAlways*:
 
     ```cmd
     netsh advfirewall show allprofiles | more
@@ -115,7 +115,7 @@ Connettersi alla [console seriale e quindi aprire un'istanza di PowerShell](seri
     >    * *BlockInbound*: tutto il traffico in ingresso verrà bloccato, a meno che non sia attiva una regola per consentire il traffico.
     >    * *BlockInboundAlways*: tutte le regole del firewall verranno ignorate e tutto il traffico verrà bloccato.
 
-2.  Modificare  *DefaultInboundAction* per impostare questi profili in modo da **consentire** il traffico. A tale scopo, usare il comando seguente:
+2.  Modificare il *DefaultInboundAction* per impostare questi profili in modo da **consentire** il traffico. A tale scopo, usare il comando seguente:
 
     ```cmd
     netsh advfirewall set allprofiles firewallpolicy allowinbound,allowoutbound
@@ -138,7 +138,7 @@ Connettersi alla [console seriale e quindi aprire un'istanza di PowerShell](seri
 
 2.  Avviare una connessione Desktop remoto alla macchina virtuale di ripristino.
 
-3.  Verificare che il disco sia contrassegnato come  **Online**  nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco di sistema collegato.
+3.  Verificare che il disco sia contrassegnato come **Online** nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco di sistema collegato.
 
 #### <a name="mitigation-1"></a>Mitigazione 1
 
@@ -150,7 +150,7 @@ Consultare  [Abilitare o disabilitare una regola del firewall in un sistema ope
 
 2.  Avviare una connessione Desktop remoto alla macchina virtuale di ripristino.
 
-3.  Dopo aver collegato il disco di sistema alla macchina virtuale di ripristino, verificare che il disco sia contrassegnato come  **Online** nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
+3.  Dopo aver collegato il disco di sistema alla macchina virtuale di ripristino, verificare che il disco sia contrassegnato come **online** nella console Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
 
 4.  Aprire un'istanza di CMD con privilegi elevati e quindi eseguire lo script seguente:
 

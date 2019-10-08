@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/01/2019
+ms.date: 10/07/2019
 ms.author: anavin
-ms.openlocfilehash: 100bbb6e0ed8e2ea5b35e30e7759a3b11c169b60
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c488b96940cac03b9c392f0ac4bd1d32a15ba111
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077634"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035276"
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
-Peering di rete virtuale ti permette di connettere Azure [reti virtuali](virtual-networks-overview.md). Dopo avere eseguito il peering, le reti virtuali vengono visualizzate come una sola per scopi di connettività. Il traffico tra macchine virtuali presenti in reti virtuali di cui è stato eseguito il peering viene instradato tramite l'infrastruttura backbone Microsoft, in modo simile all'instradamento del traffico tra macchine virtuali presenti nella stessa rete virtuale, solo tramite indirizzi IP *privati*. Azure supporta:
+Il peering di rete virtuale consente di connettere facilmente le [reti virtuali](virtual-networks-overview.md)di Azure. Dopo avere eseguito il peering, le reti virtuali vengono visualizzate come una sola per scopi di connettività. Il traffico tra macchine virtuali presenti in reti virtuali di cui è stato eseguito il peering viene instradato tramite l'infrastruttura backbone Microsoft, in modo simile all'instradamento del traffico tra macchine virtuali presenti nella stessa rete virtuale, solo tramite indirizzi IP *privati*. Azure supporta:
 * Peering reti virtuali - Connessione di reti virtuali entro la stessa area di Azure
 * Peering reti virtuali globali - Connessione di reti virtuali in diverse aree di Azure
 
@@ -63,7 +63,7 @@ Dopo aver eseguito il peering delle reti virtuali, gli utenti possono anche conf
 
 ![Peering reti virtuali con transito](./media/virtual-networks-peering-overview/figure04.png)
 
-Il transito gateway è supportato per il peering reti virtuali e Peering reti virtuali globale. Il transito gateway tra reti virtuali create tramite modelli di distribuzione diversi (distribuzione classica e Resource Manager) è supportato solo se il gateway nella rete virtuale (Resource Manager). Per altre informazioni sull'uso di un gateway per la trasmissione, vedere [Configurare un gateway VPN per il transito nel peering di rete virtuale](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Il transito del gateway è supportato sia per il peering VNet che per il peering VNet globale. Il transito del gateway tra le reti virtuali create tramite modelli di distribuzione diversi (Gestione risorse e classica) è supportato solo se il gateway si trova nella rete virtuale (Gestione risorse). Per altre informazioni sull'uso di un gateway per la trasmissione, vedere [Configurare un gateway VPN per il transito nel peering di rete virtuale](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Quando viene eseguito il peering di reti virtuali che condividono una singola connessione Azure ExpressRoute, il traffico tra di esse passa attraverso la relazione di peering, ovvero tramite la rete backbone di Azure. È comunque possibile continuare a usare i gateway locali in ogni rete virtuale per connettersi al circuito locale. oppure usare un gateway condiviso e configurare il transito per la connettività locale.
 
@@ -78,11 +78,11 @@ Per verificare un peering di rete virtuale, è possibile [verificare le route va
 ## <a name="requirements-and-constraints"></a>Requisiti e vincoli
 
 I vincoli seguenti si applicano solo quando il peering viene eseguito globalmente nelle reti virtuali:
-- Le risorse in una rete virtuale non possono comunicare con l'indirizzo IP front-end di un servizio di bilanciamento del carico interno di base in una rete virtuale con peering globale. Supporto per Load Balancer Basic esiste solo nella stessa area. Supporto per Load Balancer Standard esiste per entrambi, il peering reti virtuali e Peering reti virtuali. Servizi che usano un servizio di bilanciamento del carico di base che non funziona tramite Peering reti virtuali sono documentati [qui.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
+- Le risorse in una rete virtuale non possono comunicare con l'indirizzo IP front-end di un servizio di bilanciamento del carico interno di base in una rete virtuale con peering globale. Il supporto per Load Balancer di base esiste solo all'interno della stessa area. Il supporto per Load Balancer Standard esiste per il peering VNet e il peering VNet globale. I servizi che usano un servizio di bilanciamento del carico di base che non funzionerà sul peering VNet globale sono documentati [qui.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 
 Per altre informazioni su requisiti e vincoli, vedere i [requisiti e i vincoli del peering di rete virtuale](virtual-network-manage-peering.md#requirements-and-constraints). Per altre informazioni sul numero massimo di peering che è possibile creare per una rete virtuale, vedere i [limiti relativi alle reti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>Permissions
 
 Per altre informazioni sulle autorizzazioni necessarie per creare un peering di rete virtuale, vedere le [autorizzazioni per il peering di rete virtuale](virtual-network-manage-peering.md#permissions).
 
@@ -90,7 +90,7 @@ Per altre informazioni sulle autorizzazioni necessarie per creare un peering di 
 
 È previsto un addebito nominale per il traffico in ingresso e in uscita che usa una connessione con peering reti virtuali. Per altre informazioni sui prezzi per il peering reti virtuali e per il peering globale di reti virtuali, vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/virtual-network).
 
-Il transito gateway è una proprietà di peering che consente a una rete virtuale di usare un gateway VPN o ExpressRoute in una rete virtuale con peering di cross-premise o la connettività VNet-to-VNet. Il traffico passa attraverso un gateway remoto in questo scenario è soggetto alle [gli addebiti di gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) o gateway ExpressRoute addebiti e non comporta [quelli per il peering della rete virtuale.](https://azure.microsoft.com/pricing/details/virtual-network) Ad esempio, se VNetA dispone di un gateway VPN per la connettività da sito locale e VNetB è stato eseguito il peering da VNetA con le proprietà appropriate configurate, il traffico da VNetB in locale verrà addebitato solo in uscita per prezzi di gateway VPN o ExpressRoute prezzi. Le tariffe del peering reti virtuali non si applicano. Informazioni su come [configurare il transito nel gateway VPN per il peering di rete virtuale.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Il transito del gateway è una proprietà di peering che consente a una rete virtuale di usare un gateway VPN/ExpressRoute in una rete virtuale con peering per la connettività cross-premise o da VNet a VNet. Per altri dettagli, vedere tariffe del gateway [VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) o addebiti per il gateway ExpressRoute e [addebiti per il peering VNet.](https://azure.microsoft.com/pricing/details/virtual-network)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,19 +1,19 @@
 - name: Documentazione delle macchine virtuali
   href: index.yml
 - name: Macchine virtuali Linux in Azure
-  href: linux/overview.md
+  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/'
 - name: Macchine virtuali Windows in Azure
-  href: windows/overview.md
+  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/'
 - name: Documentazione delle estensioni di VM
-  href: extensions/overview.md
+  href: ./extensions/overview.md
 - name: Carichi di lavoro
   href: ./workloads/workloads.md
 - name: Distribuzioni classiche
   items:
     - name: Macchine virtuali Linux con distribuzione classica
-      href: linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json
+      href: 'https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/'
     - name: Macchine virtuali Windows con distribuzione classica
-      href: windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json
+      href: 'https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/'
 - name: Risorse
   items:
     - name: Sviluppare le proprie competenze con Microsoft Learn

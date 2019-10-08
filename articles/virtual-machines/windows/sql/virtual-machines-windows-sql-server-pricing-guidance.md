@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d9b4cf755bbf2e225bee813510c083570b0f8064
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 604f18fe2fbf4d8b4f3778817455d92a2811620b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70280166"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028619"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Guida ai prezzi per le VM di SQL Server in Azure
 
@@ -64,7 +64,7 @@ Sono disponibili due possibilità per il pagamento delle licenze di SQL Server p
 
 ## <a name="pay-per-usage"></a>Pagamento in base all'utilizzo
 
-**Pagamento della licenza di SQL Server in base all'utilizzo** significa che il costo al secondo per l'esecuzione della macchina virtuale di Azure include il costo della licenza di SQL Server. È possibile vedere i prezzi delle diverse edizioni di SQL Server (Web, Standard, Enterprise) nella pagina dei prezzi delle VM di Azure per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) o [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
+**Pagando la licenza di SQL Server per utilizzo** (anche nota come **pagamento**a consumo), il costo al secondo per l'esecuzione della macchina virtuale di Azure include il costo della licenza di SQL Server. È possibile vedere i prezzi delle diverse edizioni di SQL Server (Web, Standard, Enterprise) nella pagina dei prezzi delle VM di Azure per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) o [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
 
 Il costo è lo stesso per tutte le versioni di SQL Server, dalla 2012 SP3 alla 2017. Il costo della licenza al secondo dipende dal numero di CPU virtuali della macchina virtuale.
 
@@ -74,7 +74,7 @@ Il pagamento della licenze di SQL Server in base all'utilizzo è consigliato per
 
 - **Carichi di lavoro con durata o dimensione sconosciuta**. Ad esempio un'app che potrebbe non essere necessaria per alcuni mesi o che potrebbe richiedere una maggiore o minore potenza di calcolo, in base alla richiesta.
 
-Per creare una macchina virtuale di Azure per SQL Server 2017 con una di queste immagini con pagamento in base all'uso, vedere i collegamenti seguenti:
+Per creare una macchina virtuale di Azure SQL Server 2017 con una di queste immagini con pagamento in base al consumo, vedere i collegamenti seguenti:
 
 | Piattaforma | Immagini con licenza |
 |---|---|
@@ -139,7 +139,7 @@ I costi di licenza di SQL Server sono direttamente correlati al numero di CPU vi
 
 Sono disponibili nuove dimensioni per i computer che funzionano bene con determinati tipi di carichi di lavoro di SQL Server. Queste dimensioni di computer mantengono livelli elevati di memoria, archiviazione e larghezza di banda di I/O, ma hanno un basso numero di core virtualizzati. Ad esempio, si consideri l'esempio seguente:
 
-| Dimensioni macchina virtuale | CPU virtuali | Memoria | Numero massimo di dischi | Massima velocità effettiva di I/O | Costi di licenza di SQL | Costi totali (calcolo + licenze) |
+| Dimensioni macchina virtuale | vCPU | Memoria | Numero massimo di dischi | Massima velocità effettiva di I/O | Costi di licenza di SQL | Costi totali (calcolo + licenze) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112 GB | 32 | 51.200 operazioni di I/O al secondo o 768 MB/s | | |
 | **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51.200 operazioni di I/O al secondo o 768 MB/s | 75% in meno | 57% in meno |

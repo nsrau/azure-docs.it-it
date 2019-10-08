@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 923c828a3d7e9e10d79fcf079839b84c2f0e0f77
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: dbe3b0218b73649d40f27d17ee2c7de2853c6b7c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772376"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025545"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Visualizzare le assegnazioni di ruolo personalizzate in Azure Active Directory
 
@@ -31,8 +31,8 @@ Questo articolo descrive come visualizzare i ruoli personalizzati assegnati in A
 
 In questa procedura viene descritta la visualizzazione delle assegnazioni di un ruolo con ambito a livello di organizzazione.
 
-1. Accedere al [centro](https://aad.portal.azure.com) di amministrazione di Azure ad con autorizzazioni di amministratore del ruolo con privilegi o di amministratore globale nell'organizzazione Azure ad.
-1. Selezionare **Azure Active Directory**, selezionare **ruoli e amministratori**, quindi selezionare un ruolo per aprirlo e visualizzarne le proprietà.
+1. Accedere all'interfaccia di [amministrazione di Azure AD](https://aad.portal.azure.com)@no__t le autorizzazioni di amministratore del ruolo con privilegi di 1With o amministratore globale nell'organizzazione Azure ad.
+1. Selezionare **Azure Active Directory**, selezionare **ruoli e amministratori**, quindi selezionare un ruolo per aprirlo e visualizzarne le proprietà.
 1. Selezionare **assegnazioni** per visualizzare le assegnazioni per il ruolo.
 
     ![Visualizzare le assegnazioni di ruolo e le autorizzazioni quando si apre un ruolo dall'elenco](./media/roles-view-assignments/role-assignments.png)
@@ -104,12 +104,12 @@ HTTP/1.1 200 OK
 
 In questa sezione viene descritta la visualizzazione delle assegnazioni di un ruolo con ambito applicazione singola. Questa funzionalità è attualmente in anteprima pubblica.
 
-1. Accedere al [centro](https://aad.portal.azure.com) di amministrazione di Azure ad con autorizzazioni di amministratore del ruolo con privilegi o di amministratore globale nell'organizzazione Azure ad.
+1. Accedere all'interfaccia di [amministrazione di Azure AD](https://aad.portal.azure.com)@no__t le autorizzazioni di amministratore del ruolo con privilegi di 1With o amministratore globale nell'organizzazione Azure ad.
 1. Selezionare **registrazioni app**, quindi selezionare la registrazione dell'app per visualizzarne le proprietà. Potrebbe essere necessario selezionare **tutte le applicazioni** per visualizzare l'elenco completo delle registrazioni di app nell'organizzazione Azure ad.
 
     ![Creare o modificare le registrazioni di app dalla pagina Registrazioni app](./media/roles-create-custom/appreg-all-apps.png)
 
-1. Nella registrazione dell'app selezionare **ruoli e amministratori**e quindi selezionare un ruolo per visualizzarne le proprietà.
+1. Nella registrazione dell'app selezionare **ruoli e amministratori**e quindi selezionare un ruolo per visualizzarne le proprietà.
 
     ![Visualizzare le assegnazioni dei ruoli di registrazione delle app dalla pagina Registrazioni app](./media/roles-view-assignments/appreg-assignments.png)
 

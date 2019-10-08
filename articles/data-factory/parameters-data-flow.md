@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 998f8080509e7ba18ea1a759dff2ed8b8742c910
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 733d3f9c4079193107f22178bdbde3a3ecf0e7ca
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253093"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028216"
 ---
 # <a name="mapping-data-flow-parameters"></a>Mapping di parametri del flusso di dati
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Il mapping di flussi di dati in Azure Data Factory supporta l'utilizzo di parametri. È possibile definire parametri all'interno della definizione del flusso di dati, che è quindi possibile usare in tutte le espressioni. I valori dei parametri possono essere impostati dalla pipeline chiamante tramite l'attività Esegui flusso di dati. Sono disponibili tre opzioni per l'impostazione dei valori nelle espressioni di attività flusso di dati:
 
@@ -32,25 +32,25 @@ Usare questa funzionalità per rendere i flussi di dati generici, flessibili e r
 
 Per aggiungere parametri al flusso di dati, fare clic sulla parte vuota dell'area di disegno del flusso di dati per visualizzare le proprietà generali. Nel riquadro impostazioni viene visualizzata una scheda denominata "Parameters". Fare clic sul pulsante "nuovo" per generare un nuovo parametro. Per ogni parametro, è necessario assegnare un nome, selezionare un tipo e, facoltativamente, impostare un valore predefinito.
 
-![Creare parametri del flusso di dati](media/data-flow/create-params.png "Creare parametri del flusso di dati")
+![Creazione di parametri del flusso di dati](media/data-flow/create-params.png "creazione di parametri del flusso di dati")
 
 I parametri possono essere utilizzati in qualsiasi espressione del flusso di dati. I parametri iniziano con $ e non sono modificabili. È possibile trovare l'elenco dei parametri disponibili all'interno del generatore di espressioni nella scheda ' parameters '.
 
-![Espressione parametro flusso di dati](media/data-flow/parameter-expression.png "Espressione parametro flusso di dati")
+(media/data-flow/parameter-expression.png "Espressione parametro flusso") di dati ![espressione parametro]flusso di dati
 
 ## <a name="use-parameters-in-your-data-flow"></a>Usare i parametri nel flusso di dati
 
-* È possibile utilizzare i valori dei parametri all'interno delle espressioni di trasformazione. L'elenco di parametri è presente nella scheda parametri nel generatore di espressioni. ![Usare i parametri del flusso di dati](media/data-flow/params9.png "Usare i parametri del flusso di dati")
+* È possibile utilizzare i valori dei parametri all'interno delle espressioni di trasformazione. L'elenco di parametri è presente nella scheda parametri nel generatore di espressioni. ![Usare i parametri del flusso di dati](media/data-flow/params9.png "usare i parametri del flusso di dati")
 
-* I parametri vengono usati anche per configurare i valori dinamici per le impostazioni di trasformazione di origine e sink. Quando si fa clic all'interno di campi configurabili, viene visualizzato il collegamento "Aggiungi contect dinamico". Se si fa clic su un generatore di espressioni in cui è possibile usare i parametri per usare i valori dinamici. ![Contenuto dinamico del flusso di dati](media/data-flow/params6.png "Contenuto dinamico del flusso di dati")
+* I parametri vengono usati anche per configurare i valori dinamici per le impostazioni di trasformazione di origine e sink. Quando si fa clic all'interno di campi configurabili, viene visualizzato il collegamento "Aggiungi contect dinamico". Se si fa clic su un generatore di espressioni in cui è possibile usare i parametri per usare i valori dinamici. (media/data-flow/params6.png "Contenuto dinamico") del flusso di dati del ![contenuto dinamico del flusso di dati]
 
 ## <a name="set-mapping-data-flow-parameters-from-pipeline"></a>Impostare i parametri del flusso di dati di mapping dalla pipeline
 
 Dopo aver creato il flusso di dati con parametri, è possibile eseguirlo da una pipeline con l'attività Esegui flusso di dati. Dopo aver aggiunto l'attività nell'area di disegno della pipeline, verranno visualizzati i parametri del flusso di dati disponibili nella scheda ' parametri ' dell'attività.
 
-![Impostazione di un parametro del flusso di dati](media/data-flow/parameter-assign.png "Impostazione di un parametro del flusso di dati")
+![Impostazione di un parametro del flusso di dati](media/data-flow/parameter-assign.png "impostazione di un parametro del flusso di dati")
 
-Se il tipo di dati del parametro è String, quando si fa clic sulla casella di testo per impostare i valori dei parametri, è possibile scegliere di immettere una pipeline o un'espressione del flusso di dati. Se si sceglie espressione pipeline, verrà visualizzato il pannello espressione pipeline. Assicurarsi di includere le funzioni della pipeline all'interno della sintassi di `'@{<expression>}'`interpolazione delle stringhe usando, ad esempio:
+Se il tipo di dati del parametro è String, quando si fa clic sulla casella di testo per impostare i valori dei parametri, è possibile scegliere di immettere una pipeline o un'espressione del flusso di dati. Se si sceglie espressione pipeline, verrà visualizzato il pannello espressione pipeline. Assicurarsi di includere le funzioni della pipeline all'interno della sintassi di interpolazione di stringhe usando `'@{<expression>}'`, ad esempio:
 
 ```'@{pipeline().RunId}'```
 
@@ -61,7 +61,7 @@ Se il parametro non è di tipo stringa, viene sempre visualizzato il generatore 
 
 Ogni flusso di dati di mapping può includere qualsiasi combinazione di parametri dell'espressione del flusso di dati e della pipeline. 
 
-![Esempio di parametri del flusso di dati](media/data-flow/parameter-example.png "Esempio di parametri del flusso di dati")
+Esempio di parametri del flusso ![di dati esempio]di parametri del(media/data-flow/parameter-example.png "flusso di dati")
 
 
 

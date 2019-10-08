@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9d85b5a72c2e37719348d61250d167eb9a5688a1
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: e7dc1e6c1bb1ca81ada59cb3dae8fecbc6452b7f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240030"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029779"
 ---
 # <a name="connect-data-from-microsoft-web-application-firewall"></a>Connetti i dati da Microsoft web application firewall
 
@@ -40,10 +40,10 @@ Dopo aver distribuito il web application firewall Microsoft e aver ottenuto i da
     
 1. Nel portale di Azure Sentinel selezionare **connettori dati**.
 1. Nella pagina connettori dati selezionare il riquadro **WAF** .
-1. Passare alla [risorsa](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) del gateway applicazione e scegliere la WAF.
-    1. Selezionare **impostazioni di diagnostica**.
-    1. Selezionare **+ Aggiungi impostazione diagnostica** nella tabella.
-    1. Nella pagina **impostazioni di diagnostica** Digitare un **nome** e selezionare **Invia a log Analytics**.
+1. Passare alla [risorsa del gateway applicazione](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways)  e scegliere il WAF.
+    1. Selezionare **Impostazioni di diagnostica**.
+    1. Selezionare **+ Aggiungi impostazione diagnostica** nella tabella.
+    1. Nella pagina **impostazioni di diagnostica** Digitare un **nome** e selezionare **Invia a log Analytics**.
     1. In **log Analytics area di lavoro** selezionare l'area di lavoro di Azure Sentinel.
     1. Selezionare i tipi di log che si desidera analizzare. È consigliabile: ApplicationGatewayAccessLog e ApplicationGatewayFirewallLog.
 1. Per utilizzare lo schema pertinente in Log Analytics per gli avvisi di Microsoft web application firewall, cercare **AzureDiagnostics**.

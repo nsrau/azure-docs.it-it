@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 9ae8620b803fa9a911f44840a5fff5d190a316a1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 6883d046078b5dccd2f1e83e87b41ca83edc92e3
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086523"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030594"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Disabilitare il firewall del sistema operativo guest nella macchina virtuale di Azure
 
@@ -92,7 +92,7 @@ Seguire questa procedura per usare il [Registro di sistema remoto](https://suppo
 
 1.  Nella macchina virtuale per la risoluzione dei problemi avviare l'editor del Registro di sistema e quindi passare a **File** > **Connetti a Registro di sistema in rete**.
 
-2.  Aprire il ramo  *COMPUTER DI DESTINAZIONE*\SYSTEM e specificare i valori seguenti:
+2.  Aprire il ramo \System del *computer di destinazione*e specificare i valori seguenti:
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -102,13 +102,13 @@ Seguire questa procedura per usare il [Registro di sistema remoto](https://suppo
 
 3.  Riavviare il servizio. Poiché non è possibile eseguire questa operazione tramite il Registro di sistema remoto, è necessario usare la console Servizi.
 
-4.  Aprire un'istanza di  **Services.msc**.
+4.  Aprire un'istanza di **Services. msc**.
 
 5.  Fare clic su **Servizi (computer locale)** .
 
 6.  Selezionare **Connetti a un altro computer**.
 
-7.  Immettere l' **indirizzo IP privato**  della macchina virtuale interessata dal problema.
+7.  Immettere l' **indirizzo IP privato (DIP)** della macchina virtuale con problemi.
 
 8.  Riavviare il criterio firewall locale.
 

@@ -1,22 +1,22 @@
 ---
-title: Mapping di trasformazione Ordinamento del flusso di dati di Azure Data Factory
-description: Data Factory di Azure la trasformazione ordinamento dei dati di Mapping
+title: Trasformazione ordinamento flusso di dati mapping Azure Data Factory
+description: Trasformazione ordinamento dati mapping Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: d0482d1081c16dc89e7371c4c33de9b2bb4e4c2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9d2699c870de21daea9ce421c79f089c04b99fa
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61348253"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029131"
 ---
-# <a name="azure-data-factory-data-flow-sort-transformations"></a>Trasformazioni di ordinamento basato sul flusso di dati di Azure Data Factory
+# <a name="azure-data-factory-data-flow-sort-transformations"></a>Azure Data Factory le trasformazioni di ordinamento del flusso di dati
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ![Impostazioni per l'ordinamento](media/data-flow/sort.png "Ordinamento")
 
@@ -35,4 +35,4 @@ ADF Data Flow viene eseguito su cluster Spark di Big Data con dati distribuiti t
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo l'ordinamento, è possibile usare il [trasformazione aggregazione](data-flow-aggregate.md)
+Dopo l'ordinamento, potrebbe essere necessario utilizzare la [trasformazione aggregazione](data-flow-aggregate.md)

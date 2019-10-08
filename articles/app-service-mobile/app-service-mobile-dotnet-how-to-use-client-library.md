@@ -14,26 +14,25 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: af0a4af2bec29e68175d2e15203a02507f08bfeb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2abced3bd7f1afe5e447a60c73da26fa302ced98
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446349"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027377"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Come usare il client gestito per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center investe in nuovi e integrati servizi fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare **compilare**, **Test** e **Distribuisci** servizi per impostare le pipeline di integrazione continua e recapito. Dopo aver distribuito l'app, gli sviluppatori possono monitorare lo stato e sull'utilizzo di app using il **Analitica** e **diagnostica** servizi e Coinvolgi gli utenti utilizzando il **Push** servizio. Gli sviluppatori possono inoltre sfruttare **Auth** di autenticare gli utenti e **dati** service per rendere persistente e sincronizzare i dati dell'app nel cloud. Consulta [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-dotnet-how-to-use-client-library) oggi stesso.
->
+> Visual Studio App Center supporta end-to-end e servizi integrati centrali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare i servizi di **compilazione**, **test** e **distribuzione** per configurare la pipeline di integrazione e recapito continua. Una volta distribuita l'app, gli sviluppatori possono monitorare lo stato e l'utilizzo dell'app usando i servizi di **analisi** e **diagnostica** e coinvolgere gli utenti che usano il servizio di **push** . Gli sviluppatori possono inoltre sfruttare l' **autenticazione** per autenticare gli utenti e il servizio **dati** per salvare in modo permanente e sincronizzare i dati delle app nel cloud.
+> Se si intende integrare servizi cloud nell'applicazione per dispositivi mobili, iscriversi con App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) oggi stesso.
 
 ## <a name="overview"></a>Panoramica
-Questa guida illustra come eseguire scenari comuni usando la libreria client gestita per App per dispositivi mobili del servizio app di Azure in app Windows e Xamarin. Se non si ha familiarità con le app per dispositivi mobili, si consiglia di completare prima l'esercitazione di [introduzione alle app per dispositivi mobili][1] . In questa Guida, l'attenzione è posta sull'SDK gestito sul lato client. Per altre informazioni sugli SDK lato server per App per dispositivi mobili, vedere la documentazione per il [.NET Server SDK][2] or the
-[Node.js Server SDK][3].
+Questa guida illustra come eseguire scenari comuni usando la libreria client gestita per App per dispositivi mobili del servizio app di Azure in app Windows e Xamarin. Se non si ha familiarità con le app per dispositivi mobili, si consiglia di completare prima l'esercitazione di [introduzione alle app per dispositivi mobili][1] . In questa Guida, l'attenzione è posta sull'SDK gestito sul lato client. Per ulteriori informazioni sugli SDK lato server per le app per dispositivi mobili, vedere la documentazione per [.NET Server SDK][2] o [node. js Server SDK][3].
 
 ## <a name="reference-documentation"></a>Documentazione di riferimento
-La documentazione di riferimento per l'SDK del client è disponibile qui: [Guida di riferimento di Azure .NET per App per dispositivi mobili client][4].
+La documentazione di riferimento per l'SDK del client è disponibile qui: [Riferimento client .NET per app per dispositivi mobili di Azure][4].
 È anche possibile trovare alcuni esempi per client nel [repository GitHub degli esempi di Azure][5].
 
 ## <a name="supported-platforms"></a>Piattaforme supportate
@@ -65,16 +64,15 @@ public class TodoItem
 }
 ```
 
-Il [JsonPropertyAttribute][6] viene usato per definire le *PropertyName* il mapping tra il campo del client e il campo della tabella.
+[JsonPropertyAttribute][6] viene usato per definire il mapping di *PropertyName* tra il campo client e il campo tabella.
 
-Per informazioni su come creare le tabelle nel back-end dell'App per dispositivi mobili, vedere la [argomento .NET Server SDK][7]
-or the [Node.js Server SDK topic][8]. Se il back-end delle app per dispositivi mobili è stato creato nel portale di Azure mediante l'esercitazione introduttiva, è anche possibile usare l'impostazione **Tabelle semplici** del [portale di Azure].
+Per informazioni su come creare tabelle nel back-end di app per dispositivi mobili, vedere l'argomento [.NET Server SDK][7] o [node. js Server SDK][8]. Se il back-end delle app per dispositivi mobili è stato creato nel portale di Azure mediante l'esercitazione introduttiva, è anche possibile usare l'impostazione **Tabelle semplici** del [portale di Azure].
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>Procedura: Installare il pacchetto SDK client gestito
 Attenersi a uno dei metodi seguenti per installare il pacchetto SDK per le App per dispositivi mobili da [NuGet][9]:
 
 * **Visual Studio** Fare clic sul progetto con il pulsante destro del mouse, scegliere **Gestisci pacchetti NuGet**, cercare il pacchetto `Microsoft.Azure.Mobile.Client` e fare clic su **Installa**.
-* **Xamarin Studio** mouse sul progetto, fare clic su **Add** > **Aggiungi pacchetti NuGet**, cercare il `Microsoft.Azure.Mobile.Client` del pacchetto e quindi fare clic su **Aggiungi pacchetto** .
+* **Xamarin Studio** Fare clic con il pulsante destro del mouse sul progetto, scegliere **aggiungi** > **Aggiungi pacchetti NuGet**, cercare il pacchetto `Microsoft.Azure.Mobile.Client` e quindi fare clic su **Aggiungi pacchetto**.
 
 Nel file dell'attività principale aggiungere l'istruzione **using** seguente:
 
@@ -86,10 +84,9 @@ using Microsoft.WindowsAzure.MobileServices;
 > Si noti che tutti i pacchetti di supporto a cui fa riferimento il progetto Android devono avere la stessa versione. L'SDK presenta la dipendenza `Xamarin.Android.Support.CustomTabs` per la piattaforma Android, perciò se il progetto usa pacchetti di supporto più recenti è necessario installare questo pacchetto con la versione richiesta direttamente per evitare conflitti.
 
 ### <a name="symbolsource"></a>Procedura: Usare i simboli di debug in Visual Studio
-I simboli per lo spazio dei nomi Microsoft sono disponibili nel [SymbolSource][10] .  Refer to the
-[SymbolSource instructions][11] per integrazione di SymbolSource in Visual Studio.
+I simboli per lo spazio dei nomi di Microsoft.Azure.Mobile sono disponibili in [SymbolSource][10].  Per l'integrazione di SymbolSource in Visual Studio, vedere le [istruzioni di SymbolSource][11] .
 
-## <a name="create-client"></a>Creare il client di App per dispositivi mobili
+## <a name="create-client"></a>Creare il client delle App per dispositivi mobili
 Il codice seguente consente di creare l'oggetto [MobileServiceClient][12] usato per accedere al back-end delle app per dispositivi mobili.
 
 ```csharp
@@ -385,7 +382,7 @@ Quando si esegue una richiesta di eliminazione, è necessario specificare un ID.
 
 App per dispositivi mobili supporta il controllo della concorrenza ottimistica tenendo traccia delle modifiche apportate a ogni elemento, usando la colonna di proprietà di sistema `version` definita per ogni tabella nel back-end di App per dispositivi mobili. Ogni volta che un record viene aggiornato, App per dispositivi mobili imposta la proprietà `version` per quel record su un nuovo valore. Durante ogni richiesta di aggiornamento, la proprietà `version` del record inclusa nella richiesta viene confrontata con la stessa proprietà relativa al record sul server. Se la versione passata con la richiesta non corrisponde a quella del back-end, la libreria client genera un'eccezione `MobileServicePreconditionFailedException<T>` . Il tipo incluso nell'eccezione corrisponde al record del back-end contenente la versione dei server del record. L'applicazione può quindi usare questa informazione per decidere se eseguire nuovamente la richiesta di aggiornamento con il valore `version` corretto dal back-end per effettuare il commit delle modifiche.
 
-Per abilitare la concorrenza ottimistica, definire una colonna sulla classe di tabella per la proprietà di sistema `version` . Ad esempio:
+Per abilitare la concorrenza ottimistica, definire una colonna sulla classe di tabella per la proprietà di sistema `version` . Esempio:
 
 ```csharp
 public class TodoItem
@@ -528,8 +525,8 @@ Le tabelle offline usano un archivio SQLite locale per archiviare dati da usare 
 2. (Facoltativo) Per supportare i dispositivi Windows, installare uno dei pacchetti di runtime SQLite seguenti:
 
    * **Runtime di Windows 8.1:** Installare [SQLite per Windows 8.1][3].
-   * **Windows Phone 8.1:** Installare [SQLite per Windows Phone 8.1][4].
-   * **Piattaforma Windows Universal** installare [SQLite per la Universal Windows][5].
+   * **Windows Phone 8.1:** Installare [SQLite per Windows Phone 8,1][4].
+   * **Piattaforma UWP (Universal Windows Platform)** Installare [SQLite per le finestre universali][5].
 3. (Facoltativo). Per i dispositivi Windows fare clic su **Riferimenti** > **Aggiungi riferimento**, espandere la cartella **Windows** > **Estensioni**, quindi abilitare **SQLite for Windows Runtime** SDK con **Visual C++ 2013 Runtime for Windows** SDK.
     I nomi degli SDK di SQLite sono leggermente diversi per ogni piattaforma Windows.
 
@@ -623,7 +620,7 @@ var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Ne
 Questo formato è una chiamata tipizzata al metodo, che richiede che il tipo restituito **MarkAllResult** sia definito. Sono supportati sia i metodi tipizzati, sia quelli non tipizzati.
 
 Il metodo InvokeApiAsync() antepone "/api/" all'API che si desidera chiamare, a meno che l'API non inizi con una "/".
-Ad esempio:
+Esempio:
 
 * `InvokeApiAsync("completeAll",...)` chiama /api/completeAll nel back-end
 * `InvokeApiAsync("/.auth/me",...)` chiama /.auth/me nel back-end

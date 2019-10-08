@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: ca0ac228bfe10992b658796d123c8dfbed74947f
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 0aecb2309743ffecc2fb68435192224c6c690aee
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948169"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035118"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Ottimizzazione delle prestazioni con indice columnstore cluster ordinato  
 
@@ -43,7 +43,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> In una tabella CCI ordinata, i nuovi dati risultanti da operazioni di caricamento dati o DML non vengono ordinati automaticamente.  Gli utenti possono ricompilare la CCI ordinata per ordinare tutti i dati nella tabella.  
+> In una tabella CCI ordinata, i nuovi dati risultanti da operazioni di caricamento dati o DML non vengono ordinati automaticamente.  Gli utenti possono ricompilare la CCI ordinata per ordinare tutti i dati nella tabella.  In Azure SQL Data Warehouse, la ricompilazione dell'indice columnstore è un'operazione offline.  Per una tabella partizionata, la ricompilazione viene eseguita una partizione alla volta.  I dati della partizione che viene ricompilata sono "offline" e non sono disponibili fino al completamento della ricompilazione per la partizione. 
 
 ## <a name="query-performance"></a>Prestazioni delle query
 
@@ -84,11 +84,17 @@ SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
 
 ## <a name="data-loading-performance"></a>Prestazioni di caricamento dei dati
 
-Le prestazioni del caricamento dei dati in una tabella CCI ordinata sono simili al caricamento dei dati in una tabella partizionata.  
-Il caricamento dei dati in una tabella CCI ordinata può richiedere più tempo rispetto al caricamento dei dati in una tabella CCI non ordinata a causa dell'ordinamento dei dati.  
+Le prestazioni del caricamento dei dati in una tabella CCI ordinata sono simili a quelle di una tabella partizionata.  Il caricamento dei dati in una tabella CCI ordinata può richiedere più tempo rispetto a una tabella CCI non ordinata a causa dell'operazione di ordinamento dei dati, ma le query possono essere eseguite più velocemente in seguito con l'istruzione CCI ordinata.  
 
 Di seguito è riportato un esempio di confronto delle prestazioni di caricamento dei dati nelle tabelle con schemi diversi.
-![Performance_comparison_data_loading @ no__t-1
+
+![Performance_comparison_data_loading](media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
+
+
+Di seguito è riportato un esempio di confronto delle prestazioni delle query tra CCI e CCI ordinato.
+
+![Performance_comparison_data_loading](media/performance-tuning-ordered-cci/occi_query_performance.png)
+
  
 ## <a name="reduce-segment-overlapping"></a>Riduzione della sovrapposizione del segmento
 
@@ -116,7 +122,7 @@ La creazione di una CCI ordinata è un'operazione offline.  Per le tabelle senza
 1.  Creare partizioni nella tabella di grandi dimensioni di destinazione (denominata tabella A).
 2.  Creare una tabella CCI ordinata vuota (denominata Table B) con la stessa tabella e lo stesso schema di partizione della tabella A.
 3.  Passare una partizione dalla tabella A alla tabella B.
-4.  Eseguire ALTER INDEX < Ordered_CCI_Index > Rebuild nella tabella B per ricompilare la partizione commutata.  
+4.  Eseguire ALTER INDEX < Ordered_CCI_Index > RICOMPILA partizione = < Partition_ID > nella tabella B per ricompilare la partizione commutata.  
 5.  Ripetere i passaggi 3 e 4 per ogni partizione nella tabella A.
 6.  Una volta passate tutte le partizioni dalla tabella A alla tabella B e ricompilate, eliminare la tabella A e rinominare la tabella B nella tabella A. 
 

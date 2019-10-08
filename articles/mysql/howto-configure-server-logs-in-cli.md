@@ -1,21 +1,21 @@
 ---
-title: Query lente Access log nel Database di Azure per MySQL usando Azure CLI
-description: Questo articolo descrive come accedere ai log query lente nel Database di Azure per MySQL usando il comando di Azure.
+title: Accedere ai log di query lente nel database di Azure per MySQL usando l'interfaccia della riga di comando di Azure
+description: Questo articolo descrive come accedere ai log di query lente nel database di Azure per MySQL usando l'interfaccia della riga di comando di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: e6d25a4d8b470580626cab4a84f9d912a3f79f75
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 0ab4162d11642ec7df53040bd744711002227497
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612650"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030629"
 ---
-# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configurare e accedere ai log query lente usando Azure CLI
-È possibile scaricare il Database di Azure per i log query lente MySQL usando il comando di Azure, l'utilità della riga di comando di Azure.
+# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configurare e accedere ai log di query lente usando l'interfaccia della riga di comando di Azure
+È possibile scaricare i log di query lente di database di Azure per MySQL usando l'interfaccia della riga di comando di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per proseguire con questa guida, si richiedono:
@@ -24,8 +24,8 @@ Per proseguire con questa guida, si richiedono:
 
 ## <a name="configure-logging"></a>Configurare la registrazione
 Per configurare il server per l'accesso al log delle query lente di MySQL, seguire questa procedura:
-1. Abilitare la registrazione di query lente, impostando il **lento\_query\_log** parametro su ON.
-2. Regolare gli altri parametri, ad esempio **long\_query\_time** e **log\_slow\_admin\_statements**.
+1. Attivare la registrazione lenta delle query impostando il parametro **Slow @ no__t-1query @ no__t-2log** su on.
+2. Regolare gli altri parametri, ad esempio **long\_query\_time** e **log\_slow\_admin\_statements**.
 
 Per informazioni su come impostare il valore di questi parametri tramite l'interfaccia della riga di comando di Azure, vedere [Personalizzare i parametri di configurazione server usando l'interfaccia della riga di comando di Azure](howto-configure-server-parameters-using-cli.md).
 
@@ -38,7 +38,7 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 ```
 
 ## <a name="list-logs-for-azure-database-for-mysql-server"></a>Elencare i log per il database di Azure per il server MySQL
-Per elencare i file di log query lente disponibile per il server, eseguire la [elenco di az mysql server-logs](/cli/azure/mysql/server-logs#az-mysql-server-logs-list) comando.
+Per elencare i file di log di query lente disponibili per il server, eseguire il comando [AZ MySQL server-logs list](/cli/azure/mysql/server-logs#az-mysql-server-logs-list) .
 
 È possibile elencare i file di log per il server **mydemoserver.mysql.database.azure.com** nel gruppo di risorse **myresourcegroup**. Quindi indirizzare l'elenco dei file di log a un file di testo denominato **log\_files\_list.txt**.
 ```azurecli-interactive
@@ -53,4 +53,4 @@ az mysql server-logs download --name 20170414-mydemoserver-mysql.log --resource-
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Scopri [log query lente nel Database di Azure per MySQL](concepts-server-logs.md).
+- Informazioni sui [log di query lente nel database di Azure per MySQL](concepts-server-logs.md).

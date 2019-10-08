@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5f10bb2062d7c805b485d5cfbfe8989a6aee0995
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: ae8421ca9e3705d697e9638e80fc61f853ff9d28
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162218"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028287"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminare un insieme di credenziali di servizi di ripristino di Azure Backup
 
@@ -64,11 +64,11 @@ Per arrestare la protezione ed eliminare i dati di backup, seguire questa proced
 
         ![Riquadro Interrompi backup.](./media/backup-azure-delete-vault/stop-backup-item.png)
 
-    - Se viene visualizzato il riquadro **Elimina dati di backup** , immettere il nome dell'elemento di backup (questo campo fa distinzione tra maiuscole e minuscole) e quindi selezionare un motivo dal menu a discesa. Immettere i commenti, se disponibili. Quindi selezionare **Elimina**. 
+    - Se viene visualizzato il riquadro **Elimina dati di backup** , immettere il nome dell'elemento di backup (questo campo fa distinzione tra maiuscole e minuscole) e quindi selezionare un motivo dal menu a discesa. Immettere i commenti, se disponibili. Quindi, selezionare **Elimina**. 
 
          ![Riquadro Elimina dati di backup.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-5. Controllare l'icona di **notifica** : ![Icona di notifica.](./media/backup-azure-delete-vault/messages.png) Al termine del processo, il servizio Visualizza il messaggio seguente: *Interruzione del backup ed eliminazione dei dati di backup per "* Elemento di backup *"* . *L'operazione è stata completata*.
+5. Controllare l'icona di **notifica** : icona di notifica ![The. ](./media/backup-azure-delete-vault/messages.png) Al termine del processo, il servizio Visualizza il messaggio seguente: *Interruzione del backup ed eliminazione dei dati di backup per "* Elemento di backup *"* . *L'operazione è stata completata*.
 6. Selezionare **Aggiorna** dal menu **elementi di backup** per assicurarsi che l'elemento di backup sia stato eliminato.
 
       ![Pagina Elimina elementi di backup.](./media/backup-azure-delete-vault/empty-items-list.png)
@@ -84,7 +84,7 @@ Prima di tutto, leggere la sezione **[prima di iniziare](#before-you-start)** pe
 
         ![Per MARS selezionare l'insieme di credenziali per aprire il relativo dashboard.](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
-      - Per MAB o DPM, selezionare **server di gestione di backup**. Selezionare quindi il server che si desidera eliminare. 
+      - Per MAB o DPM, selezionare **server di gestione di backup**. Selezionare quindi il server che si desidera eliminare. 
 
 
           ![Per MAB selezionare l'insieme di credenziali per aprire il relativo dashboard.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
@@ -102,7 +102,7 @@ Prima di tutto, leggere la sezione **[prima di iniziare](#before-you-start)** pe
 4. Selezionare la casella di controllo consenso, quindi selezionare **Elimina**.
 
 
-5. Selezionare l' icona ![di notifica Elimina dati](./media/backup-azure-delete-vault/messages.png)di backup. Al termine dell'operazione, il servizio Visualizza il messaggio: *Interruzione del backup ed eliminazione dei dati di backup per "elemento di backup".* *L'operazione è stata completata*.
+5. Selezionare l'icona di **notifica** ![delete backup data @ no__t-2. Al termine dell'operazione, il servizio Visualizza il messaggio: *Interruzione del backup ed eliminazione dei dati di backup per "elemento di backup".* *L'operazione è stata completata*.
 6. Selezionare **Aggiorna** dal menu **elementi di backup** per assicurarsi che l'elemento di backup venga eliminato.
 
 Al termine di questo processo, è possibile eliminare gli elementi di backup dalla console di gestione:
@@ -122,13 +122,13 @@ Al termine di questo processo, è possibile eliminare gli elementi di backup dal
 
     ![Arrestare un backup pianificato.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Viene richiesto di immettere un PIN di sicurezza (Personal Identification Number), che è necessario generare manualmente. A tale scopo, accedere prima al portale di Azure.
-5. Passare a > impostazionidell' > insieme di credenziali di servizi di ripristino**Proprietà**.
+5. Passare a insieme di credenziali di **servizi di ripristino** > **Impostazioni** > **proprietà**.
 6. In **pin di sicurezza**selezionare **genera**. Copiare questo PIN. Il PIN è valido solo per cinque minuti.
 7. Nella console di gestione incollare il PIN e quindi fare clic su **OK**.
 
     ![Generare un PIN di sicurezza.](./media/backup-azure-delete-vault/security-pin.png)
 
-8. Nella pagina **modifica stato backup** viene visualizzato il messaggio seguente: *I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente.*  
+8. Nella pagina **modifica stato backup** viene visualizzato il messaggio seguente: i dati di backup *Deleted verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente.*  
 
     ![Eliminare l'infrastruttura di backup.](./media/backup-azure-delete-vault/deleted-backup-data.png)
 
@@ -149,7 +149,7 @@ Per arrestare la protezione ed eliminare i dati di backup, seguire questa proced
 
     Lo stato del membro protetto passa alla *replica inattiva disponibile*.
 
-4. Fare clic con il pulsante destro del mouse sul gruppo protezione dati inattivo e selezionare **Rimuovi protezione**dati inattiva.
+4. Fare clic con il pulsante destro del mouse sul gruppo protezione dati inattivo e selezionare **Rimuovi protezione dati inattiva**.
 
     ![Rimuovere la protezione dati inattiva.](./media/backup-azure-delete-vault/remove-inactive-protection.png)
 
@@ -212,7 +212,7 @@ Per arrestare la protezione ed eliminare i dati di backup:
        [-Confirm] 
        [<CommonParameters>] 
     ```
-    [Altre informazioni su](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0)Disabilitalaprotezioneperunelementoprotettodabackup . 
+    [Altre informazioni](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0) about Disabilita la protezione per un elemento protetto da backup. 
 
 - Per i file e le cartelle locali protetti con l'agente di backup di Azure (MARS) che esegue il backup in Azure, usare il comando di PowerShell seguente per eliminare i dati di cui è stato eseguito il backup da ogni modulo di PowerShell MARS:
 
@@ -222,7 +222,7 @@ Per arrestare la protezione ed eliminare i dati di backup:
 
     Pubblicare il messaggio seguente:
      
-    *Backup di Microsoft Azure rimuovere il criterio di backup? I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente. <br/> [Y] Sì [a] Sì a tutti [N] no [L] no a tutti [S] Sospendi [?] Guida (il valore predefinito è "Y"):*
+    @no__t backup di Azure 0Microsoft rimuovere il criterio di backup? I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente. <br/> [Y] Sì [A] Sì a tutti [N] no [L] no a tutti [S] Sospendi [?] Guida (il valore predefinito è "Y"): *
 
 
 - Per i computer locali protetti con MAB (Backup di Microsoft Azure Server) o DPM in Azure (System Center Data Protection Manager), usare il comando seguente per eliminare i dati di cui è stato eseguito il backup in Azure.
@@ -233,7 +233,7 @@ Per arrestare la protezione ed eliminare i dati di backup:
 
     Pubblicare il messaggio seguente: 
          
-   *Backup di Microsoft Azure rimuovere il criterio di backup? I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente. <br/> [Y] Sì [a] Sì a tutti [N] no [L] no a tutti [S] Sospendi [?] Guida (il valore predefinito è "Y"):*
+   @no__t backup di Azure 0Microsoft rimuovere il criterio di backup? I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente. <br/> [Y] Sì [A] Sì a tutti [N] no [L] no a tutti [S] Sospendi [?] Guida (il valore predefinito è "Y"): *
 
 Dopo aver eliminato i dati di cui è stato eseguito il backup, annullare la registrazione di tutti i contenitori locali e i server di gestione. 
 

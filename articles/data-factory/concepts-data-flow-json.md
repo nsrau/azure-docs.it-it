@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 69dce46052c18eec7c3f1fa2082907ed62b367d6
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 37db3e153e8dfcbc1120fcb1f6d2f77187edc78e
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703335"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029659"
 ---
 # <a name="mapping-data-flow-json-handling"></a>Mapping della gestione JSON del flusso di dati
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ## <a name="creating-json-structures-in-expression-editor"></a>Creazione di strutture JSON nell'editor espressioni
 ### <a name="derived-column-transformation"></a>Trasformazione colonna derivata
@@ -145,7 +145,7 @@ File3.json
 ```
 
 ## <a name="higher-order-functions"></a>Funzioni di ordine superiore
-## <a name="filter"></a>filtro
+## <a name="filter"></a>filter
 Filtra gli elementi dalla matrice che non soddisfano il predicato specificato. Il filtro prevede un riferimento a un elemento nella funzione predicato come #item.
 
 ### <a name="examples"></a>Esempi
@@ -163,7 +163,7 @@ map([1, 2, 3, 4], #item + 2) => [3, 4, 5, 6]
 map(['a', 'b', 'c', 'd'], #item + '_processed') => ['a_processed', 'b_processed', 'c_processed', 'd_processed']
 ```
 
-## <a name="reduce"></a>Ridurre
+## <a name="reduce"></a>ridurre
 Accumula gli elementi in una matrice. Per reduce si prevede un riferimento a un accumulatore e un elemento nella prima funzione di espressione come #acc e #item e si prevede che il valore risultante sia #result da utilizzare nella seconda funzione di espressione.
 
 ### <a name="examples"></a>Esempi
@@ -185,7 +185,7 @@ sort(['a3', 'b2', 'c1'],
         iif(#item1 >= #item2, 1, -1)) => ['a3', 'b2', 'c1']
 ```
 
-## <a name="contains"></a>contiene
+## <a name="contains"></a>contains
 Restituisce true se qualsiasi elemento nella matrice fornita restituisce true nel predicato fornito. Contains prevede un riferimento a un elemento nella funzione predicato come #item.
 
 ### <a name="examples"></a>Esempi

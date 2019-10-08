@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5558eeb4012ac563388ad47df61114534e9859ed
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c6c8bcfec9a8bdf6948190c5f132c2e1763b9973
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308331"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025643"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Sviluppo con le API di servizi multimediali V3
 
@@ -32,7 +32,7 @@ Per essere autorizzati ad accedere alle risorse e all'API di Servizi multimedial
 * **Autenticazione basata su entità servizio** : usata per autenticare un servizio (ad esempio, app Web, app per le funzioni, app per la logica, API e microservizi). Le applicazioni che in genere usano questo metodo di autenticazione sono app che eseguono servizi daemon, servizi di livello intermedio o processi pianificati. Per le applicazioni Web, ad esempio, deve essere sempre presente un livello intermedio che si connette a servizi multimediali con un'entità servizio.
 * **Autenticazione utente** : consente di autenticare una persona che usa l'app per interagire con le risorse di servizi multimediali. L'applicazione interattiva deve prima richiedere all'utente le credenziali. Un esempio è un'app della console di gestione usata dagli utenti autorizzati per monitorare i processi di codifica o lo streaming live.
 
-L'API di servizi multimediali richiede che l'utente o l'applicazione che effettua le richieste API REST abbia accesso alla risorsa account di servizi multimediali e usi un ruolo **collaboratore** o **proprietario** . È possibile accedere all'API con il ruolo **Reader** , ma saranno disponibili solo le operazioni **Get** o **List**   . Per altre informazioni, vedere [controllo degli accessi in base al ruolo per gli account di servizi multimediali](rbac-overview.md).
+L'API di servizi multimediali richiede che l'utente o l'applicazione che effettua le richieste API REST abbia accesso alla risorsa account di servizi multimediali e usi un ruolo **collaboratore** o **proprietario** . È possibile accedere all'API con il ruolo **Reader** , ma saranno disponibili solo le operazioni **Get** o **List** . Per altre informazioni, vedere [controllo degli accessi in base al ruolo per gli account di servizi multimediali](rbac-overview.md).
 
 Anziché creare un'entità servizio, è consigliabile usare identità gestite per le risorse di Azure per accedere all'API di servizi multimediali tramite Azure Resource Manager. Per altre informazioni sulle identità gestite per le risorse di Azure, vedere informazioni sulle [identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -83,7 +83,7 @@ I nomi di file/BLOB all'interno di un asset devono rispettare i requisiti del [n
 
 ## <a name="long-running-operations"></a>Operazioni con esecuzione prolungata
 
-Le operazioni contrassegnate `x-ms-long-running-operation` con nei [file spavalderia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) di servizi multimediali di Azure sono operazioni a esecuzione prolungata. 
+Le operazioni contrassegnate con `x-ms-long-running-operation` nei [file spavalderia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) di servizi multimediali di Azure sono operazioni a esecuzione prolungata. 
 
 Per informazioni dettagliate su come tenere traccia delle operazioni asincrone di Azure, vedere [operazioni asincrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
 
@@ -95,7 +95,7 @@ Servizi multimediali prevede le seguenti operazioni a esecuzione prolungata:
 * [Avvia evento Live](https://docs.microsoft.com/rest/api/media/liveevents/start)
 * [Arresta Live](https://docs.microsoft.com/rest/api/media/liveevents/stop)
 
-  Usare il `removeOutputsOnStop` parametro per eliminare tutti gli output Live associati quando si arresta l'evento.  
+  Usare il parametro `removeOutputsOnStop` per eliminare tutti gli output Live associati quando si arresta l'evento.  
 * [Reimposta Live](https://docs.microsoft.com/rest/api/media/liveevents/reset)
 * [Crea LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
 * [Elimina LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 77c90cccbbfa5865878ae4dc47e5009697560ed3
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
-ms.translationtype: HT
+ms.openlocfilehash: a52f9fca172e42aa39a4507347185026451a8ff2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001306"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029027"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -80,10 +80,10 @@ Per configurare le sessioni BGP è necessario usare indirizzi IP pubblici di pro
 
 ## <a name="public-ip-address-requirement"></a>Requisito dell'indirizzo IP pubblico
 
-### <a name="private-peering"></a>Peer privato
+### <a name="private-peering"></a>Peering privato
 È possibile scegliere di usare gli indirizzi IPv4 pubblici o privati per il peering privato. Microsoft offre un isolamento end-to-end del traffico, quindi la sovrapposizione degli indirizzi con altri clienti non si verifica in caso di peering privato. Questi indirizzi non vengono annunciati su Internet. 
 
-### <a name="microsoft-peering"></a>Peer Microsoft
+### <a name="microsoft-peering"></a>Peering Microsoft
 Il percorso di peering di Microsoft consente di connettersi ai servizi cloud Microsoft. L'elenco dei servizi include i servizi di Office 365, ad esempio Exchange Online, SharePoint Online, Skype for business e Microsoft teams. Microsoft supporta la connettività bidirezionale nel peering Microsoft. Il traffico destinato ai servizi cloud Microsoft nel peering pubblico deve usare indirizzi IPv4 pubblici validi per poter accedere alla rete Microsoft.
 
 Assicurarsi che l'indirizzo IP e il numero AS siano registrati a nome dell'utente in uno dei registri seguenti:
@@ -193,8 +193,8 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | India occidentale | 12076:51018 | 12076:52018 | 12076:53018 | 12076:54018 |
 | India centrale | 12076:51017 | 12076:52017 | 12076:53017 | 12076:54017 |
 | **Corea del Sud** | |
-| Corea meridionale | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
-| Corea centrale | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
+| Corea del Sud meridionale | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
+| Corea del Sud centrale | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
 | **Sud Africa**| |
 | Sudafrica settentrionale | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
 | Sudafrica occidentale | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
@@ -215,14 +215,16 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 
 | **Servizio** | **Valore della community BGP** |
 | --- | --- |
-| Exchange Online | 12076:5010 |
-| SharePoint Online | 12076:5020 |
-| Skype for Business Online | 12076:5030 |
+| Exchange Online * * | 12076:5010 |
+| SharePoint Online * * | 12076:5020 |
+| Skype for business online * * | 12076:5030 |
+| CRM Online |12076:5040 |
 | Servizi globali di Azure* | 12076:5050 |
-| Altri servizi online di Office 365 | 12076:5100 |
+| Azure Active Directory |12076:5060 |
+| Altri servizi online di Office 365 * * | 12076:5100 |
 
 *Servizi globali di Azure include solo Azure DevOps al momento.
-
+\* * Autorizzazione richiesta da Microsoft, vedere [configurare i filtri di route per il peering Microsoft](how-to-routefilter-portal.md) 
 
 > [!NOTE]
 > Microsoft non riconosce eventuali valori di BGP Community impostati sulle route pubblicate su Microsoft.
@@ -235,7 +237,7 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | --- | --- |
 | **US Government** |  |
 | US Gov Arizona | 12076:51106 |
-| US Gov Iowa | 12076:51109 |
+| Governo degli Stati Uniti - Iowa | 12076:51109 |
 | US Gov Virginia | 12076:51105 |
 | US Gov Texas | 12076:51108 |
 | US DoD (area centrale) | 12076:51209 |

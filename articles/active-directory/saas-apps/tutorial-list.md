@@ -17,12 +17,12 @@ ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49a87346d76bbf1502a073f4bcb4d11eb659929d
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 4594d54f245c8fb96e62d7f193816e1031138ec0
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67358144"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026146"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory
 
@@ -34,7 +34,7 @@ Per un elenco di tutte le app SaaS già integrate in Azure AD, vedere il [Market
 
 | Logo | Esercitazione di applicazione per Single Sign-On | Esercitazione di applicazione per il provisioning utente |
 | :--- | :--- | :--- |
-| ![Logo](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian Cloud - Provisioning utenti](atlassian-cloud-provisioning-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian cloud-provisioning utenti](atlassian-cloud-provisioning-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[ServiceNow - Provisioning utenti](servicenow-provisioning-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack - Provisioning utente](slack-provisioning-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| |
@@ -42,30 +42,30 @@ Per un elenco di tutte le app SaaS già integrate in Azure AD, vedere il [Market
 
 Per trovare altre esercitazioni, usare il sommario a sinistra.
 
-## <a name="cloud-integrations"></a>Integrazioni Cloud
+## <a name="cloud-integrations"></a>Integrazioni cloud
 
 | Logo | Esercitazione di applicazione per Single Sign-On | Esercitazione di applicazione per il provisioning utente |
 | :--- | :--- | :--- |
-| ![Logo](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Console di Amazon Web Services (AWS)](amazon-web-service-tutorial.md)| [Amazon Web Services (AWS) Console: il Provisioning del ruolo](amazon-web-service-tutorial.md#configure-azure-ad-sso) |
-| ![Logo](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Servizio Cloud Alibaba (basi ruolo SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
-| ![Logo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| [Google Cloud Platform - Provisioning utenti](google-apps-provisioning-tutorial.md) |
+| ![Logo](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Console di Amazon Web Services (AWS)](amazon-web-service-tutorial.md)| [Console di Amazon Web Services (AWS)-provisioning del ruolo](amazon-web-service-tutorial.md#configure-azure-ad-sso) |
+| ![Logo](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Servizio cloud alibaba (ruolo basato su SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
+| ![Logo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| [Provisioning dell'utente Google Cloud Platform](google-apps-provisioning-tutorial.md) |
 | ![Logo](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Sandbox Salesforce - Provisioning utente](salesforce-provisioning-tutorial.md) |
-| ![Logo](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP Cloud Identity Platform](saphana-tutorial.md)| |
+| ![Logo](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [Piattaforma SAP Cloud Identity](saphana-tutorial.md)|[Piattaforma SAP Cloud Identity-provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) |
 
-## <a name="oneclick-sso"></a>OneClick SSO
+## <a name="oneclick-sso"></a>SSO OneClick
 
 | Logo | Esercitazione di applicazione per Single Sign-On |        |
 | :--- | :--- | :--- |
 | ![Logo](./media/tutorial-list/active-directory-saas-alertops-tutorial.png)| [AlertOps](alertops-tutorial.md)|      |
 | ![Logo](./media/tutorial-list/active-directory-saas-arcgisenterprise-tutorial.png)| [ArcGIS Enterprise](arcgisenterprise-tutorial.md)|     |
 | ![Logo](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)|     |
-| ![Logo](./media/tutorial-list/active-directory-saas-displayr-tutorial.png)| [Displayr](displayr-tutorial.md)|     |
+| ![Logo](./media/tutorial-list/active-directory-saas-displayr-tutorial.png)| [Visualizzatore](displayr-tutorial.md)|     |
 | ![Logo](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox for Business](dropboxforbusiness-tutorial.md)|    |
 | ![Logo](./media/tutorial-list/active-directory-saas-freedcamp-tutorial.png)| [Freedcamp](freedcamp-tutorial.md)|     |
 | ![Logo](./media/tutorial-list/active-directory-saas-freshservice-tutorial.png)| [Freshservice](freshservice-tutorial.md)|     |
 | ![Logo](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)|     |
-| ![Logo](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge Base ovunque LMS](knowledge-anywhere-lms-tutorial.md)|     |
-| ![Logo](./media/tutorial-list/active-directory-saas-soloinsight-cloudgate-sso-tutorial.png)| [Soloinsight-CloudGate SSO](soloinsight-cloudgate-sso-tutorial.md)|       |
+| ![Logo](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge base LMS](knowledge-anywhere-lms-tutorial.md)|     |
+| ![Logo](./media/tutorial-list/active-directory-saas-soloinsight-cloudgate-sso-tutorial.png)| [Soloinsight-SSO CloudGate](soloinsight-cloudgate-sso-tutorial.md)|       |
 | ![Logo](./media/tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](xaitporter-tutorial.md)|       |
 | ![Logo](./media/tutorial-list/active-directory-saas-yodeck-tutorial.png)| [Yodeck](yodeck-tutorial.md)|        |
 | ![Logo](./media/tutorial-list/active-directory-saas-zendesk-tutorial.png)| [Zendesk](zendesk-tutorial.md)|        |
@@ -73,7 +73,7 @@ Per trovare altre esercitazioni, usare il sommario a sinistra.
 | ![Logo](./media/tutorial-list/active-directory-saas-zscaler-beta-tutorial.png)| [Zscaler Beta](zscaler-beta-tutorial.md)|       |
 | ![Logo](./media/tutorial-list/active-directory-saas-zscaler-one-tutorial.png)| [Zscaler One](zscaler-one-tutorial.md)|       |
 | ![Logo](./media/tutorial-list/active-directory-saas-zscalerprivateaccess-tutorial.png)| [Zscaler Private Access (ZPA)](zscalerprivateaccess-tutorial.md)|        |
-| ![Logo](./media/tutorial-list/active-directory-saas-zscaler-three-tutorial.png)| [Zscaler tre](zscaler-three-tutorial.md)|       |
+| ![Logo](./media/tutorial-list/active-directory-saas-zscaler-three-tutorial.png)| [ZScaler tre](zscaler-three-tutorial.md)|       |
 | ![Logo](./media/tutorial-list/active-directory-saas-zscaler-two-tutorial.png)| [Zscaler Two](zscaler-two-tutorial.md)|        |
 | ![Logo](./media/tutorial-list/active-directory-saas-zscaler-zscloud-tutorial.png)| [Zscaler ZSCloud](zscaler-zscloud-tutorial.md)|         |
 

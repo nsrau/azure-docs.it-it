@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 4523d7bf8f6c0ffc0ebfbc57d20a19baec08c91b
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 99def93a20a365dd0ff5fc27e9c52909ee30bd83
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720347"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028129"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Creazione di applicazioni di archiviazione di Azure a disponibilità elevata con archiviazione con ridondanza geografica (GZRS) (anteprima)
 
@@ -35,7 +35,7 @@ GZRS e RA-GZRS sono attualmente disponibili per l'anteprima nelle aree seguenti:
 - Stati Uniti orientali 2
 - Stati Uniti centrali
 
-Microsoft continua ad abilitare GZRS e RA-GZRS in altre aree di Azure. Per informazioni sulle aree supportate, vedere regolarmente la pagina [aggiornamenti](https://azure.microsoft.com/updates/) dei servizi di Azure.
+Microsoft continua ad abilitare GZRS e RA-GZRS in altre aree di Azure. Per informazioni sulle aree supportate, controllare regolarmente gli [aggiornamenti dei servizi di Azure](https://azure.microsoft.com/updates/) page.
 
 Per informazioni sui prezzi di anteprima, vedere prezzi di anteprima di GZRS per [BLOB](https://azure.microsoft.com/pricing/details/storage/blobs), [file](https://azure.microsoft.com/pricing/details/storage/files/), [Code](https://azure.microsoft.com/pricing/details/storage/queues/)e [tabelle](https://azure.microsoft.com/pricing/details/storage/tables/).
 
@@ -49,11 +49,11 @@ Quando i dati vengono scritti in un account di archiviazione con GZRS o RA-GZRS 
 > [!IMPORTANT]
 > La replica asincrona comporta un ritardo tra il momento in cui i dati vengono scritti nell'area primaria e quando viene replicata nell'area secondaria. Nel caso in cui si verifichi un'emergenza a livello di area, è possibile che le modifiche non ancora replicate nell'area secondaria vadano perse se non è possibile recuperare i dati dall'area primaria.
 
-Quando si crea un account di archiviazione, si specifica la modalità di replica dei dati in tale account e si specifica anche l'area primaria per tale account. L'area secondaria abbinata per un account con replica geografica viene determinata in base all'area primaria e non può essere modificata. Per informazioni aggiornate sulle aree supportate da Azure, vedere [continuità aziendale e ripristino di emergenza (BCdR): aree abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Per informazioni sulla creazione di un account di archiviazione con GZRS o RA-GZRS, vedere [creare un account di archiviazione](storage-quickstart-create-account.md).
+Quando si crea un account di archiviazione, si specifica la modalità di replica dei dati in tale account e si specifica anche l'area primaria per tale account. L'area secondaria abbinata per un account con replica geografica viene determinata in base all'area primaria e non può essere modificata. Per informazioni aggiornate sulle aree supportate da Azure, vedere @ no__t-0Business continuità e ripristino di emergenza (BCDR): aree abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Per informazioni sulla creazione di un account di archiviazione con GZRS o RA-GZRS, vedere [creare un account di archiviazione](storage-quickstart-create-account.md).
 
 ### <a name="use-ra-gzrs-for-high-availability"></a>Usare RA-GZRS per la disponibilità elevata
 
-Quando si Abilita RA-GZRS per l'account di archiviazione, i dati possono essere letti dall'endpoint secondario e dall'endpoint primario per l'account di archiviazione. L'endpoint secondario aggiunge il suffisso *-secondario* al nome dell'account. Se ad esempio l'endpoint primario per il servizio BLOB è `myaccount.blob.core.windows.net`, l'endpoint secondario sarà. `myaccount-secondary.blob.core.windows.net` Le chiavi di accesso per l'account di archiviazione sono identiche per gli endpoint primario e secondario.
+Quando si Abilita RA-GZRS per l'account di archiviazione, i dati possono essere letti dall'endpoint secondario e dall'endpoint primario per l'account di archiviazione. L'endpoint secondario aggiunge il suffisso *-secondario* al nome dell'account. Se ad esempio l'endpoint primario per il servizio BLOB è @ no__t-0, l'endpoint secondario sarà @ no__t-1. Le chiavi di accesso per l'account di archiviazione sono identiche per gli endpoint primario e secondario.
 
 Per sfruttare i vantaggi di RA-GZRS in caso di interruzione a livello di area, è necessario progettare l'applicazione in anticipo per gestire questo scenario. L'applicazione deve leggere e scrivere nell'endpoint primario, ma passare all'uso dell'endpoint secondario nel caso in cui l'area primaria diventi non disponibile. Per indicazioni sulla progettazione per la disponibilità elevata con RA-GZRS, vedere Progettazione di applicazioni a disponibilità elevata con [ra-GZRS o RA-GRS](https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs).
 
@@ -115,7 +115,7 @@ Una migrazione manuale può comportare tempi di inattività dell'applicazione. S
 
 Durante una migrazione in tempo reale, è possibile usare l'account di archiviazione mentre viene eseguita la migrazione dei dati tra gli account di archiviazione di origine e di destinazione. Durante il processo di migrazione in tempo reale, l'account continua a rispettare il contratto di stato per la durabilità e la disponibilità. Non si verificano tempi di inattività o perdite di dati causati dalla migrazione in tempo reale.
 
-Solo gli account per utilizzo generico V2 supportano GZRS/RA-GZRS, quindi prima di inviare una richiesta di migrazione in tempo reale a GZRS/RA-GZRS, è necessario aggiornare l'account a utilizzo generico V2. Per altre informazioni, vedere [Panoramica](https://docs.microsoft.com/azure/storage/common/storage-account-overview) dell'account di archiviazione [di Azure e eseguire l'aggiornamento a un account di archiviazione per utilizzo generico V2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+Solo gli account per utilizzo generico V2 supportano GZRS/RA-GZRS, quindi prima di inviare una richiesta di migrazione in tempo reale a GZRS/RA-GZRS, è necessario aggiornare l'account a utilizzo generico V2. Per altre informazioni, vedere [Panoramica dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview)  e [eseguire l'aggiornamento a un account di archiviazione per utilizzo generico V2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 
 Al termine della migrazione, l'impostazione di replica dell'account di archiviazione verrà aggiornata all' **archiviazione con ridondanza della zona geografica (GZRS)** o all' **archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS)** . Gli endpoint di servizio, le chiavi di accesso, le firme di accesso condiviso (SAS) e tutte le altre opzioni di configurazione dell'account rimangono invariati e intatti.
 
@@ -125,7 +125,7 @@ Tenere presenti le limitazioni seguenti relative alla migrazione in tempo reale:
 - L'account deve contenere dati.
 - È possibile migrare solo i dati nella stessa area.
 - Solo gli account di archiviazione standard supportano la migrazione in tempo reale. Per gli account di archiviazione premium, è necessario usare la migrazione manuale.
-- La migrazione in tempo reale da un account GZRS o RA-GZRS a un account con ridondanza locale, GRS o RA-GRS non è supportata. Sarà necessario spostare manualmente i dati in un account di archiviazione nuovo o esistente.
+- La migrazione in tempo reale da un account GZRS o RA-GZRS a un account con ridondanza locale, GRS o RA-GRS non è supportata. Sarà necessario spostare manualmente i dati su un account di archiviazione nuovo o esistente.
 - È possibile richiedere una migrazione in tempo reale da RA-GRS a RA-GZRS. Tuttavia, la migrazione da RA-GRS a GZRS non è supportata. In questo caso, è necessario richiedere una migrazione in tempo reale a RA-GZRS e quindi convertire manualmente l'account di archiviazione per l'uso di GZRS.
 - Managed disks supporta solo con ridondanza locale e non è possibile eseguirne la migrazione a GZRS o RA-GZRS. Per l'integrazione con i set di disponibilità, vedere [Introduzione a Managed Disks di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
 - È possibile archiviare snapshot e immagini per SDD Standard Managed Disks nell'archiviazione HDD Standard e [scegliere tra le opzioni con ridondanza locale, ZRS, GZRS e ra-GZRS](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -133,18 +133,18 @@ Tenere presenti le limitazioni seguenti relative alla migrazione in tempo reale:
 
 Per richiedere una migrazione in tempo reale, usare la [portale di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Dal portale selezionare l'account di archiviazione di cui eseguire la migrazione a GZRS o RA-GZRS e seguire queste istruzioni:
 
-1. Selezionare **nuova richiesta di supporto**.
-2. Completare le **nozioni** di base in base alle informazioni sull'account. Nella sezione **servizio** selezionare **gestione** account di archiviazione e specificare l'account da migrare.
-3. Selezionare  **Avanti**.
-4. Specificare i valori seguenti nella sezione **problema** :
+1. Selezionare **nuova richiesta di supporto**.
+2. Completare le **nozioni di base** con le informazioni relative all'account. Nella sezione **servizio** selezionare **Gestione account di archiviazione** e specificare l'account da migrare.
+3. Selezionare **Avanti**.
+4. Specificare i valori seguenti nella sezione **Problema**:
     - **Gravità**: lasciare il valore predefinito.
-    - **Tipo di problema**: Selezionare **migrazione dei dati**.
-    - **Categoria**: Selezionare **migrate to (RA-) GZRS in a Region**.
-    - **Titolo**: Digitare un titolo descrittivo, ad esempio, **(RA-) GZRS migrazione dell'account**.
-    - **Dettagli**: Digitare ulteriori dettagli nei **dettagli** box, ad esempio "si desidera eseguire la migrazione a GZRS da [con ridondanza locale, GRS] nell'area \_ @ no__t-3". o "Desidero eseguire la migrazione a RA-GZRS da [con ridondanza locale, RA-GRS] nell'area \_ @ no__t-1".
-5. Selezionare  **Avanti**.
-6. Verificare che le informazioni di contatto siano corrette nel pannello **informazioni** di contatto.
-7. Selezionare **Crea**.
+    - **Tipo di problema**: Selezionare **Migrazione dei dati**.
+    - **Categoria**: Selezionare **migrate to (RA-) GZRS in a Region**.
+    - **Titolo**: Digitare un titolo descrittivo, ad esempio, **(RA-) GZRS migrazione dell'account**.
+    - **Dettagli**: Digitare ulteriori dettagli nella casella **Dettagli** , ad esempio "si desidera eseguire la migrazione a GZRS da [con ridondanza locale, GRS] nell'area \_ @ no__t-2". o "Desidero eseguire la migrazione a RA-GZRS da [con ridondanza locale, RA-GRS] nell'area \_ @ no__t-1".
+5. Selezionare **Avanti**.
+6. Verificare che le informazioni di contatto nel pannello **Informazioni contatto** siano corrette.
+7. Selezionare **Create**.
 
 Un rappresentante del supporto contatterà l'utente per fornire assistenza.
 

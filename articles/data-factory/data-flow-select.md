@@ -6,15 +6,15 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 3c81ec5e213364ed6f159fd20e12879a098caad4
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 289f98fdc2f39449cdeede9ee46fb39847ae2cb5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774997"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029276"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Trasformazione Selezione flusso di dati mapping
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Usare questa trasformazione per la selettività delle colonne (riducendo il numero di colonne), le colonne alias e i nomi di flusso e riordinare le colonne.
 
@@ -34,7 +34,7 @@ Nel diagramma precedente la trasformazione Selezione si trova nella parte superi
 * Per impostare un alias per singole colonne, deselezionare "Select All" (Seleziona tutto) e usare il mapping delle colonne nella parte inferiore.
 * Scegliere Ignora duplicati per eliminare le colonne duplicate dai metadati di input o di output.
 
-![Ignora duplicati](media/data-flow/select-skip-dup.png "Ignora duplicati")
+![Ignora]duplicati(media/data-flow/select-skip-dup.png "Ignora") duplicati
 
 * Quando si sceglie di ignorare i duplicati, i risultati saranno visibili nella scheda controlla. ADF manterrà la prima occorrenza della colonna e si noterà che ogni occorrenza successiva della stessa colonna è stata rimossa dal flusso.
 
@@ -44,7 +44,7 @@ Nel diagramma precedente la trasformazione Selezione si trova nella parte superi
 ## <a name="mapping"></a>Mapping
 Per impostazione predefinita, la trasformazione Select eseguirà automaticamente il mapping di tutte le colonne, che passeranno tutte le colonne in ingresso allo stesso nome nell'output. Il nome del flusso di output impostato in Seleziona impostazioni definirà un nuovo nome di alias per il flusso. Se si mantiene il set di selezione per la mappa automatica, è possibile usare l'alias dell'intero flusso con tutte le colonne uguali.
 
-![Selezionare le regole di trasformazione](media/data-flow/rule2.png "Mapping basato su regole")
+![Selezione](media/data-flow/rule2.png "mapping basato su regole di") trasformazione
 
 Se si desidera assegnare alias, rimuovere, rinominare o riordinare le colonne, è necessario innanzitutto disattivare "mappa automatica". Per impostazione predefinita, viene visualizzata una regola predefinita immessa per il nome "tutte le colonne di input". È possibile lasciare invariata questa regola se si intende consentire sempre il mapping di tutte le colonne in ingresso allo stesso nome nell'output.
 

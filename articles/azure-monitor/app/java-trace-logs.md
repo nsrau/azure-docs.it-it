@@ -12,19 +12,22 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.author: mbullwin
-ms.openlocfilehash: ac9bd6021b5fcec36e3aadfdf4c30020971f3be5
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 99a18125fa5ce07a46fcc1af554fd03746ebf110
+ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299259"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72038144"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Esplorare i log di traccia Java in Application Insights
 Se si usa Logback o Log4J (v1.2 o v2.0) per la traccia, è possibile inviare automaticamente i log di traccia ad Application Insights dove è possibile esplorarli e eseguirvi ricerche.
 
+> [!TIP]
+> È necessario impostare la chiave di strumentazione Application Insights una sola volta per l'applicazione. Se si usa un Framework come Java Spring, è possibile che la chiave sia già stata registrata in un'altra posizione nella configurazione dell'app.
+
 ## <a name="using-the-application-insights-java-agent"></a>Uso dell'agente Java Application Insights
 
-È possibile configurare l'agente Java Application Insights per acquisire automaticamente i log, abilitando la funzionalità nel `AI-Agent.xml` file:
+È possibile configurare l'agente Java Application Insights per acquisire automaticamente i log, abilitando la funzionalità nel file `AI-Agent.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

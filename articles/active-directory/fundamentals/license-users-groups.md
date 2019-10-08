@@ -9,131 +9,134 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 09/18/2018
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f76e766d0aedae88eb11dd244f71f130f77c57e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 869713967a6a89611ab2ea9ca7b7516f090a5f92
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561661"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034230"
 ---
-# <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Assegnare o rimuovere licenze usando il portale di Azure Active Directory
-Molti servizi di Azure Active Directory (Azure AD) richiedono l'attivazione di un prodotto Azure AD e la concessione della licenza ai singoli utenti o gruppi (e relativi membri associati) per quel prodotto. Solo gli utenti con licenze attive saranno in grado di eseguire l'accesso e usare i servizi di Azure AD concessi in licenza.
+# <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Assegnare o rimuovere licenze nel portale di Azure Active Directory
 
-## <a name="available-product-editions"></a>Edizioni del prodotto disponibili
-Sono disponibili diverse edizioni del prodotto Azure AD.
+Molti servizi di Azure Active Directory (Azure AD) richiedono la concessione di licenze a ogni utente o gruppo (e membri associati) per quel servizio. Solo gli utenti con licenze attive saranno in grado di accedere e utilizzare i servizi con licenza Azure AD per i quali è vero.
 
-- Azure AD Gratuito
+## <a name="available-license-plans"></a>Piani di licenza disponibili
 
-- Azure AD Basic
+Sono disponibili diversi piani di licenza per il servizio Azure AD, tra cui:
 
-- Azure AD Premium 1 (Azure AD P1)
+- Azure AD Free
 
-- Azure AD Premium 2 (Azure AD P2)
+- Azure AD P1 Premium
 
-Per informazioni specifiche su ogni edizione del prodotto e i dettagli di licenza associati, vedere [Informazioni sulle licenze necessarie](../authentication/concept-sspr-licensing.md).
+- Azure AD Premium P2
 
-## <a name="view-your-product-edition-and-license-details"></a>Visualizzare i dettagli sull'edizione del prodotto e la licenza
-È possibile visualizzare i prodotti disponibili, tra cui le singole licenze, verificando eventuali date di scadenza in sospeso e il numero di assegnazioni disponibili.
+Per informazioni specifiche su ogni piano di licenza e i dettagli relativi alle licenze associate, vedere [quali sono le licenze necessarie?](https://azure.microsoft.com/pricing/details/active-directory/).
 
-### <a name="to-find-your-product-and-license-details"></a>Per reperire i dettagli sul proprio prodotto e la licenza
-1. Accedere al [portale di Azure](https://portal.azure.com/) con un account amministratore globale per la directory.
+Non tutti i servizi Microsoft sono disponibili in tutte le posizioni. Prima che una licenza possa essere assegnata a un gruppo, è necessario specificare la **Località di utilizzo** per tutti i membri. È possibile impostare questo valore nell'area **Azure Active Directory &gt; Utenti &gt; Profilo &gt; Impostazioni** in Azure AD. Qualsiasi utente la cui località di utilizzo non è specificata eredita il percorso dell'organizzazione Azure AD.
 
-2. Selezionare **Azure Active Directory**, e quindi **Licenze**.
+## <a name="view-license-plans-and-plan-details"></a>Visualizzare i piani di licenza e i dettagli del piano
 
-    Viene visualizzata la pagina **Licenze**.
+È possibile visualizzare i piani di servizio disponibili, incluse le singole licenze, controllare le date di scadenza in sospeso e visualizzare il numero di assegnazioni disponibili.
 
-    ![Pagina licenze, con il numero di prodotti acquistati e licenze assegnate](media/license-users-groups/license-details-blade.png)
-    
-3. Selezionare il collegamento **Purchased products** (Prodotti acquistati) per visualizzare la pagina **Prodotti** e visualizzare i dettagli **Assegnata**, **Disponibile** e **Scadenza imminente** per ogni specifica edizione del prodotto.
+### <a name="to-find-your-service-plan-and-plan-details"></a>Per trovare il piano di servizio e i dettagli del piano
 
-    ![Pagina Prodotti con le edizioni del prodotto e le informazioni di licenza associate](media/license-users-groups/license-products-blade-with-products.png)
+1. Accedere al [portale di Azure](https://portal.azure.com/) usando un account amministratore licenze nell'organizzazione Azure ad.
 
-4. Selezionare il nome di un'edizione del prodotto per visualizzare i relativi utenti e gruppi con licenza.
+1. Selezionare **Azure Active Directory**, e quindi **Licenze**.
+
+    ![Pagina licenze con numero di servizi acquistati e licenze assegnate](media/license-users-groups/license-details-blade.png)
+
+1. Selezionare il collegamento **acquistato** per visualizzare la pagina **prodotti** e visualizzare i numeri **assegnati**, **disponibili**e **scaduti** per i piani di licenza.
+
+    ![pagina dei servizi, con piani di licenza del servizio e informazioni sulle licenze associate](media/license-users-groups/license-products-blade-with-products.png)
+
+1. Selezionare un nome di piano per visualizzare gli utenti e i gruppi con licenza.
 
 ## <a name="assign-licenses-to-users-or-groups"></a>Assegnare licenze a utenti o gruppi
-Verificare che chiunque necessiti di usare un servizio Azure AD concesso in licenza abbia la licenza appropriata. Si può decidere se aggiungere i diritti di licenza ai singoli utenti o a un intero gruppo.
 
->[!Note]
->La gestione delle licenze basata su gruppi è una funzionalità in anteprima pubblica di Azure AD ed è disponibile con qualsiasi piano di licenza a pagamento di Azure AD. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).<br><br>Per informazioni dettagliate su come aggiungere gli utenti, vedere [Come aggiungere o eliminare utenti in Azure Active Directory](add-users-azure-active-directory.md). Per informazioni dettagliate su come creare gruppi e aggiungervi membri, vedere [Creare un gruppo di base e aggiungere membri](active-directory-groups-create-azure-portal.md).
+Verificare che chiunque necessiti di usare un servizio Azure AD concesso in licenza abbia la licenza appropriata. È possibile aggiungere i diritti di licenza per gli utenti o per un intero gruppo.
 
-### <a name="to-assign-a-license-to-a-specific-user"></a>Per assegnare una licenza a un utente specifico
-1. Nella pagina **Prodotti** selezionare il nome dell'edizione da assegnare all'utente. Ad esempio, _Azure Active Directory Premium - Piano 2_.
+### <a name="to-assign-a-license-to-a-user"></a>Per assegnare una licenza a un utente
 
-    ![Pagina Prodotti con l'edizione del prodotto evidenziata](media/license-users-groups/license-products-blade-with-product-highlight.png)
+1. Nella pagina **prodotti** selezionare il nome del piano di licenza che si desidera assegnare all'utente.
 
-2. Nella pagina **Azure Active Directory Premium - Piano 2** selezionare **Assegna**.
+    ![pagina dei servizi, con il piano di licenza del servizio evidenziato](media/license-users-groups/license-products-blade-with-product-highlight.png)
 
-    ![Pagina Prodotti con l'opzione Assegna evidenziata](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
+1. Nella pagina panoramica piano di licenza selezionare **assegna**.
 
-3. Nella pagina **Assegna** selezionare **Utenti e gruppi** e quindi cercare e selezionare l'utente a cui si sta assegnando la licenza. Ad esempio, _Mary Parker_.
+    ![pagina dei servizi, con l'opzione di assegnazione evidenziata](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
+
+1. Nella pagina **Assegna** selezionare **Utenti e gruppi** e quindi cercare e selezionare l'utente a cui si sta assegnando la licenza.
 
     ![Pagina Assegna licenza con le opzioni di ricerca e selezione evidenziate](media/license-users-groups/assign-license-blade-with-highlight.png)
 
-4. Selezionare **Opzioni di assegnazione**, verificare che siano attivate le opzioni di licenza appropriate e fare clic su **OK**.
+1. Selezionare **Opzioni di assegnazione**, verificare che siano attivate le opzioni di licenza appropriate e fare clic su **OK**.
 
-    ![Pagina di opzioni di licenza, con tutte le opzioni disponibili nell'edizione](media/license-users-groups/license-option-blade-assignments.png)
+    ![Pagina di opzioni di licenza, con tutte le opzioni disponibili nel piano di licenza](media/license-users-groups/license-option-blade-assignments.png)
 
     La pagina **Assegna licenza** viene aggiornata per indicare che un utente è selezionato e che le assegnazioni sono configurate.
 
-    >[!NOTE]
-    >Non tutti i servizi Microsoft sono disponibili in tutte le posizioni. Prima che una licenza possa essere assegnata a un utente, è necessario specificare la **Località di utilizzo**. È possibile impostare questo valore nell'area **Azure Active Directory &gt; Utenti &gt; Profilo &gt; Impostazioni** in Azure AD.
+    > [!NOTE]
+    > Non tutti i servizi Microsoft sono disponibili in tutte le posizioni. Prima che una licenza possa essere assegnata a un utente, è necessario specificare la **Località di utilizzo**. È possibile impostare questo valore nell'area **Azure Active Directory &gt; Utenti &gt; Profilo &gt; Impostazioni** in Azure AD. Qualsiasi utente la cui località di utilizzo non è specificata eredita il percorso dell'organizzazione Azure AD.
 
-5. Selezionare **Assegna**.
+1. Selezionare **Assegna**.
 
     L'utente viene aggiunto all'elenco degli utenti con licenza e può accedere ai servizi di Azure AD inclusi.
 
-### <a name="to-assign-a-license-to-an-entire-group"></a>Per assegnare una licenza a un intero gruppo
-1. Nella pagina **Prodotti** selezionare il nome dell'edizione da assegnare all'utente. Ad esempio, _Azure Active Directory Premium - Piano 2_.
+### <a name="to-assign-a-license-to-a-group"></a>Per assegnare una licenza a un gruppo
 
-    ![Pannello Prodotti con l'edizione del prodotto evidenziata](media/license-users-groups/license-products-blade-with-product-highlight.png)
+1. Nella pagina **prodotti** selezionare il nome del piano di licenza che si desidera assegnare all'utente.
 
-2. Nella pagina **Azure Active Directory Premium - Piano 2** selezionare **Assegna**.
+    ![Pannello prodotti, con piano di licenza prodotto evidenziato](media/license-users-groups/license-products-blade-with-product-highlight.png)
+
+1. Nella pagina **Azure Active Directory Premium - Piano 2** selezionare **Assegna**.
 
     ![Pagina Prodotti con l'opzione Assegna evidenziata](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
-3. Nella pagina **Assegna** selezionare **Utenti e gruppi** e quindi cercare e selezionare il gruppo a cui si sta assegnando la licenza. Ad esempio, _MDM policy - West_.
+1. Nella pagina **Assegna** selezionare **Utenti e gruppi** e quindi cercare e selezionare il gruppo a cui si sta assegnando la licenza.
 
     ![Pagina Assegna licenza con le opzioni di ricerca e selezione evidenziate](media/license-users-groups/assign-group-license-blade-with-highlight.png)
 
-4. Selezionare **Opzioni di assegnazione**, verificare che siano attivate le opzioni di licenza appropriate e fare clic su **OK**.
+1. Selezionare **Opzioni di assegnazione**, verificare che siano attivate le opzioni di licenza appropriate e fare clic su **OK**.
 
-    ![Pagina di opzioni di licenza, con tutte le opzioni disponibili nell'edizione](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![Pagina di opzioni di licenza, con tutte le opzioni disponibili nel piano di licenza](media/license-users-groups/license-option-blade-group-assignments.png)
 
     La pagina **Assegna licenza** viene aggiornata per indicare che un utente è selezionato e che le assegnazioni sono configurate.
 
-    >[!NOTE]
-    >Non tutti i servizi Microsoft sono disponibili in tutte le posizioni. Prima che una licenza possa essere assegnata a un gruppo, è necessario specificare la **Località di utilizzo** per tutti i membri. È possibile impostare questo valore nell'area **Azure Active Directory &gt; Utenti &gt; Profilo &gt; Impostazioni** in Azure AD. Qualsiasi utente per il quale non sia specificata la località di utilizzo eredita la località del tenant.
-
-5. Selezionare **Assegna**.
+1. Selezionare **Assegna**.
 
     Il gruppo viene aggiunto all'elenco di gruppi con licenza e tutti i membri hanno accesso ai servizi di Azure AD inclusi.
 
 ## <a name="remove-a-license"></a>Rimuovere una licenza
-È possibile rimuovere una licenza da un utente o un gruppo dalla pagina **Licenze**.
 
-### <a name="to-remove-a-license-from-a-specific-user"></a>Per rimuovere una licenza da un utente specifico
-1. Nella pagina **Utenti con licenza** per l'edizione del prodotto selezionare l'utente che non deve più avere la licenza. Ad esempio, _Alain Charon_.
+È possibile rimuovere una licenza dalla pagina utente Azure AD utente, dalla pagina Panoramica gruppo per un'assegnazione di gruppo o dalla pagina **licenze** Azure ad per visualizzare gli utenti e i gruppi per una licenza.
 
-2. Selezionare **Rimuovi licenza**.
+### <a name="to-remove-a-license-from-a-user"></a>Per rimuovere una licenza da un utente
+
+1. Nella pagina **utenti con licenza** per il piano di servizio, selezionare l'utente che non deve più avere la licenza. Ad esempio, _Alain Charon_.
+
+1. Selezionare **Rimuovi licenza**.
 
     ![Pagina Utenti con licenza con l'opzione Rimuovi licenza evidenziata](media/license-users-groups/license-products-user-blade-with-remove-option-highlight.png)
 
-### <a name="to-remove-a-license-from-a-group"></a>Per rimuovere una licenza da un gruppo
-1. Nella pagina **Gruppi con licenza** per l'edizione del prodotto selezionare il gruppo che non deve più avere la licenza. Ad esempio, _MDM policy - West_.
+> [!IMPORTANT]
+> Non è possibile rimuovere direttamente le licenze che un utente eredita da un gruppo. In alternativa, è necessario rimuovere l'utente dal gruppo da cui sta ereditando la licenza.
 
-2. Selezionare **Rimuovi licenza**.
+### <a name="to-remove-a-license-from-a-group"></a>Per rimuovere una licenza da un gruppo
+
+1. Nella pagina **gruppi con licenza** per il piano di licenza selezionare il gruppo che non dovrebbe più avere la licenza.
+
+1. Selezionare **Rimuovi licenza**.
 
     ![Pagina Gruppi con licenza con l'opzione Rimuovi licenza evidenziata](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
 
->[!Important]
->Le licenze che l'utente ha ereditato da un gruppo non possono essere rimosse direttamente. In alternativa, è necessario rimuovere l'utente dal gruppo da cui sta ereditando la licenza.
-
 ## <a name="next-steps"></a>Passaggi successivi
+
 Dopo aver assegnato le licenze, è possibile eseguire i processi seguenti:
 
 - [Identificare e risolvere i problemi relativi alle licenze](../users-groups-roles/licensing-groups-resolve-problems.md)

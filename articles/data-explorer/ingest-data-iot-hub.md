@@ -7,14 +7,19 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: ef66e6a69b6d33b16a558293fe29b8adf51cd137
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
-ms.translationtype: HT
+ms.openlocfilehash: 9f1bd795af2802af642d48b4a16a55425c5f4c7f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996750"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028479"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>Inserire i dati dall'hub Internet in Esplora dati di Azure (anteprima)
+
+> [!div class="op_single_selector"]
+> * [Portale](ingest-data-iot-hub.md)
+> * [C#](data-connection-iot-hub-csharp.md)
+> * [Python](data-connection-iot-hub-python.md)
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Azure Esplora dati offre l'inserimento (caricamento dei dati) dall'hub Internet, una piattaforma di streaming Big Data e un servizio di inserimento di Internet.
 
@@ -76,11 +81,11 @@ A questo punto è possibile connettersi all'hub Internet delle cose da Azure Esp
 
     **Impostazione** | **Descrizione campo**
     |---|---|
-    | Nome connessione dati | Nome della connessione che si vuole creare in Azure Esplora dati
+    | Data connection name (Nome connessione dati) | Nome della connessione che si vuole creare in Azure Esplora dati
     | Hub IoT | Nome dell'hub IoT |
     | Criteri di accesso condiviso | Nome dei criteri di accesso condiviso. Deve disporre delle autorizzazioni di lettura |
     | Gruppo di consumer |  Il gruppo di consumer definito nell'endpoint predefinito dell'hub Internet |
-    | Proprietà del sistema per gli eventi | [Proprietà del sistema di eventi dell'hub](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages)Internet. Quando si aggiungono le proprietà di sistema, [creare](/azure/kusto/management/tables#create-table) o [aggiornare](/azure/kusto/management/tables#alter-table-and-alter-merge-table) lo schema e il [mapping](/azure/kusto/management/mappings) della tabella per includere le proprietà selezionate. | | | 
+    | Proprietà del sistema eventi | [Proprietà del sistema di eventi dell'hub](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages)Internet. Quando si aggiungono le proprietà di sistema, [creare](/azure/kusto/management/tables#create-table) o [aggiornare](/azure/kusto/management/tables#alter-table-and-alter-merge-table) lo schema e il [mapping](/azure/kusto/management/mappings) della tabella per includere le proprietà selezionate. | | | 
 
     > [!NOTE]
     > In caso di [failover manuale](/azure/iot-hub/iot-hub-ha-dr#manual-failover), è necessario ricreare la connessione dati.
@@ -94,7 +99,7 @@ A questo punto è possibile connettersi all'hub Internet delle cose da Azure Esp
     |---|---|---|
     | Tabella | *TestTable* | Tabella creata in **TestDB**. |
     | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, multiriga JSON, PSV, SOHSV, SCSV, TSV, TSVE e TXT. |
-    | Mapping colonne | *TestMapping* | Il [mapping](/azure/kusto/management/mappings) creato in **TestDB**, che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestDB**. Obbligatorio per JSON, multiriga JSON e AVRO e facoltativo per altri formati.|
+    | Mapping di colonne | *TestMapping* | Il [mapping](/azure/kusto/management/mappings) creato in **TestDB**, che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestDB**. Obbligatorio per JSON, multiriga JSON e AVRO e facoltativo per altri formati.|
     | | |
 
     > [!NOTE]
@@ -164,7 +169,7 @@ Se non si prevede di usare di nuovo l'hub delle cose, pulire **test-Hub-RG**, pe
 
 1. Nel portale di Azure selezionare **Gruppi di risorse** all'estrema sinistra e quindi selezionare il gruppo di risorse creato.  
 
-    Se il menu a sinistra è compresso, selezionare ![Pulsante Espandi](media/ingest-data-event-hub/expand.png) per espanderlo.
+    Se il menu a sinistra è compresso, selezionare ![pulsante Espandi](media/ingest-data-event-hub/expand.png) per espanderlo.
 
    ![Selezionare il gruppo di risorse da eliminare](media/ingest-data-event-hub/delete-resources-select.png)
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9e7d6a027a60590396446479aecf1644ef753ecf
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 24e36e231d80a82362333b7a711f94cf627816ac
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130161"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029248"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gestire i backup delle macchine virtuali di Azure con il servizio backup di Azure
 
@@ -49,7 +49,7 @@ Per visualizzare le macchine virtuali nel dashboard dell'insieme di credenziali:
 
     ![Aprire il riquadro elementi di backup](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-6. Nel pannello **elementi** di backup è possibile visualizzare l'elenco delle macchine virtuali protette. In questo esempio, l'insieme di credenziali protegge una macchina virtuale: demobackup.  
+6. Nel pannello **elementi di backup** è possibile visualizzare l'elenco delle macchine virtuali protette. In questo esempio, l'insieme di credenziali protegge una macchina virtuale: demobackup.  
 
     ![Visualizzare il pannello elementi di backup](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
@@ -66,7 +66,7 @@ Per gestire i criteri di backup:
 
     ![Aprire il riquadro elementi di backup](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-3. Nel pannello **elementi** di backup è possibile visualizzare l'elenco delle macchine virtuali protette e l'ultimo stato del backup con i punti di ripristino più recenti.
+3. Nel pannello **elementi di backup** è possibile visualizzare l'elenco delle macchine virtuali protette e l'ultimo stato del backup con i punti di ripristino più recenti.
 
     ![Visualizzare il pannello elementi di backup](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
@@ -74,7 +74,7 @@ Per gestire i criteri di backup:
 
    * Per modificare i criteri, selezionare un criterio diverso e quindi fare clic su **Salva**. Il nuovo criterio verrà immediatamente applicato all'insieme di credenziali.
 
-     ![Scegliere i criteri di backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
+     ![Scegliere un criterio di backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
 ## <a name="run-an-on-demand-backup"></a>Eseguire un backup su richiesta
 È possibile eseguire un backup su richiesta di una macchina virtuale dopo aver impostato la protezione. Tenere presente i seguenti dettagli:

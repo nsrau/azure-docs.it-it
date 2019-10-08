@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f883741577de22f66cd7a9bfaf733aa3c59b879b
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: c91de3de743d168bea207f27fb162486ea625a63
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707682"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026276"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Avvio rapido: Concedere l'autorizzazione per creare registrazioni di app illimitate
 
@@ -32,8 +32,8 @@ Il ruolo con privilegi minimi necessario per creare e assegnare Azure AD ruoli p
 
 ## <a name="create-a-new-custom-role-using-the-azure-ad-portal"></a>Creare un nuovo ruolo personalizzato usando il portale di Azure AD
 
-1. Accedere al [centro](https://aad.portal.azure.com) di amministrazione di Azure ad con autorizzazioni di amministratore del ruolo con privilegi o di amministratore globale nell'organizzazione Azure ad.
-1. Selezionare **Azure Active Directory**, selezionare **ruoli e amministratori**, quindi selezionare **nuovo ruolo personalizzato**.
+1. Accedere all'interfaccia di [amministrazione di Azure AD](https://aad.portal.azure.com)@no__t le autorizzazioni di amministratore del ruolo con privilegi di 1With o amministratore globale nell'organizzazione Azure ad.
+1. Selezionare **Azure Active Directory**, selezionare **ruoli e amministratori**, quindi selezionare **nuovo ruolo personalizzato**.
 
     ![Creazione o modifica dei ruoli dalla pagina ruoli e amministratori](./media/roles-create-custom/new-custom-role.png)
 
@@ -49,12 +49,12 @@ Il ruolo con privilegi minimi necessario per creare e assegnare Azure AD ruoli p
 
 ### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Assegnare il ruolo a un utente usando il portale di Azure AD
 
-1. Accedere al [centro](https://aad.portal.azure.com) di amministrazione di Azure ad con autorizzazioni di amministratore del ruolo con privilegi o di amministratore globale nell'organizzazione Azure ad.
-1. Selezionare **Azure Active Directory** , quindi selezionare **ruoli e amministratori**.
+1. Accedere all'interfaccia di [amministrazione di Azure AD](https://aad.portal.azure.com)@no__t 1With amministratore del ruolo con privilegi o autorizzazioni di amministratore globale nell'organizzazione Azure ad.
+1. Selezionare **Azure Active Directory** , quindi selezionare **ruoli e amministratori**.
 1. Selezionare il ruolo Autore registrazione applicazione e selezionare **Aggiungi assegnazione**.
 1. Selezionare l'utente desiderato e fare clic su **Seleziona** per aggiungere l'utente al ruolo.
 
-Operazione completata. In questa Guida introduttiva è stato creato un ruolo personalizzato con l'autorizzazione per creare un numero illimitato di registrazioni per l'app e quindi assegnare tale ruolo a un utente.
+La procedura è stata completata. In questa Guida introduttiva è stato creato un ruolo personalizzato con l'autorizzazione per creare un numero illimitato di registrazioni per l'app e quindi assegnare tale ruolo a un utente.
 
 > [!TIP]
 > Per assegnare il ruolo a un'applicazione usando il portale di Azure AD, immettere il nome dell'applicazione nella casella di ricerca della pagina di assegnazione. Per impostazione predefinita, le applicazioni non vengono visualizzate nell'elenco, ma vengono restituite nei risultati della ricerca.

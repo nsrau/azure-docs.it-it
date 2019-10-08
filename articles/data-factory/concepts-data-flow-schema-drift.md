@@ -7,16 +7,16 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 68c0da5a7fe2b02c6115a8c1bbc24feb95e12adb
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5eff92352251febca1d4e7033618372dc929d987
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003752"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029401"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Spostamento dello schema nel flusso di dati del mapping
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 La deriva dello schema è il caso in cui le origini spesso cambiano i metadati. I campi, le colonne e i tipi possono essere aggiunti, rimossi o modificati in tempo reale. Senza gestire la deriva dello schema, il flusso di dati diventa vulnerabile alle modifiche dell'origine dati upstream. I modelli ETL tipici hanno esito negativo quando le colonne e i campi in arrivo cambiano perché tendono a essere associati a questi nomi di origine.
 
@@ -34,7 +34,7 @@ Nel flusso di dati è necessario prendere una decisione dal punto di vista dell'
 
 In una trasformazione origine la deriva dello schema è definita come la lettura di colonne che non sono definite nello schema del set di dati. Per abilitare la deriva dello schema, selezionare **Consenti Drift schema** nella trasformazione origine.
 
-![Origine della deriva dello schema](media/data-flow/schemadrift001.png "Origine della deriva dello schema")
+![](media/data-flow/schemadrift001.png "Origine") dello spostamento dello schema di origine dello schema
 
 Quando lo spostamento dello schema è abilitato, tutti i campi in ingresso vengono letti dall'origine durante l'esecuzione e passati attraverso l'intero flusso al sink. Per impostazione predefinita, tutte le colonne rilevate di recente, note come *colonne*trascinate, arrivano come tipo di dati stringa. Se si desidera che il flusso di dati deduca automaticamente i tipi di dati delle colonne di cui è stato possibile eseguire il drifting, controllare **dedurre i tipi di colonna** in base alle impostazioni di origine
 
@@ -42,17 +42,17 @@ Quando lo spostamento dello schema è abilitato, tutti i campi in ingresso vengo
 
 In una trasformazione sink la deriva dello schema è quando si scrivono colonne aggiuntive in base a quanto definito nello schema dei dati sink. Per abilitare la deriva dello schema, selezionare **Consenti la deriva dello schema** nella trasformazione del sink.
 
-![Sink di Drift dello schema](media/data-flow/schemadrift002.png "Sink di Drift dello schema")
+![](media/data-flow/schemadrift002.png "Sink di Drift schema") sink dello schema
 
 Se la deriva dello schema è abilitata, assicurarsi che il dispositivo di scorrimento **mapping automatico** nella scheda mapping sia attivato. Con questo dispositivo di scorrimento, tutte le colonne in ingresso vengono scritte nella destinazione. In caso contrario, è necessario utilizzare il mapping basato su regole per scrivere colonne trascinate.
 
-![Mapping automatico sink](media/data-flow/automap.png "Mapping automatico sink")
+Mapping automatico ![sink mapping automatico](media/data-flow/automap.png "sink")
 
 ## <a name="transforming-drifted-columns"></a>Trasformazione di colonne derivate
 
 Quando nel flusso di dati sono presenti colonne spostate, è possibile accedervi nelle trasformazioni con i metodi seguenti:
 
-* Usare le `byPosition` espressioni `byName` e per fare riferimento in modo esplicito a una colonna in base al nome o al numero di posizione.
+* Utilizzare le espressioni `byPosition` e `byName` per fare riferimento in modo esplicito a una colonna in base al nome o al numero di posizione.
 * Aggiungere un modello di colonna in una colonna derivata o una trasformazione aggregazione in modo che corrisponda a qualsiasi combinazione di nome, flusso, posizione o tipo
 * Aggiunta di un mapping basato su regole in una trasformazione SELECT o sink per la corrispondenza tra colonne spostate e alias di colonne tramite un modello
 
@@ -62,11 +62,11 @@ Per ulteriori informazioni su come implementare i modelli di colonna, vedere [mo
 
 Per fare riferimento in modo esplicito alle colonne derivate, è possibile generare rapidamente i mapping per queste colonne tramite un'azione rapida di anteprima dei dati. Una volta impostata la [modalità di debug](concepts-data-flow-debug-mode.md) , passare alla scheda Anteprima dati e fare clic su **Aggiorna** per recuperare un'anteprima dei dati. Se data factory rileva che sono presenti colonne spostate, è possibile fare clic su **mappa** e generare una colonna derivata che consente di fare riferimento a tutte le colonne spostate nelle viste dello schema downstream.
 
-![Mappa con deviazione](media/data-flow/mapdrifted1.png "Mappa con deviazione")
+![](media/data-flow/mapdrifted1.png "Mappa con") drifting mappata
 
 Nella trasformazione colonna derivata generata, viene eseguito il mapping di ogni colonna spostata al nome e al tipo di dati rilevati. Nell'anteprima dei dati sopra riportata, la colonna "movieId" viene rilevata come numero intero. Dopo aver fatto clic su **mapping** , movieId viene definito nella colonna derivata come `toInteger(byName('movieId'))` e incluso nelle viste dello schema nelle trasformazioni downstream.
 
-![Mappa con deviazione](media/data-flow/mapdrifted2.png "Mappa con deviazione")
+![](media/data-flow/mapdrifted2.png "Mappa con") drifting mappata
 
 ## <a name="next-steps"></a>Passaggi successivi
 Nel [linguaggio delle espressioni del flusso di dati](data-flow-expression-functions.md)sono disponibili ulteriori funzionalità per i modelli di colonna e la deriva dello schema, tra cui "byName" e "byPosition".

@@ -7,16 +7,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 197f5ba9d6921f4a9921b7074b9e05162d3e37b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef72b7aed12afd1cee47b11bc7584d1e53bf2af5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64868115"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029335"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Trasformazione Ricerca per il flusso di dati di mapping di Azure Data Factory
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Usare la trasformazione Ricerca per aggiungere dati di riferimento da un'altra origine al flusso di dati. La trasformazione Ricerca richiede un'origine definita che punta alla tabella di riferimento e corrisponde ai campi chiave.
 
@@ -26,24 +26,24 @@ Selezionare i campi chiave per individuare la corrispondenza tra i campi del flu
 
 Quando vengono trovate corrispondenze, le righe e le colonne risultanti dall'origine di riferimento verranno aggiunte al flusso di dati. È possibile scegliere i campi di interesse da includere nel sink alla fine del flusso di dati.
 
-## <a name="match--no-match"></a>Corrispondenza / Nessuna corrispondenza
+## <a name="match--no-match"></a>Corrispondenza/nessuna corrispondenza
 
-Dopo la trasformazione ricerca, è possibile utilizzare le trasformazioni successive per esaminare i risultati di ogni riga della corrispondenza tramite la funzione di espressione `isMatch()` effettuare altre scelte nella logica di base o meno la ricerca ha restituito una corrispondenza di riga o non.
+Dopo la trasformazione ricerca, è possibile utilizzare le trasformazioni successive per esaminare i risultati di ogni riga delle corrispondenze utilizzando la funzione Expression `isMatch()` per effettuare ulteriori scelte nella logica a seconda che la ricerca abbia restituito o meno una corrispondenza di riga.
 
 ## <a name="optimizations"></a>Ottimizzazioni
 
-In Data Factory, flussi di dati eseguito in ambienti di Spark con scalabilità orizzontale. Se il set di dati può essere inserito in uno spazio di memoria nodo di lavoro, è possibile ottimizzare le prestazioni di ricerca.
+In Data Factory i flussi di dati vengono eseguiti in ambienti Spark con scalabilità orizzontale. Se il set di dati può rientrare nello spazio di memoria del nodo di lavoro, è possibile ottimizzare le prestazioni di ricerca.
 
-![Broadcast Join](media/data-flow/broadcast.png "Broadcast Join")
+![](media/data-flow/broadcast.png "Join") broadcast join broadcast
 
-### <a name="broadcast-join"></a>Aggregazione della trasmissione
+### <a name="broadcast-join"></a>Join di trasmissione
 
-Selezionare a sinistra e/o sul lato destro broadcast join per richiedere l'ADF per eseguire il push l'intero set di dati da entrambi i lati della relazione di ricerca in memoria.
+Selezionare Left e/o right broadcast join per richiedere ad ADF di effettuare il push dell'intero set di dati da entrambi i lati della relazione di ricerca in memoria.
 
 ### <a name="data-partitioning"></a>Partizionamento dei dati
 
-È anche possibile specificare il partizionamento dei dati, selezionando "Partizionamento del Set di" nella scheda Ottimizza della trasformazione ricerca per creare set di dati che è possono adattare meglio in memoria per ogni ruolo di lavoro.
+È inoltre possibile specificare il partizionamento dei dati selezionando "imposta partizionamento" nella scheda Ottimizza della trasformazione Ricerca per creare set di dati che possono essere migliorati in memoria per ogni thread di lavoro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Partecipa](data-flow-join.md) e [Exists](data-flow-exists.md) trasformazioni eseguono attività simili in Azure Data factory di Mapping di flusso dei dati. Esaminiamo queste trasformazioni successivo.
+Le trasformazioni [join](data-flow-join.md) e [Exists](data-flow-exists.md) eseguono attività simili nei flussi di dati del mapping di ADF. Esaminare le trasformazioni seguenti.

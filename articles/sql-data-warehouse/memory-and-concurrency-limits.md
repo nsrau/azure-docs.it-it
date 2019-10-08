@@ -7,27 +7,25 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 03/15/2019
+ms.date: 10/04/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 0a92c032027e772020eda0b626a6dc6db024bf57
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 73bb5b75a440755e088a4d9a294b5b97b0b7199e
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595569"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035135"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limiti di memoria e concorrenza per Azure SQL Data Warehouse
 Visualizzare i limiti di memoria e concorrenza allocati ai livelli di prestazione e alle classi di risorse in Azure SQL Data Warehouse. Per altre informazioni e per applicare queste funzionalità al piano di gestione del carico di lavoro, vedere [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md). 
 
-Attualmente sono disponibili due generazioni con SQL Data Warehouse – Prima e seconda generazione. Si consiglia di sfruttare Seconda generazione di SQL Data Warehouse per ottenere prestazioni ottimali per il carico di lavoro di data warehouse. Seconda generazione introduce una nuova cache NVMe a tinta unita stato disco che mantiene i dati a cui si accede più frequentemente vicino le CPU. Questa operazione rimuove l'I/O remoto per i carichi di lavoro più complessi e intensivi. Oltre alle prestazioni, Seconda generazione offre il massimo livello di scalabilità consentendo di aumentare fino a 30.000 unità Data Warehouse e fornendo un'archiviazione a colonne senza limiti. Verrà comunque supportata la generazione precedente (Prima generazione) di SQL Data Warehouse e verranno mantenute le stesse funzionalità; tuttavia, si consiglia di [eseguire l'aggiornamento alla Seconda generazione](upgrade-to-latest-generation.md) non appena possibile. 
-
 ## <a name="data-warehouse-capacity-settings"></a>Impostazioni di capacità di Data Warehouse
 Nelle tabelle seguenti viene illustrata la capacità massima per il data warehouse a diversi livelli di prestazioni. Per modificare il livello di prestazioni, vedere [Ridimensionare le risorse di calcolo: portale](quickstart-scale-compute-portal.md).
 
-### <a name="gen2"></a>Seconda generazione
+### <a name="service-levels"></a>Livelli di servizio
 
-Seconda generazione fornisce 2.5 x in più di memoria per ogni query rispetto alla Prima generazione. Questa memoria aggiuntiva aiuta la Seconda generazione a fornire prestazioni veloci.  I livelli di prestazioni per la Seconda generazione sono compresi tra DW100c e DW30000c. 
+I livelli di servizio sono compresi tra DW100c e DW30000c.
 
 | Livello di prestazioni | Nodi di calcolo | Distribuzioni per nodo di calcolo | Memoria per data warehouse (GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
@@ -48,37 +46,16 @@ Seconda generazione fornisce 2.5 x in più di memoria per ogni query rispetto al
 | DW15000c          | 30            | 2                              |  9000                          |
 | DW30000c          | 60            | 1                              | 18000                          |
 
-Il DWU della Seconda generazione a elevato utilizzo di calcolo massimo è DW30000c, che ha 60 nodi di calcolo e una distribuzione per ogni nodo di calcolo. Ad esempio, un data warehouse da 600 TB a DW30000c elabora circa 10 TB per ogni nodo di calcolo.
-
-### <a name="gen1"></a>Prima generazione
-
-I livelli di servizio per la Prima generazione sono compresi tra DW100 e DW6000. 
-
-| Livello di prestazioni | Nodi di calcolo | Distribuzioni per nodo di calcolo | Memoria per data warehouse (GB) |
-|:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
-| DW100             | 1             | 60                             |  24                            |
-| DW200             | 2             | 30                             |  48                            |
-| DW300             | 3             | 20                             |  72                            |
-| DW400             | 4             | 15                             |  96                            |
-| DW500             | 5             | 12                             | 120                            |
-| DW600             | 6             | 10                             | 144                            |
-| DW1000            | 10            | 6                              | 240                            |
-| DW1200            | 12            | 5                              | 288                            |
-| DW1500            | 15            | 4                              | 360                            |
-| DW2000            | 20            | 3                              | 480                            |
-| DW3000            | 30            | 2                              | 720                            |
-| DW6000            | 60            | 1                              | 1\.440                           |
+Il livello di servizio massimo è DW30000c, che include 60 nodi di calcolo e una distribuzione per ogni nodo di calcolo. Ad esempio, un data warehouse da 600 TB a DW30000c elabora circa 10 TB per ogni nodo di calcolo.
 
 ## <a name="concurrency-maximums"></a>Valori massimi di concorrenza
-Affinché ogni query abbia risorse sufficienti per operare in modo efficace, SQL Data Warehouse tiene traccia dell'uso delle risorse assegnando slot di concorrenza a ogni query. Il sistema inserisce le query in una coda in base a importanza e slot di concorrenza. Le query in attesa nella coda fino a quando non sono disponibili slot di concorrenza sufficienti. [Importanza](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) e slot di concorrenza determinano priorità della CPU. Per altre informazioni, vedere [Analyze your workload](analyze-your-workload.md) (Analisi del carico di lavoro)
+Affinché ogni query abbia risorse sufficienti per operare in modo efficace, SQL Data Warehouse tiene traccia dell'uso delle risorse assegnando slot di concorrenza a ogni query. Il sistema inserisce le query in una coda in base agli slot di importanza e concorrenza. Le query attendono la coda fino a quando non sono disponibili slot di concorrenza sufficienti. Gli slot di [importanza](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) e di concorrenza determinano la priorità della CPU. Per altre informazioni, vedere [Analyze your workload](analyze-your-workload.md) (Analisi del carico di lavoro)
 
-### <a name="gen2"></a>Seconda generazione
- 
 **Classi di risorse statiche**
 
 La tabella seguente illustra il numero massimo di query simultanee e di slot di concorrenza per ogni [classe di risorse statica](resource-classes-for-workload-management.md).  
 
-| Contratto | Numero massimo di query simultanee | Slot di concorrenza disponibili | Slot utilizzati da staticrc10 | Slot utilizzati da staticrc20 | Slot utilizzati da staticrc30 | Slot utilizzati da staticrc40 | Slot utilizzati da staticrc50 | Slot utilizzati da staticrc60 | Slot utilizzati da staticrc70 | Slot utilizzati da staticrc80 |
+| Contratto | Numero massimo di query simultanee | Slot di concorrenza disponibili | Slot usati da staticrc10 | Slot usati da staticrc20 | Slot usati da staticrc30 | Slot usati da staticrc40 | Slot usati da staticrc50 | Slot usati da staticrc60 | Slot usati da staticrc70 | Slot usati da staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -99,12 +76,7 @@ La tabella seguente illustra il numero massimo di query simultanee e di slot di 
 
 **Classi di risorse dinamiche**
 
-> [!NOTE]
-> La classe di risorse smallrc in Seconda generazione aggiunge dinamicamente memoria con l'aumento del livello di servizio e supporta solo al massimo 32 query simultanee per DW1000c e 4 query simultanee per DW100c.  Se la capacità dell'istanza supera il livello DW1500c, la memoria e gli slot di concorrenza usati da smallrc aumentano in proporzione al livello di servizio. 
->
->
-
-La tabella seguente illustra il numero massimo di query simultanee e di slot di concorrenza per ogni [classe di risorse dinamica](resource-classes-for-workload-management.md). A differenza della Prima generazione, le classi di risorse dinamiche nella Seconda generazione sono veramente dinamiche.  Seconda generazione usa un'allocazione di percentuale di memoria 3-10-22-70 per le classi di risorse small-medie-grandi-xlarge per tutti i livelli di servizio.
+La tabella seguente illustra il numero massimo di query simultanee e di slot di concorrenza per ogni [classe di risorse dinamica](resource-classes-for-workload-management.md). Le classi di risorse dinamiche usano un'allocazione percentuale di memoria 3-10-22-70 per le classi di risorse XLarge di piccole e medie dimensioni in tutti i livelli di servizio.
 
 | Contratto | Numero massimo di query simultanee | Slot di concorrenza disponibili | Slot utilizzati da smallrc | Slot utilizzati da mediumrc | Slot utilizzati da largerc | Slot utilizzati da xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
@@ -126,57 +98,10 @@ La tabella seguente illustra il numero massimo di query simultanee e di slot di 
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
 
-
-#### <a name="gen1"></a>Prima generazione
-
-Classi di risorse statiche
-
-La tabella seguente illustra il numero massimo di query simultanee e di slot di concorrenza per ogni [classe di risorse statica](resource-classes-for-workload-management.md) nella **Prima generazione**.
-
-| Livello di servizio | Numero massimo di query simultanee | Numero massimo di slot di concorrenza | Slot utilizzati da staticrc10 | Slot utilizzati da staticrc20 | Slot utilizzati da staticrc30 | Slot utilizzati da staticrc40 | Slot utilizzati da staticrc50 | Slot utilizzati da staticrc60 | Slot utilizzati da staticrc70 | Slot utilizzati da staticrc80 |
-|:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-| DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
-| DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
-| DW300         | 12                         |  12                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
-| DW400         | 16                         |  16                       | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
-| DW500         | 20                         |  20                       | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
-| DW600         | 24                         |  24                       | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
-| DW1000        | 32                         |  40                       | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
-| DW1200        | 32                         |  48                       | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
-| DW1500        | 32                         |  60                       | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
-| DW2000        | 48                         |  80                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
-| DW3000        | 64                         | 120                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
-| DW6000        | 128                        | 240                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-
-Classi di risorse dinamiche
-> [!NOTE]
-> La classe di risorse smallrc in Prima generazione alloca una quantità fissa di memoria per ogni query, allo stesso modo della classe di risorse statiche staticrc10.  Poiché smallrc è statica, ha la capacità di applicare la scalabilità a 128 query simultanee. 
->
->
-
-La tabella seguente illustra il numero massimo di query simultanee e di slot di concorrenza per ogni [classe di risorse dinamica](resource-classes-for-workload-management.md) nella **Prima generazione**.
-
-| Livello di servizio | Numero massimo di query simultanee | Slot di concorrenza disponibili | Slot utilizzati da smallrc | Slot utilizzati da mediumrc | Slot utilizzati da largerc | Slot utilizzati da xlargerc |
-|:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
-| DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
-| DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |
-| DW300         | 12                         |  12                         | 1       |  2       |  4      |   8      |
-| DW400         | 16                         |  16                         | 1       |  4       |  8      |  16      |
-| DW500         | 20                         |  20                         | 1       |  4       |  8      |  16      |
-| DW600         | 24                         |  24                         | 1       |  4       |  8      |  16      |
-| DW1000        | 32                         |  40                         | 1       |  8       | 16      |  32      |
-| DW1200        | 32                         |  48                         | 1       |  8       | 16      |  32      |
-| DW1500        | 32                         |  60                         | 1       |  8       | 16      |  32      |
-| DW2000        | 48                         |  80                         | 1       | 16       | 32      |  64      |
-| DW3000        | 64                         | 120                         | 1       | 16       | 32      |  64      |
-| DW6000        | 128                        | 240                         | 1       | 32       | 64      | 128      |
-
-
-Quando viene raggiunta una di queste soglie, le nuove query vengono accodate e vengono eseguite in base al principio FIFO (First-In-First-Out).  Al termine dell'esecuzione delle query e quando il numero di query e di slot risulta inferiore ai limiti, SQL Data Warehouse rilascia le query accodate. 
+Quando non sono disponibili slot di concorrenza sufficienti per avviare l'esecuzione della query, le query vengono accodate ed eseguite in base alla priorità.  Se è presente un'importanza equivalente, le query vengono eseguite in base al principio First-in, First-out.  Al termine dell'esecuzione delle query e quando il numero di query e di slot risulta inferiore ai limiti, SQL Data Warehouse rilascia le query accodate. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni su come sfruttare le classi di risorse per ottimizzare ulteriormente il carico di lavoro vedere gli articoli seguenti:
 * [Resource classes for workload management](resource-classes-for-workload-management.md) (Classi di risorse per la gestione del carico di lavoro)
 * [Analyzing your workload](analyze-your-workload.md) (Analisi del carico di lavoro)
-

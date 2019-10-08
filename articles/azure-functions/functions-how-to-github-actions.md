@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 8e9e1189c3eb9de273926645ad0d4cfde5ba1c49
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 483ac9380fa8d58f294112cb6c80e0393fa01589
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260035"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028988"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Recapito continuo tramite l'azione GitHub
 
@@ -23,15 +23,15 @@ Le [azioni di GitHub](https://github.com/features/actions) consentono di definir
 
 Nelle azioni di GitHub un [flusso di lavoro](https://help.github.com/articles/about-github-actions#workflow) è un processo automatico definito nel repository GitHub. Questo processo spiega a GitHub come compilare e distribuire il progetto di app per le funzioni su GitHub. 
 
-Un flusso di lavoro viene definito da un file YAML (. yml) `/.github/workflows/` nel percorso nel repository. Questa definizione contiene i vari passaggi e parametri che costituiscono il flusso di lavoro. 
+Un flusso di lavoro viene definito da un file YAML (. yml) nel percorso `/.github/workflows/` nel repository. Questa definizione contiene i vari passaggi e parametri che costituiscono il flusso di lavoro. 
 
 Per un flusso di lavoro di funzioni di Azure, il file è costituito da tre sezioni: 
 
 | `Section` | Attività |
 | ------- | ----- |
-| **Autenticazione** | <ol><li>Definire un'entità servizio.</li><li>Creare un segreto GitHub.</li></ol>|  
+| **Autenticazione** | <ol><li>Definire un'entità servizio.</li><li>Scaricare il profilo di pubblicazione.</li><li>Creare un segreto GitHub.</li></ol>|
 | **Build** | <ol><li>Configurare l'ambiente.</li><li>Compilare l'app per le funzioni.</li></ol> |
-| **Distribuire** | <ol><li>Distribuire l'app per le funzioni.</li></ol>| 
+| **Distribuire** | <ol><li>Distribuire l'app per le funzioni.</li></ol>|
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
@@ -43,16 +43,27 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 In questo esempio, sostituire i segnaposto nella risorsa con l'ID sottoscrizione, il gruppo di risorse e il nome dell'app per le funzioni. L'output corrisponde alle credenziali di assegnazione di ruolo che consentono di accedere all'app per le funzioni. Copiare questo oggetto JSON, che è possibile usare per eseguire l'autenticazione da GitHub.
 
+> [!NOTE]
+> Non è necessario creare un'entità servizio se si decide di usare il profilo di pubblicazione per l'autenticazione.
+
 > [!IMPORTANT]
 > È sempre consigliabile concedere l'accesso minimo. Questo è il motivo per cui l'ambito nell'esempio precedente è limitato all'app per le funzioni specifica e non all'intero gruppo di risorse.
 
+## <a name="download-the-publishing-profile"></a>Scaricare il profilo di pubblicazione
+
+Per scaricare il profilo di pubblicazione del functionapp, passare alla pagina **Panoramica** dell'app e fare clic su **Ottieni profilo di pubblicazione**.
+
+   ![Scarica profilo di pubblicazione](media/functions-how-to-github-actions/get-publish-profile.png)
+
+Copiare il contenuto del file.
+
 ## <a name="configure-the-github-secret"></a>Configurare il segreto di GitHub
 
-1. In [GitHub](https://github.com)esplorare il repository e selezionare **Impostazioni** > **segreti** > **Aggiungi un nuovo segreto**.
+1. In [GitHub](https://github.com), esplorare il repository, selezionare **Impostazioni** > **segreti** > **aggiungere un nuovo segreto**.
 
-    ![Aggiungi segreto](media/functions-how-to-github-actions/add-secret.png)
+   ![Aggiungi segreto](media/functions-how-to-github-actions/add-secret.png)
 
-1. Usare `AZURE_CREDENTIALS` per il **nome** e l'output del comando copiato per **valore**, quindi selezionare **Aggiungi segreto**. 
+1. Utilizzare `AZURE_CREDENTIALS` per il **nome** e l'output del comando copiato per **valore**, se si seleziona **Aggiungi segreto**. Se si utilizza il profilo di pubblicazione, utilizzare `SCM_CREDENTIALS` per il **nome** e il contenuto del file per **valore**.
 
 GitHub è ora in grado di eseguire l'autenticazione all'app per le funzioni in Azure.
 
@@ -187,7 +198,7 @@ Gli esempi seguenti illustrano la parte del flusso di lavoro che compila l'app p
 
 ## <a name="deploy-the-function-app"></a>Distribuire il codice della funzione
 
-Per distribuire il codice in un'app per le funzioni, sarà necessario usare l' `Azure/functions-action` azione. Questa azione è costituita da due parametri:
+Per distribuire il codice in un'app per le funzioni, è necessario usare l'azione `Azure/functions-action`. Questa azione è costituita da due parametri:
 
 |Parametro |Spiegazione  |
 |---------|---------|
@@ -195,7 +206,7 @@ Per distribuire il codice in un'app per le funzioni, sarà necessario usare l' `
 |_**nome slot**_ | Opzionale Nome dello slot di [distribuzione](functions-deployment-slots.md) in cui si desidera eseguire la distribuzione. Lo slot deve essere già definito nell'app per le funzioni. |
 
 
-Nell'esempio seguente viene utilizzata la versione 1 `functions-action`di:
+Nell'esempio seguente viene usata la versione 1 del `functions-action`:
 
 ```yaml
     - name: 'Run Azure Functions Action'
@@ -207,7 +218,7 @@ Nell'esempio seguente viene utilizzata la versione 1 `functions-action`di:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per visualizzare un flusso di lavoro completo. YAML, vedere uno dei file `functionapp` nel [repository di esempio del flusso di lavoro azioni di GitHub di Azure](https://github.com/Azure/actions-workflow-samples) con il nome. È possibile usare questi esempi come punto di partenza per il flusso di lavoro.
+Per visualizzare un flusso di lavoro completo. YAML, vedere uno dei file nel [repository di esempio del flusso di lavoro azioni di GitHub di Azure](https://github.com/Azure/actions-workflow-samples) con `functionapp` nel nome. È possibile usare questi esempi come punto di partenza per il flusso di lavoro.
 
 > [!div class="nextstepaction"]
 > [Altre informazioni sulle azioni di GitHub](https://help.github.com/en/articles/about-github-actions)

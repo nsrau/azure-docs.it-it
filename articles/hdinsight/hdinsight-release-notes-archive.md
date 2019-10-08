@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: cf985f08f13198a9041b1d50f2c6c7f0fec70911
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 16ce90d3db1091fa759d940f4bbf91a3ef924e42
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945045"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025532"
 ---
 # <a name="archived-release-notes"></a>Note sulla versione archiviate
 
@@ -822,73 +822,73 @@ Questa sezione descrive tutte le CVE (Common Vulnerabilities and Exposures) che 
 
 ### <a name="cve-2017-7676"></a>**CVE-2017-7676**
 
-| **Riepilogo:**  la valutazione dei criteri di Apache Ranger ignora i caratteri dopo il carattere jolly '\*' |
+| **Riepilogo:** La valutazione dei criteri di Apache Ranger ignora i caratteri dopo il carattere jolly ' \*' |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Gravità:**  critica                                                                           |
-| **Fornitore:**  Hortonworks                                                                          |
-| **Versioni interessate:**  versioni di HDInsight 3.6 incluse le versioni 0.5.x/0.6.x/0.7.0 di Apache Ranger     |
-| **Utenti interessati:**  ambienti che usano i criteri Ranger con i caratteri dopo il carattere jolly '\*', ad esempio my\*test, test\*.txt |
-| **Impatto:**  il matcher della risorsa criteri ignora i caratteri dopo il carattere jolly '\*' che potrebbero causare comportamenti imprevisti.      |
-| **Dettaglio della correzione:**  il matcher della risorsa criteri Ranger è stato aggiornato per gestire correttamente le corrispondenze con i caratteri jolly.           |
-| **Azione consigliata:**  eseguire l'aggiornamento a HDI 3.6 (con Apache Ranger 0.7.1+).                                |
+| **Gravità:** Critico                                                                           |
+| **Fornitore:** Hortonworks                                                                          |
+| **Versioni interessate:** Versioni di HDInsight 3,6, tra cui Apache Ranger versioni 0.5. x/0.6. x/0.7.0     |
+| **Utenti interessati:** Gli ambienti che usano i criteri Ranger con caratteri dopo un carattere jolly "\*", come My @ no__t-1Test, test\*.txt |
+| **Impatto** Il Matcher di risorse dei criteri ignora i caratteri dopo il carattere jolly ' \*', che può causare un comportamento imprevisto.      |
+| **Dettagli della correzione:** Il Matcher di risorse dei criteri Ranger è stato aggiornato per gestire correttamente le corrispondenze con caratteri jolly.           |
+| **Azione consigliata:** Eseguire l'aggiornamento a HDI 3,6 (con Apache Ranger 0.7.1 +).                                |
 
 ### <a name="cve-2017-7677"></a>**CVE-2017-7677**
 
-| **Riepilogo:**  Apache Ranger Hive Authorizer deve controllare l'autorizzazione RWX quando viene specificato un percorso esterno |
+| **Riepilogo:** Apache Ranger hive autorizzitor deve verificare l'autorizzazione RWX quando viene specificato un percorso esterno |
 |--------------------------------------------------------------------------------------------------|
-| **Gravità:**  critica                                                                           |
-| **Fornitore:**  Hortonworks                                                                          |
-| **Versioni interessate:**  versioni di HDInsight 3.6 incluse le versioni 0.5.x/0.6.x/0.7.0 di Apache Ranger |
-| **Utenti interessati:**  ambienti che usano una posizione esterna per le tabelle hive. |
-| **Impatto:**  negli ambienti che usano la posizione esterna per le tabelle hive, Apache Ranger Hive Authorizer deve controllare l'autorizzazione RWX per il percorso esterno specificato per creare una tabella. |
-| **Dettaglio della correzione:**  Ranger Hive Authorizer è stato aggiornato per poter gestire correttamente il controllo delle autorizzazioni con la posizione esterna. |
-| **Azione consigliata:**  gli utenti devono eseguire l'aggiornamento a HDI 3.6 (con Apache Ranger 0.7.1+). |
+| **Gravità:** Critico                                                                           |
+| **Fornitore:** Hortonworks                                                                          |
+| **Versioni interessate:** Versioni di HDInsight 3,6, tra cui Apache Ranger versioni 0.5. x/0.6. x/0.7.0 |
+| **Utenti interessati:** Ambienti che usano il percorso esterno per le tabelle hive |
+| **Impatto** Negli ambienti che usano un percorso esterno per le tabelle hive, Apache Ranger hive autorizzitor deve verificare l'autorizzazione RWX per il percorso esterno specificato per create table. |
+| **Dettagli della correzione:** Il provider di autorizzazioni hive di Ranger è stato aggiornato per gestire correttamente il controllo delle autorizzazioni con il percorso esterno. |
+| **Azione consigliata:** Gli utenti devono eseguire l'aggiornamento a HDI 3,6 (con Apache Ranger 0.7.1 +). |
 
 ### <a name="cve-2017-9799"></a>**CVE-2017-9799**
 
-| **Riepilogo:**  potenziale esecuzione di codice come utente non corretto in Apache Storm |
+| **Riepilogo:** Potenziale esecuzione del codice come utente errato in Apache Storm |
 |--------------------------------------------------------------------------------------------------|
-|**Gravità:**  importante |
-| **Fornitore:**  Hortonworks |
-| **Versioni interessate:**  HDP 2.4.0, HDP 2.5.0, HDP 2.6.0 |
-| **Utenti interessati:**  gli utenti che usano Storm in modalità protetta e usano l'archivio BLOB per distribuire elementi basati sulla topologia o che usano l'archivio BLOB per distribuire le risorse di topologia. |
-| **Impatto:**  in alcune situazioni e configurazioni di Storm è teoricamente possibile per il proprietario di una topologia ingannare il supervisore in modo che avvii un ruolo di lavoro come utente diverso, non ROOT. Nel peggiore dei casi, questo potrebbe causare la compromissione delle credenziali protette dell'altro utente. Questa vulnerabilità si applica solo alle installazioni di Apache Storm con la sicurezza abilitata. |
-| **Mitigazione dei rischi:**  eseguire l'aggiornamento a HDP 2.6.2.1 in quanto non esistono attualmente soluzioni alternative.  |
+|**Gravità:** Importante |
+| **Fornitore:** Hortonworks |
+| **Versioni interessate:** HDP 2.4.0, HDP-2.5.0, HDP-2.6.0 |
+| **Utenti interessati:** Utenti che utilizzano Storm in modalità protetta e utilizzano blobstore per distribuire gli elementi basati sulla topologia o l'utilizzo di blobstore per distribuire tutte le risorse di topologia. |
+| **Impatto** In alcune situazioni e configurazioni di Storm è teoricamente possibile che il proprietario di una topologia inganni il supervisore per avviare un lavoro come un utente diverso, non radice. Nel peggiore dei casi, questo potrebbe causare la compromissione delle credenziali protette dell'altro utente. Questa vulnerabilità si applica solo alle installazioni di Apache Storm con la sicurezza abilitata. |
+| **Soluzione:** Eseguire l'aggiornamento a HDP-2.6.2.1 perché non sono attualmente disponibili soluzioni alternative.  |
 
 ### <a name="cve-2016-4970"></a>**CVE-2016-4970**
 
-| **Riepilogo:**  handler/ssl/OpenSslEngine.java in Netty 4.0.x precedente a 4.0.37.Final e 4.1.x precedente a 4.1.1.Final consente agli utenti malintenzionati remoti di causare un attacco Denial of Service (ciclo infinito) |
+| **Riepilogo:** handler/ssl/OpenSslEngine.java in Netty 4.0.x precedente a 4.0.37.Final e 4.1.x precedente a 4.1.1.Final consente agli utenti malintenzionati remoti di causare un attacco Denial of Service (ciclo infinito) |
 |--------------------------------------------------------------------------------------------------|
 | **Gravità:** Moderata  |
-| **Fornitore:**  Hortonworks  |
-| **Versioni interessate:**  HDP 2.x.x dopo 2.3.x  |
-| **Utenti interessati:**  tutti gli utenti che usano Hadoop Distributed File System (HDFS). |
-| **Impatto:**  impatto basso poiché Hortonworks non usa OpenSslEngine.java direttamente nella codebase di Hadoop.     |
-| **Azione consigliata:**  eseguire l'aggiornamento a HDP 2.6.3.   |
+| **Fornitore:** Hortonworks  |
+| **Versioni interessate:** HDP 2. x. x dalla 2.3. x  |
+| **Utenti interessati:** Tutti gli utenti che usano HDFS. |
+| **Impatto** L'effetto è basso perché Hortonworks non usa OpenSslEngine. Java direttamente nella codebase Hadoop.     |
+| **Azione consigliata:** Eseguire l'aggiornamento a HDP 2.6.3.   |
 
 ### <a name="cve-2016-8746"></a>**CVE-2016-8746**
 
-| **Riepilogo:**  problema di corrispondenza percorso Apache Ranger nella valutazione dei criteri                                                                    |
+| **Riepilogo:** Problema di corrispondenza del percorso di Apache Ranger nella valutazione dei criteri                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------|
-| **Gravità:**  normale                                                                                                                   |
+| **Gravità:** Normale                                                                                                                   |
 | **Fornitore:** Hortonworks                                                                                                                |
-| **Versioni interessate:**  tutte le versioni di HDP 2.5 incluse le versioni 0.6.0/0.6.1/0.6.2 di Apache Ranger                                         |
-| **Utenti interessati:**  tutti gli utenti dello strumento di amministrazione di criteri di Ranger.                                                                         |
-| **Impatto:**  il motore dei criteri di Ranger mette in corrispondenza in modo non corretto i percorsi in determinate condizioni quando alcuni criteri contengono caratteri jolly e flag ricorsivi. |
+| **Versioni interessate:** Tutte le versioni di HDP 2,5, incluse le versioni di Apache Ranger 0.6.0/0.6.1/0.6.2                                         |
+| **Utenti interessati:** Tutti gli utenti dello strumento di amministrazione dei criteri di Ranger.                                                                         |
+| **Impatto** Il motore dei criteri Ranger individua in modo errato i percorsi in determinate condizioni quando un criterio contiene caratteri jolly e flag ricorsivi. |
 | **Dettagli della correzione:** corretta la logica di valutazione dei criteri                                                                                          |
-| **Azione consigliata:**  gli utenti devono eseguire l'aggiornamento a HDP 2.5.4+ (con Apache Ranger 0.6.3+) o a HDP 2.6+ (con Apache Ranger 0.7.0+).         |
+| **Azione consigliata:** Gli utenti devono eseguire l'aggiornamento a HDP 2.5.4 + (con Apache Ranger 0.6.3 +) o HDP 2.6 + (con Apache Ranger 0.7.0 +)         |
 
 ### <a name="cve-2016-8751"></a>**CVE-2016-8751**
 
-| **Riepilogo:**  problema di Apache Ranger di scripting archiviato tra siti  |
+| **Riepilogo:** Problema di Apache Ranger archiviato tra siti  |
 |--------------------------------------------------------------------------------------------------|
-| **Gravità:**  normale |
-| **Fornitore:**  Hortonworks |
-| **Versioni interessate:**  tutte le versioni di HDP 2.3/2.4/2.5 incluse le versioni 0.5.x/0.6.0/0.6.1/0.6.2 di Apache Ranger  |
-| **Utenti interessati:**  tutti gli utenti dello strumento di amministrazione di criteri di Ranger. |
-| **Impatto:**  Apache Ranger è vulnerabile a uno scripting archiviato tra siti quando si immettono le condizioni dei criteri personalizzati. Gli utenti amministratori possono archiviare alcune esecuzioni di codice javascript arbitrario quando gli utenti normali si collegano e accedono ai criteri. |
-| **Dettaglio della correzione:**  aggiunta di logica per purificare l'input dell'utente.  |
-| **Azione consigliata:**  gli utenti devono eseguire l'aggiornamento a HDP 2.5.4+ (con Apache Ranger 0.6.3+) o a HDP 2.6+ (con Apache Ranger 0.7.0+).  |
+| **Gravità:** Normale |
+| **Fornitore:** Hortonworks |
+| **Versioni interessate:** Tutte le versioni di HDP 2.3/2.4/2.5, incluse le versioni 0.5. x/0.6.0/0.6.1/0.6.2 di Apache Ranger  |
+| **Utenti interessati:** Tutti gli utenti dello strumento di amministrazione dei criteri di Ranger. |
+| **Impatto** Apache Ranger è vulnerabile a uno scripting tra siti archiviato quando si immettono condizioni dei criteri personalizzati. Gli utenti amministratori possono archiviare alcune esecuzioni di codice javascript arbitrario quando gli utenti normali si collegano e accedono ai criteri. |
+| **Dettagli della correzione:** Aggiunta della logica per purificare l'input dell'utente.  |
+| **Azione consigliata:** Gli utenti devono eseguire l'aggiornamento a HDP 2.5.4 + (con Apache Ranger 0.6.3 +) o HDP 2.6 + (con Apache Ranger 0.7.0 +)  |
 
 ## <a name="fixed-issues-for-support"></a>Problemi risolti per il supporto
 

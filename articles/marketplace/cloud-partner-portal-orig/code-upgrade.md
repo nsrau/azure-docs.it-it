@@ -1,34 +1,22 @@
 ---
-title: Aggiorna il codice per la piattaforma più recente | Azure Marketplace
-description: Questo argomento illustra come aggiornare la piattaforma Microsoft Dynamics 365 for Operations alla versione più recente
+title: Aggiornamento del codice alla piattaforma più recente | Azure Marketplace
+description: Questo articolo CPP è stato deprecato, collegato all'articolo del PC; was "questo argomento spiega come aggiornare la versione della piattaforma Microsoft Dynamics 365 per le operazioni alla versione più recente della piattaforma"
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: aedc2c7474de0fe068a329eb2205e9bb08e62c3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: ea3aff527f6dbd6e6da2010529ad575440504d6a
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935291"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034949"
 ---
 # <a name="upgrading-code-to-the-latest-platform"></a>Aggiornamento del codice alla piattaforma più recente
 
-Questo articolo illustra come eseguire l'aggiornamento della piattaforma Microsoft Dynamics 365 for Operations alla versione più recente.
+Il [portale cloud partner](https://cloudpartner.azure.com/) non supporta più la creazione e la gestione di Dynamics 365 per le offerte per Finanza e operazioni. Questa funzionalità è stata invece spostata nel portale del [centro](https://partner.microsoft.com/)per i partner Microsoft. Per altre informazioni, vedere [creare una nuova offerta di Dynamics 365 per le operazioni](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
 
-## <a name="overview"></a>Panoramica
-
-La piattaforma Microsoft Dynamics 365 for Operations include i componenti seguenti:
-
-I file binari della piattaforma Dynamics 365 for Operations, come Server oggetti applicativi (AOS), Data Management Framework, il framework di reporting e business intelligence (BI), gli strumenti di sviluppo e i servizi di analisi. I pacchetti Struttura ad oggetti applicativi (AOT) seguenti:
-
-1. Piattaforma applicativa
-2. Application Foundation
-3. Test Essentials
-
-**Importante**: Per spostare il più recente di Dynamics 365 per la piattaforma di operazioni, di Dynamics 365 per l'implementazione di operazioni non può contenere tutte le personalizzazioni (sovrapposizione) di tutti i pacchetti di AOT che appartengono alla piattaforma. Questa restrizione è stata introdotta nell'update 3 della piattaforma per consentire aggiornamenti continui senza problemi della piattaforma. Se si esegue una piattaforma precedente all'update 3, vedere la sezione relativa all'aggiornamento all'update 3 della piattaforma da una build precedente in fondo a questo articolo.
-
-Per altre informazioni sull'aggiornamento del codice, vedere [qui](https://docs.microsoft.com/dynamics365/operations/dev-itpro/migration-upgrade/upgrade-latest-platform-update).
+Prima di creare una nuova offerta di Dynamics 365 per le operazioni, è necessario leggere [creare un account del centro](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per i partner e quindi aprire il [Dashboard del Marketplace commerciale](https://partner.microsoft.com/dashboard/directory) con la pagina **Panoramica** selezionata. Per creare l'offerta, seguire le istruzioni riportate in [creare una nuova offerta di Dynamics 365 per le operazioni](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) .

@@ -1,22 +1,22 @@
 ---
 title: Trasformazione Chiave surrogata per il flusso di dati di mapping di Azure Data Factory
-description: Come usare Mapping di trasformazione di Azure Data Factory dei dati del flusso surrogato chiave per generare valori di chiave sequenziali
+description: Come utilizzare la trasformazione della chiave surrogata del flusso di dati di Azure Data Factory per generare valori di chiave sequenziale
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: eaa1c577f7e208400d3430222b006e0dbbd7956a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45e2d35a3b0a3f3c89913bbe70d7c43c17cbcee0
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61350630"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029182"
 ---
-# <a name="mapping-data-flow-surrogate-key-transformation"></a>Mapping di trasformazione del chiave surrogata flusso di dati
+# <a name="mapping-data-flow-surrogate-key-transformation"></a>Trasformazione della chiave surrogata del flusso di dati mapping
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Usare la trasformazione Chiave surrogata per aggiungere un valore di chiave arbitrario non business incrementale al set di righe del flusso di dati. Ciò è utile quando si progettano le tabelle delle dimensioni in un modello di dati analitici con schema star in cui ogni membro nelle tabelle delle dimensioni deve avere una chiave univoca non business, parte della metodologia di data warehousing Kimball.
 
@@ -26,30 +26,30 @@ Usare la trasformazione Chiave surrogata per aggiungere un valore di chiave arbi
 
 "Start Value" (Valore iniziale) è il punto di inizio del valore incrementale.
 
-## <a name="increment-keys-from-existing-sources"></a>Chiavi di incremento da origini esistenti
+## <a name="increment-keys-from-existing-sources"></a>Incrementa le chiavi da origini esistenti
 
-Se si desidera avviare la sequenza da un valore esistente in un'origine, è possibile utilizzare una trasformazione colonna derivata subito dopo la trasformazione chiave surrogata e sommare i due valori:
+Se si vuole avviare la sequenza da un valore presente in un'origine, è possibile usare una trasformazione colonna derivata immediatamente dopo la trasformazione chiave surrogata e aggiungere i due valori insieme:
 
-![SK aggiungere Max](media/data-flow/sk006.png "surrogato chiave trasformazione aggiungere Max")
+Aggiunta della trasformazione ![massima](media/data-flow/sk006.png "chiave surrogata") SK aggiunta max
 
-Per inizializzare il valore della chiave con il numero massimo precedente, esistono due tecniche che è possibile usare:
+Per eseguire il seeding del valore della chiave con il valore max precedente, sono disponibili due tecniche che è possibile usare:
 
-### <a name="database-sources"></a>Origini di database
+### <a name="database-sources"></a>Origini database
 
-Usare l'opzione "Query" per selezionare max () dell'origine mediante la trasformazione origine:
+Usare l'opzione "query" per selezionare MAX () dall'origine usando la trasformazione di origine:
 
-![Query principali di surrogati](media/data-flow/sk002.png "chiave trasformazione Query di surrogati")
+(media/data-flow/sk002.png "Query di trasformazione chiave surrogata") ![query chiave]surrogata
 
 ### <a name="file-sources"></a>Origini file
 
-Se il valore massimo precedente è in un file, è possibile utilizzare la trasformazione di origine insieme a una trasformazione aggregazione e usare la funzione di espressione max () per ottenere il valore massimo precedente:
+Se il valore max precedente si trova in un file, è possibile utilizzare la trasformazione origine insieme a una trasformazione aggregazione e utilizzare la funzione espressione MAX () per ottenere il valore massimo precedente:
 
-![File di chiave di surrogati](media/data-flow/sk008.png "surrogati File di chiave")
+File di chiave(media/data-flow/sk008.png "surrogato") del ![file di chiave surrogato]
 
-In entrambi i casi, è necessario aggiungere i nuovi dati in ingresso con l'origine che contiene il valore massimo precedente:
+In entrambi i casi, è necessario aggiungere i nuovi dati in ingresso insieme all'origine che contiene il valore max precedente:
 
-![Join con chiave di surrogati](media/data-flow/sk004.png "surrogati Join con chiave")
+![](media/data-flow/sk004.png "Join") chiave surrogata join chiave surrogata
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questi esempi usano il [partecipare](data-flow-join.md) e [colonna derivata](data-flow-derived-column.md) trasformazioni.
+In questi esempi vengono utilizzate le trasformazioni [join](data-flow-join.md) e [colonna derivata](data-flow-derived-column.md) .

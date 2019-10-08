@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2019
+ms.date: 10/07/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 0cae5166fbbba650b270829b9c8e3711b12a574e
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 8d8f796fa7db9cab5bcac88a293dd1b98707a571
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073943"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025766"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
 I budget in Gestione costi consentono di pianificare e promuovere la responsabilizzazione nell'organizzazione. Con i budget, è possibile tenere traccia dei costi sostenuti per i servizi di Azure consumati o sottoscritti per un determinato periodo. Risultano utili per informare altri utenti in merito alle spese per una gestione proattiva dei costi e per monitorare l'andamento della spesa nel tempo. Quando vengono superate le soglie di budget create, vengono attivate solo notifiche. Nessuna delle risorse è interessata e il consumo non viene interrotto. È possibile usare i budget per confrontare e tenere traccia della spesa durante l'analisi dei costi.
 
-I dati relativi ai costi e all'utilizzo sono in genere disponibili entro 8-12 ore e i budget vengono valutati a fronte di questi costi ogni quattro ore. Le notifiche tramite posta elettronica vengono normalmente ricevute entro 12-16 ore.
+I dati relativi ai costi e all'utilizzo sono in genere disponibili entro 12-16 ore e i budget vengono valutati a fronte di questi costi ogni quattro ore. Le notifiche tramite posta elettronica vengono normalmente ricevute entro 12-16 ore.
 
 I budget vengono reimpostati automaticamente alla fine di un periodo (mensile, trimestrale o annuale) per lo stesso importo di budget quando si seleziona una data di scadenza nel futuro. Dato che vengono reimpostati con lo stesso importo di budget, è necessario creare budget distinti se gli importi in valuta previsti differiscono per periodi futuri.
 
@@ -30,7 +30,7 @@ Gli esempi in questa esercitazione illustrano la creazione e la modifica di un b
 Guarda il video su [come creare un budget per monitorare la spesa con gestione costi di Azure](https://www.youtube.com/watch?v=ExIVG_Gr45A) per scoprire come creare budget in Azure per monitorare la spesa.
 
 
-In questa esercitazione si imparerà a:
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un budget nel portale di Azure
@@ -78,7 +78,7 @@ In base ai campi scelti nel budget fino a questo punto, viene visualizzato un gr
 
 ![Esempio che mostra la creazione del budget con i dati dei costi mensili ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-Dopo aver configurato l'importo del budget, fare clic su **Avanti** per configurare gli avvisi del budget. Per i budget sono richiesti almeno una soglia per i costi (% del budget) e un indirizzo di posta elettronica corrispondente. Facoltativamente, è possibile includere fino a cinque soglie e cinque indirizzi di posta elettronica in un unico budget. Quando viene raggiunta una soglia di budget, in genere vengono ricevute notifiche di posta elettronica in meno di otto ore. Per altre informazioni sulle notifiche, vedere [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md) (Usare avvisi per i costi). Nell'esempio seguente viene generato un avviso di posta elettronica quando viene raggiunto il 90% del budget.
+Dopo aver configurato l'importo del budget, fare clic su **Avanti** per configurare gli avvisi del budget. Per i budget sono richiesti almeno una soglia per i costi (% del budget) e un indirizzo di posta elettronica corrispondente. Facoltativamente, è possibile includere fino a cinque soglie e cinque indirizzi di posta elettronica in un unico budget. Quando viene soddisfatta una soglia di budget, le notifiche tramite posta elettronica vengono normalmente ricevute in meno di 20 ore. Per altre informazioni sulle notifiche, vedere [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md) (Usare avvisi per i costi). Nell'esempio seguente viene generato un avviso di posta elettronica quando viene raggiunto il 90% del budget.
 
 ![Esempio che mostra le condizioni di avviso](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 

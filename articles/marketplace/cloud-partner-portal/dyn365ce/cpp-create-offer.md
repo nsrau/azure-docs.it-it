@@ -1,39 +1,21 @@
 ---
-title: Creare un Dynamics 365 per l'offerta di applicazione di coinvolgimento dei clienti | Azure Marketplace
-description: Come creare una nuova offerta di applicazione Dynamics 365 for Customer Engagement nel marketplace AppSource.
+title: Creare un'offerta di applicazione Dynamics 365 per Customer Engagement | Azure Marketplace
+description: Questo articolo CPP è stato deprecato e puntato all'articolo del PC; è stato "come creare una nuova offerta Dynamics 365 for Customer Engagement per le applicazioni in AppSource Marketplace".
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/21/2018
-ms.author: pabutler
-ms.openlocfilehash: ebfef673102878e50f744081ec9b46fd4cd1796b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 1682abd3983d3e090b59e6452c4761913e29da3d
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942699"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034340"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement-application-offer"></a>Creare un'offerta di applicazione Dynamics 365 for Customer Engagement
 
-Questa sezione descrive come creare una nuova offerta di applicazione Dynamics 365 for Customer Engagement per il marketplace AppSource. Ogni offerta viene visualizzata nel marketplace come entità a sé stante ed è composta dai seguenti gruppi di asset e servizi di supporto: dettagli dell'offerta, informazioni tecniche sul pacchetto, artefatti di marketing, informazioni sul supporto e specifiche facoltative Test Drive. 
+Il [portale cloud partner](https://cloudpartner.azure.com/) non supporta più la creazione e la gestione delle offerte Dynamics 365 Customer Engagement. Questa funzionalità è stata invece spostata nel portale del [centro](https://partner.microsoft.com/)per i partner Microsoft. Per ulteriori informazioni, vedere la pagina relativa alla [creazione di una nuova offerta Dynamics 365 per Customer Engagement & PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer).
 
-
-## <a name="new-offer-form"></a>Modulo Nuova offerta
-
-Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/) e quindi selezionare **+ Nuova offerta** nella barra dei menu a sinistra. Nel menu Nuova offerta selezionare **Dynamics 365 for Customer Engagement**:
-
-![Voce di menu New offer (Nuova offerta) per applicazione Dynamics 365 for Customer Engagement](./media/new-dyn365ce-menu-item.png)
-
-Viene visualizzato il modulo **New offer** (Nuova offerta) con la scheda iniziale [**Offer Settings** (Impostazioni dell'offerta)](./cpp-offer-settings-tab.md).
-
-
-## <a name="next-steps"></a>Passaggi successivi
-
-La pagina **New offer** (Nuova offerta) include un set di schede e di campi modulo che è possibile usare per creare una nuova offerta. Gli articoli seguenti illustrano come definire i gruppi di asset e le informazioni di supporto per la nuova offerta.
-
-* [Scheda Impostazioni dell'offerta](./cpp-offer-settings-tab.md)
-* [Scheda Informazioni tecniche](./cpp-technical-info-tab.md)
-* [Scheda Test Drive](./cpp-testdrive-tab.md)
-* [Scheda Dettagli vetrina](./cpp-storefront-details-tab.md)
-* [Scheda Contatti](./cpp-contacts-tab.md)
+Prima di creare una nuova offerta di Dynamics 365 per Customer Engagement, è necessario leggere [creare un account del centro](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per i partner e quindi aprire il [Dashboard del Marketplace commerciale](https://partner.microsoft.com/dashboard/directory) con la pagina **Panoramica** selezionata. Per creare l'offerta, seguire le istruzioni riportate in [creare un nuovo Dynamics 365 per Customer Engagement & offerta PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) .

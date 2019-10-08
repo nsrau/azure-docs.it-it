@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/02/2019
-ms.openlocfilehash: df9e6e3a9116b9a4490d8847e9a9d3e9e112f4f7
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.date: 10/03/2019
+ms.openlocfilehash: 16b0fdcbae51b30e14fbf7ea4d98699dfaf19804
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098784"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035724"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizzare i cluster HDInsight di Azure usando azioni script
 
@@ -20,7 +20,7 @@ HDInsight offre un metodo di configurazione denominato **azioni script** che ric
 
 Le azioni script possono anche essere pubblicate in Azure Marketplace come applicazione HDInsight. Per altre informazioni sulle applicazioni HDInsight, vedere [Pubblicare un'applicazione HDInsight in Azure Marketplace](hdinsight-apps-publish-applications.md).
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>Permissions
 
 Per un cluster HDInsight aggiunto a un dominio, sono necessarie due autorizzazioni di Apache Ambari per l'uso di azioni script con il cluster:
 
@@ -146,10 +146,10 @@ HDInsight fornisce script di esempio per installare i componenti seguenti nei cl
 
 | Nome | Script |
 | --- | --- |
-| Aggiungere un account di archiviazione di Azure |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Vedere [Aggiungere altri account di archiviazione a HDInsight](hdinsight-hadoop-add-storage.md). |
-| Installare Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Vedere [Installare e usare Hue nei cluster Hadoop di HDInsight](hdinsight-hadoop-hue-linux.md). |
-| Installare Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Vedere [Installare Apache Giraph nei cluster Hadoop di HDInsight](hdinsight-hadoop-giraph-install-linux.md). |
-| Precaricare le librerie Hive |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Vedere [Aggiungere librerie Apache Hive personalizzate durante la creazione del cluster HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
+| Aggiungi un account di archiviazione di Azure |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh` (Indici per tabelle con ottimizzazione per la memoria). Vedere [Aggiungere altri account di archiviazione a HDInsight](hdinsight-hadoop-add-storage.md). |
+| Installare Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh` (Indici per tabelle con ottimizzazione per la memoria). Vedere [Installare e usare Hue nei cluster Hadoop di HDInsight](hdinsight-hadoop-hue-linux.md). |
+| Installare Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh` (Indici per tabelle con ottimizzazione per la memoria). Vedere [Installare Apache Giraph nei cluster Hadoop di HDInsight](hdinsight-hadoop-giraph-install-linux.md). |
+| Precaricare le librerie Hive |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh` (Indici per tabelle con ottimizzazione per la memoria). Vedere [Aggiungere librerie Apache Hive personalizzate durante la creazione del cluster HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>Usare un'azione script durante la creazione di un cluster
 
@@ -157,13 +157,9 @@ In questa sezione vengono illustrate le diverse modalità d'uso delle azioni scr
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Usare un'azione script durante la creazione di un cluster dal portale di Azure
 
-1. Per iniziare, creare un cluster come descritto in [Configurare i cluster di HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro ancora](hdinsight-hadoop-provision-linux-clusters.md). Durante la creazione del cluster si raggiunge la pagina __Riepilogo del cluster__. Nella pagina __Riepilogo del cluster__, selezionare il collegamento __Modifica__ per __Impostazioni avanzate__.
+1. Iniziare a creare un cluster come descritto in [creare cluster basati su Linux in HDInsight usando il portale di Azure](hdinsight-hadoop-create-linux-clusters-portal.md). Durante la creazione del cluster, si arriva al passaggio 6, **azioni script**. Passare a @no__t **facoltativo**-1 **+ Invia nuovo**.
 
-    ![Impostazioni avanzate del cluster portale di Azure](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
-
-1. Nella sezione __Impostazioni avanzate__ selezionare __Azioni script__. Nella sezione __Azioni script__ selezionare __+ Invia nuova__.
-
-    ![Azioni script del portale-Invia nuovo](./media/hdinsight-hadoop-customize-cluster-linux/add-new-script-action.png)
+    ![Azione di script di portale di Azure cluster](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-classic-script-action.png)
 
 1. Usare la voce __Seleziona uno script__ per selezionare uno script pronto. Per usare uno script personalizzato, selezionare __Personalizzato__. Specificare quindi __Nome__ e __URI script Bash__ per lo script.
 
@@ -185,7 +181,7 @@ In questa sezione vengono illustrate le diverse modalità d'uso delle azioni scr
 
     ![HDInsight di più azioni script](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
-    Dopo aver completato l'aggiunta degli script, selezionare il pulsante __Seleziona__ e quindi il pulsante __Avanti__ per tornare alla sezione __Riepilogo del cluster__.
+    Al termine dell'aggiunta degli script, selezionare il pulsante __Seleziona__ e quindi il pulsante __Avanti__ per passare alla sezione di __Riepilogo del cluster__ .
 
 1. Per creare il cluster, selezionare __Crea__ nella sezione __Riepilogo del cluster__.
 
@@ -235,9 +231,7 @@ Questa sezione illustra come applicare azioni script a un cluster in esecuzione.
 
 Accedere al [portale di Azure](https://portal.azure.com):
 
-1. Nel menu a sinistra selezionare **Tutti i servizi**.
-
-1. In **ANALISI** selezionare **Cluster HDInsight**.
+1. Dal menu a sinistra passare a **tutti i servizi** >  **Analytics** > **cluster HDInsight**.
 
 1. Selezionare il cluster nell'elenco, che aprirà la visualizzazione predefinita.
 
@@ -308,7 +302,7 @@ Prima di iniziare, assicurarsi di installare e configurare l'interfaccia della r
 
     Se non vengono specificati alcuni parametri per il comando, verrà richiesto di specificarli. Se lo script specificato con `-u` accetta parametri, è possibile specificarli usando il parametro `-p`.
 
-    I tipi di nodo validi sono `headnode`, `workernode`, e `zookeeper`. Se lo script deve essere applicato a più tipi di nodo, specificare i tipi separati da punto e virgola `;`. Ad esempio: `-n headnode;workernode`.
+    I tipi di nodo validi sono `headnode`, `workernode`, e `zookeeper`. Se lo script deve essere applicato a più tipi di nodo, specificare i tipi separati da punto e virgola `;`. Ad esempio `-n headnode;workernode`.
 
     Per salvare lo script in modo permanente, aggiungere `--persistOnSuccess`. È anche possibile salvare lo script in modo permanente in un secondo momento usando `azure hdinsight script-action persisted set`.
 
@@ -336,9 +330,7 @@ Per un esempio dell'uso di .NET SDK per applicare script a un cluster, vedere [A
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Nel menu a sinistra selezionare **Tutti i servizi**.
-
-1. In **ANALISI** selezionare **Cluster HDInsight**.
+1. Dal menu a sinistra passare a **tutti i servizi** > **Analytics** > **cluster HDInsight**.
 
 1. Selezionare il cluster nell'elenco, che aprirà la visualizzazione predefinita.
 
@@ -403,8 +395,8 @@ Nel servizio HDInsight sono disponibili due tipi di componenti open source:
 
   * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
   * Il linguaggio di query Hive [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
-  * [Apache Mahout](https://mahout.apache.org/). 
-    
+  * [Apache Mahout](https://mahout.apache.org/).
+
     Un elenco completo dei componenti del cluster è disponibile in [Componenti e versioni di Apache Hadoop disponibili in HDInsight.](hdinsight-component-versioning.md)
 
 * **Componenti personalizzati**. Un utente del cluster può installare o usare nel carico di lavoro qualsiasi componente disponibile nella community o creato da lui stesso.
@@ -424,7 +416,7 @@ Il servizio HDInsight permette di usare i componenti personalizzati in molti mod
 
 3. **Esempi**. Microsoft e altri utenti possono fornire esempi relativi all'uso dei componenti personalizzati più diffusi nei cluster HDInsight. Questi esempi vengono forniti senza supporto.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 È possibile usare l'interfaccia utente Web Ambari per visualizzare le informazioni registrate dalle azioni script. Se lo script ha esito negativo durante la creazione del cluster, i log sono disponibili anche nell'account di archiviazione predefinito associato al cluster. Questa sezione include informazioni su come recuperare i log usando entrambe le opzioni.
 

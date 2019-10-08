@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: c92dd48e81512b79fb72cbb751303504d1036594
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: df24f846f1600685803fdd485f1810d66e32ae37
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71982034"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028685"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Configurare un Lab per insegnare una classe di hacking etico 
 Questo articolo illustra come configurare una classe incentrata sul lato forense dell'hacking etico. I test di penetrazione, una pratica utilizzata dalla community di hacker etico, si verificano quando un utente tenta di accedere al sistema o alla rete per dimostrare le vulnerabilità che possono essere sfruttate da un utente malintenzionato malintenzionato. 
@@ -125,10 +125,14 @@ L'immagine Rapid7 Metasploitable è un'immagine configurata appositamente con vu
 Il modello è stato aggiornato e presenta le immagini necessarie per una classe di test di penetrazione etica, un'immagine con strumenti per eseguire il test di penetrazione e un'altra immagine con vulnerabilità di sicurezza da individuare. È ora possibile pubblicare l'immagine modello nella classe. Selezionare il pulsante **pubblica** nella pagina modello per pubblicare il modello nel Lab.
   
 
-## <a name="cost"></a>Costo  
+## <a name="cost"></a>Costi  
 Se si desidera stimare il costo di questo Lab, è possibile utilizzare l'esempio seguente: 
  
-Per una classe di 25 studenti con 20 ore di tempo di classe pianificata e 10 ore di quota per il lavoro o le assegnazioni, il prezzo del Lab sarà: 25 studenti * (20 + 10) ore * 55 unità Lab * 0,01 USD all'ora = 412,50. Per informazioni dettagliate sui prezzi, vedere [Azure Lab Services prezzi](https://azure.microsoft.com/pricing/details/lab-services/).
+Per una classe di 25 studenti con 20 ore di tempo di classe pianificata e 10 ore di quota per il lavoro o le assegnazioni, il prezzo del Lab sarà: 
+
+25 studenti * (20 + 10) ore * 55 unità Lab * 0,01 USD all'ora = 412,50 USD. 
+
+Per ulteriori informazioni sui prezzi, vedere [Azure Lab Services prezzi](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## <a name="conclusion"></a>Conclusione
 Questo articolo illustra la procedura per creare un Lab per la classe di hacker etici. Sono inclusi i passaggi per configurare la virtualizzazione annidata per la creazione di due macchine virtuali all'interno della macchina virtuale host per il testing.

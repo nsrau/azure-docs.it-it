@@ -1,25 +1,25 @@
 ---
 title: Creare un flusso di dati di mapping di Azure Data Factory
-description: Come creare un Azure Data Factory il Mapping di flusso di dati
+description: Come creare un flusso di dati di mapping Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 366ed60534544ebbf889e2f72fe703f9b821f871
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8ebc026add9dfd85d7cbe312a8cfffd3e365f82
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235663"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026871"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Creare un flusso di dati di Azure Data Factory
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 I flussi di dati di mapping in Azure Data Factory consentono di trasformare i dati su larga scala senza scrivere codice. È possibile progettare un processo di trasformazione dei dati nella finestra di progettazione del flusso dei dati costruendo una serie di trasformazioni. Iniziare con un numero qualsiasi di trasformazioni di origine seguite da passaggi di trasformazione dei dati. Completare quindi il flusso di dati con sink per indirizzare i risultati a una destinazione.
 
-Iniziare creando innanzitutto una nuova Data Factory di V2 dal portale di Azure. Dopo aver creato la nuova factory, fare clic sul riquadro "Author & Monitor" (Crea e monitora) per avviare l'interfaccia utente di Data Factory.
+Per iniziare, creare prima di tutto una nuova versione V2 Data Factory dalla portale di Azure. Dopo aver creato la nuova factory, fare clic sul riquadro "Author & Monitor" (Crea e monitora) per avviare l'interfaccia utente di Data Factory.
 
 ![Opzioni del flusso di dati](media/data-flow/v2portal.png "Creazione del flusso di dati")
 
@@ -35,10 +35,10 @@ Verrà richiesto di immettere le informazioni sull'account di Archiviazione BLOB
 
 ## <a name="create-new-data-flow"></a>Crea nuovo flusso di dati
 
-Usare la risorsa creare "segno" pulsante nella UI di ADF per creare flussi di dati.
+Usare il pulsante Crea risorsa "segno più" nell'interfaccia utente di ADF per creare flussi di dati.
 
 ![Opzioni del flusso di dati](media/data-flow/newresource.png "Nuova risorsa")
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Iniziare a creare la trasformazione dei dati con un [trasformazione sorgente](data-flow-source.md).
+Iniziare a compilare la trasformazione dei dati con una [trasformazione di origine](data-flow-source.md).

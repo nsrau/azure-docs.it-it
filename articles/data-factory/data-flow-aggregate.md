@@ -6,23 +6,23 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 778aefc05a9b12648e60d752a3c281cb18323125
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 0201cbdd05cd8aae4afb92b459bf58fb5ff6a142
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314237"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026970"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Trasformazione aggregazione nel flusso di dati di mapping 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 La trasformazione Aggregazione è la posizione in cui verranno definite le aggregazioni delle colonne nei flussi di dati. Utilizzando il generatore di espressioni, è possibile definire diversi tipi di aggregazione, ad esempio SUM, MIN, MAX e COUNT, che possono essere raggruppati in base alle colonne calcolate o esistenti.
 
 ## <a name="group-by"></a>Raggruppa per
 Consente di selezionare una colonna esistente o di creare una nuova colonna calcolata da utilizzare come clausola Group by per l'aggregazione. Per utilizzare una colonna esistente, selezionare la colonna desiderata dall'elenco a discesa. Per creare una nuova colonna calcolata, passare il puntatore del mouse sulla clausola e fare clic su "colonna calcolata". Verrà aperto il generatore di [espressioni del flusso di dati](concepts-data-flow-expression-builder.md). Dopo aver creato la colonna calcolata, immettere il nome della colonna di output nel campo "nome come". Se si desidera aggiungere una clausola Group by aggiuntiva, passare il puntatore del mouse su una clausola esistente e fare clic su' +'.
 
-![Raggruppamento della trasformazione aggregazione per impostazioni](media/data-flow/agg.png "Raggruppamento della trasformazione aggregazione per impostazioni")
+![Raggruppamento trasformazione aggregazione]raggruppamento(media/data-flow/agg.png "per impostazioni")
 
 > [!NOTE]
 > Una clausola Group by è facoltativa in una trasformazione aggregazione.
@@ -30,7 +30,7 @@ Consente di selezionare una colonna esistente o di creare una nuova colonna calc
 ## <a name="aggregate-column"></a>Colonna aggregazione 
 Scegliere la scheda "aggregazioni" per compilare le espressioni di aggregazione. È possibile scegliere una colonna esistente e sovrascrivere il valore con l'aggregazione oppure creare un nuovo campo con un nuovo nome. L'espressione di aggregazione viene immessa nella casella a destra accanto al selettore del nome di colonna. Per modificare l'espressione, fare clic sulla casella di testo per aprire il generatore di espressioni. Per aggiungere un'aggregazione aggiuntiva, passare il puntatore del mouse su un'espressione esistente e fare clic su' +' per creare un nuovo [modello](concepts-data-flow-column-pattern.md)di colonna o colonna di aggregazione.
 
-![Impostazioni aggregate trasformazione aggregazione](media/data-flow/agg2.png "Impostazioni aggregate trasformazione aggregazione")
+Aggregazione delle ![Impostazioni](media/data-flow/agg2.png "") di aggregazione della trasformazione aggregazione
 
 > [!NOTE]
 > Ogni espressione di aggregazione deve contenere almeno una funzione di aggregazione.

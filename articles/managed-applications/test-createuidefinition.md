@@ -6,12 +6,12 @@ ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 54eb2df06df56c33e1a3cd74e7a4a93c07aab682
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 5a28acfeeda12ab999b16f71cbe789fefcea736f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575671"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028355"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Testare l'interfaccia del portale per le applicazioni gestite di Azure
 
@@ -45,7 +45,7 @@ Se il modulo non viene visualizzato dopo aver selezionato **Anteprima**, è poss
 
 Se il modulo non viene visualizzato e viene visualizzata un'icona di un cloud con una lacrima, il form presenta un errore, ad esempio una proprietà mancante. Aprire il Strumenti di sviluppo Web nel browser. La **Console** consente di visualizzare i messaggi importanti relativi all'interfaccia.
 
-![Mostra l'errore](./media/test-createuidefinition/show-error.png)
+![Mostrare l'errore](./media/test-createuidefinition/show-error.png)
 
 ## <a name="use-test-script"></a>Usa script di test
 
@@ -93,7 +93,7 @@ Lo script apre una nuova scheda nel browser. Viene visualizzato il portale con l
 
 Specificare i valori per il campo. Al termine, verranno visualizzati i valori passati al modello che si trovano nella console degli strumenti di sviluppo del browser.
 
-![Mostra valori](./media/test-createuidefinition/show-json.png)
+![Mostrare i valori](./media/test-createuidefinition/show-json.png)
 
 È possibile usare questi valori come il file dei parametri per eseguire il test del modello di distribuzione.
 
@@ -101,7 +101,7 @@ Se il portale si blocca nella schermata di riepilogo, potrebbe essersi verificat
 
 ## <a name="test-your-solution-files"></a>Testare il file della soluzione
 
-Ora che si è verificato che l'interfaccia del portale funziona come previsto, è possibile verificare che il file createUiDefinition sia correttamente integrato con il file maintemplate.json. È possibile eseguire uno script di convalida dei test per testare il contenuto dei file di soluzione, incluso il file createUiDefinition. Lo script convalida la sintassi JSON, verifica la presenza di espressioni regex nei campi di testo e garantisce che i valori di output dell'interfaccia del portale corrispondono ai parametri del modello. Per informazioni sull'esecuzione di questo script, vedere [Eseguire i controlli di convalida statica per i modelli](https://github.com/Azure/azure-quickstart-templates/tree/master/test/template-validation-tests).
+Ora che si è verificato che l'interfaccia del portale funziona come previsto, è possibile verificare che il file createUiDefinition sia correttamente integrato con il file maintemplate.json. È possibile eseguire uno script di convalida dei test per testare il contenuto dei file di soluzione, incluso il file createUiDefinition. Lo script convalida la sintassi JSON, verifica la presenza di espressioni regex nei campi di testo e garantisce che i valori di output dell'interfaccia del portale corrispondono ai parametri del modello. Per informazioni sull'esecuzione di questo script, vedere [Eseguire i controlli di convalida statica per i modelli](https://github.com/Azure/azure-quickstart-templates/tree/master/test).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

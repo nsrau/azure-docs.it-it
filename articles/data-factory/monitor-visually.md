@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 99ae0139d7b12c0bfb87030d2b749b12834a4f96
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f7c27bde3806684045bc43f8ff99eefb14c8d04a
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141090"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029150"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Monitorare visivamente le data factory di Azure
 Azure Data Factory è un servizio di integrazione di dati basato sul cloud. È possibile usarlo per creare flussi di lavoro basati sui dati nel cloud per l'orchestrazione e l'automazione dello spostamento e della trasformazione dei dati. Con Azure Data Factory è possibile:
@@ -161,7 +161,7 @@ Selezionare l'icona **commenti e suggerimenti** per inviare commenti e suggerime
 
 ## <a name="alerts"></a>Avvisi
 
-È possibile generare avvisi sulle metriche supportate in Data Factory. Per iniziare, selezionare **monitoraggio** > **avvisi & metrica** nella pagina Monitoraggio data factory.
+È possibile generare avvisi sulle metriche supportate in Data Factory. Per iniziare, selezionare **monitoraggio** > **avvisi & metriche** nella pagina Monitoraggio data factory.
 
 ![Pagina Monitoraggio di data factory](media/monitor-visually/alerts01.png)
 
@@ -169,9 +169,9 @@ Per un'introduzione di sette minuti e una dimostrazione di questa funzionalità,
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Monitor-your-Azure-Data-Factory-pipelines-proactively-with-alerts/player]
 
-### <a name="create-alerts"></a>Crea avvisi
+### <a name="create-alerts"></a>Creare avvisi
 
-1.  Selezionare **nuova regola** di avviso per creare un nuovo avviso.
+1.  Selezionare **nuova regola di avviso** per creare un nuovo avviso.
 
     ![Pulsante nuova regola di avviso](media/monitor-visually/alerts02.png)
 

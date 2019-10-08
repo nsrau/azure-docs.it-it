@@ -1,40 +1,22 @@
 ---
 title: Prerequisiti per la cura delle applicazioni
-description: Elenco di prerequisiti per la cura delle applicazioni.
+description: Articolo relativo a CPP deprecato, collegato a un PC. was "elenco dei prerequisiti per la cura dell'applicazione".
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 03/13/2019
-ms.author: pabutler
-ms.openlocfilehash: 0219d7e8a94dd6710c553f2133442867e39f6870
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: a92d32084dd36433fdc872db66f0f375a770bfda
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935536"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034424"
 ---
 # <a name="prerequisites-for-application-curation"></a>Prerequisiti per la cura delle applicazioni
 
-Microsoft richiede revisioni specifiche per verificare che siano soddisfatti i requisiti seguenti:
+Il [portale cloud partner](https://cloudpartner.azure.com/) non supporta più la creazione e la gestione di Dynamics 365 per le offerte per Finanza e operazioni. Questa funzionalità è stata invece spostata nel portale del [centro](https://partner.microsoft.com/)per i partner Microsoft. Per altre informazioni, vedere [creare una nuova offerta di Dynamics 365 per le operazioni](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
 
-- Codice partner personalizzato che soddisfa le linee guida Microsoft.
-- Possibilità di distribuire correttamente un pacchetto di soluzioni Microsoft Dynamics Lifecycle Services (LCS).
-- Possibilità di completare le transazioni.
-
-Attualmente, i partner devono dimostrare che questi requisiti siano stati soddisfatti eseguendo distribuzioni di prova e condividendo poi i risultati con Microsoft. Negli ambienti dei clienti non viene distribuito alcun codice che non sia stato convalidato da Microsoft. I partner devono completare i seguenti artefatti di cura e test:
-
-- Report di analisi codice
-- Modellatore di processi aziendali/script di test
-- Nome e descrizione del progetto
-- Backup del database aziendale
-- Pacchetti di dati e pacchetti di dati del processo
-- Metodologia
-- File binari (facoltativo)
-- Pacchetti distribuibili
-- Modelli (codice e test)
-- Contenuti di marketing
-
-Per altre informazioni sui requisiti tecnici e processi, vedere [convalidare le applicazioni per Finanza e operazioni](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions).  Inoltre, se non è già stato fatto, consultare il [Office 365, Dynamics 365, PowerApps e Power BI offrono Guida alla pubblicazione](../appsource-offer-publishing-guide.md).
-
+Prima di creare una nuova offerta di Dynamics 365 per le operazioni, è necessario leggere [creare un account del centro](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per i partner e quindi aprire il [Dashboard del Marketplace commerciale](https://partner.microsoft.com/dashboard/directory) con la pagina **Panoramica** selezionata. Per creare l'offerta, seguire le istruzioni riportate in [creare una nuova offerta di Dynamics 365 per le operazioni](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) .

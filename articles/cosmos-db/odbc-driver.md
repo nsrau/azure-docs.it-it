@@ -4,14 +4,14 @@ description: Informazioni su come usare il driver ODBC di Azure Cosmos DB per cr
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: b859d01a39f906f518a82d468c3c9267545b9a07
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e8a982a100655934d4ae3ecd64564cf2da82dbbc
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616889"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035565"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Connettersi ad Azure Cosmos DB usando gli strumenti di analisi BI con il driver ODBC
 
@@ -61,16 +61,26 @@ Attività iniziali con il driver ODBC.
     - **Descrizione**: breve descrizione dell'origine dati.
     - **Host**: URI dell'account Azure Cosmos DB. È possibile recuperarlo dalla pagina Chiavi di Azure Cosmos DB del portale di Azure, come illustrato nello screenshot seguente. 
     - **Chiave di accesso**: chiave di lettura/scrittura o di sola lettura primaria o secondaria indicata nella pagina Chiavi di Azure Cosmos DB del portale di Azure, come illustrato nello screenshot seguente. È consigliabile usare la chiave di sola lettura se il DSN viene usato per l'elaborazione e la creazione di report su dati di sola lettura.
-    ![Pagina Chiavi di Azure Cosmos DB](./media/odbc-driver/odbc-driver-keys.png)
+    ![Pagina Chiavi di Azure Cosmos DB](./media/odbc-driver/odbc-cosmos-account-keys.png)
     - **Encrypt Access Key for** (Crittografa chiave di accesso per): selezionare la scelta migliore in base agli utenti del computer. 
     
 1. Fare clic sul pulsante **Test** per assicurarsi che sia possibile connettersi all'account di Azure Cosmos DB. 
 
-1. Fare clic su **Opzioni avanzate** e impostare i valori seguenti:
+1.  Fare clic su **Opzioni avanzate** e impostare i valori seguenti:
+    *  **Versione dell'API REST**: Selezionare la [versione dell'API REST](https://docs.microsoft.com/rest/api/cosmos-db/) per le operazioni. Il valore predefinito 2015-12-16. Se si dispone di contenitori con [chiavi di partizione di grandi dimensioni](large-partition-keys.md) e si richiede l'API REST versione 2018-12-31:
+        - Digitare **2018-12-31** per la versione dell'API REST
+        - Nel menu **Start** Digitare "regedit" per trovare e aprire l'applicazione dell' **Editor del registro di sistema** .
+        - Nell'editor del registro di sistema passare al percorso: **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC. INI**
+        - Creare una nuova sottochiave con lo stesso nome del DSN, ad esempio "DSN ODBC account contoso".
+        - Passare alla sottochiave "contoso account ODBC DSN".
+        - Fare clic con il pulsante destro del mouse per aggiungere un nuovo valore **stringa** :
+            - Nome valore: **IgnoreSessionToken**
+            - Dati valore: **1**
+             @ no__t-impostazioni Editor 2Registry @ no__t-3
     - **Query Consistency** (Coerenza query): Selezionare il [livello di coerenza](consistency-levels.md) per le operazioni. Il valore predefinito è Session.
     - **Number of Retries** (Numero di tentativi): immettere il numero di tentativi di un'operazione se la richiesta iniziale non viene completata a causa della limitazione di velocità del servizio.
     - **File di schema**: si dispone di una serie di opzioni.
-        - Per impostazione predefinita, lasciando vuota questa voce, il driver analizzerà la prima pagina di dati di tutte le raccolte per individuare lo schema di ciascuna raccolta. L'operazione è definita Mapping raccolta. Senza un file di schema definito, il driver deve eseguire l'analisi per ogni sessione di driver. Possono quindi verificarsi tempi di avvio più elevati per un'applicazione che usa DSN. È consigliabile associare sempre un file di schema per un DSN.
+        - Per impostazione predefinita, se si lascia vuota questa voce, il driver esegue l'analisi della prima pagina di dati per tutti i contenitori per determinare lo schema di ogni contenitore. Questa operazione è nota come mapping dei contenitori. Senza un file di schema definito, il driver deve eseguire l'analisi per ogni sessione di driver. Possono quindi verificarsi tempi di avvio più elevati per un'applicazione che usa DSN. È consigliabile associare sempre un file di schema per un DSN.
         - Se si dispone già di un file di schema, probabilmente creato con l'Editor schema, è possibile fare clic su **Sfoglia**, selezionare il file, fare clic su **Salva** e quindi su **OK**.
         - Per creare un nuovo schema, fare clic su **OK** e quindi su **Editor schema** nella finestra principale. Andare quindi alle informazioni di Editor schema. Dopo la creazione del nuovo file di schema, ricordarsi di tornare alla finestra **Opzioni avanzate** per includere il file di schema appena creato.
 
@@ -78,17 +88,17 @@ Attività iniziali con il driver ODBC.
 
     ![Nuovo DSN ODBC di Azure Cosmos DB nella scheda User DSN (DSN utente)](./media/odbc-driver/odbc-driver-user-dsn.png)
 
-## <a id="#collection-mapping"></a>Passaggio 3: Creare una definizione dello schema usando il metodo di mapping raccolta
+## <a id="#container-mapping"></a>Passaggio 3: Creare una definizione dello schema usando il metodo di mapping del contenitore
 
-Esistono due tipi di metodi di campionamento da utilizzare: il **mapping raccolta** o i **delimitatori di tabella**. Una sessione di campionamento può usare entrambi i metodi, ma ogni raccolta può usarne solo uno specifico. La procedura seguente crea uno schema per i dati in una o più raccolte mediante il metodo di mapping raccolta. Questo metodo di campionamento recupera i dati nella pagina di una raccolta per determinare la struttura degli stessi e trasforma la raccolta in una tabella in ODBC. Questo metodo di campionamento è rapido ed efficiente quando i dati in una raccolta sono omogenei. Se una raccolta contiene tipi eterogenei di dati, è consigliabile usare il metodo di [mapping con delimitatori di tabelle](#table-mapping) in quanto consente un campionamento più efficiente per determinare le strutture di dati nella raccolta. 
+Esistono due tipi di metodi di campionamento che è possibile usare: **mapping del contenitore** o **delimitatori di tabella**. Una sessione di campionamento può utilizzare entrambi i metodi di campionamento, ma ogni contenitore può utilizzare solo un metodo di campionamento specifico. La procedura seguente crea uno schema per i dati in uno o più contenitori usando il metodo di mapping del contenitore. Questo metodo di campionamento recupera i dati nella pagina di un contenitore per determinare la struttura dei dati. Consente di trasporre un contenitore a una tabella sul lato ODBC. Questo metodo di campionamento è efficace e veloce quando i dati in un contenitore sono omogenei. Se un contenitore contiene il tipo di dati eterogeneo, è consigliabile usare il [metodo di mapping delimitatori di tabella](#table-mapping) in quanto fornisce un metodo di campionamento più affidabile per determinare le strutture dei dati nel contenitore. 
 
 1. Dopo aver completato i passaggi 1-4 in [connettersi al database di Azure Cosmos](#connect), fare clic su **Editor schemi** nella finestra di **Azure Cosmos DB impostazione DSN del driver ODBC** .
 
     ![Pulsante Editor schemi nella finestra Azure Cosmos DB ODBC Driver DSN Setup (Configurazione DSN driver ODBC di Azure Cosmos DB)](./media/odbc-driver/odbc-driver-schema-editor.png)
 1. Nella finestra **Editor schema**, fare clic su **Crea nuovo**.
-    La finestra **Generate Schema** (Genera schema) mostra tutte le raccolte nell'account di Azure Cosmos DB. 
+    Nella finestra **Genera schema** vengono visualizzati tutti i contenitori nell'account Azure Cosmos DB. 
 
-1. Selezionare uno o più raccolte da campionare e fare clic su **Campiona**. 
+1. Selezionare uno o più contenitori da campionare, quindi fare clic su **esempio**. 
 
 1. Nella scheda **Visualizzazione progettazione** vengono rappresentati il database, lo schema e la tabella. Nella visualizzazione tabella, l'analisi mostra il set di proprietà associate ai nomi delle colonne: SQL Name, Source Name e così via.
     Per ogni colonna è possibile modificare i valori nome SQL della colonna, tipo SQL, lunghezza SQL (se applicabile) e le proprietà Scale (se applicabile), Precision (se applicabile) e Nullable.
@@ -101,16 +111,16 @@ Esistono due tipi di metodi di campionamento da utilizzare: il **mapping raccolt
 
 ## <a id="table-mapping"></a>Passaggio 4: Creare una definizione dello schema usando il metodo di mapping con delimitatori di tabella
 
-Esistono due tipi di metodi di campionamento da utilizzare: il **mapping raccolta** o i **delimitatori di tabella**. Una sessione di campionamento può usare entrambi i metodi, ma ogni raccolta può usarne solo uno specifico. 
+Esistono due tipi di metodi di campionamento che è possibile usare: **mapping del contenitore** o **delimitatori di tabella**. Una sessione di campionamento può utilizzare entrambi i metodi di campionamento, ma ogni contenitore può utilizzare solo un metodo di campionamento specifico. 
 
-La procedura seguente crea uno schema per i dati in una o più raccolte mediante il metodo di **delimitatori di tabella**. È consigliabile usare questo metodo di campionamento quando le raccolte contengono tipi eterogenei di dati. È possibile usare questo metodo per definire come ambito di campionamento un set di attributi e i valori corrispondenti. Ad esempio, se un documento contiene una proprietà "Tipo", è possibile definire il campionamento per i valori di questa proprietà. Il risultato finale del campionamento sarà un set di tabelle per ciascun valore della proprietà Tipo specificata. Ad esempio, Tipo = Car produrrà una tabella Car mentre Tipo = Plane produrrà una tabella Plane.
+Nei passaggi seguenti viene creato uno schema per i dati in uno o più contenitori utilizzando il metodo di mapping **delimitatori di tabella** . Si consiglia di utilizzare questo metodo di campionamento quando i contenitori contengono tipi eterogenei di dati. È possibile usare questo metodo per definire come ambito di campionamento un set di attributi e i valori corrispondenti. Ad esempio, se un documento contiene una proprietà "Tipo", è possibile definire il campionamento per i valori di questa proprietà. Il risultato finale del campionamento sarà un set di tabelle per ciascun valore della proprietà Tipo specificata. Ad esempio, Tipo = Car produrrà una tabella Car mentre Tipo = Plane produrrà una tabella Plane.
 
 1. Dopo aver completato i passaggi 1-4 in [connettersi al database di Azure Cosmos](#connect), fare clic su **Editor schemi** nella finestra di Azure Cosmos DB impostazione DSN del driver ODBC.
 
 1. Nella finestra **Editor schema**, fare clic su **Crea nuovo**.
-    La finestra **Generate Schema** (Genera schema) mostra tutte le raccolte nell'account di Azure Cosmos DB. 
+    Nella finestra **Genera schema** vengono visualizzati tutti i contenitori nell'account Azure Cosmos DB. 
 
-1. Selezionare una raccolta nella scheda **Visualizzazione di esempio**. Nella colonna **Mapping Definition** (Definizione mapping) della raccolta fare clic su **Modifica**. A quel punto, nella finestra **Mapping Definition** (Definizione mapping) selezionare il metodo **Table Delimiters** (Delimitatori di tabella). Eseguire quindi le operazioni seguenti:
+1. Selezionare un contenitore nella scheda **visualizzazione esempio** , nella colonna **definizione mapping** per il contenitore, fare clic su **modifica**. A quel punto, nella finestra **Mapping Definition** (Definizione mapping) selezionare il metodo **Table Delimiters** (Delimitatori di tabella). Eseguire quindi le operazioni seguenti:
 
     a. Nel riquadro **Attributi** digitare il nome di una proprietà delimitatore. Si tratta di una proprietà nel documento per cui si desidera eseguire il campionamento. Digitare ad esempio City e premere INVIO. 
 
@@ -120,7 +130,7 @@ La procedura seguente crea uno schema per i dati in una o più raccolte mediante
 
 1. Fare clic su **OK**. 
 
-1. Dopo aver completato le definizioni di mapping per le raccolte da campionare, nella finestra **Editor schemi** fare clic su **Campiona**.
+1. Dopo aver completato le definizioni di mapping per i contenitori che si desidera campionare, nella finestra **Editor schemi** fare clic su **esempio**.
      Per ogni colonna è possibile modificare i valori nome SQL della colonna, tipo SQL, lunghezza SQL (se applicabile) e le proprietà Scale (se applicabile), Precision (se applicabile) e Nullable.
     - È possibile impostare **Nascondi colonna** su **true** se si desidera escludere la colonna dai risultati delle query. Le colonne contrassegnate con Nascondi colonna = true non vengono incluse nei risultati di selezione e proiezione, anche se fanno comunque parte dello schema. È ad esempio possibile nascondere tutte le proprietà di sistema richieste di Azure Cosmos DB che iniziano con `_`.
     - La colonna **id** è l'unico campo che non è possibile nascondere, poiché è usato come chiave primaria nello schema normalizzato. 
@@ -156,7 +166,7 @@ Per visualizzare il nuovo nome del server collegato, aggiornare l'elenco di serv
 
 ### <a name="query-linked-database"></a>Eseguire una query nel database collegato
 
-Per eseguire una query nel database collegato, immettere una query SSMS. In questo esempio la query seleziona dalla tabella della raccolta denominata `customers`:
+Per eseguire una query nel database collegato, immettere una query SSMS. In questo esempio la query seleziona dalla tabella nel contenitore denominata `customers`:
 
 ```sql
 SELECT * FROM OPENQUERY(DEMOCOSMOS, 'SELECT *  FROM [customers].[customers]')
@@ -184,7 +194,7 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 ## <a name="optional-creating-views"></a>(Facoltativo) Creazione di visualizzazioni
 È possibile definire e creare visualizzazioni come parte del processo di campionamento. Le visualizzazioni equivalgono alle visualizzazioni SQL. Sono di sola lettura e corrispondono alle selezioni e proiezioni definite nella query SQL di Azure Cosmos DB. 
 
-Per creare una visualizzazione dei dati, nella finestra **Editor schemi** passare alla colonna **Definizioni visualizzazioni** e fare clic su **Aggiungi** nella riga delle raccolte da campionare. 
+Per creare una visualizzazione per i dati, nella finestra **Editor schemi** , nella colonna **definizioni vista** , fare clic su **Aggiungi** nella riga del contenitore da campionare. 
     ![Creare una vista dei dati](./media/odbc-driver/odbc-driver-create-view.png)
 
 

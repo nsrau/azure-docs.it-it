@@ -8,20 +8,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/07/2019
 ms.author: makromer
-ms.openlocfilehash: 7db410e97046b6d251eb73e754e40eab09a2ee64
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.date: 10/07/2019
+ms.openlocfilehash: cbfa1acac34187263f8c4203e41bbe61d7e4c745
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981787"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030517"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Attività flusso di dati in Azure Data Factory
 
 Utilizzare l'attività flusso di dati per trasformare e spostare i dati tramite il mapping di flussi di dati. Se non si ha familiarità con i flussi di dati, vedere [Panoramica del flusso di dati di mapping](concepts-data-flow-overview.md)
-
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 ## <a name="syntax"></a>Sintassi
 
@@ -51,12 +49,12 @@ Utilizzare l'attività flusso di dati per trasformare e spostare i dati tramite 
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | Descrizione | Valori consentiti | Richiesto
+Proprietà | Descrizione | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
 Dataflow | Riferimento al flusso di dati in esecuzione | DataFlowReference | Yes
 integrationRuntime | Ambiente di calcolo in cui viene eseguito il flusso di dati | IntegrationRuntimeReference | Yes
 staging. linkedService | Se si usa un'origine o un sink di SQL DW, l'account di archiviazione usato per la gestione temporanea di base | LinkedServiceReference | Solo se il flusso di dati legge o scrive in SQL DW
-staging. folderPath | Se si usa un'origine o un sink di SQL DW, il percorso della cartella nell'account di archiviazione BLOB usato per la gestione temporanea di base | Stringa | Solo se il flusso di dati legge o scrive in SQL DW
+staging. folderPath | Se si usa un'origine o un sink di SQL DW, il percorso della cartella nell'account di archiviazione BLOB usato per la gestione temporanea di base | string | Solo se il flusso di dati legge o scrive in SQL DW
 
 Esegui flusso di dati(media/data-flow/activity-data-flow.png "esecuzione") ![flusso di dati]
 

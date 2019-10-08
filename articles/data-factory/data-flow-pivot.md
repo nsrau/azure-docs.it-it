@@ -6,21 +6,21 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 0b68007f8c3383997f0d31888198af866d38b590
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 1412f7d822d83a8712d27dd4e86311567d6ac714
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178650"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029307"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Trasformazione pivot data factory di Azure
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Usare la trasformazione Pivot nel flusso di dati di Azure Data Factory come un'aggregazione in cui i valori di riga distinti di una o più colonne di raggruppamento vengono trasformati in singole colonne. In pratica, è possibile trasformare tramite Pivot i valori di riga in nuove colonne (trasformare i dati in metadati).
 
 ![Opzioni di Pivot](media/data-flow/pivot1.png "Pivot 1")
 
-## <a name="group-by"></a>Raggruppa in base a
+## <a name="group-by"></a>Raggruppa per
 
 ![Opzioni di Pivot](media/data-flow/pivot2.png "Pivot 2")
 
@@ -60,7 +60,7 @@ La trasformazione pivot produrrà nuovi nomi di colonna dinamici in base ai dati
 
 Pivot genera i nuovi nomi di colonna in modo dinamico in base ai valori di riga. È possibile trasformare le nuove colonne in metadati a cui è possibile fare riferimento in un secondo momento nel flusso di dati. A tale scopo, fare clic sulla scheda Anteprima dati. Tutte le nuove colonne generate dalla trasformazione pivot vengono visualizzate con l'icona "Drifted" nell'intestazione della tabella. Fai clic sul pulsante "mappato" per trasformare le nuove colonne in metadati, facendole parte del modello del flusso di dati.
 
-![Colonne pivot](media/data-flow/newpivot1.png "Eseguire il mapping delle colonne pivot")
+Colonne pivot con(media/data-flow/newpivot1.png "mapping") delle ![colonne pivot]
 
 ### <a name="landing-new-columns-in-sink"></a>Destinazione di nuove colonne nel sink
 

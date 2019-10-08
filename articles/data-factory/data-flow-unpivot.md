@@ -7,16 +7,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 160ff8bbcb8ce5a4f1f32245cc366281640c5919
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28fedf96ec178aae0615129421bdae7721a66105
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61348321"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029938"
 ---
-# <a name="azure-data-factory-unpivot-transformation"></a>Trasformazione Unpivot Data Factory di Azure
+# <a name="azure-data-factory-unpivot-transformation"></a>Trasformazione UnPivot Azure Data Factory
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Usare UnPivot nel flusso di dati di mapping di Azure Data Factory come strumento per trasformare un set di dati non normalizzato in una versione più normalizzata, espandendo valori da più colonne in un singolo record in più record con gli stessi valori in una singola colonna.
 
@@ -42,7 +42,7 @@ Scegliere infine l'aggregazione che si desidera usare per i valori trasformati t
 
 (Facoltativo) È possibile impostare un criterio di denominazione con prefisso, valore intermedio e suffisso da aggiungere a ogni nuovo nome di colonna dai valori di riga.
 
-Ad esempio, se si trasforma tramite Pivot "Vendite" in base ad "Area" verrebbero generati semplicemente nuovi valori di colonna da ogni valore delle vendite. Ad esempio:  "25", "50", "1000", ... Tuttavia, se si imposta un valore di prefisso "Vendite", ai valori verrà aggiunto il prefisso "Vendite".
+Ad esempio, se si trasforma tramite Pivot "Vendite" in base ad "Area" verrebbero generati semplicemente nuovi valori di colonna da ogni valore delle vendite. Esempio: "25", "50", "1000", ... Tuttavia, se si imposta un valore di prefisso "Vendite", ai valori verrà aggiunto il prefisso "Vendite".
 
 <img src="media/data-flow/unpivot3.png" width="400">
 
@@ -54,4 +54,4 @@ Il set di risultati finale dei dati trasformati tramite UnPivot mostra i totali 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare la [trasformazione Pivot](data-flow-pivot.md) a pivot righe alle colonne.
+Utilizzare la [trasformazione pivot](data-flow-pivot.md) per trasformare le righe in colonne.

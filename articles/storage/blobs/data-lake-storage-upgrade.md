@@ -8,12 +8,12 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: 4c01cd36d489d8e7128bed645c8cb1127c6c0c25
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: aaff1d5e657b8acb28293f3450849b1446727680
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130414"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030782"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Aggiornare le soluzioni di analisi dei Big Data da Azure Data Lake Storage Gen1 ad Azure Data Lake Storage Gen2
 
@@ -115,7 +115,7 @@ Le API di gestione consentono di gestire gli account, mentre file system API con
 
 Quando si usa Data Lake Storage Gen1, è possibile usare un'ampia gamma di prodotti e servizi Microsoft nelle pipeline end-to-end. Questi servizi e prodotti usano Data Lake Storage Gen1 direttamente o indirettamente. Questa tabella mostra un elenco dei servizi modificati per usare Data Lake Storage Gen1 e illustra quali sono attualmente compatibili con Data Lake Storage Gen2.
 
-| **Area**             | **Disponibilità per Data Lake Storage Gen1**                                                                                                                                    | **Disponibilità per Data Lake Storage Gen2 - Con autenticazione con chiave condivisa**                                                                                                           | **Disponibilità per Data Lake Storage Gen2 - Con OAuth**                                                                                        |
+| **Area**             | **Disponibilità per Data Lake Storage Gen1**                                                                                                                                    | **Disponibilità per Data Lake Storage Gen2 - Con autenticazione con chiave condivisa**                                                                                                           | **Disponibilità per Data Lake Storage Gen2 - Con OAuth**                                                                                        |
 |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | Framework di analisi  | [Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-azure-datalake/index.html)                                                                                       | *Ora disponibile*                                                                                                                                                              | *Ora disponibile*                                                                                                                                 |
 |                      | [HDInsight](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal)                                                               | [HDInsight](https://docs.microsoft.com/azure/storage/data-lake-storage/quickstart-create-connect-hdi-cluster) 3.6 - *Ora disponibile ora* HDInsight 4.0 - *Non ancora disponibile*      | HDInsight 3.6 ESP: *ora disponibile* <br><br>  HDInsight 4.0 ESP: *non ancora disponibile*                                                                 |
@@ -245,7 +245,7 @@ Quando è necessario compilare applicazioni in Data Lake Storage Gen1 o Data Lak
 
 #### <a name="uri-changes"></a>Modifiche all'URI
 
-L'attività principale consiste nel tradurre gli URI con prefisso `adl://` in URI `abfss://` con prefisso.
+L'attività principale consiste nel tradurre gli URI con prefisso `adl://` in URI con prefisso `abfss://`.
 
 Lo schema URI dettagliato per Data Lake Storage Gen1 è riportato [qui](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store), ma quello generale è *adl://mydatalakestore.azuredatalakestore.net/\<percorso_file\>.*
 

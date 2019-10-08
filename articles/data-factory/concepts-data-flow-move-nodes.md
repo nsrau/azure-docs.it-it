@@ -1,21 +1,21 @@
 ---
 title: Spostare i nodi in Flusso di dati di Azure Data Factory
-description: Come spostare i nodi in un Azure Data Factory Mapping diagramma flusso di dati
+description: Come spostare nodi in un diagramma del flusso di dati di mapping Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 951a5d4fcbd561b085b0377bde48e820dc8972a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 853fff955a953052b94ad4e7e1dd55371069c30b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65519961"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030198"
 ---
 # <a name="mapping-data-flow-move-nodes"></a>Nodi di spostamento del flusso di dati di mapping
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ![Opzioni della trasformazione Aggregazione](media/data-flow/agghead.png "intestazione aggregatore")
 
@@ -33,4 +33,4 @@ Se dopo il nodo selezionato non sono presenti trasformazioni successive, nella n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver completato la progettazione del flusso di dati, attivare il pulsante di debug e testarla orizzontale in modalità di debug sia direttamente nel [progettazione del flusso di dati](concepts-data-flow-debug-mode.md) oppure [debug di pipeline](control-flow-execute-data-flow-activity.md).
+Dopo aver completato la progettazione del flusso di dati, attivare il pulsante debug e testarlo in modalità debug direttamente nella [finestra di progettazione del flusso di dati](concepts-data-flow-debug-mode.md) o nel debug della [pipeline](control-flow-execute-data-flow-activity.md).

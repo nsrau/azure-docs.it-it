@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a33c6f6621e7fc7944bc116b27e5f26de88f77d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0abc7c4ae370a894c46eda38df41d64a6ef2cd91
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389570"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027713"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Come attivare azioni complesse con avvisi di Monitoraggio di Azure
 
@@ -38,7 +38,7 @@ Il processo è simile se si vuole che l'app per la logica esegua un'azione diver
 
 1.  Nel portale di Azure selezionare **Crea una risorsa** nell'angolo superiore sinistro.
 
-2.  Cercare e selezionare  **App per la logica** e quindi selezionare  **Crea**.
+2.  Cercare e selezionare **App per la logica** e quindi selezionare **Crea**.
 
 3.  Assegnare un **Nome** all'app per la logica, scegliere un **Gruppo di risorse** e così via.
 
@@ -140,7 +140,7 @@ Quando un avviso richiama successivamente il gruppo di azioni, viene chiamata l'
 Le voci di integrità dei servizi di Azure fanno parte del log attività. Il processo di creazione dell'avviso è simile alla [creazione di un avviso del log attività](#create-an-activity-log-alert-administrative), ma con alcune differenze:
 
 - I passaggi da 1 a 7 sono gli stessi.
-- Passaggio 8, usare il seguente esempio di payload per il trigger di richiesta HTTP:
+- Per il passaggio 8, usare il payload di esempio seguente per il trigger di richiesta HTTP:
 
     ```json
     {
@@ -228,7 +228,7 @@ Le voci di integrità dei servizi di Azure fanno parte del log attività. Il pro
 Il processo di creazione di un avviso per la metrica è simile alla [creazione di un avviso del log attività](#create-an-activity-log-alert-administrative), ma con alcune differenze:
 
 - I passaggi da 1 a 7 sono gli stessi.
-- Passaggio 8, usare il seguente esempio di payload per il trigger di richiesta HTTP:
+- Per il passaggio 8, usare il payload di esempio seguente per il trigger di richiesta HTTP:
 
     ```json
     {

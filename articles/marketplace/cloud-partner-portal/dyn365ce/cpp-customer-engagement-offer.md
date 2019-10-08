@@ -1,18 +1,18 @@
 ---
 title: Dynamics 365 per l'offerta Customer Engagement per Azure Marketplace
-description: Viene illustrato come creare un'offerta Dynamics 365 for Customer Engagement per il marketplace AppSource tramite il portale Cloud Partner.
+description: Questo articolo CPP è stato deprecato, collegato all'articolo del PC; was "spiega come creare un'offerta Dynamics 365 for Customer Engagement per AppSource Marketplace usando il portale Cloud Partner".
 services: Dynamics 365 for Customer Engagement, AppSource Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/17/2018
-ms.author: pabutler
-ms.openlocfilehash: 74d1c101139464f9ae5b22438e30a1fde30f18f2
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: a8904d53b421529ab08a40e809d31e58abfe9cc3
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173012"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034311"
 ---
 # <a name="dynamics-365-for-customer-engagement-offer"></a>Offerta Dynamics 365 for Customer Engagement
 

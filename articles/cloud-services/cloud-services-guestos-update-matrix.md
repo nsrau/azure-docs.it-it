@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/4/2019
+ms.date: 10/7/2019
 ms.author: raiye
-ms.openlocfilehash: 9e93cb6cf57a42463e631332fb4714457b9b675f
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 1a3945569002ea0ec88a9e23a6f02e7833d7690a
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275482"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035139"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
@@ -41,6 +41,9 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 In caso di dubbi su come aggiornare il sistema operativo guest, Vedere [queste informazioni][cloud updates].
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
+
+###### <a name="october-7-2019"></a>**7 ottobre 2019**
+È stato rilasciato il sistema operativo guest di settembre.
 
 ###### <a name="september-4-2019"></a>**4 settembre 2019**
 È stato rilasciato il sistema operativo guest di agosto.
@@ -103,8 +106,9 @@ Versione .NET Framework installata: 3.5, 4.7.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
-| WA-GUEST-OS-6.10 _201908-01 |  4 agosto 2019  |  Post 6,12  |  
-| WA-GUEST-OS-6.9 _201907-01 |26 luglio 2019 |Post 6,11 |
+| WA-GUEST-OS-6.11 _201909-01 | 7 ottobre 2019 |  Post 6,13  |  
+| WA-GUEST-OS-6.10 _201908-01 | 4 agosto 2019 |  Post 6,12  |  
+|~~WA-GUEST-OS-6.9 _201907-0~~|26 luglio 2019 | 7 ottobre 2019 |
 |~~WA-GUEST-OS-6.8 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
 |~~WA-GUEST-OS-6.7 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
 |~~WA-GUEST-OS-6.6_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
@@ -126,8 +130,9 @@ Versione .NET Framework installata: 3,5, 4,6
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
-| WA-GUEST-OS-5.34 _201908-01  |  4 agosto 2019  |  Post 5,36  |  
-| WA-GUEST-OS-5.33 _201907-01 |26 luglio 2019 |Post 5,35 |  
+| WA-GUEST-OS-5.35 _201909-01 | 7 ottobre 2019 | Post 5,37 |  
+| WA-GUEST-OS-5.34 _201908-01  |  4 agosto 2019  |  Post 5,36 |  
+|~~WA-GUEST-OS-5.33 _201907-01~~| 26 luglio 2019 | 7 ottobre 2019 |  
 |~~WA-GUEST-OS-5.32 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
 |~~WA-GUEST-OS-5.31 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
 |~~WA-GUEST-OS-5.30_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
@@ -146,9 +151,10 @@ Versione .NET Framework installata: 3.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
-| WA-GUEST-OS-4.69 _201908-01 |  4 agosto 2019  |  Post 4,71  |  
-| WA-GUEST-OS-4.68 _201907-01 | 26 luglio 2019  |Post 4,70 |
-|~~WA-GUEST-OS-4.67 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
+| WA-GUEST-OS-4.70 _201909-01 | 7 ottobre 2019 | Post 4,72 |  
+| WA-GUEST-OS-4.69 _201908-01 | 4 agosto 2019 | Post 4,71 |  
+|~~WA-GUEST-OS-4.68 _201907-01~~| 26 luglio 2019  | 7 ottobre 2019 |
+|~~WA-GUEST-OS-4.67 _201906-01~~| 8 luglio 2019 |4 agosto 2019 |
 |~~WA-GUEST-OS-4.66 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
 |~~WA-GUEST-OS-4.65_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
 |~~WA-GUEST-OS-4.64_201903-01~~ |26 marzo 2019 |6 giugno 2019 |
@@ -166,9 +172,10 @@ Versione .NET Framework installata: 3.5, 4.5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+| WA-GUEST-OS-3.77 _201909-01 | 7 ottobre 2019 | Post 3,79 |  
 | WA-GUEST-OS-3.76 _201908-01 |  4 agosto 2019  |  Post 3,78  |  
-| WA-GUEST-OS-3,75 _201907-01 | 26 luglio 2019 |Post 3,77 |
-|~~WA-GUEST-OS-3.74 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
+|~~WA-GUEST-OS-3,75 _201907-01~~| 26 luglio 2019 | 7 ottobre 2019 |
+|~~WA-GUEST-OS-3.74 _201906-01~~| 8 luglio 2019 |4 agosto 2019 |
 |~~WA-GUEST-OS-3.73 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
 |~~WA-GUEST-OS-3.72_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
 |~~WA-GUEST-OS-3.71_201903-01~~ |26 marzo 2019 |6 giugno 2019 |
@@ -186,9 +193,10 @@ Versione .NET Framework installata: 3,5 (include 2,0 e 3,0), 4,5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
-| WA-GUEST-OS-2.89 _201908-01 |  4 agosto 2019  |  Post 2,91  |  
-| WA-GUEST-OS-2.88 _201907-01 | 26 luglio 2019 |Post 2,90 |
-|~~WA-GUEST-OS-2.87 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
+| WA-GUEST-OS-2.90 _201909-01 | 7 ottobre 2019 | Post 2,92 |  
+| WA-GUEST-OS-2.89 _201908-01 | 4 agosto 2019 | Post 2,91 |  
+|~~WA-GUEST-OS-2.88 _201907-01~~| 26 luglio 2019 | 7 ottobre 2019 |
+|~~WA-GUEST-OS-2.87 _201906-01~~|8 luglio 2019 | 4 agosto 2019 |
 |~~WA-GUEST-OS-2.86 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
 |~~WA-GUEST-OS-2.85_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
 |~~WA-GUEST-OS-2.84_201903-01~~ |26 marzo 2019 |6 giugno 2019 |

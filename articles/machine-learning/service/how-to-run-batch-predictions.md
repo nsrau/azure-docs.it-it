@@ -10,12 +10,12 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: 3997f327bd6512eeee2cb5e7a0af802f12d1727a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 910974eac6a67c9c9fe68c502f2876ef68bb94eb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034301"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028527"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Eseguire stime batch su set di dati di grandi dimensioni con pipeline di Azure Machine Learning
 
@@ -26,7 +26,7 @@ La previsione di batch (o punteggio batch) offre inferenza conveniente con veloc
 >[!TIP]
 > Se il sistema richiede l'elaborazione a bassa latenza (per elaborare rapidamente un singolo documento o un set di documenti di dimensioni ridotte), usare il [punteggio in tempo reale](how-to-consume-web-service.md) invece della previsione di batch.
 
-Nei passaggi seguenti viene creata una pipeline di [Machine Learning](concept-ml-pipelines.md) per registrare un modello di visione artificiale con training preliminare (Inception[-v3](https://arxiv.org/abs/1512.00567)). Si usa quindi il modello con training preliminare per eseguire il Punteggio batch sulle immagini disponibili nell'account di archiviazione BLOB di Azure. Queste immagini usate per il punteggio sono immagini senza etichetta del set di dati [ImageNet](http://image-net.org/).
+Nei passaggi seguenti viene creata una pipeline di [Machine Learning](concept-ml-pipelines.md) per registrare un modello di visione artificiale con training preliminare ([Inception-V3](https://arxiv.org/abs/1512.00567)). Si usa quindi il modello con training preliminare per eseguire il Punteggio batch sulle immagini disponibili nell'account di archiviazione BLOB di Azure. Queste immagini usate per il punteggio sono immagini senza etichetta del set di dati [ImageNet](http://image-net.org/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -193,7 +193,7 @@ model = Model.register(
 >[!Warning]
 >Il codice seguente è solo un esempio del contenuto del file [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/batch_scoring.py) usato dal [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/pipeline-batch-scoring.ipynb). È necessario creare lo script di assegnazione dei punteggi per il proprio scenario.
 
-Lo script `batch_score.py` prende le immagini di input in *dataset_path*, i modelli con training preliminare in  *model_dir,* e genera *results-label.txt* in *output_dir*.
+Lo script `batch_score.py` accetta immagini di input in *dataset_path*, modelli con training di *model_dir* e genera *results-Label. txt* in *output_dir*.
 
 ```python
 # Snippets from a sample scoring script

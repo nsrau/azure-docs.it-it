@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: thweiss
-ms.openlocfilehash: f7d364eb5db5c6d6304944d490468edf8b5ebe2e
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 46d0124eb701b0c2d779a96c8efd50ba43e8fc07
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811659"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034442"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gestire i criteri di indicizzazione in Azure Cosmos DB
 
@@ -42,7 +42,7 @@ Di seguito sono riportati alcuni esempi di criteri di indicizzazione visualizzat
     }
 ```
 
-Questo criterio di indicizzazione è equivalente a quello riportato di seguito ```kind```, ```dataType```che imposta ```precision``` manualmente i valori predefiniti, e. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
+Questo criterio di indicizzazione è equivalente a quello riportato di seguito, che imposta manualmente i valori predefiniti ```kind```, ```dataType``` e ```precision```. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
 
 ```json
     {
@@ -96,7 +96,7 @@ Questo criterio di indicizzazione è equivalente a quello riportato di seguito `
     }
 ```
 
-Questo criterio di indicizzazione è equivalente a quello riportato di seguito ```kind```, ```dataType```che imposta ```precision``` manualmente i valori predefiniti, e. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
+Questo criterio di indicizzazione è equivalente a quello riportato di seguito, che imposta manualmente i valori predefiniti ```kind```, ```dataType``` e ```precision```. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
 
 ```json
     {
@@ -320,7 +320,7 @@ Questo criterio può essere usato in situazioni in cui la funzionalità [Time-to
 
 ### <a name="no-indexing"></a>Nessuna indicizzazione
 
-Questo criterio disattiva l'indicizzazione. Se `indexingMode` è`none`impostato su, non è possibile impostare una durata (TTL) sul contenitore.
+Questo criterio disattiva l'indicizzazione. Se `indexingMode` è impostato su `none`, non è possibile impostare una durata (TTL) sul contenitore.
 
 ```json
     {
@@ -334,7 +334,7 @@ In Azure Cosmos DB, i criteri di indicizzazione possono essere aggiornati utiliz
 
 - dal portale di Azure
 - usando l'interfaccia della riga di comando di Azure
-- Uso di PowerShell
+- uso di PowerShell
 - usando uno degli SDK
 
 Un [aggiornamento dei criteri di indicizzazione](index-policy.md#modifying-the-indexing-policy) attiva una trasformazione dell'indice. Lo stato di avanzamento della trasformazione può essere monitorato anche dagli SDK.
@@ -370,7 +370,7 @@ Per creare un contenitore con criteri di indicizzazione personalizzati, vedere [
 
 ## <a name="use-the-net-sdk-v2"></a>Usare .NET SDK v2
 
-L' `DocumentCollection` oggetto di [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) `IndexingPolicy` espone una proprietà che consente di modificare `IndexingMode` e aggiungere o rimuovere `IncludedPaths` e `ExcludedPaths`.
+L'oggetto `DocumentCollection` di [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) espone una proprietà `IndexingPolicy` che consente di modificare il `IndexingMode` e aggiungere o rimuovere `IncludedPaths` e `ExcludedPaths`.
 
 ```csharp
 // Retrieve the container's details
@@ -400,7 +400,7 @@ long indexTransformationProgress = container.IndexTransformationProgress;
 
 ## <a name="use-the-net-sdk-v3"></a>Usare .NET SDK V3
 
-L' `ContainerProperties` oggetto di [.NET SDK V3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (vedere [questa Guida introduttiva](create-sql-api-dotnet.md) relativa all'utilizzo) espone `IndexingPolicy` una proprietà che consente di modificare `IndexingMode` e aggiungere o rimuovere `IncludedPaths` e `ExcludedPaths`.
+L'oggetto `ContainerProperties` di [.NET SDK V3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (vedere [questa Guida introduttiva](create-sql-api-dotnet.md) in merito all'utilizzo) espone una proprietà `IndexingPolicy` che consente di modificare il `IndexingMode` e aggiungere o rimuovere `IncludedPaths` e `ExcludedPaths`.
 
 ```csharp
 // Retrieve the container's details
@@ -424,7 +424,7 @@ containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<Co
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-Per tenere traccia dello stato di avanzamento della trasformazione `RequestOptions` dell'indice, passare `PopulateQuotaInfo` un oggetto `true`che imposta la proprietà su, quindi `x-ms-documentdb-collection-index-transformation-progress` recuperare il valore dall'intestazione della risposta.
+Per tenere traccia dello stato di avanzamento della trasformazione dell'indice, passare un oggetto `RequestOptions` che imposta la proprietà `PopulateQuotaInfo` su `true`, quindi recuperare il valore dall'intestazione della risposta `x-ms-documentdb-collection-index-transformation-progress`.
 
 ```csharp
 // retrieve the container's details
@@ -459,44 +459,34 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
 
 L'oggetto `DocumentCollection` da [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) (vedere [questo Avvio rapido](create-sql-api-java.md) per quanto riguarda l'utilizzo) espone i metodi `getIndexingPolicy()` e `setIndexingPolicy()`. L'oggetto `IndexingPolicy` che essi manipolano consente di modificare la modalità di indicizzazione e di aggiungere o rimuovere percorsi inclusi ed esclusi.
 
-Recuperare i dettagli del contenitore
-
 ```java
+// Retrieve the container's details
 Observable<ResourceResponse<DocumentCollection>> containerResponse = client.readCollection(String.format("/dbs/%s/colls/%s", "database", "container"), null);
 containerResponse.subscribe(result -> {
 DocumentCollection container = result.getResource();
 IndexingPolicy indexingPolicy = container.getIndexingPolicy();
-```
 
-Impostare la modalità di indicizzazione su coerente
-
-```java
+// Set the indexing mode to consistent
 indexingPolicy.setIndexingMode(IndexingMode.Consistent);
-```
 
-Aggiungi un percorso incluso
+// Add an included path
 
-```java
 Collection<IncludedPath> includedPaths = new ArrayList<>();
 ExcludedPath includedPath = new IncludedPath();
-includedPath.setPath("/age/*");
+includedPath.setPath("/*");
 includedPaths.add(includedPath);
 indexingPolicy.setIncludedPaths(includedPaths);
-```
 
-Aggiungi un percorso escluso
+// Add an excluded path
 
-```java
 Collection<ExcludedPath> excludedPaths = new ArrayList<>();
 ExcludedPath excludedPath = new ExcludedPath();
 excludedPath.setPath("/name/*");
 excludedPaths.add(excludedPath);
 indexingPolicy.setExcludedPaths(excludedPaths);
-```
 
-Aggiungere un indice spaziale
+// Add a spatial index
 
-```java
 Collection<SpatialSpec> spatialIndexes = new ArrayList<SpatialSpec>();
 Collection<SpatialType> collectionOfSpatialTypes = new ArrayList<SpatialType>();
 
@@ -508,20 +498,17 @@ spatialIndexes.add(spec);
 
 indexingPolicy.setSpatialIndexes(spatialIndexes);
 
-```
+// Add a composite index
 
-Aggiungere un indice composito
-
-```java
 Collection<ArrayList<CompositePath>> compositeIndexes = new ArrayList<>();
 ArrayList<CompositePath> compositePaths = new ArrayList<>();
 
 CompositePath nameCompositePath = new CompositePath();
-nameCompositePath.setPath("/name/*");
+nameCompositePath.setPath("/name");
 nameCompositePath.setOrder(CompositePathSortOrder.Ascending);
 
 CompositePath ageCompositePath = new CompositePath();
-ageCompositePath.setPath("/age/*");
+ageCompositePath.setPath("/age");
 ageCompositePath.setOrder(CompositePathSortOrder.Descending);
 
 compositePaths.add(ageCompositePath);
@@ -529,12 +516,11 @@ compositePaths.add(nameCompositePath);
 
 compositeIndexes.add(compositePaths);
 indexingPolicy.setCompositeIndexes(compositeIndexes);
-```
 
-Aggiornare il contenitore con le modifiche
+// Update the container with changes
 
-```java
  client.replaceCollection(container, null);
+});
 ```
 
 Per monitorare l'avanzamento della trasformazione dell'indice in un contenitore, passare un oggetto `RequestOptions` che richiede di popolare le informazioni sulla quota, quindi recuperare il valore dall'intestazione della risposta `x-ms-documentdb-collection-index-transformation-progress`.

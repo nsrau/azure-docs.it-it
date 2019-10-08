@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: d2e15c63ac6d93824aeab3f251c2860b7ea114d6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fbe41bdc5f253f1a605aa291a31191b7339b9850
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086817"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030589"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Griglia di eventi per Funzioni di Azure
 
@@ -302,7 +302,7 @@ Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/
 
 ## <a name="attributes"></a>Attributi
 
-Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs).
+Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs).
 
 Di seguito è mostrato un attributo `EventGridTrigger` in una firma del metodo:
 
@@ -380,7 +380,7 @@ Per altre informazioni sulle proprietà comuni e specifiche degli eventi, vedere
 
 Il tipo `EventGridEvent` definisce solo le proprietà di livello superiore, mentre la proprietà `Data` è un elemento `JObject`.
 
-## <a name="create-a-subscription"></a>Crea una sottoscrizione
+## <a name="create-a-subscription"></a>Creare una sottoscrizione
 
 Per iniziare a ricevere richieste HTTP di Griglia di eventi, è necessario creare una sottoscrizione di Griglia di eventi in cui sia specificato l'URL dell'endpoint che richiama la funzione.
 
@@ -594,7 +594,7 @@ Per la sottoscrizione di Griglia di eventi verrà usato l'URL `https://{subdomai
 
 L'URL di ngrok non riceve un trattamento speciale da parte di Griglia di eventi. Di conseguenza, la funzione deve essere in esecuzione in locale quando si crea la sottoscrizione. In caso contrario, la risposta di convalida non viene inviata e la sottoscrizione non viene creata.
 
-### <a name="create-a-subscription"></a>Crea una sottoscrizione
+### <a name="create-a-subscription"></a>Creare una sottoscrizione
 
 Creare una sottoscrizione di Griglia di eventi del tipo che si vuole testare e assegnare a tale sottoscrizione l'endpoint ngrok.
 

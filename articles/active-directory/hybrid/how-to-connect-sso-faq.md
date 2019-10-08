@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b12acf083e83d42ff3e8d6967d747f4bb2d93543
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 7241c8dfbedb24f95c29ea9e1c3f763218a5668d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960194"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025669"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Accesso Single Sign-On facile di Azure Active Directory: Domande frequenti
 
@@ -43,15 +43,15 @@ No. L'accesso Single Sign-On facile è disponibile solo nell'istanza di Azure AD
 
 Di seguito è riportato un elenco non completo delle applicazioni che possono inviare questi parametri ad Azure AD, consentendo agli utenti un'esperienza di accesso automatico tramite l'accesso Single Sign-On facile (ad esempio, senza che utenti debbano immettere il proprio nome utente o la password):
 
-| Nome applicazione | URL applicazione da usare |
+| Nome dell'applicazione | URL applicazione da usare |
 | -- | -- |
-| Riquadro di accesso | https: \//app. Microsoft. com/contoso. com |
+| Pannello di accesso | https: \//app. Microsoft. com/contoso. com |
 | Outlook nel Web | https:\//outlook.office365.com/contoso.com |
 | Portali di Office 365 | https: \//Portal. Office. com? domain_hint = contoso. com, https: \//www. Office. com? domain_hint = contoso. com |
 
 Inoltre, gli utenti ottengono un'esperienza di accesso invisibile all'utente se un'applicazione invia le richieste di accesso agli endpoint di Azure AD impostati come tenant, ovvero https: \//login. microsoftonline. com/contoso. com/<. > o https: \//login. microsoftonline. com/< tenant_ID >/<. >, anziché l'endpoint comune di Azure AD, ovvero https: \//login. microsoftonline. com/common/<... >. Di seguito viene fornito un elenco, non completo, di applicazioni che generano questi tipi di richieste di accesso.
 
-| Nome applicazione | URL applicazione da usare |
+| Nome dell'applicazione | URL applicazione da usare |
 | -- | -- |
 | SharePoint Online | https: \//contoso. SharePoint. com |
 | Portale di Azure | https: \//Portal. Azure. com/contoso. com |
@@ -96,7 +96,10 @@ Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
    1. Eseguire la chiamata a `$creds = Get-Credential`. Quando richiesto, immettere le credenziali dell'amministratore di dominio per la foresta di Active Directory da usare.
 
    > [!NOTE]
-   > Per trovare la foresta di Active Directory desiderata, usare il nome utente dell'amministratore di dominio fornito nel formato di nome dell'identità utente (UPN) (johndoe@contoso.com) o il nome dominio completo dell'account SAM (contoso\johndoe o contoso.com\johndoe). Se si usa il formato di nome dominio completo dell'account SAM, usare la parte del dominio del nome utente per [individuare il controller di dominio dell'amministratore di dominio usando DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se invece si usa il formato UPN, [convertirlo in un nome dominio completo dell'account SAM](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) prima di individuare il controller di dominio appropriato.
+   >Il nome utente delle credenziali di amministratore di dominio deve essere specificato nel formato del nome dell'account SAM (CONTOSO\johndoe o contoso. com\johndoe). Viene utilizzata la parte di dominio del nome utente per individuare il controller di dominio dell'amministratore di dominio tramite DNS.
+
+   >[!NOTE]
+   >L'account amministratore di dominio utilizzato non deve essere un membro del gruppo utenti protetti. In tal caso, l'operazione avrà esito negativo.
 
    2. Eseguire la chiamata a `Update-AzureADSSOForest -OnPremCredentials $creds`. Questo comando aggiorna la chiave di decrittografia di Kerberos per l'account computer `AZUREADSSOACC` in questa foresta di AD specifica e la aggiorna in Azure AD.
    3. Ripetere i passaggi precedenti per ogni foresta di Active Directory in cui è stata configurata la funzionalità.

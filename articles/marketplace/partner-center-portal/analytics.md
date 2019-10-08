@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: 87ecf534fa7d4f3609882f5f18b314c246e388bd
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b48e0cddfe4880382147e7bfb634335f10d6f5f9
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036636"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028857"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analisi per il Marketplace commerciale nel centro per i partner
 
@@ -26,6 +26,7 @@ Per accedere agli strumenti di analisi del centro per i partner, aprire il dashb
 |[Ordini](#orders-dashboard)|Informazioni sugli ordini in formato grafico e scaricabile|
 |[Clienti](#customer-dashboard)|Informazioni sui clienti, incluse le tendenze di crescita, presentate in formato grafico e scaricabile|
 |[Download](#downloads-dashboard)|Elenco delle richieste di download negli ultimi 30 giorni|
+|[Classificazioni e revisioni](#ratings-and-reviews)| Informazioni sulle classificazioni e le recensioni che i clienti lasciano per le offerte acquisite.
 
 ## <a name="summary-dashboard"></a>Dashboard Riepilogo
 
@@ -242,20 +243,20 @@ Si riceverà una notifica popup e un messaggio di posta elettronica contenente u
 | Nome dell'istanza cloud| Ordine| Microsoft Cloud in cui sono state distribuite le macchine virtuali.||
 | Nome istanza cloud: Azure Global| Ordine| Microsoft cloud pubblico globale.|| |
 | Nome istanza cloud: Azure Government | Ordine| Cloud Microsoft specifici per enti pubblici per uno dei seguenti enti pubblici: Cina, Germania o il Stati Uniti di America.| |
-| Città del cliente| Cliente| Nome della città fornito dal cliente. La città potrebbe essere diversa da quella della città nella sottoscrizione di Azure di un cliente.||
-| Customer Communication Language  | Cliente| Lingua di comunicazione preferita dal cliente.||
-| Customer Company Name | Cliente, ordine | Nome della società fornito dal cliente. Il nome potrebbe essere diverso dal nome nella sottoscrizione di Azure di un cliente.|  |
+| Città del cliente| Customer| Nome della città fornito dal cliente. La città potrebbe essere diversa da quella della città nella sottoscrizione di Azure di un cliente.||
+| Customer Communication Language  | Customer| Lingua di comunicazione preferita dal cliente.||
+| Customer Company Name | Cliente, ordine | Nome della società fornito dal cliente. Il nome può essere diverso da quello della città nella sottoscrizione di Azure di un cliente.|  |
 | Customer Country | Cliente, ordine | Nome del paese fornito dal cliente. Il paese può essere diverso da quello del paese nella sottoscrizione di Azure di un cliente.|  |
-| Customer Email| Cliente| Indirizzo di posta elettronica fornito dal cliente finale. Il messaggio di posta elettronica potrebbe essere diverso dall'indirizzo di posta elettronica nella sottoscrizione di Azure di un cliente.||
-| Customer First Name| Cliente| Nome fornito dal cliente. Il nome potrebbe essere diverso dal nome fornito nella sottoscrizione di Azure di un cliente.| |
+| Customer Email| Customer| Indirizzo di posta elettronica fornito dal cliente finale. Il messaggio di posta elettronica potrebbe essere diverso dall'indirizzo di posta elettronica nella sottoscrizione di Azure di un cliente.||
+| Customer First Name| Customer| Nome fornito dal cliente. Il nome potrebbe essere diverso dal nome fornito nella sottoscrizione di Azure di un cliente.| |
 | ID cliente | Cliente, ordine | Identificatore univoco assegnato a un cliente. Un cliente può avere zero o più sottoscrizioni di Azure Marketplace.|  |
-| Customer Postal Code  | Cliente| Il CAP fornito dal cliente. Il codice può essere diverso dal codice postale fornito nella sottoscrizione di Azure di un cliente.| |
-| Customer State| Cliente| Stato (indirizzo) fornito dal cliente. Lo stato potrebbe essere diverso da quello fornito nella sottoscrizione di Azure di un cliente.| |
-| Date Acquired| Cliente| La prima data in cui il cliente ha acquistato qualsiasi offerta pubblicata dall'utente.| |
-| Date Lost| Cliente| Ultima data in cui il cliente ha annullato l'ultima delle offerte acquistate in precedenza.||
+| Customer Postal Code  | Customer| Il CAP fornito dal cliente. Il codice può essere diverso dal codice postale fornito nella sottoscrizione di Azure di un cliente.| |
+| Customer State| Customer| Stato (indirizzo) fornito dal cliente. Lo stato potrebbe essere diverso da quello fornito nella sottoscrizione di Azure di un cliente.| |
+| Date Acquired| Customer| La prima data in cui il cliente ha acquistato qualsiasi offerta pubblicata dall'utente.| |
+| Date Lost| Customer| Ultima data in cui il cliente ha annullato l'ultima delle offerte acquistate in precedenza.||
 | È un nuovo cliente  | Ordine| Il valore identificherà un nuovo cliente che acquisisce una o più offerte per la prima volta (o meno). Il valore sarà "Sì" se rientra nello stesso mese di calendario per "data di acquisizione". Il valore sarà "No" Se il cliente ha acquistato una delle offerte prima del mese di calendario indicato. |
 | SKU anteprima| Ordine| Il valore indica se lo SKU è stato contrassegnato come "anteprima". Il valore sarà "Yes" se lo SKU è stato contrassegnato di conseguenza e solo le sottoscrizioni di Azure autorizzate da possono distribuire e usare questa immagine. Il valore sarà "No" se lo SKU non è stato identificato come "anteprima".  |
-| Consenso esplicito per il contatto promozionale| Cliente| Il valore indica se il cliente ha acconsentito in modo proattivo per il contatto promozionale da parte degli editori. Al momento l'opzione non è presentata ai clienti, pertanto è stato indicato "No" a livello generale. Dopo la distribuzione della funzionalità, si procederà all'aggiornamento dovuto.|
+| Consenso esplicito per il contatto promozionale| Customer| Il valore indica se il cliente ha acconsentito in modo proattivo per il contatto promozionale da parte degli editori. Al momento l'opzione non è presentata ai clienti, pertanto è stato indicato "No" a livello generale. Dopo la distribuzione della funzionalità, si procederà all'aggiornamento dovuto.|
 | Marketplace License Type| Ordine| Metodo di fatturazione dell'offerta del Marketplace dell'utente.||
 | Tipo di licenza Marketplace: Fatturazione tramite Azure| Ordine| Microsoft è l'agente per questa offerta del Marketplace dell'utente ed emette le fatture al cliente per conto dell'utente. Il pagamento avviene con l'uso di carta di credito per pagamento in base al consumo o fattura aziendale.||
 | Tipo di licenza Marketplace: Bring your own License | Ordine| La macchina virtuale richiede un codice di licenza fornito dal cliente per la distribuzione. Microsoft non fattura i clienti per elencare le loro offerte in questo modo tramite il Marketplace.||
@@ -276,12 +277,47 @@ Si riceverà una notifica popup e un messaggio di posta elettronica contenente u
 | Tipo di offerta: Macchina virtuale | Ordine| Usare il tipo di offerta per le macchine virtuali quando si distribuisce un'appliance virtuale all'abbonamento associato al cliente.||
 | Tipo di offerta: Estensione Visual Studio Marketplace  | Ordine| Tipo di offerta in precedenza disponibile per gli sviluppatori di estensioni DevOps di Azure. In futuro gli sviluppatori di estensioni DevOps di Azure possono vendere la propria estensione direttamente ai clienti. Le offerte di estensione possono essere configurate come a pagamento o inclusa una versione di valutazione. |
 | Order Cancel Date| Ordine| Data in cui l'ordine del Marketplace è stato eliminato.||
-| ID ordine| Ordine| Identificatore univoco dell'ordine del cliente per il servizio Marketplace. Le offerte basate sull'utilizzo delle macchine virtuali non sono associate a un ordine.| |
+| ID dell'ordine| Ordine| Identificatore univoco dell'ordine del cliente per il servizio Marketplace. Le offerte basate sull'utilizzo delle macchine virtuali non sono associate a un ordine.| |
 | Order Purchase Date| Ordine| Data di creazione dell'ordine del Marketplace.|||
 | Order Status| Ordine| Lo stato di un ordine del Marketplace al momento dell'ultimo aggiornamento dei dati.|     |
 | Stato dell'ordine: Attivo  | Ordine| Il cliente ha acquistato un ordine e non ha annullato l'ordine.|         |
 | Stato dell'ordine: annullato | Ordine| Il cliente ha precedentemente acquistato un ordine e successivamente ha annullato l'ordine.||
-| Posta elettronica provider| Cliente| Indirizzo di posta elettronica del provider che ha richiesto la relazione tra Microsoft e il cliente finale. Se il cliente è un'azienda tramite rivenditore, questo sarà il rivenditore. Se è necessario un provider di soluzioni cloud (CSP), questo sarà il CSP.|
-| Nome provider| Cliente| Nome del provider associato alla relazione tra Microsoft e il cliente finale. Se il cliente è un'azienda tramite rivenditore, questo sarà il rivenditore. Se è necessario un provider di soluzioni cloud (CSP), questo sarà il CSP.|
+| Posta elettronica provider| Customer| Indirizzo di posta elettronica del provider che ha richiesto la relazione tra Microsoft e il cliente finale. Se il cliente è un'azienda tramite rivenditore, questo sarà il rivenditore. Se è necessario un provider di soluzioni cloud (CSP), questo sarà il CSP.|
+| Nome provider| Customer| Nome del provider associato alla relazione tra Microsoft e il cliente finale. Se il cliente è un'azienda tramite rivenditore, questo sarà il rivenditore. Se è necessario un provider di soluzioni cloud (CSP), questo sarà il CSP.|
 | SKU| Ordine| Nome dello SKU come definito durante la pubblicazione. Un'offerta può avere molti SKU, ma uno SKU può essere associato solo a una singola offerta.||
 | Trial End Date| Ordine| Data di scadenza del periodo di valutazione per questo ordine.||
+
+## <a name="ratings-and-reviews"></a>Classificazioni e revisioni
+
+Man mano che i clienti navigano, eseguono ricerche e acquistano offerte in entrambi i Marketplace, possono lasciare valutazioni e recensioni per le offerte acquisite. Sono in grado di inviare nuove classificazioni o revisioni, aggiornare o eliminare valutazioni o recensioni già inviate. Le recensioni vengono pubblicate in Azure Marketplace o in AppSource nella scheda revisioni della pagina di visualizzazione del prodotto dell'offerta. I clienti possono includere i nomi per le classificazioni o le revisioni oppure possono pubblicare in modo anonimo.  
+
+> [!NOTE]
+> I clienti possono apportare modifiche solo alle classificazioni e alle revisioni di cui sono proprietari.
+
+Il **Dashboard valutazioni & rivedere** Visualizza le tendenze e le informazioni dettagliate delle attività dei clienti. Fornisce rappresentazioni grafiche di:
+
+- Valutazioni & valutazioni  
+- Esaminare i commenti
+
+### <a name="marketplace-storefront-tabs"></a>Schede storefront del Marketplace
+
+Gli editori possono visualizzare le metriche dell'offerta separatamente nelle schede AppSource & Azure Marketplace. Per visualizzare specifiche metriche dell'offerta, selezionare **offerta** nell'elenco a discesa:
+
+![Elenco a discesa dell'offerta analizza il centro per i partner](./media/analyze-offer-dropdown.png)
+
+### <a name="ratings-and-reviews-summary"></a>Riepilogo valutazioni e valutazioni
+
+Nella sezione rating & revisioni riepilogo vengono visualizzate le metriche seguenti per un intervallo di date selezionato:
+
+- **Valutazione media:** Classificazione a stelle media ponderata di tutte le classificazioni inviate dai clienti per l'offerta selezionata.
+- **Suddivisione classificazione:** Suddivisione della classificazione a stelle per numero di clienti che hanno inviato valutazioni. Il grafico a barre è in pila con le classificazioni effettive e modificate (conteggio classificazione aggiornato).
+- **Totale classificazioni:** Conteggio complessivo delle classificazioni inviate. Questo conteggio include anche le classificazioni con e senza revisioni.
+- **Classificazioni con le revisioni:** Numero di revisioni inviate.
+
+![Riepilogo analisi classificazioni e recensioni del centro per i partner](./media/analyze-ratings-summary.png)
+
+### <a name="review-comments"></a>Esaminare i commenti
+
+Le revisioni vengono visualizzate in ordine cronologico quando sono state pubblicate. Nella visualizzazione predefinita vengono visualizzate tutte le revisioni. È possibile filtrare le revisioni in base alla classificazione a stelle usando il **filtro** nel menu a discesa. È anche possibile cercare le parole chiave visualizzate nella revisione.  
+
+![Commenti di analisi per il centro per i partner](./media/analyze-reviews.png)

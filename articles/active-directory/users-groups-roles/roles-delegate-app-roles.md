@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5479bc7f4e65f23a2e2dcf7deb91742fe50610
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1d5a29ca7ed4eb23c2e0edd4d39cc2920e779acb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382497"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025522"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegare le autorizzazioni di registrazione all'app in Azure Active Directory
 
@@ -61,10 +61,10 @@ In alcuni casi, le applicazioni aziendali create dalla raccolta di applicazioni 
 
 ### <a name="to-assign-an-owner-to-an-enterprise-application"></a>Per assegnare un proprietario a un'applicazione aziendale
 
-1. Accedere all' [organizzazione](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) Azure ad con un account idoneo per l'amministratore dell'applicazione o l'amministratore di applicazioni cloud per l'organizzazione.
-1. Nella [pagina](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) registrazioni app dell'organizzazione selezionare un'app per aprire la pagina Panoramica dell'app.
-1. Selezionare **owners (proprietari** ) per visualizzare l'elenco dei proprietari dell'app.
-1. Selezionare **Aggiungi** per selezionare uno o più proprietari da aggiungere all'app.
+1. Accedere all' [organizzazione Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) With un account idoneo per l'amministratore dell'applicazione o per l'amministratore di applicazioni cloud per l'organizzazione.
+1. Nella [pagina Registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) per l'organizzazione selezionare un'app per aprire la pagina Panoramica dell'app.
+1. Selezionare **Proprietari** per visualizzare l'elenco dei proprietari dell'app.
+1. Selezionare **Aggiungi** per selezionare uno o più proprietari da aggiungere all'app.
 
 > [!IMPORTANT]
 > Gli utenti e le entità servizio possono essere proprietari di registrazioni di applicazioni. Solo gli utenti possono essere proprietari di applicazioni aziendali. I gruppi non possono essere assegnati come proprietari di uno dei due.

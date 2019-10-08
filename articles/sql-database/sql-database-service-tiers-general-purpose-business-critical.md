@@ -10,21 +10,21 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 02/23/2019
-ms.openlocfilehash: 41acef4ebe13ac6152d795db4adfae5a6ae1ad91
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 10/01/2019
+ms.openlocfilehash: 7b5fd9800fdd2ee3b46087308f81f506e3e09e03
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995422"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034967"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Livelli di servizio del database SQL di Azure
 
 Il database SQL di Azure è basato su SQL Server architettura del motore di database adattata per l'ambiente cloud per garantire la disponibilità del 99,99%, anche in caso di errore dell'infrastruttura. Tre livelli di servizio vengono usati nel database SQL di Azure, ognuno con un modello architetturale diverso. Questi livelli di servizio sono:
 
-- [Utilizzo](sql-database-service-tier-general-purpose.md)generico, progettato per la maggior parte dei carichi di lavoro generici.
-- [Business critical](sql-database-service-tier-business-critical.md), progettato per i carichi di lavoro a bassa latenza con una replica leggibile.
-- [Iperscalabile](sql-database-service-tier-hyperscale.md), progettata per database di dimensioni molto grandi (fino a 100 TB) con più repliche leggibili.
+- [Utilizzo generico](sql-database-service-tier-general-purpose.md), progettato per i carichi di lavoro orientati al budget.
+- [Iperscalabile](sql-database-service-tier-hyperscale.md), progettata per la maggior parte dei carichi di lavoro aziendali, che offre archiviazione altamente scalabile, scalabilità orizzontale in lettura e funzionalità di ripristino rapido del database.
+- [Business critical](sql-database-service-tier-business-critical.md), progettato per carichi di lavoro a bassa latenza con resilienza elevata a errori e failover rapidi.
 
 Questo articolo illustra le differenze: è possibile intervenire sulle considerazioni relative a livelli di servizio, archiviazione e backup per i livelli di servizio per utilizzo generico e business critical nel modello di acquisto basato su vCore.
 
@@ -34,7 +34,7 @@ Nella tabella seguente vengono descritte le differenze principali tra i livelli 
 
 | | Tipo di risorsa | Utilizzo generico |  Hyperscale | Business Critical |
 |:---:|:---:|:---:|:---:|:---:|
-| **Ideale per** | |  La maggior parte dei carichi di lavoro aziendali. Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti. | Applicazioni dati con requisiti di capacità di dati di grandi dimensioni, la possibilità di ridimensionare automaticamente lo spazio di archiviazione fino a 100 TB e di ridimensionare le risorse di calcolo in modo fluido. | Applicazioni OLTP con frequenza di transazioni elevata e livelli minimi di latenza di I/O. Offre massima resilienza agli errori tramite diverse repliche isolate.|
+| **Ideale per** | |  Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti. | La maggior parte dei carichi di lavoro aziendali. Ridimensionamento automatico delle dimensioni di archiviazione fino a 100 TB, scalabilità verticale e orizzontale del calcolo, ripristino rapido del database. | Applicazioni OLTP con frequenza di transazione elevata e bassa latenza di i/o. Offre la massima resilienza agli errori e a failover rapidi usando più repliche aggiornate in modo sincrono.|
 |  **Disponibile in tipo di risorsa:** ||Database singolo/pool elastico/istanza gestita | Database singolo | Database singolo/pool elastico/istanza gestita |
 | **Dimensioni di calcolo**|Database singolo/pool elastico | Da 1 a 80 vCore | da 1 a 80 vcore | Da 1 a 80 vCore |
 | | Istanza gestita | 4, 8, 16, 24, 32, 40, 64, 80 vcore | N/D | 4, 8, 16, 24, 32, 40, 64, 80 vcore |
@@ -52,9 +52,9 @@ Nella tabella seguente vengono descritte le differenze principali tra i livelli 
 |**Backup**|Tutti|RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita)| RA-GRS, 7 giorni, ripristino temporizzato a tempo costante (ripristino temporizzato) | RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita) |
 |**OLTP in memoria** | | N/D | N/D | Disponibile |
 |**Repliche di sola lettura**| | 0  | 0 - 4 | 1 (incorporato, incluso nel prezzo) |
-|**Prezzi/fatturazione** | Database singolo | vengono addebitati [vCore, archiviazione riservata e archiviazione di backup](https://azure.microsoft.com/pricing/details/sql-database/single/) . <br/>Per IOPS non viene addebitato alcun costo. | vengono addebitati [vCore per ogni replica e l'archiviazione usata](https://azure.microsoft.com/pricing/details/sql-database/single/) . <br/>Per IOPS non viene addebitato alcun costo.<br/>L'archiviazione di backup non è ancora addebitata. | vengono addebitati [vCore, archiviazione riservata e archiviazione di backup](https://azure.microsoft.com/pricing/details/sql-database/single/) . <br/>Per IOPS non viene addebitato alcun costo. |
+|**Prezzi/fatturazione** | Database singolo | vengono addebitati [vCore, archiviazione riservata e archiviazione di backup](https://azure.microsoft.com/pricing/details/sql-database/single/) . <br/>Per IOPS non viene addebitato alcun costo. | vengono addebitati [vCore per ogni replica e l'archiviazione usata](https://azure.microsoft.com/pricing/details/sql-database/single/) . <br/>IOPS non ancora addebitato. | vengono addebitati [vCore, archiviazione riservata e archiviazione di backup](https://azure.microsoft.com/pricing/details/sql-database/single/) . <br/>Per IOPS non viene addebitato alcun costo. |
 || Istanza gestita | viene addebitato [vCore e l'archiviazione riservata](https://azure.microsoft.com/pricing/details/sql-database/managed/) . <br/>Per IOPS non viene addebitato alcun costo.<br/>L'archiviazione di backup non è ancora addebitata. | N/D | viene addebitato [vCore e l'archiviazione riservata](https://azure.microsoft.com/pricing/details/sql-database/managed/) . <br/>Per IOPS non viene addebitato alcun costo.<br/>L'archiviazione di backup non è ancora addebitata. | 
-|**Modelli di sconto**| | [Istanze riservate](sql-database-reserved-capacity.md)<br/>[Vantaggio Azure Hybrid](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponibile per sottoscrizioni di sviluppo/test)<br/>Sottoscrizioni di sviluppo/test [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [con pagamento in base al](https://azure.microsoft.com/offers/ms-azr-0023p/) consumo| [Vantaggio Azure Hybrid](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponibile per sottoscrizioni di sviluppo/test)<br/>Sottoscrizioni di sviluppo/test [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [con pagamento in base al](https://azure.microsoft.com/offers/ms-azr-0023p/) consumo| [Istanze riservate](sql-database-reserved-capacity.md)<br/>[Vantaggio Azure Hybrid](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponibile per sottoscrizioni di sviluppo/test)<br/>Sottoscrizioni di sviluppo/test [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [con pagamento in base al](https://azure.microsoft.com/offers/ms-azr-0023p/) consumo|
+|**Modelli di sconto**| | [Istanze riservate](sql-database-reserved-capacity.md)<br/>[Vantaggio Azure Hybrid](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponibile nelle sottoscrizioni di sviluppo/test)<br/>Sottoscrizioni di sviluppo/test [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [con pagamento in base al](https://azure.microsoft.com/offers/ms-azr-0023p/) consumo| [Vantaggio Azure Hybrid](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponibile nelle sottoscrizioni di sviluppo/test)<br/>Sottoscrizioni di sviluppo/test [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [con pagamento in base al](https://azure.microsoft.com/offers/ms-azr-0023p/) consumo| [Istanze riservate](sql-database-reserved-capacity.md)<br/>[Vantaggio Azure Hybrid](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponibile nelle sottoscrizioni di sviluppo/test)<br/>Sottoscrizioni di sviluppo/test [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [con pagamento in base al](https://azure.microsoft.com/offers/ms-azr-0023p/) consumo|
 
 Per ulteriori informazioni, vedere le differenze dettagliate tra i livelli di servizio nel [database singolo (vCore)](sql-database-vcore-resource-limits-single-databases.md), i pool di database singoli ( [vCore)](sql-database-dtu-resource-limits-single-databases.md), i [database singoli (DTU)](sql-database-dtu-resource-limits-single-databases.md), i [pool di database singoli (DTU)](sql-database-dtu-resource-limits-single-databases.md)e [istanza gestita](sql-database-managed-instance-resource-limits.md) pagine.
 
@@ -63,7 +63,7 @@ Per ulteriori informazioni, vedere le differenze dettagliate tra i livelli di se
 
 ## <a name="data-and-log-storage"></a>Archiviazione di dati e log
 
-I seguenti fattori influiscono sulla quantità di spazio di archiviazione utilizzato per i file di dati e di log:
+I seguenti fattori influiscono sulla quantità di spazio di archiviazione utilizzato per i file di dati e di log e si applicano a per utilizzo generico e business critical. Per informazioni dettagliate sull'archiviazione di dati e log in iperscalabilità, vedere [livello di servizio con scalabilità](sql-database-service-tier-hyperscale.md)automatica.
 
 - L'archiviazione allocata viene utilizzata da file di dati (MDF) e file di log (LDF).
 - Ogni singola dimensione di calcolo del database supporta una dimensione massima del database, con una dimensione massima predefinita di 32 GB.
@@ -72,8 +72,8 @@ I seguenti fattori influiscono sulla quantità di spazio di archiviazione utiliz
 - È possibile selezionare qualsiasi dimensione di database singolo compresa tra 10 GB e il valore massimo supportato.
   - Per l'archiviazione nei livelli di servizio standard o per utilizzo generico, aumentare o diminuire le dimensioni in incrementi di 10 GB.
   - Per l'archiviazione nei livelli di servizio Premium o business critical, aumentare o diminuire le dimensioni in incrementi di 250 GB.
-- Nel livello `tempdb` di servizio per utilizzo generico usa un'unità SSD collegata e il costo di archiviazione è incluso nel prezzo vCore.
-- Nel livello `tempdb` di servizio business critical condivide l'unità SSD collegata con i file MDF e ldf e il `tempdb` costo di archiviazione è incluso nel prezzo vCore.
+- Nel livello di servizio per utilizzo generico, `tempdb` usa un'unità SSD collegata e questo costo di archiviazione è incluso nel prezzo vCore.
+- Nel livello di servizio business critical, `tempdb` condivide l'unità SSD collegata con i file MDF e LDF e il costo di archiviazione `tempdb` è incluso nel prezzo vCore.
 
 > [!IMPORTANT]
 > Viene addebitato lo spazio di archiviazione totale allocato per i file MDF e LDF.

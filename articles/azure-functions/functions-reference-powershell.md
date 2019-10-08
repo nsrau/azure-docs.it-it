@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 6cf03d1269cac5dcfa67c2d4778be3fce9ee63aa
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 9163f2b7943a8022b88b2ed514f4a466e61a8d98
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973359"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029010"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guida per gli sviluppatori di PowerShell per funzioni di Azure
 
@@ -134,9 +134,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Di seguito sono riportati i parametri validi per chiamare `Push-OutputBinding`:
 
-| Attività | Type | Posizione | Descrizione |
+| NOME | Type | Posizione | Descrizione |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | Stringa | 1 | Nome dell'associazione di output che si desidera impostare. |
+| **`-Name`** | string | 1 | Nome dell'associazione di output che si desidera impostare. |
 | **`-Value`** | Object | 2 | Valore dell'associazione di output che si vuole impostare, che viene accettato dalla pipeline ByValue. |
 | **`-Clobber`** | SwitchParameter | denominata | Opzionale Quando specificato, impone l'impostazione del valore per un'associazione di output specificata. | 
 
@@ -434,6 +434,9 @@ Per modificare il modo in cui vengono scaricate e installate le dipendenze gesti
 | MDMaxBackgroundUpgradePeriod      | "7.00:00:00" (7 giorni)     | Ogni ruolo di lavoro di PS avvia il controllo degli aggiornamenti dei moduli nella raccolta di PS all'avvio del processo di lavoro e in ogni MDMaxBackgroundUpgradePeriod. Se le nuove versioni dei moduli sono disponibili nella raccolta di PS, verranno installate nel file system disponibile per i ruoli di lavoro di PS. La riduzione di questo valore consente all'app per le funzioni di ottenere prima le versioni più recenti del modulo, ma aumenterà anche l'utilizzo delle risorse dell'app (I/O di rete, CPU, archiviazione). L'aumento di questo valore comporta una riduzione dell'utilizzo delle risorse dell'app, ma può anche ritardare la distribuzione di nuove versioni dei moduli nell'app.      | 
 | MDNewSnapshotCheckPeriod          | "01:00:00" (1 ora)       | Dopo aver installato le nuove versioni del modulo nella file system, è necessario riavviare tutti i thread di lavoro di PS. Il riavvio dei ruoli di lavoro di PS può influire sulla disponibilità dell'app perché potrebbe interrompere le chiamate alle funzioni correnti. Fino a quando non vengono riavviati tutti i ruoli di lavoro di PS, le chiamate di funzione possono utilizzare le versioni precedenti o nuove del modulo. Il riavvio di tutti i ruoli di lavoro di PS viene completato in MDNewSnapshotCheckPeriod. L'aumento di questo valore comporta una riduzione della frequenza delle interruzioni, ma può anche aumentare il periodo di tempo durante il quale le chiamate di funzione utilizzano le versioni precedenti o nuove del modulo in modo non deterministico. |
 | MDMinBackgroundUpgradePeriod      | "1.00:00:00" (1 giorno)     | Per evitare un numero eccessivo di aggiornamenti del modulo sui riavvii di lavoro frequenti, il controllo degli aggiornamenti dei moduli non verrà eseguito se un ruolo di lavoro è già stato avviato all'interno dell'ultimo MDMinBackgroundUpgradePeriod. |
+
+> [!NOTE]
+> Le dipendenze gestite si basano sull'accesso a www.powershellgallery.com per scaricare i moduli. È necessario assicurarsi che il runtime della funzione abbia accesso a questo URL aggiungendo le regole del firewall necessarie.
 
 Usare i moduli personalizzati è leggermente diverso da quello che si farebbe normalmente.
 

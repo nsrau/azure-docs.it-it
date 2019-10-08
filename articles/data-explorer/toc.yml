@@ -43,11 +43,29 @@
     - name: Inserire dati
       items:
         - name: Hub eventi
-          href: ingest-data-event-hub.md
+          items:
+            - name: Portale di Azure
+              href: ingest-data-event-hub.md
+            - name: python
+              href: data-connection-event-hub-python.md
+            - name: 'C#'
+              href: data-connection-event-hub-csharp.md
         - name: Griglia di eventi
-          href: ingest-data-event-grid.md
+          items:
+            - name: Portale di Azure
+              href: ingest-data-event-grid.md
+            - name: python
+              href: data-connection-event-grid-python.md
+            - name: 'C#'
+              href: data-connection-event-grid-csharp.md
         - name: Hub IoT
-          href: ingest-data-iot-hub.md
+          items:
+            - name: Portale di Azure
+              href: ingest-data-iot-hub.md
+            - name: python
+              href: data-connection-iot-hub-python.md
+            - name: 'C#'
+              href: data-connection-iot-hub-csharp.md
         - name: Inserimento con un clic
           href: ingest-data-one-click.md
         - name: Inserimento del flusso

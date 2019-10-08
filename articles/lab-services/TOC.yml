@@ -92,8 +92,6 @@
               href: classroom-labs/how-to-connect-peer-virtual-network.md
             - name: Collegare o scollegare una raccolta immagini condivisa
               href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
-            - name: Abilitare la virtualizzazione annidata in una VM modello
-              href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
         - name: Creare e configurare lab per le classi (istruttore)
           items:
             - name: Creare e gestire i lab per le classi
@@ -112,6 +110,8 @@
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
             - name: Impostare o reimpostare le password per le macchine virtuali
               href: classroom-labs/how-to-set-virtual-machine-passwords.md
+            - name: Abilitare la virtualizzazione annidata in una VM modello
+              href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
         - name: Connettersi a una macchina virtuale in lab per le classi (studente)
           items:
             - name: Accedere ai lab per le classi

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 08/29/2019
-ms.openlocfilehash: 4af269faab21207e1a754e309cac16e5e0a94b69
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.date: 10/01/2019
+ms.openlocfilehash: af2e8826c40fb0d16844b6c67f151b0affbf3efd
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164332"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034993"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Scegliere tra i livelli di servizio vCore ed eseguire la migrazione dai livelli di servizio DTU
 
@@ -36,18 +36,18 @@ L'hardware Gen4 offre molta più memoria per ogni vCore. L'hardware Gen5 consent
 
 Il modello di acquisto basato su vCore offre tre livelli di servizio: utilizzo generico, iperscalabilità e business critical. Questi livelli di servizio si differenziano in base a una gamma di dimensioni di calcolo, progettazioni a disponibilità elevata, metodi di isolamento degli errori, tipi e dimensioni di archiviazione e intervalli di I/O.
 
-È necessario configurare separatamente le risorse di archiviazione e il periodo di conservazione richiesti per i backup. Per impostare il periodo di conservazione del backup, aprire il portale di Azure, passare al server (non al database) e quindi fare clic su **Gestisci backup** > **Configura criterio** > **ripristino temporizzato configurazione** > **7- 35 giorni**.
+È necessario configurare separatamente le risorse di archiviazione e il periodo di conservazione richiesti per i backup. Per impostare il periodo di conservazione del backup, aprire il portale di Azure, passare al server (non al database) e quindi fare clic su **Gestisci backup** > **Configura criterio** > **configurazione ripristino temporizzato** > **7-35 giorni**.
 
 La tabella seguente illustra le differenze tra i tre livelli:
 
 ||**Utilizzo generico**|**Business critical**|**Con iperscalabilità**|
 |---|---|---|---|
-|Ideale per|La maggior parte dei carichi di lavoro aziendali. Offre opzioni di calcolo e archiviazione orientate al budget, bilanciate e scalabili.|Applicazioni aziendali con requisiti di I/O elevati. Offre la massima resilienza agli errori usando diverse repliche isolate.|La maggior parte dei carichi di lavoro aziendali con requisiti di archiviazione e scalabilità a scalabilità elevata.|
-|Calcolo|**Calcolo**con provisioning:<br/>Quarta generazione: da 1 a 24 vcore<br/>Quinta generazione: da 2 a 80 vcore<br/>**Calcolo senza server**:<br/>Quinta generazione: 0,5-16 vcore|**Calcolo**con provisioning:<br/>Quarta generazione: da 1 a 24 vcore<br/>Quinta generazione: da 2 a 80 vcore|**Calcolo**con provisioning:<br/>Quarta generazione: da 1 a 24 vcore<br/>Quinta generazione: da 2 a 80 vcore|
-|Memoria|**Calcolo**con provisioning:<br/>Quarta generazione: 7 GB per vCore<br/>Quinta generazione: 5,1 GB per vCore<br/>**Calcolo senza server**:<br/>Quinta generazione: Fino a 24 GB per vCore|**Calcolo**con provisioning:<br/>Quarta generazione: 7 GB per vCore<br/>Quinta generazione: 5,1 GB per vCore |**Calcolo**con provisioning:<br/>Quarta generazione: 7 GB per vCore<br/>Quinta generazione: 5,1 GB per vCore|
+|Ideale per|Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti.|Applicazioni OLTP con frequenza di transazione elevata e bassa latenza di i/o. Offre la massima resilienza agli errori e a failover rapidi usando più repliche aggiornate in modo sincrono.|La maggior parte dei carichi di lavoro aziendali. Ridimensionamento automatico delle dimensioni di archiviazione fino a 100 TB, scalabilità verticale e orizzontale del calcolo, ripristino rapido del database.|
+|Calcolo|**Calcolo con provisioning**:<br/>Quarta generazione: da 1 a 24 vcore<br/>Quinta generazione: da 2 a 80 vcore<br/>**Calcolo senza server**:<br/>Quinta generazione: 0,5-16 vcore|**Calcolo con provisioning**:<br/>Quarta generazione: da 1 a 24 vcore<br/>Quinta generazione: da 2 a 80 vcore|**Calcolo con provisioning**:<br/>Quarta generazione: da 1 a 24 vcore<br/>Quinta generazione: da 2 a 80 vcore|
+|Memoria|**Calcolo con provisioning**:<br/>Quarta generazione: 7 GB per vCore<br/>Quinta generazione: 5,1 GB per vCore<br/>**Calcolo senza server**:<br/>Quinta generazione: Fino a 24 GB per vCore|**Calcolo con provisioning**:<br/>Quarta generazione: 7 GB per vCore<br/>Quinta generazione: 5,1 GB per vCore |**Calcolo con provisioning**:<br/>Quarta generazione: 7 GB per vCore<br/>Quinta generazione: 5,1 GB per vCore|
 |Archiviazione|Usa l'archiviazione remota.<br/>**Calcolo con provisioning di database singolo e pool elastico**:<br/>5 GB - 4 TB<br/>**Calcolo senza server**:<br/>5 GB-3 TB<br/>**Istanza gestita**: 32 GB - 8 TB |Usa l'archiviazione SSD locale.<br/>**Calcolo con provisioning di database singolo e pool elastico**:<br/>5 GB - 4 TB<br/>**Istanza gestita**:<br/>32 GB - 4 TB |Aumento automatico delle dimensioni dello spazio di archiviazione in base alle esigenze. Supporta fino a 100 TB di spazio di archiviazione. Usa l'archiviazione SSD locale per la cache locale del pool di buffer e l'archiviazione dei dati locali. Usa l'archiviazione remota di Azure come archivio dati finale a lungo termine. |
 |Velocità effettiva I/O (approssimativa)|**Database singolo e pool elastico**: 500 IOPS per vCore fino a 40000 numero massimo di IOPS.<br/>**Istanza gestita**: Dipende dalle [dimensioni del file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS per core fino a 200.000 numero massimo di IOPS|La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. Gli IOPs effettivi dipendono dal carico di lavoro.|
-|Disponibilità|1 replica, nessuna replica con scalabilità in lettura|3 repliche, 1 [replica scalabilità in lettura](sql-database-read-scale-out.md),<br/>disponibilità elevata con ridondanza della zona (HA)|1 replica di lettura/scrittura, più 0-4 repliche con scalabilità in [lettura](sql-database-read-scale-out.md)|
+|Disponibilità|1 replica, nessuna replica con scalabilità in lettura|3 repliche, 1 [replica scalabilità in lettura](sql-database-read-scale-out.md),<br/>disponibilità elevata con ridondanza della zona (HA)|1 replica di lettura/scrittura, più 0-4 [repliche con scalabilità in lettura](sql-database-read-scale-out.md)|
 |Backup|[Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 giorni (7 giorni per impostazione predefinita)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), da 7 a 35 giorni (7 giorni per impostazione predefinita)|Backup basati su snapshot nell'archiviazione remota di Azure. Questi snapshot vengono usati per il ripristino rapido. I backup sono istantanei e non influiscano sulle prestazioni di I/O di calcolo. I ripristini sono veloci e non sono un'operazione di dimensioni dei dati (che richiede minuti anziché ore o giorni).|
 |In memoria|Non supportate|Supportato|Non supportate|
 |||
@@ -57,7 +57,7 @@ La tabella seguente illustra le differenze tra i tre livelli:
 
 - Per altre informazioni sui limiti delle risorse di vCore, vedere [limiti delle risorse di vCore in un database singolo](sql-database-vcore-resource-limits-single-databases.md) e [limiti delle risorse vCore in un'istanza gestita](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - Per ulteriori informazioni sui livelli di servizio per utilizzo generico e business critical, vedere [livelli di servizio per utilizzo generico e business critical](sql-database-service-tiers-general-purpose-business-critical.md).
-- Per altre informazioni sul livello di servizio con iperscalabilità nel modello di acquisto basato su vCore, vedere [livello di servizio](sql-database-service-tier-hyperscale.md)con scalabilità automatica.  
+- Per altre informazioni sul livello di servizio con iperscalabilità nel modello di acquisto basato su vCore, vedere [livello di servizio con scalabilità](sql-database-service-tier-hyperscale.md)automatica.  
 
 ## <a name="azure-hybrid-benefit"></a>Vantaggio Azure Hybrid
 
@@ -115,11 +115,11 @@ La tabella seguente fornisce indicazioni per scenari di migrazione specifici:
 |Business Critical|Standard|Downgrade|È necessario eseguire prima la migrazione del database primario|
 |Premium|Scopo generico|Downgrade|È necessario eseguire prima la migrazione del database primario|
 |Scopo generico|Premium|Aggiornamento|È necessario eseguire prima la migrazione del database secondario|
-|Business Critical|Utilizzo generico|Downgrade|È necessario eseguire prima la migrazione del database primario|
-|Utilizzo generico|Business Critical|Aggiornamento|È necessario eseguire prima la migrazione del database secondario|
+|Business Critical|Scopo generico|Downgrade|È necessario eseguire prima la migrazione del database primario|
+|Scopo generico|Business Critical|Aggiornamento|È necessario eseguire prima la migrazione del database secondario|
 ||||
 
-\*Ogni 100 DTU nel livello standard richiede almeno 1 vCore e ogni 125 DTU nel livello Premium richiede almeno 1 vCore.
+\* ogni 100 DTU nel livello standard richiedono almeno 1 vCore e ogni 125 DTU nel livello Premium richiede almeno 1 vCore.
 
 ### <a name="migrate-failover-groups"></a>Eseguire la migrazione dei gruppi di failover
 
@@ -129,7 +129,7 @@ Per i gruppi di failover con più database è necessario eseguire separatamente 
 
 È possibile creare un database secondario con replica geografica, ovvero una replica geografica secondaria, solo usando lo stesso livello di servizio usato per il database primario. Per i database con una frequenza di generazione dei log elevata, è consigliabile creare la replica geografica secondaria con le stesse dimensioni di calcolo della replica primaria.
 
-Se si sta creando una replica geografica secondaria nel pool elastico per un singolo database primario, assicurarsi che `maxVCore` l'impostazione per il pool corrisponda alle dimensioni di calcolo del database primario. Se si crea un database di replica geografica secondario per un database primario in un altro pool elastico, è consigliabile che `maxVCore` i pool abbiano le stesse impostazioni.
+Se si sta creando una replica geografica secondaria nel pool elastico per un singolo database primario, assicurarsi che l'impostazione `maxVCore` per il pool corrisponda alle dimensioni di calcolo del database primario. Se si crea un database di replica geografica secondario per un database primario in un altro pool elastico, è consigliabile che i pool abbiano le stesse impostazioni `maxVCore`.
 
 ### <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Usare la copia del database per convertire un database basato su DTU in un database basato su vCore
 

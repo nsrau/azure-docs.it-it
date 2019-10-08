@@ -8,16 +8,16 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2a740d8ee0eb50cfa01f36bd8f5590a58e1e6627
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 8f4ed6de5ff47efa441c371b80670c500f57c9bb
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931921"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034055"
 ---
-# <a name="time-series-model"></a>Modello serie temporale
+# <a name="time-series-model"></a>Modello Time Series
 
 Questo articolo descrive il componente Modello serie temporale di Anteprima di Time Series Insights. Illustra il modello, le funzionalità e come iniziare a compilare e aggiornare un modello personalizzato.
 
@@ -25,7 +25,7 @@ I dati raccolti dai dispositivi IoT non includono in genere informazioni contest
 
 I modelli di serie temporale svolgono un ruolo fondamentale nelle query e nella navigazione perché contestualizzano le entità dispositivo e non dispositivo. I dati resi persistenti nel modello di serie temporale possono essere usati per i calcoli delle query delle serie temporali sfruttando le formule archiviate al loro interno.
 
-[![Panoramica del modello Time Series](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
+[Panoramica del modello di serie @no__t 1Time](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
 
 ## <a name="key-capabilities"></a>Funzionalità principali
 
@@ -76,17 +76,17 @@ Esempio:
 
 Per altre informazioni sui tipi di modello serie temporale, vedere la [documentazione di riferimento](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
-### <a name="variables"></a>Variabili
+### <a name="variables"></a>variables
 
 I tipi di Time Series Insights hanno variabili, denominate calcoli sui valori degli eventi. Le definizioni delle variabili di Time Series Insights contengono regole relative alle formule e ai calcoli. Le definizioni delle variabili includono *tipologia*, *valore*, *filtro*, *riduzione* e *limiti*. Le variabili vengono archiviate nella definizione del tipo nel modello serie temporale e possono essere fornite inline tramite le API di query per eseguire l'override della definizione archiviata.
 
 La matrice seguente funge da legenda per le definizioni delle variabili:
 
-[![Tabella di definizione della variabile di tipo](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
+[tabella di definizione della variabile ![Type](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
 
 | Definizione | Descrizione |
 | --- | ---|
-| Tipologia di variabile |  Sono supportati i tipi numerici e di *aggregazione* |
+| Tipologia di variabile |  Sono supportati i tipi *numerici* e di *aggregazione* |
 | Filtro di variabile | I filtri di variabile specificano una clausola di filtro facoltativa per limitare il numero di righe da tenere in considerazione per il calcolo in base alle condizioni. |
 | Valore di variabile | I valori delle variabili vengono e devono essere usati nel calcolo. Campo pertinente a cui fare riferimento per il punto dati in questione. |
 | Aggregazione di variabile | La funzione di aggregazione della variabile consente parte del calcolo. Time Series Insights supporta le normali aggregazioni (specificamente *min*, *max*, *avg*, *sum* e *count*). |

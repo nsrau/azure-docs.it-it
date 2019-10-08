@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/2/2019
+ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6776d7ff21599a1cfab47fd0e4ab0fbef5d3d8c
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 5132581c3d79db88dabc3c20ac3b962226d8a12d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827093"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025843"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -45,6 +45,8 @@ Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornament
 
 ## <a name="14250"></a>1.4.25.0
 
+
+
 ### <a name="release-status"></a>Stato della versione
 9/28/2019: Rilasciato per l'aggiornamento automatico per selezionare i tenant. Non disponibile per il download.
 
@@ -56,12 +58,15 @@ In determinate circostanze, i server che sono stati aggiornati automaticamente a
 
 ## <a name="14180"></a>1.4.18.0
 
+>[!WARNING]
+>Si sta esaminando un evento imprevisto in cui alcuni clienti riscontrano problemi con i dispositivi esistenti Azure AD ibrido aggiunti dopo l'aggiornamento a questa versione di Azure AD Connect. Si consiglia ai clienti che hanno distribuito Azure AD ibrido partecipare per posticipare l'aggiornamento a questa versione fino a quando la causa principale di questi problemi non viene pienamente riconosciuta e mitigata. Ulteriori informazioni verranno fornite il prima possibile.
+
 >[!IMPORTANT]
 >Con questa versione di Azure AD Connect alcuni clienti potrebbero vedere che alcuni o tutti i dispositivi Windows scompaiono da Azure AD. Questo non è un problema, poiché queste identità dei dispositivi non vengono usate da Azure AD durante l'autorizzazione dell'accesso condizionale. Per ulteriori informazioni, vedere informazioni [Azure ad Connect 1.4. XX. x disappearnce del dispositivo](reference-connect-device-disappearance.md)
 
 
 ### <a name="release-status"></a>Stato della versione
-9/25/2019: Rilasciato per l'aggiornamento automatico e il download
+9/25/2019: Rimosso dal Download manuale fino al completamento dell'analisi degli eventi imprevisti.
 
 ### <a name="new-features-and-improvements"></a>Miglioramenti e nuove funzionalità
 - I nuovi strumenti per la risoluzione dei problemi consentono di risolvere i problemi relativi agli scenari di "sincronizzazione dell'utente", "non sincronizzazione del gruppo" o "membri del gruppo non sincronizzati".
@@ -103,7 +108,7 @@ In determinate circostanze, i server che sono stati aggiornati automaticamente a
 >[!IMPORTANT]
 >Si è verificato un problema noto relativo all'aggiornamento Azure AD Connect da una versione precedente a 1.3.21.0, in cui il portale di O365 non riflette la versione aggiornata anche se Azure AD Connect è stato aggiornato correttamente.
 >
-> Per risolvere questo problema, è necessario importare il modulo **AdSync** , quindi eseguire`Set-ADSyncDirSyncConfiguration` il cmdlet di PowerShell nel server Azure ad Connect.  È possibile seguire questa procedura:
+> Per risolvere questo problema, è necessario importare il modulo **AdSync** , quindi eseguire il cmdlet di PowerShell @ no__t-1 nel server Azure ad Connect.  È possibile seguire questa procedura:
 >
 >1. Aprire PowerShell in modalità amministratore
 >2. Eseguire `Import-Module "ADSync"`
@@ -460,12 +465,12 @@ Bloccare l'accesso all'account di Active Directory Domain Services implementando
 *   Rimuovere tutte le voci ACE nell'oggetto specifico, ad eccezione delle voci ACE specifiche di SELF. Le autorizzazioni predefinite devono rimanere inalterate per SELF.
 *   Assegnare le autorizzazioni specifiche seguenti:
 
-Type     | Attività                          | Accesso               | Si applica a
+Type     | NOME                          | Accesso               | Si applica a
 ---------|-------------------------------|----------------------|--------------|
 Allow    | SYSTEM                        | Controllo completo         | Questo oggetto  |
 Allow    | Enterprise Admins             | Controllo completo         | Questo oggetto  |
 Allow    | Domain Admins                 | Controllo completo         | Questo oggetto  |
-Allow    | Amministratori                | Controllo completo         | Questo oggetto  |
+Allow    | Administrators                | Controllo completo         | Questo oggetto  |
 Allow    | Controller di dominio organizzazione | Contenuto elenco        | Questo oggetto  |
 Allow    | Controller di dominio organizzazione | Leggi tutte le proprietà  | Questo oggetto  |
 Allow    | Controller di dominio organizzazione | Autorizzazioni di lettura     | Questo oggetto  |
@@ -485,7 +490,7 @@ Per usare lo script di PowerShell per applicare queste impostazioni a un account
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-Dove 
+Where 
 
 **$ObjectDN** = account Active Directory di cui restringere le autorizzazioni.
 
@@ -804,13 +809,13 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Select|
-    |CertKeyAlgorithmParams|CertHashString|Dove|
+    |CertKeyAlgorithmParams|CertHashString|Where|
     |||With|
 
 * Le modifiche seguenti dello schema sono state introdotte per consentire ai clienti di creare regole di sincronizzazione personalizzate per includere nel flusso gli attributi sAMAccountName, domainNetBios e domainFQDN per gli oggetti gruppo e l'attributo distinguishedName per gli oggetti utente:
 
   * Gli attributi seguenti sono stati aggiunti allo schema Metaverse:
-    * Gruppo: Nome dell'account
+    * Gruppo: AccountName
     * Group: domainNetBios
     * Group: domainFQDN
     * Person: distinguishedName
@@ -967,7 +972,7 @@ Autenticazione pass-through
 * Risolto un problema che causava un errore nella procedura guidata di Azure AD Connect se si selezionava Autenticazione pass-through ma la registrazione del relativo connettore aveva esito negativo.
 * Risolto un problema che causava il bypass dei controlli di convalida da parte di Azure AD Connect sul metodo di accesso selezionato con la funzionalità Desktop SSO attivata.
 
-Reimpostazione password
+Reimpostazione delle password
 * Correzione di un problema che potrebbe causare il mancato tentativo di riconnessione da parte del server Azure AAD Connect, se la connessione è stata terminata da un firewall o un proxy.
 
 **Nuove funzionalità o miglioramenti:**
@@ -982,7 +987,7 @@ Gestione di AD FS.
 * È ora possibile specificare un gMSA (account del servizio gestito di gruppo) durante l'installazione di AD FS.
 * È ora possibile configurare SHA-256 come algoritmo di hash della firma per il trust della relying party di Azure AD.
 
-Reimpostazione password
+Reimpostazione delle password
 * Miglioramenti per consentire al prodotto di funzionare in ambienti con regole più severe del firewall.
 * Migliore affidabilità della connessione al bus di servizio.
 

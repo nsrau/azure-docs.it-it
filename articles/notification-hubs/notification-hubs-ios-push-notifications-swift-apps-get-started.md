@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: miparker
 ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: b830538f81d1696c34db3e4f66a07346c17bcdcc
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8dae5bcc082ba5dd0953e3e97f609e4031547a35
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211963"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030649"
 ---
 # <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>Esercitazione: Notifiche push a app iOS Swift che usano l'API REST di hub di notifica
 
@@ -75,7 +75,7 @@ In questa sezione verrà compilata l'app iOS che si connetterà all'hub di notif
 
 1. Quando si impostano le opzioni per il nuovo progetto:
 
-   1. Specificare il **nome del prodotto** (PushDemo) e l'identificatore`com.<organization>`dell' **organizzazione** () usati quando si imposta l' **identificatore del bundle** nel portale Apple Developer.
+   1. Specificare il **nome del prodotto** (PushDemo) e l' **identificatore dell'organizzazione** (`com.<organization>`) usati quando si imposta l' **identificatore del bundle** nel portale per sviluppatori Apple.
 
    1. Scegliere il **Team** per cui è stato configurato l' **ID app** .
 
@@ -91,16 +91,16 @@ In questa sezione verrà compilata l'app iOS che si connetterà all'hub di notif
 
    | Chiave                            | Type                     | Value                     |
    |--------------------------------| -------------------------| --------------------------|
-   | notificationHubKey             | Stringa                   | \<hubKey>                  |
-   | notificationHubKeyName         | Stringa                   | \<> hubKeyName              |
-   | notificationHubName            | Stringa                   | \<hubName>                 |
-   | notificationHubNamespace       | Stringa                   | \<hubNamespace>            |
+   | notificationHubKey             | string                   | \<hubKey>                  |
+   | notificationHubKeyName         | string                   | \<hubKeyName >              |
+   | notificationHubName            | string                   | \<hubName>                 |
+   | notificationHubNamespace       | string                   | \<hubNamespace>            |
 
    È possibile trovare i valori necessari passando alla risorsa Hub di notifica nella portale di Azure. In particolare, i valori **notificationHubName** e **notificationHubNamespace** si trovano nell'angolo superiore destro del riepilogo di **Essentials** all'interno della pagina **Overview** .
 
    ![Riepilogo Essentials di hub di notifica](./media/notification-hubs-ios-push-notifications-swift-apps-get-started/hub-essentials.png)
 
-   È anche possibile trovare i valori **notificationHubKeyName** e **NotificationHubKey** passando a criteri di **accesso** e selezionando i rispettivi **criteri di accesso**, ad `DefaultFullSharedAccessSignature`esempio. Successivamente, copiare dalla stringa di **connessione primaria** `SharedAccessKeyName=` il valore preceduto da per `notificationHubKeyName` e `notificationHubKey`il valore con `SharedAccessKey=` prefisso per.
+   È anche possibile trovare i valori **notificationHubKeyName** e **NotificationHubKey** passando a criteri di **accesso** e selezionando i rispettivi **criteri di accesso**, ad esempio `DefaultFullSharedAccessSignature`. Successivamente, copiare dalla stringa di **connessione primaria** il valore con il prefisso `SharedAccessKeyName=` per `notificationHubKeyName` e il valore preceduto da `SharedAccessKey=` per il `notificationHubKey`.
 
    Il formato della stringa di connessione deve essere il seguente:
 
@@ -108,15 +108,15 @@ In questa sezione verrà compilata l'app iOS che si connetterà all'hub di notif
    Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<notificationHubKeyName>;SharedAccessKey=<notificationHubKey>
    ```
 
-   Per mantenerlo semplice, `DefaultFullSharedAccessSignature` specificare in modo che sia possibile usare il token per inviare le notifiche. In pratica, `DefaultListenSharedAccessSignature` sarebbe una scelta migliore per le situazioni in cui si desidera ricevere solo le notifiche.
+   Per mantenerlo semplice, specificare `DefaultFullSharedAccessSignature` per poter usare il token per inviare le notifiche. In pratica, la `DefaultListenSharedAccessSignature` sarebbe una scelta migliore per le situazioni in cui si desidera ricevere solo le notifiche.
 
 1. In **Project Navigator**selezionare il **nome del progetto** , quindi selezionare la scheda **generale** .
 
-1. Trovare **Identity** , quindi impostare il valore dell' **identificatore del bundle** in modo `com.<organization>.PushDemo`che corrisponda a, che corrisponde al valore usato per l' **ID app** di un passaggio precedente.
+1. Trovare **Identity** , quindi impostare il valore dell' **identificatore del bundle** in modo che corrisponda `com.<organization>.PushDemo`, ovvero il valore usato per l' **ID app** di un passaggio precedente.
 
 1. Trovare la **firma**e quindi selezionare il **Team** appropriato per l' **account sviluppatore Apple**. Il valore del **Team** deve corrispondere a quello in cui sono stati creati i certificati e i profili.
 
-1. Xcode dovrebbe estrarre automaticamente il valore appropriato del **profilo di provisioning** in base all' **identificatore del bundle**. Se non viene visualizzato il nuovo valore del **profilo di provisioning** , provare ad aggiornare i profili per l' **identità di firma** selezionando la visualizzazione**account** > **Preferenze** > di **Xcode** > . **Dettagli**. Selezionare **firma identità**, quindi fare clic sul pulsante **Aggiorna** in basso a destra per scaricare i profili.
+1. Xcode dovrebbe estrarre automaticamente il valore appropriato del **profilo di provisioning** in base all' **identificatore del bundle**. Se non viene visualizzato il nuovo valore del **profilo di provisioning** , provare ad aggiornare i profili per l' **identità di firma** selezionando **Xcode** > **Preferenze** > **account** > **Visualizza dettagli**. Selezionare **firma identità**, quindi fare clic sul pulsante **Aggiorna** in basso a destra per scaricare i profili.
 
 1. Selezionare la scheda **funzionalità** e assicurarsi che le **notifiche push** siano abilitate.
 
@@ -285,8 +285,8 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 Il processo stesso comporta le stesse sei fasi principali:  
 
 1. Calcolo della scadenza nel formato di [data e ora UNIX](https://en.wikipedia.org/wiki/Unix_time) , che indica il numero di secondi trascorsi dalla mezzanotte UTC (Coordinated Universal Time) il 1 ° gennaio 1970.
-1. Formattazione del **ResourceUrl** che rappresenta la risorsa a cui si sta tentando di accedere, in modo che sia codificato in percentuale e minuscolo. Il **ResourceUrl** ha il formato `'https://<namespace>.servicebus.windows.net/<hubName>'`.
-1. Preparazione di **StringToSign**, formattato come `'<UrlEncodedResourceUrl>\n<ExpiryEpoch>'`.
+1. Formattazione del **ResourceUrl** che rappresenta la risorsa a cui si sta tentando di accedere, in modo che sia codificato in percentuale e minuscolo. Il formato del **ResourceUrl** è `'https://<namespace>.servicebus.windows.net/<hubName>'`.
+1. Preparazione del **StringToSign**, formattato come `'<UrlEncodedResourceUrl>\n<ExpiryEpoch>'`.
 1. Calcolo e codifica Base64 della **firma** usando l'hash HMAC-SHA256 del valore **StringToSign** . Il valore hash viene utilizzato con la parte **chiave** della **stringa di connessione** per la rispettiva regola di **autorizzazione**.
 1. Formattare la **firma** base64 codificata in modo che sia codificata in percentuale.
 1. Creazione del token nel formato previsto usando i valori **UrlEncodedSignature**, **ExpiryEpoch**, **nome**e **UrlEncodedResourceUrl** .
@@ -297,7 +297,7 @@ Ai fini di questo esempio Swift, si userà la libreria **CommonCrypto** open sou
 
 Per aggiungere e configurare l'intestazione bridging:
 
-1. In Xcode selezionare **file** > file di**intestazione** **nuovo** >  file> . Denominare il file di intestazione **BridgingHeader. h**.
+1. In Xcode selezionare **file** > **New** > **file** >  file di**intestazione**. Denominare il file di intestazione **BridgingHeader. h**.
 
 1. Modificare il file per importare **CommonHMAC. h**:
 
@@ -313,11 +313,11 @@ Per aggiungere e configurare l'intestazione bridging:
 
 1. Aggiornare le impostazioni di **compilazione** della destinazione per fare riferimento all'intestazione bridging:
 
-   1. Aprire la scheda **Impostazioni** di compilazione e scorrere verso il basso fino alla sezione **Swift Compiler** .
+   1. Aprire la scheda **impostazioni di compilazione** e scorrere verso il basso fino alla sezione **Swift Compiler** .
 
-   1. Verificare che l'opzione  **Installa intestazione compatibilità Objective-C**sia impostata su **Sì**.
+   1. Verificare che l'opzione **Installa intestazione compatibilità Objective-C** sia impostata su **Sì**.
 
-   1. Immettere il percorso `'<ProjectName>/BridgingHeader.h'` del file nell'opzione relativa all' **intestazione** bridging Objective-C. Si tratta del percorso del file per l'intestazione bridging.
+   1. Immettere il percorso del file `'<ProjectName>/BridgingHeader.h'` nell'opzione dell' **intestazione bridging Objective-C** . Si tratta del percorso del file per l'intestazione bridging.
 
    Se queste opzioni non sono disponibili, assicurarsi che sia selezionata la vista **tutti** anziché **Basic** o **personalizzata**.
 
@@ -662,7 +662,7 @@ Il modo più rapido per verificare che ora è possibile ricevere le notifiche co
    | ------------------------------ | ------------------------------ |
    | Content-Type                   | application/json;charset=utf-8 |
    | Authorization                  | \<sasToken>                     |
-   | ServiceBusNotification-Format  | modello                       |
+   | ServiceBusNotification-Format  | template                       |
    | Tag                           | "12345"                        |
 
 1. Configurare il **corpo** della richiesta per l'uso del **formato JSON non elaborato (Application. Json)** con il payload JSON seguente:

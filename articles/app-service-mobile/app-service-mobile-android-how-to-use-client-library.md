@@ -13,18 +13,18 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 6a6db136926a7f9d631c717f5cab6c025d97fb48
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: b67e0eaabe63707455eaa6cd4b235ec828dddff3
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67443533"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025455"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Come usare Azure Mobile Apps SDK per Android
 
 > [!NOTE]
-> Visual Studio App Center sta investendo nei servizi nuovi e integrati centrali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare i servizi di **compilazione**, **test** e **distribuzione** per configurare la pipeline di integrazione e recapito continua. Una volta distribuita l'app, gli sviluppatori possono monitorare lo stato e l'utilizzo dell'app usando i servizi di **analisi** e **diagnostica** e coinvolgere gli utenti che usano il servizio di **push** . Gli sviluppatori possono inoltre sfruttare l' **autenticazione** per autenticare gli utenti e il servizio **dati** per salvare in modo permanente e sincronizzare i dati delle app nel cloud. Estrai [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-how-to-use-client-library) oggi stesso.
->
+> Visual Studio App Center supporta end-to-end e servizi integrati centrali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare i servizi di **compilazione**, **test** e **distribuzione** per configurare la pipeline di integrazione e recapito continua. Una volta distribuita l'app, gli sviluppatori possono monitorare lo stato e l'utilizzo dell'app usando i servizi di **analisi** e **diagnostica** e coinvolgere gli utenti che usano il servizio di **push** . Gli sviluppatori possono inoltre sfruttare l' **autenticazione** per autenticare gli utenti e il servizio **dati** per salvare in modo permanente e sincronizzare i dati delle app nel cloud.
+> Se si intende integrare servizi cloud nell'applicazione per dispositivi mobili, iscriversi con App Center [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) oggi stesso.
 
 Questa guida illustra come usare Android SDK del client per le App per dispositivi mobili di Azure per implementare scenari comuni, ad esempio:
 
@@ -112,7 +112,7 @@ MobileServiceClient mClient = new MobileServiceClient(
 
 Per il client è anche necessario l'accesso all'attività o al contesto (il parametro `this` nell'esempio).  La costruzione MobileServiceClient deve avvenire nel metodo `onCreate()` dell'attività a cui si fa riferimento nel file `AndroidManifest.xml`.
 
-Come procedura consigliata, è opportuno astrarre le comunicazioni del server nella relativa classe (modello singleton).  In questo caso, è consigliabile passare l'attività nel costruttore per configurare il servizio in modo appropriato.  Ad esempio:
+Come procedura consigliata, è opportuno astrarre le comunicazioni del server nella relativa classe (modello singleton).  In questo caso, è consigliabile passare l'attività nel costruttore per configurare il servizio in modo appropriato.  Esempio:
 
 ```java
 package com.example.appname.services;
@@ -201,7 +201,7 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Per informazioni su come creare altre tabelle nel back-end dell'App per dispositivi mobili, vedere [Procedura: Definire un controller][15] tabelle (back-end .NET) o [definire tabelle con uno schema dinamico][16] (back-end node. js).
+Per informazioni su come creare altre tabelle nel back-end dell'App per dispositivi mobili, vedere [Procedura: Definire un controller di tabella @ no__t-0 (back-end .NET) o [definire tabelle con uno schema dinamico][16] (back-end node. js).
 
 Una tabella del back-end di App per dispositivi mobili di Azure definisce cinque campi speciali, quattro dei quali disponibili per i client:
 
@@ -211,7 +211,7 @@ Una tabella del back-end di App per dispositivi mobili di Azure definisce cinque
 * `byte[] version`: rappresentata in genere come stringa, anche la versione viene impostata dal server.
 * `boolean deleted`: indica che il record è stato eliminato, ma non ancora definitivamente.  Non usare `deleted` come proprietà nella classe.
 
-Il campo `id` è obbligatorio.  I campi `updatedAt` e `version` vengono usati per la sincronizzazione offline, rispettivamente per la sincronizzazione incrementale e per la risoluzione dei conflitti.  Il campo `createdAt` è un campo di riferimento e non viene usato dal client.  I nomi sono nomi delle proprietà usati per la trasmissione in rete e non sono modificabili.  Tuttavia, è possibile creare un mapping tra l'oggetto e i nomi "in transito" usando la libreria [Gson][3] .  Ad esempio:
+Il campo `id` è obbligatorio.  I campi `updatedAt` e `version` vengono usati per la sincronizzazione offline, rispettivamente per la sincronizzazione incrementale e per la risoluzione dei conflitti.  Il campo `createdAt` è un campo di riferimento e non viene usato dal client.  I nomi sono nomi delle proprietà usati per la trasmissione in rete e non sono modificabili.  Tuttavia, è possibile creare un mapping tra l'oggetto e i nomi "in transito" usando la libreria [Gson][3] .  Esempio:
 
 ```java
 package com.example.zumoappname;
@@ -271,7 +271,7 @@ public class ToDoItem
 
 ### <a name="create-a-table-reference"></a>Creare un riferimento alla tabella
 
-Per accedere a una tabella, creare innanzitutto un oggetto [MobileServiceTable][8] chiamando il metodo GetTable in [MobileServiceClient][9].  Questo metodo presenta due overload:
+Per accedere a una tabella, creare innanzitutto un oggetto [MobileServiceTable][8] chiamando il metodo **GetTable** in [MobileServiceClient][9].  Questo metodo presenta due overload:
 
 ```java
 public class MobileServiceClient {
@@ -314,7 +314,7 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-L'esempio precedente restituisce tutti i risultati, fino alle dimensioni di pagina massime impostate dal server.  Il metodo `.execute()` esegue la query sul back-end.  La query viene convertita in una query [OData v3][19] prima della trasmissione al back-end di app per dispositivi mobili.  Alla ricezione, il back-end di App per dispositivi mobili converte la query in un'istruzione SQL prima di eseguirla nell'istanza di SQL Azure.  Poiché l'attività di rete richiede del tempo `.execute()` , il metodo [`ListenableFuture<E>`][18]restituisce.
+L'esempio precedente restituisce tutti i risultati, fino alle dimensioni di pagina massime impostate dal server.  Il metodo `.execute()` esegue la query sul back-end.  La query viene convertita in una query [OData v3][19] prima della trasmissione al back-end di app per dispositivi mobili.  Alla ricezione, il back-end di App per dispositivi mobili converte la query in un'istruzione SQL prima di eseguirla nell'istanza di SQL Azure.  Poiché l'attività di rete richiede del tempo, il metodo `.execute()` restituisce una [`ListenableFuture<E>`][18].
 
 ### <a name="filtering"></a>Filtrare i dati restituiti
 
@@ -460,7 +460,7 @@ Una richiesta per tutti i record con questo metodo crea un minimo di due richies
 
 ### <a name="chaining"></a>Procedura: Concatenare metodi di query
 
-I metodi usati per eseguire query su tabelle di back-end possono essere concatenati. Il concatenamento dei metodi di query consente di selezionare colonne specifiche di righe filtrate ordinate e sottoposte a paging. È possibile creare filtri logici complessi.  Ogni metodo di query restituisce un oggetto Query. Per terminare la serie di metodi ed eseguire effettivamente la query, chiamare il metodo **execute** . Ad esempio:
+I metodi usati per eseguire query su tabelle di back-end possono essere concatenati. Il concatenamento dei metodi di query consente di selezionare colonne specifiche di righe filtrate ordinate e sottoposte a paging. È possibile creare filtri logici complessi.  Ogni metodo di query restituisce un oggetto Query. Per terminare la serie di metodi ed eseguire effettivamente la query, chiamare il metodo **execute** . Esempio:
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -530,7 +530,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 }
 ```
 
-Eseguire l'override del metodo **getView** dell'adattatore. Ad esempio:
+Eseguire l'override del metodo **getView** dell'adattatore. Esempio:
 
 ```java
     @Override

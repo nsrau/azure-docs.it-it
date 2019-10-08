@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 10/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 5e1fe6252f396a4585b5d7d7190728b79229d5c7
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6c8d25a9df49323866e99487ef6c648dede40ec4
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073984"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033963"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Connettere i computer Windows a monitoraggio di Azure
 
@@ -51,7 +51,11 @@ Prima di installare l'agente di Log Analytics per Windows, sono necessari l'ID e
 5. Copiare e incollare nell'editor preferito l'**ID area di lavoro** e la **chiave primaria**.    
    
 ## <a name="configure-agent-to-use-tls-12"></a>Configurare l'agente per usare TLS 1.2
-Per configurare, usare il protocollo [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) per la comunicazione tra l'agente di Windows e il servizio Log Analytics, è possibile seguire la procedura seguente per abilitare prima che l'agente venga installato nella macchina virtuale o in un secondo momento.   
+Per configurare, usare il protocollo [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) per la comunicazione tra l'agente di Windows e il servizio Log Analytics, è possibile seguire la procedura seguente per abilitare prima che l'agente venga installato nella macchina virtuale o in un secondo momento.
+
+>[!NOTE]
+>Se si configura una macchina virtuale che esegue Windows Server 2008 SP2 x64 per l'uso di TLS 1,2, prima di eseguire i passaggi seguenti è necessario installare prima di tutto l'aggiornamento del supporto per la [firma del codice SHA-2](https://support.microsoft.com/help/4474419/sha-2-code-signing-support-update) . 
+>
 
 1. Individuare la seguente sottochiave del registro di sistema: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
 2. Creare una sottochiave in **protocolli** per TLS 1,2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1,2**
@@ -74,7 +78,7 @@ I passaggi seguenti installano e configurano l'agente Log Analytics in Azure e i
 
 1. Nell'area di lavoro Log Analytics, dalla pagina **Server Windows** a cui si è passati in precedenza, selezionare la versione appropriata da scaricare in **Scarica agente Windows** a seconda dell'architettura del processore del sistema operativo Windows.   
 2. Eseguire il programma di installazione per installare l'agente nel computer in uso.
-2. Nella pagina di **benvenuto** fare clic su **Avanti**.
+2. Nella pagina **iniziale** fare clic su **Avanti**.
 3. Nella pagina **Condizioni di licenza** leggere la licenza e quindi fare clic su **Accetto**.
 4. Nella pagina **Cartella di destinazione** modificare o mantenere la cartella di installazione predefinita e quindi fare clic su **Avanti**.
 5. Nella pagina **Opzioni di installazione dell'agente** scegliere di connettere l'agente ad Azure Log Analytics e quindi fare clic su **Avanti**.   

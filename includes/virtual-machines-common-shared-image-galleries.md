@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: d86976ad191ffffa343ad7a94b8171759ad102c3
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 9a564bf7f633903c58a5719327216baee2df6550
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338346"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026165"
 ---
 Raccolta immagini condivise è un servizio che consente di creare struttura e organizzazione in base alle immagini gestite. Le raccolte di immagini condivise forniscono:
 
@@ -40,17 +40,15 @@ La funzionalità Raccolta di immagini condivise presenta più tipi di risorse:
 
 <br>
 
-
 ![Immagine che mostra in che modo è possibile avere più versioni di un'immagine nella propria raccolta](./media/shared-image-galleries/shared-image-gallery.png)
 
-## <a name="image-definitions"></a>Definizioni immagini
+## <a name="image-definitions"></a>Definizioni di immagini
 
 Le definizioni di immagine sono un raggruppamento logico per le versioni di un'immagine. La definizione dell'immagine include informazioni sui motivi per cui è stata creata l'immagine, sul sistema operativo per cui è stata creata e sulle informazioni sull'utilizzo dell'immagine. La definizione di un'immagine è simile a un piano per tutti i dettagli relativi alla creazione di un'immagine specifica. Non si distribuisce una macchina virtuale da una definizione di immagine, ma dalla versione dell'immagine creata dalla definizione.
 
-
 Esistono tre parametri per ogni definizione di immagine usati in combinazione- **autore**, **offerta** e **SKU**. Questi vengono usati per trovare una definizione di immagine specifica. È possibile avere versioni delle immagini che condividono uno o due, ma non tutti e tre i valori.  Di seguito, un esempio di tre definizioni di immagini con i relativi valori:
 
-|Definizione delle immagini|Autore|Offerta|SKU|
+|Definizione delle immagini|Editore|Offerta|Sku|
 |---|---|---|---|
 |myImage1|Contoso|Finanza|Back-end|
 |myImage2|Contoso|Finanza|Front-end|
@@ -65,21 +63,19 @@ Di seguito sono riportati altri parametri che è possibile impostare nella defin
 * Descrizione: usare Description per fornire informazioni più dettagliate sul motivo per cui la definizione dell'immagine esiste. Ad esempio, si potrebbe avere una definizione di immagine per il server front-end in cui è preinstallata l'applicazione.
 * EULA-può essere usato per puntare a un contratto di licenza con l'utente finale specifico per la definizione dell'immagine.
 * Informativa sulla privacy e note sulla versione: archivia le note sulla versione e le informative sulla privacy in archiviazione di Azure e fornisce un URI per accedervi come parte della definizione dell'immagine.
-* Data fine del ciclo di vita: consente di aggiungere una data di fine vita alla definizione dell'immagine per poter usare l'automazione per eliminare le definizioni di immagini obsolete.
+* Data di fine della vita: consente di aggiungere una data di fine vita alla definizione dell'immagine per poter usare l'automazione per eliminare le definizioni di immagini obsolete.
 * Tag: è possibile aggiungere tag quando si crea la definizione dell'immagine. Per altre informazioni sui tag, vedere [uso dei tag per organizzare le risorse](../articles/azure-resource-manager/resource-group-using-tags.md)
 * Raccomandazioni vCPU e Memory minime e massime: se l'immagine presenta vCPU e consigli per la memoria, è possibile alleghi tali informazioni alla definizione dell'immagine.
 * Tipi di dischi non consentiti: è possibile fornire informazioni sulle esigenze di archiviazione per la macchina virtuale. Se, ad esempio, l'immagine non è adatta per i dischi HDD standard, è necessario aggiungerli all'elenco non consentiti.
-
 
 ## <a name="regional-support"></a>Supporto a livello di area
 
 Le aree di origine sono elencate nella tabella seguente. Tutte le aree pubbliche possono essere aree di destinazione, ma per eseguire la replica in Australia centrale e Australia centrale 2 è necessario che la sottoscrizione sia consentita. Per richiedere l'inserimento nella whitelist, passare a: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-
 | Aree di origine |
 |---------------------|-----------------|------------------|-----------------|
-| Australia centrale   | Stati Uniti centrali EUAP | Corea centrale    | Stati Uniti centro-occidentali |
-| Australia centrale 2 | Asia orientale       | Corea meridionale      | Europa occidentale     |
+| Australia centrale   | Stati Uniti centrali EUAP | Corea del Sud centrale    | Stati Uniti centro-occidentali |
+| Australia centrale 2 | Asia orientale       | Corea del Sud meridionale      | Europa occidentale     |
 | Australia orientale      | East US         | Stati Uniti centro-settentrionali | India occidentale      |
 | Australia sud-orientale | Stati Uniti orientali 2       | Europa settentrionale     | Stati Uniti occidentali         |
 | Brasile meridionale        | Stati Uniti orientali 2 EUAP  | Stati Uniti centro-meridionali | Stati Uniti occidentali 2       |
@@ -87,8 +83,6 @@ Le aree di origine sono elencate nella tabella seguente. Tutte le aree pubbliche
 | Canada orientale         | Francia meridionale    | Asia sud-orientale   | Cina orientale 2    |
 | India centrale       | Giappone orientale      | Regno Unito meridionale         | Cina settentrionale     |
 | Stati Uniti centrali          | Giappone occidentale      | Regno Unito occidentale          | Cina settentrionale 2   |
-
-
 
 ## <a name="limits"></a>Limiti 
 
@@ -99,10 +93,8 @@ Per la distribuzione delle risorse tramite le raccolte di immagini condivise son
 
 Per altre informazioni, vedere [controllare l'utilizzo delle risorse rispetto ai limiti](https://docs.microsoft.com/azure/networking/check-usage-against-limits) per esempi su come controllare l'utilizzo corrente.
  
-
 ## <a name="scaling"></a>Ridimensionamento
 Raccolta di immagini condivise consente di specificare il numero di repliche delle immagini che si desidera vengano conservate da Azure. Questa possibilità è particolarmente utile in scenari di distribuzione di più macchine virtuali, poiché le distribuzioni di macchine virtuali possono essere estese a diverse repliche, riducendo le possibilità che il processo di creazione di istanze venga limitato a causa dell'overload di una singola replica.
-
 
 Con la raccolta di immagini condivise, è ora possibile distribuire fino a una macchina virtuale di 1.000 istanze in un set di scalabilità di macchine virtuali (fino a 600 con le immagini gestite). Le repliche di immagini offrono prestazioni, affidabilità e coerenza migliori per la distribuzione.  È possibile impostare un numero di repliche diverso in ogni area di destinazione, in base alle esigenze di scalabilità per l'area. Poiché ogni replica è una copia completa dell'immagine, questo consente di ridimensionare le distribuzioni in modo lineare con ogni replica aggiuntiva. Sebbene non siano state riconoscite due immagini o aree, di seguito sono riportate le linee guida generali su come usare le repliche in un'area:
 
@@ -111,10 +103,7 @@ Con la raccolta di immagini condivise, è ora possibile distribuire fino a una m
 
 Si consiglia sempre di eseguire l'overprovisioning del numero di repliche a causa di fattori quali le dimensioni dell'immagine, il contenuto e il tipo di sistema operativo.
 
-
 ![Immagine che mostra come ridimensionare le immagini](./media/shared-image-galleries/scaling.png)
-
-
 
 ## <a name="make-your-images-highly-available"></a>Rendi le tue immagini a disponibilità elevata
 
@@ -124,7 +113,6 @@ Si consiglia sempre di eseguire l'overprovisioning del numero di repliche a caus
 
 ![Grafico che mostra ZRS](./media/shared-image-galleries/zrs.png)
 
-
 ## <a name="replication"></a>Replica
 Raccolta di immagini condivise consente inoltre di replicare automaticamente le immagini in altre aree di Azure. Ogni versione di immagini condivise può essere replicata in diverse aree a seconda delle esigenze della propria organizzazione. Ad esempio, è possibile replicare sempre l'immagine più recente in più aree, mentre tutte le versioni precedenti sono disponibili solo in un'area. Questo permette di risparmiare sui costi di archiviazione per le versioni di immagini condivise. 
 
@@ -132,14 +120,13 @@ Le aree in cui la versione di immagini condivise viene replicata possono essere 
 
 ![Immagine che mostra come replicare le immagini](./media/shared-image-galleries/replication.png)
 
-
 ## <a name="access"></a>Accesso
 
 Poiché la raccolta di immagini condivise, la definizione di immagine e la versione dell'immagine sono tutte risorse, possono essere condivise usando i controlli RBAC nativi di Azure predefiniti. Utilizzando il controllo degli accessi in base al ruolo è possibile condividere queste risorse con altri utenti, entità servizio e gruppi. È anche possibile condividere l'accesso a utenti esterni al tenant in cui sono stati creati. Una volta che un utente ha accesso alla versione dell'immagine condivisa, può distribuire una VM o un set di scalabilità di macchine virtuali.  Di seguito è riportata la matrice di condivisione che consente all'utente di riconoscere a cosa ha accesso:
 
-| Condivisi con l'utente     | Raccolta immagini condivise | Definizione delle immagini | Versione grafica |
+| Condivisi con l'utente     | Raccolta di immagini condivise | Definizione delle immagini | Versione dell'immagine |
 |----------------------|----------------------|--------------|----------------------|
-| Raccolta immagini condivise | Yes                  | Yes          | Yes                  |
+| Raccolta di immagini condivise | Yes                  | Yes          | Yes                  |
 | Definizione delle immagini     | No                   | Yes          | Yes                  |
 
 Per un'esperienza ottimale, è consigliabile condividere a livello di raccolta. Non è consigliabile condividere le singole versioni dell'immagine. Per altre informazioni su RBAC, vedere [gestire l'accesso alle risorse di Azure con RBAC](../articles/role-based-access-control/role-assignments-portal.md).
@@ -151,7 +138,7 @@ Non sono previsti addebiti aggiuntivi per l'uso del servizio Raccolta di immagin
 - Costi di archiviazione per le versioni di immagini condivise. Il costo dipende dal numero di repliche della versione dell'immagine e dal numero di aree in cui la versione viene replicata. Ad esempio, se si dispone di 2 immagini ed entrambe vengono replicate in 3 aree, si verrà modificati per 6 dischi gestiti in base alla relativa dimensione. Per ulteriori informazioni, vedere [Managed disks prezzi](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Addebiti per l'uscita di rete per la replica della prima versione immagine dall'area di origine alle aree replicate. Le repliche successive vengono gestite all'interno dell'area, quindi non sono previsti addebiti aggiuntivi. 
 
-## <a name="updating-resources"></a>Aggiornamento delle risorse
+## <a name="updating-resources"></a>Aggiornamento di risorse
 
 Una volta creato, è possibile apportare alcune modifiche alle risorse della raccolta immagini. Sono limitati a:
  
@@ -169,7 +156,6 @@ Versione immagine:
 - Aree di destinazione
 - Escludi dall'ultima versione
 - Data di scadenza
-
 
 ## <a name="sdk-support"></a>Supporto SDK
 
@@ -192,9 +178,25 @@ Gli SDK seguenti supportano la creazione di raccolte di immagini condivise:
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti 
 
-**D.** Come elencare tutte le risorse di Raccolta di immagini condivise tra le sottoscrizioni? 
- 
- R. Per elencare tutte le risorse di Raccolta di immagini condivise tra le sottoscrizioni a cui si ha accesso nel portale di Azure, seguire questa procedura:
+* [Come è possibile elencare tutte le risorse della raccolta immagini condivise tra le sottoscrizioni?](#how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions) 
+* [È possibile spostare l'immagine esistente nella raccolta di immagini condivise?](#can-i-move-my-existing-image-to-the-shared-image-gallery)
+* [È possibile creare una versione di immagine da un disco specializzato?](#can-i-create-an-image-version-from-a-specialized-disk)
+* [È possibile spostare la risorsa raccolta immagini condivise in una sottoscrizione diversa dopo che è stata creata?](#can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created)
+* [È possibile replicare le versioni delle immagini tra cloud, ad esempio Azure Cina 21Vianet o Azure Germania o Azure per enti pubblici?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud)
+* [È possibile replicare le versioni delle immagini tra le sottoscrizioni?](#can-i-replicate-my-image-versions-across-subscriptions)
+* [È possibile condividere le versioni delle immagini tra Azure AD tenant?](#can-i-share-image-versions-across-azure-ad-tenants)
+* [Quanto tempo è necessario per replicare le versioni delle immagini tra le aree di destinazione?](#how-long-does-it-take-to-replicate-image-versions-across-the-target-regions)
+* [Qual è la differenza tra l'area di origine e quella di destinazione?](#what-is-the-difference-between-source-region-and-target-region)
+* [Ricerca per categorie specificare l'area di origine durante la creazione della versione dell'immagine?](#how-do-i-specify-the-source-region-while-creating-the-image-version)
+* [Ricerca per categorie specificare il numero di repliche della versione di immagine da creare in ogni area?](#how-do-i-specify-the-number-of-image-version-replicas-to-be-created-in-each-region)
+* [È possibile creare la raccolta di immagini condivise in un percorso diverso rispetto a quello per la definizione dell'immagine e la versione dell'immagine?](#can-i-create-the-shared-image-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version)
+* [Quali sono gli addebiti per l'uso della raccolta di immagini condivise?](#what-are-the-charges-for-using-the-shared-image-gallery)
+* [Quale versione dell'API è consigliabile usare per creare la raccolta di immagini condivise e la versione dell'immagine e della definizione dell'immagine?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
+* [Quale versione dell'API è consigliabile usare per creare una VM condivisa o un set di scalabilità di macchine virtuali per la versione dell'immagine?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
+
+### <a name="how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions"></a>Come elencare tutte le risorse di Raccolta di immagini condivise tra le sottoscrizioni?
+
+Per elencare tutte le risorse della raccolta immagini condivise tra le sottoscrizioni a cui si ha accesso nel portale di Azure, attenersi alla procedura seguente:
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
 1. Passare a **Tutte le risorse**.
@@ -209,10 +211,9 @@ Gli SDK seguenti supportano la creazione di raccolte di immagini condivise:
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
    ```
 
-
-**D.** È possibile spostare l'immagine esistente nella raccolta di immagini condivise?
+### <a name="can-i-move-my-existing-image-to-the-shared-image-gallery"></a>È possibile spostare l'immagine esistente nella raccolta di immagini condivise?
  
- R. Sì. Esistono tre scenari in base ai tipi di immagini che si possono avere.
+Sì. Esistono tre scenari in base ai tipi di immagini che si possono avere.
 
  Scenario 1: se si dispone di un'immagine gestita, è possibile creare una definizione di immagine e una versione dell'immagine a partire da essa.
 
@@ -222,47 +223,41 @@ Gli SDK seguenti supportano la creazione di raccolte di immagini condivise:
 - Se il disco rigido virtuale è di una macchina virtuale Windows, vedere [Caricare un disco rigido virtuale generalizzato](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
 - Se il disco rigido virtuale è per una macchina virtuale Linux, vedere [Caricare un disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
+### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>È possibile creare una versione di immagine da un disco specializzato?
 
-**D.** È possibile creare una versione di immagine da un disco specializzato?
+No, attualmente non sono supportati dischi specializzati come immagini. Se si dispone di un disco specializzato, è necessario [creare una macchina virtuale dal disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) collegando il disco specializzato a una nuova macchina virtuale. Una volta che si dispone di una macchina virtuale in esecuzione, è necessario seguire le istruzioni per creare un'immagine gestita dalla [macchina virtuale Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) oppure dalla [macchina virtuale Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Una volta che si dispone di un'immagine gestita generalizzata, è possibile avviare il processo per creare una descrizione di immagine condivisa e una versione dell'immagine.
 
- R. No, attualmente non sono supportati dischi specializzati come immagini. Se si dispone di un disco specializzato, è necessario [creare una macchina virtuale dal disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) collegando il disco specializzato a una nuova macchina virtuale. Una volta che si dispone di una macchina virtuale in esecuzione, è necessario seguire le istruzioni per creare un'immagine gestita dalla [macchina virtuale Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) oppure dalla [macchina virtuale Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Una volta che si dispone di un'immagine gestita generalizzata, è possibile avviare il processo per creare una descrizione di immagine condivisa e una versione dell'immagine.
+### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>È possibile spostare la risorsa raccolta immagini condivise in una sottoscrizione diversa dopo che è stata creata?
 
- 
-**D.** Una volta creata, è possibile spostare la risorsa Raccolta di immagini condivise in una sottoscrizione diversa?
+No, non è possibile spostare la risorsa Raccolta di immagini condivise in una sottoscrizione diversa. Tuttavia, è possibile replicare le versioni delle immagini della raccolta in altre aree secondo necessità.
 
- R. No, non è possibile spostare la risorsa Raccolta di immagini condivise in una sottoscrizione diversa. Tuttavia, è possibile replicare le versioni delle immagini della raccolta in altre aree secondo necessità.
+### <a name="can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud"></a>È possibile replicare le versioni delle immagini tra cloud, ad esempio Azure Cina 21Vianet o Azure Germania o Azure per enti pubblici?
 
-**D.** È possibile replicare le versioni delle immagini in diversi cloud quali Azure 21Vianet, Azure Germania e Cloud di Azure per enti pubblici? 
+No, non è possibile replicare le versioni delle immagini in diversi cloud.
 
- R. No, non è possibile replicare le versioni delle immagini in diversi cloud.
+### <a name="can-i-replicate-my-image-versions-across-subscriptions"></a>È possibile replicare le versioni delle immagini tra sottoscrizioni diverse? 
 
-**D.** È possibile replicare le versioni delle immagini tra sottoscrizioni diverse? 
+No, è possibile replicare le versioni delle immagini nelle aree in una sottoscrizione e usarle in altre sottoscrizioni tramite RBAC.
 
- R. No, è possibile replicare le versioni delle immagini nelle aree in una sottoscrizione e usarle in altre sottoscrizioni tramite RBAC.
+### <a name="can-i-share-image-versions-across-azure-ad-tenants"></a>È possibile condividere versioni delle immagini nei tenant di Azure Active Directory? 
 
-**D.** È possibile condividere versioni delle immagini nei tenant di Azure Active Directory? 
+Sì, è possibile usare il controllo degli accessi in base al ruolo per condividere le singole persone nei tenant. Tuttavia, per condividere la scalabilità, vedere l'argomento "condividere immagini della raccolta tra i tenant di Azure" tramite [PowerShell](../articles/virtual-machines/windows/share-images-across-tenants.md) o l' [interfaccia](../articles/virtual-machines/linux/share-images-across-tenants.md)della riga di comando.
 
- R. Sì, è possibile usare il controllo degli accessi in base al ruolo per condividere le singole persone nei tenant. Tuttavia, per condividere la scalabilità, vedere l'argomento "condividere immagini della raccolta tra i tenant di Azure" tramite [PowerShell](../articles/virtual-machines/windows/share-images-across-tenants.md) o l' [interfaccia](../articles/virtual-machines/linux/share-images-across-tenants.md)della riga di comando.
+### <a name="how-long-does-it-take-to-replicate-image-versions-across-the-target-regions"></a>Quanto tempo occorre per replicare le versioni delle immagini tra le aree di destinazione?
 
+Il tempo di replica della versione dell'immagine dipende interamente dalle dimensioni dell'immagine e dal numero di aree in cui viene replicata. Tuttavia, come procedura consigliata, si consiglia di mantenere l'immagine piccola e le aree di origine e di destinazione vicine per ottenere risultati ottimali. È possibile controllare lo stato della replica usando il flag ReplicationStatus.
 
-**D.** Quanto tempo occorre per replicare le versioni delle immagini tra le aree di destinazione?
+### <a name="what-is-the-difference-between-source-region-and-target-region"></a>Qual è la differenza tra area di origine e area di destinazione?
 
- R. Il tempo di replica della versione dell'immagine dipende interamente dalle dimensioni dell'immagine e dal numero di aree in cui viene replicata. Tuttavia, come procedura consigliata, si consiglia di mantenere l'immagine piccola e le aree di origine e di destinazione vicine per ottenere risultati ottimali. È possibile controllare lo stato della replica usando il flag ReplicationStatus.
+L'area di origine è l'area in cui viene creata la versione dell'immagine e le aree di destinazione sono le aree in cui viene archiviata una copia della versione dell'immagine. Per ogni versione dell'immagine, è possibile avere solo un'area di origine. Inoltre, assicurarsi di trasmettere la posizione dell'area di origine come una delle aree di destinazione quando si crea una versione di immagine.
 
+### <a name="how-do-i-specify-the-source-region-while-creating-the-image-version"></a>Come si specifica l'area di origine durante la creazione della versione dell'immagine?
 
-**D.** Qual è la differenza tra area di origine e area di destinazione?
+Durante la creazione di una versione dell'immagine, è possibile usare il tag **posizione** all'interno dell'interfaccia della riga di comando e il tag **Posizione** in PowerShell per specificare l'area di origine. Assicurarsi che l'immagine gestita in uso come immagine di base per creare la versione dell'immagine sia nella stessa posizione in cui si intende creare la versione dell'immagine. Inoltre, assicurarsi di trasmettere la posizione dell'area di origine come una delle aree di destinazione quando si crea una versione di immagine.  
 
- R. L'area di origine è l'area in cui viene creata la versione dell'immagine e le aree di destinazione sono le aree in cui viene archiviata una copia della versione dell'immagine. Per ogni versione dell'immagine, è possibile avere solo un'area di origine. Inoltre, assicurarsi di trasmettere la posizione dell'area di origine come una delle aree di destinazione quando si crea una versione di immagine.  
+### <a name="how-do-i-specify-the-number-of-image-version-replicas-to-be-created-in-each-region"></a>Come specificare il numero di repliche della versione dell'immagine da creare in ogni area?
 
-
-**D.** Come si specifica l'area di origine durante la creazione della versione dell'immagine?
-
- R. Durante la creazione di una versione dell'immagine, è possibile usare il tag **posizione** all'interno dell'interfaccia della riga di comando e il tag **Posizione** in PowerShell per specificare l'area di origine. Assicurarsi che l'immagine gestita in uso come immagine di base per creare la versione dell'immagine sia nella stessa posizione in cui si intende creare la versione dell'immagine. Inoltre, assicurarsi di trasmettere la posizione dell'area di origine come una delle aree di destinazione quando si crea una versione di immagine.  
-
-
-**D.** Come specificare il numero di repliche della versione dell'immagine da creare in ogni area?
-
- R. Esistono due modi in cui è possibile specificare il numero delle repliche di versione dell'immagine da creare in ogni area:
+Esistono due modi in cui è possibile specificare il numero delle repliche di versione dell'immagine da creare in ogni area:
  
 1. Il conteggio delle repliche a livello di area che specifica il numero di repliche che si desidera creare per ogni area. 
 2. Il conteggio comune delle repliche, che è il conteggio predefinito per area nel caso in cui non sia specificato il conteggio di repliche a livello di area. 
@@ -273,16 +268,18 @@ Se il conteggio delle repliche a livello di area non è specificato per ogni pos
 
 Per specificare il numero comune di repliche nella riga di comando, usare l'argomento **conteggio di repliche** nel comando `az sig image-version create`.
 
+### <a name="can-i-create-the-shared-image-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version"></a>È possibile creare la raccolta di immagini condivise in un percorso diverso rispetto a quello per la definizione dell'immagine e la versione dell'immagine?
 
-**D.** È possibile creare la raccolta di immagini condivise in una posizione diversa da quella in cui si desidera creare la definizione di immagine e la versione dell'immagine?
+Sì, è possibile. Tuttavia, come procedura consigliata, si consiglia di proteggere il gruppo di risorse, la raccolta di immagini condivise, la definizione dell'immagine e la versione dell'immagine nella stessa posizione.
 
- R. Sì, è possibile. Tuttavia, come procedura consigliata, si consiglia di proteggere il gruppo di risorse, la raccolta di immagini condivise, la definizione dell'immagine e la versione dell'immagine nella stessa posizione.
+### <a name="what-are-the-charges-for-using-the-shared-image-gallery"></a>Quali sono gli addebiti per l'uso della Raccolta di immagini condivise?
 
+Non sono previsti addebiti per l'uso del servizio Raccolta di immagini condivise, ad eccezione delle spese per l'archiviazione delle versioni di immagini e dei costi di rete di uscita per la replica di versioni di immagini dall'area di origine alle aree di destinazione.
 
-**D.** Quali sono gli addebiti per l'uso della Raccolta di immagini condivise?
+### <a name="what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version"></a>Quale versione dell'API è consigliabile usare per creare la raccolta di immagini condivise e la versione dell'immagine e della definizione dell'immagine?
 
- R. Non sono previsti addebiti per l'uso del servizio Raccolta di immagini condivise, ad eccezione delle spese per l'archiviazione delle versioni di immagini e dei costi di rete di uscita per la replica di versioni di immagini dall'area di origine alle aree di destinazione.
+Per lavorare con le raccolte di immagini condivise, le definizioni di immagini e le versioni dell'immagine, si consiglia di usare la versione API 2018-06-01. Per l'archiviazione con ridondanza della zona (ZRS) è richiesta la versione 2019-03-01 o successiva.
 
-**D.** Quale versione API è necessario usare per creare Raccolta di immagini condivise, Definizione immagine, Versione immagine e VM/VMSS della Versione immagine?
+### <a name="what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version"></a>Quale versione dell'API è consigliabile usare per creare una VM condivisa o un set di scalabilità di macchine virtuali per la versione dell'immagine?
 
- R. Per le distribuzioni di macchine virtuali e set di scalabilità di macchine virtuali eseguite usando una versione di immagine, si consiglia di usare la versione API 2018-04-01 o una successiva. Per lavorare con le raccolte di immagini condivise, le definizioni di immagini e le versioni dell'immagine, si consiglia di usare la versione API 2018-06-01. Per l'archiviazione con ridondanza della zona (ZRS) è richiesta la versione 2019-03-01 o successiva.
+Per le distribuzioni di macchine virtuali e set di scalabilità di macchine virtuali eseguite usando una versione di immagine, si consiglia di usare la versione API 2018-04-01 o una successiva.

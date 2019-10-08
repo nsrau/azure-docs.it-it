@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/19/2018
-ms.openlocfilehash: 7b238044fd3795ae2f49c2fa21367e6499a65672
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 95d13c997d3871815ebd541e5985eb9fef726a76
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570126"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029750"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gestire lo schema in un'applicazione SaaS usando il modello con un database per ogni tenant con il database SQL di Azure
  
@@ -85,8 +85,8 @@ Per creare un nuovo processo, usare un set di stored procedure di sistema per i 
 
 1. In SSMS connettersi al server di catalogo *catalog-dpt-&lt;user&gt;.database.windows.net* nel server 
 1. In SSMS, aprire il file …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
-1. Modificare l'istruzione: SET @wtpUser = &lt;User&gt; e sostituisce il valore utente usato durante la distribuzione dell'app SaaS di database per tenant Wingtip Tickets
-1. Assicurarsi di essere connessi al database _jobagent_ e premere **F5** per eseguire lo script
+1. Modificare l'istruzione: IMPOSTARE @wtpUser = &lt;user @ no__t-2 e sostituire il valore utente usato quando è stata distribuita l'app SaaS di database per tenant Wingtip Tickets
+1. Verificare di essere connessi al database _jobagent_ e premere **F5** per eseguire lo script
 
 Esaminare gli elementi seguenti nello script *DeployReferenceData.sql*:
 * **sp\_add\_target\_group** crea il nome del gruppo di destinazione DemoServerGroup.

@@ -14,19 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 88e278ced5cbddb132cdc2f760864df119762088
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 674d5f783f43011ba154b668cea4ec41f6a945f5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449127"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025274"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Aggiungere l'autenticazione all'app iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center investe in nuovi e integrati servizi fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare **compilare**, **Test** e **Distribuisci** servizi per impostare le pipeline di integrazione continua e recapito. Dopo aver distribuito l'app, gli sviluppatori possono monitorare lo stato e sull'utilizzo di app using il **Analitica** e **diagnostica** servizi e Coinvolgi gli utenti utilizzando il **Push** servizio. Gli sviluppatori possono inoltre sfruttare **Auth** di autenticare gli utenti e **dati** service per rendere persistente e sincronizzare i dati dell'app nel cloud. Consulta [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-users) oggi stesso.
->
+> Visual Studio App Center supporta end-to-end e servizi integrati centrali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare i servizi di **compilazione**, **test** e **distribuzione** per configurare la pipeline di integrazione e recapito continua. Una volta distribuita l'app, gli sviluppatori possono monitorare lo stato e l'utilizzo dell'app usando i servizi di **analisi** e **diagnostica** e coinvolgere gli utenti che usano il servizio di **push** . Gli sviluppatori possono inoltre sfruttare l' **autenticazione** per autenticare gli utenti e il servizio **dati** per salvare in modo permanente e sincronizzare i dati delle app nel cloud.
+> Se si intende integrare servizi cloud nell'applicazione per dispositivi mobili, iscriversi con App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) oggi stesso.
 
 Questa esercitazione illustra come aggiungere l'autenticazione al progetto di [avvio rapido di iOS] tramite un provider di identità supportato. Questa esercitazione è basata sull'esercitazione relativa all' [avvio rapido di iOS] , che deve essere completata per prima.
 
@@ -49,7 +49,7 @@ L'autenticazione sicura richiede la definizione di un nuovo schema URL per l'app
 
 6. Fare clic su **OK**.
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 ## <a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -81,7 +81,7 @@ In Xcode fare clic su **Esegui** per avviare l'app. Viene generata un'eccezione 
     }
     ```
 
-    Modificare *google* in *microsoftaccount*, *twitter*, *facebook* o *windowsazureactivedirectory* se non si usa Google come provider di identità. Se si usa Facebook, è necessario [consentire i domini Facebook][1] nell'app.
+    Modificare *google* in *microsoftaccount*, *twitter*, *facebook* o *windowsazureactivedirectory* se non si usa Google come provider di identità. Se si usa Facebook, è necessario aggiungere i [domini Facebook][1] nell'app.
 
     Sostituire **urlScheme** con un nome univoco per l'applicazione.  Il valore di urlScheme deve corrispondere a quello del protocollo dello schema URL specificato nel campo **URL di reindirizzamento esterni consentiti** nel portale di Azure. urlScheme viene usato dal callback di autenticazione per tornare all'applicazione dopo aver completato la richiesta di autenticazione.
 
@@ -114,7 +114,7 @@ In Xcode fare clic su **Esegui** per avviare l'app. Viene generata un'eccezione 
     }
     ```
 
-   Aggiungere questo codice direttamente prima della riga `#pragma mark - Core Data stack`.  Sostituire il _NomeApp_ con il valore di urlScheme usato nel passaggio 1.
+   Aggiungere questo codice direttamente prima della riga `#pragma mark - Core Data stack`.  Sostituire _appname_ con il valore urlScheme usato nel passaggio 1.
 
 5. Aprire il file `AppName-Info.plist` (sostituendo AppName con il nome dell'app) e aggiungere il codice seguente:
 
@@ -167,7 +167,7 @@ In Xcode fare clic su **Esegui** per avviare l'app. Viene generata un'eccezione 
     }
     ```
 
-    Modificare *google* in *microsoftaccount*, *twitter*, *facebook* o *windowsazureactivedirectory* se non si usa Google come provider di identità. Se si usa Facebook, è necessario [consentire i domini Facebook][1] nell'app.
+    Modificare *google* in *microsoftaccount*, *twitter*, *facebook* o *windowsazureactivedirectory* se non si usa Google come provider di identità. Se si usa Facebook, è necessario aggiungere i [domini Facebook][1] nell'app.
 
     Sostituire **urlScheme** con un nome univoco per l'applicazione.  Il valore di urlScheme deve corrispondere a quello del protocollo dello schema URL specificato nel campo **URL di reindirizzamento esterni consentiti** nel portale di Azure. urlScheme viene usato dal callback di autenticazione per tornare all'applicazione dopo aver completato la richiesta di autenticazione.
 
@@ -192,7 +192,7 @@ In Xcode fare clic su **Esegui** per avviare l'app. Viene generata un'eccezione 
     }
     ```
 
-    Sostituire il _NomeApp_ con il valore di urlScheme usato nel passaggio 1.
+    Sostituire _appname_ con il valore urlScheme usato nel passaggio 1.
 
 4. Aprire il file `AppName-Info.plist` (sostituendo AppName con il nome dell'app) e aggiungere il codice seguente:
 
@@ -216,7 +216,7 @@ In Xcode fare clic su **Esegui** per avviare l'app. Viene generata un'eccezione 
 
 5. Fare clic su *Run* (Esegui) per avviare l'app e quindi accedere. Una volta eseguito l'accesso, dovrebbe essere possibile visualizzare l'elenco Todo e apportare modifiche.
 
-L'autenticazione del servizio app usa la comunicazione tra app di Apple.  Per altre informazioni su questo argomento, consultare il [documentazione Apple][2]
+L'autenticazione del servizio app usa la comunicazione tra app di Apple.  Per altri dettagli su questo argomento, vedere la [documentazione di Apple][2] .
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist

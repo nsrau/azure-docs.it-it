@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: b295ab442e70772a86d6699e1063c7a1c728f1a7
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 17083029f2377037b99abfa3ce8371661eccb957
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091129"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029978"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Log del server in database di Azure per PostgreSQL-server singolo
 Il database di Azure per PostgreSQL genera log di query e registri errori. I log di query e degli errori possono essere usati per individuare e risolvere i problemi e correggere errori di configurazione e prestazioni non ottimali. L'accesso ai log delle transazioni non è incluso. 
@@ -24,7 +24,7 @@ Il database di Azure per PostgreSQL genera log di query e registri errori. I log
 Per altre informazioni su questi parametri, vedere la documentazione [Error Reporting and Logging](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) (Creazione di report e registrazione di errori). Per informazioni su come configurare i parametri di Database di Azure per PostgreSQL, vedere la [documentazione sul portale](howto-configure-server-parameters-using-portal.md) o la [documentazione sull'interfaccia della riga di comando](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="access-server-logs-through-portal-or-cli"></a>Accedere ai log del server usando il portale o l'interfaccia della riga di comando
-Se i log sono stati abilitati, è possibile accedervi dallo spazio di archiviazione log di Database di Azure per PostgreSQL usando il [portale di Azure](howto-configure-server-logs-in-portal.md), l'[interfaccia della riga di comando di Azure](howto-configure-server-logs-using-cli.md) e le API REST di Azure. I file di log ruotano ogni ora o 100 MB di spazio, a seconda della condizione che si verifica per prima. È possibile impostare il periodo di conservazione di questo spazio di archiviazione log usando il parametro  **log\_retention\_period**  associato al server. Il valore predefinito è 3 giorni e il valore massimo è 7 giorni. Il server deve disporre di risorse di archiviazione allocate sufficienti per contenere i file di log. Questo parametro di conservazione non gestisce i log di diagnostica di Azure.
+Se i log sono stati abilitati, è possibile accedervi dallo spazio di archiviazione log di Database di Azure per PostgreSQL usando il [portale di Azure](howto-configure-server-logs-in-portal.md), l'[interfaccia della riga di comando di Azure](howto-configure-server-logs-using-cli.md) e le API REST di Azure. I file di log ruotano ogni ora o 100 MB di spazio, a seconda della condizione che si verifica per prima. È possibile impostare il periodo di conservazione di questo spazio di archiviazione log usando il parametro **log\_retention\_period** associato al server. Il valore predefinito è 3 giorni e il valore massimo è 7 giorni. Il server deve disporre di risorse di archiviazione allocate sufficienti per contenere i file di log. Questo parametro di conservazione non gestisce i log di diagnostica di Azure.
 
 
 ## <a name="diagnostic-logs"></a>Log di diagnostica
@@ -54,12 +54,12 @@ Nella tabella seguente viene descritto il significato di ogni log. A seconda del
 | ResourceGroup | Nome del gruppo di risorse a cui appartiene il server. |
 | ResourceProvider | Nome del provider di risorse. Sempre `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
-| ResourceId | URI della risorsa |
+| resourceId | URI della risorsa |
 | Resource | Nome del server |
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Livello di registrazione, esempio: LOG, ERROR, NOTICE |
-| Message | Messaggio di log primario | 
+| Messaggio | Messaggio di log primario | 
 | Domain | Versione del server, ad esempio: postgres-10 |
 | Dettagli | Messaggio di log secondario (se applicabile) |
 | ColumnName | Nome della colonna (se applicabile) |

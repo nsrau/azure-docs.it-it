@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: dead041845c123672d881a8538644b56c34a58a2
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 36e48e86ed3cf7138f7ff5efe89d08c07df87f25
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845593"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028262"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione dei database singoli e in pool nel database SQL di Azure
 
@@ -42,7 +42,7 @@ Questo articolo illustra alcune delle caratteristiche principali del database SQ
 Nella [portale di Azure](https://portal.azure.com/)è possibile monitorare l'utilizzo di singoli database selezionando il database e facendo clic sul grafico di **monitoraggio** . Verrà visualizzata una finestra della **metrica** in cui è possibile apportare modifiche facendo clic su l pulsante **Modifica grafico**. Aggiungere le metriche seguenti
 
 - Percentuale CPU
-- Percentuale DTU
+- Percentuale di DTU
 - Percentuale di I/O di dati
 - Percentuale di dimensioni del database
 
@@ -154,7 +154,7 @@ La porta 1433. Il database SQL comunica attraverso questa porta. Per connettersi
 
 Con il database SQL è possibile attivare il controllo per rilevare gli eventi di database. Il servizio di [controllo del database SQL](sql-database-auditing.md) registra gli eventi che si verificano nel database e li registra in un file di log di controllo nell'account di Archiviazione di Azure dell'utente. Il controllo è particolarmente utile se si intende ottenere informazioni su potenziali violazioni in termini di sicurezza e criteri, mantenere la conformità ai requisiti normativi e così via. Consente di definire e configurare determinate categorie di eventi che si ritiene necessitino di controllo e, sulla base di ciò, è possibile ottenere report preconfigurati e un dashboard per avere una panoramica degli eventi che si verificano nel database. È possibile applicare questi criteri di controllo a livello di database o server. Per una guida su come attivare il controllo per il server/database, vedere: [Abilitare il controllo del database SQL](sql-database-security-tutorial.md#enable-security-features).
 
-#### <a name="threat-detection"></a>Rilevamento delle minacce
+#### <a name="threat-detection"></a>Introduzione al rilevamento delle minacce
 
 Con il [rilevamento delle minacce](sql-database-threat-detection.md) è possibile intervenire in modo molto semplice sulle violazioni in termini di sicurezza o criteri individuate con il controllo. Non è necessario essere esperti di sicurezza per risolvere potenziali minacce o violazioni nel sistema. Il rilevamento delle minacce include anche alcune funzionalità incorporate come il rilevamento di attacchi SQL injection. Un attacco SQL injection è un tentativo di modificare o compromettere i dati e un modo molto comune per attaccare in genere un'applicazione di database. Il rilevamento delle minacce esegue vari set di algoritmi che rilevano potenziali vulnerabilità e attacchi SQL injection, nonché modelli anomali di accesso al database (ad esempio, accesso da una posizione insolita o da un'entità di sicurezza sconosciuta). I responsabili della sicurezza o altri amministratori designati ricevono una notifica e-mail se viene rilevata una minaccia nel database. Ogni notifica contiene dettagli sull'attività sospetta e consigli su come eseguire altre indagini e mitigare la minaccia. Per informazioni su come attivare il rilevamento delle minacce, vedere: [Enable threat detection](sql-database-security-tutorial.md#enable-security-features) (Abilitare il rilevamento delle minacce).
 
@@ -282,7 +282,7 @@ Da questo grafico è anche possibile configurare avvisi per risorsa. Questi avvi
 
 #### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Analisi SQL di Azure (anteprima) nei log di monitoraggio di Azure
 
-[Log di monitoraggio di Azure](../azure-monitor/insights/azure-sql.md) consente di raccogliere e visualizzare le metriche delle prestazioni chiave di Azure SQL Azure, supportando fino a 150.000 database sql e 5.000 pool elastici SQL per area di lavoro. È possibile usare il servizio per monitorare e ricevere notifiche. È possibile monitorare le metriche del database SQL e dei pool elastici in più sottoscrizioni e pool elastici di Azure e usarle per identificare problemi a ogni livello dello stack di applicazioni.
+[Log di monitoraggio di Azure](../azure-monitor/insights/azure-sql.md) consente di raccogliere e visualizzare le metriche chiave delle prestazioni del database SQL di Azure, supportando fino a 150.000 database sql e 5.000 pool elastici SQL per area di lavoro. È possibile usare il servizio per monitorare e ricevere notifiche. È possibile monitorare le metriche del database SQL e dei pool elastici in più sottoscrizioni e pool elastici di Azure e usarle per identificare problemi a ogni livello dello stack di applicazioni.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Si riscontrano problemi di prestazioni. In che modo la metodologia di risoluzione dei problemi del database SQL differisce da SQL Server
 

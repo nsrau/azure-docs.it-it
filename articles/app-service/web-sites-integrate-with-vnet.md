@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d4b7733ce3ac6db4c39f632401661eefce11d20c
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a6d0cba41e694e154da32a878cb4c076aae13e65
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827569"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034719"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app in una rete virtuale di Azure
 Questo documento descrive la funzionalità di integrazione della rete virtuale del servizio app Azure e come configurarla con le app nel [servizio app Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Le [reti virtuali di Azure][VNETOverview] (reti virtuali) consentono di inserire molte delle risorse di Azure in una rete instradabile non Internet.  
@@ -63,6 +63,10 @@ Alcune operazioni non sono supportate da Integrazione rete virtuale:
 * NetBios
 
 ## <a name="regional-vnet-integration"></a>Integrazione VNet a livello di area 
+
+> [!NOTE]
+> Il peering non è ancora disponibile per il servizio App basato su Linux.
+>
 
 Quando si usa l'integrazione di VNet con reti virtuali nella stessa area dell'app, è necessario usare una subnet delegata con almeno 32 indirizzi. Non è possibile usare la subnet per altri scopi. Le chiamate in uscita effettuate dall'app verranno effettuate dagli indirizzi nella subnet delegata. Quando si usa questa versione dell'integrazione VNet, le chiamate vengono effettuate dagli indirizzi in VNet. L'uso di indirizzi nella VNet consente all'app di:
 
@@ -112,7 +116,7 @@ Per disconnettere l'app dalla rete virtuale, selezionare **Disconnetti**. L'app 
 
 Se si usa il servizio app in Linux con le immagini predefinite, la funzionalità di integrazione VNet a livello di area funziona senza modifiche aggiuntive. Se si usa app Web per contenitori, è necessario modificare l'immagine Docker per usare l'integrazione VNet. Nell'immagine Docker usare la variabile di ambiente PORT come porta di ascolto del server Web principale, anziché usare un numero di porta hardcoded. La variabile di ambiente PORT viene impostata automaticamente dalla piattaforma del servizio app al momento dell'avvio del contenitore. Se si usa SSH, il daemon SSH deve essere configurato in modo da restare in ascolto sul numero di porta specificato dalla variabile di ambiente SSH_PORT quando si usa l'integrazione VNet a livello di area.
 
-### <a name="service-endpoints"></a>Endpoint di servizio
+### <a name="service-endpoints"></a>Endpoint servizio
 
 La nuova funzionalità Integrazione rete virtuale consente di usare gli endpoint servizio.  Per usarli con l'app, usare la nuova funzionalità Integrazione rete virtuale per connettersi a una rete virtuale selezionata e configurare gli endpoint servizio nella subnet usata per l'integrazione. 
 

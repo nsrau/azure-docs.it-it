@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 4386a7adba17eefe3c373697597abdb7d69c476a
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: ff1d34852890a8d5005153ebdfa2fa0f9749d129
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265973"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030613"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integrazione e recapito continui (CI/CD) in Azure Data Factory
 
@@ -122,7 +122,7 @@ Di seguito è riportata una guida per la configurazione di una versione Azure Pi
 
     f.  Selezionare **...** nel **campo parametri modello.** per scegliere il file dei parametri. Scegliere il file corretto a seconda che sia stata creata una copia o si stia usando il file predefinito *ARMTemplateParametersForFactory.json*.
 
-    g.  Selezionare **...** accanto al campo **Esegui override dei parametri del modello** e immettere le informazioni per la data factory di destinazione. Per le credenziali provenienti da Key Vault, immettere il nome del segreto tra virgolette doppie. Se, ad esempio, il nome del segreto `cred1`è, `"$(cred1)"`immettere per il relativo valore.
+    g.  Selezionare **...** accanto al campo **Esegui override dei parametri del modello** e immettere le informazioni per la data factory di destinazione. Per le credenziali provenienti da Key Vault, immettere il nome del segreto tra virgolette doppie. Se, ad esempio, il nome del segreto è `cred1`, immettere `"$(cred1)"`per il relativo valore.
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
@@ -196,7 +196,7 @@ La distribuzione può non riuscire se si prova ad aggiornare i trigger attivi. P
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
-È possibile seguire una procedura simile (con `Start-AzDataFactoryV2Trigger` la funzione) per riavviare i trigger dopo la distribuzione.
+È possibile seguire una procedura simile (con la funzione `Start-AzDataFactoryV2Trigger`) per riavviare i trigger dopo la distribuzione.
 
 > [!IMPORTANT]
 > Negli scenari di integrazione e recapito continui, il tipo di runtime di integrazione in diversi ambienti deve essere lo stesso. Ad esempio, se si dispone di un runtime di integrazione *self-hosted* nell'ambiente di sviluppo, il runtime di integrazione stesso deve essere di tipo *self-hosted* in altri ambienti, come quelli di test e produzione. Analogamente, se si condividono i runtime di integrazione tra più fasi, è necessario configurarli come *self-hosted collegati* in tutti gli ambienti, ad esempio quelli di sviluppo, test e produzione.
@@ -328,21 +328,21 @@ Se si è in modalità GIT, è possibile eseguire l'override delle proprietà pre
 * Si utilizza l'integrazione continua/recapito continuo automatica e si desidera modificare alcune proprietà durante Gestione risorse distribuzione, ma le proprietà non sono parametrizzate per impostazione predefinita.
 * La Factory è talmente grande che il modello di Gestione risorse predefinito non è valido perché contiene un numero di parametri massimo consentito (256).
 
-In queste condizioni, per eseguire l'override del modello di parametrizzazione predefinito, creare un file denominato *ARM-Template-Parameters-Definition. JSON* nella cartella radice del repository. Il nome del file deve corrispondere esattamente. Data Factory prova a leggere questo file da qualsiasi ramo attualmente attivo nel portale di Azure Data Factory, non solo dal ramo collaborazione. È possibile creare o modificare il file da un ramo privato, in cui è possibile testare le modifiche usando il **modello Export ARM** nell'interfaccia utente. Quindi, è possibile eseguire il merge del file nel ramo collaborazione. Se non viene trovato alcun file, viene usato il modello predefinito.
+In queste condizioni, per eseguire l'override del modello di parametrizzazione predefinito, creare un file denominato *ARM-Template-Parameters-Definition. JSON* nella cartella radice del repository. Il nome del file deve corrispondere esattamente. Data Factory prova a leggere questo file da qualsiasi ramo attualmente attivo nel portale di Azure Data Factory, non solo dal ramo collaborazione. È possibile creare o modificare il file da un ramo privato, in cui è possibile testare le modifiche usando il **modello Export ARM** nell'interfaccia utente. Quindi, è possibile eseguire il merge del file nel ramo collaborazione. Se non viene trovato alcun file, viene usato il modello predefinito.
 
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>Sintassi di un file dei parametri personalizzati
 
 Di seguito sono riportate alcune linee guida da usare quando si crea il file di parametri personalizzati. Il file è costituito da una sezione per ogni tipo di entità: trigger, pipeline, servizio collegato, set di dati, Runtime di integrazione e così via.
 * Immettere il percorso della proprietà nel tipo di entità pertinente.
-* Quando si imposta un nome di proprietà su\*''', si indica che si desidera parametrizzare tutte le proprietà al suo interno (solo per il primo livello, non in modo ricorsivo). È anche possibile fornire eventuali eccezioni a questo.
-* Quando si imposta il valore di una proprietà come stringa, si indica che si vuole parametrizzare la proprietà. Usare il formato `<action>:<name>:<stype>`.
-   *  `<action>` può essere uno dei seguenti caratteri:
-      * `=` indica che il valore corrente viene mantenuto come valore predefinito per il parametro.
-      * `-` significa che non si mantiene il valore predefinito per il parametro.
-      * `|` è un caso speciale per i segreti Azure Key Vault per le stringhe di connessione o le chiavi.
-   * `<name>` nome del parametro. Se è vuota, prende il nome della proprietà. Se il valore inizia con un `-` carattere, il nome viene abbreviato. Ad esempio, `AzureStorage1_properties_typeProperties_connectionString` verrebbe abbreviato in `AzureStorage1_connectionString`.
-   * `<stype>` tipo di parametro. `string`Se `<stype>`èvuoto,il tipo predefinito è. Valori supportati: `string`, `bool`, `number`, `object`e .`securestring`
+* Quando si imposta un nome di proprietà su' \*'', si indica che si desidera parametrizzare tutte le proprietà al suo interno (solo per il primo livello, non in modo ricorsivo). È anche possibile fornire eventuali eccezioni a questo.
+* Quando si imposta il valore di una proprietà come stringa, si indica che si vuole parametrizzare la proprietà. Usare il formato @ no__t-0.
+   *  `<action>` @ no__t-1can è uno dei caratteri seguenti:
+      * `=` @ no__t-1means mantiene il valore corrente come valore predefinito per il parametro.
+      * `-` @ no__t-1means non mantiene il valore predefinito per il parametro.
+      * `|` @ no__t-1is un caso speciale per i segreti Azure Key Vault per le stringhe di connessione o le chiavi.
+   * `<name>` @ no__t-1is il nome del parametro. Se è vuota, prende il nome della proprietà. Se il valore inizia con un carattere `-`, il nome viene abbreviato. Ad esempio, `AzureStorage1_properties_typeProperties_connectionString` verrebbe abbreviato in `AzureStorage1_connectionString`.
+   * `<stype>` @ no__t-1is il tipo di parametro. Se @ no__t-0 @ no__t-1is è vuoto, il tipo predefinito è `string`. Valori supportati: `string`, `bool`, `number`, `object` e `securestring`.
 * Quando si specifica una matrice nel file di definizione, si indica che la proprietà corrispondente nel modello è una matrice. Data Factory esegue l'iterazione di tutti gli oggetti nella matrice utilizzando la definizione specificata nell'oggetto Integration Runtime della matrice. Il secondo oggetto, una stringa, diventa il nome della proprietà, che viene usato come nome per il parametro per ogni iterazione.
 * Non è possibile avere una definizione specifica per un'istanza di risorsa. Qualsiasi definizione viene applicata a tutte le risorse di quel tipo.
 * Per impostazione predefinita, vengono parametrizzate tutte le stringhe protette, ad esempio Key Vault segreti e stringhe protette, ad esempio stringhe di connessione, chiavi e token.
@@ -414,27 +414,27 @@ Di seguito è riportata una spiegazione del modo in cui viene costruito il model
 
 #### <a name="pipelines"></a>Pipeline
     
-* Qualsiasi proprietà nel percorso Activities/typeProperties/waitTimeInSeconds è parametrizzata. Qualsiasi attività in una pipeline con una proprietà a livello di codice denominata `waitTimeInSeconds` (ad esempio, l' `Wait` attività) viene parametrizzata come numero, con un nome predefinito. Ma non avrà un valore predefinito nel modello di Gestione risorse. Sarà un input obbligatorio durante la distribuzione del Gestione risorse.
-* Analogamente, una proprietà `headers` chiamata (ad esempio, in `Web` un'attività) è parametrizzata `object` con il tipo (JObject). Ha un valore predefinito, che corrisponde al valore della factory di origine.
+* Qualsiasi proprietà nel percorso Activities/typeProperties/waitTimeInSeconds è parametrizzata. Qualsiasi attività in una pipeline con una proprietà a livello di codice denominata `waitTimeInSeconds` (ad esempio, l'attività `Wait`) viene parametrizzata come numero, con un nome predefinito. Ma non avrà un valore predefinito nel modello di Gestione risorse. Sarà un input obbligatorio durante la distribuzione del Gestione risorse.
+* Analogamente, una proprietà denominata `headers` (ad esempio, in un'attività `Web`) viene parametrizzata con il tipo `object` (JObject). Ha un valore predefinito, che corrisponde al valore della factory di origine.
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-* Tutte le proprietà sotto il `typeProperties` percorso sono parametrizzate con i rispettivi valori predefiniti. Sono ad esempio disponibili due proprietà nelle proprietà del tipo **IntegrationRuntimes** : `computeProperties` e `ssisProperties`. Entrambi i tipi di proprietà vengono creati con i rispettivi valori e tipi predefiniti (oggetto).
+* Tutte le proprietà sotto il percorso `typeProperties` sono parametrizzate con i rispettivi valori predefiniti. Sono ad esempio disponibili due proprietà nelle proprietà del tipo **IntegrationRuntimes** : `computeProperties` e `ssisProperties`. Entrambi i tipi di proprietà vengono creati con i rispettivi valori e tipi predefiniti (oggetto).
 
 #### <a name="triggers"></a>Trigger
 
-* In `typeProperties`, due proprietà sono parametrizzate. Il primo è `maxConcurrency`, che è specificato per avere un valore predefinito ed è di tipo`string`. Il nome del `<entityName>_properties_typeProperties_maxConcurrency`parametro predefinito è.
-* Anche `recurrence` la proprietà è parametrizzata. Al suo interno, tutte le proprietà a tale livello vengono specificate per essere parametrizzate come stringhe, con i valori predefiniti e i nomi di parametro. Un'eccezione è la `interval` proprietà, che è parametrizzata come tipo di numero e con il nome del parametro con `<entityName>_properties_typeProperties_recurrence_triggerSuffix`suffisso. Analogamente, `freq` la proprietà è una stringa e viene parametrizzata come stringa. Tuttavia, la `freq` proprietà è parametrizzata senza un valore predefinito. Il nome viene abbreviato e viene suffissato. Ad esempio `<entityName>_freq`.
+* In `typeProperties`, due proprietà sono parametrizzate. Il primo è `maxConcurrency`, che è specificato per avere un valore predefinito e è di tipo @ no__t-1. Il nome del parametro predefinito è `<entityName>_properties_typeProperties_maxConcurrency`.
+* Anche la proprietà `recurrence` è parametrizzata. Al suo interno, tutte le proprietà a tale livello vengono specificate per essere parametrizzate come stringhe, con i valori predefiniti e i nomi di parametro. Un'eccezione è rappresentata dalla proprietà `interval`, che è parametrizzata come tipo di numero e con il nome del parametro con suffisso `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Analogamente, la proprietà `freq` è una stringa e viene parametrizzata come stringa. Tuttavia, la proprietà `freq` è parametrizzata senza un valore predefinito. Il nome viene abbreviato e viene suffissato. Ad esempio `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
-* I servizi collegati sono univoci. Poiché i servizi collegati e i set di impostazioni hanno un'ampia gamma di tipi, è possibile specificare una personalizzazione specifica del tipo. In questo esempio, tutti i servizi collegati di `AzureDataLakeStore`tipo, verrà applicato un modello specifico e per tutti gli altri (via \*) verrà applicato un modello diverso.
-* La `connectionString` proprietà verrà parametrizzata `securestring` come valore, non avrà un valore predefinito e avrà un nome di parametro abbreviato con `connectionString`suffisso.
-* La proprietà `secretAccessKey` è un oggetto `AzureKeyVaultSecret` (ad esempio, in un `AmazonS3` servizio collegato). Viene automaticamente parametrizzato come segreto Azure Key Vault e recuperato dall'insieme di credenziali delle chiavi configurato. È anche possibile parametrizzare l'insieme di credenziali delle chiavi.
+* I servizi collegati sono univoci. Poiché i servizi collegati e i set di impostazioni hanno un'ampia gamma di tipi, è possibile specificare una personalizzazione specifica del tipo. In questo esempio, tutti i servizi collegati di tipo `AzureDataLakeStore`, verrà applicato un modello specifico e per tutti gli altri (tramite \*) verrà applicato un modello diverso.
+* La proprietà `connectionString` verrà parametrizzata come valore `securestring`, non avrà un valore predefinito e avrà un nome di parametro abbreviato con il suffisso `connectionString`.
+* La proprietà `secretAccessKey` è un `AzureKeyVaultSecret` (ad esempio, in un servizio collegato `AmazonS3`). Viene automaticamente parametrizzato come segreto Azure Key Vault e recuperato dall'insieme di credenziali delle chiavi configurato. È anche possibile parametrizzare l'insieme di credenziali delle chiavi.
 
 #### <a name="datasets"></a>Set di dati
 
-* Sebbene la personalizzazione specifica del tipo sia disponibile per i set di impostazioni, è possibile fornire la configurazione senza \*una configurazione a livello esplicito. Nell'esempio precedente, tutte le proprietà `typeProperties` del set di dati in sono parametrizzate.
+* Sebbene la personalizzazione specifica del tipo sia disponibile per i set di impostazioni, è possibile fornire la configurazione senza avere una configurazione @no__t a livello di livello 0. Nell'esempio precedente, vengono parametrizzate tutte le proprietà del set di dati in `typeProperties`.
 
 ### <a name="default-parameterization-template"></a>Modello di parametrizzazione predefinito
 
@@ -545,7 +545,7 @@ Di seguito è riportato il modello di parametrizzazione predefinito corrente. Se
 }
 ```
 
-Di seguito è riportato un esempio di come aggiungere un singolo valore al modello di parametrizzazione predefinito. Si vuole solo aggiungere un ID cluster interattivo databricks esistente per un servizio collegato databricks al file dei parametri. Si noti che il file seguente è identico a quello del file `existingClusterId` precedente, ad eccezione di incluso `Microsoft.DataFactory/factories/linkedServices`nel campo properties di.
+Di seguito è riportato un esempio di come aggiungere un singolo valore al modello di parametrizzazione predefinito. Si vuole solo aggiungere un ID cluster interattivo databricks esistente per un servizio collegato databricks al file dei parametri. Si noti che il file seguente è identico a quello del file precedente, ad eccezione di `existingClusterId` incluso nel campo proprietà di `Microsoft.DataFactory/factories/linkedServices`.
 
 ```json
 {
@@ -657,11 +657,11 @@ Di seguito è riportato un esempio di come aggiungere un singolo valore al model
 
 Se sono state configurate l'integrazione e la distribuzione continue (CI/CD) per le Data Factory, è possibile che si verifichino i limiti del modello di Azure Resource Manager Man mano che le dimensioni della Factory aumentano. Un esempio di limite è il numero massimo di risorse in un modello di Gestione risorse. Per gestire le fabbriche di grandi dimensioni, insieme alla generazione del modello di Gestione risorse completo per una factory, Data Factory ora genera modelli di Gestione risorse collegati. Con questa funzionalità, l'intero payload della factory viene suddiviso in diversi file, in modo che non si incorrano nei limiti.
 
-Se è stato configurato git, i modelli collegati vengono generati e salvati insieme ai modelli di gestione risorse completi nel `adf_publish` ramo sotto una nuova cartella denominata `linkedTemplates`.
+Se è stato configurato git, i modelli collegati vengono generati e salvati insieme ai modelli di Gestione risorse completi nel ramo `adf_publish` in una nuova cartella denominata `linkedTemplates`.
 
 ![Cartella dei modelli di Resource Manager collegati](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 
-I modelli di Resource Manager collegati hanno in genere un modello master e un set di modelli figlio collegati al master. Il modello padre è denominato `ArmTemplate_master.json` e i modelli di figlio vengono denominati in base allo schema `ArmTemplate_0.json`, `ArmTemplate_1.json` e così via. Per usare i modelli collegati anziché il modello di gestione risorse completo, aggiornare l'attività ci/CD in modo `ArmTemplate_master.json` che punti `ArmTemplateForFactory.json` a anziché (il modello di gestione risorse completo). Resource Manager richiede anche di caricare i modelli collegati in un account di archiviazione, in modo che Azure possa accedervi durante la distribuzione. Per altre informazioni, vedere [Deploying Linked ARM Templates with VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/) (Distribuzione di modelli ARM collegati con VSTS).
+I modelli di Resource Manager collegati hanno in genere un modello master e un set di modelli figlio collegati al master. Il modello padre è denominato `ArmTemplate_master.json` e i modelli di figlio vengono denominati in base allo schema `ArmTemplate_0.json`, `ArmTemplate_1.json` e così via. Per usare i modelli collegati anziché il modello di Gestione risorse completo, aggiornare l'attività CI/CD in modo che punti a `ArmTemplate_master.json` invece di `ArmTemplateForFactory.json` (modello di Gestione risorse completo). Resource Manager richiede anche di caricare i modelli collegati in un account di archiviazione, in modo che Azure possa accedervi durante la distribuzione. Per altre informazioni, vedere [Deploying Linked ARM Templates with VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/) (Distribuzione di modelli ARM collegati con VSTS).
 
 Ricordarsi di aggiungere gli script di Data Factory nella pipeline CI/CD prima e dopo l'attività di distribuzione.
 

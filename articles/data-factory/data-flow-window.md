@@ -7,16 +7,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 6f3f06ff54fc76416ba63f4f09835897d546f8dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf58db14398026da62ed13c66be815be8fe166a2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61349971"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029894"
 ---
-# <a name="azure-data-factory-window-transformation"></a>Trasformazione di finestra di Azure Data Factory
+# <a name="azure-data-factory-window-transformation"></a>Trasformazione finestra Azure Data Factory
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 La trasformazione Finestra è la posizione in cui verranno definite le aggregazioni basate su finestra delle colonne nei flussi di dati. Nel generatore di espressioni è possibile definire diversi tipi di aggregazioni basate su finestre di dati o temporali (clausola OVER SQL), ad esempio LEAD, LAG, NTILE, CUMEDIST, RANK e così via. Verrà generato un nuovo campo nell'output che include queste aggregazioni. È anche possibile includere campi di raggruppamento facoltativi.
 
@@ -39,7 +39,7 @@ Nel dispositivo di scorrimento della finestra è necessario impostare due valori
 
 ![Opzioni della finestra](media/data-flow/windows6.png "Finestra 6")
 
-## <a name="window-columns"></a>Colonne della finestra
+## <a name="window-columns"></a>Colonne finestra
 Infine, usare il generatore di espressioni per definire le aggregazioni da usare con le finestre di dati, come RANK, COUNT, MIN, MAX, DENSE RANK, LEAD, LAG e così via.
 
 ![Opzioni della finestra](media/data-flow/windows7.png "Finestra 7")
@@ -48,4 +48,4 @@ L'elenco completo delle funzioni di aggregazione e analisi disponibili per l'uso
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si sta cercando un'aggregazione di group by semplice, usare il [trasformazione aggregazione](data-flow-aggregate.md)
+Se si sta cercando una semplice aggregazione Group-by, utilizzare la [trasformazione aggregazione](data-flow-aggregate.md)

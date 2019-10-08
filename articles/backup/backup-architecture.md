@@ -7,16 +7,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9e67e063ed37c706ba172703f0a5483d8d4f68ca
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 24e90ebd2994c5fffc1252167c06783421f2ac33
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881861"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035255"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
 
-È possibile usare il [servizio backup di Azure](backup-overview.md) per eseguire il backup dei dati nella piattaforma Microsoft Azure cloud. Questo articolo riepiloga l'architettura, i componenti e i processi di Backup di Azure. 
+È possibile usare il [servizio backup di Azure](backup-overview.md) per eseguire il backup dei dati nella piattaforma Microsoft Azure cloud. Questo articolo riepiloga l'architettura, i componenti e i processi di Backup di Azure.
 
 ## <a name="what-does-azure-backup-do"></a>Che cosa fa Backup di Azure?
 
@@ -27,13 +27,13 @@ Backup di Azure esegue il backup dei dati, lo stato del computer e i carichi di 
 È possibile eseguire il backup di computer e dati utilizzando diversi metodi:
 
 - **Backup di computer locali**:
-    - È possibile eseguire il backup di computer Windows locali direttamente in Azure usando l'agente di Servizi di ripristino di Microsoft Azure di backup di Azure (MARS). I computer Linux non sono supportati.
-    - È possibile eseguire il backup di computer locali in un server di backup (System Center Data Protection Manager (DPM) o server di Backup di Microsoft Azure (MAB)). È quindi possibile eseguire il backup del server di backup in un insieme di credenziali di servizi di ripristino in Azure.
+  - È possibile eseguire il backup di computer Windows locali direttamente in Azure usando l'agente di Servizi di ripristino di Microsoft Azure di backup di Azure (MARS). I computer Linux non sono supportati.
+  - È possibile eseguire il backup di computer locali in un server di backup, ovvero System Center Data Protection Manager (DPM) o server di Backup di Microsoft Azure (MAB). È quindi possibile eseguire il backup del server di backup in un insieme di credenziali di servizi di ripristino in Azure.
 
 - **Backup delle macchine virtuali di Azure**:
-    - È possibile eseguire il backup di macchine virtuali di Azure direttamente. Backup di Azure installa un'estensione di backup nell'agente di macchine virtuali di Azure in esecuzione nella macchina virtuale. Questa estensione esegue il backup dell'intera macchina virtuale.
-    - È possibile eseguire il backup di cartelle e file specifici nella macchina virtuale di Azure eseguendo l'agente MARS.
-    - È possibile eseguire il backup di macchine virtuali di Azure nell'oggetto MAB in esecuzione in Azure ed è quindi possibile eseguire il backup di Mab in un insieme di credenziali di servizi di ripristino.
+  - È possibile eseguire il backup di macchine virtuali di Azure direttamente. Backup di Azure installa un'estensione di backup nell'agente di macchine virtuali di Azure in esecuzione nella macchina virtuale. Questa estensione esegue il backup dell'intera macchina virtuale.
+  - È possibile eseguire il backup di cartelle e file specifici nella macchina virtuale di Azure eseguendo l'agente MARS.
+  - È possibile eseguire il backup di macchine virtuali di Azure nell'oggetto MAB in esecuzione in Azure ed è quindi possibile eseguire il backup di Mab in un insieme di credenziali di servizi di ripristino.
 
 Scopri di più sulle funzionalità di [cui puoi eseguire il](backup-overview.md) backup e sugli [scenari di backup supportati](backup-support-matrix.md).
 
@@ -48,17 +48,17 @@ Gli insiemi di credenziali dei servizi di ripristino includono le funzionalità 
 - È possibile monitorare gli elementi di cui è stato eseguito il backup in un insieme di credenziali, incluse le macchine virtuali di Azure e i computer locali.
 - È possibile gestire l'accesso dell'insieme di credenziali tramite il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) di Azure.
 - È necessario specificare come vengono replicati i dati nell'insieme di credenziali per la ridondanza:
-    - **Archiviazione con ridondanza locale**. Per evitare errori in un Data Center, è possibile usare con ridondanza locale. L'archiviazione con ridondanza locale replica i dati in un'unità di scala di archiviazione. [Altre informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
-    - **Archiviazione con ridondanza geografica**: Per proteggersi da interruzioni a livello di area, è possibile usare GRS. Il GRS replica i dati in un'area secondaria. [Altre informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) 
-    - Per impostazione predefinita, gli insiemi di credenziali dei servizi di ripristino usano GRS. 
+  - **Archiviazione con ridondanza locale**. Per evitare errori in un Data Center, è possibile usare con ridondanza locale. L'archiviazione con ridondanza locale replica i dati in un'unità di scala di archiviazione. [Altre informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
+  - **Archiviazione con ridondanza geografica**: Per proteggersi da interruzioni a livello di area, è possibile usare GRS. Il GRS replica i dati in un'area secondaria. [Altre informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)
+  - Per impostazione predefinita, gli insiemi di credenziali dei servizi di ripristino usano GRS.
 
 ## <a name="backup-agents"></a>Agenti di backup
 
 Backup di Azure fornisce diversi agenti di backup, a seconda del tipo di computer di cui viene eseguito il backup:
 
-**Agent** | **Dettagli** 
---- | --- 
-**Agente MARS** | <ul><li>Viene eseguito nei singoli computer Windows Server locali per eseguire il backup di file, cartelle e lo stato del sistema.</li> <li>Viene eseguito in macchine virtuali di Azure per eseguire il backup di file, cartelle e lo stato del sistema.</li> <li>Viene eseguito nei server DPM/MAB per eseguire il backup del disco di archiviazione locale di DPM/MAB in Azure.</li></ul> 
+**Agent** | **Dettagli**
+--- | ---
+**Agente MARS** | <ul><li>Viene eseguito nei singoli computer Windows Server locali per eseguire il backup di file, cartelle e lo stato del sistema.</li> <li>Viene eseguito in macchine virtuali di Azure per eseguire il backup di file, cartelle e lo stato del sistema.</li> <li>Viene eseguito nei server DPM/MAB per eseguire il backup del disco di archiviazione locale di DPM/MAB in Azure.</li></ul>
 **Estensione per le macchine virtuali di Azure** | Viene eseguito in macchine virtuali di Azure per eseguirne il backup in un insieme di credenziali.
 
 ## <a name="backup-types"></a>Tipi di backup
@@ -69,7 +69,7 @@ Nella tabella seguente sono illustrati i diversi tipi di backup e quando vengono
 --- | --- | ---
 **Completo** | Un backup completo contiene l'intera origine dati. Richiede una maggiore larghezza di banda di rete rispetto al backup differenziale o incrementale. | Usato per il backup iniziale.
 **Differenziale** |  Un backup differenziale archivia i blocchi modificati dopo il backup completo iniziale. Usa una quantità minore di spazio di archiviazione e di rete e non mantiene copie ridondanti di dati non modificati.<br/><br/> Inefficiente poiché i blocchi di dati che non sono stati modificati tra i backup successivi vengono trasferiti e archiviati. | Non è usato da Backup di Azure.
-**Incrementale** | Un backup incrementale archivia solo i blocchi di dati modificati rispetto al backup precedente. Efficienza elevata per rete e archiviazione. <br/><br/> Con il backup incrementale, non è necessario integrare i backup completi. | Usato da DPM/MABS per i backup su disco e usato in tutti i backup in Azure.
+**Incrementale** | Un backup incrementale archivia solo i blocchi di dati modificati rispetto al backup precedente. Efficienza elevata per rete e archiviazione. <br/><br/> Con il backup incrementale, non è necessario integrare i backup completi. | Usato da DPM/MABS per i backup su disco e usato in tutti i backup in Azure. Non usato per il backup SQL Server.
 
 ## <a name="sql-server-backup-types"></a>Tipi di backup di SQL Server
 
@@ -88,7 +88,7 @@ L'utilizzo dell'archiviazione, l'obiettivo del tempo di ripristino (RTO) e l'uti
 - L'origine dati A è costituita da 10 blocchi di archiviazione, A1-A10, di cui viene eseguito il backup mensile.
 - I blocchi A2, A3, A4 e A9 cambiano nel primo mese, mentre il blocco A5 cambia il mese successivo.
 - Per i backup differenziali, nel secondo mese viene eseguito il backup dei blocchi modificati A2, A3, A4 e A9. Nel terzo mese, viene eseguito nuovamente il backup di questi stessi blocchi, insieme al blocco A5 modificato. Il backup continua a essere eseguito per i blocchi modificati fino al backup completo successivo.
-- Per i backup incrementali, nel secondo mese i blocchi a2, a3, A4 e A9 sono contrassegnati come modificati e trasferiti. Nel terzo mese, viene contrassegnato e trasferito solo il blocco A5 modificato. 
+- Per i backup incrementali, nel secondo mese i blocchi a2, a3, A4 e A9 sono contrassegnati come modificati e trasferiti. Nel terzo mese, viene contrassegnato e trasferito solo il blocco A5 modificato.
 
 ![Immagine che mostra i confronti dei metodi di backup](./media/backup-architecture/backup-method-comparison.png)
 
@@ -98,11 +98,11 @@ Nella tabella seguente sono riepilogate le funzionalità supportate per i divers
 
 **Funzionalità** | **Computer Windows Server locali (Direct)** | **Macchine virtuali di Azure** | **Computer o app con DPM/MAB**
 --- | --- | --- | ---
-Backup nell'insieme di credenziali | ![Sì][green] | ![Sì][green] | ![Sì][green] 
-Esegui il backup nel disco di DPM/MAB, quindi in Azure | | | ![Sì][green] 
-Compressione dei dati inviati per il backup | ![Sì][green] | Durante il trasferimento dei dati non viene usata alcuna compressione. Leggero aumento dello spazio di archiviazione richiesto, ma ripristino più veloce.  | ![Yes][green] 
-Backup incrementale |![Sì][green] |![Sì][green] |![Yes][green] 
-Backup di dischi deduplicati | | | ![Parzialmente][yellow]<br/><br/> Solo per i server DPM/MABS distribuiti in locale. 
+Backup nell'insieme di credenziali | ![Yes][green] | ![Yes][green] | ![Yes][green]
+Esegui il backup nel disco di DPM/MAB, quindi in Azure | | | ![Yes][green]
+Compressione dei dati inviati per il backup | ![Yes][green] | Durante il trasferimento dei dati non viene usata alcuna compressione. Leggero aumento dello spazio di archiviazione richiesto, ma ripristino più veloce.  | ![Yes][green]
+Backup incrementale |![Yes][green] |![Yes][green] |![Yes][green]
+Backup di dischi deduplicati | | | ![Parzialmente][yellow]<br/><br/> Solo per i server DPM/MABS distribuiti in locale.
 
 ![Chiave tabella](./media/backup-architecture/table-key.png)
 
@@ -112,17 +112,17 @@ Backup di dischi deduplicati | | | ![Parzialmente][yellow]<br/><br/> Solo per i 
 1. Durante il primo backup, un'estensione di backup viene installata nella macchina virtuale se la macchina virtuale è in esecuzione.
     - Per le macchine virtuali Windows, viene installata l'estensione VMSnapshot.
     - Per le macchine virtuali Linux, è installata l'estensione VMSnapshot per Linux.
-1. L'estensione accetta uno snapshot a livello di archiviazione. 
+1. L'estensione accetta uno snapshot a livello di archiviazione.
     - Per le macchine virtuali Windows in esecuzione, le coordinate di backup con Windows Servizio Copia Shadow del volume (VSS) per creare uno snapshot coerente con l'app della macchina virtuale. Per impostazione predefinita, il backup esegue backup VSS completi. Se Backup di Azure non riesce a creare uno snapshot coerente con l'app, acquisisce uno snapshot coerente con i file.
     - Per le macchine virtuali Linux, il backup esegue uno snapshot coerente con i file. Per gli snapshot coerenti con l'app, è necessario personalizzare manualmente gli script pre/post.
-    - Il backup viene ottimizzato eseguendo in parallelo il backup di ogni disco di macchina virtuale. Per ogni disco di cui si esegue il backup, Backup di Azure legge i blocchi nel disco e archivia solo i dati modificati. 
-1. Dopo la creazione dello snapshot, i dati vengono trasferiti nell'insieme di credenziali. 
+    - Il backup viene ottimizzato eseguendo in parallelo il backup di ogni disco di macchina virtuale. Per ogni disco di cui si esegue il backup, Backup di Azure legge i blocchi nel disco e archivia solo i dati modificati.
+1. Dopo la creazione dello snapshot, i dati vengono trasferiti nell'insieme di credenziali.
     - Vengono copiati solo i blocchi di dati modificati dopo l'ultimo backup.
     - I dati non vengono crittografati. Backup di Azure può eseguire il backup di macchine virtuali di Azure crittografate tramite crittografia dischi di Azure.
     - I dati dello snapshot potrebbero non essere copiati immediatamente nell'insieme di credenziali. In momenti di picco, il backup potrebbe richiedere alcune ore. Il tempo totale di backup per una macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
 1. Dopo che i dati sono stati inviati all'insieme di credenziali, viene creato un punto di ripristino. Per impostazione predefinita, gli snapshot vengono conservati per due giorni prima di essere eliminati. Questa funzionalità consente l'operazione di ripristino da questi snapshot, riducendo così i tempi di ripristino. Riduce il tempo necessario per la trasformazione e la copia dei dati dall'insieme di credenziali. Vedere [funzionalità di ripristino immediato di backup di Azure](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability).
 
-Le macchine virtuali di Azure richiedono l'accesso a Internet per i comandi di controllo. Se si esegue il backup dei carichi di lavoro all'interno della macchina virtuale, ad esempio SQL Server backup del database, anche i dati back-end necessitano di accesso a Internet. 
+Le macchine virtuali di Azure richiedono l'accesso a Internet per i comandi di controllo. Se si esegue il backup dei carichi di lavoro all'interno della macchina virtuale, ad esempio SQL Server backup del database, anche i dati back-end necessitano di accesso a Internet.
 
 ![Backup di macchine virtuali di Azure](./media/backup-architecture/architecture-azure-vm.png)
 
@@ -157,15 +157,15 @@ Le macchine virtuali di Azure richiedono l'accesso a Internet per i comandi di c
 Le macchine virtuali di Azure usano dischi per archiviare il sistema operativo, le app e i dati. Ogni macchina virtuale di Azure dispone di almeno due dischi: un disco per il sistema operativo e un disco temporaneo. Le macchine virtuali di Azure possono anche avere dischi dati per i dati delle app. I dischi vengono archiviati come dischi rigidi virtuali.
 
 - I dischi rigidi virtuali vengono archiviati come BLOB di pagine negli account di archiviazione standard o Premium in Azure:
-    - **Archiviazione standard:** supporto di dischi affidabili e a basso costo per le macchine virtuali che eseguono carichi di lavoro non sensibili alla latenza. L'archiviazione standard può usare dischi SSD (Solid-State Drive) standard o dischi disco rigido (HDD) standard.
-    - **Archiviazione Premium:** supporto per dischi ad alte prestazioni. Usa dischi SSD Premium.
+  - **Archiviazione standard:** supporto di dischi affidabili e a basso costo per le macchine virtuali che eseguono carichi di lavoro non sensibili alla latenza. L'archiviazione standard può usare dischi SSD (Solid-State Drive) standard o dischi disco rigido (HDD) standard.
+  - **Archiviazione Premium:** supporto per dischi ad alte prestazioni. Usa dischi SSD Premium.
 - Sono disponibili tre diversi livelli di prestazioni per i dischi:
-    - **Disco HDD Standard:** supportato da unità HDD e usato per un'archiviazione conveniente.
-    - **Disco SDD Standard:** Combina gli elementi di dischi SSD Premium e dischi HDD standard. Offre prestazioni e affidabilità più coerenti rispetto al disco rigido, ma è ancora conveniente.
-    - **Disco SSD Premium:** Supportato da SSD e offre prestazioni elevate e bassa latenza per le macchine virtuali che eseguono carichi di lavoro con attività di I/O intensive.
+  - **Disco HDD Standard:** supportato da unità HDD e usato per un'archiviazione conveniente.
+  - **Disco SDD Standard:** Combina gli elementi di dischi SSD Premium e dischi HDD standard. Offre prestazioni e affidabilità più coerenti rispetto al disco rigido, ma è ancora conveniente.
+  - **Disco SSD Premium:** Supportato da SSD e offre prestazioni elevate e bassa latenza per le macchine virtuali che eseguono carichi di lavoro con attività di I/O intensive.
 - I dischi possono essere gestiti o non gestiti:
-    - **Dischi non gestiti:** Tipo tradizionale di dischi usati dalle macchine virtuali. Per questi dischi è necessario creare un account di archiviazione personale e specificarlo durante la creazione del disco. È quindi necessario scoprire come ottimizzare le risorse di archiviazione per le macchine virtuali.
-    - **Dischi gestiti**: Azure crea e gestisce automaticamente gli account di archiviazione. Si specificano le dimensioni del disco e il livello di prestazioni e Azure crea automaticamente i dischi gestiti. Quando si aggiungono dischi e si ridimensionano le macchine virtuali, Azure gestisce gli account di archiviazione.
+  - **Dischi non gestiti:** Tipo tradizionale di dischi usati dalle macchine virtuali. Per questi dischi è necessario creare un account di archiviazione personale e specificarlo durante la creazione del disco. È quindi necessario scoprire come ottimizzare le risorse di archiviazione per le macchine virtuali.
+  - **Dischi gestiti**: Azure crea e gestisce automaticamente gli account di archiviazione. Si specificano le dimensioni del disco e il livello di prestazioni e Azure crea automaticamente i dischi gestiti. Quando si aggiungono dischi e si ridimensionano le macchine virtuali, Azure gestisce gli account di archiviazione.
 
 Per altre informazioni sull'archiviazione su disco e sui tipi di dischi disponibili per le macchine virtuali, vedere questi articoli:
 
@@ -173,7 +173,7 @@ Per altre informazioni sull'archiviazione su disco e sui tipi di dischi disponib
 - [Azure Managed disks per macchine virtuali Linux](../virtual-machines/linux/managed-disks-overview.md)
 - [Tipi di dischi disponibili per le macchine virtuali](../virtual-machines/windows/disks-types.md)
 
-### <a name="back-up-and-restore-azure-vms-with-premium-storage"></a>Eseguire il backup e il ripristino di macchine virtuali di Azure con archiviazione Premium 
+### <a name="back-up-and-restore-azure-vms-with-premium-storage"></a>Eseguire il backup e il ripristino di macchine virtuali di Azure con archiviazione Premium
 
 È possibile eseguire il backup di macchine virtuali di Azure usando archiviazione Premium con backup di Azure:
 
@@ -201,13 +201,11 @@ Quando si ripristinano le VM con Managed disks, è possibile eseguire il riprist
 
 - Esaminare la matrice di supporto per informazioni [sulle funzionalità supportate e sulle limitazioni per gli scenari di backup](backup-support-matrix.md).
 - Configurare il backup per uno di questi scenari:
-    - [Eseguire il backup di macchine virtuali di Azure](backup-azure-arm-vms-prepare.md).
-    - [Eseguire il backup di computer Windows direttamente](tutorial-backup-windows-server-to-azure.md), senza un server di backup.
-    - [Configurare MABS](backup-azure-microsoft-azure-backup.md) per il backup in Azure e quindi eseguire il backup dei carichi di lavoro in MABS.
-    - [Configurare DPM](backup-azure-dpm-introduction.md) per il backup in Azure e quindi eseguire il backup dei carichi di lavoro in DPM.
-
+  - [Eseguire il backup di macchine virtuali di Azure](backup-azure-arm-vms-prepare.md).
+  - [Eseguire il backup di computer Windows direttamente](tutorial-backup-windows-server-to-azure.md), senza un server di backup.
+  - [Configurare MABS](backup-azure-microsoft-azure-backup.md) per il backup in Azure e quindi eseguire il backup dei carichi di lavoro in MABS.
+  - [Configurare DPM](backup-azure-dpm-introduction.md) per il backup in Azure e quindi eseguire il backup dei carichi di lavoro in DPM.
 
 [green]: ./media/backup-architecture/green.png
 [yellow]: ./media/backup-architecture/yellow.png
 [red]: ./media/backup-architecture/red.png
-
