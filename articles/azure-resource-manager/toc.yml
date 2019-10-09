@@ -134,8 +134,7 @@
           href: resource-group-linked-templates.md
         - name: Creare più istanze
           href: resource-group-create-multiple.md
-        - name: Creare gruppi di risorse e risorse nella sottoscrizione
-          displayName: subscription level deployment
+        - name: Risorse a livello di sottoscrizione
           href: deploy-to-subscription.md
     - name: Distribuire modelli
       items:

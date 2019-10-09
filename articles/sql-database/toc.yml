@@ -32,8 +32,10 @@
       items:
         - name: Regole del firewall IP a livello di server
           href: sql-database-server-level-firewall-rule.md
-        - name: Configurare un endpoint pubblico in Istanza gestita
+        - name: Configurare un endpoint pubblico in un'istanza gestita
           href: sql-database-managed-instance-public-endpoint-configure.md
+        - name: Configurare i tipi di connessione in un'istanza gestita
+          href: sql-database-managed-instance-connection-type.md
         - name: Connessione della macchina virtuale client a un'istanza gestita
           href: sql-database-managed-instance-configure-vm.md
         - name: Connessione da punto a sito a un'istanza gestita
