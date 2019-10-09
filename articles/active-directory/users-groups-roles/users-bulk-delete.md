@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb01b46d61b6ba99c3ec9c537dccc350074f5e05
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: d7c47887c12c8bf9be7a0c5b11dfb3f099965cb7
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146423"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174354"
 ---
 # <a name="bulk-delete-users-preview-in-azure-active-directory"></a>Eliminazione in blocco degli utenti (anteprima) in Azure Active Directory
 
@@ -26,18 +26,22 @@ Usando il portale di Azure Active Directory (Azure AD), è possibile rimuovere u
 
 ## <a name="to-bulk-delete-users"></a>Per eliminare in blocco gli utenti
 
-1. Accedere all'organizzazione Azure AD con un account amministratore dell'organizzazione.
-1. In Azure ad selezionare **Users** > **Bulk Delete**.
-1. Nella pagina **utente di eliminazione in blocco** selezionare **Scarica** per ricevere un file CSV valido di proprietà utente e quindi aggiungere gli utenti che si desidera eliminare.
-
-   ![Il file CSV contiene i nomi e gli ID degli utenti da eliminare](./media/users-bulk-delete/delete-csv-file.png)
-
-1. Al termine della modifica del file CSV, selezionare il file in **caricare il file CSV** da convalidare.
+1. [Accedere all'organizzazione Azure ad](https://aad.portal.azure.com) con un account amministratore dell'organizzazione.
+1. In Azure AD selezionare **utenti** > **eliminazione in blocco**.
+1. Nella pagina **utente di eliminazione in blocco** selezionare **Scarica** per ricevere un file CSV valido di proprietà utente.
 
    ![Selezionare un file CSV locale in cui elencare gli utenti che si desidera eliminare](./media/users-bulk-delete/bulk-delete.png)
 
-1. Quando il contenuto del file viene convalidato, è necessario correggere gli eventuali errori prima dell'invio del processo.
-1. Quando il file supera la convalida, selezionare **Submit (Invia** ) per avviare il processo di Azure batch che elimina gli utenti. Se sono presenti errori, è possibile scaricare e visualizzare il file dei risultati nella pagina risultati operazione bulk. Il file contiene il motivo per ogni errore.
+1. Aprire il file CSV e aggiungere una riga per ogni utente che si desidera eliminare. L'unico valore obbligatorio è il **nome dell'entità utente**. Salvare quindi il file.
+
+   ![Il file CSV contiene i nomi e gli ID degli utenti da eliminare](./media/users-bulk-delete/delete-csv-file.png)
+
+1. Nella pagina **eliminazione in blocco utente (anteprima)** , in **caricare il file CSV**, selezionare il file. Quando si seleziona il file e si fa clic su Invia, viene avviata la convalida del file CSV.
+1. Dopo la convalida del contenuto del file, viene visualizzato il messaggio **Il file è stato caricato**. Se sono presenti errori, è necessario correggerli prima di poter inviare il processo.
+1. Quando il file supera la convalida, selezionare **Submit (Invia** ) per avviare l'operazione bulk di Azure che elimina gli utenti.
+1. Al termine dell'operazione di eliminazione, viene visualizzata una notifica che l'operazione bulk è riuscita.
+
+Se sono presenti errori, è possibile scaricare e visualizzare il file dei risultati nella pagina **risultati operazione bulk** . Il file contiene il motivo per ogni errore.
 
 ## <a name="check-status"></a>Controlla stato
 
@@ -49,7 +53,7 @@ A questo punto, è possibile verificare che gli utenti eliminati esistano nell'o
 
 ## <a name="verify-deleted-users-in-the-azure-portal"></a>Verificare gli utenti eliminati nella portale di Azure
 
-1. Accedere al portale di Azure con un account che sia un amministratore utente nell'organizzazione.
+1. Accedere al portale di Azure con un account di amministratore utenti nell'organizzazione.
 1. Nel riquadro di spostamento selezionare **Azure Active Directory**.
 1. In **Gestisci** selezionare **Utenti**.
 1. In **Mostra**selezionare solo **tutti gli utenti** e verificare che gli utenti eliminati non siano più elencati.

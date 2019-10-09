@@ -1,18 +1,18 @@
 ---
 title: Advanced Threat Protection per Azure Cosmos DB
 description: Informazioni su come Azure Cosmos DB fornisce la crittografia dei dati inattivi e la relativa implementazione.
-author: monhaber
+author: rkarlin
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: v-mohabe
+ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 035c7e9ed5ab33c89a2a55b1133294db434bfe81
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 2b12d639e734502113b6afdd7250fca6a520c687
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70123880"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176030"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Advanced Threat Protection per Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Per un'analisi completa degli avvisi di sicurezza, è consigliabile abilitare la
 
 ### <a name="set-up-atp-using-the-portal"></a>Configurare ATP usando il portale
 
-1. Avviare il portale di Azure all' [https://portal.azure.com](https://portal.azure.com/)indirizzo.
+1. Avviare il portale di Azure in [https://portal.azure.com](https://portal.azure.com/).
 
 2. Dall'account Azure Cosmos DB scegliere **sicurezza avanzata**dal menu **Impostazioni** .
 

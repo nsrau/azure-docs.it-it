@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 69e001530de238f5d38c46b0a238a087f4487d9c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d68934174c3bbb53bba4eb786ac79ab94725151b
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023672"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166222"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Monitorare le prestazioni del database di Azure per MariaDB con Query Store
 
@@ -104,7 +104,7 @@ Le opzioni seguenti si applicano specificamente alle statistiche di attesa.
 > [!NOTE]
 > Attualmente **query_store_capture_mode** sostituisce questa configurazione, vale a dire che **query_store_capture_mode** e **query_store_wait_sampling_capture_mode** devono essere abilitati per tutte le statistiche di attesa per il funzionamento. Se **query_store_capture_mode** è disattivato, le statistiche di attesa sono disattivate, perché le statistiche di attesa usano il performance_schema abilitato e la query_text acquisita da query Store.
 
-Usare il [portale di Azure](howto-server-parameters.md) per ottenere o impostare un valore diverso per un parametro.
+Usare il [portale di Azure](howto-server-parameters.md) per ottenere o impostare un valore diverso per un parametro.
 
 ## <a name="views-and-functions"></a>Viste e funzioni
 

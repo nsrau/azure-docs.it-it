@@ -13,39 +13,39 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87c62cbe71f2e02c6f2c09620a8470a97ae57392
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: a10dfffa69652ee2b75053c04b97f6492c46811e
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146332"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174326"
 ---
 # <a name="bulk-create-users-preview-in-azure-active-directory"></a>Creazione bulk di utenti (anteprima) in Azure Active Directory
 
 Azure Active Directory (Azure AD) supporta operazioni di creazione ed eliminazione di utenti in blocco, invito bulk per Guest e supporto per il download di elenchi di utenti, gruppi e membri del gruppo.
 
-## <a name="bulk-import-service-limits"></a>Limiti del servizio di importazione bulk
-
-Ogni attività bulk per la creazione di utenti può essere eseguita per un massimo di un'ora. Questo consente la creazione bulk di almeno 50.000 utenti.
-
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 
 Per creare in blocco gli utenti nel portale di amministrazione, è necessario effettuare l'accesso come amministratore globale o Amministratore utenti.
 
-## <a name="to-bulk-import-users"></a>Per eseguire l'importazione bulk degli utenti
+## <a name="to-create-users-in-bulk"></a>Per creare utenti in blocco
 
 1. [Accedere all'organizzazione Azure ad](https://aad.portal.azure.com) con un account amministratore dell'organizzazione.
-1. In Azure ad selezionare **utenti** > **creazione bulk**.
-1. Nella pagina **Crea utente in blocco** selezionare **Scarica** per ricevere un file con valori delimitati da virgole (CSV) di proprietà utente e quindi aggiungere i nuovi utenti.
-
-   ![Il file CSV contiene i nomi e gli ID degli utenti da creare](./media/users-bulk-add/add-csv-file.png)
-
-1. Al termine della modifica del file CSV o se si è pronti per il caricamento, selezionare il file in **caricare il file CSV** da convalidare.
+1. In Azure AD selezionare **utenti** > **creazione bulk**.
+1. Nella pagina **creazione bulk utente** selezionare **download** per ricevere un file con valori delimitati da virgole (CSV) di proprietà utente e quindi aggiungere Aggiungi utenti che si desidera creare.
 
    ![Selezionare un file CSV locale in cui elencare gli utenti che si desidera aggiungere](./media/users-bulk-add/upload-button.png)
 
-1. Quando il contenuto del file viene convalidato, è necessario correggere gli errori prima di poter avviare il processo di caricamento.
-1. Quando il file supera la convalida, selezionare **Submit (Invia** ) per avviare il processo di Azure batch che aggiunge le nuove informazioni utente. Se sono presenti errori, è possibile scaricare e visualizzare il file dei risultati nella pagina risultati operazione bulk. Il file contiene il motivo per ogni errore.
+1. Aprire il file CSV e aggiungere una riga per ogni utente che si vuole creare. Gli unici valori obbligatori sono **nome**, **nome dell'entità utente**, **password iniziale** e **accesso a blocchi (sì/no)** . Salvare quindi il file.
+
+   ![Il file CSV contiene i nomi e gli ID degli utenti da creare](./media/users-bulk-add/add-csv-file.png)
+
+1. Nella pagina **creazione in blocco dell'utente (anteprima)** , in caricare il file CSV, selezionare il file. Quando si seleziona il file e si fa clic su **Invia**, viene avviata la convalida del file CSV.
+1. Una volta convalidato il contenuto del file, il **file verrà caricato correttamente**. Se sono presenti errori, è necessario correggerli prima di poter inviare il processo.
+1. Quando il file supera la convalida, selezionare **Submit (Invia** ) per avviare l'operazione bulk di Azure che importa i nuovi utenti.
+1. Al termine dell'operazione di importazione, verrà visualizzata una notifica dello stato del processo dell'operazione bulk.
+
+Se sono presenti errori, è possibile scaricare e visualizzare il file dei risultati nella pagina **risultati operazione bulk** . Il file contiene il motivo per ogni errore.
 
 ## <a name="check-status"></a>Controlla stato
 
@@ -71,6 +71,10 @@ Get-AzureADUser -Filter "UserType eq 'Member'"
 ```
 
 Si noterà che gli utenti creati sono elencati.
+
+## <a name="bulk-import-service-limits"></a>Limiti del servizio di importazione bulk
+
+Ogni attività bulk per la creazione di utenti può essere eseguita per un massimo di un'ora. Questo consente la creazione bulk di almeno 50.000 utenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

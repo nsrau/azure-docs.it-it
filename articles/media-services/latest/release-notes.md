@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 10/07/2019
 ms.author: juliako
-ms.openlocfilehash: 2d01828cb61937b45665e953a13795b5346a5f1b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 34d68974366eb17704b4ea1291bd1d29a0eea95a
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030522"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168624"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -36,16 +36,38 @@ Per altre informazioni, vedere [Materiale sussidiario sulla migrazione per aggio
 
 ## <a name="september-2019"></a>Settembre 2019
 
+###  <a name="media-services-v3"></a>Servizi multimediali v3  
+
+#### <a name="live-linear-encoding-of-live-events"></a>Codifica live lineare di eventi Live
+
 Media Services V3 annuncia l'anteprima di 24 ore x 365 giorni di Live Linear encoding of Live Events.
- 
+
+###  <a name="media-services-v2"></a>Servizi multimediali v2  
+
+#### <a name="deprecation-of-media-processors"></a>Deprecazione dei processori di contenuti multimediali
+
+È stata annunciata la deprecazione di *Azure Media Indexer* e *Azure Media Indexer 2 Preview*. Il processore di contenuti multimediali [Azure Media Indexer](../previous/media-services-index-content.md) verrà ritirato il 1 ° ottobre del 2020. I processori di contenuti multimediali [Azure Media Indexer 2 Preview](../previous/media-services-process-content-with-indexer2.md) verranno ritirati il 1 ° gennaio 2020. [Servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questi processori di contenuti multimediali legacy.
+
+Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer e Azure Media Indexer 2 a servizi multimediali di Azure video Indexer](../previous/migrate-indexer-v1-v2.md).
+
 ## <a name="august-2019"></a>Agosto 2019
 
-### <a name="south-africa-regional-pair-is-open-for-media-services"></a>La coppia di aree di Sudafrica è aperta per servizi multimediali 
+###  <a name="media-services-v3"></a>Servizi multimediali v3  
+
+#### <a name="south-africa-regional-pair-is-open-for-media-services"></a>La coppia di aree di Sudafrica è aperta per servizi multimediali 
 
 Servizi multimediali è ora disponibile nelle aree Sud Africa settentrionale e Sud Africa occidentale.
 
 Per altre informazioni, vedere [cloud e aree in cui è disponibile Media Services V3](azure-clouds-regions.md).
 
+###  <a name="media-services-v2"></a>Servizi multimediali v2  
+
+#### <a name="deprecation-of-media-processors"></a>Deprecazione dei processori di contenuti multimediali
+
+Microsoft sta annunciando la deprecazione dei processori di contenuti multimediali *Windows Azure Media Encoder* (biaigi) e *Azure Media Encoder* (AME), che verranno ritirati il 30 novembre 2019.
+
+Per informazioni dettagliate, vedere [eseguire la migrazione di biaigi a Media Encoder standard](https://go.microsoft.com/fwlink/?LinkId=2101334) ed [eseguire la migrazione di Ame a Media Encoder standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+ 
 ## <a name="july-2019"></a>2019 luglio
 
 ### <a name="content-protection"></a>Protezione del contenuto

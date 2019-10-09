@@ -1,18 +1,18 @@
 ---
 title: Risolvere i problemi relativi a Condivisione dati di Azure (anteprima)
-description: Informazioni su come risolvere i problemi relativi a Condivisione dati di Azure (anteprima)
+description: Informazioni su come risolvere i problemi relativi agli inviti e agli errori durante la creazione o la ricezione di condivisioni dati con l'anteprima della condivisione dati di Azure.
 services: data-share
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.openlocfilehash: 62b386f4648074bbf1f002e162151253e5b43bc9
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 592a2d464aed8c39dfd11734beccbd0399d75fd9
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71320287"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169218"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share-preview"></a>Risolvere i problemi comuni in Condivisione dati di Azure (anteprima)
 

@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: 430d90b2b372602072527c49796244c503778a3b
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 2f847d8db983303d46b465f4f80bff65eeff632f
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959014"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168500"
 ---
 # <a name="virtual-wan-partners"></a>Partner di rete WAN virtuale
 
@@ -215,11 +215,13 @@ La configurazione del dispositivo VPN/SDWAN o SD-WAN locale deve contenere o cor
 * Algoritmo di integrità IPsec
 * Gruppo PFS
 
-### <a name="default"></a>Criteri predefiniti per la connettività IPsec 
+### <a name="default"></a>Criteri predefiniti per la connettività IPsec
 
-Quando si utilizzano i criteri predefiniti, Azure può fungere sia da iniziatore che da risponditore durante un'installazione di tunnel IPsec. Non è disponibile alcun supporto per Azure come risponditore.
+[!INCLUDE [IPsec Default](../../includes/virtual-wan-ipsec-include.md)]
 
-[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
+### <a name="custom"></a>Criteri personalizzati per la connettività IPsec
+
+[!INCLUDE [IPsec Custom](../../includes/virtual-wan-ipsec-custom-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

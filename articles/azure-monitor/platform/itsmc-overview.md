@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 31d9307d23d308192b362d9570911c86a7dd8372
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: eb9d803bcc9667c26acecbfd098a3022b7421478
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051826"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177655"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -83,7 +83,7 @@ Una volta installata la soluzione, è possibile creare una connessione.
 
 Per creare una connessione, è necessario preparare lo strumento di Gestione dei servizi IT per consentire la connessione dalla soluzione Connettore di Gestione dei servizi IT.  
 
-A seconda del prodotto di Gestione dei servizi IT a cui si connette, attenersi alla procedura descritta di seguito:
+A seconda del prodotto ITSM a cui ci si connette, attenersi alla procedura seguente:
 
 - [System Center Service Manager (SCSM)](../../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](../../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
@@ -185,19 +185,19 @@ ServiceDeskWorkItemType_s="Incident"
 
 - ServiceDeskConnectionName
 - ID Service Desk
-- Stato
+- State
 - Urgenza
 - Impatto
-- Priorità
+- Priority
 - Riassegnazione
 - Created By (Creato da)
 - Resolved By (Risolto da)
 - Closed By (Chiuso da)
-- Source (Sorgente)
+- Source
 - Assegnato a
-- Categoria
-- Title
-- DESCRIZIONE
+- Category
+- Titolo
+- Descrizione
 - Data di creazione
 - Data di chiusura
 - Data di risoluzione
@@ -214,16 +214,16 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - ID Service Desk
 - Created By (Creato da)
 - Closed By (Chiuso da)
-- Source (Sorgente)
+- Source
 - Assegnato a
-- Title
+- Titolo
 - Type
-- Categoria
+- Category
 - Stato
 - Riassegnazione
 - Conflict Status (Stato di conflitto)
 - Urgenza
-- Priorità
+- Priority
 - Rischio
 - Impatto
 - Assegnato a
@@ -235,24 +235,24 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Planned End Date (Data di fine pianificata)
 - Work Start Date (Data di inizio lavoro)
 - Work End Date (Data di fine pianificata)
-- DESCRIZIONE
+- Descrizione
 - Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dati di output per un evento imprevisto ServiceNow
 
 | Campo Log Analytics | Campo di ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| Number |
-| IncidentState_s | Stato |
+| ServiceDeskId_s| NUMBER |
+| IncidentState_s | State |
 | Urgency_s |Urgenza |
 | Impact_s |Impatto|
-| Priority_s | Priorità |
+| Priority_s | Priority |
 | CreatedBy_s | Aperto da |
 | ResolvedBy_s | Risolto da|
 | ClosedBy_s  | Chiuso da |
 | Source_s| Tipo di contatto |
 | AssignedTo_s | Assegnato a  |
-| Category_s | Categoria |
+| Category_s | Category |
 | Title_s|  Breve descrizione |
 | Description_s|  Note |
 | CreatedDate_t|  Aperto |
@@ -264,16 +264,16 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 | Log Analytics | Campo di ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| Number |
+| ServiceDeskId_s| NUMBER |
 | CreatedBy_s | Richiesto da |
 | ClosedBy_s | Chiuso da |
 | AssignedTo_s | Assegnato a  |
 | Title_s|  Breve descrizione |
 | Type_s|  Type |
-| Category_s|  Categoria |
-| CRState_s|  Stato|
+| Category_s|  Category |
+| CRState_s|  State|
 | Urgency_s|  Urgenza |
-| Priority_s| Priorità|
+| Priority_s| Priority|
 | Risk_s| Rischio|
 | Impact_s| Impatto|
 | RequestedDate_t  | Data richiesta |
@@ -282,7 +282,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Data di fine pianificata |
 | WorkStartDate_t  | Data di inizio effettiva |
 | WorkEndDate_t | Data di fine effettiva|
-| Description_s | DESCRIZIONE |
+| Description_s | Descrizione |
 | Computer  | Elemento di configurazione |
 
 

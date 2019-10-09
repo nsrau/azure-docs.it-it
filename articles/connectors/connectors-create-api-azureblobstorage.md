@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 06/20/2019
 tags: connectors
-ms.openlocfilehash: ce59c238e50a1be6879b07e959b236f6181a8ce4
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 98a811508d5fa65135c224536b668145ea0808d0
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703248"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176077"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Creare e gestire BLOB in Archiviazione BLOB di Azure con App per la logica di Azure
 
@@ -24,10 +24,11 @@ Questo articolo illustra come accedere ai file archiviati come BLOB nell'account
 
 Si supponga di avere uno strumento che viene aggiornato in un sito Web di Azure. L'evento funge da trigger per l'app per la logica. Quando l'evento si verifica, è possibile impostare l'app per la logica per aggiornare alcuni file nel contenitore di archiviazione BLOB, eseguendo un'azione nell'app per la logica.
 
-> [!NOTE]
+> [!IMPORTANT]
 >
-> Le app per la logica non possono accedere direttamente agli account di archiviazione di Azure con [regole del firewall](../storage/common/storage-network-security.md) e presenti nella stessa area. Tuttavia, le app per la logica possono accedere agli account di archiviazione di Azure che si trovano in un'area diversa, perché viene usato un indirizzo IP pubblico per la comunicazione tra le aree. È sufficiente assicurarsi di consentire gli [indirizzi IP in uscita per i connettori gestiti nella propria area](../logic-apps/logic-apps-limits-and-config.md#outbound). In alternativa, è possibile usare una o più opzioni avanzate:
->
+> Le app per la logica non possono accedere direttamente agli account di archiviazione di Azure con [regole del firewall](../storage/common/storage-network-security.md) e presenti nella stessa area. Tuttavia, se si autorizzano gli [indirizzi IP in uscita per i connettori gestiti nell'area](../logic-apps/logic-apps-limits-and-config.md#outbound), le app per la logica possono accedere agli account di archiviazione in un'area diversa tranne quando si usa il connettore di archiviazione tabelle di Azure o il connettore di archiviazione di Accodamento di Azure. Per accedere all'archiviazione tabelle o all'archiviazione code, è comunque possibile usare il trigger e le azioni HTTP. 
+> In caso contrario, è possibile usare le opzioni più avanzate qui:
+> 
 > * Creare un [ambiente del servizio di integrazione](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), che può connettersi alle risorse presenti in una rete virtuale di Azure.
 >
 > * Se si usa un livello dedicato per gestione API, è possibile passare all'API di archiviazione usando gestione API e consentire gli indirizzi IP di quest'ultimo attraverso il firewall. In sostanza, aggiungere la rete virtuale di Azure usata da gestione API all'impostazione del firewall dell'account di archiviazione. È quindi possibile usare l'azione gestione API o l'azione HTTP per chiamare le API di archiviazione di Azure. Tuttavia, se si sceglie questa opzione, è necessario gestire autonomamente il processo di autenticazione. Per altre informazioni, vedere [Architettura di integrazione aziendale semplice](https://aka.ms/aisarch).
@@ -94,7 +95,7 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
 
 2. Nella finestra di progettazione dell'app per la logica, sotto il trigger o l'azione, scegliere **nuovo passaggio**.
 
-   ![Aggiungi un'azione](./media/connectors-create-api-azureblobstorage/add-action.png) 
+   ![Aggiungere un'azione](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
    Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. Scegliere il segno più ( **+** ) visualizzato e selezionare **Aggiungi un'azione**.
 

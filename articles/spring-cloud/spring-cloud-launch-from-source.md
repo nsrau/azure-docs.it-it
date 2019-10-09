@@ -1,23 +1,26 @@
 ---
-title: Avviare l'applicazione Spring cloud dal codice sorgente
+title: "Avvio rapido: Avviare l'applicazione Spring cloud dal codice sorgente"
 description: Informazioni su come avviare l'applicazione Azure Spring cloud direttamente dal codice sorgente
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 9/27/2019
 ms.author: jeconnoc
-ms.openlocfilehash: a161b38ab6d23ad86df1ef7e843640276ba486bf
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: 445cac1494828362d54a8c15e68d27f01b165841
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038808"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170539"
 ---
 # <a name="launch-your-spring-cloud-application-from-source-code"></a>Avviare l'applicazione Spring cloud dal codice sorgente
 
 Azure Spring cloud consente di avviare l'applicazione direttamente dal codice sorgente Java o da un file JAR predefinito. Questo articolo illustra i passaggi necessari.
 
-## <a name="initial-requirements"></a>Requisiti iniziali
+## <a name="prerequisites"></a>Prerequisiti
+
+>[!Note]
+> Prima di iniziare questa Guida introduttiva, assicurarsi che la sottoscrizione di Azure abbia accesso al cloud Spring di Azure.  Come servizio in anteprima, ti chiediamo di contattare Microsoft per poter aggiungere la tua sottoscrizione al nostro elenco di consentiti.  Per esplorare le funzionalità di Azure Spring cloud, @no__t 0fill questo modulo @ no__t-1.
 
 Prima di iniziare, verificare che la sottoscrizione di Azure abbia le dipendenze richieste:
 

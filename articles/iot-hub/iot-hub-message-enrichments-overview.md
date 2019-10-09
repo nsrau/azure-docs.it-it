@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 9e3df59af33d6e5fdd1024d42c34dc2b4ed3184e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 40ce5c4f73daac2b88d3a59e46d43dba10db0954
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873189"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177985"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Arricchimento dei messaggi per i messaggi dell'hub da dispositivo a cloud (anteprima)
 
-I miglioramenti apportati ai messaggi sono la possibilità dell'hub Internet di *contrassegnare* i messaggi con informazioni aggiuntive prima che i messaggi vengano inviati all'endpoint designato. Un motivo per utilizzare gli arricchimenti dei messaggi consiste nell'includere dati che possono essere utilizzati per semplificare l'elaborazione downstream. Ad esempio, l'arricchimento dei messaggi di telemetria del dispositivo con un tag del dispositivo gemello può ridurre il carico sui clienti per effettuare chiamate API dei dispositivi gemelli per queste informazioni.
+I miglioramenti apportati ai *messaggi sono la* possibilità dell'hub Internet di *contrassegnare* i messaggi con informazioni aggiuntive prima che i messaggi vengano inviati all'endpoint designato. Un motivo per utilizzare gli arricchimenti dei messaggi consiste nell'includere dati che possono essere utilizzati per semplificare l'elaborazione downstream. Ad esempio, l'arricchimento dei messaggi di telemetria del dispositivo con un tag del dispositivo gemello può ridurre il carico sui clienti per effettuare chiamate API dei dispositivi gemelli per queste informazioni.
 
 ![Flusso di arricchimenti messaggi](./media/iot-hub-message-enrichments-overview/message-enrichments-flow.png)
 
@@ -29,7 +29,7 @@ Un arricchimento del messaggio ha tre elementi chiave:
 
 * Uno o più [endpoint](iot-hub-devguide-endpoints.md) per i quali deve essere applicata l'arricchimento.
 
-La **chiave** è una stringa. Una chiave può contenere solo caratteri alfanumerici o i caratteri speciali seguenti:`-`il segno meno ()`_`, il carattere di sottolineatura () e il punto (`.`).
+La **chiave** è una stringa. Una chiave può contenere solo caratteri alfanumerici o i caratteri speciali seguenti: il trattino (`-`), il carattere di sottolineatura (`_`) e il punto (`.`).
 
 Il **valore** può essere uno degli esempi seguenti:
 
@@ -58,7 +58,7 @@ I messaggi possono provenire da qualsiasi origine dati supportata dal [routing d
 
 Gli arricchimenti vengono applicati per ogni endpoint. Se si specificano cinque arricchimenti da contrassegnare per un endpoint specifico, tutti i messaggi che passano a tale endpoint vengono contrassegnati con gli stessi cinque arricchimenti.
 
-Per informazioni su come provare gli arricchimenti dei messaggi, vedere l' [esercitazione](tutorial-message-enrichments.md) relativa all'arricchimento dei messaggi
+Per informazioni su come provare gli arricchimenti dei messaggi, vedere l' [esercitazione relativa all'arricchimento dei messaggi](tutorial-message-enrichments.md)
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -90,8 +90,8 @@ Questa funzionalità è disponibile in anteprima ed è disponibile in tutte le a
 
 Vedere questi articoli per altre informazioni sul routing dei messaggi a un hub Internet:
 
-* [Esercitazione sui miglioramenti ai messaggi](tutorial-message-enrichments.md)
+* [Esercitazione sugli arricchimenti di messaggi](tutorial-message-enrichments.md)
 
 * [Usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a endpoint diversi](iot-hub-devguide-messages-d2c.md)
 
-* [Esercitazione: Routing dell'hub Internet](tutorial-routing.md)
+* [Esercitazione: Routing hub Internet delle cose @ no__t-0

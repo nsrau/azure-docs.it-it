@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 8fe0bf9c8827b7248195f89377176fd834845e32
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 5e693a219c4a430f742ebd27878518ebb99ce5da
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60615216"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167378"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Selezionando **Pubblica** viene visualizzata una finestra popup in cui è possib
 
 Fare clic su **Pubblica** nella finestra di dialogo. È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione Visual Objects include un servizio Web a cui è possibile accedere digitando [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) nella barra degli indirizzi del browser.  Sullo schermo verranno visualizzati dieci oggetti visivi mobili.
 
-**NOTA:** Se la distribuzione in `Cloud.xml` profilo (Azure Service Fabric), l'applicazione deve quindi essere disponibile all'indirizzo **http://{ServiceFabricName}. { Region}.cloudapp.Azure.com:8081/visualobjects/** . Assicurarsi che `8081/TCP` sia stato configurato nel servizio di bilanciamento del carico (il servizio di bilanciamento del carico si trova nello stesso gruppo di risorse dell'istanza di Service Fabric).
+**NOTA:** Se si esegue la distribuzione nel profilo `Cloud.xml` (Azure Service Fabric), l'applicazione deve essere disponibile all'indirizzo **http://{nomeservicefabric}. { Region}. cloudapp. Azure. com: 8081/visualobjects/** . Assicurarsi che `8081/TCP` sia stato configurato nel servizio di bilanciamento del carico (il servizio di bilanciamento del carico si trova nello stesso gruppo di risorse dell'istanza di Service Fabric).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Passaggio 2: aggiornare l'applicazione Oggetti visivi di esempio
 È possibile osservare come con la versione distribuita al passaggio 1 gli oggetti visivi non ruotino. L'applicazione può essere aggiornata in modo che gli oggetti visivi ruotino.

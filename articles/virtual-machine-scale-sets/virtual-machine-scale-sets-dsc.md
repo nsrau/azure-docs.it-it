@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 04/05/2017
 ms.author: zachal
-ms.openlocfilehash: 24a37d352413ff9ac55ce8e189691988383950f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3da1ed5eabd3a35fe382471314084258b20213b
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64728444"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166150"
 ---
 # <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Utilizzo dei set di scalabilità di macchine virtuali con l'estensione DSC di Azure
 I [set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md) possono essere usati con il gestore dell'estensione [Azure Desired State Configuration (DSC)](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Configurazione dello stato desiderato (DSC) di Azure). Il set di scalabilità di macchine virtuali consente di distribuire e gestire un numero elevato di macchine virtuali e di aumentare o ridurre la dimensione in risposta al carico. DSC viene usato per la configurazione delle VM mano a mano che sono in linea, in modo che eseguano il software di produzione.
@@ -107,5 +107,5 @@ Informazioni su come l' [estensione DSC gestisce in modo sicuro le credenziali](
 
 Per altre informazioni sul gestore dell'estensione DSC, vedere [Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Per altre informazioni su PowerShell DSC, [vedere il centro di documentazione di PowerShell](https://msdn.microsoft.com/powershell/dsc/overview). 
+Per altre informazioni su PowerShell DSC, [vedere il centro di documentazione di PowerShell](/powershell/scripting/dsc/overview/overview). 
 

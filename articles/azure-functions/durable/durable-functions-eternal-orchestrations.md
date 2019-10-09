@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: dbe51eddcf748843fd90cc533063fd25e7c282fd
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d96229bb5e3d288915b64e5a7ce29a8651f2a181
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933376"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177387"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orchestrazioni perenni in Funzioni permanenti (Funzioni di Azure)
 
@@ -77,7 +77,7 @@ La differenza tra questo esempio e una funzione attivata da timer è che i tempi
 Usare il metodo [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) per avviare un'orchestrazione eterna. Questa operazione non è diversa rispetto all'attivazione di qualsiasi altra funzione di orchestrazione.  
 
 > [!NOTE]
-> Se è necessario assicurarsi che l'orchestrazione di un singleton eterna sia in esecuzione, è importante mantenere la `id` stessa istanza quando si avvia l'orchestrazione. Per altre informazioni, vedere [Gestione delle istanze](durable-functions-instance-management.md).
+> Se è necessario assicurarsi che sia in esecuzione un singleton eterna orchestrazione, è importante mantenere la stessa istanza `id` quando si avvia l'orchestrazione. Per altre informazioni, vedere [Gestione delle istanze](durable-functions-instance-management.md).
 
 ```csharp
 [FunctionName("Trigger_Eternal_Orchestration")]
@@ -87,7 +87,7 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
 {
     string instanceId = "StaticId";
     // Null is used as the input, since there is no input in "Periodic_Cleanup_Loop".
-    await client.StartNewAsync("Periodic_Cleanup_Loop"), instanceId, null); 
+    await client.StartNewAsync("Periodic_Cleanup_Loop", instanceId, null); 
     return client.CreateCheckStatusResponse(request, instanceId);
 }
 ```

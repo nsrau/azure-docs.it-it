@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 953558e34d41184f75d72baf5982e84eb51b1781
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: e9b2967905bc927432d1ca4606bc2b2ba2ac4108
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694881"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177367"
 ---
 # <a name="http-features"></a>Funzionalità HTTP
 
@@ -210,6 +210,38 @@ Se una di queste limitazioni potrebbe influenzare il caso d'uso, è consigliabil
 > Gli sviluppatori .NET possono chiedersi perché questa funzionalità usi i tipi **DurableHttpRequest** e **DurableHttpResponse** anziché i tipi .NET **HttpRequestMessage** e **HttpResponseMessage** predefiniti.
 >
 > Questa scelta di progettazione è intenzionale. Il motivo principale è che i tipi personalizzati contribuiscono a garantire che gli utenti non rifacciano presupposti non corretti sui comportamenti supportati del client HTTP interno. I tipi specifici di Durable Functions consentono anche di semplificare la progettazione dell'API. Possono anche rendere più semplici le funzionalità speciali disponibili, ad esempio l' [integrazione delle identità gestite](#managed-identities) e il [modello di consumer di polling](#http-202-handling). 
+
+### <a name="extensibility-net-only"></a>Estensibilità (solo .NET)
+
+È possibile personalizzare il comportamento del client HTTP interno dell'orchestrazione tramite l' [inserimento di dipendenze .NET di funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection). Questa possibilità può essere utile per apportare piccole modifiche di comportamento. Può anche essere utile per eseguire il testing unità del client HTTP inserendo oggetti fittizi.
+
+L'esempio seguente illustra l'uso dell'inserimento di dipendenze per disabilitare la convalida del certificato SSL per le funzioni dell'agente di orchestrazione che chiamano endpoint HTTP esterni.
+
+```csharp
+public class Startup : FunctionsStartup
+{
+    public override void Configure(IFunctionsHostBuilder builder)
+    {
+        // Register own factory
+        builder.Services.AddSingleton<
+            IDurableHttpMessageHandlerFactory,
+            MyDurableHttpMessageHandlerFactory>();
+    }
+}
+
+public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFactory
+{
+    public HttpMessageHandler CreateHttpMessageHandler()
+    {
+        // Disable SSL certificate validation (not recommended in production!)
+        return new HttpClientHandler
+        {
+            ServerCertificateCustomValidationCallback =
+                HttpClientHandler.DangerousAcceptAnyServerCertificateValidator,
+        };
+    }
+}
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

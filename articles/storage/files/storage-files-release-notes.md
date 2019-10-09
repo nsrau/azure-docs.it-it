@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 8/14/2019
+ms.date: 10/8/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 7286d8465d857b24c72c46e9d671abb83ccefc21
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1b11c6beda5b261d1edc77dcbb365d8d8df8bd09
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259364"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176721"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -25,6 +25,7 @@ L'agente Sincronizzazione file di Azure supporta le versioni seguenti:
 
 | Attività cardine | Numero di versione dell'agente | Data di rilascio | Stato |
 |----|----------------------|--------------|------------------|
+| Versione V8- [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 8 ottobre 2019 | Supportato |
 | Aggiornamento cumulativo di luglio 2019- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 luglio 2019 | Supportato |
 | Aggiornamento cumulativo di luglio 2019- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 luglio 2019 | Supportato |
 | Versione v7- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 giugno 2019 | Supportato |
@@ -39,11 +40,78 @@ L'agente Sincronizzazione file di Azure supporta le versioni seguenti:
 | Aggiornamento cumulativo di dicembre 2018 - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 10 dicembre 2018 | Supportato-la versione dell'agente scadrà il 5 novembre 2019 |
 | Aggiornamento cumulativo di dicembre 2018 | 4.1.0.0 | 4 dicembre 2018 | Supportato-la versione dell'agente scadrà il 5 novembre 2019 |
 | Versione v4 | 4.0.1.0 | 13 novembre 2018 | Supportato-la versione dell'agente scadrà il 5 novembre 2019 |
-| Versione V3 | 3.1.0.0-3.4.0.0 | Non supportata | Non supportato-le versioni dell'agente scadono il 19 agosto 2019 |
+| Versione V3 | 3.1.0.0-3.4.0.0 | Non supportato | Non supportato-le versioni dell'agente scadono il 19 agosto 2019 |
 | Agenti pre-GA | 1.1.0.0 - 3.0.13.0 | N/D | Non supportato: versione dell'agente scaduta il 1° ottobre 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Criteri di aggiornamento dell'agente Sincronizzazione file di Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-8000"></a>Versione dell'agente 8.0.0.0
+Le note sulla versione seguenti sono relative alla versione 8.0.0.0 dell'agente di Sincronizzazione file di Azure (rilasciato l'8 ottobre 2019).
+
+### <a name="improvements-and-issues-that-are-fixed"></a>Miglioramenti e problemi risolti
+
+- Miglioramenti delle prestazioni di ripristino
+    - Tempi di ripristino più rapidi per il ripristino eseguito tramite backup di Azure. I file ripristinati vengono sincronizzati di nuovo con Sincronizzazione file di Azure server molto più velocemente. 
+- Miglioramento dell'esperienza del portale di suddivisione in livelli cloud  
+    - Se sono presenti file a livelli che non possono essere richiamati, è ora possibile visualizzare gli errori di richiamo nelle proprietà dell'endpoint server. Inoltre, l'integrità dell'endpoint server ora Visualizza un errore e i passaggi di mitigazione se il driver del filtro di suddivisione in livelli cloud non è caricato nel server.
+- Installazione più semplice dell'agente
+    - Il modulo Az\AzureRM di PowerShell non è più necessario per registrare il server rendendo più semplice e veloce l'installazione.
+- Miglioramenti delle prestazioni e dell'affidabilità varie
+
+### <a name="evaluation-tool"></a>Strumento di valutazione
+Prima di distribuire la Sincronizzazione file di Azure, è opportuno valutare se è compatibile con il sistema tramite lo strumento di valutazione di Sincronizzazione file di Azure. Questo strumento è un cmdlet di Azure PowerShell che consente di rilevare potenziali problemi con il file system e il set di dati, ad esempio caratteri non supportati o versione del sistema operativo non supportata. Per istruzioni sull'installazione e l'utilizzo, vedere la sezione [Strumento di valutazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) nella Guida alla pianificazione. 
+
+### <a name="agent-installation-and-server-configuration"></a>Installazione dell'agente e configurazione del server
+Per altre informazioni su come installare e configurare l'agente Sincronizzazione file di Azure con Windows Server, vedere [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md) e [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
+
+- Il pacchetto di installazione dell'agente deve essere installato con autorizzazioni elevate (amministratore).
+- L'agente non è supportato nell'opzione di distribuzione di nano server.
+- L'agente è supportato solo in Windows Server 2019, Windows Server 2016 e Windows Server 2012 R2.
+- L'agente richiede almeno 2 GiB di memoria. Se il server è in esecuzione in una macchina virtuale con memoria dinamica abilitata, la macchina virtuale deve essere configurata con un minimo di 2048 MiB di memoria.
+- Il servizio agente di sincronizzazione archiviazione (FileSyncSvc) non supporta gli endpoint server che si trovano in un volume la cui directory di informazioni sul volume di sistema (SVI) è compressa. Questa configurazione porta a risultati imprevisti.
+
+### <a name="interoperability"></a>Interoperabilità
+- Antivirus, backup e altre applicazioni che accedono a file a livelli possono causare un richiamo indesiderato se non rispettano l'attributo offline e ignorano il contenuto dei file. Per altre informazioni, vedere [Risolvere i problemi di Sincronizzazione file di Azure](storage-sync-files-troubleshoot.md).
+- Gli screening dei file di Gestione risorse file server possono generare errori di sincronizzazione infiniti se i file sono bloccati a causa dello screening.
+- L'esecuzione di Sysprep in un server in cui è installato l'agente di Sincronizzazione file di Azure non è supportata e può causare risultati imprevisti. L'agente di Sincronizzazione file di Azure deve essere installato dopo la distribuzione dell'immagine del server e il completamento dell'installazione minima di sysprep.
+
+### <a name="sync-limitations"></a>Limitazioni della sincronizzazione
+Gli elementi seguenti non vengono sincronizzati, ma il resto del sistema continuerà a funzionare normalmente:
+- File con caratteri non supportati. Vedere [Guida alla risoluzione dei problemi](storage-sync-files-troubleshoot.md#handling-unsupported-characters) per un elenco dei caratteri non supportati.
+- File o directory che terminano con un punto.
+- Percorsi che contengono più di 2.048 caratteri.
+- Parte DACL (elenco di controllo di accesso discrezionale) di un descrittore di sicurezza se superiore a 2 kB. Il problema si verifica solo se sono presenti più di 40 voci di controllo di accesso in un singolo elemento.
+- Parte DACL (elenco di controllo di accesso discrezionale) di un descrittore di sicurezza usato per il controllo.
+- Attributi estesi.
+- Flussi dei dati alternativi.
+- Reparse point.
+- Collegamenti reali.
+- La compressione (se impostata in un file server) non viene mantenuta quando le modifiche vengono sincronizzate con tale file da altri endpoint.
+- File crittografati con EFS (o un'altra crittografia in modalità utente) che impediscono al servizio di leggere i dati.
+
+    > [!Note]  
+    > Sincronizzazione file di Azure crittografa sempre i dati in transito e i dati vengono sempre crittografati quando sono inattivi in Azure.
+ 
+### <a name="server-endpoint"></a>Endpoint server
+- Un endpoint server può essere creato solo in un volume NTFS. ReFS, FAT, FAT32 e altri file system non sono attualmente supportati da Sincronizzazione file di Azure.
+- I file a più livelli diventano inaccessibili se non vengono richiamati prima di eliminare l'endpoint server. Per ripristinare l'accesso ai file, ricreare l'endpoint server. Se sono trascorsi 30 giorni dall'eliminazione dell'endpoint server o se l'endpoint cloud è stato eliminato, i file a più livelli che non sono stati richiamati saranno inutilizzabili. Per ulteriori informazioni, vedere [file a livelli non accessibili nel server dopo l'eliminazione di un endpoint server](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
+- La suddivisione in livelli cloud non è supportata nel volume di sistema. Per creare un endpoint server nel volume di sistema, disabilitare la suddivisione in livelli nel cloud durante la creazione dell'endpoint server.
+- Il clustering di failover è supportato solo con i dischi cluster, non con i volumi condivisi cluster.
+- Un endpoint server non può essere annidato, ma può coesistere nello stesso volume parallelamente a un altro.
+- Non archiviare un file di paging del sistema operativo o dell'applicazione in un percorso dell'endpoint server.
+- Se il server viene rinominato, il nome del server nel portale non viene aggiornato.
+
+### <a name="cloud-endpoint"></a>Endpoint cloud
+- Sincronizzazione file di Azure supporta la modifica diretta della condivisione file di Azure. Qualsiasi modifica apportata alla condivisione file di Azure, tuttavia, deve prima essere individuata dal processo di rilevamento modifiche di Sincronizzazione file di Azure, che per un endpoint cloud viene avviato una volta ogni 24 ore. Per sincronizzare immediatamente i file modificati nella condivisione file di Azure, è possibile usare il cmdlet di PowerShell [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) per avviare manualmente il rilevamento delle modifiche nella condivisione file di Azure. Le modifiche apportate a una condivisione file di Azure tramite il protocollo REST, poi, non aggiornano l'ora dell'ultima modifica di SMB e non vengono considerate come modifica dalla procedura di sincronizzazione.
+- È possibile spostare il servizio di sincronizzazione archiviazione e/o l'account di archiviazione in un gruppo di risorse o in una sottoscrizione diversa all'interno del tenant esistente di Azure AD. Se l'account di archiviazione viene spostato, è necessario concedere l'accesso al servizio Sincronizzazione file ibrida nell'account di archiviazione (vedere [Garantire che Sincronizzazione file di Azure possa accedere all'account di archiviazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+
+    > [!Note]  
+    > Sincronizzazione file di Azure non consente lo spostamento della sottoscrizione in un diverso tenant di Azure AD.
+
+### <a name="cloud-tiering"></a>Suddivisione in livelli nel cloud
+- Se un file a più livelli viene copiato in un'altra posizione usando Robocopy, il file risultante non è suddiviso in livelli. L'attributo offline potrebbe essere impostato perché Robocopy include erroneamente tale attributo nelle operazioni di copia.
+- Quando si copiano file tramite robocopy, usare l'opzione /MIR per conservare i timestamp dei file. In questo modo i file meno recenti verranno archiviati a livelli prima dei file aperti più di recente.
 
 ## <a name="agent-version-7200"></a>Versione dell'agente 7.2.0.0
 Le note sulla versione seguenti sono relative alla versione 7.2.0.0 dell'agente Sincronizzazione file di Azure rilasciato il 24 luglio 2019. Queste note si aggiungono alle note sulla versione elencate per la versione 7.0.0.0.
@@ -68,7 +136,7 @@ Le note sulla versione seguenti sono relative alla versione 7.0.0.0 dell'agente 
 ### <a name="improvements-and-issues-that-are-fixed"></a>Miglioramenti e problemi risolti
 
 - Supporto per dimensioni di condivisione file più grandi
-    - Con l'anteprima delle condivisioni file di Azure di dimensioni maggiori, vengono aumentati anche i limiti di supporto per sincronizzazione file. In questo primo passaggio, Sincronizzazione file di Azure supporta ora fino a 25 TB e 50 milioni di file in un singolo spazio dei nomi di sincronizzazione. Per richiedere l'anteprima della condivisione file di grandi dimensioni, compilare il https://aka.ms/azurefilesatscalesurvey modulo. 
+    - Con l'anteprima delle condivisioni file di Azure di dimensioni maggiori, vengono aumentati anche i limiti di supporto per sincronizzazione file. In questo primo passaggio, Sincronizzazione file di Azure supporta ora fino a 25 TB e 50 milioni di file in un singolo spazio dei nomi di sincronizzazione. Per applicare l'anteprima della condivisione file di grandi dimensioni, compilare questo modulo https://aka.ms/azurefilesatscalesurvey. 
 - Supporto per l'impostazione del firewall e della rete virtuale negli account di archiviazione
     - Sincronizzazione file di Azure supporta ora l'impostazione del firewall e della rete virtuale negli account di archiviazione. Per configurare la distribuzione in modo che funzioni con l'impostazione firewall e rete virtuale, vedere [configurare le impostazioni del firewall e della rete virtuale](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings).
 - Cmdlet di PowerShell per sincronizzare immediatamente i file modificati nella condivisione file di Azure
@@ -78,7 +146,7 @@ Le note sulla versione seguenti sono relative alla versione 7.0.0.0 dell'agente 
 - Miglioramento del ripristino a livello di file di backup di Azure
     - I singoli file ripristinati con backup di Azure vengono ora rilevati e sincronizzati con l'endpoint server più velocemente.
 - Miglioramento dell'affidabilità del cmdlet di richiamo a livelli cloud 
-    - Il cmdlet per la suddivisione in livelli cloud (Invoke-StorageSyncFileRecall) supporta ora il numero di tentativi per file e il ritardo tra tentativi, simile a Robocopy.
+    - Il cmdlet Invoke-StorageSyncFileRecall consente ora ai clienti di specificare il numero di tentativi per file e il ritardo dei tentativi per file Analogamente a Robocopy. In precedenza, questo cmdlet richiamerebbe tutti i file a livelli in un percorso specifico in ordine casuale. Con il parametro New-Order, questo cmdlet richiamerà prima i dati più importanti e soddisferà i criteri di suddivisione in livelli nel cloud (arrestare il richiamo se i criteri di data sono soddisfatti o lo spazio disponibile del volume viene raggiunto, a seconda di quale evento si verifica per primo).
 - Supporto solo per TLS 1,2 (TLS 1,0 e 1,1 è disabilitato)
     - Sincronizzazione file di Azure supporta ora l'uso di TLS 1,2 solo su server con TLS 1,0 e 1,1 disabilitato. Prima di questo miglioramento, la registrazione del server avrebbe esito negativo se TLS 1,0 e 1,1 è stato disabilitato nel server.
 - Miglioramenti delle prestazioni e dell'affidabilità per la sincronizzazione e la suddivisione in livelli nel cloud

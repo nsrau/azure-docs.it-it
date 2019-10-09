@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.author: mlearned
-ms.openlocfilehash: b42cdae634a6c2d8d994225d4cb6b440a99918e5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8e5f394987de06feaeb9a635face643eecc97cb9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67614584"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174215"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Procedure consigliate per archiviazione e backup nel servizio Azure Kubernetes
 
@@ -36,9 +36,9 @@ La tabella seguente descrive i tipi di archiviazione disponibili e le relative f
 
 | Caso d'uso | Plug-in volume | Una sola operazione di lettura/scrittura | Molte operazioni di sola lettura | Molte operazioni di lettura/scrittura | Supporto per i contenitori di Windows Server |
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
-| Configurazione condivisa       | File di Azure   | Yes | Sì | Sì | Yes |
-| Dati di app strutturati        | Dischi di Azure   | Yes | No  | No  | Sì |
-| Dati non strutturati, operazioni sui file system | [BlobFuse (anteprima)][blobfuse] | Sì | Sì | Sì | No |
+| Configurazione condivisa       | File di Azure   | Yes | Yes | Yes | Yes |
+| Dati di app strutturati        | Dischi di Azure   | Yes | No  | No  | Yes |
+| Dati non strutturati, operazioni sui file system | [BlobFuse (anteprima)][blobfuse] | Yes | Yes | Sì | No |
 
 I due principali tipi di archiviazione forniti per i volumi nel servizio Azure Kubernetes sono supportati da Dischi di Azure o File di Azure. Per migliorare la sicurezza, per impostazione predefinita entrambi i tipi di archiviazione usano la crittografia del servizio di archiviazione, che crittografa i dati inattivi. Attualmente i dischi non possono essere crittografati mediante Crittografia dischi di Azure a livello di nodo del servizio Azure Kubernetes.
 
@@ -61,7 +61,7 @@ I nodi del servizio Azure Kubernetes vengono eseguiti come macchine virtuali di 
 
 Se le applicazioni richiedono Dischi di Azure come soluzione di archiviazione, pianificare e scegliere una dimensione di macchina virtuale del nodo appropriata. La quantità di CPU e memoria non è l'unico fattore da considerare nella scelta di una dimensione di macchina virtuale. Anche le funzionalità di archiviazione sono importanti. Ad esempio, le dimensioni di macchina virtuale *Standard_B2ms* e *Standard_DS2_v2* offrono una quantità simile di risorse di CPU e memoria. Ma le potenziali prestazioni di archiviazione sono diverse, come illustrato nella tabella seguente:
 
-| Tipo e dimensioni del nodo | CPU virtuale | Memoria (GiB) | Numero massimo di dischi dati | Operazioni di I/O al secondo del disco senza memorizzazione nella cache | Velocità effettiva massima senza memorizzazione nella cache (MBps) |
+| Tipo e dimensioni del nodo | vCPU | Memoria (GiB) | Numero massimo di dischi dati | Operazioni di I/O al secondo del disco senza memorizzazione nella cache | Velocità effettiva massima senza memorizzazione nella cache (MBps) |
 |--------------------|------|--------------|----------------|------------------------|--------------------------------|
 | Standard_B2ms      | 2    | 8            | 4              | 1\.920                  | 22,5                           |
 | Standard_DS2_v2    | 2    | 7            | 8              | 6\.400                  | 96                             |
@@ -92,7 +92,7 @@ Per altre informazioni sulle opzioni della classe di archiviazione, vedere [crit
 
 **Indicazioni sulle procedure consigliate** : eseguire il backup dei dati usando uno strumento appropriato per il tipo di archiviazione, ad esempio Velero o Azure Site Recovery. Verificare l'integrità e la sicurezza di tali backup.
 
-Quando le applicazioni archiviano e utilizzano dati salvati in modo permanente su dischi o in file, è necessario eseguire regolari backup o snapshot di tali dati. Dischi di Azure supporta l'uso di tecnologie snapshot integrate. Potrebbe essere necessario un hook che consenta all'applicazione di scaricare le scritture su disco prima di eseguire l'operazione snapshot. [Velero][velero] può eseguire il backup di volumi permanenti insieme a risorse e configurazioni aggiuntive del cluster. Se non è possibile [rimuovere lo stato dalle applicazioni][remove-state], eseguire il backup dei dati da volumi permanenti e testare regolarmente le operazioni di ripristino per verificare l'integrità dei dati e i processi necessari.
+Quando le applicazioni archiviano e utilizzano dati salvati in modo permanente su dischi o in file, è necessario eseguire regolari backup o snapshot di tali dati. Dischi di Azure supporta l'uso di tecnologie snapshot integrate. Prima di eseguire l'operazione di snapshot, potrebbe essere necessario cercare le applicazioni per scaricare le Scritture su disco. [Velero][velero] può eseguire il backup di volumi permanenti insieme a risorse e configurazioni aggiuntive del cluster. Se non è possibile [rimuovere lo stato dalle applicazioni][remove-state], eseguire il backup dei dati da volumi permanenti e testare regolarmente le operazioni di ripristino per verificare l'integrità dei dati e i processi necessari.
 
 Comprendere le limitazioni dei diversi approcci ai backup dei dati e la necessità o meno di disattivare i dati prima di creare lo snapshot. Non sempre i backup dei dati consentono di ripristinare l'ambiente applicativo della distribuzione cluster. Per altre informazioni su questi scenari, vedere [procedure consigliate per la continuità aziendale e il ripristino di emergenza in AKS][best-practices-multi-region].
 

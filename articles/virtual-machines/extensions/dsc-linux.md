@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 6df6bb5c0be4bf1779541a815bd933965024809f
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: e2faf444aa411f0e60f1b5c7b1f811abc2f6b63a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960400"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176680"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Estensione DSC per Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
 Desired State Configuration (DSC) è una piattaforma di gestione che consente di gestire l'infrastruttura IT e di sviluppo con la configurazione come codice.
 
-> ! Si noti che l'estensione DSC per Linux e l' [estensione della macchina virtuale di monitoraggio di Azure per Linux](/virtual-machines/extensions/oms-linux) attualmente presentano un conflitto e non sono supportati in una configurazione side-by-side.  Ciò significa che le due soluzioni non devono essere usate insieme nella stessa VM.
+> ! Si noti che l'estensione DSC per Linux e l' [estensione della macchina virtuale di monitoraggio di Azure per Linux](/azure/virtual-machines/extensions/oms-linux) attualmente presentano un conflitto e non sono supportati in una configurazione side-by-side.  Ciò significa che le due soluzioni non devono essere usate insieme nella stessa VM.
 
 L'estensione DSCForLinux è pubblicata e supportata da Microsoft. L'estensione installa l'agente OMI e DSC nelle macchine virtuali di Azure. L'estensione DSC può eseguire anche le azioni seguenti
 
@@ -41,7 +41,7 @@ L'estensione DSCForLinux è pubblicata e supportata da Microsoft. L'estensione i
 
 ### <a name="operating-system"></a>Sistema operativo
 
-L'estensione DSC Linux supporta tutte le [distribuzioni Linux approvate in Azure](/virtual-machines/linux/endorsed-distros) tranne:
+L'estensione DSC Linux supporta tutte le [distribuzioni Linux approvate in Azure](/azure/virtual-machines/linux/endorsed-distros) tranne:
 
 | Distribuzione | Versione |
 |---|---|
@@ -274,7 +274,7 @@ $publicConfig = '{
 }'
 ```
 
-## <a name="template-deployment"></a>Distribuzione modello
+## <a name="template-deployment"></a>Distribuzione del modello
 
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli rappresentano la scelta migliore quando si distribuiscono una o più macchine virtuali per cui è necessaria una configurazione post-distribuzione, ad esempio l'onboarding in Automazione di Azure. 
 
@@ -288,7 +288,7 @@ Per altri dettagli sul modello di Azure Resource Manager, vedere [Creazione di m
 ### <a name="21-using-azure-cliazure-cli"></a>2.1. Uso dell'[**interfaccia della riga di comando di Azure**][azure-cli]
 Prima di distribuire l'estensione DSCForLinux è necessario configurare i file `public.json` e `protected.json` in base ai diversi scenari descritti nella sezione 3.
 
-#### <a name="211-classic"></a>2.1.1. Classica
+#### <a name="211-classic"></a>2.1.1. Classico
 La modalità classica viene anche denominata modalità Gestione dei servizi di Azure. Per passare a questa modalità, eseguire:
 ```
 $ azure config mode asm
@@ -305,7 +305,7 @@ Per conoscere la versione più recente dell'estensione, eseguire:
 $ azure vm extension list
 ```
 
-#### <a name="212-resource-manager"></a>2.1.2. Resource Manager
+#### <a name="212-resource-manager"></a>2.1.2. Gestione risorse
 È possibile passare alla modalità Azure Resource Manager eseguendo:
 ```
 $ azure config mode arm

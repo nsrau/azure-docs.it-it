@@ -1,5 +1,5 @@
 ---
-title: Usare Apache Maven per compilare un client Java HBase per HDInsight di Azure
+title: Usare Apache Maven per compilare un client Java HBase per Azure HDInsight
 description: Informazioni su come usare Apache Maven per compilare un'applicazione Apache HBase basata su Java e poi distribuirla in HBase in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.openlocfilehash: 1ec4e9cbfd1d70c128f530bd996793a49c8a7d00
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: aad601a48b2b420a809a385e336f103612d2e378
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484126"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167104"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilare applicazioni Java per Apache HBase
 
@@ -23,7 +23,7 @@ La procedura descritta in questo documento usa [Apache Maven](https://maven.apac
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster di Apache HBase in HDInsight. Visualizzare [Introduzione ad Apache HBase](./apache-hbase-tutorial-get-started-linux.md).
+* Un cluster Apache HBase in HDInsight. Vedere [Introduzione ad Apache HBase](./apache-hbase-tutorial-get-started-linux.md).
 
 * [Java Developer Kit (JDK) versione 8](https://aka.ms/azure-jdks).
 
@@ -31,12 +31,12 @@ La procedura descritta in questo documento usa [Apache Maven](https://maven.apac
 
 * Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Se si usa PowerShell, è necessario il [modulo di AZ](https://docs.microsoft.com/powershell/azure/overview).
+* Se si usa PowerShell, sarà necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/overview).
 
-* Un editor di testo. Questo articolo usa Microsoft Notepad.
+* Un editor di testo. Questo articolo usa il blocco note di Microsoft.
 
 ## <a name="test-environment"></a>Ambiente di test
-L'ambiente usato per questo articolo è stato un computer che eseguono Windows 10.  I comandi sono stati eseguiti in un prompt dei comandi e i vari file sono stati modificati con blocco note. Modificare in modo appropriato per l'ambiente.
+L'ambiente usato per questo articolo è un computer che esegue Windows 10.  I comandi sono stati eseguiti in un prompt dei comandi e i vari file sono stati modificati con blocco note. Modificare di conseguenza per l'ambiente in uso.
 
 Da un prompt dei comandi, immettere i comandi seguenti per creare un ambiente di lavoro:
 
@@ -56,13 +56,13 @@ cd C:\HDI
     mkdir conf
     ```
 
-    Questo comando crea una nuova directory denominata `hbaseapp` nella posizione corrente, contenente un progetto Maven di base. Il secondo comando modifica la directory di lavoro `hbaseapp`. Il terzo comando crea una nuova directory, `conf`, che verrà usato in un secondo momento. La directory `hbaseapp` contiene gli elementi seguenti:
+    Questo comando crea una nuova directory denominata `hbaseapp` nella posizione corrente, contenente un progetto Maven di base. Il secondo comando modifica la directory di lavoro in `hbaseapp`. Il terzo comando crea una nuova directory, `conf`, che verrà usata in un secondo momento. La directory `hbaseapp` contiene gli elementi seguenti:
 
     * `pom.xml`:  Il modello a oggetti dei progetti (](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)POM, Project Object Model) contiene le informazioni e i dettagli di configurazione usati per compilare il progetto.
     * `src\main\java\com\microsoft\examples`: contiene il codice dell'applicazione.
     * `src\test\java\com\microsoft\examples`: contiene i test per l'applicazione.
 
-2. Rimuovere il codice di esempio generato. Eliminare i file dell'applicazione e il test generato `AppTest.java`, e `App.java` immettendo i comandi seguenti:
+2. Rimuovere il codice di esempio generato. Eliminare i file di test e dell'applicazione generati `AppTest.java` e `App.java` immettendo i comandi seguenti:
 
     ```cmd
     DEL src\main\java\com\microsoft\examples\App.java
@@ -71,7 +71,7 @@ cd C:\HDI
 
 ## <a name="update-the-project-object-model"></a>Aggiornare il modello a oggetti dei progetti
 
-Per un riferimento completo del file POM. XML, vedere https://maven.apache.org/pom.html.  Apri `pom.xml` immettendo il comando seguente:
+Per un riferimento completo del file POM. XML, vedere https://maven.apache.org/pom.html.  Aprire `pom.xml` immettendo il comando seguente:
 
 ```cmd
 notepad pom.xml
@@ -79,7 +79,7 @@ notepad pom.xml
 
 ### <a name="add-dependencies"></a>Aggiungere le dipendenze
 
-Nelle `pom.xml`, aggiungere il testo seguente nel `<dependencies>` sezione:
+In `pom.xml` aggiungere il testo seguente nella sezione `<dependencies>`:
 
 ```xml
 <dependency>
@@ -110,7 +110,7 @@ Per altre informazioni sulle versioni e sui componenti di HDInsight, vedere [Qua
 
 I plug-in di Maven consentono di personalizzare le fasi di compilazione del progetto. Questa sezione viene usata per aggiungere plug-in, risorse e altre opzioni di configurazione della compilazione.
 
-Aggiungere il codice seguente per il `pom.xml` file, quindi salvare e chiudere il file. Nel file, il testo deve essere incluso tra i tag `<project>...</project>`, ad esempio tra `</dependencies>` e `</project>`.
+Aggiungere il codice seguente al file `pom.xml`, quindi salvare e chiudere il file. Nel file, il testo deve essere incluso tra i tag `<project>...</project>`, ad esempio tra `</dependencies>` e `</project>`.
 
 ```xml
 <build>
@@ -168,7 +168,7 @@ Il plug-in maven-shade-plugin produce anche un file uberjar, che contiene tutte 
 
 ### <a name="download-the-hbase-sitexml"></a>Salvare il file hbase-site.xml
 
-Usare il comando seguente per copiare la configurazione di HBase dal cluster HBase nella directory `conf`. Sostituire `CLUSTERNAME` con HDInsight il nome del cluster e quindi immettere il comando:
+Usare il comando seguente per copiare la configurazione di HBase dal cluster HBase nella directory `conf`. Sostituire `CLUSTERNAME` con il nome del cluster HDInsight e quindi immettere il comando:
 
 ```cmd
 scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
@@ -178,13 +178,13 @@ scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./
 
 ### <a name="implement-a-createtable-class"></a>Implementare una classe CreateTable
 
-Immettere il comando seguente per creare e aprire un nuovo file `CreateTable.java`. Selezionare **Sì** al prompt per creare un nuovo file.
+Immettere il comando seguente per creare e aprire un nuovo file `CreateTable.java`. Selezionare **Sì** quando viene richiesto di creare un nuovo file.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\CreateTable.java
 ```
 
-Quindi copiare e incollare il codice java seguente nel nuovo file. Quindi chiudere il file.
+Quindi copiare e incollare il codice Java riportato di seguito nel nuovo file. Chiudere quindi il file.
 
 ```java
 package com.microsoft.examples;
@@ -256,17 +256,17 @@ public class CreateTable {
 }
 ```
 
-Questo codice è il `CreateTable` classe, che crea una tabella denominata `people` e popolarla con alcuni utenti predefiniti.
+Questo codice è la classe `CreateTable`, che consente di creare una tabella denominata `people` e di popolarla con alcuni utenti predefiniti.
 
 ### <a name="implement-a-searchbyemail-class"></a>Implementare una classe SearchByEmail
 
-Immettere il comando seguente per creare e aprire un nuovo file `SearchByEmail.java`. Selezionare **Sì** al prompt per creare un nuovo file.
+Immettere il comando seguente per creare e aprire un nuovo file `SearchByEmail.java`. Selezionare **Sì** quando viene richiesto di creare un nuovo file.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\SearchByEmail.java
 ```
 
-Quindi copiare e incollare il codice java seguente nel nuovo file. Quindi chiudere il file.
+Quindi copiare e incollare il codice Java riportato di seguito nel nuovo file. Chiudere quindi il file.
 
 ```java
 package com.microsoft.examples;
@@ -341,17 +341,17 @@ public class SearchByEmail {
 }
 ```
 
-Il `SearchByEmail` classe può essere usata per eseguire query per le righe dall'indirizzo di posta elettronica. Poiché usa un filtro di espressione regolare, è possibile fornire una stringa o un'espressione regolare quando si usa la classe.
+La classe `SearchByEmail` può essere usata per eseguire query per le righe in base all'indirizzo di posta elettronica. Poiché usa un filtro di espressione regolare, è possibile fornire una stringa o un'espressione regolare quando si usa la classe.
 
 ### <a name="implement-a-deletetable-class"></a>Implementare una classe DeleteTable
 
-Immettere il comando seguente per creare e aprire un nuovo file `DeleteTable.java`. Selezionare **Sì** al prompt per creare un nuovo file.
+Immettere il comando seguente per creare e aprire un nuovo file `DeleteTable.java`. Selezionare **Sì** quando viene richiesto di creare un nuovo file.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\DeleteTable.java
 ```
 
-Quindi copiare e incollare il codice java seguente nel nuovo file. Quindi chiudere il file.
+Quindi copiare e incollare il codice Java riportato di seguito nel nuovo file. Chiudere quindi il file.
 
 ```java
 package com.microsoft.examples;
@@ -375,7 +375,7 @@ public class DeleteTable {
 }
 ```
 
-Il `DeleteTable` classe pulisce le tabelle HBase create in questo esempio disabilitando ed eliminando la tabella creata dal `CreateTable` classe.
+La classe `DeleteTable` pulisce le tabelle HBase create in questo esempio disabilitando ed eliminando la tabella creata dalla classe `CreateTable`.
 
 ## <a name="build-and-package-the-application"></a>Compilare e creare il pacchetto dell'applicazione
 
@@ -396,19 +396,19 @@ Il `DeleteTable` classe pulisce le tabelle HBase create in questo esempio disabi
 
 La procedura seguente usa `scp` per copiare il file JAR nel nodo head primario di Apache HBase nel cluster HDInsight. Il comando `ssh` viene quindi usato per connettersi al cluster ed eseguire l'esempio direttamente nel nodo head.
 
-1. Caricare il file jar nel cluster. Sostituire `CLUSTERNAME` con HDInsight il nome del cluster e quindi immettere il comando seguente:
+1. Caricare il file jar nel cluster. Sostituire `CLUSTERNAME` con il nome del cluster HDInsight e quindi immettere il comando seguente:
 
     ```cmd
     scp ./target/hbaseapp-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:hbaseapp-1.0-SNAPSHOT.jar
     ```
 
-2. Connettersi al cluster HBase. Sostituire `CLUSTERNAME` con HDInsight il nome del cluster e quindi immettere il comando seguente:
+2. Connettersi al cluster HBase. Sostituire `CLUSTERNAME` con il nome del cluster HDInsight e quindi immettere il comando seguente:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
- 3. Per creare una tabella HBase tramite l'applicazione Java, usare il comando seguente nella chiamata a open ssh connessione:
+ 3. Per creare una tabella HBase usando l'applicazione Java, usare il comando seguente nella connessione ssh aperta:
 
     ```bash
     yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable
@@ -439,9 +439,9 @@ La procedura seguente usa `scp` per copiare il file JAR nel nodo head primario d
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>Caricare il file JAR ed eseguire i processi (PowerShell)
 
-La procedura seguente usa Azure PowerShell [modulo di AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) per caricare il file JAR nella risorsa di archiviazione predefinito per il cluster di Apache HBase. I cmdlet di HDInsight vengono quindi usati per eseguire gli esempi in modalità remota.
+I passaggi seguenti usano il [modulo Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) per caricare il file jar nella risorsa di archiviazione predefinita per il cluster Apache HBase. I cmdlet di HDInsight vengono quindi usati per eseguire gli esempi in modalità remota.
 
-1. Dopo aver installato e configurato il modulo di AZ, creare un file denominato `hbase-runner.psm1`. Usare il testo seguente come contenuto del file:
+1. Dopo aver installato e configurato il modulo AZ, creare un file denominato `hbase-runner.psm1`. Usare il testo seguente come contenuto del file:
 
    ```powershell
     <#
@@ -645,9 +645,9 @@ La procedura seguente usa Azure PowerShell [modulo di AZ](https://docs.microsoft
    * **Add-HDInsightFile**: viene usato per caricare file nel cluster
    * **Start-HBaseExample**: usato per eseguire le classi create prima
 
-2. Salvare il `hbase-runner.psm1` del file nei `hbaseapp` directory.
+2. Salvare il file `hbase-runner.psm1` nella directory `hbaseapp`.
 
-3. Registrare i moduli Azure PowerShell. Aprire una nuova finestra di Azure PowerShell e modificare il comando seguente sostituendo `CLUSTERNAME` con il nome del cluster. Immettere quindi i comandi seguenti:
+3. Registrare i moduli con Azure PowerShell. Aprire una nuova finestra di Azure PowerShell e modificare il comando seguente sostituendo `CLUSTERNAME` con il nome del cluster. Immettere quindi i comandi seguenti:
 
     ```powershell
     cd C:\HDI\hbaseapp
@@ -704,4 +704,4 @@ Usare il parametro `-showErr` per visualizzare l'errore standard (STDERR) prodot
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Informazioni su come usare SQuirreL SQL con Apache HBase](apache-hbase-phoenix-squirrel-linux.md)
+[Informazioni su come usare sqlline con Apache HBase](apache-hbase-phoenix-squirrel-linux.md)

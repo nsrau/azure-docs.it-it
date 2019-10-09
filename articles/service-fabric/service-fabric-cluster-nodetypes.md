@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
-ms.author: chackdan
-ms.openlocfilehash: f929ca1cd0fe6f2a94864ae3eb4df28e7b1927db
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.author: pepogors
+ms.openlocfilehash: cec134f9e71f86cd0ed17912f1a3c76adc9a4164
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200469"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167314"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipi di nodo di Azure Service Fabric e set di scalabilità di macchine virtuali
 I [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets) sono una risorsa di calcolo di Azure. I set di scalabilità possono essere usati per distribuire e gestire una raccolta di macchine virtuali come un set. Ogni tipo di nodo definito in un cluster di Azure Service Fabric configura un set di scalabilità separato.  Il runtime di Service Fabric installato in ogni macchina virtuale nel set di scalabilità dall'estensione della macchina virtuale Microsoft. Azure. ServiceFabric. È possibile aumentare o ridurre in modo indipendente ogni nodo, cambiare lo SKU del sistema operativo in esecuzione in ogni nodo del cluster, avere diversi set di porte aperte e usare metriche per la capacità diverse.
@@ -34,7 +34,7 @@ Come illustrato nella figura precedente, le istanze dei set di scalabilità iniz
 Quando si aumenta un set di scalabilità, viene creata una nuova istanza. Il nome della nuova istanza del set di scalabilità sarà in genere il nome del set di scalabilità + il successivo numero di istanza. Nell'esempio sarà BackEnd_5.
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Eseguire il mapping dei servizi di bilanciamento del carico dei set di scalabilità a tipi di nodo e set di scalabilità
-Se è stato distribuito il cluster dal portale Azure o è stato usato il modello di Azure Resource Manager di esempio, si otterrà un elenco di tutte le risorse in un gruppo di risorse. Verranno visualizzati i bilanciamenti del carico per ogni set di scalabilità o tipo di nodo. Il nome del servizio di bilanciamento del carico usa il formato seguente: **&lt;Nomedeltipodinodolb&gt;** . Ad esempio, LB-sfcluster4doc-0, come in questa figura:
+Se è stato distribuito il cluster dal portale Azure o è stato usato il modello di Azure Resource Manager di esempio, si otterrà un elenco di tutte le risorse in un gruppo di risorse. Verranno visualizzati i bilanciamenti del carico per ogni set di scalabilità o tipo di nodo. Il nome del servizio di bilanciamento del carico usa il formato seguente: **Lb-&lt;node tipo nome @ no__t-2**. Ad esempio, LB-sfcluster4doc-0, come in questa figura:
 
 ![Risorse][Resources]
 
@@ -87,7 +87,7 @@ Di seguito sono riportate le descrizioni delle proprietà:
 | enableParallelJobs | true o false | --- | Abilitare ParallelJobs di calcolo, ad esempio rimuovere una macchina virtuale e riavviare la macchina virtuale nello stesso set di scalabilità in parallelo |
 | nicPrefixOverride | string | --- | Prefisso della subnet, ad esempio "10.0.0.0/24" |
 | commonNames | string[] | --- | Nomi comuni dei certificati del cluster installati |
-| X509StoreName | string | --- | Nome dell'archivio in cui si trova il certificato del cluster installato |
+| x509StoreName | string | --- | Nome dell'archivio in cui si trova il certificato del cluster installato |
 | typeHandlerVersion | 1.1 | --- | Versione dell'estensione. 1,0 versione classica dell'estensione consigliata per l'aggiornamento a 1,1 |
 | dataPath | string | --- | Percorso dell'unità utilizzata per salvare lo stato per Service Fabric i servizi di sistema e i dati dell'applicazione. 
 

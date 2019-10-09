@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da1a5f54e5e989f661770d518a6753b831b59bd4
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 1963d0ad741099fcb6602beb58f62b0eabf01aa0
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990522"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170056"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Accesso condizionale: Richiede dispositivi conformi
 
@@ -33,18 +33,18 @@ Le informazioni di conformità dei criteri vengono trasmesse a Azure AD dove l'a
 
 La procedura seguente consente di creare un criterio di accesso condizionale per richiedere che i dispositivi che accedono alle risorse siano contrassegnati come conformi ai criteri di conformità di Intune dell'organizzazione.
 
-1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
-1. Passare a **Azure Active Directory** > **accesso condizionale**.
+1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
+1. Passare a **Azure Active Directory** **l'accesso condizionale** > .
 1. Selezionare **Nuovi criteri**.
 1. Assegnare un nome al criterio. È consigliabile che le organizzazioni creino uno standard significativo per i nomi dei propri criteri.
 1. In **assegnazioni**selezionare **utenti e gruppi** .
    1. In **Includi**selezionare **tutti gli utenti**.
    1. In **Escludi**selezionare **utenti e gruppi** e scegliere l'accesso di emergenza dell'organizzazione o gli account break-Glass. 
    1. Selezionare **Operazione completata**.
-1. In **app Cloud o azioni** > **Includi**selezionare **tutte le app Cloud**.
+1. In **app Cloud o azioni** > **Includi**Selezionare **tutte le app Cloud**.
    1. Se è necessario escludere applicazioni specifiche dal criterio, è possibile selezionarle nella scheda **Escludi** in **Seleziona app Cloud escluse** e scegliere **Seleziona**.
    1. Selezionare **Operazione completata**.
-1. In**concessione** **controlli** > di accesso selezionare **Richiedi che il dispositivo sia contrassegnato come conforme**.
+1. In **controlli di accesso** > **Grant**Selezionare **Richiedi che il dispositivo sia contrassegnato come conforme**.
    1. Scegliere **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** **su on**.
 1. Selezionare **Crea** per creare per abilitare i criteri.

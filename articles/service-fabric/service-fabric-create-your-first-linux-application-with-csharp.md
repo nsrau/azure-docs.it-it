@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
-ms.author: subramar
-ms.openlocfilehash: 7bb9b1c545d30f66a09817ba977f12666a9f41c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 8c34f50e8eb9d9793c146c38aca47691b04049c0
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60394320"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167291"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Creare la prima applicazione di Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -69,7 +69,7 @@ Un'applicazione Infrastruttura di servizi può contenere uno o più servizi, ogn
 >
 >
 
-## <a name="build-the-application"></a>Compilare l'applicazione.
+## <a name="build-the-application"></a>Compilare l'applicazione
 I modelli Yeoman di Service Fabric includono uno script di compilazione che è possibile usare per compilare l'app dal terminale (dopo il passaggio alla cartella dell'applicazione).
 
   ```sh
@@ -108,7 +108,7 @@ I progetti Actor non eseguono alcuna operazione in modo indipendente. Richiedono
 
 1. Eseguire lo script tramite l'utilità delle espressioni di controllo per visualizzare l'output del servizio Actor.
 
-   In caso di MAC OS X, è necessario copiare la cartella myactorsvcTestClient nella stessa posizione all'interno del contenitore eseguendo i comandi aggiuntivi seguenti.
+   Nel caso di MAC OS X, è necessario copiare la cartella myactorsvcTestClient nella stessa posizione all'interno del contenitore eseguendo i comandi aggiuntivi seguenti.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home

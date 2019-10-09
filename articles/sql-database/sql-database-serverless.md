@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 86c03554f5faa1ebb40faa20b6a271f5310ccd4f
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 3b2cc5c0b5deab084c6fdae9435ea3a90b2dd8a6
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828224"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173410"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Database SQL di Azure senza server (anteprima)
 
@@ -33,7 +33,7 @@ Il livello di calcolo senza server per un singolo database è parametrizzato da 
 - Il valore **minimo di Vcore** e il **numero massimo di Vcore** sono parametri configurabili che definiscono l'intervallo di capacità di calcolo disponibile per il database. I limiti di memoria e I/O sono proporzionali all'intervallo vCore specificato.  
 - Il **ritardo di sospensione** automatica è un parametro configurabile che definisce il periodo di tempo in cui il database deve rimanere inattivo prima che venga sospeso automaticamente. Il database viene ripreso automaticamente quando si verifica il successivo accesso o un'altra attività.  In alternativa, è possibile disabilitare l'autosospensione.
 
-### <a name="cost"></a>Costo
+### <a name="cost"></a>Costi
 
 - Il costo di un database senza server è la somma del costo di calcolo e dei costi di archiviazione.
 - Quando l'utilizzo delle risorse di calcolo è compreso tra i limiti minimo e massimo configurati, il costo di calcolo è basato su vCore e sulla memoria usata.
@@ -126,8 +126,8 @@ La ripresa automatica viene attivata se si verifica una delle condizioni seguent
 
 |Funzionalità|Trigger di ripresa automatica|
 |---|---|
-|Autenticazione e autorizzazione|Account di accesso|
-|Rilevamento delle minacce|Abilitazione o disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o di server.<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o di server.|
+|Autenticazione e autorizzazione|Login|
+|Introduzione al rilevamento delle minacce|Abilitazione o disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o di server.<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o di server.|
 |Individuazione e classificazione dei dati|Aggiunta, modifica, eliminazione o visualizzazione delle etichette di riservatezza|
 |Controllo|Visualizzazione dei record di controllo<br>Aggiornamento o visualizzazione dei criteri di controllo.|
 |Maschera dati|Aggiunta, modifica, eliminazione o visualizzazione delle regole di maschera dati|
@@ -171,7 +171,7 @@ La creazione di un nuovo database o lo trasferimento di un database esistente in
 
    |Parametro|Valori disponibili|Valore predefinito|
    |---|---|---|---|
-   |Numero minimo vCore|Dipende dal numero massimo di Vcore configurati. vedere [limiti delle risorse](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0,5 vCore|
+   |Min vcore|Dipende dal numero massimo di Vcore configurati. vedere [limiti delle risorse](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0,5 vCore|
    |Ritardo di sospensione automatica|Minimo: 60 minuti (1 ora)<br>Massimo 10080 minuti (7 giorni)<br>Incrementi: 60 minuti<br>Disabilita la sospensione automatica: -1|60 minuti|
 
 > [!NOTE]
@@ -229,19 +229,19 @@ La procedura per spostare un database serverless in un livello di calcolo con pr
 
 #### <a name="use-powershell"></a>Usare PowerShell
 
-La modifica del numero massimo di Vcore viene eseguita usando il comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) in PowerShell `MaxVcore` usando l'argomento.
+La modifica del numero massimo di Vcore viene eseguita usando il comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) in PowerShell usando l'argomento `MaxVcore`.
 
 ### <a name="minimum-vcores"></a>Numero minimo di vCore
 
 #### <a name="use-powershell"></a>Usare PowerShell
 
-La modifica del Vcore minimo viene eseguita usando il comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) in PowerShell usando l' `MinVcore` argomento.
+La modifica del Vcore minimo viene eseguita usando il comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) in PowerShell usando l'argomento `MinVcore`.
 
 ### <a name="autopause-delay"></a>Ritardo di sospensione automatica
 
 #### <a name="use-powershell"></a>Usare PowerShell
 
-Per modificare il ritardo di sospensione, è necessario usare il comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) in PowerShell usando `AutoPauseDelayInMinutes` l'argomento.
+Per modificare il ritardo di sospensione, usare il comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) in PowerShell usando l'argomento `AutoPauseDelayInMinutes`.
 
 ## <a name="monitoring"></a>Monitoraggio
 
@@ -326,7 +326,7 @@ Si supponga che il prezzo delle unità di calcolo sia $0,000073/vCore/secondo.  
 
 ## <a name="available-regions"></a>Aree disponibili
 
-Il livello di calcolo senza server è disponibile in tutto il mondo, ad eccezione delle aree seguenti: Australia centrale, Cina orientale, Cina settentrionale, Francia meridionale, Germania centrale, Germania nord-orientale, India occidentale, Corea meridionale, Sudafrica occidentale, Regno Unito settentrionale, Regno Unito meridionale, Regno Unito occidentale e Stati Uniti centro-occidentali.
+Il livello di calcolo senza server è disponibile in tutto il mondo, ad eccezione delle aree seguenti: Cina orientale, Cina settentrionale, Germania centrale, Germania nord-orientale, Regno Unito settentrionale, Regno Unito meridionale 2, Stati Uniti centro-occidentali e US Gov Central (Iowa).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

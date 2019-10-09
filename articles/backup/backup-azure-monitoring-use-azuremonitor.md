@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: ffc245402965cdcd62bb210d79bd95db5444f964
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: ba2288ecebbeda97b3cd9c24ae930be6af193ab8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954630"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177725"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorare su larga scala tramite monitoraggio di Azure
 
@@ -209,8 +209,8 @@ I grafici predefiniti forniscono query kusto per gli scenari di base in cui è p
 I dati di diagnostica dell'insieme di credenziali vengono pompati nell'area di lavoro Log Analytics con un certo ritardo. Ogni evento arriva nell'area di lavoro Log Analytics da *20 a 30 minuti* dopo il push dall'insieme di credenziali dei servizi di ripristino. Ecco altri dettagli sul ritardo:
 
 - Per tutte le soluzioni, viene eseguito il push degli avvisi predefiniti del servizio di backup non appena vengono creati. Quindi, vengono in genere visualizzati nell'area di lavoro Log Analytics dopo 20 o 30 minuti.
-- Per tutte le soluzioni, i processi di backup ad hoc e i processi di ripristino vengonoinseriti non appena vengono completati.
-- Per tutte le soluzioni ad eccezione di backup SQL, i processi di backup pianificativengono inseriti non appena vengono completati.
+- Per tutte le soluzioni, i processi di backup ad hoc e i processi di ripristino vengono inseriti non appena vengono *completati*.
+- Per tutte le soluzioni ad eccezione di backup SQL, i processi di backup pianificati vengono inseriti non appena vengono *completati*.
 - Per il backup SQL, poiché i backup del log possono essere eseguiti ogni 15 minuti, le informazioni per tutti i processi di backup pianificati completati, inclusi i log, vengono inserite in batch e inserite ogni 6 ore.
 - Per tutte le soluzioni, altre informazioni, ad esempio l'elemento di backup, i criteri, i punti di ripristino, l'archiviazione e così via, vengono inserite almeno *una volta al giorno.*
 - Una modifica alla configurazione del backup, ad esempio la modifica dei criteri o la modifica dei criteri, attiva un push di tutte le informazioni di backup correlate.
@@ -247,7 +247,7 @@ Qui la risorsa è l'insieme di credenziali dei servizi di ripristino. Ripetere g
 Sebbene sia possibile ottenere le notifiche tramite i log attività, è consigliabile usare Log Analytics anziché i log attività per il monitoraggio su larga scala. Ecco perché:
 
 - **Scenari limitati**: Le notifiche tramite i log attività si applicano solo ai backup di macchine virtuali di Azure. Le notifiche devono essere impostate per ogni insieme di credenziali di servizi di ripristino.
-- **Adattamento**per la definizione: L'attività di backup pianificata non rientra nella definizione più recente dei log attività. Viene invece allineato con i [log di diagnostica](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). Questo allineamento provoca effetti imprevisti quando vengono modificati i dati che passano attraverso il canale del log attività.
+- **Adattamento**per la definizione: L'attività di backup pianificata non rientra nella definizione più recente dei log attività. Viene invece allineato con i [log di diagnostica](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-resource-logs-in-a-workspace). Questo allineamento provoca effetti imprevisti quando vengono modificati i dati che passano attraverso il canale del log attività.
 - **Problemi con il canale del log attività**: Negli insiemi di credenziali dei servizi di ripristino i log attività che vengono pompati da backup di Azure seguono un nuovo modello. Sfortunatamente, questa modifica influiscono sulla generazione dei log attività in Azure per enti pubblici, Azure Germania e Azure Cina 21Vianet. Se gli utenti di questi servizi cloud creano o configurano avvisi dai log attività in monitoraggio di Azure, gli avvisi non vengono attivati. Inoltre, in tutte le aree pubbliche di Azure, se un utente [raccoglie i log attività di servizi di ripristino in un'area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), questi log non vengono visualizzati.
 
 Usare un'area di lavoro Log Analytics per il monitoraggio e l'invio di avvisi su larga scala per tutti i carichi di lavoro protetti da backup di Azure.

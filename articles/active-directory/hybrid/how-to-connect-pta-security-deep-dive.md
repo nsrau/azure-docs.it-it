@@ -15,12 +15,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d4f9686be08de2589cddadf741dadf243d0e7895
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60348062"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174446"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Approfondimento di sicurezza sull'autenticazione pass-through di Azure Active Directory
 
@@ -147,7 +147,8 @@ L'autenticazione pass-through gestisce una richiesta di accesso utente nel segue
 12. L'agente di autenticazione riceve il risultato da Active Directory, ad esempio risultati come operazione riuscita, nome utente o password errata o password scaduta.
 
    > [!NOTE]
-   > Se l'agente di autenticazione non riesce durante il processo di accesso, viene eliminata la richiesta di accesso completamente. Non vi è alcun consegna di richieste di accesso da un agente di autenticazione a un altro agente di autenticazione locale. Questi agenti comunicano solo con il cloud e non tra loro.
+   > Se l'agente di autenticazione non riesce durante il processo di accesso, viene eliminata l'intera richiesta di accesso. Non sono disponibili richieste di accesso da un agente di autenticazione a un altro agente di autenticazione in locale. Questi agenti comunicano solo con il cloud e non tra loro.
+   
 13. L'agente di autenticazione inoltra il risultato a STS di Azure AD su un canale HTTPS autenticato reciprocamente in uscita sulla porta 443. L'autenticazione reciproca usa il certificato emesso in precedenza per l'agente di autenticazione durante la registrazione.
 14. STS di Azure AD verifica che questo risultato si metta in correlazione con la richiesta di accesso specifica per il tenant.
 15. STS di Azure AD continua la procedura di accesso, come configurato. Ad esempio, se la convalida della password ha esito positivo, all'utente potrebbe essere richiesto di effettuare l'autenticazione a più fattori oppure potrebbe essere reindirizzato all'applicazione.
@@ -184,7 +185,7 @@ Per rinnovare l'attendibilità di un agente di autenticazione con Azure AD:
 
 ## <a name="auto-update-of-the-authentication-agents"></a>Aggiornamento automatico degli agenti di autenticazione
 
-L'applicazione di aggiornamento aggiorna automaticamente l'agente di autenticazione quando viene rilasciata una nuova versione (con correzioni di bug o miglioramenti delle prestazioni). L'applicazione di aggiornamento non gestisce le richieste di convalida della password per il tenant.
+L'applicazione di aggiornamento aggiorna automaticamente l'agente di autenticazione quando viene rilasciata una nuova versione (con correzioni di bug o miglioramenti delle prestazioni). L'applicazione di aggiornamento non gestisce le richieste di convalida delle password per il tenant.
 
 Azure AD ospita la nuova versione del software come un **pacchetto di Windows Installer** firmato. Il pacchetto di Windows Installer viene firmato usando [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) con SHA256 come algoritmo di digest. 
 
@@ -206,7 +207,7 @@ Per eseguire l'aggiornamento automatico degli agenti di autenticazione:
     - Riavvia il servizio agente di autenticazione
 
 >[!NOTE]
->Se più agenti di autenticazione sono registrati nel tenant, Azure AD non rinnova i certificati né li aggiorna contemporaneamente. Al contrario, Azure AD esegue quindi una alla volta per garantire la disponibilità elevata delle richieste di accesso.
+>Se più agenti di autenticazione sono registrati nel tenant, Azure AD non rinnova i certificati né li aggiorna contemporaneamente. Al contrario, Azure AD esegue questa operazione una alla volta per garantire la disponibilità elevata delle richieste di accesso.
 >
 
 

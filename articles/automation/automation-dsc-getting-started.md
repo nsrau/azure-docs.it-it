@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 60cd2d21167739e824489e30ebd187a5fc0cc12d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55950892bec71fdff50cdd0e0b1aae107d845739
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61074447"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169740"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Introduzione a Configurazione stato di Automazione di Azure
 
@@ -27,7 +27,7 @@ Questo articolo offre una guida dettagliata all'uso di Configurazione stato di A
 Per completare gli esempi di questo articolo, è necessario quanto segue:
 
 - Un account di automazione di Azure. Per istruzioni sulla creazione di un account RunAs di Automazione di Azure, vedere [Autenticare runbook con account RunAs di Azure](automation-sec-configure-azure-runas-account.md).
-- Una VM di Azure Resource Manager (non classica) in esecuzione un [sistema operativo supportato](automation-dsc-overview.md#operating-system-requirements). Per istruzioni sulla creazione di una VM, vedere [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- Una macchina virtuale Azure Resource Manager (non classica) che esegue un [sistema operativo supportato](automation-dsc-overview.md#operating-system-requirements). Per istruzioni sulla creazione di una VM, vedere [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## <a name="creating-a-dsc-configuration"></a>Creazione di una configurazione DSC
 
@@ -149,14 +149,14 @@ Con il completamento di un processo di compilazione vengono create una o più co
 1. Nella pagina dei dettagli **Macchina virtuale** fare clic su **+ Connetti**.
 
    > [!IMPORTANT]
-   > Deve trattarsi di una VM di Azure Resource Manager che eseguono una [sistema operativo supportato](automation-dsc-overview.md#operating-system-requirements).
+   > Deve trattarsi di una macchina virtuale Azure Resource Manager che esegue un [sistema operativo supportato](automation-dsc-overview.md#operating-system-requirements).
 
 2. Nella pagina **Registrazione** selezionare il nome della configurazione del nodo che si vuole applicare alla macchina virtuale nella casella **Nome della configurazione del nodo**. Specificare un nome in questo passaggio è facoltativo. È possibile modificare la configurazione di nodo assegnata dopo il caricamento del nodo.
    Selezionare **Riavvia il nodo se necessario** e quindi fare clic su **OK**.
 
    ![Screenshot del pannello Registrazione](./media/automation-dsc-getting-started/RegisterVM.png)
 
-   La configurazione del nodo specificata verrà applicata alla macchina virtuale agli intervalli specificati in **Frequenza modalità di configurazione** e la macchina virtuale verificherà la disponibilità di aggiornamenti agli intervalli specificati in **Frequenza di aggiornamento**. Per altre informazioni sul modo in cui vengono usati questi valori, vedere [Configuring the Local Configuration Manager](https://msdn.microsoft.com/PowerShell/DSC/metaConfig)(Configurazione di Gestione configurazione locale).
+   La configurazione del nodo specificata verrà applicata alla macchina virtuale agli intervalli specificati in **Frequenza modalità di configurazione** e la macchina virtuale verificherà la disponibilità di aggiornamenti agli intervalli specificati in **Frequenza di aggiornamento**. Per altre informazioni sul modo in cui vengono usati questi valori, vedere [Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig)(Configurazione di Gestione configurazione locale).
 
 Azure avvierà il processo di caricamento della macchina virtuale. Al termine, la macchina virtuale viene visualizzata nella scheda **Nodi** della pagina **Configurazione stato (DSC)** nell'account di Automazione.
 

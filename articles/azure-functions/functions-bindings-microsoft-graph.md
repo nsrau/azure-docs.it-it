@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: bf60ba7d940ab3ea3f4d30fc9fb1d76f9304ec1b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1db929e3ec4b400113d04cb7dd1cd4b8d2e86a9a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086589"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176602"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associazioni di Microsoft Graph per Funzioni di Azure
 
@@ -208,7 +208,7 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attribu
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Token`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**name**||Obbligatoria: nome della variabile usato nel codice della funzione per il token di autenticazione. Vedere [Usare un'associazione di input per il token di autenticazione nel codice](#token-input-code).|
 |**type**||Obbligatoria. Deve essere impostata su `token`.|
@@ -360,9 +360,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
 
-|Risorsa|Autorizzazioni|
+|Resource|Autorizzazione|
 |--------|--------|
-|Microsoft Graph|Legge i file utente|
+|Microsoft Graph|Leggere i file dell'utente|
 
 L'associazione espone i tipi seguenti nelle funzioni .NET:
 - stringa[][]
@@ -505,7 +505,7 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attribu
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Excel`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**name**||Obbligatoria: nome della variabile usato nel codice della funzione per il token di autenticazione. Vedere [Usare un'associazione di ouput per la tabella di Excel nel codice](#excel-output-code).|
 |**type**||Obbligatoria. Deve essere impostata su `excel`.|
@@ -523,7 +523,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
 
-|Risorsa|Autorizzazioni|
+|Resource|Autorizzazione|
 |--------|--------|
 |Microsoft Graph|Accesso completo ai file dell'utente|
 
@@ -666,9 +666,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
 
-|Risorsa|Autorizzazioni|
+|Resource|Autorizzazione|
 |--------|--------|
-|Microsoft Graph|Legge i file utente|
+|Microsoft Graph|Leggere i file dell'utente|
 
 L'associazione espone i tipi seguenti nelle funzioni .NET:
 - byte[]
@@ -814,7 +814,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
 
-|Risorsa|Autorizzazioni|
+|Resource|Autorizzazione|
 |--------|--------|
 |Microsoft Graph|Accesso completo ai file dell'utente|
 
@@ -964,7 +964,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
 
-|Risorsa|Autorizzazioni|
+|Resource|Autorizzazione|
 |--------|--------|
 |Microsoft Graph|Inviare un messaggio di posta elettronica come utente|
 
@@ -1087,11 +1087,11 @@ module.exports = function (context) {
 
 ### <a name="webhook-trigger---attributes"></a>Trigger di webhook: attributi
 
-Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs).
+In [ C# librerie di classi](functions-dotnet-class-library.md)usare l'attributo [GraphWebhookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookTriggerAttribute.cs) .
 
 ### <a name="webhook-trigger---configuration"></a>Trigger di webhook: configurazione
 
-Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `GraphWebHookTrigger`.
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `GraphWebhookTrigger`.
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
@@ -1239,11 +1239,11 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-input---attributes"></a>Input di webhook: attributi
 
-Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs).
+In [ C# librerie di classi](functions-dotnet-class-library.md)usare l'attributo [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs) .
 
 ### <a name="webhook-input---configuration"></a>Input di webhook: configurazione
 
-Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `GraphWebHookSubscription`.
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `GraphWebhookSubscription`.
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
@@ -1380,11 +1380,11 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-output---attributes"></a>Output di webhook: attributi
 
-Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs).
+In [ C# librerie di classi](functions-dotnet-class-library.md)usare l'attributo [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs) .
 
 ### <a name="webhook-output---configuration"></a>Output di webhook: configurazione
 
-Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `GraphWebHookSubscription`.
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `GraphWebhookSubscription`.
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|

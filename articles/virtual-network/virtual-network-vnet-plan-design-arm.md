@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 0a80630ffa363d2b633667d8104cc0326c4afa2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17db8dbcba8dd0181be9ca7289ea1b85079ff9a1
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478600"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168503"
 ---
 # <a name="plan-virtual-networks"></a>Pianificare le reti virtuali
 
@@ -27,7 +27,7 @@ Creare una rete virtuale per sperimentare è abbastanza semplice, ma è probabil
 
 ## <a name="naming"></a>Denominazione
 
-Tutte le risorse di Azure hanno un nome. Il nome deve essere univoco all'interno di un ambito, che può variare per ogni tipo di risorsa. Ad esempio, il nome di una rete virtuale deve essere univoco all'interno di un [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), ma può essere duplicato all'interno di una [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) o di un'[area](https://azure.microsoft.com/regions/#services) di Azure. Definire una convenzione di denominazione che è possibile usare in modo coerente quando si denominano le risorse risulta utile quando si gestiscono diverse risorse di rete nel corso del tempo. Per alcuni suggerimenti, vedere [Naming conventions](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#networking) (Convenzioni di denominazione).
+Tutte le risorse di Azure hanno un nome. Il nome deve essere univoco all'interno di un ambito, che può variare per ogni tipo di risorsa. Ad esempio, il nome di una rete virtuale deve essere univoco all'interno di un [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), ma può essere duplicato all'interno di una [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) o di un'[area](https://azure.microsoft.com/regions/#services) di Azure. Definire una convenzione di denominazione che è possibile usare in modo coerente quando si denominano le risorse risulta utile quando si gestiscono diverse risorse di rete nel corso del tempo. Per alcuni suggerimenti, vedere [Naming conventions](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#virtual-networking) (Convenzioni di denominazione).
 
 ## <a name="regions"></a>Regioni
 
@@ -77,7 +77,7 @@ Una rete virtuale può essere segmentata in una o più subnet fino a raggiungere
 - Se diverse macchine virtuali all'interno di una subnet hanno bisogno che ad esse si applichino regole di sicurezza diverse, è possibile associare l'interfaccia di rete nella macchina virtuale a uno o più gruppi di sicurezza dell'applicazione. Una regola di sicurezza può specificare un gruppo di sicurezza delle applicazioni nella propria, nella destinazione, o in entrambe. Tale regola quindi si applica solo alle interfacce di rete che sono membri del gruppo di sicurezza dell'applicazione. Altre informazioni sui [gruppi di sicurezza di rete](security-overview.md) e sui [gruppi di sicurezza dell'applicazione](security-overview.md#application-security-groups).
 - Azure crea diverse regole di sicurezza predefinite all'interno di ogni gruppo di sicurezza di rete. Una regola predefinita consente a tutto il traffico di fluire tra tutte le risorse in una rete virtuale. Per eseguire l'override di questo comportamento, usare i gruppi di sicurezza di rete, il routing personalizzato per instradare il traffico a una NVA, o entrambi. È consigliabile acquisire familiarità con tutte le [regole di sicurezza predefinite](security-overview.md#default-security-rules) di Azure e comprendere come vengono applicate le regole del gruppo di sicurezza di rete a una risorsa.
 
-È possibile visualizzare le progettazioni di esempio per l'implementazione di una rete perimetrale (detta anche DMZ) tra Azure e internet utilizzando un [Appliance virtuale di rete](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
+È possibile visualizzare le progettazioni di esempio per l'implementazione di una rete perimetrale tra Azure e Internet usando un appliance virtuale [di rete.](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json)
 
 ### <a name="traffic-routing"></a>instradamento del traffico
 

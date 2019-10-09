@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f53ade09c5e2e7db0499122526a1de482af9378f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: d392ae97a8325dd4a56acd807ebfb2b951216eae
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901620"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174276"
 ---
 # <a name="bulk-restore-deleted-users-preview-in-azure-active-directory"></a>Ripristino in blocco degli utenti eliminati (anteprima) in Azure Active Directory
 
@@ -26,18 +26,22 @@ Azure Active Directory (Azure AD) supporta operazioni di creazione ed eliminazio
 
 ## <a name="to-bulk-restore-users"></a>Per eseguire il ripristino bulk degli utenti
 
-1. [Accedere all'organizzazione Azure ad](https://aad.portal.azure.com) con un account amministratore dell'organizzazione.
-1. In Azure ad selezionare **utenti** > **eliminati**.
+1. [Accedere all'organizzazione Azure ad](https://aad.portal.azure.com) con un account che sia un amministratore utente nell'organizzazione Azure ad.
+1. In Azure AD selezionare **utenti** > **eliminati**.
 1. Nella pagina **utenti eliminati** selezionare **ripristino Bulk** per caricare un file CSV valido di proprietà degli utenti da ripristinare.
 
    ![Selezionare il comando di ripristino Bulk nella pagina utenti eliminati](./media/users-bulk-restore/bulk-restore.png)
 
-1. Al termine della modifica del file CSV o se si è pronti per il caricamento, selezionare il file in **caricare il file CSV** da convalidare.
+1. Aprire il file CSV e aggiungere una riga per ogni utente che si desidera ripristinare. L'unico valore richiesto è **ObjectID**. Salvare quindi il file.
 
    ![Selezionare un file CSV locale in cui elencare gli utenti che si desidera aggiungere](./media/users-bulk-restore/upload-button.png)
 
-1. Quando il contenuto del file viene convalidato, correggere le informazioni del file e inviare nuovamente il file in caso di errori. L'invio di un file valido avvia automaticamente il processo di caricamento dei dati.
-1. Dopo che il file CSV ha superato la convalida, selezionare **Submit (Invia** ) per avviare il processo di Azure batch per il ripristino degli utenti. Se sono presenti errori, è possibile scaricare e visualizzare il file dei risultati nella pagina risultati operazione bulk. Il file contiene il motivo per ogni errore.
+1. Nella pagina **ripristino bulk (anteprima)** , in **caricare il file CSV**, selezionare il file. Quando si seleziona il file e si fa clic su **Invia**, viene avviata la convalida del file CSV.
+1. Dopo la convalida del contenuto del file, viene visualizzato il messaggio **Il file è stato caricato**. Se sono presenti errori, è necessario correggerli prima di poter inviare il processo.
+1. Quando il file supera la convalida, selezionare **Submit (Invia** ) per avviare l'operazione di Azure bulk per il ripristino degli utenti.
+1. Al termine dell'operazione di ripristino, verrà visualizzata una notifica di esito positivo dell'operazione bulk.
+
+Se sono presenti errori, è possibile scaricare e visualizzare il file dei risultati nella pagina **risultati operazione bulk** . Il file contiene il motivo per ogni errore.
 
 ## <a name="check-status"></a>Controlla stato
 

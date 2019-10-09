@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: c759567e4d8c183452eccbbdca8459c8993d1361
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7e309237589dfaf037114401172fc8f928a30077
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092428"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176656"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
 
 L'agente di macchine virtuali di Azure e le relative estensioni associate fanno parte dei servizi di infrastruttura di Microsoft Azure. Le estensioni di VM sono componenti software che estendono la funzionalità delle macchine virtuali e ne semplificano varie operazioni di gestione.
 
 Il caso d'uso principale per l'estensione DSC (Desired state Configuration) di Azure consiste nel bootstrap di una macchina virtuale nel [servizio Azure Automation state Configuration (DSC)](../../automation/automation-dsc-overview.md).
-Il servizio offre [vantaggi](/powershell/dsc/metaconfig#pull-service) che includono la gestione continuativa della configurazione della macchina virtuale e l'integrazione con altri strumenti operativi, ad esempio monitoraggio di Azure.
+Il servizio offre [vantaggi](/powershell/scripting/dsc/managing-nodes/metaConfig#pull-service) che includono la gestione continuativa della configurazione della macchina virtuale e l'integrazione con altri strumenti operativi, ad esempio monitoraggio di Azure.
 L'uso dell'estensione per registrare le macchine virtuali nel servizio offre una soluzione flessibile che funziona anche tra le sottoscrizioni di Azure.
 
 È possibile usare l'estensione DSC in modo indipendente dal servizio Automation DSC.
@@ -39,7 +39,7 @@ Questo articolo fornisce informazioni relative a entrambi gli scenari: uso dell'
 ## <a name="prerequisites"></a>Prerequisiti
 
 - **Computer locale**: per interagire con l'estensione della macchina virtuale di Azure, è necessario usare il portale di Azure o Azure PowerShell SDK.
-- **Agente guest**: la macchina virtuale di Azure configurata tramite l'estensione DSC deve essere un sistema operativo che supporta Windows Management Framework (WMF) 4.0 o versione successiva. Per l'elenco completo delle versioni dei sistemi operativi supportati, vedere la [cronologia delle versioni dell'estensione DSC](/powershell/dsc/azuredscexthistory).
+- **Agente guest**: la macchina virtuale di Azure configurata tramite l'estensione DSC deve essere un sistema operativo che supporta Windows Management Framework (WMF) 4.0 o versione successiva. Per l'elenco completo delle versioni dei sistemi operativi supportati, vedere la [cronologia delle versioni dell'estensione DSC](/powershell/scripting/dsc/getting-started/azuredscexthistory).
 
 ## <a name="terms-and-concepts"></a>Termini e concetti
 
@@ -51,7 +51,7 @@ Questa guida presuppone che si abbia familiarità con i concetti seguenti:
 
 ## <a name="architecture"></a>Architettura
 
-L'estensione DSC di Azure usa il framework dell'agente VM di Azure per recapitare, applicare e generare report sulle configurazioni DSC in esecuzione nelle VM di Azure. L'estensione DSC accetta un documento di configurazione e un set di parametri. Se non viene fornito alcun file, uno [script di configurazione predefinito](#default-configuration-script) viene incorporato con l'estensione. Lo script di configurazione predefinito viene usato solo per l'impostazione dei metadati in [Gestione configurazione locale](/powershell/dsc/metaconfig).
+L'estensione DSC di Azure usa il framework dell'agente VM di Azure per recapitare, applicare e generare report sulle configurazioni DSC in esecuzione nelle VM di Azure. L'estensione DSC accetta un documento di configurazione e un set di parametri. Se non viene fornito alcun file, uno [script di configurazione predefinito](#default-configuration-script) viene incorporato con l'estensione. Lo script di configurazione predefinito viene usato solo per l'impostazione dei metadati in [Gestione configurazione locale](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
 Alla prima chiamata, l'estensione installa una versione di WMF adottando la logica seguente:
 
@@ -63,7 +63,7 @@ L'installazione di WMF richiede un riavvio. Dopo il riavvio, l'estensione scaric
 
 ### <a name="default-configuration-script"></a>Script di configurazione predefinito
 
-L'estensione DSC di Azure include uno script di configurazione predefinito da usare per l'onboarding di una macchina virtuale nel servizio Automation DSC per Azure. I parametri dello script sono allineati con le proprietà configurabili di [Gestione configurazione locale](/powershell/dsc/metaconfig). Per i parametri dello script, vedere [Script di configurazione predefinito](dsc-template.md#default-configuration-script) in [Estensione Desired State Configuration (DSC) con modelli di Azure Resource Manager](dsc-template.md). Per lo script completo, vedere il [modello di avvio rapido di Azure in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+L'estensione DSC di Azure include uno script di configurazione predefinito da usare per l'onboarding di una macchina virtuale nel servizio Automation DSC per Azure. I parametri dello script sono allineati con le proprietà configurabili di [Gestione configurazione locale](/powershell/scripting/dsc/managing-nodes/metaConfig). Per i parametri dello script, vedere [Script di configurazione predefinito](dsc-template.md#default-configuration-script) in [Estensione Desired State Configuration (DSC) con modelli di Azure Resource Manager](dsc-template.md). Per lo script completo, vedere il [modello di avvio rapido di Azure in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
 ## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Informazioni per la registrazione con il servizio di configurazione dello stato di automazione di Azure (DSC)
 
@@ -82,7 +82,7 @@ Queste informazioni possono essere visualizzate nel [portale di Azure](../../aut
 
 Per il nome della configurazione del nodo, assicurarsi che la configurazione del nodo esista nella configurazione dello stato di Azure.  In caso contrario, la distribuzione dell'estensione restituirà un errore.  Assicurarsi inoltre di usare il nome della *configurazione del nodo* e non la configurazione.
 Una configurazione è definita in uno script utilizzato [per compilare la configurazione del nodo (file MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
-Il nome sarà sempre la configurazione seguita da un punto `.` `localhost` e da o da un nome di computer specifico.
+Il nome sarà sempre la configurazione seguita da un punto `.` e da `localhost` o da un nome di computer specifico.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Estensione DSC nei modelli di Resource Manager
 
@@ -194,7 +194,7 @@ Il portale consente di raccogliere l'input seguente:
 
 - **Raccolta dati**: determina se l'estensione raccoglierà dati di telemetria. Per altre informazioni, vedere [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Raccolta di dati dell'estensione DSC di Azure).
 
-- **Versione**: specifica la versione dell'estensione DSC da installare. Per informazioni sulle versioni, vedere [Cronologia delle versioni dell'estensione DSC (Desired State Configuration)](/powershell/dsc/azuredscexthistory).
+- **Versione**: specifica la versione dell'estensione DSC da installare. Per informazioni sulle versioni, vedere [Cronologia delle versioni dell'estensione DSC (Desired State Configuration)](/powershell/scripting/dsc/getting-started/azuredscexthistory).
 
 - **Auto Upgrade Minor Version** (Aggiornamento automatico versione secondaria): questo campo viene associato allo switch **AutoUpdate** nei cmdlet e abilita l'estensione per eseguire l'aggiornamento automatico alla versione più recente durante l'installazione. **Sì** indicherà al gestore dell'estensione di usare la versione disponibile più recente e **No** imporrà l'installazione della **Versione** specificata. Non selezionare né **Sì** né **No** equivale alla selezione di **No**.
 
@@ -204,7 +204,7 @@ I log per l'estensione vengono archiviati nel percorso seguente: `C:\WindowsAzur
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni su PowerShell DSC, passare al [centro di documentazione di PowerShell](/powershell/dsc/overview).
+- Per altre informazioni su PowerShell DSC, passare al [centro di documentazione di PowerShell](/powershell/scripting/dsc/overview/overview).
 - Esaminare il [modello di Resource Manager per l'estensione DSC](dsc-template.md).
 - Per altre funzionalità che è possibile gestire tramite PowerShell DSC e per altre risorse DSC, cercare in [PowerShell Gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
 - Per altre informazioni sul passaggio di parametri sensibili nelle configurazioni, vedere [Gestire credenziali in modo sicuro con il gestore dell'estensione DSC](dsc-credentials.md).

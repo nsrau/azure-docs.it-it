@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5bbb686597850aaceff3d3b5c142b0cb1fb0eefd
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: cb8a8238c4daac6370d47bb9e99b3503ebb68783
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959633"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176571"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>Risolvere l'errore quando il numero di distribuzioni supera 800
 
@@ -60,7 +60,7 @@ Remove-AzResourceGroupDeployment -ResourceGroupName exampleGroup -Name deploymen
 Per eliminare tutte le distribuzioni precedenti a cinque giorni, usare:
 
 ```azurepowershell-interactive
-$deployments = Get-AzResourceGroupDeployment -ResourceGroupName exampleGroup | Where-Object Timestamp -gt ((Get-Date).AddDays(-5))
+$deployments = Get-AzResourceGroupDeployment -ResourceGroupName exampleGroup | Where-Object Timestamp -lt ((Get-Date).AddDays(-5))
 
 foreach ($deployment in $deployments) {
   Remove-AzResourceGroupDeployment -ResourceGroupName exampleGroup -Name $deployment.DeploymentName

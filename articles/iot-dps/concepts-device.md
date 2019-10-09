@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 2904da863707c5f653d774b0a480cc48c95c8d1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ea1be02dee0e0ef00010e8ac7a4dfb75eadbe96
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60745979"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173391"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Concetti relativi ai dispositivi del servizio Device Provisioning in hub IoT
 
@@ -44,7 +44,7 @@ I segreti dei dispositivi possono essere archiviati anche nel software (memoria)
 
 ## <a name="registration-id"></a>ID di registrazione
 
-L'ID di registrazione viene usato per identificare in modo univoco un dispositivo nel servizio Device Provisioning. L'ID dispositivo deve essere univoco nell'[ambito ID](#id-scope) del servizio di provisioning. Ogni dispositivo deve avere un ID di registrazione. L'ID di registrazione è alfanumerico, con caratteri minuscoli e può contenere trattini.
+L'ID di registrazione viene usato per identificare in modo univoco un dispositivo nel servizio Device Provisioning. L'ID di registrazione deve essere univoco nell' [ambito dell'ID](#id-scope)del servizio di provisioning. Ogni dispositivo deve avere un ID di registrazione. L'ID di registrazione è alfanumerico, con caratteri minuscoli e può contenere trattini.
 
 * Nel caso di un TPM, l'ID di registrazione viene fornito dal TPM stesso.
 * Nel caso dell'attestazione basata su X.509, l'ID di registrazione viene fornito come nome soggetto del certificato.

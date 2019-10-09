@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 5a4bc05e0a0b0b6a2c1b859caea2aadc12b8e0e0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3ae75dc988ad70871efa45eb8c61db15804922ee
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096396"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176589"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x  
 
@@ -117,6 +117,9 @@ Controlla le [funzionalità di campionamento in Application Insights](./function
 |---------|---------|---------| 
 |isEnabled|true|Abilita o disabilita il campionamento.| 
 |maxTelemetryItemsPerSecond|5|La soglia oltre la quale viene avviato il campionamento.| 
+|EnableLiveMetrics |true|Abilita la raccolta di metriche attive.|
+|EnableDependencyTracking|true|Abilita il rilevamento delle dipendenze.|
+|EnablePerformanceCountersCollection|true|Abilita la raccolta dei contatori delle prestazioni Kudu.|
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -134,7 +137,7 @@ Le impostazioni di configurazione sono reperibili in [Trigger e associazioni di 
 
 Proprietà che restituisce un oggetto che contiene tutte le impostazioni di associazione specifiche, ad esempio [http](#http) e [eventHub](#eventhub).
 
-## <a name="functions"></a>funzioni
+## <a name="functions"></a>functions
 
 Un elenco di funzioni eseguite dall'host di processo. Una matrice vuota indica l’esecuzione di tutte le funzioni. Deve essere utilizzato solo in caso di [esecuzione in locale](functions-run-local.md). In app per le funzioni in Azure è necessario invece seguire i passaggi descritti in [Come disabilitare le funzioni in Funzioni di Azure](disable-function.md) per disabilitare le funzioni specifiche invece di usare questa impostazione.
 
@@ -173,7 +176,7 @@ Impostazioni di configurazione per il [monitoraggio integrità host](https://git
 }
 ```
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |enabled|true|Indica se la funzionalità è abilitata. | 
 |healthCheckInterval|10 secondi|Intervallo di tempo tra i controlli dell'integrità periodici in background. | 
@@ -262,7 +265,7 @@ Impostazioni di configurazione per il comportamento di blocco Singleton. Per ult
 }
 ```
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Il periodo per cui vengono eseguiti blocchi a livello di funzione. I blocchi si rinnovano automaticamente.| 
 |listenerLockPeriod|00:01:00|Il periodo per cui vengono acquisiti blocchi di listener.| 

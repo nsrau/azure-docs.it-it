@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 9f7957fb0e6e888367c1f8ded1abfb3828697cbb
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7949bedec2d304cd87fb512b44cd61d6f0894638
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087084"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168944"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Servizi Desktop remoto non si avvia in una macchina virtuale di Azure
 
@@ -42,7 +42,7 @@ Quando si prova a connettersi a una macchina virtuale, si verificano gli scenari
     **ID evento**:      7022</br>
     **Categoria attività**: Nessuna</br>
     **Livello**:         Errore</br>
-    **Parole chiave**:      Classica</br>
+    **Parole chiave**:      Classico</br>
     **Utente**:          N/D</br>
     **Computer**:      vm.contoso.com</br>
     **Descrizione**: Servizi Desktop remoto non si avvia. 
@@ -113,7 +113,7 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>Il servizio TermService viene arrestato a causa di un problema di accesso negato
 
 1. Connettersi alla [console seriale](serial-console-windows.md) e aprire un'istanza di PowerShell.
-2. Scaricare lo strumento di monitoraggio del processo eseguendo lo script seguente:
+2. Scaricare lo strumento Process Monitor eseguendo lo script seguente:
 
    ```
    remove-module psreadline  
@@ -141,16 +141,16 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
    procmon /Terminate 
    ```
 
-5. Raccogliere il file  **c:\temp\ProcMonTrace.PML**:
+5. Raccogliere il file **c:\temp\ProcMonTrace.PML**:
 
     1. [Collegare un disco dati alla macchina virtuale](../windows/attach-managed-disk-portal.md
 ).
     2. Con la console seriale è possibile copiare il file nella nuova unità. Ad esempio `copy C:\temp\ProcMonTrace.PML F:\`. In questo comando F è la lettera di unità del disco dati collegato.
     3. Scollegare l'unità dati e collegarla a una macchina virtuale funzionante in cui è installato lo strumento di monitoraggio del processo.
 
-6. Aprire **ProcMonTrace.PML** usando lo strumento di monitoraggio del processo nella macchina virtuale funzionante. Applicare quindi il filtro  **Result is ACCESS DENIED** (Risultato è ACCESSO NEGATO), come illustrato nello screenshot seguente：
+6. Aprire **ProcMonTrace.PML** usando lo strumento di monitoraggio del processo nella macchina virtuale funzionante. Il filtro in base al **risultato è accesso negato**, come illustrato nello screenshot seguente:
 
-    ![Filtrare in base al risultato nello strumento di monitoraggio del processo](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
+    ![Filtra per risultato in monitoraggio processo](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
  
 6. Correggere le chiavi del Registro di sistema, le cartelle o i file che sono riportati nell'output. In genere, questo problema è dovuto al fatto che l'account di accesso usato per il servizio non ha l'autorizzazione ACL per accedere a questi oggetti. Per conoscere l'autorizzazione ACL corretta per l'account di accesso, è possibile controllarla in una macchina virtuale integra. 
@@ -221,6 +221,6 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
 
 4. [Scollegare il disco del sistema operativo e ricreare la macchina virtuale](../windows/troubleshoot-recovery-disks-portal.md). Controllare quindi se il problema è stato risolto.
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contatta il supporto tecnico
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), per ottenere la risoluzione del problema.

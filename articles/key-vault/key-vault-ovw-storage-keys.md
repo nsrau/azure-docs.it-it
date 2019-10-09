@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 8b9478dda83b85e937faa8915fa5e9b77660f194
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 62faf33dc8b3690036407972e12633e741a85d78
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203625"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176758"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gestire chiavi dell'account di archiviazione con Key Vault e l'interfaccia della riga di comando di Azure
 
@@ -41,7 +41,7 @@ Un tenant Azure AD fornisce a ogni applicazione registrata un' [entità servizio
 
 Key Vault è un'applicazione Microsoft già registrata in tutti i tenant di Azure AD. Key Vault viene registrato con lo stesso ID applicazione in ogni cloud di Azure.
 
-| tenant | cloud | ID applicazione |
+| Tenant | Cloud | ID applicazione |
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Pubblico di Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
@@ -79,11 +79,11 @@ az role assignment create --role "Storage Account Key Operator Service Role" --a
 
 ### <a name="create-a-key-vault-managed-storage-account"></a>Creare un account di archiviazione gestito Key Vault
 
- Creare un account di archiviazione gestito Key Vault usando l'interfaccia della riga di comando di Azure AZ le credenziali di [archiviazione](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) . Impostare un periodo di rigenerazione di 90 giorni. Dopo 90 giorni, Key Vault Rigenera `key1` e scambia la chiave attiva da `key2` a `key1`. `key1`viene quindi contrassegnato come chiave attiva. Fornire al comando i valori di parametro seguenti:
+ Creare un account di archiviazione gestito Key Vault usando l'interfaccia della riga di comando di Azure AZ le credenziali di [archiviazione](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) . Impostare un periodo di rigenerazione di 90 giorni. Dopo 90 giorni, Key Vault rigenera `key1` e scambia la chiave attiva da `key2` a `key1`. `key1` viene quindi contrassegnato come chiave attiva. Fornire al comando i valori di parametro seguenti:
 
 - `--vault-name`: Passare il nome dell'insieme di credenziali delle chiavi. Per trovare il nome dell'insieme di credenziali delle chiavi, usare il comando [AZ Key Vault list](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-list) dell'interfaccia della riga di comando di Azure.
 - `-n`: Passare il nome dell'account di archiviazione. Per trovare il nome dell'account di archiviazione, usare il comando [AZ storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) dell'interfaccia della riga di comando di Azure.
-- `--resource-id`: Passare l'ID risorsa dell'account di archiviazione, nel formato `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Per trovare l'ID sottoscrizione, usare l'interfaccia della riga di comando di Azure [AZ account list](/cli/azure/account?view=azure-cli-latest#az-account-list) comando; per trovare il nome dell'account di archiviazione e il gruppo di risorse dell'account di archiviazione, usare l'interfaccia della riga di comando di Azure [AZ storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) .
+- `--resource-id`: Passare l'ID risorsa dell'account di archiviazione, nel formato `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Per trovare l'ID sottoscrizione, usare il comando [AZ account list](/cli/azure/account?view=azure-cli-latest#az-account-list) per l'interfaccia della riga di comando di Azure. per trovare il nome dell'account di archiviazione e il gruppo di risorse dell'account di archiviazione, usare l'interfaccia della riga di comando di Azure [AZ storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) .
    
  ```azurecli-interactive
 az keyvault storage add --vault-name <YourKeyVaultName> -n <YourStorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
@@ -95,14 +95,14 @@ az keyvault storage add --vault-name <YourKeyVaultName> -n <YourStorageAccountNa
 
 I comandi in questa sezione completano le azioni seguenti:
 
-- Impostare la definizione `<YourSASDefinitionName>`di una firma di accesso condiviso dell'account. La definizione viene impostata in un Key Vault account `<YourStorageAccountName>` di archiviazione gestito nell'insieme di credenziali delle `<YourKeyVaultName>`chiavi.
+- Impostare la definizione di una firma di accesso condiviso dell'account `<YourSASDefinitionName>`. La definizione è impostata su un account di archiviazione Key Vault gestito `<YourStorageAccountName>` nell'insieme di credenziali delle chiavi `<YourKeyVaultName>`.
 - Creare un token di firma di accesso condiviso dell'account per i servizi BLOB, file, tabelle e di Accodamento. Il token viene creato per i tipi di risorse Service, container e Object. Il token viene creato con tutte le autorizzazioni, su HTTPS e con le date di inizio e di fine specificate.
-- Impostare un Key Vault definizione di firma di accesso condiviso di archiviazione gestita nell'insieme di credenziali. La definizione ha l'URI del modello del token della firma di accesso condiviso che è stato creato. La definizione ha il tipo `account` di firma di accesso condiviso ed è valida per N giorni.
+- Impostare un Key Vault definizione di firma di accesso condiviso di archiviazione gestita nell'insieme di credenziali. La definizione ha l'URI del modello del token della firma di accesso condiviso che è stato creato. La definizione ha il tipo di firma di accesso condiviso `account` ed è valida per N giorni.
 - Verificare che la firma di accesso condiviso sia stata salvata nell'insieme di credenziali delle chiavi come segreto.
 
 ### <a name="create-a-shared-access-signature-token"></a>Creazione di un token di firma di accesso condiviso
 
-Creare una definizione di firma di accesso condiviso usando l'interfaccia della riga di comando di Azure [AZ storage account generate-SAS](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas) . Questa operazione richiede le `storage` autorizzazioni `setsas` e.
+Creare una definizione di firma di accesso condiviso usando l'interfaccia della riga di comando di Azure [AZ storage account generate-SAS](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas) . Questa operazione richiede le autorizzazioni `storage` e `setsas`.
 
 
 ```azurecli-interactive
@@ -114,11 +114,11 @@ Quando l'operazione viene eseguita correttamente, copiare l'output.
 "se=2020-01-01&sp=***"
 ```
 
-Questo output sarà il passato al `--template-id` parametro nel passaggio successivo.
+Questo output sarà il passato al parametro `--template-id` nel passaggio successivo.
 
 ### <a name="generate-a-shared-access-signature-definition"></a>Generare una definizione di firma di accesso condiviso
 
-Usare l'interfaccia della riga di comando di Azure AZ le credenziali di [archiviazione SAS-Definition create](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) , passando l'output del passaggio `--template-id` precedente al parametro, per creare una definizione di firma di accesso condiviso.  È possibile specificare il nome desiderato per il `-n` parametro.
+Usare l'interfaccia della riga di comando di Azure AZ le credenziali di [archiviazione SAS-Definition create](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) , passando l'output del passaggio precedente al parametro `--template-id`, per creare una definizione di firma di accesso condiviso.  È possibile specificare il nome desiderato per il parametro `-n`.
 
 ```azurecli-interactive
 az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <OutputOfSasTokenCreationStep>
@@ -141,13 +141,13 @@ Il segreto che corrisponde alla definizione SAS avrà queste proprietà:
     "id": "https://<YourKeyVaultName>.vault.azure.net/secrets/<YourStorageAccountName>-<YourSASDefinitionName>",
 ```
 
-A questo punto è possibile usare il comando [AZ chiave Vault Secret Show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) e la `id` proprietà per visualizzare il contenuto del segreto.
+A questo punto è possibile usare il comando [AZ chiave Vault Secret Show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) e la proprietà `id` per visualizzare il contenuto del segreto.
 
 ```azurecli-interactive
 az keyvault secret show --vault-name <YourKeyVaultName> --id <SasDefinitionID>
 ```
 
-L'output di questo comando visualizzerà la stringa di definizione SAS`value`come.
+L'output di questo comando visualizzerà la stringa di definizione SAS come @ no__t-0.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

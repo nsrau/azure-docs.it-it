@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7f8c029c5ceff0865b060cf8edc794454d6c282
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 0a1515144f340938cddfd5ca9f2ac4803bcb3f77
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828475"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174726"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenari di crittografia dischi di Azure nelle macchine virtuali Linux
 
@@ -36,7 +36,7 @@ In tutti i casi, è necessario [eseguire uno snapshot](snapshot-copy-managed-dis
 
 ## <a name="install-tools-and-connect-to-azure"></a>Installare gli strumenti e connettersi ad Azure
 
-Crittografia dischi di Azure può essere abilitata e gestita tramite l'interfaccia della riga di comando di [Azure](/cli/azure) e [Azure PowerShell](/azure/new-azureps-module-az). A tale scopo, è necessario installare gli strumenti localmente e connettersi alla sottoscrizione di Azure.
+Crittografia dischi di Azure può essere abilitata e gestita tramite l'interfaccia della riga di comando di [Azure](/cli/azure) e [Azure PowerShell](/powershell/azure/new-azureps-module-az). A tale scopo, è necessario installare gli strumenti localmente e connettersi alla sottoscrizione di Azure.
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -66,7 +66,7 @@ az account set --subscription "<subscription name or ID>"
 Per altre informazioni, vedere [Azure Service Fabric e interfaccia della riga di comando di Azure 2.0](/cli/azure/get-started-with-azure-cli). 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Il [Azure PowerShell AZ Module](/azure/new-azureps-module-az) fornisce un set di cmdlet che usa il modello di [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) per la gestione delle risorse di Azure. È possibile usarlo nel browser con [Azure cloud Shell](../../cloud-shell/overview.md)oppure è possibile installarlo nel computer locale seguendo le istruzioni riportate in [Install the Azure PowerShell Module](/powershell/azure/install-az-ps). 
+Il [Azure PowerShell AZ Module](/powershell/azure/new-azureps-module-az) fornisce un set di cmdlet che usa il modello di [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) per la gestione delle risorse di Azure. È possibile usarlo nel browser con [Azure cloud Shell](../../cloud-shell/overview.md)oppure è possibile installarlo nel computer locale seguendo le istruzioni riportate in [Install the Azure PowerShell Module](/powershell/azure/install-az-ps). 
 
 Se è già installato in locale, assicurarsi di usare la versione più recente di Azure PowerShell SDK per configurare Crittografia dischi di Azure. Scaricare la versione più recente di [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
@@ -402,6 +402,6 @@ Crittografia dischi di Azure non funziona per gli scenari, le funzionalità e la
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica di crittografia dischi di Azure](disk-encryption-overview.md)
+- [Informazioni su Crittografia dischi di Azure](disk-encryption-overview.md)
 - [Script di esempio di crittografia dischi di Azure](disk-encryption-sample-scripts.md)
 - [Risoluzione dei problemi di crittografia dischi di Azure](disk-encryption-troubleshooting.md)

@@ -6,14 +6,14 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 33594e09778b9a629645e12357e6bafe561ad35e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5b71146f0c2aff51a0c2498705b047e9fa4632c8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202907"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178131"
 ---
-# <a name="dependency-visualization"></a>Visualizzazione dipendenze
+# <a name="dependency-visualization"></a>Visualizzazione delle dipendenze
 
 Azure Migrate: Server Assessment valuta i gruppi di computer locali per la migrazione ad Azure. Per creare i gruppi, è possibile usare la funzionalità di visualizzazione delle dipendenze in server assessment. Questo articolo contiene informazioni su questa funzionalità.
 
@@ -36,7 +36,7 @@ Azure Migrate usa la soluzione [mapping dei servizi](../operations-management-su
 - Per sfruttare i vantaggi della visualizzazione delle dipendenze è possibile associare un'area di lavoro Log Analytics, nuova o esistente, a un progetto di Azure Migrate.
 - È possibile creare o alleghi solo un'area di lavoro nella stessa sottoscrizione in cui viene creato il progetto Azure Migrate.
 - Per alleghi un'area di lavoro Log Analytics a un progetto:
-    1. Nella scheda **Server**, nel riquadro **Azure Migrate: Riquadro Server** Assessment, fare clic su **Panoramica**.
+    1. Nella scheda **Server**, nel riquadro **Azure Migrate: Server Assessment @ no__t-0 riquadro, fare clic su **Panoramica**.
     2. In **Panoramica**fare clic sulla freccia in giù per espandere **Essentials**.
     3. Nell' **area di lavoro di OMS**fare clic su **richiede la configurazione**.
     4. In **Configura area di lavoro**, specificare se si desidera creare una nuova area di lavoro oppure utilizzarne una esistente:
@@ -51,7 +51,7 @@ Azure Migrate usa la soluzione [mapping dei servizi](../operations-management-su
   > Dopo aver collegato un'area di lavoro a un progetto, non è più possibile modificarla.
 
   > [!NOTE]
-  > Azure Migrate supporta attualmente la creazione dell'area di lavoro OMS nelle aree Stati Uniti orientali, Asia sudorientale ed Europa occidentale. Se l'area di lavoro viene creata all'esterno di Azure Migrate in un'altra area, attualmente non può essere associata a un progetto Azure Migrate. 
+  > Azure Migrate attualmente supporta la creazione o l'associazione di aree di lavoro Log Analytics che si trovano nelle aree Stati Uniti orientali, Asia sudorientale ed Europa occidentale. Se l'area di lavoro viene creata all'esterno di Azure Migrate in un'area non supportata, attualmente non può essere associata a un progetto Azure Migrate. 
 
 - L'area di lavoro associata è contrassegnata con la chiave **Progetto di migrazione** e con il valore **Nome progetto**, che è possibile usare per eseguire la ricerca nel portale di Azure.
 - Per passare all'area di lavoro associata al progetto è possibile passare alla sezione **Essentials** della pagina **Panoramica** del progetto e accedere all'area di lavoro

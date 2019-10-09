@@ -9,12 +9,12 @@ manager: rkarlin
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 570bf7968b3d6fac44dc770a7fda1e0784dbdcf9
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 7d7e69e8ad0c5b14ac7ed8b941a7949f4f675812
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886777"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176763"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Controlli di sicurezza per i set di scalabilità di macchine virtuali di Azure
 
@@ -44,13 +44,13 @@ Questo articolo descrive i controlli di sicurezza incorporati nei set di scalabi
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
 | Authentication| Sì |  |
-| Authorization| Sì |  |
+| Authorization| Yes |  |
 
 ## <a name="data-protection"></a>Protezione dati
 
 | Controllo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Crittografia lato server: Chiavi gestite da Microsoft | Sì | Vedere [come crittografare una macchina virtuale Linux in Azure](/azure/virtual-machines/linux/encrypt-disks) e [crittografare i dischi virtuali in una VM Windows](/azure/virtual-machines/windows/encrypt-disks). |
+| Crittografia lato server: Chiavi gestite da Microsoft | Yes | Vedere [come crittografare una macchina virtuale Linux in Azure](/azure/virtual-machines/linux/disk-encryption-linux) e [crittografare i dischi virtuali in una VM Windows](/azure/virtual-machines/windows/encrypt-disks). |
 | Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Sì | Macchine virtuali di Azure supporta la crittografia [ExpressRoute](/azure/expressroute) e VNet. Vedere [crittografia in transito nelle VM](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Crittografia lato server inattiva: chiavi gestite dal cliente (BYOK) | Yes | Chiavi gestite dal cliente è uno scenario di crittografia di Azure supportato. vedere [Panoramica di crittografia di Azure](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
 | Crittografia a livello di colonna (servizi dati di Azure)| N/D | |
@@ -60,7 +60,7 @@ Questo articolo descrive i controlli di sicurezza incorporati nei set di scalabi
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| Sì |  | 
+| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| Yes |  | 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

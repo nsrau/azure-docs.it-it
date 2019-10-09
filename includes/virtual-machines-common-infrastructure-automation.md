@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 15724adfc6eb875f3d2d5b6d3ecbbb54135a7265
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 90ccc89f80da7c2abce324c077f0fb1a436b8d44
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671424"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72171014"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Usare strumenti di automazione dell'infrastruttura con macchine virtuali in Azure
 Per creare e gestire macchine virtuali (VM) in modo coerente e scalabile, è in genere consigliabile una certa parte di automazione. Sono disponibili numerosi strumenti e soluzioni che consentono di automatizzare l'intero ciclo di vita di distribuzione e gestione dell'infrastruttura di Azure. Questo articolo presenta alcuni degli strumenti di automazione dell'infrastruttura che è possibile usare in Azure. Questi strumenti sono in genere associati a uno degli approcci seguenti:
@@ -64,15 +64,15 @@ Microsoft sta collaborando attivamente con i partner di distribuzione Linux appr
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC
-[PowerShell DSC (Desired State Configuration)](https://msdn.microsoft.com/powershell/dsc/overview) è una piattaforma di gestione che permette di definire la configurazione dei computer di destinazione. È possibile usare DSC anche in Linux tramite il [server Open Management Infrastructure (OMI)](https://collaboration.opengroup.org/omi/).
+[PowerShell DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview) è una piattaforma di gestione che permette di definire la configurazione dei computer di destinazione. È possibile usare DSC anche in Linux tramite il [server Open Management Infrastructure (OMI)](https://collaboration.opengroup.org/omi/).
 
 Le configurazioni DSC definiscono che cosa installare nel computer e come configurare l'host. Un motore di Gestione configurazione locale viene eseguito in ogni nodo di destinazione che elabora le azioni necessarie in base alle configurazioni di cui è stato eseguito il push. Un server di pull è un servizio Web che viene eseguito in un host centrale per archiviare le configurazioni DSC e le risorse associate. Il server di pull comunica con il motore di Gestione configurazione locale in ogni host di destinazione per fornire le configurazioni necessarie e i report sulla conformità.
 
 È possibile passare agli argomenti seguenti:
 
 - [Creare una configurazione DSC di base](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart).
-- [Configurazione di un server di pull DSC](https://msdn.microsoft.com/powershell/dsc/pullserver).
-- [Usare DSC per Linux](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted).
+- [Configurazione di un server di pull DSC](/powershell/scripting/dsc/pull-server/pullserver).
+- [Usare DSC per Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
 
 
 ## <a name="azure-custom-script-extension"></a>Estensione di script personalizzata di Azure

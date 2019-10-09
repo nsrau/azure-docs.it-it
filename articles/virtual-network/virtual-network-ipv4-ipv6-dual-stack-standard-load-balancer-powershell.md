@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: 05794cfaf6a550d32acdfb731a5f477111e65606
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: c924e59a50994827eb2e9be40caa7021c7e4ac3c
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011410"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174472"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Distribuire un'applicazione IPv6 dual stack in Azure-PowerShell (anteprima)
 
@@ -155,7 +155,7 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -BackendPort 80
 ```
 
-### <a name="create-load-balancer"></a>Crea servizio di bilanciamento del carico
+### <a name="create-load-balancer"></a>Creare un servizio di bilanciamento del carico
 
 Creare una Load Balancer Standard con [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). L'esempio seguente crea un Load Balancer Standard pubblico denominato *myLoadBalancer* usando le configurazioni IP front-end IPv4 e IPv6, i pool back-end e le regole di bilanciamento del carico create nei passaggi precedenti:
 
@@ -173,7 +173,7 @@ $lb = New-AzLoadBalancer `
 
 ## <a name="create-network-resources"></a>Creare risorse di rete
 Prima di distribuire alcune macchine virtuali e testare il servizio di bilanciamento, è necessario creare risorse di rete di supporto: set di disponibilità, gruppo di sicurezza di rete, rete virtuale e NIC virtuali. 
-### <a name="create-an-availability-set"></a>Crea set di disponibilità
+### <a name="create-an-availability-set"></a>Creare un set di disponibilità
 Per aumentare la disponibilità elevata dell'app, posizionare le macchine virtuali in un set di disponibilità.
 
 Creare un set di disponibilità con [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). L'esempio seguente crea un set di disponibilità denominato *myAvailabilitySet*:
@@ -239,7 +239,7 @@ $nsg = New-AzNetworkSecurityGroup `
 ```
 ### <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-Creare una rete virtuale con [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Nell'esempio seguente viene creata una rete virtuale denominata *myVnet* con una subnet denominata *mySubnet*:
+Creare una rete virtuale con [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Nell'esempio seguente viene creata una rete virtuale denominata *dsVnet* con la *Subnet*:
 
 ```azurepowershell-interactive
 # Create dual stack subnet
@@ -323,7 +323,7 @@ $VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location
 ```
 
 ## <a name="determine-ip-addresses-of-the-ipv4-and-ipv6-endpoints"></a>Determinare gli indirizzi IP degli endpoint IPv4 e IPv6
-Ottenere tutti gli oggetti dell'interfaccia di rete nel gruppo di risorse per riepilogare l'IP usato in questa `get-AzNetworkInterface`distribuzione con. Inoltre, ottenere gli indirizzi Front-End Load Balancer degli endpoint IPv4 e IPv6 con `get-AzpublicIpAddress`.
+Ottenere tutti gli oggetti dell'interfaccia di rete nel gruppo di risorse per riepilogare l'IP usato in questa distribuzione con `get-AzNetworkInterface`. Inoltre, ottenere gli indirizzi Front-End Load Balancer degli endpoint IPv4 e IPv6 con `get-AzpublicIpAddress`.
 
 ```azurepowershell-interactive
 $rgName= "dsRG1"
@@ -364,7 +364,7 @@ Nella figura seguente viene illustrato un output di esempio in cui sono elencati
 ## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Visualizza rete virtuale dual stack IPv6 in portale di Azure
 È possibile visualizzare la rete virtuale dual stack IPv6 in portale di Azure come indicato di seguito:
 1. Nella barra di ricerca del portale immettere *dsVnet*.
-2. Selezionare **myVirtualNetwork** quando viene visualizzato nei risultati della ricerca. Verrà avviata la pagina **Panoramica** della rete virtuale dual stack denominata *dsVnet*. La rete virtuale dual stack Mostra le due schede NIC con le configurazioni IPv4 e IPv6 presenti nella subnet dello stack doppio denominata *dsSubnet*.
+2. Selezionare **dsVnet** quando viene visualizzato nei risultati della ricerca. Verrà avviata la pagina **Panoramica** della rete virtuale dual stack denominata *dsVnet*. La rete virtuale dual stack Mostra le due schede NIC con le configurazioni IPv4 e IPv6 presenti nella subnet dello stack doppio denominata *dsSubnet*.
 
   ![Rete virtuale dual stack IPv6 in Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 

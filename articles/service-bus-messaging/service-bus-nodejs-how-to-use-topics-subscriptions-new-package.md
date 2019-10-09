@@ -14,40 +14,40 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 7686014adb989494e6df277de4137b76c3125696
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f927274e1e866a9cba72330280316cc5ee7d8047
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992124"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178063"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Come usare le sottoscrizioni e gli argomenti del Bus di servizio con Node. js e il pacchetto/service-bus di azure
-> [!div class="op_multi_selector" title1="Linguaggio di programmazione" title2="Pacchetto Node. js"]
-> - [(Node. js | Service bus di azure)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con node. js e il pacchetto Azure/Service-Bus
+> [!div class="op_multi_selector" title1="Linguaggio di programmazione" title2="Pacchetto node. js"]
+> - [(Node. js | Azure-SB)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> - [(Node. js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
-In questa esercitazione descrive come scrivere un programma di Node. js per inviare messaggi a un argomento del Bus di servizio e ricevere messaggi da una sottoscrizione del Bus di servizio usando le nuove [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) pacchetto. Questo pacchetto utilizza più veloci [protocollo AMQP 1.0](service-bus-amqp-overview.md) mentre il precedente [azure-sb](https://www.npmjs.com/package/azure-sb) pacchetto utilizzato [API di runtime REST del Bus di servizio](/rest/api/servicebus/service-bus-runtime-rest). Gli esempi sono scritti in JavaScript.
+Questa esercitazione illustra come scrivere un programma node. js per inviare messaggi a un argomento del bus di servizio e ricevere messaggi da una sottoscrizione del bus di servizio usando il nuovo pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) . Questo pacchetto usa il [protocollo AMQP 1,0](service-bus-amqp-overview.md) più veloce, mentre il pacchetto [Azure-SB](https://www.npmjs.com/package/azure-sb) precedente usa le [API di runtime REST del bus di servizio](/rest/api/servicebus/service-bus-runtime-rest). Gli esempi sono scritti in JavaScript.
 
 ## <a name="prerequisites"></a>Prerequisiti
-- Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) oppure iscriversi per una [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Se non si dispone di un argomento e sottoscrizione usare, seguire i passaggi nel [portale di Azure Usa per creare un Bus di servizio di argomenti e sottoscrizioni](service-bus-quickstart-topics-subscriptions-portal.md) articolo per crearli. Annotare la stringa di connessione per l'istanza del Bus di servizio e i nomi di argomento e la stessa sottoscrizione che è stato creato. Si userà questi valori negli esempi.
+- Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Se non si ha un argomento e una sottoscrizione da usare, seguire i passaggi descritti nell'articolo [usare portale di Azure per creare argomenti e sottoscrizioni del bus di servizio](service-bus-quickstart-topics-subscriptions-portal.md) per crearli. Annotare la stringa di connessione per l'istanza del bus di servizio e i nomi dell'argomento e della sottoscrizione creati. Questi valori verranno utilizzati negli esempi.
 
 > [!NOTE]
-> - Questa esercitazione si presuppone con esempi che è possibile copiare ed eseguire tramite [Nodejs](https://nodejs.org/). Per istruzioni su come creare un'applicazione Node. js, vedere [creare e distribuire un'applicazione Node. js in un sito Web di Azure](../app-service/app-service-web-get-started-nodejs.md), o [servizio Cloud Node. js usando Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
-> - Il nuovo [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) pacchetto non supporta la creazione di sottoscrizioni e topcis ancora. Usare la [ @azure/arm-servicebus ](https://www.npmjs.com/package/@azure/arm-servicebus) del pacchetto se si desidera crearle a livello di codice.
+> - Questa esercitazione funziona con esempi che è possibile copiare ed eseguire usando [NodeJS](https://nodejs.org/). Per istruzioni su come creare un'applicazione Node. js, vedere [creare e distribuire un'applicazione Node. js in un sito Web di Azure](../app-service/app-service-web-get-started-nodejs.md)o un [servizio cloud node. js usando Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
+> - Il nuovo pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) non supporta ancora la creazione di sottoscrizioni e topcis. Usare il pacchetto [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) per crearli a livello di codice.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Usare Node Package Manager (NPM) per installare il pacchetto
-Per installare il pacchetto npm per il Bus di servizio, aprire un prompt dei comandi con `npm` nel relativo percorso, cambiare la directory alla cartella in cui si desidera avere esempi e quindi eseguire questo comando.
+Per installare il pacchetto NPM per il bus di servizio, aprire un prompt dei comandi con `npm` nel percorso, passare alla cartella in cui si desidera ottenere gli esempi, quindi eseguire il comando.
 
 ```bash
 npm install @azure/service-bus
 ```
 
 ## <a name="send-messages-to-a-topic"></a>Inviare messaggi a un argomento
-L'interazione con un Bus di servizio argomento inizia con creazione di un'istanza di [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) classe e usandolo per creare un'istanza di [TopicClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/topicclient) classe. Dopo aver creato il client dell'argomento, è possibile creare un mittente e utilizzare [inviare](https://docs.microsoft.com/javascript/api/%40azure/service-bus/sender#send-sendablemessageinfo-) oppure [sendBatch](https://docs.microsoft.com/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) metodo su di esso per inviare messaggi.
+L'interazione con un argomento del bus di servizio inizia con la creazione di un'istanza della classe [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) e la usa per creare un'istanza della classe [TopicClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/topicclient) . Una volta ottenuto il client dell'argomento, è possibile creare un mittente e utilizzare il metodo [Send](https://docs.microsoft.com/javascript/api/%40azure/service-bus/sender#send-sendablemessageinfo-) o [sendBatch](https://docs.microsoft.com/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) su di esso per inviare messaggi.
 
 1. Aprire l'editor preferito, ad esempio [Visual Studio Code](https://code.visualstudio.com/)
-2. Creare un file denominato `send.js` e incollare il seguente codice al suo interno. Questo codice invierà 10 messaggi all'argomento.
+2. Creare un file denominato `send.js` e incollarvi il codice riportato di seguito. Questo codice invierà 10 messaggi all'argomento.
 
     ```javascript
     const { ServiceBusClient } = require("@azure/service-bus"); 
@@ -84,20 +84,20 @@ L'interazione con un Bus di servizio argomento inizia con creazione di un'istanz
       console.log("Error occurred: ", err);
     });
     ```
-3. Immettere la stringa di connessione e il nome dell'argomento nel codice precedente.
-4. Quindi eseguire il comando `node send.js` in un prompt dei comandi eseguire questo file. 
+3. Immettere la stringa di connessione e il nome dell'argomento nel codice riportato sopra.
+4. Eseguire quindi il comando `node send.js` in un prompt dei comandi per eseguire il file. 
 
-Congratulazioni! Sono inviati solo messaggi a una coda del Bus di servizio.
+La procedura è stata completata. Sono stati appena inviati messaggi a una coda del bus di servizio.
 
-I messaggi hanno alcune proprietà standard, ad esempio `label` e `messageId` che è possibile impostare durante l'invio. Se si desidera impostare qualsiasi proprietà personalizzata, usare il `userProperties`, ovvero un oggetto json che può contenere coppie chiave-valore dei dati personalizzati.
+I messaggi hanno alcune proprietà standard come `label` e `messageId` che è possibile impostare durante l'invio. Se si desidera impostare proprietà personalizzate, utilizzare il `userProperties`, che è un oggetto JSON che può includere coppie chiave-valore dei dati personalizzati.
 
-Gli argomenti del bus di servizio supportano messaggi di dimensioni massime fino a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e fino a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Non sono previsti limiti al numero di messaggi mantenuti in un argomento, ma è previsto un limite alla dimensione totale dei messaggi di un argomento. Questa dimensione dell'argomento viene definita al momento della creazione, con un limite massimo di 5 GB. Per altre informazioni sulle quote, vedere [Quote del bus di servizio](service-bus-quotas.md).
+Gli argomenti del bus di servizio supportano messaggi di dimensioni massime fino a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e fino a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Non esiste alcun limite al numero di messaggi contenuti in un argomento, ma è previsto un limite per le dimensioni totali dei messaggi contenuti in un argomento. Questa dimensione dell'argomento viene definita al momento della creazione, con un limite massimo di 5 GB. Per altre informazioni sulle quote, vedere [Quote del bus di servizio](service-bus-quotas.md).
 
 ## <a name="receive-messages-from-a-subscription"></a>Ricevere messaggi da una sottoscrizione
-L'interazione con un Bus di servizio sottoscrizione inizia con creazione di un'istanza di [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) classe e usandolo per creare un'istanza di [SubscriptionClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient) classe. Dopo aver creato il client di sottoscrizione, è possibile creare un ricevitore e utilizzare [receiveMessages](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#receivemessages-number--undefined---number-) oppure [registerMessageHandler](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) metodo su di esso per ricevere messaggi.
+L'interazione con una sottoscrizione del bus di servizio inizia con la creazione di un'istanza della classe [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) e l'uso per creare un'istanza della classe [SubscriptionClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient) . Una volta ottenuto il client di sottoscrizione, è possibile creare un ricevitore e usare il metodo [receiveMessages](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#receivemessages-number--undefined---number-) o [registerMessageHandler](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) su di esso per ricevere i messaggi.
 
 1. Aprire l'editor preferito, ad esempio [Visual Studio Code](https://code.visualstudio.com/)
-2. Creare un file denominato `recieve.js` e incollare il seguente codice al suo interno. Questo codice tenterà di ricezione 10 messaggi dalla sottoscrizione. Il conteggio effettivo che viene visualizzato dipende dal numero di messaggi nella sottoscrizione e la latenza di rete.
+2. Creare un file denominato `recieve.js` e incollarvi il codice riportato di seguito. Questo codice tenterà di ricevere 10 messaggi dalla sottoscrizione. Il conteggio effettivo ricevuto dipende dal numero di messaggi nella sottoscrizione e nella latenza di rete.
 
     ```javascript
     const { ServiceBusClient, ReceiveMode } = require("@azure/service-bus"); 
@@ -110,7 +110,7 @@ L'interazione con un Bus di servizio sottoscrizione inizia con creazione di un'i
     async function main(){
       const sbClient = ServiceBusClient.createFromConnectionString(connectionString); 
       const subscriptionClient = sbClient.createSubscriptionClient(topicName, subscriptionName);
-      const receiver = subscriptionClient.createReceiver(ReceiveMode.ReceiveAndDelete);
+      const receiver = subscriptionClient.createReceiver(ReceiveMode.receiveAndDelete);
       
       try {
         const messages = await receiver.receiveMessages(10);
@@ -127,32 +127,32 @@ L'interazione con un Bus di servizio sottoscrizione inizia con creazione di un'i
       console.log("Error occurred: ", err);
     });
     ```
-3. Nel codice precedente, immettere la stringa di connessione e nomi di argomento e sottoscrizione.
-4. Quindi eseguire il comando `node receiveMessages.js` in un prompt dei comandi eseguire questo file.
+3. Immettere la stringa di connessione e i nomi dell'argomento e della sottoscrizione nel codice riportato sopra.
+4. Eseguire quindi il comando `node receiveMessages.js` in un prompt dei comandi per eseguire il file.
 
-Congratulazioni! Appena ricevuti dei messaggi da una sottoscrizione del Bus di servizio.
+La procedura è stata completata. Sono stati appena ricevuti messaggi da una sottoscrizione del bus di servizio.
 
-Il [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient#createreceiver-receivemode-) metodo accetta un `ReceiveMode` che è un'enumerazione con i valori [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) e [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Ricordarsi di [finalizzazione dei messaggi](message-transfers-locks-settlement.md#settling-receive-operations) se si usa la `PeekLock` utilizzando una delle modalità `complete()`, `abandon()`, `defer()`, o `deadletter()` metodi sul messaggio.
+Il metodo [CreateReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient#createreceiver-receivemode-) accetta un `ReceiveMode` che è un'enumerazione con i valori [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) e [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Ricordarsi di [risolvere i messaggi](message-transfers-locks-settlement.md#settling-receive-operations) se si usa la modalità `PeekLock` usando uno dei metodi `complete()`, `abandon()`, `defer()` o `deadletter()` del messaggio.
 
-## <a name="subscription-filters-and-actions"></a>Azioni e i filtri della sottoscrizione
-Il Bus di servizio supporta [filtri e azioni sulle sottoscrizioni](topic-filters.md), che consente di filtrare i messaggi in ingresso a una sottoscrizione e per modificare le relative proprietà.
+## <a name="subscription-filters-and-actions"></a>Azioni e filtri di sottoscrizione
+Il bus di servizio supporta [filtri e azioni sulle sottoscrizioni](topic-filters.md), che consente di filtrare i messaggi in ingresso in una sottoscrizione e di modificarne le proprietà.
 
-Dopo aver ottenuto un'istanza di un `SubscriptionClient` è possibile usare il seguito metodi su di essa per ottenere, aggiungere e rimuovere le regole per la sottoscrizione per controllare i filtri e azioni.
+Quando si dispone di un'istanza di un `SubscriptionClient` è possibile utilizzare i metodi seguenti per ottenere, aggiungere e rimuovere regole nella sottoscrizione per controllare i filtri e le azioni.
 
 - getRules
 - addRule
 - removeRule
 
-Ogni sottoscrizione dispone di una regola predefinita che utilizza il filtro true per consentire tutti i messaggi in ingresso. Quando si aggiunge una nuova regola, ricordarsi di rimuovere il filtro predefinito nell'ordine del filtro nella nuova regola a funzionare. Se una sottoscrizione non dispone di alcuna regola, non riceverà alcun messaggio.
+Ogni sottoscrizione dispone di una regola predefinita che utilizza il filtro true per consentire tutti i messaggi in arrivo. Quando si aggiunge una nuova regola, ricordarsi di rimuovere il filtro predefinito per consentire il funzionamento del filtro nella nuova regola. Se per una sottoscrizione non sono presenti regole, non verrà visualizzato alcun messaggio.
 
 > [!NOTE]
 > È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del bus di servizio e di amministrare le entità di messaggistica in modo semplice. Lo strumento offre caratteristiche avanzate, tra cui funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi. 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, vedere le risorse seguenti.
 
 - [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
-- Fare riferimento ad altri [Nodejs esempi del Bus di servizio su GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/javascript)
+- Estrai altri [esempi di NodeJS per il bus di servizio su GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/javascript)
 - [Centro per sviluppatori di Node. js](https://azure.microsoft.com/develop/nodejs/)
 
 

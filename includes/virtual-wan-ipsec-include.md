@@ -5,16 +5,20 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 05/28/2019
+ms.date: 10/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 90c6d40103bc9a20f7af28c76d0183f7a3fb04a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02ced43f8c3fc7c83359b78362e8ad0feeab3070
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304554"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168396"
 ---
+>[!NOTE]
+>Quando si utilizzano i criteri predefiniti, Azure può fungere sia da iniziatore che da risponditore durante un'installazione di tunnel IPsec. Non è disponibile alcun supporto per Azure come risponditore.
+>
+
 ### <a name="initiator"></a>Iniziatore
 
 Le sezioni seguenti elencano le combinazioni supportate dei criteri quando Azure è l'iniziatore del tunnel.

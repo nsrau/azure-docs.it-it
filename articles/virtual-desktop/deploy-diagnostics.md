@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 83f10eb9dadfda5b87f1da287718f59da17c5110
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 1bb23e3330f2350572175733445c8ef2c5ea79bb
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947607"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177775"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuire lo strumento di diagnostica
 
@@ -197,7 +197,7 @@ Per impostare l'URI di reindirizzamento:
 
 Prima di rendere disponibile lo strumento di diagnostica agli utenti, verificare che dispongano delle autorizzazioni seguenti:
 
-- Gli utenti hanno bisogno dell'accesso in lettura per log Analytics. Per altre informazioni, vedere [Introduzione a ruoli, autorizzazioni e sicurezza con monitoraggio di Azure](/articles/azure-monitor/platform/roles-permissions-security.md).
+- Gli utenti hanno bisogno dell'accesso in lettura per log Analytics. Per altre informazioni, vedere [Introduzione a ruoli, autorizzazioni e sicurezza con monitoraggio di Azure](/azure/azure-monitor/platform/roles-permissions-security).
 -  Per gli utenti è inoltre necessario l'accesso in lettura per il tenant desktop virtuale Windows (ruolo lettura Servizi Desktop remoto). Per ulteriori informazioni, vedere [accesso delegato in desktop virtuale di Windows](delegated-access-virtual-desktop.md).
 
 È anche necessario fornire agli utenti le informazioni seguenti:

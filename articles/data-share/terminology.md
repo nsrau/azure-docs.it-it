@@ -1,17 +1,17 @@
 ---
 title: Terminologia di anteprima della condivisione dati di Azure
-description: Terminologia di anteprima della condivisione dati di Azure
+description: Informazioni sui termini comuni usati per descrivere le risorse usate nell'anteprima della condivisione dati di Azure (provider di dati, consumer di dati, condivisione dati, sottoscrizione di condivisione, snapshot, invito, destinatario).
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: b78a1b250f46c2ddd2b36e19590c4a94ca3ab3fb
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: dd3235b7d87d8e02f44a440741b90f675263d147
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844697"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166283"
 ---
 # <a name="azure-data-share-preview-concepts"></a>Concetti di anteprima della condivisione di dati di Azure 
 
@@ -47,7 +47,7 @@ Un provider di dati può abilitare un'impostazione snapshot per una condivisione
 
 Se un provider di dati Abilita questa impostazione, è possibile selezionare un intervallo di ricorrenza. L'intervallo di ricorrenza può essere ogni ora o ogni giorno. 
 
-Un consumer di dati ha la possibilità di acconsentire esplicitamente a questa pianificazione dello snapshot per ricevere aggiornamenti incrementali, che include tutti i dati che sono stati modificati dopo la prima generazione di un nuovo snapshot. 
+Un consumer di dati ha la possibilità di acconsentire esplicitamente a questa pianificazione dello snapshot per ricevere aggiornamenti incrementali, che includono tutti i dati che sono stati modificati dopo la prima generazione di un nuovo snapshot. 
 
 ## <a name="invitation"></a>Invito
 
@@ -55,9 +55,9 @@ Un provider di dati può invitare più destinatari nella propria condivisione di
 
 Un provider di dati può eliminare un invito dopo che è stato inviato se non è stato accettato. Se il provider di dati Elimina un invito e non è ancora stato accettato, il consumer di dati non sarà in grado di accettarlo. 
 
-Gli inviti possono essere inviati fino a 5 volte al giorno. 
+Gli inviti possono essere inviati fino a cinque volte al giorno. 
 
-## <a name="recipient"></a>Destinatario
+## <a name="recipient"></a>Recipient
 
 Un destinatario è un utente che riceve un invito a una condivisione di dati. In genere, un provider di dati aggiungerà i destinatari alla condivisione dati che crea. Una volta che il destinatario di un invito accetta l'invito, diventa un consumer di dati.  
 

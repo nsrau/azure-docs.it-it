@@ -13,13 +13,13 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
-ms.author: chackdan
-ms.openlocfilehash: 0bd8a7d403ad1fe0f7abb15356cc9c90ed6b3f02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: pepogors
+ms.openlocfilehash: 23479692e815b5dda010ec2035c206df15715347
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153822"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167419"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Domande frequenti su Service Fabric
 
@@ -136,7 +136,7 @@ No. Le macchine virtuali con priorità bassa non sono supportate.
 Di seguito sono riportati i mezzi che permettono all'applicazione di ottenere le credenziali per l'autenticazione a Key Vault:
 
 R. Durante il processo di compilazione/compressione delle applicazioni, è possibile estrarre un certificato nel pacchetto di dati della tua app di Service Fabric e utilizzare questa opzione per l'autenticazione in Key Vault.
-B. Per gli host di identità del servizio gestito abilitata del set di scalabilità di macchine virtuali, è possibile sviluppare un semplice PowerShell SetupEntryPoint per l'app di Service Fabric per ottenere [un token di accesso dall'endpoint MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e quindi [recuperare i segreti da Key Vault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+B. Per gli host abilitati per il set di scalabilità di macchine virtuali, è possibile sviluppare un SetupEntryPoint di PowerShell semplice per l'app SF per ottenere [un token di accesso dall'endpoint MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e quindi [recuperare i segreti dall'](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret)insieme di credenziali delle chiavi.
 
 ## <a name="application-design"></a>Progettazione di applicazioni
 
@@ -192,4 +192,4 @@ Seguire il [blog di Service Fabric](https://blogs.msdn.microsoft.com/azureservic
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri [principali concetti di Service Fabric](service-fabric-technical-overview.md) e [procedure consigliate](service-fabric-best-practices-overview.md) ghiaccio concepts](service-fabric-technical-overview.md) Fabric e [procedure consigliate](service-fabric-best-practices-overview.md)
+Informazioni sui [concetti di base Service Fabric](service-fabric-technical-overview.md) e sulle [procedure](service-fabric-best-practices-overview.md) consigliate per i concetti di infrastruttura di Ice (Service-Fabric-Technical-Overview.MD) e [sulle procedure consigliate](service-fabric-best-practices-overview.md)

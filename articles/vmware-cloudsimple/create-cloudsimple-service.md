@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d6d4af28d79b2375e774da98d4fdb1ad9dc22063
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 99194c42dbc6ef07301be517021bf0fb4b4e7c23
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035728"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173513"
 ---
 # <a name="create-the-azure-vmware-solution-by-cloudsimple-service"></a>Creare la soluzione VMware di Azure tramite il servizio CloudSimple
 
@@ -30,10 +30,10 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Selezionare **Tutti i servizi**.
 2. Cercare i **Servizi CloudSimple**.
-    ![Cerca servizio CloudSimple](media/create-cloudsimple-service-search.png)
+    ![Search CloudSimple Service @ no__t-1
 3. Selezionare **Servizi CloudSimple**.
 4. Fare clic su **Aggiungi** per creare un nuovo servizio.
-    ![Aggiungere il servizio CloudSimple](media/create-cloudsimple-service-add.png)
+    ![Add CloudSimple Service @ no__t-1
 5. Selezionare la sottoscrizione in cui si vuole creare il servizio CloudSimple.
 6. Selezionare il gruppo di risorse per il servizio. Per aggiungere un nuovo gruppo di risorse, fare clic su **Crea nuovo**.
 7. Immettere il nome per identificare il servizio.
@@ -46,5 +46,6 @@ Il servizio viene creato e aggiunto all'elenco dei servizi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* Informazioni su come eseguire il [provisioning di nodi](create-nodes.md)
 * Informazioni su come [creare un cloud privato](create-private-cloud.md)
 * Informazioni su come [configurare un ambiente cloud privato](quickstart-create-private-cloud.md)
