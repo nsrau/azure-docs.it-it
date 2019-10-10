@@ -15,12 +15,12 @@ ms.date: 10/16/2018
 ms.author: cephalin
 ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: 7c899bae6cf36e68664a3ce60939f72a4b5bd1ab
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 9569928882bcaaa1d2406c9af1b2197c2ba6e93d
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001215"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177508"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acquistare e configurare un certificato SSL per il servizio app di Azure
 
@@ -47,13 +47,13 @@ Avviare un ordine di un certificato del servizio app nella <a href="https://port
 
 Usare la tabella seguente per informazioni sulla configurazione del certificato. Al termine, fare clic su **Crea**.
 
-| Impostazione | DESCRIZIONE |
+| Impostazione | Descrizione |
 |-|-|
-| Name | Nome descrittivo per il certificato del servizio app. |
-| Nome host di dominio di tipo naked | Specificare qui il dominio radice. Il certificato emesso protegge *sia* il dominio radice che il `www` sottodominio. Nel certificato emesso il campo nome comune contiene il dominio radice e il campo nome alternativo oggetto contiene il `www` dominio. Per proteggere solo un sottodominio, specificare qui il nome di dominio completo del sottodominio, ad esempio `mysubdomain.contoso.com`.|
+| NOME | Nome descrittivo per il certificato del servizio app. |
+| Nome host di dominio di tipo naked | Specificare qui il dominio radice. Il certificato emesso protegge *sia* il dominio radice che il sottodominio `www`. Nel certificato emesso il campo nome comune contiene il dominio radice e il campo nome alternativo oggetto contiene il dominio `www`. Per proteggere solo un sottodominio, specificare qui il nome di dominio completo del sottodominio, ad esempio `mysubdomain.contoso.com`.|
 | Sottoscrizione | Data center in cui è ospitata l'app Web. |
 | Gruppo di risorse | Gruppo di risorse che contiene il certificato. È possibile usare un nuovo gruppo di risorse o selezionare lo stesso gruppo di risorse, ad esempio, dell'app del servizio app. |
-| SKU del certificato | Determina il tipo di certificato da creare, se si tratta di un certificato standard o di un [certificato con caratteri jolly](https://wikipedia.org/wiki/Wildcard_certificate). |
+| Certificato SKU | Determina il tipo di certificato da creare, se si tratta di un certificato standard o di un [certificato con caratteri jolly](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Note legali | Fare clic per confermare che si accettano le condizioni legali. I certificati vengono ottenuti da GoDaddy. |
 
 ## <a name="store-in-azure-key-vault"></a>Archiviare il certificato in Azure Key Vault
@@ -66,11 +66,11 @@ Selezionare il certificato nella pagina [Certificati del servizio app](https://p
 
 Il [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) è un servizio di Azure che consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. È l'archiviazione scelta per i certificati del servizio app.
 
-Nella pagina **Stato insieme di credenziali delle chiavi** fare clic su **Repository dell'insieme di credenziali delle chiavi** per creare un nuovo insieme di credenziali o sceglierne uno esistente. Se si sceglie di creare un nuovo insieme di credenziali, usare la tabella seguente per configurarlo e quindi fare clic su Crea. Vedere le informazioni per creare un nuovo insieme di credenziali delle chiavi all'interno della stessa sottoscrizione e dello stesso gruppo di risorse.
+Nella pagina **Stato insieme di credenziali delle chiavi** fare clic su **Repository dell'insieme di credenziali delle chiavi** per creare un nuovo insieme di credenziali o sceglierne uno esistente. Se si sceglie di creare un nuovo insieme di credenziali, usare la tabella seguente per configurare l'insieme di credenziali e fare clic su **Crea**.
 
-| Impostazione | DESCRIZIONE |
+| Impostazione | Descrizione |
 |-|-|
-| Name | Nome univoco costituito da caratteri alfanumerici e trattini. |
+| NOME | Nome univoco costituito da caratteri alfanumerici e trattini. |
 | Gruppo di risorse | È consigliabile selezionare lo stesso gruppo di risorse del certificato del servizio app. |
 | Location | Selezionare la stessa località dell'app del servizio app. |
 | Piano tariffario | Per altre informazioni, vedere [Prezzi di Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
@@ -121,7 +121,7 @@ Usare la tabella seguente per informazioni sulla configurazione dell'associazion
 
 Visitare l'app usando `HTTPS://<domain_name>` invece di `HTTP://<domain_name>` per verificare che il certificato sia stato configurato correttamente.
 
-## <a name="rekey-certificate"></a>Reimposta chiavi certificato
+## <a name="rekey-certificate"></a>Certificato rekey
 
 Se si ritiene che la chiave privata del certificato venga compromessa, è possibile rekey il certificato. Selezionare il certificato nella pagina [certificati del servizio app](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) , quindi selezionare **rekey e sincronizza** dal percorso di spostamento a sinistra.
 
@@ -136,7 +136,7 @@ Al termine dell'operazione rekey, fare clic su **Sincronizza**. L'operazione di 
 > [!NOTE]
 > Se non si fa clic su **Sincronizza**, il servizio app sincronizza automaticamente il certificato entro 48 ore.
 
-## <a name="renew-certificate"></a>Rinnova certificato
+## <a name="renew-certificate"></a>Certificato da rinnovare
 
 Per attivare il rinnovo automatico del certificato in qualsiasi momento, selezionare il certificato nella pagina [Certificati del servizio app](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e quindi fare clic su **Impostazioni di rinnovo automatico** nel riquadro di spostamento a sinistra. Per impostazione predefinita, i certificati del servizio app hanno un periodo di validità di 1 anno.
 

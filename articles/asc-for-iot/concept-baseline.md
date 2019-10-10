@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2019
+ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: b0f5696b36082375a29e99298395cf16734d5bb4
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: ce5a0625a16c5a02d03ee74f894c585820414fa4
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937150"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176607"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Centro sicurezza di Azure per la baseline e i controlli personalizzati
 
 Questo articolo illustra il Centro sicurezza di Azure per la baseline e riepiloga tutte le proprietà associate dei controlli personalizzati di base.
 
-## <a name="baseline"></a>Linea di base
+## <a name="baseline"></a>Di base
 
 Una linea di base stabilisce un comportamento standard per ogni dispositivo e rende più semplice stabilire un comportamento insolito o una deviazione dalle norme previste.  
 
@@ -55,7 +55,7 @@ Per configurare i controlli personalizzati della linea di base:
         "baselineCustomChecksFilePath": {
           "value" : "/home/user/full_path.xml"
         },
-        "baselineCustomChecksFilePath": {
+        "baselineCustomChecksFileHash": {
           "value" : "#hashexample!"
         }
       }
@@ -64,7 +64,7 @@ Per configurare i controlli personalizzati della linea di base:
 
 ## <a name="baseline-custom-check-properties"></a>Proprietà controllo personalizzato Baseline
 
-| Attività| Stato | Valori validi| Valori predefiniti| Descrizione |
+| NOME| Stato | Valori validi| Valori predefiniti| Descrizione |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |baselineCustomChecksEnabled|Obbligatorio: true |Valori validi:  **Boolean** |Valore predefinito: **false** |Intervallo di tempo massimo prima dell'invio dei messaggi con priorità alta.|
 |baselineCustomChecksFilePath |Obbligatorio: true|Valori validi:  **Stringa**, **null** |Valore predefinito: **null** |Percorso completo della configurazione XML di base|

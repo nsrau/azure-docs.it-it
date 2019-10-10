@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2019
 ms.author: bwren
-ms.openlocfilehash: 39691c0efbac7b7a48dd844641d63e0ca178e95f
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 957df2d03352756c74a5450de240afde2615e50b
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327473"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177625"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Log personalizzati in Monitoraggio di Azure
 
@@ -74,7 +74,7 @@ Se viene usato un delimitatore Timestamp, la proprietà TimeGenerated di ogni re
 4. Modificare il delimitatore usato per identificare un nuovo record e selezionare il delimitatore che identifica meglio i record nel file di log.
 5. Fare clic su **Avanti**.
 
-### <a name="step-3-add-log-collection-paths"></a>Passaggio 3. Aggiungi percorsi raccolta log
+### <a name="step-3-add-log-collection-paths"></a>Passaggio 3. Aggiungere percorsi di raccolta di log
 È necessario definire uno o più percorsi nell'agente in cui è possibile individuare il log personalizzato.  È possibile fornire un percorso specifico e un nome per il file di log oppure specificare un percorso con un carattere jolly per il nome. Questa opzione è utile per le applicazioni che creano un nuovo file ogni giorno o quando un file raggiunge una determinata dimensione. È anche possibile fornire più percorsi per un singolo file di log.
 
 Ad esempio, un'applicazione potrebbe creare un file di log ogni giorno con la data inclusa nel nome, come in log20100316.txt. Un modello per questo log potrebbe essere *log\*.txt*, applicabile a qualsiasi file di log in base allo schema di denominazione dell'applicazione.
@@ -172,7 +172,7 @@ Anche se i log personalizzati sono utili se i dati soddisfano i criteri summenzi
 Nei casi in cui non è possibile raccogliere i dati con i log personalizzati, prendere in considerazione le seguenti strategie alternative:
 
 - Usare uno script personalizzato o un altro metodo per scrivere i dati in [Eventi Windows](data-sources-windows-events.md) o [Syslog](data-sources-syslog.md), che vengono raccolti da Monitoraggio di Azure. 
-- Inviare i dati direttamente a Monitoraggio di Azure usando l'[API di raccolta dati HTTP](data-collector-api.md). Un esempio d'uso dei runbook in Automazione di Azure è disponibile in [Raccogliere dati di log in Monitoraggio di Azure con un runbook di Automazione di Azure](runbook-datacollect.md).
+- Inviare i dati direttamente a Monitoraggio di Azure usando l'[API di raccolta dati HTTP](data-collector-api.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere [Parse text data in Azure Monitor](../log-query/parse-text.md) (Analisi dei dati di testo in Monitoraggio di Azure) per i metodi per analizzare ogni voce di log importata in più proprietà.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2019
 ms.author: magoedte
-ms.openlocfilehash: fa3c8b8cee0b8621a6a2800655f62a3d339f67c3
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 24eb8440ed4746b51b92ce371b5d58b8d55de9a3
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211989"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177599"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Progettazione della distribuzione dei log di monitoraggio di Azure
 
@@ -32,7 +32,7 @@ Un'area di lavoro Log Analytics offre:
 
 * Una posizione geografica per l'archiviazione dei dati.
 * Isolamento dei dati tramite la concessione di diritti di accesso a utenti diversi dopo una delle strategie di progettazione consigliate.
-* Ambito per la configurazione di impostazioni quali il [piano tariffario](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [conservazione](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)e la [capsulatura dei dati](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
+* Ambito per la configurazione di impostazioni quali il [piano tariffario](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [conservazione](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)e la [capsulatura dei dati](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#manage-your-maximum-daily-data-volume).
 
 Questo articolo fornisce una panoramica dettagliata delle considerazioni relative alla progettazione e alla migrazione, alla panoramica del controllo di accesso e alla comprensione delle implementazioni di progettazione consigliate per l'organizzazione IT.
 
@@ -121,7 +121,7 @@ La *modalità di controllo di accesso* è un'impostazione in ogni area di lavoro
 
     Questa è l'impostazione predefinita per tutte le aree di lavoro create prima del 2019 marzo.
 
-* **Usare le autorizzazioni per risorse o aree di lavoro**: Questa modalità di controllo consente la granularità RBAC. È possibile concedere agli utenti l'accesso solo ai dati associati alle risorse che possono visualizzare assegnando `read` l'autorizzazione di Azure. 
+* **Usare le autorizzazioni per risorse o aree di lavoro**: Questa modalità di controllo consente la granularità RBAC. È possibile concedere agli utenti l'accesso solo ai dati associati a risorse che possono visualizzare assegnando l'autorizzazione Azure `read`. 
 
     Quando un utente accede all'area di lavoro in modalità di contesto dell'area di lavoro, vengono applicate le autorizzazioni dell'area di lavoro. Quando un utente accede all'area di lavoro in modalità del contesto di risorse, vengono verificate solo le autorizzazioni delle risorse e le autorizzazioni dell'area di lavoro vengono ignorate. Abilitare il controllo degli accessi in base al ruolo per un utente rimuovendo tali autorizzazioni dall'area di lavoro e consentendone la riconoscibilità.
 

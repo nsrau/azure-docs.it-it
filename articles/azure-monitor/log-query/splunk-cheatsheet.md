@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: fb637197139001c67a4cfa773f897e6701dc1e9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 03a0d755cf6d099f07a7c6d853e1d747908eec05
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61425135"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177629"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk in query di log di Monitoraggio di Azure
 
@@ -28,7 +28,7 @@ Questo articolo è concepito per aiutare gli utenti che hanno familiarità con S
 
 La tabella seguente confronta i concetti e le strutture di dati tra Splunk e i log di Monitoraggio di Azure.
 
- | Concetto  | Splunk | Monitoraggio di Azure |  Commento
+ | Concetto  | Splunk | Monitoraggio di Azure |  Comment
  | --- | --- | --- | ---
  | Unità di distribuzione  | cluster |  cluster |  Monitoraggio di Azure consente query tra cluster arbitrari. Splunk non lo consente. |
  | Cache di dati |  bucket  |  Memorizzazione nella cache e criteri di conservazione |  Controlla il periodo e il livello di memorizzazione nella cache per i dati. Questa impostazione influisce direttamente sulle prestazioni delle query e sui costi della distribuzione. |
@@ -44,7 +44,7 @@ La tabella seguente confronta i concetti e le strutture di dati tra Splunk e i l
 
 La tabella seguente specifica le funzioni in Monitoraggio di Azure equivalenti alle funzioni di Splunk.
 
-|Splunk | Monitoraggio di Azure |Commento
+|Splunk | Monitoraggio di Azure |Comment
 |---|---|---
 |strcat | strcat()| (1) |
 |split  | split() | (1) |
@@ -72,7 +72,7 @@ Nelle sezioni seguenti vengono illustrati esempi dell'uso di diversi operatori t
 > [!NOTE]
 > Ai fini di questo esempio, la _regola_ del campo Splunk esegue il mapping a una tabella in Monitoraggio di Azure, e il timestamp predefinito di Splunk esegue il mapping alla colonna di Log Analytics _ingestion_time()_ .
 
-### <a name="search"></a>Ricerca
+### <a name="search"></a>Cerca
 In Splunk, è possibile omettere la parola chiave `search` e specificare una stringa senza virgolette. In Monitoraggio di Azure è necessario avviare ogni query con `find`, una stringa senza virgolette è un nome di colonna e il valore di ricerca deve essere una stringa tra virgolette. 
 
 | |  | |
@@ -125,12 +125,12 @@ Splunk ha anche una funzione `eval` che non deve essere confrontabile con l'oper
 
 
 ### <a name="rename"></a>Rinominare 
-Monitoraggio di Azure usa lo stesso operatore per rinominare e creare un nuovo campo. Splunk ha due operatori separati, `eval` e `rename`.
+Monitoraggio di Azure usa l'operatore `project-rename` per rinominare un campo. `project-rename` consente alla query di sfruttare i vantaggi di tutti gli indici predefiniti per un campo. Splunk ha un operatore `rename` per eseguire la stessa operazione.
 
 | |  | |
 |:---|:---|:---|
 | Splunk | **rename** |  <code>Event.Rule=330009.2<br>&#124; rename Date.Exception as execption</code> |
-| Monitoraggio di Azure | **extend** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend exception = Date_Exception</code> |
+| Monitoraggio di Azure | **ridenominazione progetto** | <code>Office_Hub_OHubBGTaskError<br>&#124; project-rename exception = Date_Exception</code> |
 | | |
 
 
@@ -158,7 +158,7 @@ Vedere le [Aggregazioni nelle query di log di Monitoraggio di Azure](aggregation
 
 
 
-### <a name="join"></a>Unisci
+### <a name="join"></a>Join
 Join in Splunk presenta limitazioni significative. La sottoquery ha un limite dei 10000 risultati (impostati nel file di configurazione della distribuzione); non esiste un numero limitato di caratteristiche join.
 
 | |  | |
