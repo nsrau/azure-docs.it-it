@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e4f0f81c5f135e885fe06d4fb4fa67514e8781b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 8d202cb0cc2d073326a5bcc8fb0d540c232afa98
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988150"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240899"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrare i log di Azure Active Directory con ArcSight usando monitoraggio di Azure
 
@@ -36,7 +36,7 @@ Per usare questa funzionalità, sono necessari:
 * Un hub eventi di Azure contenente i log attività di Azure AD. Informazioni su come [trasmettere i log attività a un hub eventi](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
 * Un'istanza configurata di ArcSight Syslog NG Daemon SmartConnector (SmartConnector) o ArcSight Load Balancer. Se gli eventi vengono inviati ad ArcSight Load Balancer, questi vengono inviati di conseguenza allo SmartConnector da parte del Load Balancer.
 
-Scaricare e aprire la [Guida alla configurazione di ArcSight SmartConnector per Hub eventi di Monitoraggio di Azure](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf). Questa guida contiene i passaggi necessari per installare e configurare ArcSight SmartConnector per Monitoraggio di Azure. 
+Scaricare e aprire la [Guida alla configurazione di ArcSight SmartConnector per Hub eventi di Monitoraggio di Azure](https://community.microfocus.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/8/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf). Questa guida contiene i passaggi necessari per installare e configurare ArcSight SmartConnector per Monitoraggio di Azure. 
 
 ## <a name="integrate-azure-ad-logs-with-arcsight"></a>Integrare i log Azure AD con ArcSight
 

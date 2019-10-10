@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 967a4542b3910b563dc30bde674e12fffdd12f48
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 685b6bda09026e64154590afd66bdfbec43b8b1e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559661"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243536"
 ---
 # <a name="configuration-based-on-stig"></a>Configurazione basata su STIG
 
@@ -33,10 +33,10 @@ In molti casi, l'obiettivo è quello di automatizzare la configurazione dei serv
 Un progetto della community denominato [PowerSTIG](https://github.com/microsoft/powerstig) mira a risolvere questo problema generando contenuti DSC basati su [informazioni pubbliche](https://public.cyber.mil/stigs/) fornite da Stig (Guida all'implementazione tecnica della sicurezza).
 
 La gestione delle linee di base è più complessa di quanto non sia il suono.
-Molte organizzazioni devono documentare le [eccezioni](https://github.com/microsoft/powerstig#powerstigdata) alle regole e gestire tali dati su larga scala.
+Molte organizzazioni devono [documentare le eccezioni](https://github.com/microsoft/powerstig#powerstigdata) alle regole e gestire tali dati su larga scala.
 PowerSTIG risolve il problema fornendo [risorse composite](https://github.com/microsoft/powerstig#powerstigdsc) per risolvere ogni area della configurazione anziché tentare di risolvere l'intero intervallo di impostazioni in un file di grandi dimensioni.
 
-Una volta generate le configurazioni, è possibile usare gli [script di configurazione DSC](/powershell/dsc/configurations) per generare file MOF e [caricare i file MOF in automazione di Azure](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+Una volta generate le configurazioni, è possibile usare gli [script di configurazione DSC](/powershell/scripting/dsc/configurations/configurations) per generare file MOF e [caricare i file MOF in automazione di Azure](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
 Quindi registrare i server da [locale](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) o [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) per eseguire il pull delle configurazioni.
 
 Per provare PowerSTIG, visitare il [PowerShell Gallery](http://www.powershellgallery.com) e scaricare la soluzione oppure fare clic su "Project Site" per visualizzare la [documentazione](https://github.com/microsoft/powerstig).

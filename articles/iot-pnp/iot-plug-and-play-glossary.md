@@ -3,18 +3,18 @@ title: Glossario dei termini Plug and Play anteprima | Microsoft Docs
 description: 'Concetti: un glossario dei termini comuni relativi a Internet delle cose Plug and Play anteprima.'
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 08/29/2019
+ms.date: 10/10/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 7b37912c58312644059f3990b4776514e081a4bb
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: a5c9d2d54fcce1179e43c38027db23c3d7e557e8
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858838"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249293"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossario dei termini per la Plug and Play di anteprima
 
@@ -64,7 +64,7 @@ Azure Internet Explorer è uno strumento grafico che è possibile usare per inte
 - Usare le [Proprietà](#properties)del dispositivo.
 - Chiamare i [comandi](#commands)del dispositivo.
 
-## <a name="azure-iot-hub"></a>Hub IoT di Azure
+## <a name="azure-iot-hub"></a>Hub IoT Azure
 
 IoT Hub è un servizio gestito, ospitato nel cloud, che funge da hub del messaggio centrale per la comunicazione bidirezionale tra l'applicazione di IoT e i dispositivi gestiti. I [dispositivi Plug and Play](#iot-plug-and-play-device) possono connettersi a un hub Internet. Una soluzione Internet delle cose usa un hub Internet delle cose per abilitare:
 
@@ -97,6 +97,7 @@ Una stringa di connessione incapsula le informazioni necessarie per connettersi 
 
 - Le stringhe di connessione del dispositivo consentono ai [dispositivi Plug and Play](#iot-plug-and-play-device) per la connessione agli endpoint per il dispositivo in un hub. Il codice client in un dispositivo usa la stringa di connessione per stabilire una connessione sicura con un hub.
 - Le stringhe di connessione dell'hub Internet consentono di connettere soluzioni e strumenti back-end in modo sicuro agli endpoint per il servizio in un hub. Questi strumenti e soluzioni gestiscono l'hub Internet e i dispositivi connessi.
+- Le stringhe di connessione del repository del modello aziendale consentono soluzioni e strumenti back-end per la connessione sicura a un [repository di modelli aziendali](#company-model-repository). Queste soluzioni e strumenti utilizzano o gestiscono i modelli e le [interfacce](#interface) di [funzionalità del dispositivo](#device-capability-model) nel repository.
 
 ## <a name="device-capability-model"></a>Modello di funzionalità di dispositivo
 
@@ -114,7 +115,7 @@ Uno sviluppatore di dispositivi usa un [modello di funzionalità del dispositivo
 
 Uno [sviluppatore di dispositivi](#device-developer) usa il [linguaggio di definizione doppia digitale](#digital-twin-definition-language) per modellare le funzionalità di un [dispositivo Plug and Play](#iot-plug-and-play-device). Il modello può essere condiviso usando un repository di modelli. Uno sviluppatore di dispositivi può generare codice del dispositivo Skeleton dal modello. Uno [sviluppatore di soluzioni](#solution-developer) può configurare una soluzione Internet delle cose dal modello.
 
-## <a name="device-provisioning-service"></a>Servizio Device Provisioning
+## <a name="device-provisioning-service"></a>Servizio di provisioning di dispositivi
 
 [Azure IOT Central](#azure-iot-central) usa il servizio Device provisioning per gestire la registrazione e la connessione dei dispositivi. Per altre informazioni, vedere [connettività dei dispositivi in Azure IOT Central](../iot-central/concepts-connectivity-pnp.md). È anche possibile usare il servizio Device provisioning per gestire la registrazione e la connessione dei dispositivi alla soluzione Internet delle cose in base all'hub. Per altre informazioni, vedere [provisioning di dispositivi con il servizio Device provisioning in hub Azure](../iot-dps/about-iot-dps.md).
 
@@ -170,7 +171,7 @@ Un repository di modelli archivia i modelli e le [interfacce](#interface)di [fun
 
 API per la gestione e l'interazione con i repository del modello. Ad esempio, è possibile usare l'API per aggiungere [modelli di funzionalità del dispositivo](#device-capability-model) e cercare modelli di funzionalità.
 
-## <a name="properties"></a>Properties
+## <a name="properties"></a>Proprietà
 
 Le proprietà sono campi dati definiti in un' [interfaccia](#interface) che rappresentano uno stato di un gemello digitale. È possibile dichiarare le proprietà in sola lettura o in scrittura. Le proprietà di sola lettura, ad esempio il numero di serie, vengono impostate dal codice in esecuzione nel [plug and Play del dispositivo](#iot-plug-and-play-device) .  Le proprietà scrivibili, ad esempio una soglia di allarme, vengono in genere impostate dalla soluzione Internet delle cose.
 
@@ -178,7 +179,7 @@ Le proprietà sono campi dati definiti in un' [interfaccia](#interface) che rapp
 
 È disponibile un unico repository del modello pubblico che archivia i modelli e le [interfacce](#interface) di [funzionalità del dispositivo](#device-capability-model) per i [dispositivi certificati](#device-certification). Il repository del modello pubblico archivia anche le definizioni dell' [interfaccia comune](#common-interface) .
 
-## <a name="registration-id"></a>ID registrazione
+## <a name="registration-id"></a>ID di registrazione
 
 Un ID di registrazione identifica in modo univoco un dispositivo nel [servizio Device provisioning](#device-provisioning-service). Questo ID non corrisponde all'ID del dispositivo che rappresenta un identificatore univoco per un dispositivo in un [Hub](#azure-iot-hub)Internet.
 

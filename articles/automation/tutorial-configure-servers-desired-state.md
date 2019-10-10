@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 0d877dafc4ab4f8ec4edb0a94450fa9c5dfcd0bb
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 09ba4bc9e5ac496a7d1d65ff145d56818e53116e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850238"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243349"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurare i server sullo stato desiderato e gestire gli orientamenti
 
@@ -34,7 +34,7 @@ Per completare questa esercitazione, è necessario:
 - Un account di automazione di Azure. Per istruzioni sulla creazione di un account RunAs di Automazione di Azure, vedere [Autenticare runbook con account RunAs di Azure](automation-sec-configure-azure-runas-account.md).
 - Una VM di Azure Resource Manager (non classica) che esegue Windows Server 2008 R2 o versioni successive. Per istruzioni sulla creazione di una VM, vedere [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 - Modulo Azure PowerShell 3.6 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
-- Familiarità con DSC (Desired State Configuration). Per informazioni su DSC, vedere [Panoramica di Windows PowerShell DSC (Desired State Configuration)](https://docs.microsoft.com/powershell/dsc/overview)
+- Familiarità con DSC (Desired State Configuration). Per informazioni su DSC, vedere [Panoramica di Windows PowerShell DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overviews)
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
@@ -48,7 +48,7 @@ Connect-AzureRmAccount
 
 Per questa esercitazione si userà una semplice configurazione DSC che assicura che IIS sia installato nella VM.
 
-Per informazioni sulle configurazioni DSC, vedere [Configurazioni DSC](/powershell/dsc/configurations).
+Per informazioni sulle configurazioni DSC, vedere [Configurazioni DSC](/powershell/scripting/dsc/configurations/configurations).
 
 In un editor di testo digitare quanto segue e salvarlo in locale con il nome `TestConfig.ps1`.
 
@@ -77,7 +77,7 @@ Chiamare il cmdlet `Import-AzureRmAutomationDscConfiguration` per caricare la co
 
 Una configurazione DSC deve essere compilata in una configurazione nodo affinché possa essere assegnata a un nodo.
 
-Per altre informazioni sulla compilazione di configurazioni, vedere [Configurazioni DSC](/powershell/dsc/configurations).
+Per altre informazioni sulla compilazione di configurazioni, vedere [Configurazioni DSC](/powershell/scripting/dsc/configurations/configurations).
 
 Chiamare il cmdlet `Start-AzureRmAutomationDscCompilationJob` per compilare la configurazione `TestConfig` in una configurazione nodo:
 
@@ -116,7 +116,7 @@ Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -Automati
 
 Per altre informazioni sull'impostazione delle proprietà di configurazione per un nodo gestito, vedere [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode).
 
-Per altre informazioni sulle impostazioni di configurazione DSC, vedere [Configuring the Local Configuration Manager](/powershell/dsc/metaconfig)(Configurazione di Gestione configurazione locale).
+Per altre informazioni sulle impostazioni di configurazione DSC, vedere [Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig)(Configurazione di Gestione configurazione locale).
 
 ## <a name="assign-a-node-configuration-to-a-managed-node"></a>Assegnare una configurazione nodo a un nodo gestito
 
@@ -132,7 +132,7 @@ Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAcc
 
 In questo modo si assegna la configurazione nodo denominata `TestConfig.WebServer` al nodo DSC registrato denominato `DscVm`.
 Per impostazione predefinita, il nodo DSC viene verificato per la conformità con la configurazione nodo ogni 30 minuti.
-Per informazioni su come modificare l'intervallo di controllo della conformità, vedere [Configuring the Local Configuration Manager](/PowerShell/DSC/metaConfig) (Configurazione di Gestione configurazione locale).
+Per informazioni su come modificare l'intervallo di controllo della conformità, vedere [Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig) (Configurazione di Gestione configurazione locale).
 
 ## <a name="working-with-partial-configurations"></a>Utilizzo di configurazioni parziali
 

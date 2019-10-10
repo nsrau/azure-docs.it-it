@@ -7,12 +7,12 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 78702b52b1a5c490bfd6273c3f4e575c6e3c20fb
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 78a73e687d653998cf4e641c216f383474dcc8bd
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969603"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244447"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Crea una nuova offerta di Dynamics 365 business Central
 
@@ -25,7 +25,7 @@ Per iniziare a creare le offerte di Dynamics 365 business Central, prima di tutt
 >[!Note]
 > Dopo la pubblicazione di un'offerta, le modifiche apportate all'offerta nel centro per i partner verranno aggiornate solo nel sistema e archiviano i front-end dopo la nuova pubblicazione. Assicurarsi di inviare l'offerta per la pubblicazione dopo avere apportato le modifiche.
 
-## <a name="create-a-new-offer"></a>Crea una nuova offerta
+## <a name="create-a-new-offer"></a>Creare una nuova offerta
 
 Selezionare il pulsante **+ nuova offerta** , quindi selezionare la voce di menu **Dynamics 365 business Central** . Verrà visualizzata la finestra di dialogo **nuova offerta** .
 
@@ -56,7 +56,7 @@ Elencare l'offerta ai clienti con un collegamento a una versione di valutazione 
 > [!NOTE]
 > I token che l'applicazione riceverà tramite il collegamento alla versione di valutazione può essere usato solo per ottenere informazioni sugli utenti tramite Azure Active Directory (Azure AD) per automatizzare la creazione di account nell'app. Gli account Microsoft non sono supportati per l'autenticazione con questo token.
 
-#### <a name="contact-me"></a>Contatta
+#### <a name="contact-me"></a>Contact me (Contattami)
 
 Raccogliere le informazioni di contatto del cliente connettendosi al sistema CRM (Customer Relationship Management). Al cliente verrà richiesta l'autorizzazione a condividere le informazioni. Queste informazioni sui clienti, insieme al nome dell'offerta, all'ID e all'origine del Marketplace in cui è stata trovata l'offerta, verranno inviate al sistema CRM configurato. Per ulteriori informazioni sulla configurazione del CRM, vedere [Connect Lead Management](#connect-lead-management). 
 
@@ -85,7 +85,7 @@ Selezionare una delle opzioni seguenti:
 
 ## <a name="connect-lead-management"></a>Gestione dei lead di connessione
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+[!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
 Per altre informazioni, vedere [Cenni preliminari sulla gestione dei lead](./commercial-marketplace-get-customer-leads.md).
 
@@ -130,7 +130,7 @@ Sarà necessario definire i dettagli del Marketplace (nome dell'offerta, descriz
 > [!NOTE]
 > Il contenuto dell'offerta (ad esempio la descrizione, i documenti, le schermate, le condizioni per l'utilizzo e così via) non deve essere in inglese, purché la descrizione dell'offerta inizi con la frase "questa applicazione è disponibile solo in [lingua non inglese]". È anche accettabile fornire un URL di *collegamento utile* per offrire contenuto in una lingua diversa da quella usata nell'offerta di visualizzazione del contenuto.
 
-### <a name="name"></a>Attività
+### <a name="name"></a>NOME
 
 Il nome immesso qui verrà visualizzato ai clienti come titolo dell'elenco di offerte. Questo campo viene prepopolato con il testo immesso per l' **alias offerta** al momento della creazione dell'offerta, ma è possibile modificare questo valore. Questo nome può essere registrato (e possono essere inclusi marchi o simboli di copyright). Il nome non può contenere più di 50 caratteri e non può includere emoji.
 
@@ -165,7 +165,7 @@ Se si vuole informare i clienti che l'app funziona con prodotti specifici, immet
 
 Questa sezione consente di fornire i collegamenti per aiutare i clienti a comprendere meglio l'offerta.
 
-#### <a name="help-link"></a>Collegamento alla Guida
+#### <a name="help-link"></a>Collegamento alla guida
 
 Immettere l'URL in cui i clienti possono ottenere ulteriori informazioni sull'offerta.
 
@@ -195,7 +195,7 @@ Fornire il logo dell'offerta in due dimensioni: **Small (48 x 48)** e **Large (2
 
 L'immagine Hero è facoltativa. Se ne viene fornito uno, deve misurare 815 x 290 pixel.
 
-#### <a name="screenshots"></a>Screenshot
+#### <a name="screenshots"></a>Screenshots (Schermate)
 
 Aggiungere schermate che mostrano il funzionamento dell'offerta. Sono necessarie almeno tre schermate ed è possibile aggiungerne fino a cinque. Tutte le schermate devono avere 1280 x 720 pixel.
 
@@ -241,7 +241,7 @@ Selezionare l'opzione che si applica all'offerta:
 - **Aggiungi in**: Un'app componente aggiuntivo estende l'esperienza e le funzionalità esistenti di Dynamics 365 business Central. Per altre informazioni, vedere [app aggiuntive](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
 - **Connessione**: È possibile usare un'app Connect nello scenario in cui deve essere stabilita una connessione Point-to-Point tra Dynamics 365 business Central e una soluzione o un servizio di terze parti. Per altre informazioni, vedere [Connect](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
 
-### <a name="file-upload"></a>Caricamento file
+### <a name="file-upload"></a>Caricamento di file
 
 Se è stata selezionata l'opzione **Aggiungi in** precedenza, in cui verrà caricato il file del pacchetto dell'offerta, insieme ai file del pacchetto per qualsiasi estensione in cui sono presenti dipendenze.
 

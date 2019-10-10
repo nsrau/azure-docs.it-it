@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a19b6bd8da82498aae45657d30883db14efd9343
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: a8027a1290b4b771c17a1e748c06f3b86fa0bf95
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174081"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244600"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
 
@@ -35,7 +35,7 @@ Questo articolo offre una panoramica delle estensioni macchina virtuale, i prere
 Sono disponibili numerose estensioni della macchina virtuale di Azure, ognuna con uno specifico caso d'uso. Di seguito sono riportati alcuni esempi:
 
 - Applicare le configurazioni dello stato desiderato tramite PowerShell a una macchina virtuale usando l'estensione DSC per Windows. Per altre informazioni, vedere l'argomento relativo all'[Estensione DSC (Desired State Configuration) di Azure](dsc-overview.md).
-- Configurare il monitoraggio di una macchina virtuale con l'estensione macchina virtuale Microsoft Monitoring Agent. Per altre informazioni, vedere [connettere le VM di Azure ai log di monitoraggio di Azure](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Configurare il monitoraggio di una macchina virtuale con l'estensione della macchina virtuale Log Analytics Agent. Per altre informazioni, vedere [connettere le VM di Azure ai log di monitoraggio di Azure](../../log-analytics/log-analytics-azure-vm-extension.md).
 - Configurare una macchina virtuale di Azure usando Chef. Per altre informazioni, vedere l'argomento [Automazione della distribuzione delle macchine virtuali di Azure con Chef](../windows/chef-automation.md).
 - Configurare il monitoraggio dell'infrastruttura di Azure con l'estensione Datadog. Per altre informazioni, vedere il [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
@@ -65,14 +65,14 @@ Alcune estensioni non sono supportate in tutti i sistemi operativi e possono gen
 
 #### <a name="network-access"></a>Accesso alla rete
 
-I pacchetti di estensioni vengono scaricati dal repository delle estensioni di Archiviazione di Azure, mentre i caricamenti dello stato delle estensioni vengono pubblicati in Archiviazione di Azure. Se si usa una versione [supportata](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) degli agenti, non è necessario consentire l'accesso ad Archiviazione di Azure nell'area della macchina virtuale, perché è possibile usare l'agente per reindirizzare la comunicazione al controller di infrastruttura di Azure. Se è in uso una versione non supportata dell'agente, è necessario consentire l'accesso in uscita ad Archiviazione di Azure in tale area dalla macchina virtuale.
+I pacchetti di estensioni vengono scaricati dal repository delle estensioni di Archiviazione di Azure, mentre i caricamenti dello stato delle estensioni vengono pubblicati in Archiviazione di Azure. Se si usa la versione [supportata](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) degli agenti, non è necessario consentire l'accesso ad archiviazione di Azure nell'area della macchina virtuale, in quanto può usare l'agente per reindirizzare la comunicazione al controller di infrastruttura di Azure per le comunicazioni degli agenti (la funzionalità HostGAPlugin tramite il canale privilegiato su IP privato 168.63.129.16). Se è in uso una versione non supportata dell'agente, è necessario consentire l'accesso in uscita ad Archiviazione di Azure in tale area dalla macchina virtuale.
 
 > [!IMPORTANT]
-> Se l'accesso a *168.63.129.16* è stato bloccato con il firewall guest, le estensioni non rispettano quanto specificato sopra.
+> Se è stato bloccato l'accesso a *168.63.129.16* tramite il firewall Guest o con un proxy, le estensioni hanno esito negativo indipendentemente dalla precedente. Sono necessarie le porte 80, 443 e 32526.
 
-Gli agenti possono essere usati solo per caricare i pacchetti di estensioni e lo stato della creazione di report. Ad esempio, se l'installazione di un'estensione richiede il download di uno script da GitHub (script personalizzato) o ha bisogno di accedere ad Archiviazione di Azure (Backup di Azure), allora è necessario aprire altre porte del firewall/gruppo di sicurezza di rete. Estensioni diverse hanno requisiti diversi, perché sono applicazioni indipendenti. È possibile consentire l'accesso ad Archiviazione di Azure per le estensioni usando i tag di servizio del NSG per [Archiviazione](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Gli agenti possono essere usati solo per caricare i pacchetti di estensioni e lo stato della creazione di report. Ad esempio, se l'installazione di un'estensione richiede il download di uno script da GitHub (script personalizzato) o ha bisogno di accedere ad Archiviazione di Azure (Backup di Azure), allora è necessario aprire altre porte del firewall/gruppo di sicurezza di rete. Estensioni diverse hanno requisiti diversi, perché sono applicazioni indipendenti. Per le estensioni che richiedono l'accesso ad archiviazione di Azure o Azure Active Directory, è possibile consentire l'accesso usando i [tag del servizio NSG di Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) per l'archiviazione o AzureActiveDirectory.
 
-L'agente guest di Windows non dispone del supporto del server proxy per il reindirizzamento delle richieste al traffico dell'agente.
+L'agente guest di Windows non dispone del supporto per il server proxy per il reindirizzamento delle richieste di traffico dell'agente tramite, il che significa che l'agente guest di Windows si basa sul proxy personalizzato (se disponibile) per accedere alle risorse su Internet o sull'host tramite IP 168.63.129.16.
 
 ## <a name="discover-vm-extensions"></a>Individuare le estensioni della macchina virtuale
 
@@ -417,7 +417,7 @@ Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "
 4. Scegliere **Disinstalla**.
 
 ## <a name="common-vm-extensions-reference"></a>Riferimento alle estensioni della macchina virtuale comuni
-| Nome estensione | Descrizione | Ulteriori informazioni |
+| Nome estensione | Descrizione | Altre informazioni |
 | --- | --- | --- |
 | Estensione Script personalizzato per Windows |Eseguire script su una macchina virtuale di Azure. |[Estensione script personalizzata per Windows](custom-script-windows.md) |
 | Estensione DSC per Windows |Estensione PowerShell DSC (Desired State Configuration) |[Estensione DSC per Windows](dsc-overview.md) |

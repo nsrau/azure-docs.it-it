@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: d867cceb3e7261f658e2406617144c9150e36f2a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 20da8abff943e71deb5d5ec8b7bd6411c176e2e3
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173446"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244559"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 
@@ -104,7 +104,7 @@ Quando si usa l'archiviazione BLOB come output, viene creato un nuovo file nel B
 
 ## <a name="event-hubs"></a>Hub eventi
 
-Il servizio [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) è un inseritore eventi di pubblicazione-sottoscrizione altamente scalabile. Può raccogliere milioni di eventi al secondo. Un uso di un hub eventi come output si verifica quando l'output di un processo di analisi di flusso diventa l'input di un altro processo di streaming.
+Il servizio [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) è un inseritore eventi di pubblicazione-sottoscrizione altamente scalabile. Può raccogliere milioni di eventi al secondo. Un uso di un hub eventi come output si verifica quando l'output di un processo di analisi di flusso diventa l'input di un altro processo di streaming. Per informazioni sulle dimensioni massime dei messaggi e sull'ottimizzazione delle dimensioni del batch, vedere la sezione [output batch size](#output-batch-size) .
 
 Sono necessari alcuni parametri per configurare i flussi di dati dagli hub eventi come output.
 
@@ -119,7 +119,7 @@ Sono necessari alcuni parametri per configurare i flussi di dati dagli hub event
 | Formato di serializzazione eventi | Formato di serializzazione per i dati di output. Sono supportati i formati JSON, CSV e Avro. |
 | Codifica | Al momento UTF-8 è l'unico formato di codifica supportato per i formati CSV e JSON. |
 | Delimitatore | Applicabile solo per la serializzazione CSV. Analisi di flusso supporta vari delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
-| Formato | Applicabile solo per la serializzazione JSON. **Delimitato da righe** specifica che l'output viene formattato in base a ogni oggetto JSON separato da una nuova riga. **Array** specifica che l'output viene formattato come una matrice di oggetti JSON. Questa matrice viene chiusa solo quando il processo viene arrestato o Analisi di flusso di Azure passa all'intervallo di tempo successivo. In generale, è preferibile usare JSON delimitati da righe, perché non richiede alcuna gestione speciale mentre è ancora in corso la scrittura del file di output. Per ulteriori informazioni, vedere la sezione [output batch size](#output-batch-size) . |
+| Formato | Applicabile solo per la serializzazione JSON. **Delimitato da righe** specifica che l'output viene formattato in base a ogni oggetto JSON separato da una nuova riga. **Array** specifica che l'output viene formattato come una matrice di oggetti JSON.  |
 | Colonne delle proprietà | facoltativo. Colonne delimitate da virgole che devono essere associate come proprietà utente del messaggio in uscita anziché del payload. Ulteriori informazioni su questa funzionalità sono contenute nella sezione [proprietà dei metadati personalizzati per l'output](#custom-metadata-properties-for-output). |
 
 ## <a name="power-bi"></a>Power BI

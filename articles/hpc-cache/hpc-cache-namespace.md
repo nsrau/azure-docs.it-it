@@ -1,17 +1,17 @@
 ---
-title: Creare una cache HPC di Azure (anteprima)
+title: Creare un'istanza di Cache HPC di Azure (anteprima)
 description: Come creare un'istanza di Cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: 68ae316dff1518dd8115006764c6cc3036f59e4a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.author: rohogue
+ms.openlocfilehash: fa6408d33504c6ac73eacec079e9c08acd4cece2
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299930"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255276"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Pianificare lo spazio dei nomi aggregato
 
@@ -42,7 +42,7 @@ I dati da analizzare sono stati copiati in un contenitore di archiviazione BLOB 
 
 Per semplificare l'accesso tramite la cache, provare a creare destinazioni di archiviazione con questi percorsi dello spazio dei nomi virtuali:
 
-| Sistema di archiviazione back-end <br/> (Percorso file NFS o contenitore BLOB) | Percorso spazio dei nomi virtuale |
+| Sistema di archiviazione back-end <br/> (Percorso file NFS o contenitore BLOB) | Percorso dello spazio dei nomi virtuale |
 |-----------------------------------------|------------------------|
 | /goldline/templates/acme2017/sku798     | /templates/sku798      |
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |
@@ -57,7 +57,7 @@ Poiché i percorsi di origine NFS sono sottodirectory della stessa esportazione,
 | *Indirizzo IP o nome host* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
 | *Indirizzo IP o nome host* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
 
-Un'applicazione client può montare la cache e accedere facilmente ai percorsi ``/source``di file dello spazio dei nomi aggregati, ``/templates/sku798``e ``/templates/sku980``.
+Un'applicazione client può montare la cache e accedere facilmente ai percorsi di file dello spazio dei nomi aggregati ``/source``, ``/templates/sku798`` e ``/templates/sku980``.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

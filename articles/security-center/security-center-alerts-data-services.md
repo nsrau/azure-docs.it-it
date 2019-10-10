@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: memildin
-ms.openlocfilehash: 763349c11a7777bfc807a60e1806c3bb4010245e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 7e45dffd15cdf2acf15c7d46ed0cf42fc5997a6a
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202590"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244566"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Rilevamento delle minacce per i servizi dati nel centro sicurezza di Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "71202590"
 
 ## Database SQL e SQL Data Warehouse<a name="data-sql"></a>
 
-Rilevamento minacce SQL identifica le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database. Il Centro sicurezza analizza i log di controllo SQL ed esegue in modalità nativa nel motore di SQL.
+Rilevamento minacce SQL identifica le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database. 
 
 |Avviso|Descrizione|
 |---|---|

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 253fc940cfb42aa9bf7e93dd631d2ca596f7db6f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3e2781229974ed872d477579d6c738822f910df6
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677858"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243504"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -59,7 +59,7 @@ La soluzione genera report sullo stato di aggiornamento del computer in base all
 
 La distribuzione pianificata definisce quali computer di destinazione ricevono gli aggiornamenti applicabili, specificando in modo esplicito i computer o selezionando un [gruppo di computer](../azure-monitor/platform/computer-groups.md) basato sulle ricerche log di un determinato set di computer o su una [query di Azure](#azure-machines) che seleziona dinamicamente le VM di Azure in base ai criteri specificati. Questi gruppi sono diversi dalla [configurazione dell'ambito](../azure-monitor/insights/solution-targeting.md), che viene usata solo per determinare quali computer ottengono i Management Pack che abilitano la soluzione.
 
-Si specifica anche una pianificazione per approvare e impostare un periodo di tempo durante il quale è possibile installare gli aggiornamenti. Questo periodo di tempo viene chiamato finestra di manutenzione. Dieci minuti della finestra di manutenzione sono riservati ai riavvii se è necessario un riavvio ed è stata selezionata l'opzione di riavvio appropriato. Se l'applicazione di patch richiede più tempo del previsto e la finestra di manutenzione è inferiore a dieci minuti, non si verificherà un riavvio.
+Si specifica anche una pianificazione per approvare e impostare un periodo di tempo durante il quale è possibile installare gli aggiornamenti. Questo periodo di tempo viene chiamato finestra di manutenzione. Venti minuti della finestra di manutenzione sono riservati ai riavvii se è necessario un riavvio ed è stata selezionata l'opzione di riavvio appropriato. Se l'applicazione di patch richiede più tempo del previsto e la finestra di manutenzione è inferiore a venti minuti, non si verificherà un riavvio.
 
 Gli aggiornamenti vengono installati da runbook in Automazione di Azure. Questi runbook non richiedono alcuna configurazione e non possono essere visualizzati. Quando si crea una distribuzione degli aggiornamenti, nella distribuzione viene creata una pianificazione che avvia un runbook di aggiornamento master alla data e ora specificate per i computer inclusi. Il runbook master avvia un runbook figlio in ogni agente per installare gli aggiornamenti necessari.
 
@@ -76,7 +76,7 @@ La tabella seguente mostra un elenco dei sistemi operativi supportati per le val
 |Sistema operativo  |Note  |
 |---------|---------|
 |Windows Server 2019 (Datacenter/datacenter core/standard)<br><br>Windows Server 2016 (Datacenter/datacenter core/standard)<br><br>Windows Server 2012 R2 (Datacenter/standard)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM e SP1 Standard)||
-|CentOS 6 (x86/x64) e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. L'applicazione di patch basata sulla classificazione richiede "yum" per restituire i dati sulla sicurezza che non sono predefiniti in CentOS. Per altre informazioni sull'applicazione di patch basata sulla classificazione su CentOS, vedere classificazioni degli [aggiornamenti in Linux](#linux-2)          |
+|CentOS 6 (x86/x64) e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. L'applicazione di patch basata sulla classificazione richiede "yum" per restituire i dati sulla sicurezza che non sono predefiniti in CentOS. Per altre informazioni sull'applicazione di patch basata sulla classificazione su CentOS, vedere [classificazioni degli aggiornamenti in Linux](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |Ubuntu 14.04 LTS, 16.04 LTS e 18.04 LTS (x86/x64)      |Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.         |
@@ -186,7 +186,7 @@ Se l'agente non è in grado di comunicare con i log di monitoraggio di Azure e l
 
 Gli agenti Linux appena aggiunti visualizzano lo stato **Aggiornato** dopo l'esecuzione di una valutazione. Il processo può richiedere fino a 6 ore.
 
-Per verificare che un gruppo di gestione di Operations Manager comunichi con i log di monitoraggio di Azure, vedere convalidare [Operations Manager integrazione con i log di monitoraggio di Azure](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
+Per verificare che un gruppo di gestione di Operations Manager comunichi con i log di monitoraggio di Azure, vedere [Convalidare Operations Manager integrazione con i log di monitoraggio di Azure](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
 
 ## <a name="data-collection"></a>Raccolta dei dati
 
@@ -339,7 +339,7 @@ $WUSettings.Save()
 
 ### <a name="disable-automatic-installation"></a>Disabilita installazione automatica
 
-Per le macchine virtuali di Azure l'installazione automatica degli aggiornamenti è abilitata per impostazione predefinita. Questa operazione può causare l'installazione degli aggiornamenti prima di pianificarne l'installazione da Gestione aggiornamenti. È possibile disabilitare questo comportamento impostando la `NoAutoUpdate` chiave del registro `1`di sistema su. Il seguente frammento di codice di PowerShell Mostra un modo per eseguire questa operazione.
+Per le macchine virtuali di Azure l'installazione automatica degli aggiornamenti è abilitata per impostazione predefinita. Questa operazione può causare l'installazione degli aggiornamenti prima di pianificarne l'installazione da Gestione aggiornamenti. È possibile disabilitare questo comportamento impostando la chiave del registro di sistema `NoAutoUpdate` su `1`. Il seguente frammento di codice di PowerShell Mostra un modo per eseguire questa operazione.
 
 ```powershell
 $AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
@@ -396,7 +396,7 @@ Le sezioni seguenti contengono esempi di query di ricerca per l'aggiornamento de
 
 #### <a name="single-azure-vm-assessment-queries-windows"></a>Singole query di valutazione delle macchine virtuali di Azure (Windows)
 
-Sostituire il valore VMUUID con il GUID VM della macchina virtuale per cui si esegue la query. È possibile trovare il VMUUID che deve essere usato eseguendo la query seguente nei log di monitoraggio di Azure:`Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
+Sostituire il valore VMUUID con il GUID VM della macchina virtuale per cui si esegue la query. È possibile trovare il VMUUID che deve essere usato eseguendo la query seguente nei log di monitoraggio di Azure: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Riepilogo degli aggiornamenti mancanti
 
@@ -425,7 +425,7 @@ Update
 
 #### <a name="single-azure-vm-assessment-queries-linux"></a>Singole query di valutazione delle macchine virtuali di Azure (Linux)
 
-Per alcune distribuzioni di Linux, si verifica una [mancata corrispondenza](https://en.wikipedia.org/wiki/Endianness) tra l'elemento e il valore di VMUUID che deriva da Azure Resource Manager e ciò che viene archiviato nei log di monitoraggio di Azure. La query seguente verifica la presenza di una corrispondenza in uno degli ordini di byte. Sostituire i valori VMUUID con il formato big-endian e little-endian del GUID in modo che i risultati vengano restituiti correttamente. È possibile trovare il VMUUID che deve essere usato eseguendo la query seguente nei log di monitoraggio di Azure:`Update | where Computer == "<machine name>"
+Per alcune distribuzioni di Linux, si verifica una [mancata corrispondenza](https://en.wikipedia.org/wiki/Endianness) tra l'elemento e il valore di VMUUID che deriva da Azure Resource Manager e ciò che viene archiviato nei log di monitoraggio di Azure. La query seguente verifica la presenza di una corrispondenza in uno degli ordini di byte. Sostituire i valori VMUUID con il formato big-endian e little-endian del GUID in modo che i risultati vengano restituiti correttamente. È possibile trovare il VMUUID che deve essere usato eseguendo la query seguente nei log di monitoraggio di Azure: `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Riepilogo degli aggiornamenti mancanti

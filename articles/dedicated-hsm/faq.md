@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 5/8/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b79ed7ea3113f097f767ad7ff8bdc47b4e4916eb
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 338977c236ebb8f1b800eb6c28747a010e708300
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883561"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244226"
 ---
 # <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
@@ -58,9 +58,9 @@ Attualmente il servizio HSM dedicato di Azure fornisce solo moduli di protezione
 
 Microsoft offre solo il modulo di protezione hardware Gemalto SafeNet Luna Network mediante il servizio HSM dedicato e non può ospitare dispositivi forniti dai clienti.
 
-### <a name="q-does-azure-dedicated-hsm-support-payment-pinetf-features"></a>D: Le funzionalità di pagamento (PIN/ETF) del modulo di protezione hardware dedicato di Azure sono supportate?
+### <a name="q-does-azure-dedicated-hsm-support-payment-pineft-features"></a>D: Il modulo di protezione hardware dedicato di Azure supporta le funzionalità di pagamento (PIN/EFT)?
 
-Il servizio HSM dedicato di Azure usa dispositivi SafeNet Luna Network HSM 7 (modello A790). Questi dispositivi non supportano le certificazioni o le funzionalità specifiche di HSM per i pagamenti (come PIN o ETF). Se si vuole che il servizio HSM dedicato di Azure supporti il HSM di pagamento in futuro, inviare i commenti e suggerimenti al rappresentante dell'account Microsoft.
+Il servizio HSM dedicato di Azure usa dispositivi SafeNet Luna Network HSM 7 (modello A790). Questi dispositivi non supportano funzionalità specifiche del modulo di protezione hardware (ad esempio PIN o EFT) o certificazioni. Se si vuole che il servizio HSM dedicato di Azure supporti il HSM di pagamento in futuro, inviare i commenti e suggerimenti al rappresentante dell'account Microsoft.
 
 ### <a name="q-which-azure-regions-is-dedicated-hsm-available-in"></a>D: In quali aree di Azure è disponibile un modulo di protezione hardware dedicato?
 

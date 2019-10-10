@@ -1,7 +1,7 @@
 ---
-title: Inviare un flusso di lavoro usando firme di accesso condiviso - Genomics di Microsoft
-titleSuffix: Azure
-description: L'articolo presuppone che si è installato il client msgen e sono stati eseguiti correttamente i dati di esempio tramite il servizio.
+title: Flusso di lavoro con firme di accesso condiviso
+titleSuffix: Microsoft Genomics
+description: Questo articolo illustra come inviare un flusso di lavoro al servizio genomica di Microsoft usando le firme di accesso condiviso (SAS) invece delle chiavi dell'account di archiviazione.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,18 +9,18 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: 833067f53f53f347ce091a64702d44a78cde836f
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: d6228762b9a1299d8e9229f7a0f73dc7d0bca2b2
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657106"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248592"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Inviare un flusso di lavoro a Genomica di Microsoft usando una firma di accesso condiviso invece di una chiave dell'account di archiviazione 
 
-Questo articolo illustra come inviare un flusso di lavoro al servizio Microsoft Genomics usando un file txt contenente [condiviso (SAS) delle firme di accesso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) invece delle chiavi di account di archiviazione. Questa funzionalità può essere utile se per motivi di sicurezza si preferisce non rendere visibile la chiave dell'account di archiviazione nel file config.txt. 
+Questo articolo illustra come inviare un flusso di lavoro al servizio genomica di Microsoft usando un file config. txt che contiene le [firme di accesso condiviso (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) invece delle chiavi dell'account di archiviazione. Questa funzionalità può essere utile se per motivi di sicurezza si preferisce non rendere visibile la chiave dell'account di archiviazione nel file config.txt. 
 
-In questo articolo si presuppone che sia già stato installato ed eseguito il client `msgen` e che si abbia familiarità con l'uso di Archiviazione di Azure. Se è già stato inviato un flusso di lavoro usando i dati di esempio forniti, si è pronti per procedere con questo articolo. 
+In questo articolo si presuppone che sia già stato installato ed eseguito il client `msgen` e che si abbia familiarità con l'uso di Archiviazione di Azure. Se un flusso di lavoro è stato inviato correttamente usando i dati di esempio forniti, è possibile procedere con questo articolo. 
 
 ## <a name="what-is-a-sas"></a>Informazioni sulla firma di accesso condiviso
 Una [firma di accesso condiviso (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) fornisce accesso delegato alle risorse nell'account di archiviazione. Con una firma di accesso condiviso è possibile concedere l'accesso alle risorse nell'account di archiviazione senza condividere le chiavi dell'account. Questo è il punto chiave associato all'uso delle firme di accesso condiviso nelle applicazioni: una firma di accesso condiviso rappresenta un metodo sicuro per condividere le risorse di archiviazione senza compromettere le chiavi dell'account.
@@ -33,14 +33,14 @@ L'URI per un token di firma di accesso condiviso a livello di servizio è compos
 Per ogni flusso di lavoro inviato al servizio Genomica di Microsoft sono necessari due o più token di firma di accesso condiviso, uno per ogni file di input e uno per il contenitore di output.
 
 La firma di accesso condiviso per i file di input deve avere le proprietà seguenti:
-1.  Ambito (account, contenitore o BLOB): BLOB
-2.  Scadenza: 48 ore da adesso
-3.  Autorizzazioni: lettura
+ - Ambito (account, contenitore o BLOB): BLOB
+ - Scadenza: 48 ore da adesso
+ - Autorizzazioni: lettura
 
 La firma di accesso condiviso per il contenitore di output deve avere le proprietà seguenti:
-1.  Ambito (account, contenitore o BLOB): contenitore
-2.  Scadenza: 48 ore da adesso
-3.  Autorizzazioni: lettura, scrittura, eliminazione
+ - Ambito (account, contenitore o BLOB): contenitore
+ - Scadenza: 48 ore da adesso
+ - Autorizzazioni: lettura, scrittura, eliminazione
 
 
 ## <a name="create-a-sas-for-the-input-files-and-the-output-container"></a>Creare una firma di accesso condiviso per i file di input e il contenitore di output

@@ -1,6 +1,6 @@
 ---
-title: Risoluzione dei problemi di grafici delle metriche di monitoraggio di Azure
-description: Risoluzione dei problemi di creazione, personalizzazione o l'interpretazione dei grafici delle metriche
+title: Risoluzione dei problemi relativi ai grafici delle metriche di monitoraggio di Azure
+description: Risolvere i problemi relativi alla creazione, personalizzazione o interpretazione di grafici delle metriche
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,112 +8,114 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 73ef5cc00b5154dbdbc92911d17740c7d13038ec
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: d31b046bf02893affff84069ee92b3bd7735b904
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341970"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243232"
 ---
-# <a name="troubleshooting-metrics-charts"></a>Risoluzione dei problemi di grafici delle metriche
+# <a name="troubleshooting-metrics-charts"></a>Risoluzione dei problemi relativi ai grafici delle metriche
 
-Usare questo articolo se si verificano problemi con la creazione, personalizzazione o l'interpretazione dei grafici in Esplora metriche di Azure. Se si ha familiarità con le metriche, Scopri [Introduzione a Esplora metriche](metrics-getting-started.md) e [avanzate funzionalità di Esplora metriche](metrics-charts.md). È anche possibile visualizzare [esempi](metric-chart-samples.md) dei grafici delle metriche configurati.
+Usare questo articolo se si verificano problemi di creazione, personalizzazione o interpretazione dei grafici in Esplora metriche di Azure. Se non si ha [familiarità con le](metrics-getting-started.md) metriche, vedere Introduzione a Esplora metriche e [funzionalità avanzate di Esplora metriche](metrics-charts.md). È anche possibile vedere [esempi](metric-chart-samples.md) dei grafici delle metriche configurati.
 
-## <a name="cant-find-your-resource-to-select-it"></a>Non è possibile trovare la risorsa per selezionarla
+## <a name="cant-find-your-resource-to-select-it"></a>La risorsa non è stata trovata per selezionarla
 
-Fa clic sui **selezionare una risorsa** pulsante, ma non la risorsa nella finestra di dialogo di selezione di risorse.
+Quando si fa clic sul pulsante **Selezionare una risorsa**, la risorsa non viene visualizzata nella finestra di dialogo di selezione delle risorse.
 
-**Soluzione:** Esplora metriche richiede di selezionare le sottoscrizioni e gruppi di risorse prima dell'aggiunta di risorse disponibili. Se non viene visualizzata la risorsa:
+**Soluzione:** Esplora metriche richiede di selezionare sottoscrizioni e gruppi di risorse prima di elencare le risorse disponibili. Se non viene visualizzata la risorsa:
 
-1. Assicurarsi di aver selezionato la sottoscrizione corretta nel **sottoscrizione** elenco a discesa. Se la sottoscrizione non è elencata, fare clic sui **Directory e sottoscrizione impostazioni** e aggiungere una sottoscrizione con la risorsa.
+1. Assicurarsi di avere selezionato la sottoscrizione corretta nell'elenco a discesa **Sottoscrizione**. Se la sottoscrizione non è elencata, fare clic su **Impostazioni di directory e sottoscrizione** e aggiungere una sottoscrizione con la risorsa.
 
 1. Assicurarsi di aver selezionato il gruppo di risorse corretto.
     > [!WARNING]
-    > Per prestazioni ottimali, quando si apre Esplora metriche, il **gruppo di risorse** elenco a discesa non dispone di nessun gruppo di risorse pre-selezionate. È necessario selezionare almeno un gruppo prima di poter vedere tutte le risorse.
+    > Per prestazioni ottimali, quando si apre Esplora metriche, l'elenco a discesa **Gruppo di risorse** non dispone di nessun gruppo di risorse pre-selezionate. È necessario selezionare almeno un gruppo prima di poter visualizzare tutte le risorse.
 
-## <a name="chart-shows-no-data"></a>Grafico non mostra alcun dato
+## <a name="chart-shows-no-data"></a>Il grafico non Mostra dati
 
-In alcuni casi i grafici non potrebbero mostrano dati dopo aver selezionato le metriche e le risorse corrette. Questo comportamento può essere causato da diversi i motivi seguenti:
+A volte i grafici potrebbero non mostrare dati dopo aver selezionato le metriche e le risorse corrette. Questo comportamento può essere causato da diversi dei motivi seguenti:
 
-### <a name="microsoftinsights-resource-provider-isnt-registered-for-your-subscription"></a>Provider di risorse Microsoft. Insights non è registrato per la sottoscrizione
+### <a name="microsoftinsights-resource-provider-isnt-registered-for-your-subscription"></a>Il provider di risorse Microsoft. Insights non è registrato per la sottoscrizione
 
-È necessario esaminare le metriche *Microsoft. Insights* provider di risorse registrato nella sottoscrizione. In molti casi, è registrato automaticamente (vale a dire, dopo che si configura una regola di avviso, personalizzare le impostazioni di diagnostica per qualsiasi risorsa o configura una regola di scalabilità automatica). Se il provider di risorse Microsoft. Insights non è registrato, è necessario registrarlo manualmente seguendo i passaggi descritti in [provider di risorse di Azure e i tipi](../../azure-resource-manager/resource-manager-supported-services.md).
+Per l'esplorazione delle metriche è necessario che nella sottoscrizione sia registrato il provider di risorse *Microsoft.Insights*. In molti casi è registrato automaticamente (vale a dire, dopo aver configurato una regola di avviso, personalizzare le impostazioni di diagnostica per qualsiasi risorsa o configurare una regola di scalabilità automatica). Se il provider di risorse Microsoft. Insights non è registrato, è necessario registrarlo manualmente attenendosi alla procedura descritta in [tipi e provider di risorse di Azure](../../azure-resource-manager/resource-manager-supported-services.md).
 
-**Soluzione:** Aprire **abbonamenti**, **provider di risorse** scheda e verificare che *Microsoft. Insights* è registrato per la sottoscrizione.
+**Soluzione:** Aprire **sottoscrizioni**, scheda **provider di risorse** e verificare che *Microsoft. Insights* sia registrato per la sottoscrizione.
 
-### <a name="you-dont-have-sufficient-access-rights-to-your-resource"></a>Non hai accesso sufficienti per la risorsa
+### <a name="you-dont-have-sufficient-access-rights-to-your-resource"></a>Non si dispone di diritti di accesso sufficienti per la risorsa
 
-In Azure, l'accesso alle metriche è controllato dalle [controllo di accesso basato sui ruoli (RBAC)](../../role-based-access-control/overview.md). È necessario essere un membro del [lettore di monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-reader), [collaboratore al monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-contributor), o [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) per esplorare le metriche per qualsiasi risorsa.
+In Azure l'accesso alle metriche è controllato dal [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md). Per esplorare le metriche per qualsiasi risorsa, è necessario disporre del ruolo di [lettore di monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-reader), [collaboratore al monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-contributor) o [collaboratore](../../role-based-access-control/built-in-roles.md#contributor).
 
-**Soluzione:** Assicurarsi di avere autorizzazioni sufficienti per la risorsa da cui si Esplora metriche.
+**Soluzione:** Assicurarsi di disporre di autorizzazioni sufficienti per la risorsa da cui si esplorano le metriche.
 
-### <a name="your-resource-didnt-emit-metrics-during-the-selected-time-range"></a>La risorsa non generano metriche durante l'intervallo di tempo selezionato
+### <a name="your-resource-didnt-emit-metrics-during-the-selected-time-range"></a>La risorsa non ha emesso alcuna metrica durante l'intervallo di tempo selezionato
 
-Alcune risorse non generano costantemente le metriche. Ad esempio, Azure non raccoglie le metriche per macchine virtuali arrestate. Altre risorse possono trasmettere le metriche solo quando si verifica una condizione. Ad esempio, una metrica che mostra il tempo di elaborazione di una transazione richiede almeno una transazione. Se non esistesse alcuna transazione nell'intervallo di tempo selezionato, il grafico naturalmente sarà vuoto. Inoltre, la maggior parte delle metriche in Azure vengono raccolti ogni minuto, esistono alcune che vengono raccolti meno frequentemente. Vedere la documentazione delle metriche per ottenere altri dettagli sulla misura metrica che si sta tentando di esplorazione.
+Alcune risorse non generano costantemente metriche. Ad esempio, Azure non raccoglie metriche per le macchine virtuali arrestate. Altre risorse potrebbero generare metriche solo in presenza di determinate condizioni. Ad esempio, una metrica che mostra il tempo di elaborazione di una transazione richiede almeno una transazione. Se nell'intervallo di tempo selezionato non ci fossero transazioni, naturalmente il grafico sarebbe vuoto. Inoltre, mentre la maggior parte delle metriche in Azure viene raccolta ogni minuto, altre metriche vengono raccolte con frequenza inferiore. Per maggiori dettagli sulla metrica che si sta cercando di esplorare, vedere la documentazione sulle metriche.
 
-**Soluzione:** Modifica del tempo del grafico per una gamma più ampia. È possibile avviare "Ultimi 30 giorni" usando una maggiore granularità temporale (o basarsi sull'opzione "granularità ora automatica").
+**Soluzione:** Modificare il tempo di una metrica specificando un intervallo più ampio. È possibile iniziare da "ultimi 30 giorni" utilizzando una granularità temporale maggiore (o basandosi sull'opzione "granularità automatica ora").
 
-### <a name="you-picked-a-time-range-greater-than-30-days"></a>Si è scelto un intervallo di tempo maggiore di 30 giorni
+### <a name="you-picked-a-time-range-greater-than-30-days"></a>È stato selezionato un intervallo di tempo maggiore di 30 giorni
 
-[La maggior parte delle metriche in Azure vengono archiviate per 93 giorni](data-platform-metrics.md#retention-of-metrics). Tuttavia, è possibile solo eseguire una query per non più di 30 giorni di dati in ogni singolo grafico. Questa limitazione non si applica a [le metriche basate su log](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
+[La maggior parte delle metriche in Azure viene conservata per 93 giorni](data-platform-metrics.md#retention-of-metrics). Tuttavia, è possibile eseguire query solo per un massimo di 30 giorni di dati per ogni singolo grafico. Questa limitazione non si applica alle [metriche basate su log](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
-**Soluzione:** Se viene visualizzato un grafico vuoto o il grafico visualizza solo una parte dei dati delle metriche, verificare che la differenza tra a e fine-date di inizio nella casella di selezione di tempo non supera l'intervallo di 30 giorni.
+**Soluzione:** Se viene visualizzato un grafico vuoto o il grafico Visualizza solo una parte dei dati della metrica, verificare che la differenza tra le date di inizio e di fine nella selezione ora non superi l'intervallo di 30 giorni.
 
-### <a name="all-metric-values-were-outside-of-the-locked-y-axis-range"></a>Sono stati tutti i valori delle metriche di fuori dell'intervallo dell'asse y bloccato
+### <a name="all-metric-values-were-outside-of-the-locked-y-axis-range"></a>Tutti i valori delle metriche non erano compresi nell'intervallo di asse y bloccato
 
-Dal [bloccare i limiti dell'asse y del grafico](metrics-charts.md#lock-boundaries-of-chart-y-axis), è possibile involontariamente rendere l'area di visualizzazione grafico non mostra la linea del grafico. Ad esempio, se l'asse y è bloccato su un intervallo compreso tra 0% e il 50% e la metrica ha un valore costante del 100%, la riga viene sempre eseguita all'esterno dell'area visibile, rendere il grafico visualizzato vuoto.
+[Bloccando i limiti dell'asse y del grafico](metrics-charts.md#lock-boundaries-of-chart-y-axis), è possibile impedire involontariamente all'area di visualizzazione dei grafici di mostrare la linea del grafico. Ad esempio, se l'asse y è bloccato su un intervallo compreso tra 0% e 50% e le metriche hanno un valore costante del 100%, il rendering della linea viene sempre eseguito fuori dall'area visibile, facendo apparire vuoto il grafico.
 
-**Soluzione:** Verificare che i limiti dell'asse y del grafico non vengono bloccati compreso nell'intervallo dei valori della metrica. Se i limiti dell'asse y sono bloccati, è possibile reimpostare temporaneamente in modo da garantire che la metrica di valori non rientrano nell'intervallo del grafico. Blocco dell'intervallo dell'asse y non è consigliato con granularità automatica per i grafici con **somma**, **min**, e **max** delle aggregazioni perché i relativi valori vengono modificati con granularità ridimensionamento finestra del browser o passando dalla risoluzione dello uno schermo a altro. Commutazione granularità potrebbe lasciare l'area di visualizzazione dei valori vuoti grafico.
+**Soluzione:** Verificare che i limiti dell'asse y del grafico non siano bloccati al di fuori dell'intervallo di valori delle metriche. Se i limiti dell'asse y sono bloccati, è possibile reimpostarli temporaneamente per garantire che i valori delle metriche non siano al di fuori dell'intervallo del grafico. È sconsigliabile bloccare l'intervallo dell'asse y con granularità automatica per i grafici con aggregazione **sum**, **min** e **max** perché i valori cambiano con granularità ridimensionando la finestra del browser o cambiando risoluzione dello schermo. Con la modifica della granularità, l'area visualizzata del grafico potrebbe restare vuota.
 
-### <a name="you-are-looking-at-a-guest-os-metric-but-didnt-enable-azure-diagnostic-extension"></a>Si sta esaminando una metrica del sistema operativo Guest, ma non abilitarla l'estensione diagnostica di Azure
+### <a name="you-are-looking-at-a-guest-os-metric-but-didnt-enable-azure-diagnostic-extension"></a>Si sta osservando una metrica del sistema operativo guest ma non è stata abilitata l'estensione diagnostica di Azure
 
-Raccolta di **del sistema operativo Guest** metriche richiedono la configurazione dell'estensione di diagnostica di Azure o l'abilitazione tramite il **le impostazioni di diagnostica** pannello per la risorsa.
+La raccolta delle metriche del **sistema operativo guest** richiede la configurazione dell'estensione Diagnostica di Azure o la sua abilitazione tramite il pannello **Impostazioni di diagnostica** della risorsa.
 
-**Soluzione:** Se è abilitata l'estensione diagnostica di Azure, ma non si riesce ancora a visualizzare le metriche, attenersi alla procedura illustrata nel [Guida alla risoluzione dei problemi di estensione diagnostica di Azure](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Vedere anche la risoluzione dei problemi per [non è possibile scegliere lo spazio dei nomi del sistema operativo Guest e le metriche](metrics-troubleshoot.md#cannot-pick-guest-os-namespace-and-metrics)
+**Soluzione:** Se l'estensione Diagnostica di Azure è abilitata ma non è ancora possibile visualizzare le metriche, seguire la procedura descritta nella [guida alla risoluzione dei problemi dell'estensione Diagnostica di Azure](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Vedere anche la procedura di risoluzione dei problemi per [non è possibile selezionare le metriche e lo spazio dei nomi del sistema operativo](metrics-troubleshoot.md#cannot-pick-guest-os-namespace-and-metrics)
 
-## <a name="error-retrieving-data-message-on-dashboard"></a>Messaggio "Errore durante il recupero dei dati" nel dashboard
+## <a name="error-retrieving-data-message-on-dashboard"></a>Messaggio "errore durante il recupero dei dati" nel dashboard
 
-Questo problema può verificarsi quando il dashboard è stato creato con una metrica che è stata deprecata e rimosso da Azure in un secondo momento. Per verificare che sia il caso, aprire il **metriche** scheda della finestra di risorse e controllare la metrica disponibile nel selettore di metrica. Se non viene visualizzata la metrica, la metrica è stato rimosso da Azure. In genere, quando una metrica è deprecata, si verifica una migliore nuova metrica che offre una prospettiva simile sull'integrità delle risorse.
+Questo problema può verificarsi quando il dashboard è stato creato con una metrica deprecata e rimossa da Azure in un secondo momento. Per verificare se sia questo il caso, aprire la scheda **Metriche** della risorsa e controllare la metrica disponibile nel selettore di metrica. Se la metrica non viene visualizzata, allora è stata rimossa da Azure. In genere, quando una metrica è deprecata, è disponibile una nuova metrica migliore che offre una prospettiva simile sull'integrità delle risorse.
 
-**Soluzione:** Aggiornare il riquadro dell'errore selezionando una metrica alternativa per il grafico nel dashboard. È possibile [esaminare l'elenco delle metriche disponibili per servizi di Azure](metrics-supported.md).
+**Soluzione:** Aggiornare il riquadro con l'errore selezionando una metrica alternativa per il grafico nel dashboard. È possibile [consultare un elenco di metriche disponibili per i servizi di Azure](metrics-supported.md).
 
-## <a name="chart-shows-dashed-line"></a>Grafico Mostra linea tratteggiata
+## <a name="chart-shows-dashed-line"></a>Grafico che mostra la linea tratteggiata
 
-I grafici delle metriche di Azure usano lo stile di linea tratteggiata per indicare che è presente un valore mancante (noto anche come "valore null") tra l'intervallo di tempo noto due punti dati. Ad esempio, se nel selettore di tempo scelto granularità temporale "minuto", ma la metrica è stata segnalata in 07:26, 07:27, 07:29 e 07:30 (tenere presente un gap tra i punti dati secondo e terzo al minuto), una linea tratteggiata si connetterà 07:27 e 07:29 e una linea a tinta unita si connetterà tutti gli altri punti dati. Elimina la linea tratteggiata fino a zero quando si usa la metrica **conteggio** e **somma** aggregazione. Per il **avg**, **min** oppure **max** aggregazioni, la linea tratteggiata connette due punti dati noti più vicini. Inoltre, quando mancano i dati sul lato all'estrema destra o a sinistra del grafico, la linea tratteggiata si espande alla direzione del punto dati mancanti.
-  ![immagine di metrica](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
+I grafici delle metriche di Azure usano lo stile di linea tratteggiata per indicare che è presente un valore mancante (noto anche come "valore null") tra due punti dati del tempo noto. Se, ad esempio, nel selettore di tempo è stata selezionata la granularità dell'ora "1 minuto" ma la metrica è stata segnalata a 07:26, 07:27, 07:29 e 07:30 (si noti un gap di minuti tra il secondo e il terzo punto dati), una linea tratteggiata connetterà 07:27 e 07:29 e una linea continua verrà connessa tutti gli altri punti dati. La linea tratteggiata scende verso il basso fino a zero quando la metrica usa l'aggregazione **count** e **Sum** . Per le aggregazioni **AVG**, **min** o **Max** , la linea tratteggiata connette due punti dati noti più vicini. Inoltre, quando mancano i dati sul lato all'estrema destra o sinistra del grafico, la linea tratteggiata si espande nella direzione dei punti dati mancanti.
+  immagine ![metric @ no__t-1
 
-**Soluzione:** Questo comportamento dipende dalla progettazione. È utile per identificare i punti dati mancanti. Il grafico a linee è una scelta eccellente per la visualizzazione delle tendenze di metriche ad alta densità, ma potrà essere difficile da interpretare le metriche con valori di tipo sparse, soprattutto quando corelating valori con intervallo di tempo è importante. La linea tratteggiata rende più facile la lettura di questi grafici, ma se il grafico è ancora poco chiaro, prendere in considerazione le metriche vengono osservate con un tipo di grafico diversi. Ad esempio, un grafico sparsi per la stessa metrica mostra chiaramente ogni intervallo di tempo da solo visualizzazione quando è previsto un valore di un punto e ignorando i dati punto completamente quando il valore è mancano: ![immagine di metrica](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
+**Soluzione:** Questo comportamento dipende dalla progettazione. È utile per identificare i punti dati mancanti. Il grafico a linee rappresenta una scelta superiore per la visualizzazione delle tendenze delle metriche ad alta densità, ma può essere difficile da interpretare per le metriche con valori di tipo sparse, soprattutto quando i valori con granularità temporale sono importanti. La linea tratteggiata rende più facile la lettura di questi grafici. Tuttavia, se il grafico è ancora poco chiaro, valutare l'uso di un tipo di grafico diverso per visualizzare le metriche. Un grafico tracciato sparse per la stessa metrica, ad esempio, mostra chiaramente ogni granularità visualizzando un punto solo quando è presente un valore e ignorando completamente il punto dati quando manca il valore: ![metric image @ no__t-1
 
    > [!NOTE]
    > Se si preferisce comunque un grafico a linee per la metrica, lo spostamento del mouse sul grafico può aiutare a valutare la granularità temporale evidenziando il punto dati in corrispondenza della posizione del puntatore del mouse.
 
-## <a name="chart-shows-unexpected-drop-in-values"></a>Grafico mostra drop imprevisto nei valori
+## <a name="chart-shows-unexpected-drop-in-values"></a>Il grafico mostra una riduzione imprevista dei valori
 
-In molti casi, l'eliminazione percepito nei valori delle metriche è errata interpretazione dei dati visualizzati nel grafico. È possibile porti a conclusioni fuorvianti da un calo di somme o conteggi quando nel grafico verranno visualizzati gli ultimi minuti perché l'ultimo punto dati delle metriche non è stato ricevuto o elaborato da Azure ancora. A seconda del servizio, la latenza delle metriche di elaborazione può essere nell'intervallo di due minuti. Per grafici che mostrano un intervallo di tempo recente con una granularità di-1 o 5 minuti, diventa più evidente un calo del valore in base agli ultimi minuti: ![immagine di metrica](./media/metrics-troubleshoot/drop-in-values.png)
+In molti casi, il calo percepito nei valori delle metriche deriva da un'errata interpretazione dei dati visualizzati nel grafico. È possibile giungere a conclusioni fuorvianti da un calo delle somme o dei conteggi quando nel grafico vengono visualizzati gli ultimi minuti perché gli ultimi punti dati delle metriche non sono stati ancora ricevuti o elaborati da Azure. A seconda del servizio, la latenza delle metriche di elaborazione può essere compresa in un intervallo di due minuti. Per i grafici che mostrano un intervallo di tempo recente con una granularità di 1 o 5 minuti, un calo del valore negli ultimi minuti diventa più evidente: ![metric image @ no__t-1
 
-**Soluzione:** Questo comportamento dipende dalla progettazione. Microsoft ritiene che la visualizzazione di dati, non appena si riceverla è utile anche quando i dati siano *parziali* oppure *incompleto*. In questo modo consente di apportare importanti conclusioni più rapidamente e avvia indagine sin da subito. Ad esempio, per una metrica che mostra il numero di errori, visualizzare un valore parziale X indica che non vi sono almeno X errori in un minuto specificato. È possibile iniziare l'analisi del problema sin da subito, anziché attendere per ottenere il conteggio esatto di errori che si sono verificati in questo minuto, che potrebbe non essere importante. Il grafico verrà aggiornato una volta che viene visualizzato l'intero set di dati, ma in quel momento, potrebbe essere visualizzato anche nuovi punti dati incompleti da minuti più recenti.
+**Soluzione:** Questo comportamento dipende dalla progettazione. Microsoft ritiene che la visualizzazione dei dati appena ricevuti sia utile anche quando i dati sono *parziali* o *incompleti*. In questo modo è possibile giungere a importanti conclusioni più rapidamente e avviare eventuali indagini sin da subito. Ad esempio, per una metrica che mostra il numero di errori, visualizzare un valore parziale X indica che si sono verificati almeno X errori in un minuto specificato. È possibile iniziare l'analisi del problema sin da subito, anziché attendere il conteggio esatto degli errori che si sono verificati in questo minuto, che potrebbe non essere importante. Il grafico verrà aggiornato una volta ricevuto l'intero set di dati, ma in quel momento potrebbe mostrare anche nuovi punti dati incompleti di minuti più recenti.
 
-## <a name="cannot-pick-guest-os-namespace-and-metrics"></a>Non è possibile scegliere le metriche e dello spazio dei nomi del sistema operativo Guest
+## <a name="cannot-pick-guest-os-namespace-and-metrics"></a>Impossibile selezionare lo spazio dei nomi e le metriche del sistema operativo guest
 
-Le macchine virtuali e set di scalabilità di macchine virtuali sono due categorie di metriche: **Host macchina virtuale** le metriche che vengono raccolti dall'ambiente di hosting di Azure, e **del sistema operativo Guest** metriche che vengono raccolte per il [agente di monitoraggio](agents-overview.md) in esecuzione nelle macchine virtuali. Si installa l'agente di monitoraggio abilitando [estensione di diagnostica di Azure](diagnostics-extension-overview.md).
+Macchine virtuali e set di scalabilità di macchine virtuali dispongono di due categorie di metriche: Metriche **host della macchina virtuale** raccolte dall'ambiente di hosting di Azure e metriche **del sistema operativo guest (classiche)** raccolte dall'agente di [monitoraggio](agents-overview.md) in esecuzione nelle macchine virtuali. Installare l'agente di monitoraggio abilitando l'[estensione di diagnostica di Azure](diagnostics-extension-overview.md).
 
-Per impostazione predefinita, le metriche del sistema operativo Guest vengono archiviate nell'account di archiviazione di Azure, quali è scegliere tra i **le impostazioni di diagnostica** scheda della risorsa. Se non vengono raccolte le metriche del sistema operativo Guest o Esplora metriche non può accedervi, viene visualizzata solo il **Host macchina virtuale** dello spazio dei nomi delle metriche:
+Per impostazione predefinita, le metriche del sistema operativo Guest vengono archiviate nell'account di archiviazione di Azure, scelto nella scheda **Impostazioni di diagnostica** della risorsa. Se le metriche del sistema operativo Guest non vengono raccolte oppure Esplora metriche non può accedervi, viene visualizzato solo lo spazio dei nomi delle metriche per l'**host della macchina virtuale**:
 
 ![Immagine di metrica](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
 
-**Soluzione:** Se non viene visualizzata **sistemi operativi Guest** dello spazio dei nomi e le metriche in Esplora metriche:
+**Soluzione:** Se lo spazio dei nomi e le metriche **del sistema operativo guest (classico)** non sono visualizzati in Esplora metriche:
 
-1. Verificare che [estensione di diagnostica di Azure](diagnostics-extension-overview.md) sia abilitato e configurato per raccogliere le metriche.
+1. Verificare che l'[Estensione di diagnostica di Azure](diagnostics-extension-overview.md) sia abilitata e configurata per raccogliere le metriche.
     > [!WARNING]
-    > Non è possibile usare [agente di Log Analitica](agents-overview.md#log-analytics-agent) (detto anche il Microsoft Monitoring Agent, o "MMA") per inviare **del sistema operativo Guest** in un account di archiviazione.
+    > Non è possibile usare l'[agente di Log Analytics](agents-overview.md#log-analytics-agent) (noto anche come Microsoft Monitoring Agent, o "MMA") per inviare il **sistema operativo Guest** in un account di archiviazione.
 
-1. Verificare che l'account di archiviazione non è protetto dal firewall.
+1. Verificare che il provider di risorse **Microsoft. Insights** sia [registrato per la sottoscrizione](metrics-troubleshoot.md#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 
-1. Usare la [Esplora archivi Azure](https://azure.microsoft.com/features/storage-explorer/) per convalidare che le metriche vengano trasmessi nell'account di archiviazione. Se non vengono raccolte le metriche, seguire le [Guida alla risoluzione dei problemi di estensione diagnostica di Azure](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
+1. Verificare che l'account di archiviazione non sia protetto dal firewall. Portale di Azure necessario l'accesso all'account di archiviazione per recuperare i dati di metrica e tracciare i grafici.
+
+1. Usare lo [strumento di esplorazione dell'archiviazione di Azure](https://azure.microsoft.com/features/storage-explorer/) per accertarsi che le metriche vengano trasmesse nell'account di archiviazione. Se le metriche non vengono raccolte, seguire le [Guida alla risoluzione dei problemi dell'estensione Diagnostica di Azure](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni sulle operazioni iniziali con Esplora metriche](metrics-getting-started.md)
+* [Informazioni su come iniziare a usare Esplora metriche](metrics-getting-started.md)
 * [Informazioni sulle funzionalità avanzate di Esplora metriche](metrics-charts.md)
-* [Visualizzare un elenco delle metriche disponibili per servizi di Azure](metrics-supported.md)
-* [Vedere esempi grafici configurati](metric-chart-samples.md)
+* [Elenco di metriche disponibili per i servizi di Azure](metrics-supported.md)
+* [Esempi di grafici configurati](metric-chart-samples.md)

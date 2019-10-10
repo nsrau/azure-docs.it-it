@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 8e00053d5ce7c481b026d2fe0ce590d7b8799d8a
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: ff4367194f06a8a6895c9c16252b01c3b94995d3
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075445"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241249"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Anteprima: creare un contenitore di Windows Server in un cluster Azure Kubernetes Service (AKS) usando l'interfaccia della riga di comando di Azure
 
@@ -69,7 +69,7 @@ Sono necessari alcuni minuti per il completamento della registrazione. Verificar
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando lo stato di registrazione `Registered`è, premere CTRL + C per arrestare il monitoraggio dello stato.  Aggiornare quindi la registrazione del provider di risorse *Microsoft. servizio contenitore* usando il comando [AZ provider Register][az-provider-register] :
+Quando lo stato di registrazione è `Registered`, premere CTRL + C per arrestare il monitoraggio dello stato.  Aggiornare quindi la registrazione del provider di risorse *Microsoft. servizio contenitore* usando il comando [AZ provider Register][az-provider-register] :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -141,7 +141,7 @@ az aks create \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
-    --vm-set-type VirtualMachineScaleSets \
+    --enable-vmss \
     --network-plugin azure
 ```
 
@@ -153,7 +153,7 @@ Il comando viene completato dopo pochi minuti e vengono restituite informazioni 
 
 ## <a name="add-a-windows-server-node-pool"></a>Aggiungere un pool di nodi di Windows Server
 
-Per impostazione predefinita, un cluster AKS viene creato con un pool di nodi che può eseguire contenitori Linux. Usare `az aks nodepool add` il comando per aggiungere un pool di nodi aggiuntivo che può eseguire i contenitori di Windows Server.
+Per impostazione predefinita, un cluster AKS viene creato con un pool di nodi che può eseguire contenitori Linux. Usare il comando `az aks nodepool add` per aggiungere un pool di nodi aggiuntivo che può eseguire i contenitori di Windows Server.
 
 ```azurecli
 az aks nodepool add \
@@ -165,7 +165,7 @@ az aks nodepool add \
     --kubernetes-version 1.14.6
 ```
 
-Il comando precedente crea un nuovo pool di nodi denominato *npwin* e lo aggiunge al *myAKSCluster*. Quando si crea un pool di nodi per l'esecuzione di contenitori di Windows Server, il valore predefinito per *node-VM-size* è *Standard_D2s_v3*. Se si sceglie di impostare il parametro *node-VM-size* , controllare l'elenco delle [dimensioni delle macchine virtuali limitate][restricted-vm-sizes]. La dimensione minima consigliata è *Standard_D2s_v3*. Il comando precedente usa anche la subnet predefinita nel VNET predefinito creato durante l'esecuzione `az aks create`di.
+Il comando precedente crea un nuovo pool di nodi denominato *npwin* e lo aggiunge al *myAKSCluster*. Quando si crea un pool di nodi per l'esecuzione di contenitori di Windows Server, il valore predefinito per *node-VM-size* è *Standard_D2s_v3*. Se si sceglie di impostare il parametro *node-VM-size* , controllare l'elenco delle [dimensioni delle macchine virtuali limitate][restricted-vm-sizes]. La dimensione minima consigliata è *Standard_D2s_v3*. Il comando precedente usa anche la subnet predefinita nel VNET predefinito creato durante l'esecuzione di `az aks create`.
 
 ## <a name="connect-to-the-cluster"></a>Connettersi al cluster
 
@@ -195,7 +195,7 @@ aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.6
 aksnpwin987654                      Ready    agent   108s   v1.14.6
 ```
 
-## <a name="run-the-application"></a>Esecuzione dell'applicazione
+## <a name="run-the-application"></a>Eseguire l'applicazione
 
 Un file manifesto di Kubernetes definisce uno stato desiderato per il cluster, ad esempio le immagini del contenitore da eseguire. In questo articolo viene usato un manifesto per creare tutti gli oggetti necessari per eseguire l'applicazione di esempio ASP.NET in un contenitore di Windows Server. Questo manifesto include una [distribuzione Kubernetes][kubernetes-deployment] per l'applicazione di esempio ASP.NET e un [servizio Kubernetes][kubernetes-service] esterno per accedere all'applicazione da Internet.
 
@@ -262,7 +262,7 @@ deployment.apps/sample created
 service/sample created
 ```
 
-## <a name="test-the-application"></a>Testare l'applicazione
+## <a name="test-the-application"></a>Test dell'applicazione
 
 Durante l'esecuzione dell'applicazione, un servizio Kubernetes espone il front-end dell'applicazione a Internet. Il processo potrebbe richiedere alcuni minuti. Occasionalmente, il provisioning del servizio può richiedere più di pochi minuti. In questi casi è consentito un massimo di 10 minuti.
 
@@ -289,7 +289,7 @@ Per visualizzare l'app di esempio in azione, aprire un Web browser per l'indiriz
 
 ![Immagine di esplorazione dell'applicazione di esempio ASP.NET](media/windows-container/asp-net-sample-app.png)
 
-## <a name="delete-cluster"></a>Elimina il cluster
+## <a name="delete-cluster"></a>Eliminare il cluster
 
 Quando il cluster non è più necessario, usare il comando [az group delete][az-group-delete] per rimuovere il gruppo di risorse, il servizio contenitore e tutte le risorse correlate.
 

@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.author: v-erkell
-ms.openlocfilehash: be9205fdf7fec0661d7382ed0d1bedf47487b15e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: bcdba7f14147714c5e29c13bfe9e20fa44a27ef9
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409739"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256198"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gestire il cluster Avere vFXT
 
@@ -98,7 +98,7 @@ Specificare i valori seguenti:
 * Nome del gruppo di risorse per il cluster, oltre che per le risorse di rete e di archiviazione se non coincidono con il cluster
 * Percorso del cluster
 * Rete e subnet del cluster 
-* Ruolo di accesso del nodo cluster (usare il ruolo predefinito [operatore Avere](../role-based-access-control/built-in-roles.md#avere-operator))
+* Ruolo di accesso ai nodi del cluster (usare l' [operatore](../role-based-access-control/built-in-roles.md#avere-operator)Role haveing predefinito)
 * Indirizzo IP e password amministrativa per la gestione del cluster 
 * Numero di nodi da aggiungere (1, 2 o 3)
 * Tipo di istanza dei nodi e valori delle dimensioni della cache 
@@ -187,7 +187,7 @@ Scegliere il pulsante **Elimina** nella parte superiore della pagina di panorami
 
 ### <a name="delete-additional-cluster-resources-from-the-azure-portal"></a>Eliminare le risorse aggiuntive del cluster dal portale di Azure
 
-Se sono state create risorse aggiuntive espressamente per il cluster vFXT, potrebbe essere necessario rimuoverle nell'ambito del processo di eliminazione definitiva del cluster. Elimina definitivamente gli elementi che contengono dati che ti servono, o tutti gli elementi che vengono condivisi con altri progetti.
+Se sono state create risorse aggiuntive espressamente per il cluster vFXT, potrebbe essere necessario rimuoverle nell'ambito del processo di eliminazione definitiva del cluster. Non eliminare definitivamente gli elementi che contengono i dati necessari o tutti gli elementi condivisi con altri progetti.
 
 Oltre a eliminare i nodi del cluster, considerare di rimuovere questi componenti: 
 

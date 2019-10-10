@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 7c163dd48e53a3116d58cb94988f2822ddede5e5
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 24c7f6c1488d7a78a16aafef88177f7045eb2492
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169131"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244646"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Panoramica dell'agente di macchine virtuali di Azure
 L'agente di macchine virtuali di Microsoft Azure è un processo protetto e leggero che gestisce l'interazione delle macchine virtuali con il controller di infrastruttura di Azure. L'agente di macchine virtuali svolge un ruolo primario per l'abilitazione e l'esecuzione delle estensioni macchina virtuale di Azure. Le estensioni macchina virtuale rendono possibile la configurazione post-distribuzione della macchina virtuale, ad esempio l'installazione e la configurazione di software. Le estensioni macchina virtuale abilitano anche funzionalità di ripristino, ad esempio la reimpostazione della password amministrativa di una macchina virtuale. Senza l'agente di macchine virtuali di Azure, le estensioni macchina virtuale non possono essere eseguite.
@@ -68,7 +68,7 @@ msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /q
 ```
 
 ### <a name="prerequisites"></a>Prerequisiti
-Per eseguire l'agente di macchine virtuali Windows, è necessario almeno Windows Server 2008 R2 (64-bits) con .NET Framework 4,0.
+Per eseguire l'agente di macchine virtuali Windows, è necessario almeno Windows Server 2008 R2 (64-bits) con .NET Framework 4,0. Vedere [supporto della versione minima per gli agenti di macchine virtuali in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
 
 ## <a name="detect-the-vm-agent"></a>Rilevare l'agente di macchine virtuali
 
@@ -110,6 +110,8 @@ Quando è connesso a una macchina virtuale di Windows, è possibile usare Gestio
 ## <a name="upgrade-the-vm-agent"></a>Aggiornare l'agente di macchine virtuali
 L'agente di macchine virtuali di Azure per Windows viene aggiornato automaticamente. In quanto nuove macchine virtuali distribuite in Azure, ricevono la versione più recente dell'agente di macchine virtuali al momento del provisioning della macchina virtuale. Le immagini delle macchine virtuali personalizzate devono essere aggiornate manualmente per includere il nuovo agente di macchine virtuali al momento della creazione dell'immagine.
 
+## <a name="windows-guest-agent-automatic-logs-collection"></a>Raccolta automatica dei log dell'agente guest di Windows
+L'agente guest di Windows ha una funzionalità che consente di raccogliere automaticamente alcuni log. Questa funzionalità è controller dal processo CollectGuestLogs. exe. Esiste sia per i servizi cloud PaaS che per le macchine virtuali IaaS e il suo obiettivo è quello di & rapidamente raccogliere automaticamente alcuni log di diagnostica da una macchina virtuale, in modo che possano essere usati per l'analisi offline. I log raccolti sono i registri eventi, i log del sistema operativo, i log di Azure e alcune chiavi del registro di sistema. Produce un file ZIP che viene trasferito nell'host della macchina virtuale. Questo file ZIP può quindi essere esaminato dai team di progettazione e dai professionisti del supporto tecnico per esaminare i problemi relativi alla richiesta del cliente proprietario della macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle estensioni macchina virtuale, vedere [Azure virtual machine extensions and features overview](overview.md) (Panoramica delle funzionalità e delle estensioni macchina virtuale di Azure).

@@ -8,12 +8,12 @@ ms.date: 07/25/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 8a96c5b2d39967c8ee82f48e880bac9270a58c36
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 3843eb2e906e3fb8d390e509e17117b7849ac220
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844795"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244707"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi relativi a AzCopy
 
@@ -28,11 +28,11 @@ AzCopy è un'utilità da riga di comando che è possibile usare per copiare i BL
 
 ## <a name="configure-proxy-settings"></a>Configurare le impostazioni proxy
 
-Per configurare le impostazioni proxy per AzCopy, impostare la `https_proxy` variabile di ambiente. Se si esegue AzCopy in Windows, AzCopy rileva automaticamente le impostazioni proxy, quindi non è necessario usare questa impostazione in Windows. Se si sceglie di usare questa impostazione in Windows, eseguirà l'override del rilevamento automatico.
+Per configurare le impostazioni proxy per AzCopy, impostare la variabile di ambiente `https_proxy`. Se si esegue AzCopy in Windows, AzCopy rileva automaticamente le impostazioni proxy, quindi non è necessario usare questa impostazione in Windows. Se si sceglie di usare questa impostazione in Windows, eseguirà l'override del rilevamento automatico.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
-| **Windows** | In un prompt dei comandi usare:`set https_proxy=<proxy IP>:<proxy port>`<br> In PowerShell usare:`$env:https_proxy="<proxy IP>:<proxy port>"`|
+| **Windows** | In un prompt dei comandi usare: `set https_proxy=<proxy IP>:<proxy port>`<br> In PowerShell usare: `$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
 | **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
@@ -40,13 +40,13 @@ Attualmente, AzCopy non supporta i proxy che richiedono l'autenticazione con NTL
 
 ## <a name="optimize-throughput"></a>Ottimizzare la velocità effettiva
 
-È possibile utilizzare il `cap-mbps` flag per inserire un limite massimo sulla velocità di dati della velocità effettiva. Ad esempio, il comando seguente consente di riportare la velocità effettiva a `10` megabit (MB) al secondo.
+È possibile utilizzare il flag `cap-mbps` per inserire un limite massimo sulla velocità di dati della velocità effettiva. Ad esempio, il comando seguente consente di riportare la velocità effettiva a `10` megabit (MB) al secondo.
 
 ```azcopy
 azcopy cap-mbps 10
 ```
 
-La velocità effettiva può ridursi durante il trasferimento di file di piccole dimensioni. È possibile aumentare la velocità effettiva impostando la `AZCOPY_CONCURRENCY_VALUE` variabile di ambiente. Questa variabile specifica il numero di richieste simultanee che possono verificarsi.  Se il computer dispone di meno di 5 CPU, il valore di questa variabile è impostato su `32`. In caso contrario, il valore predefinito è pari a 16 moltiplicato per il numero di CPU. Il valore predefinito massimo di questa variabile è `300`, ma è possibile impostare manualmente questo valore su un valore superiore o inferiore.
+La velocità effettiva può ridursi durante il trasferimento di file di piccole dimensioni. È possibile aumentare la velocità effettiva impostando la variabile di ambiente `AZCOPY_CONCURRENCY_VALUE`. Questa variabile specifica il numero di richieste simultanee che possono verificarsi.  Se il computer dispone di meno di 5 CPU, il valore di questa variabile viene impostato su `32`. In caso contrario, il valore predefinito è pari a 16 moltiplicato per il numero di CPU. Il valore predefinito massimo di questa variabile è `300`, ma è possibile impostare manualmente questo valore su un valore superiore o inferiore.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
@@ -54,11 +54,11 @@ La velocità effettiva può ridursi durante il trasferimento di file di piccole 
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **MacOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 
-`azcopy env` Usare per controllare il valore corrente della variabile.  Se il valore è vuoto, la `AZCOPY_CONCURRENCY_VALUE` variabile viene impostata sul `300`valore predefinito.
+Utilizzare `azcopy env` per verificare il valore corrente della variabile.  Se il valore è vuoto, la variabile `AZCOPY_CONCURRENCY_VALUE` viene impostata sul valore predefinito di `300`.
 
 ## <a name="change-the-location-of-the-log-files"></a>Modificare il percorso dei file di log
 
-Per impostazione predefinita, i file di log si `%USERPROFILE\\.azcopy` trovano nella directory di Windows o `$HOME\\.azcopy` nella directory in Mac e Linux. È possibile modificare questo percorso se necessario usando questi comandi.
+Per impostazione predefinita, i file di log si trovano nella directory `%USERPROFILE%\.azcopy` in Windows o nella directory `$HOME\\.azcopy` in Mac e Linux. È possibile modificare questo percorso se necessario usando questi comandi.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
@@ -66,28 +66,28 @@ Per impostazione predefinita, i file di log si `%USERPROFILE\\.azcopy` trovano n
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
 | **MacOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 
-`azcopy env` Usare per controllare il valore corrente della variabile. Se il valore è vuoto, i log vengono scritti nel percorso predefinito.
+Utilizzare `azcopy env` per verificare il valore corrente della variabile. Se il valore è vuoto, i log vengono scritti nel percorso predefinito.
 
 ## <a name="change-the-default-log-level"></a>Modificare il livello predefinito del log
 
-Per impostazione predefinita, il livello di registrazione AzCopy `INFO`è impostato su. Se si desidera ridurre il livello di dettaglio del log per risparmiare spazio su disco, sovrascrivere questa impostazione utilizzando ``--log-level`` l'opzione. 
+Per impostazione predefinita, il livello di registrazione AzCopy è impostato su `INFO`. Se si desidera ridurre il livello di dettaglio del log per risparmiare spazio su disco, sovrascrivere questa impostazione utilizzando l'opzione ``--log-level``. 
 
-I livelli di log disponibili `DEBUG`sono `INFO`: `WARNING`, `ERROR`, `PANIC`,, `FATAL`e.
+I livelli di log disponibili sono: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC` e `FATAL`.
 
 ## <a name="troubleshoot-issues"></a>Risolvere i problemi
 
 AzCopy crea file di log e di piano per ogni processo. È possibile usare i log per analizzare e risolvere eventuali problemi potenziali. 
 
-I log conterranno lo stato di errore (`UPLOADFAILED`, `COPYFAILED`e `DOWNLOADFAILED`), il percorso completo e il motivo dell'errore.
+I log conterranno lo stato di errore (`UPLOADFAILED`, `COPYFAILED` e `DOWNLOADFAILED`), il percorso completo e il motivo dell'errore.
 
-Per impostazione predefinita, i file di log e di piano si `%USERPROFILE\\.azcopy` trovano nella directory di `$HOME\\.azcopy` Windows o nella directory in Mac e Linux.
+Per impostazione predefinita, i file di log e di piano si trovano nella directory `%USERPROFILE\\.azcopy` in Windows o `$HOME\\.azcopy` in Mac e Linux.
 
 > [!IMPORTANT]
 > Quando si invia una richiesta di supporto tecnico Microsoft (o si risolvono i problemi relativi a terze parti), condividere la versione redatta del comando che si desidera eseguire. Ciò garantisce che la firma di accesso condiviso non venga accidentalmente condivisa con nessuno. È possibile trovare la versione con modifiche all'inizio del file di log.
 
 ### <a name="review-the-logs-for-errors"></a>Esaminare i log degli errori
 
-Il comando seguente otterrà tutti gli errori con `UPLOADFAILED` stato `04dc9ca9-158f-7945-5933-564021086c79` dal log:
+Il comando seguente otterrà tutti gli errori con lo stato `UPLOADFAILED` dal registro `04dc9ca9-158f-7945-5933-564021086c79`:
 
 **Windows (PowerShell)**
 

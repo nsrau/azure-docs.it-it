@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: fa5e84ba62896969458b84cf014e2b35ee869df7
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e9e6eff4c527ff2e22be57ebc1eb3dcdb3c4e0ab
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072181"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241988"
 ---
 # <a name="api-management-policy-expressions"></a>Espressioni di criteri di Gestione API
 Questo articolo illustra la sintassi delle espressioni di criteri, che è C# 7. Ogni espressione ha accesso alla variabile [context](api-management-policy-expressions.md#ContextVariables) fornita implicitamente e a un [subset](api-management-policy-expressions.md#CLRTypes) autorizzato di tipi di .NET Framework.
@@ -52,15 +52,16 @@ Le espressioni a più istruzioni sono racchiuse tra `@{expression}`. Tutti i per
 @(context.Variables.ContainsKey("maxAge") ? int.Parse((string)context.Variables["maxAge"]) : 3600)
 
 @{
-  string value;
+  string[] value;
   if (context.Request.Headers.TryGetValue("Authorization", out value))
   {
-    return Encoding.UTF8.GetString(Convert.FromBase64String(value));
+      if(value != null && value.Length > 0)
+      {
+          return Encoding.UTF8.GetString(Convert.FromBase64String(value[0]));
+      }
   }
-  else
-  {
-    return null;
-  }
+  return null;
+
 }
 ```
 
@@ -98,7 +99,7 @@ Nella tabella seguente sono elencati i tipi di .NET Framework e i relativi membr
 |System. Collections. Generic. IDictionary < TKey, TValue >|Tutti|
 |System.Collections.Generic.IEnumerable\<T>|Tutti|
 |System.Collections.Generic.IEnumerator\<T>|Tutti|
-|System. Collections. Generic.\<IList T >|Tutti|
+|System. Collections. Generic. IList @ no__t-0T >|Tutti|
 |System.Collections.Generic.IReadOnlyCollection\<T>|Tutti|
 |System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>|Tutti|
 |System.Collections.Generic.ISet\<T>|Tutti|
@@ -191,7 +192,7 @@ Nella tabella seguente sono elencati i tipi di .NET Framework e i relativi membr
 |System.Xml.Linq.XComment|Tutti|
 |System.Xml.Linq.XContainer|Tutti|
 |System.Xml.Linq.XDeclaration|Tutti|
-|System.Xml.Linq.XDocument|Tutti, ad eccezione di: Carica|
+|System.Xml.Linq.XDocument|Tutti, ad eccezione di: Caricamento|
 |System.Xml.Linq.XDocumentType|Tutti|
 |System.Xml.Linq.XElement|Tutti|
 |System.Xml.Linq.XName|Tutti|
@@ -215,7 +216,7 @@ Una variabile denominata `context` è disponibile in modo implicito in ogni [esp
 |<a id="ref-context-lasterror"></a>context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Per ulteriori informazioni su context.LastError, vedere [Gestione degli errori](api-management-error-handling-policies.md).|
 |<a id="ref-context-operation"></a>contesto. Operazione|Id: string<br /><br /> Method: string<br /><br /> Name: string<br /><br /> UrlTemplate: string|
 |<a id="ref-context-product"></a>context.Product|Apis: IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Groups: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Name: string<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
-|<a id="ref-context-request"></a>context.Request|Corpo: [IMessageBody](#ref-imessagebody) o `null` se la richiesta non dispone di un corpo.<br /><br /> Certificate: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Intestazioni](#ref-context-request-headers): IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> MatchedParameters: IReadOnlyDictionary<string, string><br /><br /> Method: string<br /><br /> OriginalUrl [IUrl](#ref-iurl)<br /><br /> Url: [IUrl](#ref-iurl)|
+|<a id="ref-context-request"></a>context.Request|Corpo: [IMessageBody](#ref-imessagebody) o `null` se la richiesta non contiene un corpo.<br /><br /> Certificate: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Intestazioni](#ref-context-request-headers): IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> MatchedParameters: IReadOnlyDictionary<string, string><br /><br /> Method: string<br /><br /> OriginalUrl [IUrl](#ref-iurl)<br /><br /> Url: [IUrl](#ref-iurl)|
 |<a id="ref-context-request-headers"></a>contesto di stringa. Request. Headers. GetValueOrDefault (HeaderName: String, defaultValue: String)|headerName: string<br /><br /> defaultValue: string<br /><br /> Restituisce valori di intestazione di richiesta separati da virgole oppure `defaultValue` se non viene trovata l'intestazione.|
 |<a id="ref-context-response"></a>context.Response|Corpo: [IMessageBody](#ref-imessagebody)<br /><br /> [Intestazioni](#ref-context-response-headers): IReadOnlyDictionary<string, string[]><br /><br /> StatusCode: int<br /><br /> StatusReason: string|
 |<a id="ref-context-response-headers"></a>contesto di stringa. Response. Headers. GetValueOrDefault (HeaderName: String, defaultValue: String)|headerName: string<br /><br /> defaultValue: string<br /><br /> Restituisce valori di intestazione di risposta separati da virgole oppure `defaultValue` se non viene trovata l'intestazione.|
@@ -228,7 +229,7 @@ Una variabile denominata `context` è disponibile in modo implicito in ogni [esp
 |<a id="ref-iuseridentity"></a>IUserIdentity|Id: string<br /><br /> Provider: string|
 |<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|Header: string<br /><br /> Query: string|
 |<a id="ref-iurl-query"></a>String IUrl. query. GetValueOrDefault (queryParameterName: String, defaultValue: String)|queryParameterName: string<br /><br /> defaultValue: string<br /><br /> Restituisce valori di parametro separati da virgole oppure `defaultValue` se il parametro non viene trovato.|
-|<a id="ref-context-variables"></a>Contesto T. Variables. GetValueOrDefault < T\>(variableName: String, DefaultValue: T)|variableName: string<br /><br /> defaultValue: T<br /><br /> Restituisce il valore della variabile nel tipo `T` oppure `defaultValue` se la variabile non viene trovata.<br /><br /> Questo metodo genera un'eccezione se il tipo specificato non corrisponde al tipo effettivo della variabile restituita.|
+|<a id="ref-context-variables"></a>Contesto T. Variables. GetValueOrDefault < T @ no__t-1 (variableName: String, defaultValue: T)|variableName: string<br /><br /> defaultValue: T<br /><br /> Restituisce il valore della variabile nel tipo `T` oppure `defaultValue` se la variabile non viene trovata.<br /><br /> Questo metodo genera un'eccezione se il tipo specificato non corrisponde al tipo effettivo della variabile restituita.|
 |BasicAuthCredentials AsBasic(input: this string)|input: string<br /><br /> Se il parametro di input contiene un valore di intestazione di richiesta di autorizzazione Autenticazione HTTP di base valido, il metodo restituisce un oggetto di tipo `BasicAuthCredentials`; in caso contrario restituisce un valore null.|
 |bool TryParseBasic(input: this string, result: out BasicAuthCredentials)|input: string<br /><br /> result: out BasicAuthCredentials<br /><br /> Se il parametro di input contiene un valore di autorizzazione Autenticazione HTTP di base valido nell'intestazione della richiesta, il metodo restituisce `true` e il parametro risultante contiene un valore di tipo `BasicAuthCredentials`; in caso contrario, il metodo restituisce `false`.|
 |BasicAuthCredentials|Password: string<br /><br /> UserId: string|

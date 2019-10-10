@@ -1,111 +1,106 @@
 ---
 title: Attività per un singolo collaboratore nel processo di data science per i team
-description: Descrizione delle attività di un singolo collaboratore in un progetto di data science in team.
+description: Procedura dettagliata delle attività per un singolo collaboratore in un progetto team data science.
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 09/24/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6a52907fa6c0e2483479031fbb3d1ad68a121d95
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b64d9669c11f15de5e6bd616ff7a79f59b748363
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61043302"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244284"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Attività per un singolo collaboratore nel processo di data science per i team
 
-Questo argomento illustra le attività che un collaboratore singolo deve completare per il proprio team di data science. L'obiettivo è di stabilire un ambiente di collaborazione per normalizzare il [processo di data science per il team](overview.md) (TDSP, Team Data Science Process). Per una descrizione dei ruoli del personale e delle relative attività associate gestiti da un team di data science, che vengono standardizzati con il processo, vedere [Team Data Science Process roles and tasks](roles-tasks.md) (Ruoli e attività del processo di data science per i team).
+Questo argomento descrive le attività completate da un *singolo collaboratore* per configurare un progetto nel [processo di Data Science](overview.md) per i team (TDSP). L'obiettivo è lavorare in un ambiente collaborativo del team che standardizza la TDSP. Il TDSP è progettato per contribuire a migliorare la collaborazione e l'apprendimento del team. Per una descrizione dei ruoli del personale e delle attività associate gestite da un team data science la standardizzazione di TDSP, vedere [ruoli e attività del processo di Data Science](roles-tasks.md)per i team.
 
-Le attività dei singoli collaboratori al progetto (data scientist) per configurare l'ambiente TDSP per il progetto sono illustrate di seguito: 
+Il diagramma seguente illustra le attività che vengono completate dal progetto di singoli collaboratori (data scientist) per configurare l'ambiente del team. Per istruzioni su come eseguire un progetto data science in TDSP, vedere [esecuzione di progetti di Data Science](project-execution.md). 
 
-![1](./media/project-ic-tasks/project-ic-1-tdsp-data-scientist.png)
+![Singole attività del collaboratore](./media/project-ic-tasks/project-ic-1-tdsp-data-scientist.png)
 
-- **GroupUtilities** è il repository gestito dal gruppo per condividere con l'intero gruppo utilità vantaggiose. 
-- **TeamUtilities** è il repository gestito dal team per il team. 
+- **ProjectRepository** è il repository che il team di progetto gestisce per condividere i modelli di progetto e gli asset.
+- **TeamUtilities** è il repository di utilità che il team gestisce in modo specifico per il team. 
+- **GroupUtilities** è il repository che il gruppo gestisce per condividere utilità utili nell'intero gruppo. 
 
-Per istruzioni su come eseguire un progetto di data science con TDSP, vedere [Execution of Data Science Projects](project-execution.md) (Esecuzione di progetti di data science). 
+> [!NOTE] 
+> Questo articolo usa Azure Repos e una Data Science Virtual Machine (DSVM) per configurare un ambiente TDSP, perché questo è il modo in cui implementare TDSP in Microsoft. Se il team USA altre piattaforme di hosting o sviluppo di codice, le singole attività del collaboratore sono le stesse, ma il modo per completarle può essere diverso.
 
->[AZURE.NOTE] Vengono illustrati i passaggi necessari per configurare un ambiente di collaborazione TDSP usando Azure DevOps nelle istruzioni seguenti. Viene specificato come eseguire queste attività con Azure DevOps dal momento che questa è la modalità di implementazione di TDSP in Microsoft. Se si usa un'altra piattaforma di hosting del codice per il proprio gruppo, le attività che il responsabile del team deve completare di per sé non cambiano, Sarà tuttavia diverso il modo in cui queste attività vengono completate.
+## <a name="prerequisites"></a>Prerequisiti
 
+In questa esercitazione si presuppone che le risorse e le autorizzazioni seguenti siano state configurate dal [responsabile del gruppo](group-manager-tasks.md), dal responsabile del [Team](team-lead-tasks.md)e dal responsabile del [progetto](project-lead-tasks.md):
 
-## <a name="repositories-and-directories"></a>Repository e directory
+- **Organizzazione** DevOps di Azure per l'unità di Data Science
+- Un **repository di progetto** configurato dal responsabile del progetto per condividere i modelli di progetto e gli asset
+- Repository **GroupUtilities** e **TeamUtilities** impostati dal responsabile del gruppo e dal responsabile del team, se applicabile
+- **Archiviazione file** di Azure configurata per le risorse condivise per il team o il progetto, se applicabile
+- **Autorizzazioni** per la clonazione e il push di nuovo nel repository del progetto 
 
-Questa esercitazione usa nomi abbreviati per i repository e le directory. Questi nomi consentono di seguire più facilmente le operazioni tra i repository e le directory. Questa notazione (**R** per i repository Git e **D** per le directory locali nella DSVM) viene usata nelle sezioni seguenti:
+Per clonare i repository e modificare il contenuto nel computer locale o in DSVM o montare archiviazione file di Azure in DSVM, è necessario quanto segue:
 
-- **R2**: il repository GroupUtilities in Git che il manager del gruppo ha configurato nel server del gruppo di Azure DevOps.
-- **R4**: il repository TeamUtilities in Git che il responsabile del team ha configurato.
-- **R5**: il repository Project in Git che è stato configurato dal responsabile del progetto.
-- **D2**: la directory locale clonata da R2.
-- **D4**: la directory locale clonata da R4.
-- **D5**: la directory locale clonata da R5.
+- Una sottoscrizione di Azure.
+- Git installato nel computer. Se si usa un DSVM, Git è preinstallato. In caso contrario, vedere l'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix).
+- Se si vuole usare un DSVM, Windows o Linux DSVM creato e configurato in Azure. Per ulteriori informazioni e istruzioni, vedere la [documentazione Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/).
+- Per un DSVM Windows, [git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) è installato nel computer. Nel file *Readme.MD* scorrere verso il basso fino alla sezione **download and install** e selezionare il **programma di installazione più recente**. Scaricare il programma di installazione con *estensione exe* dalla pagina del programma di installazione ed eseguirlo. 
+- Per un DSVM Linux, viene configurata una chiave pubblica SSH nella DSVM e aggiunta in Azure DevOps. Per ulteriori informazioni e istruzioni, vedere la sezione **create SSH Public Key** nell' [appendice Platforms and Tools](platforms-and-tools.md#appendix). 
+- Informazioni sull'archiviazione file di Azure per qualsiasi archiviazione file di Azure che è necessario montare nella DSVM. 
 
+## <a name="clone-repositories"></a>Clonare i repository
 
-## <a name="step-0-prerequisites"></a>Passaggio 0: Prerequisiti
+Per lavorare con i repository in locale ed effettuare il push delle modifiche al team condiviso e ai repository di progetto, è prima necessario copiare o *clonare* i repository nel computer locale. 
 
-I prerequisiti vengono soddisfatti completando le attività assegnate al responsabile del gruppo delineate in [Attività del responsabile del gruppo per un team di data science](group-manager-tasks.md). Di seguito vengono riepilogati i prerequisiti che è necessario soddisfare prima di iniziare le attività del responsabile del team: 
-- Il responsabile del gruppo ha configurato il repository **GroupUtilities** (se presente). 
-- Il responsabile del team ha configurato il repository **TeamUtilities** (se presente).
-- Il responsabile del progetto ha configurato il repository Project. 
-- Si è stati aggiunti al repository Project dal responsabile del progetto con il privilegio di eseguire la clonazione e il push nel repository Project.
+1. In Azure DevOps, passare alla pagina di riepilogo del progetto del team in *https: \/ @ no__t-2 @ no__t-3Server name >/\<organization name >/\<team nome >* , ad esempio **https: \//dev. Azure. com/DataScienceUnit/team**.
+   
+1. Selezionare **repository nel percorso di spostamento a sinistra** , quindi nella parte superiore della pagina selezionare il repository che si vuole clonare.
+   
+1. Nella pagina Repository selezionare **Clone** in alto a destra.
+   
+1. Nella finestra di dialogo **clona repository** selezionare **https** per una connessione HTTP o **SSH** per una connessione SSH, quindi copiare l'URL clone sotto **riga di comando** negli Appunti.
+   
+   ![Clonare il repository](./media/project-ic-tasks/clone.png)
+   
+1. Nel computer locale o DSVM creare le directory seguenti:
+   
+   - Per Windows: **C:\GitRepos**
+   - Per Linux: **$Home/gitrepos**
+   
+1. Passare alla directory creata.
+   
+1. In git bash eseguire il comando `git clone <clone URL>` per ogni repository che si vuole clonare. 
+   
+   Ad esempio, il comando seguente consente di clonare il repository **TeamUtilities** nella directory del *Team* nel computer locale. 
+   
+   **Connessione HTTPS:**
+   
+   ```bash
+   git clone https://DataScienceUnit@dev.azure.com/DataScienceUnit/MyTeam/_git/TeamUtilities
+   ```
+   
+   **Connessione SSH:**
+   
+   ```bash
+   git clone git@ssh.dev.azure.com:v3/DataScienceUnit/MyTeam/TeamUtilities
+   ```
+   
+1. Verificare che sia possibile visualizzare le cartelle per i repository clonati nella directory del progetto locale.
+   
+   ![Tre cartelle del repository locale](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
 
-Il secondo prerequisito, relativo al repository **TeamUtilities**, è facoltativo, a seconda che il team abbia un repository di utilità specifico del team. Se uno degli altri tre prerequisiti non è stato completato, contattare il responsabile del team, il responsabile del progetto o i delegati per configurarlo seguendo le istruzioni contenute in [Team Lead tasks for a data science team](team-lead-tasks.md) (Attività del responsabile del team per un team di data science) o in [Attività del responsabile di progetto per un team di data science](project-lead-tasks.md).
+## <a name="mount-azure-file-storage-to-your-dsvm"></a>Montare archiviazione file di Azure in DSVM
 
-- Git deve essere installato nel computer. Se si usa una macchina virtuale di data science (DSVM, Data Science Virtual Machine), Git è stato preinstallato ed è possibile iniziare. In caso contrario, vedere l'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix).  
-- Se si usa una **DSVM per Windows**, è necessario avere installato [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) nel computer. Nel file README.md scorrere fino alla sezione **Download and Install** (Download e installazione) e fare clic su *latest installer* (programma di installazione più recente). Si passerà alla pagina del programma di installazione più recente. Scaricare da qui il file con estensione exe del programma di installazione ed eseguirlo. 
-- Se si usa una **DSVM per Linux**, creare una chiave pubblica SSH nella DSVM e aggiungerla al gruppo Azure DevOps Services. Per altre informazioni sul protocollo SSH, vedere la sezione **Creare una chiave pubblica SSH** nell'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix). 
-- Se il responsabile del team e/o del progetto ha creato una risorsa di archiviazione file di Azure che è necessario montare nella DSVM, è consigliabile chiedergli informazioni in proposito. 
-
-## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>Passaggi 1-3: Clonare i repository del gruppo, del team e del progetto nel computer locale
-
-Questa sezione contiene le istruzioni per completare le prime tre attività dei singoli collaboratori al progetto: 
-
-- Clonare il repository **GroupUtilities** R2 in D2
-- Clonare il repository **TeamUtilities** R4 in D4 
-- Clonare il repository **Project** R5 in D5.
-
-Nel computer locale creare una directory ***C:\GitRepos*** (per Windows) o ***$home/GitRepos*** (per Linux) e quindi passare a tale directory. 
-
-Eseguire uno dei comandi seguenti (a seconda del sistema operativo) per clonare i repository **GroupUtilities**, **TeamUtilities** e **Project** nelle directory sul computer locale: 
-
-**Windows**
-    
-    git clone <the URL of the GroupUtilities repository>
-    git clone <the URL of the TeamUtilities repository>
-    git clone <the URL of the Project repository>
-    
-![2](./media/project-ic-tasks/project-ic-2-clone-three-repo-to-ic.png)
-
-Assicurarsi che le tre cartelle siano visibili nella directory del progetto.
-
-![3](./media/project-ic-tasks/project-ic-3-three-repo-cloned-to-ic.png)
-
-**Linux**
-    
-    git clone <the SSH URL of the GroupUtilities repository>
-    git clone <the SSH URL of the TeamUtilities repository>
-    git clone <the SSH URL of the Project repository>
-
-![4](./media/project-ic-tasks/project-ic-4-clone-three-repo-to_ic-linux.png)
-
-Assicurarsi che le tre cartelle siano visibili nella directory del progetto.
-
-![5](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
-
-## <a name="step-4-5-mount-azure-file-storage-to-your-dsvm-optional"></a>Passaggi 4-5: Montare la risorsa di archiviazione file di Azure nella DSVM (facoltativo)
-
-Per montare la risorsa di archiviazione file di Azure nella DSVM, vedere le istruzioni della sezione 4 di [Team lead tasks for a data science team (Attività del responsabile del team per un team di data science)](team-lead-tasks.md)
+Se il team o il progetto ha risorse condivise in archiviazione file di Azure, montare l'archiviazione file nel computer locale o in DSVM. Seguire le istruzioni in [montare archiviazione file di Azure nel computer locale o in DSVM](team-lead-tasks.md#mount-azure-file-storage-on-your-local-machine-or-dsvm).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ecco i collegamenti alle descrizioni più dettagliate dei ruoli e delle attività definite dal processo di data science per i team:
+Ecco i collegamenti alle descrizioni dettagliate degli altri ruoli e delle attività definiti dal processo di Data Science per i team:
 
 - [Attività del responsabile del gruppo per un team di data science](group-manager-tasks.md)
 - [Team Lead tasks for a data science team (Attività del responsabile del team per un team di data science)](team-lead-tasks.md)
 - [Attività del responsabile di progetto per un team di data science](project-lead-tasks.md)
-- [Singoli collaboratori al progetto per un team di data science](project-ic-tasks.md)
 

@@ -10,16 +10,16 @@ ms.author: robreed
 ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e153186a3917be3aa94cb663dec58bc3db46aae9
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d9d16d9d9967af5bf8f9e13406e13d5637325f52
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850404"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243359"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Creazione di configurazioni DSC in Desired State Configuration (DSC) di Automazione di Azure usando risorse composite
 
-Se si deve gestire una risorsa con più di una configurazione DSC, è consigliabile usare le [risorse composite](/powershell/dsc/authoringresourcecomposite). Una risorsa composita è una configurazione annidata e con parametri usata come risorsa DSC all'interno di un'altra configurazione. Consente di creare configurazioni complesse e al tempo stesso gestire e creare singolarmente le risorse composite sottostanti, vale a dire le configurazioni con parametri.
+Se si deve gestire una risorsa con più di una configurazione DSC, è consigliabile usare le [risorse composite](/powershell/scripting/dsc/resources/authoringresourcecomposite). Una risorsa composita è una configurazione annidata e con parametri usata come risorsa DSC all'interno di un'altra configurazione. Consente di creare configurazioni complesse e al tempo stesso gestire e creare singolarmente le risorse composite sottostanti, vale a dire le configurazioni con parametri.
 
 Automazione di Azure consente l'[importazione e la compilazione di risorse composite](automation-dsc-compile.md#compiling-configurations-in-azure-automation-that-contain-composite-resources).
 Dopo aver importato le risorse composite nell'account di Automazione, è possibile usare l'esperienza **Crea configurazione** nella pagina **Configurazione stato (DSC)** .

@@ -2,25 +2,18 @@
 title: 'Aggiungere più connessioni da sito a sito gateway VPN a una rete virtuale: Portale di Azure: Resource Manager | Microsoft Docs'
 description: Come aggiungere più connessioni da sito a sito (S2S) a un gateway VPN con una connessione esistente
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: f3e8b165-f20a-42ab-afbb-bf60974bb4b1
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4b9f007e00d0912687b723bd4f7e747da893948d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2c32fd35bbc6de1f010013c40a06af69052d3f5
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60760463"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244611"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Aggiungere una connessione da sito a sito a una rete virtuale con una connessione gateway VPN esistente
 
@@ -32,7 +25,7 @@ ms.locfileid: "60760463"
 
 Questo articolo consente di aggiungere connessioni da sito a sito (S2S) a un gateway VPN con una connessione esistente usando il portale di Azure. Questo tipo di connessione è spesso definito configurazione "multisito". È possibile aggiungere una connessione da sito a sito a una rete virtuale che dispone già di una connessione da sito a sito, una connessione da punto a sito o una connessione da rete virtuale a rete virtuale. Quando si aggiungono delle connessioni, esistono alcune limitazioni di cui è necessario tenere conto. Prima di iniziare la configurazione, verificare quanto riportato nella sezione [Prima di iniziare](#before) di questo articolo. 
 
-Questo articolo si applica alle reti virtuali di Resource Manager con un gateway VPN RouteBased. Questi passaggi non si applicano alle configurazioni con connessioni coesistenti ExpressRoute/da sito a sito. Per informazioni sulle connessioni coesistenti vedere [Creare connessioni coesistenti da sito a sito ed ExpressRoute](../expressroute/expressroute-howto-coexist-resource-manager.md).
+Questo articolo si applica alle reti virtuali di Resource Manager con un gateway VPN RouteBased. Questi passaggi non si applicano alle nuove configurazioni di connessione ExpressRoute/da sito a sito coesistente. Tuttavia, se si aggiunge semplicemente una nuova connessione VPN a una configurazione coesistente già esistente, è possibile usare questi passaggi. Per informazioni sulle connessioni coesistenti vedere [Creare connessioni coesistenti da sito a sito ed ExpressRoute](../expressroute/expressroute-howto-coexist-resource-manager.md).
 
 ### <a name="deployment-models-and-methods"></a>Metodi e modelli di distribuzione
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
@@ -44,7 +37,7 @@ Questa tabella viene aggiornata man mano che per questa configurazione diventano
 ## <a name="before"></a>Prima di iniziare
 Verificare quanto segue:
 
-* Non si sta creando una connessione coesistente ExpressRoute/da sito a sito.
+* Non si sta configurando una nuova configurazione coesistente del gateway ExpressRoute e VPN.
 * Si dispone di una rete virtuale creata usando il modello di distribuzione Resource Manager con una connessione esistente.
 * Il gateway di rete virtuale per la rete virtuale è di tipo RouteBased. Se si dispone di un gateway VPN basato su criteri, è necessario eliminare il gateway di rete virtuale e creare un nuovo gateway VPN di tipo RouteBased.
 * Nessuno degli intervalli di indirizzi si sovrappone a una qualsiasi delle reti virtuali a cui si connette questa rete virtuale.

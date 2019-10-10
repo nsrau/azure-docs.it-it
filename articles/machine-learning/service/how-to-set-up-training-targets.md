@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7c3bae2fff9e20ed9427c72b5f5f632d975f9f94
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: bce04a14a13d5b3615963f298f35af0d2fc480bb
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034421"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244425"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurare e usare le destinazioni di calcolo per il training del modello 
 
@@ -68,7 +68,7 @@ Le pipeline di ML sono costituite da più **passaggi**, ovvero unità di calcolo
 > [!TIP]
 > Le pipeline di ML possono usare la configurazione di esecuzione o gli estimatori durante il training di modelli.
 
-Mentre le pipeline di ML possono eseguire il training dei modelli, possono anche preparare i dati prima di eseguire il training e distribuire i modelli dopo il training. Uno dei casi d'uso principali per le pipeline è il Punteggio batch. Per ulteriori informazioni, vedere [pipeline: Ottimizzare i flussi di lavoro](concept-ml-pipelines.md)di machine learning.
+Mentre le pipeline di ML possono eseguire il training dei modelli, possono anche preparare i dati prima di eseguire il training e distribuire i modelli dopo il training. Uno dei casi d'uso principali per le pipeline è il Punteggio batch. Per ulteriori informazioni, vedere [Pipelines: Ottimizzare i flussi di lavoro di Machine Learning @ no__t-0.
 
 ## <a name="set-up-in-python"></a>Configurare in Python
 
@@ -106,7 +106,7 @@ Per alcuni aspetti, l'ambiente di calcolo di Azure Machine Learning prevede limi
 È possibile creare l'ambiente di calcolo di Machine Learning come destinazione di calcolo in fase di esecuzione. Il calcolo viene creato automaticamente per l'esecuzione. Il calcolo viene eliminato automaticamente dopo il completamento dell'esecuzione. 
 
 > [!NOTE]
-> Per specificare il numero massimo di nodi da usare, in genere si imposta `node_count` sul numero di nodi. Attualmente (04/04/2019) è presente un bug che impedisce il funzionamento di questo. Come soluzione alternativa, utilizzare la `amlcompute._cluster_max_node_count` proprietà della configurazione di esecuzione. Ad esempio `run_config.amlcompute._cluster_max_node_count = 5`.
+> Per specificare il numero massimo di nodi da usare, in genere si imposta `node_count` sul numero di nodi. Attualmente (04/04/2019) è presente un bug che impedisce il funzionamento di questo. Come soluzione alternativa, usare la proprietà `amlcompute._cluster_max_node_count` della configurazione di esecuzione. Ad esempio `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > La creazione basata su esecuzione dell'ambiente di calcolo di Azure Machine Learning è attualmente disponibile in anteprima. Non usare la creazione basata su esecuzione se si usa l'ottimizzazione degli iperparametri o le funzionalità automatizzate di Machine Learning. Per usare l'ottimizzazione degli iperparametri o le funzionalità automatizzate di Machine Learning, creare una destinazione di [calcolo permanente](#persistent).
@@ -206,7 +206,7 @@ Azure HDInsight è una piattaforma comune per l'analisi dei Big Data. La piattaf
 
    try:
     # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
-    attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azureinsight.net', 
+    attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azurehdinsight.net', 
                                                           ssh_port=22, 
                                                           username='<ssh-username>', 
                                                           password='<ssh-pwd>')
@@ -295,7 +295,7 @@ Per visualizzare le destinazioni di calcolo dell'area di lavoro, usare la proced
  
 1. In __Applicazioni__ selezionare __Ambiente di calcolo__.
 
-    [![Visualizza scheda calcolo](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
+    [scheda di calcolo ![View](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
 ### <a id="portal-create"></a>Creare una destinazione di calcolo
 
@@ -379,7 +379,7 @@ Dopo aver creato una configurazione di esecuzione, questa si usa per l'esecuzion
 > [!IMPORTANT]
 > Quando si invia l'esecuzione del training, viene creato uno snapshot della directory che contiene gli script di training e viene inviata alla destinazione di calcolo. Viene inoltre archiviato come parte dell'esperimento nell'area di lavoro. Se si modificano i file e si invia di nuovo l'esecuzione, verranno caricati solo i file modificati.
 >
-> Per impedire che i file vengano inclusi nello snapshot, creare un file con [estensione gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` nella directory e aggiungervi i file. Il `.amlignore` file usa la stessa sintassi e gli stessi criteri del file con [estensione gitignore](https://git-scm.com/docs/gitignore) . Se sono presenti entrambi i file `.amlignore` , il file avrà la precedenza.
+> Per impedire che i file vengano inclusi nello snapshot, creare un file con [estensione gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` nella directory e aggiungervi i file. Il file `.amlignore` utilizza la stessa sintassi e gli stessi criteri del file con [estensione gitignore](https://git-scm.com/docs/gitignore) . Se sono presenti entrambi i file, il file `.amlignore` avrà la precedenza.
 > 
 > Per altre informazioni, vedere [Snapshot](concept-azure-machine-learning-architecture.md#snapshots).
 
@@ -406,7 +406,7 @@ Eseguire lo stesso esperimento in una destinazione di calcolo diversa tramite un
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=amlcompute_submit)]
 
 > [!TIP]
-> Questo esempio usa per impostazione predefinita solo un nodo della destinazione di calcolo per il training. Per usare più di un nodo, impostare la `node_count` della configurazione di esecuzione sul numero desiderato di nodi. Il codice seguente, ad esempio, imposta il numero di nodi utilizzati per il training su quattro:
+> Questo esempio usa per impostazione predefinita solo un nodo della destinazione di calcolo per il training. Per usare più di un nodo, impostare il `node_count` della configurazione di esecuzione sul numero desiderato di nodi. Il codice seguente, ad esempio, imposta il numero di nodi utilizzati per il training su quattro:
 >
 > ```python
 > src.run_config.node_count = 4
@@ -422,7 +422,7 @@ Per ulteriori informazioni, vedere la documentazione di [ScriptRunConfig](https:
 
 ## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Creare una configurazione di esecuzione e inviare l'esecuzione usando Azure Machine Learning interfaccia della riga di comando
 
-È possibile usare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e [Machine Learning estensione CLI](reference-azure-machine-learning-cli.md) per creare configurazioni di esecuzione e inviare esecuzioni su destinazioni di calcolo diverse. Gli esempi seguenti presuppongono che si disponga di un area di lavoro di Azure Machine Learning esistente ed è stato effettuato l' `az login` accesso ad Azure tramite il comando CLI. 
+È possibile usare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e [Machine Learning estensione CLI](reference-azure-machine-learning-cli.md) per creare configurazioni di esecuzione e inviare esecuzioni su destinazioni di calcolo diverse. Gli esempi seguenti presuppongono che si disponga di un area di lavoro di Azure Machine Learning esistente ed è stato effettuato l'accesso ad Azure usando il comando dell'interfaccia della riga di comando `az login`. 
 
 ### <a name="create-run-configuration"></a>Crea configurazione di esecuzione
 
@@ -432,7 +432,7 @@ Il modo più semplice per creare la configurazione di esecuzione è esplorare la
 az ml folder attach
 ```
 
-Questo comando crea una sottocartella `.azureml` che contiene i file di configurazione dell'esecuzione del modello per diverse destinazioni di calcolo. È possibile copiare e modificare questi file per personalizzare la configurazione, ad esempio per aggiungere pacchetti Python o modificare le impostazioni di Docker.  
+Questo comando crea una sottocartella `.azureml` che contiene i file di configurazione dell'esecuzione del modello per destinazioni di calcolo diverse. È possibile copiare e modificare questi file per personalizzare la configurazione, ad esempio per aggiungere pacchetti Python o modificare le impostazioni di Docker.  
 
 ### <a name="structure-of-run-configuration-file"></a>Struttura del file di configurazione di esecuzione
 
@@ -493,7 +493,7 @@ az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configur
 
 Prendere nota della sezione degli *argomenti* in runconfig e nello *spazio dei parametri* nella configurazione di iperguida. Contengono gli argomenti della riga di comando da passare allo script di training. Il valore in runconfig rimane invariato per ogni iterazione, mentre l'intervallo nella configurazione di iperguida viene iterato. Non specificare lo stesso argomento in entrambi i file.
 
-Per ulteriori informazioni su questi ```az ml``` comandi dell'interfaccia della riga di comando e sul set completo di argomenti, vedere [la documentazione di riferimento](reference-azure-machine-learning-cli.md).
+Per ulteriori informazioni sui comandi dell'interfaccia della riga di comando ```az ml``` e sul set completo di argomenti, vedere [la documentazione di riferimento](reference-azure-machine-learning-cli.md).
 
 <a id="gitintegration"></a>
 

@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 991cfb54dc511c284c5f5d0cf1807d5dd42b34ea
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: eb15aa3c6dbe0f4db62a2029a3c97b4475ab53a2
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978069"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255875"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -45,7 +45,10 @@ Attualmente non è presente alcun ordine di valutazione per l'effetto **EnforceR
 
 Questo effetto è utile per gli scenari di test o quando la definizione dei criteri ha parametrizzato l'effetto. Grazie a questa flessibilità è possibile disabilitare una singola assegnazione invece di disabilitare tutte le assegnazioni di quei criteri.
 
-## <a name="append"></a>Aggiungi
+Un'alternativa all'effetto disabilitato è **enforcementMode** , che viene impostato nell'assegnazione dei criteri.
+Quando **enforcementMode** è _disabilitato_, le risorse vengono comunque valutate. La registrazione, ad esempio i log attività, e l'effetto dei criteri non si verificano. Per altre informazioni, vedere [modalità di imposizione dell'assegnazione dei criteri](./assignment-structure.md#enforcement-mode).
+
+## <a name="append"></a>Append
 
 Append viene usato per aggiungere altri campi alla risorsa richiesta durante la creazione o l'aggiornamento. Un esempio comune è la specifica di indirizzi IP consentiti per una risorsa di archiviazione.
 
@@ -161,8 +164,8 @@ Per la proprietà **Operation** sono disponibili le opzioni seguenti:
 |Operazione |Descrizione |
 |-|-|
 |addOrReplace |Aggiunge il tag e il valore definiti alla risorsa, anche se il tag esiste già con un valore diverso. |
-|Aggiungi |Aggiunge il tag e il valore definiti alla risorsa. |
-|Rimuovi |Rimuove il tag definito dalla risorsa. |
+|Add |Aggiunge il tag e il valore definiti alla risorsa. |
+|Rimuovere |Rimuove il tag definito dalla risorsa. |
 
 ### <a name="modify-examples"></a>Modificare esempi
 
@@ -234,7 +237,7 @@ Esempio: uso dell'effetto Deny.
 }
 ```
 
-## <a name="audit"></a>Controllo
+## <a name="audit"></a>Audit
 
 Audit viene usato per creare un evento di avviso nel log attività quando viene valutata una risorsa non conforme, ma non arresta la richiesta.
 

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: c05ac7a1894fc3e159ef8fc2b3dd2654714faccf
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: cf95a66cf68cf0b33444a17cf762bae79db4b50c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70965193"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243424"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure
 
@@ -56,7 +56,7 @@ Selezionare una macchina virtuale di Azure da caricare.
 
 Se nel computer non è installata l'estensione di stato PowerShell desiderata e tramite il PowerShell e lo stato di alimentazione è "in esecuzione", fare clic su **Connetti**.
 
-In **Registrazione** immettere i [valori di Gestione configurazione locale per PowerShell DSC](/powershell/dsc/managing-nodes/metaconfig) necessari per il proprio caso d'uso e facoltativamente una configurazione del nodo da assegnare alla VM.
+In **Registrazione** immettere i [valori di Gestione configurazione locale per PowerShell DSC](/powershell/scripting/dsc/managing-nodes/metaConfig) necessari per il proprio caso d'uso e facoltativamente una configurazione del nodo da assegnare alla VM.
 
 ![onboarding](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
@@ -100,7 +100,7 @@ I server Windows in esecuzione in locale o in altri ambienti cloud possono anche
 I server Linux in esecuzione in locale o in altri ambienti cloud possono anche essere caricati nella configurazione dello stato di automazione di Azure, purché dispongano dell' [accesso in uscita ad Azure](automation-dsc-overview.md#network-planning):
 
 1. Assicurarsi che nei computer da caricare in Configurazione stato di Automazione di Azure sia installata la versione più recente di [PowerShell DSC (Desired State Configuration) per Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux).
-1. Se i [valori predefiniti di Gestione configurazione locale per PowerShell DSC](/powershell/dsc/metaconfig4) corrispondono al caso d'uso corrente e si vuole caricare computer in modo che **entrambi** eseguano il pull e inviino informazioni a Configurazione stato di Automazione di Azure:
+1. Se i [valori predefiniti di Gestione configurazione locale per PowerShell DSC](/powershell/scripting/dsc/managing-nodes/metaConfig4) corrispondono al caso d'uso corrente e si vuole caricare computer in modo che **entrambi** eseguano il pull e inviino informazioni a Configurazione stato di Automazione di Azure:
 
    - In ogni computer Linux da caricare in Configurazione stato di Automazione di Azure usare `Register.py` per l'onboarding tramite i valori predefiniti di Gestione configurazione locale per PowerShell DSC:
 
@@ -134,7 +134,7 @@ Nel computer dal quale viene eseguito questo comando deve essere installata la v
 
 ## <a name="generating-dsc-metaconfigurations"></a>Generazione di metaconfigurazioni DSC
 
-Per caricare in modo generico qualsiasi computer nella configurazione dello stato di automazione di Azure, è possibile generare una [metaconfigurazione DSC](/powershell/dsc/metaconfig) che indichi all'agente DSC di effettuare il pull da e/o creare report nella configurazione dello stato di automazione di Azure. Le metaconfigurazioni DSC per Configurazione stato di Automazione di Azure possono essere generate tramite una configurazione DSC di PowerShell o i cmdlet di PowerShell per Automazione di Azure.
+Per caricare in modo generico qualsiasi computer nella configurazione dello stato di automazione di Azure, è possibile generare una [metaconfigurazione DSC](/powershell/scripting/dsc/managing-nodes/metaConfig) che indichi all'agente DSC di effettuare il pull da e/o creare report nella configurazione dello stato di automazione di Azure. Le metaconfigurazioni DSC per Configurazione stato di Automazione di Azure possono essere generate tramite una configurazione DSC di PowerShell o i cmdlet di PowerShell per Automazione di Azure.
 
 > [!NOTE]
 > Le metaconfigurazioni DSC contengono i segreti necessari per caricare un computer in un account di automazione per la relativa gestione. Assicurarsi di proteggere adeguatamente le metaconfigurazioni DSC create oppure eliminarle dopo l'uso.
@@ -319,7 +319,7 @@ Per risolvere i problemi o visualizzare lo stato dell'estensione DSC per le macc
 Dopo la registrazione di un computer come nodo DSC in Configurazione stato di Automazione di Azure, vi sono diversi motivi che richiedono la ripetizione della registrazione del nodo in futuro:
 
 - Per le versioni di Windows Server precedenti a Windows Server 2019, ogni nodo negozia automaticamente un certificato univoco per l'autenticazione che scade dopo un anno. Attualmente il protocollo di registrazione di PowerShell DSC non può rinnovare automaticamente i certificati quando si avvicina la scadenza, quindi è necessario registrare di nuovo i nodi dopo un anno. Prima di registrare di nuovo, verificare che ogni nodo esegua Windows Management Framework 5.0 RTM. Se il certificato di autenticazione di un nodo scade e se il nodo non è registrato, il nodo non sarà in grado di comunicare con Automazione di Azure e sarà indicato che "Non risponde". Una registrazione eseguita 90 giorni o meno dall'ora di scadenza del certificato, o in qualsiasi momento dopo l'ora di scadenza del certificato. comporterà un nuovo certificato che viene generato e utilizzato.  Una soluzione a questo problema è inclusa in Windows Server 2019 e versioni successive.
-- Per modificare qualsiasi [valore di Gestione configurazione locale per PowerShell DS](/powershell/dsc/metaconfig4) impostato durante la registrazione iniziale del nodo, ad esempio ConfigurationMode. Attualmente, i valori dell'agente DSC possono essere modificati solo tramite la registrazione. L'unica eccezione è il valore di Configurazione del nodo assegnato al nodo che può essere modificato direttamente in Automation DSC per Azure.
+- Per modificare qualsiasi [valore di Gestione configurazione locale per PowerShell DS](/powershell/scripting/dsc/managing-nodes/metaConfig4) impostato durante la registrazione iniziale del nodo, ad esempio ConfigurationMode. Attualmente, i valori dell'agente DSC possono essere modificati solo tramite la registrazione. L'unica eccezione è il valore di Configurazione del nodo assegnato al nodo che può essere modificato direttamente in Automation DSC per Azure.
 
 La ripetizione della registrazione può essere eseguita così' come è stato registrato il nodo inizialmente, usando uno dei metodi di caricamento descritti in questo documento. Non è necessario annullare la registrazione di un nodo da Configurazione stato di Automazione di Azure prima di registrarlo di nuovo.
 

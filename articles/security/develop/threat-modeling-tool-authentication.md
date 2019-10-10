@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: eb4f0e26d1795abc3392e9736e71093fab79aae2
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 1bef73e6be4bdbe8828e1d20ea6e684759984627
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967940"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244643"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Infrastruttura di sicurezza: autenticazione - Procedure di mitigazione 
 
@@ -181,7 +181,7 @@ ms.locfileid: "68967940"
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [Informazioni su Azure Multi-Factor Authentication](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/) |
-| **Passaggi** | <p>Multi-Factor Authentication (MFA) è un metodo di autenticazione che richiede più di un metodo di verifica e con il quale viene aggiunto un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. In genere richiede due o più dei metodi di verifica seguenti:</p><ul><li>Un'informazione nota (in genere una password)</li><li>Un oggetto che si possiede (un dispositivo attendibile non facile da duplicare, ad esempio un telefono)</li><li>Una caratteristica fisica dell'utente (biometrica)</li><ul>|
+| **Passaggi** | <p>Multi-Factor Authentication (MFA) è un metodo di autenticazione che richiede più di un metodo di verifica e con il quale viene aggiunto un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. In genere richiede due o più dei metodi di verifica seguenti:</p><ul><li>Un'informazione nota (in genere una password)</li><li>Un oggetto fisico (un dispositivo attendibile non facilmente duplicabile, come un telefono)</li><li>Una caratteristica fisica dell'utente (biometrica)</li><ul>|
 
 ## <a id="anon-access-cluster"></a>Limitare l'accesso anonimo a un cluster di Service Fabric
 
@@ -308,7 +308,7 @@ L'elemento `<netMsmqBinding/>` del file di configurazione WCF seguente indica a 
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | .NET Framework 3 |
 | **Attributes (Attributi)**              | Tipo di credenziali client: nessuno |
-| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
+| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
 | **Passaggi** | L'assenza di autenticazione indica che tutti possono accedere a questo servizio. Un servizio che non esegue l'autenticazione dei client consente l'accesso a tutti gli utenti. Configurare l'applicazione per l'autenticazione con le credenziali del client. A tale scopo, è possibile impostare il messaggio clientCredentialType su Windows o su Certificate. |
 
 ### <a name="example"></a>Esempio
@@ -324,7 +324,7 @@ L'elemento `<netMsmqBinding/>` del file di configurazione WCF seguente indica a 
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico, .NET Framework 3 |
 | **Attributes (Attributi)**              | Tipo di credenziali client: nessuno |
-| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
+| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
 | **Passaggi** | L'assenza di autenticazione indica che tutti possono accedere a questo servizio. Un servizio che non esegue l'autenticazione dei client consente a tutti gli utenti di accedere alle funzionalità. Configurare l'applicazione per l'autenticazione con le credenziali del client. A tale scopo, è possibile impostare il trasporto clientCredentialType su Windows o su Certificate. |
 
 ### <a name="example"></a>Esempio

@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: cf4eade598de24e323a8c8647a64921f8797e3a2
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 311a9fc887db399cb16d6cbb2bcec665a7ddfce7
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686746"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240109"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Usare i riferimenti a Key Vault per Servizio app e Funzioni di Azure (anteprima)
 
 > [!NOTE] 
-> I riferimenti a Key Vault sono attualmente in anteprima.
+> Attualmente, i riferimenti Key Vault sono in anteprima e non sono attualmente supportati dai piani a consumo Linux.
 
 Questo argomento illustra come usare i segreti da Azure Key Vault all'interno dell'applicazione di Servizio app o Funzioni di Azure senza che siano richieste modifiche al codice. [Azure Key Vault](../key-vault/key-vault-overview.md) è un servizio che supporta la gestione centralizzata dei segreti con controllo completo sui criteri di accesso e sulla cronologia di controllo.
 

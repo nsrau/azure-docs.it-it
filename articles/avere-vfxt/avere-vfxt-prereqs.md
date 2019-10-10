@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: 352833b12c00abbefcf7016d27dfb580ee25e450
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: dce359d1567ee763cd988e778b1e0e44475388cc
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409269"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255359"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparare la creazione di Avere vFXT
 
@@ -30,16 +30,16 @@ Per creare una nuova sottoscrizione di Azure nel portale di Azure:
 
 ## <a name="configure-subscription-owner-permissions"></a>Configurare le autorizzazioni di proprietario della sottoscrizione
 
-Il cluster vFXT deve essere creato da un utente con autorizzazioni di proprietario per la sottoscrizione. Per accettare le condizioni d'uso del software ed eseguire altre azioni sono necessarie autorizzazioni di proprietario di sottoscrizione. 
+Il cluster vFXT deve essere creato da un utente con autorizzazioni di proprietario per la sottoscrizione. Le autorizzazioni del proprietario della sottoscrizione sono necessarie per accettare le condizioni del servizio software ed eseguire altre azioni. 
 
-Esistono alcuni scenari di soluzioni alternative che consentono un non-owner creare un vFTX Avere per cluster di Azure. Questi scenari comportano imponendo restrizioni sulle risorse e l'assegnazione di ruoli aggiuntivi al creatore. In entrambi i casi, un proprietario della sottoscrizione deve inoltre [accettare le condizioni di software vFXT Avere](#accept-software-terms) anticipatamente. 
+Esistono alcuni scenari di soluzione alternativa che consentono a un utente non proprietario di creare un vFTX per il cluster di Azure. Questi scenari coinvolgono la limitazione delle risorse e l'assegnazione di ruoli aggiuntivi al creatore. In entrambi i casi, anche il proprietario di una sottoscrizione deve accettare in anticipo [le condizioni del software vFXT](#accept-software-terms) . 
 
-| Scenario | Restrizioni | Ruoli di accesso necessari per creare il cluster vFXT Avere | 
+| Scenario | Restrizioni | Accedere ai ruoli necessari per creare il cluster vFXT. | 
 |----------|--------|-------|
-| Amministratore di gruppo di risorse | La rete virtuale, controller del cluster e nodi del cluster devono essere creati all'interno del gruppo di risorse | [Amministratore accesso utenti](../role-based-access-control/built-in-roles.md#user-access-administrator) e [collaboratore](../role-based-access-control/built-in-roles.md#contributor) ruoli, sia come ambito il gruppo di risorse di destinazione | 
-| Rete virtuale esterna | Il controller del cluster e nodi del cluster vengono creati all'interno del gruppo di risorse, ma viene usata una rete virtuale esistente in un gruppo di risorse diverso | (1) [amministratore accesso utenti](../role-based-access-control/built-in-roles.md#user-access-administrator) e [collaboratore](../role-based-access-control/built-in-roles.md#contributor) avranno come ambiti il gruppo di risorse vFXT; e (2) ruoli [collaboratore macchina virtuale](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [accesso utente Amministratore](../role-based-access-control/built-in-roles.md#user-access-administrator), e [collaboratore Avere](../role-based-access-control/built-in-roles.md#avere-contributor) ruoli nell'ambito del gruppo di risorse di rete virtuale. |
+| Amministratore del gruppo di risorse | La rete virtuale, il controller cluster e i nodi del cluster devono essere creati all'interno del gruppo di risorse | Ruoli [collaboratore](../role-based-access-control/built-in-roles.md#contributor) e [amministratore accesso utenti](../role-based-access-control/built-in-roles.md#user-access-administrator) , entrambi con ambito per il gruppo di risorse di destinazione | 
+| VNET esterno | Il controller del cluster e i nodi del cluster vengono creati all'interno del gruppo di risorse, ma viene usata una rete virtuale esistente in un gruppo di risorse diverso | (1) i ruoli [amministratore accesso utente](../role-based-access-control/built-in-roles.md#user-access-administrator) e [collaboratore](../role-based-access-control/built-in-roles.md#contributor) hanno come ambito il gruppo di risorse vFXT. e (2) [collaboratore macchina virtuale](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [amministratore accesso utenti](../role-based-access-control/built-in-roles.md#user-access-administrator)e ruoli di [collaboratore](../role-based-access-control/built-in-roles.md#avere-contributor) di avere nell'ambito del gruppo di risorse vnet. |
  
-Un'alternativa consiste nel creare un ruolo controllo degli accessi basata sui ruoli di accesso personalizzato anticipatamente e assegnare i privilegi di utente, come illustrato in [questo articolo](avere-vfxt-non-owner.md). Questo metodo consente di concedere autorizzazioni significative a questi utenti. 
+In alternativa, è possibile creare un ruolo personalizzato di controllo degli accessi in base al ruolo (RBAC) in anticipo e assegnare privilegi all'utente, come illustrato in [questo articolo](avere-vfxt-non-owner.md). Questo metodo consente di concedere autorizzazioni significative a questi utenti. 
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Quota per il cluster vFXT
 
@@ -77,25 +77,25 @@ Per accettare preventivamente le condizioni software:
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
    ```
 
-## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>Creare un endpoint di servizio di archiviazione in una rete virtuale (se necessario)
+## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>Creare un endpoint del servizio di archiviazione nella rete virtuale (se necessario)
 
-Oggetto [endpoint del servizio](../virtual-network/virtual-network-service-endpoints-overview.md) mantiene il traffico di Blob di Azure in locale anziché il routing all'esterno della rete virtuale. È consigliabile per qualsiasi vFXT Avere per cluster di Azure che usa i Blob di Azure per archiviare i dati di back-end. 
+Un [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) mantiene il traffico BLOB di Azure locale anziché instradarlo all'esterno della rete virtuale. È consigliabile per tutti i cluster vFXT per Azure che usano il BLOB di Azure per l'archiviazione dei dati back-end. 
 
-Se si specifica una rete virtuale esistente e creare un nuovo contenitore Blob di Azure per l'archiviazione back-end come parte della creazione del cluster, è necessario un endpoint del servizio nella rete virtuale per archiviazione di Microsoft. Questo endpoint deve esistere prima della creazione del cluster o la creazione avrà esito negativo. 
+Se si fornisce un VNET esistente e si crea un nuovo contenitore BLOB di Azure per l'archiviazione back-end nell'ambito della creazione del cluster, è necessario disporre di un endpoint di servizio in VNET per l'archiviazione Microsoft. Questo endpoint deve esistere prima di creare il cluster, altrimenti la creazione avrà esito negativo. 
 
-Un endpoint di servizio di archiviazione è consigliato per qualsiasi vFXT Avere per cluster di Azure che usa l'archiviazione Blob di Azure, anche se si aggiungerla lo spazio di archiviazione in un secondo momento. 
+Un endpoint del servizio di archiviazione è consigliato per tutti i vFXT per cluster di Azure che usano l'archiviazione BLOB di Azure, anche se si aggiunge l'archiviazione in un secondo momento. 
 
 > [!TIP] 
 > * Ignorare questo passaggio se si sta creando una nuova rete virtuale come parte della creazione del cluster. 
-> * Questo passaggio è facoltativo se non si intende creare nell'archivio Blob durante la creazione del cluster. In tal caso, è possibile creare l'endpoint del servizio in un secondo momento se si decide di usare Blob di Azure.
+> * Questo passaggio è facoltativo se non si crea l'archiviazione BLOB durante la creazione del cluster. In tal caso, è possibile creare l'endpoint del servizio in un secondo momento se si decide di usare il BLOB di Azure.
 
-Creare l'endpoint di servizio di archiviazione dal portale di Azure. 
+Creare l'endpoint del servizio di archiviazione dal portale di Azure. 
 
 1. Nel portale fare clic su **Reti virtuali** a sinistra.
-1. Selezionare la rete virtuale per il cluster. 
+1. Selezionare il VNET per il cluster. 
 1. Fare clic su **Endpoint servizio** a sinistra.
 1. Fare clic su **Aggiungi** nella parte superiore.
-1. Lasciare il servizio come ``Microsoft.Storage`` e scegli subnet del cluster.
+1. Lasciare il servizio come ``Microsoft.Storage`` e scegliere la subnet del cluster.
 1. Nella parte inferiore fare clic su **Aggiungi**.
 
    ![Screenshot del portale di Azure con annotazioni per la procedura di creazione dell'endpoint di servizio](media/avere-vfxt-service-endpoint.png)
