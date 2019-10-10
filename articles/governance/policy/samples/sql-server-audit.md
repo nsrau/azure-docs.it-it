@@ -2,17 +2,16 @@
 title: Esempio - Controllare l'impostazione di controllo di SQL Server
 description: Questa definizione di criteri di esempio verifica le impostazioni di controllo del server SQL con auditIfNotExists.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: c4510a316760fa948aa39627c9a9c517437b1d77
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c548d1e0e9f21f482a0cfc4b19c482e040d7f298
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790980"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980364"
 ---
 # <a name="sample---audit-sql-server-audit-settings"></a>Esempio - Verificare le impostazioni di controllo del server SQL
 

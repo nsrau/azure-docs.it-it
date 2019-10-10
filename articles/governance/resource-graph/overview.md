@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: 6721769b0ab6df4165281d9b5b75c0e1332ed1dc
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: bf54f1a96c6be7bbfb19770472752b3f958695c4
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001644"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976810"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Panoramica del servizio Azure Resource Graph
 

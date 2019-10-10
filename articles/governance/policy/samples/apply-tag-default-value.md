@@ -2,17 +2,16 @@
 title: Esempio - Applicare il tag e il valore predefinito
 description: Questa definizione di criteri di esempio aggiunge un nome e un valore di tag specifici, se non è stato specificato il tag.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: a9ad211ac1ef9889fcff9646f30fe306458c3538
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 03c5c1de3713d2d7a2b2914b7b9bff9fa8b01320
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266648"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977599"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>Esempio - Applicare il tag e il valore predefinito
 

@@ -2,17 +2,16 @@
 title: Esempio - Applicare un tag e il relativo valore a gruppi di risorse
 description: Questa definizione di criteri di esempio richiede un tag e un valore in un gruppo di risorse.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/31/2019
 ms.author: dacoulte
-ms.openlocfilehash: a7a76fbde74ab80f8aa0f5e67e6445504c3aafa5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 00c94aa6077c8a8599b31e9ab37f925fdfebefb0
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276661"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977164"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>Esempio - Applicare un tag e il relativo valore a gruppi di risorse
 

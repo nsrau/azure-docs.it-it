@@ -2,17 +2,16 @@
 title: 'Esempio: larghezza di banda consentita di ExpressRoute'
 description: Questa definizione di criteri di esempio richiede che ExpressRoute usi un set specifico di larghezze di banda.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 169f6d41df8ca01d82e41bd27ca37e80f26c4055
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 27e09169ef076bad174eaebccdabc3b0cc531dbf
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59260647"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980829"
 ---
 # <a name="sample---allowed-expressroute-bandwidth"></a>Esempio: larghezza di banda consentita di ExpressRoute
 

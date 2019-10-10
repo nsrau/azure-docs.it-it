@@ -5,18 +5,16 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 09/20/2019
+ms.date: 10/05/2019
 ms.author: victorh
-ms.openlocfilehash: 8aee640d8648abb623fe5ead0b21e3ae3084424a
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 6f5f2263736e1317ca40e6c27a909be2aa106270
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162130"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960440"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-cli"></a>Guida introduttiva: Creare una zona DNS privato di Azure con l'interfaccia della riga di comando di Azure
-
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 Questo avvio rapido descrive i passaggi necessari per creare la prima zona DNS privato e il primo record DNS con l'interfaccia della riga di comando di Azure.
 

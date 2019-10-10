@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a42ccb1c0e60f5bf1568ccea13392186577f2875
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 97d9aa1ed9440011fdaab3aa8eb9d3942b5a8acf
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205711"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170370"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Esercitazione: Usare Azure Deployment Manager con modelli di Resource Manager (anteprima pubblica)
 
@@ -80,7 +80,7 @@ Sono presenti due servizi allocati nelle località Stati Uniti occidentali e Sta
 
 ## <a name="download-the-tutorial-files"></a>Scaricare i file per l'esercitazione
 
-1. Scaricare [i modelli e gli artefatti](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) usati in questa esercitazione.
+1. Scaricare [i modelli e gli artefatti](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) usati in questa esercitazione.
 2. Decomprimere i file nel computer locale in uso.
 
 Nella cartella radice sono presenti due cartelle:

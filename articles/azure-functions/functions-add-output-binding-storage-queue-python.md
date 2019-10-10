@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 9fdbf3466256c5e24de17541770fa2095fcf38a4
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 92ee9b0a8a0906bca31d7dcb1730c3464d0d6cbc
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70171076"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71839187"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Aggiungere un binding della coda di archiviazione di Azure alla funzione Python
 
@@ -30,20 +30,11 @@ La maggior parte dei binding richiede una stringa di connessione archiviata che 
 
 Prima di iniziare con questo articolo, completare i passaggi della [parte 1 dell'articolo di avvio rapido di Python](functions-create-first-function-python.md).
 
+[!INCLUDE [functions-cloud-shell-note](../../includes/functions-cloud-shell-note.md)]
+
 ## <a name="download-the-function-app-settings"></a>Scaricare le impostazioni dell'app per le funzioni
 
-Nel precedente argomento di avvio rapido è stata creata un'app per le funzioni in Azure insieme all'account di archiviazione necessario. La stringa di connessione per questo account è archiviata in modo sicuro nelle impostazioni dell'app in Azure. In questo articolo verranno scritti messaggi in una coda di archiviazione dello stesso account. Per connettersi all'account di archiviazione durante l'esecuzione della funzione in locale, è necessario scaricare le impostazioni dell'app nel file local.settings.json. Eseguire il comando di Azure Functions Core Tools seguente per scaricare le impostazioni nel file local.settings.json, sostituendo `<APP_NAME>` con il nome dell'app per le funzioni specificato nell'articolo precedente:
-
-```bash
-func azure functionapp fetch-app-settings <APP_NAME>
-```
-
-Potrebbe essere necessario accedere all'account Azure.
-
-> [!IMPORTANT]  
-> Il file local.settings.json contiene segreti, quindi non viene mai pubblicato e dovrà essere escluso dal controllo del codice sorgente.
-
-È necessario il valore `AzureWebJobsStorage`, che corrisponde alla stringa di connessione dell'account di archiviazione. Usare questa connessione per verificare se il binding di output funziona come previsto.
+[!INCLUDE [functions-app-settings-download-local-cli](../../includes/functions-app-settings-download-local-cli.md)]
 
 ## <a name="enable-extension-bundles"></a>Abilitare le aggregazioni di estensioni
 
@@ -53,80 +44,13 @@ Potrebbe essere necessario accedere all'account Azure.
 
 ## <a name="add-an-output-binding"></a>Aggiungere un binding di output
 
-In Funzioni ogni tipo di binding richiede di definire `direction`, `type` e un valore univoco `name` nel file function.json. A seconda del tipo di binding, potrebbero essere necessarie altre proprietà. La tabella di [configurazione dell'output della coda](functions-bindings-storage-queue.md#output---configuration) indica i campi necessari per un binding della coda di archiviazione di Azure.
+In Funzioni ogni tipo di binding richiede di definire `direction`, `type` e un valore univoco `name` nel file function.json. Il modo in cui si definiscono questi attributi dipende dal linguaggio dell'app per le funzioni.
 
-Per creare un binding, aggiungere un oggetto configurazione di binding al file function.json. Modificare il file function.json nella cartella HttpTrigger per aggiungere un oggetto alla matrice `bindings` che include queste proprietà:
-
-| Proprietà | Valore | DESCRIZIONE |
-| -------- | ----- | ----------- |
-| **`name`** | `msg` | Il nome che identifica il parametro di binding a cui viene fatto riferimento nel codice. |
-| **`type`** | `queue` | Il binding è un binding della coda di archiviazione di Azure. |
-| **`direction`** | `out` | Il binding è un binding di output. |
-| **`queueName`** | `outqueue` | Il nome della coda in cui scrive il binding. Se `queueName` non esiste, il binding lo crea al primo utilizzo. |
-| **`connection`** | `AzureWebJobsStorage` | Il nome dell'impostazione dell'app che contiene la stringa di connessione dell'account di archiviazione. L'impostazione `AzureWebJobsStorage` contiene la stringa di connessione per l'account di archiviazione creato con l'app per le funzioni. |
-
-Il file function.json dovrà avere un aspetto simile a questo esempio:
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    },
-  {
-      "type": "queue",
-      "direction": "out",
-      "name": "msg",
-      "queueName": "outqueue",
-      "connection": "AzureWebJobsStorage"
-    }
-  ]
-}
-```
+[!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Aggiungere il codice che usa l'associazione di output
 
-Una volta configurato, è possibile usare il valore `name` per accedere al binding come attributo di metodo nella firma della funzione. Nell'esempio seguente `msg` è un'istanza della [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest).
-
-```python
-import logging
-
-import azure.functions as func
-
-
-def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
-
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
-
-    if name:
-        msg.set(name)
-        return func.HttpResponse(f"Hello {name}!")
-    else:
-        return func.HttpResponse(
-            "Please pass a name on the query string or in the request body",
-            status_code=400
-        )
-```
+[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
 
 Quando si usa un binding di output, non è necessario usare il codice di Azure Storage SDK per l'autenticazione, per recuperare un riferimento alla coda o per scrivere dati. Queste attività vengono eseguite automaticamente dal runtime di Funzioni e dal binding di output.
 
@@ -149,34 +73,11 @@ Quindi, usare l'interfaccia della riga di comando di Azure per visualizzare la n
 
 ### <a name="set-the-storage-account-connection"></a>Impostare la connessione dell'account di archiviazione
 
-Aprire il file local.settings.json e copiare il valore di `AzureWebJobsStorage`, che corrisponde alla stringa di connessione dell'account di archiviazione. Impostare la variabile di ambiente `AZURE_STORAGE_CONNECTION_STRING` sulla stringa di connessione usando il comando Bash seguente:
-
-```azurecli-interactive
-export AZURE_STORAGE_CONNECTION_STRING=<STORAGE_CONNECTION_STRING>
-```
-
-Con la stringa di connessione impostata sulla variabile di ambiente `AZURE_STORAGE_CONNECTION_STRING`, è possibile accedere all'account di archiviazione senza eseguire ogni volta l'autenticazione.
+[!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
 
 ### <a name="query-the-storage-queue"></a>Eseguire una query sulla coda di archiviazione
 
-È possibile usare il comando [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) per visualizzare le code di archiviazione dell'account, come indicato nell'esempio seguente:
-
-```azurecli-interactive
-az storage queue list --output tsv
-```
-
-L'output di questo comando include una coda denominata `outqueue`, che è la coda creata quando è stata eseguita la funzione.
-
-Usare quindi il comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) per visualizzare i messaggi inclusi in questa coda, come indicato in questo esempio:
-
-```azurecli-interactive
-echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
-```
-
-La stringa restituita dovrebbe essere la stessa del messaggio inviato per testare la funzione.
-
-> [!NOTE]  
-> L'esempio precedente decodifica la stringa restituita da base64. Il motivo è che i binding di archiviazione della coda scrivono e leggono i dati da Archiviazione di Azure sotto forma di [stringhe base64](functions-bindings-storage-queue.md#encoding).
+[!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 
 Ora è il momento di ripubblicare l'app per le funzioni aggiornata in Azure.
 

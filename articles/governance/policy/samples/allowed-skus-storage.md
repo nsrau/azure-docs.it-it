@@ -2,17 +2,16 @@
 title: 'Esempio: SKU consentiti per gli account di archiviazione e le macchine virtuali'
 description: Questa definizione di criteri di esempio richiede che gli account di archiviazione e le macchine virtuali usino SKU approvati.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 088dd8414c93b609326e7cd72828426dcb00fc28
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e84462a930ffad202def1da1e2c923371dde9d58
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274570"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980613"
 ---
 # <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>Esempio: SKU consentiti per gli account di archiviazione e le macchine virtuali
 

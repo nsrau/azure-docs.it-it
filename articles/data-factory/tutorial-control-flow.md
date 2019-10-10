@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 9/27/2019
-ms.openlocfilehash: 5b9be86b0a3d17c9c325b565979fccbec92f5733
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: d8ea5a507cc110c92bb74491c3376f7b671638d9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815870"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72175998"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 
@@ -38,7 +38,7 @@ L'esercitazione illustra come eseguire queste attività:
 > * Avviare un'esecuzione della pipeline
 > * Monitorare le esecuzioni di pipeline e attività
 
-In questa esercitazione viene usato .NET SDK. È possibile usare altri meccanismi per interagire con Azure Data Factory. Per informazioni di avvio rapido relative a Data Factory, vedere [Guide introduttive di 5 minuti](https://docs.microsoft.com/azure/data-factory/#5-minute-quickstarts).
+In questa esercitazione viene usato .NET SDK. È possibile usare altri meccanismi per interagire con Azure Data Factory. Per informazioni di avvio rapido relative a Data Factory, vedere [Guide introduttive di 5 minuti](/azure/data-factory/quickstart-create-data-factory-portal).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

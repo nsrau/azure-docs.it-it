@@ -2,17 +2,16 @@
 title: Esempio - Controllare l'impostazione di diagnostica
 description: Questa definizione di criteri di esempio controlla se le impostazioni di diagnostica non sono abilitate per tipi di risorse specifici.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 66c9c1c21cad7fb4058a91be826a50059691877c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b71876195ffd3993b49794835781e8ccbd1648d3
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797772"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977467"
 ---
 # <a name="sample---audit-diagnostic-setting"></a>Esempio - Controllare l'impostazione di diagnostica
 

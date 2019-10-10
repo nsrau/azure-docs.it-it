@@ -2,17 +2,16 @@
 title: "Esempio: nessuna tabella di route definita dall'utente"
 description: Questa definizione di criteri di esempio impedisce che le reti virtuali vengano distribuite con una tabella di route definita dall'utente.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 330ffc8451f538e5765425522b37f83231d782c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 783ee6916b4ecfb792a7b86cdd84aee08de223f5
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275862"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976909"
 ---
 # <a name="sample---no-user-defined-route-table"></a>Esempio: nessuna tabella di route definita dall'utente
 

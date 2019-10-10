@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 274c437acd8df50d631727fc352c4b9ebecead18
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: a82b24f89cea580a1c79a1dec60996629b7b14f3
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479966"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978136"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Esercitazione: Proteggere le nuove risorse con blocchi delle risorse in Azure Blueprints
 
@@ -157,8 +156,8 @@ Dopo aver pubblicato la definizione di progetto, è possibile assegnarla a una s
 
      |Nome dell'artefatto|Tipo di artefatto|Nome parametro|Valore|DESCRIZIONE|
      |-|-|-|-|-|
-     |Gruppo di risorse RGtoLock|Gruppo di risorse|NOME|TestingBPLocks|Definisce il nome del nuovo gruppo di risorse a cui applicare i blocchi del progetto.|
-     |Gruppo di risorse RGtoLock|Gruppo di risorse|Località|Stati Uniti occidentali 2|Definisce la posizione del nuovo gruppo di risorse a cui applicare i blocchi del progetto.|
+     |Gruppo di risorse RGtoLock|Resource group|NOME|TestingBPLocks|Definisce il nome del nuovo gruppo di risorse a cui applicare i blocchi del progetto.|
+     |Gruppo di risorse RGtoLock|Resource group|Location|Stati Uniti occidentali 2|Definisce la posizione del nuovo gruppo di risorse a cui applicare i blocchi del progetto.|
      |StorageAccount|Modello di Resource Manager|storageAccountType (Account di archiviazione)|Standard_GRS|SKU di archiviazione. Il valore predefinito è _Standard_LRS_.|
 
 1. Dopo avere immesso tutti i parametri, selezionare **Assegna** in fondo alla pagina.

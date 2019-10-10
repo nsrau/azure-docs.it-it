@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 417ff7ac345b9a83b3d3f4c50e9fd141d74bc99c
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 298228eedb73298f00654f4f72c201d9ed671090
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103554"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177053"
 ---
 # <a name="call-the-computer-vision-api"></a>Chiamare l'API Visione artificiale
 
@@ -56,7 +56,7 @@ Per passare la chiave della sottoscrizione, è possibile eseguire una delle oper
 * Passare la chiave tramite una stringa di query, come in questo esempio dell'API Visione artificiale:
 
   ```
-  https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
+  https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
   ```
 
 * Specificare la chiave nell'intestazione della richiesta HTTP:
@@ -83,7 +83,7 @@ Per un'immagine specificata, ottenere i tag e una descrizione usando una delle o
 ### <a name="option-1-get-a-list-of-tags-and-a-description"></a>Opzione 1: Ottenere un elenco di tag e una descrizione
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
 ```
 
 ```csharp
@@ -105,14 +105,14 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 Per ottenere solo i tag, eseguire:
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/tag?subscription-key=<Your subscription key>
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/tag?subscription-key=<Your subscription key>
 var tagResults = await visionClient.TagImageAsync("http://contoso.com/example.jpg");
 ```
 
 Per ottenere solo la descrizione, eseguire:
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/describe?subscription-key=<Your subscription key>
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/describe?subscription-key=<Your subscription key>
 using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 {
   imageDescription = await visionClient.DescribeImageInStreamAsync(fs);
@@ -123,14 +123,14 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 
 ### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>Opzione 1: Analisi con ambito - Analisi di un uno solo modello specificato
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/models/celebrities/analyze
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
 ```
 
 Per questa opzione, tutti gli altri parametri di query {visualFeatures, details} non sono validi. Se si vogliono visualizzare tutti i modelli supportati, usare:
 
 ```
-GET https://westus.api.cognitive.microsoft.com/vision/v2.0/models 
+GET https://westus.api.cognitive.microsoft.com/vision/v2.1/models 
 var models = await visionClient.ListModelsAsync();
 ```
 
@@ -139,7 +139,7 @@ var models = await visionClient.ListModelsAsync();
 Per le applicazioni in cui si vuole ottenere un'analisi generica delle immagini, oltre ai dettagli di uno o più modelli specifici del dominio, estendere l'API v1 con il parametro di query models.
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?details=celebrities
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?details=celebrities
 ```
 
 Quando si richiama questo metodo, si chiama prima il classificatore di [86 categorie](../Category-Taxonomy.md). Se una delle categorie corrisponde a quella di un modello noto/corrispondente, verrà eseguito un secondo passaggio delle chiamate del classificatore. Ad esempio, se "details = all" o "details" include "celebrities", il modello delle celebrità viene chiamato dopo la chiamata al classificatore di 86 categorie. Il risultato include la categoria person. Diversamente dall'opzione 1, questo metodo aumenta la latenza per gli utenti interessati alle celebrità.

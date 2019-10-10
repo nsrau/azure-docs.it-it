@@ -2,17 +2,16 @@
 title: Esempio - Controllare l'assenza di amministratore per Azure Active Directory
 description: Questa definizione di criteri di esempio verifica quando non è stato assegnato alcun amministratore di Azure Active Directory al server SQL.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 769d860195df5d681d7426d33d70adf8851eed3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 35f4497b3797b65aa7d4eff232e43d6af52dedae
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274213"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977384"
 ---
 # <a name="sample---audit-no-azure-active-directory-administrator"></a>Esempio - Verificare l'assenza di un amministratore di Azure Active Directory
 

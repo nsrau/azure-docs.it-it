@@ -2,17 +2,16 @@
 title: Esempio - Località di peering consentite per ExpressRoute
 description: Questa definizione di criteri di esempio richiede che le istanze di ExpressRoute usino località di peering specificate.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: a6e7d8ac470d41d37919c468a41014d0d1c0c49f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5273440fb142376dc4fe2dced7230906e191612b
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271204"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980686"
 ---
 # <a name="sample---allowed-peering-location-for-expressroute"></a>Esempio - Località di peering consentita per ExpressRoute
 

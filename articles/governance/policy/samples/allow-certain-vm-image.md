@@ -2,17 +2,16 @@
 title: 'Esempio: Consentire solo una determinata immagine della piattaforma della macchina virtuale'
 description: Questa definizione di criteri di esempio richiede che le macchine virtuali usino una versione specifica di UbuntuServer.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 8ec4bdc7e360c9f53a95280827a2a0ea8ab97c4d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5999594f81d66be8eb98257f7f1554038583db89
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59272802"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977855"
 ---
 # <a name="sample---only-allow-a-certain-vm-platform-image"></a>Esempio: Consentire solo una determinata immagine della piattaforma della macchina virtuale
 

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 30751bebd397b378924453987462c9e2b3b55ebf
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c4b46bc952782fc7c9b56d6f0c049fe17b63d0f2
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803895"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71836406"
 ---
 # <a name="electric-vehicle-routing-using-azure-notebooks-python"></a>Pianificazione di itinerari per veicoli elettrici tramite Azure Notebooks (Python)
 
-Mappe di Azure è un portfolio di API di servizi geospaziali integrate in modalità nativa in Azure che consentono a sviluppatori, aziende e ISV di creare app con riconoscimento della posizione e soluzioni per Internet delle cose, mobilità, logistica e localizzazione dei beni. Le API REST di Mappe di Azure possono essere chiamate da linguaggi come Python e R per scenari di analisi di dati geospaziali e Machine Learning. Mappe di Azure include un set completo di [API di pianificazione di itinerari]([https://docs.microsoft.com/rest/api/maps/route) che consente di calcolare gli itinerari tra diversi punti dati in base a varie condizioni, come tipo di veicolo o area raggiungibile. Questa esercitazione illustra uno scenario in cui il conducente di un veicolo elettrico, con una carica della batteria insufficiente, viene aiutato a trovare la stazione di ricarica più vicina possibile rispetto al tempo di guida.
+Mappe di Azure è un portfolio di API di servizi geospaziali integrate in modalità nativa in Azure che consentono a sviluppatori, aziende e ISV di creare app con riconoscimento della posizione e soluzioni per Internet delle cose, mobilità, logistica e localizzazione dei beni. Le API REST di Mappe di Azure possono essere chiamate da linguaggi come Python e R per scenari di analisi di dati geospaziali e Machine Learning. Mappe di Azure include un set completo di [API di pianificazione di itinerari](https://docs.microsoft.com/rest/api/maps/route) che consente di calcolare gli itinerari tra diversi punti dati in base a varie condizioni, come tipo di veicolo o area raggiungibile. Questa esercitazione illustra uno scenario in cui il conducente di un veicolo elettrico, con una carica della batteria insufficiente, viene aiutato a trovare la stazione di ricarica più vicina possibile rispetto al tempo di guida.
 
 In questa esercitazione si apprenderà come:
 

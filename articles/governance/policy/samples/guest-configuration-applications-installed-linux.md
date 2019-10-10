@@ -2,17 +2,16 @@
 title: 'Esempio : Controllare se le applicazioni non sono installate nelle macchine virtuali Linux'
 description: Questa iniziativa e le definizioni di Configurazione guest di Criteri di Azure di esempio controllano se le applicazioni specificate non sono installate nelle macchine virtuali Linux.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: eda5a2a6d2dae58f8da72deccbb89a34c7f21dae
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ef2ab4bebf2247b08cdc80ed74bbe17a67c5baae
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204022"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977044"
 ---
 # <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Esempio: controllare se le applicazioni specificate non sono installate nelle macchine virtuali Linux
 

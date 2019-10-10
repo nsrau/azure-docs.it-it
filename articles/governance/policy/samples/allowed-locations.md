@@ -2,17 +2,16 @@
 title: Esempio - Posizioni consentite
 description: Questa definizione di criteri di esempio richiede che tutte le risorse vengano distribuite nelle località approvate.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 2823cee863941926fffe332295328d6ecfb54001
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5c4a23b355a4d7841c42d03042399635a55bac03
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264727"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980643"
 ---
 # <a name="sample---allowed-region-locations"></a>Esempio - Località consentite
 

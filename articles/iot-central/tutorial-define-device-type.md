@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: db9f7e75af01ed83c39ef3a37ab2612426ef6ea4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a3faa76c1506664a075648edc7d57fbba542b011
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099615"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960542"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Esercitazione: Definire un nuovo tipo di dispositivo nell'applicazione Azure IoT Central
 
@@ -365,7 +365,7 @@ I _comandi_ si usano per consentire a un operatore di eseguire i comandi diretta
     | Nome visualizzato         | Echo Command (Comando eco)    |
     | Nome campo           | echo (eco)            |
     | Timeout predefinito      | 30              |
-    | Tipo schermo         | text            |
+    | Tipo di dati         | text            |
     | DESCRIZIONE          | Comando del dispositivo  |  
 
     È possibile aggiungere altri input al comando selezionando **+** per **Campi di input**.

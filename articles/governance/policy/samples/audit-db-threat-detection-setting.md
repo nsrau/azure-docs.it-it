@@ -2,17 +2,16 @@
 title: Esempio - Controllare l'impostazione di rilevamento delle minacce a livello di database
 description: Questa definizione di criteri di esempio controlla i criteri degli avvisi di sicurezza dei database SQL nel caso in cui non siano impostati sullo stato specificato.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 8fbe687a08e36cfa9503078cbcb75ee85f43b7a1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7c8c5f4530f6f34cfe94143fa03c89647369f5b7
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266223"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977540"
 ---
 # <a name="sample---audit-db-level-threat-detection-setting"></a>Esempio - Controllare l'impostazione di rilevamento delle minacce a livello di database
 
