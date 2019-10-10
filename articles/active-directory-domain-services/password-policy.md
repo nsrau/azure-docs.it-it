@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 10/08/2019
 ms.author: iainfou
-ms.openlocfilehash: 19a618bd576687fcb0d92f8e35613e4cdc749e70
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 3876c6f80e9f18059ab4abac67732cdbf2ca24fa
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71320450"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248317"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Criteri password e di blocco dell'account nei domini gestiti
 
-Per gestire la sicurezza degli account in Azure Active Directory Domain Services (Azure AD DS), è possibile definire criteri specifici per le password che controllano impostazioni quali lunghezza minima della password, ora di scadenza della password o complessità della password. Un criterio password predefinito viene applicato a tutti gli utenti in un dominio gestito Azure AD DS. Per fornire un controllo granulare e soddisfare specifiche esigenze aziendali o di conformità, è possibile creare criteri aggiuntivi e applicarli a gruppi di utenti specifici.
+Per gestire la sicurezza degli utenti in Azure Active Directory Domain Services (Azure AD DS), è possibile definire criteri specifici per le password che controllano le impostazioni di blocco degli account o la lunghezza e la complessità minime della password. Un criterio granulare per le password predefinito viene creato e applicato a tutti gli utenti in un dominio gestito Azure AD DS. Per fornire un controllo granulare e soddisfare specifiche esigenze aziendali o di conformità, è possibile creare criteri aggiuntivi e applicarli a gruppi di utenti specifici.
 
-Questo articolo illustra come creare e configurare un criterio granulare per le password usando il Centro di amministrazione di Active Directory.
+Questo articolo illustra come creare e configurare un criterio granulare per le password in Azure AD DS usando il Centro di amministrazione di Active Directory.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -38,65 +38,68 @@ Per completare questo articolo, sono necessari i privilegi e le risorse seguenti
   * Se necessario, completare l'esercitazione per [creare una macchina virtuale di gestione][tutorial-create-management-vm].
 * Un account utente membro del gruppo di *amministratori dei controller di dominio di Azure AD* nel tenant di Azure AD.
 
-## <a name="fine-grained-password-policies-fgpp-overview"></a>Panoramica di criteri specifici per le password (FGPP)
+## <a name="default-password-policy-settings"></a>Impostazioni predefinite dei criteri password
 
-I criteri granulari per le password (vengono mostrate) consentono di applicare restrizioni specifiche per i criteri di blocco di password e account a utenti diversi in un dominio. Per proteggere gli account con privilegi, ad esempio, è possibile applicare impostazioni di password più restrittive rispetto agli account con privilegi regolari. È possibile creare più vengono mostrate per specificare i criteri password in un dominio gestito di Azure AD DS.
+I criteri granulari per le password (vengono mostrate) consentono di applicare restrizioni specifiche per i criteri di blocco di password e account a utenti diversi in un dominio. Ad esempio, per proteggere gli account con privilegi è possibile applicare impostazioni di blocco degli account più restrittive rispetto agli account senza privilegi regolari. È possibile creare più vengono mostrate all'interno di un dominio gestito Azure AD DS e specificare l'ordine di priorità per applicarli agli utenti.
 
-Le impostazioni della password seguenti possono essere configurate con FGPP:
+I criteri vengono distribuiti tramite l'associazione di gruppo in un dominio gestito di Azure AD DS e tutte le modifiche apportate vengono applicate al successivo accesso dell'utente. La modifica dei criteri non comporta lo sblocco di un account utente già bloccato.
 
-* Lunghezza minima password
-* Cronologia delle password
-* Le password devono soddisfare i requisiti di complessità
-* Validità minima password
-* Validità massima password
-* Criteri di blocco account
-  * Durata del blocco account
-  * Numero di tentativi di accesso non riusciti consentiti
-  * Reimpostare il numero di tentativi di accesso non riusciti dopo
+I criteri password si comportano in modo leggermente diverso a seconda del modo in cui è stato creato l'account utente a cui sono stati applicati. In Azure AD DS è possibile creare un account utente in due modi:
 
-FGPP influiscono solo sugli utenti creati in Azure AD DS. Gli utenti del cloud e gli utenti del dominio sincronizzati nel dominio gestito di Azure AD DS da Azure AD non sono interessati dai criteri per le password.
+* L'account utente può essere sincronizzato da Azure AD. Sono inclusi gli account utente solo cloud creati direttamente in Azure e gli account utente ibridi sincronizzati da un ambiente Active Directory Domain Services locale usando Azure AD Connect.
+    * La maggior parte degli account utente in Azure AD DS vengono creati tramite il processo di sincronizzazione da Azure AD.
+* L'account utente può essere creato manualmente in un dominio gestito Azure AD DS e non esiste nel Azure AD.
 
-I criteri vengono distribuiti tramite l'associazione di gruppo nel dominio gestito di Azure AD DS e tutte le modifiche apportate vengono applicate al successivo accesso dell'utente. La modifica dei criteri non comporta lo sblocco di un account utente già bloccato.
-
-## <a name="default-fine-grained-password-policy-settings"></a>Impostazioni predefinite dei criteri per le password con granularità fine
-
-In un dominio gestito Azure AD DS, i criteri password seguenti sono configurati per impostazione predefinita e applicati a tutti gli utenti:
-
-* **Lunghezza minima password (caratteri):** 7
-* **Validità massima password (durata):** 90 giorni
-* **Le password devono soddisfare i requisiti di complessità**
-
-Per impostazione predefinita, vengono configurati i criteri di blocco degli account seguenti:
+Tutti gli utenti, indipendentemente dal modo in cui sono stati creati, presentano i criteri di blocco degli account seguenti applicati dai criteri password predefiniti in Azure AD DS:
 
 * **Durata blocco account:** 30
 * **Numero di tentativi di accesso non riusciti consentiti:** 5
 * **Reimposta i tentativi di accesso non riusciti dopo:** 30 minuti
+* **Validità massima password (durata):** 90 giorni
 
 Con queste impostazioni predefinite, gli account utente vengono bloccati per 30 minuti se vengono usate cinque password non valide entro 2 minuti. Gli account vengono sbloccati automaticamente dopo 30 minuti.
 
-Non è possibile modificare o eliminare i criteri granulari predefiniti per le password. Al contrario, i membri del gruppo *AAD DC Administrators* possono creare un FGPP personalizzato e configurarlo in modo da eseguire l'override (avere la precedenza rispetto a) la FGPP incorporata predefinita, come illustrato nella sezione successiva.
+I blocchi degli account si verificano solo nel dominio gestito. Gli account utente vengono bloccati solo in Azure AD DS e solo a causa di tentativi di accesso non riusciti sul dominio gestito. Gli account utente sincronizzati in da Azure AD o in locale non sono bloccati nelle directory di origine, ma solo in Azure AD DS.
 
-## <a name="create-a-custom-fine-grained-password-policy"></a>Creare criteri specifici per le password personalizzati
+Se si dispone di un criterio di Azure AD password che specifica una durata massima della password superiore a 90 giorni, la validità della password viene applicata ai criteri predefiniti in Azure AD DS. È possibile configurare criteri password personalizzati per definire una validità massima della password diversa in Azure AD DS. Prestare attenzione se la validità massima della password è configurata in un criterio di Azure AD password DS rispetto a Azure AD o a un ambiente di servizi di dominio Active Directory locale. In questo scenario, la password di un utente può scadere in Azure AD DS prima che venga richiesto di modificare Azure AD in un ambiente di servizi di dominio Active Directory locale.
 
-Durante la compilazione di applicazioni e in Azure, può essere necessario configurare un FGPP personalizzato. Alcuni esempi della necessità di creare un FGPP personalizzato includono per impostare un criterio di blocco degli account diverso o per configurare un'impostazione predefinita per la durata della password per il dominio gestito.
+Per gli account utente creati manualmente in un dominio gestito Azure AD DS, vengono applicate anche le impostazioni di password aggiuntive seguenti dal criterio predefinito. Queste impostazioni non si applicano agli account utente sincronizzati da Azure AD, perché un utente non può aggiornare la propria password direttamente in Azure AD DS.
 
-È possibile creare un FGPP personalizzato e applicarlo a gruppi specifici nel dominio gestito di Azure AD DS. Questa configurazione esegue l'override del valore predefinito di FGPP. È anche possibile creare criteri specifici per le password personalizzati e applicarli a tutte le ou personalizzate create nel dominio gestito di Azure AD DS.
+* **Lunghezza minima password (caratteri):** 7
+* **Le password devono soddisfare i requisiti di complessità**
 
-Per creare un criterio granulare per le password, usare gli strumenti di amministrazione Active Directory da una macchina virtuale aggiunta a un dominio. Il Centro di amministrazione di Active Directory consente di visualizzare, modificare e creare risorse in un dominio gestito Azure AD DS, incluse le unità organizzative.
+Non è possibile modificare le impostazioni di blocco account o password nei criteri password predefiniti. Al contrario, i membri del gruppo *AAD DC Administrators* possono creare criteri password personalizzati e configurarli per sostituire (avere la precedenza rispetto a) i criteri predefiniti predefiniti, come illustrato nella sezione successiva.
+
+## <a name="create-a-custom-password-policy"></a>Creare criteri password personalizzati
+
+Quando si compilano ed eseguono applicazioni in Azure, è possibile configurare un criterio personalizzato per le password. Ad esempio, è possibile creare un criterio per impostare diverse impostazioni dei criteri di blocco degli account.
+
+I criteri password personalizzati vengono applicati ai gruppi in un dominio gestito Azure AD DS. Questa configurazione sostituisce in modo efficace i criteri predefiniti.
+
+Per creare un criterio personalizzato per le password, usare gli strumenti di amministrazione Active Directory da una macchina virtuale aggiunta a un dominio. Il Centro di amministrazione di Active Directory consente di visualizzare, modificare e creare risorse in un dominio gestito Azure AD DS, incluse le unità organizzative.
 
 > [!NOTE]
-> Per creare un criterio granulare per le password in un dominio gestito di Azure AD DS, è necessario avere eseguito l'accesso a un account utente membro del gruppo di *amministratori di AAD DC* .
+> Per creare un criterio personalizzato per le password in un dominio gestito di Azure AD DS, è necessario avere eseguito l'accesso a un account utente membro del gruppo di *amministratori di AAD DC* .
 
 1. Dalla schermata Start selezionare strumenti di **Amministrazione**. Viene visualizzato un elenco di strumenti di gestione disponibili che sono stati installati nell'esercitazione per [creare una macchina virtuale di gestione][tutorial-create-management-vm].
 1. Per creare e gestire le unità organizzative, selezionare **centro di amministrazione di Active Directory** dall'elenco di strumenti di amministrazione.
 1. Nel riquadro sinistro scegliere il dominio gestito di Azure AD DS, ad esempio *contoso.com*.
-1. Aprire il contenitore di **sistema** , quindi il contenitore **Impostazioni password** .
+1. Aprire il contenitore di **sistema** , quindi il **contenitore Impostazioni password**.
 
-    Viene visualizzato un FGPP incorporato per il dominio gestito Azure AD DS. che non è possibile modificare. In alternativa, creare un nuovo FGPP personalizzato per eseguire l'override del valore predefinito di FGPP.
+    Viene visualizzato un criterio di password predefinito per il dominio gestito Azure AD DS. Non è possibile modificare questo criterio predefinito. In alternativa, creare un criterio password personalizzato per sostituire i criteri predefiniti.
+
+    ![Creare un criterio password nell'Centro di amministrazione di Active Directory](./media/password-policy/create-password-policy-adac.png)
+
 1. Nel pannello **attività** a destra selezionare **nuovo > Impostazioni password**.
-1. Nella finestra di dialogo **Crea impostazioni password** immettere un nome per il criterio, ad esempio *MyCustomFGPP*. Impostare la precedenza su in modo appropriato per sostituire il valore predefinito di FGPP ( *200*), ad esempio *1*.
+1. Nella finestra di dialogo **Crea impostazioni password** immettere un nome per il criterio, ad esempio *MyCustomFGPP*.
+1. Quando sono presenti più criteri password, a un utente vengono applicati i criteri con la precedenza più alta o la priorità. Più è basso il numero, maggiore sarà la priorità. La priorità dei criteri password predefiniti è *200*.
 
-    Modificare le altre impostazioni dei criteri password in base alle esigenze, ad esempio **applica cronologia password** per richiedere all'utente di creare una password diversa dalle *24* password precedenti.
+    Impostare la precedenza per i criteri password personalizzati per sostituire il valore predefinito, ad esempio *1*.
+
+1. Modificare le altre impostazioni dei criteri password nel modo desiderato. Tenere presente i seguenti punti chiave:
+
+    * Impostazioni come la complessità della password, l'età o la scadenza solo per gli utenti creati manualmente in un dominio gestito Azure AD DS.
+    * Le impostazioni di blocco degli account si applicano a tutti gli utenti, ma hanno effetto solo nel dominio gestito.
 
     ![Creare criteri specifici per le password personalizzati](./media/how-to/custom-fgpp.png)
 
@@ -105,7 +108,7 @@ Per creare un criterio granulare per le password, usare gli strumenti di amminis
 
     ![Selezionare gli utenti e i gruppi ai quali applicare i criteri password](./media/how-to/fgpp-applies-to.png)
 
-1. I criteri granulari per le password possono essere applicati solo ai gruppi. Nella finestra di dialogo **locations (percorsi** ) espandere il nome di dominio, ad esempio *contoso.com*, quindi selezionare un'unità organizzativa, ad esempio **aaddc computers users**. Se si dispone di un'unità organizzativa personalizzata che contiene un gruppo di utenti che si desidera applicare, selezionare tale unità organizzativa.
+1. È possibile applicare i criteri password solo ai gruppi. Nella finestra di dialogo **locations (percorsi** ) espandere il nome di dominio, ad esempio *contoso.com*, quindi selezionare un'unità organizzativa, ad esempio **aaddc computers users**. Se si dispone di un'unità organizzativa personalizzata che contiene un gruppo di utenti che si desidera applicare, selezionare tale unità organizzativa.
 
     ![Selezionare l'unità organizzativa a cui appartiene il gruppo](./media/how-to/fgpp-container.png)
 
@@ -117,7 +120,7 @@ Per creare un criterio granulare per le password, usare gli strumenti di amminis
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sui criteri granulari per le password e sull'utilizzo di Active Directory Administration Center, vedere gli articoli seguenti:
+Per ulteriori informazioni sui criteri per le password e sull'utilizzo di Active Directory Administration Center, vedere gli articoli seguenti:
 
 * [Informazioni sui criteri granulari per le password](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
 * [Configurare i criteri granulari per le password usando l'interfaccia di amministrazione di Active Directory](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)

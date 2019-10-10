@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: raynew
-ms.openlocfilehash: c330afb2c5d315b3d386d1477669f1aab2f6e6f9
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 908d681b271aa8acdb0898676c33d396461d8f9a
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972070"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255195"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in un sito secondario
 
@@ -25,6 +25,17 @@ Questo articolo presenta un riepilogo degli elementi supportati quando si usa il
 > [!NOTE]
 > La replica di macchine virtuali VMware locali e server fisici viene eseguita usando InMage Scout. InMage Scout è incluso nella sottoscrizione del servizio Azure Site Recovery.
 
+## <a name="end-of-support-announcement"></a>Annuncio di fine del supporto
+Lo scenario Site Recovery per la replica tra i data center fisici o VMware locali sta raggiungendo la fine del supporto.
+
+- Dal 2018 agosto lo scenario non può essere configurato nell'insieme di credenziali di servizi di ripristino e il software Inmage Scout non può essere scaricato dall'insieme di credenziali. Le distribuzioni esistenti saranno supportate.
+- - Dal 31 dicembre 2020 lo scenario non sarà più supportato.
+I partner esistenti possono caricare nuovi clienti nello scenario finché non termina il supporto.
+- Durante il 2018 e il 2019 verranno rilasciati due aggiornamenti:
+
+    - Aggiornamento 7: consente di risolvere problemi di conformità e di configurazione di rete e fornisce il supporto di TLS 1.2.
+    - Aggiornamento 8: aggiunge il supporto per i sistemi operativi Linux RHEL/CentOS 7.3/7.4/7.5 e per SUSE 12
+    - Dopo l'Aggiornamento 8 non verranno rilasciati ulteriori aggiornamenti. Vi sarà un supporto limitato a hotfix per i sistemi operativi aggiunti nell'Aggiornamento 8 e correzioni di bug basate sul massimo sforzo.
 
 ## <a name="host-servers"></a>Server host
 
@@ -57,15 +68,15 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> CentOs 6.5, 
 
 **Configurazione** | **Supportato**  
 --- | --- 
-Host - Gruppo NIC | Sì 
+Host - Gruppo NIC | Yes 
 Host - VLAN | Yes 
 Host - IPv4 | Yes 
 Host - IPv6 | No 
 VM guest - Gruppo NIC | No
-VM guest - IPv4 | Sì
+VM guest - IPv4 | Yes
 VM guest - IPv6 | No
-VM guest - Windows/Linux - Indirizzo IP statico | Sì
-VM guest - Più NIC | Sì
+VM guest - Windows/Linux - Indirizzo IP statico | Yes
+VM guest - Più NIC | Yes
 
 
 ## <a name="storage"></a>Archiviazione
@@ -77,7 +88,7 @@ VM guest - Più NIC | Sì
 NFS | Yes 
 SMB 3.0 | N/D 
 SAN (iSCSI) | Yes 
-Percorsi multipli (MPIO) | Sì 
+Percorsi multipli (MPIO) | Yes 
 
 ### <a name="guest-or-physical-server-storage"></a>Archiviazione su server fisico o guest
 
@@ -86,17 +97,17 @@ Percorsi multipli (MPIO) | Sì
 VMDK | Yes 
 VHD/VHDX | N/D 
 VM di seconda generazione | N/D 
-Disco cluster condiviso | Sì 
+Disco cluster condiviso | Yes 
 Disco crittografato | No 
-UEFI| Sì 
+UEFI| Yes 
 NFS | No 
 SMB 3.0 | No 
-RDM | Sì 
-Disco superiore a 1 TB | Sì 
+RDM | Yes 
+Disco superiore a 1 TB | Yes 
 Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Yes 
 Spazi di archiviazione | No 
-Aggiunta/rimozione a caldo disco | Sì 
-Esclusione disco | Sì 
+Aggiunta/rimozione a caldo disco | Yes 
+Esclusione disco | Yes 
 Percorsi multipli (MPIO) | N/D 
 
 ## <a name="vaults"></a>Insiemi di credenziali

@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.author: v-erkell
-ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: 86b63e6d9799387347093e469015fbd3019069d1
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515862"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255055"
 ---
 # <a name="configure-storage"></a>Configurare l'archivio
 
@@ -72,7 +72,7 @@ A questo punto, passare a [Creare una giunzione](#create-a-junction).
 Per usare l'archivio BLOB di Azure come risorsa di archiviazione back-end del cluster vFXT, è necessario un contenitore vuoto da aggiungere come core filer.
 
 > [!TIP] 
-> Se si sceglie di creare un contenitore BLOB nello stesso momento in cui si crea il cluster Avere vFXT, il modello di distribuzione o lo script crea un contenitore di archiviazione, lo definisce come core filer e crea la giunzione dello spazio dei nomi come parte della creazione del cluster vFXT. Il modello crea anche un endpoint di servizio di archiviazione all'interno di rete virtuale del cluster. 
+> Se si sceglie di creare un contenitore BLOB nello stesso momento in cui si crea il cluster Avere vFXT, il modello di distribuzione o lo script crea un contenitore di archiviazione, lo definisce come core filer e crea la giunzione dello spazio dei nomi come parte della creazione del cluster vFXT. Il modello crea anche un endpoint del servizio di archiviazione all'interno della rete virtuale del cluster. 
 
 L'aggiunta del servizio di archiviazione BLOB al cluster richiede queste attività:
 
@@ -126,7 +126,7 @@ Per aggiungere il servizio di archiviazione BLOB dopo la creazione del cluster, 
    | Sottoscrizione | ID sottoscrizione |
    | Storage Access Key (Chiave di accesso alle risorse di archiviazione) | chiave di accesso di Archiviazione di Azure (copiata nel passaggio precedente) | 
 
-   Fare clic su **Submit**.
+   Fare clic su **Invia**.
 
    ![Modulo delle credenziali cloud completato nel pannello di controllo di Avere](media/avere-vfxt-new-credential-submit.png)
 

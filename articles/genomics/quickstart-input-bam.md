@@ -1,7 +1,7 @@
 ---
-title: Inviare un flusso di lavoro utilizzando un file BAM input - Genomics di Microsoft
-titleSuffix: Azure
-description: Questo articolo si presuppone che si è installato il client msgen e sono stati eseguiti correttamente i dati di esempio tramite il servizio.
+title: Inviare un flusso di lavoro utilizzando l'input del file BAM
+titleSuffix: Microsoft Genomics
+description: Questo articolo illustra come inviare un flusso di lavoro al servizio genomica di Microsoft se il file di input è un singolo file BAM.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,16 +9,16 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
-ms.openlocfilehash: 329ac374edbffa65a1b654a05a4934828f25d5de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5145aa0ffdc4095f178a214f63433e5bcece83b6
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60780843"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249155"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>Inviare un flusso di lavoro usando un input di file BAM
 
-Questo articolo illustra come inviare un flusso di lavoro al servizio Microsoft Genomics se il file di input è un singolo file BAM. In questo argomento si presuppone che sia già stato installato ed eseguito il client `msgen` e che si abbia familiarità con l'uso di Archiviazione di Azure. Se è già stato inviato un flusso di lavoro usando i dati di esempio forniti, si è pronti per procedere con questo articolo. 
+Questo articolo illustra come inviare un flusso di lavoro al servizio genomica di Microsoft se il file di input è un singolo file BAM. In questo argomento si presuppone che sia già stato installato ed eseguito il client `msgen` e che si abbia familiarità con l'uso di Archiviazione di Azure. Se un flusso di lavoro è stato inviato correttamente usando i dati di esempio forniti, è possibile procedere con questo articolo. 
 
 ## <a name="set-up-upload-your-bam-file-to-azure-storage"></a>Configurazione: Caricare il file BAM in archiviazione di Azure
 Si supponga che sia disponibile un singolo file BAM, *reads.bam*, e che il file sia stato caricato nell'account di archiviazione *myaccount* in Azure come **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads<span></span>.bam<span></span>** . È necessario che siano disponibili l'URL dell'API e la chiave di accesso. Gli output devono essere disponibili in **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** .

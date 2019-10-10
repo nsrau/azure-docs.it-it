@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: c9b6f6cf52d71451d2e1de27d0637eeb749b1e0b
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 55ded9a733baaac7fbc78621bd625d57d1d37ad1
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349056"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255485"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un servizio di bilanciamento del carico con SKU standard in Azure Kubernetes Service (AKS)
 
@@ -145,7 +145,7 @@ Verificare che la proprietà *loadBalancerSku* sia visualizzata come *standard*.
 
 Per usare il servizio di bilanciamento del carico nel cluster, creare un manifesto del servizio con il tipo di servizio *LoadBalancer*. Per visualizzare il servizio di bilanciamento del carico, creare un altro manifesto con un'applicazione di esempio da eseguire nel cluster. Questa applicazione di esempio viene esposta tramite il servizio di bilanciamento del carico e può essere visualizzata tramite un browser.
 
-Creare un manifesto denominato `sample.yaml` , come illustrato nell'esempio seguente:
+Creare un manifesto denominato `sample.yaml`, come illustrato nell'esempio seguente:
 
 ```yaml
 apiVersion: apps/v1
@@ -221,7 +221,7 @@ spec:
           value: "azure-vote-back"
 ```
 
-Il manifesto precedente configura due distribuzioni: *Azure-vote-front* e *Azure-vote-back*. Per configurare la distribuzione di *Azure-vote-front* per l'esposizione tramite il servizio di bilanciamento del carico, `standard-lb.yaml` creare un manifesto denominato come illustrato nell'esempio seguente:
+Il manifesto precedente configura due distribuzioni: *Azure-vote-front* e *Azure-vote-back*. Per configurare la distribuzione di *Azure-vote-front* per l'esposizione tramite il servizio di bilanciamento del carico, creare un manifesto denominato `standard-lb.yaml`, come illustrato nell'esempio seguente:
 
 ```yaml
 apiVersion: v1
@@ -245,7 +245,7 @@ kubectl apply -f sample.yaml
 kubectl apply -f standard-lb.yaml
 ```
 
-Il servizio di bilanciamento del carico SKU *standard* è ora configurato per esporre l'applicazione di esempio. Visualizzare i dettagli del servizio *Azure-vote-front* con [kubectl Get][kubectl-get] per visualizzare l'indirizzo IP pubblico del servizio di bilanciamento del carico. L'indirizzo IP pubblico del servizio di bilanciamento del carico viene visualizzato nella colonna *External-IP* . La modifica dell'indirizzo IP da *\<pending\>* a un indirizzo IP esterno effettivo può richiedere un paio di minuti, come illustrato nell'esempio seguente:
+Il servizio di bilanciamento del carico SKU *standard* è ora configurato per esporre l'applicazione di esempio. Visualizzare i dettagli del servizio *Azure-vote-front* con [kubectl Get][kubectl-get] per visualizzare l'indirizzo IP pubblico del servizio di bilanciamento del carico. L'indirizzo IP pubblico del servizio di bilanciamento del carico viene visualizzato nella colonna *External-IP* . La modifica dell'indirizzo IP da *\<pending @ no__t-2* a un indirizzo IP esterno effettivo può richiedere un paio di minuti, come illustrato nell'esempio seguente:
 
 ```
 $ kubectl get service azure-vote-front
@@ -256,10 +256,10 @@ azure-vote-front    LoadBalancer   10.0.227.198   52.179.23.131   80:31201/TCP  
 
 Passare all'indirizzo IP pubblico in un browser e verificare che sia visualizzata l'applicazione di esempio. Nell'esempio precedente l'indirizzo IP pubblico è `52.179.23.131`.
 
-![Immagine del passaggio ad Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Immagine del passaggio ad Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 > [!NOTE]
-> È anche possibile configurare il servizio di bilanciamento del carico in modo che sia interno e non esponga un indirizzo IP pubblico. Per configurare il servizio di bilanciamento del carico come interno `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` , aggiungere come annotazione al servizio *LoadBalancer* . [Qui][internal-lb-yaml]è possibile visualizzare un manifesto YAML di esempio, oltre a informazioni dettagliate su un servizio di bilanciamento del carico interno.
+> È anche possibile configurare il servizio di bilanciamento del carico in modo che sia interno e non esponga un indirizzo IP pubblico. Per configurare il servizio di bilanciamento del carico come interno, aggiungere `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` come annotazione al servizio *LoadBalancer* . [Qui][internal-lb-yaml]è possibile visualizzare un manifesto YAML di esempio, oltre a informazioni dettagliate su un servizio di bilanciamento del carico interno.
 
 ## <a name="optional---scale-the-number-of-managed-public-ips"></a>Facoltativo: ridimensionare il numero di indirizzi IP pubblici gestiti
 
@@ -276,7 +276,7 @@ az aks update \
 
 Nell'esempio precedente il numero di indirizzi IP pubblici in uscita gestiti viene impostato su *2* per il cluster *myAKSCluster* in *myResourceGroup*. 
 
-È anche possibile usare il parametro *Load-Balancer-Managed-IP-count* per impostare il numero iniziale di indirizzi IP pubblici in uscita gestiti durante la creazione del cluster mediante `--load-balancer-managed-outbound-ip-count` l'aggiunta del parametro e l'impostazione del valore desiderato. Il numero predefinito di indirizzi IP pubblici in uscita gestiti è 1.
+È anche possibile usare il parametro *Load-Balancer-Managed-IP-count* per impostare il numero iniziale di indirizzi IP pubblici in uscita gestiti quando si crea il cluster aggiungendo il parametro `--load-balancer-managed-outbound-ip-count` e impostando il valore desiderato. Il numero predefinito di indirizzi IP pubblici in uscita gestiti è 1.
 
 ## <a name="optional---provide-your-own-public-ips-or-prefixes-for-egress"></a>Facoltativo: specificare gli indirizzi IP pubblici o i prefissi per l'uscita
 

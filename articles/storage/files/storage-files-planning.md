@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 76637c566d85816b3af6d0ed457031e7d4cd4068
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 075eaaa188307e4320337ef21fd0875942e9e7e7
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327678"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249344"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -82,7 +82,7 @@ Le condivisioni file standard sono supportate da unità disco rigido (HDD). Le c
 Le condivisioni file standard con dimensioni fino a 5 TiB sono disponibili come offerta GA. Mentre le condivisioni file di dimensioni maggiori, ovvero qualsiasi condivisione con dimensioni maggiori di 5 TiB, fino a un massimo di 100 TiB, sono attualmente disponibili come offerta di anteprima.
 
 > [!IMPORTANT]
-> Vedere la sezione onboarding [to large file Shares (livello standard)](#onboard-to-larger-file-shares-standard-tier) per i passaggi da eseguire per l'onboarding, nonché l'ambito e le restrizioni dell'anteprima.
+> Vedere la sezione [onboarding to large file Shares (livello standard)](#onboard-to-larger-file-shares-standard-tier) per i passaggi da eseguire per l'onboarding, nonché l'ambito e le restrizioni dell'anteprima.
 
 ### <a name="premium-file-shares"></a>Condivisioni file Premium
 
@@ -184,7 +184,7 @@ L'archiviazione con ridondanza geografica replica i dati in un altro data center
 
 Per un account di archiviazione con la funzionalità GRS abilitata, tutti i dati vengono prima replicati con archiviazione con ridondanza locale (con ridondanza locale). Prima di tutto, viene eseguito il commit di un aggiornamento nella località primaria e viene eseguita la replica con l'archiviazione con ridondanza locale. L'aggiornamento viene quindi replicato in modo asincrono nell'area secondaria tramite l'archiviazione con ridondanza geografica. Quando i dati vengono scritti nella località secondaria, vengono anche replicati all'interno di tale località usando l'archiviazione con ridondanza locale.
 
-Entrambe le aree primaria e secondaria gestiscono le repliche tra domini di errore e domini di aggiornamento separati all'interno di un'unità di scala di archiviazione. L'unità di scala di archiviazione è l'unità di replica di base nel data center. La replica a questo livello viene fornita da con ridondanza locale; Per ulteriori informazioni, vedere [archiviazione con ridondanza locale (con ridondanza locale): ridondanza dei dati a basso costo per Archiviazione di Azure](../common/storage-redundancy-lrs.md).
+Entrambe le aree primaria e secondaria gestiscono le repliche tra domini di errore e domini di aggiornamento separati all'interno di un'unità di scala di archiviazione. L'unità di scala di archiviazione è l'unità di replica di base nel data center. La replica a questo livello viene fornita da con ridondanza locale; Per ulteriori informazioni, vedere la pagina relativa all'archiviazione con ridondanza @no__t 0Locally (con ridondanza locale): ridondanza dei dati a basso costo per Archiviazione di Azure](../common/storage-redundancy-lrs.md).
 
 Nella scelta dell'opzione di replica da usare, tenere presenti queste considerazioni:
 
@@ -211,18 +211,18 @@ Le condivisioni file standard sono disponibili in tutte le aree fino a 5 TiB. In
 |Region |Ridondanza supportata |Supporta gli account di archiviazione esistenti |Supporto del portale * |
 |-------|---------|---------|---------|
 |Australia orientale |Archiviazione con ridondanza locale     |No    |Yes|
-|Australia sud-orientale|Archiviazione con ridondanza locale     |No    |Non ancora|
-|India centrale  |Archiviazione con ridondanza locale     |No    |Non ancora|
-|Asia orientale      |Archiviazione con ridondanza locale     |No    |Non ancora|
-|East US        |Archiviazione con ridondanza locale     |No    |Non ancora|
-|Francia centrale |CON RIDONDANZA LOCALE, ZRS|No    |CON ridondanza locale-Sì, ZRS-non ancora|
+|Australia sud-orientale|Archiviazione con ridondanza locale |No    |Yes|
+|India centrale  |Archiviazione con ridondanza locale     |No    |Yes|
+|Asia orientale      |Archiviazione con ridondanza locale     |No    |Yes|
+|East US        |Archiviazione con ridondanza locale     |No    |Yes|
+|Francia centrale |CON RIDONDANZA LOCALE, ZRS|No    |Yes|
 |Francia meridionale   |Archiviazione con ridondanza locale     |No    |Yes|
 |Europa settentrionale   |Archiviazione con ridondanza locale     |No    |Non ancora|
-|India meridionale    |Archiviazione con ridondanza locale     |No    |Non ancora|
+|India meridionale    |Archiviazione con ridondanza locale     |No    |Yes|
 |Asia sud-orientale |CON RIDONDANZA LOCALE, ZRS|No    |Yes|
-|Stati Uniti centro-occidentali|Archiviazione con ridondanza locale     |No    |Non ancora|
+|Stati Uniti centro-occidentali|Archiviazione con ridondanza locale     |No    |Yes|
 |Europa occidentale    |CON RIDONDANZA LOCALE, ZRS|No    |Yes|
-|Stati Uniti occidentali        |Archiviazione con ridondanza locale     |No    |Non ancora|
+|Stati Uniti occidentali        |Archiviazione con ridondanza locale     |No    |Yes|
 |Stati Uniti occidentali 2      |CON RIDONDANZA LOCALE, ZRS|No    |Yes|
 
 

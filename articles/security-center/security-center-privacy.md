@@ -13,29 +13,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: aab2535eb44ca5007859c71bf1f8142b26de7d14
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 0d05650ff349cb9e9750b0cefe0de217a986b32a
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996749"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254602"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gestire i dati degli utenti nel Centro sicurezza di Azure
 Questo articolo fornisce informazioni su come è possibile gestire i dati degli utenti nel Centro sicurezza di Azure. La gestione dei dati degli utenti include la possibilità di accedere ai dati, eliminarli o esportarli.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-Un utente del Centro sicurezza a cui è assegnato il ruolo Lettore, Proprietario, Collaboratore o Amministratore dell'account può accedere ai dati dei clienti direttamente dallo strumento. Per altre informazioni sui ruoli Lettore, Proprietario e Collaboratore, vedere [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md). Per altre informazioni sul ruolo Amministratore dell'account, vedere [Amministratori delle sottoscrizioni di Azure](../billing/billing-add-change-azure-subscription-administrator.md).
+Un utente del Centro sicurezza a cui è assegnato il ruolo Lettore, Proprietario, Collaboratore o Amministratore dell'account può accedere ai dati dei clienti direttamente dallo strumento. Per altre informazioni sul ruolo di amministratore account, vedere [ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md) per altre informazioni sui ruoli lettore, proprietario e collaboratore. Vedere [amministratori della sottoscrizione di Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 ## <a name="searching-for-and-identifying-personal-data"></a>Ricerca e identificazione dei dati personali
-Un utente del Centro sicurezza può visualizzare i dati personali tramite il portale di Azure. Centro sicurezza archivia solo i dettagli del contatto di sicurezza, ad esempio i numeri di telefono e gli indirizzi di posta elettronica. Per altre informazioni, vedere [Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure](security-center-provide-security-contact-details.md).
+Un utente del Centro sicurezza può visualizzare i dati personali tramite il portale di Azure. Centro sicurezza archivia solo i dettagli del contatto di sicurezza, ad esempio i numeri di telefono e gli indirizzi di posta elettronica. Per altre informazioni, vedere [specificare i dettagli dei contatti di sicurezza nel centro sicurezza di Azure](security-center-provide-security-contact-details.md).
 
-Nel portale di Azure, un utente può visualizzare le configurazioni IP consentite usando la funzionalità di accesso just-in-time alle macchine virtuali del Centro sicurezza. Per altre informazioni, vedere [gestire l'accesso alle macchine virtuali con Just-in-Time](security-center-just-in-time.md) .
+Nel portale di Azure, un utente può visualizzare le configurazioni IP consentite usando la funzionalità di accesso just-in-time alle macchine virtuali del Centro sicurezza. Per altre informazioni, vedere [gestire l'accesso alle macchine virtuali con Just-in-Time](security-center-just-in-time.md).
 
-Nel portale di Azure un utente può visualizzare gli avvisi di sicurezza forniti dal Centro sicurezza, inclusi gli indirizzi IP e i dettagli di un utente malintenzionato. Per altre informazioni, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).
+Nel portale di Azure un utente può visualizzare gli avvisi di sicurezza forniti dal Centro sicurezza, inclusi gli indirizzi IP e i dettagli di un utente malintenzionato. Per altre informazioni, vedere [gestione e risposta agli avvisi di sicurezza nel centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).
 
 ## <a name="classifying-personal-data"></a>Classificazione dei dati personali
-Non è necessario classificare i dati personali presenti nella funzionalità di gestione dei contatti di sicurezza del Centro sicurezza. I dati salvati sono un indirizzo di posta elettronica (o più indirizzi di posta elettronica) e un numero di telefono. I [dati di contatto](security-center-provide-security-contact-details.md) vengono convalidati dal Centro sicurezza.
+Non è necessario classificare i dati personali presenti nella funzionalità di contatto di sicurezza del Centro sicurezza. I dati salvati sono un indirizzo di posta elettronica (o più indirizzi di posta elettronica) e un numero di telefono. I [dati di contatto](security-center-provide-security-contact-details.md) vengono convalidati dal Centro sicurezza.
 
 Non è necessario classificare gli indirizzi IP e i numeri di porta salvati dalla funzionalità [just-in-Time](security-center-just-in-time.md) del Centro sicurezza.
 
@@ -53,19 +53,19 @@ Un utente del Centro sicurezza a cui è assegnato il ruolo Proprietario, Collabo
 
 Un utente del Centro sicurezza ha assegnato il ruolo di proprietario, collaboratore o amministratore account può aggiornare i [criteri just-in-Time](security-center-just-in-time.md).
 
-Un utente con ruolo Amministratore dell'account non può modificare gli eventi imprevisti di avviso. Gli [eventi imprevisti di avviso](security-center-managing-and-responding-alerts.md) sono considerati dati sulla sicurezza e sono di sola lettura.
+Un amministratore dell'account non può modificare gli eventi imprevisti di avviso. Gli [eventi imprevisti di avviso](security-center-managing-and-responding-alerts.md) sono considerati dati sulla sicurezza e sono di sola lettura.
 
 ## <a name="deleting-personal-data"></a>Eliminazione dei dati personali
 Un utente del Centro sicurezza a cui è assegnato il ruolo Proprietario, Collaboratore o Amministratore dell'account può eliminare i [dati di contatto di sicurezza](security-center-provide-security-contact-details.md) tramite il portale di Azure.
 
 Un utente del Centro sicurezza ha assegnato il ruolo di proprietario, collaboratore o amministratore account può eliminare i [criteri just-in-Time](security-center-just-in-time.md) tramite il portale di Azure.
 
-Un utente del Centro sicurezza non può eliminare gli eventi imprevisti di avviso. In base alle esigenze di sicurezza, gli [eventi imprevisti di avviso](security-center-managing-and-responding-alerts.md) sono considerati dati di sola lettura.
+Un utente del Centro sicurezza non può eliminare gli eventi imprevisti di avviso. Per motivi di sicurezza, un [evento imprevisto di avviso](security-center-managing-and-responding-alerts.md) è considerato dati di sola lettura.
 
 ## <a name="exporting-personal-data"></a>Esportazione dei dati personali
 Un utente del Centro sicurezza a cui è assegnato il ruolo Lettore, Proprietario, Collaboratore o Amministratore dell'account può esportare i [dati di contatto di sicurezza](security-center-provide-security-contact-details.md) tramite:
 
-- Esecuzione di una copia dal portale di Azure
+- Copia dalla portale di Azure
 - Esecuzione della chiamata API REST di Azure, GET HTTP:
   ```HTTP
   GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
@@ -73,7 +73,7 @@ Un utente del Centro sicurezza a cui è assegnato il ruolo Lettore, Proprietario
 
 Un utente del Centro sicurezza ha assegnato il ruolo di amministratore account può esportare i [criteri just-in-Time](security-center-just-in-time.md) contenenti gli indirizzi IP per:
 
-- Esecuzione di una copia dal portale di Azure
+- Copia dalla portale di Azure
 - Esecuzione della chiamata API REST di Azure, GET HTTP:
   ```HTTP
   GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
@@ -81,13 +81,13 @@ Un utente del Centro sicurezza ha assegnato il ruolo di amministratore account p
 
 Un utente con ruolo Amministratore dell'account può esportare i dettagli dell'avviso tramite:
 
-- Esecuzione di una copia dal portale di Azure
+- Copia dalla portale di Azure
 - Esecuzione della chiamata API REST di Azure, GET HTTP:
   ```HTTP
   GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
   ```
 
-Per altre informazioni, vedere [Get Security Alerts (GET Collection)](https://msdn.microsoft.com/library/mt704050.aspx) (Ottenere avvisi di sicurezza (raccolta GET)).
+Per altre informazioni, vedere [ottenere avvisi di sicurezza (Get Collection)](https://msdn.microsoft.com/library/mt704050.aspx).
 
 ## <a name="restricting-the-use-of-personal-data-for-profiling-or-marketing-without-consent"></a>Limitazione dell'uso dei dati personali per la profilatura o il marketing senza consenso dell'utente
 Un utente del Centro sicurezza può scegliere di rifiutare esplicitamente eliminando i propri [dati di contatto di sicurezza](security-center-provide-security-contact-details.md).

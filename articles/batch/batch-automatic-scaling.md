@@ -11,19 +11,19 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
-ms.date: 06/20/2017
+ms.date: 10/08/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2014b00a82a6d56bf58b471336c6d809721abea9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bdea67d682bab335de02e55f5864460e3daefb95
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095425"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254937"
 ---
-# <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creare una formula di scalabilità automatica per la scalabilità dei nodi di calcolo in un pool Batch
+# <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creare una formula automatica per la scalabilità dei nodi di calcolo in un pool di batch
 
-Azure Batch supporta la scalabilità automatica dei pool in base ai parametri definiti. Con la scalabilità automatica, Batch aggiunge in modo dinamico nodi a un pool man mano che cresce la richiesta di attività e rimuove i nodi di calcolo in seguito alla riduzione delle richieste. È possibile risparmiare tempo e denaro regolando automaticamente il numero dei nodi di calcolo usati dall'applicazione Batch. 
+Azure Batch supporta la scalabilità automatica dei pool in base ai parametri definiti. Con la scalabilità automatica, Batch aggiunge in modo dinamico nodi a un pool man mano che cresce la richiesta di attività e rimuove i nodi di calcolo in seguito alla riduzione delle richieste. È possibile risparmiare tempo e denaro regolando automaticamente il numero dei nodi di calcolo usati dall'applicazione Batch.
 
 Per abilitare la scalabilità automatica in un pool di nodi di calcolo, definire e associare al pool una *formula di scalabilità automatica*. Il servizio Batch usa la formula di scalabilità automatica per determinare il numero di nodi di calcolo necessari per eseguire il carico di lavoro. I nodi di calcolo possono essere nodi dedicati o [nodi con priorità bassa](batch-low-pri-vms.md). Batch risponde ai dati delle metriche del servizio raccolti periodicamente. Usando i dati delle metriche, Batch regola il numero di nodi di calcolo nel pool in base alla formula e a un intervallo configurabile.
 
@@ -39,6 +39,7 @@ Questo articolo illustra le diverse entità che costituiranno le formule di scal
 >
 
 ## <a name="automatic-scaling-formulas"></a>Formule di ridimensionamento automatico
+
 Una formula di scalabilità automatica è un valore stringa definito che contiene una o più istruzioni. La formula di scalabilità automatica viene assegnata a un elemento [autoScaleFormula][rest_autoscaleformula] del pool (batch Rest) o alla proprietà [CloudPool. autoScaleFormula][net_cloudpool_autoscaleformula] (batch .NET). Il servizio Batch usa la formula per determinare il numero di nodi di calcolo di destinazione del pool per l'intervallo di elaborazione successivo. La stringa della formula non può avere dimensioni maggiori di 8 KB, può includere fino a 100 istruzioni separate da punti e virgola e può contenere interruzioni di riga e commenti.
 
 È possibile paragonare le formule di ridimensionamento automatico a un "linguaggio" di ridimensionamento automatico di Batch. Le istruzioni nella formula sono espressioni in formato libero che possono includere variabili definite dal servizio Batch e variabili definite dall'utente. Possono eseguire diverse operazioni su questi valori usando funzioni, operatori e tipi predefiniti. Ad esempio, un'istruzione può avere il formato seguente:
@@ -63,12 +64,14 @@ Il numero di nodi di destinazione può essere maggiore, minore o uguale al numer
 Di seguito sono riportati esempi di due formule di scalabilità automatica, che possono essere modificate in modo da funzionare per la maggior parte degli scenari. Le variabili `startingNumberOfVMs` e `maxNumberofVMs` nelle formule di esempio possono essere modificate in base alle esigenze.
 
 #### <a name="pending-tasks"></a>Attività in sospeso
+
 ```
 startingNumberOfVMs = 1;
 maxNumberofVMs = 25;
 pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
 pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
 $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
+$NodeDeallocationOption = taskcompletion;
 ```
 
 Con questa formula di scalabilità automatica il pool viene inizialmente creato con una singola macchina virtuale. La metrica `$PendingTasks` definisce il numero di attività in esecuzione o in coda. La formula trova il numero medio di attività in sospeso negli ultimi 180 secondi e imposta la variabile `$TargetDedicatedNodes` di conseguenza. La formula garantisce che il numero di nodi dedicati di destinazione non superi mai 25 macchine virtuali. Man mano che vengono inviate nuove attività, il pool si espande automaticamente. Al termine delle attività le macchine virtuali diventano libere una ad una e la formula di scalabilità automatica riduce il pool.
@@ -76,15 +79,18 @@ Con questa formula di scalabilità automatica il pool viene inizialmente creato 
 Questa formula ridimensiona i nodi dedicati, ma può essere modificata per applicarla anche ai nodi con priorità bassa.
 
 #### <a name="preempted-nodes"></a>Nodi con precedenza 
+
 ```
 maxNumberofVMs = 25;
 $TargetDedicatedNodes = min(maxNumberofVMs, $PreemptedNodeCount.GetSample(180 * TimeInterval_Second));
 $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicatedNodes);
+$NodeDeallocationOption = taskcompletion;
 ```
 
-Questo esempio crea un pool che inizia con 25 nodi con priorità bassa. Ogni volta che un nodo con priorità bassa viene interrotto, viene sostituito con un nodo dedicato. Come nel primo esempio, la `maxNumberofVMs` variabile impedisce al pool di superare 25 VM. Questo esempio è utile per sfruttare le macchine virtuali con priorità bassa, garantendo al tempo stesso l'esecuzione di un numero fisso di interruzioni per la durata del pool.
+Questo esempio crea un pool che inizia con 25 nodi con priorità bassa. Ogni volta che un nodo con priorità bassa viene interrotto, viene sostituito con un nodo dedicato. Come nel primo esempio, la variabile `maxNumberofVMs` impedisce al pool di superare 25 VM. Questo esempio è utile per sfruttare le macchine virtuali con priorità bassa, garantendo al tempo stesso l'esecuzione di un numero fisso di interruzioni per la durata del pool.
 
-## <a name="variables"></a>Variabili
+## <a name="variables"></a>variables
+
 Nelle formule di scalabilità automatica è possibile usare sia **variabili definite dal servizio** sia **variabili definite dall'utente**. Le variabili definite dal servizio sono incorporate nel servizio Batch. Alcune sono in lettura/scrittura e altre di sola lettura. Le variabili definite dall'utente vengono configurate dall'utente. Nella formula di esempio della sezione precedente `$TargetDedicatedNodes` e `$PendingTasks` sono variabili definite dal servizio. Le variabili `startingNumberOfVMs` e `maxNumberofVMs` sono definite dall'utente.
 
 > [!NOTE]
@@ -100,7 +106,7 @@ Le tabelle seguenti includono sia le variabili di lettura/scrittura che di sola 
 | --- | --- |
 | $TargetDedicatedNodes |Numero di destinazione dei nodi di calcolo dedicati per il pool. Il numero di nodi dedicati viene specificato come destinazione, perché un pool potrebbe non ottenere sempre il numero desiderato di nodi. Ad esempio, se il numero di nodi dedicati di destinazione viene modificato da una valutazione di scalabilità automatica prima che il pool raggiunga il valore di destinazione iniziale, è possibile che il pool non raggiunga il numero di nodi di destinazione. <br /><br /> Un pool in un account creato con la configurazione del servizio Batch potrebbe non raggiungere il valore di destinazione se supera la quota di nodi o core di un account Batch. Un pool in un account creato con la configurazione di sottoscrizione utente potrebbe non raggiungere il valore di destinazione se supera la quota condivisa di nodi per la sottoscrizione.|
 | $TargetLowPriorityNodes |Numero di destinazione dei nodi di calcolo con priorità bassa per il pool. Il numero di nodi con priorità bassa viene specificato come destinazione, perché un pool potrebbe non ottenere sempre il numero desiderato di nodi. Ad esempio, se il numero di nodi con priorità bassa di destinazione viene modificato da una valutazione di scalabilità automatica prima che il pool raggiunga il valore di destinazione iniziale, è possibile che il pool non raggiunga il numero di nodi di destinazione. Un pool potrebbe anche non raggiungere il valore di destinazione se supera la quota di nodi o core di un account Batch. <br /><br /> Per altre informazioni sui nodi calcolo con priorità bassa, vedere [Usare le VM con priorità bassa in Batch (anteprima)](batch-low-pri-vms.md). |
-| $NodeDeallocationOption |L'azione che si verifica quando i nodi di calcolo vengono rimossi da un pool. I valori possibili sono:<ul><li>**requeue**: termina immediatamente le attività e le reinserisce nella coda dei processi in modo che vengano ripianificate.<li>**terminate**: termina immediatamente le attività e le rimuove dalla coda dei processi.<li>**taskcompletion**: attende il completamento delle attività in esecuzione e quindi rimuove il nodo dal pool.<li>**retaineddata**: attende che tutti i dati mantenuti per le attività locali nel nodo vengano ripuliti prima di rimuovere il nodo dal pool.</ul> |
+| $NodeDeallocationOption |L'azione che si verifica quando i nodi di calcolo vengono rimossi da un pool. I valori possibili sono:<ul><li>**requeue**: valore predefinito. Termina immediatamente le attività e le inserisce nuovamente nella coda di processi in modo che vengano ripianificate. Questa azione garantisce che il numero di nodi di destinazione sia il più rapido possibile, ma potrebbe essere meno efficiente, perché tutte le attività in esecuzione verranno interrotte e dovranno essere riavviate, sprecando qualsiasi lavoro già fatto. <li>**terminate**: termina immediatamente le attività e le rimuove dalla coda dei processi.<li>**taskcompletion**: attende il completamento delle attività in esecuzione e quindi rimuove il nodo dal pool. Usare questa opzione per evitare che le attività vengano interrotte e riaccodate, sprecando qualsiasi lavoro eseguito dall'attività. <li>**retaineddata**: attende che tutti i dati mantenuti per le attività locali nel nodo vengano ripuliti prima di rimuovere il nodo dal pool.</ul> |
 
 È possibile ottenere il valore di queste variabili definite dal servizio per eseguire adeguamenti basati sulla metrica del servizio Batch:
 
@@ -132,6 +138,7 @@ Le tabelle seguenti includono sia le variabili di lettura/scrittura che di sola 
 >
 
 ## <a name="types"></a>Tipi
+
 Questi sono i tipi supportati in una formula:
 
 * Double
@@ -161,6 +168,7 @@ Questi sono i tipi supportati in una formula:
   * TimeInterval_Year
 
 ## <a name="operations"></a>Operazioni
+
 Queste operazioni sono consentite sui tipi elencati nella sezione precedente.
 
 | Operazione | Operatori supportati | Tipo di risultato |
@@ -209,13 +217,14 @@ Queste **funzioni** predefinite sono disponibili per consentire la definizione d
 | time(string dateTime="") |timestamp |Restituisce il timestamp dell'ora corrente se non vengono passati parametri oppure il timestamp della stringa dateTime, se è stata passata. I formati dateTime supportati sono W3C-DTF e RFC 1123. |
 | val(doubleVec v, double i) |Double |Restituisce il valore dell'elemento nella posizione i nel vettore v con un indice iniziale pari a zero. |
 
-Alcune delle funzioni descritte nella tabella precedente possono accettare un elenco come argomento. L'elenco con valori delimitati da virgole è una combinazione qualsiasi di *double* e *doubleVec*. Ad esempio:
+Alcune delle funzioni descritte nella tabella precedente possono accettare un elenco come argomento. L'elenco con valori delimitati da virgole è una combinazione qualsiasi di *double* e *doubleVec*. Esempio:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
 Il valore *doubleVecList* viene convertito in un singolo *doubleVec* prima della valutazione. Ad esempio, se `v = [1,2,3]`, la chiamata di `avg(v)` equivale alla chiamata di `avg(1,2,3)`. La chiamata di `avg(v, 7)` equivale alla chiamata di `avg(1,2,3,7)`.
 
 ## <a name="getsampledata"></a>Ottenere dati di esempio
+
 Le formule di ridimensionamento automatico agiscono sui dati di metrica (campioni) forniti dal servizio Batch. Una formula aumenta o riduce le dimensioni del pool in base ai valori che ottiene dal servizio. Le variabili definite dal servizio descritte sopra sono oggetti che offrono vari metodi per accedere ai dati associati a un dato oggetto. Ad esempio, l'espressione seguente mostra una richiesta per recuperare gli ultimi 5 minuti di utilizzo della CPU:
 
 ```
@@ -228,7 +237,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 | GetSamplePeriod() |Restituisce il periodo dei campioni raccolti in un set di dati campione cronologici. |
 | Count() |Restituisce il numero totale di campioni nella cronologia dei dati di metrica. |
 | HistoryBeginTime() |Restituisce il timestamp del campione di dati disponibile meno recente per la metrica. |
-| GetSamplePercent() |Restituisce la percentuale di campioni disponibili per un determinato intervallo di tempo. Ad esempio:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Poiché il metodo `GetSample` non riesce se la percentuale di campioni restituiti è minore del valore `samplePercent` specificato, è possibile eseguire prima il controllo con il metodo `GetSamplePercent`. È quindi possibile eseguire un'azione alternativa se non sono presenti campioni sufficienti, senza interrompere la valutazione del ridimensionamento automatico. |
+| GetSamplePercent() |Restituisce la percentuale di campioni disponibili per un determinato intervallo di tempo. Esempio:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Poiché il metodo `GetSample` non riesce se la percentuale di campioni restituiti è minore del valore `samplePercent` specificato, è possibile eseguire prima il controllo con il metodo `GetSamplePercent`. È quindi possibile eseguire un'azione alternativa se non sono presenti campioni sufficienti, senza interrompere la valutazione del ridimensionamento automatico. |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>Campioni, percentuale di campioni e metodo *GetSample()*
 L'operazione di base per il funzionamento di una formula di ridimensionamento automatico consiste nell'ottenere i dati di metrica relativi a risorse ed attività e quindi l'adeguamento delle dimensioni del pool in base a tali dati. Di conseguenza, è importante conoscere a fondo la modalità di interazione delle formule di scalabilità automatica con i dati di metrica (campioni).
@@ -253,7 +262,7 @@ A tale scopo, usare `GetSample(interval look-back start, interval look-back end)
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-Quando la riga precedente viene valutata da Batch, restituisce un intervallo di campioni come vettore di valori. Ad esempio:
+Quando la riga precedente viene valutata da Batch, restituisce un intervallo di campioni come vettore di valori. Esempio:
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
@@ -275,12 +284,13 @@ Poiché si può verificare un ritardo nella disponibilità dei campioni, è impo
 >
 
 ## <a name="metrics"></a>metrics
+
 Quando si definisce una formula, è possibile usare metriche di risorse e di attività. Adeguare il numero di destinazione di nodi dedicati nel pool in base ai dati di metrica ottenuti e valutati. Per altre informazioni su ogni metrica, vedere la sezione [Variabili](#variables) precedente.
 
 <table>
   <tr>
     <th>Metrica</th>
-    <th>DESCRIZIONE</th>
+    <th>Descrizione</th>
   </tr>
   <tr>
     <td><b>Risorsa</b></td>
@@ -321,13 +331,15 @@ Quando si definisce una formula, è possibile usare metriche di risorse e di att
 </table>
 
 ## <a name="write-an-autoscale-formula"></a>Scrivere una formula di scalabilità automatica
+
 La compilazione di una formula di scalabilità automatica prevede la composizione di istruzioni che usano i componenti precedenti e quindi la combinazione di tali istruzioni in una formula completa. In questa sezione si crea una formula di scalabilità automatica di esempio che può assumere alcune decisioni di scalabilità in scenari del mondo reale.
 
 In primo luogo, definire i requisiti per la nuova formula di scalabilità automatica. La formula deve:
 
 1. Aumentare il numero di destinazione dei nodi di calcolo dedicati in un pool se l'uso della CPU è elevato.
-2. Ridurre il numero di destinazione dei nodi di calcolo dedicati in un pool se l'uso della CPU è basso.
-3. Limitare sempre il numero massimo di nodi dedicati a 400.
+1. Ridurre il numero di destinazione dei nodi di calcolo dedicati in un pool se l'uso della CPU è basso.
+1. Limitare sempre il numero massimo di nodi dedicati a 400.
+1. Quando si riduce il numero di nodi, non rimuovere i nodi che eseguono attività; Se necessario, attendere il completamento delle attività per la rimozione di nodi.
 
 Per l'aumento del numero di nodi durante l'uso elevato della CPU, viene definita un'istruzione che popola una variabile definita dall'utente (`$totalDedicatedNodes`) con un valore pari al 110% dell'attuale numero di destinazione dei nodi dedicati, ma solo se l'uso minimo medio della CPU negli ultimi 10 minuti è superiore al 70%. In caso contrario, usare il valore per il numero corrente di nodi dedicati.
 
@@ -377,7 +389,7 @@ Per creare un pool con la scalabilità automatica abilitata in .NET, seguire que
 1. (Facoltativo) Impostare la proprietà [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (valore predefinito è 15 minuti).
 1. Eseguire il commit del pool con [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) o [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
-Il frammento di codice seguente crea un pool abilitato per la scalabilità automatica in .NET. La formula di scalabilità automatica del pool imposta il numero di destinazione dei nodi dedicati su 5 il lunedì e su 1 per tutti gli altri giorni della settimana. L'[intervallo di scalabilità automatica](#automatic-scaling-interval) è impostato su 30 minuti. In questo e negli altri C# frammenti di codice di questo articolo `myBatchClient` , è un'istanza correttamente inizializzata della classe [BatchClient][net_batchclient] .
+Il frammento di codice seguente crea un pool abilitato per la scalabilità automatica in .NET. La formula di scalabilità automatica del pool imposta il numero di destinazione dei nodi dedicati su 5 il lunedì e su 1 per tutti gli altri giorni della settimana. L'[intervallo di scalabilità automatica](#automatic-scaling-interval) è impostato su 30 minuti. In questo e negli altri C# frammenti di codice di questo articolo, `myBatchClient` è un'istanza correttamente inizializzata della classe [BatchClient][net_batchclient] .
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
@@ -455,7 +467,7 @@ response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formu
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>Abilitare la scalabilità automatica in un pool esistente
 
-Ogni SDK per Batch offre un modo per abilitare la scalabilità automatica, Ad esempio:
+Ogni SDK per Batch offre un modo per abilitare la scalabilità automatica, Esempio:
 
 * [BatchClient. PoolOperations. EnableAutoScaleAsync][net_enableautoscaleasync] (batch .NET)
 * [Abilitare la scalabilità automatica in un pool][rest_enableautoscale] (API REST)
@@ -634,9 +646,11 @@ Error:
 ```
 
 ## <a name="example-autoscale-formulas"></a>Formule di scalabilità automatica di esempio
+
 Di seguito verranno esaminate alcune formule che mostrano diverse modalità per regolare la quantità di risorse di calcolo in un pool.
 
 ### <a name="example-1-time-based-adjustment"></a>Esempio 1: Adeguamento basato sul tempo
+
 Si supponga di volte regolare le dimensioni del pool in base al giorno della settimana e all'ora del giorno. Questo esempio mostra come aumentare o ridurre il numero di nodi nel pool di conseguenza.
 
 La formula ottiene prima di tutto l'ora corrente. Durante i giorni della settimana, da 1 a 5, e durante l'orario lavorativo, dalle 8.00 alle 18.00, le dimensioni del pool di destinazione sono impostate su 20 nodi. In caso contrario, vengono impostate su 10 nodi.
@@ -647,9 +661,11 @@ $workHours = $curTime.hour >= 8 && $curTime.hour < 18;
 $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5;
 $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
+$NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-2-task-based-adjustment"></a>Esempio 2 Adeguamento basato sull'attività
+
 In questo esempio le dimensioni del pool vengono regolate in base al numero di attività nella coda. Sia i commenti che le interruzioni di riga sono accettabili nelle stringhe della formula.
 
 ```csharp
@@ -664,11 +680,12 @@ $targetVMs = $tasks > 0? $tasks:max(0, $TargetDedicatedNodes/2);
 // The pool size is capped at 20, if target VM value is more than that, set it
 // to 20. This value should be adjusted according to your use case.
 $TargetDedicatedNodes = max(0, min($targetVMs, 20));
-// Set node deallocation mode - keep nodes active only until tasks finish
+// Set node deallocation mode - let running tasks finish before removing a node
 $NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-3-accounting-for-parallel-tasks"></a>Esempio 3: Considerazioni sulle attività parallele
+
 Questo esempio adegua le dimensioni del pool in base al numero di attività. Questa formula prende in considerazione anche il valore [MaxTasksPerComputeNode][net_maxtasks] impostato per il pool. Questo approccio è utile nelle situazioni in cui l'[esecuzione di attività parallele](batch-parallel-node-tasks.md) è abilitata nel pool.
 
 ```csharp
@@ -690,6 +707,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-4-setting-an-initial-pool-size"></a>Esempio 4: Impostazione delle dimensioni iniziali del pool
+
 Questo esempio mostra un frammento di codice C# con una formula di scalabilità automatica che imposta le dimensioni del pool su un numero specificato di nodi per un periodo di tempo iniziale. Adegua quindi le dimensioni del pool in base al numero di attività in esecuzione e attive dopo la scadenza del periodo di tempo iniziale.
 
 La formula nel frammento di codice seguente:
@@ -714,6 +732,7 @@ string formula = string.Format(@"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Ottimizzare l'uso delle risorse di calcolo di Azure Batch con attività dei nodi simultanee](batch-parallel-node-tasks.md) contiene informazioni dettagliate su come è possibile eseguire più attività contemporaneamente sui nodi di calcolo nel pool. Oltre al ridimensionamento automatico, questa funzionalità può contribuire a ridurre la durata del processo per alcuni carichi di lavoro, riducendo i costi.
 * Per ottimizzare ulteriormente l'efficienza, assicurarsi che l'applicazione Batch esegua query sul servizio Batch in modo ottimale. Vedere [Eseguire query sul servizio Azure Batch in modo efficiente](batch-efficient-list-queries.md) per informazioni su come limitare la quantità dei dati trasmessi in rete quando si esegue una query sullo stato potenzialmente di migliaia di nodi di calcolo o attività.
 

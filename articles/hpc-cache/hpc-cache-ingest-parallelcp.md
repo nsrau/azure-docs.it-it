@@ -5,17 +5,17 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.author: v-erkell
-ms.openlocfilehash: 852b4e692a4316c7701c8c179039104bee561949
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.author: rohogue
+ms.openlocfilehash: 4899f946cb358693c969def3fa740af64675d934
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180962"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254526"
 ---
 # <a name="azure-hpc-cache-preview-data-ingest---parallel-copy-script-method"></a>Cache HPC di Azure (anteprima) inserimento dati-metodo script copia parallela
 
-Questo articolo fornisce le istruzioni per creare ``parallelcp`` lo script e usarlo per spostare i dati in un contenitore di archiviazione BLOB per l'uso con la cache HPC di Azure.
+Questo articolo fornisce le istruzioni per creare lo script ``parallelcp`` e usarlo per spostare i dati in un contenitore di archiviazione BLOB per l'uso con la cache HPC di Azure.
 
 Per altre informazioni sullo spostamento dei dati nell'archiviazione BLOB per la cache HPC di Azure, vedere [spostare i dati nell'archivio BLOB di Azure per la cache HPC](hpc-cache-ingest.md)di Azure.
 
@@ -75,11 +75,11 @@ EOM
 
 ## <a name="parallel-copy-example"></a>Esempio di copia parallela
 
-Questo esempio usa lo script di copia parallela ``glibc`` per compilare usando i file di origine nella cache HPC di Azure.
+Questo esempio usa lo script di copia parallela per compilare ``glibc`` usando i file di origine nella cache HPC di Azure.
 
 I file di origine vengono memorizzati nella cache nel punto di montaggio della cache HPC di Azure e i file oggetto vengono archiviati sul disco rigido locale.
 
-In questo esempio viene usato lo script di copia parallela ``make`` con l'opzione ``-j`` e per ottenere la parallelizzazione.
+In questo esempio viene usato lo script di copia parallela con l'opzione ``-j`` e ``make`` per ottenere la parallelizzazione.
 
 ```bash
 sudo apt-get update

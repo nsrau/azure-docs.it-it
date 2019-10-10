@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: d756f9dfbd0012f884bb0c4a1e27efc76d613234
-ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
+ms.openlocfilehash: ed231bc05d58a40c93cea74081c027e5b49f5306
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71982831"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254496"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Funzionalità supportate disponibili nel centro sicurezza di Azure
 
 > [!NOTE]
->Alcune funzionalità sono disponibili solo con il livello standard. Se non si è ancora iscritti al livello standard del Centro sicurezza, è disponibile un periodo di valutazione gratuito. Per altre informazioni, vedere [Prezzi di Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
+>Alcune funzionalità sono disponibili solo con il livello standard. Se non si è ancora iscritti al livello standard del Centro sicurezza, è disponibile un periodo di valutazione gratuito. Per ulteriori informazioni, vedere la [pagina dei prezzi del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
 
 Le sezioni seguenti illustrano le funzionalità del Centro sicurezza disponibili per le [piattaforme supportate](security-center-os-coverage.md).
 
@@ -39,31 +39,31 @@ Le sezioni seguenti illustrano le funzionalità del Centro sicurezza disponibili
 |----|----|----|----|----|----|----|----|
 |**Environment**|**Azure**||**Non Azure**|**Azure**||**Non Azure**||
 ||**Macchina virtuale**|**Set di scalabilità della macchina virtuale**||**Macchina virtuale**|**Set di scalabilità della macchina virtuale**|
-|Avvisi di rilevamento delle minacce per l'analisi comportamentale delle macchine virtuali|✔|✔|✔|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|Indicazioni (gratuite) rilevamento minacce (standard)|
-|Avvisi di rilevamento delle minacce di rete|✔|✔|x|✔|✔|x|Standard|
-|Integrazione di Microsoft Defender ATP|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|x|X|x|Standard|
-|Patch mancanti|✔|✔|✔|✔|✔|✔|Gratuito|
-|Configurazioni della sicurezza|✔|✔|✔|✔|✔|✔|Gratuito|
-|Valutazione di Endpoint Protection|✔|✔|✔|x|X|x|Gratuito|
-|Accesso just-in-time alle macchine virtuali|✔|x|x|✔|x|x|Standard|
-|Controlli applicazione adattivi|✔|x|✔|✔|x|✔|Standard|
-|Monitoraggio dell'integrità dei file|✔|✔|✔|✔|✔|✔|Standard|
-|Valutazione della crittografia del disco|✔|✔|x|✔|✔|x|Gratuito|
-|Distribuzione di terze parti|✔|x|x|✔|x|x|Gratuito|
-|Valutazione NSG|✔|✔|x|✔|✔|x|Gratuito|
-|Rilevamento delle minacce senza file|✔|✔|✔|x|X|x|Standard|
-|Mappa di rete|✔|✔|x|✔|✔|x|Standard|
-|Protezione avanzata adattiva per la rete|✔|x|x|✔|x|x|Standard|
+|[Integrazione di Microsoft Defender ATP](https://docs.microsoft.com/azure/security-center/security-center-wdatp)|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|x|X|x|Standard|
+|[Avvisi di rilevamento delle minacce per l'analisi comportamentale delle macchine virtuali](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas)|✔|✔|✔|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|Indicazioni (gratuite) rilevamento minacce (standard)|
+|[Avvisi di rilevamento minacce non file](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas#fileless-attack-detection-)|✔|✔|✔|x|X|x|Standard|
+|[Avvisi di rilevamento minacce basati sulla rete](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer#azure-network-layer)|✔|✔|x|✔|✔|x|Standard|
+|[Accesso just-in-time alle macchine virtuali](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|✔|x|x|✔|x|x|Standard|
+|[Monitoraggio dell'integrità dei file](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)|✔|✔|✔|✔|✔|✔|Standard|
+|[Controlli adattivi delle applicazioni](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)|✔|x|✔|✔|x|✔|Standard|
+|[Mappa di rete](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations#network-map)|✔|✔|x|✔|✔|x|Standard|
+|[Protezione avanzata della rete adattiva](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)|✔|x|x|✔|x|x|Standard|
 |Controlli adattivi della rete|✔|✔|x|✔|✔|x|Standard|
-|Dashboard di conformità normativa & report|✔|✔|✔|✔|✔|✔|Standard|
+|[Dashboard di conformità normativa & report](https://docs.microsoft.com/azure/security-center/security-center-compliance-dashboard)|✔|✔|✔|✔|✔|✔|Standard|
 |Raccomandazioni e rilevamento delle minacce nei contenitori IaaS ospitati da Docker|x|X|x|✔|✔|✔|Standard|
+|Valutazione patch del sistema operativo mancanti|✔|✔|✔|✔|✔|✔|Gratuito|
+|Valutazione delle configurazioni errate della sicurezza|✔|✔|✔|✔|✔|✔|Gratuito|
+|[Valutazione di Endpoint Protection](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|x|X|x|Gratuito|
+|Valutazione della crittografia del disco|✔|✔|x|✔|✔|x|Gratuito|
+|Valutazione della vulnerabilità di terze parti|✔|x|x|✔|x|x|Gratuito|
+|[Valutazione della sicurezza di rete]()|✔|✔|x|✔|✔|x|Gratuito|
 
 ### Soluzioni di Endpoint Protection supportate<a name="endpoint-supported"></a>
 
 La tabella seguente contiene una matrice che indica:
 
  - Se è possibile usare Centro sicurezza di Azure per l'installazione ogni soluzione.
- - Quali soluzioni di protezione endpoint può fornire Centro sicurezza. In caso venga individuata una di queste soluzioni di protezione endpoint, il Centro sicurezza consiglierà di non installarne nessuna.
+ - Quali soluzioni di protezione endpoint può fornire Centro sicurezza. Se viene individuata una soluzione di Endpoint Protection da questo elenco, il Centro sicurezza non consiglia di installarne uno.
 
 Per informazioni sul momento in cui vengono generate le indicazioni per ognuna di queste protezioni, vedere [Endpoint Protection Assessment and raccomandazioni](security-center-endpoint-protection.md).
 
@@ -77,7 +77,7 @@ Per informazioni sul momento in cui vengono generate le indicazioni per ognuna d
 | McAfee v10+ | Famiglia di server Linux  | No | Sì **\*** |
 | Sophos V9 +| Famiglia di server Linux  | No | Sì **\***  |
 
- **\*** Lo stato di code coverage e i dati di supporto sono attualmente disponibili solo nell'area di lavoro Log Analytics associata alle sottoscrizioni protette e non vengono riflesse nel portale del Centro sicurezza di Azure.
+ **\*** Lo stato di code coverage e i dati di supporto sono attualmente disponibili solo nell'area di lavoro Log Analytics associata alle sottoscrizioni protette. Non viene riflessa nel portale del Centro sicurezza di Azure.
 
 > [!NOTE]
 >
@@ -96,25 +96,25 @@ Le risorse PaaS seguenti sono supportate dal centro sicurezza di Azure:
 |MySQL*|✔| ✔|
 |CosmosDB|x| ✔|
 |Archiviazione BLOB|✔| ✔|
-|Account di archiviazione|✔| NA|
+|Account di archiviazione|✔| ND|
 |Servizio app|✔| ✔|
 |Funzione|✔| x|
 |Servizio cloud|✔| x|
-|Rete virtuale|✔| NA|
-|Subnet|✔| NA|
-|Scheda di interfaccia di rete|✔| NA|
-|Gruppo di sicurezza di rete|✔| NA|
+|VNet|✔| ND|
+|Subnet|✔| ND|
+|NIC|✔| ND|
+|NSG|✔| ND|
 |Sottoscrizione|✔ **| ✔|
 |Account Batch|✔| x|
 |Account di Service Fabric|✔| x|
 |Account di Automazione|✔| x|
-|Servizio di bilanciamento del carico|✔| x|
+|Bilanciamento del carico|✔| x|
 |Cerca|✔| x|
 |Spazio dei nomi del bus di servizio|✔| x|
-|Analisi di flusso|✔| x|
+|Analisi dei flussi|✔| x|
 |Spazio dei nomi dell'hub eventi|✔| x|
 |App per la logica|✔| x|
-|Redis|✔| NA|
+|Redis|✔| ND|
 |Data Lake Analytics|✔| x|
 |Data Lake Store|✔| x|
 |Insieme di credenziali delle chiavi|✔| x|

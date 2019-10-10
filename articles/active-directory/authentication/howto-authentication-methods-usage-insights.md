@@ -1,6 +1,6 @@
 ---
-title: Utilizzo di metodi di autenticazione & report di insights (anteprima) - Azure Active Directory
-description: Creazione di report in modalità self-service password di Azure AD reset e utilizzo del metodo di autenticazione multi-Factor Authentication
+title: Utilizzo di metodi di autenticazione & report Insights (anteprima)-Azure Active Directory
+description: Creazione di report su Azure AD la reimpostazione della password self-service e Multi-Factor Authentication utilizzo del metodo di autenticazione
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,93 +11,91 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0f6a74308f1bc4a7b77576fb9f39f965de0a4f8
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: ddfea07989f52c463816318276fd5b6643cb2041
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561034"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255056"
 ---
-# <a name="authentication-methods-usage--insights-preview"></a>Utilizzo di metodi di autenticazione & insights (anteprima)
+# <a name="authentication-methods-usage--insights-preview"></a>Metodi di autenticazione utilizzo & Insights (anteprima)
 
-Utilizzo & insights consente di comprendere come funzionano i metodi di autenticazione per le funzionalità, ad esempio Azure multi-Factor Authentication e reimpostazione della password self-service all'interno dell'organizzazione. Questa funzionalità di creazione report offre all'organizzazione con i mezzi per comprendere quali sono i metodi in corso la registrazione e la modalità in uso.
+L'utilizzo & Insights consente di comprendere in che modo i metodi di autenticazione per funzionalità quali Azure Multi-Factor Authentication e la reimpostazione della password self-service sono in esecuzione nell'organizzazione. Questa funzionalità di creazione di report consente all'organizzazione di individuare i metodi registrati e il modo in cui vengono usati.
 
-## <a name="permissions-and-licenses"></a>Le autorizzazioni e licenze
+## <a name="permissions-and-licenses"></a>Autorizzazioni e licenze
 
-Utilizzo e informazioni dettagliate sono reperibili i ruoli seguenti:
+I ruoli seguenti possono accedere all'utilizzo e alle informazioni dettagliate:
 
 - Amministratore globale
 - Ruolo con autorizzazioni di lettura per la sicurezza
 - Amministratore della sicurezza
 - Lettore di report
 
-Nessuna licenza aggiuntiva è necessaria per l'utilizzo per l'accesso e informazioni dettagliate. Azure multi-Factor Authentication e informazioni sulle licenze di reimpostazione della password self-service è reperibile nella [Azure Active Directory sito sui prezzi](https://azure.microsoft.com/pricing/details/active-directory/).
+Non è necessaria alcuna licenza aggiuntiva per accedere all'utilizzo e alle informazioni dettagliate. Le informazioni sulle licenze per la reimpostazione della password self-service (SSPR) e Multi-Factor Authentication di Azure sono reperibili nel [sito dei prezzi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="how-it-works"></a>Funzionamento
 
-Per accedere alle informazioni e utilizzo del metodo di autenticazione:
+Per accedere all'utilizzo del metodo di autenticazione e alle informazioni dettagliate:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare a **Azure Active Directory** > **reimpostazione della Password** > **utilizzo & insights**.
-1. Dal **registrazione** oppure **utilizzo** panoramiche, è possibile scegliere di aprire la pre-filtrato i report per filtrare in base alle esigenze.
+1. Passare a **Azure Active Directory** > **reimpostazione della password** > **utilizzo & informazioni dettagliate**.
+1. Dalle panoramiche sulla **registrazione** o **sull'utilizzo** , è possibile scegliere di aprire i report pre-filtrati per filtrare in base alle esigenze.
 
-![Panoramica sull'utilizzo e insights](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
+![Panoramica sull'utilizzo di & Insights](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
 
-Per accedere direttamente a utilizzo e informazioni dettagliate, visitare [ https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade). Questo collegamento consente di accedere alla panoramica della registrazione.
+Per accedere direttamente all'utilizzo & Insights, passare a [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade). Questo collegamento consente di visualizzare la panoramica della registrazione.
 
-Gli utenti registrati, gli utenti abilitati e riquadri in grado di supportare utenti mostrano i dati di registrazione seguenti per gli utenti:
+I riquadri utenti registrati, utenti abilitati e in grado di supportare gli utenti mostrano i dati di registrazione seguenti per gli utenti:
 
-- Registrato: Un utente viene considerato registrato se essi (o un amministratore) have registrato i metodi di autenticazione sufficienti per soddisfare i criteri dell'organizzazione SSPR o multi-Factor Authentication.
-- Abilitato: Un utente viene considerato abilitato se sono inclusi nell'ambito per i criteri di reimpostazione. Se SSPR è abilitato per un gruppo, quindi l'utente è considerato disponibile se si trovano in tale gruppo. Se SSPR è abilitato per tutti gli utenti, tutti gli utenti nel tenant (esclusi i guest) sono considerati abilitata.
-- In grado di supportare: Un utente viene considerato capace se vengono sia registrati e abilitati. Questo stato indica che essi possono eseguire SSPR in qualsiasi momento se necessario.
+- Registrato Un utente viene considerato registrato se (o un amministratore) ha registrato un numero sufficiente di metodi di autenticazione per soddisfare i criteri di SSPR o di Multi-Factor Authentication dell'organizzazione.
+- Abilitato: Un utente viene considerato abilitato se è nell'ambito del criterio SSPR. Se SSPR è abilitato per un gruppo, l'utente viene considerato abilitato se si trova in tale gruppo. Se la SSPR è abilitata per tutti gli utenti, tutti gli utenti nel tenant (esclusi i guest) vengono considerati abilitati.
+- Capace Un utente è considerato idoneo se è registrato e attivato. Questo stato indica che è possibile eseguire SSPR in qualsiasi momento, se necessario.
 
-Facendo clic su uno di questi riquadri o i dati dettagliati visualizzati in essi si accede a un elenco pre-filtrato dei dettagli di registrazione.
+Facendo clic su uno di questi riquadri o sulle informazioni approfondite visualizzate, viene visualizzato un elenco di dettagli di registrazione pre-filtrato.
 
-Il **registrazioni** grafico sul **registrazione** scheda Mostra il numero di autenticazione riuscito e non le registrazioni di metodo dal metodo di autenticazione. Il **Reimposta** grafico sulle **utilizzo** scheda Mostra il numero di esito positivo e flusso di reimpostazione della non riusciti di autenticazione durante la password dal metodo di autenticazione.
+Il grafico **registrazioni** nella scheda **registrazione** Mostra il numero di registrazioni del metodo di autenticazione riuscite e non riuscite in base al metodo di autenticazione. Il grafico **Reimposta** nella scheda **utilizzo** Mostra il numero di autenticazioni riuscite e non riuscite durante il flusso di reimpostazione della password in base al metodo di autenticazione.
 
-Facendo clic su uno dei grafici saranno consentono di ottenere un elenco di registrazione pre-filtrato o eventi di reimpostazione.
+Se si fa clic su uno dei grafici, si passerà a un elenco pre-filtrato di eventi di registrazione o di reimpostazione.
 
-Utilizzo del controllo nell'angolo superiore, destro, è possibile modificare l'intervallo di date per i dati di controllo visualizzati nei grafici le registrazioni e reimposta a 24 ore, 7 giorni o 30 giorni.
+Utilizzando il controllo nell'angolo superiore destro, è possibile modificare l'intervallo di date per i dati di controllo mostrati nelle registrazioni e Reimposta i grafici su 24 ore, 7 giorni o 30 giorni.
 
-I dati di registrazione dal 
+### <a name="registration-details"></a>Dettagli registrazione
 
-### <a name="registration-details"></a>Dettagli di registrazione
+Se si fa clic sugli **utenti registrati**, **gli utenti abilitati**o i riquadri abilitati per **gli** utenti o le informazioni dettagliate, sarà possibile visualizzare i dettagli di registrazione.
 
-Facendo clic sui **gli utenti registrati**, **utenti abilitati**, o **gli utenti in grado di supportare** insights o riquadri verrà consentono di ottenere i dettagli di registrazione.
-
-Report dettagli della registrazione Visualizza le informazioni seguenti per ogni utente:
+Il report Dettagli registrazione Mostra le informazioni seguenti per ogni utente:
 
 - NOME
 - Nome utente
-- Lo stato della registrazione (All, registrato, non è registrato)
-- Stato abilitato (All, abilitato, non è abilitato)
-- Lo stato in grado di supportare (All, Capable, non in grado di supportare)
-- Metodi (notifica dell'App, codice dell'App, telefonata, SMS, posta elettronica, domande di sicurezza)
+- Stato della registrazione (tutti, registrato, non registrato)
+- Stato abilitato (tutti, abilitato, non abilitato)
+- Stato in grado di supportare (tutti, idoneo, non in grado di supportare)
+- Metodi (notifica dell'app, codice dell'app, telefonata, SMS, posta elettronica, domande di sicurezza)
 
-Utilizzo dei controlli nella parte superiore dell'elenco, è possibile cercare un utente e filtrare l'elenco di utenti in base alle colonne visualizzate.
+Utilizzando i controlli nella parte superiore dell'elenco, è possibile cercare un utente e filtrare l'elenco di utenti in base alle colonne visualizzate.
 
-### <a name="reset-details"></a>Reimpostare i dettagli
+### <a name="reset-details"></a>Reimposta dettagli
 
-Facendo clic sui grafici delle registrazioni o la reimpostazione si accede ai dettagli della reimpostazione.
+Se si fa clic sulle registrazioni o si reimpostano i grafici, è possibile visualizzare i dettagli della reimpostazione.
 
-Report dettagli della reimpostazione Mostra gli eventi di registrazione e reimpostazione degli ultimi 30 giorni inclusi:
+Il report dettagli Reset Mostra gli eventi di registrazione e reimpostazione degli ultimi 30 giorni, tra cui:
 
 - NOME
 - Nome utente
-- Funzionalità (All, registrazione, Reimposta)
-- Metodo di autenticazione (notifica dell'App, codice dell'App, chiamata telefonica, chiamata di Office, SMS, posta elettronica, domande di sicurezza)
-- Stato (tutti, esito positivo, errore)
+- Funzionalità (tutti, registrazione, reimpostazione)
+- Metodo di autenticazione (notifica dell'app, codice dell'app, telefonata, telefonata, SMS, posta elettronica, domande di sicurezza)
+- Stato (tutti, esito positivo, esito negativo)
 
-Utilizzo dei controlli nella parte superiore dell'elenco, è possibile cercare un utente e filtrare l'elenco di utenti in base alle colonne visualizzate.
+Utilizzando i controlli nella parte superiore dell'elenco, è possibile cercare un utente e filtrare l'elenco di utenti in base alle colonne visualizzate.
 
 ## <a name="limitations"></a>Limitazioni
 
-I dati visualizzati in questi rapporti verranno ritardati fino a 60 minuti. Esiste un campo "Ultimo aggiornamento" nel portale di Azure per identificare i dati come recenti siano.
+I dati visualizzati in questi report verranno posticipati di un massimo di 60 minuti. Nel portale di Azure è presente un campo "Ultimo aggiornamento" per identificare il modo in cui i dati sono recenti.
 
-Dati di utilizzo e insights non sono una sostituzione per il report delle attività di Azure multi-Factor Authentication o le informazioni contenute nel report degli accessi di Azure AD.
+I dati relativi all'utilizzo e alle informazioni dettagliate non sono sostitutivi per i report delle attività di Azure Multi-Factor Authentication o le informazioni contenute nel report degli accessi Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Utilizzo con il report di utilizzo di metodi di autenticazione API](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Utilizzo dell'API report utilizzo metodi di autenticazione](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
 - [Scelta dei metodi di autenticazione per l'organizzazione](concept-authentication-methods.md)
-- [Combinare l'esperienza di registrazione](concept-registration-mfa-sspr-combined.md)
+- [Esperienza di registrazione combinata](concept-registration-mfa-sspr-combined.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 876fef2b597e9a7dfd896f2b9697378e745a07f3
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 2ec38659b0bafa8836ac787ac36b662970141843
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709824"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249098"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Architetture basate su eventi senza server con Azure Cosmos DB e funzioni di Azure
 
@@ -29,8 +29,8 @@ Con il [trigger di funzioni di Azure per Cosmos DB](../azure-functions/functions
 
 Per implementare un flusso basato su eventi senza server, è necessario:
 
-* **Il contenitore monitorato**: Il contenitore monitorato è il contenitore Azure Cosmos monitorato e archivia i dati da cui viene generato il feed delle modifiche. Eventuali inserimenti e modifiche (ad esempio, CRUD) nel contenitore monitorato vengono riflessi nel feed delle modifiche del contenitore.
-* **Il contenitore lease**: Il contenitore lease mantiene lo stato tra più istanze di funzioni di Azure senza server dinamiche e Abilita la scalabilità dinamica. Questo contenitore di lease può essere creato manualmente o automaticamente dal trigger di funzioni di Azure per Cosmos DB. Per creare automaticamente il contenitore di lease, impostare il flag *CreateLeaseCollectionIfNotExists* nella [configurazione](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Per i contenitori di lease partizionati è necessario `/id` disporre di una definizione della chiave di partizione.
+* **Il contenitore monitorato**: Il contenitore monitorato è il contenitore Azure Cosmos monitorato e archivia i dati da cui viene generato il feed delle modifiche. Eventuali inserimenti, aggiornamenti al contenitore monitorati vengono riflessi nel feed delle modifiche del contenitore.
+* **Il contenitore lease**: Il contenitore lease mantiene lo stato tra più istanze di funzioni di Azure senza server dinamiche e Abilita la scalabilità dinamica. Questo contenitore di lease può essere creato manualmente o automaticamente dal trigger di funzioni di Azure per Cosmos DB. Per creare automaticamente il contenitore di lease, impostare il flag *CreateLeaseCollectionIfNotExists* nella [configurazione](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Per i contenitori di lease partizionati è necessario disporre di una definizione della chiave di partizione `/id`.
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Creare il trigger di funzioni di Azure per Cosmos DB
 

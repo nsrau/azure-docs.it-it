@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 09/06/2019
-ms.openlocfilehash: 6f5d865b5a12ce8989631deee7ebda49dbe1ab12
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.date: 10/09/2019
+ms.openlocfilehash: b876fba2ae10c4f8b973ad1bb0c98bfa95c7f481
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103190"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249325"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
@@ -46,7 +46,7 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
   Un gruppo di failover è un gruppo denominato di database gestito da un singolo server di database SQL o all'interno di una singola istanza gestita di cui è possibile eseguire il failover come unità in un'altra area nel caso in cui tutti o alcuni database primari non siano più disponibili a causa di un'interruzione nell'area primaria. Quando viene creato per le istanze gestite, un gruppo di failover contiene tutti i database utente nell'istanza e pertanto è possibile configurare un solo gruppo di failover in un'istanza di.
   
   > [!IMPORTANT]
-  > Il nome del gruppo di failover deve essere univoco a livello globale all' `.database.windows.net` interno del dominio.
+  > Il nome del gruppo di failover deve essere univoco a livello globale all'interno del dominio `.database.windows.net`.
 
 - **Server di database SQL**
 
@@ -80,11 +80,11 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
 - **Listener di lettura/scrittura del gruppo di failover**
 
-  Record DNS CNAME che punta all'URL del database primario corrente. Viene creato automaticamente quando viene creato il gruppo di failover e consente al carico di lavoro SQL di lettura/scrittura di riconnettersi in modo trasparente al database primario quando viene modificato il database primario dopo il failover. Quando il gruppo di failover viene creato in un server di database SQL, il record CNAME DNS per l'URL del listener `<fog-name>.database.windows.net`viene formato come. Quando il gruppo di failover viene creato in un'istanza gestita, il record CNAME DNS per l'URL del listener viene `<fog-name>.zone_id.database.windows.net`formato come.
+  Record DNS CNAME che punta all'URL del database primario corrente. Viene creato automaticamente quando viene creato il gruppo di failover e consente al carico di lavoro SQL di lettura/scrittura di riconnettersi in modo trasparente al database primario quando viene modificato il database primario dopo il failover. Quando il gruppo di failover viene creato in un server di database SQL, il record CNAME DNS per l'URL del listener viene formato `<fog-name>.database.windows.net`. Quando il gruppo di failover viene creato in un'istanza gestita, il record CNAME DNS per l'URL del listener viene formato `<fog-name>.zone_id.database.windows.net`.
 
 - **Listener di sola lettura del gruppo di failover**
 
-  Un record CNAME DNS che punta al listener di sola lettura che punta all'URL del database secondario. Viene creato automaticamente quando viene creato il gruppo di failover e consente al carico di lavoro SQL di sola lettura di connettersi in modo trasparente al database secondario usando le regole di bilanciamento del carico specificate. Quando il gruppo di failover viene creato in un server di database SQL, il record CNAME DNS per l'URL del listener `<fog-name>.secondary.database.windows.net`viene formato come. Quando il gruppo di failover viene creato in un'istanza gestita, il record CNAME DNS per l'URL del listener viene `<fog-name>.zone_id.secondary.database.windows.net`formato come.
+  Un record CNAME DNS che punta al listener di sola lettura che punta all'URL del database secondario. Viene creato automaticamente quando viene creato il gruppo di failover e consente al carico di lavoro SQL di sola lettura di connettersi in modo trasparente al database secondario usando le regole di bilanciamento del carico specificate. Quando il gruppo di failover viene creato in un server di database SQL, il record CNAME DNS per l'URL del listener viene formato `<fog-name>.secondary.database.windows.net`. Quando il gruppo di failover viene creato in un'istanza gestita, il record CNAME DNS per l'URL del listener viene formato `<fog-name>.zone_id.secondary.database.windows.net`.
 
 - **Criteri di failover automatico**
 
@@ -92,7 +92,7 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
 - **Criteri di failover di sola lettura**
 
-  Per impostazione predefinita, il failover del listener di sola lettura è disabilitato. Verificare che le prestazioni del database primario non siano interessate quando il database secondario è offline. Ciò significa anche che le sessioni di sola lettura non sono in grado di connettersi fino a quando il database secondario non viene recuperato. Se non è possibile tollerare i tempi di inattività per le sessioni di sola lettura e si è pronti a usare temporaneamente il database primario per il traffico di sola lettura e di lettura/scrittura a scapito della potenziale riduzione delle prestazioni del database primario, è possibile abilitare il failover per il listener di sola lettura configurando `AllowReadOnlyFailoverToPrimary` la proprietà. In tal caso, il traffico di sola lettura verrà reindirizzato automaticamente al database primario se il database secondario non è disponibile.
+  Per impostazione predefinita, il failover del listener di sola lettura è disabilitato. Verificare che le prestazioni del database primario non siano interessate quando il database secondario è offline. Ciò significa anche che le sessioni di sola lettura non sono in grado di connettersi fino a quando il database secondario non viene recuperato. Se non è possibile tollerare i tempi di inattività per le sessioni di sola lettura e si è pronti a usare temporaneamente il database primario per il traffico di sola lettura e di lettura/scrittura a scapito della potenziale riduzione delle prestazioni del database primario, è possibile abilitare il failover per il listener di sola lettura configurando la proprietà `AllowReadOnlyFailoverToPrimary`. In tal caso, il traffico di sola lettura verrà reindirizzato automaticamente al database primario se il database secondario non è disponibile.
 
 - **Failover pianificato**
 
@@ -121,8 +121,8 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
   > [!NOTE]
   > Istanza gestita non supporta più gruppi di failover.
   
-## <a name="permissions"></a>Autorizzazioni
-Le autorizzazioni per un gruppo di failover vengono gestite tramite il controllo degli accessi in [base al ruolo (RBAC)](../role-based-access-control/overview.md). Il ruolo [collaboratore SQL Server](../role-based-access-control/built-in-roles.md#sql-server-contributor) dispone di tutte le autorizzazioni necessarie per gestire i gruppi di failover. 
+## <a name="permissions"></a>Permissions
+Le autorizzazioni per un gruppo di failover vengono gestite tramite il [controllo degli accessi in base al ruolo (RBAC)](../role-based-access-control/overview.md). Il ruolo [collaboratore SQL Server](../role-based-access-control/built-in-roles.md#sql-server-contributor) dispone di tutte le autorizzazioni necessarie per gestire i gruppi di failover. 
 
 ### <a name="create-failover-group"></a>Crea gruppo di failover
 Per creare un gruppo di failover, è necessario l'accesso in scrittura RBAC ai server primari e secondari e a tutti i database nel gruppo di failover. Per un'istanza gestita, è necessario l'accesso in scrittura RBAC all'istanza gestita primaria e secondaria, ma le autorizzazioni per i singoli database non sono rilevanti perché i singoli database dell'istanza gestita non possono essere aggiunti o rimossi da un gruppo di failover. 
@@ -155,7 +155,7 @@ Quando si progetta un servizio facendo particolare attenzione alla continuità a
 
 - **Usare il listener di sola lettura per il carico di lavoro di sola lettura**
 
-  Se è presente un carico di lavoro di sola lettura isolato logicamente che tollera un certo grado di obsolescenza dei dati, è possibile usare il database secondario nell'applicazione. Per sessioni di sola lettura usare `<fog-name>.secondary.database.windows.net` come URL del server per indirizzare automaticamente le connessioni al server secondario. È inoltre consigliabile indicare la finalità di lettura della stringa di `ApplicationIntent=ReadOnly`connessione tramite. Per assicurarsi che il carico di lavoro di sola lettura possa riconnettersi dopo il failover o se il server secondario passa alla modalità offline, assicurarsi di configurare la `AllowReadOnlyFailoverToPrimary` proprietà dei criteri di failover. 
+  Se è presente un carico di lavoro di sola lettura isolato logicamente che tollera un certo grado di obsolescenza dei dati, è possibile usare il database secondario nell'applicazione. Per sessioni di sola lettura usare `<fog-name>.secondary.database.windows.net` come URL del server per indirizzare automaticamente le connessioni al server secondario. È inoltre consigliabile indicare la finalità di lettura della stringa di connessione utilizzando `ApplicationIntent=ReadOnly`. Per assicurarsi che il carico di lavoro di sola lettura possa riconnettersi dopo il failover o se il server secondario passa alla modalità offline, assicurarsi di configurare la proprietà `AllowReadOnlyFailoverToPrimary` dei criteri di failover. 
 
 - **Prepararsi a un calo delle prestazioni**
 
@@ -166,7 +166,7 @@ Quando si progetta un servizio facendo particolare attenzione alla continuità a
 
 - **Prepararsi alla perdita di dati**
 
-  Se viene rilevata un'interruzione, SQL attende il periodo specificato da `GracePeriodWithDataLossHours`. Il valore predefinito è 1 ora. Se non è possibile permettersi la perdita di dati, assicurarsi `GracePeriodWithDataLossHours` di impostare su un numero sufficientemente elevato, ad esempio 24 ore. Usare il failover manuale dei gruppi per eseguire il failback dal server secondario a quello primario.
+  Se viene rilevata un'interruzione, SQL attende il periodo specificato da `GracePeriodWithDataLossHours`. Il valore predefinito è 1 ora. Se non è possibile permettersi la perdita di dati, assicurarsi di impostare `GracePeriodWithDataLossHours` su un numero sufficientemente elevato, ad esempio 24 ore. Usare il failover manuale dei gruppi per eseguire il failback dal server secondario a quello primario.
 
   > [!IMPORTANT]
   > I pool elastici con 800 o meno DTU e più di 250 database con replica geografica possono riscontrare problemi quali failover pianificati più lunghi e un peggioramento delle prestazioni.  Questi problemi si verificano con maggiore probabilità nella scrittura di carichi di lavoro con utilizzo intensivo, quando gli endpoint con replica geografica sono ampiamente separati per area geografica o quando vengono utilizzati più endpoint secondari per ogni database.  I sintomi di questi problemi emergono quando il ritardo della replica geografica aumenta nel tempo.  Questo ritardo può essere monitorato mediante [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Se si verificano questi problemi, per prevenirli si può aumentare il numero di DTU nel pool o ridurre il numero di database replicati geograficamente nello stesso pool.
@@ -186,7 +186,7 @@ Se l'applicazione usa l'istanza gestita come livello dati, seguire queste linee 
 
 - **Creare l'istanza secondaria nella stessa zona DNS dell'istanza primaria**
 
-  Per garantire connettività ininterrotta all'istanza primaria dopo il failover, l'istanza primaria e l'istanza secondaria devono essere nella stessa zona DNS. Garantisce che lo stesso certificato di multidominio (SAN) possa essere utilizzato per autenticare le connessioni client a una delle due istanze del gruppo di failover. Quando l'applicazione è pronta per la distribuzione in produzione, creare un'istanza secondaria in un'area diversa e assicurarsi che condivida la zona DNS con l'istanza primaria. È possibile eseguire questa operazione specificando `DNS Zone Partner` un parametro facoltativo usando il portale di Azure, PowerShell o l'API REST. 
+  Per garantire connettività ininterrotta all'istanza primaria dopo il failover, l'istanza primaria e l'istanza secondaria devono essere nella stessa zona DNS. Garantisce che lo stesso certificato di multidominio (SAN) possa essere utilizzato per autenticare le connessioni client a una delle due istanze del gruppo di failover. Quando l'applicazione è pronta per la distribuzione in produzione, creare un'istanza secondaria in un'area diversa e assicurarsi che condivida la zona DNS con l'istanza primaria. È possibile eseguire questa operazione specificando un parametro facoltativo `DNS Zone Partner` usando il portale di Azure, PowerShell o l'API REST. 
 
 > [!IMPORTANT]
 > La prima istanza creata nella subnet determina la zona DNS per tutte le istanze successive nella stessa subnet. Ciò significa che due istanze della stessa subnet non possono appartenere a zone DNS diverse.   
@@ -199,7 +199,7 @@ Se l'applicazione usa l'istanza gestita come livello dati, seguire queste linee 
 
 - **Creazione di un gruppo di failover tra istanze gestite in sottoscrizioni diverse**
 
-  È possibile creare un gruppo di failover tra istanze gestite in due sottoscrizioni diverse. Quando si usa l'API di PowerShell, è possibile eseguire `PartnerSubscriptionId` questa operazione specificando il parametro per l'istanza secondaria. Quando si usa l' `properties.managedInstancePairs` API REST, ogni ID istanza incluso nel parametro può avere un proprio subscriptionID. 
+  È possibile creare un gruppo di failover tra istanze gestite in due sottoscrizioni diverse. Quando si usa l'API di PowerShell, è possibile eseguire questa operazione specificando il parametro `PartnerSubscriptionId` per l'istanza secondaria. Quando si usa l'API REST, ogni ID istanza incluso nel parametro `properties.managedInstancePairs` può avere il proprio subscriptionID. 
   
   > [!IMPORTANT]
   > Il portale di Azure non supporta i gruppi di failover tra sottoscrizioni diverse.
@@ -304,15 +304,12 @@ Questa sequenza è consigliata in modo specifico per evitare il problema per cui
 > [!NOTE]
 > Se è stato creato il database secondario come parte della configurazione del gruppo di failover, non è consigliabile eseguire il downgrade del database secondario. In questo modo si garantisce che il livello dei dati abbia una capacità sufficiente per elaborare il carico di lavoro normale dopo che il failover viene attivato.
 
-> [!IMPORTANT]
-> L'aggiornamento o il downgrade di un Istanza gestita che è membro di un gruppo di failover non è al momento supportato.
-
 ## <a name="preventing-the-loss-of-critical-data"></a>Evitare la perdita di dati critici
 
-A causa della latenza elevata delle reti WAN, per la copia continua viene usato un meccanismo di replica asincrona. La replica asincrona rende inevitabile una perdita parziale dei dati nel caso si verifichi un problema. Tuttavia, alcune applicazione potrebbero non essere soggette alla perdita dei dati. Per proteggere questi aggiornamenti critici, uno sviluppatore di applicazioni può chiamare la procedura di sistema [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) subito dopo il commit della transazione. La `sp_wait_for_database_copy_sync` chiamata a blocca il thread chiamante finché l'ultima transazione di cui è stato eseguito il commit non è stata trasmessa al database secondario. Tuttavia, non attende che le transazioni trasmesse vengano riprodotta e che ne venga eseguito il commit nel database secondario. `sp_wait_for_database_copy_sync`ha come ambito un collegamento di copia continua specifico. La procedura può essere chiamata da qualsiasi utente che abbia diritti di connessione al database primario.
+A causa della latenza elevata delle reti WAN, per la copia continua viene usato un meccanismo di replica asincrona. La replica asincrona rende inevitabile una perdita parziale dei dati nel caso si verifichi un problema. Tuttavia, alcune applicazione potrebbero non essere soggette alla perdita dei dati. Per proteggere questi aggiornamenti critici, uno sviluppatore di applicazioni può chiamare la procedura di sistema [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) subito dopo il commit della transazione. La chiamata a `sp_wait_for_database_copy_sync` blocca il thread chiamante finché l'ultima transazione di cui è stato eseguito il commit non è stata trasmessa al database secondario. Tuttavia, non attende che le transazioni trasmesse vengano riprodotta e che ne venga eseguito il commit nel database secondario. `sp_wait_for_database_copy_sync` ha come ambito un collegamento di copia continua specifico. La procedura può essere chiamata da qualsiasi utente che abbia diritti di connessione al database primario.
 
 > [!NOTE]
-> `sp_wait_for_database_copy_sync`impedisce la perdita di dati dopo il failover, ma non garantisce la sincronizzazione completa per l'accesso in lettura. Il ritardo causato da una `sp_wait_for_database_copy_sync` chiamata di routine può essere significativo e dipende dalle dimensioni del log delle transazioni al momento della chiamata.
+> `sp_wait_for_database_copy_sync` impedisce la perdita di dati dopo il failover, ma non garantisce la sincronizzazione completa per l'accesso in lettura. Il ritardo causato da una chiamata di procedura `sp_wait_for_database_copy_sync` può essere significativo e dipende dalle dimensioni del log delle transazioni al momento della chiamata.
 
 ## <a name="failover-groups-and-point-in-time-restore"></a>Gruppi di failover e ripristino temporizzato
 

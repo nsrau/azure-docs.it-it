@@ -5,14 +5,14 @@ author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 06/20/2019
 ms.topic: article
-ms.service: azure
+ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: c7860a098096d718a6c5d7cd661ef2b1c1b21e89
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: d803cc0dfa4a266f79b522207a8cf0f70e06cf3d
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802674"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248728"
 ---
 # <a name="classic-deployment-model"></a>Modello di distribuzione classica
 
@@ -30,7 +30,7 @@ Altre informazioni sulle quote sono disponibili nella pagina [sottoscrizione di 
 
 Seguire le istruzioni riportate di seguito per creare una richiesta di supporto tramite il pannello "Guida e supporto" di Azure disponibile nel portale di Azure. 
 
-1. Da https://portal.azure.com scegliere **Guida e supporto**.
+1. Da https://portal.azure.com, scegliere **Guida e supporto**.
 
    ![Guida e supporto](./media/resource-manager-core-quotas-request/helpsupport.png)
  
@@ -52,7 +52,7 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
 6. In **Dettagli problema**specificare informazioni aggiuntive per l'elaborazione della richiesta facendo clic su **Fornisci dettagli**.
 
-   ![Specifica dettagli](./media/resource-manager-core-quotas-request/provide-details.png)
+   ![Specificare i dettagli](./media/resource-manager-core-quotas-request/provide-details.png)
 
 7. Nel pannello dei **Dettagli della quota** selezionare classico e selezionare una località.
 
@@ -70,7 +70,7 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
 Seguire le istruzioni riportate di seguito per creare una richiesta di supporto tramite il pannello "utilizzo e quota" di Azure disponibile nel portale di Azure. 
 
-1. In https://portal.azure.com , selezionare **Sottoscrizioni**.
+1. In https://portal.azure.com, selezionare **Sottoscrizioni**.
 
    ![Sottoscrizioni](./media/resource-manager-core-quotas-request/subscriptions.png)
 
@@ -92,7 +92,7 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
    
 6. In **Dettagli problema**specificare informazioni aggiuntive per l'elaborazione della richiesta facendo clic su **Fornisci dettagli**.
 
-   ![Specifica dettagli](./media/resource-manager-core-quotas-request/provide-details.png)
+   ![Specificare i dettagli](./media/resource-manager-core-quotas-request/provide-details.png)
 
 7. Nel pannello dei **Dettagli della quota** selezionare classico e selezionare una località.
 

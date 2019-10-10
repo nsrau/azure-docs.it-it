@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 86875643950e11f1e5030676c1ab3825039749ed
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8f7349310f72c8cccc7b1906239ece3038dd7861
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203532"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249222"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Domande frequenti su Azure Red Hat OpenShift
 
@@ -39,7 +39,7 @@ No. È tuttavia possibile connettere un cluster Azure Red Hat OpenShift a un VNE
 
 ## <a name="what-cluster-operations-are-available"></a>Quali sono le operazioni del cluster disponibili?
 
-È possibile aumentare o ridurre il numero di nodi di calcolo. Non sono consentite altre modifiche `Microsoft.ContainerService/openShiftManagedClusters` alla risorsa dopo la creazione. Il numero massimo di nodi di calcolo è limitato a 20.
+È possibile aumentare o ridurre il numero di nodi di calcolo. Non sono consentite altre modifiche alla risorsa `Microsoft.ContainerService/openShiftManagedClusters` dopo la creazione. Il numero massimo di nodi di calcolo è limitato a 20.
 
 ## <a name="what-virtual-machine-sizes-can-i-use"></a>Quali dimensioni della macchina virtuale è possibile usare?
 
@@ -59,11 +59,11 @@ No, non all'ora corrente.
 
 ## <a name="is-the-docker-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>Il registro Docker è disponibile esternamente per poter usare strumenti come Jenkins?
 
-Il registro Docker è disponibile, `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` tuttavia, non è stata fornita una garanzia di durabilità di archiviazione avanzata. È anche possibile usare [container Registry di Azure](https://azure.microsoft.com/services/container-registry/).
+Il registro Docker è disponibile da `https://docker-registry.apps.<clustername>.<region>.azmosa.io/`, tuttavia, non è stata fornita una garanzia di durabilità di archiviazione avanzata. È anche possibile usare [container Registry di Azure](https://azure.microsoft.com/services/container-registry/).
 
 ## <a name="is-cross-namespace-networking-supported"></a>La rete tra gli spazi dei nomi è supportata?
 
-Gli amministratori di singoli progetti e clienti possono personalizzare la rete tra gli spazi dei nomi (inclusa la negazione) per ogni progetto `NetworkPolicy` usando oggetti.
+Gli amministratori di singoli progetti e clienti possono personalizzare la rete tra spazi dei nomi (inclusa la negazione) per ogni progetto usando oggetti `NetworkPolicy`.
 
 ## <a name="can-an-admin-manage-users-and-quotas"></a>Un amministratore può gestire gli utenti e le quote?
 
@@ -71,7 +71,7 @@ Sì. Un amministratore di Azure Red Hat OpenShift può gestire gli utenti e le q
 
 ## <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>È possibile limitare un cluster solo a determinati utenti di Azure AD?
 
-Sì. È possibile limitare il Azure AD gli utenti possono accedere a un cluster configurando l'applicazione Azure AD. Per informazioni dettagliate, [vedere Procedura: Limitare l'app a un set di utenti](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
+Sì. È possibile limitare il Azure AD gli utenti possono accedere a un cluster configurando l'applicazione Azure AD. Per informazioni dettagliate, vedere [How per: Limitare l'app a un set di utenti @ no__t-0
 
 ## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>Un cluster può avere nodi di calcolo in più aree di Azure?
 
@@ -85,9 +85,9 @@ No. Tutte le risorse, incluso il master del cluster, vengono eseguite nella sott
 
 Sì. È possibile usare OSBA con Azure Red Hat OpenShift. Per altre informazioni, vedere [aprire Service Broker per Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) .
 
-## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Si sta tentando di eseguire il peering in una rete virtuale in una `Failed to get vnet CIDR` sottoscrizione diversa, ma si verifica un errore.
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Si sta tentando di eseguire il peering in una rete virtuale in una sottoscrizione diversa ma viene ricevuto @no__t errore-0.
 
-Nella sottoscrizione in cui è presente la rete virtuale, assicurarsi di registrare `Microsoft.ContainerService` il provider con`az provider register -n Microsoft.ContainerService --wait` 
+Nella sottoscrizione in cui è presente la rete virtuale, assicurarsi di registrare il provider `Microsoft.ContainerService` con `az provider register -n Microsoft.ContainerService --wait` 
 
 ## <a name="what-is-the-azure-red-hat-openshift-aro-maintenance-process"></a>Che cos'è il processo di manutenzione di Azure Red Hat OpenShift (ARO)?
 
@@ -129,9 +129,9 @@ Non è crittografato a livello di ETCD. L'opzione per attivarla non è attualmen
 
 Syslog, i log di Docker, Journal e dmesg vengono gestiti dal servizio gestito e non vengono esposti ai clienti.
 
-## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>In che modo un cliente può accedere a metriche come CPU/memoria a livello di nodo per intervenire su scalabilità, problemi di debug e così via. Non posso sembrare che venga `kubectl top` eseguito in un cluster Aro.
+## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>In che modo un cliente può accedere a metriche come CPU/memoria a livello di nodo per intervenire su scalabilità, problemi di debug e così via. Non posso sembrare di eseguire `kubectl top` in un cluster ARO.
 
-`kubectl top`non è disponibile in Red Hat OpenShift. Richiede un'origine metrica di backup, Heapster (deprecata) o Metrics-Server (incubating o Alpha), nessuno dei quali è incluso nello stack di monitoraggio OpenShift.
+`kubectl top` non è disponibile in Red Hat OpenShift. Richiede un'origine metrica di backup, Heapster (deprecata) o Metrics-Server (incubating o Alpha), nessuno dei quali è incluso nello stack di monitoraggio OpenShift.
 
 ## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>Qual è la configurazione dell'utilità di pianificazione Pod predefinita per ARO?
 
@@ -189,7 +189,7 @@ Questa operazione viene eseguita tramite l'integrazione Azure AD. 
 
 Ogni cluster Azure Red Hat OpenShift è dedicato a un determinato cliente e si trova all'interno della sottoscrizione del cliente. 
 
-## <a name="can-we-choose-any-persistent-storage-solution-ocs"></a>È possibile scegliere qualsiasi soluzione di archiviazione permanente. OCS? 
+## <a name="can-we-choose-any-persistent-storage-solution-like-ocs"></a>È possibile scegliere qualsiasi soluzione di archiviazione persistente, ad esempio OCS? 
 
 È possibile scegliere tra due classi di archiviazione: Disco di Azure e file di Azure.
 

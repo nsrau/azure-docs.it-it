@@ -3,20 +3,17 @@ title: Trasformazione Ricerca per il flusso di dati di mapping di Azure Data Fac
 description: Trasformazione Ricerca per il flusso di dati di mapping di Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/03/2019
-ms.openlocfilehash: ef72b7aed12afd1cee47b11bc7584d1e53bf2af5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.date: 10/03/2019
+ms.openlocfilehash: d762bddbe098e30cbf9e9c02da3c06073a358b12
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029335"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249241"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Trasformazione Ricerca per il flusso di dati di mapping di Azure Data Factory
-
-
 
 Usare la trasformazione Ricerca per aggiungere dati di riferimento da un'altra origine al flusso di dati. La trasformazione Ricerca richiede un'origine definita che punta alla tabella di riferimento e corrisponde ai campi chiave.
 
@@ -24,7 +21,9 @@ Usare la trasformazione Ricerca per aggiungere dati di riferimento da un'altra o
 
 Selezionare i campi chiave per individuare la corrispondenza tra i campi del flusso in ingresso e i campi dall'origine di riferimento. È necessario avere già creato una nuova origine nell'area di progettazione del flusso di dati da usare come lato destro per la ricerca.
 
-Quando vengono trovate corrispondenze, le righe e le colonne risultanti dall'origine di riferimento verranno aggiunte al flusso di dati. È possibile scegliere i campi di interesse da includere nel sink alla fine del flusso di dati.
+Quando vengono trovate corrispondenze, le righe e le colonne risultanti dall'origine di riferimento verranno aggiunte al flusso di dati. È possibile scegliere i campi di interesse da includere nel sink alla fine del flusso di dati. In alternativa, usare una trasformazione seleziona dopo la ricerca per eliminare l'elenco dei campi in modo da mantenere solo i campi da entrambi i flussi che si vuole mantenere.
+
+La trasformazione Ricerca esegue l'equivalente di un left outer join. Quindi, verranno visualizzate tutte le righe dell'origine sinistra combinate con le corrispondenze dal lato destro. Se si dispone di più valori corrispondenti nella ricerca o se si desidera personalizzare l'espressione di ricerca, è preferibile passare a una trasformazione join e utilizzare un cross join. In questo modo si eviteranno eventuali errori di prodotto cartesiano durante l'esecuzione.
 
 ## <a name="match--no-match"></a>Corrispondenza/nessuna corrispondenza
 
@@ -38,7 +37,7 @@ In Data Factory i flussi di dati vengono eseguiti in ambienti Spark con scalabil
 
 ### <a name="broadcast-join"></a>Join di trasmissione
 
-Selezionare Left e/o right broadcast join per richiedere ad ADF di effettuare il push dell'intero set di dati da entrambi i lati della relazione di ricerca in memoria.
+Selezionare Left e/o right broadcast join per richiedere ad ADF di effettuare il push dell'intero set di dati da entrambi i lati della relazione di ricerca in memoria. Per i set di impostazioni più piccoli, questo può migliorare significativamente le prestazioni di ricerca.
 
 ### <a name="data-partitioning"></a>Partizionamento dei dati
 

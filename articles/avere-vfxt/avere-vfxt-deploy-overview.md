@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: 88305e5d877f5bc3cc7ebb116f69b0f49f162b79
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: 9684b230b8790e36cd7442c65481c0c71ce185d6
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409914"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255418"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT per Azure - Panoramica della distribuzione
 
@@ -44,11 +44,11 @@ Ecco una panoramica di tutti i passaggi.
 
      Il controller del cluster è una semplice macchina virtuale che si trova nella stessa rete virtuale del cluster Avere vFXT e dispone del software necessario per creare e gestire il cluster. Il controller crea i nodi vFXT e forma il cluster, oltre a fornire un'interfaccia della riga di comando per gestire il cluster durante il suo ciclo di vita.
 
-     Se si crea una nuova rete virtuale durante la distribuzione, il controller avrà un indirizzo IP pubblico. Ciò significa che il controller può essere utilizzato come un host di salto per la connessione al cluster dall'esterno della rete virtuale.
+     Se durante la distribuzione si crea un nuovo VNET, il controller avrà un indirizzo IP pubblico. Ciò significa che il controller può fungere da Jump host per la connessione al cluster dall'esterno del vnet.
 
    * Creazione delle macchine virtuali del nodo del cluster
 
-   * Configurazione delle macchine virtuali per formare il cluster del nodo cluster
+   * Configurazione delle macchine virtuali del nodo del cluster per formare il cluster
 
    * Facoltativamente, creazione di un nuovo contenitore BLOB e configurazione di tale contenitore come risorsa di archiviazione back-end per il cluster
 

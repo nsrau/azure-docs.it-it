@@ -1,18 +1,18 @@
 ---
 title: Esempio-PCI-DSS v 3.2.1 Blueprint-procedura di distribuzione
-description: Distribuire i passaggi dell'esempio di progetto della carta di pagamento Industry Data Security Standard v 3.2.1.
+description: Consente di distribuire i passaggi per l'esempio di progetto della carta di credito Industry Data Security Standard v 3.2.1, inclusi i dettagli del parametro dell'elemento Blueprint.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: f95f9a592085fd93fba5e6b11a1a75609eb70295
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: fa409b873ea1dd0c0970ebc694ad68673df4d033
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980935"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248849"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Distribuire l'esempio di progetto PCI-DSS v 3.2.1
 
@@ -66,7 +66,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
 1. Specificare i valori dei parametri per l'assegnazione del progetto:
 
-   - Generale
+   - Nozioni di base
 
      - **Sottoscrizioni**: selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ciascuna usando i parametri immessi.
      - **Nome dell'assegnazione**: il nome viene prepopolato in base al nome del progetto.
@@ -82,7 +82,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
      Lasciare invariata l'opzione predefinita _Identità gestita assegnata dal sistema_.
 
-   - Parametri artefatto
+   - Parametri dell'elemento
 
      I parametri definiti in questa sezione si applicano all'artefatto in cui sono definiti. Si tratta di [parametri dinamici](../../concepts/parameters.md#dynamic-parameters), in quanto vengono definiti durante l'assegnazione del progetto. Per un elenco completo di parametri di artefatti e relative descrizioni, vedere la [tabella di parametri degli artefatti](#artifact-parameters-table).
 
@@ -97,11 +97,11 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 
 |Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
-|\[Preview @ no__t-1 audit PCI v 3.2.1:2018 controlla e Distribuisci specifiche estensioni VM per supportare i requisiti di controllo|Assegnazione criteri|Elenco di tipi di risorse | Controlla l'impostazione di diagnostica per i tipi di risorse selezionati. Il valore predefinito è tutte le risorse selezionate| 
-|Località consentite|Assegnazione criteri|Elenco di percorsi consentiti|Elenco di percorsi di data center consentiti per la distribuzione di qualsiasi risorsa in. Questo elenco è personalizzabile nelle località di Azure desiderate a livello globale. Selezionare le località che si desidera consentire.| 
-|Percorsi consentiti per i gruppi di risorse|Assegnazione criteri |Località consentita |Questo criterio consente di limitare le posizioni in cui l'organizzazione può creare gruppi di risorse. Usare per imporre requisiti di conformità geografica.| 
-|Distribuisci il controllo nei server SQL|Assegnazione criteri|Giorni di conservazione|Al conservazione dati in numero di giorni. Il valore predefinito è 180, ma PCI richiede 365.| 
-|Distribuisci il controllo nei server SQL|Assegnazione criteri|Nome del gruppo di risorse per l'account di archiviazione|Il controllo esegue la scrittura degli eventi del database in un log di controllo nell'account di archiviazione di Azure. Verrà creato un account di archiviazione in ogni area in cui viene creato un server SQL che verrà condiviso da tutti i server di tale area.| 
+|\[Preview @ no__t-1 audit PCI v 3.2.1:2018 controlla e Distribuisci specifiche estensioni VM per supportare i requisiti di controllo|Assegnazione dei criteri|Elenco di tipi di risorse | Controlla l'impostazione di diagnostica per i tipi di risorse selezionati. Il valore predefinito è tutte le risorse selezionate| 
+|Percorsi consentiti|Assegnazione dei criteri|Elenco di percorsi consentiti|Elenco di percorsi di data center consentiti per la distribuzione di qualsiasi risorsa in. Questo elenco è personalizzabile nelle località di Azure desiderate a livello globale. Selezionare le località che si desidera consentire.| 
+|Percorsi consentiti per i gruppi di risorse|Assegnazione dei criteri |Località consentita |Questo criterio consente di limitare le posizioni in cui l'organizzazione può creare gruppi di risorse. Usare per imporre requisiti di conformità geografica.| 
+|Distribuisci il controllo nei server SQL|Assegnazione dei criteri|Giorni di conservazione|Al conservazione dati in numero di giorni. Il valore predefinito è 180, ma PCI richiede 365.| 
+|Distribuisci il controllo nei server SQL|Assegnazione dei criteri|Nome del gruppo di risorse per l'account di archiviazione|Il controllo esegue la scrittura degli eventi del database in un log di controllo nell'account di archiviazione di Azure. Verrà creato un account di archiviazione in ogni area in cui viene creato un server SQL che verrà condiviso da tutti i server di tale area.| 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

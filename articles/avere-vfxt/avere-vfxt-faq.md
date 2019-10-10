@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: v-erkell
-ms.openlocfilehash: 47a4b38d39c52992b51284776ec34cb9491020e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rohogue
+ms.openlocfilehash: f42a9cf5aaa3256865bcf388aa5bd422664c73dd
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595420"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255399"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Domande frequenti su Avere vFXT per Azure
 
@@ -63,7 +63,7 @@ Avere vFXT è una cache. Non è specificatamente progettato per archiviare i dat
 
 ### <a name="what-regions-are-supported"></a>Quali aree sono supportate?
 
-Avere vFXT per Azure è supportata in tutte le aree ad eccezione delle aree sovrane (Cina e Germania). Assicurarsi che l'area da usare riesca a supportare la quantità elevata di core di calcolo e le istanze di macchina virtuale necessarie per creare il cluster Avere vFXT.
+VFXT per Azure è supportato in tutte le aree, ad eccezione delle aree sovrane (Cina, Germania). Assicurarsi che l'area da usare riesca a supportare la quantità elevata di core di calcolo e le istanze di macchina virtuale necessarie per creare il cluster Avere vFXT.
 
 ### <a name="how-do-i-get-help-with-avere-vfxt"></a>Come ottenere assistenza con Avere vFXT?
 
@@ -88,7 +88,7 @@ Avere vFXT è un'appliance di cluster costituita da più macchine virtuali di Az
 
 ### <a name="what-kind-of-azure-virtual-machines-does-avere-vfxt-run-on"></a>Con quali tipi di macchine virtuali di Azure può essere eseguito Avere vFXT?  
 
-Un vFXT Avere per cluster di Azure Usa le macchine virtuali di Microsoft Azure E32s_v3. 
+Un cluster di vFXT per Azure usa Microsoft Azure macchine virtuali E32s_v3. 
 
 <!-- ### Can I mix and match virtual machine types for my cluster?
 
@@ -177,7 +177,7 @@ Sì, è possibile creare il sistema Avere vFXT in un'altra rete virtuale. Legger
 
 ### <a name="does-avere-vfxt-require-its-own-subnet"></a>Avere vFXT richiede una subnet propria?
 
-Sì. Avere vFXT viene eseguito esclusivamente come un cluster a disponibilità elevata (HA) e richiede più indirizzi IP per il funzionamento. Se il cluster è nella propria subnet, si evita il rischio di conflitti di indirizzi IP, che possono causare problemi per l'installazione e il normale funzionamento. La subnet del cluster può essere all'interno della rete virtuale esistente purché non si sovrapponga alcun indirizzo IP.
+Sì. VFXT viene eseguito esclusivamente come un cluster a disponibilità elevata e richiede l'uso di più indirizzi IP. Se il cluster è nella propria subnet, si evita il rischio di conflitti di indirizzi IP, che possono causare problemi per l'installazione e il normale funzionamento. La subnet del cluster può essere all'interno della rete virtuale esistente purché non si sovrapponga alcun indirizzo IP.
 
 ### <a name="can-i-run-avere-vfxt-on-infiniband"></a>È possibile eseguire Avere vFXT con InfiniBand?
 
@@ -200,13 +200,13 @@ Per gli ambienti sensibili alla latenza, è consigliabile usare una soluzione fi
 
 No, Avere vFXT è progettato per l'uso in un ambiente di rete protetto tramite procedure consigliate.  
 
-### <a name="can-i-restrict-internet-access-from-my-clusters-virtual-network"></a>È possibile limitare l'accesso a internet dalla rete virtuale del cluster? 
+### <a name="can-i-restrict-internet-access-from-my-clusters-virtual-network"></a>È possibile limitare l'accesso a Internet dalla rete virtuale del cluster? 
 
-In generale, è possibile configurare sicurezza aggiuntiva sulla rete virtuale in base alle necessità, ma alcune restrizioni possono interferire con l'operazione del cluster.
+In generale, è possibile configurare una sicurezza aggiuntiva in VNET in base alle esigenze, ma alcune restrizioni possono interferire con il funzionamento del cluster.
 
-Ad esempio, limitare l'accesso a internet in uscita dalla rete virtuale può causare problemi per il cluster a meno che non è inoltre aggiungere una regola che consenta in modo esplicito l'accesso al cloud Azure. Questa situazione è descritta in [documentazione aggiuntiva su GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+Ad esempio, la limitazione dell'accesso a Internet in uscita dalla VNET causa problemi per il cluster, a meno che non si aggiunga anche una regola che consente esplicitamente l'accesso a AzureCloud. Questa situazione è descritta nella [documentazione supplementare su GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
 
-Per informazioni sulla protezione personalizzate, contattare il supporto come descritto in [Ottieni assistenza per il sistema](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
+Per informazioni sulla sicurezza personalizzata, contattare il supporto tecnico, come descritto in [ottenere assistenza per il sistema](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
 
 ## <a name="technical-back-end-storage-core-filers"></a>Tecnica: Archiviazione back-end (core filer)
 
@@ -226,7 +226,7 @@ In termini generali, Avere vFXT per Azure supporta i sistemi seguenti come core 
 * NetApp ONTAP (modalità Cluster 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3) e (modalità 7 7.*, 8.0-8.3) 
 
   > [!NOTE] 
-  > File di NetApp Azure attualmente non è supportato. 
+  > Azure NetApp Files attualmente non è supportato. 
 
 * Contenitori BLOB di Azure (solo archiviazione con ridondanza locale) 
 * Bucket di AWS S3 

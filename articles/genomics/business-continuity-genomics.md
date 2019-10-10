@@ -1,21 +1,21 @@
 ---
-title: Continuità aziendale - Genomica di Microsoft | Microsoft Docs
-titleSuffix: Azure
-description: Questa panoramica descrive le funzionalità offerte da Genomica di Microsoft per la continuità aziendale e il ripristino di emergenza. Vengono fornite informazioni sulle opzioni per il ripristino dopo eventi che possono causare interruzioni del funzionamento, ad esempio un'interruzione di un'area di Azure, con conseguente perdita di dati.
+title: Panoramica della continuità aziendale
+titleSuffix: Microsoft Genomics
+description: Questa panoramica descrive le funzionalità offerte da Genomica di Microsoft per la continuità aziendale e il ripristino di emergenza.
 keywords: Ripristino di emergenza, continuità aziendale
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/06/2018
-ms.openlocfilehash: 7a51477dbbf6f4e50959a6d979342961c7e49ad9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 28a4a53851155c56e8d34981862bf52a3a2cf15b
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60641110"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249185"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Panoramica della continuità aziendale con Genomica di Microsoft
 Questa panoramica descrive le funzionalità offerte da Genomica di Microsoft per la continuità aziendale e il ripristino di emergenza. Vengono fornite informazioni sulle opzioni per il ripristino dopo eventi che possono causare interruzioni del funzionamento, ad esempio un'interruzione di un'area di Azure, con conseguente perdita di dati. 
@@ -30,7 +30,7 @@ Anche se di rado, in un data center di Azure può verificarsi un'interruzione, c
 
 
 ### <a name="manually-failover-microsoft-genomics-workflows-to-another-region"></a>Eseguire il failover manuale dei flussi di lavoro di Genomica di Microsoft in un'altra area
-In caso di interruzione di un data center a livello di area, è possibile scegliere di inviare i flussi di lavoro di Genomica di Microsoft in un'area secondaria, in base ai singoli requisiti di continuità aziendale e sovranità dei dati. Per eseguire il failover manuale dei flussi di lavoro di Genomica di Microsoft, si userà un account di Genomica specifico di un'altra area e si invierà il processo con le credenziali appropriate dell'account di archiviazione e di Genomica specifiche dell'area.
+Se si verifica un'interruzione di data center a livello di area, è possibile scegliere di inviare i flussi di lavoro di genomica di Microsoft in un'area secondaria, in base alla sovranità dei singoli dati e ai requisiti di continuità aziendale. Per eseguire il failover manuale dei flussi di lavoro di Genomica di Microsoft, si userà un account di Genomica specifico di un'altra area e si invierà il processo con le credenziali appropriate dell'account di archiviazione e di Genomica specifiche dell'area.
 
 In particolare, sarà necessario:
 * Creare un account di Genomica nell'area secondaria, usando il portale di Azure. 

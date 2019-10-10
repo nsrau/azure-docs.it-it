@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd752540d078ef57c8b6150edbf9b124bc445fe0
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: f4f26c82d4cda6ce3d8bf01c7fd52fa579e86dcf
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949311"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240238"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -66,13 +66,13 @@ Dall'elenco a discesa **Scegli formato identificatore nome** è possibile selezi
 | **EmailAddress** | Azure AD utilizzerà EmailAddress come formato NameID. |
 | **Unspecified** | Azure AD utilizzerà il formato NameID non specificato. |
 
-Per altre informazioni sull'attributo NameIDPolicy, vedere [protocollo SAML per Single Sign-on](single-sign-on-saml-protocol.md).
+Il NameID temporaneo è anche supportato, ma non è disponibile nell'elenco a discesa e non può essere configurato sul lato di Azure. Per altre informazioni sull'attributo NameIDPolicy, vedere [protocollo SAML per Single Sign-on](single-sign-on-saml-protocol.md).
 
 ### <a name="attributes"></a>Attributi
 
 Selezionare l'origine desiderata per l'attestazione `NameIdentifier` (o NameID). Si può scegliere fra le opzioni seguenti.
 
-| Attività | Descrizione |
+| NOME | Descrizione |
 |------|-------------|
 | Email | Indirizzo di posta elettronica dell'utente |
 | userprincipalName | Nome dell'entità utente (UPN) dell'utente |

@@ -1,28 +1,28 @@
 ---
-title: 'Microsoft Genomics: Domande frequenti - domande frequenti | Microsoft Docs'
-titleSuffix: Azure
+title: Domande frequenti-domande frequenti
+titleSuffix: Microsoft Genomics
 description: Risposte alle domande comuni poste ai clienti su Genomica di Microsoft.
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: d36a2c6379a95cc67a55c2cc266ced94b4a0179a
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 80a656ee687b71fcaf09a02d70d0a5a4300186bc
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672223"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249238"
 ---
-# <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Domande frequenti
+# <a name="microsoft-genomics-common-questions"></a>Genomica di Microsoft: Domande frequenti
 
 Questo articolo elenca le domande più importanti degli utenti su Genomica di Microsoft. Per altre informazioni sul servizio Genomica di Microsoft, vedere [Informazioni su Genomica di Microsoft](overview-what-is-genomics.md). Per altre informazioni sulla risoluzione dei problemi, vedere [Guida per la risoluzione dei problemi](troubleshooting-guide-genomics.md). 
 
 
-## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Come eseguire i flussi di lavoro GATK4 su Genomics Microsoft?
-Nel file config txt del servizio Microsoft Genomics, specificare il nome_processo a `gatk4`. Si noti che verrà addebitato alle normali tariffe di fatturazione.
+## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Ricerca per categorie eseguire flussi di lavoro GATK4 su genomica di Microsoft?
+Nel file config. txt del servizio genomica di Microsoft specificare process_name per `gatk4`. Si noti che verranno addebitate tariffe di fatturazione regolari.
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Qual è il contratto di servizio per Genomica di Microsoft?
@@ -85,6 +85,6 @@ msgen riconosce i file di configurazione nel formato seguente:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Usare le risorse seguenti per iniziare a usare Genomica di Microsoft:
-- Iniziare eseguendo il primo flusso di lavoro tramite il servizio Genomica di Microsoft. [Eseguire un flusso di lavoro tramite il servizio Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
+- Iniziare eseguendo il primo flusso di lavoro tramite il servizio Genomica di Microsoft. [Eseguire un flusso di lavoro tramite il servizio genomica di Microsoft](quickstart-run-genomics-workflow-portal.md)
 - Inviare i dati per l'elaborazione tramite il servizio Genomica di Microsoft: [File di FASTQ abbinati](quickstart-input-pair-FASTQ.md) | [File di Monitoraggio attività di business](quickstart-input-BAM.md) | [Più file di FASTQ o Monitoraggio attività di business](quickstart-input-multiple.md) 
 

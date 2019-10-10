@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 35c317c4b73e9a22e3b0d6192abcfc2a596066b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ee92ad6e0687018f69044bf3edde76b9f98cee52
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60598118"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255598"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatizzare l'installazione del servizio Mobility tramite System Center Configuration Manager
 
@@ -24,7 +24,7 @@ Questo articolo descrive un esempio dell'uso di System Center Configuration Mana
 
 In questo articolo si usa System Center Configuration Manager 2012 R2 per illustrare l'attività di distribuzione. Si presuppone l'uso del servizio Mobility versione **9.9.4510.1** o successiva.
 
-In alternativa, è possibile automatizzare l'installazione del servizio Mobility con [Azure Automation DSC](vmware-azure-mobility-deploy-automation-dsc.md).
+In alternativa, è possibile automatizzare l'installazione del servizio Mobility con [Automation DSC di Azure](vmware-azure-mobility-deploy-automation-dsc.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -172,16 +172,13 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
    | **Nome parametro** | **Valore** |
    |--|--|
-   | Name | Installare il servizio Mobility di Microsoft Azure (Windows) |
+   | NOME | Installare il servizio Mobility di Microsoft Azure (Windows) |
    | Riga di comando | install.bat |
    | Il programma può essere eseguito | anche se non ci sono utenti connessi |
 
    ![Schermata di Creazione guidata pacchetto e programma](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
 
-9. Nella pagina successiva selezionare i sistemi operativi di destinazione. Il servizio Mobility può essere installato solo su Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2.
-
-   ![Schermata di Creazione guidata pacchetto e programma](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2.png)
-
+9. Nella pagina successiva selezionare i sistemi operativi di destinazione. 
 10. Fare clic su **Avanti** due volte per completare la procedura guidata.
 
 

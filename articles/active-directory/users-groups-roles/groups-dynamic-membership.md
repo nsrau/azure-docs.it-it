@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dafc78e49cb0118181bae4522d4cb456509ea2cb
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: bb9b3a4add951079ab918d3ac02ca5e38eff6161
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673430"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241161"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -43,7 +43,7 @@ Di seguito sono riportati alcuni esempi di regole avanzate o sintassi per cui è
 - Regola con più di cinque espressioni
 - Regola dei report diretti
 - Impostazione della [precedenza degli operatori](groups-dynamic-membership.md#operator-precedence)
-- [Regole con espressioni complesse](groups-dynamic-membership.md#rules-with-complex-expressions); Per esempio`(user.proxyAddresses -any (_ -contains "contoso"))`
+- [Regole con espressioni complesse](groups-dynamic-membership.md#rules-with-complex-expressions); ad esempio `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
 > Il generatore regole potrebbe non essere in grado di visualizzare alcune regole costruite nella casella di testo. Potrebbe essere visualizzato un messaggio quando il generatore regole non è in grado di visualizzare la regola. Il generatore regole non modifica in alcun modo la sintassi, la convalida o l'elaborazione delle regole di gruppo dinamiche supportate.
@@ -79,7 +79,7 @@ L'ordine delle parti in un'espressione è importante per evitare gli errori di s
 Ci sono tre tipi di proprietà che è possibile usare per costruire una regola di appartenenza.
 
 - Boolean
-- Stringa
+- string
 - Raccolta di tipi string
 
 Di seguito sono elencate le proprietà utente che è possibile usare per creare una singola espressione.
@@ -342,7 +342,7 @@ Gli attributi di estensione e le proprietà dell'estensione personalizzata sono 
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-Le proprietà di estensione personalizzate vengono sincronizzate dall'istanza locale di AD di Windows Server o da un'applicazione SaaS connessa e hanno il formato `user.extension_[GUID]__[Attribute]`, dove:
+Le proprietà di estensione personalizzate vengono sincronizzate dall'istanza locale di AD di Windows Server o da un'applicazione SaaS connessa e hanno il formato `user.extension_[GUID]_[Attribute]`, dove:
 
 * [GUID] è l'identificatore univoco in Azure AD per l'applicazione che ha creato la proprietà in Azure AD
 * [Attribute] è il nome della proprietà quando è stata creata
@@ -350,7 +350,7 @@ Le proprietà di estensione personalizzate vengono sincronizzate dall'istanza lo
 Ecco un esempio di regola che usa una proprietà di estensione personalizzata:
 
 ```
-user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
+user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 ```
 
 È possibile trovare il nome della proprietà personalizzata nella directory eseguendo una query sulla proprietà dell'utente con Graph explorer e cercando il nome della proprietà. È inoltre ora possibile selezionare il collegamento **Ottieni proprietà di estensione personalizzate** nel generatore di regole di assegnazione dinamica dei gruppi utenti per immettere un ID app univoco e ricevere l'elenco completo di proprietà di estensione personalizzate da usare quando si crea una regola di appartenenza dinamica. È anche possibile aggiornare questo elenco per ottenere tutte le nuove proprietà di estensione personalizzate per l'app.

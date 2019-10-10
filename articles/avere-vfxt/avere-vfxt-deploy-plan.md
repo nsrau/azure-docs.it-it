@@ -5,17 +5,17 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: 1317e900fd4448ded046ffea481313f8ea9f68e3
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409898"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256229"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Pianificare il sistema Avere vFXT
 
-Questo articolo illustra come pianificare una nuova vFXT Avere per cluster di Azure che è posizionare e ridimensionare in modo appropriato per le proprie esigenze. 
+Questo articolo illustra come pianificare una nuova vFXT per il cluster di Azure, posizionata e ridimensionata in modo appropriato in base alle esigenze. 
 
 Prima di passare ad Azure Marketplace o di creare macchine virtuali, valutare come interagirà il cluster con gli altri elementi in Azure. Pianificare la posizione delle risorse cluster nella rete privata e nelle subnet e stabilire la posizione dell'archiviazione back-end. Assicurarsi che i nodi del cluster creati siano sufficientemente potenti per supportare il flusso di lavoro. 
 
@@ -32,21 +32,21 @@ Seguire queste linee guida per la pianificazione dell'infrastruttura di rete del
 * Tutti gli elementi devono essere gestiti con una nuova sottoscrizione creata per la distribuzione di Avere vFXT. I vantaggi includono: 
   * Verifica semplificata dei costi: è possibile visualizzare e controllare tutti i costi relativi alle risorse, all'infrastruttura e ai calcoli in una sottoscrizione.
   * Pulizia più semplice: è possibile rimuovere l'intera sottoscrizione al termine del progetto.
-  * Partizionamento pratico della risorsa quote - proteggere altri carichi di lavoro critici dalla limitazione delle richieste tramite l'isolamento Avere vFXT client e cluster in una singola sottoscrizione di risorse possibili. Questo modo si evitano conflitti quando riportano un numero elevato di client per un flusso di lavoro di calcolo ad alte prestazioni.
+  * Praticità di partizionamento delle quote di risorse: proteggere altri carichi di lavoro critici da possibili limitazioni delle risorse isolando i client e il cluster vFXT in una singola sottoscrizione. In questo modo si evitano conflitti quando si apre un numero elevato di client per un flusso di lavoro di calcolo ad alte prestazioni.
 
 * Posizionare i sistemi di calcolo client vicino al cluster vFXT. L'archiviazione back-end può avere una posizione più remota.  
 
-* Il cluster vFXT e il controller del cluster macchina virtuale deve trovarsi nella stessa rete virtuale (vnet), nello stesso gruppo di risorse e usare lo stesso account di archiviazione. Il modello di creazione di cluster automatico viene gestita per la maggior parte delle situazioni.
+* Il cluster vFXT e la VM controller cluster devono trovarsi nella stessa rete virtuale (VNET), nello stesso gruppo di risorse e usare lo stesso account di archiviazione. Il modello di creazione automatica del cluster gestisce questa situazione per la maggior parte delle situazioni.
 
 * Il cluster deve essere posizionato nella relativa subnet per evitare conflitti di indirizzi IP con i client o le risorse di calcolo. 
 
-* Il modello di creazione del cluster è possibile creare la maggior parte delle risorse dell'infrastruttura necessari per il cluster, inclusi i gruppi di risorse, le reti virtuali, subnet e gli account di archiviazione. Se si desidera usare le risorse già esistenti, verificare che soddisfino i requisiti in questa tabella. 
+* Il modello di creazione del cluster può creare la maggior parte delle risorse di infrastruttura necessarie per il cluster, inclusi i gruppi di risorse, le reti virtuali, le subnet e gli account di archiviazione. Se si desidera utilizzare risorse già esistenti, verificare che soddisfino i requisiti indicati in questa tabella. 
 
-  | Resource | Usa esistente? | Requisiti |
+  | Resource | Usare existing? | Requisiti |
   |----------|-----------|----------|
-  | Gruppo di risorse | Sì, se è vuota | Deve essere vuoto| 
-  | Account di archiviazione | Sì, se la connessione esistente di contenitore di Blob dopo la creazione del cluster <br/>  No se la creazione di un nuovo contenitore Blob durante la creazione del cluster | Contenitore Blob esistente deve essere vuoto <br/> &nbsp; |
-  | Rete virtuale | Yes | Deve includere un endpoint di servizio di archiviazione se la creazione di un nuovo contenitore Blob di Azure | 
+  | Gruppo di risorse | Sì, se vuoto | Deve essere vuoto| 
+  | Account di archiviazione | Sì se si connette un contenitore BLOB esistente dopo la creazione del cluster <br/>  No se si crea un nuovo contenitore BLOB durante la creazione del cluster | Il contenitore BLOB esistente deve essere vuoto <br/> &nbsp; |
+  | Rete virtuale | Yes | Deve includere un endpoint del servizio di archiviazione se si crea un nuovo contenitore BLOB di Azure | 
   | Subnet | Yes |   |
 
 ## <a name="ip-address-requirements"></a>Requisiti degli indirizzi IP 
@@ -76,11 +76,11 @@ Ogni nodo vFXT sarà identico. Ciò significa che se si crea un cluster a tre no
 
 | Tipo di istanza | vCPU | Memoria  | Archiviazione SSD locale  | Numero massimo di dischi dati | Velocità effettiva del disco senza memorizzazione nella cache | Scheda di rete (conteggio) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_E32s_v3 | 32  | 256 GiB | 512 GiB  | 32 | 51\.200 operazioni di I/O al secondo <br/> 768 MBps | 16\.000 MBps (8)  |
+| Standard_E32s_v3 | 32  | 256 GiB | 512 GiB  | 32 | 51.200 operazioni di I/O al secondo <br/> 768 MBps | 16.000 MBps (8)  |
 
-La cache del disco per ogni nodo è configurabile e può andare da 1000 GB a 8000 GB. Da 4 TB per ogni nodo è la dimensione della cache consigliata per i nodi Standard_E32s_v3.
+La cache del disco per ogni nodo è configurabile e può andare da 1000 GB a 8000 GB. 4 TB per nodo è la dimensione della cache consigliata per i nodi Standard_E32s_v3.
 
-Per altre informazioni su queste macchine virtuali, leggere la documentazione di Microsoft Azure:
+Per ulteriori informazioni su queste macchine virtuali, leggere la documentazione Microsoft Azure:
 
 * [Dimensioni delle macchine virtuali ottimizzate per la memoria](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
 
@@ -124,23 +124,23 @@ Per informazioni dettagliate su queste opzioni, vedere la [documentazione di Ret
 
 Se si imposta un indirizzo IP pubblico nel controller del cluster, è possibile usarlo come host di collegamento per contattare il cluster Avere vFXT dall'esterno della subnet privata. Tuttavia, poiché il controller ha privilegi di accesso per la modifica dei nodi del cluster, si presenta un lieve rischio per la sicurezza.  
 
-Per migliorare la sicurezza per un controller con un indirizzo IP pubblico, lo script di distribuzione crea automaticamente un gruppo di sicurezza di rete che limitano l'accesso in ingresso alla porta 22. È possibile proteggere ulteriormente il sistema limitando l'accesso al proprio intervallo di indirizzi di origine IP, ovvero consentendo solo connessioni provenienti dai computer che si intende usare per l'accesso al cluster.
+Per migliorare la sicurezza per un controller con un indirizzo IP pubblico, lo script di distribuzione crea automaticamente un gruppo di sicurezza di rete che limita l'accesso in ingresso alla porta 22. È possibile proteggere ulteriormente il sistema limitando l'accesso al proprio intervallo di indirizzi di origine IP, ovvero consentendo solo connessioni provenienti dai computer che si intende usare per l'accesso al cluster.
 
 Quando si crea il cluster, è possibile scegliere se creare un indirizzo IP pubblico nel controller del cluster. 
 
 * Se si crea una nuova rete virtuale o una nuova subnet, al controller del cluster verrà assegnato un indirizzo IP pubblico.
 * Se si seleziona una rete virtuale e una subnet esistenti, il controller del cluster avrà solo indirizzi IP privati. 
 
-## <a name="vm-access-roles"></a>Ruoli di accesso della macchina virtuale 
+## <a name="vm-access-roles"></a>Ruoli di accesso alla macchina virtuale 
 
-Azure Usa [controllo degli accessi in base al ruolo](../role-based-access-control/index.yml) (RBAC) per autorizzare il cluster di macchine virtuali per eseguire determinate attività. Ad esempio, il controller del cluster, è necessario autorizzare per creare e configurare macchine virtuali del nodo cluster. I nodi del cluster devono essere in grado di assegnare o riassegnare indirizzi IP da altri nodi del cluster.
+Azure usa il [controllo degli accessi in base al ruolo](../role-based-access-control/index.yml) (RBAC) per autorizzare le macchine virtuali del cluster a eseguire determinate attività. Il controller cluster, ad esempio, richiede l'autorizzazione per creare e configurare le macchine virtuali del nodo del cluster. I nodi del cluster devono essere in grado di assegnare o riassegnare gli indirizzi IP ad altri nodi del cluster.
 
-Due ruoli predefiniti di Azure vengono usati per le macchine virtuali di vFXT Avere: 
+Per le macchine virtuali vFXT, vengono usati due ruoli predefiniti di Azure: 
 
-* Il controller di cluster Usa il ruolo predefinito [collaboratore Avere](../role-based-access-control/built-in-roles.md#avere-contributor). 
-* Nodi del cluster usare il ruolo predefinito [Avere operatore](../role-based-access-control/built-in-roles.md#avere-operator)
+* Il controller del cluster usa il ruolo predefinito [collaboratore](../role-based-access-control/built-in-roles.md#avere-contributor). 
+* I nodi del cluster usano l' [operatore](../role-based-access-control/built-in-roles.md#avere-operator) Role havee incorporato
 
-Se è necessario personalizzare i ruoli di accesso per Avere vFXT componenti, è necessario definire il proprio ruolo e quindi assegnarlo alle macchine virtuali al momento che della creazione. È possibile usare il modello di distribuzione in Azure Marketplace. Consultare il servizio clienti e supporto aprendo un ticket nel portale di Azure, come descritto in [Ottieni assistenza per il sistema](avere-vfxt-open-ticket.md). 
+Se è necessario personalizzare i ruoli di accesso per i componenti vFXT, è necessario definire il proprio ruolo e quindi assegnarlo alle VM al momento della creazione. Non è possibile usare il modello di distribuzione in Azure Marketplace. Consultare il servizio supporto tecnico clienti Microsoft aprendo un ticket nel portale di Azure come descritto in [ottenere assistenza con il sistema](avere-vfxt-open-ticket.md). 
 
 ## <a name="next-step-understand-the-deployment-process"></a>Passaggio successivo: Informazioni sul processo di distribuzione
 

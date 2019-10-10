@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 59e64b7c84e589da57ea28d6655c9305f4fdc101
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 5819a6c6d73b2ee51fc72d2b56d99b0efb3ea0be
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058337"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241120"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Anteprima-proteggere l'accesso al server API usando gli intervalli di indirizzi IP autorizzati in Azure Kubernetes Service (AKS)
 
@@ -111,7 +111,7 @@ Per assicurarsi che i nodi in un cluster possano comunicare in modo affidabile c
 > [!WARNING]
 > L'uso del firewall di Azure può comportare costi significativi in un ciclo di fatturazione mensile. Il requisito di usare il firewall di Azure dovrebbe essere necessario solo in questo periodo di anteprima iniziale. Per altre informazioni e per la pianificazione dei costi, vedere [prezzi di Azure firewall][azure-firewall-costs].
 >
-> In alternativa, se il cluster usa il servizio di [bilanciamento del carico SKU standard][standard-sku-lb], non è necessario configurare il firewall di Azure come gateway in uscita. Usare il comando [AZ Network Public-IP list][az-network-public-ip-list] e specificare il gruppo di risorse del cluster AKS, che in genere inizia con *MC_* . Viene visualizzato l'indirizzo IP pubblico per il cluster, che è possibile inserire nell'elenco elementi consentiti. Ad esempio:
+> In alternativa, se il cluster usa il servizio di [bilanciamento del carico SKU standard][standard-sku-lb], non è necessario configurare il firewall di Azure come gateway in uscita. Usare il comando [AZ Network Public-IP list][az-network-public-ip-list] e specificare il gruppo di risorse del cluster AKS, che in genere inizia con *MC_* . Viene visualizzato l'indirizzo IP pubblico per il cluster, che è possibile inserire nell'elenco elementi consentiti. Esempio:
 >
 > ```azurecli-interactive
 > RG=$(az aks show --resource-group myResourceGroup --name myAKSClusterSLB --query nodeResourceGroup -o tsv)
@@ -228,7 +228,7 @@ Per abilitare gli intervalli IP autorizzati del server API, fornire un elenco di
 
 Usare il comando [AZ AKS Update][az-aks-update] e specificare *--API-server-Authorized-IP-Ranges* per consentire. Questi intervalli di indirizzi IP sono in genere intervalli di indirizzi usati dalle reti locali. Aggiungere l'indirizzo IP pubblico del firewall di Azure ottenuto nel passaggio precedente, ad esempio *20.42.25.196/32*.
 
-L'esempio seguente abilita gli intervalli IP autorizzati del server API nel cluster denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*. Gli intervalli di indirizzi IP da autorizzare sono *20.42.25.196/32* (l'indirizzo IP pubblico del firewall di Azure), quindi *172.0.0.0/16* e *168.10.0.0/18*:
+L'esempio seguente abilita gli intervalli IP autorizzati del server API nel cluster denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*. Gli intervalli di indirizzi IP da autorizzare sono *20.42.25.196/32* (l'indirizzo IP pubblico del firewall di Azure), quindi *172.0.0.0/16* (intervallo di indirizzi Pod/nodi) e *168.10.0.0/18* (ServiceCidr):
 
 ```azurecli-interactive
 az aks update \
@@ -236,6 +236,13 @@ az aks update \
     --name myAKSCluster \
     --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.0/16,168.10.0.0/18
 ```
+
+> [!NOTE]
+> È necessario aggiungere questi intervalli a un elenco Consenti:
+> - Indirizzo IP pubblico del firewall
+> - CIDR del servizio
+> - Intervallo di indirizzi per le subnet, con i nodi e i Pod
+> - Qualsiasi intervallo che rappresenta le reti da cui verrà amministrato il cluster
 
 ## <a name="update-or-disable-authorized-ip-ranges"></a>Aggiornare o disabilitare gli intervalli IP autorizzati
 

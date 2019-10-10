@@ -1,22 +1,22 @@
 ---
-title: 'Genomica di Microsoft: guida alla risoluzione dei problemi | Microsoft Docs'
-titleSuffix: Azure
-description: Altre informazioni sulle strategie di risoluzione dei problemi
+title: Guida per la risoluzione dei problemi
+titleSuffix: Microsoft Genomics
+description: Informazioni sulle strategie di risoluzione dei problemi per l'uso di genomica di Microsoft.
 keywords: risoluzione dei problemi, errore, debug
-services: microsoft-genomics
+services: genomics
 author: ruchir
 editor: jasonwhowell
 ms.author: ruchir
 ms.service: genomics
 ms.workload: genomics
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/29/2018
-ms.openlocfilehash: 78084e6beac7b390b1ea1afe888030c5224856b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce8af4d444e642a8f67f43f8cf403ce9b2cb08ab
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790505"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248521"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
@@ -93,14 +93,14 @@ Individuare il contenitore di output per il flusso di lavoro in questione. MSGEN
 Per risolvere il problema, esaminare il contenuto di standardoutput.txt e prendere nota di eventuali messaggi di errore visualizzati.
 
 
-## <a name="step-2-try-recommended-steps-for-common-errors"></a>Passaggio 2: Provare le procedure consigliate per gli errori comuni
+## <a name="step-2-try-recommended-steps-for-common-errors"></a>Passaggio 2: Provare la procedura consigliata per errori comuni
 
 Questa sezione descrive brevemente gli errori comuni restituiti dal servizio Genomica di Microsoft (msgen) e le strategie che è possibile adottare per risolverli. 
 
 Il servizio Genomica di Microsoft (msgen) può generare i due tipi di errori seguenti:
 
-1. Errori interni del servizio: Errori che sono interni al servizio, che non può essere risolti tramite la correzione di parametri o i file di input. In alcuni casi, per risolvere questi errori può essere sufficiente inviare nuovamente il flusso di lavoro.
-2. Errori di input: Errori che possono essere risolti usando gli argomenti corretti o correzione dei formati di file.
+1. Errori interni del servizio: Errori interni al servizio, che potrebbero non essere risolti mediante la correzione di parametri o file di input. In alcuni casi, per risolvere questi errori può essere sufficiente inviare nuovamente il flusso di lavoro.
+2. Errori di input: Errori che possono essere risolti utilizzando gli argomenti corretti o correggendo i formati di file.
 
 ### <a name="1-internal-service-errors"></a>1. Errori interni del servizio
 
@@ -116,7 +116,7 @@ Questi errori possono essere corretti dall'utente. A seconda del tipo di file e 
 
 | Tipo di file | Codice di errore | Messaggio di errore                                                                           | Passaggi consigliati per la risoluzione dei problemi                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Qualsiasi          | 701        | Read [readId] has [numberOfBases] bases, but the limit is [maxReadLength] (La lettura [idLettura] ha [numeroBasi] basi, ma il limite è [lunghezzaMaxLettura])           | Il motivo più comune di questo errore è dato dal danneggiamento dei file che ha determinato la concatenazione di due operazioni di lettura. Controllare i file di input. |
+| Any          | 701        | Read [readId] has [numberOfBases] bases, but the limit is [maxReadLength] (La lettura [idLettura] ha [numeroBasi] basi, ma il limite è [lunghezzaMaxLettura])           | Il motivo più comune di questo errore è dato dal danneggiamento dei file che ha determinato la concatenazione di due operazioni di lettura. Controllare i file di input. |
 | BAM          | 200        |   Unable to read file '[yourFileName]'. (Non è possibile leggere il file '[nomeFile]'.)                                                                                       | Controllare il formato del file BAM. Inviare nuovamente il flusso di lavoro con un file nel formato corretto.                                                                           |
 | BAM          | 201        |  Unable to read BAM file [File_name]. (Non è possibile leggere il file BAM [nome_File].)                                                                                      |Controllare il formato del file BAM.  Inviare il flusso di lavoro con un file nel formato corretto.                                                                            |
 | BAM          | 202        | Unable to read BAM file [File_name]. (Non è possibile leggere il file BAM [nome_File].) File too small and missing header. (Il file ha dimensioni troppo piccole o l'intestazione è mancante.)                                                                                        | Controllare il formato del file BAM.  Inviare il flusso di lavoro con un file nel formato corretto.                                                                            |

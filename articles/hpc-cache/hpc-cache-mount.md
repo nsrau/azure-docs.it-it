@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: ea23331ebc75b5ede22c9f7357a9e0de12d819e2
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.author: rohogue
+ms.openlocfilehash: 3257cf92c628650fc50e0a36ec37fcab920aba2f
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299973"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254578"
 ---
 # <a name="mount-the-azure-hpc-cache-preview"></a>Montare la cache HPC di Azure (anteprima)
 
@@ -25,7 +25,7 @@ Il comando di montaggio è costituito da due elementi:
 ![screenshot della pagina Panoramica dell'istanza di cache HPC di Azure, con una casella di evidenziazione intorno all'elenco degli indirizzi di montaggio in basso a destra](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE] 
-> Gli indirizzi di montaggio della cache corrispondono alle interfacce di rete all'interno della subnet della cache. In un gruppo di risorse queste schede di rete sono elencate con nomi `-cluster-nic-` che terminano con e un numero. Non modificare o eliminare queste interfacce oppure la cache non sarà più disponibile.
+> Gli indirizzi di montaggio della cache corrispondono alle interfacce di rete all'interno della subnet della cache. In un gruppo di risorse queste schede di rete sono elencate con nomi che terminano con `-cluster-nic-` e un numero. Non modificare o eliminare queste interfacce oppure la cache non sarà più disponibile.
 
 I percorsi dello spazio dei nomi virtuali vengono visualizzati nella pagina **destinazioni di archiviazione** . Fare clic su un nome di destinazione di archiviazione singolo per visualizzare i relativi dettagli, inclusi i percorsi dello spazio dei nomi aggregati associati.
 
@@ -45,7 +45,7 @@ root@test-client:/tmp# sudo mount 10.0.0.28:/blob-demo-0722 ./hpccache/ -orw,tcp
 root@test-client:/tmp# 
 ```
 
-Quando il comando ha esito positivo, il contenuto dell'esportazione dell'archiviazione dovrebbe essere visibile ``hpccache`` nella directory del client.
+Quando il comando ha esito positivo, il contenuto dell'esportazione dell'archiviazione dovrebbe essere visibile nella directory ``hpccache`` del client.
 
 > [!NOTE] 
 > I client devono essere in grado di accedere alla rete virtuale e alla subnet che ospitano la cache. Ad esempio, creare macchine virtuali client all'interno della stessa rete virtuale o usare un endpoint, un gateway o un'altra soluzione nella rete virtuale per l'accesso dall'esterno. Tenere presente che non è possibile ospitare altri elementi all'interno della subnet della cache.

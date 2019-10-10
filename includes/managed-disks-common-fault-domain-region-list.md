@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 40f0a667ffa23010ef00ed105454ab305171cc19
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 11924b44a51767df68372cd94c581b2feaa8ac25
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812459"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72247105"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>Numero di domini di errore per area
 
@@ -23,7 +23,7 @@ ms.locfileid: "67812459"
 | Stati Uniti centro-settentrionali    | 3                       |
 | Stati Uniti centro-meridionali    | 3                       |
 | Stati Uniti centro-occidentali     | 2                       |
-| Canada centrale      | 3                      |
+| Canada centrale      | 3                       |
 | Canada orientale         | 2                       |
 |                     |                         |
 | Europa settentrionale        | 3                       |
@@ -42,6 +42,11 @@ ms.locfileid: "67812459"
 | Corea del Sud meridionale         | 2                       |
 | Emirati Arabi Uniti settentrionali           | 2                       |
 |                     |                         |
+| Cina orientale          | 2                       |
+| Cina orientale 2        | 2                       |
+| Cina settentrionale         | 2                       |
+| Cina settentrionale 2       | 2                       |
+|
 | Australia orientale      | 2                       |
 | Australia sud-orientale | 2                       |
 | Australia centrale   | 2                       |

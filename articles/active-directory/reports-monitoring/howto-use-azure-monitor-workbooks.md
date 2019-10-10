@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 288fa54a1a6dd4eb05f953a4490bf7736d6d7ff8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 9bea8da4f0d694be3a39a8f5dfaca8e54ce2773d
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931240"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255652"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Come usare le cartelle di lavoro di monitoraggio di Azure per i report Azure Active Directory
 
@@ -48,6 +48,13 @@ Per utilizzare le cartelle di lavoro di monitoraggio, è necessario:
 - Un tenant Active Directory con una licenza Premium (P1 o P2). Informazioni su come [ottenere una licenza Premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 - [Area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+
+- [Accesso](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) all'area di lavoro di log Analytics
+- Ruoli seguenti in Azure Active Directory (se si accede a Log Analytics tramite il portale di Azure Active Directory)
+    - Amministrazione della protezione
+    - Ruolo con autorizzazioni di lettura per la sicurezza
+    - Lettore di report
+    - Amministratore globale
 
 ## <a name="roles"></a>Ruoli
 Per gestire le cartelle di lavoro di, è necessario disporre di uno dei ruoli seguenti, nonché accedere all'area di lavoro [log Analytics sottostante](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) :
@@ -85,7 +92,7 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - Riuscito
 
-- In attesa dell'azione dell'utente
+- Azione utente in sospeso
 
 - Errore
 
@@ -219,7 +226,7 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - Riuscito
 
-- In attesa di un'azione
+- Azione in sospeso
 
 - Errore
 

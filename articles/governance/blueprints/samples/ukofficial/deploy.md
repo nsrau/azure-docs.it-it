@@ -1,18 +1,18 @@
 ---
 title: Esempio-procedura per la distribuzione del progetto ufficiale UK e del SSN UK
-description: Distribuire i passaggi degli esempi di progetto ufficiale del Regno Unito e del SSN UK.
+description: Consente di distribuire i passaggi per gli esempi ufficiali del Regno Unito e del piano NHS UK, inclusi i dettagli del parametro dell'artefatto
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: e2109c5b524c0b38886327bf4c1ea7087380b40f
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: c2c6089d9c600626a93906e460ef1c662c32cb59
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978235"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248284"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Distribuire gli esempi ufficiali del Regno Unito e del piano NHS UK
 
@@ -66,7 +66,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
 1. Specificare i valori dei parametri per l'assegnazione del progetto:
 
-   - Generale
+   - Nozioni di base
 
      - **Sottoscrizioni**: selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ciascuna usando i parametri immessi.
      - **Nome dell'assegnazione**: il nome viene prepopolato in base al nome del progetto.
@@ -82,7 +82,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
      Lasciare invariata l'opzione predefinita _Identità gestita assegnata dal sistema_.
 
-   - Parametri artefatto
+   - Parametri dell'elemento
 
      I parametri definiti in questa sezione si applicano all'artefatto in cui sono definiti. Si tratta di [parametri dinamici](../../concepts/parameters.md#dynamic-parameters), in quanto vengono definiti durante l'assegnazione del progetto. Per un elenco completo di parametri di artefatti e relative descrizioni, vedere la [tabella di parametri degli artefatti](#artifact-parameters-table).
 
@@ -97,9 +97,9 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 
 Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
-|Progetto Initiative per il Regno Unito ufficiale o il NHS UK|Assegnazione criteri |Tipi di risorse per controllare i log di diagnostica (criterio: Progetto Initiative per il Regno Unito ufficiale o il NHS UK |Elenco di tipi di risorse da controllare se l'impostazione del log di diagnostica è nota abilitata.  Per i valori accettabili, vedere [servizi, schemi e categorie supportati per i log di diagnostica di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
-|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione criteri |Facoltativo: Elenco di immagini di macchina virtuale con sistema operativo Linux supportato da aggiungere all'ambito (criterio: \[Anteprima\]: Distribuire Log Analytics Agent per macchine virtuali Linux) |Opzionale Il valore predefinito è _None_. Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione criteri |Facoltativo: Elenco di immagini di VM che hanno supportato il sistema operativo Windows da aggiungere all'ambito (criterio: \[Anteprima\]: Distribuire Log Analytics Agent per macchine virtuali Windows) |Opzionale Il valore predefinito è _None_. Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|Progetto Initiative per il Regno Unito ufficiale o il NHS UK|Assegnazione di criteri |Tipi di risorse per controllare i log di diagnostica (criterio: Progetto Initiative per il Regno Unito ufficiale o il NHS UK |Elenco di tipi di risorse da controllare se l'impostazione del log di diagnostica è nota abilitata.  Per i valori accettabili, vedere [servizi, schemi e categorie supportati per i log di diagnostica di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
+|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione di criteri |Facoltativo: Elenco di immagini di macchina virtuale con sistema operativo Linux supportato da aggiungere all'ambito (criterio: \[Anteprima\]: Distribuire Log Analytics Agent per macchine virtuali Linux) |Opzionale Il valore predefinito è _None_. Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione di criteri |Facoltativo: Elenco di immagini di VM che hanno supportato il sistema operativo Windows da aggiungere all'ambito (criterio: \[Anteprima\]: Distribuire Log Analytics Agent per macchine virtuali Windows) |Opzionale Il valore predefinito è _None_. Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

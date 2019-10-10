@@ -198,22 +198,20 @@
                   href: /sql/connect/ruby/ruby-driver-for-sql-server
     - name: 'Backup, ripristino, disponibilità elevata'
       items:
-        - name: Ripristino con backup
-          href: sql-database-recovery-using-backups.md
-        - name: Ripristino accelerato del database
-          href: sql-database-accelerated-database-recovery.md
-        - name: Indicazioni per il ripristino in seguito a interruzioni
-          href: sql-database-disaster-recovery.md
-        - name: Analisi di ripristino
-          href: sql-database-disaster-recovery-drills.md
         - name: Continuità aziendale
           href: sql-database-business-continuity.md
         - name: Disponibilità elevata
           href: sql-database-high-availability.md
-        - name: Backup automatizzati
-          href: sql-database-automated-backups.md
-        - name: Conservazione del backup a lungo termine
-          href: sql-database-long-term-retention.md
+        - name: Backup
+          items:
+            - name: Backup automatizzati
+              href: sql-database-automated-backups.md
+            - name: Ripristino con backup
+              href: sql-database-recovery-using-backups.md
+            - name: Ripristino accelerato del database
+              href: sql-database-accelerated-database-recovery.md
+            - name: Conservazione del backup a lungo termine
+              href: sql-database-long-term-retention.md
         - name: Gruppi di failover e replica geografica
           items:
             - name: Replica geografica attiva
@@ -222,6 +220,10 @@
               href: sql-database-auto-failover-group.md
             - name: Configurare la sicurezza per le repliche
               href: sql-database-geo-replication-security-config.md
+            - name: Indicazioni per il ripristino in seguito a interruzioni
+              href: sql-database-disaster-recovery.md
+            - name: Analisi di ripristino
+              href: sql-database-disaster-recovery-drills.md
     - name: Monitorare e ottimizzare
       items:
         - name: Documentazione su monitoraggio e ottimizzazione

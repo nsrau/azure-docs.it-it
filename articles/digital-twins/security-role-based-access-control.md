@@ -8,16 +8,16 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 1d4243457f51f11db5bc9681b29d27293fbc6250
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: e89a8f98d92e92fa8afe93340576b14ff1dd5051
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949056"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249189"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Controllo degli accessi in base al ruolo in Gemelli digitali di Azure
 
-Il servizio Gemelli digitali di Azure consente un controllo preciso degli accessi a risorse, azioni e dati specifici nel grafico spaziale. A tale scopo viene usato un meccanismo di gestione granulare di ruoli e autorizzazioni detto "controllo degli accessi in base al ruolo". Il controllo degli accessi in base al ruolo legge i _ruoli_ e le _assegnazioni di ruoli_. I ruoli identificano il livello di autorizzazioni, mentre le assegnazioni di ruolo associano un ruolo a un utente o un dispositivo.
+I dispositivi gemelli digitali di Azure consentono un controllo di accesso preciso su dati, risorse e azioni specifici nel grafico spaziale. Questa operazione viene eseguita tramite la gestione dei ruoli e delle autorizzazioni granulari denominata [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC). Il controllo degli accessi in base al ruolo legge i _ruoli_ e le _assegnazioni di ruoli_. I ruoli identificano il livello di autorizzazioni, mentre le assegnazioni di ruolo associano un ruolo a un utente o un dispositivo.
 
 Con il controllo degli accessi in base al ruolo, è possibile concedere un'autorizzazione a:
 
@@ -70,7 +70,7 @@ Gli articoli della documentazione di riferimento seguenti descrivono:
 - Come [ottenere l'ID oggetto per un'entità servizio](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal).
 - Come [recuperare l'ID oggetto per un tenant di Azure AD](../active-directory/develop/quickstart-create-new-tenant.md).
 
-## <a name="role-assignments"></a>Assegnazioni di ruolo
+## <a name="role-assignments"></a>Assegnazioni di ruoli
 
 Un'assegnazione di ruolo di Gemelli digitali di Azure associa un oggetto, ad esempio un utente o un tenant di Azure AD, a un ruolo e a uno spazio. Vengono quindi concesse le autorizzazioni a tutti gli oggetti che appartengono a tale spazio, incluso l'intero grafico spaziale sottostante.
 
@@ -84,3 +84,5 @@ Per concedere autorizzazioni a un destinatario, creare un'assegnazione di ruolo.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni su creazione e gestione delle assegnazioni di ruolo di Gemelli digitali di Azure, leggere [Creazione e gestione delle assegnazioni di ruolo](./security-create-manage-role-assignments.md).
+
+- Scopri di più su [RBAC per Azure](https://docs.microsoft.com/azure/role-based-access-control/).

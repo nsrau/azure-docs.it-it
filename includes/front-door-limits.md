@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: deca0034996f6c8ddcac71cd4f191c1a0659b655
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 37ebe2f0c5cbbaca712e69ab4484379ecf0f4830
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67333380"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72237372"
 ---
-| Risorsa | Limite predefinito/massimo |
+| Resource | Limite predefinito/massimo |
 | --- | --- |
 | Risorse del servizio front door di Azure per ogni sottoscrizione | 100 |
 | Host front-end, che include domini personalizzati per risorsa | 100 |
@@ -24,7 +24,7 @@ ms.locfileid: "67333380"
 | Back-end per ogni pool back-end | 100 |
 | Criteri di percorso da soddisfare per una regola di gestione | 25 |
 | Regole web application firewall personalizzate per criterio | 10 |
-| Criteri web application firewall per risorsa | 100 |
+| Criteri di Web Application Firewall per sottoscrizione | 100 |
 | Condizioni di corrispondenza del firewall applicazione Web per regola personalizzata | 10 |
 | Intervalli di indirizzi IP del firewall applicazione Web per condizione di corrispondenza | 600 |
 | Valori di corrispondenza stringa del firewall applicazione Web per condizione di corrispondenza | 10 |
@@ -53,4 +53,5 @@ ms.locfileid: "67333380"
 | **Upload** |  Non esiste alcun limite se ogni caricamento della CTE è inferiore a 2 GB. | Le dimensioni non possono essere superiori a 2 GB. |
 
 ### <a name="other-limits"></a>Altri limiti
-- Dimensioni massime URL-8.192 byte-specifica la lunghezza massima dell'URL non elaborato (schema + nome host + porta + percorso + stringa di query dell'URL)-dimensione massima della stringa di query-4.096 byte-specifica la lunghezza massima, in byte, della stringa di query.
+- Dimensioni massime URL-8.192 byte-specifica la lunghezza massima dell'URL non elaborato (schema + nome host + porta + percorso + stringa di query dell'URL)
+- Dimensioni massime stringa di query-4.096 byte-specifica la lunghezza massima, in byte, della stringa di query.

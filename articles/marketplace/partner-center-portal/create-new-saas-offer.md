@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 48ef7aeb1804aca9001288f6babd302b9c3a8347
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: d035f26e4b550eb1e5d2cca161f14880814a15f6
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969545"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244180"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
@@ -129,7 +129,7 @@ Elencare l'offerta ai clienti con un collegamento a una versione di valutazione 
 > [!NOTE]
 > I token che l'applicazione riceverà tramite il collegamento alla versione di valutazione può essere usato solo per ottenere informazioni sugli utenti tramite Azure AD per automatizzare la creazione di account nell'app. Gli account Microsoft (MSA) non sono supportati per l'autenticazione con questo token.
 
-##### <a name="contact-me"></a>Contatta
+##### <a name="contact-me"></a>Contact me (Contattami)
 Raccogliere le informazioni di contatto del cliente connettendosi al sistema CRM (Customer Relationship Management). Al cliente verrà richiesta l'autorizzazione a condividere le informazioni. Queste informazioni sui clienti, insieme al nome dell'offerta, all'ID e all'origine del Marketplace in cui è stata trovata l'offerta, verranno inviate al sistema CRM configurato. Per ulteriori informazioni sulla configurazione del CRM, vedere [Connect Lead Management](#connect-lead-management). 
 
 ## <a name="example-marketplace-offer-listing"></a>Elenco di offerte del Marketplace di esempio
@@ -160,18 +160,7 @@ Abilitando test drive, verrà richiesto di configurare un ambiente dimostrativo 
 
 ## <a name="connect-lead-management"></a>Gestione dei lead di connessione
 
-È possibile connettersi direttamente con i clienti elencando l'offerta nei Marketplace e associando il sistema CRM (Customer Relationship Management) in modo da ricevere le informazioni di contatto del cliente immediatamente dopo che un cliente esprime l'interesse o distribuisce il prodotto.
-
-- **Scegliere una destinazione principale** (menu a discesa): Fornire i dettagli della connessione al sistema CRM in cui si desidera inviare i lead dei clienti. 
-
-Il centro per i partner supporta i sistemi CRM seguenti per la gestione dei lead. Selezionare il collegamento per le istruzioni di installazione.
-
-- BLOB di Azure: fornire posta elettronica di contatto, nome del contenitore e stringa di connessione dell'account di archiviazione. 
-- [Tabella di Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) : specificare la stringa di connessione dell'account di archiviazione e di contatto. 
-- [Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) : fornire l'indirizzo di posta elettronica di contatto, l'URL e la modalità di autenticazione (Office 365 o Azure Active Directory).
-- [Endpoint HTTPS](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) : fornire la posta elettronica di contatto e l'URL dell'endpoint HTTPS. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) : fornire posta elettronica di contatto, ID modulo, ID account Munchkin e ID server.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) : fornire un indirizzo di posta elettronica di contatto e un ID organizzazione. 
+[!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
 #### <a name="additional-lead-management-resources"></a>Risorse aggiuntive per la gestione dei lead
 - [Domande frequenti sulla gestione dei lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
