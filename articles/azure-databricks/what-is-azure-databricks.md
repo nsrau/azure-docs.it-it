@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: 0864db682141b1d7f8cb0c9ff14c9897fb02fe1b
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 149b83b9aacf23cde06a2b35aed06c164afe9647
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412744"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243333"
 ---
 # <a name="what-is-azure-databricks"></a>Informazioni su Azure Databricks
 
@@ -23,7 +23,7 @@ Azure Databricks è una piattaforma di analisi basata su Apache Spark ottimizzat
 
 ![Informazioni su Azure Databricks](./media/what-is-azure-databricks/azure-databricks-overview.png "Informazioni su Azure Databricks")
 
-Azure Databricks è un servizio di analisi veloce, semplice e collaborativo basato su Apache Spark. Nel caso di una pipeline di Big Data, i dati (non elaborati o strutturati) vengono inseriti in Azure tramite Azure Data Factory in batch o trasmessi quasi in tempo reale con l'IoT Hub, Hub eventi o Kafka. I dati vengono inseriti in un data lake per un'archiviazione permanente a lungo termine, in Archiviazione BLOB di Azure o Azure Data Lake Storage. Nel corso del flusso di lavoro dell'analisi, si usa Azure Databricks per leggere i dati da più origini, ad esempio [Archiviazione BLOB di Azure](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml) oppure [Azure SQL Data Warehouse](../sql-data-warehouse/index.md), e trasformarli in informazioni significative con Spark.
+Azure Databricks è un servizio di analisi veloce, semplice e collaborativo basato su Apache Spark. Nel caso di una pipeline di Big Data, i dati (non elaborati o strutturati) vengono inseriti in Azure tramite Azure Data Factory in batch o trasmessi quasi in tempo reale con l'IoT Hub, Hub eventi o Kafka. I dati vengono inseriti in un data lake per un'archiviazione permanente a lungo termine, in Archiviazione BLOB di Azure o Azure Data Lake Storage. Nel corso del flusso di lavoro dell'analisi, si usa Azure Databricks per leggere i dati da più origini, ad esempio [Archiviazione BLOB di Azure](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml) oppure [Azure SQL Data Warehouse](../sql-data-warehouse/index.yml), e trasformarli in informazioni significative con Spark.
 
 ![Pipeline di Databricks](./media/what-is-azure-databricks/databricks-pipeline.png)
 
