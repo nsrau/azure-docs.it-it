@@ -1,17 +1,17 @@
 ---
 title: Ruoli e requisiti per l'anteprima della condivisione dati di Azure
-description: Ruoli e requisiti per l'anteprima della condivisione dati di Azure
+description: Informazioni sui ruoli e i requisiti di controllo di accesso per i provider di dati e i consumer di dati per condividere dati nell'anteprima della condivisione dati di Azure.
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: 7bf98f8774551292574d4f1951eba44657fa7de0
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c0841f6386440776c6ea719f9932a53cada9d9c4
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307349"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166385"
 ---
 # <a name="roles-and-requirements-for-azure-data-share-preview"></a>Ruoli e requisiti per l'anteprima della condivisione dati di Azure
 
@@ -30,9 +30,9 @@ Di seguito è riportato un riepilogo dei ruoli assegnati alla condivisione dati 
 | |  |  |
 |---|---|---|
 |**Tipo di archiviazione**|**provider di dati account di archiviazione di origine**|**Account di archiviazione di destinazione del consumer di dati**|
-|Archivio BLOB di Azure| Ruolo con autorizzazioni di lettura per i dati dei BLOB di archiviazione | Collaboratore ai dati dei BLOB di archiviazione
-|Azure Data Lake Gen1 | Proprietario | Non supportata
-|Azure Data Lake Gen2 | Ruolo con autorizzazioni di lettura per i dati dei BLOB di archiviazione | Collaboratore ai dati dei BLOB di archiviazione
+|Archiviazione BLOB di Azure| Lettore dati BLOB di archiviazione | Collaboratore dati BLOB di archiviazione
+|Azure Data Lake Gen1 | Proprietario | Non supportato
+|Azure Data Lake Gen2 | Lettore dati BLOB di archiviazione | Collaboratore dati BLOB di archiviazione
 |
 ### <a name="data-providers"></a>Provider di dati 
 Per aggiungere un set di dati a una condivisione dati di Azure, è necessario aggiungere i provider di dati Identity gestito dalla risorsa al ruolo di lettore dati BLOB di archiviazione. Questa operazione viene eseguita automaticamente dal servizio di condivisione dati di Azure se l'utente aggiunge set di dati tramite Azure ed è un proprietario dell'account di archiviazione oppure è membro di un ruolo personalizzato con l'autorizzazione Microsoft. Authorization/Role assigns/Write assegnata. 
@@ -48,7 +48,7 @@ Per creare un'assegnazione di ruolo per l'identità gestita della risorsa di con
 1. Selezionare **Aggiungi un'assegnazione di ruolo**.
 1. In *ruolo*selezionare *lettore dati BLOB di archiviazione*.
 1. In *Seleziona*Digitare il nome dell'account di condivisione dati di Azure.
-1. Fare clic su *Save*.
+1. Fare clic su *Salva*.
 
 ### <a name="data-consumers"></a>Consumer di dati
 Per ricevere i dati, è necessario aggiungere l'identità gestita di risorse di condivisione dei dati dei consumer di dati al ruolo di collaboratore dati BLOB di archiviazione. Questo ruolo è necessario per abilitare il servizio di condivisione dati di Azure per poter scrivere nell'account di archiviazione. Questa operazione viene eseguita automaticamente dal servizio di condivisione dati di Azure se l'utente aggiunge set di dati tramite Azure ed è un proprietario dell'account di archiviazione oppure è membro di un ruolo personalizzato con l'autorizzazione Microsoft. Authorization/Role assigns/Write assegnata. 
@@ -62,7 +62,7 @@ Per creare manualmente un'assegnazione di ruolo per l'identità gestita della ri
 1. Selezionare **Aggiungi un'assegnazione di ruolo**.
 1. In *ruolo*selezionare *collaboratore dati BLOB di archiviazione*. 
 1. In *Seleziona*Digitare il nome dell'account di condivisione dati di Azure.
-1. Fare clic su *Save*.
+1. Fare clic su *Salva*.
 
 Se si condividono dati usando le API REST, sarà necessario creare manualmente queste assegnazioni di ruolo aggiungendo l'account di condivisione dati in ai ruoli appropriati. 
 

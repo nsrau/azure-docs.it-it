@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3e954a6c714e525e5bbefe8f62c798cf8ac9a517
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b30ccbcba0b2126d1fe1abce9ae67a55ce25f601
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036393"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170264"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure
 
@@ -81,7 +81,7 @@ Inoltre, è necessario avere una conoscenza generale delle tecnologie seguenti:
 - [Gruppi di risorse di Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> A questo punto, l'[Estensione Agente IaaS di SQL Server](virtual-machines-windows-sql-server-agent-extension.md) non è supportata per le istanze del cluster di failover di SQL Server in Azure. È consigliabile disinstallare l'estensione dalle macchine virtuali che fanno parte delle istanze del cluster di failover. Questa estensione supporta funzionalità quali Backup automatizzato, Applicazione automatica delle patch e alcune funzionalità del portale per SQL. Queste funzionalità non funzioneranno per le macchine virtuali di SQL dopo la disinstallazione dell'agente.
+> A questo punto, SQL Server istanze del cluster di failover in macchine virtuali di Azure sono supportate solo con la modalità di gestione [semplice](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) dell' [estensione dell'agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Disinstallare l'estensione completa dalle macchine virtuali che fanno parte del cluster di failover e quindi registrarle con il provider di risorse VM SQL in modalità `lightweight`. L'estensione completa supporta funzionalità quali il backup automatizzato, l'applicazione di patch e la gestione avanzata del portale. Queste funzionalità non funzioneranno per le macchine virtuali SQL dopo che l'agente è stato reinstallato in modalità di gestione leggera.
 
 ### <a name="what-to-have"></a>Elementi necessari
 
@@ -277,7 +277,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 #### <a name="windows-server-2019"></a>Windows Server 2019
 
-Il seguente PowerShell crea un cluster di failover per Windows Server 2019.  Per ulteriori informazioni, esaminare il cluster [di failover di Blog: Oggetto](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97)rete cluster.  Aggiornare lo script con i nomi dei nodi (ossia i nomi delle macchine virtuali) e un indirizzo IP disponibile della rete virtuale di Azure:
+Il seguente PowerShell crea un cluster di failover per Windows Server 2019.  Per altre informazioni, vedere il Blog @no__t-cluster 0Failover: Oggetto rete cluster @ no__t-0.  Aggiornare lo script con i nomi dei nodi (ossia i nomi delle macchine virtuali) e un indirizzo IP disponibile della rete virtuale di Azure:
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
@@ -409,7 +409,7 @@ Per creare il servizio di bilanciamento del carico:
 
    - **Nome**: un nome per il probe di integrità.
    - **Protocollo**: TCP.
-   - **Porta**: Impostare sulla porta creata nel firewall per il probe di integrità in [questo passaggio](#ports). In questo articolo viene usata la porta `59999`TCP.
+   - **Porta**: Impostare sulla porta creata nel firewall per il probe di integrità in [questo passaggio](#ports). In questo articolo viene usata la porta TCP `59999`.
    - **Intervallo**: 5 secondi.
    - **Soglia non integra**: 2 errori consecutivi.
 
@@ -485,7 +485,7 @@ Testare il failover dell'istanza del cluster di failover per convalidare le funz
 
 In **Gestione cluster di failover** viene visualizzato il ruolo e le relative risorse passano alla modalità offline. Le risorse vengono quindi spostate e portate online nell'altro nodo.
 
-### <a name="test-connectivity"></a>Test della connettività
+### <a name="test-connectivity"></a>Testare la connettività
 
 Per testare la connettività, accedere a un'altra macchina virtuale nella stessa rete virtuale. Aprire **SQL Server Management Studio** e connettersi al nome dell'istanza del cluster di failover di SQL Server.
 

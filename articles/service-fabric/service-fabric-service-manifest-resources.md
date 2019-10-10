@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 82b6e701a5f76aa4c2cea78417ca9bcbeeb10308
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.author: atsenthi
+ms.openlocfilehash: a795e01d37504dad360dc094b6b2aea2955b6a4a
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927684"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170447"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Specificare le risorse in un manifesto del servizio
 ## <a name="overview"></a>Panoramica
@@ -196,7 +196,7 @@ In Parameters aggiungere quanto riportato di seguito:
   </Parameters>
 ```
 
-Durante la distribuzione dell'applicazione è possibile trasmettere questi valori come ApplicationParameters.  Ad esempio:
+Durante la distribuzione dell'applicazione è possibile trasmettere questi valori come ApplicationParameters.  Esempio:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
@@ -204,7 +204,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 Nota: se i valori specificati per ApplicationParameters sono vuoti, si torna al valore predefinito presente in ServiceManifest per l'EndPointName corrispondente.
 
-Ad esempio:
+Esempio:
 
 Se in ServiceManifest è stato specificato
 

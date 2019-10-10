@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 03d67249ef1d74844a7e9019e90f6331ecfdf0c3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 181a3f3a8d3cabb2fdf6caf79cef16201fab0c68
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102985"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177798"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Configurare la gestione dei lead per Dynamics 365 per Customer Engagement
 
-Questo articolo descrive come configurare Dynamics 365 per l'engagement dei clienti (in precedenza Dynamics CRM online) [. per altre informazioni sulla modifica,](https://docs.microsoft.com/dynamics365/customer-engagement/admin/switch-dynamics-crm-online-dynamics-365) vedere l'articolo relativo all'elaborazione dei lead di vendita dall'offerta del Marketplace. 
+Questo articolo descrive come configurare Dynamics 365 per l'engagement dei clienti (in precedenza Dynamics CRM online) [. per altre informazioni sulla modifica,](https://docs.microsoft.com/dynamics365/customerengagement/on-premises/admin/on-prem-server-based-sharepoint-online) vedere l'articolo relativo all'elaborazione dei lead di vendita dall'offerta del Marketplace. 
 
 >[!Note]
 >Queste istruzioni sono specifiche per l'ambiente Microsoft Hosted cloud Dynamics 365 for Customer Engagement. La connessione diretta a un ambiente locale Dynamics non è attualmente supportata. sono disponibili altre opzioni per la ricezione di lead, ad esempio la configurazione di un [endpoint HTTPS](./commercial-marketplace-lead-management-instructions-https.md) o di una [tabella di Azure](./commercial-marketplace-lead-management-instructions-azure-table.md) per la ricezione di lead.
@@ -80,7 +80,7 @@ Usare la procedura seguente per configurare Azure Active Directory per Dynamics 
 6. In URI di reindirizzamento selezionare **Web** e specificare un URI (ad esempio `https://contosoapp1/auth`). 
 7. Selezionare **Registra**.
 
-    ![Registra un'applicazione](./media/commercial-marketplace-lead-management-instructions-dynamics/register-an-application.png)
+    ![Registrare un'applicazione](./media/commercial-marketplace-lead-management-instructions-dynamics/register-an-application.png)
 
 8. Ora che l'applicazione è stata registrata, accedere alla pagina Panoramica dell'applicazione e copiare il valore di **ID applicazione (client)** in quella pagina. Salvare questo valore, poiché si tratta del valore *ID dell'applicazione (client)* che è necessario fornire nel portale di pubblicazione e in Dynamics per ricevere lead per l'offerta del Marketplace.
 
@@ -95,15 +95,15 @@ Usare la procedura seguente per configurare Azure Active Directory per Dynamics 
 12. Selezionare API Microsoft, quindi selezionare **Dynamics CRM** come API.
 13. In base al *tipo di autorizzazioni richiesto dall'applicazione*, assicurarsi che sia selezionata l'opzione **autorizzazioni delegate** . Controllare l'autorizzazione per **user_impersonation** *Access Common Data Service come utenti dell'organizzazione*. Selezionare **Aggiungi autorizzazioni**.
 
-    ![Aggiungi autorizzazioni](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
+    ![Aggiungere autorizzazioni](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
-14. Dopo aver completato i passaggi 1-13 nella portale di Azure, passare all'istanza di Dynamics 365 per Customer Engagement passando all'URL (ad esempio `https://tenant.crm.dynamics.com`).
+14. Dopo aver completato i passaggi 1-13 nella portale di Azure, passare all'istanza di Dynamics 365 per Customer Engagement passando all'URL, ad esempio `https://tenant.crm.dynamics.com`.
 15. Accedere alle impostazioni selezionando l'icona dell'ingranaggio e **le impostazioni avanzate** nella barra di spostamento superiore.
 16. Una volta nella pagina Impostazioni, accedere al menu impostazione dalla barra di spostamento superiore e selezionare **sicurezza**.
 17. Nella pagina sicurezza selezionare **utenti**.  Nella pagina utenti selezionare l'elenco a discesa "utenti abilitati" per passare agli **utenti dell'applicazione**.
 18. Selezionare **Nuovo** per creare un nuovo utente. 
 
-    ![Crea un nuovo utente](./media/commercial-marketplace-lead-management-instructions-dynamics/application-users.png)
+    ![Creare un nuovo utente](./media/commercial-marketplace-lead-management-instructions-dynamics/application-users.png)
 
 19. In **nuovo utente**verificare che l'utente: UTENTE applicazione selezionato. Specificare un nome utente, un nome completo e un indirizzo di posta elettronica per l'utente che si desidera utilizzare con la connessione. Incollare anche l' **ID applicazione** per l'app creata nel portale di Azure del passaggio 8. Selezionare **Salva e Chiudi** per completare l'aggiunta dell'utente.
 
@@ -179,13 +179,13 @@ Quando si è pronti per configurare le informazioni di gestione dei lead per l'o
 
     ![Dettagli connessione-destinazione lead](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-lead-destination.png)
 
-4. Specificare l' **URL dell'istanza** di `https://contoso.crm4.dynamics.com`Dynamics 365, ad esempio.
+4. Specificare l' **URL dell'istanza di Dynamics 365** , ad esempio `https://contoso.crm4.dynamics.com`.
 5. Selezionare il metodo di **autenticazione**, Azure Active Directory o Office 365. 
-6. Se è stata selezionata l'opzione Azure Active Directory, specificare l' **ID dell'applicazione (client)** (esempio `23456052-aaaa-bbbb-8662-1234df56788f`:), l' `12345678-8af1-4asf-1234-12234d01db47` **ID directory** (esempio:) e il `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=` **segreto client** (esempio:).
+6. Se è stata selezionata l'opzione Azure Active Directory, specificare l' **ID dell'applicazione (client)** (ad esempio: `23456052-aaaa-bbbb-8662-1234df56788f`), l' **ID directory** (ad esempio: `12345678-8af1-4asf-1234-12234d01db47`) e il **segreto client** (ad esempio: `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`).
 
     ![Dettagli connessione-Azure Active Directory](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-application-id.png)
 
-7. Se è stata selezionata l'opzione Office 365, specificare il **nome utente** , ad esempio: `contoso@contoso.onmicrosoft.com`, e la `P@ssw0rd`password, ad esempio.
+7. Se è stata selezionata l'opzione Office 365, specificare il **nome utente** (ad esempio: `contoso@contoso.onmicrosoft.com`) e la password (ad esempio: `P@ssw0rd`).
 
     ![Dettagli connessione-nome utente](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
 

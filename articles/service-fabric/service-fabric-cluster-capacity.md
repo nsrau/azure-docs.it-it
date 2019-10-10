@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/09/2019
-ms.author: chackdan
-ms.openlocfilehash: 2d13364093776028f96b75c5bfef252e2fdfc790
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.author: pepogors
+ms.openlocfilehash: 334ccbf64e32655b5e78ac6564abb65996ac53da
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679389"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167433"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
 La pianificazione della capacità è un passaggio importante per qualsiasi distribuzione di produzione. Ecco alcuni aspetti da considerare nell'ambito di tale processo.
@@ -78,7 +78,7 @@ Il livello di durabilità viene usato per indicare al sistema i privilegi delle 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | Gold             | 5                              | SKU con tutti i nodi dedicati a un singolo cliente (ad esempio, L32s, GS5, G5, DS15_v2, D15_v2) | Può essere ritardato fino all'approvazione da parte del cluster di Service Fabric | Può essere sospeso per 2 ore per ogni dominio di aggiornamento, per concedere più tempo per il ripristino delle repliche da errori precedenti |
 | Silver           | 5                              | VM di un core singolo o superiore con almeno 50 GB di unità SSD locale                      | Può essere ritardato fino all'approvazione da parte del cluster di Service Fabric | Non può essere ritardato per un periodo di tempo significativo                                                    |
-| Bronzo           | 1                              | VM con almeno 50 GB di unità SSD locale                                              | Non verrà ritardato dal cluster di Service Fabric           | Non può essere ritardato per un periodo di tempo significativo                                                    |
+| Bronze           | 1                              | VM con almeno 50 GB di unità SSD locale                                              | Non verrà ritardato dal cluster di Service Fabric           | Non può essere ritardato per un periodo di tempo significativo                                                    |
 
 > [!WARNING]
 > I tipi di nodo in esecuzione con durabilità Bronze _non ottengono privilegi_. Ciò significa che i processi di infrastruttura che influiscono sui carichi di lavoro senza stato non verranno interrotti o posticipati, il che potrebbe influire sui carichi di lavoro. Usare il livello Bronze solo per i tipi di nodo che eseguono esclusivamente carichi di lavoro senza stato. Per i carichi di lavoro di produzione è consigliabile eseguire il livello Silver o superiore. 
@@ -142,7 +142,7 @@ Ecco la raccomandazione per la scelta del livello di affidabilità.  Il numero d
 | **Numero di nodi del cluster** | **Livello di affidabilità** |
 | --- | --- |
 | 1 |Non specificare il parametro Livello di affidabilità perché viene calcolato automaticamente dal sistema |
-| 3 |Bronzo |
+| 3 |Bronze |
 | 5 o 6|Silver |
 | 7 o 8 |Gold |
 | Da 9 in su |Platinum |

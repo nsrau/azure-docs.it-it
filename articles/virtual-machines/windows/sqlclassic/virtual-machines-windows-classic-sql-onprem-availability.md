@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 28819bc9d2eaf7d4b595bed59bcd1df8741b62a5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 48848fbacdc0e205604bb163aa36bdafcd175b0b
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101841"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173534"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Estendere i gruppi di disponibilità AlwaysOn locali ad Azure
 I gruppi di disponibilità AlwaysOn garantiscono un disponibilità elevata per i gruppi di database grazie all'aggiunta di repliche secondarie, che consentono il failover dei database in caso di errore. Le repliche possono essere usate anche per l'offload di carichi di lavoro di lettura o attività di backup.
@@ -39,7 +39,7 @@ L'esercitazione presuppone che l'utente disponga degli elementi seguenti:
 Questa sezione mostra come usare la **procedura guidata per l'aggiunta della replica di Azure** per estendere il gruppo di disponibilità AlwaysOn in modo da includere le repliche di Azure.
 
 > [!IMPORTANT]
-> La **procedura guidata per l'aggiunta della replica di Azure** supporta solo le macchine virtuali create con il modello di distribuzione classica. Le nuove distribuzioni di macchine virtuali devono usare il modello di Resource Manager più recente. Se si usano macchine virtuali con Resource Manager, è necessario aggiungere manualmente la replica secondaria di Azure usando comandi Transact-SQL, che non sono inclusi in questo articolo. La procedura guidata non funziona in uno scenario di Resource Manager.
+> La **procedura guidata per l'aggiunta della replica di Azure** supporta solo le macchine virtuali create con il modello di distribuzione classica. Le nuove distribuzioni di macchine virtuali devono usare il modello di Resource Manager più recente. Se si usano macchine virtuali con Gestione risorse, è necessario aggiungere manualmente la replica di Azure secondaria usando i comandi Transact-SQL (non illustrati qui). La procedura guidata non funziona in uno scenario di Resource Manager.
 
 1. In SQL Server Management Studio espandere **Disponibilità elevata AlwaysOn** > **Gruppi di disponibilità** >  **[nome del gruppo di disponibilità]** .
 2. Fare doppio clic su **Repliche di disponibilità**, quindi fare clic su **Aggiungi Replica**.

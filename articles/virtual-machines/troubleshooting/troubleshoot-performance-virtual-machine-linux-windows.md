@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 4e4a2b1df178d884e02ab5029f2e76a0376a7653
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: fc8cc4834997033203376cd33670cc907e2911e7
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71846563"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170288"
 ---
 # <a name="generic-performance-troubleshooting-for-azure-virtual-machine-running-linux-or-windows"></a>Risoluzione dei problemi di prestazioni generici per macchine virtuali di Azure che eseguono Linux o Windows
 
@@ -28,7 +28,7 @@ Questo articolo descrive la risoluzione dei problemi di prestazioni generiche de
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Monitoraggio delle macchine virtuali IAAS di Azure
 
-Per monitorare la macchina virtuale Guest, usare il monitoraggio delle VM di Azure, che segnalerà l'utente a determinate condizioni di risorse di alto livello. Per verificare se la diagnostica della macchina virtuale è abilitata, vedere [Panoramica dei log delle risorse di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview#change-settings-for-an-existing-resource). Se viene visualizzato quanto segue, probabilmente la diagnostica non è abilitata:
+Per monitorare la macchina virtuale Guest, usare il monitoraggio delle VM di Azure, che segnalerà l'utente a determinate condizioni di risorse di alto livello. Per verificare se la diagnostica della macchina virtuale è abilitata, vedere [Panoramica dei log delle risorse di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview#collecting-resource-logs). Se viene visualizzato quanto segue, probabilmente la diagnostica non è abilitata:
 
 ![Il monitoraggio non è abilitato](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  

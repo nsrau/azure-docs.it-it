@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: eb7deacc068661ca9a4f473ee2d36b7d4464c81c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 91dc87cd6bda93663fb4b4eae3d498ae56ba4b3e
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199460"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169606"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Risoluzione dei problemi e limitazioni di Azure Cloud Shell
 
@@ -36,7 +36,7 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Disabilitazione di Cloud Shell in un ambiente di rete bloccato
 
-- **Dettagli**: gli amministratori possono decidere di disabilitare l'accesso a Cloud Shell per gli utenti. Cloud Shell usa l'accesso al dominio `ux.console.azure.com` che può essere negato, bloccando ogni accesso agli entrypoint di Cloud Shell, incluso portal.azure.com, shell.azure.com, l'estensione Azure Account di Visual Studio Code e docs.microsoft.com.
+- **Dettagli**: gli amministratori possono decidere di disabilitare l'accesso a Cloud Shell per gli utenti. Cloud Shell usa l'accesso al dominio `ux.console.azure.com`, che può essere negato, impedendo l'accesso ai entryPoints di Cloud Shell, tra cui portal.azure.com, shell.azure.com, Visual Studio Code estensione account Azure e docs.microsoft.com.
 - **Risoluzione**: limitare l'accesso a `ux.console.azure.com` tramite le impostazioni di rete dell'ambiente. L'icona Cloud Shell non verrà rimossa in portal.azure.com, ma non verrà eseguita la connessione al servizio.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Finestra di dialogo archiviazione - Errore: 403 RequestDisallowedByPolicy
@@ -54,7 +54,7 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 - **Risoluzione**: verificare di aver configurato le impostazioni di rete per abilitare l'invio di richieste https e di richieste WebSocket ai domini in *.console.azure.com.
 
 ### <a name="set-your-cloud-shell-connection-to-support-using-tls-12"></a>Impostare la connessione di Cloud Shell per supportare l'uso di TLS 1.2
- - **Dettagli**: per specificare la versione di TLS per la connessione a Cloud Shell, è necessario definire impostazioni specifiche del browser.
+ - **Dettagli**: Per definire la versione di TLS per la connessione Cloud Shell, è necessario impostare le impostazioni specifiche del browser.
  - **Risoluzione**: passare alle impostazioni di sicurezza del browser e selezionare la casella di controllo accanto a "Usa TLS 1.2".
 
 ## <a name="bash-troubleshooting"></a>Risoluzione dei problemi di Bash
@@ -199,3 +199,5 @@ PowerShell:
   $token= ((Invoke-WebRequest -Uri "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/" -Headers @{Metadata='true'}).content |  ConvertFrom-Json).access_token
   Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
   ```
+## <a name="azure-government-limitations"></a>Limitazioni di Azure per enti pubblici
+Azure Cloud Shell in Azure per enti pubblici è accessibile solo tramite l'portale di Azure.

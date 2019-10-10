@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 8c24352fdbc6b81e7d263ac8c511b7c61792e6ae
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 6249a3c1c8ea3be02ca802d6be7e720bd900f675
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907880"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178087"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurare il mapping di rete e gli indirizzi IP per reti virtuali
 
@@ -33,7 +33,7 @@ Eseguire il mapping delle reti nel modo seguente:
 3. In **Aggiungi mapping di rete** selezionare le posizioni di origine e di destinazione. In questo esempio, l'origine della macchina virtuale è in esecuzione nell'area dell’Asia orientale e replicata nell'area dell’Asia sudorientale.
 
     ![Selezionare origine e destinazione](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
-3. Creare ora un mapping di rete nella directory opposta. In questo esempio, l'origine sarà ora Asia sudorientale e la destinazione sarà Asia orientale.
+3. A questo punto, creare un mapping di rete nella direzione opposta. In questo esempio, l'origine sarà ora Asia sudorientale e la destinazione sarà Asia orientale.
 
     ![Dal riquadro Aggiungi mapping di rete, selezionare i percorsi di origine e di destinazione per la rete di destinazione](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 

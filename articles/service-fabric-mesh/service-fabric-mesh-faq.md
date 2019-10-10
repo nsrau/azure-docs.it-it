@@ -4,17 +4,17 @@ description: Informazioni sulle domande frequenti e sulle risposte relative a Az
 services: service-fabric-mesh
 keywords: ''
 author: chackdan
-ms.author: chackdan
+ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: edd30dc8799ae9e5410ebc862574d632d09b9483
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65143282"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168674"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Domande frequenti su Service Fabric Mesh
 
@@ -28,7 +28,7 @@ Per inviare domande, ottenere risposte dagli esperti Microsoft e segnalare probl
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Quanto costa partecipare all'anteprima?
 
-Non sono attualmente previsti addebiti per la distribuzione di applicazioni o contenitori per l'anteprima di rete. Guarda per gli aggiornamenti nel mese di maggio per l'abilitazione per la fatturazione. Tuttavia, si consiglia di eliminare le risorse si distribuisce e lasciarli non in esecuzione a meno che non si esegue attivamente il test li.
+Non sono attualmente previsti addebiti per la distribuzione di applicazioni o contenitori nell'anteprima mesh. Per abilitare la fatturazione, controllare la disponibilità di aggiornamenti in. Tuttavia, si consiglia di eliminare le risorse distribuite senza lasciarle in esecuzione, a meno che non vengano testate attivamente.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>È previsto un limite di quota per il numero di core e la RAM?
 
@@ -49,7 +49,7 @@ Al momento la durata di un'applicazione è stata limitata a due giorni. Lo scopo
 
 In questo caso, è possibile convalidare l'arresto da parte del sistema eseguendo il comando `az mesh app show` nell'interfaccia della riga di comando di Azure e verificare se restituisce `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
-Ad esempio: 
+Esempio: 
 
 ```cli
 ~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
@@ -79,7 +79,7 @@ Per eliminare il gruppo di risorse, usare il comando `az group delete <nameOfRes
 
 ## <a name="deployments"></a>Deployments
 
-### <a name="what-container-images-are-supported"></a>Le immagini del contenitore sono supportati?
+### <a name="what-container-images-are-supported"></a>Quali immagini del contenitore sono supportate?
 
 Se le attività di sviluppo vengono eseguite in un computer con Windows Fall Creators Update (versione 1709), è possibile usare solo le immagini Docker di Windows versione 1709.
 
@@ -96,11 +96,11 @@ Per distribuire i servizi, possono essere usate le immagini del sistema operativ
     - Nessuna limitazione nota
 
 > [!NOTE]
-> Strumenti per la rete Mesh di Visual Studio non supporta ancora la distribuzione in contenitori 1809 e Windows Server 2019.
+> Gli strumenti di Visual Studio per mesh non supportano ancora la distribuzione nei contenitori di Windows Server 2019 e 1809.
 
-### <a name="what-types-of-applications-can-i-deploy"></a>I tipi di applicazioni è possibile distribuire? 
+### <a name="what-types-of-applications-can-i-deploy"></a>Quali tipi di applicazioni è possibile distribuire? 
 
-È possibile distribuire qualsiasi elemento che viene eseguito nei contenitori che rientrano nelle restrizioni posizionate in una risorsa di applicazione (vedere sopra per altre informazioni sulle quote). Se viene rilevato che si sta utilizzando Mesh per l'esecuzione di carichi di lavoro non validi o abuso del sistema (ad esempio di data mining), quindi Microsoft si riserva il diritto di interrompere le distribuzioni e blocklist la sottoscrizione da in esecuzione nel servizio. Rivolgersi a Microsoft se hai domande sull'esecuzione di un carico di lavoro specifico. 
+È possibile distribuire tutto ciò che viene eseguito nei contenitori che rientrano nelle limitazioni inserite in una risorsa dell'applicazione (vedere sopra per altre informazioni sulle quote). Se si rileva che si sta usando la rete mesh per eseguire carichi di lavoro non validi o si abusa del sistema (ad esempio, mining), si riserva il diritto di terminare le distribuzioni e di bloccare l'esecuzione della sottoscrizione nel servizio. Rivolgersi a Microsoft per eventuali domande sull'esecuzione di un carico di lavoro specifico. 
 
 ## <a name="developer-experience-issues"></a>Problemi relativi all'esperienza di sviluppatore
 
@@ -110,7 +110,7 @@ Le query DNS in uscita da un contenitore al servizio DNS di Service Fabric DNS p
 
 - Usare Windows Fall Creators Update (versione 1709) o versione successiva come immagine del contenitore di base.
 - Se il nome del servizio da solo non funziona, provare a specificare il nome completo: ServiceName.ApplicationName.
-- Nel file Docker per il servizio aggiungere `EXPOSE <port>`, dove "port" indica la porta a cui si espone il servizio. Ad esempio:
+- Nel file Docker per il servizio aggiungere `EXPOSE <port>`, dove "port" indica la porta a cui si espone il servizio. Esempio:
 
 ```Dockerfile
 EXPOSE 80
@@ -144,9 +144,9 @@ Più applicazioni non possono essere distribuite in un cluster con un solo nodo.
 - Usare un cluster con cinque nodi durante la distribuzione di più app in un cluster locale.
 - Rimuovere le app attualmente non in fase di test.
 
-### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>Strumenti VS ha supporto limitato per i contenitori Windows
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>Gli strumenti di Visual Studio hanno un supporto limitato per i contenitori di Windows
 
-Gli strumenti di Visual Studio supportano solo la distribuzione di contenitori di Windows con una versione del sistema operativo base di Windows Server 1709 e 1803 oggi stesso. 
+Gli strumenti di Visual Studio supportano solo la distribuzione di contenitori di Windows con una versione del sistema operativo di base di Windows Server 1709 e 1803 oggi. 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>Lacune di funzionalità e altri problemi noti
 

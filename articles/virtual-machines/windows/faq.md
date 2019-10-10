@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 0b1af2052e8aa916bf5fd6a40bea3502ff81a02d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 068ae6fd581a55892c115f3a7e38d10304f057d8
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079488"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170216"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Domande frequenti sulle Macchine virtuali Windows
 Questo articolo analizza alcune delle domande più comuni sulle macchine virtuali Windows create in Azure mediante il modello di distribuzione di Gestione risorse. Per la versione di Linux di questo argomento, vedere [domande frequenti su macchine virtuali Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -75,10 +75,10 @@ Sì. Per creare rapidamente una VM Linux di prova, vedere [Creare una VM Linux i
 Sì, ora è possibile. La macchina virtuale deve prima essere arrestata e deallocata. È possibile a questo punto aggiungere o rimuovere una scheda di interfaccia di rete (a meno che non sia l'ultima nella macchina virtuale). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Esistono requisiti relativi al nome del computer?
-Sì. Il nome del computer non può contenere più di 15 caratteri. Vedere [Naming conventions rules and restrictions](/azure/architecture/best-practices/naming-conventions#compute) (Regole e restrizioni per le convenzioni di denominazione) per altre informazioni sulla denominazione delle risorse.
+Sì. Il nome del computer non può contenere più di 15 caratteri. Vedere [Naming conventions rules and restrictions](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#sample-naming-convention) (Regole e restrizioni per le convenzioni di denominazione) per altre informazioni sulla denominazione delle risorse.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Vi sono requisiti relativi al nome del gruppo di risorse?
-Sì. Il nome del gruppo di risorse non può contenere più di 90 caratteri. Vedere [Naming conventions rules and restrictions](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) (Regole e restrizioni per le convenzioni di denominazione) per altre informazioni sui gruppi di risorse.
+Sì. Il nome del gruppo di risorse non può contenere più di 90 caratteri. Vedere [Naming conventions rules and restrictions](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming) (Regole e restrizioni per le convenzioni di denominazione) per altre informazioni sui gruppi di risorse.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Quali requisiti devono avere i nomi utente durante la creazione di una VM?
 

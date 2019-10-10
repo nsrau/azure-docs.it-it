@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/28/2019
+ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: 896e1fb3e93fc0a542f0dca75cc1d87b3a2c237c
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 36f26808b94893990ceec65e114b11113dbafd6f
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057905"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177474"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Log di diagnostica e integrità back-end per il gateway applicazione
 
@@ -157,7 +157,7 @@ Azure genera il log attività per impostazione predefinita. I log vengono conser
 
 Il log di accesso viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Ogni accesso del gateway applicazione viene registrato in formato JSON, come illustrato nell'esempio seguente per V1:
 
-|Value  |DESCRIZIONE  |
+|Value  |Descrizione  |
 |---------|---------|
 |instanceId     | Istanza del gateway applicazione che ha gestito la richiesta.        |
 |clientIP     | IP di origine della richiesta.        |
@@ -255,13 +255,13 @@ Per il gateway applicazione e WAF V2, i log mostrano alcune altre informazioni:
 Il log delle prestazioni viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. I dati del log delle prestazioni vengono generati a intervalli di un minuto. Vengono registrati i dati seguenti:
 
 
-|Value  |DESCRIZIONE  |
+|Value  |Descrizione  |
 |---------|---------|
 |instanceId     |  Istanza del gateway applicazione per cui vengono generati i dati delle prestazioni. Per un gateway applicazione a più istanze viene visualizzata una riga per ogni istanza.        |
 |healthyHostCount     | Numero di host integri nel pool back-end.        |
 |unHealthyHostCount     | Numero di host non integri nel pool back-end.        |
 |requestCount     | Numero di richieste gestite.        |
-|latenza | Latenza media in millisecondi delle richieste dall'istanza al back-end che gestisce le richieste. |
+|latency | Latenza media in millisecondi delle richieste dall'istanza al back-end che gestisce le richieste. |
 |failedRequestCount| Numero di richieste non riuscite.|
 |throughput| Velocità effettiva media dall'ultimo log, misurata in byte al secondo.|
 
@@ -292,7 +292,7 @@ Il log delle prestazioni viene generato solo se è stato abilitato in ogni istan
 Il log del firewall viene generato solo se è stato abilitato in ogni gateway applicazione, come descritto nei passaggi precedenti. Questo log richiede anche che il web application firewall sia configurato in un gateway applicazione. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Vengono registrati i dati seguenti:
 
 
-|Value  |DESCRIZIONE  |
+|Value  |Descrizione  |
 |---------|---------|
 |instanceId     | Istanza del gateway applicazione per cui vengono generati i dati del firewall. Per un gateway applicazione a più istanze viene visualizzata una riga per ogni istanza.         |
 |clientIp     |   IP di origine della richiesta.      |
@@ -309,7 +309,7 @@ Il log del firewall viene generato solo se è stato abilitato in ogni gateway ap
 |details.data     | Dati specifici individuati nella richiesta corrispondente alla regola.         |
 |details.file     | File di configurazione che conteneva la regola.        |
 |details.line     | Numero di riga nel file di configurazione che ha attivato l'evento.       |
-|nome host   | Nome host o indirizzo IP del gateway applicazione.    |
+|hostname   | Nome host o indirizzo IP del gateway applicazione.    |
 |transactionId  | ID univoco per una transazione specifica che consente di raggruppare più violazioni delle regole che si sono verificate nella stessa richiesta.   |
 
 ```json
@@ -347,7 +347,7 @@ Il log del firewall viene generato solo se è stato abilitato in ogni gateway ap
 È possibile visualizzare e analizzare i dati del log attività usando uno dei metodi seguenti:
 
 * **Strumenti di Azure**: consente di recuperare informazioni dal log attività con Azure PowerShell, l'interfaccia della riga di comando di Azure, l'API REST di Azure o il portale di Azure. Le istruzioni dettagliate di ciascun metodo sono fornite nell'articolo [Operazioni attività con Resource Manager](../azure-resource-manager/resource-group-audit.md).
-* **Power BI**: se non esiste ancora un account [Power BI](https://powerbi.microsoft.com/pricing), è possibile crearne uno di prova gratuitamente. Usando il [pacchetto di contenuto dei log attività di Azure per Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) è possibile analizzare i dati con i dashboard preconfigurati che possono anche essere personalizzati.
+* **Power BI**: se non esiste ancora un account [Power BI](https://powerbi.microsoft.com/pricing), è possibile crearne uno di prova gratuitamente. Usando le [app modello di Power bi](https://docs.microsoft.com/power-bi/service-template-apps-overview), è possibile analizzare i dati.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Visualizzare e analizzare i log di accesso, delle prestazioni e del firewall
 

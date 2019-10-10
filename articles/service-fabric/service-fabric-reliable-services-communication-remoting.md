@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: a9ef2cd695f9591f299bb85b95d14d60b987c38d
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1654a7be8c3aba4efa6fcf96024ea987e2957e73
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258698"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173451"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicazione remota nei servizi C# con Reliable Services
 
@@ -36,7 +36,7 @@ Per i servizi che non sono legati a un protocollo di comunicazione o a uno stack
 La procedura di configurazione della funzionalità remota per un servizio è costituita da due semplici passaggi:
 
 1. Creare un'interfaccia per l’implementazione del servizio. Questa interfaccia definisce i metodi che sono disponibili per una chiamata di procedura remota nel servizio e devono essere metodi asincroni di restituzione di attività. L'interfaccia deve implementare `Microsoft.ServiceFabric.Services.Remoting.IService` per segnalare che il servizio dispone di un'interfaccia remota.
-2. Usare un listener di comunicazione remota nel servizio. Un listener di comunicazione remota è un'implementazione `ICommunicationListener` che offre funzionalità di comunicazione remota. Lo spazio dei nomi `Microsoft.ServiceFabric.Services.Remoting.Runtime` contiene il metodo di estensione `CreateServiceRemotingListener` per i servizi con e senza stato, che consente di creare un listener di comunicazione remota usando il protocollo di trasporto predefinito per la comunicazione remota.
+2. Usare un listener di comunicazione remota nel servizio. Un listener di comunicazione remota è un'implementazione `ICommunicationListener` che offre funzionalità di comunicazione remota. Lo spazio dei nomi `Microsoft.ServiceFabric.Services.Remoting.Runtime` contiene il metodo di estensione `CreateServiceRemotingInstanceListeners` per i servizi con e senza stato, che consente di creare un listener di comunicazione remota usando il protocollo di trasporto predefinito per la comunicazione remota.
 
 >[!NOTE]
 >Lo spazio dei nomi `Remoting` è disponibile come pacchetto separato, denominato NuGet `Microsoft.ServiceFabric.Services.Remoting`.
@@ -322,7 +322,7 @@ A tale scopo, seguire questa procedura:
 Per eseguire l'aggiornamento da V1 a V2 (compatibile con l'interfaccia e noto anche come V2_1), sono necessari due passaggi di aggiornamento. Seguire i passaggi descritti in questa sequenza.
 
 > [!NOTE]
-> Quando si esegue l'aggiornamento da V1 a v2 `Remoting` , assicurarsi che lo spazio dei nomi venga aggiornato in modo da usare V2. Esempio: ' Microsoft. ServiceFabric. Services. Remoting. v2. FabricTransport. client '
+> Quando si esegue l'aggiornamento da V1 a V2, assicurarsi che lo spazio dei nomi `Remoting` venga aggiornato per usare V2. Esempio: ' Microsoft. ServiceFabric. Services. Remoting. v2. FabricTransport. client '
 >
 >
 

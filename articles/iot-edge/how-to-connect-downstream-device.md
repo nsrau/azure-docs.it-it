@@ -4,17 +4,17 @@ description: Come configurare i dispositivi downstream o foglia per connettersi 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/07/2019
+ms.date: 10/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 822e58d1d35cfb9b62565ca78ea2277b8d194bc0
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: c37c3ed2031746d7c476850749bb3dc613252654
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266112"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176796"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connettere un dispositivo downstream a un gateway Azure IoT Edge
 
@@ -183,17 +183,23 @@ Questa sezione presenta un'applicazione di esempio per la connessione a un clien
 Questa sezione presenta un'applicazione di esempio per la connessione di un cliente dispositivo Python Azure IoT a un gateway IoT Edge. 
 
 1. Ottenere l'esempio per **send_message** dalla pagina [relativa agli esempi di Azure per dispositivi SDK per Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios). 
-2. Verificare che sia in esecuzione in un contenitore perimetrale o in uno scenario di debug, impostare le `EdgeHubConnectionString` variabili `EdgeModuleCACertificateFile` di ambiente e.
+2. Verificare che sia in esecuzione in un contenitore di IoT Edge o in uno scenario di debug per impostare le variabili di ambiente `EdgeHubConnectionString` e `EdgeModuleCACertificateFile`.
 3. Vedere la documentazione dell'SDK per istruzioni su come eseguire l'esempio nel dispositivo. 
 
 
 ## <a name="test-the-gateway-connection"></a>Testare la connessione al gateway
 
-Si tratta di un comando di esempio che verifica che tutti gli elementi siano stati configurati correttamente. Verrà visualizzato un messaggio di conferma della verifica.
+Usare questo comando di esempio per verificare che il dispositivo downstream possa connettersi al dispositivo gateway: 
 
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
+
+Questo comando verifica le connessioni tramite MQTTS (porta 8883). Se si usa un protocollo diverso, modificare il comando in base alle esigenze per AMQPS (5671) o HTTPS (433).
+
+L'output di questo comando potrebbe essere lungo, incluse le informazioni su tutti i certificati nella catena. Se la connessione ha esito positivo, verrà visualizzata una riga come `Verification: OK` o `Verify return code: 0 (ok)`.
+
+![Verifica connessione gateway](./media/how-to-connect-downstream-device/verification-ok.png)
 
 ## <a name="troubleshoot-the-gateway-connection"></a>Risolvere i problemi della connessione gateway
 

@@ -1,6 +1,6 @@
 ---
-title: Delegare attività in Azure AD gestione dei diritti (anteprima)-Azure Active Directory
-description: Informazioni sui ruoli che è possibile assegnare alle attività delegate in Azure Active Directory gestione dei diritti.
+title: Delega e ruoli in Azure AD gestione dei diritti (anteprima)-Azure Active Directory
+description: Informazioni su come delegare la governance degli accessi dagli amministratori IT ai responsabili del reparto e ai responsabili di progetto in modo che possano gestire l'accesso.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -12,92 +12,110 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/10/2019
+ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6857697423e494c515bd052cb42af3ad1d9fe188
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 89cdab09e3ae03ddea6259eda657908f900f982e
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057786"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169859"
 ---
-# <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Delegare attività in Azure AD gestione dei diritti (anteprima)
+# <a name="delegation-and-roles-in-azure-ad-entitlement-management-preview"></a>Delega e ruoli in Azure AD gestione dei diritti (anteprima)
 
 > [!IMPORTANT]
 > Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Per impostazione predefinita, gli amministratori globali e gli amministratori utenti possono creare e gestire tutti gli aspetti della gestione dei diritti Azure AD. Tuttavia, gli utenti di questi ruoli potrebbero non essere a conoscenza di tutti gli scenari in cui sono necessari i pacchetti di accesso. In genere si tratta di utenti all'interno di reparti che sanno chi deve collaborare. 
+Per impostazione predefinita, gli amministratori globali e gli amministratori utenti possono creare e gestire tutti gli aspetti della gestione dei diritti Azure AD. Tuttavia, gli utenti di questi ruoli potrebbero non essere a conoscenza di tutte le situazioni in cui sono necessari i pacchetti di accesso. Si tratta in genere di utenti all'interno dei rispettivi reparti, team o progetti che conoscono la collaborazione con, usando le risorse e per quanto tempo. Anziché concedere autorizzazioni senza restrizioni a utenti non amministratori, è possibile concedere agli utenti le autorizzazioni minime necessarie per eseguire il proprio lavoro ed evitare la creazione di diritti di accesso in conflitto o non appropriati.
 
-Anziché concedere autorizzazioni senza restrizioni a utenti non amministratori, è possibile concedere agli utenti le autorizzazioni minime necessarie per eseguire il proprio lavoro ed evitare la creazione di diritti di accesso in conflitto o non appropriati. Questo articolo descrive i ruoli che è possibile assegnare per delegare diverse attività nella gestione dei diritti. 
+In questo video viene fornita una panoramica su come delegare la governance di accesso dall'amministratore IT agli utenti che non sono amministratori.
 
-## <a name="delegate-example-for-departmental-adoption"></a>Esempio di delegato per l'adozione del reparto
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE3Lq00]
 
-Per comprendere come è possibile delegare le attività nella gestione dei diritti, è utile prendere in considerazione un esempio. 
+## <a name="delegate-example"></a>Esempio di delegato
 
-Si supponga che l'organizzazione disponga dei seguenti cinque utenti:
+Per comprendere come è possibile delegare la governance di accesso alla gestione dei diritti, è utile prendere in considerazione un esempio. Si supponga che l'organizzazione disponga dei seguenti amministratori e responsabili.
 
-| Utente | department | Note |
-| --- | --- | --- |
-| Alice | IT | Amministratore globale |
-| Bob | Research | Bob è anche proprietario di un gruppo di ricerca |
-| Carole | Research |  |
-| Dave | Marketing |  |
-| Elisa | Marketing | Elisa è anche proprietario di un'applicazione marketing |
+![Delega da amministratore IT ai responsabili](./media/entitlement-management-delegate/delegate-admin-dept-managers.png)
 
-I reparti di ricerca e marketing desiderano utilizzare la gestione dei diritti per gli utenti. Alice non è ancora pronta per l'uso della gestione dei diritti da altri reparti. Ecco un modo in cui Alice può delegare le attività ai reparti di ricerca e marketing.
+In qualità di amministratore IT, Hana ha contattato in ogni reparto, ovvero la muratura in marketing, Mark in Finance e Joe in Legal, responsabile delle risorse del reparto e dei contenuti aziendali critici.
 
-1. Alice crea un nuovo gruppo di sicurezza Azure AD per gli autori del catalogo e aggiunge Bob, Carol, Dave ed Elisa come membri del gruppo.
+Con la gestione dei diritti, è possibile delegare la governance di accesso a questi non amministratori perché sono quelli che conoscono quali utenti devono accedere, per quanto tempo e per quali risorse. In questo modo si garantisce che gli utenti giusti gestiscano l'accesso ai propri reparti.
 
-1. Alice usa le impostazioni di gestione dei diritti per aggiungere tale gruppo al ruolo creatori del catalogo.
+Ecco un modo in cui Hana può delegare la governance degli accessi ai reparti marketing, finanza e legale.
 
-1. Carol crea un catalogo di **ricerca** e aggiunge Bob come co-proprietario di tale catalogo. Bob aggiunge il gruppo di ricerca che possiede al catalogo come risorsa, in modo che possa essere usato in un pacchetto di accesso per la collaborazione alla ricerca.
+1. Hana consente di creare un nuovo gruppo di sicurezza Azure AD e di aggiungere l'oggetto, Mark e Joe come membri del gruppo.
 
-1. Dave crea un catalogo **Marketing** e aggiunge Elisa come co-proprietario di tale catalogo. Elisa aggiunge l'applicazione di marketing che possiede al catalogo come risorsa, in modo che possa essere usata in un pacchetto di accesso per la collaborazione di marketing.
+1. Hana aggiunge tale gruppo al ruolo creatori del catalogo.
 
-Ora i reparti di ricerca e marketing possono utilizzare la gestione dei diritti. Bob, Carol, Dave ed Elisa possono creare e gestire i pacchetti di accesso nei rispettivi cataloghi.
+    È ora possibile creare cataloghi per i reparti, aggiungere le risorse necessarie ai propri reparti ed eseguire ulteriori deleghe all'interno del catalogo.
+
+    Si noti che non è possibile visualizzare i cataloghi di tutti gli altri.
+
+1. Per creare un catalogo **Marketing** , che è un contenitore di risorse,
+
+1. Con la proprietà del reparto marketing è possibile aggiungere le risorse a questo catalogo.
+
+1. È possibile aggiungere altri utenti del reparto come proprietari del catalogo per questo catalogo. Ciò consente di condividere le responsabilità di gestione del catalogo.
+
+1. È possibile delegare ulteriormente la creazione e la gestione dei pacchetti di accesso nel catalogo marketing ai Project Manager del reparto marketing. A tale scopo, è possibile assegnarli al ruolo Gestione pacchetti di accesso. Una gestione pacchetti di accesso può creare e gestire i pacchetti di accesso. 
+
+Il diagramma seguente mostra i cataloghi con risorse per gli uffici marketing, Finance e Legal. Usando questi cataloghi, i Project Manager possono creare pacchetti di accesso per i team o i progetti.
 
 ![Esempio di delegati di gestione dei diritti](./media/entitlement-management-delegate/elm-delegate.png)
 
+Dopo la delega, il reparto marketing potrebbe avere ruoli simili alla tabella seguente.
+
+| Utente | Posizione lavorativa | Ruolo Azure AD | Ruolo di gestione dei diritti |
+| --- | --- | --- | --- |
+| Hana | Amministratore IT | Amministratore globale o Amministratore utenti |  |
+| Muja | Responsabile marketing | Utente | Autore del catalogo e proprietario del catalogo |
+| Bob | Responsabile marketing | Utente | Proprietario Catalogo |
+| Jessica | project manager marketing | Utente | Gestione pacchetti di Access |
 
 ## <a name="entitlement-management-roles"></a>Ruoli di gestione dei diritti
 
 La gestione dei diritti ha i seguenti ruoli specifici per la gestione dei diritti.
 
-| Role | DESCRIZIONE |
+| Ruolo di gestione dei diritti | Descrizione |
 | --- | --- |
 | Creatore del catalogo | Creare e gestire cataloghi. In genere un amministratore IT che non è un amministratore globale o un proprietario di risorse per una raccolta di risorse. La persona che crea un catalogo diventa automaticamente il primo proprietario del catalogo e può aggiungere altri proprietari del catalogo. Un autore del catalogo non può gestire o vedere cataloghi di cui non è proprietario e non può aggiungere risorse di cui non è proprietario per un catalogo. Se l'autore del catalogo deve gestire un altro catalogo o aggiungere risorse di cui non è proprietario, può richiedere di essere un comproprietario di tale catalogo o risorsa. |
 | Proprietario Catalogo | Modificare e gestire cataloghi esistenti. In genere un amministratore IT o proprietari di risorse oppure un utente designato dal proprietario del catalogo. |
 | Gestione pacchetti di Access | Modificare e gestire tutti i pacchetti di accesso esistenti all'interno di un catalogo. |
 
 Inoltre, un responsabile approvazione designato e un richiedente di un pacchetto di accesso dispongono anche di diritti, anche se non sono ruoli.
- 
-* Approvatore Autorizzazione eseguita da un criterio per approvare o negare le richieste di accesso ai pacchetti, sebbene non possano modificare le definizioni dei pacchetti di accesso.
-* Richiedente Autorizzazione eseguita da un criterio di un pacchetto di accesso per richiedere il pacchetto di accesso.
 
-Nella tabella seguente sono elencate le attività che possono essere eseguite da questi ruoli.
+| Right | Descrizione |
+| --- | --- |
+| Responsabile approvazione | Autorizzazione eseguita da un criterio per approvare o negare le richieste di accesso ai pacchetti, sebbene non possano modificare le definizioni dei pacchetti di accesso. |
+| Richiedente | Autorizzazione eseguita da un criterio di un pacchetto di accesso per richiedere il pacchetto di accesso. |
 
-| Attività | Creatore del catalogo | Proprietario Catalogo | Gestione pacchetti di Access | Responsabile approvazione |
+Nella tabella seguente sono elencate le attività che i ruoli di gestione dei diritti possono eseguire.
+
+| Attività | Admin | Creatore del catalogo | Proprietario Catalogo | Gestione pacchetti di Access |
 | --- | :---: | :---: | :---: | :---: |
-| [Crea un nuovo catalogo](entitlement-management-catalog-create.md) | :heavy_check_mark: |  |  |  |
-| [Aggiungere una risorsa a un catalogo](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | | :heavy_check_mark: | | |
-| [Modificare un catalogo](entitlement-management-catalog-create.md#edit-a-catalog) |  | :heavy_check_mark: |  |  |
-| [Eliminare un catalogo](entitlement-management-catalog-create.md#delete-a-catalog) |  | :heavy_check_mark: |  |  |
-| [Aggiungere un proprietario del catalogo o un gestore di pacchetti di accesso a un catalogo](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
-| [Creare un nuovo pacchetto di accesso in un catalogo](entitlement-management-access-package-create.md) |  | :heavy_check_mark:  | :heavy_check_mark:  |  |
-| [Gestire i ruoli delle risorse in un pacchetto di accesso](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Creazione e modifica di criteri](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Assegnare direttamente un utente a un pacchetto di accesso](entitlement-management-access-package-edit.md#directly-assign-a-user) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Visualizza chi ha un'assegnazione a un pacchetto di accesso](entitlement-management-access-package-edit.md#view-who-has-an-assignment) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Visualizzare le richieste di un pacchetto di accesso](entitlement-management-access-package-edit.md#view-requests) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Visualizzare gli errori di recapito di una richiesta](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Annulla una richiesta in sospeso](entitlement-management-access-package-edit.md#cancel-a-pending-request) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Nascondi un pacchetto di accesso](entitlement-management-access-package-edit.md#change-the-hidden-setting) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Eliminare un pacchetto di accesso](entitlement-management-access-package-edit.md#delete) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Approva una richiesta di accesso](entitlement-management-request-approve.md) |  |  |  | :heavy_check_mark: |
+| [Delega a un creatore del catalogo](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
+| [Crea un nuovo catalogo](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| [Aggiungere una risorsa a un catalogo](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Aggiungere un proprietario del catalogo](entitlement-management-catalog-create.md#add-additional-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Modificare un catalogo](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Eliminare un catalogo](entitlement-management-catalog-create.md#delete-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Delega a una gestione pacchetti di Access](entitlement-management-delegate-managers.md) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Rimuovere una gestione pacchetti di accesso](entitlement-management-delegate-managers.md#remove-an-access-package-manager) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Creare un nuovo pacchetto di accesso in un catalogo](entitlement-management-access-package-create.md) | :heavy_check_mark: |  | :heavy_check_mark:  | :heavy_check_mark:  |
+| [Gestire i ruoli delle risorse in un pacchetto di accesso](entitlement-management-access-package-edit.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Creazione e modifica di criteri](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Assegnare direttamente un utente a un pacchetto di accesso](entitlement-management-access-package-edit.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Visualizza chi ha un'assegnazione a un pacchetto di accesso](entitlement-management-access-package-edit.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Visualizzare le richieste di un pacchetto di accesso](entitlement-management-access-package-edit.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Visualizzare gli errori di recapito di una richiesta](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Annulla una richiesta in sospeso](entitlement-management-access-package-edit.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Nascondi un pacchetto di accesso](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Eliminare un pacchetto di accesso](entitlement-management-access-package-edit.md#delete) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Ruoli necessari per aggiungere risorse a un catalogo
 
@@ -119,49 +137,7 @@ Per un utente che non è un amministratore globale o un amministratore di utenti
 
 Per determinare il ruolo con privilegi minimi per un'attività, è anche possibile fare riferimento ai [ruoli di amministratore per attività di amministrazione in Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
 
-## <a name="add-a-catalog-creator"></a>Aggiungere un creatore del catalogo
-
-Se si desidera delegare la creazione del catalogo, aggiungere gli utenti al ruolo di autore del catalogo.  È possibile aggiungere singoli utenti o per praticità aggiungere un gruppo, i cui membri sono quindi in grado di creare cataloghi. Attenersi alla procedura seguente per assegnare un utente al ruolo di autore del catalogo.
-
-**Ruolo prerequisito:** Amministratore globale o Amministratore utenti
-
-1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
-
-1. Nel menu a sinistra, nella sezione **gestione dei diritti** , fare clic su **Impostazioni**.
-
-1. Fare clic su **Modifica**.
-
-1. Nella sezione **delega diritti di gestione** , fare clic su **Aggiungi autori del catalogo** per selezionare gli utenti o i gruppi che saranno membri di questo ruolo di gestione dei diritti.
-
-1. Fare clic su **Seleziona**.
-
-1. Fare clic su **Save**.
-
-## <a name="add-a-catalog-owner-or-an-access-package-manager"></a>Aggiungere un proprietario del catalogo o una gestione pacchetti di accesso
-
-Per delegare la gestione di un catalogo o di accedere ai pacchetti nel catalogo, è necessario aggiungere gli utenti al proprietario del catalogo o accedere ai ruoli di gestione pacchetti. Chi crea un catalogo diventa il primo proprietario del catalogo. 
-
-Il proprietario del catalogo assegnato o gestione pacchetti di accesso deve avere familiarità con il progetto. Il creatore del catalogo deve creare il pacchetto di accesso se è incluso nelle operazioni quotidiane del progetto e conosce le informazioni seguenti:
-- quali risorse sono necessarie
-- utenti che dovranno accedere
-- utenti che devono approvare l'accesso
-- per quanto tempo il progetto durerà
-
-Il creatore del catalogo deve delegare l'attività al responsabile del progetto, che creerà e gestirà il pacchetto di accesso, se non è incluso nelle operazioni quotidiane del progetto. Attenersi alla procedura seguente per assegnare un utente al ruolo di proprietario del catalogo o accedere a gestione pacchetti:
-
-**Ruolo prerequisito:** Amministratore globale, amministratore utente o proprietario del catalogo
-
-1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
-
-1. Nel menu a sinistra fare clic su **cataloghi** , quindi aprire il catalogo al quale si desidera aggiungere gli amministratori.
-
-1. Nel menu a sinistra fare clic su **ruoli e amministratori**.
-
-1. Fare clic su **Aggiungi proprietari** o **Aggiungi gestione pacchetti di accesso** per selezionare i membri per questi ruoli.
-
-1. Fare clic su **Seleziona** per aggiungere questi membri.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Aggiungi responsabili approvazione](entitlement-management-access-package-edit.md#policy-request)
-- [Aggiungere risorse a un catalogo](entitlement-management-catalog-create.md#add-resources-to-a-catalog)
+- [Delega della governance di accesso ai creatori di cataloghi](entitlement-management-delegate-catalog.md)
+- [Creare e gestire un catalogo di risorse](entitlement-management-catalog-create.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2019
 ms.author: anavin
-ms.openlocfilehash: c488b96940cac03b9c392f0ac4bd1d32a15ba111
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: a53d5810b20aa8389c152889fed5d7f4e8cfc5b7
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035276"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177664"
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
@@ -90,7 +90,7 @@ Per altre informazioni sulle autorizzazioni necessarie per creare un peering di 
 
 È previsto un addebito nominale per il traffico in ingresso e in uscita che usa una connessione con peering reti virtuali. Per altre informazioni sui prezzi per il peering reti virtuali e per il peering globale di reti virtuali, vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/virtual-network).
 
-Il transito del gateway è una proprietà di peering che consente a una rete virtuale di usare un gateway VPN/ExpressRoute in una rete virtuale con peering per la connettività cross-premise o da VNet a VNet. Per altri dettagli, vedere tariffe del gateway [VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) o addebiti per il gateway ExpressRoute e [addebiti per il peering VNet.](https://azure.microsoft.com/pricing/details/virtual-network)
+Il transito del gateway è una proprietà di peering che consente a una rete virtuale di usare un gateway VPN/ExpressRoute in una rete virtuale con peering per la connettività cross-premise o da VNet a VNet. Il traffico verso il gateway (in ingresso o in uscita) nella VNet con peering comporterà addebiti per il peering VNet. Per altri dettagli, vedere tariffe del gateway [VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) o addebiti per il gateway ExpressRoute e [addebiti per il peering VNet.](https://azure.microsoft.com/pricing/details/virtual-network)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

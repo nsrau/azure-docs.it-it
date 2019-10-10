@@ -16,12 +16,12 @@ ms.date: 09/26/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a79cf166025ced6cb08d2f9e24801ea498fdc1c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 864a6476ad894952a2ef877d534ffe8a86e07819
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326386"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170018"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Modificare e gestire un pacchetto di accesso esistente in Azure AD gestione dei diritti (anteprima)
 
@@ -34,7 +34,7 @@ Un pacchetto di accesso consente di eseguire una singola installazione di risors
 
 Questo articolo descrive come modificare e gestire i pacchetti di accesso esistenti.
 
-## <a name="add-resource-roles"></a>Aggiungi ruoli delle risorse
+## <a name="add-resource-roles"></a>Aggiungere i ruoli delle risorse
 
 Un ruolo di risorsa è una raccolta di autorizzazioni associate a una risorsa. Per rendere le risorse disponibili per gli utenti da richiedere è possibile aggiungere i ruoli delle risorse al pacchetto di accesso. È possibile aggiungere i ruoli delle risorse per i gruppi, i team, le applicazioni e i siti di SharePoint.
 
@@ -345,7 +345,7 @@ Per impostazione predefinita, i pacchetti di Access sono individuabili. Ciò sig
 
     Se è impostato su **Sì**, il pacchetto di accesso non verrà elencato nel portale di accesso personale dell'utente. L'unico modo in cui un utente può visualizzare il pacchetto di accesso è il **collegamento al portale** di accesso diretto al pacchetto di accesso.
 
-## <a name="delete"></a>Eliminazione
+## <a name="delete"></a>Delete
 
 Un pacchetto di accesso può essere eliminato solo se non sono presenti assegnazioni utente attive.
 
@@ -367,5 +367,4 @@ Per la gestione dei diritti, Azure AD elaborerà le modifiche bulk per l'assegna
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Aggiungere un proprietario del catalogo o una gestione pacchetti di accesso](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
 - [Richieste di processo e notifiche tramite posta elettronica](entitlement-management-process.md)

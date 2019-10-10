@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: f6e2fedf3f2f8384d4a6062852888c312e8285a1
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212876"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173492"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Aggiungere runbook di Automazione di Azure ai piani di ripristino
 
@@ -51,7 +51,7 @@ Quando viene eseguito uno script, inserisce un contesto del piano di ripristino 
 | GroupID |Identifica il numero del gruppo nel piano di ripristino quando il piano è in esecuzione. |
 | VmMap |Matrice di tutte le macchine virtuali nel gruppo. |
 | VMMap key |Chiave univoca (GUID) per ogni macchina virtuale. |
-| ID della sottoscrizione |ID della sottoscrizione di Azure in cui viene creata la macchina virtuale. |
+| SubscriptionId |ID della sottoscrizione di Azure in cui viene creata la macchina virtuale. |
 | ResourceGroupName | Nome del gruppo di risorse in cui si trova la macchina virtuale.
 | CloudServiceName |Nome del servizio cloud di Azure in cui è stata creata la macchina virtuale. |
 | RoleName |Nome della macchina virtuale di Azure. |
@@ -112,12 +112,12 @@ Il Blog di Aman Sharma sulla [raccolta di cloud](http://harvestingclouds.com) è
 ## <a name="customize-the-recovery-plan"></a>Personalizzare il piano di ripristino
 
 1. Nell'insieme di credenziali selezionare **piani di ripristino (Site Recovery)**
-2. Per creare un piano di ripristino, fare clic su **+ piano di ripristino**. [Altre informazioni](/site-recovery-create-recovery-plans.md) Se si dispone già di un piano di ripristino, selezionare per aprirlo.
+2. Per creare un piano di ripristino, fare clic su **+ piano di ripristino**. [Altre informazioni](site-recovery-create-recovery-plans.md) Se si dispone già di un piano di ripristino, selezionare per aprirlo.
 3. Nella pagina piano di ripristino fare clic su **Personalizza**.
 
     ![Fare clic sul pulsante Personalizza](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. Fare clic sui puntini di sospensione (... **) accanto al gruppo 1: Avviare**Aggiungi > **post-azione**.
+2. Fare clic sui puntini di sospensione (...) accanto a **Group 1: Start @ no__t-0 @ no__t-1**Aggiungi post-azione**.
 3. In **Inserisci azione**verificare che sia selezionato **script** e specificare un nome per lo script (**Hello World**).
 4. Specificare un account di automazione e selezionare un Runbook. Fare clic su **OK** per salvare lo script. Lo script viene aggiunto a **Gruppo 1: passaggi successivi**.
 

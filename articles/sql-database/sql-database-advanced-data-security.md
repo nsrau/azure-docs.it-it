@@ -6,16 +6,16 @@ ms.service: sql-database
 ms.subservice: security
 ms.devlang: ''
 ms.topic: conceptual
-author: monhaber
-ms.author: v-mohabe
+author: rkarlin
+ms.author: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
-ms.openlocfilehash: b8fc82ca8f4b42adf595680541042ef38efe1470
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dc302d5435234b8cad9d79b5d626056e4d1e2cf2
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569542"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170383"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Sicurezza dei dati avanzata per il database SQL di Azure
 

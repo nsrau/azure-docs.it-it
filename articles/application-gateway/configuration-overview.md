@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 65cf71140d1706b8607e721ac323b1a97ae272fa
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: f69348f1a56845716d8d862f2926774cbc537cf0
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898439"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177427"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica della configurazione del gateway applicazione
 
@@ -20,7 +20,7 @@ Applicazione Azure gateway è costituito da diversi componenti che è possibile 
 
 ![Diagramma di flusso dei componenti del gateway applicazione](./media/configuration-overview/configuration-overview1.png)
 
-Questa immagine illustra un'applicazione con tre listener. I primi due sono listener multisito rispettivamente per `http://acme.com/*` e. `http://fabrikam.com/*` Entrambi sono in ascolto sulla porta 80. Il terzo è un listener di base con terminazione Secure Sockets Layer end-to-end (SSL).
+Questa immagine illustra un'applicazione con tre listener. I primi due sono listener multisito rispettivamente per `http://acme.com/*` e `http://fabrikam.com/*`. Entrambi sono in ascolto sulla porta 80. Il terzo è un listener di base con terminazione Secure Sockets Layer end-to-end (SSL).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -61,7 +61,7 @@ I gruppi di sicurezza di rete (gruppi) sono supportati nel gateway applicazione.
 
 Per questo scenario, usare gruppi nella subnet del gateway applicazione. Inserire le restrizioni seguenti sulla subnet in questo ordine di priorità:
 
-1. Consentire il traffico in ingresso da un intervallo IP/IP di origine.
+1. Consentire il traffico in ingresso da un intervallo IP/IP di origine e all'intera subnet del gateway applicazione o all'indirizzo IP front-end privato configurato specifico. Il NSG non funziona in un indirizzo IP pubblico.
 2. Consentire le richieste in ingresso da tutte le origini alle porte 65503-65534 per lo SKU del gateway applicazione V1 e le porte 65200-65535 per lo SKU V2 per la [comunicazione di integrità back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Queste porte sono protette (bloccate) dai certificati di Azure. Senza i certificati appropriati, le entità esterne non possono avviare le modifiche in tali endpoint.
 3. Consentire i probe di Azure Load Balancer in ingresso (tag*AzureLoadBalancer* ) e il traffico di rete virtuale in ingresso (tag*virtualnetwork* ) nel [gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Bloccare tutto il traffico in ingresso usando una regola Deny-all.
@@ -101,7 +101,7 @@ Quando si crea un gateway applicazione usando il portale di Azure, si crea anche
 
 ### <a name="listener-type"></a>Tipo di listener
 
-Quando si crea un nuovo listener, è possibile scegliere tra [le *funzionalità*di *base* e multisito](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#types-of-listeners).
+Quando si crea un nuovo listener, è possibile scegliere tra [le funzionalità di *base* e *multisito*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#types-of-listeners).
 
 - Se si ospita un solo sito dietro un gateway applicazione, scegliere Basic. Informazioni [su come creare un gateway applicazione con un listener di base](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
@@ -173,7 +173,7 @@ Dopo aver creato un listener, associarlo a una regola di routing delle richieste
 
 Quando si crea un gateway applicazione usando il portale di Azure, si crea una regola predefinita (*Rule1*). Questa regola associa il listener predefinito (*appGatewayHttpListener*) con il pool back-end predefinito (*appGatewayBackendPool*) e le impostazioni http back-end predefinite (*appGatewayBackendHttpSettings*). Dopo aver creato il gateway, è possibile modificare le impostazioni della regola predefinita o creare nuove regole.
 
-### <a name="rule-type"></a>Tipo regola
+### <a name="rule-type"></a>Tipo di regola
 
 Quando si crea una regola, è possibile scegliere tra [ *base* e *basata sul percorso*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
 
@@ -216,11 +216,11 @@ Se il reindirizzamento è configurato per una regola di base, tutte le richieste
 
 Per altre informazioni sui reindirizzamenti, vedere [Panoramica del reindirizzamento del gateway applicazione](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
 
-#### <a name="redirection-type"></a>Tipo di reindirizzamento
+#### <a name="redirection-type"></a>Tipo di Reindirizzamento
 
 Scegliere il tipo di reindirizzamento necessario: *Permanente (301*), *temporaneo (307)* , *trovato (302)* o *vedere altro (303)* .
 
-#### <a name="redirection-target"></a>Destinazione di reindirizzamento
+#### <a name="redirection-target"></a>Destinazione di Reindirizzamento
 
 Scegliere un altro listener o un sito esterno come destinazione del reindirizzamento.
 
@@ -258,7 +258,7 @@ Il gateway applicazione instrada il traffico verso i server back-end usando la c
 
 Questa funzionalità è utile quando si desidera gestire una sessione utente sullo stesso server. I cookie gestiti dal gateway consentono al gateway applicazione di indirizzare il traffico successivo da una sessione utente allo stesso server per l'elaborazione. Questo è importante quando lo stato della sessione viene salvato localmente nel server per una sessione utente. Se l'applicazione non è in grado di gestire l'affinità basata su cookie, non è possibile usare questa funzionalità. Per usarlo, assicurarsi che i client supportino i cookie.
 
-### <a name="connection-draining"></a>Svuotamento delle connessioni
+### <a name="connection-draining"></a>Esaurimento delle connessioni
 
 Lo svuotamento delle connessioni consente di rimuovere normalmente i membri del pool back-end durante gli aggiornamenti pianificati dei servizi. È possibile applicare questa impostazione a tutti i membri di un pool back-end durante la creazione della regola. Garantisce che tutte le istanze di annullamento della registrazione di un pool back-end non ricevano richieste nuove. Nel frattempo, le richieste esistenti possono essere completate entro un limite di tempo configurato. Lo svuotamento della connessione si applica alle istanze back-end che vengono esplicitamente rimosse dal pool back-end mediante una chiamata API. Si applica anche alle istanze back-end segnalate come non *integre* dai Probe di integrità.
 
@@ -272,7 +272,7 @@ Questa impostazione combinata con HTTPS nel listener supporta [SSL end-to-end](h
 
 Questa impostazione specifica la porta in cui i server back-end ascoltano il traffico dal gateway applicazione. È possibile configurare porte comprese tra 1 e 65535.
 
-### <a name="request-timeout"></a>Timeout della richiesta
+### <a name="request-timeout"></a>Timeout richiesta
 
 Questa impostazione indica il numero di secondi di attesa del gateway applicazione per la ricezione di una risposta dal pool back-end prima che venga restituito un messaggio di errore "timeout della connessione".
 
@@ -303,14 +303,14 @@ Questa impostazione consente di configurare un percorso di invio personalizzato 
 
 Si tratta di un collegamento all'interfaccia utente che seleziona le due impostazioni necessarie per il back-end del servizio app Azure. Consente **di selezionare il nome host dall'indirizzo back-end**e di creare un nuovo probe personalizzato. Per ulteriori informazioni, vedere la sezione [pick host name from back-end Address](#pick) setting di questo articolo. Viene creato un nuovo probe e l'intestazione del probe viene prelevata dall'indirizzo del membro back-end.
 
-### <a name="use-custom-probe"></a>Usa probe personalizzato
+### <a name="use-custom-probe"></a>USA Probe personalizzato
 
 Questa impostazione associa un [Probe personalizzato](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe) a un'impostazione http. È possibile associare un solo Probe personalizzato a un'impostazione HTTP. Se non si associa in modo esplicito un probe personalizzato, viene usato il [Probe predefinito](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe-settings) per monitorare l'integrità del back-end. Si consiglia di creare un probe personalizzato per un maggiore controllo sul monitoraggio dello stato dei back-end.
 
 > [!NOTE]
 > Il probe personalizzato non monitora l'integrità del pool back-end, a meno che l'impostazione HTTP corrispondente non sia associata in modo esplicito a un listener.
 
-### <a id="pick"/></a>Selezionare il nome host dall'indirizzo back-end
+### <a id="pick"/> @ no__t-1Pick nome host dall'indirizzo back-end
 
 Questa funzionalità imposta dinamicamente l'intestazione *host* nella richiesta sul nome host del pool back-end. Usa un indirizzo IP o un FQDN.
 
@@ -337,9 +337,9 @@ Se, ad esempio, *www.<i></i>contoso. com* è specificato nell'impostazione **nom
 
 Dopo aver creato un pool back-end, è necessario associarlo a una o più regole di routing delle richieste. È inoltre necessario configurare i probe di integrità per ogni pool back-end nel gateway applicazione. Quando viene soddisfatta una condizione della regola di routing richieste, il gateway applicazione lo trasmette ai server integri (come determinato dai Probe di integrità) nel pool back-end corrispondente.
 
-## <a name="health-probes"></a>Probe integrità
+## <a name="health-probes"></a>Probe di integrità
 
-Per impostazione predefinita, un gateway applicazione monitora l'integrità di tutte le risorse nel back-end. È tuttavia consigliabile creare un probe personalizzato per ogni impostazione HTTP back-end per ottenere un maggiore controllo sul monitoraggio dell'integrità. Per informazioni su come configurare un probe personalizzato, vedere Impostazioni del probe di [integrità personalizzato](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings).
+Per impostazione predefinita, un gateway applicazione monitora l'integrità di tutte le risorse nel back-end. È tuttavia consigliabile creare un probe personalizzato per ogni impostazione HTTP back-end per ottenere un maggiore controllo sul monitoraggio dell'integrità. Per informazioni su come configurare un probe personalizzato, vedere [impostazioni del probe di integrità personalizzato](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings).
 
 > [!NOTE]
 > Dopo aver creato un probe di integrità personalizzato, è necessario associarlo a un'impostazione HTTP back-end. Un probe personalizzato non monitorerà l'integrità del pool back-end, a meno che l'impostazione HTTP corrispondente non sia associata in modo esplicito a un listener.

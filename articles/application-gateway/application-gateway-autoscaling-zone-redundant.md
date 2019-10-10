@@ -1,20 +1,20 @@
 ---
-title: Scalabilità automatica e gateway applicazione con ridondanza della zona V2
+title: Gateway applicazione con scalabilità automatica e ridondanza della zona versione 2
 description: Questo articolo presenta lo SKU applicazione Azure Standard_v2 e WAF_v2, che include la scalabilità automatica e le funzionalità con ridondanza della zona.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/13/2019
+ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: b97dab0f41915ac6193c35cad9a6af812b16fd4a
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f58ac4448f50e8e02f2838fef02c9f884f69266b
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104878"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177444"
 ---
-# <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Scalabilità automatica e gateway applicazione con ridondanza della zona V2 
+# <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway applicazione con scalabilità automatica e ridondanza della zona versione 2 
 
 Il gateway applicazione e il Web Application Firewall (WAF) sono disponibili anche in uno SKU Standard_v2 e WAF_v2. Lo SKU V2 offre miglioramenti delle prestazioni e aggiunge il supporto per le nuove funzionalità critiche, come la scalabilità automatica, la ridondanza della zona e il supporto per gli indirizzi VIP statici. Le funzionalità esistenti con lo SKU standard e WAF continuano a essere supportate nella nuova SKU V2, con alcune eccezioni elencate nella sezione di [confronto](#differences-with-v1-sku) .
 
@@ -35,7 +35,7 @@ Il nuovo SKU v2 include i miglioramenti seguenti:
 
 ## <a name="supported-regions"></a>Aree supportate
 
-Lo SKU Standard_v2 e WAF_v2 è disponibile nelle aree geografiche seguenti: Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Europa settentrionale, Europa occidentale, Asia sudorientale, Francia centrale, Regno Unito occidentale, Giappone orientale, Giappone occidentale, Australia orientale, Australia sudorientale, Canada centrale, Canada orientale, Asia orientale, Corea Centrale, Corea meridionale, India meridionale, Regno Unito meridionale, India centrale, India occidentale, India meridionale.
+Lo SKU Standard_v2 e WAF_v2 è disponibile nelle aree geografiche seguenti: Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Europa settentrionale, Europa occidentale, Asia sudorientale, Francia centrale, Regno Unito occidentale, Giappone orientale, Giappone occidentale, Australia orientale, Australia sudorientale, Brasile meridionale, Canada centrale, Canada orientale, est Asia, Corea centrale, Corea meridionale, India meridionale, Regno Unito meridionale, India centrale, India occidentale, India meridionale.
 
 ## <a name="pricing"></a>Prezzi
 
@@ -118,7 +118,7 @@ Nella tabella seguente vengono confrontate le funzionalità disponibili in ogni 
 | Ridondanza della zona                                   |          | &#x2713; |
 | Indirizzo VIP statico                                        |          | &#x2713; |
 | Controller di ingresso del servizio Azure Kubernetes (AKS) |          | &#x2713; |
-| Integrazione di Azure Key Vault                       |          | &#x2713; |
+| Integrazione dell'insieme di credenziali delle chiavi di Azure                       |          | &#x2713; |
 | Riscrivi intestazioni HTTP (S)                           |          | &#x2713; |
 | Routing basato su URL                                 | &#x2713; | &#x2713; |
 | Hosting di più siti                             | &#x2713; | &#x2713; |
@@ -130,7 +130,7 @@ Nella tabella seguente vengono confrontate le funzionalità disponibili in ogni 
 | Pagine di errore personalizzate                                | &#x2713; | &#x2713; |
 | Supporto per WebSocket                                 | &#x2713; | &#x2713; |
 | Supporto HTTP/2                                    | &#x2713; | &#x2713; |
-| Svuotamento delle connessioni                               | &#x2713; | &#x2713; |
+| Esaurimento delle connessioni                               | &#x2713; | &#x2713; |
 
 > [!NOTE]
 > Lo SKU di scalabilità automatica V2 supporta ora i [Probe di integrità predefiniti](application-gateway-probe-overview.md#default-health-probe) per monitorare automaticamente l'integrità di tutte le risorse nel pool back-end ed evidenziare i membri back-end considerati non integri. Il probe di integrità predefinito viene configurato automaticamente per i backend che non dispongono di alcuna configurazione Probe personalizzata. Per altre informazioni, vedere [Probe di integrità nel gateway applicazione](application-gateway-probe-overview.md).

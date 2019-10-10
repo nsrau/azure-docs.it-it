@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c8a96a4557a500bd4726b8df44ada5df328b7c3
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 2aaa58d3027fecdbfdf594e5712cbdbd758380a7
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290895"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169825"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Richiedere l'accesso a un pacchetto di accesso in Azure AD gestione dei diritti (anteprima)
 
@@ -79,7 +79,7 @@ Dopo aver trovato il pacchetto di accesso nel portale di accesso personale, è p
 
     Se il pacchetto di accesso richiede l'approvazione, la richiesta è ora in uno stato di approvazione in sospeso.
 
-## <a name="cancel-a-request"></a>Annulla richiesta
+## <a name="cancel-a-request"></a>Annulla una richiesta
 
 Se si invia una richiesta di accesso e la richiesta è ancora in stato di **approvazione in sospeso** , è possibile annullare la richiesta.
 
@@ -95,7 +95,7 @@ Se si invia una richiesta di accesso e la richiesta è ancora in stato di **appr
 
 1. Fare clic su **Cronologia richieste** per confermare che la richiesta è stata annullata.
 
-## <a name="select-a-policy"></a>Selezionare i criteri
+## <a name="select-a-policy"></a>Selezionare un criterio
 
 Se si richiede l'accesso a un pacchetto di accesso con più criteri applicabili, potrebbe essere richiesto di selezionare un criterio. Una gestione pacchetti di Access, ad esempio, potrebbe configurare un pacchetto di accesso con due criteri per due gruppi di dipendenti interni. Il primo criterio potrebbe consentire l'accesso per 60 giorni e richiedere l'approvazione. Il secondo criterio potrebbe consentire l'accesso per 2 giorni e non richiede l'approvazione. Se si verifica questo scenario, è necessario selezionare il criterio che si desidera utilizzare.
 

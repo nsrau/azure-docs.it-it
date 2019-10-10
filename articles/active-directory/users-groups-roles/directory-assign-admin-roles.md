@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3992ea29d3d81262b5d9b8b126c8fca54feca67d
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d70a2aa6ad0e092fc6df9f5792029dc759345321
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026375"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169788"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -214,18 +214,19 @@ gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrativ
 
 ### <a name="global-readerglobal-reader-permissions"></a>[Lettore globale](#global-reader-permissions)
 
-Gli utenti con questo ruolo possono leggere le impostazioni e le informazioni amministrative tra Microsoft 365 servizi, ma non possono eseguire azioni di gestione. Global Reader è la controparte di sola lettura dell'amministratore globale. Assegnare il Reader globale anziché l'amministratore globale per la pianificazione, i controlli o le indagini. Usare Global Reader insieme ad altri ruoli amministrativi limitati, ad esempio amministratore di Exchange, per semplificare il lavoro senza richiamare il ruolo di amministratore globale. Global Reader funziona con il nuovo centro di amministrazione Microsoft 365, l'interfaccia di amministrazione di Exchange, l'interfaccia di amministrazione dei team, il Centro sicurezza, il centro di conformità, l'interfaccia di amministrazione di Azure AD e l'interfaccia di amministrazione di gestione dispositivi 
+Gli utenti con questo ruolo possono leggere le impostazioni e le informazioni amministrative tra Microsoft 365 servizi, ma non possono eseguire azioni di gestione. Global Reader è la controparte di sola lettura dell'amministratore globale. Assegnare il Reader globale anziché l'amministratore globale per la pianificazione, i controlli o le indagini. Usare Global Reader insieme ad altri ruoli amministrativi limitati, ad esempio amministratore di Exchange, per semplificare il lavoro senza assegnare il ruolo di amministratore globale. Global Reader funziona con Microsoft 365 interfaccia di amministrazione, l'interfaccia di amministrazione di Exchange, l'interfaccia di amministrazione dei team, il Centro sicurezza, il centro di conformità, il centro di amministrazione di Azure AD e l'interfaccia di amministrazione di gestione
 
 > [!NOTE]
-> Il ruolo di lettore globale presenta ora le limitazioni seguenti:
->* Interfaccia di amministrazione di SharePoint: il centro di amministrazione di SharePoint non supporta il ruolo di lettore globale. Quindi, nel riquadro sinistro dell'interfaccia di [amministrazione di M365](https://admin.microsoft.com/Adminportal/Home#/homepage)non sarà visualizzato "SharePoint". Si otterrà l'accesso negato quando si passa a https:///{nome tenant}-admin.sharepoint.com. 
+> Il ruolo di lettore globale presenta alcune limitazioni in questo momento:
+>
+>* Interfaccia di amministrazione di SharePoint: il centro di amministrazione di SharePoint non supporta il ruolo di lettore globale. ' SharePoint ' non verrà visualizzato nel riquadro sinistro in centri di amministrazione in Microsoft 365 interfaccia di [Amministrazione](https://admin.microsoft.com/Adminportal/Home#/homepage)e si otterrà l'accesso negato quando si tenta di passare a *https://{Azure ad nome organizzazione}-admin.SharePoint.com*.
 >* [Azure ad portale](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) -lettore globale non è in grado di leggere la modalità di provisioning di un'app aziendale.
->* Interfaccia di [amministrazione di M365](https://admin.microsoft.com/Adminportal/Home#/homepage) : il lettore globale non può leggere le richieste di cusomter. La scheda richieste archivio clienti non è disponibile in supporto nel riquadro sinistro dell'interfaccia di amministrazione di M365.
->* [Centro sicurezza M365](https://security.microsoft.com/homepage) : il lettore globale non è in grado di leggere le etichette di riservatezza e conservazione. Non sono disponibili etichette di riservatezza, etichette di conservazione e schede di analisi etichette nel riquadro sinistro in classificazione nel centro sicurezza M365.
->* Interfaccia di [amministrazione dei team](https://admin.teams.microsoft.com) : il lettore globale non è in grado di leggere il ciclo di vita dei team, i report & analisi chiamate, la gestione dei dispositivi telefoni IP
->* [Privileged Access Management (PAM)](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) non supporta il Reader globale.
-> 
-> Il supporto per queste funzionalità verrà effettuato nel tempo.
+>* Interfaccia di [amministrazione di M365](https://admin.microsoft.com/Adminportal/Home#/homepage) : Impossibile leggere le richieste dell'archivio clienti. Non è possibile trovare la scheda **richieste di archivio archivi clienti** in **supporto** nel riquadro sinistro dell'interfaccia di amministrazione di M365.
+>* [Centro sicurezza M365](https://security.microsoft.com/homepage) : il lettore globale non è in grado di leggere le etichette di riservatezza e conservazione. Non sono disponibili le **etichette di riservatezza**, le **etichette di conservazione**e le schede di **analisi etichette** nel riquadro sinistro del Centro sicurezza M365.
+>* Interfaccia di [amministrazione dei team](https://admin.teams.microsoft.com) : il lettore globale non è in grado di leggere il ciclo **di vita**dei **Team**, i **report di analisi &** , la **gestione dei dispositivi Phone**
+>* [Privileged Access Management (PAM)](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) non supporta il ruolo di lettore globale.
+>
+> Queste funzionalità sono attualmente in fase di sviluppo.
 >
 
 ### <a name="guest-inviterguest-inviter-permissions"></a>[Invito Guest](#guest-inviter-permissions)

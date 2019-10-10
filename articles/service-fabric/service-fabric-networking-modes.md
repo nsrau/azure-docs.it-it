@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: d749e1355e69ad93c8c211474043f88127ec76f0
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.author: atsenthi
+ms.openlocfilehash: aa7b63453a5147742e27b9bb32ad05221e745f8c
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599398"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168795"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modalità di rete del contenitore di Service Fabric
 
@@ -203,7 +203,7 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
    |Impostazione |Value | |
    | --- | --- | --- |
    |Priority |2000 | |
-   |Name |Custom_Dns  | |
+   |NOME |Custom_Dns  | |
    |Source |VirtualNetwork | |
    |Destination | VirtualNetwork | |
    |Service | DNS (UDP/53) | |

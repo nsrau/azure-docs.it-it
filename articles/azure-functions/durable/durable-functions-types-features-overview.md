@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 7b395bd6024beb52b9263ac4fe655b5328a8e662
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
+ms.lasthandoff: 10/09/2019
 ms.locfileid: "70933146"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Tipi e funzionalità di Durable Functions (funzioni di Azure)
 
-Durable Functions è un'estensione di [funzioni di Azure](../functions-overview.md). È possibile utilizzare Durable Functions per l'orchestrazione con stato dell'esecuzione della funzione. Un'app per le funzioni durevole è una soluzione costituita da funzioni di Azure diverse. Le funzioni possono svolgere ruoli diversi in un'orchestrazione di funzioni permanenti. 
+Durable Functions è un'estensione di [Funzioni di Azure](../functions-overview.md). È possibile utilizzare Durable Functions per l'orchestrazione con stato dell'esecuzione della funzione. Un'app per le funzioni durevole è una soluzione costituita da funzioni di Azure diverse. Le funzioni possono svolgere ruoli diversi in un'orchestrazione di funzioni permanenti. 
 
 In funzioni di Azure sono attualmente disponibili quattro tipi di funzioni permanenti: attività, agente di orchestrazione, entità e client. Nella parte restante di questa sezione vengono illustrati in modo più dettagliato i tipi di funzioni di un'orchestrazione.
 
@@ -40,17 +40,17 @@ Diversamente dalle funzioni dell'agente di orchestrazione, le funzioni di attivi
 > [!NOTE]
 > Poiché le funzioni di attività garantiscono solo l'esecuzione *almeno una volta* , è consigliabile rendere la logica della funzione di attività *idempotente* quando possibile.
 
-Usare un [trigger di attività](durable-functions-bindings.md#activity-trigger) per definire una funzione di attività. Le funzioni .NET ricevono un [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) come parametro. È anche possibile associare il trigger a qualsiasi altro oggetto serializzabile in JSON per passare gli input alla funzione. In JavaScript, è possibile accedere a un input tramite `<activity trigger binding name>` la proprietà [ `context.bindings` nell'oggetto](../functions-reference-node.md#bindings). Alle funzioni di attività può essere passato un solo valore. Per passare più valori, è necessario utilizzare tuple, matrici o tipi complessi.
+Usare un [trigger di attività](durable-functions-bindings.md#activity-trigger) per definire una funzione di attività. Le funzioni .NET ricevono un [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) come parametro. È anche possibile associare il trigger a qualsiasi altro oggetto serializzabile in JSON per passare gli input alla funzione. In JavaScript è possibile accedere a un input tramite la proprietà `<activity trigger binding name>` nell' [oggetto `context.bindings`](../functions-reference-node.md#bindings). Alle funzioni di attività può essere passato un solo valore. Per passare più valori, è necessario utilizzare tuple, matrici o tipi complessi.
 
 > [!NOTE]
 > È possibile attivare una funzione di attività solo da una funzione dell'agente di orchestrazione.
 
 ## <a name="entity-functions"></a>Funzioni di entità
 
-Le funzioni di entità definiscono le operazioni per la lettura e l'aggiornamento di piccole parti di stato. Spesso si fa riferimento a queste entità con stato come *entità durevoli*. Come le funzioni dell'agente di orchestrazione, le funzioni di entità sono funzioni con un tipo di trigger speciale, *trigger di entità*. Possono anche essere richiamate dalle funzioni client o dalle funzioni dell'agente di orchestrazione. Diversamente dalle funzioni dell'agente di orchestrazione, le funzioni di entità non hanno vincoli di codice specifici. Anche le funzioni di entità gestiscono lo stato in modo esplicito anziché rappresentare in modo implicito lo stato tramite flusso di controllo.
+Le funzioni di entità definiscono le operazioni per la lettura e l'aggiornamento di piccole parti di stato. Spesso si fa riferimento a queste entità con stato come *entità durevoli*. Come le funzioni dell'agente di orchestrazione, le funzioni di entità sono funzioni con un tipo di trigger speciale, il *trigger di entità*. Possono anche essere richiamate dalle funzioni client o dalle funzioni dell'agente di orchestrazione. Diversamente dalle funzioni dell'agente di orchestrazione, le funzioni di entità non hanno vincoli di codice specifici. Le funzioni di entità, inoltre, gestiscono lo stato in modo esplicito anziché in modo implicito, rappresentandolo tramite flusso di controllo.
 
 > [!NOTE]
-> Le funzioni di entità e le funzionalità correlate sono disponibili solo in Durable Functions 2,0 e versioni successive. Le funzioni di entità sono attualmente in anteprima pubblica.
+> Le funzioni di entità e le funzionalità correlate sono disponibili solo in Durable Functions 2.0 e versioni successive. Le funzioni di entità sono attualmente disponibili in versione di anteprima pubblica.
 
 Per altre informazioni sulle funzioni di entità, vedere l'articolo sulle [entità durevoli](durable-functions-entities.md) .
 

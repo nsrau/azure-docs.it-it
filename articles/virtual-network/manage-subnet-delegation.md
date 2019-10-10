@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2019
 ms.author: kumud
-ms.openlocfilehash: 9bf44aa5ab18f94ec91650548dc13360ce1b1f3d
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 5fa340fc3c839d74f292f551b73184ea4df1c0f1
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71938499"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72175960"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Aggiungere o rimuovere una delega della subnet
 
@@ -36,8 +36,8 @@ In questa sezione viene creata una rete virtuale e la subnet che verrà successi
 
     | Impostazione | Valore |
     | ------- | ----- |
-    | Attività | Immettere *MyVirtualNetwork*. |
-    | Spazio indirizzi | Immettere *10.0.0.0/16*. |
+    | NOME | Immettere *MyVirtualNetwork*. |
+    | Spazio degli indirizzi | Immettere *10.0.0.0/16*. |
     | Sottoscrizione | Selezionare la propria sottoscrizione.|
     | Gruppo di risorse | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
     | Location | Selezionare **eastus**.|
@@ -45,6 +45,12 @@ In questa sezione viene creata una rete virtuale e la subnet che verrà successi
     | Subnet - Intervallo di indirizzi | Immettere *10.0.0.0/24*. |
     |||
 1. Lasciare l'impostazione predefinita REST e quindi selezionare **Crea**.
+
+## <a name="permissons"></a>Autorizzazioni
+
+Se non è stata creata la subnet da delegare a un servizio di Azure, è necessaria l'autorizzazione seguente: `Microsoft.Network/virtualNetworks/subnets/write`.
+
+Il ruolo predefinito [collaboratore rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) contiene anche le autorizzazioni necessarie.
 
 ## <a name="delegate-a-subnet-to-an-azure-service"></a>Delegare una subnet a un servizio di Azure
 

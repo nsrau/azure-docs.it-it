@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 6916eea26f03d7b9cd0b3792fa65354619f97f74
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.author: atsenthi
+ms.openlocfilehash: 6471d3f58fbe0e19910f39e9527f193d00a228be
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828498"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170611"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
 > [!div class="op_single_selector"]
@@ -178,8 +178,8 @@ Il runtime di Service Fabric fornito con l'installazione dell'SDK include i pacc
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicito da npm | latest |
-RHEL | - | OpenJDK 1.8 | Implicito da npm | latest |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicito da npm | più recenti |
+RHEL | - | OpenJDK 1.8 | Implicito da npm | più recenti |
 
 ## <a name="set-up-a-local-cluster"></a>Configurare un cluster locale
 Dopo aver completato l'installazione, avviare un cluster locale.
@@ -272,7 +272,7 @@ Per compilare servizi di Service Fabric con Java, installare Gradle per eseguire
 > 
 > In Ubuntu si consiglia di eseguire l'installazione direttamente dal sito di Eclipse invece di usare un programma di installazione di pacchetti (`apt` o `apt-get`). In questo modo si è certi di ottenere la versione più aggiornata di Eclipse. È possibile installare l'IDE di Eclipse per sviluppatori Java o per sviluppatori Java EE.
 
-1. In Eclipse verificare che siano installati Eclipse Neon o versione successiva e Buildship versione 2.2.1 o successiva. Controllare le versioni dei componenti installati selezionando **Help** > **About Eclipse** > **Installation Details** (?, Informazioni su Eclipse, Dettagli installazione). È possibile aggiornare Buildship seguendo le istruzioni riportate in [Eclipse Buildship: Plug-in di Eclipse per][buildship-update]Gradle.
+1. In Eclipse verificare che siano installati Eclipse Neon o versione successiva e Buildship versione 2.2.1 o successiva. Controllare le versioni dei componenti installati selezionando **Help** > **About Eclipse** > **Installation Details** (?, Informazioni su Eclipse, Dettagli installazione). È possibile aggiornare Buildship seguendo le istruzioni riportate in [Eclipse Buildship: Plug-in di Eclipse per Gradle @ no__t-0.
 
 2. Per installare il plug-in Service Fabric, selezionare **Help** > **Install New Software** (? > Installa nuovo software).
 
