@@ -196,6 +196,8 @@
               href: disk-encryption-cli-quickstart.md
             - name: Crittografia di VM con Azure PowerShell
               href: disk-encryption-powershell-quickstart.md
+            - name: Crittografia di VM con il portale di Azure
+              href: disk-encryption-portal-quickstart.md
             - name: Key Vault per Crittografia dischi di Azure
               href: disk-encryption-key-vault.md
             - name: Script di esempio per la crittografia dei dischi

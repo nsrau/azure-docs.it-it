@@ -1,89 +1,111 @@
-items:
 - name: Documentazione di Ansible in Azure
   href: ./index.yml
 - name: Panoramica
   items:
-  - name: Informazioni su Ansible in Azure
-    href: ./ansible-overview.md
+    - name: Informazioni su Ansible in Azure
+      href: ./ansible-overview.md
 - name: Guide introduttive
-  items:
-  - name: Distribuire il modello di soluzione Ansible
-    href: ./ansible-deploy-solution-template.md
-  - name: Installare Ansible in una VM Linux
-    href: /azure/virtual-machines/linux/ansible-install-configure
-    maintainContext: true
-  - name: Creare una macchina virtuale Linux
-    href: /azure/virtual-machines/linux/ansible-create-vm
-    maintainContext: true
-  - name: Gestire una VM Linux
-    href: /azure/virtual-machines/linux/ansible-manage-linux-vm
-    maintainContext: true
-  - name: Eseguire un playbook in Cloud Shell
-    href: ./ansible-run-playbook-in-cloudshell.md
   expanded: true
+  items:
+    - name: Distribuire il modello di soluzione Ansible in CentOS
+      href: ./ansible-deploy-solution-template.md
+    - name: Installare Ansible in macchine virtuali Linux
+      href: /azure/virtual-machines/linux/ansible-install-configure
+      maintainContext: true
+    - name: Eseguire playbook in Cloud Shell
+      href: ./ansible-run-playbook-in-cloudshell.md
+    - name: Usare macchine virtuali Linux
+      expanded: true
+      items:
+        - name: Configurare le macchine virtuali Linux
+          href: /azure/virtual-machines/linux/ansible-create-vm
+          maintainContext: true
+        - name: Gestire le macchine virtuali Linux
+          href: /azure/virtual-machines/linux/ansible-manage-linux-vm
+          maintainContext: true
 - name: Esercitazioni
   items:
-  - name: servizio Azure Container
-    items:
-    - name: Creare e configurare cluster di servizio Azure Kubernetes
-      href: ./ansible-create-configure-aks.md
-  - name: Servizio app
-    items:
-    - name: Creare e configurare app Web di Azure
-      href: ./ansible-create-configure-azure-web-apps.md
-    - name: Ridimensionare app Web di Azure
-      href: ./ansible-scale-azure-web-apps.md
-  - name: Gateway applicazione
-    items:
-    - name: Creare e configurare il gateway applicazione di Azure
-      href: ./ansible-create-configure-application-gateway.md
-  - name: Database
-    items:
-    - name: Creare e configurare Database di Azure per MySQL
-      href: ./ansible-create-configure-mysql.md
-  - name: Inventario dinamico
-    items:
-    - name: Gestire gli inventari dinamici
-      href: ./ansible-manage-azure-dynamic-inventories.md
-  - name: Rete virtuale
-    items:
-    - name: Creare e configurare tabelle di route
-      href: ./ansible-create-configure-route-table.md
-  - name: VMSS
-    items:
-    - name: Creare e configurare VMSS
-      href: ./ansible-create-configure-vmss.md
-    - name: Distribuire app in VMSS
-      href: ./ansible-deploy-app-vmss.md
-    - name: Ridimensionare automaticamente i set di scalabilità di macchine virtuale
-      href: ./ansible-auto-scale-vmss.md
+    - name: Gateway applicazione di Azure
+      items:
+        - name: Gestire il traffico Web
+          href: ./ansible-create-configure-application-gateway.md
+    - name: Servizio app di Azure
+      items:
+        - name: Configurare le app
+          href: ./ansible-create-configure-azure-web-apps.md
+        - name: Ridimensionare le app
+          href: ./ansible-scale-azure-web-apps.md
+    - name: Azure DevTest Labs
+      items:
+        - name: Configurare i lab
+          href: ./ansible-devtest-labs-configure.md
+    - name: Servizio Azure Kubernetes
+      items:
+        - name: Configurare i cluster del servizio Azure Kubernetes
+          href: ./ansible-create-configure-aks.md
+        - name: Configurare le funzionalità di rete dell'interfaccia di rete dei contenitori di Azure
+          href: ./ansible-aks-configure-cni-networking.md
+        - name: Configurare le funzionalità di rete kubenet
+          href: ./ansible-aks-configure-kubenet-networking.md
+        - name: Configurare i ruoli Controllo degli accessi in base al ruolo in un cluster del servizio Azure Kubernetes
+          href: ./ansible-aks-configure-rbac.md
+    - name: HDInsight di Azure
+      items:
+        - name: Configurare i cluster
+          href: ./ansible-azure-hdinsight-configure.md
+    - name: Bus di servizio di Azure
+      items:
+        - name: Configurare le code
+          href: ./ansible-service-bus-queue-configure.md
+        - name: Configurare gli argomenti
+          href: ./ansible-service-bus-topic-configure.md
+    - name: Database
+      items:
+        - name: Configurare Database di Azure per MySQL
+          href: ./ansible-create-configure-mysql.md
+        - name: Configurare gli account Azure Cosmos DB
+          href: ./ansible-data-cosmos-configure.md
+        - name: Configurare Cache Redis di Azure
+          href: ./ansible-data-cache-for-redis-configure.md
+    - name: Inventario dinamico
+      items:
+        - name: Gestire le risorse di Azure
+          href: ./ansible-manage-azure-dynamic-inventories.md
+    - name: Set di scalabilità di macchine virtuali
+      items:
+        - name: Configurare
+          href: ./ansible-create-configure-vmss.md
+        - name: Distribuire
+          href: ./ansible-deploy-app-vmss.md
+        - name: Autoscale
+          href: ./ansible-auto-scale-vmss.md
+        - name: Aggiornare un'immagine personalizzata
+          href: ./ansible-vmss-update-image.md
+    - name: Rete virtuale
+      items:
+        - name: Configurare il peering
+          href: ./ansible-vnet-peering-configure.md
+        - name: Configurare le tabelle di route
+          href: ./ansible-create-configure-route-table.md
+- name: Esempi
+  items:
+    - name: Lab Ansible per Azure
+      href: 'https://github.com/microsoft/ansiblelabs'
+    - name: Esempi di playbook di Ansible Azure
+      href: 'https://github.com/Azure-Samples/ansible-playbooks'
 - name: riferimento
   items:
-  - name: Ruoli dei playbook
-    items:
-    - name: azure_module
-      href: https://galaxy.ansible.com/Azure/azure_modules/
-    - name: azure_preview_module
-      href: https://galaxy.ansible.com/Azure/azure_preview_modules
-  - name: Versioni e funzionalità
-    href: ./ansible-matrix.md
-  - name: Istanze di Azure Container
-    href: https://docs.ansible.com/ansible/latest/azure_rm_containerinstance_module.html
-  - name: Funzioni di Azure
-    href: https://docs.ansible.com/ansible/latest/azure_rm_functionapp_module.html
-  - name: Servizi di bilanciamento del carico
-    href: https://docs.ansible.com/ansible/latest/azure_rm_loadbalancer_module.html
-  - name: Macchine virtuali
-    href: https://docs.ansible.com/ansible/latest/azure_rm_virtualmachine_module.html
-  - name: Tutti i moduli per Azure
-    href: https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure
+    - name: Ruoli dei playbook
+      items:
+        - name: azure_module
+          href: 'https://galaxy.ansible.com/Azure/azure_modules/'
+        - name: azure_preview_module
+          href: 'https://galaxy.ansible.com/Azure/azure_preview_modules'
+    - name: Versioni e funzionalità
+      href: ./ansible-matrix.md
+    - name: Tutti i moduli per Azure
+      href: 'https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure'
 - name: Strumenti
   items:
-  - name: Estensione Visual Studio Code per Ansible
-    href: https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible
-ms.openlocfilehash: a3f1dcf9c7672938b35ba5615c8d901cbd1d1332
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226639"
+    - name: Estensione Visual Studio Code per Ansible
+      href: 'https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible'

@@ -9,14 +9,18 @@ ms.service: app-service-mobile
 ms.topic: landing-page
 ms.date: 05/25/2018
 ms.author: gwallace
-ms.openlocfilehash: 5526f7ce11722469909adfaad11773bc2c8e4b66
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 38b1acad5e8eb869d1ed2a8d218a2416bd3b8098
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610221"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024743"
 ---
 # <a name="mobile-apps-documentation"></a>Documentazione sulle app per dispositivi mobili
+
+> [!NOTE]
+> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
+> Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
 Informazioni su come usare App per dispositivi mobili nel Servizio app di Azure per creare app iOS, Android o Windows native oppure app multipiattaforma tramite Xamarin o Cordova. Esercitazioni, video, documentazioni SDK client e altri materiali in cui viene illustrato come creare e ospitare il backend per ogni app per dispositivi mobili.
 

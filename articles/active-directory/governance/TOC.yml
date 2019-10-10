@@ -19,6 +19,8 @@
   items:
     - name: Gestione entitlement
       items:
+        - name: Delega e ruoli
+          href: entitlement-management-delegate.md
         - name: Processo di richiesta e messaggi di posta elettronica
           href: entitlement-management-process.md
     - name: Verifiche di accesso
@@ -36,17 +38,21 @@
       items:
         - name: Scenari comuni
           href: entitlement-management-scenarios.md
-        - name: Amministratori e responsabili di reparto
+        - name: Administrators
           items:
-            - name: Delegare attività
-              href: entitlement-management-delegate.md
-            - name: Creare un catalogo di risorse
-              href: entitlement-management-catalog-create.md
+            - name: Delega agli autori di cataloghi
+              href: entitlement-management-delegate-catalog.md
             - name: Visualizzare report e log
               href: entitlement-management-reports.md
             - name: Risolvere problemi
               href: entitlement-management-troubleshoot.md
-        - name: Project manager
+        - name: Proprietari di cataloghi
+          items:
+            - name: Creare un catalogo di risorse
+              href: entitlement-management-catalog-create.md
+            - name: Delega ai responsabili di pacchetti di accesso
+              href: entitlement-management-delegate-managers.md
+        - name: Responsabili di pacchetti di accesso
           items:
             - name: Creare un nuovo pacchetto di accesso
               href: entitlement-management-access-package-create.md

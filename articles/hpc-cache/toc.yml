@@ -36,3 +36,5 @@
   items:
     - name: Aprire un ticket di supporto
       href: hpc-cache-support-ticket.md
+    - name: Ripristino dopo un'interruzione a livello di area
+      href: hpc-region-recovery.md

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentazione di Visione personalizzata
-summary: Visione personalizzata di Azure è un servizio cognitivo che consente di compilare, distribuire e migliorare classificatori di immagini. Un classificatore di immagini è un servizio di intelligenza artificiale che applica etichette (che rappresentano classi) alle immagini, in base alle relative caratteristiche visive.
+summary: Visione personalizzata è un servizio cognitivo che consente di compilare, distribuire e migliorare classificatori di immagini. Un classificatore di immagini è un servizio di intelligenza artificiale che applica etichette (che rappresentano classi) alle immagini, in base alle relative caratteristiche visive.
 metadata:
   title: Documentazione di Visione personalizzata
-  description: Visione personalizzata di Azure è un servizio cognitivo che consente di compilare, distribuire e migliorare classificatori di immagini. Un classificatore di immagini è un servizio di intelligenza artificiale che applica etichette (che rappresentano classi) alle immagini, in base alle relative caratteristiche visive.
+  description: Visione personalizzata è un servizio cognitivo che consente di compilare, distribuire e migliorare classificatori di immagini. Un classificatore di immagini è un servizio di intelligenza artificiale che applica etichette (che rappresentano classi) alle immagini, in base alle relative caratteristiche visive.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: custom-vision
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 931f67bd0f5c73426781da39ded3bcfff0a8dea3
-  ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+  ms.openlocfilehash: 5be5dcd64345de32e37413932869574391573c60
+  ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/24/2019
-  ms.locfileid: "71211968"
+  ms.lasthandoff: 10/09/2019
+  ms.locfileid: "72176177"
 landingContent:
 - title: Informazioni su Visione personalizzata
   linkLists:

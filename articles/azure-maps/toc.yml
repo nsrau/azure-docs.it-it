@@ -105,6 +105,8 @@
               href: map-add-line-layer.md
             - name: Aggiungere un livello per i poligoni
               href: map-add-shape.md
+            - name: Aggiungere un livello per i poligoni di estrusione
+              href: map-extruded-polygon.md
             - name: Aggiungere un livello per le mappe termiche
               href: map-add-heat-map-layer.md
             - name: Aggiungere un popup
