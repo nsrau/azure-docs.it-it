@@ -8,10 +8,10 @@ metadata:
   author: ekpgh
   ms.service: avere-vfxt
   ms.topic: landing-page
-  ms.date: 10/31/2018
-  ms.author: v-erkell
+  ms.date: 10/09/2019
+  ms.author: rohogue
 abstract:
-  description: 'Avere vFXT per Azure offre un livello di cache basato sul cloud per attività HPC (High Performance Computing) a elevato utilizzo di dati. Grazie alla memorizzazione dei file vicino ai nodi di calcolo, Avere vFXT riduce i tempi di lettura e consente di lavorare in modo più uniforme anche durante i picchi di carico. Avere vFXT funziona in modo ottimale con sistemi che includono tra 1.000 e 40.000 core client. <p>Avere vFXT può interagire con le risorse di archiviazione dati locali esistenti per offrire alle risorse di calcolo basate su Azure l''accesso locale ai file attivi archiviati a lungo termine nel data center.'
+  description: 'Avere vFXT per Azure offre un livello di cache basato sul cloud per attività HPC (High Performance Computing) a elevato utilizzo di dati. Grazie alla memorizzazione dei file vicino ai nodi di calcolo, Avere vFXT riduce i tempi di lettura e consente di lavorare in modo più uniforme anche durante i picchi di carico. Avere vFXT funziona in modo ottimale con sistemi che includono tra 1.000 e 40.000 core client. <p>Avere vFXT, insieme all''archiviazione dati esistente, avvicina i file alle risorse di calcolo basate su Azure. I file attivi restano comunque archiviati nel data center per la conservazione a lungo termine.'
 sections:
   - title: Introduzione ad Avere vFXT per Azure
     items:

@@ -1,17 +1,17 @@
 ---
-title: Esempi - Progetto ISO 27001 - Panoramica
-description: Panoramica dell'esempio di progetto ISO 27001.
+title: Esempio - Progetto ISO 27001 - Panoramica
+description: Panoramica dell'esempio di progetto ISO 27001. Questo esempio di progetto consente ai clienti di valutare specifici controlli ISO 27001.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 07/22/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 523babe60b87c80d2ff1e9aae53b53d3632495ad
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: dc58038497ade11ef23f4e8c1bd3b5254006455c
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978265"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248883"
 ---
 # <a name="overview-of-the-iso-27001-blueprint-sample"></a>Panoramica dell'esempio di progetto ISO 27001
 
