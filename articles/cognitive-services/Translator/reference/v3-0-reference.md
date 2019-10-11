@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: cb5a3b8572cebfd6c0731a9e572e966fda280be6
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: a441ca83230a1c715aadda79683964aaab6d6213
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772792"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72252967"
 ---
 # <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
 
@@ -26,7 +26,7 @@ La versione 3 dell'API Traduzione testuale fornisce un'API Web moderna basata su
  * Traslitterazione per convertire il testo in una lingua da un carattere all'altro.
  * Traduzione in più lingue in una sola richiesta.
  * Rilevamento della lingua, traduzione e traslitterazione in una sola richiesta.
- * Dizionario per la ricerca di traduzioni alternative di un termine, traduzioni inverse ed esempi dell'uso dei termini nel contesto.
+ * Dizionario per cercare le traduzioni alternative di un termine, per trovare le traduzioni e gli esempi che mostrano i termini usati nel contesto.
  * Altri risultati informativi sul rilevamento della lingua.
 
 ## <a name="base-urls"></a>URL di base
@@ -48,32 +48,31 @@ Per forzare la gestione della richiesta da parte di una specifica area geografic
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Asia/Pacifico|    api-apc.cognitive.microsofttranslator.com|
 
-
 ## <a name="authentication"></a>Authentication
 
-Sottoscrivere la [funzionalità multiservizio di API traduzione testuale o servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/) in Servizi cognitivi Microsoft e usare la chiave di sottoscrizione (disponibile nella portale di Azure) per l'autenticazione. 
+Sottoscrivere la [funzionalità multiservizio di API traduzione testuale o servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/) in Servizi cognitivi di Azure e usare la chiave di sottoscrizione (disponibile nella portale di Azure) per l'autenticazione. 
 
-Sono tre le intestazioni che è possibile usare per autenticare la sottoscrizione. Questa tabella spiega come usare ogni intestazione:
+Sono tre le intestazioni che è possibile usare per autenticare la sottoscrizione. Questa tabella descrive il modo in cui viene usato ogni:
 
-|Intestazioni|DESCRIZIONE|
+|Headers|Descrizione|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Usare con la sottoscrizione di Servizi cognitivi se si passa la chiave privata*.<br/>Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.|
 |Authorization|*Usare con la sottoscrizione di Servizi cognitivi se si passa un token di autenticazione*.<br/>Il valore è il token di connessione: `Bearer <token>`.|
-|Ocp-Apim-Subscription-Region|*Usare con la sottoscrizione multiservizio di servizi cognitivi se si passa una chiave privata a più servizi.*<br/>Il valore è l'area della sottoscrizione multiservizio. Questo valore è facoltativo se non si utilizza una sottoscrizione multiservizio.|
+|Ocp-Apim-Subscription-Region|*Usare con la sottoscrizione multiservizio di servizi cognitivi se si passa una chiave privata con più servizi.*<br/>Il valore è l'area della sottoscrizione multiservizio. Questo valore è facoltativo se non si utilizza una sottoscrizione multiservizio.|
 
 ###  <a name="secret-key"></a>Chiave privata
-La prima opzione consiste nell'eseguire l'autenticazione usando l'intestazione `Ocp-Apim-Subscription-Key`. Aggiungere semplicemente l'intestazione `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` alla richiesta.
+La prima opzione consiste nell'eseguire l'autenticazione usando l'intestazione `Ocp-Apim-Subscription-Key`. Aggiungere l'intestazione `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` alla richiesta.
 
 ### <a name="authorization-token"></a>Token di autorizzazione
 In alternativa, è possibile scambiare la chiave privata con un token di accesso. Questo token viene incluso in ogni richiesta come intestazione `Authorization`. Per ottenere un token di autorizzazione, effettuare una richiesta `POST` all'URL seguente:
 
-| Ambiente     | URL servizio di autenticazione                                |
+| Environment     | URL servizio di autenticazione                                |
 |-----------------|-----------------------------------------------------------|
 | Azure           | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
 Di seguito sono riportati esempi di richieste per ottenere un token con una chiave privata:
 
-```
+```curl
 // Pass secret key using header
 curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
 
@@ -83,11 +82,11 @@ curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscrip
 
 Una richiesta con esito positivo restituisce il token di accesso codificato come testo normale nel corpo della risposta. Il token valido viene passato al servizio Translator come token di connessione nell'autorizzazione.
 
-```
+```http
 Authorization: Bearer <Base64-access_token>
 ```
 
-Un token di autenticazione è valido per 10 minuti. Il token deve essere riutilizzato quando si effettuano più chiamate alle API del servizio Translator. Tuttavia, se il programma effettua richieste all'API del servizio Translator per un periodo di tempo prolungato, il programma deve richiedere un nuovo token di accesso a intervalli regolari (ad esempio, ogni 8 minuti).
+Un token di autenticazione è valido per 10 minuti. Il token deve essere riutilizzato quando si effettuano più chiamate alle API di conversione. Tuttavia, se il programma effettua richieste all'API di traduzione in un periodo di tempo prolungato, il programma deve richiedere un nuovo token di accesso a intervalli regolari, ad esempio ogni 8 minuti.
 
 ### <a name="multi-service-subscription"></a>Sottoscrizione multiservizio
 
@@ -99,7 +98,7 @@ Quando si usa una chiave privata a più servizi, è necessario includere due int
 
 L'area è obbligatoria per la sottoscrizione dell'API del testo multiservizio. L'area selezionata è l'unica area che è possibile usare per la traduzione di testo quando si usa la chiave di sottoscrizione multiservizio e deve essere la stessa area selezionata al momento dell'iscrizione per la sottoscrizione multiservizio tramite il portale di Azure.
 
-Le aree disponibili `australiaeast`sono `brazilsouth` `centralindia` ,,`centraluseuap` ,,`eastus2`,, ,`eastus`,, ,,`japaneast`, `eastasia` `canadacentral` `centralus` `francecentral` `japanwest` `koreacentral`, ,`northcentralus` ,`southcentralus`, ,`uksouth`,,,, e`westus2`. `westeurope` `westcentralus` `southeastasia` `northeurope` `westus` `southafricanorth`
+Le aree disponibili sono `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, @no__ t-21 e 2.
 
 Se si passa la chiave privata nella stringa di query con il parametro `Subscription-Key`, è necessario specificare l'area con il parametro di query `Subscription-Region`.
 
@@ -111,12 +110,11 @@ Se si usa un bearer token, è necessario ottenere il token dall'endpoint di area
 Una risposta di errore standard è un oggetto JSON con coppia nome/valore denominato `error`. Il valore è anche un oggetto JSON con proprietà:
 
   * `code`: codice di errore definito dal server.
-
   * `message`: stringa che fornisce una rappresentazione dell'errore leggibile dall'utente.
 
 Ad esempio, un cliente con una sottoscrizione della versione di valutazione gratuita riceverebbe l'errore seguente al superamento della quota gratuita:
 
-```
+```json
 {
   "error": {
     "code":403001,
@@ -126,7 +124,7 @@ Ad esempio, un cliente con una sottoscrizione della versione di valutazione grat
 ```
 Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. Codici errore comuni sono:
 
-| Codice | DESCRIZIONE |
+| Codice | Descrizione |
 |:----|:-----|
 | 400000| Uno degli input della richiesta non è valido.|
 | 400001| Il parametro "scope" non è valido.|
@@ -156,7 +154,7 @@ Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 
 | 400079| Il sistema personalizzato richiesto per la traduzione da/verso la lingua non esiste.|
 | 400080| La traslitterazione non è supportata per il linguaggio o lo script.|
 | 401000| La richiesta non è autorizzata perché le credenziali mancano o non sono valide.|
-| 401015| "Le credenziali specificate si riferiscono a Speech API. Per questa richiesta sono necessarie le credenziali per l'API Testo. Usare una sottoscrizione all'API Traduzione testuale."|
+| 401015| "Le credenziali specificate si riferiscono a Speech API. Per questa richiesta sono necessarie le credenziali per l'API Testo. Usare una sottoscrizione per API Traduzione testuale ".|
 | 403000| L'operazione non è consentita.|
 | 403001| L'operazione non è consentita perché la sottoscrizione ha superato la quota gratuita.|
 | 405000| Il metodo della richiesta non è supportato per la risorsa richiesta.|

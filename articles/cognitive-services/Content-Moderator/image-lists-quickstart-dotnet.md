@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 915b308b0129d714e51ac50b4230d8447b5c933a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 63eb2285563bf83ac56beb03ff008a2bfa5daab6
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564473"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242894"
 ---
 # <a name="moderate-with-custom-image-lists-in-c"></a>Eseguire la moderazione con elenchi personalizzati di immagini in C#
 
@@ -62,8 +62,7 @@ Aggiungere le istruzioni `using` seguenti
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

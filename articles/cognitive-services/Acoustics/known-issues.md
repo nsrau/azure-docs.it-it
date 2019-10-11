@@ -1,7 +1,7 @@
 ---
-title: Problemi noti con il plug-in Project Acoustics
+title: Problemi noti del plug-in Project Acoustics
 titlesuffix: Azure Cognitive Services
-description: Durante l'utilizzo della versione Designer Preview di Project Acoustics possono verificarsi i problemi noti descritti di seguito.
+description: È possibile che si verifichino i problemi noti seguenti nell'acustica del progetto.
 services: cognitive-services
 author: NoelCross
 manager: nitinme
@@ -11,35 +11,37 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 37084480423de90f50beced187eda202b39f8bf1
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: b71b93f271608d946d964f70dae9eefbef77e87b
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933058"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243034"
 ---
 # <a name="project-acoustics-known-issues"></a>Problemi noti dei progetti acustici
-Durante l'utilizzo della versione Designer Preview di Project Acoustics possono verificarsi i problemi noti descritti di seguito.
+Questo articolo descrive i problemi che possono verificarsi quando si usa l'acustica del progetto.
 
 ## <a name="acoustic-parameters-are-lost-when-you-rename-a-scene"></a>Quando si rinomina una scena, i parametri acustici vanno persi
 
-Se si rinomina una scena, tutti i parametri acustici che appartengono a tale scena non verranno trasferiti automaticamente alla nuova scena. Ma continueranno a esistere nel vecchio file di asset. Cercare il file **SceneName_AcousticParameters.asset** all'interno della directory **Editor** accanto al file della scena. Rinominare il file in modo da riflettere il nuovo nome della scena.
+Se si rinomina una scena, tutti i parametri acustici che appartengono a tale scena non vengono trasferiti automaticamente alla nuova scena. Ma esistono ancora nel vecchio file di asset. Cercare il file *[scenename] _AcousticParameters. asset* nella directory dell' *Editor* accanto al file della scena. Rinominare il file in modo che corrisponda al nuovo nome della scena.
 
-## <a name="deploying-to-android-from-some-unity-versions"></a>Distribuzione in Android da alcune versioni di Unity
+## <a name="deploy-to-android-bug-from-some-unity-versions"></a>Bug da distribuire a Android da alcune versioni di Unity
 
-Alcune versioni di Unity presentano un bug per la distribuzione di plug-in audio in Android. Assicurarsi che non si stia usando una versione interessata da [questo bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player).
+Alcune versioni di Unity presentano un [bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player) nella modalità di distribuzione dei plug-in audio in Android. Assicurarsi che non si stia usando una versione interessata da questo bug.
 
-## <a name="i-get-an-error-that-could-not-find-metadata-file-systemsecuritydll"></a>Errore "Could not find metadata file System.Security.dll" (Impossibile trovare il file di metadati System.Security.dll)
+## <a name="could-not-find-metadata-file-systemsecuritydll-error"></a>Errore "Impossibile trovare il file System di metadati. Security. dll"
 
-Verificare che la versione del runtime di scripting nelle impostazioni del lettore sia impostata su **.NET 4.x Equivalent** e riavviare Unity.
+Verificare che la **versione del runtime di scripting** nelle impostazioni del **lettore** sia *equivalente a .NET 4. x*e riavviare Unity.
 
-## <a name="im-having-authentication-problems-when-connecting-to-azure"></a>Problemi di autenticazione quando ci si connette ad Azure
+## <a name="authentication-problems-when-connecting-to-azure"></a>Problemi di autenticazione durante la connessione ad Azure
 
-Verificare di aver usato le credenziali corrette per l'account di Azure, che l'account supporti il tipo di nodo richiesto nel bake e che l'orologio di sistema sia preciso.
+Verificare quanto segue:
+- Sono state usate le credenziali corrette per l'account Azure.
+- L'account supporta il tipo di nodo richiesto in Bake.
+- Il clock di sistema è impostato correttamente.
 
-## <a name="canceling-a-bake-leaves-the-bake-tab-in-deleting-state"></a>Se si annulla un bake, la scheda Bake rimane nello stato "eliminazione"
-Il progetto Acoustics eseguirà la pulizia di tutte le risorse di Azure per un processo al completamento o all'annullamento. Questa operazione può richiedere fino a 5 minuti.
+## <a name="the-bake-tab-still-shows-deleting-after-you-cancel"></a>La scheda Bake Mostra ancora "eliminazione" dopo l'annullamento
+Il progetto Acoustics pulisce tutte le risorse di Azure per un processo dopo il completamento o l'annullamento. Questo processo può richiedere fino a 5 minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Provare l' [Unity](unity-quickstart.md) o il contenuto di esempio non [reale](unreal-quickstart.md)
-
+* Provare l' [Unity](unity-quickstart.md) o il contenuto di esempio non [reale](unreal-quickstart.md) .

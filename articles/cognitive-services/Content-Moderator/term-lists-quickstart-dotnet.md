@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 144137109f97a8c2049430ed1e05117ea6c95d7f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d1c2f8b06d333be23f25a2d150c23269bf84cd2e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564419"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242839"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Controllare testo in base a un elenco personalizzato di termini in C#
 
@@ -55,12 +55,11 @@ Installare i pacchetti NuGet seguenti per il progetto TermLists:
 
 ### <a name="update-the-programs-using-statements"></a>Aggiornare le istruzioni using del programma
 
-Aggiungere le istruzioni `using` riportate di seguito.
+Aggiungere le istruzioni `using` seguenti.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
