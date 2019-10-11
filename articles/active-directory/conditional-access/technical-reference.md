@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d56b1f800c71a5bbef7ffb1155d05e096113e2c
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 834b13c512bca1b7c43c3c8e93a72383a82db198
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162425"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274178"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Informazioni di riferimento sulle impostazioni di accesso condizionale Azure Active Directory
 
@@ -66,13 +66,12 @@ Con i criteri di accesso condizionale è possibile controllare il modo in cui gl
 - Office 365 SharePoint Online
 - Office 365 Yammer
 - Approfondimento su Office
-- Office Sway
+- Sway di Office
 - Outlook Groups
 - Servizio Power BI
 - Project Online
 - Skype for Business Online
 - Rete privata virtuale (VPN)
-- Visual Studio App Center
 - Windows Defender ATP
 
 ### <a name="other-applications"></a>Altre applicazioni
@@ -144,16 +143,16 @@ Per distribuire automaticamente questa estensione ai browser Chrome, creare la c
 |    |    |
 | --- | --- |
 | `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Name | 1 |
+| NOME | 1 |
 | Type | REG_SZ (String) |
-| Data | ppnbnpeolgkicgegkbkbjmhlideopiji; HTTPS\://clients2.Google.com/service/update2/crx |
+| Data | ppnbnpeolgkicgegkbkbjmhlideopiji; HTTPS @ no__t-0//clients2. Google. com/service/update2/crx |
 
 Per il supporto di Chrome in **Windows 8.1 e 7**, creare la chiave del Registro di sistema seguente:
 
 |    |    |
 | --- | --- |
 | `Path` | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Name | 1 |
+| NOME | 1 |
 | Type | REG_SZ (String) |
 | Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 

@@ -9,24 +9,24 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: d3e22df76124185c1e23f04f59145e12a1fec023
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: b3aa6d06add1d80512eda0e62888b4a36760e98c
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164252"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274793"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creare risorse di Time Series Insights tramite i modelli di Azure Resource Manager
 
-Questo articolo descrive come creare e distribuire risorse di Time Series Insights usando i modelli di Azure Resource Manager, PowerShell e il provider di risorse di Time Series Insights.
+Questo articolo descrive come creare e distribuire Time Series Insights risorse usando [modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell e il provider di risorse di Time Series Insights.
 
 Time Series Insights supporta le risorse seguenti:
 
-   | Risorsa | Descrizione |
+   | Resource | Descrizione |
    | --- | --- |
-   | Ambiente | Un ambiente Time Series Insights è un raggruppamento logico di eventi che vengono letti dai broker di eventi, archiviati e resi disponibili per la query. Per altre informazioni, vedere [pianificare l'ambiente di Azure Time Series Insights](time-series-insights-environment-planning.md) |
+   | Environment | Un ambiente Time Series Insights è un raggruppamento logico di eventi che vengono letti dai broker di eventi, archiviati e resi disponibili per la query. Per altre informazioni, vedere [pianificare l'ambiente di Azure Time Series Insights](time-series-insights-environment-planning.md) |
    | Origine evento | Un'origine evento è una connessione a un gestore eventi da cui Time Series Insights legge e inserisce gli eventi nell'ambiente. Le origini eventi attualmente supportate sono hub IoT e hub eventi. |
    | Set di dati di riferimento | I set di dati di riferimento forniscono metadati sugli eventi nell'ambiente. I metadati nei set di dati di riferimento verranno aggiunto agli eventi durante l'ingresso. I set di dati di riferimento sono definiti come risorse dalle relative proprietà chiave evento. I metadati effettivi che costituiscono il set di dati di riferimento vengono caricati o modificati tramite le API del piano dati. |
    | Criterio di accesso | I criteri di accesso concedono le autorizzazioni per eseguire query sui dati, modificare i dati di riferimento nell'ambiente e condividere le prospettive e le query salvate associate all'ambiente. Per altre informazioni, vedere [concedere l'accesso ai dati a un ambiente Time Series Insights usando portale di Azure](time-series-insights-data-access.md) |
@@ -47,7 +47,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 1. Installare Azure PowerShell seguendo le istruzioni riportate in [Introduzione ai cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-1. Clone o copiare il modello [201-timeseriesinsights-environment-with-eventhub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) da GitHub.
+1. Clone o copiare il modello [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) da GitHub.
 
    * Creare un file di parametri
 
@@ -64,8 +64,8 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
      | eventHubNamespaceName | Lo spazio dei nomi dello hub eventi di origine. |
      | eventHubName | Il nome dello hub eventi di origine. |
      | consumerGroupName | Il nome del gruppo di consumer che verrà usato dal servizio Time Series Insights per leggere i dati dall'hub eventi. **NOTA:** per evitare conflitti di risorse, questo gruppo di consumer deve essere dedicato al servizio Time Series Insights e non condiviso con altri lettori. |
-     | environmentName | Il nome dell'ambiente. Il nome non può includere `<`: `>`, `%`, `&`, `:`, `\\`, ,`?` ,`/`e qualsiasi carattere di controllo. Sono consentiti tutti gli altri caratteri.|
-     | eventSourceName | Specificare il nome della risorsa figlio dell'origine evento. Il nome non può includere `<`: `>`, `%`, `&`, `:`, `\\`, ,`?` ,`/`e qualsiasi carattere di controllo. Sono consentiti tutti gli altri caratteri. |
+     | environmentName | Il nome dell'ambiente. Il nome non può includere: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` ed eventuali caratteri di controllo. Sono consentiti tutti gli altri caratteri.|
+     | eventSourceName | Specificare il nome della risorsa figlio dell'origine evento. Il nome non può includere: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` ed eventuali caratteri di controllo. Sono consentiti tutti gli altri caratteri. |
 
     <div id="optional-parameters"></div>
 
@@ -77,7 +77,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
      | environmentDisplayName | Un nome descrittivo facoltativo da visualizzare nelle interfacce degli strumenti o utente al posto del nome dell'ambiente. |
      | environmentSkuName | Il nome dello SKU. Per altre informazioni, vedere la [pagina dedicata al tariffario di Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
      | environmentSkuCapacity | La capacità unità dello Sku. Per altre informazioni, vedere la [pagina dedicata al tariffario di Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|
-     | environmentDataRetentionTime | L'intervallo di tempo minimo in cui gli eventi dell'ambiente saranno disponibili per la query. Il valore deve essere specificato nel formato ISO 8601, ad esempio `P30D` per i criteri di conservazione di 30 giorni. |
+     | environmentDataRetentionTime | L'intervallo di tempo minimo in cui gli eventi dell'ambiente saranno disponibili per la query. Il valore deve essere specificato nel formato ISO 8601, ad esempio `P30D` per un criterio di conservazione di 30 giorni. |
      | eventSourceDisplayName | Un nome descrittivo facoltativo da visualizzare nelle interfacce degli strumenti o utente al posto del nome dell'origine evento. |
      | eventSourceTimestampPropertyName | La proprietà di evento che verrà usata come timestamp dell'origine evento. Se non è specificato un valore per timestampPropertyName o se viene specificato null o una stringa vuota, verrà usata l'ora di creazione dell'evento. |
      | eventSourceKeyName | Il nome della chiave di accesso condivisa che verrà usata dal servizio Time Series Insights per connettersi all'hub eventi. |
@@ -208,7 +208,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
        DeploymentName          : MyDemoDeployment
        ResourceGroupName       : MyDemoRG
        ProvisioningState       : Succeeded
-       Timestamp               : 5/8/2019 10:28:34 PM
+       Timestamp               : 10/11/2019 3:20:37 AM
        Mode                    : Incremental
        TemplateLink            :
        Parameters              :

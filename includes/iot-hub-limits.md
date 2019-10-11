@@ -4,16 +4,16 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 689322614e2cea4e59a5a573b72bfeb2aafda847
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: f0de7aedc3883978582da1950e95aaabac9a1695
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71148436"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272984"
 ---
 Nella tabella seguente sono elencati i limiti associati ai diversi livelli di servizio S1, S2, S3 e F1. Per informazioni sul costo di ogni *unità* in ogni livello, vedere [prezzi di hub Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-| Risorsa | S1 Standard | S2 Standard | S3 Standard | F1 Gratuito |
+| Resource | S1 Standard | S2 Standard | S3 Standard | F1 Gratuito |
 | --- | --- | --- | --- | --- |
 | Messaggi al giorno |400,000 |6\.000.000 |300.000.000 |8\.000 |
 | Unità massime |200 |200 |10 |1 |
@@ -25,7 +25,7 @@ Nella tabella seguente sono elencati i limiti associati ai diversi livelli di se
 
 La tabella seguente elenca i limiti che si applicano alle risorse dell'hub Internet.
 
-| Risorsa | Limite |
+| Resource | Limite |
 | --- | --- |
 | Numero massimo hub IoT a pagamento per ogni sottoscrizione di Azure |50 |
 | Numero massimo hub IoT gratuiti per ogni sottoscrizione di Azure |1 |
@@ -37,7 +37,7 @@ La tabella seguente elenca i limiti che si applicano alle risorse dell'hub Inter
 | Messaggi massimi nel batch del dispositivo al cloud |500 |
 | Dimensione massima del messaggio del cloud al dispositivo |64 KB |
 | TTL massima per i messaggi del cloud al dispositivo |2 giorni |
-| Numero massimo di recapiti per i messaggi <br/> messaggi |100 |
+| Numero massimo di recapiti per i messaggi <br/> del cloud al dispositivo |100 |
 | Profondità massima della coda da cloud a dispositivo per dispositivo |50 |
 | Numero massimo di recapiti per i messaggi di feedback <br/> in risposta a un messaggio del cloud al dispositivo |100 |
 | TTL massimo per i messaggi di feedback <br/> in risposta a un messaggio del cloud al dispositivo |2 giorni |
@@ -67,7 +67,7 @@ L'hub Internet delle cose limita le richieste quando vengono superate le quote s
 | Inoltri dal dispositivo al cloud |6000/sec/unità (per S3), 120/sec/unità (per S2), 12/sec/unità (per S1). <br/>Minimo di 100/sec. |
 | Inoltri dal cloud al dispositivo | 83,33/sec/unità (5000/min/unità) (per S3), 1,67/sec/unità (100/min/unità) (per S1 e S2). |
 | Ricezioni dal cloud al dispositivo |833,33/sec/unità (50000/min/unità) (per S3), 16.67/sec/unità (1000/min/unità) (per S1 e S2). |
-| Operazioni di caricamento file |83,33 notifiche di caricamento file/sec/unità (5000/min/unità) (per S3), 1,67 notifiche di caricamento file/sec/unità (100/min/unità) (per S1 e S2). <br/> 10.000 gli URI di firma di accesso condiviso possono essere disponibili per un account di archiviazione di Azure in una sola volta.<br/> 10 URI di firma di accesso condiviso/dispositivo possono essere generati contemporaneamente. |
+| Operazioni di caricamento file |83,33 avvio caricamento file/sec/unità (5000/min/unità) (per S3), 1,67 avvio caricamento file/sec/unità (100/min/unità) (per S1 e S2). <br/> 10.000 gli URI di firma di accesso condiviso possono essere disponibili per un account di archiviazione di Azure in una sola volta.<br/> 10 URI di firma di accesso condiviso/dispositivo possono essere generati contemporaneamente. |
 | Metodi diretti | 24 MB/sec/unità (per S3), 480 KB/sec/unità (per S2), 160 KB/sec/unità (per S1).<br/> In base alle dimensioni del contatore di limitazione da 8 KB. |
 | Letture del dispositivo gemello | 500/sec/unità (per S3), massimo 100/sec o 10/sec/unità (per S2), 100/sec (per S1) |
 | Aggiornamenti dei dispositivi gemelli | 250/sec/unità (per S3), massimo 50/sec o 5/sec/unità (per S2), 50/sec (per S1) |

@@ -4,15 +4,15 @@ description: Informazioni sulla risoluzione di problemi comuni di Sincronizzazio
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 6771164c26c51e40d80d0c82b42f04c4f95c4c37
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 31a9eda0e17083aac25be071c1d1a3ab84049e39
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255098"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274884"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -797,6 +797,17 @@ Per risolvere il problema, eliminare e ricreare il gruppo di sincronizzazione at
 4. Se è stata abilitata la suddivisione in livelli nel cloud in un endpoint server, eliminare i file a livelli orfani nel server eseguendo i passaggi illustrati nei [file a livelli non sono accessibili nel server dopo l'eliminazione di una sezione endpoint server](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) .
 5. Ricreare il gruppo di sincronizzazione.
 
+<a id="-2145844941"></a>**Sincronizzazione non riuscita perché la richiesta HTTP è stata reindirizzata**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80190133 |
+| **HRESULT (decimale)** | -2145844941 |
+| **Stringa di errore** | HTTP_E_STATUS_REDIRECT_KEEP_VERB |
+| **Rimedio necessario** | Yes |
+
+Questo errore si verifica perché Sincronizzazione file di Azure non supporta il reindirizzamento HTTP (codice di stato 3xx). Per risolvere questo problema, disabilitare il reindirizzamento HTTP nel server proxy o nel dispositivo di rete.
+
 ### <a name="common-troubleshooting-steps"></a>Normale procedura di risoluzione dei problemi
 <a id="troubleshoot-storage-account"></a>**Verificare l'esistenza dell'account di archiviazione.**  
 # <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
@@ -1008,7 +1019,7 @@ Se il richiamo di file ha esito negativo:
         - Al prompt dei comandi con privilegi elevati. eseguire `fltmc`. Verificare che i driver di filtro del file system StorageSync.sys e StorageSyncGuard.sys siano presenti nell'elenco.
 
 > [!NOTE]
-> L'ID evento 9006 viene registrato una volta all'ora nel registro eventi di telemetria se un file non riesce a eseguire il richiamo (per ogni codice di errore viene registrato un evento). I log eventi operativi e diagnostici devono essere usati se sono necessarie altre informazioni per diagnosticare un problema.
+> L'ID evento 9006 viene registrato una volta all'ora nel registro eventi di telemetria se un file non riesce a eseguire il richiamo (per ogni codice di errore viene registrato un evento). Controllare la sezione [errori di richiamo e correzione](#recall-errors-and-remediation) per verificare se sono elencati i passaggi correttivi per il codice di errore.
 
 ### <a name="recall-errors-and-remediation"></a>Richiama errori e correzione
 
@@ -1018,8 +1029,12 @@ Se il richiamo di file ha esito negativo:
 | 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | Impossibile richiamare il file a causa di un problema di rete.  | Se l'errore è permanente, controllare la connettività di rete alla condivisione file di Azure. |
 | 0x80c80037 | -2134376393 | ECS_E_SYNC_SHARE_NOT_FOUND | Impossibile richiamare il file perché l'endpoint server è stato eliminato. | Per risolvere questo problema, vedere [file a livelli non accessibili nel server dopo l'eliminazione di un endpoint server](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | Impossibile richiamare il file a causa di un errore di accesso negato. Questo problema può verificarsi se le impostazioni del firewall e della rete virtuale nell'account di archiviazione sono abilitate e il server non ha accesso all'account di archiviazione. | Per risolvere questo problema, aggiungere l'indirizzo IP del server o la rete virtuale seguendo i passaggi descritti nella sezione [configurare le impostazioni del firewall e della rete virtuale](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings) nella Guida alla distribuzione. |
-| 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | Il file non è stato in grado di richiamare perché non è accessibile nella condivisione file di Azure. | Per risolvere questo problema, verificare che il file esista nella condivisione file di Azure. Se il file è presente nella condivisione file di Azure, eseguire l'aggiornamento alla versione più recente dell'agente di Sincronizzazione file di Azure. |
-| 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | Non è stato possibile richiamare il file a causa di un errore di autorizzazione per l'account di archiviazione. | Per risolvere questo problema, verificare [sincronizzazione file di Azure abbia accesso all'account di archiviazione](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac). |
+| 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | Il file non è stato in grado di richiamare perché non è accessibile nella condivisione file di Azure. | Per risolvere questo problema, verificare che il file esista nella condivisione file di Azure. Se il file è presente nella condivisione file di Azure, eseguire l'aggiornamento alla [versione](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions)più recente dell'agente di sincronizzazione file di Azure. |
+| 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | Non è stato possibile richiamare il file a causa di un errore di autorizzazione per l'account di archiviazione. | Per risolvere questo problema, verificare [sincronizzazione file di Azure abbia accesso all'account di archiviazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac). |
+| 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | Il file non è stato in grado di richiamare perché la condivisione file di Azure non è accessibile. | Verificare che la condivisione file esista ed è accessibile. Se la condivisione file è stata eliminata e ricreata, eseguire i passaggi descritti nella sezione [sincronizzazione non riuscita perché la condivisione file di Azure è stata eliminata e ricreata](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134375810) per eliminare e ricreare il gruppo di sincronizzazione. |
+| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | Impossibile richiamare il file a causa di risorse di sistema insuffcient. | Se l'errore si verifica in modo permanente, individuare l'applicazione o il driver in modalità kernel che esaurisce le risorse di sistema. |
+| 0x8007000E | -2147024882 | ERROR_OUTOFMEMORY | Impossibile richiamare il file a causa della memoria insuffcient. | Se l'errore si verifica in modo permanente, verificare quale driver in modalità kernel o applicazione sta causando la condizione di memoria insufficiente. |
+| 0x80070070 | -2147024784 | ERROR_DISK_FULL | Impossibile richiamare il file a causa di spazio su disco insufficiente. | Per risolvere questo problema, liberare spazio nel volume spostando i file in un volume diverso, aumentare le dimensioni del volume o forzare i file nel livello usando il cmdlet Invoke-StorageSyncCloudTiering. |
 
 ### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>I file a livelli non sono accessibili nel server dopo l'eliminazione di un endpoint server
 Se i file non vengono richiamati prima dell'eliminazione di un endpoint server, i file a livelli in un server diventeranno inaccessibili.

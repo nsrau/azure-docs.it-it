@@ -3,7 +3,7 @@ title: Notifica di interruzione per le istanze del set di scalabilità di macchi
 description: Informazioni su come abilitare la notifica di chiusura per le istanze del set di scalabilità di macchine virtuali di Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: mayanknayar
+author: shandilvarun
 manager: drewm
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/27/2019
-ms.author: manayar
-ms.openlocfilehash: de303032fcbbde30534c802e3d5185aedf05cb98
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.author: vashan
+ms.openlocfilehash: 7269c76236b7cbe60995d84e85857da596bec961
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076238"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264669"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Notifica di interruzione per le istanze del set di scalabilità di macchine virtuali di Azure (anteprima)
 Le istanze del set di scalabilità possono acconsentire esplicitamente a ricevere notifiche di terminazione dell'istanza e impostare un timeout di ritardo predefinito per l'operazione di interruzione. La notifica di chiusura viene inviata tramite il servizio metadati di Azure- [eventi pianificati](../virtual-machines/windows/scheduled-events.md), che fornisce le notifiche per e ritardare le operazioni di cui si è interessati, ad esempio il riavvio e la ridistribuzione. La soluzione di anteprima aggiunge un altro evento, ovvero terminate, all'elenco di Eventi pianificati e il ritardo associato dell'evento di terminazione dipenderà dal limite di ritardo specificato dagli utenti nelle configurazioni del modello del set di scalabilità.
