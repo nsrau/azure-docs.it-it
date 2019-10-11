@@ -9,15 +9,15 @@ ms.author: estfan
 ms.reviewers: klam, LADocs
 manager: carmonm
 ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
-ms.topic: article
-ms.date: 09/06/2019
+ms.topic: conceptual
+ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: 668e815f1dc1ead0ad38264bdc71fc3c315b751c
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 6062ca1ce09eb243825b1fb9ae4ecb3d5ac95d1a
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122724"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264357"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Ricevere e rispondere alle chiamate HTTPS in ingresso usando app per la logica di Azure
 
@@ -27,7 +27,8 @@ Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e l'az
 * Attiva un flusso di lavoro quando si verifica un evento del webhook esterno.
 * Ricevere e rispondere a una chiamata HTTPS da un'altra app per la logica.
 
-Il trigger request supporta *solo* HTTPS. Per eseguire invece chiamate HTTP o HTTPS in uscita, usare l' [azione o il trigger http](../connectors/connectors-native-http.md)predefinito.
+> [!NOTE]
+> Il trigger request supporta *solo* Transport Layer Security (TLS) 1,2 per le chiamate in ingresso. Le chiamate in uscita continuano a supportare TLS 1,0, 1,1 e 1,2. Se vengono visualizzati errori di handshake SSL, assicurarsi di usare TLS 1,2.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -51,7 +52,7 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
    ![Trigger di richiesta](./media/connectors-native-reqres/request-trigger.png)
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
+   | Nome proprietà | Nome proprietà JSON | Obbligatorio | Descrizione |
    |---------------|--------------------|----------|-------------|
    | **URL POST HTTP** | {none} | Yes | L'URL dell'endpoint che viene generato dopo il salvataggio dell'app per la logica e viene usato per chiamare l'app per la logica |
    | **Schema JSON del corpo della richiesta** | `schema` | No | Schema JSON che descrive le proprietà e i valori nel corpo della richiesta in ingresso |
@@ -107,7 +108,7 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
    }
    ```
 
-   Quando si immette uno schema JSON, la finestra di progettazione Mostra un promemoria `Content-Type` per includere l'intestazione nella richiesta e impostare tale valore `application/json`di intestazione su. Per altre informazioni, vedere [gestire i tipi di contenuto](../logic-apps/logic-apps-content-type.md).
+   Quando si immette uno schema JSON, la finestra di progettazione Mostra un promemoria per includere l'intestazione `Content-Type` nella richiesta e impostare il valore di tale intestazione su `application/json`. Per altre informazioni, vedere [gestire i tipi di contenuto](../logic-apps/logic-apps-content-type.md).
 
    ![Promemoria per includere l'intestazione "Content-Type"](./media/connectors-native-reqres/include-content-type.png)
 
@@ -150,7 +151,7 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
 1. Per specificare altre proprietà, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri che si desidera aggiungere.
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
+   | Nome proprietà | Nome proprietà JSON | Obbligatorio | Descrizione |
    |---------------|--------------------|----------|-------------|
    | **Metodo** | `method` | No | Metodo che la richiesta in ingresso deve usare per chiamare l'app per la logica |
    | **Percorso relativo** | `relativePath` | No | Percorso relativo del parametro che l'URL dell'endpoint dell'app per la logica può accettare |
@@ -162,13 +163,13 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
    La proprietà **Method** viene visualizzata nel trigger, in modo che sia possibile selezionare un metodo nell'elenco.
 
-   ![Seleziona metodo](./media/connectors-native-reqres/select-method.png)
+   ![Select (metodo)](./media/connectors-native-reqres/select-method.png)
 
 1. Aggiungere ora un'altra azione come passaggio successivo nel flusso di lavoro. Sotto il trigger selezionare **passaggio successivo** in modo che sia possibile trovare l'azione che si desidera aggiungere.
 
    Ad esempio, è possibile rispondere alla richiesta [aggiungendo un'azione di risposta](#add-response), che è possibile usare per restituire una risposta personalizzata ed è descritta più avanti in questo argomento.
 
-   L'app per la logica mantiene aperta la richiesta in ingresso solo per un minuto. Supponendo che il flusso `504 GATEWAY TIMEOUT` di lavoro dell'app per la logica includa un'azione di risposta, se l'app per la logica non restituisce una risposta dopo che questo tempo viene superato, l'app per la logica restituisce al chiamante. In caso contrario, se l'app per la logica non include un'azione di risposta, l' `202 ACCEPTED` app per la logica restituisce immediatamente una risposta al chiamante.
+   L'app per la logica mantiene aperta la richiesta in ingresso solo per un minuto. Supponendo che il flusso di lavoro dell'app per la logica includa un'azione di risposta, se l'app per la logica non restituisce una risposta dopo che questo tempo viene superato, l'app per la logica restituisce un `504 GATEWAY TIMEOUT` al chiamante. In caso contrario, se l'app per la logica non include un'azione di risposta, l'app per la logica restituisce immediatamente una risposta `202 ACCEPTED` al chiamante.
 
 1. Al termine, salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**. 
 
@@ -194,7 +195,7 @@ Di seguito sono riportate altre informazioni sugli output del trigger di richies
 
 È possibile usare l'azione di risposta per rispondere con un payload (dati) a una richiesta HTTPS in ingresso, ma solo in un'app per la logica attivata da una richiesta HTTPS. È possibile aggiungere l'azione di risposta in qualsiasi punto del flusso di lavoro. Per ulteriori informazioni sulla definizione JSON sottostante per questo trigger, vedere il [tipo di azione risposta](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
-L'app per la logica mantiene aperta la richiesta in ingresso solo per un minuto. Supponendo che il flusso `504 GATEWAY TIMEOUT` di lavoro dell'app per la logica includa un'azione di risposta, se l'app per la logica non restituisce una risposta dopo che questo tempo viene superato, l'app per la logica restituisce al chiamante. In caso contrario, se l'app per la logica non include un'azione di risposta, l' `202 ACCEPTED` app per la logica restituisce immediatamente una risposta al chiamante.
+L'app per la logica mantiene aperta la richiesta in ingresso solo per un minuto. Supponendo che il flusso di lavoro dell'app per la logica includa un'azione di risposta, se l'app per la logica non restituisce una risposta dopo che questo tempo viene superato, l'app per la logica restituisce un `504 GATEWAY TIMEOUT` al chiamante. In caso contrario, se l'app per la logica non include un'azione di risposta, l'app per la logica restituisce immediatamente una risposta `202 ACCEPTED` al chiamante.
 
 1. Nella finestra di progettazione dell'app per la logica, sotto il passaggio in cui si vuole aggiungere un'azione di risposta, selezionare **nuovo passaggio**.
 
@@ -214,7 +215,7 @@ L'app per la logica mantiene aperta la richiesta in ingresso solo per un minuto.
 
    In alcuni campi, quando si fa clic all'interno delle caselle viene aperto l'elenco di contenuto dinamico. È quindi possibile selezionare i token che rappresentano gli output disponibili dei passaggi precedenti del flusso di lavoro. Le proprietà dello schema specificato nell'esempio precedente vengono ora visualizzate nell'elenco di contenuto dinamico.
 
-   Ad esempio, per la casella **intestazioni** , includere `Content-Type` come nome chiave e impostare il valore della chiave su `application/json` come indicato in precedenza in questo argomento. Per la casella **corpo** è possibile selezionare l'output del corpo del trigger dall'elenco di contenuto dinamico.
+   Per la casella **intestazioni** , ad esempio, includere `Content-Type` come nome della chiave e impostare il valore della chiave su `application/json` come indicato in precedenza in questo argomento. Per la casella **corpo** è possibile selezionare l'output del corpo del trigger dall'elenco di contenuto dinamico.
 
    ![Dettagli azione risposta](./media/connectors-native-reqres/response-details.png)
 
@@ -224,7 +225,7 @@ L'app per la logica mantiene aperta la richiesta in ingresso solo per un minuto.
 
    Di seguito sono riportate altre informazioni sulle proprietà che è possibile impostare nell'azione di risposta. 
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
+   | Nome proprietà | Nome proprietà JSON | Obbligatorio | Descrizione |
    |---------------|--------------------|----------|-------------|
    | **Codice di stato** | `statusCode` | Yes | Codice di stato da restituire nella risposta |
    | **Intestazioni** | `headers` | No | Oggetto JSON che descrive una o più intestazioni da includere nella risposta |

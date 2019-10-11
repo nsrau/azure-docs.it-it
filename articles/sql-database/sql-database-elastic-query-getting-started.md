@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-ms.date: 12/18/2018
-ms.openlocfilehash: cc59d7cb1ce09aad834130818e5af533719e04c1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 10/10/2019
+ms.openlocfilehash: 4e896fae0d8459629c58dfd0bbdfbb32b90b1cac
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568613"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264243"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Creare report in database cloud con numero maggiore di istanze (anteprima)
 
@@ -33,7 +33,7 @@ Scaricare ed eseguire [Introduzione allo strumento di esempio del Database elast
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Creare un gestore mappe partizione utilizzando l'applicazione di esempio
 Di seguito si creerà un gestore mappe partizione con diverse partizioni, seguita dall'inserimento di dati nelle partizioni. Se si dispone già di programma di installazione di partizioni con dati partizionati in essi, è possibile ignorare i passaggi seguenti e passare alla sezione successiva.
 
-1. Compilare ed eseguire l’applicazione di esempio **Introduzione agli strumenti del Database elastico** . Seguire la procedura fino al passaggio 7 nella sezione [Scaricare ed eseguire l'app di esempio](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Alla fine del passaggio 7, verrà visualizzato il seguente prompt dei comandi:
+1. Compilare ed eseguire l'applicazione di esempio **Introduzione a strumenti di database elastici** attenendosi alla procedura descritta nella sezione [scaricare ed eseguire l'app di esempio](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app-1). Al termine di tutti i passaggi, verrà visualizzato il prompt dei comandi seguente:
 
     ![Aprire il prompt dei comandi.][1]
 2. Nella finestra di comando, digitare "1" e premere **Invio**. Viene creato il gestore delle mappe partizioni e aggiunge due partizioni al server. Digitare "3" e premere **Invio**; ripetere l'azione quattro volte. Consente di inserire righe di dati di esempio nelle partizioni.
@@ -62,15 +62,15 @@ Questi vengono utilizzati per la connessione per la gestione di gestore di mappe
 1. Apri SQL Server Management Studio e SQL Server Data Tools in Visual Studio
 2. Connettersi al database ElasticDBQuery ed eseguire i comandi T-SQL seguenti:
 
-        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
+        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
 
         CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
         WITH IDENTITY = '<username>',
         SECRET = '<password>';
 
-    "nome utente" e "password" devono essere uguali alle informazioni di accesso usate nel passaggio 6 della sezione [Scaricare ed eseguire l'app di esempio](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) in [Iniziare a utilizzare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
+    "username" e "password" devono essere le stesse informazioni di accesso usate nel passaggio 3 della sezione [scaricare ed eseguire l'app di esempio](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) nell'articolo **Introduzione agli strumenti di database elastici** .
 
-### <a name="external-data-sources"></a>Origini dati esterne
+### <a name="external-data-sources"></a>DROP EXTERNAL DATA SOURCE
 Per creare un'origine dati esterna, eseguire il comando seguente sul database ElasticDBQuery:
 
     CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
@@ -104,7 +104,7 @@ Eseguire questa query sul database ElasticDBQuery:
 
 Si noterà che la query di aggregare i risultati di tutte le partizioni e produce il seguente output:
 
-![Dettagli output][4]
+![Dettagli dell'output][4]
 
 ## <a name="import-elastic-database-query-results-to-excel"></a>Importare i risultati della query database elastica in Excel
  È possibile importare i risultati da di una query a un file di Excel.
@@ -114,7 +114,7 @@ Si noterà che la query di aggregare i risultati di tutte le partizioni e produc
 3. Fare clic su **Da altre origini** e quindi su **Da SQL Server**.
 
    ![Importazione di Excel da altre origini][5]
-4. In **Connessione guidata dati** digitare le credenziali di accesso e il nome del server. Scegliere quindi **Avanti**.
+4. In **Connessione guidata dati** digitare le credenziali di accesso e il nome del server. Quindi fare clic su **Next**.
 5. Nella finestra di dialogo **Selezionare il database contenente i dati desiderati** selezionare il database **ElasticDBQuery**.
 6. Selezionare la tabella **Customers** nella visualizzazione elenco e fare clic su **Avanti**. Fare clic su **Fine**.
 7. Nel modulo **Importa dati** in **Specificare come visualizzare i dati nella cartella di lavoro** selezionare **Tabella** e fare clic su **OK**.

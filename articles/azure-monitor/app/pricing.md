@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 10/03/2019
 ms.author: dalek
-ms.openlocfilehash: 3e0bdd42ea19b7029d3f3df4ff9a5a275aec0271
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 51caf34d0030fd404cd7f7c1868a0e2945c75b35
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936691"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264415"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -56,7 +56,7 @@ Esistono due approcci per risolvere questo problema: usare il monitoraggio prede
 
 Con il [campionamento adattivo](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)di ASP.NET SDK, il volume di dati viene regolato automaticamente per rimanere entro una frequenza massima specificata di traffico per il monitoraggio predefinito Application Insights. Se l'applicazione produce una quantità ridotta di dati di telemetria, ad esempio durante il debug o a causa di un utilizzo ridotto, gli elementi non verranno eliminati dal processore di campionamento, purché il volume sia inferiore al livello di eventi configurati al secondo. Per un'applicazione con volume elevato, con la soglia predefinita di 5 eventi al secondo, il campionamento adattivo limiterà il numero di eventi giornalieri a 432.000. Se si usa una dimensione di evento Media tipica di 1 KB, corrisponde a 13,4 GB di dati di telemetria per ogni mese di 31 giorni per nodo che ospita l'applicazione (poiché il campionamento viene eseguito localmente in ogni nodo). 
 
-Per gli SDK che non supportano il campionamento adattivo, è possibile usare [campionamento per inserimento) [https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling ] quali esempi quando i dati vengono receved da Application Insights in base a una percentuale di dati da conservare o [campionamento a frequenza fissa per ASP.NET, ASP.NET Core e Java siti](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites) Web per ridurre il traffico inviato dal server Web e dai Web browser
+Per gli SDK che non supportano il campionamento adattivo, è possibile usare il [campionamento](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling) per inserimento che esegue il campionamento quando i dati vengono receved per Application Insights in base a una percentuale di dati da conservare o [campionamento a frequenza fissa per ASP.NET, ASP.NET Core e Java siti](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites) Web per ridurre il traffico inviato dal server Web e dai Web browser
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Impara da ciò che i clienti simili raccolgono
 
@@ -92,7 +92,7 @@ Per conoscere la quantità di dati inviati dall'app, è possibile:
 
 * Aprire il riquadro **Usage and estimated cost** (Uso e costi stimati) per visualizzare il grafico dei volumi di dati giornalieri. 
 * In Esplora metriche aggiungere un nuovo grafico. Per la metrica del grafico, selezionare **Volume dei punti dati**. Attivare **Raggruppamento** e quindi raggruppare in base al **Tipo di dati**.
-* Utilizzare il `systemEvents` tipo di dati. Ad esempio, per visualizzare il volume di dati inserito nell'ultimo giorno, la query è:
+* Utilizzare il tipo di dati `systemEvents`. Ad esempio, per visualizzare il volume di dati inserito nell'ultimo giorno, la query è:
 
 ```kusto
 systemEvents 
@@ -147,7 +147,7 @@ Per modificare il limite giornaliero, nella sezione **Configura** della risorsa 
 
 ![Regolazione del limite del volume dei dati di telemetria giornaliero](./media/pricing/pricing-003.png)
 
-Per [modificare il limite giornaliero tramite Azure Resource Manager](../../azure-monitor/app/powershell.md), la proprietà da modificare è `dailyQuota`.  Tramite Azure Resource Manager è anche possibile impostare il `dailyQuotaResetTime` e il `warningThreshold`limite giornaliero. 
+Per [modificare il limite giornaliero tramite Azure Resource Manager](../../azure-monitor/app/powershell.md), la proprietà da modificare è il `dailyQuota`.  Tramite Azure Resource Manager è anche possibile impostare i `dailyQuotaResetTime` e il limite giornaliero `warningThreshold`. 
 
 ## <a name="sampling"></a>campionamento
 Il [campionamento](../../azure-monitor/app/sampling.md) è un metodo che consente di ridurre la velocità con cui i dati di telemetria vengono inviati all'app, pur mantenendo la possibilità di trovare gli eventi correlati durante le ricerche di diagnostica e il conteggio corretto degli eventi.
@@ -183,7 +183,7 @@ Per modificare il periodo di conservazione, dalla risorsa Application Insights p
 
 ![Regolazione del limite del volume dei dati di telemetria giornaliero](./media/pricing/pricing-005.png)
 
-Il periodo di memorizzazione può essere [impostato anche tramite ARM](https://docs.microsoft.com/azure/azure-monitor/app/powershell) usando il parametro `retentionInDays`. Inoltre, se si imposta la conservazione dei dati su 30 giorni, è possibile attivare un'eliminazione immediata dei dati meno recenti utilizzando il parametro `immediatePurgeDataOn30Days`, che può essere utile per gli scenari correlati alla conformità. Questa funzionalità viene esposta solo tramite ARM. 
+Il periodo di conservazione può anche essere [impostato a livello usando PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/powershell/set-the-data-retention) usando il parametro `retentionInDays`. Inoltre, se si imposta la conservazione dei dati su 30 giorni, è possibile attivare un'eliminazione immediata dei dati meno recenti utilizzando il parametro `immediatePurgeDataOn30Days`, che può essere utile per gli scenari correlati alla conformità. Questa funzionalità di ripulitura viene esposta solo tramite ARM e deve essere usata con estrema attenzione. 
 
 Quando la fatturazione ha inizio per un periodo di conservazione più lungo entro il 2019 dicembre, i dati conservati per più di 90 giorni verranno fatturati con la stessa tariffa attualmente addebitata per la conservazione dei dati di Azure Log Analytics. Per altre informazioni, vedere la [pagina dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/). Rimanere sempre aggiornati sullo stato di conservazione [delle variabili votando questo suggerimento](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 

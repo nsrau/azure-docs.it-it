@@ -6,13 +6,13 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: 8a946a75a2dbd487494d70d0fd195a5becf5bd5a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.date: 10/08/2019
+ms.openlocfilehash: 440820b7772d8edeb43ce328b8393789d7ba2973
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122214"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264303"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrare Apache Spark e Apache Hive con il connettore del warehouse di hive
 
@@ -38,49 +38,52 @@ Di seguito sono riportate alcune delle operazioni supportate dal connettore del 
 
 Seguire questa procedura per configurare il connettore del warehouse di hive tra un cluster Spark e un cluster Interactive query in Azure HDInsight:
 
-1. Creare un cluster HDInsight Spark 4,0 usando il portale di Azure con un account di archiviazione e una rete virtuale di Azure personalizzata. Per informazioni sulla creazione di un cluster in una rete virtuale di Azure, vedere [aggiungere HDInsight a una rete virtuale esistente](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet).
-1. Creare un cluster LLAP (HDInsight Interactive query) 4,0 usando il portale di Azure con lo stesso account di archiviazione e la stessa rete virtuale di Azure del cluster Spark.
-1. Copiare il contenuto del `/etc/hosts` file in headnode0 del cluster `/etc/hosts` Interactive query nel file in headnode0 del cluster Spark. Questo passaggio consente al cluster Spark di risolvere gli indirizzi IP dei nodi nel cluster Interactive query. Visualizzare il contenuto del file aggiornato con `cat /etc/hosts`. L'output dovrebbe avere un aspetto simile a quello mostrato nella schermata seguente.
+### <a name="create-clusters"></a>Creare i cluster
 
-    ![il connettore del warehouse di hive ospita il file](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
+1. Creare un cluster HDInsight Spark **4,0** con un account di archiviazione e una rete virtuale di Azure personalizzata. Per informazioni sulla creazione di un cluster in una rete virtuale di Azure, vedere [aggiungere HDInsight a una rete virtuale esistente](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet).
 
-1. Configurare le impostazioni del cluster Spark attenendosi alla procedura seguente: 
-    1. Passare a portale di Azure, selezionare cluster HDInsight e quindi fare clic sul nome del cluster.
-    1. Sul lato destro, in **Dashboard cluster**selezionare **Ambari Home**.
-    1. Nell'interfaccia utente Web di Ambariri fare clic su **SPARK2** > **configs** > **Custom SPARK2-defaults**.
+1. Creare un cluster LLAP (HDInsight Interactive query) **4,0** con lo stesso account di archiviazione e la stessa rete virtuale di Azure del cluster Spark.
 
-        ![Configurazione di Apache Ambari Spark2](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+### <a name="modify-hosts-file"></a>Modificare il file degli host
 
-    1. Impostare `spark.hadoop.hive.llap.daemon.service.hosts` sullo stesso valore della proprietà **hive. LLAP. daemon. Service. hosts** in * * Advanced hive-Interactive-site * *. Ad esempio: `@llap0`
+Copiare le informazioni sul nodo dal file `/etc/hosts` in headnode0 del cluster Interactive query e concatenare le informazioni al file `/etc/hosts` nel headnode0 del cluster Spark. Questo passaggio consente al cluster Spark di risolvere gli indirizzi IP dei nodi nel cluster Interactive query. Visualizzare il contenuto del file aggiornato con `cat /etc/hosts`. L'output finale dovrebbe avere un aspetto simile a quello mostrato nella schermata seguente.
 
-    1. Impostare `spark.sql.hive.hiveserver2.jdbc.url` sulla stringa di connessione JDBC, che si connette a Hiveserver2 nel cluster Interactive query. La stringa di connessione per il cluster apparirà come URI di seguito. `CLUSTERNAME`è il nome del cluster Spark e i `user` parametri e `password` sono impostati sui valori corretti per il cluster.
+![il connettore del warehouse di hive ospita il file](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
-        ```
-        jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2
-        ```
+### <a name="gather-preliminary-information"></a>Raccogli informazioni preliminari
 
-        > [!Note]
-        > L'URL JDBC deve contenere le credenziali per la connessione a Hiveserver2, inclusi un nome utente e una password.
+#### <a name="from-your-interactive-query-cluster"></a>Dal cluster Interactive query
 
-    1. Impostare `spark.datasource.hive.warehouse.load.staging.dir` su una directory di gestione temporanea compatibile con HDFS appropriata. Se si dispone di due cluster diversi, la directory di staging deve essere una cartella nella directory di staging dell'account di archiviazione del cluster LLAP in modo che HiveServer2 possa accedervi. Ad esempio, `wasb://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp` dove `STORAGE_ACCOUNT_NAME` è il nome dell'account di archiviazione usato dal cluster e `STORAGE_CONTAINER_NAME` è il nome del contenitore di archiviazione.
+1. Passare al home page Apache Ambari del cluster usando `https://LLAPCLUSTERNAME.azurehdinsight.net` dove `LLAPCLUSTERNAME` è il nome del cluster Interactive query.
 
-    1. Impostare `spark.datasource.hive.warehouse.metastoreUri` con il valore dell'URI del Metastore del cluster Interactive query. Per trovare il metastoreUri per il cluster LLAP, cercare la proprietà **hive. Metastore. Uri** nell'interfaccia utente di Ambari per il cluster LLAP in **hive** > **Advanced** > **General**. Il valore sarà simile all'URI seguente:
+1. Passare a **hive** > **configs** > **Advanced** > **Advanced hive-site** > **hive. Zookeeper. quorum** e prendere nota del valore. Il valore può essere simile a: `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
 
-        ```
-        thrift://hn0-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:9083,
-        thrift://hn1-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:9083
-        ```
+1. Passare a **hive** > **configs** > **Advanced** > **General** > **hive. Metastore. Uri** e prendere nota del valore. Il valore può essere simile a: `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
 
-    1. Impostare `spark.security.credentials.hiveserver2.enabled` su`false` per la modalità di distribuzione del client Yarn.
-    1. Impostare `spark.hadoop.hive.zookeeper.quorum` sul quorum Zookeeper del cluster LLAP. Per trovare il quorum Zookeeper per il cluster LLAP, cercare la proprietà **hive. Zookeeper. quorum** nell'interfaccia utente di Ambari per il cluster LLAP in **hive** > **Advanced** > **Advanced hive-site**. Il valore sarà simile alla stringa seguente:
+#### <a name="from-your-apache-spark-cluster"></a>Dal cluster Apache Spark
 
-        ```
-        zk1-nkhvne.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,
-        zk4-nkhvne.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,
-        zk6-nkhvne.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181
-        ```
+1. Passare al home page Apache Ambari del cluster usando `https://SPARKCLUSTERNAME.azurehdinsight.net` dove `SPARKCLUSTERNAME` è il nome del cluster Apache Spark.
 
-Per testare la configurazione del connettore del warehouse di hive, seguire la procedura descritta nella sezione [connessione ed esecuzione di query](#connecting-and-running-queries).
+1. Passare a **hive** > **configs** > **Advanced** > **advanced hive-Interactive-site** > **hive. LLAP. daemon. Service. hosts** e prendere nota del valore. Il valore può essere simile a: `@llap0`.
+
+### <a name="configure-spark-cluster-settings"></a>Configurare le impostazioni del cluster Spark
+
+Dall'interfaccia utente Web di Spark Ambari passare a **Spark2** > **configs** > **Custom Spark2-defaults**.
+
+![Configurazione di Apache Ambari Spark2](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+
+Selezionare **Aggiungi proprietà** in base alle esigenze per aggiungere/aggiornare quanto segue:
+
+| Chiave | Value |
+|----|----|
+|`spark.hadoop.hive.llap.daemon.service.hosts`|Valore ottenuto in precedenza da **hive. LLAP. daemon. Service. hosts**.|
+|`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2` (Indici per tabelle con ottimizzazione per la memoria). Impostare sulla stringa di connessione JDBC, che si connette a Hiveserver2 nel cluster Interactive query. SOSTITUIRE `LLAPCLUSTERNAME` con il nome del cluster Interactive query. Sostituire `PWD` con la password effettiva.|
+|`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp` (Indici per tabelle con ottimizzazione per la memoria). Impostare su una directory di gestione temporanea compatibile con HDFS appropriata. Se si dispone di due cluster diversi, la directory di staging deve essere una cartella nella directory di staging dell'account di archiviazione del cluster LLAP in modo che HiveServer2 possa accedervi.  Sostituire `STORAGE_ACCOUNT_NAME` con il nome dell'account di archiviazione usato dal cluster e `STORAGE_CONTAINER_NAME` con il nome del contenitore di archiviazione.|
+|`spark.datasource.hive.warehouse.metastoreUri`|Valore ottenuto in precedenza da **hive. Metastore. Uri**.|
+|`spark.security.credentials.hiveserver2.enabled`|`false` per la modalità di distribuzione del client YARN.|
+|`spark.hadoop.hive.zookeeper.quorum`|Valore ottenuto in precedenza da **hive. Zookeeper. quorum**.|
+
+Salvare le modifiche e riavviare i componenti in base alle esigenze.
 
 ## <a name="using-the-hive-warehouse-connector"></a>Uso di hive warehouse Connector
 
@@ -98,17 +101,17 @@ Tutti gli esempi forniti in questo articolo verranno eseguiti tramite Spark-Shel
 
 Per avviare una sessione di Spark-Shell, seguire questa procedura:
 
-1. Usare SSH in nodo head per il cluster. Per altre informazioni sulla connessione al cluster con SSH, vedere [connettersi a HDInsight (Apache Hadoop) tramite SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
-1. Passare alla directory corretta digitando `cd /usr/hdp/current/hive_warehouse_connector` o fornire il percorso completo di tutti i file jar usati come parametri nel comando Spark-Shell.
+1. Usare SSH nel nodo head per il cluster Apache Spark. Per altre informazioni sulla connessione al cluster con SSH, vedere [connettersi a HDInsight (Apache Hadoop) tramite SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+
 1. Immettere il comando seguente per avviare la shell di Spark:
 
     ```bash
     spark-shell --master yarn \
-    --jars /usr/hdp/3.0.1.0-183/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.1.0-183.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.2.1-8.jar \
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
-1. Verrà visualizzato un messaggio di benvenuto e un `scala>` prompt in cui è possibile immettere i comandi.
+    Verrà visualizzato un messaggio di benvenuto e un prompt `scala>` in cui è possibile immettere i comandi.
 
 1. Dopo l'avvio di Spark-Shell, è possibile avviare un'istanza del connettore del warehouse di hive usando i comandi seguenti:
 
@@ -121,8 +124,10 @@ Per avviare una sessione di Spark-Shell, seguire questa procedura:
 
 Il Enterprise Security Package (ESP) fornisce funzionalità di livello aziendale, ad esempio l'autenticazione basata su Active Directory, il supporto multiutente e il controllo degli accessi in base al ruolo per i cluster Apache Hadoop in Azure HDInsight. Per altre informazioni su ESP, vedere [usare Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
-1. Seguire i passaggi 1 e 2 iniziali in [connessione ed esecuzione di query](#connecting-and-running-queries).
-1. Digitare `kinit` ed effettuare l'accesso con un utente di dominio.
+1. Usare SSH nel nodo head per il cluster Apache Spark. Per altre informazioni sulla connessione al cluster con SSH, vedere [connettersi a HDInsight (Apache Hadoop) tramite SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+
+1. Digitare `kinit` e accedere con un utente di dominio.
+
 1. Avviare Spark-Shell con l'elenco completo dei parametri di configurazione, come illustrato di seguito. Tutti i valori di tutte le lettere maiuscole tra parentesi angolari devono essere specificati in base al cluster. Se è necessario trovare i valori da inserire per uno dei parametri seguenti, vedere la sezione relativa all'installazione del [connettore del warehouse di hive](#hive-warehouse-connector-setup).:
 
     ```bash
@@ -158,15 +163,19 @@ Spark non supporta in modo nativo la scrittura nelle tabelle ACID gestite di hiv
     hive.createTable("sampletable_colorado").column("clientid","string").column("querytime","string").column("market","string").column("deviceplatform","string").column("devicemake","string").column("devicemodel","string").column("state","string").column("country","string").column("querydwelltime","double").column("sessionid","bigint").column("sessionpagevieworder","bigint").create()
     ```
 
-2. Filtrare la tabella `hivesampletable` in cui la `state` colonna è `Colorado`uguale a. Questa query della tabella hive viene restituita come dataframe di Spark. Il frame di frame viene quindi salvato nella tabella `sampletable_colorado` hive usando la `write` funzione.
+1. Filtrare la tabella `hivesampletable` in cui la colonna `state` è uguale a `Colorado`. Questa query della tabella hive viene restituita come dataframe di Spark. Il frame di frame viene quindi salvato nella tabella hive `sampletable_colorado` usando la funzione `write`.
 
     ```scala
     hive.table("hivesampletable").filter("state = 'Colorado'").write.format(HiveWarehouseSession.HIVE_WAREHOUSE_CONNECTOR).option("table","sampletable_colorado").save()
     ```
 
-È possibile visualizzare la tabella risultante nello screenshot seguente.
+1. Visualizzare i risultati con il comando seguente:
 
-![connettore warehouse hive Mostra tabella hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
+    ```scala
+    hive.table("sampletable_colorado").show()
+    ```
+    
+    ![connettore warehouse hive Mostra tabella hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
 
 ### <a name="structured-streaming-writes"></a>Scritture di streaming strutturato
 
@@ -174,44 +183,52 @@ Con hive warehouse Connector è possibile usare Spark streaming per scrivere dat
 
 Attenersi alla procedura seguente per creare un esempio di connettore del warehouse di hive che inserisce i dati da un flusso Spark sulla porta localhost 9999 in una tabella hive.
 
-1. Aprire un terminale nel cluster Spark.
+1. Attenersi alla procedura descritta in [connessione ed esecuzione di query](#connecting-and-running-queries).
+
 1. Avviare il flusso Spark con il comando seguente:
 
     ```scala
-    val lines = spark.readStream.format("socket").option("host", "localhost").option("port",9988).load()
+    val lines = spark.readStream.format("socket").option("host", "localhost").option("port",9999).load()
     ```
 
 1. Generare i dati per il flusso Spark creato, seguendo questa procedura:
-    1. Aprire un altro terminale nello stesso cluster Spark.
+    1. Aprire una seconda sessione SSH nello stesso cluster Spark.
     1. Al prompt dei comandi digitare `nc -lk 9999`. Questo comando usa l'utilità netcat per inviare i dati dalla riga di comando alla porta specificata.
-    1. Digitare le parole che si desidera inserire nel flusso Spark, seguito da ritorno a capo.
 
-        ![Immettere i dati nel flusso Apache Spark](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-stream-data-input.png)
-
-1. Creare una nuova tabella hive per conservare i dati di streaming. Nella shell di Spark digitare i comandi seguenti:
+1. Tornare alla prima sessione SSH e creare una nuova tabella hive per conservare i dati di streaming. In Spark-Shell immettere il comando seguente:
 
     ```scala
     hive.createTable("stream_table").column("value","string").create()
     ```
 
-1. Scrivere i dati di streaming nella tabella appena creata usando il comando seguente:
+1. Quindi scrivere i dati di streaming nella tabella appena creata usando il comando seguente:
 
     ```scala
     lines.filter("value = 'HiveSpark'").writeStream.format(HiveWarehouseSession.STREAM_TO_STREAM).option("database", "default").option("table","stream_table").option("metastoreUri",spark.conf.get("spark.datasource.hive.warehouse.metastoreUri")).option("checkpointLocation","/tmp/checkpoint1").start()
     ```
 
     >[!Important]
-    > Le `metastoreUri` opzioni `database` e devono essere attualmente impostate manualmente a causa di un problema noto nel Apache Spark. Per ulteriori informazioni su questo problema, vedere [Spark-25460](https://issues.apache.org/jira/browse/SPARK-25460).
+    > È necessario impostare manualmente le opzioni `metastoreUri` e `database` a causa di un problema noto in Apache Spark. Per ulteriori informazioni su questo problema, vedere [Spark-25460](https://issues.apache.org/jira/browse/SPARK-25460).
 
-1. È possibile visualizzare i dati inseriti nella tabella con il comando seguente:
+1. Tornare alla seconda sessione SSH e immettere i valori seguenti:
+
+    ```bash
+    foo
+    HiveSpark
+    bar
+    ```
+
+1. Tornare alla prima sessione SSH e prendere nota dell'attività breve. Usare il comando seguente per visualizzare i dati:
 
     ```scala
     hive.table("stream_table").show()
     ```
 
+Usare **CTRL + C** per arrestare netcat nella seconda sessione SSH. Usare `:q` per uscire da Spark-Shell nella prima sessione SSH.
+
 ### <a name="securing-data-on-spark-esp-clusters"></a>Protezione dei dati nei cluster ESP Spark
 
-1. Per creare una `demo` tabella con alcuni dati di esempio, immettere i comandi seguenti:
+1. Creare una tabella `demo` con alcuni dati di esempio immettendo i comandi seguenti:
 
     ```scala
     create table demo (name string);
@@ -220,7 +237,7 @@ Attenersi alla procedura seguente per creare un esempio di connettore del wareho
     INSERT INTO demo VALUES ('InteractiveQuery');
     ```
 
-1. Visualizzare il contenuto della tabella con il comando seguente. Prima di applicare il criterio, `demo` nella tabella viene visualizzata la colonna full.
+1. Visualizzare il contenuto della tabella con il comando seguente. Prima di applicare il criterio, nella tabella `demo` viene visualizzata la colonna full.
 
     ```scala
     hive.executeQuery("SELECT * FROM demo").show()
@@ -229,15 +246,15 @@ Attenersi alla procedura seguente per creare un esempio di connettore del wareho
     ![tabella demo prima di applicare i criteri Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
 
 1. Applicare un criterio di mascheramento delle colonne che mostra solo gli ultimi quattro caratteri della colonna.  
-    1. Passare all'interfaccia utente di amministrazione di `https://CLUSTERNAME.azurehdinsight.net/ranger/`Ranger all'indirizzo.
+    1. Passare all'interfaccia utente di amministrazione di Ranger a `https://CLUSTERNAME.azurehdinsight.net/ranger/`.
     1. Fare clic sul servizio Hive per il cluster in **hive**.
-        ![gestore del servizio Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
+        ![ranger Service Manager @ no__t-1
     1. Fare clic sulla scheda **maschera** e quindi su **Aggiungi nuovo criterio**
 
         ![elenco dei criteri hive del connettore warehouse di hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
 
     a. Specificare un nome di criterio desiderato. Selezione database: **Predefinita**, tabella hive: **demo**, colonna hive: **nome**, utente: **rsadmin2**, tipi di accesso: **selezione**e **maschera parziale: Mostra ultimi 4** dal menu **Opzioni di selezione maschera** . Fare clic su **Aggiungi**.
-                ![Crea criterio](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
+                criteri ![create @ no__t-1
 1. Visualizzare di nuovo il contenuto della tabella. Dopo aver applicato i criteri Ranger, è possibile visualizzare solo gli ultimi quattro caratteri della colonna.
 
     ![tabella demo dopo l'applicazione dei criteri Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)

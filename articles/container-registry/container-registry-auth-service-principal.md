@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: bee8b801f46c0018e75d58f941470adcc271daf0
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 16ad37eaa50f0c3825d131338cc4a0abdc369978
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032363"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72262878"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticazione al Registro Azure Container con entità servizio
 
@@ -29,13 +29,13 @@ Nel contesto del Registro Azure Container è possibile creare un'entità servizi
 
 Usando un'entità servizio Azure AD, è possibile fornire un accesso limitato al registro di sistema del contenitore privato. Creare entità servizio diverse per ogni applicazione o servizio, ciascuna con diritti di accesso personalizzati al registro di sistema. Poiché è possibile evitare di condividere le credenziali tra servizi e applicazioni, è possibile ruotare le credenziali o revocare l'accesso solamente all'entità servizio (e quindi all'applicazione) scelta.
 
-Ad esempio, configurare l'applicazione Web in modo che usi un'entità servizio che la fornisca `pull` solo l'accesso alle immagini, mentre il sistema di compilazione usa un'entità servizio che `push` fornisce `pull` l'accesso sia a che a. Se lo sviluppo dell'applicazione cambia proprietario, è possibile ruotare le credenziali dell'entità servizio senza alcun impatto sul sistema di compilazione.
+Ad esempio, configurare l'applicazione Web per l'uso di un'entità servizio che fornisce l'accesso con immagine `pull`, mentre il sistema di compilazione usa un'entità servizio che fornisce l'accesso sia `push` che `pull`. Se lo sviluppo dell'applicazione cambia proprietario, è possibile ruotare le credenziali dell'entità servizio senza alcun impatto sul sistema di compilazione.
 
 ## <a name="when-to-use-a-service-principal"></a>Quando usare un'entità servizio
 
 Usare un'entità servizio per fornire accesso al registro negli **scenari headless**, ovvero per qualsiasi applicazione, servizio o script che deve eseguire le operazioni di push o pull delle immagini del contenitore in modo automatico. Esempio:
 
-  * *Pull*: distribuire contenitori da un registro a sistemi di orchestrazione, inclusi Kubernetes, DC/OS e Docker Swarm. È anche possibile eseguire il pull da registri contenitori a servizi di Azure correlati, ad esempio [Azure Kubernetes Service (AKS)](container-registry-auth-aks.md), [istanze di contenitore di Azure](container-registry-auth-aci.md), [servizio app](../app-service/index.yml), [batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/)e altri.
+  * *Pull*: distribuire contenitori da un registro a sistemi di orchestrazione, inclusi Kubernetes, DC/OS e Docker Swarm. È anche possibile eseguire il pull da registri contenitori a servizi di Azure correlati, ad esempio [Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md), [istanze di contenitore di Azure](container-registry-auth-aci.md), [servizio app](../app-service/index.yml), [batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/)e altri.
 
   * *Push*: creare immagini dei contenitori ed eseguirne il push in un registro usando soluzioni di integrazione e distribuzione continua, come Azure Pipelines o Jenkins.
 
@@ -52,12 +52,12 @@ Per l'accesso singolo a un registro di sistema, ad esempio quando si esegue il p
 
 ## <a name="authenticate-with-the-service-principal"></a>Eseguire l'autenticazione con l'entità servizio
 
-Quando si dispone di un'entità servizio a cui è stato concesso l'accesso al registro contenitori, è possibile configurarne le credenziali per l'accesso a servizi e applicazioni "privi di intestazioni `docker login` " oppure immetterli usando il comando. Usare i valori seguenti:
+Quando si dispone di un'entità servizio a cui è stato concesso l'accesso al registro contenitori, è possibile configurarne le credenziali per l'accesso a servizi e applicazioni "privi di intestazioni" oppure immetterli usando il comando `docker login`. Usare i valori seguenti:
 
 * **Nome utente** : ID dell'applicazione dell'entità servizio (noto anche come *ID client*)
 * **Password** : password dell'entità servizio (detta anche *segreto client*)
 
-Ogni valore è un GUID del form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
+Ogni valore è un GUID nel formato `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
 > [!TIP]
 > È possibile rigenerare la password di un'entità servizio eseguendo il comando [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset).
@@ -65,14 +65,13 @@ Ogni valore è un GUID del form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 ### <a name="use-credentials-with-azure-services"></a>Usare le credenziali con i servizi di Azure
 
-È possibile usare le credenziali dell'entità servizio di qualsiasi servizio di Azure che può eseguire l'autenticazione con un Registro Azure Container. Ecco alcuni esempi:
+È possibile usare le credenziali dell'entità servizio di qualsiasi servizio di Azure che può eseguire l'autenticazione con un Registro Azure Container.  Usare le credenziali dell'entità servizio al posto delle credenziali di amministratore del registro di sistema per diversi scenari.
 
-* [Eseguire l'autenticazione con Registro Azure Container dal servizio Azure Kubernetes](container-registry-auth-aks.md)
-* [Eseguire l'autenticazione con Registro Azure Container da Istanze di Azure Container](container-registry-auth-aci.md)
+Ad esempio, usare le credenziali per eseguire il pull di un'immagine da un registro contenitori di Azure a [istanze di contenitore di Azure](container-registry-auth-aci.md).
 
 ### <a name="use-with-docker-login"></a>Usare con l'account di accesso di Docker
 
-È anche possibile eseguire `docker login` usando un'entità servizio. Nell'esempio seguente, l'ID applicazione dell'entità servizio viene passato nella variabile `$SP_APP_ID`di ambiente e la password nella variabile. `$SP_PASSWD` Per le procedure consigliate per gestire le credenziali Docker, vedere la Guida di riferimento al comando [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
+È anche possibile eseguire `docker login` usando un'entità servizio. Nell'esempio seguente l'ID applicazione dell'entità servizio viene passato nella variabile di ambiente `$SP_APP_ID` e la password nella variabile `$SP_PASSWD`. Per le procedure consigliate per gestire le credenziali Docker, vedere la Guida di riferimento al comando [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
 
 ```bash
 # Log in to Docker with service principal credentials

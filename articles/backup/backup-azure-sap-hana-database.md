@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9f16a00bd8bc8e61aecbf6d6bd7f31e90f50140a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 50fbd0a2169fb120424d76e786a6269243eeb3e1
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067111"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273940"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Eseguire il backup di un database di SAP HANA in Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "71067111"
 --- | ---
 **Aree geografiche supportate** | Australia sud-orientale, Australia orientale <br> Brasile meridionale <br> Canada centrale, Canada orientale <br> Asia orientale sud, Asia orientale <br> Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali<br> India centrale, India meridionale <br> Giappone orientale, Giappone occidentale<br> Corea del Sud centrale, Corea del Sud meridionale <br> Europa settentrionale, Europa occidentale <br> Regno Unito meridionale, Regno Unito occidentale
 **Sistemi operativi VM supportati** | SLES 12 con SP2, SP3 o SP4.
-**Versioni supportate di HANA** | DSC su HANA 1. x, MDC su HANA 2. x < = SPS04 Rev 42
+**Versioni supportate di HANA** | DSC su HANA 1. x, MDC su HANA 2. x < = SPS04 Rev 43
 
 ### <a name="current-limitations"></a>Limitazioni correnti
 
@@ -40,7 +40,7 @@ ms.locfileid: "71067111"
 - È possibile eseguire il backup dei log del database ogni 15 minuti. Il flusso dei backup del log inizia solo dopo il completamento di un backup completo per il database.
 - È possibile eseguire backup completi e differenziali. Il backup incrementale non è attualmente supportato.
 - Non è possibile modificare il criterio di backup dopo averlo applicato per SAP HANA backup. Se si vuole eseguire il backup con impostazioni diverse, creare un nuovo criterio o assegnare un criterio diverso.
-  - Per creare un nuovo criterio, nell'insieme di credenziali fare clic su **criteri** > **criteri** > di backup **+ Aggiungi** > **SAP Hana nella macchina virtuale di Azure**e specificare le impostazioni dei criteri.
+  - Per creare un nuovo criterio, nell'insieme di credenziali fare clic su **criteri** > **criteri di backup** >  **+ Aggiungi** > **SAP Hana nella macchina virtuale di Azure**e specificare le impostazioni dei criteri.
   - Per assegnare un criterio diverso, fare clic sul nome del criterio corrente nelle proprietà della macchina virtuale che esegue il database. Nella pagina **criteri di backup** è quindi possibile selezionare un criterio diverso da usare per il backup.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -101,7 +101,7 @@ A questo punto, abilitare il backup.
 
 1. Nel passaggio 2 fare clic su **Configura backup**.
 2. In **Seleziona elementi di cui eseguire il backup**selezionare tutti i database che si desidera proteggere > **OK**.
-3. In **criteri** > di backup**scegliere criteri**di backup, creare un nuovo criterio di backup per i database, in base alle istruzioni riportate di seguito.
+3. In **criteri di backup** > **scegliere criteri**di backup, creare un nuovo criterio di backup per i database, in base alle istruzioni riportate di seguito.
 4. Dopo aver creato il criterio, scegliere **Abilita backup**dal menu **backup** .
 5. Tenere traccia dello stato di avanzamento della configurazione del backup nell'area **notifiche** del portale.
 
@@ -167,7 +167,7 @@ Se si vuole eseguire un backup locale (usando HANA Studio) di un database di cui
 
 1. Attendere il completamento di tutti i backup completi o del log per il database. Verificare lo stato in SAP HANA Studio.
 2. Disabilitare i backup del log e impostare il catalogo di backup sul file system per il database pertinente.
-3. A tale scopo, fare doppio clic su **SystemDB** > **Configuration** > **Select database** > **Filter (log)** .
+3. A tale scopo, fare doppio clic su **systemdb** > **Configuration** > **selezionare database** > **Filter (log)** .
 4. Impostare **enable_auto_log_backup** su **No**.
 5. Impostare **log_backup_using_backint** su **false**.
 6. Eseguire un backup completo ad hoc del database.

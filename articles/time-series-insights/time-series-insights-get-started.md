@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 584172a9b248a9d151ba9a980bf4e52ed1e1b926
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 1956fd9eaaa537d7ffa992070fc5cffd567954ce
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141962"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274809"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Creare un nuovo ambiente Time Series Insights nel portale di Azure
 
@@ -34,18 +34,18 @@ Seguire questa procedura per creare un ambiente:
 
 1. Selezionare la categoria **Internet delle cose** e quindi **Time Series Insights**.
 
-   Creare l'ambiente Time Series Insights) [ ![](media/time-series-insights-get-started/1-new-tsi.png)](media/time-series-insights-get-started/1-new-tsi.png#lightbox)
+   [![Create l'ambiente Time Series Insights](media/time-series-insights-get-started/1-new-tsi.png)](media/time-series-insights-get-started/1-new-tsi.png#lightbox))
 
 1. Nella pagina **Time Series Insights** selezionare **Crea**.
 
 1. Compilare i parametri obbligatori. La tabella seguente descrive ciascun parametro:
    
-   [![Creare il gruppo di risorse Time Series Insights](media/time-series-insights-get-started/2-create-tsi.png)](media/time-series-insights-get-started/2-create-tsi.png#lightbox)
+   [![Create il gruppo di risorse Time Series Insights](media/time-series-insights-get-started/2-create-tsi.png)](media/time-series-insights-get-started/2-create-tsi.png#lightbox)
    
-   Impostazione|Valore consigliato|DESCRIZIONE
+   Impostazione|Valore suggerito|Descrizione
    ---|---|---
    Nome ambiente | Un nome univoco | Questo nome rappresenta l'ambiente nell'[utilità di esplorazione delle serie temporali](https://insights.timeseries.azure.com)
-   Sottoscrizione | Sottoscrizione | Se si dispone di più sottoscrizioni, scegliere preferibilmente la sottoscrizione che contiene l'origine evento. Time Series Insights può rilevare automaticamente le risorse di Hub IoT di Azure e di Hub eventi esistenti nella stessa sottoscrizione.
+   Sottoscrizione | Sottoscrizione in uso | Se si dispone di più sottoscrizioni, scegliere preferibilmente la sottoscrizione che contiene l'origine evento. Time Series Insights può rilevare automaticamente le risorse di Hub IoT di Azure e di Hub eventi esistenti nella stessa sottoscrizione.
    Gruppo di risorse | Crearne un nuovo o utilizzarne uno esistente | Un gruppo di risorse è una raccolta di risorse di Azure usate insieme. È possibile scegliere un gruppo di risorse esistente, ad esempio quello che contiene l'hub eventi o l'hub IoT. Oppure, se la risorsa non è correlata alle altre risorse, è possibile crearne una nuova.
    Location | Il più vicino all'origine evento | Scegliere preferibilmente la stessa posizione del data center che contiene i dati dell'origine evento, allo scopo di evitare i costi aggiuntivi per la larghezza di banda tra aree e tra zone e un'ulteriore latenza quando i dati vengono spostati all'esterno dell'area.
    Piano tariffario | S1 | Scegliere la velocità effettiva necessaria. Per la capacità iniziale e i costi minimi, selezionare S1.
@@ -55,13 +55,13 @@ Seguire questa procedura per creare un ambiente:
 
 1. Selezionare il simbolo **Notifiche** (icona a forma di campanello) per monitorare il processo di distribuzione.
 
-   [![Guarda le notifiche](media/time-series-insights-get-started/3-notifications.png)](media/time-series-insights-get-started/3-notifications.png#lightbox)
+   [@no__t 1Watch le notifiche](media/time-series-insights-get-started/3-notifications.png)](media/time-series-insights-get-started/3-notifications.png#lightbox)
 
     Quando la distribuzione ha esito positivo, è possibile selezionare **Vai alla risorsa** per configurare altre proprietà, impostare la sicurezza con criteri di accesso ai dati, aggiungere le origini eventi e altre azioni.
 
 1. In **Panoramica**delle risorse selezionare l' **icona Aggiungi** nell'angolo in alto a destra per accedere facilmente all'ambiente Time Series Insights in futuro.
 
-   [![Creare il pin Time Series Insights al dashboard](media/time-series-insights-get-started/4-pin-create.png)](media/time-series-insights-get-started/4-pin-create.png#lightbox)
+   [![Create Time Series Insights Aggiungi al dashboard](media/time-series-insights-get-started/4-pin-create.png)](media/time-series-insights-get-started/4-pin-create.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

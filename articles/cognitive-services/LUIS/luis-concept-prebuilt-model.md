@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: b072e265204bba3caa1388576008d5e41adcc33d
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: b88801ded3dea7c7514ff117361feba3e95444ed
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619723"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264381"
 ---
 # <a name="prebuilt-domain-intent-and-entity-models"></a>Modelli predefiniti per dominio, finalità ed entità
 
@@ -58,7 +58,7 @@ LUIS offre finalità predefinite e le relative espressioni. È possibile aggiung
 
 LUIS include un insieme di entità predefinite per il riconoscimento di tipi comuni di informazioni, ad esempio date, ore, numeri, misurazioni e valuta. Il supporto dell'entità predefinita varia a seconda delle impostazioni cultura dell'app LUIS. Per un elenco completo delle entità predefinite supportate da LUIS, incluso il supporto per le impostazioni cultura, consultare il [riferimento all'entità predefinita](./luis-reference-prebuilt-entities.md).
 
-Quando si include un'entità predefinita nell'applicazione, le relative stime vengono incluse nell'applicazione pubblicata. Si esegue il training preliminare del comportamento delle entità predefinite. **Non è possibile** applicare modifiche a questo comportamento. Seguire questa procedura per vedere in che modo funziona un'entità predefinita:
+Quando si include un'entità predefinita nell'applicazione, le relative stime vengono incluse nell'applicazione pubblicata. Si esegue il training preliminare del comportamento delle entità predefinite. **Non è possibile** applicare modifiche a questo comportamento. 
 
 > [!NOTE]
 > **builtin.datetime** è deprecata. Viene sostituita da [**builtin.datetimeV2**](luis-reference-prebuilt-datetimev2.md), che consente il riconoscimento degli intervalli di date e ora, nonché il riconoscimento migliorato di date e ore ambigue.

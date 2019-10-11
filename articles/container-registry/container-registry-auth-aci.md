@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: d2099de9ad909b23b79a92a831d7730b1cf126e3
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: b11f88cbb29016032cbf536a2c970573eda82152
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311633"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72262853"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Eseguire l'autenticazione con Registro Azure Container da Istanze di Azure Container
 
@@ -57,7 +57,7 @@ Gli script di esempio precedenti per l'interfaccia della riga di comando di Azur
 Gli articoli seguenti contengono altre informazioni sull'uso delle entità servizio e di Registro Azure Container:
 
 * [Autenticazione al Registro Azure Container con entità servizio](container-registry-auth-service-principal.md)
-* [Eseguire l'autenticazione con Registro Azure Container dal servizio Azure Kubernetes](container-registry-auth-aks.md)
+* [Eseguire l'autenticazione con Registro Azure Container dal servizio Azure Kubernetes](../aks/cluster-container-registry-integration.md)
 
 <!-- IMAGES -->
 

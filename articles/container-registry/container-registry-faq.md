@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: b365c914db0ce43da5dac4c5b889c854c0ea0639
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: cbdf4f203204df2d26eb7c908167c1e1ca10d0ab
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827414"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264325"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Domande frequenti su Azure Container Registry
 
@@ -39,7 +39,7 @@ Sì. Vedere la documentazione di [Twistlock](https://www.twistlock.com/2016/11/0
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Ricerca per categorie configurare Kubernetes con Container Registry di Azure?
 
-Vedere la documentazione per [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) e i passaggi per il [servizio Azure Kubernetes](container-registry-auth-aks.md).
+Vedere la documentazione per [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) e i passaggi per il [servizio Azure Kubernetes](../aks/cluster-container-registry-integration.md).
 
 ### <a name="how-do-i-get-admin-credentials-for-a-container-registry"></a>Ricerca per categorie ottenere le credenziali di amministratore per un registro contenitori?
 
@@ -111,7 +111,7 @@ La propagazione delle modifiche alle regole del firewall richiede tempo. Dopo av
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Ricerca per categorie accedere all'API HTTP V2 del registro di sistema Docker?
 
-ACR supporta l'API HTTP V2 del registro docker. È possibile accedere alle API in `https://<your registry login server>/v2/`. Esempio: `https://mycontainerregistry.azurecr.io/v2/`
+ACR supporta l'API HTTP V2 del registro docker. È possibile accedere alle API a `https://<your registry login server>/v2/`. Esempio: `https://mycontainerregistry.azurecr.io/v2/`
 
 ### <a name="how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository"></a>Ricerca per categorie eliminare tutti i manifesti a cui non viene fatto riferimento da alcun tag in un repository?
 
@@ -127,7 +127,7 @@ Per PowerShell:
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
-Nota: È possibile aggiungere `-y` il comando Delete per ignorare la conferma.
+Nota: È possibile aggiungere `-y` nel comando Delete per ignorare la conferma.
 
 Per altre informazioni, vedere [eliminare immagini del contenitore in Azure container Registry](container-registry-delete.md).
 
@@ -197,23 +197,23 @@ Sì, è possibile usare immagini attendibili in Azure Container Registry, perch�
 
 In `~/.docker/trust/tuf/myregistry.azurecr.io/myrepository/metadata`:
 
-* Le `root.json`chiavi pubbliche e i certificati di tutti i ruoli (eccetto i ruoli di delega) vengono archiviati in.
-* Le chiavi pubbliche e i certificati del ruolo di delega vengono archiviati nel file JSON del relativo ruolo padre, ad `targets.json` esempio per `targets/releases` il ruolo.
+* Le chiavi pubbliche e i certificati di tutti i ruoli (eccetto i ruoli di delega) vengono archiviati nel `root.json`.
+* Le chiavi pubbliche e i certificati del ruolo di delega vengono archiviati nel file JSON del relativo ruolo padre, ad esempio `targets.json` per il ruolo `targets/releases`.
 
 Si consiglia di verificare le chiavi pubbliche e i certificati dopo la verifica complessiva del TUF eseguita da Docker e da notary client.
 
 ### <a name="how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource"></a>Ricerca per categorie concedere l'accesso alle immagini pull o push senza autorizzazione per la gestione della risorsa del registro di sistema?
 
-ACR supporta [ruoli personalizzati](container-registry-roles.md) che forniscono diversi livelli di autorizzazioni. In particolare `AcrPull` , `AcrPush` i ruoli e consentono agli utenti di eseguire il pull e/o il push di immagini senza l'autorizzazione a gestire la risorsa del registro di sistema in Azure.
+ACR supporta [ruoli personalizzati](container-registry-roles.md) che forniscono diversi livelli di autorizzazioni. In particolare, i ruoli `AcrPull` e `AcrPush` consentono agli utenti di eseguire il pull e/o il push di immagini senza l'autorizzazione a gestire la risorsa del registro di sistema in Azure.
 
-* Portale di Azure: Il controllo di accesso (IAM) del registro di sistema > > aggiungere `AcrPull` ( `AcrPush` selezionare o per il ruolo).
+* Portale di Azure: Il controllo di accesso (IAM) del registro di sistema > > aggiungere (selezionare `AcrPull` o `AcrPush` per il ruolo).
 * Interfaccia della riga di comando di Azure: Trovare l'ID risorsa del registro di sistema eseguendo il comando seguente:
 
   ```azurecli
   az acr show -n myRegistry
   ```
   
-  È quindi possibile assegnare il `AcrPull` ruolo `AcrPush` o a un utente (l'esempio seguente usa `AcrPull`):
+  È quindi possibile assegnare il ruolo `AcrPull` o `AcrPush` a un utente (l'esempio seguente usa `AcrPull`):
 
   ```azurecli
     az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
@@ -245,7 +245,7 @@ Il cessionario è quindi in grado di autenticare e accedere alle immagini nel re
   docker pull myregistry.azurecr.io/hello-world
   ```
 
-Con l'uso del solo `AcrPull` ruolo o `AcrPush` , l'assegnatario non dispone dell'autorizzazione per gestire la risorsa del registro di sistema in Azure. Ad esempio, `az acr list` o `az acr show -n myRegistry` non visualizzerà il registro di sistema.
+Con l'uso solo del ruolo `AcrPull` o `AcrPush`, l'assegnatario non dispone dell'autorizzazione per gestire la risorsa del registro di sistema in Azure. Ad esempio, `az acr list` o `az acr show -n myRegistry` non visualizzerà il registro di sistema.
 
 ### <a name="how-do-i-enable-automatic-image-quarantine-for-a-registry"></a>Ricerca per categorie abilitare la quarantena delle immagini automatica per un registro?
 
@@ -253,7 +253,7 @@ La quarantena delle immagini è attualmente una funzionalità di anteprima di AC
 
 ## <a name="diagnostics-and-health-checks"></a>Controlli di diagnostica e integrità
 
-- [Controllare l'integrità con`az acr check-health`](#check-health-with-az-acr-check-health)
+- [Controllare l'integrità con `az acr check-health`](#check-health-with-az-acr-check-health)
 - [docker pull ha esito negativo con errore: NET/http: richiesta annullata durante l'attesa della connessione (il client. timeout supera le intestazioni in attesa)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [il push di Docker ha esito positivo, ma docker pull ha esito negativo con errore: non autorizzato: autenticazione obbligatoria](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [Abilitare e ottenere i log di debug del daemon Docker](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
@@ -263,15 +263,15 @@ La quarantena delle immagini è attualmente una funzionalità di anteprima di AC
 - [Perché il portale di Azure non riesce a recuperare i repository o i tag?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [Ricerca per categorie raccogliere tracce http in Windows?](#how-do-i-collect-http-traces-on-windows)
 
-### <a name="check-health-with-az-acr-check-health"></a>Controllare l'integrità con`az acr check-health`
+### <a name="check-health-with-az-acr-check-health"></a>Controllare l'integrità con `az acr check-health`
 
 Per risolvere i problemi comuni relativi all'ambiente e al registro di sistema, vedere [verificare l'integrità di un registro contenitori di Azure](container-registry-check-health.md).
 
 ### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>docker pull ha esito negativo con errore: NET/http: richiesta annullata durante l'attesa della connessione (il client. timeout supera le intestazioni in attesa)
 
  - Se questo errore è un problema temporaneo, il tentativo avrà esito positivo.
- - Se `docker pull` ha esito negativo in modo continuo, potrebbe essersi verificato un problema con il daemon docker. Il problema può in genere essere mitigato riavviando il daemon docker. 
- - Se si continua a visualizzare questo problema dopo il riavvio del daemon Docker, il problema potrebbe essere dovuto ad alcuni problemi di connettività di rete con il computer. Per verificare se la rete generale nel computer è integro, eseguire il comando seguente per testare la connettività dell'endpoint. La versione `az acr` minima che contiene questo comando di verifica della connettività è 2.2.9. Aggiornare l'interfaccia della riga di comando di Azure se si usa una versione precedente.
+ - Se `docker pull` ha esito negativo, potrebbe essersi verificato un problema con il daemon docker. Il problema può in genere essere mitigato riavviando il daemon docker. 
+ - Se si continua a visualizzare questo problema dopo il riavvio del daemon Docker, il problema potrebbe essere dovuto ad alcuni problemi di connettività di rete con il computer. Per verificare se la rete generale nel computer è integro, eseguire il comando seguente per testare la connettività dell'endpoint. La versione minima di `az acr` che contiene questo comando di verifica della connettività è 2.2.9. Aggiornare l'interfaccia della riga di comando di Azure se si usa una versione precedente.
  
    ```azurecli
     az acr check-health -n myRegistry
@@ -286,7 +286,7 @@ Utilizzare [questo](http://www.azurespeed.com/Azure/Upload) strumento per testar
 
 ### <a name="docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required"></a>Il push di Docker ha esito positivo, ma docker pull ha esito negativo con errore: non autorizzato: autenticazione obbligatoria
 
-Questo errore può verificarsi con la versione Red Hat del daemon Docker, dove `--signature-verification` è abilitato per impostazione predefinita. È possibile controllare le opzioni del daemon Docker per Red Hat Enterprise Linux (RHEL) o Fedora eseguendo il comando seguente:
+Questo errore può verificarsi con la versione Red Hat del daemon Docker, in cui `--signature-verification` è abilitato per impostazione predefinita. È possibile controllare le opzioni del daemon Docker per Red Hat Enterprise Linux (RHEL) o Fedora eseguendo il comando seguente:
 
 ```bash
 grep OPTIONS /etc/sysconfig/docker
@@ -298,7 +298,7 @@ Ad esempio, Fedora 28 server dispone delle seguenti opzioni del daemon docker:
 OPTIONS='--selinux-enabled --log-driver=journald --live-restore'
 ```
 
-Con `--signature-verification=false` Missing, `docker pull` ha esito negativo e restituisce un errore simile al seguente:
+Con `--signature-verification=false` mancante, `docker pull` ha esito negativo e restituisce un errore simile al seguente:
 
 ```bash
 Trying to pull repository myregistry.azurecr.io/myimage ...
@@ -306,7 +306,7 @@ unauthorized: authentication required
 ```
 
 Per risolvere l'errore:
-1. Aggiungere l'opzione `--signature-verification=false` al file `/etc/sysconfig/docker`di configurazione del daemon docker. Ad esempio:
+1. Aggiungere l'opzione `--signature-verification=false` al file di configurazione del daemon Docker `/etc/sysconfig/docker`. Ad esempio:
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
@@ -317,11 +317,11 @@ Per risolvere l'errore:
   sudo systemctl restart docker.service
   ```
 
-È possibile `--signature-verification` trovare `man dockerd`i dettagli di eseguendo.
+È possibile trovare i dettagli di `--signature-verification` eseguendo `man dockerd`.
 
 ### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Abilitare e ottenere i log di debug del daemon Docker  
 
-Iniziare `dockerd` con l' `debug` opzione. Prima di tutto, creare il file di configurazione del`/etc/docker/daemon.json`daemon Docker () se non esiste e `debug` aggiungere l'opzione:
+Avviare `dockerd` con l'opzione `debug`. Prima di tutto, creare il file di configurazione del daemon Docker (`/etc/docker/daemon.json`) se non esiste e aggiungere l'opzione `debug`:
 
 ```json
 {   
@@ -335,10 +335,10 @@ Quindi, riavviare il daemon. Ad esempio, con Ubuntu 14,04:
 sudo service docker restart
 ```
 
-Informazioni dettagliate sono disponibili nella [documentazione](https://docs.docker.com/engine/admin/#enable-debugging)di Docker. 
+Informazioni dettagliate sono disponibili nella [documentazione di Docker](https://docs.docker.com/engine/admin/#enable-debugging). 
 
- * I log possono essere generati in posizioni diverse, a seconda del sistema. Per Ubuntu 14,04, ad esempio, `/var/log/upstart/docker.log`è.   
-Per informazioni dettagliate, vedere la [documentazione](https://docs.docker.com/engine/admin/#read-the-logs) di Docker.    
+ * I log possono essere generati in posizioni diverse, a seconda del sistema. Per Ubuntu 14,04, ad esempio, è `/var/log/upstart/docker.log`.   
+Per informazioni dettagliate, vedere la [documentazione di Docker](https://docs.docker.com/engine/admin/#read-the-logs) .    
 
  * Per Docker per Windows, i log vengono generati in% LOCALAPPDATA%/docker/. Tuttavia, non può contenere ancora tutte le informazioni di debug.   
 
@@ -350,21 +350,21 @@ Per informazioni dettagliate, vedere la [documentazione](https://docs.docker.com
     docker run --net=host --ipc=host --uts=host --pid=host -it --security-opt=seccomp=unconfined --privileged --rm -v /:/host alpine /bin/sh
     chroot /host
     ```
-    A questo punto è possibile accedere a tutti i file della macchina `dockerd`virtuale in esecuzione. Il log si trova `/var/log/docker.log`in.
+    A questo punto è possibile accedere a tutti i file della macchina virtuale che esegue `dockerd`. Il log si trova in `/var/log/docker.log`.
 
 ### <a name="new-user-permissions-may-not-be-effective-immediately-after-updating"></a>Le nuove autorizzazioni utente potrebbero non essere valide immediatamente dopo l'aggiornamento
 
 Quando si concedono nuove autorizzazioni (nuovi ruoli) a un'entità servizio, la modifica potrebbe non avere effetto immediato. Esistono due possibili motivi:
 
 * Ritardo dell'assegnazione di ruolo Azure Active Directory. Normalmente è veloce, ma potrebbero essere necessari pochi minuti a causa del ritardo della propagazione.
-* Ritardo delle autorizzazioni nel server del token ACR. Questa operazione potrebbe richiedere fino a 10 minuti. Per attenuare, è possibile `docker logout` eseguire nuovamente l'autenticazione con lo stesso utente dopo 1 minuto:
+* Ritardo delle autorizzazioni nel server del token ACR. Questa operazione potrebbe richiedere fino a 10 minuti. Per attenuare, è possibile `docker logout` e quindi eseguire di nuovo l'autenticazione con lo stesso utente dopo 1 minuto:
 
   ```bash
   docker logout myregistry.azurecr.io
   docker login myregistry.azurecr.io
   ```
 
-Attualmente ACR non supporta l'eliminazione della replica domestica da parte degli utenti. La soluzione alternativa consiste nell'includere la replica Home create nel modello, ma ignorarne la creazione `"condition": false` aggiungendo come illustrato di seguito:
+Attualmente ACR non supporta l'eliminazione della replica domestica da parte degli utenti. La soluzione alternativa consiste nell'includere la replica Home create nel modello, ma ignorarne la creazione aggiungendo `"condition": false`, come illustrato di seguito:
 
 ```json
 {
@@ -382,8 +382,8 @@ Attualmente ACR non supporta l'eliminazione della replica domestica da parte deg
 
 ### <a name="authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls"></a>Le informazioni di autenticazione non sono specificate nel formato corretto sulle chiamate API REST dirette
 
-È possibile che si `InvalidAuthenticationInfo` verifichi un errore, specialmente `curl` usando lo `--location` strumento con `-L`l'opzione (per seguire i reindirizzamenti).
-Ad esempio, il recupero del BLOB `curl` con l'opzione with e l'autenticazione di `-L` base:
+È possibile che si verifichi un errore `InvalidAuthenticationInfo`, in particolare usando lo strumento `curl` con l'opzione `-L`, `--location` (per seguire i reindirizzamenti).
+Ad esempio, il recupero del BLOB con `curl` con l'opzione `-L` e l'autenticazione di base:
 
 ```bash
 curl -L -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest
@@ -398,9 +398,9 @@ RequestId:00000000-0000-0000-0000-000000000000
 Time:2019-01-01T00:00:00.0000000Z</Message></Error>
 ```
 
-La causa principale è che alcune `curl` implementazioni seguono i reindirizzamenti con le intestazioni dalla richiesta originale.
+La causa principale è che alcune implementazioni `curl` seguono i reindirizzamenti con le intestazioni dalla richiesta originale.
 
-Per risolvere il problema, è necessario seguire manualmente i reindirizzamenti senza le intestazioni. Stampare le intestazioni della risposta con `-D -` l'opzione `curl` di e quindi estrarre: `Location` l'intestazione:
+Per risolvere il problema, è necessario seguire manualmente i reindirizzamenti senza le intestazioni. Stampare le intestazioni della risposta con l'opzione `-D -` di `curl` e quindi estrarre: l'intestazione `Location`:
 
 ```bash
 redirect_url=$(curl -s -D - -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest | grep "^Location: " | cut -d " " -f2 | tr -d '\r')
@@ -426,8 +426,8 @@ Contattare l'amministratore di rete o verificare la configurazione e la connetti
 
 #### <a name="prerequisites"></a>Prerequisiti
 
-- Abilitare la decrittografia di HTTPS in Fiddler:<https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
-- Abilitare Docker per l'uso di un proxy tramite l'interfaccia utente di Docker:<https://docs.docker.com/docker-for-windows/#proxies>
+- Abilitare la decrittografia di HTTPS in Fiddler: <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
+- Abilitare Docker per l'uso di un proxy tramite l'interfaccia utente di Docker: <https://docs.docker.com/docker-for-windows/#proxies>
 - Assicurarsi di annullare il ripristino al termine dell'operazione.  Docker non funziona con questo abilitato e Fiddler non è in esecuzione.
 
 #### <a name="windows-containers"></a>Contenitori Windows
@@ -460,13 +460,13 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 ### <a name="how-do-i-include-the-git-folder-in-az-acr-build-command"></a>Ricerca per categorie includere la cartella. git nel comando AZ ACR Build?
 
-Se si passa una cartella di origine locale al `az acr build` comando, per `.git` impostazione predefinita la cartella viene esclusa dal pacchetto caricato. È possibile creare un `.dockerignore` file con la seguente impostazione. Indica al comando di ripristinare tutti i file `.git` in nel pacchetto caricato. 
+Se si passa una cartella di origine locale al comando `az acr build`, per impostazione predefinita la cartella `.git` viene esclusa dal pacchetto caricato. È possibile creare un file `.dockerignore` con la seguente impostazione. Indica al comando di ripristinare tutti i file in `.git` nel pacchetto caricato. 
 
 ```
 !.git/**
 ```
 
-Questa impostazione si applica anche al `az acr run` comando.
+Questa impostazione si applica anche al comando `az acr run`.
 
 ## <a name="cicd-integration"></a>Integrazione CI/CD
 

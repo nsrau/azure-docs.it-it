@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 57b4f018cd044b4f516266dcf9776e82252f7f22
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 6ac83a054b146b9d515386332779c4fe94cde7c3
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937120"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263443"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure 
 
@@ -213,7 +213,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
     }
     log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
- ```
+```
 
 ## <a name="configuration"></a>Configurazione
 
@@ -264,7 +264,7 @@ Ogni campo può avere uno dei tipi di valori seguenti:
 |---------|---------|---------|
 |Valore specifico |<nobr>"0 5 * * * *"</nobr>|Alle hh.05.00, dove hh corrisponde a ogni ora (una volta all'ora)|
 |Tutti i valori (`*`)|<nobr>"0 * 5 * * *"</nobr>|Alle 5.mm.00 ogni giorno, dove mm è ogni minuto dell'ora (60 volte al giorno)|
-|Intervallo (operatore `-`)|<nobr>"5-7 * * * * *"</nobr>|Alle hh.mm.05, hh.mm.06 e hh.mm.07, dove hh.mm è ogni minuto di ogni ora (3 volte al minuto)|  
+|Intervallo (operatore `-`)|<nobr>"5-7 * * * * *"</nobr>|Alle hh.mm.05, hh.mm.06 e hh.mm.07, dove hh.mm è ogni minuto di ogni ora (3 volte al minuto)|
 |Set di valori (operatore `,`)|<nobr>"5,8,10 * * * * *"</nobr>|Alle hh.mm.05, hh.mm.08 e hh.mm.10, dove hh.mm è ogni minuto di ogni ora (3 volte al minuto)|
 |Valore di intervallo (operatore `/`)|<nobr>"0 */5 * * * *"</nobr>|Alle hh.05.00, hh.10.00, hh.15.00 e così via fino alle hh.55.00, dove hh è ogni ora (12 volte all'ora)|
 
@@ -318,7 +318,7 @@ Espresso come stringa, il formato di `TimeSpan` è `hh:mm:ss`, dove `hh` è mino
 |"01:00:00" | Ogni ora        |
 |"00:01:00"|Ogni minuto         |
 |"24:00:00" | Ogni 24 giorni        |
-|"1.00:00:00" | ogni giorno        |
+|"1.00:00:00" | Ogni giorno        |
 
 ## <a name="scale-out"></a>Scalabilità orizzontale
 
@@ -326,7 +326,16 @@ Se un'app per le funzioni viene scalata orizzontalmente a più istanze, viene es
 
 ## <a name="function-apps-sharing-storage"></a>App per le funzioni che condividono un account di archiviazione
 
-Se si condivide un account di archiviazione tra più app per le funzioni, assicurarsi che ogni app abbia un valore diverso per `id` in *host.json*. È possibile omettere la proprietà `id` o impostare manualmente la proprietà `id` di ogni app per le funzioni su un valore diverso. Il trigger timer usa un blocco dell'archiviazione per garantire che vi sia una sola istanza del timer quando un'app per le funzioni viene scalata orizzontalmente a più istanze. Se due app per le funzioni condividono la stessa proprietà `id` e ognuna usa un trigger timer, verrà eseguito solo un timer.
+Se si condividono gli account di archiviazione tra app per le funzioni non distribuite nel servizio app, potrebbe essere necessario assegnare in modo esplicito l'ID host a ogni app.
+
+| Versione di Funzioni | Impostazione                                              |
+| ----------------- | ---------------------------------------------------- |
+| 2.x               | variabile di ambiente `AzureFunctionsWebHost__hostid` |
+| 1.x               | `id` in *host. JSON*                                  |
+
+È possibile omettere il valore di identificazione o impostare manualmente la configurazione di identificazione di ogni app per le funzioni su un valore diverso.
+
+Il trigger del timer usa un blocco di archiviazione per assicurarsi che sia presente una sola istanza del timer quando un'app per le funzioni viene scalata in orizzontale a più istanze. Se due app per le funzioni condividono la stessa configurazione di identificazione e ognuna utilizza un trigger timer, viene eseguito un solo timer.
 
 ## <a name="retry-behavior"></a>Comportamento in caso di nuovo tentativo
 

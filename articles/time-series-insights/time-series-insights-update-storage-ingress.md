@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98baa8d3f951a8922bcd1f40449fa26840f3a3c4
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 9af53728ee038a6511c434aeedfdb9afdab6d04b
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051468"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273880"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights
 
@@ -25,7 +25,7 @@ Questo articolo descrive le modifiche all'archiviazione e all'ingresso dei dati 
 
 Azure Time Series Insights i criteri di ingresso dei dati determinano la posizione in cui i dati possono essere originati da e nel formato.
 
-[![Panoramica del modello Time Series](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
+[Panoramica del modello di serie @no__t 1Time](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
 
 ### <a name="ingress-policies"></a>Criteri di ingresso
 
@@ -34,7 +34,7 @@ Il Time Series Insights anteprima supporta le stesse origini evento e i tipi di 
 - [Hub IoT Azure](../iot-hub/about-iot-hub.md)
 - [Hub eventi di Azure](../event-hubs/event-hubs-about.md)
   
-Azure Time Series Insights supporta il formato JSON inviato tramite l'hub Azure o hub eventi di Azure. Per ottimizzare i dati JSON, vedere la pagina relativa [alla forma di JSON](./time-series-insights-send-events.md#json).
+Azure Time Series Insights supporta il formato JSON inviato tramite l'hub Azure o hub eventi di Azure. Per ottimizzare i dati JSON, vedere la pagina relativa [alla forma di JSON](./time-series-insights-send-events.md#supported-json-shapes).
 
 ### <a name="data-storage"></a>Archiviazione dei dati
 
@@ -130,7 +130,7 @@ Per garantire le prestazioni delle query e la disponibilità dei dati, non modif
 È possibile accedere ai dati in tre modi:
 
 * Da Esplora Time Series Insights Preview: è possibile esportare i dati come file CSV dalla Time Series Insights Preview Explorer. Per altre informazioni, vedere [Strumento di esplorazione dell'anteprima di Time Series Insights](./time-series-insights-update-explorer.md).
-* Dalle API di Time Series Insights Preview: è possibile raggiungere l'endpoint API in `/getRecorded`. Per altre informazioni su questa API, vedere [Query Time Series](./time-series-insights-update-tsq.md).
+* Dalle API di Time Series Insights Preview: è possibile raggiungere l'endpoint API a `/getRecorded`. Per altre informazioni su questa API, vedere [Query Time Series](./time-series-insights-update-tsq.md).
 * Direttamente da un account di archiviazione di Azure (di seguito).
 
 #### <a name="from-an-azure-storage-account"></a>Da un account di archiviazione di Azure
@@ -145,7 +145,7 @@ Per garantire le prestazioni delle query e la disponibilità dei dati, non modif
 
 Non eliminare i BLOB. Non solo sono utili per il controllo e la gestione di un record dei dati, il Time Series Insights anteprima gestisce i metadati del BLOB all'interno di ogni BLOB.
 
-## <a name="partitions"></a>Partizioni
+## <a name="partitions"></a>Partitions
 
 Ogni ambiente Time Series Insights anteprima deve avere una proprietà **ID Time Series** e una proprietà **timestamp** che lo identificano in modo univoco. Time Series ID funge da partizione logica per i dati e fornisce all'ambiente di anteprima di Time Series Insights un limite naturale per la distribuzione dei dati tra le partizioni fisiche. Le partizioni fisiche sono gestite da Time Series Insights anteprima in un account di archiviazione di Azure.
 

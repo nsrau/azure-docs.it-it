@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 10/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 234fe28cb8bd9dcb97e307836961e2f587e15181
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: eaac2e3e2fc489b364729711da151c28cde86d6c
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846626"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274737"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Aggiungere un'origine evento di un hub IoT in un ambiente Time Series Insights
 
@@ -38,11 +38,11 @@ Le applicazioni usano gruppi di consumer per estrarre i dati dall'hub IoT di Azu
 
 Per aggiungere un nuovo gruppo di consumer all'hub IoT:
 
-1. Nel portale di Azure individuare e aprire l'hub IoT.
+1. Nella [portale di Azure](https://portal.azure.com)individuare e aprire l'hub Internet.
 
 1. In **Impostazioni**selezionare **endpoint predefiniti**, quindi selezionare l'endpoint **eventi** .
 
-   [![Nella pagina endpoint di compilazione selezionare il pulsante eventi.](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-one.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-one.png#lightbox)
+   [![Sulla Barra pagina endpoint di compilazione, selezionare il pulsante eventi](media/time-series-insights-how-to-add-an-event-source-iothub/1-iot-hub.png)](media/time-series-insights-how-to-add-an-event-source-iothub/1-iot-hub.png#lightbox)
 
 1. In **Gruppi di consumer** immettere un nome univoco per il gruppo di consumer. Usare questo stesso nome al momento di creare una nuova origine evento nell'ambiente Time Series Insights.
 
@@ -56,7 +56,7 @@ Per aggiungere un nuovo gruppo di consumer all'hub IoT:
 
 1. In **Topologia dell'ambiente** selezionare **Origini eventi** e fare clic su **Aggiungi**.
 
-   [![Selezionare origini eventi, quindi fare clic sul pulsante Aggiungi.](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-two.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-two.png#lightbox)
+   [Origini eventi ![Selezionare, quindi selezionare il pulsante Aggiungi](media/time-series-insights-how-to-add-an-event-source-iothub/2-add-event-source.png)](media/time-series-insights-how-to-add-an-event-source-iothub/2-add-event-source.png#lightbox)
 
 1. Nel riquadro **Nuova origine evento** per univoco per **Nome dell'origine evento** immettere un nome univoco per questo ambiente Time Series Insights, ad esempio **event-stream**.
 
@@ -66,21 +66,18 @@ Per aggiungere un nuovo gruppo di consumer all'hub IoT:
 
    * Se per una delle sottoscrizioni disponibili esiste già un hub IoT, scegliere **Usare l'hub IoT dalle sottoscrizioni disponibili**. Questa opzione rappresenta l'approccio più semplice.
    
-     [![Selezionare le opzioni nel riquadro nuovo origine evento](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-three.png#lightbox)
+     [opzioni ![Selezionare nel nuovo riquadro Origine evento](media/time-series-insights-how-to-add-an-event-source-iothub/3-select-an-import-option.png)](media/time-series-insights-how-to-add-an-event-source-iothub/3-select-an-import-option.png#lightbox)
 
     * La tabella seguente illustra le proprietà obbligatorie se si seleziona l'opzione **Usare l'hub IoT dalle sottoscrizioni disponibili**:
 
-       [![Nuovo riquadro Origine evento: proprietà da impostare nell'opzione Usa hub Internet delle sottoscrizioni disponibili](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-four.png#lightbox)
+       [riquadro Origine evento ![New: proprietà da impostare nell'opzione Usa l'hub Internet delle sottoscrizioni disponibili](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png#lightbox)
 
        | Proprietà | Descrizione |
        | --- | --- |
-       | ID sottoscrizione | Selezionare la sottoscrizione in cui l'hub IoT è stato creato.
-       | Nome hub IoT | Selezionare il nome dell'hub IoT.
-       | Nome criterio dell'hub IoT | Selezionare i criteri di accesso condiviso. I criteri di accesso condiviso sono disponibili nella scheda Impostazioni hub IoT. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. Il criterio di accesso condiviso per l'origine evento *deve* avere le autorizzazioni per la **connessione al servizio**.
-       | Chiave criteri hub IoT | La chiave è prepopolata.
-       | Gruppo di consumer dell'hub IoT | Il gruppo di consumer per la lettura degli eventi dall'hub IoT. È consigliabile usare un gruppo di consumer dedicato per l'origine evento.
-       | Formato di serializzazione eventi | Attualmente JSON è l'unico formato di serializzazione disponibile. I messaggi relativi agli eventi devono essere in questo formato. In caso contrario, non è possibile leggere i dati. |
-       | Nome della proprietà Timestamp | Per determinare questo valore, è necessario comprendere il formato dei dati del messaggio inviato all'hub IoT. Questo valore è il **nome** della proprietà evento specifica nei dati del messaggio che si vuole usare come timestamp dell'evento. Il valore fa distinzione tra maiuscole e minuscole. Se lasciato vuoto, come timestamp dell'evento viene usato il **tempo di accodamento dell'evento** nell'origine evento. |
+       | Sottoscrizione | Sottoscrizione a cui appartiene l'hub Internet. |
+       | Nome dell'hub IoT | Nome dell'hub di Internet delle cose selezionato. |
+       | Nome criterio dell'hub IoT | Selezionare i criteri di accesso condiviso. I criteri di accesso condiviso sono disponibili nella scheda Impostazioni hub IoT. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. Il criterio di accesso condiviso per l'origine evento *deve* avere le autorizzazioni per la **connessione al servizio**. |
+       | Chiave criteri hub IoT | La chiave è prepopolata. |
 
     * Scegliere **Specificare le impostazioni dell'hub IoT manualmente** se l'hub IoT è esterno alle sottoscrizioni o per scegliere opzioni avanzate.
 
@@ -88,20 +85,24 @@ Per aggiungere un nuovo gruppo di consumer all'hub IoT:
 
        | Proprietà | Descrizione |
        | --- | --- |
-       | ID sottoscrizione | La sottoscrizione in cui l'hub IoT è stata creata.
-       | Gruppo di risorse | Il nome del gruppo di risorse in cui è stato creato questo hub IoT.
-       | Nome hub IoT | Il nome dell'hub IoT. Al momento della creazione, è stato immesso un nome specifico per l'hub IoT.
-       | Nome criterio dell'hub IoT | I criteri di accesso condiviso. I criteri di accesso condiviso sono stati creati nella scheda Impostazioni hub IoT. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. Il criterio di accesso condiviso per l'origine evento *deve* avere le autorizzazioni per la **connessione al servizio**.
-       | Chiave criteri hub IoT | La chiave di accesso condiviso usata per autenticare l'accesso allo spazio dei nomi del bus di servizio di Azure. Immettere qui la chiave primaria o secondaria.
-       | Gruppo di consumer dell'hub IoT | Il gruppo di consumer per la lettura degli eventi dall'hub IoT. È consigliabile usare un gruppo di consumer dedicato per l'origine evento.
+       | ID sottoscrizione | Sottoscrizione a cui appartiene l'hub Internet. |
+       | Gruppo di risorse | Il nome del gruppo di risorse in cui è stato creato questo hub IoT. |
+       | Nome dell'hub IoT | Il nome dell'hub IoT. Al momento della creazione, è stato immesso un nome specifico per l'hub IoT. |
+       | Nome criterio dell'hub IoT | I criteri di accesso condiviso. I criteri di accesso condiviso sono stati creati nella scheda Impostazioni hub IoT. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. Il criterio di accesso condiviso per l'origine evento *deve* avere le autorizzazioni per la **connessione al servizio**. |
+       | Chiave criteri hub IoT | La chiave di accesso condiviso usata per autenticare l'accesso allo spazio dei nomi del bus di servizio di Azure. Immettere qui la chiave primaria o secondaria. |
+
+    * Entrambe le opzioni condividono le opzioni di configurazione seguenti:
+
+       | Proprietà | Descrizione |
+       | --- | --- |
+       | Gruppo di consumer dell'hub IoT | Il gruppo di consumer per la lettura degli eventi dall'hub IoT. È consigliabile usare un gruppo di consumer dedicato per l'origine evento. |
        | Formato di serializzazione eventi | Attualmente JSON è l'unico formato di serializzazione disponibile. I messaggi relativi agli eventi devono essere in questo formato. In caso contrario, non è possibile leggere i dati. |
        | Nome della proprietà Timestamp | Per determinare questo valore, è necessario comprendere il formato dei dati del messaggio inviato all'hub IoT. Questo valore è il **nome** della proprietà evento specifica nei dati del messaggio che si vuole usare come timestamp dell'evento. Il valore fa distinzione tra maiuscole e minuscole. Se lasciato vuoto, come timestamp dell'evento viene usato il **tempo di accodamento dell'evento** nell'origine evento. |
+
 
 1. Aggiungere il nome del gruppo di consumer Time Series Insights dedicato aggiunto all'hub IoT.
 
 1. Selezionare **Create**.
-
-   [![Pulsante Crea](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-five.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-five.png#lightbox)
 
 1. Dopo la creazione dell'origine evento, Time Series Insights inizia automaticamente a trasmettere i dati nell'ambiente.
 

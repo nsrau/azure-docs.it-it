@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 22f0ef7da9018da128e9a978cefa71eaa786829c
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 62af688c6090b61f2596ab376cb479c270b87759
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098933"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274125"
 ---
 # <a name="load-balancer-health-probes"></a>Probe di integrità di Load Balancer
 
@@ -54,7 +54,7 @@ La configurazione del probe di integrità è costituita dagli elementi seguenti:
 Il numero di risposte del probe si applica a entrambi
 
 - il numero di probe riusciti che consentono a un'istanza di essere contrassegnata come attiva e
-- Numero di probe non riusciti che fanno sì che un'istanza venga contrassegnata come inattiva.
+- numero di probe non riusciti che fanno sì che un'istanza venga contrassegnata come inattiva.
 
 I valori di timeout e intervallo specificati determinano se un'istanza verrà contrassegnata come in alto o in basso.  La durata dell'intervallo moltiplicata per il numero di risposte del probe determina il periodo di tempo durante il quale devono essere rilevate le risposte del probe.  E il servizio reagirà dopo aver completato i probe richiesti.
 
@@ -116,7 +116,7 @@ Di seguito viene illustrato come è possibile esprimere questo tipo di configura
 
 I probe HTTP e HTTPS si basano sul probe TCP ed emettono una richiesta HTTP GET con il percorso specificato. Entrambi i probe supportano i percorsi relativi per HTTP GET. I probe HTTPS sono uguali ai probe HTTP con l'aggiunta di un wrapper Transport Layer Security (TLS, precedente noto come SSL). Il probe di integrità viene contrassegnato come inattivo quando l'istanza risponde con uno stato HTTP 200 entro il periodo di timeout.  Per impostazione predefinita, il probe di integrità tenta di controllare la porta del probe di integrità configurata ogni 15 secondi. L'intervallo minimo del probe è di 5 secondi. La durata totale di tutti gli intervalli non può superare i 120 secondi.
 
-I probe HTTP/HTTPS sono utili anche se si desidera esprimere un probe di integrità.  implementare la logica personalizzata per rimuovere le istanze dalla rotazione di bilanciamento del carico se la porta probe è anche il listener per il servizio stesso. Ad esempio, si potrebbe scegliere di rimuovere un'istanza se indica oltre il 90% di uso della CPU e restituisce uno stato HTTP diverso da 200. 
+I probe HTTP/HTTPS possono essere utili anche per implementare una logica personalizzata per rimuovere le istanze dalla rotazione del servizio di bilanciamento del carico se la porta Probe è anche il listener per il servizio stesso. Ad esempio, si potrebbe scegliere di rimuovere un'istanza se indica oltre il 90% di uso della CPU e restituisce uno stato HTTP diverso da 200. 
 
 Se si usano servizi cloud e ruoli Web che usano w3wp.exe, si ottiene anche il monitoraggio automatico del sito Web. Gli errori nel codice del sito Web restituiscono uno stato diverso da 200 al probe del servizio di bilanciamento del carico.
 

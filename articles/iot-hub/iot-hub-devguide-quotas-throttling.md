@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 0e60607d50722a4496dc8f4ad7d609cdf9fd5792
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 4941e7af000e97e4ace0a9e90a187ed92409942d
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877178"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264647"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
@@ -26,7 +26,7 @@ Il provisioning di ogni hub IoT viene eseguito con un determinato numero di unit
 
 Il livello determina anche le limitazioni che l'hub IoT applica alle operazioni.
 
-### <a name="iot-plug-and-play"></a>IoT Plug and Play
+### <a name="iot-plug-and-play"></a>Plug and Play IoT
 
 Durante la fase di anteprima pubblica, gli Plug and Play dispositivi invieranno messaggi distinti per interfaccia, che potrebbero aumentare il numero di messaggi conteggiati per la quota del messaggio.
 
@@ -38,12 +38,12 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 
 | Limitazione | Nessuna, B1 e S1 | B2 e S2 | B3 e S3 | 
 | -------- | ------- | ------- | ------- |
-| [Operazioni del registro di sistema delle identità](#identity-registry-operations-throttle) (creazione, recupero, elenco, aggiornamento, eliminazione) | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
-| [Nuove connessioni dispositivo](#device-connections-throttle) (questo limite si applica alla frequenza delle _nuove connessioni_, non al numero totale di connessioni) | Più di 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24 nuove connessioni/sec, ma si hanno almeno 100 nuove conessioni/sec tra le unità. Con nove unità S1 si otterranno 108 nuove connessioni/sec (9\*12) tra le unità. | 120 nuove connessioni/sec/unità | 6\.000 nuove connessioni/sec/unità |
-| Inoltri dal dispositivo al cloud | Superiore a 100 operazioni di invio/sec o 12 operazioni di invio/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24/sec, ma sono presenti almeno 100 operazioni di invio/sec tra le unità. Con nove unità S1, sono disponibili 108 operazioni di invio/sec (\*9 12) tra le unità. | 120 operazioni di invio/sec/unità | 6\.000 operazioni di invio/sec/unità |
+| [Operazioni del registro delle identità](#identity-registry-operations-throttle) (creazione, recupero, elenco, aggiornamento, eliminazione) | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
+| [Nuove connessioni a dispositivi](#device-connections-throttle) (questo limite si applica alla frequenza delle _nuove connessioni_, non al numero totale di connessioni) | Più di 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24 nuove connessioni/sec, ma si hanno almeno 100 nuove conessioni/sec tra le unità. Con nove unità S1 si otterranno 108 nuove connessioni/sec (9\*12) tra le unità. | 120 nuove connessioni/sec/unità | 6\.000 nuove connessioni/sec/unità |
+| Inoltri dal dispositivo al cloud | Superiore a 100 operazioni di invio/sec o 12 operazioni di invio/sec/unità <br/> Ad esempio, due unità S1 sono 2 @ no__t-012 = 24/sec, ma sono presenti almeno 100 operazioni di invio/sec tra le unità. Con nove unità S1, sono disponibili 108 operazioni di invio/sec (9 @ no__t-012) tra le unità. | 120 operazioni di invio/sec/unità | 6\.000 operazioni di invio/sec/unità |
 | Inoltri dal cloud al dispositivo<sup>1</sup> | 1,67 operazioni di invio/sec/unità (100 messaggi/min/unità) | 1,67 operazioni di invio/sec/unità (100 operazioni di invio/min/unità) | 83,33 operazioni di invio/sec/unità (5.000 operazioni di invio/min/unità) |
 | Ricezioni dal cloud al dispositivo<sup>1</sup> <br/> (solo quando il dispositivo usa HTTPS)| 16,67 operazioni di ricezione/sec/unità (operazioni di ricezione 1.000/min/unità) | 16,67 operazioni di ricezione/sec/unità (operazioni di ricezione 1.000/min/unità) | 833,33 operazioni di ricezione/sec/unità (operazioni di ricezione 50.000/min/unità) |
-| Caricamento file | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 83,33 notifiche di caricamento file/sec/unità (5000/min/unità) |
+| Caricamento di file | 1,67 avvio caricamento file/sec/unità (100/min/unità) | 1,67 avvio caricamento file/sec/unità (100/min/unità) | 83,33 avvio caricamento file/sec/unità (5000/min/unità) |
 | Metodi diretti<sup>1</sup> | 160 KB/sec/unità<sup>2</sup> | 480 KB/sec/unità<sup>2</sup> | 24 MB/sec/unità<sup>2</sup> | 
 | Query | 20/min/unità | 20/min/unità | 1000/min/unità |
 | Letture di dispositivi e moduli gemelli <sup>1</sup> | 100/sec | Superiore a 100/sec o 10/sec/unità | 500/sec/unità |
@@ -75,9 +75,9 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 
 ### <a name="traffic-shaping"></a>Shaping del traffico
 
-Per gestire il traffico in sequenza, l'hub Internet accetta le richieste sopra la limitazione per un periodo di tempo limitato. Le prime richieste verranno elaborate immediatamente. Tuttavia, se il numero di richieste continua a violare la limitazione, l'hub Internet inizia a inserire le richieste in una coda ed elaborate alla tariffa limite. Questo effetto è denominato *shaping del traffico*. Inoltre, le dimensioni della coda sono limitate. Se la violazione della limitazione continua, alla fine la coda si riempie e l'hub delle cose inizia a rifiutare `429 ThrottlingException`le richieste con.
+Per gestire il traffico in sequenza, l'hub Internet accetta le richieste sopra la limitazione per un periodo di tempo limitato. Le prime richieste verranno elaborate immediatamente. Tuttavia, se il numero di richieste continua a violare la limitazione, l'hub Internet inizia a inserire le richieste in una coda ed elaborate alla tariffa limite. Questo effetto è denominato *shaping del traffico*. Inoltre, le dimensioni della coda sono limitate. Se la violazione della limitazione continua, alla fine la coda si riempie e l'hub delle cose inizia a rifiutare le richieste con `429 ThrottlingException`.
 
-Ad esempio, si usa un dispositivo simulato per inviare i messaggi da dispositivo a Cloud 200 al secondo all'hub delle cose S1 (con un limite di 100/sec D2C inviati). Per il primo minuto o due, i messaggi vengono elaborati immediatamente. Tuttavia, poiché il dispositivo continua a inviare un numero maggiore di messaggi rispetto al limite di limitazione, l'hub delle cose inizia a elaborare solo 100 messaggi al secondo e inserisce il resto in una coda. Si inizia a notare un aumento della latenza. A questo punto, si `429 ThrottlingException` inizia a ricevere il riempimento della coda e il "numero di errori di limitazione" nelle [metriche dell'hub](iot-hub-metrics.md) delle cose inizia ad aumentare.
+Ad esempio, si usa un dispositivo simulato per inviare i messaggi da dispositivo a Cloud 200 al secondo all'hub delle cose S1 (con un limite di 100/sec D2C inviati). Per il primo minuto o due, i messaggi vengono elaborati immediatamente. Tuttavia, poiché il dispositivo continua a inviare un numero maggiore di messaggi rispetto al limite di limitazione, l'hub delle cose inizia a elaborare solo 100 messaggi al secondo e inserisce il resto in una coda. Si inizia a notare un aumento della latenza. Infine, si inizia a ottenere `429 ThrottlingException` quando la coda si riempie e il "numero di errori di limitazione" nelle [metriche dell'hub](iot-hub-metrics.md) delle cose inizia ad aumentare.
 
 ### <a name="identity-registry-operations-throttle"></a>Limitazione delle operazioni del registro di sistema delle identità
 
@@ -112,7 +112,7 @@ L'hub IoT applica altri limiti operativi:
 
 ## <a name="increasing-the-quota-or-throttle-limit"></a>Aumento del limite di quota o limitazione
 
-In qualsiasi momento, è possibile aumentare le quote o i limiti di limitazione aumentando [il numero di unità di](iot-hub-upgrade.md)cui è stato effettuato il provisioning in un hub Internet.
+In qualsiasi momento, è possibile aumentare le quote o i limiti di limitazione aumentando [il numero di unità di cui è stato effettuato il provisioning in un hub](iot-hub-upgrade.md)Internet.
 
 ## <a name="latency"></a>Latency
 

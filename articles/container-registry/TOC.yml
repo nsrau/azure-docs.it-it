@@ -98,7 +98,7 @@
             - name: Eseguire l'autenticazione da Istanze di Azure Container
               href: container-registry-auth-aci.md
             - name: Eseguire l'autenticazione dal servizio Azure Kubernetes
-              href: container-registry-auth-aks.md
+              href: ../aks/cluster-container-registry-integration.md
         - name: Ruoli e autorizzazioni
           href: container-registry-roles.md
         - name: Attendibilità del contenuto

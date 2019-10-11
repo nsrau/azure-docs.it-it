@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 22c12d3233d85a02f6eef8d63e5a4494b4f0cdfa
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: dc6edaebebe89b6d4a35ada58d40795f86a935d3
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273694"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264465"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Aumentare automaticamente le unità elaborate di Hub eventi di Azure
 Hub eventi di Azure è una piattaforma di streaming dei dati altamente scalabile. L'uso di Hub eventi, quindi, spesso aumenta dopo che si è iniziato a usare il servizio. Questo utilizzo richiede di aumentare le prestazioni di Hub eventi aumentando le [unità elaborate](event-hubs-scalability.md#throughput-units) predeterminate e di gestire velocità di trasferimento più alte. La funzionalità **Aumento automatico** di Hub eventi aumenta automaticamente le prestazioni aumentando il numero di unità elaborate per soddisfare le esigenze di utilizzo. L'aumento delle unità elaborate previene scenari di limitazione in cui:
@@ -40,10 +40,13 @@ Il traffico di Hub eventi è controllato dalle [unità elaborate](event-hubs-sca
 
 ## <a name="enable-auto-inflate-on-a-namespace"></a>Abilitare Aumento automatico in uno spazio dei nomi
 
-Per abilitare o disabilitare Aumento automatico in uno spazio dei nomi di Hub eventi, usare uno dei metodi seguenti:
+È possibile abilitare o disabilitare il gonfiaggio automatico in uno spazio dei nomi di hub eventi di livello standard usando uno dei metodi seguenti:
 
 - Il [portale di Azure](https://portal.azure.com).
 - Un [modello di Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate).
+
+> [!NOTE]
+> Gli spazi dei nomi di hub eventi di livello Basic non supportano il gonfiaggio automatico.
 
 ### <a name="enable-auto-inflate-through-the-portal"></a>Abilitare Aumento automatico tramite il portale
 
@@ -73,7 +76,7 @@ Dopo avere abilitato questa opzione, è possibile iniziare con un numero ridotto
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Abilitare Aumento automatico usando un modello di Azure Resource Manager
 
-È possibile abilitare Aumento automatico durante la distribuzione di un modello di Azure Resource Manager. Ad esempio, impostare la proprietà `isAutoInflateEnabled` su **true**, quindi impostare `maximumThroughputUnits` su 10. Ad esempio:
+È possibile abilitare Aumento automatico durante la distribuzione di un modello di Azure Resource Manager. Ad esempio, impostare la proprietà `isAutoInflateEnabled` su **true**, quindi impostare `maximumThroughputUnits` su 10. Esempio:
 
 ```json
 "resources": [

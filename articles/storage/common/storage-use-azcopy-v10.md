@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 980156284b27478163760b1f833a91ba7cddec21
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: f4523b2aa580d0fd237c15e23b06b44593cbf055
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244795"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274636"
 ---
 # <a name="get-started-with-azcopy"></a>Introduzione ad AzCopy
 
@@ -29,7 +29,8 @@ AzCopy è un'utilità da riga di comando che è possibile usare per copiare i BL
 
 Prima di tutto, scaricare il file eseguibile AzCopy V10 in qualsiasi directory del computer. AzCopy V10 è semplicemente un file eseguibile, quindi non c'è niente da installare.
 
-- [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Windows a 64 bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Windows a 32 bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 

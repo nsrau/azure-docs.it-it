@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 13e2a848f9d178fc6554062c324c951102e1343b
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4858d803b4fccdc6ae4d5a790721bad60d218313
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244104"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274195"
 ---
 # <a name="get-resource-changes"></a>Ottenere le modifiche delle risorse
 
@@ -30,6 +30,7 @@ Il rilevamento delle modifiche e i dettagli sono utili per gli scenari di esempi
 - Informazioni sulle altre proprietà che potrebbero essere state modificate quando una risorsa ha modificato lo stato di conformità. La valutazione di queste proprietà aggiuntive può fornire informazioni approfondite sulle altre proprietà che potrebbero dover essere gestite tramite una definizione di criteri di Azure.
 
 Questo articolo illustra come raccogliere queste informazioni tramite l'SDK di Resource Graph. Per visualizzare queste informazioni nella portale di Azure, vedere [cronologia delle modifiche](../../policy/how-to/determine-non-compliance.md#change-history-preview) di criteri di Azure o [cronologia modifiche](../../../azure-monitor/platform/activity-log-view.md#azure-portal)del log attività di Azure.
+Per informazioni dettagliate sulle modifiche apportate alle applicazioni dal livello dell'infrastruttura fino alla distribuzione delle applicazioni, vedere [usare l'analisi delle modifiche dell'applicazione (anteprima)](../../../azure-monitor/app/change-analysis.md) in monitoraggio di Azure.
 
 > [!NOTE]
 > I dettagli delle modifiche nel grafico risorse sono per le proprietà Gestione risorse. Per tenere traccia delle modifiche all'interno di una macchina virtuale, vedere [rilevamento modifiche](../../../automation/automation-change-tracking.md) di automazione di Azure o configurazione Guest di criteri di Azure [per le macchine virtuali](../../policy/concepts/guest-configuration.md).

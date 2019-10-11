@@ -8,12 +8,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/15/2019
-ms.openlocfilehash: 316ddbf662a5418e54f37cb335475a86c50118c7
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 20da2d54ea54674656b2c1006d094c63133baf79
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131441"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264482"
 ---
 # <a name="use-azure-data-factory-command-activity-to-run-azure-data-explorer-control-commands"></a>Usare Azure Data Factory attività Command per eseguire i comandi di controllo Esplora dati di Azure
 
@@ -29,11 +29,13 @@ ms.locfileid: "71131441"
 ## <a name="create-a-new-pipeline"></a>Creare una nuova pipeline
 
 1. Selezionare lo strumento matita **autore** . 
-1. Creare una nuova pipeline **+** selezionando e quindi selezionando **pipeline** dall'elenco a discesa.
+1. Creare una nuova pipeline selezionando **+** , quindi selezionare **pipeline** nell'elenco a discesa.
 
    ![Crea nuova pipeline](media/data-factory-command-activity/create-pipeline.png)
 
 ## <a name="create-a-lookup-activity"></a>Creare un'attività di ricerca
+
+Un' [attività Lookup](/azure/data-factory/control-flow-lookup-activity) può recuperare un set di dati da qualsiasi origine dati supportata da Azure Data Factory. L'output dell'attività Lookup può essere utilizzato in un'attività ForEach o in un'altra attività.
 
 1. Nel riquadro **attività** , in **generale**, selezionare l'attività di **ricerca** . Trascinarla e rilasciarla nell'area di disegno principale a destra.
  
@@ -83,13 +85,13 @@ ms.locfileid: "71131441"
     * Selezionare **Test connessione** per testare la connessione al servizio collegato creata. Se è possibile connettersi alla configurazione, verrà visualizzata una connessione di segno di spunta verde con **esito positivo** .
     * Selezionare **fine** per completare la creazione del servizio collegato.
 
-1. Dopo aver configurato un servizio collegato, in**connessione** **AzureDataExplorerTable** > aggiungere il nome della **tabella** . Selezionare **Anteprima dati**per assicurarsi che i dati vengano presentati correttamente.
+1. Dopo aver configurato un servizio collegato, in **AzureDataExplorerTable** > **Connection**aggiungere il nome della **tabella** . Selezionare **Anteprima dati**per assicurarsi che i dati vengano presentati correttamente.
 
    Il set di dati è ora pronto ed è possibile continuare a modificare la pipeline.
 
 ### <a name="add-a-query-to-your-lookup-activity"></a>Aggiungere una query all'attività di ricerca
 
-1. In **pipeline-4-docs** > **Settings** aggiungere una query nella casella di testo **query** , ad esempio:
+1. In **pipeline-4-docs** > **Impostazioni** aggiungere una query nella casella di testo **query** , ad esempio:
 
     ```kusto
     ClusterQueries
@@ -103,7 +105,9 @@ ms.locfileid: "71131441"
 
 ## <a name="create-a-for-each-activity"></a>Creare un'attività for-each 
 
-1. Successivamente, si aggiunge un'attività for-each alla pipeline. Questa attività elaborerà i dati restituiti dall'attività Lookup. 
+L'attività [for-each](/azure/data-factory/control-flow-for-each-activity) viene utilizzata per scorrere una raccolta ed eseguire le attività specificate in un ciclo. 
+
+1. A questo punto si aggiunge un'attività for-each alla pipeline. Questa attività elaborerà i dati restituiti dall'attività Lookup. 
     * Nel riquadro **attività** , in **iterazione & condizionali**, selezionare l'attività **foreach** e trascinarla e rilasciarla nell'area di disegno.
     * Tracciare una linea tra l'output dell'attività di ricerca e l'input dell'attività ForEach nell'area di disegno per connetterli.
 
@@ -112,7 +116,7 @@ ms.locfileid: "71131441"
 1.  Selezionare l'attività ForEach nell'area di disegno. Nella scheda **Impostazioni** seguente:
     * Controllare la casella di controllo **sequenziale** per un'elaborazione sequenziale dei risultati della ricerca o lasciarla deselezionata per creare l'elaborazione parallela.
     * Imposta il **numero di batch**.
-    * In **elementi**specificare il riferimento seguente al valore di output:  *@activity(' Lookup1'). output. valore*
+    * In **elementi**specificare il riferimento seguente al valore di output: *@activity (' Lookup1'). output. valore*
 
        ![Impostazioni dell'attività ForEach](media/data-factory-command-activity/for-each-activity-settings.png)
 
@@ -166,7 +170,7 @@ La struttura dell'output dell'attività del comando è descritta di seguito. Que
 
 ### <a name="returned-value-of-a-non-async-control-command"></a>Valore restituito di un comando di controllo non asincrono
 
-In un comando di controllo non asincrono, la struttura del valore restituito è simile alla struttura del risultato dell'attività di ricerca. Il `count` campo indica il numero di record restituiti. Un campo `value` di matrice fisso contiene un elenco di record. 
+In un comando di controllo non asincrono, la struttura del valore restituito è simile alla struttura del risultato dell'attività di ricerca. Il campo `count` indica il numero di record restituiti. Un campo di matrice fisso `value` contiene un elenco di record. 
 
 ```json
 { 

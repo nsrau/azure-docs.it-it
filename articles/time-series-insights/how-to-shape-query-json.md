@@ -6,15 +6,15 @@ author: ashannon7
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 08/09/2019
+ms.date: 10/09/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 48e09a64812f7552bd79c529138db693df283790
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 4916397d05ad9d5fcae7624bf558eb7dc5be940f
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947157"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274411"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Formato JSON per ottimizzare le prestazioni delle query 
 
@@ -27,6 +27,7 @@ Questo articolo fornisce indicazioni su come eseguire la modellazione di JSON pe
 > [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
 ## <a name="best-practices"></a>Procedure consigliate
+
 Si pensi al modo in cui si inviano gli eventi a Time Series Insights. In particolare, è sempre:
 
 1. Inviare dati tramite rete nel modo più efficiente possibile.
@@ -57,9 +58,10 @@ Gli esempi sono basati su uno scenario in cui più dispositivi inviano misure o 
 
 Nell'esempio seguente è presente un singolo messaggio dell'hub dell'area di Azure in cui la matrice esterna contiene una sezione condivisa dei valori delle dimensioni comuni. La matrice esterna usa dati di riferimento per incrementare l'efficienza del messaggio. I dati di riferimento contengono metadati del dispositivo che non cambiano con ogni evento, ma fornisce proprietà utili per l'analisi dei dati. L'invio in batch dei valori delle dimensioni comuni e l'utilizzo dei dati di riferimento vengono salvati sui byte inviati in rete, il che rende più efficiente il messaggio.
 
-Payload JSON di esempio:
+Si consideri il payload JSON seguente inviato all'ambiente Time Series Insights GA usando un [oggetto messaggio del dispositivo](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) Internet, che viene serializzato in JSON quando viene inviato al cloud di Azure:
 
-```json
+
+```JSON
 [
     {
         "deviceId": "FXXX",
@@ -103,13 +105,12 @@ Payload JSON di esempio:
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
    | FYYY | LINE\_DATA | US | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
-Note sulle due tabelle seguenti:
-
-- La colonna **deviceId** viene usata come intestazione di colonna per i diversi dispositivi nell'insieme. Impostando il valore di deviceId, il nome della proprietà limita i dispositivi totali a 595 (per gli ambienti S1) o 795 (per gli ambienti S2) con le altre cinque colonne.
-- Sono state evitate proprietà non necessarie, ad esempio le informazioni su marca e modello. Poiché le proprietà non verranno sottoposte a query in futuro, l'eliminazione consente di migliorare l'efficienza di archiviazione e rete.
-- I dati di riferimento vengono usati per ridurre il numero di byte trasferiti in rete. I due attributi **MessageID** e **deviceLocation** vengono Uniti usando la proprietà chiave **DeviceID**. Questi dati vengono uniti in join con i dati di telemetria in fase di ingresso e vengono quindi archiviati in Time Series Insights per l'esecuzione di query.
-- Vengono utilizzati due livelli di annidamento, ovvero la quantità massima di nidificazione supportata da Time Series Insights. È essenziale evitare matrici annidate profondamente.
-- Le misure vengono inviate come proprietà separate all'interno dello stesso oggetto perché sono presenti poche misure. In questo caso le colonne **series.Flow Rate psi** e **series.Engine Oil Pressure ft3/s** sono colonne univoche.
+> [!NOTE]
+> - La colonna **deviceId** viene usata come intestazione di colonna per i diversi dispositivi nell'insieme. Impostando il valore di **DeviceID** , il nome della proprietà limita i dispositivi totali a 595 (per gli ambienti S1) o 795 (per gli ambienti S2) con le altre cinque colonne.
+> - Sono state evitate proprietà non necessarie, ad esempio le informazioni su marca e modello. Poiché le proprietà non verranno sottoposte a query in futuro, l'eliminazione consente di migliorare l'efficienza di archiviazione e rete.
+> - I dati di riferimento vengono usati per ridurre il numero di byte trasferiti in rete. I due attributi **MessageID** e **deviceLocation** vengono Uniti usando la proprietà chiave **DeviceID**. Questi dati vengono uniti in join con i dati di telemetria in fase di ingresso e vengono quindi archiviati in Time Series Insights per l'esecuzione di query.
+> - Vengono utilizzati due livelli di annidamento, ovvero la quantità massima di nidificazione supportata da Time Series Insights. È essenziale evitare matrici annidate profondamente.
+> - Le misure vengono inviate come proprietà separate all'interno dello stesso oggetto perché sono presenti poche misure. In questo caso le colonne **series.Flow Rate psi** e **series.Engine Oil Pressure ft3/s** sono colonne univoche.
 
 ## <a name="scenario-two-several-measures-exist"></a>Scenario due: Esistono diverse misure
 
@@ -118,7 +119,7 @@ Note sulle due tabelle seguenti:
 
 Payload JSON di esempio:
 
-```json
+```JSON
 [
     {
         "deviceId": "FXXX",
@@ -179,12 +180,11 @@ Payload JSON di esempio:
    | FYYY | pumpRate | LINE\_DATA | US | Velocità del flusso | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
    | FYYY | oilPressure | LINE\_DATA | US | Pressione dell'olio del motore | psi | 2018-01-17T01:18:00Z | 22.2 |
 
-Note sulle due tabelle seguenti:
-
-- Le colonne **DeviceID** e **Series. TagId** vengono utilizzate come intestazioni di colonna per i vari dispositivi e tag in una flotta. L'uso di ogni attributo come rispettivo attributo limita la query a 594 (per gli ambienti S1) o 794 (per gli ambienti S2) il totale dei dispositivi con le altre sei colonne.
-- Sono state evitate proprietà non necessarie per il motivo menzionato nel primo esempio.
-- I dati di riferimento vengono usati per ridurre il numero di byte trasferiti in rete introducendo **DeviceID**, che viene usato per la coppia univoca di **MessageID** e **deviceLocation**. La serie di chiavi composite **. TagId** viene utilizzata per la coppia univoca di **tipo** e **unità**. La chiave composta consente di usare la coppia **DeviceID** e **Series. TagId** per fare riferimento a quattro valori: **MessageID, deviceLocation, Type** e **unit**. Questi dati vengono uniti in join con i dati di telemetria in fase di ingresso. Viene quindi archiviato in Time Series Insights per l'esecuzione di query.
-- Vengono utilizzati due livelli di annidamento, per il motivo citato nel primo esempio.
+> [!NOTE]
+> - Le colonne **DeviceID** e **Series. TagId** vengono utilizzate come intestazioni di colonna per i vari dispositivi e tag in una flotta. L'uso di ogni attributo come rispettivo attributo limita la query a 594 (per gli ambienti S1) o 794 (per gli ambienti S2) il totale dei dispositivi con le altre sei colonne.
+> - Sono state evitate proprietà non necessarie per il motivo menzionato nel primo esempio.
+> - I dati di riferimento vengono usati per ridurre il numero di byte trasferiti in rete introducendo **DeviceID**, che viene usato per la coppia univoca di **MessageID** e **deviceLocation**. La serie di chiavi composite **. TagId** viene utilizzata per la coppia univoca di **tipo** e **unità**. La chiave composta consente di usare la coppia **DeviceID** e **Series. TagId** per fare riferimento a quattro valori: **MessageID, deviceLocation, Type** e **unit**. Questi dati vengono uniti in join con i dati di telemetria in fase di ingresso. Viene quindi archiviato in Time Series Insights per l'esecuzione di query.
+> - Vengono utilizzati due livelli di annidamento, per il motivo citato nel primo esempio.
 
 ### <a name="for-both-scenarios"></a>Per entrambi gli scenari
 
@@ -195,5 +195,8 @@ Per una proprietà con un numero elevato di valori possibili, è preferibile inv
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Altre informazioni sull'invio [di messaggi del dispositivo dell'hub Internet al cloud](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+
 - Per altre informazioni sulla sintassi di query per l'API REST di accesso ai dati Time Series Insights, vedere [Azure Time Series Insights sintassi di query](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) .
+
 - Informazioni [su come eseguire la forma degli eventi](./time-series-insights-send-events.md).

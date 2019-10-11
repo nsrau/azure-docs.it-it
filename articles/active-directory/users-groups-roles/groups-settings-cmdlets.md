@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0f2d3f8d8d2298ec00532205e359ed6f8dbc87a
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 18fbaad8ce15ab4eb9a08d5edc273098e7fb372e
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315685"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263956"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo
 In questo articolo sono contenute le istruzioni per l'uso di cmdlet PowerShell in Azure Active Directory (Azure AD) per creare e aggiornare i gruppi. Questo contenuto si applica solo ai gruppi di Office 365, noti anche come gruppi unificati. 
@@ -50,11 +50,12 @@ Assicurarsi di disinstallare qualsiasi versione precedente di Azure Active Direc
   
    ``` PowerShell
    Install-Module AzureADPreview
+   ```
+   
+## <a name="create-settings-at-the-directory-level"></a>Creare le impostazioni a livello di directory
+I passaggi seguenti permettono di creare le impostazioni a livello di directory, che si applicheranno a tutti i gruppi di Office 365 presenti nella directory stessa. Il cmdlet Get-AzureADDirectorySettingTemplate è disponibile solo nel [modulo di anteprima di Azure AD PowerShell per Graph](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
-## Create settings at the directory level
-These steps create settings at directory level, which apply to all Office 365 groups in the directory. The Get-AzureADDirectorySettingTemplate cmdlet is available only in the [Azure AD PowerShell Preview module for Graph](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
-
-1. In the DirectorySettings cmdlets, you must specify the ID of the SettingsTemplate you want to use. If you do not know this ID, this cmdlet returns the list of all settings templates:
+1. Nei cmdlet DirectorySettings è necessario specificare l'ID del SettingsTemplate che si vuole usare. Se non si conosce l'ID, questo cmdlet restituisce l'elenco di tutti i modelli di impostazioni:
   
    ```powershell
    Get-AzureADDirectorySettingTemplate
@@ -113,18 +114,18 @@ Di seguito sono riportate le impostazioni definite in SettingsTemplate di Group.
 | **Impostazione** | **Descrizione** |
 | --- | --- |
 |  <ul><li>EnableGroupCreation<li>Digitare:  Boolean<li>Valore predefinito: True |Flag che indica se utenti non amministratori sono autorizzati a creare gruppi di Office 365 nella directory. Questa impostazione non richiede una licenza per Azure Active Directory Premium P1.|
-|  <ul><li>GroupCreationAllowedGroupId<li>Digitare:  Stringa<li>Predefinito: "" |GUID del gruppo di sicurezza i cui membri sono autorizzati a creare gruppi di Office 365 anche quando EnableGroupCreation == false. |
-|  <ul><li>UsageGuidelinesUrl<li>Digitare:  Stringa<li>Predefinito: "" |Collegamento alle linee guida sull'utilizzo dei gruppi. |
-|  <ul><li>ClassificationDescriptions<li>Digitare:  Stringa<li>Predefinito: "" | Elenco delimitato da virgole di descrizioni di classificazione. Il valore di ClassificationDescriptions è valido solo nel formato seguente:<br>$setting ["ClassificationDescriptions"] = "classificazione: descrizione, classificazione: Descrizione"<br>dove la classificazione corrisponde alle stringhe nell'oggetto Classification.|
-|  <ul><li>DefaultClassification<li>Digitare:  Stringa<li>Predefinito: "" | Classificazione da usare come classificazione predefinita per un gruppo, se non specificata.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Digitare:  Stringa<li>Predefinito: "" | Stringa di lunghezza massima pari a 64 caratteri che definisce la convenzione di denominazione configurata per i gruppi di Office 365. Per altre informazioni, vedere [Enforce a naming policy for Office 365 groups](groups-naming-policy.md) (Applicare criteri di denominazione per i gruppi di Office 365). |
-| <ul><li>CustomBlockedWordsList<li>Digitare:  Stringa<li>Predefinito: "" | Stringa di frasi delimitate da virgole che gli utenti non potranno usare in nomi o alias di gruppo. Per altre informazioni, vedere [Enforce a naming policy for Office 365 groups](groups-naming-policy.md) (Applicare criteri di denominazione per i gruppi di Office 365). |
+|  <ul><li>GroupCreationAllowedGroupId<li>Digitare:  string<li>Predefinito: "" |GUID del gruppo di sicurezza i cui membri sono autorizzati a creare gruppi di Office 365 anche quando EnableGroupCreation == false. |
+|  <ul><li>UsageGuidelinesUrl<li>Digitare:  string<li>Predefinito: "" |Collegamento alle linee guida sull'utilizzo dei gruppi. |
+|  <ul><li>ClassificationDescriptions<li>Digitare:  string<li>Predefinito: "" | Elenco delimitato da virgole di descrizioni di classificazione. Il valore di ClassificationDescriptions è valido solo nel formato seguente:<br>$setting ["ClassificationDescriptions"] = "classificazione: descrizione, classificazione: Descrizione"<br>dove la classificazione corrisponde alle stringhe nell'oggetto Classification.|
+|  <ul><li>DefaultClassification<li>Digitare:  string<li>Predefinito: "" | Classificazione da usare come classificazione predefinita per un gruppo, se non specificata.|
+|  <ul><li>PrefixSuffixNamingRequirement<li>Digitare:  string<li>Predefinito: "" | Stringa di lunghezza massima pari a 64 caratteri che definisce la convenzione di denominazione configurata per i gruppi di Office 365. Per altre informazioni, vedere [Enforce a naming policy for Office 365 groups](groups-naming-policy.md) (Applicare criteri di denominazione per i gruppi di Office 365). |
+| <ul><li>CustomBlockedWordsList<li>Digitare:  string<li>Predefinito: "" | Stringa di frasi delimitate da virgole che gli utenti non potranno usare in nomi o alias di gruppo. Per altre informazioni, vedere [Enforce a naming policy for Office 365 groups](groups-naming-policy.md) (Applicare criteri di denominazione per i gruppi di Office 365). |
 | <ul><li>EnableMSStandardBlockedWords<li>Digitare:  Boolean<li>Valore predefinito: "False" | Non usare
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Digitare:  Boolean<li>Valore predefinito: False | Valore booleano che indica se un utente guest può essere o meno un proprietario di gruppi. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Digitare:  Boolean<li>Valore predefinito: True | Valore booleano che indica se un utente guest ha o meno accesso al contenuto dei gruppi di Office 365.  Questa impostazione non richiede una licenza per Azure Active Directory Premium P1.|
-|  <ul><li>GuestUsageGuidelinesUrl<li>Digitare:  Stringa<li>Predefinito: "" | URL di un collegamento alle linee guida per l'utilizzo dei gruppi. |
+|  <ul><li>GuestUsageGuidelinesUrl<li>Digitare:  string<li>Predefinito: "" | URL di un collegamento alle linee guida per l'utilizzo dei gruppi. |
 |  <ul><li>AllowAddGuests<li>Digitare:  Boolean<li>Valore predefinito: True | Valore booleano che indica se è consentito o meno aggiungere utenti guest a questa directory.|
-|  <ul><li>ClassificationList<li>Digitare:  Stringa<li>Predefinito: "" |Elenco delimitato da virgole dei valori di classificazione validi che è possibile applicare ai gruppi di Office 365. |
+|  <ul><li>ClassificationList<li>Digitare:  string<li>Predefinito: "" |Elenco delimitato da virgole dei valori di classificazione validi che è possibile applicare ai gruppi di Office 365. |
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Esempio: Configurare i criteri Guest per i gruppi a livello di directory
 1. Ottenere tutti i modelli di impostazione:

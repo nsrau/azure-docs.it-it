@@ -8,12 +8,12 @@ ms.date: 07/25/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 3843eb2e906e3fb8d390e509e17117b7849ac220
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 42d2dae148b83687ff06d4ed321a881bcb9e7ae0
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244707"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273933"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi relativi a AzCopy
 
@@ -38,7 +38,29 @@ Per configurare le impostazioni proxy per AzCopy, impostare la variabile di ambi
 
 Attualmente, AzCopy non supporta i proxy che richiedono l'autenticazione con NTLM o Kerberos.
 
-## <a name="optimize-throughput"></a>Ottimizzare la velocità effettiva
+## <a name="optimize-performance"></a>Ottimizzare le prestazioni
+
+È possibile effettuare il benchmark delle prestazioni e quindi usare i comandi e le variabili di ambiente per trovare un compromesso ottimale tra le prestazioni e l'utilizzo delle risorse.
+
+### <a name="run-benchmark-tests"></a>Eseguire test di benchmark
+
+È possibile eseguire un test di benchmark delle prestazioni su contenitori BLOB specifici per visualizzare le statistiche generali sulle prestazioni e i colli di bottiglia delle prestazioni di identità. 
+
+> [!NOTE]
+> Nella versione corrente questa funzionalità è disponibile solo per i contenitori di archiviazione BLOB.
+
+Usare il comando seguente per eseguire un test di benchmark delle prestazioni.
+
+|    |     |
+|--------|-----------|
+| **Sintassi** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
+| **Esempio** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory/'` |
+
+Questo comando esegue un benchmark delle prestazioni caricando i dati di test in una destinazione specificata. I dati di test vengono generati in memoria, caricati nella destinazione, quindi eliminati dalla destinazione dopo il completamento del test. È possibile specificare il numero di file da generare e le dimensioni che si desidera utilizzare con i parametri facoltativi del comando.
+
+Per visualizzare le indicazioni dettagliate della Guida per questo comando, digitare `azcopy bench -h`, quindi premere il tasto INVIO.
+
+### <a name="optimize-throughput"></a>Ottimizzare la velocità effettiva
 
 È possibile utilizzare il flag `cap-mbps` per inserire un limite massimo sulla velocità di dati della velocità effettiva. Ad esempio, il comando seguente consente di riportare la velocità effettiva a `10` megabit (MB) al secondo.
 
@@ -46,7 +68,9 @@ Attualmente, AzCopy non supporta i proxy che richiedono l'autenticazione con NTL
 azcopy cap-mbps 10
 ```
 
-La velocità effettiva può ridursi durante il trasferimento di file di piccole dimensioni. È possibile aumentare la velocità effettiva impostando la variabile di ambiente `AZCOPY_CONCURRENCY_VALUE`. Questa variabile specifica il numero di richieste simultanee che possono verificarsi.  Se il computer dispone di meno di 5 CPU, il valore di questa variabile viene impostato su `32`. In caso contrario, il valore predefinito è pari a 16 moltiplicato per il numero di CPU. Il valore predefinito massimo di questa variabile è `300`, ma è possibile impostare manualmente questo valore su un valore superiore o inferiore.
+La velocità effettiva può ridursi durante il trasferimento di file di piccole dimensioni. È possibile aumentare la velocità effettiva impostando la variabile di ambiente `AZCOPY_CONCURRENCY_VALUE`. Questa variabile specifica il numero di richieste simultanee che possono verificarsi.  
+
+Se il computer dispone di meno di 5 CPU, il valore di questa variabile viene impostato su `32`. In caso contrario, il valore predefinito è pari a 16 moltiplicato per il numero di CPU. Il valore predefinito massimo di questa variabile è `3000`, ma è possibile impostare manualmente questo valore su un valore superiore o inferiore. 
 
 | Sistema operativo | Comando  |
 |--------|-----------|
@@ -54,25 +78,20 @@ La velocità effettiva può ridursi durante il trasferimento di file di piccole 
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **MacOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 
-Utilizzare `azcopy env` per verificare il valore corrente della variabile.  Se il valore è vuoto, la variabile `AZCOPY_CONCURRENCY_VALUE` viene impostata sul valore predefinito di `300`.
+Utilizzare `azcopy env` per verificare il valore corrente della variabile. Se il valore è vuoto, è possibile leggere quale valore viene usato osservando l'inizio di un file di log AzCopy. Il valore selezionato e il motivo per cui è stato selezionato vengono segnalati.
 
-## <a name="change-the-location-of-the-log-files"></a>Modificare il percorso dei file di log
+Prima di impostare questa variabile, è consigliabile eseguire un test di benchmark. Il processo di test di benchmark segnalerà il valore della concorrenza consigliata. In alternativa, se le condizioni della rete e i payload variano, impostare questa variabile sulla parola `AUTO` anziché su un numero specifico. In questo modo AzCopy eseguirà sempre lo stesso processo di ottimizzazione automatica utilizzato nei test di benchmark.
 
-Per impostazione predefinita, i file di log si trovano nella directory `%USERPROFILE%\.azcopy` in Windows o nella directory `$HOME\\.azcopy` in Mac e Linux. È possibile modificare questo percorso se necessario usando questi comandi.
+### <a name="optimize-memory-use"></a>Ottimizzazione dell'utilizzo della memoria
+
+Impostare la variabile di ambiente `AZCOPY_BUFFER_GB` per specificare la quantità massima di memoria di sistema che si desidera venga utilizzata da AzCopy durante il download e il caricamento di file.
+Esprimere questo valore in gigabyte (GB).
 
 | Sistema operativo | Comando  |
 |--------|-----------|
-| **Windows** | `set AZCOPY_LOG_LOCATION=<value>` |
-| **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
-| **MacOS** | `export AZCOPY_LOG_LOCATION=<value>` |
-
-Utilizzare `azcopy env` per verificare il valore corrente della variabile. Se il valore è vuoto, i log vengono scritti nel percorso predefinito.
-
-## <a name="change-the-default-log-level"></a>Modificare il livello predefinito del log
-
-Per impostazione predefinita, il livello di registrazione AzCopy è impostato su `INFO`. Se si desidera ridurre il livello di dettaglio del log per risparmiare spazio su disco, sovrascrivere questa impostazione utilizzando l'opzione ``--log-level``. 
-
-I livelli di log disponibili sono: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC` e `FATAL`.
+| **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
+| **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
+| **MacOS** | `export AZCOPY_BUFFER_GB=<value>` |
 
 ## <a name="troubleshoot-issues"></a>Risolvere i problemi
 
@@ -80,7 +99,7 @@ AzCopy crea file di log e di piano per ogni processo. È possibile usare i log p
 
 I log conterranno lo stato di errore (`UPLOADFAILED`, `COPYFAILED` e `DOWNLOADFAILED`), il percorso completo e il motivo dell'errore.
 
-Per impostazione predefinita, i file di log e di piano si trovano nella directory `%USERPROFILE\\.azcopy` in Windows o `$HOME\\.azcopy` in Mac e Linux.
+Per impostazione predefinita, i file di log e di piano si trovano nella directory `%USERPROFILE$\.azcopy` in Windows o `$HOME$\.azcopy` in Mac e Linux, ma è possibile modificare tale percorso se lo si desidera.
 
 > [!IMPORTANT]
 > Quando si invia una richiesta di supporto tecnico Microsoft (o si risolvono i problemi relativi a terze parti), condividere la versione redatta del comando che si desidera eseguire. Ciò garantisce che la firma di accesso condiviso non venga accidentalmente condivisa con nessuno. È possibile trovare la versione con modifiche all'inizio del file di log.
@@ -129,3 +148,45 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
 
 Quando si riprende un processo, AzCopy esamina il file del piano di processo. Il file del piano elenca tutti i file identificati per l'elaborazione quando il processo è stato creato per la prima volta. Quando si riprende un processo, AzCopy tenterà di trasferire tutti i file elencati nel file di piano che non sono stati ancora trasferiti.
+
+## <a name="change-the-location-of-the-plan-and-log-files"></a>Modificare il percorso del piano e dei file di log
+
+Per impostazione predefinita, i file di piano e di log si trovano nella directory `%USERPROFILE$\.azcopy` in Windows o nella directory `$HOME$\.azcopy` in Mac e Linux. È possibile modificare questo percorso.
+
+### <a name="change-the-location-of-plan-files"></a>Modificare il percorso dei file del piano
+
+Usare uno di questi comandi.
+
+| Sistema operativo | Comando  |
+|--------|-----------|
+| **Windows** | `set AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **MacOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
+
+Utilizzare `azcopy env` per verificare il valore corrente della variabile. Se il valore è vuoto, i file del piano vengono scritti nel percorso predefinito.
+
+### <a name="change-the-location-of-log-files"></a>Modificare il percorso dei file di log
+
+Usare uno di questi comandi.
+
+| Sistema operativo | Comando  |
+|--------|-----------|
+| **Windows** | `set AZCOPY_LOG_LOCATION=<value>` |
+| **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
+| **MacOS** | `export AZCOPY_LOG_LOCATION=<value>` |
+
+Utilizzare `azcopy env` per verificare il valore corrente della variabile. Se il valore è vuoto, i log vengono scritti nel percorso predefinito.
+
+## <a name="change-the-default-log-level"></a>Modificare il livello predefinito del log
+
+Per impostazione predefinita, il livello di registrazione AzCopy è impostato su `INFO`. Se si desidera ridurre il livello di dettaglio del log per risparmiare spazio su disco, sovrascrivere questa impostazione utilizzando l'opzione ``--log-level``. 
+
+I livelli di log disponibili sono: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC` e `FATAL`.
+
+## <a name="remove-plan-and-log-files"></a>Rimuovere i file di piano e di log
+
+Se si desidera rimuovere tutti i piani e i file di log dal computer locale per risparmiare spazio su disco, utilizzare il comando `azcopy jobs clean`.
+
+Per rimuovere il piano e i file di log associati a un solo processo, utilizzare `azcopy jobs rm <job-id>`. Sostituire il segnaposto `<job-id>` in questo esempio con l'ID processo del processo.
+
+

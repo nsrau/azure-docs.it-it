@@ -13,13 +13,13 @@ ms.tgt_pltfrm: ''
 ms.workload: multiple
 ms.date: 10/08/2019
 ms.author: lahugh
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bdea67d682bab335de02e55f5864460e3daefb95
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.custom: H1Hack27Feb2017,fasttrack-edit
+ms.openlocfilehash: 9c02db01d7b95f3178d73602089b30029fb0db9f
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254937"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274839"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creare una formula automatica per la scalabilità dei nodi di calcolo in un pool di batch
 
@@ -107,6 +107,11 @@ Le tabelle seguenti includono sia le variabili di lettura/scrittura che di sola 
 | $TargetDedicatedNodes |Numero di destinazione dei nodi di calcolo dedicati per il pool. Il numero di nodi dedicati viene specificato come destinazione, perché un pool potrebbe non ottenere sempre il numero desiderato di nodi. Ad esempio, se il numero di nodi dedicati di destinazione viene modificato da una valutazione di scalabilità automatica prima che il pool raggiunga il valore di destinazione iniziale, è possibile che il pool non raggiunga il numero di nodi di destinazione. <br /><br /> Un pool in un account creato con la configurazione del servizio Batch potrebbe non raggiungere il valore di destinazione se supera la quota di nodi o core di un account Batch. Un pool in un account creato con la configurazione di sottoscrizione utente potrebbe non raggiungere il valore di destinazione se supera la quota condivisa di nodi per la sottoscrizione.|
 | $TargetLowPriorityNodes |Numero di destinazione dei nodi di calcolo con priorità bassa per il pool. Il numero di nodi con priorità bassa viene specificato come destinazione, perché un pool potrebbe non ottenere sempre il numero desiderato di nodi. Ad esempio, se il numero di nodi con priorità bassa di destinazione viene modificato da una valutazione di scalabilità automatica prima che il pool raggiunga il valore di destinazione iniziale, è possibile che il pool non raggiunga il numero di nodi di destinazione. Un pool potrebbe anche non raggiungere il valore di destinazione se supera la quota di nodi o core di un account Batch. <br /><br /> Per altre informazioni sui nodi calcolo con priorità bassa, vedere [Usare le VM con priorità bassa in Batch (anteprima)](batch-low-pri-vms.md). |
 | $NodeDeallocationOption |L'azione che si verifica quando i nodi di calcolo vengono rimossi da un pool. I valori possibili sono:<ul><li>**requeue**: valore predefinito. Termina immediatamente le attività e le inserisce nuovamente nella coda di processi in modo che vengano ripianificate. Questa azione garantisce che il numero di nodi di destinazione sia il più rapido possibile, ma potrebbe essere meno efficiente, perché tutte le attività in esecuzione verranno interrotte e dovranno essere riavviate, sprecando qualsiasi lavoro già fatto. <li>**terminate**: termina immediatamente le attività e le rimuove dalla coda dei processi.<li>**taskcompletion**: attende il completamento delle attività in esecuzione e quindi rimuove il nodo dal pool. Usare questa opzione per evitare che le attività vengano interrotte e riaccodate, sprecando qualsiasi lavoro eseguito dall'attività. <li>**retaineddata**: attende che tutti i dati mantenuti per le attività locali nel nodo vengano ripuliti prima di rimuovere il nodo dal pool.</ul> |
+
+> [!NOTE]
+> È anche possibile specificare la variabile `$TargetDedicatedNodes` usando l'alias `$TargetDedicated`. Analogamente, è possibile specificare la variabile `$TargetLowPriorityNodes` usando l'alias `$TargetLowPriority`. Se la formula è impostata per la variabile completamente denominata e per il relativo alias, il valore assegnato alla variabile completamente denominata avrà la precedenza.
+>
+>
 
 È possibile ottenere il valore di queste variabili definite dal servizio per eseguire adeguamenti basati sulla metrica del servizio Batch:
 

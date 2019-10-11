@@ -17,16 +17,16 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e85fc5e6e907e32c0ad67af339c48cf84ef4764
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 46dc3a44041acd90dbab449215138eeecbda7105
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269038"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264188"
 ---
-# <a name="configure-keychain"></a>Configurare Keychain
+# <a name="configure-keychain"></a>Configurare il keychain
 
-Quando [Microsoft Authentication Library per iOS e MacOS](msal-overview.md) (MSAL) accede a un utente o aggiorna un token, tenta di memorizzare nella cache i token nel keychain. Grazie alla memorizzazione nella cache dei token nel keychain, MSAL può fornire Single Sign-On invisibile (SSO) tra più app distribuite dallo stesso sviluppatore Apple. L'accesso SSO viene eseguito tramite la funzionalità gruppi di accesso a keychain (vedere la [documentazione di Apple](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc))
+Quando [Microsoft Authentication Library per iOS e MacOS](msal-overview.md) (MSAL) accede a un utente o aggiorna un token, tenta di memorizzare nella cache i token nel keychain. La memorizzazione nella cache dei token nel Keychain consente a MSAL di fornire Single Sign-On invisibile (SSO) tra più app distribuite dallo stesso sviluppatore Apple. L'accesso SSO viene effettuato tramite la funzionalità gruppi di accesso keychain. Per ulteriori informazioni, vedere la [documentazione relativa agli elementi Keychain](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc)di Apple.
 
 Questo articolo illustra come configurare i diritti delle app in modo che MSAL possa scrivere i token memorizzati nella cache nel Keychain iOS e macOS.
 
@@ -34,21 +34,21 @@ Questo articolo illustra come configurare i diritti delle app in modo che MSAL p
 
 ### <a name="ios"></a>iOS
 
-Per impostazione predefinita, MSAL `com.microsoft.adalcache` in iOS usa il gruppo di accesso. Questo è il gruppo di accesso condiviso usato dagli SDK MSAL e Autenticazione di Azure AD Library (ADAL) e garantisce la migliore esperienza di Single Sign-On (SSO) tra più app dello stesso server di pubblicazione.
+Per impostazione predefinita, MSAL in iOS usa il gruppo di accesso `com.microsoft.adalcache`. Questo è il gruppo di accesso condiviso usato dagli SDK MSAL e Autenticazione di Azure AD Library (ADAL) e garantisce la migliore esperienza di Single Sign-On (SSO) tra più app dello stesso server di pubblicazione.
 
-`com.microsoft.adalcache` In iOS aggiungere il gruppo di portachiavi al diritto dell'app in Xcode in **Impostazioni** > progetto**funzionalità** > **condivisione Keychain**
+In iOS aggiungere il gruppo di Keychain `com.microsoft.adalcache` al diritto dell'app in XCode in **Impostazioni progetto** > **funzionalità** > **condivisione Keychain**
 
 ### <a name="macos"></a>macOS
 
-Per impostazione predefinita, `com.microsoft.identity.universalstorage` MSAL in MacOS usa il gruppo di accesso.
+Per impostazione predefinita, MSAL in macOS usa il gruppo di accesso `com.microsoft.identity.universalstorage`.
 
-A causa delle limitazioni dei portachiavi MacOS, `access group` MSAL non esegue direttamente la conversione nell'attributo del gruppo di accesso a keychain (vedere [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) in MacOS 10,14 e versioni precedenti. Tuttavia, si comporta in modo analogo da una prospettiva SSO garantendo che più applicazioni distribuite dallo stesso sviluppatore Apple possano avere l'accesso SSO invisibile all'utente.
+A causa delle limitazioni dei portachiavi macOS, il `access group` di MSAL non è direttamente convertibile nell'attributo del gruppo di accesso a keychain (vedere [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) in MacOS 10,14 e versioni precedenti. Tuttavia, si comporta in modo analogo da una prospettiva SSO garantendo che più applicazioni distribuite dallo stesso sviluppatore Apple possano avere l'accesso SSO invisibile all'utente.
 
 In macOS 10,15 e versioni successive (macOS Catalina), MSAL usa l'attributo del gruppo di accesso a Keychain per ottenere l'accesso SSO invisibile all'utente, in modo analogo a iOS.
 
 ## <a name="custom-keychain-access-group"></a>Gruppo di accesso a keychain personalizzato
 
-Se si vuole usare un gruppo di accesso a keychain diverso, è possibile passare il gruppo personalizzato durante la creazione `MSALPublicClientApplicationConfig` prima della `MSALPublicClientApplication`creazione, come indicato di seguito:
+Se si vuole usare un gruppo di accesso a keychain diverso, è possibile passare il gruppo personalizzato quando si crea `MSALPublicClientApplicationConfig` prima di creare `MSALPublicClientApplication`, come indicato di seguito:
 
 Objective-C:
 
@@ -68,7 +68,7 @@ MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] 
 
 
 
-Swift
+Swift:
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "your-client-id",
@@ -96,7 +96,7 @@ Objective-C:
 config.cacheConfig.keychainSharingGroup = [[NSBundle mainBundle] bundleIdentifier];
 ```
 
-Swift
+Swift:
 
 ```swift
 if let bundleIdentifier = Bundle.main.bundleIdentifier {

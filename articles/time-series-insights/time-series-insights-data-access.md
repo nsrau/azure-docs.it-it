@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4455d499ab4c52a27a7d9cf878e8130ff38b1c62
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 670615980b7fd78441a08ba987073dc139b3792a
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846959"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274447"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Concedere l'accesso ai dati in un ambiente
 
@@ -34,7 +34,7 @@ Per concedere l'accesso ai dati per un'entità utente, eseguire queste operazion
 
 1. Selezionare **Criteri di accesso ai dati** e quindi selezionare **+ Aggiungi**.
 
-    [![Accesso ai dati-uno](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
+    [![Data-accesso-uno](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
 
 1. Scegliere **Seleziona utente**. Cercare il nome utente o l'indirizzo di posta elettronica per individuare l'utente che si vuole aggiungere. Selezionare **Seleziona** per confermare la selezione.
 
@@ -48,15 +48,15 @@ Per concedere l'accesso ai dati per un'entità utente, eseguire queste operazion
 
    Selezionare **OK** per confermare la scelta del ruolo.
 
-    [![Accesso ai dati-tre](media/data-access/data-access-three.png)](media/data-access/data-access-three.png#lightbox)
+    [![Data-Access-tre](media/data-access/data-access-three.png)](media/data-access/data-access-three.png#lightbox)
 
 1. Selezionare **OK** nella pagina **Selezionare il ruolo utente**.
 
-    [![Accesso ai dati-quattro](media/data-access/data-access-four.png)](media/data-access/data-access-four.png#lightbox)
+    [![Data-Access-quattro](media/data-access/data-access-four.png)](media/data-access/data-access-four.png#lightbox)
 
 1. Verificare che nella pagina **Criteri di accesso ai dati** siano elencati gli utenti e i ruoli per ogni utente.
 
-    [![Accesso ai dati-cinque](media/data-access/data-access-five.png)](media/data-access/data-access-five.png#lightbox)
+    [![Data-Access-Five](media/data-access/data-access-five.png)](media/data-access/data-access-five.png#lightbox)
 
 ## <a name="provide-guest-access-from-another-aad-tenant"></a>Fornire l'accesso Guest da un altro tenant di AAD
 
@@ -66,15 +66,15 @@ Per concedere l'accesso guest in un ambiente Time Series Insights a un utente AA
 
 1. Selezionare **Criteri di accesso ai dati** e quindi selezionare **+ Invita**.
 
-    [![Accesso ai dati-sei](media/data-access/data-access-six.png)](media/data-access/data-access-six.png#lightbox)
+    [![Data-Access-sei](media/data-access/data-access-six.png)](media/data-access/data-access-six.png#lightbox)
 
 1. Immettere l'indirizzo di posta elettronica per l'utente da invitare. Tale indirizzo deve essere associato ad Azure AD. Aggiungere un messaggio personale all'invito (facoltativo).
 
-    [![Accesso ai dati-sette](media/data-access/data-access-seven.png)](media/data-access/data-access-seven.png#lightbox)
+    [![Data-Access-Seven](media/data-access/data-access-seven.png)](media/data-access/data-access-seven.png#lightbox)
 
 1. Cercare il messaggio di conferma visualizzato sullo schermo.
 
-    [![Accesso ai dati-otto](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
+    [![Data-Access-otto](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
 
 1. Scegliere **Seleziona utente**. Cercare l'indirizzo di posta elettronica dell'utente guest invitato per individuare l'utente da aggiungere. **Selezionare** quindi per confermare la selezione.
 
@@ -88,29 +88,29 @@ Per concedere l'accesso guest in un ambiente Time Series Insights a un utente AA
 
    Selezionare **OK** per confermare la scelta del ruolo.
 
-    [![Accesso ai dati-dieci](media/data-access/data-access-ten.png)](media/data-access/data-access-ten.png#lightbox)
+    [![Data-Access-dieci](media/data-access/data-access-ten.png)](media/data-access/data-access-ten.png#lightbox)
 
 1. Selezionare **OK** nella pagina **Selezionare il ruolo utente**.
 
 1. Verificare che nella pagina **Criteri di accesso ai dati** vengano elencati l'utente guest e i ruoli per ogni utente guest.
 
-    [![Accesso ai dati-Eleven](media/data-access/data-access-eleven.png)](media/data-access/data-access-eleven.png#lightbox)
+    [![Data-Access-Eleven](media/data-access/data-access-eleven.png)](media/data-access/data-access-eleven.png#lightbox)
 
 1. A questo punto l'utente guest deve seguire questa procedura per accedere all'ambiente presente nel tenant di Azure in cui è stato invitato. In primo luogo l'utente accetta l'invito che ha ricevuto. Tale invito viene inviato tramite posta elettronica all'indirizzo usato nel passaggio 5. L'utente seleziona **Get Started** (Inizia) per accettare.
 
-    [![Accesso ai dati-dodici](media/data-access/data-access-twelve.png)](media/data-access/data-access-twelve.png#lightbox)
+    [![Data-Access-dodici](media/data-access/data-access-twelve.png)](media/data-access/data-access-twelve.png#lightbox)
 
 1. Successivamente, l'utente guest accetta le autorizzazioni associate all'organizzazione dell'amministratore.
 
-    [![Accesso ai dati-tredici](media/data-access/data-access-thirteen.png)](media/data-access/data-access-thirteen.png#lightbox)
+    [![Data-Access-tredici](media/data-access/data-access-thirteen.png)](media/data-access/data-access-thirteen.png#lightbox)
 
 1. Dopo che l'utente guest ha eseguito l'accesso all'indirizzo di posta elettronica usato per invitarlo e dopo che ha accettato l'invito, accede al sito insights.azure.com. A questo punto seleziona l'avatar accanto all'indirizzo di posta elettronica nell'angolo superiore destro dello schermo.
 
-    [![Accesso ai dati-quattordici](media/data-access/data-access-fourteen.png)](media/data-access/data-access-fourteen.png#lightbox)
+    [![Data-Access-quattordici](media/data-access/data-access-fourteen.png)](media/data-access/data-access-fourteen.png#lightbox)
 
 1. Successivamente, l'utente guest seleziona il tenant di Azure nel menu a discesa della directory. Questo tenant è quello a cui l'utente è stato invitato.
 
-    [![Accesso ai dati-quindici](media/data-access/data-access-fifteen.png)](media/data-access/data-access-fifteen.png#lightbox)
+    [![Data-Access-quindici](media/data-access/data-access-fifteen.png)](media/data-access/data-access-fifteen.png#lightbox)
 
 Dopo che l'utente guest ha selezionato il tenant, viene visualizzato l'ambiente Time Series Insights per cui è stato concesso l'accesso. Ora hanno tutte le funzionalità associate al ruolo a cui sono state fornite nel **passaggio 5**.
 

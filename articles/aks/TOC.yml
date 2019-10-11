@@ -215,8 +215,6 @@
               href: azure-ad-integration.md
         - name: Usare il controllo degli accessi in base al ruolo di Kubernetes con l'integrazione di Azure AD
           href: azure-ad-rbac.md
-        - name: Eseguire l'autenticazione con Registro Azure Container
-          href: ../container-registry/container-registry-auth-aks.md
           maintainContext: true
     - name: Monitoraggio e registrazione
       items:

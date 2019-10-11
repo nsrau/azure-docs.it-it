@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: b6ecf1e9cece51635afc0bf0f8025b6e117438ee
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 53a765cd2e71b5b1eb1ac2c70506fd55aec6736e
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169445"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274138"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights per le applicazioni console .NET
 
@@ -27,7 +27,7 @@ ms.locfileid: "71169445"
 È necessaria una sottoscrizione a [Microsoft Azure](https://azure.com). È possibile accedere con un account Microsoft, che in genere si ottiene per Windows, XBox Live o altri servizi cloud Microsoft. Se il team ha una sottoscrizione di Azure per l'organizzazione, chiedere al proprietario di aggiungere l'utente alla sottoscrizione usando il rispettivo account Microsoft.
 
 > [!NOTE]
-> È disponibile un nuovo SDK di Application Insights beta denominato [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) , che può essere usato per abilitare Application Insights per qualsiasi applicazione console. È consigliabile usare questo pacchetto e le istruzioni associate da [qui](../../azure-monitor/app/worker-service.md). Questo pacchetto è [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)destinato a, quindi può essere usato in .NET Core 2,0 o versione successiva e .NET Framework 4.7.2 o versione successiva.
+> È disponibile un nuovo SDK di Application Insights beta denominato [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) , che può essere usato per abilitare Application Insights per qualsiasi applicazione console. È consigliabile usare questo pacchetto e le istruzioni associate da [qui](../../azure-monitor/app/worker-service.md). Questo pacchetto è destinato a [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard), quindi può essere usato in .net core 2,0 o versione successiva e .NET Framework 4.7.2 o versione successiva.
 Questo documento verrà deprecato dopo il rilascio di una versione stabile del nuovo pacchetto.
 
 ## <a name="getting-started"></a>Introduzione
@@ -130,7 +130,7 @@ module.Initialize(configuration);
 configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-Se è stata creata la configurazione `TelemetryConfiguration()` con un costruttore semplice, è necessario abilitare anche il supporto per la correlazione. **Non è necessario** se si legge la configurazione da file, usato `TelemetryConfiguration.CreateDefault()` o `TelemetryConfiguration.Active`.
+Se è stata creata la configurazione con un costruttore Plain `TelemetryConfiguration()`, è necessario abilitare anche il supporto per la correlazione. **Non è necessario** se si legge la configurazione dal file, usata `TelemetryConfiguration.CreateDefault()` o `TelemetryConfiguration.Active`.
 
 ```csharp
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
@@ -159,7 +159,7 @@ namespace ConsoleApp
             configuration.InstrumentationKey = "removed";
             configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 
-            var telemetryClient = new TelemetryClient();
+            var telemetryClient = new TelemetryClient(configuration);
             using (InitializeDependencyTracking(configuration))
             {
                 // run app...

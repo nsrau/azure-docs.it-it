@@ -6,16 +6,16 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: dugill
-ms.openlocfilehash: 3a8f9f1975530c846008b3b3def4f4d4a22716fd
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 033f3ca9ca79903f884c625dc694b06a3e4fd04c
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205437"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263017"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Usare l'API di autenticazione di Resource Manager per accedere alle sottoscrizioni
 
-Se sei uno sviluppatore di software che hanno necessità di creare un'app che gestisce le risorse di Azure del cliente, questo articolo illustra come eseguire l'autenticazione con l'API di Azure Resource Manager e l'accesso alle risorse in altre sottoscrizioni.
+Se sei uno sviluppatore di software che deve creare un'app che gestisce le risorse di Azure di un cliente, questo articolo illustra come eseguire l'autenticazione con le API Azure Resource Manager e ottenere l'accesso alle risorse in altre sottoscrizioni.
 
 L'app può accedere alle API di Resource Manager in due modi:
 
@@ -60,11 +60,11 @@ Gestire le sottoscrizioni connesse:
 ![Connettere la sottoscrizione](./media/resource-manager-api-authentication/sample-ux-7.png)
 
 ## <a name="register-application"></a>Registrare l'applicazione
-Prima di iniziare a scrivere codice, registrare l'app Web in Azure Active Directory (AD). La registrazione dell'app crea un'identità centrale per l'app in Azure AD, che contiene le informazioni di base sull'applicazione, ad esempio l'ID client OAuth, gli URL di risposta e le credenziali che l'applicazione usa per l'autenticazione e l'accesso alle API di Azure Resource Manager. La registrazione dell'app registra inoltre le diverse autorizzazioni delegate richieste dall'applicazione quando si accede a APIs Microsoft per l'utente.
+Prima di iniziare a scrivere codice, registrare l'app Web in Azure Active Directory (AD). La registrazione dell'app crea un'identità centrale per l'app in Azure AD, che contiene le informazioni di base sull'applicazione, ad esempio l'ID client OAuth, gli URL di risposta e le credenziali che l'applicazione usa per l'autenticazione e l'accesso alle API di Azure Resource Manager. La registrazione dell'app registra anche le varie autorizzazioni delegate richieste dall'applicazione durante l'accesso alle API Microsoft per l'utente.
 
-Per registrare l'app, vedere [Guida introduttiva: Registrare un'applicazione con la piattaforma delle identità Microsoft](../active-directory/develop/quickstart-register-app.md). Assegnare un nome all'app e selezionare **gli account in qualsiasi directory dell'organizzazione** per i tipi di account supportato. Per l'URL di reindirizzamento, fornire un dominio associato con Azure Active Directory.
+Per registrare l'app, vedere [Quickstart: Registrare un'applicazione con Microsoft Identity Platform @ no__t-0. Assegnare un nome all'app e selezionare **account in qualsiasi directory organizzativa** per i tipi di account supportati. Per URL di reindirizzamento specificare un dominio associato all'Azure Active Directory.
 
-Per accedere come l'applicazione AD, è necessario l'ID applicazione e un segreto. L'ID dell'applicazione viene visualizzato nella panoramica dell'applicazione. Per creare una chiave privata e richiedere le autorizzazioni delle API, vedere [Guida introduttiva: Configurare un'applicazione client per accedere alle API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Fornire un nuovo segreto client. Per le autorizzazioni API, selezionare **Azure Service Management**. Selezionare **autorizzazioni delegate** e **user_impersonation**.
+Per accedere come applicazione Active Directory, sono necessari l'ID applicazione e un segreto. L'ID applicazione viene visualizzato nella panoramica per l'applicazione. Per creare un segreto e richiedere le autorizzazioni dell'API, vedere [Quickstart: Configurare un'applicazione client per accedere alle API Web @ no__t-0. Fornire un nuovo segreto client. Per le autorizzazioni API selezionare **gestione dei servizi di Azure**. Selezionare **autorizzazioni delegate** e **user_impersonation**.
 
 ### <a name="optional-configuration---certificate-credential"></a>Configurazione facoltativa: credenziali del certificato
 Azure AD supporta anche le credenziali certificato per le applicazioni: creare un certificato autofirmato, mantenere la chiave privata e aggiungere la chiave pubblica alla registrazione dell'applicazione Azure AD. Per l'autenticazione, l'applicazione invia un piccolo payload ad Azure AD firmato usando la chiave privata e Azure AD convalida la firma usando la chiave pubblica registrata.
@@ -76,12 +76,12 @@ Per richiedere un token da usare per chiamare Resource Manager, l'applicazione d
 
     https://management.azure.com/subscriptions/{subscription-id}?api-version=2015-01-01
 
-La richiesta ha esito negativo perché l'utente non è ancora connesso, ma è possibile recuperare l'ID tenant dalla risposta. Nel caso di eccezione, recuperare l'ID tenant dal valore dell'intestazione della risposta per **WWW-Authenticate**. Questa implementazione è visibile nel metodo [GetDirectoryForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L20) .
+La richiesta ha esito negativo perché l'utente non ha ancora eseguito l'accesso, ma è possibile recuperare l'ID tenant dalla risposta. Nel caso di eccezione, recuperare l'ID tenant dal valore dell'intestazione della risposta per **WWW-Authenticate**. Questa implementazione è visibile nel metodo [GetDirectoryForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L20) .
 
 ## <a name="get-user--app-access-token"></a>Ottenere il token di accesso utente + app
 L'applicazione reindirizza l'utente ad Azure AD con una richiesta di autorizzazione OAuth 2.0 per autenticare le credenziali dell'utente e ricevere un codice di autorizzazione. L'applicazione usa il codice di autorizzazione per ottenere un token di accesso per Resource Manager. Il metodo [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) consente di creare la richiesta di autorizzazione.
 
-Questo articolo descrive le richieste dell'API REST per autenticare l'utente. È anche possibile usare librerie helper per l'autenticazione nel codice. Per altre informazioni su queste librerie, vedere [Azure Active Directory Authentication Library](../active-directory/active-directory-authentication-libraries.md) (Libreria di autenticazione di Azure Active Directory). Per informazioni aggiuntive su come integrare la gestione delle identità in un'applicazione, vedere [Guida per gli sviluppatori di Azure Active Directory](../active-directory/develop/v1-overview.md).
+Questo articolo descrive le richieste dell'API REST per autenticare l'utente. È anche possibile usare le librerie di supporto per l'autenticazione nel codice. Per altre informazioni su queste librerie, vedere [Azure Active Directory Authentication Library](../active-directory/active-directory-authentication-libraries.md) (Libreria di autenticazione di Azure Active Directory). Per informazioni aggiuntive su come integrare la gestione delle identità in un'applicazione, vedere [Guida per gli sviluppatori di Azure Active Directory](../active-directory/develop/v1-overview.md).
 
 ### <a name="auth-request-oauth-20"></a>Richiesta di autorizzazione (OAuth 2.0)
 Rilasciare una richiesta di autorizzazione Open ID Connect/OAuth2.0 all'endpoint di autorizzazione di Azure AD:
@@ -99,7 +99,7 @@ Azure AD autentica l'utente e, se necessario, chiede all'utente di concedere l'a
     code=AAABAAAAiL****FDMZBUwZ8eCAA&session_state=2d16bbce-d5d1-443f-acdf-75f6b0ce8850
 
 ### <a name="auth-request-open-id-connect"></a>Richiesta di autorizzazione (Open ID Connect)
-Se si vuole non solo di accedere a Azure Resource Manager per l'utente, ma anche consentire all'utente di accedere all'applicazione usando il proprio account Azure AD, inviare una Open ID Connect richiesta di autorizzazione. Con OpenID Connect l'applicazione riceve anche un id_token da Azure AD, che può essere usato dall'app per consentire l'accesso dell'utente.
+Se non si vuole solo accedere Azure Resource Manager per l'utente, ma anche consentire all'utente di accedere all'applicazione usando il proprio account Azure AD, emettere una richiesta di autorizzazione Open ID Connect. Con OpenID Connect l'applicazione riceve anche un id_token da Azure AD, che può essere usato dall'app per consentire l'accesso dell'utente.
 
 I parametri della stringa di query disponibili per questa richiesta sono descritti nell'articolo su come [inviare la richiesta di accesso](../active-directory/develop/v1-protocols-openid-connect-code.md#send-the-sign-in-request).
 
@@ -114,7 +114,7 @@ Una risposta Open ID Connect di esempio è:
     code=AAABAAAAiL*****I4rDWd7zXsH6WUjlkIEQxIAA&id_token=eyJ0eXAiOiJKV1Q*****T3GrzzSFxg&state=M_12tMyKaM8&session_state=2d16bbce-d5d1-443f-acdf-75f6b0ce8850
 
 ### <a name="token-request-oauth20-code-grant-flow"></a>Richiesta di token (flusso di concessione del codice OAuth 2.0)
-Ora che l'applicazione ha ricevuto il codice di autorizzazione da Azure AD, è possibile ottenere il token di accesso per Azure Resource Manager.  Inserire una richiesta di token di concessione del codice OAuth2.0 nell'endpoint del token di Azure AD:
+Ora che l'applicazione ha ricevuto il codice di autorizzazione da Azure AD, è ora di ottenere il token di accesso per Azure Resource Manager.  Inserire una richiesta di token di concessione del codice OAuth2.0 nell'endpoint del token di Azure AD:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
@@ -129,7 +129,7 @@ L'esempio seguente illustra una richiesta per un token di concessione del codice
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-Quando si usano le credenziali certificato, creare un token Web JSON (JWT) e una firma (RSA SHA256) usando la chiave privata della credenziale certificato dell'applicazione. La creazione di questo token viene visualizzata nel [flusso di verifica dei titoli client](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#second-case-access-token-request-with a-certificate).  Come riferimento, vedere [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) (Codice di Active Directory Authentication Library - .NET) per firmare i token JWT per l'asserzione client.
+Quando si usano le credenziali certificato, creare un token Web JSON (JWT) e una firma (RSA SHA256) usando la chiave privata della credenziale certificato dell'applicazione. La creazione di questo token viene visualizzata nel [flusso di verifica dei titoli client](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#second-case-access-token-request-with-a-certificate).
 
 Per dettagli sull'autenticazione client, vedere la [specifica di OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) .
 
@@ -149,7 +149,7 @@ Risposta di esempio per il token di concessione del codice:
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1432039858","not_before":"1432035958","resource":"https://management.core.windows.net/","access_token":"eyJ0eXAiOiJKV1Q****M7Cw6JWtfY2lGc5A","refresh_token":"AAABAAAAiL9Kn2Z****55j-sjnyYgAA","scope":"user_impersonation","id_token":"eyJ0eXAiOiJKV*****-drP1J3P-HnHi9Rr46kGZnukEBH4dsg"}
 
 #### <a name="handle-code-grant-token-response"></a>Gestire la risposta del token di concessione del codice
-Una risposta del token riuscita contiene il token di accesso (utente + app) per Azure Resource Manager. L'applicazione usa questo token di accesso per accedere a Resource Manager per l'utente. La durata dei token di accesso rilasciati da Azure AD è di un'ora. È improbabile che dell'applicazione web dovrà rinnovare (utente + app) token di accesso. Se è necessario rinnovare il token di accesso, usare il token di aggiornamento ricevuto dall'applicazione nella risposta del token. Inserire una richiesta di token OAuth2.0 nell'endpoint del token di Azure AD:
+Una risposta del token riuscita contiene il token di accesso (utente + app) per Azure Resource Manager. L'applicazione usa questo token di accesso per accedere Gestione risorse per l'utente. La durata dei token di accesso rilasciati da Azure AD è di un'ora. È improbabile che l'applicazione Web debba rinnovare il token di accesso (utente + app). Se è necessario rinnovare il token di accesso, usare il token di aggiornamento ricevuto dall'applicazione nella risposta del token. Inserire una richiesta di token OAuth2.0 nell'endpoint del token di Azure AD:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
@@ -164,10 +164,10 @@ L'esempio seguente mostra come usare il token di aggiornamento:
 
     grant_type=refresh_token&refresh_token=AAABAAAAiL9Kn2Z****55j-sjnyYgAA&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-Anche se i token di aggiornamento possono essere usati per ottenere nuovi token di accesso per Azure Resource Manager, non sono adatti per l'accesso offline dall'applicazione. La durata dei token di aggiornamento è limitata e i token di aggiornamento sono associati all'utente. Se l'utente lascia l'organizzazione, l'applicazione che usa il token di aggiornamento perde l'accesso. Questo approccio non è adatto per le applicazioni usate dai team per gestire le risorse di Azure.
+Anche se i token di aggiornamento possono essere usati per ottenere nuovi token di accesso per Azure Resource Manager, non sono adatti per l'accesso offline da un'applicazione. La durata dei token di aggiornamento è limitata e i token di aggiornamento sono associati all'utente. Se l'utente lascia l'organizzazione, l'applicazione che usa il token di aggiornamento perde l'accesso. Questo approccio non è adatto per le applicazioni usate dai team per gestire le risorse di Azure.
 
 ## <a name="check-if-user-can-assign-access-to-subscription"></a>Verificare se l'utente può assegnare l'accesso alla sottoscrizione
-L'applicazione ora ha un token di accesso di Azure Resource Manager per l'utente. Nel passaggio successivo si connette l'app alla sottoscrizione. Dopo la connessione, l'app può gestire le sottoscrizioni anche quando l'utente non è presente (accesso offline a lungo termine).
+L'applicazione dispone ora di un token per accedere Azure Resource Manager per l'utente. Nel passaggio successivo si connette l'app alla sottoscrizione. Dopo la connessione, l'app può gestire le sottoscrizioni anche quando l'utente non è presente (accesso offline a lungo termine).
 
 Per ogni sottoscrizione da connettere, chiamare l'API di [Resource Manager per elencare le autorizzazioni](https://docs.microsoft.com/rest/api/authorization/permissions) per determinare se all'utente sono concessi i diritti di gestione degli accessi per la sottoscrizione.
 
@@ -185,7 +185,7 @@ Ecco un esempio della risposta per ottenere le autorizzazioni di un utente per l
 
     {"value":[{"actions":["*"],"notActions":["Microsoft.Authorization/*/Write","Microsoft.Authorization/*/Delete"]},{"actions":["*/read"],"notActions":[]}]}
 
-L'API per le autorizzazioni restituisce più autorizzazioni. Ogni autorizzazione è costituita dalle azioni consentite (**actions**) e dalle azioni non consentite (**notactions**). Se un'azione è presente nelle azioni consentite di un'autorizzazione e non è presente nelle azioni non consentite di tale autorizzazione, l'utente è autorizzato a eseguire tale azione. **microsoft.authorization/roleassignments/write** è l'azione che concede i diritti di gestione degli accessi. L'applicazione deve analizzare il risultato delle autorizzazioni per cercare una corrispondenza regex nella stringa di questa azione negli elenchi **actions** e **notactions** di ogni autorizzazione.
+L'API per le autorizzazioni restituisce più autorizzazioni. Ogni autorizzazione è costituita dalle azioni consentite (**actions**) e dalle azioni non consentite (**notactions**). Se un'azione è presente nelle azioni consentite di qualsiasi autorizzazione e non è presente nelle azioni non consentite di tale autorizzazione, l'utente può eseguire tale azione. **microsoft.authorization/roleassignments/write** è l'azione che concede i diritti di gestione degli accessi. L'applicazione deve analizzare il risultato delle autorizzazioni per cercare una corrispondenza regex nella stringa di questa azione negli elenchi **actions** e **notactions** di ogni autorizzazione.
 
 ## <a name="get-app-only-access-token"></a>Ottenere il token di accesso solo app
 A questo punto, si sa se l'utente può assegnare l'accesso alla sottoscrizione di Azure. Ecco i passaggi successivi:
@@ -207,7 +207,7 @@ Si ha un solo token di accesso per Azure Resource Manager ed è necessario un nu
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Ottenere il token di accesso solo app per l'API Graph di Azure AD
 
-Per autenticare l'app e ottenere un token all'API Graph di Azure AD, inviare una richiesta di token di flusso OAuth2.0 per la concessione delle credenziali Client all'endpoint token Azure AD (**https:\//login.microsoftonline.com/{directory_domain_name}/OAuth2/Token** ).
+Per autenticare l'app e ottenere un token per Azure AD API Graph, emettere una richiesta del token di flusso OAuth 2.0 per la concessione delle credenziali client per Azure AD endpoint token (**https: \//login. microsoftonline. com/{directory_domain_name}/OAuth2/token**).
 
 Il metodo [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) dell'applicazione di esempio ASP.NET MVC ottiene un token di accesso solo app per l'API Graph usando Active Directory Authentication Library per .NET.
 
@@ -255,7 +255,7 @@ Il ruolo Controllo degli accessi in base al ruolo appropriato per l'applicazione
 
 L'assegnazione del ruolo per l'applicazione è visibile agli utenti, quindi selezionare il privilegio meno necessario.
 
-Chiamare il [definizione di ruolo di Resource Manager API](https://docs.microsoft.com/rest/api/authorization/roledefinitions) per elencare tutti i ruoli RBAC di Azure e quindi scorrere il risultato per trovare la definizione del ruolo in base al nome.
+Chiamare l' [API per la definizione del ruolo Gestione risorse](https://docs.microsoft.com/rest/api/authorization/roledefinitions) per elencare tutti i ruoli del controllo degli accessi in base al ruolo di Azure e quindi scorrere il risultato per trovare la definizione di ruolo
 
 Il metodo [GetRoleId](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L246) dell'app di esempio ASP.NET MVC implementa questa chiamata.
 
@@ -271,13 +271,13 @@ La risposta è nel formato seguente:
 
     {"value":[{"properties":{"roleName":"API Management Service Contributor","type":"BuiltInRole","description":"Lets you manage API Management services, but not access to them.","scope":"/","permissions":[{"actions":["Microsoft.ApiManagement/Services/*","Microsoft.Authorization/*/read","Microsoft.Resources/subscriptions/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read","Microsoft.Resources/subscriptions/resourceGroups/resources/read","Microsoft.Resources/subscriptions/resourceGroups/deployments/*","Microsoft.Insights/alertRules/*","Microsoft.Support/*"],"notActions":[]}]},"id":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions/312a565d-c81f-4fd8-895a-4e21e48d571c","type":"Microsoft.Authorization/roleDefinitions","name":"312a565d-c81f-4fd8-895a-4e21e48d571c"},{"properties":{"roleName":"Application Insights Component Contributor","type":"BuiltInRole","description":"Lets you manage Application Insights components, but not access to them.","scope":"/","permissions":[{"actions":["Microsoft.Insights/components/*","Microsoft.Insights/webtests/*","Microsoft.Authorization/*/read","Microsoft.Resources/subscriptions/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read","Microsoft.Resources/subscriptions/resourceGroups/resources/read","Microsoft.Resources/subscriptions/resourceGroups/deployments/*","Microsoft.Insights/alertRules/*","Microsoft.Support/*"],"notActions":[]}]},"id":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions/ae349356-3a1b-4a5e-921d-050484c6347e","type":"Microsoft.Authorization/roleDefinitions","name":"ae349356-3a1b-4a5e-921d-050484c6347e"}]}
 
-Non occorre chiamare l'API in modo continuativo. Una volta determinato il GUID conosciuto della definizione del ruolo, è possibile costruire l'ID definizione del ruolo come segue:
+Non è necessario chiamare questa API con cadenza continuativa. Una volta determinato il GUID conosciuto della definizione del ruolo, è possibile costruire l'ID definizione del ruolo come segue:
 
     /subscriptions/{subscription_id}/providers/Microsoft.Authorization/roleDefinitions/{well-known-role-guid}
 
 Ecco gli identificatori dei ruoli predefiniti usati comunemente:
 
-| Ruolo | GUID |
+| Role | GUID |
 | --- | --- |
 | Reader |acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 | Collaboratore |b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -310,7 +310,7 @@ Nella richiesta vengono usati i valori seguenti:
 | --- | --- |
 | 09cbd307-aa71-4aca-b346-5f253e6e3ebb |ID della sottoscrizione |
 | c3097b31-7309-4c59-b4e3-770f8406bad2 |ID oggetto dell'entità servizio dell'applicazione |
-| b24988ac-6180-42a0-ab88-20f7382dd24c |l'ID del ruolo Collaboratore |
+| b24988ac-6180-42a0-ab88-20f7382dd24c |ID del ruolo Collaboratore |
 | 4f87261d-2816-465d-8311-70a27558df4c |Nuovo GUID creato per la nuova assegnazione di ruolo |
 
 La risposta è nel formato seguente:
@@ -320,7 +320,7 @@ La risposta è nel formato seguente:
     {"properties":{"roleDefinitionId":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","principalId":"c3097b31-7309-4c59-b4e3-770f8406bad2","scope":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb"},"id":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleAssignments/4f87261d-2816-465d-8311-70a27558df4c","type":"Microsoft.Authorization/roleAssignments","name":"4f87261d-2816-465d-8311-70a27558df4c"}
 
 ### <a name="get-app-only-access-token-for-azure-resource-manager"></a>Ottenere il token di accesso solo app per Azure Resource Manager
-Per verificare che l'app può accedere alla sottoscrizione, effettuare un test attività nella sottoscrizione usando un token solo app.
+Per convalidare che l'app possa accedere alla sottoscrizione, eseguire un'attività di test nella sottoscrizione usando un token solo app.
 
 Per ottenere un token di accesso solo app, seguire le istruzioni nella sezione [Ottenere il token di accesso solo app per l'API Graph di Azure AD](#app-azure-ad-graph)con un valore diverso per il parametro della risorsa:
 
@@ -329,7 +329,7 @@ Per ottenere un token di accesso solo app, seguire le istruzioni nella sezione [
 Il metodo [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L110) dell'applicazione di esempio ASP.NET MVC ottiene un token di accesso solo app per Azure Resource Manager usando Active Directory Authentication Library per .NET.
 
 #### <a name="get-applications-permissions-on-subscription"></a>Ottenere le autorizzazioni dell'applicazione per la sottoscrizione
-Per verificare che l'applicazione può accedere a una sottoscrizione di Azure, è anche possibile chiamare il [le autorizzazioni di Resource Manager](https://docs.microsoft.com/rest/api/authorization/permissions) API. Questo approccio è simile a quello usato per determinare se all'utente sono concessi i diritti di gestione degli accessi per la sottoscrizione. Questa volta occorre però chiamare l'API per le autorizzazioni con il token di accesso solo app ottenuto nel passaggio precedente.
+Per verificare che l'applicazione possa accedere a una sottoscrizione di Azure, è anche possibile chiamare l'API [Gestione risorse autorizzazioni](https://docs.microsoft.com/rest/api/authorization/permissions) . Questo approccio è simile a quello usato per determinare se all'utente sono concessi i diritti di gestione degli accessi per la sottoscrizione. Questa volta occorre però chiamare l'API per le autorizzazioni con il token di accesso solo app ottenuto nel passaggio precedente.
 
 Il metodo [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L110) dell'app di esempio ASP.NET MVC implementa questa chiamata.
 
@@ -339,7 +339,7 @@ Quando il ruolo Controllo degli accessi in base al ruolo appropriato viene asseg
 Se il proprietario di una sottoscrizione rimuove l'assegnazione del ruolo dell'applicazione usando il portale o gli strumenti da riga di comando, l'applicazione non potrà più accedere a tale sottoscrizione. In tal caso, è consigliabile informare l'utente che la connessione con la sottoscrizione è stata interrotta dall'esterno dell'applicazione e offrirgli la possibilità di "ripristinare" la connessione. Il "ripristino" creerà di nuovo l'assegnazione del ruolo eliminata offline.
 
 Come si è consentito all'utente di connettere le sottoscrizioni all'applicazione, è necessario consentirgli anche di disconnetterle. Dal punto di vista della gestione degli accessi, disconnettere significa rimuovere l'assegnazione del ruolo che l'entità servizio dell'applicazione ha nella sottoscrizione. Facoltativamente, è possibile rimuovere anche qualsiasi stato dell'applicazione per la sottoscrizione.
-Solo gli utenti con autorizzazione di gestione di accesso per la sottoscrizione è possono disconnettere la sottoscrizione.
+La sottoscrizione può essere disconnessa solo dagli utenti con autorizzazione di gestione accessi per la sottoscrizione.
 
 Il metodo [RevokeRoleFromServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) dell'app di esempio ASP.NET MVC implementa questa chiamata.
 

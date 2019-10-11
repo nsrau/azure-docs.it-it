@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 185570992ad0308b500da30bca212a0495bcb0fa
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: bba59d024e253c8d05aa75123be5e3f13699f72e
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001631"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263034"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
@@ -25,7 +25,7 @@ Se si stanno cercando informazioni su un codice di errore e tali informazioni no
 
 ## <a name="error-codes"></a>Codici di errore
 
-| Codice errore | Attenuazione | Ulteriori informazioni |
+| Codice di errore | Mitigazione | Altre informazioni |
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Seguire le limitazioni relative all'assegnazione dei nomi per gli account di archiviazione. | [Risolvere gli errori relativi ai nomi degli account di archiviazione](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Controllare le proprietà dell'account di archiviazione disponibili. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
@@ -35,6 +35,7 @@ Se si stanno cercando informazioni su un codice di errore e tali informazioni no
 | RichiestaNonValida | I valori della distribuzione inviati non corrispondono ai valori previsti da Resource Manager. Per informazioni sulla risoluzione dei problemi, controllare il messaggio di stato interno. | [Informazioni di riferimento sul modello](/azure/templates/) e [Località supportate](resource-location.md) |
 | Conflitto | Si sta richiedendo un'operazione non consentita nello stato corrente della risorsa. Il ridimensionamento del disco, ad esempio, è consentito solo quando viene creata o deallocata una macchina virtuale. | |
 | DeploymentActiveAndUneditable | Attendere il completamento della distribuzione simultanea al gruppo di risorse. | |
+| DeploymentFailedCleanUp | Quando si esegue la distribuzione in modalità completa, vengono eliminate tutte le risorse che non sono incluse nel modello. Questo errore si verifica quando non si dispone delle autorizzazioni appropriate per eliminare tutte le risorse non presenti nel modello. Per evitare l'errore, impostare la modalità di distribuzione su incrementale. | [Modalità di distribuzione Azure Resource Manager](deployment-modes.md) |
 | DeploymentNameInvalidCharacters | Il nome della distribuzione può contenere solo lettere, cifre,'-',' .' o ' _'. | |
 | DeploymentNameLengthLimitExceeded | I nomi di distribuzione sono limitati a 64 caratteri.  | |
 | DeploymentFailed | DeploymentFailed è un errore generale che non fornisce i dettagli necessari per risolvere l'errore. Nei dettagli cercare un codice di errore che fornisca maggiori informazioni. | [Trovare il codice di errore](#find-error-code) |
@@ -61,7 +62,7 @@ Se si stanno cercando informazioni su un codice di errore e tali informazioni no
 | MissingRegistrationForLocation | Verificare lo stato di registrazione del provider di risorse e i percorsi supportati. | [Risoluzione degli errori di registrazione del provider di risorse](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registrare la sottoscrizione con il provider di risorse. | [Risoluzione degli errori di registrazione del provider di risorse](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Controllare lo stato della registrazione del provider di risorse. | [Risoluzione degli errori di registrazione del provider di risorse](resource-manager-register-provider-errors.md) |
-| Non trovato | È possibile che si stia tentando di distribuire una risorsa dipendente in parallelo con una risorsa padre. Controllare se è necessario aggiungere una dipendenza. | [Risolvere gli errori relativi alle risorse di Azure non trovate](resource-manager-not-found-errors.md) |
+| NotFound | È possibile che si stia tentando di distribuire una risorsa dipendente in parallelo con una risorsa padre. Controllare se è necessario aggiungere una dipendenza. | [Risolvere gli errori relativi alle risorse di Azure non trovate](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | La distribuzione sta tentando di eseguire un'operazione che supera la quota per la sottoscrizione, il gruppo di risorse o l'area. Se possibile, modificare la distribuzione in modo da non superare le quote. In alternativa è possibile richiedere una modifica delle quote. | [Risolvere gli errori di quota delle risorse](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | Assicurarsi che esista una risorsa padre prima di creare le risorse figlio. | [Risolvere gli errori delle risorse padre](resource-manager-parent-resource-errors.md) |
 | PasswordTooLong | Potrebbe essere stata selezionata una password con troppi caratteri oppure il valore della password è stato convertito in una stringa sicura prima di passarlo come parametro. Se il modello include un parametro **secure string**, non è necessario convertire il valore in una stringa sicura. Specificare il valore della password come testo. |  |
@@ -246,7 +247,7 @@ Talvolta il modo più semplice per risolvere i problemi del modello è testarne 
 }
 ```
 
-In alternativa, si supponga di incontrare errori di distribuzione presumibilmente correlati a dipendenze impostate in modo errato. Testare il modello suddividendolo in modelli semplificati. Creare innanzitutto un modello che distribuisce una sola risorsa (ad esempio SQL Server). Quando si è certi che la risorsa sia definita correttamente, aggiungere una risorsa che dipende da essa (ad esempio un database SQL). Una volta definite correttamente queste due risorse, aggiungere altre risorse che dipendono da esse (ad esempio criteri di controllo). Tra una distribuzione di test e l'altra, eliminare il gruppo di risorse per assicurarsi di testare le dipendenze in modo adeguato.
+In alternativa, si supponga di ricevere errori di distribuzione che si ritiene siano correlati a dipendenze imposte in modo errato. Testare il modello suddividendolo in modelli semplificati. Creare innanzitutto un modello che distribuisce una sola risorsa (ad esempio SQL Server). Quando si è sicuri di aver definito correttamente la risorsa, aggiungere una risorsa che dipende da essa (ad esempio un database SQL). Una volta definite correttamente queste due risorse, aggiungere altre risorse che dipendono da esse (ad esempio criteri di controllo). Tra una distribuzione di test e l'altra, eliminare il gruppo di risorse per assicurarsi di testare le dipendenze in modo adeguato.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

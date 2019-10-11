@@ -15,12 +15,12 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fd66dcd6e3845aad79ebffb3cad656d0a14c1a6
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: f30194592989b74aca96a5a483e9128cd3a86eb5
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720226"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274482"
 ---
 # <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>App Web che chiama le API Web: acquisisce un token per l'app
 
@@ -31,7 +31,7 @@ Ora che è stato compilato l'oggetto applicazione client, questo verrà usato pe
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-I metodi controller sono protetti da un `[Authorize]` attributo che impone agli utenti autenticati di usare l'app Web. Ecco il codice che chiama Microsoft Graph.
+I metodi controller sono protetti da un attributo `[Authorize]` che impone agli utenti autenticati di usare l'app Web. Ecco il codice che chiama Microsoft Graph.
 
 ```CSharp
 [Authorize]
@@ -61,10 +61,10 @@ public async Task<IActionResult> Profile()
  string[] scopes = new string[]{"user.read"};
  string accessToken = await tokenAcquisition.GetAccessTokenOnBehalfOfUserAsync(scopes);
 
-// use the access token to call a protected web API
-HttpClient client = new HttpClient();
-client.DefaultRequestHeaders.Add("Authorization", result.CreateAuthorizationHeader());
-string json = await client.GetStringAsync(url);
+ // use the access token to call a protected web API
+ HttpClient client = new HttpClient();
+ client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+ string json = await client.GetStringAsync(url);
 }
 ```
 
@@ -82,8 +82,8 @@ Questi passaggi avanzati vengono elaborati nel capitolo 3 dell'esercitazione [3-
 Le cose sono simili in ASP.NET:
 
 - Un'azione del controller protetta da un attributo [autorizzate] estrae l'ID tenant e l'ID utente del membro `ClaimsPrincipal` del controller. (ASP.NET usa `HttpContext.User`).
-- Da qui, compila un MSAL.NET `IConfidentialClientApplication`.
-- Infine, viene chiamato il `AcquireTokenSilent` metodo dell'applicazione client riservata.
+- Da qui viene compilato un MSAL.NET `IConfidentialClientApplication`.
+- Infine, viene chiamato il metodo `AcquireTokenSilent` dell'applicazione client riservata.
 
 Il codice è simile al codice illustrato per ASP.NET Core.
 
