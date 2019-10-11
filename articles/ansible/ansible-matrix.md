@@ -1,5 +1,5 @@
 ---
-title: Matrice di modulo e una versione di Ansible per Azure | Microsoft Docs
+title: Modulo Ansible e matrice della versione per Azure
 description: Modulo Ansible e matrice della versione per Azure
 keywords: ansible, ruoli, matrice, versione, azure, devops
 ms.topic: reference
@@ -8,51 +8,51 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: b3396b2f4639cc7298b77810dbaafadd308d6b24
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18654500a78178c46e72f9f6cd01e8507fa179f0
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230989"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241549"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Modulo Ansible e matrice della versione
 
-Ansible include una suite di moduli da usare per il provisioning e la configurazione delle risorse di Azure. Queste risorse includono macchine virtuali, set di scalabilità, servizi di rete e servizi contenitore. Questo articolo elenca i vari moduli Ansible per Azure e le versioni di Ansible in cui sono inclusi.
+Ansible include una suite di moduli da usare per il provisioning e la configurazione delle risorse di Azure. Queste risorse includono macchine virtuali, set di scalabilità, servizi di rete e servizi contenitore. Questo articolo elenca i vari moduli Ansible per Azure e le versioni di Ansible in cui sono forniti.
 
 ## <a name="ansible-modules-for-azure"></a>Moduli Ansible per Azure
 
-I moduli seguenti possono essere eseguiti tramite Playbook o direttamente su host remoti.
+I moduli seguenti possono essere eseguiti direttamente su host remoti o tramite PlayBook.
 
-Questi moduli sono disponibili dalla versione ufficiale di Ansible e dei seguenti ruoli dei playbook Microsoft.
+Questi moduli sono disponibili dalla versione ufficiale di Ansible e dai ruoli di Microsoft PlayBook seguenti.
 
-| Modulo Ansible per Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | 2\.8 Ansible | Ruolo Ansible | 
+| Modulo Ansible per Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible 2,8 | Ruolo Ansible | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|--------------|--------------| 
 | **Calcolo**                    |           |                          |                          |                            |           |           |
-| azure_rm_availabilityset                    | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_availabilityset_facts              | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_deployment                         | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
+| azure_rm_availabilityset                    | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_availabilityset_facts              | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_deployment                         | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
 | azure_rm_deployment_facts                   | -            | -                           | -            | -            | Yes          | Yes          |
-| azure_rm_functionapp                        | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_functionapp_facts                  | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_image                              | -            | Yes                         | Sì          | Sì          | Sì          | Yes          |
+| azure_rm_functionapp                        | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_functionapp_facts                  | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_image                              | -            | Yes                         | Yes          | Yes          | Yes          | Yes          |
 | azure_rm_image_facts                        | -            | -                           | -            | -            | Yes          | Yes          |
-| azure_rm_resource                           | -            | -                           | Yes          | Sì          | Sì          | Yes          |
-| azure_rm_resource_facts                     | -            | -                           | Yes          | Sì          | Sì          | Yes          |
-| azure_rm_resourcegroup                      | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_resourcegroup_facts                | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_virtualmachine                     | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_virtualmachine_facts               | -            | -                           | -            | Yes          | Sì          | Yes          |
-| azure_rm_virtualmachineextension           | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
+| azure_rm_resource                           | -            | -                           | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_resource_facts                     | -            | -                           | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_resourcegroup                      | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_resourcegroup_facts                | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_virtualmachine                     | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_virtualmachine_facts               | -            | -                           | -            | Yes          | Yes          | Yes          |
+| azure_rm_virtualmachineextension           | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
 | azure_rm_virtualmachineextension_facts      | -            | -                           | -            | -            | Yes          | Yes          |
-| azure_rm_virtualmachineimage_facts          | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_virtualmachinescaleset            | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_virtualmachinescaleset_facts      | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
+| azure_rm_virtualmachineimage_facts          | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_virtualmachinescaleset            | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_virtualmachinescaleset_facts      | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
 | azure_rm_virtualmachinescalesetextension    | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_virtualmachinescalesetextension_facts | -            | -                        | -            | -            | Yes          | Yes          |
 | azure_rm_virtualmachinescalesetinstance     | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_virtualmachinescalesetinstance_facts | -            | -                         | -            | -            | Yes          | Yes          |
 | **Rete**                              |              |                             |              |              |              |              |
-| azure_rm_appgateway                         | -            | -                           | -            | Yes          | Sì          | Yes          |
+| azure_rm_appgateway                         | -            | -                           | -            | Yes          | Yes          | Yes          |
 | azure_rm_appgwroute                         | -            | -                           | -            | -            | -          | Yes          |
 | azure_rm_appgwroute_facts                   | -            | -                           | -            | -            | -          | Yes          |
 | azure_rm_appgwroutetable                    | -            | -                           | -            | -            | -          | Yes          |
@@ -63,50 +63,50 @@ Questi moduli sono disponibili dalla versione ufficiale di Ansible e dei seguent
 | azure_rm_cdnendpoint_facts                  | -            | -                         | -          | -            | Yes          | Yes          |
 | azure_rm_cdnprofile                         | -            | -                         | -          | -            | Yes          | Yes          |
 | azure_rm_cdnprofile_facts                   | -            | -                         | -          | -            | Yes          | Yes          |
-| azure_rm_dnsrecordset                       | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_dnsrecordset_facts                 | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_dnszone                            | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_dnszone_facts                      | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_loadbalancer                       | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_loadbalancer_facts                 | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_networkinterface                   | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_networkinterface_facts             | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_publicipaddress                    | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_publicipaddress_facts              | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_route                              | -            | -                           | -            | Yes          | Sì          | Yes          |
-| azure_rm_routetable                         | -            | -                           | -            | Yes          | Sì          | Yes          |
-| azure_rm_routetable_facts                   | -            | -                           | -            | Yes          | Sì          | Yes          |
-| azure_rm_securitygroup                      | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_subnet                             | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
+| azure_rm_dnsrecordset                       | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_dnsrecordset_facts                 | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_dnszone                            | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_dnszone_facts                      | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_loadbalancer                       | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_loadbalancer_facts                 | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_networkinterface                   | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_networkinterface_facts             | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_publicipaddress                    | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_publicipaddress_facts              | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_route                              | -            | -                           | -            | Yes          | Yes          | Yes          |
+| azure_rm_routetable                         | -            | -                           | -            | Yes          | Yes          | Yes          |
+| azure_rm_routetable_facts                   | -            | -                           | -            | Yes          | Yes          | Yes          |
+| azure_rm_securitygroup                      | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_subnet                             | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
 | azure_rm_subnet_facts                       | -            | -                           | -            | -            | Yes          | Yes          |
-| azure_rm_trafficmanagerendpoint             | -            | -                         | -          | Yes          | Sì          | Yes          |
-| azure_rm_trafficmanagerendpoint_facts       | -            | -                         | -          | Yes          | Sì          | Yes          |
-| azure_rm_trafficmanagerprofile              | -            | -                         | -          | Yes          | Sì          | Yes          |
-| azure_rm_trafficmanagerprofile_facts        | -            | -                         | -          | Yes          | Sì          | Yes          |
-| azure_rm_virtualnetwork                     | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_virtualnetwork_facts               | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
+| azure_rm_trafficmanagerendpoint             | -            | -                         | -          | Yes          | Yes          | Yes          |
+| azure_rm_trafficmanagerendpoint_facts       | -            | -                         | -          | Yes          | Yes          | Yes          |
+| azure_rm_trafficmanagerprofile              | -            | -                         | -          | Yes          | Yes          | Yes          |
+| azure_rm_trafficmanagerprofile_facts        | -            | -                         | -          | Yes          | Yes          | Yes          |
+| azure_rm_virtualnetwork                     | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_virtualnetwork_facts               | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
 | azure_rm_virtualnetworkpeering              | -            | -                         | -          | -            | Yes          | Yes          |
 | **Archiviazione**                    |           |                          |                          |                            |           |           |
-| azure_rm_manageddisk                        | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_manageddisk_facts                  | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_storageaccount                     | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_storageaccount_facts               | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_storageblob                        | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
+| azure_rm_manageddisk                        | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_manageddisk_facts                  | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_storageaccount                     | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_storageaccount_facts               | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_storageblob                        | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
 | **Web**                    |           |                          |                          |                             |           |           |
-| azure_rm_appserviceplan                     | -            | -                         | -          | Yes          | Sì          | Yes          |
-| azure_rm_appserviceplan_facts               | -            | -                         | -          | Yes          | Sì          | Yes          |
-| azure_rm_webapp                             | -            | -                         | -          | Yes          | Sì          | Yes          |
-| azure_rm_webapp_facts                       | -            | -                         | -          | Yes          | Sì          | Yes          |
+| azure_rm_appserviceplan                     | -            | -                         | -          | Yes          | Yes          | Yes          |
+| azure_rm_appserviceplan_facts               | -            | -                         | -          | Yes          | Yes          | Yes          |
+| azure_rm_webapp                             | -            | -                         | -          | Yes          | Yes          | Yes          |
+| azure_rm_webapp_facts                       | -            | -                         | -          | Yes          | Yes          | Yes          |
 | azure_rm_webappslot                         | -            | -                         | -          | -            | Yes          | Yes          |
 | **Contenitori**                    |           |                          |                          |                            |           |           |
-| azure_rm_acs                                | Yes          | Sì                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_aks                                | -            | -                           | Yes          | Sì          | Sì          | Yes          |
-| azure_rm_aks_facts                          | -            | -                           | Yes          | Sì          | Sì          | Yes          |
+| azure_rm_acs                                | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_aks                                | -            | -                           | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_aks_facts                          | -            | -                           | Yes          | Yes          | Yes          | Yes          |
 | azure_rm_aksversion_facts                   | -            | -                           | -            | -            | Yes          | Yes          |
-| azure_rm_containerinstance                  | -            | Yes                         | Sì          | Sì          | Sì          | Yes          |
+| azure_rm_containerinstance                  | -            | Yes                         | Yes          | Yes          | Yes          | Yes          |
 | azure_rm_containerinstance_facts            | -            | -                           | -            | -            | Yes          | Yes          |
-| azure_rm_containerregistry                  | -            | Yes                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_containerregistry_facts            | -            | -                           | -            | Yes          | Sì          | Yes          |
+| azure_rm_containerregistry                  | -            | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_containerregistry_facts            | -            | -                           | -            | Yes          | Yes          | Yes          |
 | azure_rm_containerregistryreplication       | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_containerregistryreplication_facts | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_containerregistrywebhook           | -            | -                           | -            | -            | Yes          | Yes          |
@@ -124,31 +124,31 @@ Questi moduli sono disponibili dalla versione ufficiale di Ansible e dei seguent
 | azure_rm_mariadbserver_facts                | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_mysqlconfiguration                 | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_mysqlconfiguration_facts           | -            | -                           | -            | -            | Yes          | Yes          |
-| azure_rm_mysqldatabase                      | -            | Yes                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_mysqldatabase_facts                | -            | -                           | -            | Yes          | Sì          | Yes          |
+| azure_rm_mysqldatabase                      | -            | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_mysqldatabase_facts                | -            | -                           | -            | Yes          | Yes          | Yes          |
 | azure_rm_mysqlfirewallrule                  | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_mysqlfirewallrule_facts            | -            | -                           | -            | -            | Yes          | Yes          |
-| azure_rm_mysqlserver                        | -            | Yes                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_mysqlserver_facts                  | -            | -                           | -            | Yes          | Sì          | Yes          |
+| azure_rm_mysqlserver                        | -            | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_mysqlserver_facts                  | -            | -                           | -            | Yes          | Yes          | Yes          |
 | azure_rm_postgresqlconfiguration            | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_postgresqlconfiguration_facts      | -            | -                           | -            | -            | Yes          | Yes          |
-| azure_rm_postgresqldatabase                 | -            | Yes                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_postgresqldatabase_facts           | -            | -                           | -            | Yes          | Sì          | Yes          |
+| azure_rm_postgresqldatabase                 | -            | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_postgresqldatabase_facts           | -            | -                           | -            | Yes          | Yes          | Yes          |
 | azure_rm_postgresqlfirewallrule             | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_postgresqlfirewallrule_facts       | -            | -                           | -            | -            | Yes          | Yes          |
-| azure_rm_postgresqlserver                   | -            | Yes                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_postgresqlserver_facts             | -            | -                           | -            | Yes          | Sì          | Yes          |
+| azure_rm_postgresqlserver                   | -            | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_postgresqlserver_facts             | -            | -                           | -            | Yes          | Yes          | Yes          |
 | azure_rm_rediscache                         | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_rediscache_facts                   | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_rediscachefirewallrule             | -            | -                           | -            | -            | Yes          | Yes          |
-| azure_rm_sqldatabase                        | -            | Yes                         | Sì          | Sì          | Sì          | Yes          |
+| azure_rm_sqldatabase                        | -            | Yes                         | Yes          | Yes          | Yes          | Yes          |
 | azure_rm_sqldatabase_facts                  | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_sqlelasticpool                     | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_sqlelasticpool_facts               | -            | -                           | -            | -            | Yes          | Yes          |
-| azure_rm_sqlfirewallrule                    | -            | -                           | -            | Yes          | Sì          | Yes          |
+| azure_rm_sqlfirewallrule                    | -            | -                           | -            | Yes          | Yes          | Yes          |
 | azure_rm_sqlfirewallrule_facts              | -            | -                           | -            | -            | Yes          | Yes          |
-| azure_rm_sqlserver                          | -            | Yes                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_sqlserver_facts                    | -            | Yes                         | Sì          | Sì          | Sì          | Yes          |
+| azure_rm_sqlserver                          | -            | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_sqlserver_facts                    | -            | Yes                         | Yes          | Yes          | Yes          | Yes          |
 | **Analisi**                    |           |                          |                          |                             |           |           |
 | azure_rm_hdinsightcluster                   | -            | -                           | -            | -            | Yes          | Yes          |
 | **Integrazione**                    |           |                          |                          |                             |           |           |
@@ -159,10 +159,10 @@ Questi moduli sono disponibili dalla versione ufficiale di Ansible e dei seguent
 | azure_rm_servicebustopic                    | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_servicebustopicsubscription        | -            | -                           | -            | -            | Yes          | Yes          |
 | **Sicurezza**                    |           |                          |                          |                             |           |           |
-| azure_rm_keyvault                           | -            | Yes                         | Sì          | Sì          | Sì          | Yes          |
+| azure_rm_keyvault                           | -            | Yes                         | Yes          | Yes          | Yes          | Yes          |
 | azure_rm_keyvault_facts                     | -            | -                           | -              | -          | Yes          | Yes          |
-| azure_rm_keyvaultkey                        | -            | Yes                         | Sì          | Sì          | Sì          | Yes          |
-| azure_rm_keyvaultsecret                     | -            | Yes                         | Sì          | Sì          | Sì          | Yes          |
+| azure_rm_keyvaultkey                        | -            | Yes                         | Yes          | Yes          | Yes          | Yes          |
+| azure_rm_keyvaultsecret                     | -            | Yes                         | Yes          | Yes          | Yes          | Yes          |
 | azure_rm_roleassignment                     | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_roleassignment_facts               | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_roledefinition                     | -            | -                           | -            | -            | Yes          | Yes          |
@@ -183,17 +183,17 @@ Questi moduli sono disponibili dalla versione ufficiale di Ansible e dei seguent
 | azure_rm_devtestlabvirtualnetwork           | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_devtestlabvirtualnetwork_facts     | -            | -                           | -            | -            | Yes          | Yes          |
 | **Monitoraggio di Azure**          |           |                          |                          |                             |           |           |
-| azure_rm_autoscale                  | -            | -                         | -          | Yes          | Sì          | Yes          |
-| azure_rm_autoscale_facts            | -            | -                         | -          | Yes          | Sì          | Yes          |
+| azure_rm_autoscale                  | -            | -                         | -          | Yes          | Yes          | Yes          |
+| azure_rm_autoscale_facts            | -            | -                         | -          | Yes          | Yes          | Yes          |
 | azure_rm_loganalyticsworkspace              | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_loganalyticsworkspace_facts        | -            | -                           | -            | -            | Yes          | Yes          |
 
 ## <a name="introduction-to-playbook-role-for-azure"></a>Introduzione al ruolo playbook per Azure
 
-Il [ruolo playbook azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) include tutti i moduli Azure più recenti. Gli aggiornamenti e le correzioni di bug vengono apportati in modo più tempestivo rispetto alla versione ufficiale di Ansible. Se si usa Ansible per il provisioning di risorse Azure, si consiglia di installare il `azure_preview_module` ruolo playbook.
+Il [ruolo PlayBook di azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) include tutti i moduli di Azure più recenti. Gli aggiornamenti e le correzioni di bug vengono apportati in modo più tempestivo rispetto alla versione ufficiale di Ansible. Se si usa Ansible per il provisioning delle risorse di Azure, si consiglia di installare il ruolo PlayBook `azure_preview_module`.
 
-Il `azure_preview_module` ruolo playbook viene rilasciato ogni tre settimane.
+Il ruolo PlayBook `azure_preview_module` viene rilasciato ogni tre settimane.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui ruoli di playbook, vedere [creazione di Playbook riutilizzabili](https://docs.ansible.com/ansible/latest/playbooks_reuse.html). 
+Per ulteriori informazioni sui ruoli PlayBook, vedere [creazione di PlayBook riutilizzabili](https://docs.ansible.com/ansible/latest/playbooks_reuse.html). 

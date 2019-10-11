@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: mlearned
-ms.openlocfilehash: ab744efd205d826cb7ae2c3eda7bba28f4a9bee0
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: d9d432c073872e7bb7f3562979e78989faea65eb
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097812"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241101"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Eseguire l'autenticazione con Registro Azure Container dal servizio Azure Kubernetes
 
@@ -39,7 +39,7 @@ az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resou
 ```
 **Un ID di risorsa ACR ha il formato seguente:** 
 
-/Subscriptions/<Subscription-d>/resourceGroups/<Resource-Group-Name>/providers/Microsoft.ContainerRegistry/registries/{name} 
+/Subscriptions/\<subscription-ID @ no__t-1/resourceGroups/\<resource-Group-Name @ no__t-3/Providers/Microsoft. ContainerRegistry/registris/\<name @ no__t-5 
   
 Il completamento di questo passaggio può richiedere alcuni minuti.
 
@@ -61,7 +61,7 @@ az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 
 ## <a name="log-in-to-your-acr"></a>Accedere a ACR
 
-Usare il comando seguente per accedere al record di controllo di accesso.  Sostituire il <acrname> parametro con il nome di ACR.  Ad esempio, il valore predefinito è **aks < il gruppo di risorse > ACR**.
+Usare il comando seguente per accedere al record di controllo di accesso.  Sostituire il parametro <acrname> con il nome dell'ACR.  Ad esempio, il valore predefinito è **aks < il gruppo di risorse > ACR**.
 
 ```azurecli
 az acr login -n <acrName>

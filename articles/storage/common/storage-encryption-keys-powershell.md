@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 10/09/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 982996bdbc5e618cf90aa4b028c0585a7898f465
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 30fed5a75e368e9d87da54d4c75e6f69759813e7
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670952"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249278"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Configurare chiavi gestite dal cliente per la crittografia di archiviazione di Azure da PowerShell
 
@@ -23,7 +23,7 @@ ms.locfileid: "71670952"
 Questo articolo illustra come configurare un insieme di credenziali delle chiavi con chiavi gestite dal cliente usando PowerShell.
 
 > [!IMPORTANT]
-> L'uso delle chiavi gestite dal cliente con la crittografia di archiviazione di Azure richiede che l'insieme di credenziali delle chiavi disponga di due proprietà obbligatorie configurate, **eliminazione** temporanea e **non ripulitura**. Queste proprietà sono abilitate per impostazione predefinita quando si crea un nuovo insieme di credenziali delle chiavi nel portale di Azure. Tuttavia, se è necessario abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, è necessario usare PowerShell o l'interfaccia della riga di comando di Azure.
+> L'uso delle chiavi gestite dal cliente con la crittografia di archiviazione di Azure richiede l'impostazione di due proprietà nell'insieme di credenziali delle chiavi, l' **eliminazione** **temporanea e l'eliminazione.** Queste proprietà non sono abilitate per impostazione predefinita. Per abilitare queste proprietà, usare PowerShell o l'interfaccia della riga di comando di Azure.
 > Sono supportate solo le chiavi RSA e le dimensioni della chiave 2048.
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Assegnare un'identità all'account di archiviazione
@@ -67,7 +67,7 @@ Set-AzKeyVaultAccessPolicy `
     -PermissionsToKeys wrapkey,unwrapkey,get,recover
 ```
 
-## <a name="create-a-new-key"></a>Crea una nuova chiave
+## <a name="create-a-new-key"></a>Creare una nuova chiave
 
 Successivamente, creare una nuova chiave nell'insieme di credenziali delle chiavi. Per creare una nuova chiave, chiamare [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey). Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con i propri valori e di usare le variabili definite negli esempi precedenti.
 

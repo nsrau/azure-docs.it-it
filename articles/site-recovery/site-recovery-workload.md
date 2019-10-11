@@ -1,22 +1,22 @@
 ---
-title: Quali carichi di lavoro è possibile proteggere con Azure Site Recovery? | Microsoft Docs
+title: Informazioni sul ripristino di emergenza per le app locali con Azure Site Recovery
 description: Illustra i carichi di lavoro che possono essere protetti usando il ripristino di emergenza con il servizio Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/10/2019
 ms.author: raynew
-ms.openlocfilehash: f3ff6e5e05cab9aab5257d810c6785e7691bae45
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: ad989a28e150635637a477d07803107a9fefff63
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232196"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255553"
 ---
-# <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quali carichi di lavoro è possibile proteggere con Azure Site Recovery?
+# <a name="about-disaster-recovery-for-on-premises-apps"></a>Informazioni sul ripristino di emergenza per le app locali
 
-Questo articolo descrive i carichi di lavoro e applicazioni che è possibile proteggere per il ripristino di emergenza con il servizio [Azure Site Recovery](site-recovery-overview.md).
+Questo articolo descrive i carichi di lavoro e le app locali che è possibile proteggere per il ripristino di emergenza con il servizio [Azure Site Recovery](site-recovery-overview.md) .
 
 
 
@@ -103,9 +103,9 @@ Servizi Desktop remoto abilita l'uso di un'infrastruttura VDI (Virtual Desktop I
 
 | **SERVIZI DESKTOP REMOTO** |**Replicare le VM di Azure in Azure** | **Replicare le VM Hyper-V in un sito secondario** | **Replicare VM Hyper-V in Azure** | **Replicare VM VMware in un sito secondario** | **Replicare VM VMware in Azure** | **Replicare di server fisici in un sito secondario** | **Replicare i server fisici in Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Desktop virtuale in pool (non gestito)** |No|Sì |No |Sì |No |Sì |No |
-| **Desktop virtuale in pool (gestito e senza UPD)** |No|Sì |No |Sì |No |Sì |No |
-| **Applicazioni remote e le sessioni Desktop (senza UPD)** |Yes|Sì |Sì |Sì |Sì |Sì |Yes |
+| **Desktop virtuale in pool (non gestito)** |No|Yes |No |Yes |No |Yes |No |
+| **Desktop virtuale in pool (gestito e senza UPD)** |No|Yes |No |Yes |No |Yes |No |
+| **Applicazioni remote e le sessioni Desktop (senza UPD)** |Yes|Yes |Yes |Yes |Yes |Yes |Yes |
 
 [Configurare il ripristino di emergenza per Servizi Desktop remoto con Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 

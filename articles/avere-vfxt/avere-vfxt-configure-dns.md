@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
-ms.openlocfilehash: 9fd9eaf1e62d063026e0e656346baaaade87064f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: c28189bf227a6a81ae9e72e889a0dc598cd7949e
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60410340"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256274"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Configurazione DNS del cluster Avere
 
@@ -41,8 +41,7 @@ Per ottenere prestazioni ottimali, configurare il server DNS per gestire gli ind
 
 A sinistra è visualizzato un vserver cluster, al centro e a destra compaiono gli indirizzi IP. Configurare ogni punto di accesso client con puntatori e record A come illustrato.
 
-![Diagramma di avere cluster round robin DNS](media/avere-vfxt-rrdns-diagram.png) 
-<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
+diagramma DNS round robin del cluster ![Avere @ no__t-1<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
 Ogni indirizzo IP lato client deve avere un nome univoco riservato all'uso interno da parte del cluster. In questo diagramma, gli indirizzi IP client sono denominati vs1-client-IP-* per maggiore chiarezza, ma nell'ambiente di produzione è consigliabile usare qualcosa di più conciso, ad esempio client*.
 

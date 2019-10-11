@@ -5,14 +5,14 @@ author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 06/07/2019
 ms.topic: article
-ms.service: azure
+ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 9caf82d2fa4683e845d23b5496f9e7b8f9682ec7
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: e99bdd92d4a1aab833a95943b22aaabe7f0daa1d
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234838"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248670"
 ---
 # <a name="vm-series-vcpu-limit-increase"></a>Aumento del limite di vCPU per una serie di VM
 
@@ -29,7 +29,7 @@ Altre informazioni sulle quote sono disponibili nella pagina delle [quote vCPU d
 
 Seguire le istruzioni riportate di seguito per creare una richiesta di supporto tramite il pannello "Guida e supporto" di Azure disponibile nel portale di Azure. 
 
-1. Da https://portal.azure.com scegliere **Guida e supporto**.
+1. Da https://portal.azure.com, scegliere **Guida e supporto**.
 
    ![Guida e supporto](./media/resource-manager-core-quotas-request/helpsupport.png)
  
@@ -70,7 +70,7 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
 Seguire le istruzioni riportate di seguito per creare una richiesta di supporto tramite il pannello "utilizzo e quota" di Azure disponibile nel portale di Azure. 
 
-1. In https://portal.azure.com , selezionare **Sottoscrizioni**.
+1. In https://portal.azure.com, selezionare **Sottoscrizioni**.
 
    ![Sottoscrizioni](./media/resource-manager-core-quotas-request/subscriptions.png)
 

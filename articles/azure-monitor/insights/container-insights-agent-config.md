@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/07/2019
+ms.date: 10/08/2019
 ms.author: magoedte
-ms.openlocfilehash: ada573cc919d775af52abc5a75004866aebbeddb
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: dfa823955cccba4ac7ec6859894a4562f0810d76
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72033943"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248762"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurare la raccolta dei dati dell'agente per il monitoraggio di Azure per i contenitori
 
@@ -64,7 +64,7 @@ Il frammento attivo delle metriche da Prometheus viene eseguito da una delle due
 
 | Endpoint | `Scope` | Esempio |
 |----------|-------|---------|
-| Annotazione Pod | A livello di cluster | annotazioni <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000" <br>prometheus.io/scheme: "http"` |
+| Annotazione Pod | A livello di cluster | annotazioni <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Servizio Kubernetes | A livello di cluster | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
 | URL/endpoint | Per nodo e/o a livello di cluster | `http://myurl:9101/metrics` |
 
@@ -79,9 +79,9 @@ Quando si specifica un URL, monitoraggio di Azure per i contenitori esegue solo 
 | | `prometheus.io/scrape` | Boolean | true o false | Consente di rimuovere il pod. `monitor_kubernetes_pods` deve essere impostato su `true`. |
 | | `prometheus.io/scheme` | string | http o https | Il valore predefinito è la rottamazione su HTTP. Se necessario, impostare su `https`. | 
 | | `prometheus.io/path` | string | Matrice con valori delimitati da virgole | Percorso della risorsa HTTP da cui recuperare le metriche. Se il percorso delle metriche non è `/metrics`, definirlo con questa annotazione. |
-| | `prometheus.io/port` | string | 9102 | Specificare una porta su cui restare in ascolto. Se la porta non è impostata, il valore predefinito è 9102. |
+| | `prometheus.io/port` | string | 9102 | Specificare una porta da cui deframmentare. Se la porta non è impostata, il valore predefinito è 9102. |
 | A livello di nodo | `urls` | string | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
-| A livello di nodo o a livello di cluster | `interval` | string | 60 s | Il valore predefinito per l'intervallo di raccolta è di un minuto (60 secondi). È possibile modificare la raccolta per *[prometheus_data_collection_settings. Node]* e/o *[prometheus_data_collection_settings. cluster]* in unità di tempo, ad esempio NS, US (o Âμs), MS, s, m, h. |
+| A livello di nodo o a livello di cluster | `interval` | string | 60 s | Il valore predefinito per l'intervallo di raccolta è di un minuto (60 secondi). È possibile modificare la raccolta per *[prometheus_data_collection_settings. Node]* e/o *[prometheus_data_collection_settings. cluster]* in unità di tempo quali s, m, h. |
 | A livello di nodo o a livello di cluster | `fieldpass`<br> `fielddrop`| string | Matrice con valori delimitati da virgole | È possibile specificare determinate metriche da raccogliere o meno dall'endpoint impostando l'elenco Consenti (`fieldpass`) e non consentito (`fielddrop`). È necessario impostare prima l'elenco Consenti. |
 
 ConfigMaps è un elenco globale e può essere applicato un solo ConfigMap all'agente. Non è possibile avere un altro ConfigMaps che esegue la sovradecisione delle raccolte.
@@ -91,7 +91,8 @@ ConfigMaps è un elenco globale e può essere applicato un solo ConfigMap all'ag
 Per configurare e distribuire il file di configurazione ConfigMap nel cluster, seguire questa procedura.
 
 1. [Scaricare](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) il modello ConfigMap YAML file e salvarlo come container-AZM-MS-agentconfig. yaml.  
-1. Modificare il file YAML di ConfigMap con le personalizzazioni.
+
+2. Modificare il file YAML ConfigMap con le personalizzazioni per raccogliere le variabili di stdout, stderr e/o di ambiente.
 
     - Per escludere spazi dei nomi specifici per la raccolta di log di stdout, configurare la chiave o il valore usando l'esempio seguente: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
     
@@ -99,48 +100,67 @@ Per configurare e distribuire il file di configurazione ConfigMap nel cluster, s
     
     - Per disabilitare la raccolta di log stderr a livello di cluster, configurare la chiave o il valore usando l'esempio seguente: `[log_collection_settings.stderr] enabled = false`.
     
-    - Gli esempi seguenti illustrano come configurare le metriche dei file ConfigMap da un URL a livello di cluster, dal DameonSet a livello di nodo di un agente e specificando un'annotazione Pod
+3. Per configurare la raccolta dei servizi Kubernetes a livello di cluster, configurare il file ConfigMap usando l'esempio seguente.
 
-        - Rimuovere le metriche Prometeo da un URL specifico nel cluster.
+    ```
+    prometheus-data-collection-settings: |- 
+    # Custom Prometheus metrics data collection settings
+    [prometheus_data_collection_settings.cluster] 
+    interval = "1m"  ## Valid time units are s, m, h.
+    fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through 
+    fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
+    kubernetes_services = ["http://my-service-dns.my-namespace:9102/metrics"]
+    ```
+
+4. Per configurare il frammento di metriche Prometheus da un URL specifico nel cluster, configurare il file ConfigMap usando l'esempio seguente.
+
+    ```
+    prometheus-data-collection-settings: |- 
+    # Custom Prometheus metrics data collection settings
+    [prometheus_data_collection_settings.cluster] 
+    interval = "1m"  ## Valid time units are s, m, h.
+    fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through 
+    fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
+    urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
+    ```
+
+5. Per configurare il frammento di metriche Prometheus da un DaemonSet dell'agente per ogni singolo nodo del cluster, configurare quanto segue in ConfigMap:
+    
+    ```
+    prometheus-data-collection-settings: |- 
+    # Custom Prometheus metrics data collection settings 
+    [prometheus_data_collection_settings.node] 
+    interval = "1m"  ## Valid time units are s, m, h. 
+    urls = ["http://$NODE_IP:9103/metrics"] 
+    fieldpass = ["metric_to_pass1", "metric_to_pass2"] 
+    fielddrop = ["metric_to_drop"] 
+    ```
+
+    >[!NOTE]
+    >$NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo. 
+
+6. Per configurare la frammentazione delle metriche Prometeo specificando un'annotazione Pod, seguire questa procedura:
+
+    1. In ConfigMap specificare quanto segue:
 
         ```
          prometheus-data-collection-settings: |- 
          # Custom Prometheus metrics data collection settings
          [prometheus_data_collection_settings.cluster] 
-         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h.
-         fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through 
-         fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
-         urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
+         interval = "1m"  ## Valid time units are s, m, h
+         monitor_kubernetes_pods = true 
         ```
 
-        - Rimuovere le metriche Prometeo da un DaemonSet di un agente in esecuzione in ogni nodo del cluster.
+    2. Specificare la configurazione seguente per le annotazioni pod:
 
         ```
-         prometheus-data-collection-settings: |- 
-         # Custom Prometheus metrics data collection settings 
-         [prometheus_data_collection_settings.node] 
-         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. 
-         # Node level scrape endpoint(s). These metrics will be scraped from agent's DaemonSet running in every node in the cluster 
-         urls = ["http://$NODE_IP:9103/metrics"] 
-         fieldpass = ["metric_to_pass1", "metric_to_pass2"] 
-         fielddrop = ["metric_to_drop"] 
+         - prometheus.io/scrape:"true" #Enable scraping for this pod 
+         - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
+         - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. 
+         - prometheus.io/port:"8000" #If port is not 9102 use this annotation
         ```
 
-        - Rimuovere le metriche Prometeo specificando un'annotazione pod.
-
-        ```
-         prometheus-data-collection-settings: |- 
-         # Custom Prometheus metrics data collection settings
-         [prometheus_data_collection_settings.cluster] 
-         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h
-         monitor_kubernetes_pods = true #replicaset will scrape Kubernetes pods for the following prometheus annotations: 
-          - prometheus.io/scrape:"true" #Enable scraping for this pod 
-          - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
-          - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. 
-          - prometheus.io/port:"8000" #If port is not 9102 use this annotation
-        ```
-
-1. Creare ConfigMap eseguendo il comando kubectl seguente: `kubectl apply -f <configmap_yaml_file.yaml>`.
+7. Creare ConfigMap eseguendo il comando kubectl seguente: `kubectl apply -f <configmap_yaml_file.yaml>`.
     
     Esempio: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     
@@ -186,29 +206,32 @@ L'output sarà simile al seguente con le versioni dello schema di annotazione:
                     schema-versions=v1 
 ```
 
-## <a name="review-prometheus-data-usage"></a>Esaminare l'utilizzo dei dati di Prometeo
+## <a name="query-prometheus-metrics-data"></a>Eseguire query sui dati di metrica Prometeo
 
 Per visualizzare le metriche Prometeo ricavate da monitoraggio di Azure, specificare "Prometeo" come spazio dei nomi. Ecco una query di esempio per visualizzare le metriche Prometheus dallo spazio dei nomi `default` kubernetes.
 
 ```
 InsightsMetrics 
-| where Namespace contains "prometheus"
+| where Namespace == "prometheus"
 | extend tags=parse_json(Tags)
-| where tostring(tags.namespace) == "default" 
+| summarize count() by Name
 ```
 
 I dati Prometheus possono anche essere sottoposti a query direttamente in base al nome.
 
 ```
 InsightsMetrics 
+| where Namespace == "prometheus"
 | where Name contains "some_prometheus_metric"
 ```
+
+## <a name="review-prometheus-data-usage"></a>Esaminare l'utilizzo dei dati di Prometeo
 
 Per identificare il volume di inserimento di ogni dimensione di metrica in GB al giorno per comprendere se è elevato, viene fornita la query seguente.
 
 ```
 InsightsMetrics 
-| where Namespace contains "prometheus"
+| where Namespace == "prometheus"
 | where TimeGenerated > ago(24h)
 | summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
 | order by VolumeInGB desc

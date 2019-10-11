@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8b7b02c164021ac084dccf5663122620b2af1b15
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 662fa342b3a18f726b418c496ff3fda937445301
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972897"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244778"
 ---
 # <a name="vpn-gateways-overview"></a>Panoramica di gateway VPN
 
@@ -63,6 +63,10 @@ Una connessione VPN da sito a sito usa i parametri crittografici predefiniti seg
 | Gruppo della segretezza diretta perfetto (gruppo PFS) | Nessuna | Nessuna | Nessuna |
 | Durata | 1\.800 secondi | 1\.800 secondi | 1\.800 secondi |
 | Dimensioni dei dati | 4 GB | 4 GB | 4 GB |
+
+
+> [!IMPORTANT]
+> Impostare la pressione TCP MSS su 1200 sul dispositivo VPN. In alternativa, se i dispositivi VPN non supportano il blocco MSS, è invece possibile impostare il MTU sull'interfaccia del tunnel su 1240 byte.
 
 ## <a name="point-to-site-vpn-gateway"></a>Gateway VPN da punto a sito
 

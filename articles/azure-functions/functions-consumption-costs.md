@@ -7,18 +7,18 @@ ms.date: 9/20/2019
 ms.topic: conceptual
 ms.service: azure-functions
 manager: gwallace
-ms.openlocfilehash: fa35e5bea7b0d7f2435a8ad31b9195d2fd35a45c
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 0ff41eb511ad4513fc9bf5a2ded7ef47b08d12ab
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181262"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243314"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Stima dei costi del piano a consumo
 
 Esistono attualmente tre tipi di piani di hosting per un'app eseguita in funzioni di Azure, ognuno dei quali ha un proprio modello di determinazione dei prezzi: 
 
-| Piano | Descrizione |
+| Pianificazione | Descrizione |
 | ---- | ----------- |
 | [**Consumo**](functions-scale.md#consumption-plan) | Viene addebitato solo il tempo di esecuzione dell'app per le funzioni. Questo piano include una[pagina dei prezzi] di [concessione gratuita]per ogni sottoscrizione.|
 | [**Premium**](functions-scale.md#premium-plan) | Fornisce le stesse funzionalità e il meccanismo di scalabilità del piano a consumo, ma con prestazioni migliorate e accesso VNET. Il costo si basa sul piano tariffario scelto. Per altre informazioni, vedere [piano Premium di funzioni di Azure](functions-premium-plan.md). |
@@ -34,7 +34,7 @@ Durable Functions possono anche essere eseguiti in un piano a consumo. Per ulter
 
 Il *costo* di esecuzione di una singola esecuzione di funzione viene misurato in *GB-secondi*. Il costo di esecuzione viene calcolato combinando l'utilizzo della memoria con il relativo tempo di esecuzione. Funzione che viene eseguita per più costi più lunghi, così come una funzione che utilizza più memoria. 
 
-Si consideri un caso in cui la quantità di memoria utilizzata dalla funzione rimane costante. In questo caso, il calcolo del costo è una semplice moltiplicazione. Ad esempio, supponiamo che la funzione abbia utilizzato 0,5 GB per 3 secondi. Il costo di esecuzione è `0.5GB * 3s = 1.5 GB-seconds`quindi. 
+Si consideri un caso in cui la quantità di memoria utilizzata dalla funzione rimane costante. In questo caso, il calcolo del costo è una semplice moltiplicazione. Ad esempio, supponiamo che la funzione abbia utilizzato 0,5 GB per 3 secondi. Il costo di esecuzione è `0.5GB * 3s = 1.5 GB-seconds`. 
 
 Poiché le modifiche all'utilizzo della memoria nel tempo, il calcolo è essenzialmente l'integrale dell'utilizzo della memoria nel tempo.  Il sistema esegue questo calcolo campionando l'utilizzo della memoria del processo (insieme ai processi figlio) a intervalli regolari. Come indicato nella [pagina dei prezzi], l'utilizzo della memoria viene arrotondato per eccesso al bucket 128 MB più vicino. Quando il processo utilizza 160 MB, viene addebitato il costo di 256 MB. Il calcolo prende in considerazione la concorrenza, ovvero più esecuzioni di funzioni simultanee nello stesso processo.
 
@@ -65,7 +65,7 @@ I comportamenti seguenti delle funzioni possono avere un effetto sul tempo di es
 
 ## <a name="view-execution-data"></a>Visualizza dati di esecuzione
 
-Nella [fattura](/billing/billing-download-azure-invoice.md)è possibile visualizzare i dati relativi ai costi delle **esecuzioni totali, funzioni** e tempi di **esecuzione**, oltre ai costi effettivi fatturati. Tuttavia, i dati della fattura sono aggregati mensili per un periodo di fatturazione precedente. 
+Nella [fattura](/azure/billing/billing-download-azure-invoice)è possibile visualizzare i dati relativi ai costi delle **esecuzioni totali, funzioni** e tempi di **esecuzione**, oltre ai costi effettivi fatturati. Tuttavia, i dati della fattura sono aggregati mensili per un periodo di fatturazione precedente. 
 
 Per comprendere meglio l'impatto sui costi delle funzioni, è possibile usare monitoraggio di Azure per visualizzare le metriche relative ai costi attualmente generate dalle app per le funzioni. Per ottenere questi dati, è possibile usare [Esplora metriche di monitoraggio di Azure](../azure-monitor/platform/metrics-getting-started.md) nella [portale di Azure] o nelle API REST.
 
@@ -73,7 +73,7 @@ Per comprendere meglio l'impatto sui costi delle funzioni, è possibile usare mo
 
 Usare [Esplora metriche di monitoraggio di Azure](../azure-monitor/platform/metrics-getting-started.md) per visualizzare i dati relativi ai costi per le app per le funzioni del piano a consumo in formato grafico. 
 
-1. Nella parte superiore del [portale di Azure] in **Cerca servizi, risorse e documentazione** `monitor` Cerca e seleziona **monitoraggio** in **Servizi**.
+1. Nella parte superiore del [portale di Azure] in **servizi di ricerca, risorse e documenti** cercare `monitor` e selezionare **monitoraggio** in **Servizi**.
 
 1. A sinistra selezionare **metrica** > **selezionare una risorsa**e quindi usare le impostazioni sotto l'immagine per scegliere l'app per le funzioni.
 
@@ -101,7 +101,7 @@ Il grafico risultante contiene i totali per entrambe le metriche di esecuzione n
 
 Poiché il numero di unità di esecuzione è molto superiore al numero di esecuzioni, il grafico mostra solo le unità di esecuzione.
 
-Questo grafico mostra un totale di 1,11 miliardi `Function Execution Units` utilizzati in un periodo di due ore, misurato in MB-millisecondi. Per eseguire la conversione in GB-secondi, dividere per 1024000. In questo esempio l'app per le funzioni `1110000000 / 1024000 = 1083.98` ha utilizzato GB-secondi. È possibile utilizzare questo valore e moltiplicare per il prezzo corrente del tempo di esecuzione nella[dei prezzi relativa alle pagina][pagina dei prezzi], che offre il costo di queste due ore, presupponendo che siano già state utilizzate concessioni gratuite del tempo di esecuzione. 
+Questo grafico mostra un totale di 1,11 miliardi `Function Execution Units` utilizzati in un periodo di due ore, misurato in MB-millisecondi. Per eseguire la conversione in GB-secondi, dividere per 1024000. In questo esempio l'app per le funzioni ha utilizzato `1110000000 / 1024000 = 1083.98` GB-secondi. È possibile utilizzare questo valore e moltiplicare per il prezzo corrente del tempo di esecuzione nella[dei prezzi relativa alle pagina][pagina dei prezzi], che offre il costo di queste due ore, presupponendo che siano già state utilizzate concessioni gratuite del tempo di esecuzione. 
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -192,7 +192,7 @@ Questo comando restituisce un payload JSON simile all'esempio seguente:
   ]
 }
 ```
-Questa particolare risposta indica che da `2019-09-11T21:46` a `2019-09-11T23:18`, durante i quali l'app ha utilizzato 1,11 miliardi MB-millisecondi (1083,98 GB-secondi).
+Questa particolare risposta indica che dal `2019-09-11T21:46` al `2019-09-11T23:18`, durante il quale l'app ha utilizzato 1,11 miliardi MB-millisecondi (1083,98 GB-secondi).
 
 ## <a name="determine-memory-usage"></a>Determinare l'utilizzo della memoria
 
@@ -210,14 +210,14 @@ performanceCounters
 
 I risultati sono simili all'esempio seguente:
 
-| timestamp \[UTC\]          | name          | value       |
+| timestamp \[UTC @ no__t-1          | name          | value       |
 |----------------------------|---------------|-------------|
-| 9/12/2019, 1:05:14\.947 AM | Byte privati | 209.932.288 |
-| 9/12/2019, 1:06:14\.994 AM | Byte privati | 212.189.184 |
-| 9/12/2019, 1:06:30\.010 | Byte privati | 231.714.816 |
-| 9/12/2019, 1:07:15\.040 AM | Byte privati | 210.591.744 |
-| 9/12/2019, 1:12:16\.285 AM | Byte privati | 216.285.184 |
-| 9/12/2019, 1:12:31\.376 AM | Byte privati | 235.806.720 |
+| 9/12/2019, 1:05:14 @ NO__T-0947 AM | Private Bytes | 209.932.288 |
+| 9/12/2019, 1:06:14 @ NO__T-0994 AM | Private Bytes | 212.189.184 |
+| 9/12/2019, 1:06:30 @ NO__T-0010 AM | Private Bytes | 231.714.816 |
+| 9/12/2019, 1:07:15 @ NO__T-0040 AM | Private Bytes | 210.591.744 |
+| 9/12/2019, 1:12:16 @ NO__T-0285 AM | Private Bytes | 216.285.184 |
+| 9/12/2019, 1:12:31 @ NO__T-0376 AM | Private Bytes | 235.806.720 |
 
 ## <a name="function-level-metrics"></a>Metriche a livello di funzione
 
@@ -232,9 +232,9 @@ customMetrics
 
 | name                       | averageDurationMilliseconds |
 |----------------------------|-----------------------------|
-| AvgDurationMs QueueTrigger | 16\.087                     |
-| MaxDurationMs QueueTrigger | 90\.249                     |
-| MinDurationMs QueueTrigger | 8\.522                      |
+| AvgDurationMs QueueTrigger | 16 @ no__t-0087                     |
+| MaxDurationMs QueueTrigger | 90 @ no__t-0249                     |
+| MinDurationMs QueueTrigger | 8 @ no__t-0522                      |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

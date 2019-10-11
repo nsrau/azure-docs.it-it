@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 5326e765701a42323ea62df8d35128c4117b2ed9
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: a75c64ebb6ba3eeffeccd98cf41365fe96218573
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981427"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255901"
 ---
 # <a name="azure-policy-assignment-structure"></a>Struttura di assegnazione di Criteri di Azure
 
@@ -58,8 +58,7 @@ Usare **DisplayName** e **Description** per identificare l'assegnazione dei crit
 
 ## <a name="enforcement-mode"></a>Modalità di imposizione
 
-La proprietà **enforcementMode** fornisce ai clienti la possibilità di testare il risultato di un criterio sulle risorse esistenti senza avviare l'effetto del criterio o attivare le voci nel [log attività di Azure](../../../azure-monitor/platform/activity-logs-overview.md).
-Questo scenario viene in genere definito "What If" e viene allineato a procedure di distribuzione sicure.
+La proprietà **enforcementMode** fornisce ai clienti la possibilità di testare il risultato di un criterio sulle risorse esistenti senza avviare l'effetto del criterio o attivare le voci nel [log attività di Azure](../../../azure-monitor/platform/activity-logs-overview.md). Questo scenario viene in genere definito "What If" e viene allineato a procedure di distribuzione sicure. **enforcementMode** è diverso dall'effetto [disabilitato](./effects.md#disabled) , perché questo effetto impedisce la valutazione delle risorse.
 
 Questa proprietà presenta i valori seguenti:
 

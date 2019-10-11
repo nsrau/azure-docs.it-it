@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
-ms.openlocfilehash: fe096b2e2a75cc89e3ce5ef905d8e4c347cc153a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: ac7db46a681fcde6bfcbb7695e2d66724f738918
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409837"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256224"
 ---
 # <a name="enable-support-uploads"></a>Abilitare i caricamenti per il supporto
 
@@ -30,18 +30,18 @@ Seguire questi passaggi dal pannello di controllo di Avere per attivare il suppo
 1. Fare clic sul pulsante **Revalidate upload information** (Riconvalida informazioni caricamento).
 1. Impostare il nome del cluster per il supporto in **Unique Cluster Name** (Nome univoco cluster), assicurandosi che identifichi il cluster in modo univoco per il personale di supporto.
 1. Selezionare le caselle relative a **Statistics Monitoring** (Monitoraggio statistiche), **General Information Upload** (Caricamento informazioni generali) e **Crash Information Upload** (Caricamento informazioni arresto anomalo).
-1. Fare clic su **Submit**.
+1. Fare clic su **Invia**.
 
    ![Screenshot con la sezione delle informazioni del cliente completata nella pagina delle impostazioni di supporto](media/avere-vfxt-support-info.png)
 
 1. Fare clic sul triangolo a sinistra di **Secure Proactive Support (SPS)** (Supporto proattivo sicuro (SPS)) per espandere la sezione.
 1. Selezionare la casella **Enable SPS Link** (Abilita collegamento SPS).
-1. Fare clic su **Submit**.
+1. Fare clic su **Invia**.
 
    ![Schermata contenente la sezione del supporto proattivo sicuro completata nella pagina delle impostazioni di supporto](media/avere-vfxt-support-sps.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se è necessario aggiungere un on-premise o esistenti di sistema di archiviazione al cluster del cloud, seguire le istruzioni in [configurare l'archiviazione](avere-vfxt-add-storage.md). 
+Se è necessario aggiungere al cluster un sistema di archiviazione cloud locale o esistente, seguire le istruzioni in [configurare l'archiviazione](avere-vfxt-add-storage.md). 
 
 Se si è pronti per cominciare a collegare client al cluster, leggere [Montare il cluster Avere vFXT](avere-vfxt-mount-clients.md).
