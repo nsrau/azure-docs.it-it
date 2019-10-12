@@ -1,41 +1,72 @@
 ---
-title: Knowledge base non in lingua inglese - QnA Maker
+title: Concetti relativi al linguaggio-QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker supporta i contenuti della Knowledge Base in molte lingue. Ogni servizio QnA Maker deve essere tuttavia riservato a una sola lingua. La prima Knowledge Base creata per un particolare servizio QnA Maker imposta la lingua di quel servizio.
+description: QnA Maker supporta i contenuti della Knowledge Base in molte lingue. Ogni servizio QnA Maker deve essere tuttavia riservato a una sola lingua. La prima Knowledge base creata, destinata a un particolare servizio di QnA Maker, imposta la lingua di tale servizio.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: 5e50c814fef24aa799549d055ad6496f5bdf05e0
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 849c919950c57a1df3b0fb76021de6e10254c7b4
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961492"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286398"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Supporto per le lingue dei contenuti della Knowledge Base per QnA Maker
 
-QnA Maker supporta i contenuti della Knowledge Base in molte lingue. Ogni servizio QnA Maker deve essere tuttavia riservato a una sola lingua. La prima Knowledge Base creata per un particolare servizio QnA Maker imposta la lingua di quel servizio. Vedere [qui](../Overview/languages-supported.md) per l'elenco di lingue supportate.
+La lingua per il servizio viene selezionata quando si crea la prima Knowledge base nella risorsa. Tutte le Knowledge base aggiuntive nella risorsa devono essere nella stessa lingua. 
 
-La lingua viene automaticamente riconosciuta dal contenuto delle origini dati estratto. Dopo aver creato un nuovo servizio QnA Maker e una nuova Knowledge Base in tale servizio, è possibile verificare che la lingua sia stata impostata correttamente.
+La lingua determina la pertinenza dei risultati QnA Maker fornisce in risposta alle query degli utenti.
 
-1. Passare al [portale di Azure](https://portal.azure.com/).
+## <a name="one-language-for-all-knowledge-bases-in-resource"></a>Una lingua per tutte le Knowledge base nella risorsa
 
-1. Selezionare **Gruppi risorse**, passare al gruppo di risorse in cui è distribuito il servizio QnA Maker e selezionare la risorsa **Ricerca di Azure**.
+QnA Maker consente di selezionare la lingua per il servizio QnA, durante la creazione della prima Knowledge base. Per tutte le Knowledge base in una risorsa QnA Maker, tutte devono trovarsi nella stessa lingua. Questa lingua non può essere modificata.
 
-    ![Selezionare la risorsa Ricerca di Azure](../media/qnamaker-how-to-language-kb/select-azsearch.png)
+La creazione di Knowledge base in linguaggi diversi in una risorsa influisce negativamente sulla pertinenza dei risultati QnA Maker fornisce in risposta alle query degli utenti.
 
-1. Selezionare **indici**, quindi selezionare l'indice **Testkb** . Questo è il primo indice di ricerca di Azure creato e contiene il contenuto salvato di tutte le Knowledge base in tale servizio. 
+Esaminare un elenco di [lingue supportate](../overview/language-support.md#languages-supported) e il modo in cui i linguaggi incidono sulla [corrispondenza e sulla pertinenza](#query-matching-and-relevance). 
 
-1. Selezionare i **campi** per visualizzare i campi dell'indice.
+## <a name="select-language-when-creating-first-knowledge-base"></a>Selezionare la lingua durante la creazione della prima Knowledge base
 
-1. La colonna _analizzatore_ dei `questions` campi `answer` e è impostata su una lingua specifica. Questa lingua è stata rilevata automaticamente durante il passaggio di creazione della Knowledge base dagli URL e dai file importati. La lingua non può essere cambiata dopo aver creato la risorsa.
+La selezione della lingua fa parte dei passaggi per creare la prima Knowledge base in una risorsa. 
 
-    ![Analizzatore selezionato](../media/qnamaker-how-to-language-kb/selected-analyzer.png)
+![Screenshot del portale di QnA Maker della selezione della lingua per la prima Knowledge base](../media/language-support/select-language-when-creating-knowledge-base.png)
+
+## <a name="query-matching-and-relevance"></a>Query corrispondente e pertinenza
+QnA Maker dipende dagli [analizzatori del linguaggio di ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/language-support) per fornire i risultati. 
+
+Le funzionalità di Ricerca di Azure sono all'altezza per le lingue supportate, ma QnA Maker ha un'utilità di classificazione aggiuntiva superiore ai risultati delle ricerche di Azure. In questo modello di classificazione vengono usate alcune funzionalità speciali basate su parole e semantiche nei linguaggi seguenti. 
+
+|Lingue con rango aggiuntivo|
+|--|
+|Cinese|
+|Ceco|
+|Olandese|
+|Inglese|
+|Francese|
+|Tedesco|
+|Ungherese|
+|Italiano|
+|Giapponese|
+|Coreano|
+|Polacco|
+|Portoghese|
+|Spagnolo|
+|Svedese|
+
+Questo rango aggiuntivo è un lavoro interno del rango del QnA Maker.
+
+## <a name="verify-language"></a>Verifica lingua
+
+È possibile verificare la lingua della risorsa QnA Maker dalla pagina Impostazioni servizio nella QnA Maker.
+
+![Screenshot del portale di QnA Maker della pagina delle impostazioni del servizio](../media/language-support/language-knowledge-base.png) 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 
