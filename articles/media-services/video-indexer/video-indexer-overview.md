@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/23/2019
 ms.author: juliako
-ms.openlocfilehash: 3c8d0d3ec0f11592610363e9150be47112995853
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 2afc3a859ddb5378b6313c43d693842fdb5fce14
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219867"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296444"
 ---
 # <a name="what-is-video-indexer"></a>Informazioni su Video Indexer
 
@@ -56,13 +56,13 @@ Di seguito è riportato l'elenco di informazioni dettagliate che è possibile re
 * **Rilevamento fotogramma nero**: identifica i fotogrammi neri presentati nel video.
 * **Estrazione di fotogrammi chiave**: rileva i fotogrammi chiave stabili in un video.
 * **Crediti in sequenza**: identificare l'inizio e la fine dei crediti in corso alla fine della TV e dei film.
-* **Rilevamento di caratteri animati** (anteprima): rilevamento, raggruppamento e riconoscimento dei caratteri nel contenuto animato tramite l'integrazione con la [visione personalizzata di servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Per ulteriori informazioni, vedere [rilevamento dei caratteri animati](animated-characters-recognition.md).
+* **Rilevamento dei caratteri animati** (anteprima): rilevamento, raggruppamento e riconoscimento di caratteri nel contenuto animato tramite l'integrazione con la [visione personalizzata di servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Per ulteriori informazioni, vedere [rilevamento dei caratteri animati](animated-characters-recognition.md).
 * **Rilevamento del tipo di ripresa editoriale**: assegnazione di tag in base al tipo (ad esempio, grandangolo, medio colpo, chiusura, estrema chiusura, due colpi, più persone, esterno e interno e così via). Per ulteriori informazioni, vedere il [rilevamento del tipo di ripresa editoriale](scenes-shots-keyframes.md#editorial-shot-type-detection).
 
 ### <a name="audio-insights"></a>Informazioni dettagliate sui contenuti audio
 
 * **Rilevamento automatico della lingua**: identifica automaticamente la lingua parlata dominante. Le lingue supportate sono inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, russo e portoghese brasiliano. Se la lingua non può essere identificata in tutta sicurezza, Video Indexer presuppone che la lingua parlata sia l'inglese. Per altre informazioni, vedere [modello di identificazione della lingua](language-identification-model.md).
-* **Identificazione e trascrizione di riconoscimento vocale multilingue** (anteprima): Identifica automaticamente la lingua parlata in segmenti diversi dall'audio, inviando ogni segmento del file multimediale da trascrivere e combinando di nuovo la trascrizione con una trascrizione unificata. Per altre informazioni, vedere [identificare e trascrivere automaticamente contenuti multilingue](multi-language-identification-transcription.md).
+* **Riconoscimento vocale e trascrizione** in più lingue (anteprima): Identifica automaticamente la lingua parlata in segmenti diversi dall'audio, inviando ogni segmento del file multimediale da trascrivere e combinando di nuovo la trascrizione con una trascrizione unificata. Per altre informazioni, vedere [identificare e trascrivere automaticamente contenuti multilingue](multi-language-identification-transcription.md).
 * **Trascrizione audio**: converte la voce in testo in 12 lingue diverse e consente le estensioni. Le lingue supportate sono inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, arabo, russo, Portoghese brasiliano, Hindi e coreano.
 * **Sottotitoli**: consente di creare sottotitoli in tre formati: VTT, TTML e SRT.
 * **Elaborazione a due canali**: rileva automaticamente trascrizioni separate e le unisce in una singola sequenza temporale.
@@ -81,7 +81,7 @@ Quando si esegue l'indicizzazione in base a un canale, sarà disponibile il risu
 
 * **Estrazione di parole chiave**: estrae parole chiave dal parlato e dal testo visivo.
 * **Estrazione entità denominate**: Estrae le marche, le località e gli utenti da testo vocale e visivo tramite la PNL (Natural Language Processing).
-* **Inferenza dell'argomento**: deduce gli argomenti principali dalle trascrizioni. È inclusa la tassonomia IPTC di primo livello.
+* **Inferenza dell'argomento**: deduce gli argomenti principali dalle trascrizioni. È inclusa la tassonomia IPTC di secondo livello.
 * **Artefatti**: estrae un ampio set di artefatti con "livello di dettaglio successivo" per ognuno dei modelli.
 * **Analisi del sentiment**: identifica sentiment positivi, negativi e neutri dal parlato e dal testo visivo.
 
