@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 28026a429643c62434ddfd7591126169857a7371
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1799acdc7a6969d88936705006d67a6ea832fd81
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479075"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300283"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Usare il servizio Importazione/Esportazione di Azure per importare i dati in File di Azure
 
@@ -29,8 +29,8 @@ Prima di creare un processo di importazione per trasferire dati in File di Azure
 - Avere almeno un account di archiviazione di Azure. Vedere l'elenco di [account di archiviazione e tipi di archiviazione supportati per il servizio Importazione/Esportazione](storage-import-export-requirements.md). Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-quickstart-create-account.md).
 - Avere un numero adeguato di dischi dei [tipi supportati](storage-import-export-requirements.md#supported-disks). 
 - Predisporre un sistema Windows con una [versione del sistema operativo supportata](storage-import-export-requirements.md#supported-operating-systems).
-- [Scaricare WAImportExport versione 2](https://aka.ms/waiev2) nel sistema Windows. Decomprimere la cartella predefinita `waimportexport`. Ad esempio: `C:\WaImportExport`.
-- Avere un account FedEx o DHL. Se si desidera usare un operatore diverso da FedEx o DHL, contattare il team di finestra operazioni sui dati di Azure all'indirizzo `adbops@microsoft.com`.  
+- [Scaricare WAImportExport versione 2](https://aka.ms/waiev2) nel sistema Windows. Decomprimere la cartella predefinita `waimportexport`. Ad esempio `C:\WaImportExport`.
+- Avere un account FedEx o DHL. Se si vuole usare un vettore diverso da FedEx/DHL, contattare Azure Data Box team operativo all'`adbops@microsoft.com`.  
     - L'account deve essere valido, deve avere un saldo e deve avere le funzionalità di spedizione di ritorno.
     - Generare un numero di tracciabilità per il processo di esportazione.
     - Ogni processo deve avere un numero di tracciabilità separato. Più processi con lo stesso numero di tracciabilità non sono supportati.
@@ -70,7 +70,7 @@ Per preparare le unità, eseguire le operazioni seguenti.
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
                         
        ```
-     Ulteriori informazioni su [come preparare un file CSV del set di dati](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
+     Ulteriori informazioni su [come preparare un file CSV del set di dati](storage-import-export-tool-preparing-hard-drives-import.md).
     
 
 4. Modificare il file *driveset.csv* nella cartella radice in cui si trova lo strumento. Aggiungere nel file *driveset.csv* voci simili a quelle mostrate negli esempi seguenti. Il file driveset include l'elenco dei dischi e delle lettere di unità corrispondenti in modo che lo strumento possa individuare correttamente l'elenco dei dischi da preparare.
@@ -91,7 +91,7 @@ Per preparare le unità, eseguire le operazioni seguenti.
        G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
        ```
 
-     Nello stesso file è possibile creare più voci, corrispondenti a più unità. Ulteriori informazioni su [come preparare un file CSV del driveset](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file). 
+     Nello stesso file è possibile creare più voci, corrispondenti a più unità. Ulteriori informazioni su [come preparare un file CSV del driveset](storage-import-export-tool-preparing-hard-drives-import.md). 
 
 5. Usare l'opzione `PrepImport` per copiare e preparare i dati nell'unità disco. Per la prima sessione di copia per copiare directory e/o file con una nuova sessione di copia, eseguire il comando seguente:
 
@@ -145,7 +145,7 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
 
 4. In **Informazioni sul mittente della spedizione**:
 
-    - Selezionare il vettore nell'elenco a discesa. Se si desidera usare un operatore diverso da FedEx o DHL, scegliere un'opzione esistente dall'elenco a discesa. Finestra operazioni dei dati di contatto Azure team a `adbops@microsoft.com` con le informazioni riguardanti il corriere si intende usare.
+    - Selezionare il vettore nell'elenco a discesa. Se si vuole usare un vettore diverso da FedEx/DHL, scegliere un'opzione esistente nell'elenco a discesa. Contattare Azure Data Box team operativo all'`adbops@microsoft.com` con le informazioni relative al vettore che si intende usare.
     - Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per restituire le unità al cliente al termine del processo di importazione. 
     - Specificare un nome di contatto completo e valido, insieme a numero di telefono, indirizzo di posta elettronica, indirizzo, città, CAP, stato/provincia e paese/area.
 

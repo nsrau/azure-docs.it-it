@@ -2,17 +2,16 @@
 title: Aggiornare con app per la logica per i modelli di Azure Analysis Services | Microsoft Docs
 description: Informazioni su come scrivere codice per l'aggiornamento asincrono usando app per la logica di Azure.
 author: chrislound
-manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 2234a2c6cd42be45a2b2e7784c1dd5aec8839cb9
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: acf31bf3e7e8c3a0835640dee36f8435a1eba625
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311746"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294610"
 ---
 # <a name="refresh-with-logic-apps"></a>Eseguire l'aggiornamento con App per la logica
 
@@ -66,10 +65,10 @@ Configurare l'attività HTTP come indicato di seguito:
 |Proprietà  |Value  |
 |---------|---------|
 |**Metodo**     |INSERISCI         |
-|**URI**     | https://*l'area Server*/Servers/*AAS nome server*/models/*il nome del database*/refreshes <br /> <br /> Ad esempio: https:\//westus.asazure.Windows.NET/Servers/MyServer/Models/AdventureWorks/refreshes|
+|**URI**     | https://*l'area Server*/Servers/*AAS nome server*/models/*il nome del database*/refreshes <br /> <br /> Ad esempio: https: \//westus. asazure. Windows. NET/Servers/MyServer/Models/AdventureWorks/refreshs|
 |**Intestazioni**     |   Content-Type, Application/JSON <br /> <br />  ![Headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Corpo**     |   Per altre informazioni sulla forma del corpo della richiesta, vedere [aggiornamento asincrono con l'API REST-post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
-|**autenticazione**     |Autenticazione OAuth Active Directory         |
+|**Autenticazione**     |Autenticazione OAuth Active Directory         |
 |**Inquilino**     |Compilare il Azure Active Directory TenantId         |
 |**Destinatari**     |https://*.asazure.windows.net         |
 |**ID client**     |Immettere il nome dell'entità servizio ClientID         |
@@ -102,7 +101,7 @@ Utilizzando l'esempio precedente, eliminare la prima attività e sostituirla con
 
 ![Attività pianifica](./media/analysis-services-async-refresh-logic-app/13.png)
 
-In questo esempio verrà usata la ricorrenza.
+In questo esempio verrà usata la **ricorrenza**.
 
 Una volta aggiunta l'attività, configurare l'intervallo e la frequenza, quindi aggiungere un nuovo parametro e scegliere **in queste ore**.
 

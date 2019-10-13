@@ -1,6 +1,6 @@
 ---
 title: "Usare l'interfaccia della riga di comando di Databricks da Azure Cloud Shell "
-description: Informazioni su come usare l'interfaccia della riga di comando di Databricks da Azure Cloud Shell.
+description: Informazioni su come usare l'interfaccia della riga di comando di databricks da Azure Cloud Shell per eseguire operazioni sui Azure Databricks.
 services: azure-databricks
 author: mamccrea
 ms.reviewer: jasonh
@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: mamccrea
-ms.openlocfilehash: dae481fb477223f149404c6a09cad024bc15cd90
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: b327403b29f26f6c1f43f9dfe7aabd5c3c7e0a68
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204950"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299901"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Usare l'interfaccia della riga di comando di Databricks da Azure Cloud Shell
 

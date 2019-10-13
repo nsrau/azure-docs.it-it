@@ -2,18 +2,17 @@
 title: Gateway dati locale per Azure Analysis Services | Microsoft Docs
 description: Un gateway locale è necessario se il server Analysis Services di Azure si connette a origini dati locali.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b783e6b709700104985ef3f052443cf1284bf2d6
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 8d9df32070ff252dff791650788888d1d9a6ce84
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678399"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294946"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Connessione a origini dati locali con gateway dati locale
 
@@ -43,7 +42,7 @@ Query e flusso di dati:
 5. Invia quindi la query all'origine dati per l'esecuzione.
 6. I risultati vengono inviati dall'origine dati al gateway e quindi al servizio cloud e al server.
 
-## <a name="installing"></a>Installazione in corso
+## <a name="installing"></a>Installazione
 
 Quando si installa per un ambiente di Azure Analysis Services, è importante attenersi alla procedura descritta in [installare e configurare il gateway dati locale per Azure Analysis Services](analysis-services-gateway-install.md). Questo articolo è specifico per Azure Analysis Services. Include passaggi aggiuntivi necessari per configurare una risorsa gateway dati locale in Azure e connettere il server Azure Analysis Services alla risorsa.
 

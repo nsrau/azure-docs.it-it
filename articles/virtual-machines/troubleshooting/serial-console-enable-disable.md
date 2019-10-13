@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
-ms.openlocfilehash: 1c1fe208c77142351a786fa636896e64a8a467d7
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f48fe94504d8012affb77c4fd5d39df2537d72b3
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129653"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300133"
 ---
 # <a name="enable-and-disable-the-azure-serial-console"></a>Abilitare e disabilitare la console seriale di Azure
 
@@ -28,7 +28,7 @@ Analogamente a qualsiasi altra risorsa, la console seriale di Azure può essere 
 È anche possibile disabilitare la console seriale per una singola macchina virtuale o un'istanza del set di scalabilità di macchine virtuali disabilitando la diagnostica di avvio. È necessario l'accesso a livello di collaboratore o superiore sia nel set di scalabilità di macchine virtuali/VM che nell'account di archiviazione della diagnostica di avvio.
 
 ## <a name="vm-level-disable"></a>Disabilitazione a livello di macchina virtuale
-La console seriale può essere disabilitata per una VM specifica o un set di scalabilità di macchine virtuali disabilitando l'impostazione di diagnostica di avvio. Disattivare la diagnostica di avvio dalla portale di Azure per disabilitare la console seriale per la VM o il set di scalabilità di macchine virtuali. Se si usa la console seriale in un set di scalabilità di macchine virtuali, assicurarsi di aggiornare le istanze del set di scalabilità di macchine virtuali al modello più recente.
+La console seriale può essere disabilitata per una VM specifica o un set di scalabilità di macchine virtuali disabilitando l'impostazione di diagnostica di avvio. Disattivare la diagnostica di avvio dal portale di Azure per disabilitare la console seriale per la VM o il set di scalabilità di macchine virtuali. Se si usa la console seriale in un set di scalabilità di macchine virtuali, assicurarsi di aggiornare le istanze del set di scalabilità di macchine virtuali al modello più recente.
 
 
 ## <a name="subscription-level-disable"></a>Disattivazione a livello di sottoscrizione
@@ -39,23 +39,23 @@ Console seriale possibile disabilitare e riabilitare per un'intera sottoscrizion
 
 Per disabilitare la console seriale per una sottoscrizione, usare i comandi seguenti:
 ```azurecli-interactive
-subscriptionId=$(az account show -o=json | jq -r .id)
+subscriptionId=$(az account show --output=json | jq -r .id)
 
-az resource invoke-action --action disableConsole --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default"
+az resource invoke-action --action disableConsole --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --api-version="2018-05-01"
 ```
 
 Per abilitare la console seriale per una sottoscrizione, usare i comandi seguenti:
 ```azurecli-interactive
-subscriptionId=$(az account show -o=json | jq -r .id)
+subscriptionId=$(az account show --output=json | jq -r .id)
 
-az resource invoke-action --action enableConsole --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default"
+az resource invoke-action --action enableConsole --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --api-version="2018-05-01"
 ```
 
 Per ottenere lo stato corrente abilitato/disabilitato della console seriale per una sottoscrizione, usare i comandi seguenti:
 ```azurecli-interactive
-subscriptionId=$(az account show -o=json | jq -r .id)
+subscriptionId=$(az account show --output=json | jq -r .id)
 
-az resource show --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" -o=json | jq .properties
+az resource show --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --output=json --api-version="2018-05-01" | jq .properties
 ```
 
 ### <a name="powershell"></a>PowerShell

@@ -1,6 +1,6 @@
 ---
-title: Personalizzare le configurazioni di rete per la macchina virtuale di failover | Microsoft Docs
-description: Viene fornita una panoramica della personalizzazione delle configurazioni di rete per la macchina virtuale di failover nella replica di macchine virtuali di Azure con Azure Site Recovery.
+title: Personalizzare le configurazioni di rete per una macchina virtuale di failover | Microsoft Docs
+description: Viene fornita una panoramica della personalizzazione delle configurazioni di rete per una macchina virtuale di failover nella replica di macchine virtuali di Azure con Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
@@ -8,16 +8,16 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: rajanaki
-ms.openlocfilehash: 1905d6afb023b1bed15f1359fed8477d815acb45
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 8038f7c909cfeaf15039afa7335dd6b0460a2622
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087696"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72293456"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalizzare le configurazioni di rete della VM di Azure di destinazione
 
-Questo articolo fornisce informazioni aggiuntive sulla personalizzazione delle configurazioni di rete nella macchina virtuale di Azure di destinazione quando si esegue la replica e il ripristino di macchine virtuali di Azure da un'area a un'altra, usando [Azure Site Recovery](site-recovery-overview.md).
+Questo articolo fornisce informazioni aggiuntive sulla personalizzazione delle configurazioni di rete nella macchina virtuale (VM) di Azure di destinazione quando si esegue la replica e il ripristino di VM di Azure da un'area a un'altra, usando [Azure Site Recovery](site-recovery-overview.md).
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -25,7 +25,7 @@ Informazioni sul ripristino di emergenza fornito da Site Recovery per [questo sc
 
 ## <a name="supported-networking-resources"></a>Risorse di rete supportate
 
-Per la macchina virtuale di failover è possibile specificare le configurazioni di risorse chiave seguenti durante la replica di macchine virtuali di Azure.
+È possibile fornire le configurazioni di risorse chiave seguenti per la macchina virtuale di failover durante la replica di macchine virtuali di Azure:
 
 - [Servizio di bilanciamento del carico interno](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#what-is-standard-load-balancer)
 - [IP pubblico](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
@@ -34,24 +34,24 @@ Per la macchina virtuale di failover è possibile specificare le configurazioni 
  > [!IMPORTANT]
   > Queste impostazioni sono supportate solo nell'operazione di failover al momento e non per il failover di test.
 
-## <a name="pre-requisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Assicurarsi di pianificare in anticipo le configurazioni del lato di ripristino.
-- È necessario creare le risorse di rete in anticipo. Fornirla come input in modo che Azure Site Recovery servizio possano rispettare queste impostazioni e assicurarsi che la macchina virtuale di failover rispetti queste impostazioni.
+- Creare le risorse di rete in anticipo. Fornirla come input in modo che Azure Site Recovery servizio possano rispettare queste impostazioni e assicurarsi che la macchina virtuale di failover rispetti queste impostazioni.
 
-## <a name="steps-to-customize-failover-networking-configurations"></a>Passaggi per personalizzare le configurazioni di rete di failover
+## <a name="customize-failover-networking-configurations"></a>Personalizzare le configurazioni di rete di failover
 
 1. Passare a **elementi replicati**. 
-2. Fare clic sulla macchina virtuale di Azure desiderata.
-3. Fare clic su **calcolo e rete**, quindi su **modifica**. Si noterà che le impostazioni di configurazione della scheda di interfaccia di rete includono le risorse corrispondenti nell'origine. 
+2. Selezionare la macchina virtuale di Azure desiderata.
+3. Selezionare **calcolo e rete** e quindi **modifica**. Si noti che le impostazioni di configurazione della scheda di interfaccia di rete includono le risorse corrispondenti nell'origine. 
 
-     ![Personalizza](media/azure-to-azure-customize-networking/edit-networking-properties.png)
+     ![Personalizzare le configurazioni di rete di failover](media/azure-to-azure-customize-networking/edit-networking-properties.png)
 
-4. Fare clic su **modifica** accanto alla scheda di interfaccia di rete che si desidera configurare. Nel pannello successivo visualizzato selezionare le risorse create in precedenza corrispondenti nella destinazione.
+4. Selezionare **modifica** accanto alla scheda di interfaccia di rete che si desidera configurare. Nel pannello successivo visualizzato selezionare le risorse create in precedenza corrispondenti nella destinazione.
 
-    ![NIC-drill-down](media/azure-to-azure-customize-networking/nic-drilldown.png) 
+    ![Modificare la configurazione della scheda di interfaccia di rete](media/azure-to-azure-customize-networking/nic-drilldown.png) 
 
-5. Fare clic su **OK**.
+5. Scegliere **OK**.
 
 Site Recovery ora rispetta queste impostazioni e garantisce che la macchina virtuale in failover sia connessa alla risorsa selezionata tramite la NIC corrispondente.
 
@@ -59,28 +59,28 @@ Site Recovery ora rispetta queste impostazioni e garantisce che la macchina virt
 
 ### <a name="unable-to-view-or-select-a-resource"></a>Non è possibile visualizzare o selezionare una risorsa
 
-Se non si è in grado di selezionare o visualizzare una risorsa di rete, effettuare le seguenti verifiche & condizioni:
+Se non è possibile selezionare o visualizzare una risorsa di rete, eseguire i controlli e le condizioni seguenti:
 
-- Il campo di destinazione per una risorsa di rete viene abilitato solo se la macchina virtuale di origine dispone di un input corrispondente. Questo si basa sul principio che, per uno scenario di ripristino di emergenza, è necessario specificare la versione esatta o ridotta dell'origine.
-- Per ogni risorsa di rete in questione, vengono applicati alcuni filtri nell'elenco a discesa per assicurarsi che la macchina virtuale di failover possa collegarsi alla risorsa selezionata e che venga mantenuta l'affidabilità del failover. Questi filtri sono basati sulle stesse condizioni di rete che verrebbero verificate durante la configurazione della VM di origine.
+- Il campo di destinazione per una risorsa di rete è abilitato solo se la macchina virtuale di origine dispone di un input corrispondente. Si basa sul principio che, per uno scenario di ripristino di emergenza, si desidera la versione esatta o ridotta dell'origine.
+- Per ogni risorsa di rete, vengono applicati alcuni filtri nell'elenco a discesa per assicurarsi che la macchina virtuale di failover possa collegarsi alla risorsa selezionata e che venga mantenuta l'affidabilità del failover. Questi filtri sono basati sulle stesse condizioni di rete che verrebbero verificate durante la configurazione della VM di origine.
 
 Convalide del servizio di bilanciamento del carico interno:
 
-1. La sottoscrizione e l'area di LB e la macchina virtuale di destinazione devono essere uguali.
-2. La rete virtuale associata al Load Balancer interno e quella della VMshould di destinazione sono uguali.
-3. Lo SKU dell'IP pubblico della macchina virtuale di destinazione e lo SKU del LoadBalancer interno devono essere uguali.
-4. Se la macchina virtuale di destinazione è configurata per essere posizionata in una zona di disponibilità, controllare se il servizio di bilanciamento del carico è con ridondanza della zona o parte di una zona di disponibilità. I bilanciamenti del carico SKU Basic non supportano le zone e non verranno visualizzati nell'elenco a discesa in questo caso.
-5. Verificare che il LoadBalancer interno disponga di un pool back-end e di una configurazione front-end già creati.
+- La sottoscrizione e l'area del servizio di bilanciamento del carico e la macchina virtuale di destinazione devono essere uguali.
+- La rete virtuale associata al servizio di bilanciamento del carico interno e quella della macchina virtuale di destinazione devono essere uguali.
+- Lo SKU dell'IP pubblico della macchina virtuale di destinazione e lo SKU del servizio di bilanciamento del carico interno devono essere uguali.
+- Se la macchina virtuale di destinazione è configurata per essere posizionata in una zona di disponibilità, controllare se il servizio di bilanciamento del carico è con ridondanza della zona o parte di una zona di disponibilità. (I bilanciamenti del carico SKU Basic non supportano le zone e non verranno visualizzati nell'elenco a discesa in questo caso).
+- Verificare che il servizio di bilanciamento del carico interno disponga di un pool back-end e di una configurazione front-end già creati.
 
 
 Indirizzo IP pubblico:
     
-1. La sottoscrizione e l'area dell'IP pubblico e la macchina virtuale di destinazione devono essere uguali.
-2. Lo SKU dell'IP pubblico della macchina virtuale di destinazione e lo SKU del LoadBalancer interno devono essere uguali.
+- La sottoscrizione e la regione dell'indirizzo IP pubblico e della macchina virtuale di destinazione devono essere uguali.
+- Lo SKU dell'IP pubblico della macchina virtuale di destinazione e lo SKU del servizio di bilanciamento del carico interno devono essere uguali.
 
 Gruppo di sicurezza di rete:
-1. La sottoscrizione e l'area del gruppo di sicurezza di rete e la macchina virtuale di destinazione devono essere uguali.
+- La sottoscrizione e la regione del gruppo di sicurezza di rete e della macchina virtuale di destinazione devono essere uguali.
 
 
 > [!WARNING]
-> Se la macchina virtuale di destinazione è associata a un set di disponibilità, è necessario associare il servizio di bilanciamento del carico interno/IP pubblico dello stesso SKU del servizio di bilanciamento del carico interno/IP pubblico di altre VM nel set di disponibilità. In caso contrario, potrebbe verificarsi un errore di failover.
+> Se la macchina virtuale di destinazione è associata a un set di disponibilità, è necessario associare l'indirizzo IP pubblico e il servizio di bilanciamento del carico interno dello stesso SKU con quello dell'IP pubblico e del servizio di bilanciamento del carico interno dell'altra VM nel set di disponibilità. In caso contrario, il failover potrebbe non riuscire.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: f677d6b8edfe60646c6368acce9d47b23a35237d
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 95b85aa11d99ddd48c90c8d9fa28789e79ee979f
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146881"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299245"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Recuperare l'elenco di indirizzi IP POP correnti per la rete CDN di Azure
 
@@ -41,7 +41,6 @@ Configurare ACLing IP per i back-end in modo da accettare il traffico dalla rete
 
 Gli intervalli IP e i tag di servizio per i servizi Microsoft sono disponibili [qui](https://www.microsoft.com/download/details.aspx?id=56519)
 
-Filtrare in base ai valori per l'intestazione in ingresso ' X-Inoltred-host ' inviata dalla rete CDN di Azure da Microsoft. Gli unici valori consentiti per l'intestazione devono essere tutti gli host endpoint definiti nella configurazione della rete CDN. In realtà, più specificamente, solo i nomi host per i quali si vuole accettare il traffico, in base a questa origine particolare.
 
 ## <a name="typical-use-case"></a>Caso d'uso tipico
 

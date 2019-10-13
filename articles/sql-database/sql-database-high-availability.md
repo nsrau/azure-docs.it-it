@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-ms.date: 06/10/2019
-ms.openlocfilehash: 54994dd626df23694ea372d4a662d2b4fb051fc8
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
-ms.translationtype: HT
+ms.date: 10/11/2019
+ms.openlocfilehash: 0307a905c1d3d7d9bc707fbda87fb8f3fd6d2aee
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285769"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299703"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Disponibilità elevata e database SQL di Azure
 
@@ -39,7 +39,7 @@ Questi livelli di servizio sfruttano l'architettura di disponibilità standard. 
 
 Il modello di disponibilità standard include due livelli:
 
-- Livello di calcolo senza stato che esegue il processo `sqlserver.exe` e contiene solo dati temporanei e memorizzati nella cache sull'unità SSD collegata, ad esempio TempDB, database modello, cache dei piani, pool di buffer e pool di archiviazione colonne. Questo nodo senza stato viene gestito da Azure Service Fabric che Inizializza `sqlserver.exe`, controlla l'integrità del nodo ed esegue il failover in un altro nodo, se necessario.
+- Livello di calcolo senza stato che esegue il processo `sqlservr.exe` e contiene solo dati temporanei e memorizzati nella cache, ad esempio TempDB, i database modello nell'unità SSD collegata e la cache dei piani, il pool di buffer e il pool columnstore in memoria. Questo nodo senza stato viene gestito da Azure Service Fabric che Inizializza `sqlservr.exe`, controlla l'integrità del nodo ed esegue il failover in un altro nodo, se necessario.
 - Un livello dati con stato con i file di database (con estensione MDF/ldf) archiviati nell'archivio BLOB di Azure. Archiviazione BLOB di Azure include funzionalità integrate di disponibilità e ridondanza dei dati. Garantisce che tutti i record nel file di log o nella pagina del file di dati verranno conservati anche se SQL Server processo si arresta in modo anomalo.
 
 Ogni volta che il motore di database o il sistema operativo viene aggiornato o viene rilevato un errore, Azure Service Fabric sposterà il processo di SQL Server senza stato in un altro nodo di calcolo senza stato con capacità sufficiente. I dati nell'archivio BLOB di Azure non sono interessati dallo spostamento e i file di dati e di log vengono associati al processo di SQL Server appena inizializzato. Questo processo garantisce una disponibilità del 99,99%, ma un carico di lavoro elevato può subire un calo delle prestazioni durante la transizione, perché la nuova istanza di SQL Server inizia con la cache a freddo.
@@ -54,7 +54,24 @@ I file di database sottostanti (con estensione MDF/ldf) vengono inseriti nell'ar
 
 Come vantaggio aggiuntivo, il modello di disponibilità Premium include la possibilità di reindirizzare le connessioni SQL di sola lettura a una delle repliche secondarie. Questa funzionalità è chiamata [scalabilità in lettura](sql-database-read-scale-out.md). Offre una capacità di calcolo aggiuntiva del 100% senza costi aggiuntivi per le operazioni di sola lettura non caricate, ad esempio i carichi di lavoro analitici, dalla replica primaria.
 
-### <a name="zone-redundant-configuration"></a>Configurazione con ridondanza della zona
+## <a name="hyperscale-service-tier-availability"></a>Disponibilità del livello di servizio con iperscalabilità
+
+L'architettura del livello di servizio con iperscalabilità è descritta in [architettura di funzioni distribuite](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#distributed-functions-architecture). 
+
+![Architettura funzionale iperscalabile](./media/sql-database-hyperscale/hyperscale-architecture.png)
+
+Il modello di disponibilità in iperscalabilità include quattro livelli:
+
+- Un livello di calcolo senza stato che esegue i processi `sqlservr.exe` e contiene solo dati temporanei e memorizzati nella cache, ad esempio la cache RBPEX non coprente, TempDB, il database modello e così via, nell'unità SSD collegata e nella cache dei piani, nel pool di buffer e nel pool columnstore in memoria. Questo livello senza stato include la replica di calcolo primaria e, facoltativamente, un numero di repliche di calcolo secondarie che possono fungere da destinazioni di failover.
+- Livello di archiviazione senza stato formato da server di pagine. Questo livello è il motore di archiviazione distribuito per i processi `sqlservr.exe` in esecuzione sulle repliche di calcolo. Ogni server della pagina contiene solo dati temporanei e memorizzati nella cache, ad esempio la copertura della cache RBPEX nell'unità SSD collegata e le pagine di dati memorizzate nella cache. Ogni server di pagina dispone di un server di paging associato in una configurazione Active-Active per fornire bilanciamento del carico, ridondanza e disponibilità elevata.
+- Un livello di archiviazione del log delle transazioni con stato formato dal nodo di calcolo che esegue il processo del servizio di log, l'area di destinazione del log delle transazioni e l'archiviazione a lungo termine del log delle transazioni. La zona di destinazione e l'archiviazione a lungo termine usano archiviazione di Azure, che fornisce disponibilità e [ridondanza](https://docs.microsoft.com/azure/storage/common/storage-redundancy) per il log delle transazioni, garantendo la durabilità dei dati per le transazioni di cui
+- Un livello di archiviazione dati con stato con i file di database (con estensione MDF/NDF) archiviati in archiviazione di Azure e aggiornati dai server delle pagine. Questo livello usa le funzionalità di disponibilità e [ridondanza](https://docs.microsoft.com/azure/storage/common/storage-redundancy) dei dati di archiviazione di Azure. Garantisce che ogni pagina di un file di dati venga mantenuta anche se i processi in altri livelli di architettura iperscalare si arrestano in modo anomalo o se i nodi di calcolo hanno esito negativo.
+
+I nodi di calcolo in tutti i livelli di iperscalabilità vengono eseguiti in Service Fabric di Azure, che controlla l'integrità di ogni nodo ed esegue i failover ai nodi integri disponibili se necessario.
+
+Per altre informazioni sulla disponibilità elevata in iperscalabilità, vedere [disponibilità elevata del database in iperscalabilità](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale).
+
+## <a name="zone-redundant-configuration"></a>Configurazione con ridondanza della zona
 
 Per impostazione predefinita, il cluster di nodi per il modello di disponibilità Premium viene creato nello stesso data center. Con l'introduzione di [zone di disponibilità di Azure](../availability-zones/az-overview.md), il database SQL può inserire repliche diverse del database di business critical a diverse zone di disponibilità nella stessa area. Per eliminare un singolo punto di guasto, viene duplicato anche l'anello di controllo in più zone come tre anelli gateway. Il routing a un anello gateway specifico è controllato da [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md). Poiché la configurazione con ridondanza della zona nei livelli di servizio Premium o business critical non crea ridondanza aggiuntiva del database, è possibile abilitarla senza costi aggiuntivi. Selezionando una configurazione con ridondanza della zona, è possibile rendere i database Premium o business critical resilienti a un set molto più ampio di errori, incluse interruzioni irreversibili del Data Center, senza apportare modifiche alla logica dell'applicazione. È anche possibile convertire qualsiasi pool o database premium o business critical alla configurazione con ridondanza della zona.
 

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 4857cda7c3387e72be8837422469888adc5504d1
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 04f4a71e6b54100e5a133958845cf732c2286b32
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883098"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301054"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteggere l'accesso a un insieme di credenziali delle chiavi
 
@@ -37,7 +37,7 @@ Quando si crea un insieme di credenziali delle chiavi in una sottoscrizione di A
 - **Accesso utente più applicazione**: l'applicazione accede all'insieme di credenziali delle chiavi per conto di un utente connesso. Azure PowerShell e il portale di Azure sono esempi di questo tipo di accesso. L'accesso utente viene concesso in due modi. Gli utenti possono accedere all'insieme di credenziali delle chiavi da un'applicazione oppure devono usare un'applicazione specifica (definita _identità composta_).
 - **Accesso solo dell'applicazione**: l'applicazione viene eseguita come servizio daemon o processo in background. All'identità di applicazione viene concesso l'accesso all'insieme di credenziali delle chiavi.
 
-Per entrambi i tipi di accesso, l'applicazione esegue l'autenticazione con Azure AD. L'applicazione usa qualsiasi [metodo di autenticazione supportato](../active-directory/develop/authentication-scenarios.md) in base al tipo di applicazione. L'applicazione acquisisce un token per una risorsa del piano per la concessione dell'accesso. La risorsa è un endpoint nel piano dati o di gestione, in base all'ambiente di Azure. L'applicazione usa il token e invia una richiesta API REST all'insieme di credenziali delle chiavi. Per altre informazioni, vedere l'[intero flusso di autenticazione](../active-directory/develop/v1-protocols-oauth-code.md).
+Per entrambi i tipi di accesso, l'applicazione esegue l'autenticazione con Azure AD. L'applicazione usa qualsiasi [metodo di autenticazione supportato](../active-directory/develop/authentication-scenarios.md) in base al tipo di applicazione. L'applicazione acquisisce un token per una risorsa del piano per la concessione dell'accesso. La risorsa è un endpoint nel piano dati o di gestione, in base all'ambiente di Azure. L'applicazione usa il token e invia una richiesta API REST all'insieme di credenziali delle chiavi. Per altre informazioni, vedere l'[intero flusso di autenticazione](../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
 Il modello con un singolo meccanismo di autenticazione per entrambi i piani presenta alcuni vantaggi:
 
@@ -123,7 +123,7 @@ C'è un altro ruolo che non rientra nell'ambito dell'applicazione: l'amministrat
 
 Nella tabella seguente sono riepilogate le autorizzazioni di accesso per i ruoli e l'applicazione. 
 
-| Ruolo | Autorizzazioni del piano di gestione | Autorizzazioni del piano dati |
+| Role | Autorizzazioni del piano di gestione | Autorizzazioni del piano dati |
 | --- | --- | --- |
 | Team responsabile della sicurezza | Collaboratore di Key Vault | Chiavi: backup, create, delete, get, import, list, restore<br>Segreti: tutte le operazioni |
 | Sviluppatori e&nbsp;operatori | Autorizzazione di distribuzione dell'insieme di credenziali delle chiavi<br><br> **Nota**: Questa autorizzazione consente alle macchine virtuali distribuite di recuperare i segreti da un insieme di credenziali delle chiavi. | Nessuna |
@@ -208,7 +208,7 @@ Questo esempio illustra uno scenario semplice. Gli scenari reali possono essere 
 
     Questo video tratto dalla conferenza Microsoft Ignite 2015 illustra le funzionalità di Azure per la gestione dell'accesso e la creazione di report. Descrive anche le procedure consigliate per la protezione dell'accesso alle sottoscrizioni di Azure tramite Azure Active Directory.
 
-* [Autorizzare l'accesso ad applicazioni Web di Azure Active Directory mediante il flusso di concessione di OAuth 2.0](../active-directory/develop/v1-protocols-oauth-code.md)
+* [Autorizzare l'accesso ad applicazioni Web di Azure Active Directory mediante il flusso di concessione di OAuth 2.0](../active-directory/develop/v2-oauth2-auth-code-flow.md)
 
 * [API REST di gestione di Key Vault](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 

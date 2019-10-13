@@ -1,5 +1,5 @@
 ---
-title: Esempio-Canada Federal PBMM Blueprint-procedura di distribuzione
+title: Esempio di progetto Federal PBMM Canada-passaggi di distribuzione
 description: Distribuire i passaggi per l'esempio Canada Federal PBMM Blueprint, inclusi i dettagli del parametro dell'artefatto del progetto.
 services: blueprints
 author: DCtheGeek
@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 0e799de92f25c688b41d3ac5718fe3a2b7a8aba0
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: e2c061b69771214a770b3b42626d28672bd9fe77
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249002"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297819"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Distribuire gli esempi di progetto Federal PBMM per il Canada
 

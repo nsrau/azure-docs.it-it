@@ -2,18 +2,17 @@
 title: Esempi di codice, progetto e database di Azure Analysis Services | Microsoft Docs
 description: Informazioni sugli esempi di codice, progetto e database per Azure Analysis Services.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d34da4e1b3d9c3131db1d9edd94f67a132dc564f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 77f909f616f75406e3f6428a884d60f39514468f
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932358"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301105"
 ---
 # <a name="azure-analysis-services-samples"></a>Esempi di Azure Analysis Services
 

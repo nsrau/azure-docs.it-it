@@ -1,5 +1,5 @@
 ---
-title: Introduzione all'archiviazione code e ai Servizi connessi di Visual Studio (progetti processo Web) | Documentazione Microsoft
+title: Introduzione all'archiviazione code con Visual Studio (progetti processo Web)
 description: Informazioni su come iniziare a usare il servizio di archiviazione di accodamento di Azure in un progetto WebJob dopo aver eseguito la connessione a un account di archiviazione con i servizi connessi di Visual Studio.
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 0afed158f5a19f3d82a3953f828f2b5566a6d5ff
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: ffba203bafaf3837cd2d7fc1a6fd962a6926b186
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510800"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298741"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introduzione all'archiviazione di accodamento di Azure e ai servizi relativi a Visual Studio (progetti WebJob)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -190,7 +191,7 @@ Per altre informazioni, vedere l'articolo sull' [arresto normale dei processi We
 Per scrivere una funzione che crea un nuovo messaggio di coda, usare l'attributo **Queue** . Come per l'attributo **QueueTrigger**, si passa il nome della coda come stringa oppure è possibile [configurare dinamicamente il nome della coda](#how-to-set-configuration-options).
 
 ### <a name="string-queue-messages"></a>Messaggi stringa in coda
-Il seguente esempio di codice non asincrono crea nella coda denominata "outputqueue" un nuovo messaggio di coda con lo stesso contenuto del messaggio di coda ricevuto nella coda denominata "inputqueue". Per le funzioni asincrone, **usare\<IAsyncCollector T >** come illustrato più avanti in questa sezione.
+Il seguente esempio di codice non asincrono crea nella coda denominata "outputqueue" un nuovo messaggio di coda con lo stesso contenuto del messaggio di coda ricevuto nella coda denominata "inputqueue". Per le funzioni asincrone, usare **IAsyncCollector @ no__t-1T >** come illustrato più avanti in questa sezione.
 
 ```csharp
 public static void CreateQueueMessage(
@@ -216,7 +217,7 @@ public static void CreateQueueMessage(
 L'SDK deserializza automaticamente l'oggetto in JSON. Viene sempre creato un messaggio in coda, anche se l'oggetto è null.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Creare più messaggi o in funzioni asincrone
-Per creare più messaggi, fare in modo che il tipo di parametro per la coda di output **\<ICollector t >** o **\<IAsyncCollector t >** , come illustrato nell'esempio seguente.
+Per creare più messaggi, fare in modo che il tipo di parametro per la coda di output **ICollector @ no__t-1T >** o **IAsyncCollector @ no__t-3T >** , come illustrato nell'esempio seguente.
 
 ```csharp
 public static void CreateQueueMessages(

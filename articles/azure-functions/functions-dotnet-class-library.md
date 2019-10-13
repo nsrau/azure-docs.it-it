@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 388b389cca7c3e820ea3ccfd37a2a93ccd476b31
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: c3c13b7e28ef7c17fd45682d828f318de5326542
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68254646"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72293861"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Guida di riferimento per gli sviluppatori C# di Funzioni di Azure
 
@@ -30,6 +30,10 @@ Questo articolo presuppone che l'utente abbia già letto gli articoli seguenti:
 
 * [Manuale dello sviluppatore di Funzioni di Azure](functions-reference.md)
 * [Strumenti di Visual Studio 2019 per funzioni di Azure](functions-develop-vs.md)
+
+## <a name="supported-versions"></a>Versioni supportate
+
+Il runtime di funzioni di Azure 2. x USA .NET Core 2,2. Il codice di funzione può usare le API di .NET Core 2,2 aggiornando le impostazioni del progetto di Visual Studio. I modelli di funzione non usano per impostazione predefinita .NET Core 2,2 per evitare che i clienti che non dispongono di .NET Core 2,2 siano installati in modo negativo.
 
 ## <a name="functions-class-library-project"></a>Progetto di libreria di classi per Funzioni
 
@@ -55,6 +59,7 @@ Questa directory viene distribuita all'app per le funzioni in Azure. Le estensio
 > [!IMPORTANT]
 > Il processo di compilazione crea un file *function.json* per ogni funzione. Il file *function.json* non viene modificato direttamente. Non è possibile modificare la configurazione di associazione o disabilitare la funzione modificando il file. Per informazioni su come disabilitare una funzione, vedere [Come disabilitare le funzioni](disable-function.md#functions-2x---c-class-libraries).
 
+
 ## <a name="methods-recognized-as-functions"></a>Metodi riconosciuti come funzioni
 
 In una libreria di classi, una funzione è un metodo statico con un attributo `FunctionName` e trigger, come illustrato nell'esempio seguente:
@@ -72,7 +77,7 @@ public static class SimpleExample
 } 
 ```
 
-L'attributo `FunctionName` indica il metodo come punto di ingresso della funzione. Il nome deve essere univoco all'interno di un progetto, iniziare con una lettera e contenere solo lettere, `_`numeri, `-`e, fino a 127 caratteri di lunghezza. I modelli di progetto spesso creano un metodo denominato `Run`, ma il nome del metodo può essere qualsiasi nome di metodo c# valido.
+L'attributo `FunctionName` indica il metodo come punto di ingresso della funzione. Il nome deve essere univoco all'interno di un progetto, iniziare con una lettera e contenere solo lettere, numeri, `_` e `-`, fino a 127 caratteri di lunghezza. I modelli di progetto spesso creano un metodo denominato `Run`, ma il nome del metodo può essere qualsiasi nome di metodo c# valido.
 
 L'attributo trigger specifica il tipo di trigger e associa i dati di input a un parametro del metodo. La funzione di esempio viene attivata da un messaggio della coda e il messaggio della coda viene passato al metodo nel parametro `myQueueItem`.
 
@@ -344,7 +349,7 @@ Definire un'associazione imperativa, come segue:
   }
   ```
 
-  `BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. Ad esempio, l'associazione di output della tabella app per dispositivi mobili supporta [sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [\<ICollector t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) con binding imperativo.
+  `BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. Ad esempio, l'associazione di output della tabella app per dispositivi mobili supporta [sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector @ no__t-2T >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector @ no__t-> 4T](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) con binding imperativo.
 
 ### <a name="single-attribute-example"></a>Esempio con un solo attributo
 
@@ -373,7 +378,7 @@ public static class IBinderExample
 
 ### <a name="multiple-attribute-example"></a>Esempio con più attributi
 
-L'esempio precedente ottiene l'impostazione dell'app per la stringa di connessione dell'account di archiviazione principale dell'app, ovvero `AzureWebJobsStorage`. È possibile specificare un'impostazione app personalizzata da usare per l'account di archiviazione aggiungendo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando la matrice di attributi in `BindAsync<T>()`. Usare un parametro `Binder` e non `IBinder`.  Ad esempio:
+L'esempio precedente ottiene l'impostazione dell'app per la stringa di connessione dell'account di archiviazione principale dell'app, ovvero `AzureWebJobsStorage`. È possibile specificare un'impostazione app personalizzata da usare per l'account di archiviazione aggiungendo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando la matrice di attributi in `BindAsync<T>()`. Usare un parametro `Binder` e non `IBinder`.  Esempio:
 
 ```cs
 public static class IBinderExampleMultipleAttributes

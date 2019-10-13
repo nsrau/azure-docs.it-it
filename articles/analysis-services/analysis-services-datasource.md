@@ -2,18 +2,17 @@
 title: Origini dati supportate in Azure Analysis Services | Microsoft Docs
 description: Descrive le origini dati supportate per i modelli di dati di Azure Analysis Services.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 81fc73ffd61a49eae1c4f107733b6f9f53efbb4f
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 79346f0bf80386fb83f55daccda8790652ff8541
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993377"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298628"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -23,14 +22,14 @@ Le origini dati e i connettori visualizzati in Get Data (Recupera dati) o Import
 
 |Origine dati  |In memoria  |DirectQuery  |
 |---------|---------|---------|
-|Database SQL di Azure<sup>[2](#azsqlmanaged)</sup>     |   Sì      |    Sì      |
+|Database SQL di Azure<sup>[2](#azsqlmanaged)</sup>     |   Yes      |    Yes      |
 |Azure SQL Data Warehouse     |   Yes      |   Yes       |
-|Archiviazione BLOB di Azure<sup>[1](#tab1400a)</sup>     |   Sì       |    No      |
-|Archiviazione tabelle di Azure<sup>[1](#tab1400a)</sup>    |   Sì       |    No      |
+|Archiviazione BLOB di Azure<sup>[1](#tab1400a)</sup>     |   Yes       |    No      |
+|Archiviazione tabelle di Azure<sup>[1](#tab1400a)</sup>    |   Yes       |    No      |
 |Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Yes        |  No        |
 |Azure Data Lake Store (Gen 1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Yes       |    No      |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sì     |   No       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sì       |   No       |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Yes     |   No       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Yes       |   No       |
 ||||
 
 <a name="tab1400a">1</a> - Solo modelli tabulari 1400 e superiori.   
@@ -72,7 +71,7 @@ La connessione alle origini dati locali da un server Azure Analysis Services ric
 |IBM Informix<sup>[1](#tab1400b)</sup> (Beta) |
 |Documento JSON<sup>[1](#tab1400b)</sup>     |  
 |Righe da file binario<sup>[1](#tab1400b)</sup>     | 
-|Database MySQL     | 
+|MySQL Database     | 
 |Feed OData<sup>[1](#tab1400b)</sup>     |  
 |Query ODBC     | 
 |OLE DB     |   

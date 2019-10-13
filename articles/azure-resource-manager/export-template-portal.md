@@ -4,14 +4,14 @@ description: Usare portale di Azure per esportare un modello di Azure Resource M
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 10/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 15f527dfe517dcb3329b8b61243d7c5054eedb56
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 6b37b61bea63ec626bfd709a40f177f43d1dfe03
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959706"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300452"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Esportazione di una singola e più risorse in un modello in portale di Azure
 
@@ -48,39 +48,36 @@ Esportare il modello prima della distribuzione o dalla cronologia, quando:
 * Si desidera un modello di facile utilizzo.
 * Non è necessario includere le modifiche apportate dopo la distribuzione originale.
 
-## <a name="export-template-from-resource-group"></a>Esportare il modello da un gruppo di risorse
+## <a name="export-template-from-a-resource-group"></a>Esportare il modello da un gruppo di risorse
 
 Per esportare una o più risorse da un gruppo di risorse:
 
 1. Selezionare il gruppo di risorse che contiene le risorse che si desidera esportare.
 
-1. Per esportare tutte le risorse nel gruppo di risorse, selezionare tutti e quindi **Esporta modello**. L'opzione **Esporta modello** viene abilitata solo dopo aver selezionato almeno una risorsa.
+1. Selezionare una o più risorse selezionando le caselle di controllo.  Per selezionare tutto, selezionare la casella di controllo a sinistra di **nome**. La voce di menu **Esporta modello** viene abilitata solo dopo aver selezionato almeno una risorsa.
 
    ![Esporta tutte le risorse](./media/export-template-portal/select-all-resources.png)
 
-1. Per selezionare risorse specifiche per l'esportazione, selezionare le caselle di controllo accanto a tali risorse. Selezionare quindi **Esporta modello**.
+    Nello screenshot è selezionato solo l'account di archiviazione.
+1. Selezionare **Esporta modello**.
 
-   ![Selezionare le risorse da esportare](./media/export-template-portal/select-resources.png)
-
-1. Il modello esportato viene visualizzato ed è disponibile per il download.
+1. Il modello esportato viene visualizzato ed è disponibile per il download e la distribuzione.
 
    ![Mostrare il modello](./media/export-template-portal/show-template.png)
 
-## <a name="export-template-from-resource"></a>Esporta modello dalla risorsa
+## <a name="export-template-from-a-resource"></a>Esportare il modello da una risorsa
 
 Per esportare una risorsa:
 
 1. Selezionare il gruppo di risorse contenente la risorsa che si vuole esportare.
 
-1. Selezionare la risorsa da esportare.
-
-   ![Selezione risorsa](./media/export-template-portal/select-link-resource.png)
+1. Selezionare la risorsa che si vuole esportare per aprire la risorsa.
 
 1. Per tale risorsa selezionare **Esporta modello** nel riquadro sinistro.
 
    ![Esporta risorsa](./media/export-template-portal/export-single-resource.png)
 
-1. Il modello esportato viene visualizzato ed è disponibile per il download. Il modello contiene solo la risorsa singola.
+1. Il modello esportato viene visualizzato ed è disponibile per il download e la distribuzione. Il modello contiene solo la risorsa singola.
 
 ## <a name="export-template-before-deployment"></a>Esporta modello prima della distribuzione
 
@@ -90,11 +87,10 @@ Per esportare una risorsa:
 
 1. Dopo aver superato la convalida, ma prima di avviare la distribuzione selezionare **scaricare un modello per l'automazione**.
 
-   ![Scarica modello](./media/export-template-portal/download-before-deployment.png)
+   ![Scaricare il modello](./media/export-template-portal/download-before-deployment.png)
 
-1. Il modello viene visualizzato ed è disponibile per il download.
+1. Il modello viene visualizzato ed è disponibile per il download e la distribuzione.
 
-   ![Mostrare il modello](./media/export-template-portal/show-template-before-deployment.png)
 
 ## <a name="export-template-after-deployment"></a>Esporta modello dopo la distribuzione
 
@@ -112,7 +108,7 @@ Per esportare una risorsa:
 
 1. Selezionare **modello**. Viene visualizzato il modello usato per questa distribuzione ed è disponibile per il download.
 
-   ![Seleziona modello](./media/export-template-portal/show-template-from-history.png)
+   ![Selezionare il modello](./media/export-template-portal/show-template-from-history.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

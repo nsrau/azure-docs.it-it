@@ -1,17 +1,17 @@
 ---
-title: Come aggiornare un'assegnazione esistente dal portale
+title: Aggiornare un'assegnazione esistente dal portale
 description: Informazioni sul meccanismo per l'aggiornamento di un'assegnazione esistente dal portale nei progetti di Azure.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: bf1fdca5476f66249eb5b73bbcbf5913142eb0d3
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: f78ddd5fa314d588f5d667c181528c38df3f1cef
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978488"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299212"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Come aggiornare un'assegnazione di progetto esistente
 

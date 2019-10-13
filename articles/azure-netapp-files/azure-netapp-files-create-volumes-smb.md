@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: bd00c04ecfc211ae4ed410e886c0fe6553bea241
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 94fc4906478e44365d03e9c8eeadd7cb1946a43a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827517"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300537"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
@@ -86,7 +86,7 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
 
     * **DNS primario**  
         Questo è il DNS necessario per le operazioni di aggiunta a un dominio Active Directory e di autenticazione SMB. 
-    * **DNS secondario**   
+    * @No__t **DNS secondario**-1  
         Si tratta del server DNS secondario per garantire i servizi dei nomi ridondanti. 
     * **Dominio**  
         Si tratta del nome di dominio del Active Directory Domain Services che si desidera aggiungere.
@@ -100,17 +100,20 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
     * **Percorso unità organizzativa**  
         Si tratta del percorso LDAP per l'unità organizzativa (OU) in cui verranno creati gli account del computer server SMB. Ovvero OU = Second Level, OU = First level. 
 
-        Se si usa Azure NetApp files con Azure Active Directory Domain Services, il percorso dell'unità organizzativa è `OU=AADDC Computers` quando si configura Active Directory per l'account NetApp.
+        Se si usa Azure NetApp Files con Azure Active Directory Domain Services, il percorso dell'unità organizzativa è @no__t 0 quando si configura Active Directory per l'account NetApp.
         
     * Credenziali, inclusi **nome utente** e **password**
 
-    ![Aggiungi Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+    ![Unisci Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
 3. Fare clic su **Accedi**.  
 
     Viene visualizzata la connessione Active Directory creata.
 
     ![Connessioni di Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
+
+> [!NOTE] 
+> È possibile modificare i campi nome utente e password dopo avere salvato la connessione Active Directory. Non è possibile modificare altri valori dopo aver salvato la connessione. Se è necessario modificare altri valori, è necessario innanzitutto eliminare tutti i volumi SMB distribuiti, quindi eliminare e ricreare la connessione Active Directory.
 
 ## <a name="add-an-smb-volume"></a>Aggiungere un volume SMB
 
@@ -122,12 +125,12 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
     Viene visualizzata la finestra Crea un volume.
 
 3. Nella finestra Crea un volume fare clic su **Crea** e fornire informazioni per i campi seguenti:   
-    * **Nome volume**      
+    * **Nome Volume**      
         Specificare il nome per il volume che si sta creando.   
 
         Un nome di volume deve essere univoco all'interno di ogni pool di capacità. Deve essere composto da almeno tre caratteri. È possibile utilizzare qualsiasi carattere alfanumerico.   
 
-        Non è possibile `default` utilizzare come nome del volume.
+        Non è possibile usare `default` come nome del volume.
 
     * **Pool di capacità**  
         Specificare il pool di capacità in cui si desidera creare il volume.
@@ -148,9 +151,9 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
         
         Se non è stata delegata una subnet, fare clic su **Crea nuovo** nella pagina di creazione di un volume. Nella pagina di creazione della subnet, specificare le informazioni relative alla stessa e selezionare **Microsoft.NetApp/volumi** per delegarla ad Azure NetApp Files. In ogni VNet è possibile delegare una sola subnet a Azure NetApp Files.   
  
-        ![Crea un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        ![Creazione di un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
-        ![Crea subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+        ![Creare una subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
 4. Fare clic su **protocollo** e completare le seguenti informazioni:  
     * Selezionare **SMB** come tipo di protocollo per il volume. 

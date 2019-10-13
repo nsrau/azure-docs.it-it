@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 10/11/2019
 ms.author: juliako
-ms.openlocfilehash: 709ed293dbb0550dc1bb43bf1e1e1cc50906cc31
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 819548d784e5cba9fcec6b2110137d91bf28e03d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293433"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296917"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quote e limitazioni in Servizi multimediali di Azure v3
 
@@ -28,29 +28,27 @@ Questo articolo descrive le quote e le limitazioni in Servizi multimediali di Az
 | Filtri manifesto dinamico|100|
 | JobInput per ogni processo | 50 (fisso)|
 | JobOutput per ogni processo | 20 (fisso) |
-| TransformOutputs in una forma Trasforma | 20 (fisso) |
+| TransformOutputs in una trasformazione | 20 (fisso) |
 | File per ogni JobInput|10 (fisso)|
 | Dimensioni complete| In alcuni scenari è previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. <sup>(1)</sup> |
 | Job per ogni account di Servizi multimediali | 500.000 <sup>(2)</sup> (fisso)|
-| Elenco di trasformazioni|Impaginare la risposta, con 1000 trasformazioni per ogni pagina|
-| Elenco di processi|Impaginare la risposta, con 500 processi per ogni pagina|
 | Eventi live per ogni account di Servizi multimediali |5|
 | Account di Servizi multimediali in una singola sottoscrizione | 25 (fisso) |
-| Output in tempo reale per ogni evento in tempo reale |3 <sup>(3)</sup> |
-| Durata max Live Output | 25 ore |
+| Output Live per evento Live |3 <sup>(3)</sup> |
+| Durata max output Live | 25 ore |
 | Account di archiviazione | 100<sup>(4)</sup> (fisso) |
 | Endpoint di streaming (interrotti o in esecuzione) per account di Servizi multimediali|2 (fisso)|
 | Criteri di streaming | 100 <sup>(5)</sup> |
 | Transform per ogni account di Servizi multimediali | 100 (fisso)|
-| Localizzatori di streaming univoci associati contemporaneamente a un asset | 100<sup>(6)</sup> (fixed) |
-| Opzioni per criteri di chiave simmetrica |30 | 
-| Le licenze al mese per ogni tipo DRM in servizi multimediali di chiave del servizio di recapito per ogni account|1\.000.000|
+| Localizzatori di streaming univoci associati contemporaneamente a un asset | 100<sup>(6)</sup> (fisso) |
+| Opzioni per criterio chiave simmetrica |30 | 
+| Licenze al mese per ogni tipo di DRM nel servizio di distribuzione delle chiavi di servizi multimediali per account|1\.000.000|
 
-<sup>1</sup> Le dimensioni massime supportate per un BLOB singolo corrispondono a 5 TB in Archiviazione BLOB di Azure. Applicati altri limiti in servizi multimediali di base alle dimensioni della macchina virtuale utilizzati dal servizio. Il limite delle dimensioni si applica ai file da caricare e anche i file che vengono generati come risultato di servizi multimediali di elaborazione (codifica o l'analisi). Se le dimensioni del file di origine sono maggiori di 260 GB, è probabile che il processo abbia esito negativo. 
+<sup>1</sup> Le dimensioni massime supportate per un BLOB singolo corrispondono a 5 TB in Archiviazione BLOB di Azure. I limiti aggiuntivi si applicano a servizi multimediali in base alle dimensioni delle macchine virtuali usate dal servizio. Il limite delle dimensioni si applica ai file caricati e anche ai file generati come risultato dell'elaborazione di servizi multimediali (codifica o analisi). Se le dimensioni del file di origine sono maggiori di 260 GB, è probabile che il processo abbia esito negativo. 
 
-La tabella seguente illustra i limiti sui supporti sono riservati unità S1, S2 e S3. Se il file di origine è maggiore di limiti definiti nella tabella, il processo di codifica avrà esito negativo. Se si codifica origini risoluzione 4K di lunga durata, ti viene richiesto di usare media reserved unit S3 per ottenere le prestazioni necessarie. Se si presentano contenuti 4K superano il limite di 260 GB sulle media reserved unit S3, contattare Microsoft all'indirizzo amshelp@microsoft.com per delle possibili soluzioni supportare lo scenario.
+La tabella seguente illustra i limiti di media reserved Unit S1, S2 e S3. Se il file di origine è superiore ai limiti definiti nella tabella, il processo di codifica non riesce. Se si codificano origini di risoluzione 4K di lunga durata, è necessario usare le unità riservate S3 media per ottenere le prestazioni necessarie. Se il contenuto di 4K è superiore al limite di 260 GB per le unità riservate S3, contattaci all'amshelp@microsoft.com per prevenire potenziali mitigazioni per il supporto dello scenario.
 
-|Tipo di unità riservata multimediale   |Dimensioni massime input (GB)|
+|Media reserved Unit Type   |Dimensioni massime input (GB)|
 |---|---|
 |S1 |   26|
 |S2 | 60|
@@ -60,13 +58,13 @@ La tabella seguente illustra i limiti sui supporti sono riservati unità S1, S2 
 
 Tutti i record di processo presenti nell'account e in esecuzione da almeno 90 giorni verranno eliminati automaticamente, anche se il numero totale di record è inferiore alla quota massima. 
 
-<sup>3</sup> live output iniziano durante la creazione e terminano eliminato.
+<sup>3</sup> gli output Live iniziano alla creazione e si interrompono quando vengono eliminati.
 
 <sup>4</sup> Gli account di archiviazione devono appartenere alla stessa sottoscrizione di Azure.
 
-<sup>5</sup> quando si usa un oggetto personalizzato [Streaming criteri](https://docs.microsoft.com/rest/api/media/streamingpolicies), è necessario progettare un set limitato di tali criteri per l'account di servizi multimediali e riutilizzarli per i StreamingLocators ogni volta che la crittografia stessa opzioni e i protocolli sono necessari. Evitare quindi di creare nuovi criteri di streaming per ogni localizzatore di streaming.
+<sup>5</sup> quando si usano [criteri di flusso](https://docs.microsoft.com/rest/api/media/streamingpolicies)personalizzati, è necessario progettare un set limitato di tali criteri per l'account del servizio multimediale e riutilizzarli per la StreamingLocators ogni volta che sono necessarie le stesse opzioni e protocolli di crittografia. Evitare quindi di creare nuovi criteri di streaming per ogni localizzatore di streaming.
 
-<sup>6</sup> i localizzatori di streaming non sono progettati per gestire il controllo di accesso per utente. Per assegnare a singoli utenti diritti di accesso diversi, è possibile usare soluzioni DRM (Digital Rights Management).
+<sup>6</sup> localizzatori di streaming non sono progettati per gestire il controllo di accesso per utente. Per assegnare a singoli utenti diritti di accesso diversi, è possibile usare soluzioni DRM (Digital Rights Management).
 
 ## <a name="support-ticket"></a>Ticket di supporto
 

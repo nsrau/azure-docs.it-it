@@ -2,18 +2,17 @@
 title: Eseguire la distribuzione in Azure Analysis Services con Visual Studio (SSDT) | Microsoft Docs
 description: Informazioni su come distribuire un modello tabulare in un server Azure Analysis Services usando SSDT.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2811685df678730b90f2fdb28d472f8fa268ec6a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 759d85db26ac7370c0b884d2e4839d3045384673
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932445"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301126"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Distribuire un modello da Visual Studio
 
@@ -54,7 +53,7 @@ In **portale di Azure** > server > **Panoramica** > **Nome server** copiare il n
 Questo è tutto ciò che occorre fare.
 
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se la distribuzione non riesce durante la distribuzione dei metadati, probabilmente è dovuto al fatto che SSDT non può connettersi al server. Assicurarsi di potersi connettere al server usando SSMS. Verificare quindi che la proprietà del server di distribuzione per il progetto sia corretta.
 

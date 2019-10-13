@@ -2,24 +2,23 @@
 title: Gestire gli amministratori del server in Azure Analysis Services | Microsoft Docs
 description: Informazioni su come gestire gli amministratori del server per un server Analysis Services in Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eb5248d374fa6212398ad652b4db1496833473ae
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: fbb7d339c5c3c12990a49d6ebd53760e101f4eb7
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696302"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301102"
 ---
 # <a name="manage-server-administrators"></a>Gestire gli amministratori del server
 
 Gli amministratori del server devono essere un utente o un gruppo di sicurezza valido in Azure Active Directory (Azure AD) per il tenant in cui si trova il server. È possibile usare **Amministratori di Analysis Services** per il server nel portale di Azure, in Proprietà server in SSMS, PowerShell o API REST per gestire gli amministratori del server. 
 
-I **gruppi di sicurezza** devono essere abilitati per la [posta elettronica](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) con la `MailEnabled` proprietà impostata su. `True` Quando si specifica un gruppo in base all' `obj:groupid@tenantid`indirizzo di posta elettronica, usare.
+I **gruppi di sicurezza** devono essere abilitati per la [posta elettronica](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) con la proprietà `MailEnabled` impostata su `True`. Quando si specifica un gruppo in base all'indirizzo di posta elettronica, usare `obj:groupid@tenantid`.
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Per aggiungere amministratori del server usando il portale di Azure
 

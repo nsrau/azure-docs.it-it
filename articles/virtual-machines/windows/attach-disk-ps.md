@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 81d0469645281f63527db5cf600f157d8d6b29d7
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: ebdaa9aafa884a266ef8cf8d75d1d5fb326c690e
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968368"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300646"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Collegare un disco dati a una macchina virtuale Windows con PowerShell
 
@@ -23,9 +23,7 @@ Esaminare prima di tutto i suggerimenti seguenti:
 * La dimensione della macchina virtuale controlla il numero di dischi dati che è possibile collegare. Per altre informazioni, vedere [Dimensioni delle macchine virtuali in Azure](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Per usare unità SSD Premium, è necessario un [tipo di macchina virtuale abilitato per Archiviazione Premium](sizes-memory.md), ad esempio una macchina virtuale serie DS o GS.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+Questo articolo usa PowerShell all'interno del [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), che viene costantemente aggiornato alla versione più recente. Per aprire la Cloud Shell, selezionare **prova** nella parte superiore di qualsiasi blocco di codice.
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Aggiungere un disco dati vuoto a una macchina virtuale
 

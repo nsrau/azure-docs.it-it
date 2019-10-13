@@ -1,5 +1,5 @@
 ---
-title: Esaminare l'output di indicizzatore Video di servizi multimediali di Azure generato dall'API v2
+title: Esaminare l'output del Video Indexer di servizi multimediali di Azure prodotto dall'API v2
 titlesuffix: Azure Media Services
 description: In questo argomento viene esaminato l'output di Video Indexer generato dall'API v2.
 services: media-services
@@ -8,18 +8,18 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 10/11/2019
 ms.author: juliako
-ms.openlocfilehash: 205dc7d9e69788ea29a48ff342844a4b74e143bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20a973e5386cd9cad7d090236f021ced9a64cafc
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799075"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300919"
 ---
-# <a name="examine-the-video-indexer-output-produced-by-api"></a>Esaminare l'output a Video Indexer prodotto dall'API
+# <a name="examine-the-video-indexer-output-produced-by-api"></a>Esaminare l'output del Video Indexer prodotto dall'API
 
-Quando si chiama l'API **Get Video Index** (Ottieni indice video) e lo stato della risposta è OK, viene restituito un output JSON dettagliato come contenuto della risposta. Il contenuto JSON include le informazioni dettagliate sul video specificato. Le informazioni dettagliate includono le dimensioni, ad esempio: trascrizioni, OCR, facce, argomenti, blocchi e così via. Le dimensioni comprendono istanze di intervalli di tempo che indicano la presenza di ogni dimensione nel video.  
+Quando si chiama l'API **Get Video Index** (Ottieni indice video) e lo stato della risposta è OK, viene restituito un output JSON dettagliato come contenuto della risposta. Il contenuto JSON include le informazioni dettagliate sul video specificato. Le informazioni dettagliate includono dimensioni come: trascrizioni, OCR, visi, argomenti, blocchi e così via. Le dimensioni comprendono istanze di intervalli di tempo che indicano la presenza di ogni dimensione nel video.  
 
 È anche possibile esaminare visivamente le informazioni dettagliate riepilogate del video, premendo il pulsante **Play** del video nel sito Web di [Video Indexer](https://www.videoindexer.ai/). Per altre informazioni, vedere [Visualizzare e analizzare le informazioni dettagliate per i video](video-indexer-view-edit.md).
 
@@ -33,7 +33,7 @@ In questo articolo viene esaminato il contenuto JSON restituito dall'API **Get V
 
 ## <a name="root-elements"></a>Elementi radice
 
-|Name|Descrizione|
+|NOME|Descrizione|
 |---|---|
 |accountId|ID account Video Indexer della playlist.|
 |id|ID della playlist.|
@@ -42,7 +42,7 @@ In questo articolo viene esaminato il contenuto JSON restituito dall'API **Get V
 |userName|Nome dell'utente che ha creato la playlist.|
 |created|Ora di creazione della playlist.|
 |privacyMode|Modalità di privacy della playlist (privata/pubblica).|
-|stato|Stato della playlist (caricata, in elaborazione, elaborata, non riuscita, in quarantena).|
+|state|Stato della playlist (caricata, in elaborazione, elaborata, non riuscita, in quarantena).|
 |isOwned|Indica se la playlist è stata creata dall'utente corrente.|
 |isEditable|Indica se l'utente corrente è autorizzato a modificare la playlist.|
 |isBase|Indica se la playlist è una playlist di base (un video) o una playlist composta da altri video (derivata).|
@@ -80,7 +80,7 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 |privacyMode|La scomposizione può avere una delle modalità seguenti: **Private**, **Public**. **Public**: il video è visibile per tutti gli utenti nell'account e per chiunque disponga di un collegamento al video. **Private**: il video è visibile per tutti gli utenti nell'account.|
 |duration|Contiene una durata che definisce il tempo associato a un'informazione dettagliata. La durata è espressa in secondi.|
 |thumbnailVideoId|ID del video da cui è stata ottenuta l'anteprima.
-|thumbnailId|ID dell'anteprima del video. Per ottenere l'anteprima effettivo, chiamare [Get-anteprima](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passarlo thumbnailVideoId e thumbnailId.|
+|thumbnailId|ID dell'anteprima del video. Per ottenere l'anteprima effettiva, chiamare [Get-thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passarla ThumbnailVideoId e thumbnailId.|
 |faces|Può contenere zero o più volti. Per informazioni più dettagliate, vedere [faces](#faces).|
 |keywords|Può contenere zero o più parole chiave. Per informazioni più dettagliate, vedere [keywords](#keywords).|
 |sentiments|Può contenere zero o più valutazioni. Per informazioni più dettagliate, vedere [sentiments](#sentiments).|
@@ -93,12 +93,12 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 
 ## <a name="videos"></a>videos
 
-|Name|Descrizione|
+|NOME|Descrizione|
 |---|---|
 |accountId|ID account Video Indexer del video.|
 |id|ID del video.|
 |name|Nome del video.
-|stato|Stato del video (caricato, in elaborazione, elaborato, non riuscito, in quarantena).|
+|state|Stato del video (caricato, in elaborazione, elaborato, non riuscito, in quarantena).|
 |processingProgress|Stato di elaborazione durante l'elaborazione (ad esempio, 20%).|
 |failureCode|Codice di errore, se l'elaborazione non è riuscita (ad esempio, "UnsupportedFileType").|
 |failureMessage|Messaggio di errore, se l'elaborazione non è riuscita.|
@@ -107,7 +107,7 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 |metadata|Metadati esterni del video (se specificati dall'utente).|
 |isAdult|Indica se il video è stato esaminato e identificato manualmente come un video per adulti.|
 |insights|Oggetto insights. Per altre informazioni, vedere [insights](#insights).|
-|thumbnailId|ID dell'anteprima del video. Per ottenere la chiamata effettiva in miniatura [Get-anteprima](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passare l'ID e thumbnailId video.|
+|thumbnailId|ID dell'anteprima del video. Per ottenere l'anteprima effettiva, chiamare [Get-thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passargli l'ID video e thumbnailId.|
 |publishedUrl|URL per lo streaming del video.|
 |publishedUrlProxy|URL da cui eseguire lo streaming del video (per i dispositivi Apple).|
 |viewToken|Token di visualizzazione di breve durata per lo streaming del video.|
@@ -149,12 +149,12 @@ Le informazioni dettagliate sono un set di dimensioni (ad esempio, righe di tras
 
 Un volto può avere un ID, un nome, un'anteprima, altri metadati e un elenco delle relative istanze temporali (ad esempio: 00:00:05 - 00:00:10, 00:01:00 - 00:02:30 e 00:41:21 - 00:41:49.) Ogni istanza temporale può avere metadati aggiuntivi, ad esempio le coordinate del rettangolo del volto (20,230,60,60).
 
-|Version|Versione del codice|
+|Versione|Versione del codice|
 |---|---|
 |sourceLanguage|Lingua di origine del video (presupponendo una sola lingua principale), nel formato di una stringa [BCP-47](https://tools.ietf.org/html/bcp47).|
 |language|Lingua delle informazioni dettagliate (tradotte dalla lingua di origine), nel formato di una stringa [BCP-47](https://tools.ietf.org/html/bcp47).|
 |transcript|Dimensione [transcript](#transcript).|
-|ocr|Il [OCR](#ocr) dimensione.|
+|ocr|Dimensione [OCR](#ocr) .|
 |keywords|Dimensione [keywords](#keywords).|
 |blocks|Può contenere uno o più [blocchi](#blocks)|
 |faces|Dimensione [faces](#faces).|
@@ -236,17 +236,17 @@ Esempio:
 
 #### <a name="ocr"></a>ocr
 
-|Name|Descrizione|
+|NOME|Descrizione|
 |---|---|
 |id|ID della riga di riconoscimento ottico dei caratteri.|
 |text|Testo risultante dal riconoscimento ottico dei caratteri.|
 |confidence|Grado di attendibilità del riconoscimento.|
 |language|Lingua del riconoscimento ottico dei caratteri.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
-|height|L'altezza del rettangolo di OCR|
-|top|Il percorso di top in px|
-|sinistro| La posizione a sinistra nel px|
-|width|La larghezza del rettangolo di OCR|
+|height|Altezza del rettangolo OCR|
+|top|Posizione superiore in px|
+|sinistro| Posizione a sinistra in px|
+|width|Larghezza del rettangolo OCR|
 
 ```json
 "ocr": [
@@ -302,7 +302,7 @@ Esempio:
 
 #### <a name="faces"></a>faces
 
-|Name|Descrizione|
+|NOME|Descrizione|
 |---|---|
 |id|ID del volto.|
 |name|Nome del viso. Può essere 'Unknown #0, un personaggio noto identificato o una persona per cui il cliente ha eseguito il training.|
@@ -347,7 +347,7 @@ Esempio:
 
 #### <a name="labels"></a>Etichette
 
-|Name|Descrizione|
+|NOME|Descrizione|
 |---|---|
 |id|ID dell'etichetta.|
 |name|Nome dell'etichetta, ad esempio 'Computer' o 'TV'.|
@@ -406,10 +406,10 @@ Esempio:
 
 #### <a name="scenes"></a>scenes
 
-|Name|Descrizione|
+|NOME|Descrizione|
 |---|---|
 |id|ID della scena.|
-|instances|Un elenco degli intervalli di tempo di questa scena (una scena può avere solo 1 istanza).|
+|instances|Elenco di intervalli temporali di questa scena (una scena può avere solo 1 istanza).|
 
 ```json
 "scenes":[  
@@ -439,11 +439,11 @@ Esempio:
 
 #### <a name="shots"></a>shots
 
-|Name|Descrizione|
+|NOME|Descrizione|
 |---|---|
 |id|ID dello scatto.|
-|keyFrames|Elenco di fotogrammi chiave all'interno della ripresa (ognuno con un ID e un elenco degli intervalli di tempo istanze). Ogni istanza del fotogramma chiave ha un campo thumbnailId, che contiene l'anteprima del fotogramma chiave ID.|
-|instances|Un elenco degli intervalli di tempo di questo cattura (ripresa può avere solo 1 istanza).|
+|keyFrames|Elenco di fotogrammi chiave all'interno dell'immagine, ognuno con un ID e un elenco di intervalli di tempo di istanze. Ogni istanza del fotogramma chiave ha un campo thumbnailId, che contiene l'ID anteprima del fotogramma chiave.|
+|instances|Un elenco di intervalli temporali di questo scatto (un Shot può avere solo 1 istanza).|
 
 ```json
 "shots":[  
@@ -548,7 +548,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 
 #### <a name="statistics"></a>statistics
 
-|Name|Descrizione|
+|NOME|Descrizione|
 |---|---|
 |CorrespondenceCount|Numero di corrispondenze nel video.|
 |SpeakerWordCount|Numero di parole per ogni voce.|
@@ -558,7 +558,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|Name|Descrizione|
+|NOME|Descrizione|
 |---|---|
 |id|L'ID dell'effetto audio.|
 |type|Tipo di effetto audio, ad esempio applausi, voce o silenzio.|
@@ -587,7 +587,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 
 Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro/negativo), ad esempio 0-0.1, 0.1-0.2.
 
-|Name|Descrizione|
+|NOME|Descrizione|
 |---|---|
 |id|ID della valutazione.|
 |averageScore |Media di tutti i punteggi di tutte le istanze di un determinato tipo di valutazione: positivo/neutro/negativo.|
@@ -626,7 +626,7 @@ Il blocco visualContentModeration contiene gli intervalli di tempo in cui Video 
 
 I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere disponibili solo per la visualizzazione privata. Gli utenti hanno la possibilità di inviare una richiesta per una revisione umana del contenuto, nel quale caso l'attributo IsAdult conterrà il risultato della revisione umana.
 
-|Name|Descrizione|
+|NOME|Descrizione|
 |---|---|
 |id|ID della moderazione dei contenuti visivi.|
 |adultScore|Punteggio contenuti per adulti (dalla moderazione del contenuto).|
@@ -672,7 +672,7 @@ I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere 
 
 Video Indexer identifica le emozioni in base a segnali vocali e audio. L'emozione identificata potrebbe essere gioia, tristezza, rabbia o paura.
 
-|Name|Descrizione|
+|NOME|Descrizione|
 |---|---|
 |id|ID dell'emozione.|
 |type|Il momento emotivo identificato in base ai segnali vocali e audio. L'emozione potrebbe essere gioia, tristezza, rabbia o paura.|
@@ -760,13 +760,13 @@ Video Indexer identifica le emozioni in base a segnali vocali e audio. L'emozion
 
 #### <a name="topics"></a>topics
 
-Video Indexer deduce gli argomenti principali dalle trascrizioni. Quando possibile, viene inclusa la tassonomia [IPTC](https://iptc.org/standards/media-topics/) di primo livello. 
+Video Indexer deduce gli argomenti principali dalle trascrizioni. Quando possibile, viene inclusa la tassonomia [IPTC](https://iptc.org/standards/media-topics/) di secondo livello. 
 
-|Name|Descrizione|
+|NOME|Descrizione|
 |---|---|
 |id|ID dell'argomento.|
 |name|Nome dell'argomento, ad esempio: "Prodotti farmaceutici".|
-|referenceId|Percorsi di navigazione che riflettono la gerarchia di argomenti. Ad esempio: "Salute e benessere / Medicina e sanità / Prodotti farmaceutici".|
+|referenceId|Percorsi di navigazione che riflettono la gerarchia di argomenti. Esempio: "Salute e benessere / Medicina e sanità / Prodotti farmaceutici".|
 |confidence|Punteggio di attendibilità nell'intervallo [0,1]. A un punteggio maggiore corrisponde una maggiore attendibilità.|
 |language|Lingua usata nell'argomento.|
 |iptcName|Nome del codice per i media IPTC, se rilevato.|

@@ -4,14 +4,14 @@ description: Descrive il modo in cui Azure Resource Manager gestisce le richiest
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 10/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 625a17156eaf199af0d51151c6fd37769b8f7b4a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b85ed32ac333402caeca4901e4d91bbe4d1d112c
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848761"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300340"
 ---
 # <a name="authenticate-requests-across-tenants"></a>Eseguire l'autenticazione delle richieste su più tenant
 
@@ -24,7 +24,7 @@ La richiesta include i valori di intestazione di autenticazione seguenti:
 | Nome intestazione | Descrizione | Valore di esempio |
 | ----------- | ----------- | ------------ |
 | Authorization | Token primario | Bearer &lt;primary-token&gt; |
-| x-ms-authorization-auxiliary | Token ausiliari | &gt; &lt;&gt; &lt;Bearer &lt;ausiliario-token1, EncryptedBearer ausiliario-token2, portar ausiliario-token3&gt; |
+| x-ms-authorization-auxiliary | Token ausiliari | Bearer &lt;auxiliary-token1 @ no__t-1, EncryptedBearer &lt;auxiliary-token2 @ no__t-3, Bearer &lt;Sblocco ausiliario-token3 @ no__t-5 |
 
 L'intestazione ausiliaria può contenere fino a tre token ausiliari. 
 
@@ -37,5 +37,6 @@ Quando l'app invia una richiesta a Resource Manager, la richiesta viene eseguita
 Quando la richiesta fa riferimento a una risorsa da un altro tenant, Resource Manager controlla i token ausiliari per determinare se è possibile elaborare la richiesta. Tutti i token ausiliari nell'intestazione devono essere validi e non scaduti. In presenza di token scaduti, Resource Manager restituisce un codice di risposta 401. La risposta include l'ID client e l'ID tenant dal token non valido. Se l'intestazione ausiliaria contiene un token valido per il tenant, viene elaborata la richiesta su più tenant.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per informazioni sull'invio di richieste di autenticazione con le API di Resource Manager, vedere [Usare l'API di autenticazione di Resource Manager per accedere alle sottoscrizioni](resource-manager-api-authentication.md).
-* Per altre informazioni sui token, vedere [Token di accesso di Azure Active Directory](/azure/active-directory/develop/access-tokens).
+
+* Per informazioni sulle richieste di autenticazione, vedere [flussi di autenticazione e scenari di applicazione](../active-directory/develop/authentication-flows-app-scenarios.md).
+* Per altre informazioni sui token, vedere [Token di accesso di Azure Active Directory](../active-directory/develop/access-tokens.md).

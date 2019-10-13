@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 966386bfed5f94556f145afab1c665eb3c90546a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 36a95b502c13ccf360ba4ac56b4837d41ee487c8
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065565"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296400"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gestire la personalizzazione di token e SSO con criteri personalizzati in Azure Active Directory B2C
 
@@ -102,5 +102,5 @@ Per modificare le configurazioni del comportamento della sessione e dell'accesso
 Nell'esempio precedente vengono configurati i valori seguenti.
 
 - **Single Sign-On (SSO)** : l'accesso Single Sign-On viene configurato con **SingleSignOn**. I valori applicabili sono `Tenant`, `Application` `Policy` e `Suppressed`.
-- **Durata della sessione dell'app Web (minuti)** : la durata della sessione dell'app Web viene impostata con l'elemento **SessionExpiryInSeconds**. Il valore predefinito è 86400 secondi (1440 minuti).
 - **Timeout della sessione dell'app Web**: la durata della sessione dell'app Web viene impostata con l'elemento **SessionExpiryType**. I valori applicabili sono `Absolute` e `Rolling`.
+- **Durata della sessione dell'app Web** : la durata della sessione dell'app Web è impostata con l'elemento **SessionExpiryInSeconds** . Il valore predefinito è 86400 secondi (1440 minuti).

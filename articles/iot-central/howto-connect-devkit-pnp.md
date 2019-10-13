@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: f3cfb892fc116640df5dd30abf857bde6e196224
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: b7d2e1b08653cb8023ef6a5190ab53ecc3d568a6
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880111"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297030"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central
 
@@ -34,7 +34,7 @@ Per completare i passaggi descritti in questo articolo, sono necessarie le risor
 
 ## <a name="get-device-connection-details"></a>Ottenere i dettagli della connessione del dispositivo
 
-Nell'applicazione IoT Central di Azure selezionare la scheda **Amministrazione** e selezionare **connessione del dispositivo**. Prendere nota dell' **ID ambito** e della **chiave primaria**.
+Nell'applicazione IoT Central di Azure selezionare la scheda **Amministrazione** e selezionare **connessione del dispositivo**. Prendere nota dell' **ambito ID** e della **chiave primaria**.
 
 ![Dettagli connessione gruppo di dispositivi](media/howto-connect-devkit-pnp/device-group-connection-details.png)
 
@@ -49,7 +49,7 @@ Nell'applicazione IoT Central di Azure selezionare la scheda **Amministrazione**
     > [!NOTE]
     > Se vengono visualizzati errori sullo schermo, ad esempio **Nessun Wi-Fi**, questo è dovuto al fatto che il DevKit non è ancora stato connesso al Wi-Fi.
 
-1. In DevKit, tenendo premuto il **pulsante b**, premere e rilasciare il pulsante di reimpostazione e quindi rilasciare il **pulsante b**. Il dispositivo è ora in modalità punto di accesso. Per confermare, nella schermata vengono visualizzati "DevKit-e-AP" e l'indirizzo IP del portale di configurazione.
+1. In DevKit, tenendo premuto il **pulsante b**, premere e rilasciare il pulsante di **reimpostazione** e quindi rilasciare il **pulsante b**. Il dispositivo è ora in modalità punto di accesso. Per confermare, nella schermata vengono visualizzati "DevKit-e-AP" e l'indirizzo IP del portale di configurazione.
 
 1. Sul computer o sul tablet, connettersi al nome della rete Wi-Fi visualizzato sullo schermo del dispositivo. La rete Wi-Fi inizia con **AZ-** seguita dall'indirizzo Mac. Quando ci si connette a questa rete, non si ha accesso a Internet. Questo stato è previsto ed è possibile connettersi a questa rete solo per un breve periodo di tempo durante la configurazione del dispositivo.
 
@@ -61,7 +61,7 @@ Nell'applicazione IoT Central di Azure selezionare la scheda **Amministrazione**
 
     - Nome della rete Wi-Fi (SSID).
     - Password della rete Wi-Fi.
-    - I dettagli della connessione: l' **ID del dispositivo** che è possibile scegliere se stessi e l' **ID ambito** e la **chiave primaria del gruppo** di firma di accesso condiviso di cui si è preso nota in precedenza.
+    - I dettagli della connessione: l' **ID del dispositivo** che è possibile scegliere se stessi e la **chiave primaria** dell' **ambito ID** e del gruppo di cui si è preso nota in precedenza.
 
     > [!NOTE]
     > Attualmente, il DevKit Internet delle cose può connettersi solo a 2,4 GHz Wi-Fi, a 5 GHz non è supportato a causa di limitazioni hardware.
@@ -86,7 +86,7 @@ Nell'applicazione IoT Central selezionare scheda **dispositivi** , selezionare i
 
 ## <a name="review-the-code"></a>Esaminare il codice
 
-Per esaminare il codice o modificarlo e compilarlo, passare al [repository GitHub del codice di esempio MXChip DevKit](https://github.com/MXCHIP/IoTDevKit/tree/master/pnp).
+Per esaminare il codice o modificarlo e compilarlo, vedere gli [esempi di codice](https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp/sample/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

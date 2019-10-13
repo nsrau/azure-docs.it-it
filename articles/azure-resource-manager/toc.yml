@@ -228,8 +228,6 @@
           href: resource-group-delete.md
         - name: Bloccare le risorse
           href: resource-group-lock-resources.md
-        - name: API di autenticazione per accedere alle sottoscrizioni
-          href: resource-manager-api-authentication.md
         - name: Creare sottoscrizioni EA
           href: programmatically-create-subscription.md
         - name: Concedere l'accesso per la creazione di sottoscrizioni EA

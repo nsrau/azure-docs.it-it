@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 10/11/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 6f27dd199cc054d128a4f46b222c7207d5975efb
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 2990917243507d93cb6a86da11cf771f3a42eebd
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240999"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298421"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Panoramica sullo sviluppo di servizi blockchain di Azure
 
@@ -39,7 +39,7 @@ Per sviluppare sofisticate soluzioni blockchain aziendali, è necessario un Fram
 
 Tartufo è un noto framework di sviluppo blockchain per la scrittura, la compilazione, la distribuzione e il test di applicazioni decentralizzate in Ethereum blockchain. È anche possibile pensare al tartufo come a un Framework che tenta di integrare agevolmente lo sviluppo di contratti intelligenti e lo sviluppo Web tradizionale.
 
-Anche il progetto più piccolo interagisce con almeno due nodi blockchain: Uno sul computer dello sviluppatore e l'altro che rappresenta la rete in cui lo sviluppatore distribuisce l'applicazione. Ad esempio, la rete Ethereum pubblica principale o il servizio Azure blockchain. Il tartufo fornisce un sistema per la gestione degli artefatti di compilazione e distribuzione per ogni rete ed esegue questa operazione in modo da semplificare la distribuzione finale dell'applicazione. Per altre informazioni, vedere [Avvio rapido: Usare il tartufo per connettersi a una rete](connect-truffle.md)del servizio Azure blockchain.
+Anche il progetto più piccolo interagisce con almeno due nodi blockchain: Uno sul computer dello sviluppatore e l'altro che rappresenta la rete in cui lo sviluppatore distribuisce l'applicazione. Ad esempio, la rete Ethereum pubblica principale o il servizio Azure blockchain. Il tartufo fornisce un sistema per la gestione degli artefatti di compilazione e distribuzione per ogni rete ed esegue questa operazione in modo da semplificare la distribuzione finale dell'applicazione. Per altre informazioni, vedere [Avvio rapido: Usare tartufo per connettersi a una rete del servizio Azure blockchain @ no__t-0.
 
 ## <a name="ethereum-quorum-private-transaction"></a>Transazione privata quorum Ethereum
 
@@ -51,13 +51,13 @@ Il quorum è un protocollo di Ledger distribuito basato su Ethereum con transazi
 * Autorizzazione peer-autorizzazione per nodi e peer con contratti intelligenti, assicurando che solo le parti note possano partecipare alla rete
 * Prestazioni più elevate: il quorum offre prestazioni superiori rispetto a Geth pubblici
 
-Per istruzioni dettagliate, vedere [Esercitazione: Inviare una transazione usando il servizio](send-transaction.md) Azure blockchain per un esempio di transazione privata.
+Per istruzioni dettagliate, vedere [Esercitazione: Inviare una transazione usando Azure blockchain Service @ no__t-0 per un esempio di transazione privata.
 
 ## <a name="block-explorers"></a>Esplora blocchi
 
 Gli Esplora blocchi sono browser blockchain online che visualizzano il contenuto del singolo blocco, i dati dell'indirizzo di transazione e la cronologia. Le informazioni di base sui blocchi sono disponibili tramite monitoraggio di Azure nel servizio Azure blockchain. Tuttavia, se sono necessarie informazioni più dettagliate durante lo sviluppo, gli Esplora blocchi possono essere utili.  Sono disponibili noti Esplora blocchi open source che è possibile usare. Di seguito è riportato un elenco di Esplora blocchi che funzionano con il servizio Azure blockchain:
 
-* [Azure blockchain Service Explorer](https://web3labs.com/azure-offer) da Web3 Labs
+* [Esplora servizi di Azure blockchain per Epiro](https://azuremarketplace.microsoft.com/marketplace/apps/blk-technologies.azure-blockchain-explorer-template?tab=Overview) da Web3 Labs
 * [BlockScout](https://github.com/Azure-Samples/blockchain/blob/master/ledger/template/ethereum-on-azure/technology-samples/blockscout/README.md)
 
 ## <a name="tps-measurement"></a>Misurazione TPS
@@ -66,4 +66,4 @@ Quando blockchain viene usato in più scenari aziendali, la velocità delle tran
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Avvio rapido: Usare il tartufo per connettersi a una rete del servizio Azure blockchain](connect-truffle.md)
+[Avvio rapido: Usare il tartufo per connettersi a una rete del servizio Azure blockchain @ no__t-0

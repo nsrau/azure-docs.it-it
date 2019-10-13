@@ -2,18 +2,17 @@
 title: Gestire ruoli del database e utenti in Azure Analysis Services | Microsoft Docs
 description: Informazioni su come gestire ruoli del database e utenti in un server Analysis Services in Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2a6c63c4ae58079c79a9d344f1e2550e4768088f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 426b69173994fc94a52ef0fcccb0dbc6315de14a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932250"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301142"
 ---
 # <a name="manage-database-roles-and-users"></a>Gestire ruoli del database e utenti
 
@@ -28,7 +27,7 @@ Le autorizzazioni di ruoli includono:
 
 Quando si crea un progetto di modello tabulare, è possibile creare ruoli e aggiungere utenti o gruppi a tali ruoli utilizzando Gestione ruoli in SQL Server Data Tools (SSDT). Quando si esegue la distribuzione in un server, si usano SQL Server Management Studio (SSMS), [Analysis Services cmdlet di PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)o TMSL ( [Tabular Model Scripting Language](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) ) per aggiungere o rimuovere ruoli e membri utente.
 
-I **gruppi di sicurezza** devono essere abilitati per la [posta elettronica](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) con la `MailEnabled` proprietà impostata su. `True` Quando si specifica un gruppo in base all' `obj:groupid@tenantid`indirizzo di posta elettronica, usare.
+I **gruppi di sicurezza** devono essere abilitati per la [posta elettronica](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) con la proprietà `MailEnabled` impostata su `True`. Quando si specifica un gruppo in base all'indirizzo di posta elettronica, usare `obj:groupid@tenantid`.
 
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>Per aggiungere o gestire ruoli e utenti in SSDT  
@@ -43,7 +42,7 @@ I **gruppi di sicurezza** devono essere abilitati per la [posta elettronica](htt
   
 4.  Selezionare una delle seguenti autorizzazioni:  
   
-    |Autorizzazioni|Descrizione|  
+    |Autorizzazione|Descrizione|  
     |----------------|-----------------|  
     |**Nessuno**|I membri non possono modificare lo schema del modello e non possono eseguire query sui dati.|  
     |**Lettura**|I membri possono eseguire query su dati, in base ai filtri di riga, ma non possono modificare lo schema del modello.|  
@@ -72,7 +71,7 @@ Per aggiungere ruoli e utenti a un database modello distribuito, è necessario c
 
 3. Selezionare un'autorizzazione.
 
-   |Autorizzazioni|Descrizione|  
+   |Autorizzazione|Descrizione|  
    |----------------|-----------------|  
    |**Controllo completo (amministratore)**|I membri possono modificare lo schema del modello, eseguire operazioni di elaborazione e query su tutti i dati.| 
    |**Elabora database**|I membri possono eseguire operazioni Elabora ed Elabora tutto. Non possono modificare lo schema del modello ed eseguire query sui dati.|  
@@ -80,7 +79,7 @@ Per aggiungere ruoli e utenti a un database modello distribuito, è necessario c
   
 4. Fare clic su **Appartenenza**, quindi immettere un utente o un gruppo nel tenant di Azure AD dall'indirizzo e-mail.
 
-     ![Aggiungi utente](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
+     ![Add user](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
 
 5. Se il ruolo che si sta creando dispone dell'autorizzazione Lettura, è possibile aggiungere filtri di riga usando una formula DAX. Fare clic su **Filtri di riga**, selezionare una tabella e quindi digitare una formula DAX nel campo **Filtro DAX**. 
 

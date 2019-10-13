@@ -2,18 +2,17 @@
 title: Gestire Azure Analysis Services con PowerShell | Documentazione Microsoft
 description: Gestione di Azure Analysis Services con PowerShell.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: reference
 ms.date: 07/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 38ce44f486616e4ab94e8332884005a187e31008
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: bfe1bfc2828347e34fa92564c26d005998e14ece
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932409"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294743"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gestire Azure Analysis Services con PowerShell
 
@@ -23,11 +22,11 @@ Le attività di gestione delle risorse del server, ad esempio la creazione o l'e
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>Permissions
 
 Per la maggior parte delle attività di PowerShell, sono necessari i privilegi di amministratore per il server Analysis Services gestito. Le attività di PowerShell pianificate sono operazioni automatiche. L'account o l'entità servizio che esegue l'utilità di pianificazione deve avere i privilegi di amministratore per il server Analysis Services. 
 
-Per le operazioni del server che usano i cmdlet di Azure PowerShell, anche l'account o l'account che esegue l'utilità di pianificazione deve appartenere al ruolo di proprietario per la risorsa nel controllo degli accessi in [base al ruolo di Azure](../role-based-access-control/overview.md). 
+Per le operazioni del server che usano i cmdlet di Azure PowerShell, anche l'account o l'account che esegue l'utilità di pianificazione deve appartenere al ruolo di proprietario per la risorsa nel [controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md). 
 
 ## <a name="resource-and-server-operations"></a>Operazioni di risorse e server 
 
@@ -45,7 +44,7 @@ Documentazione-informazioni di [riferimento su SqlServer](/powershell/module/sql
 
 ### <a name="supported-cmdlets"></a>Cmdlet supportati
 
-|Cmdlet|DESCRIZIONE|
+|Cmdlet|Descrizione|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Aggiunge un membro a un ruolo del database.| 
 |[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Esegue il backup di un database di Analysis Services.|  

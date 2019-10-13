@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: f297c89d2c3ba5692a44fab631c0d46c75f48692
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 1b056ce8afe86fcd6629aff23ac95acae02ed9ba
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033592"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299872"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Associazioni per Funzioni permanenti (Funzioni di Azure)
 
@@ -90,7 +90,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> L' `context` oggetto in JavaScript non rappresenta DurableOrchestrationContext, ma il contesto della [funzione nel suo complesso](../functions-reference-node.md#context-object). È possibile accedere ai metodi di orchestrazione tramite la proprietà `df` dell'oggetto `context`.
+> L'oggetto `context` in JavaScript non rappresenta DurableOrchestrationContext, ma il contesto della [funzione nel suo complesso](../functions-reference-node.md#context-object). È possibile accedere ai metodi di orchestrazione tramite la proprietà `df` dell'oggetto `context`.
 
 > [!NOTE]
 > Gli orchestratori JavaScript devono usare `return`. La libreria `durable-functions` provvede alla chiamata del metodo `context.done`.
@@ -244,9 +244,9 @@ L'associazione del client di orchestrazione consente di scrivere funzioni che in
 * Inviare eventi alle istanze mentre sono in esecuzione.
 * Ripulire la cronologia di istanza.
 
-Se si usa Visual Studio, è possibile eseguire l'associazione al client di orchestrazione usando l'attributo .NET [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) per Durable functions 1,0. A partire da Durable Functions 2,0 Preview, è possibile eseguire l'associazione al client di orchestrazione `DurableClientAttribute` usando l'attributo .NET.
+Se si usa Visual Studio, è possibile eseguire l'associazione al client di orchestrazione usando l'attributo .NET [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) per Durable functions 1,0. A partire da Durable Functions 2,0 Preview, è possibile eseguire l'associazione al client di orchestrazione usando l'attributo .NET `DurableClientAttribute`.
 
-Se si usano linguaggi di scripting, ad esempio file con *estensione CSX* o *JS* , per lo sviluppo, il trigger di orchestrazione viene definito dall' `bindings` oggetto JSON seguente nella matrice di *Function. JSON*:
+Se si usano linguaggi di scripting, ad esempio file con *estensione CSX* o *JS* , per lo sviluppo, il trigger di orchestrazione viene definito dall'oggetto json seguente nella matrice `bindings` di *Function. JSON*:
 
 ```json
 {
@@ -266,7 +266,7 @@ Se si usano linguaggi di scripting, ad esempio file con *estensione CSX* o *JS* 
 
 ### <a name="client-usage"></a>Uso del client
 
-Nelle funzioni .NET in genere se esegue l'associazione a `DurableOrchestrationClient` in modo da disporre dell'acceso completo a tutte le API client supportate da Durable Functions. A partire da Durable Functions 2,0, viene invece associato all' `IDurableOrchestrationClient` interfaccia. In JavaScript, le stesse API sono esposte dall'oggetto restituito `getClient`da. Le API per l'oggetto client includono:
+Nelle funzioni .NET in genere se esegue l'associazione a `DurableOrchestrationClient` in modo da disporre dell'acceso completo a tutte le API client supportate da Durable Functions. A partire da Durable Functions 2,0, viene invece associato all'interfaccia `IDurableOrchestrationClient`. In JavaScript, le stesse API sono esposte dall'oggetto restituito da `getClient`. Le API per l'oggetto client includono:
 
 * [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)
 * [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_)
@@ -319,7 +319,7 @@ Se per lo sviluppo non si usa Visual Studio, è possibile creare il file *functi
 
 Di seguito vengono riportati esempi specifici del linguaggio che avviano nuove istanze della funzione dell'agente di orchestrazione.
 
-#### <a name="c-sample"></a>Esempio in C#
+#### <a name="c-sample"></a>Esempio C#
 
 L'esempio seguente illustra come usare l'associazione di client di orchestrazione permanente per avviare una nuova istanza della funzione da una funzione di script C#:
 
@@ -351,7 +351,7 @@ Per altre informazioni sull'avvio di istanze, vedere [Instance management](durab
 
 I trigger di entità consentono di creare [funzioni dell'entità](durable-functions-entities.md). Questo trigger supporta l'elaborazione di eventi per un'istanza di entità specifica.
 
-Quando si usano le funzioni di Visual Studio Tools per Azure, il trigger di entità viene configurato `EntityTriggerAttribute` usando l'attributo .NET.
+Quando si usano le funzioni di Visual Studio Tools per Azure, il trigger di entità viene configurato usando l'attributo .NET `EntityTriggerAttribute`.
 
 > [!NOTE]
 > I trigger di entità sono disponibili in Durable Functions 2,0 e versioni successive. I trigger di entità non sono ancora disponibili per JavaScript.
@@ -371,64 +371,64 @@ Eventuali modifiche di stato apportate a un'entità durante la relativa esecuzio
 
 ### <a name="trigger-usage-net"></a>Utilizzo dei trigger (.NET)
 
-Ogni funzione di entità ha un tipo di `IDurableEntityContext`parametro, che dispone dei membri seguenti:
+Ogni funzione di entità ha un tipo di parametro `IDurableEntityContext`, che include i membri seguenti:
 
-* **EntityName**: Ottiene il nome dell'entità attualmente in esecuzione.
-* **EntityKey**: Ottiene la chiave dell'entità attualmente in esecuzione.
-* **EntityId**: Ottiene l'ID dell'entità attualmente in esecuzione.
-* **OperationName**: Ottiene il nome dell'operazione corrente.
-* **IsNewlyConstructed**: restituisce `true` se l'entità non esisteva prima dell'operazione.
-* **GetState\<tstate > ()** : ottiene lo stato corrente dell'entità. Il `TState` parametro deve essere un tipo primitivo o serializzabile in JSON.
-* **Sestate (Object)** : aggiorna lo stato dell'entità. Il `object` parametro deve essere un oggetto primitivo o serializzabile in JSON.
-* **GetInput\<TInput > ()** : Ottiene l'input per l'operazione corrente. Il `TInput` parametro di tipo deve rappresentare un tipo primitivo o serializzabile in JSON.
-* **Return (Object)** : restituisce un valore all'orchestrazione che ha chiamato l'operazione. Il `object` parametro deve essere un oggetto primitivo o serializzabile in JSON.
-* **DestructOnExit ()** : Elimina l'entità dopo aver terminato l'operazione corrente.
-* **SignalEntity (EntityId, String, Object)** : Invia un messaggio unidirezionale a un'entità. Il `object` parametro deve essere un oggetto primitivo o serializzabile in JSON.
+* **EntityName**: nome dell'entità attualmente in esecuzione.
+* **EntityKey**: chiave dell'entità attualmente in esecuzione.
+* **EntityId**: ID dell'entità attualmente in esecuzione.
+* **OperationName**: nome dell'operazione corrente.
+* **HasState**: indica se l'entità esiste, ovvero presenta uno stato. 
+* **GetState @ no__t-1TState > ()** : ottiene lo stato corrente dell'entità. Se non esiste già, viene creato e inizializzato per `default<TState>`. Il parametro `TState` deve essere un tipo primitivo o serializzabile in JSON. 
+* **GetState @ no__t-1TState > (initfunction)** : ottiene lo stato corrente dell'entità. Se non esiste già, viene creato chiamando il parametro `initfunction` specificato. Il parametro `TState` deve essere un tipo primitivo o serializzabile in JSON. 
+* **Sestate (ARG)** : crea o aggiorna lo stato dell'entità. Il parametro `arg` deve essere un oggetto serializzabile JSON o una primitiva.
+* **DeleteState ()** : Elimina lo stato dell'entità. 
+* **GetInput @ no__t-1TInput > ()** : Ottiene l'input per l'operazione corrente. Il parametro di tipo `TInput` deve essere un tipo primitivo o serializzabile in JSON.
+* **Return (ARG)** : restituisce un valore all'orchestrazione che ha chiamato l'operazione. Il parametro `arg` deve essere un oggetto primitivo o serializzabile in JSON.
+* **SignalEntity (EntityId, Operation, input)** : Invia un messaggio unidirezionale a un'entità. Il parametro `operation` deve essere una stringa non null e il parametro `input` deve essere un oggetto primitivo o serializzabile in JSON.
+* **CreateNewOrchestration (orchestratorFunctionName, input)** : avvia una nuova orchestrazione. Il parametro `input` deve essere un oggetto primitivo o serializzabile in JSON.
 
-Quando si usa la modalità di programmazione dell'entità basata su `IDurableEntityContext` classi, è possibile fare riferimento all' `Entity.Current` oggetto tramite la proprietà thread-static.
+Per accedere all'oggetto `IDurableEntityContext` passato alla funzione di entità, è possibile usare la proprietà asincrona-local `Entity.Current`. Questo approccio è utile quando si usa il modello di programmazione basato su classi.
 
-### <a name="trigger-sample---entity-function"></a>Trigger sample-funzione Entity
+### <a name="trigger-sample-function-based-syntax"></a>Esempio di trigger (sintassi basata su funzioni)
 
-Il codice seguente è un esempio di un'entità *contatore* semplice implementata come funzione standard. Questa funzione definisce tre *operazioni*, `add` `reset`, e `get`, ciascuna delle quali opera su un valore di stato Integer, `currentValue`.
+Il codice seguente è un esempio di un'entità *contatore* semplice implementata come funzione durevole. Questa funzione definisce tre operazioni, `add`, `reset` e `get`, ognuna delle quali opera su uno stato Integer.
 
 ```csharp
-[FunctionName(nameof(Counter))]
+[FunctionName("Counter")]
 public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
-    int currentValue = ctx.GetState<int>();
-
     switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
-            int amount = ctx.GetInput<int>();
-            currentValue += operand;
+            ctx.SetState(ctx.GetState<int>() + ctx.GetInput<int>());
             break;
         case "reset":
-            currentValue = 0;
+            ctx.SetState(0);
             break;
         case "get":
-            ctx.Return(currentValue);
+            ctx.Return(ctx.GetState<int>()));
             break;
     }
-
-    ctx.SetState(currentValue);
 }
 ```
 
-### <a name="trigger-sample---entity-class"></a>Esempio di trigger-classe di entità
+Per ulteriori informazioni sulla sintassi basata sulla funzione e su come utilizzarla, vedere [sintassi basata su funzione](durable-functions-dotnet-entities.md#function-based-syntax).
 
-L'esempio seguente è un'implementazione equivalente dell'entità precedente `Counter` con le classi e i metodi .NET.
+### <a name="trigger-sample-class-based-syntax"></a>Esempio di trigger (sintassi basata su classi)
+
+L'esempio seguente usa un'implementazione equivalente dell'entità `Counter` mediante classi e metodi.
 
 ```csharp
+[JsonObject(MemberSerialization.OptIn)]
 public class Counter
 {
     [JsonProperty("value")]
     public int CurrentValue { get; set; }
 
     public void Add(int amount) => this.CurrentValue += amount;
-    
+
     public void Reset() => this.CurrentValue = 0;
-    
+
     public int Get() => this.CurrentValue;
 
     [FunctionName(nameof(Counter))]
@@ -437,21 +437,25 @@ public class Counter
 }
 ```
 
-> [!NOTE]
-> Il metodo del punto di ingresso della `[FunctionName]` funzione con l'attributo `static` *deve* essere dichiarato quando si utilizzano le classi di entità. I metodi del punto di ingresso non statico possono comportare l'inizializzazione di più oggetti e potenzialmente altri comportamenti non definiti.
+Lo stato di questa entità è un oggetto di tipo `Counter`, che contiene un campo che archivia il valore corrente del contatore. Per salvare in modo permanente questo oggetto nella risorsa di archiviazione, viene serializzato e deserializzato dalla libreria [JSON.NET](https://www.newtonsoft.com/json) . 
 
-Le classi di entità hanno meccanismi speciali per interagire con le associazioni e l'inserimento di dipendenze .NET. Per altre informazioni, vedere l'articolo sulle [entità durevoli](durable-functions-entities.md) .
+Per ulteriori informazioni sulla sintassi basata su classi e su come utilizzarla, vedere [definizione delle classi di entità](durable-functions-dotnet-entities.md#defining-entity-classes).
+
+> [!NOTE]
+> Il metodo del punto di ingresso della funzione con l'attributo `[FunctionName]` *deve* essere dichiarato come `static` quando si usano le classi di entità. I metodi del punto di ingresso non statici possono comportare l'inizializzazione di più oggetti e potenzialmente altri comportamenti non definiti.
+
+Le classi di entità hanno meccanismi speciali per interagire con le associazioni e l'inserimento di dipendenze .NET. Per altre informazioni, vedere [costruzione di entità](durable-functions-dotnet-entities.md#entity-construction).
 
 ## <a name="entity-client"></a>Client entità
 
 L'associazione client di entità consente di attivare in modo asincrono le [funzioni dell'entità](#entity-trigger). Queste funzioni vengono talvolta definite [funzioni client](durable-functions-types-features-overview.md#client-functions).
 
-Se si usa Visual Studio, è possibile eseguire l'associazione al client di entità usando l' `DurableClientAttribute` attributo .NET.
+Se si usa Visual Studio, è possibile eseguire l'associazione al client di entità usando l'attributo .NET `DurableClientAttribute`.
 
 > [!NOTE]
-> Può inoltre essere utilizzato per eseguire l'associazione al [client di orchestrazione.](#orchestration-client) `[DurableClientAttribute]`
+> Il `[DurableClientAttribute]` può essere utilizzato anche per l'associazione al [client di orchestrazione](#orchestration-client).
 
-Se si usano linguaggi di scripting, ad esempio file con *estensione CSX* o *JS* , per lo sviluppo, il trigger di entità viene definito dall' `bindings` oggetto JSON seguente nella matrice di *Function. JSON*:
+Se si usano linguaggi di scripting, ad esempio file con *estensione CSX* o *JS* , per lo sviluppo, il trigger di entità viene definito dall'oggetto json seguente nella matrice `bindings` di *Function. JSON*:
 
 ```json
 {
@@ -471,19 +475,17 @@ Se si usano linguaggi di scripting, ad esempio file con *estensione CSX* o *JS* 
 
 ### <a name="entity-client-usage"></a>Utilizzo di Entity client
 
-Nelle funzioni .NET, in genere si esegue `IDurableEntityClient`l'associazione a, che consente l'accesso completo a tutte le API client supportate da entità durevoli. È anche possibile eseguire l'associazione `IDurableClient` all'interfaccia, che fornisce l'accesso alle API client per le entità e le orchestrazioni. Le API per l'oggetto client includono:
+Nelle funzioni .NET, in genere si esegue l'associazione a `IDurableEntityClient`, che consente l'accesso completo a tutte le API client supportate da entità durevoli. È anche possibile eseguire l'associazione all'interfaccia `IDurableClient`, che fornisce l'accesso alle API client per le entità e le orchestrazioni. Le API per l'oggetto client includono:
 
-* **ReadEntityStateAsync\<T >** : legge lo stato di un'entità.
+* **ReadEntityStateAsync @ no__t-1T >** : legge lo stato di un'entità. Restituisce una risposta che indica se l'entità di destinazione esiste e, in caso affermativo, qual è il suo stato.
 * **SignalEntityAsync**: Invia un messaggio unidirezionale a un'entità e ne attende l'accodamento.
-* **SignalEntityAsync\<TEntityInterface >** : uguale a `SignalEntityAsync` , ma usa un oggetto proxy generato di `TEntityInterface`tipo.
-* **CreateEntityProxy\<TEntityInterface >** : genera dinamicamente un proxy dinamico di tipo `TEntityInterface` per eseguire chiamate indipendenti dai tipi alle entità.
+
+Non è necessario creare l'entità di destinazione prima di inviare un segnale: lo stato dell'entità può essere creato dall'interno della funzione di entità che gestisce il segnale.
 
 > [!NOTE]
-> È importante comprendere che le operazioni "Signal" precedenti sono tutte asincrone. Non è possibile richiamare una funzione di entità e ottenere un valore restituito da un client. Analogamente, `SignalEntityAsync` può restituire prima che l'entità inizi a eseguire l'operazione. Solo le funzioni dell'agente di orchestrazione possono richiamare funzioni di entità in modo sincrono ed elaborare valori restituiti.
+> È importante comprendere che i "segnali" inviati dal client vengono semplicemente accodati, per essere elaborati in modo asincrono in un secondo momento. In particolare, il `SignalEntityAsync` restituisce in genere prima che l'entità avvii l'operazione e non è possibile ottenere il valore restituito o osservare le eccezioni. Se sono necessarie garanzie più complesse, ad esempio per i flussi di lavoro, è necessario usare le funzioni dell'agente di *orchestrazione* , che possono attendere il completamento delle operazioni dell'entità e possono elaborare i valori restituiti e osservare le eccezioni.
 
-Per le `SignalEntityAsync` API è necessario specificare l'identificatore univoco dell'entità come. `EntityId` Queste API accettano facoltativamente anche il nome dell'operazione dell'entità come `string` e il payload dell'operazione come `object`serializzabile JSON. Se l'entità di destinazione non esiste, verrà creata automaticamente con l'ID entità specificato.
-
-### <a name="client-sample-untyped"></a>Esempio client (non tipizzato)
+### <a name="example-client-signals-entity-directly"></a>Esempio: il client segnala direttamente l'entità
 
 Di seguito è riportato un esempio di funzione attivata dalla coda che richiama un'entità "contatore".
 
@@ -500,16 +502,16 @@ public static Task Run(
 }
 ```
 
-### <a name="client-sample-typed"></a>Esempio client (tipizzato)
+### <a name="example-client-signals-entity-via-interface"></a>Esempio: l'entità segnala il client tramite l'interfaccia
 
-È possibile generare un oggetto proxy per l'accesso indipendente dai tipi alle operazioni dell'entità. Per generare un proxy indipendente dai tipi, il tipo di entità deve implementare un'interfaccia. Si supponga, ad esempio `Counter` , che l'entità citata in precedenza abbia implementato un' `ICounter` interfaccia, definita come segue:
+Laddove possibile, è consigliabile [accedere alle entità tramite le interfacce](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) perché fornisce maggiore controllo dei tipi. Si supponga, ad esempio, che l'entità `Counter` citata in precedenza abbia implementato un'interfaccia `ICounter`, definita come segue:
 
 ```csharp
 public interface ICounter
 {
     void Add(int amount);
     void Reset();
-    int Get();
+    Task<int> Get();
 }
 
 public class Counter : ICounter
@@ -518,7 +520,7 @@ public class Counter : ICounter
 }
 ```
 
-Il codice client può quindi `SignalEntityAsync<TEntityInterface>` utilizzare e specificare `ICounter` l'interfaccia come parametro di tipo per generare un proxy indipendente dai tipi. Questo utilizzo di proxy indipendenti dai tipi viene illustrato nell'esempio di codice seguente:
+Il codice client può quindi utilizzare `SignalEntityAsync<ICounter>` per generare un proxy indipendente dai tipi:
 
 ```csharp
 [FunctionName("UserDeleteAvailable")]
@@ -532,23 +534,14 @@ public static async Task AddValueClient(
 }
 ```
 
-Nell'esempio precedente, `proxy` il parametro è un'istanza generata dinamicamente di `ICounter`, che converte internamente la chiamata a `Add` nella chiamata equivalente (non tipizzata) a `SignalEntityAsync`.
-
-Esistono alcune regole per la definizione delle interfacce di entità:
-
-* Il parametro `TEntityInterface` di tipo `SignalEntityAsync<TEntityInterface>` in deve essere un'interfaccia.
-* Le interfacce di entità devono definire solo metodi.
-* I metodi dell'interfaccia di entità non devono definire più di un parametro.
-* I metodi dell'interfaccia di `void`entità `Task`devono restituire `Task<T>` , `T` o dove è un valore restituito.
-* Le interfacce di entità devono avere esattamente una classe di implementazione concreta nello stesso assembly (ovvero la classe di entità).
-
-Se una di queste regole viene violata, verrà `InvalidOperationException` generata un'eccezione in fase di esecuzione. Il messaggio di eccezione spiegherà quale regola è stata interrotta.
+Il parametro `proxy` è un'istanza generata dinamicamente di `ICounter`, che converte internamente la chiamata a `Add` nella chiamata equivalente (non tipizzata) a `SignalEntityAsync`.
 
 > [!NOTE]
-> Le `SignalEntityAsync` API rappresentano operazioni unidirezionali. Se un'interfaccia `T` di entità `Task<T>`restituisce, il valore del parametro sarà sempre null o. `default`
+> Le API `SignalEntityAsync` rappresentano operazioni unidirezionali. Se un'interfaccia di entità restituisce `Task<T>`, il valore del parametro `T` sarà sempre null o `default`.
+
+In particolare, non ha senso segnalare l'operazione `Get`, in quanto non viene restituito alcun valore. I client possono invece usare `ReadStateAsync` per accedere direttamente allo stato del contatore oppure può avviare una funzione dell'agente di orchestrazione che chiama l'operazione `Get`. 
 
 <a name="host-json"></a>
-
 ## <a name="hostjson-settings"></a>impostazioni host.json
 
 [!INCLUDE [durabletask](../../../includes/functions-host-json-durabletask.md)]

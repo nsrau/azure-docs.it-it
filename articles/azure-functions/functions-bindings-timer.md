@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 6ac83a054b146b9d515386332779c4fe94cde7c3
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 439e5ab4bf943293ff4ed20ed477bc98bb683836
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263443"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299324"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure 
 
@@ -317,7 +317,7 @@ Espresso come stringa, il formato di `TimeSpan` è `hh:mm:ss`, dove `hh` è mino
 |---------|---------|
 |"01:00:00" | Ogni ora        |
 |"00:01:00"|Ogni minuto         |
-|"24:00:00" | Ogni 24 giorni        |
+|"24:00:00" | ogni 24 ore        |
 |"1.00:00:00" | Ogni giorno        |
 
 ## <a name="scale-out"></a>Scalabilità orizzontale

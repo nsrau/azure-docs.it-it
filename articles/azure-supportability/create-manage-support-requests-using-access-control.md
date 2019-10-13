@@ -1,5 +1,5 @@
 ---
-title: Controllo degli accessi in base al ruolo per controllare i diritti di accesso e gestire le richieste di supporto | Documentazione Microsoft
+title: Controllo di accesso per creare richieste di supporto in Azure
 description: Controllo degli accessi in base al ruolo di Azure per controllare i diritti di accesso e gestire le richieste di supporto
 author: ganganarayanan
 ms.author: gangan
@@ -7,14 +7,18 @@ ms.date: 1/31/2017
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: 94f21e973063dc627ef1424ca5393dd85aedd671
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 328f4928aff6a892849ce3e08fe794578b5e03a4
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248847"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299268"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Controllo degli accessi in base al ruolo di Azure per controllare i diritti di accesso e gestire le richieste di supporto
+
+> [!IMPORTANT]
+> Questo approccio manuale per controllare i diritti di accesso per la richiesta di supporto in Azure è stato sostituito da un ruolo predefinito. Per altre informazioni, vedere [collaboratore alla richiesta di supporto](../role-based-access-control/built-in-roles.md#support-request-contributor). 
 
 Il [Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) consente una gestione specifica degli accessi per Azure.
 La creazione di richieste di supporto nel portale di Azure, [portal.azure.com](https://portal.azure.com), usa il modello di Controllo degli accessi in base al ruolo per definire chi può creare e gestire le richieste di supporto.

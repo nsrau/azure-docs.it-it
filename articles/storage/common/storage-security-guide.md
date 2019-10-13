@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 548f37d6a0d4390fb98ceaee7b59314400debb38
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2847a25411ed0125f4af0a84f30cd3d9d630eb84
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986559"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299613"
 ---
 # <a name="azure-storage-security-guide"></a>Guida alla sicurezza di Archiviazione di Azure
 
@@ -102,9 +102,7 @@ Ecco i punti principali che occorre conoscere sull'uso del controllo degli acces
 * [Informazioni di riferimento sulle API REST del provider di risorse di archiviazione di Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   Questo riferimento descrive le API che è possibile usare per gestire l'account di archiviazione a livello di codice.
-* [Usare l'API di autenticazione di Gestione risorse per accedere alle sottoscrizioni](../../azure-resource-manager/resource-manager-api-authentication.md)
 
-  Questo articolo illustra come eseguire l'autenticazione con le API di Resource Manager.
 * [Controllo degli accessi in base al ruolo per Microsoft Azure da Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
 
   Questo è un collegamento a un video su Channel 9 della conferenza Microsoft Ignite 2015. In questa sessione vengono illustrate le funzionalità di creazione report e gestione degli accessi di Azure, oltre alle procedure consigliate per la protezione dell'accesso alle sottoscrizioni di Azure con Azure Active Directory.

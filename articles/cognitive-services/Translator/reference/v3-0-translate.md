@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 67d323d5a3574100760c78427db6983f6aff5ac8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: bc03e10e40e90845c8e1a3dd064c4f50fafeac00
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934005"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299818"
 ---
-# <a name="translator-text-api-30-translate"></a>API Traduzione testuale 3.0: Trasla
+# <a name="translator-text-api-30-translate"></a>API Traduzione testuale 3.0: Translate
 
 Traduce il testo.
 
@@ -42,10 +42,10 @@ I parametri della richiesta inviati a una stringa di query sono:
   </tr>
   <tr>
     <td>from</td>
-    <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le <a href="./v3-0-languages.md">lingue supportate</a> con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine. <br/><br/>Quando si usa la <code>from</code> funzionalità del <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dizionario dinamico</a> , è necessario usare il parametro anziché il rilevamento automatico.</td>
+    <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le <a href="./v3-0-languages.md">lingue supportate</a> con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine. <br/><br/>Quando si usa la funzionalità del <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dizionario dinamico</a> , è necessario usare il parametro <code>from</code> anziché il rilevamento automatico.</td>
   </tr>
   <tr>
-    <td>in</td>
+    <td>to</td>
     <td><em>Parametro obbligatorio</em>.<br/>Specifica la lingua del testo di output. La lingua di destinazione deve essere una delle <a href="./v3-0-languages.md">lingue supportate</a> incluse nell'ambito <code>translation</code>. Ad esempio, usare <code>to=de</code> per la traduzione in tedesco.<br/>È possibile tradurre in più lingue contemporaneamente ripetendo il parametro nella stringa di query. Ad esempio, usare <code>to=de&to=it</code> per la traduzione in tedesco e in italiano.</td>
   </tr>
   <tr>
@@ -94,7 +94,7 @@ I parametri della richiesta inviati a una stringa di query sono:
 Le intestazioni della richiesta includono:
 
 <table width="100%">
-  <th width="20%">Intestazioni</th>
+  <th width="20%">Headers</th>
   <th>Descrizione</th>
   <tr>
     <td>Intestazione/e di autenticazione</td>
@@ -172,7 +172,7 @@ Nella sezione [Esempi](#examples) è disponibile un esempio di risposte JSON.
 ## <a name="response-headers"></a>Intestazioni della risposta
 
 <table width="100%">
-  <th width="20%">Intestazioni</th>
+  <th width="20%">Headers</th>
   <th>Descrizione</th>
     <tr>
     <td>X-RequestId</td>
@@ -193,7 +193,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   <th>Descrizione</th>
   <tr>
     <td>200</td>
-    <td>Riuscite.</td>
+    <td>Completamento della procedura.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -201,7 +201,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>401</td>
-    <td>La richiesta non è stata autenticata. Verificare che le credenziali siano state specificate e che siano valide.</td>
+    <td>Impossibile autenticare la richiesta. Verificare che le credenziali siano state specificate e che siano valide.</td>
   </tr>
   <tr>
     <td>403</td>
@@ -357,7 +357,7 @@ Se si vuole evitare la presenza di contenuto volgare nella traduzione, indipende
   <th>Azione</th>
   <tr>
     <td><code>NoAction</code></td>
-    <td>Questo è il comportamento predefinito. Il contenuto volgare passerà dall'origine alla destinazione.<br/><br/>
+    <td>Comportamento predefinito. Il contenuto volgare passerà dall'origine alla destinazione.<br/><br/>
     <strong>Origine di esempio (giapponese)</strong>: 彼はジャッカスです。<br/>
     <strong>Traduzione di esempio (italiano)</strong>: È un cretino.
     </td>
@@ -381,7 +381,7 @@ Per <code>ProfanityMarker=Tag</code>, le parole volgari sono racchiuse tra i tag
   </tr>
 </table> 
 
-Ad esempio:
+Esempio:
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
@@ -469,8 +469,10 @@ La risposta è:
 
 Le informazioni sull'allineamento iniziano con `0:2-0:1`, vale a dire che i primi tre caratteri nel testo di origine (`The`) sono associati ai primi due caratteri nel testo tradotto (`La`).
 
+#### <a name="limitations"></a>Limitazioni
 Prendere nota delle restrizioni seguenti:
 
+* L'allineamento non è disponibile per il testo in formato HTML, ad esempio textType = HTML
 * L'allineamento viene restituito solo per un subset delle coppie di lingue:
   - dall'inglese verso qualsiasi altra lingua;
   - da qualsiasi altra lingua verso l'inglese, ad eccezione di cinese semplificato, cinese tradizionale e lettone verso l'inglese;

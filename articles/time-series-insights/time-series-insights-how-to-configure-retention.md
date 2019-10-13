@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e5cc1489af1dce3a9a57b96a3240c63e0395c33a
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 9986f57b05032c1e12769d59781e8b7aca443abb
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947236"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298969"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configurazione della conservazione in Time Series Insights
 
@@ -24,7 +24,7 @@ Questo articolo descrive come configurare il **periodo di conservazione dei dati
 
 ## <a name="summary"></a>Riepilogo
 
-Ogni ambiente di Time Series Insights (TSI) dispone di un'impostazione per configurare il **periodo di conservazione dei dati**. Il valore va da 1 a 400 giorni. I dati vengono eliminati in base alla capacità di archiviazione dell'ambiente o alla durata della conservazione, che va da 1 a 400 giorni, a seconda della condizione che si verifica per prima.
+Ogni ambiente Azure Time Series Insights dispone di un'impostazione per configurare il **periodo di conservazione dei dati**. Il valore va da 1 a 400 giorni. I dati vengono eliminati in base alla capacità di archiviazione dell'ambiente o alla durata della conservazione, che va da 1 a 400 giorni, a seconda della condizione che si verifica per prima.
 
 Ogni ambiente TSI dispone di un'impostazione aggiuntiva, **comportamento limite di archiviazione superato**. Questa impostazione controlla il comportamento di traffico in ingresso e pulizia quando viene raggiunta la capacità massima di un ambiente. È possibile scegliere tra due tipi di comportamento:
 
@@ -39,15 +39,19 @@ Per informazioni dettagliate per comprendere meglio queste impostazioni, vedere 
 
 1. Individuare l'ambiente Time Series Insights esistente. Selezionare **Tutte le risorse** nel menu a sinistra del portale di Azure. Selezionare l'ambiente Time Series Insights.
 
-1. Sotto l'intestazione **IMPOSTAZIONI** selezionare **Configura**.
+1. Sotto l'intestazione **Impostazioni** selezionare **Configura**.
 
-1. Selezionare il **periodo di conservazione dei dati** per configurare la conservazione tramite la barra di scorrimento o digitare un numero nella casella di testo.
+    [Impostazioni ![Selezionare, quindi configurare](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
+
+1. Selezionare il **periodo di conservazione dei dati (in giorni)** per configurare la conservazione usando la barra del dispositivo di scorrimento o digitare un numero nella casella di testo.
 
 1. Si noti l'impostazione **Capacità**, poiché questa configurazione influisce sulla quantità massima di eventi di dati e sulla capacità di archiviazione totale per l'archiviazione dei dati.
 
 1. Attivare o disattivare l'impostazione **Comportamento limite di archiviazione superato**. Selezionare il comportamento **Purge old data** (Eliminare i dati meno recenti) o **Pause ingress** (Sospendere il traffico in ingresso).
 
-1. Selezionare **Salva** per configurare le modifiche.
+    [![Data conservazione accetta e Salva.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
+
+1. Accettare la casella di controllo che indica che è stata esaminata la documentazione e si è compreso il rischio potenziale di perdita di dati. Selezionare **Salva** per configurare le modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

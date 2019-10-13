@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: b30ccbcba0b2126d1fe1abce9ae67a55ce25f601
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 92623377daa80efe08b260745fa1d9443366cb8a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170264"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300625"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure
 
@@ -375,14 +375,15 @@ Per creare il servizio di bilanciamento del carico:
 
 1. Configurare il servizio di bilanciamento del carico con le impostazioni seguenti.
 
-   - **Nome**: un nome che identifichi il servizio di bilanciamento del carico.
-   - **Tipo**: il servizio di bilanciamento del carico può essere pubblico o privato. Un servizio di bilanciamento del carico privato è accessibile dalla stessa rete virtuale. La maggior parte delle applicazioni Azure può usare un servizio di bilanciamento del carico privato. Se l'applicazione deve accedere a SQL Server direttamente su Internet, usare un servizio di bilanciamento del carico pubblico.
-   - **Rete virtuale**: la stessa rete delle macchine virtuali.
-   - **Subnet**: la stessa subnet delle macchine virtuali.
-   - **Indirizzo IP privato**: lo stesso indirizzo IP assegnato alla risorsa di rete cluster dell'istanza del cluster di failover di SQL Server.
-   - **Sottoscrizione**: La sottoscrizione di Azure.
+   - **Sottoscrizione** La sottoscrizione di Azure.
    - **Gruppo di risorse**: usare lo stesso gruppo di risorse delle macchine virtuali.
-   - **Località**: usare la stessa località di Azure delle macchine virtuali.
+   - **Nome**: un nome che identifichi il servizio di bilanciamento del carico.
+   - **Area**: usare la stessa località di Azure delle macchine virtuali.
+   - **Tipo**: il servizio di bilanciamento del carico può essere pubblico o privato. Un servizio di bilanciamento del carico privato è accessibile dalla stessa rete virtuale. La maggior parte delle applicazioni Azure può usare un servizio di bilanciamento del carico privato. Se l'applicazione deve accedere a SQL Server direttamente su Internet, usare un servizio di bilanciamento del carico pubblico.
+   - **SKU**: Lo SKU per il servizio di bilanciamento del carico deve essere standard. 
+   - **Rete virtuale**: la stessa rete delle macchine virtuali.
+   - **Assegnazione indirizzo IP**: L'assegnazione di indirizzi IP deve essere statica. 
+   - **Indirizzo IP privato**: lo stesso indirizzo IP assegnato alla risorsa di rete cluster dell'istanza del cluster di failover di SQL Server.
    Vedere l'immagine seguente:
 
    ![Creare il servizio di bilanciamento del carico](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)

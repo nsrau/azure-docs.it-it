@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0ff2d9b8c0ca891b25dfcd6bf1f19d1541fd1541
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: ca6b055b5d3702cea4ca1986ad1c81b59f76cee3
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673244"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299627"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-from-a-client-application"></a>Autorizzare l'accesso a BLOB e code con Azure Active Directory da un'applicazione client
 
@@ -31,7 +31,7 @@ Prima di poter autenticare un'entità di sicurezza dall'applicazione di Archivia
 
 Il primo passaggio nell'uso di Azure AD per autorizzare l'accesso alle risorse di archiviazione è la registrazione dell'applicazione client con un tenant di Azure AD dal [portale di Azure](https://portal.azure.com). Quando si registra l'applicazione client, è necessario fornire informazioni sull'applicazione Azure AD. Azure AD fornisce quindi un ID client, chiamato anche *ID applicazione*, da usare per associare l'applicazione ad Azure AD in fase di esecuzione. Per altre informazioni sull'ID client, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
-Per registrare l'applicazione di archiviazione di Azure, seguire i passaggi [illustrati nella Guida introduttiva: Registrare un'applicazione con la piattaforma](../../active-directory/develop/quickstart-configure-app-access-web-apis.md)di identità Microsoft. Nella figura seguente vengono illustrate le impostazioni comuni per la registrazione di un'applicazione Web:
+Per registrare l'applicazione di archiviazione di Azure, seguire la procedura illustrata in [Quickstart: Registrare un'applicazione con Microsoft Identity Platform @ no__t-0. Nella figura seguente vengono illustrate le impostazioni comuni per la registrazione di un'applicazione Web:
 
 ![Screenshot che illustra come registrare l'applicazione di archiviazione con Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
@@ -76,7 +76,7 @@ L'applicazione richiede un segreto client per dimostrare la propria identità qu
 
 Dopo aver registrato l'applicazione e concesso le autorizzazioni per accedere ai dati nell'archivio BLOB di Azure o nell'archiviazione di Accodamento, è possibile aggiungere codice all'applicazione per autenticare un'entità di sicurezza e acquisire un token OAuth 2,0. Per autenticare e acquisire il token, è possibile usare una delle librerie di [autenticazione della piattaforma di Microsoft Identity](../../active-directory/develop/reference-v2-libraries.md) o un'altra libreria open source che supporta OpenID Connect 1,0. L'applicazione può quindi usare il token di accesso per autorizzare una richiesta nell'archivio BLOB o nell'archiviazione di Accodamento di Azure.
 
-Per un elenco degli scenari per i quali è supportato l'acquisizione di token, vedere la sezione [scenari](https://aka.ms/msal-net-scenarios) del repository [Microsoft Authentication Library (MSAL) per .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) github.
+Per un elenco degli scenari per i quali è supportato l'acquisizione di token, vedere la sezione relativa ai [flussi di autenticazione](/en-us/azure/active-directory/develop/msal-authentication-flows) nel contenuto della [libreria di autenticazione Microsoft](/azure/active-directory/develop/msal-overview).
 
 ## <a name="well-known-values-for-authentication-with-azure-ad"></a>Valori ben noti per l'autenticazione con Azure AD
 
@@ -177,7 +177,7 @@ Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 
 Successivamente, aggiungere un metodo che richiede un token da Azure AD per conto dell'utente. Questo metodo definisce l'ambito per il quale devono essere concesse le autorizzazioni. Per ulteriori informazioni sulle autorizzazioni e gli ambiti, vedere [autorizzazioni e consenso nell'endpoint della piattaforma di identità Microsoft](../../active-directory/develop/v2-permissions-and-consent.md).
 
-Usare l'ID risorsa per costruire l'ambito per il quale acquisire il token. Nell'esempio viene costruito l'ambito usando l'ID risorsa insieme all' `user_impersonation` ambito incorporato, che indica che il token viene richiesto per conto dell'utente.
+Usare l'ID risorsa per costruire l'ambito per il quale acquisire il token. L'esempio costruisce l'ambito usando l'ID risorsa insieme all'ambito predefinito `user_impersonation`, che indica che il token viene richiesto per conto dell'utente.
 
 Tenere presente che potrebbe essere necessario presentare all'utente un'interfaccia che consenta all'utente di richiedere il token per conto dell'utente. Quando è necessario il consenso, nell'esempio viene intercettato il **MsalUiRequiredException** e viene chiamato un altro metodo per facilitare la richiesta di consenso:
 
@@ -201,7 +201,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-Il consenso è il processo con cui un utente autorizza un'applicazione ad accedere per proprio conto a risorse protette. La piattaforma Microsoft Identity 2,0 supporta il consenso incrementale, ovvero un'entità di sicurezza può richiedere inizialmente un set minimo di autorizzazioni e aggiungere le autorizzazioni nel tempo in base alle esigenze. Quando il codice richiede un token di accesso, specificare l'ambito delle autorizzazioni necessarie per l'app in qualsiasi momento in `scope` base al parametro. Per ulteriori informazioni sul consenso incrementale, vedere la sezione intitolata **consenso incrementale e dinamico** nel [perché eseguire l'aggiornamento a Microsoft Identity Platform (v 2.0)?](../../active-directory/develop/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+Il consenso è il processo con cui un utente autorizza un'applicazione ad accedere per proprio conto a risorse protette. La piattaforma Microsoft Identity 2,0 supporta il consenso incrementale, ovvero un'entità di sicurezza può richiedere inizialmente un set minimo di autorizzazioni e aggiungere le autorizzazioni nel tempo in base alle esigenze. Quando il codice richiede un token di accesso, specificare l'ambito delle autorizzazioni necessarie per l'app in qualsiasi momento in base al parametro `scope`. Per ulteriori informazioni sul consenso incrementale, vedere la sezione intitolata **consenso incrementale e dinamico** nel [perché eseguire l'aggiornamento a Microsoft Identity Platform (v 2.0)?](../../active-directory/develop/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
 Il metodo seguente costruisce le proprietà di autenticazione per richiedere il consenso incrementale:
 

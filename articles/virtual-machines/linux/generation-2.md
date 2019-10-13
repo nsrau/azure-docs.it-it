@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 10/11/2019
 ms.author: lahugh
-ms.openlocfilehash: 6bd74fa299385acb1abe4b32db5d35366249eaa6
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 3c6a054229ab7a16fb48dff5ec2e8681c3c5345e
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173909"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299505"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Supporto per le macchine virtuali di seconda generazione (anteprima) in Azure
 
@@ -93,7 +93,7 @@ Azure attualmente non supporta alcune delle funzionalità supportate da Hyper-V 
 | Supporto del set di scalabilità di macchine virtuali | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery               | :heavy_check_mark: | :x:                |
 | Backup/ripristino                    | :heavy_check_mark: | :heavy_check_mark: |
-| Raccolta immagini condivisa              | :heavy_check_mark: | :x:                |
+| Raccolta immagini condivise              | :heavy_check_mark: | :heavy_check_mark: |
 | Crittografia dischi di Azure             | :heavy_check_mark: | :x:                |
 
 ## <a name="creating-a-generation-2-vm"></a>Creazione di una macchina virtuale di seconda generazione
@@ -121,7 +121,7 @@ Quando si seleziona uno SKU di Windows Server come offerta, nella scheda **Avanz
 
 È anche possibile usare PowerShell per creare una VM facendo direttamente riferimento allo SKU di generazione 1 o di seconda generazione.
 
-Ad esempio, usare il cmdlet di PowerShell seguente per ottenere un elenco degli SKU nell' `WindowsServer` offerta.
+Ad esempio, usare il cmdlet di PowerShell seguente per ottenere un elenco degli SKU nell'offerta `WindowsServer`.
 
 ```powershell
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
@@ -140,7 +140,7 @@ Per un elenco aggiornato delle immagini del Marketplace supportate, vedere la se
 
 È possibile creare una macchina virtuale di seconda generazione da un'immagine gestita o da un disco gestito nello stesso modo in cui si crea una macchina virtuale di prima generazione.
 
-### <a name="virtual-machine-scale-sets"></a>Set di scalabilità di macchine virtuali
+### <a name="virtual-machine-scale-sets"></a>set di scalabilità di macchine virtuali
 
 È anche possibile creare macchine virtuali di seconda generazione usando i set di scalabilità di macchine virtuali. Nell'interfaccia della riga di comando di Azure usare i set di scalabilità di Azure per creare VM di seconda generazione.
 
@@ -152,7 +152,7 @@ Per un elenco aggiornato delle immagini del Marketplace supportate, vedere la se
 * **Esiste una differenza di prezzo tra le macchine virtuali di prima e di seconda generazione?**  
     No.
 
-* **Si dispone di un file con estensione VHD della macchina virtuale locale di seconda generazione. È possibile usare il file con estensione VHD per creare una macchina virtuale di seconda generazione in Azure?**
+* @no__t 0I hanno un file con estensione VHD della macchina virtuale di seconda generazione locale. È possibile usare il file con estensione VHD per creare una macchina virtuale di seconda generazione in Azure? **
   Sì, è possibile importare il file con estensione VHD di generazione 2 in Azure e usarlo per creare una macchina virtuale di seconda generazione. Per eseguire questa operazione, attenersi alla procedura seguente:
     1. Caricare il file VHD in un account di archiviazione nella stessa area in cui si vuole creare la macchina virtuale.
     1. Creare un disco gestito dal file con estensione vhd. Impostare la proprietà di generazione Hyper-V su V2. I comandi di PowerShell seguenti impostano la proprietà di generazione Hyper-V durante la creazione del disco gestito.

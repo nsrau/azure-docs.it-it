@@ -1,5 +1,5 @@
 ---
-title: Esempio-PCI-DSS v 3.2.1 Blueprint-procedura di distribuzione
+title: Esempio di progetto PCI-DSS v 3.2.1-passaggi di distribuzione
 description: Consente di distribuire i passaggi per l'esempio di progetto della carta di credito Industry Data Security Standard v 3.2.1, inclusi i dettagli del parametro dell'elemento Blueprint.
 services: blueprints
 author: DCtheGeek
@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: fa409b873ea1dd0c0970ebc694ad68673df4d033
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 85f9eab29411ac896f73eed7aba607c733e4b95e
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248849"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299035"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Distribuire l'esempio di progetto PCI-DSS v 3.2.1
 
@@ -100,7 +100,7 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 |\[Preview @ no__t-1 audit PCI v 3.2.1:2018 controlla e Distribuisci specifiche estensioni VM per supportare i requisiti di controllo|Assegnazione dei criteri|Elenco di tipi di risorse | Controlla l'impostazione di diagnostica per i tipi di risorse selezionati. Il valore predefinito è tutte le risorse selezionate| 
 |Percorsi consentiti|Assegnazione dei criteri|Elenco di percorsi consentiti|Elenco di percorsi di data center consentiti per la distribuzione di qualsiasi risorsa in. Questo elenco è personalizzabile nelle località di Azure desiderate a livello globale. Selezionare le località che si desidera consentire.| 
 |Percorsi consentiti per i gruppi di risorse|Assegnazione dei criteri |Località consentita |Questo criterio consente di limitare le posizioni in cui l'organizzazione può creare gruppi di risorse. Usare per imporre requisiti di conformità geografica.| 
-|Distribuisci il controllo nei server SQL|Assegnazione dei criteri|Giorni di conservazione|Al conservazione dati in numero di giorni. Il valore predefinito è 180, ma PCI richiede 365.| 
+|Distribuisci il controllo nei server SQL|Assegnazione dei criteri|Giorni di conservazione|Conservazione dei dati in numero di giorni. Il valore predefinito è 180, ma PCI richiede 365.| 
 |Distribuisci il controllo nei server SQL|Assegnazione dei criteri|Nome del gruppo di risorse per l'account di archiviazione|Il controllo esegue la scrittura degli eventi del database in un log di controllo nell'account di archiviazione di Azure. Verrà creato un account di archiviazione in ogni area in cui viene creato un server SQL che verrà condiviso da tutti i server di tale area.| 
 
 ## <a name="next-steps"></a>Passaggi successivi

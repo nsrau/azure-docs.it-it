@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e43bc4b8eb1db91493f279f5c46681483e4b18c4
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 1e9f852d01d60ead9979b6b1190e285b35d5c312
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261401"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294035"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registrazione diagnostica in Azure Cosmos DB 
 
@@ -108,6 +108,12 @@ Usare la procedura seguente per abilitare la registrazione diagnostica nel porta
        { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
        ```
 
+      * **PartitionKeyStatistics**: Questo log riporta le statistiche delle chiavi di partizione. Attualmente, le statistiche sono rappresentate con le dimensioni di archiviazione (KB) delle chiavi di partizione. Il log viene emesso con le prime tre chiavi di partizione che occupano la maggior parte dell'archivio dati.
+
+       ```
+       { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
+       ```
+
       * **Metrica Richieste**: selezionare questa opzione per archiviare i dati dettagliati nelle [metriche di Azure](../azure-monitor/platform/metrics-supported.md). Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
 
 3. Selezionare **Salva**.
@@ -126,7 +132,7 @@ Per abilitare le metriche e la registrazione diagnostica con l'interfaccia della
    az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   `resource` è il nome dell'account del database Azure Cosmos DB. Il formato della risorsa è "/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/Providers/Microsoft.DocumentDB/databaseAccounts/ `storage-account` < Azure_Cosmos_account_name >" è il nome dell'account di archiviazione in cui si si desidera inviare i log. È possibile registrare altri log aggiornando i valori dei parametri di categoria a "MongoRequests" o "DataPlaneRequests". 
+   `resource` è il nome dell'account del database Azure Cosmos DB. Il formato della risorsa è "/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/Providers/Microsoft. DocumentDB/databaseAccounts/< Azure_Cosmos_account_name >" il `storage-account` è il nome dell'account di archiviazione a cui si vogliono inviare i log. È possibile registrare altri log aggiornando i valori dei parametri di categoria a "MongoRequests" o "DataPlaneRequests". 
 
 - Per abilitare la trasmissione dei log di diagnostica a un hub eventi, usare questo comando:
 
@@ -134,7 +140,7 @@ Per abilitare le metriche e la registrazione diagnostica con l'interfaccia della
    az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --event-hub-rule <eventHubRuleID> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
-   `resource` è il nome dell'account del database Azure Cosmos DB. `event-hub-rule` È l'ID regola dell'hub eventi. 
+   `resource` è il nome dell'account del database Azure Cosmos DB. Il `event-hub-rule` è l'ID regola dell'hub eventi. 
 
 - Per consentire l'invio dei log di diagnostica a un'area di lavoro Log Analytics, usare questo comando:
 

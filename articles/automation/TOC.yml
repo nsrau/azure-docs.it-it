@@ -123,6 +123,8 @@
               href: automation-scenario-source-control-integration-with-VSTS.md
     - name: Risolvere problemi
       items:
+        - name: Dati da raccogliere quando si apre un caso per Automazione di Microsoft Azure
+          href: troubleshoot/collect-data-microsoft-azure-automation-case.md
         - name: Risolvere i problemi di un ruolo di lavoro ibrido per runbook
           href: troubleshoot/hybrid-runbook-worker.md
           displayName: 'troubleshoot, HRW, hybrid worker'

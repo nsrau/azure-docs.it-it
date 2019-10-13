@@ -2,18 +2,17 @@
 title: Connessione ai server di Azure Analysis Services | Microsoft Docs
 description: Informazioni su come connettersi e ottenere dati da un server di Analysis Services in Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9a8863189ee9cb63d86b157c0bbebb6fd16116b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8059ac748f73ad8f9036f8e675e876e3a8716be
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61027984"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72295178"
 ---
 # <a name="connecting-to-servers"></a>Connessione ai server
 
@@ -25,7 +24,7 @@ In questo articolo viene descritta la connessione a un server tramite modellazio
 
 Tutte le connessioni a qualunque tipo di server richiedono le librerie client AMO, ADOMD.NET e OLEDB aggiornate per connettersi e interagire con un server di Analysis Services. Per SSMS, SSDT, Excel 2016 e versioni successive e Power BI, le librerie client più recenti vengono installate o aggiornate con le versioni mensili. In alcuni casi, tuttavia, è possibile che un'applicazione non abbia la versione più recente. Ad esempio, quando alcuni criteri ritardano gli aggiornamenti o quando gli aggiornamenti di Office 365 sono su Deferred Channel.
 
-## <a name="server-name"></a>Nome server
+## <a name="server-name"></a>Nome del server
 
 Quando si crea un server di Analysis Services in Azure, si specifica un nome univoco e l'area in cui il server deve essere creato. Quando si specifica il nome del server in una connessione, lo schema di denominazione del server è il seguente:
 
@@ -41,7 +40,7 @@ Nel **portale di Azure** > server > **Panoramica** > **Nome server** copiare l'i
 ![Ottenere il nome del server in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
 > [!NOTE]
-> È il protocollo per l'area Stati Uniti orientali 2 **aspaaseastus2**.
+> Il protocollo per l'area Stati Uniti orientali 2 è **aspaaseastus2**.
 
 ## <a name="connection-string"></a>Stringa di connessione
 

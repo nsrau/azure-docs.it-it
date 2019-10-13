@@ -2,18 +2,17 @@
 title: Installare il gateway dati locale per Azure Analysis Services | Microsoft Docs
 description: Informazioni su come installare e configurare un gateway dati locale.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e87a8221a4db4dfab132a91a31a9ba5b5602a3db
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 6f182976ac655692f8c50d4e7560aa21444ce848
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678422"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298639"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installare e configurare un gateway dati locale
 
@@ -76,14 +75,14 @@ Per creare una risorsa per il gateway in Azure, è necessario registrare l'istan
 
 1.  Selezionare l'opzione che **consente di registrare un nuovo gateway in questo computer**.
 
-    ![Registra](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![Register](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Digitare un nome e la chiave di ripristino per il gateway. Per impostazione predefinita, il gateway usa l'area predefinita della sottoscrizione. Se è necessario selezionare un'area diversa, selezionare **Cambia area**.
 
     > [!IMPORTANT]
     > Salvare la chiave di ripristino in un luogo sicuro. La chiave di ripristino è necessaria per poter acquisire la proprietà, eseguire la migrazione o ripristinare un gateway. 
 
-   ![Registra](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+   ![Register](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
 ## <a name="create-resource"></a>Creare una risorsa per il gateway di Azure

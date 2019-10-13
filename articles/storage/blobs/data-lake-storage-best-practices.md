@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 1f1db1c347709ed7c8587ed8b5523a231e373999
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: ac4e126c7ecbd1fc781db74e5b19635b273bbb34
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991880"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299665"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Procedure consigliate per l'uso di Azure Data Lake Storage Gen2
 
-Questo articolo illustra le procedure consigliate e alcune considerazioni sul funzionamento di Azure Data Lake Storage Gen2. L'articolo fornisce informazioni su sicurezza, prestazioni, resilienza e monitoraggio per Data Lake Storage Gen2. Prima di Data Lake Storage Gen2, l'uso di Big Data in servizi come Azure HDInsight era un'operazione complessa. Era necessario partizionare i dati tra più account di archiviazione BLOB, per ottenere spazio di archiviazione di petabyte e prestazioni ottimali su tale scala. Data Lake Storage Gen2 elimina la maggior parte dei limiti assoluti relativi a dimensioni e prestazioni. Tuttavia, in questo articolo sono comunque illustrate alcune considerazioni che aiutano a ottenere prestazioni ottimali con Data Lake Storage Gen2.
+Questo articolo illustra le procedure consigliate e alcune considerazioni sul funzionamento di Azure Data Lake Storage Gen2. L'articolo fornisce informazioni su sicurezza, prestazioni, resilienza e monitoraggio per Data Lake Storage Gen2. Prima di Data Lake Storage Gen2, l'uso di Big Data in servizi come Azure HDInsight era un'operazione complessa. Era necessario partizionare i dati tra più account di archiviazione BLOB, per ottenere spazio di archiviazione di petabyte e prestazioni ottimali su tale scala. Data Lake Storage Gen2 supporta le dimensioni dei singoli file, ad esempio 5 TB, e la maggior parte dei limiti rigidi per le prestazioni sono stati rimossi. Tuttavia, in questo articolo sono comunque illustrate alcune considerazioni che aiutano a ottenere prestazioni ottimali con Data Lake Storage Gen2.
 
 ## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 

@@ -2,18 +2,17 @@
 title: Registrazione diagnostica per Azure Analysis Services | Microsoft Docs
 description: Informazioni sulla configurazione della registrazione diagnostica per Azure Analysis Services.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b158545390dafa36e7dad285953c78243f891f28
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: a9684042a76c9c906a75334c319b4ca8ee0b727b
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259422"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298618"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurare la registrazione diagnostica
 
@@ -27,7 +26,7 @@ Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito 
 
 È possibile selezionare le categorie **Engine** (Motore), **Service** (Servizio) e **Metrics** (Metriche).
 
-### <a name="engine"></a>Motore
+### <a name="engine"></a>Engine (Motore)
 
 Se si seleziona la categoria **Engine** (Motore) vengono registrati nel log tutti gli [eventi estesi](https://docs.microsoft.com/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events) (XEvent). Non è possibile selezionare eventi singoli. 
 
@@ -44,9 +43,9 @@ Se si seleziona la categoria **Engine** (Motore) vengono registrati nel log tutt
 |Comandi:     |  Inizio comando       |
 |Comandi:     |  Fine comando       |
 |Errori e avvisi     |   Errore      |
-|Rileva     |   Fine individuazione      |
+|Scoprire     |   Fine individuazione      |
 |Notification     |    Notification     |
-|Sessione     |  Inizializzazione sessione       |
+|sessione     |  Inizializzazione sessione       |
 |Blocchi    |  Deadlock       |
 |Elaborazione di query     |   Inizio query SE VertiPaq      |
 |Elaborazione di query     |   Fine query SE VertiPaq      |
@@ -268,7 +267,7 @@ $account = Get-AzResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
-### <a name="enable-logging"></a>Abilita registrazione
+### <a name="enable-logging"></a>Abilitazione della registrazione
 
 Per abilitare la registrazione, usare il cmdlet Set-AzDiagnosticSetting insieme alle variabili per il nuovo account di archiviazione, l'account del server e la categoria. Eseguire questo comando, impostando il flag **-Enabled** su **$true**:
 

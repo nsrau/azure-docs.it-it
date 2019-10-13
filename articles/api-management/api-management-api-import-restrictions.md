@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: d1c80e2ab9ae6a893b1adea6bd68e9b585288d8b
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 0bf52b45bc315874c58be50bccbffa49090d554d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71074948"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294353"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Problemi noti e limitazioni dell'importazione dell'API
 
@@ -33,12 +33,13 @@ Se vengono restituiti errori durante l'importazione del documento OpenAPI, verif
 ### <a name="open-api-general"> </a>Generale
 
 -   I parametri obbligatori per percorso e query devono avere nomi univoci. In OpenAPI un nome di parametro deve essere univoco solo all'interno di una determinata posizione, ad esempio percorso, query, intestazione. In Gestione API, invece, le operazioni possono essere discriminate in base a parametri sia di percorso che di query, cosa che non è possibile in OpenAPI. Per questo motivo è necessario che i nomi dei parametri siano univoci all'interno dell'intero modello di URL.
--   i puntatori Ref non possono fare riferimento a file esterni.  **\$**
+-   i puntatori **\$ref** non possono fare riferimento a file esterni.
 -   **x-ms-paths** e **x-servers** sono le uniche estensioni supportate.
 -   Le estensioni personalizzate vengono ignorate in fase di importazione e non vengono salvate o mantenute per l'esportazione.
 -   **Ricorsione**: Gestione API non supporta le definizioni con carattere ricorsivo, ad esempio gli schemi che fanno riferimento a se stessi.
 -   L'URL del file di origine, se disponibile, viene applicato agli URL di server relativi.
 -   Le definizioni di sicurezza vengono ignorate.
+-   Le definizioni dello schema inline per le operazioni API non sono supportate. Le definizioni dello schema sono definite nell'ambito dell'API ed è possibile farvi riferimento negli ambiti di richiesta o di risposta delle operazioni dell'API.
 
 ### <a name="open-api-v2"> </a>OpenAPI versione 2
 

@@ -1,5 +1,5 @@
 ---
-title: Esempio-procedura per la distribuzione del progetto ufficiale UK e del SSN UK
+title: Esempi ufficiali del Regno Unito & UK NHS Blueprint-passaggi di distribuzione
 description: Consente di distribuire i passaggi per gli esempi ufficiali del Regno Unito e del piano NHS UK, inclusi i dettagli del parametro dell'artefatto
 services: blueprints
 author: DCtheGeek
@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: c2c6089d9c600626a93906e460ef1c662c32cb59
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: ea58ef49aa4d901339bf87343f0eea8eb517011d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248284"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299025"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Distribuire gli esempi ufficiali del Regno Unito e del piano NHS UK
 

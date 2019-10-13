@@ -10,17 +10,20 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2019
+ms.date: 10/08/2019
 ms.author: bwren
-ms.openlocfilehash: f8a86c0b71a5248164ea522472f9f2ecb2ce36bc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: dc7d839c81edd67d69e1525d219f87ee70f17502
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827351"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300512"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Modifiche di denominazione e terminologia in Monitoraggio di Azure
 Di recente sono state apportate modifiche significative a Monitoraggio di Azure, con diversi servizi consolidati per semplificare il servizio di monitoraggio da parte dei clienti di Azure. Questo articolo descrive le recenti modifiche apportate alla terminologia e ai nomi all'interno della documentazione di Monitoraggio di Azure.
+
+## <a name="october-2019---diagnostic-log-to-resource-log"></a>Ottobre 2019-log di diagnostica nel log delle risorse
+I log di diagnostica sono stati modificati in "log delle risorse" per una migliore corrispondenza tra quelli effettivamente raccolti. Il termine "impostazioni di diagnostica" rimane invariato.  
 
 ## <a name="february-2019---log-analytics-terminology"></a>Febbraio 2019 - Terminologia di Log Analytics
 Dopo il consolidamento di diversi servizi in Monitoraggio di Azure, stiamo affrontando il passaggio successivo con la modifica della terminologia nella documentazione per descrivere meglio il servizio di Monitoraggio di Azure e i relativi componenti. 

@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 10/11/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d5324aba5202abb76f07d1eaf43fe214e690393
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 2fb475a5d88547cc5f39cb269cc1cbf72fcd25b3
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193215"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72295405"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Piattaforma di identità Microsoft e credenziali password del proprietario della risorsa OAuth 2,0
 
@@ -34,6 +34,7 @@ Microsoft Identity Platform supporta la [concessione delle credenziali password 
 > * Gli account personali che sono invitati in un tenant di Azure AD non possono usare ROPC.
 > * Gli account che non dispongono di password non possono accedere tramite ROPC. Per questo scenario, è consigliabile utilizzare un flusso diverso per l'app.
 > * Se gli utenti devono usare l'autenticazione a più fattori (MFA) per accedere all'applicazione, saranno invece bloccati.
+> * ROPC non è supportato in scenari di [Federazione di identità ibrida](/azure/active-directory/hybrid/whatis-fed) , ad esempio Azure ad e ADFS usati per autenticare gli account locali. Se gli utenti vengono reindirizzati a una pagina intera a un provider di identità locale, Azure AD non è in grado di testare il nome utente e la password con tale provider di identità. Tuttavia, [l'autenticazione pass-through](/azure/active-directory/hybrid/how-to-connect-pta) è supportata con ROPC.
 
 ## <a name="protocol-diagram"></a>Diagramma di protocollo
 
@@ -41,13 +42,13 @@ Il diagramma seguente mostra il flusso ROPC.
 
 ![Diagramma che mostra il flusso di credenziali della password del proprietario della risorsa](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
-## <a name="authorization-request"></a>Richiesta di autorizzazione
+## <a name="authorization-request"></a>Authorization request (Richiesta di autorizzazione)
 
 Il flusso ROPC è una singola richiesta: Invia le credenziali dell'utente e dell'identificazione del client al provider di identità e quindi riceve i token in fase di restituzione. Il client deve richiedere l'indirizzo di posta elettronica (UPN) e la password dell'utente prima di procedere. Subito dopo una richiesta con esito positivo, il client dovrebbe rilasciare le credenziali dell'utente dalla memoria in modo sicuro. Non deve mai salvarle.
 
 > [!TIP]
 > Provare a eseguire la richiesta in Postman.
-> [![Provare a eseguire la richiesta in un post](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![Try che esegue la richiesta in un post](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
 ```
@@ -64,16 +65,16 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=password
 ```
 
-| Parametro | Condizione | DESCRIZIONE |
+| Parametro | Condizione | Descrizione |
 | --- | --- | --- |
-| `tenant` | Obbligatoria | Il tenant della directory in cui si desidera registrare l'utente. Può essere fornito nel formato di nome descrittivo o GUID. Questo parametro non può essere impostato su `common` oppure `consumers`, ma può essere impostato su `organizations`. |
-| `client_id` | Obbligatoria | ID dell'applicazione (client) che la pagina [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) assegnata all'app. | 
-| `grant_type` | Obbligatoria | Il valore deve essere impostato su `password`. |
-| `username` | Obbligatoria | L'indirizzo di posta elettronica dell'utente. |
-| `password` | Obbligatoria | La password dell'utente. |
+| `tenant` | Obbligatorio | Il tenant della directory in cui si desidera registrare l'utente. Può essere fornito nel formato di nome descrittivo o GUID. Questo parametro non può essere impostato su `common` oppure `consumers`, ma può essere impostato su `organizations`. |
+| `client_id` | Obbligatorio | ID dell'applicazione (client) che la pagina [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) assegnata all'app. | 
+| `grant_type` | Obbligatorio | Il valore deve essere impostato su `password`. |
+| `username` | Obbligatorio | L'indirizzo di posta elettronica dell'utente. |
+| `password` | Obbligatorio | La password dell'utente. |
 | `scope` | Consigliato | Un elenco delimitato da spazi di [ambiti](v2-permissions-and-consent.md), o privilegi, richiesti dall'app. In un flusso interattivo, l'amministratore o l'utente deve dare il consenso in anticipo a questi ambiti. |
-| `client_secret`| A volte obbligatorio | Se l'app è un client pubblico, `client_secret` non è possibile includere o. `client_assertion`  Se l'app è un client riservato, è necessario includerla. | 
-| `client_assertion` | A volte obbligatorio | Formato diverso di `client_secret`, generato utilizzando un certificato.  Per ulteriori informazioni, vedere [credenziali del certificato](active-directory-certificate-credentials.md) . | 
+| `client_secret`| A volte obbligatorio | Se l'app è un client pubblico, non è possibile includere il `client_secret` o `client_assertion`.  Se l'app è un client riservato, è necessario includerla. | 
+| `client_assertion` | A volte obbligatorio | Formato diverso da `client_secret`, generato utilizzando un certificato.  Per ulteriori informazioni, vedere [credenziali del certificato](active-directory-certificate-credentials.md) . | 
 
 ### <a name="successful-authentication-response"></a>Risposta di autenticazione con esito positivo
 
@@ -92,11 +93,11 @@ Nell'esempio seguente viene illustrata una risposta di token riuscita:
 
 | Parametro | Formato | Descrizione |
 | --------- | ------ | ----------- |
-| `token_type` | String | Sempre impostato su `Bearer`. |
+| `token_type` | string | Sempre impostato su `Bearer`. |
 | `scope` | Stringhe separate da uno spazio | Se è stato restituito un token di accesso, questo parametro elenca gli ambiti per cui è valido. |
 | `expires_in`| int | Numero di secondi per cui il token di accesso incluso verrà considerato valido. |
 | `access_token`| Stringa opaca | Emessa per gli [ambiti](v2-permissions-and-consent.md) che sono stati richiesti. |
-| `id_token` | JWT | Emessa nel parametro `scope` originale incluso nell'ambito `openid`. |
+| `id_token` | Token JSON Web | Emessa nel parametro `scope` originale incluso nell'ambito `openid`. |
 | `refresh_token` | Stringa opaca | Emessa nel parametro `scope` originale incluso `offline_access`. |
 
 È possibile usare il token di aggiornamento per acquisire nuovi token di accesso e token di aggiornamento usando lo stesso flusso descritto nella [documentazione del flusso del codice OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
@@ -105,10 +106,10 @@ Nell'esempio seguente viene illustrata una risposta di token riuscita:
 
 Se l'utente non ha fornito il nome utente o la password corretti, o il client non ha ricevuto il consenso richiesto, l'autenticazione avrà esito negativo.
 
-| Errore | DESCRIZIONE | Azione client |
+| Errore | Descrizione | Azione client |
 |------ | ----------- | -------------|
-| `invalid_grant` | L'autenticazione non è riuscita | Le credenziali non sono corrette o il client non ha il consenso per gli ambiti richiesti. Se gli ambiti non sono concessi `consent_required` , viene restituito un errore. In questo caso, il client deve reindirizzare l'utente a un prompt interattivo con una webview o un browser. |
-| `invalid_request` | La richiesta è stata costruita in modo non corretto | Il tipo di concessione non è supportato `/common` nei `/consumers` contesti di autenticazione o.  In `/organizations` alternativa, usare o un ID tenant. |
+| `invalid_grant` | L'autenticazione non è riuscita | Le credenziali non sono corrette o il client non ha il consenso per gli ambiti richiesti. Se gli ambiti non sono concessi, viene restituito un errore `consent_required`. In questo caso, il client deve reindirizzare l'utente a un prompt interattivo con una webview o un browser. |
+| `invalid_request` | La richiesta è stata costruita in modo non corretto | Il tipo di concessione non è supportato nei contesti di autenticazione `/common` o `/consumers`.  Usare invece `/organizations` o un ID tenant. |
 
 ## <a name="learn-more"></a>Altre informazioni
 

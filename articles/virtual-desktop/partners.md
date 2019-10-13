@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 485aad245df7feae4ca4ee2c68a29ff20afb3ece
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: f4eeecccb3815ebfef9cdf79ac14f3dd3bd5e77a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937510"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300206"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrazioni di partner desktop virtuali Windows
 
@@ -62,6 +62,16 @@ Se usato con desktop virtuale di Windows, ControlUp offre funzionalità aggiunti
 - [Vedere il Brief della soluzione di join](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
 - [Accedere al sito Web del partner](https://www.controlup.com/solutions/ms_wvd/).
 
+## <a name="devicetrust"></a>deviceTRUST
+
+![Logo di deviceTRUST](./media/partners/devicetrust.png)
+
+deviceTRUST è un provider di servizi a valore aggiunto per desktop virtuale Windows che contestualizzare l'azienda aziendale, consentendo agli utenti la libertà di accedere al desktop virtuale Windows da qualsiasi posizione, su qualsiasi dispositivo, su qualsiasi rete, fornendo reparti le informazioni e il controllo necessari per soddisfare i requisiti di governance. 
+
+deviceTRUST estende il valore di desktop virtuale di Windows con la tecnologia di sicurezza contestuale. deviceTRUST consente l'accesso condizionale per un accesso al desktop virtuale Windows sicuro, l'accesso condizionale alle applicazioni all'interno di un desktop virtuale Windows e l'applicazione di criteri condizionali per desktop virtuali Windows senza alcuna infrastruttura aggiuntiva. L'uso di deviceTRUST consente un'area di lavoro flessibile e mobile che soddisfa tutti i requisiti di sicurezza, conformità e normativi. 
+
+- [Accedere al sito Web del partner](https://devicetrust.com/wvd).
+
 ## <a name="lakeside-software"></a>Software Lakeside
 
 ![Logo del software Lakeside](./media/partners/lakeside.png)
@@ -84,6 +94,14 @@ Liquidware Essentials estende il valore del desktop virtuale di Windows grazie a
 - [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1).
 - [Accedere al sito Web del partner](https://www.liquidware.com/solutions/solutions-platform/microsoft).
 
+## <a name="login-vsi"></a>Accesso VSI
+
+![Logo VSI di accesso](./media/partners/loginvsi.png)
+
+Login VSI è un provider di servizi a valore aggiunto per desktop virtuale Windows e un partner Microsoft per la distribuzione di software per il test delle prestazioni delle applicazioni in ambienti desktop virtuali Windows. I clienti che trasferiscono i propri servizi aziendali locali a desktop virtuale Windows usano Login VSI Enterprise Edition per valutare e mantenere prestazioni ottimali, scalabilità e disponibilità di Windows 10 Enterprise multisessione, Windows 10 Enterprise e Windows 7 abilitato con le applicazioni aziendali critiche.
+
+- [Accedere al sito Web del partner](https://www.loginvsi.com).
+
 ## <a name="nerdio"></a>Nerdio
 
 ![Logo di Nerdio](./media/partners/nerdio.png)
@@ -94,6 +112,26 @@ Nerdio estende il valore di desktop virtuale di Windows facilitando il provision
 
 - [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
 - [Accedere al sito Web del partner](https://getnerdio.com/windows-virtual-desktop/).
+
+## <a name="policypak"></a>PolicyPak
+
+![Logo di PolicyPak](./media/partners/policypak.png)
+
+Il software PolicyPak è un partner desktop virtuale di Windows che esegue le impostazioni totali di gestione per applicazioni, desktop, browser, Java e impostazioni di sicurezza. PolicyPak mantiene le impostazioni relative al desktop, al sistema e alla sicurezza in conformità. PolicyPak ottimizza il valore del desktop virtuale di Windows aggiungendo una suite di componenti per migliorare l'amministrazione integrata di Windows. Usa la Active Directory esistente Criteri di gruppo e/o Windows Intune per distribuire le impostazioni di PolicyPak e migliorare la capacità degli amministratori di gestire i computer Windows 10. 
+
+I principali casi d'uso per PolicyPak sono rimuovere i diritti di amministratore locale e superare le richieste di controllo dell'account utente, bloccare il ransomware, gestire più browser, gestire le modalità aziendali e di compatibilità di Internet Explorer, ridurre il numero di oggetti Criteri di gruppo, gestire le associazioni di file di Windows 10. gestire il menu Start di Windows 10 e la barra delle applicazioni e gestire le funzionalità di Windows 10 e le funzionalità facoltative.  
+
+- [Vai al sito Web del partner](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html).
+
+## <a name="printerlogic"></a>PrinterLogic
+
+![Logo di PrinterLogic](./media/partners/printerlogic.png)
+
+PrinterLogic è una piattaforma di provider di servizi a valore aggiunto per desktop virtuale di Windows che consente ai professionisti IT di eliminare tutti i server di stampa e offrire un'infrastruttura di stampa senza server a disponibilità elevata. PrinterLogic estende il valore del desktop virtuale di Windows e di Azure, semplificando la gestione e la distribuzione centralizzata di oggetti Printer in qualsiasi sistema operativo di stampanti o endpoint.   
+
+Disponibile come SaaS o come uno stack Web nel cloud privato, la piattaforma PrinterLogic garantisce che gli utenti abbiano sempre le stampanti corrette di cui hanno bisogno nelle sessioni virtuali in base all'ID utente, al nome o al percorso del dispositivo. Questa funzionalità è complementare a una suite completa di funzionalità di gestione della stampa aziendale, ad esempio il rilevamento e la creazione di report, la stampa per dispositivi mobili e la stampa della versione per le notifiche protette. 
+
+- [Vai al sito Web del partner](https://www.printerlogic.com).
 
 ## <a name="thinprint"></a>ThinPrint
 

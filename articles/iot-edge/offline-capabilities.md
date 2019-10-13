@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 80a38767121f5c54afe51a7d4d788716fe9547e2
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 3fc90e685a3c6a077250028bae5602e95f114c03
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091353"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72293450"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Informazioni sulle funzionalità estese offline per IoT Edge dispositivi, moduli e dispositivi figlio
 
@@ -69,7 +69,7 @@ Nelle sezioni seguenti vengono forniti esempi di come è possibile dichiarare la
    ![Gestire i dispositivi figlio dalla pagina dei dettagli del dispositivo IoT Edge](./media/offline-capabilities/manage-child-devices.png)
 
 
-#### <a name="option-2-use-the-az-command-line-tool"></a>Opzione 2: Usare lo `az` strumento da riga di comando
+#### <a name="option-2-use-the-az-command-line-tool"></a>Opzione 2: Usare lo strumento da riga di comando `az`
 
 Usando l' [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) con l' [estensione](https://github.com/azure/azure-iot-cli-extension) Internet (v 0.7.0 o versione successiva), è possibile gestire le relazioni padre-figlio con i sottocomandi [Device-Identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) . Nell'esempio seguente viene usata una query per assegnare tutti i dispositivi non IoT Edge nell'hub come dispositivi figlio di un dispositivo IoT Edge. 
 
@@ -138,69 +138,7 @@ Questa impostazione è una proprietà desiderata dell'hub di IoT Edge, che viene
 
 ### <a name="host-storage-for-system-modules"></a>Archiviazione host per i moduli di sistema
 
-I messaggi e le informazioni sullo stato del modulo vengono archiviati nel file System del contenitore locale dell'hub IoT Edge per impostazione predefinita. Per una maggiore affidabilità, soprattutto quando si opera offline, è anche possibile dedicare spazio di archiviazione nell'host IoT Edge dispositivo.
-
-Per configurare l'archiviazione nel sistema host, creare le variabili di ambiente per l'hub IoT Edge e IoT Edge Agent che puntano a una cartella di archiviazione nel contenitore. Usare quindi le opzioni di creazione per associare tale cartella di archiviazione a una cartella nel computer host. 
-
-È possibile configurare le variabili di ambiente e le opzioni di creazione per il modulo dell'hub di IoT Edge nel portale di Azure, nella sezione **Configura impostazioni avanzate per il runtime di IoT Edge**, 
-
-1. Per entrambi IoT Edge Hub e IoT Edge Agent, aggiungere una variabile di ambiente denominata **StorageFolder** che punta a una directory del modulo.
-1. Per IoT Edge Hub e IoT Edge Agent, aggiungere binding per connettere una directory locale nel computer host a una directory del modulo. Esempio: 
-
-   ![Aggiungere le opzioni di creazione e le variabili di ambiente per l'archiviazione locale](./media/offline-capabilities/offline-storage.png)
-
-In alternativa, è possibile configurare l'archiviazione locale direttamente nel manifesto della distribuzione. Esempio: 
-
-```json
-"systemModules": {
-    "edgeAgent": {
-        "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
-            "createOptions": {
-                "HostConfig": {
-                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
-                }
-            }
-        },
-        "type": "docker",
-        "env": {
-            "storageFolder": {
-                "value": "<ModuleStoragePath>"
-            }
-        }
-    },
-    "edgeHub": {
-        "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-            "createOptions": {
-                "HostConfig": {
-                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"],
-                    "PortBindings":{"5671/tcp":[{"HostPort":"5671"}],"8883/tcp":[{"HostPort":"8883"}],"443/tcp":[{"HostPort":"443"}]}}}
-        },
-        "type": "docker",
-        "env": {
-            "storageFolder": {
-                "value": "<ModuleStoragePath>"
-            }
-        },
-        "status": "running",
-        "restartPolicy": "always"
-    }
-}
-```
-
-Sostituire `<HostStoragePath>` e`<ModuleStoragePath>` con il percorso di archiviazione dell'host e del modulo. entrambi i valori devono essere un percorso assoluto. 
-
-Ad esempio, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` indica che la directory **/etc/iotedge/storage** nel sistema host è mappata alla directory **/iotedge/storage/** nel contenitore. Un altro esempio per i sistemi Windows è `"Binds":["C:\\temp:C:\\contemp"]` e indica che la directory **C:\\temp** nel sistema host è mappata alla directory **C:\\contemp** nel contenitore. 
-
-Nei dispositivi Linux, verificare che il profilo utente dell'hub IoT Edge, UID 1000, disponga delle autorizzazioni di lettura, scrittura ed esecuzione per la directory del sistema host. Queste autorizzazioni sono necessarie in modo che l'hub IoT Edge possa archiviare i messaggi nella directory e recuperarli in un secondo momento. L'agente IoT Edge funziona come root, quindi non necessita di autorizzazioni aggiuntive. Sono disponibili diversi modi per gestire le autorizzazioni di directory nei sistemi Linux, `chown` incluso l'utilizzo di per modificare il `chmod` proprietario della directory e quindi modificare le autorizzazioni. Esempio:
-
-```bash
-sudo chown 1000 <HostStoragePath>
-sudo chmod 700 <HostStoragePath>
-```
-
-Per altre informazioni su come creare opzioni, vedere la [documentazione di Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+I messaggi e le informazioni sullo stato del modulo vengono archiviati nel file System del contenitore locale dell'hub IoT Edge per impostazione predefinita. Per una maggiore affidabilità, soprattutto quando si opera offline, è anche possibile dedicare spazio di archiviazione nell'host IoT Edge dispositivo. Per altre informazioni, vedere [concedere ai moduli l'accesso alla risorsa di archiviazione locale del dispositivo](how-to-access-host-storage-from-module.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

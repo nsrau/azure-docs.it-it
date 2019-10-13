@@ -2,18 +2,17 @@
 title: Librerie client necessarie per la connessione ad Azure Analysis Services | Microsoft Docs
 description: Vengono illustrate le librerie client necessarie per la connessione di applicazioni e strumenti client ad Azure Analysis Services
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/11/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9e597b03abfdeda01d74986b7b30c14de46fd3f1
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 1ea14f141ed4fa698a21da8030878b04a81f1d08
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861128"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298672"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Librerie client per la connessione ad Azure Analysis Services
 
@@ -21,12 +20,12 @@ Le librerie client sono necessarie per la connessione di applicazioni e strument
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Scaricare le librerie client più recenti (Windows Installer)  
 
-|Download  |Versione prodotto  | 
+|Scarica  |Versione prodotto  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.1.25    |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.1.25       |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.0.5.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.0.5.0     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.5.15    |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.5.15       |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.0.9.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.0.9.0     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO e ADOMD (pacchetti NuGet)
 
@@ -34,8 +33,8 @@ Le librerie client Analysis Services Management Objects (AMO) e ADOMD sono dispo
 
 |Pacchetto  | Versione prodotto  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.0.5     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.0.5      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.0.9     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.0.9      |
 
 Gli assembly AssemblyVersion del pacchetto NuGet sono conformi al controllo delle versioni semantici: PRINCIPALE.SECONDARIA.PATCH. I riferimenti NuGet caricano la versione prevista anche se nella Global Assembly Cache è presente una versione diversa (risultante dall'installazione con file MSI). Il valore di PATCH viene incrementato a ogni versione. Le versioni di AMO e ADOMD vengono mantenute sincronizzate.
 

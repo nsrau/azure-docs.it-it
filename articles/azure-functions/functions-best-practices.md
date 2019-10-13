@@ -1,23 +1,20 @@
 ---
 title: Procedure consigliate per Funzioni di Azure | Documentazione Microsoft
 description: Informazioni su modelli e procedure consigliate per Funzioni di Azure.
-services: functions
-documentationcenter: na
-author: wesmc7777
-manager: jeconnoc
-keywords: funzioni di azure, modelli, procedure consigliate, funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server
+author: ggailey777
+manager: gwallace
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2782781fdfd560c0c8f322e362fcf74c796664bd
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ad2f56388b49692d799202d06ed3dc0123f272e5
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933047"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294369"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Ottimizzare le prestazioni e l'affidabilità delle funzioni di Azure
 
@@ -29,7 +26,9 @@ Questo articolo definisce le procedure consigliate per creare e definire l'archi
 
 ### <a name="avoid-long-running-functions"></a>Evitare funzioni con esecuzione prolungata
 
-Le funzioni con esecuzione prolungata e di grandi dimensioni possono causare problemi di timeout imprevisti. Le dimensioni di una funzione possono diventare grandi a causa della presenza di molte dipendenze di Node.js. L'importazione delle dipendenze può anche fare aumentare i tempi di caricamento causando timeout imprevisti. Le dipendenze vengono caricate in modo sia esplicito che implicito. Un singolo modulo caricato dal codice potrebbe caricare i propri moduli aggiuntivi.  
+Le funzioni con esecuzione prolungata e di grandi dimensioni possono causare problemi di timeout imprevisti. Per altre informazioni sui timeout per un piano di hosting specifico, vedere [durata del timeout dell'app](functions-scale.md#timeout)per le funzioni. 
+
+Le dimensioni di una funzione possono diventare grandi a causa della presenza di molte dipendenze di Node.js. L'importazione delle dipendenze può anche fare aumentare i tempi di caricamento causando timeout imprevisti. Le dipendenze vengono caricate in modo sia esplicito che implicito. Un singolo modulo caricato dal codice potrebbe caricare i propri moduli aggiuntivi. 
 
 Quando è possibile, suddividere le funzioni di grandi dimensioni in gruppi di funzioni più piccoli che possono interagire tra loro e restituire rapidamente le risposte. Ad esempio, un webhook o una funzione di trigger HTTP potrebbe richiedere una risposta di acknowledgment entro un determinato limite di tempo. È normale per i webhook richiedere una risposta immediata. È possibile passare il payload del trigger HTTP in una coda perché venga elaborato da una funzione di trigger della coda. Questo approccio consente di rinviare l'operazione effettiva e di restituire una risposta immediata.
 

@@ -2,18 +2,17 @@
 title: Aggiornamento asincrono per i modelli di Analysis Services di Azure | Microsoft Docs
 description: Informazioni su come codificare l'aggiornamento asincrono tramite l'API REST.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 82e40f756e0d8e0b5627b7c8856bd25fa98adbcb
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: daa25ecd12cb4c3b6ba72164c36cef01001448cf
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932305"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301172"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Aggiornamento asincrono con l'API REST
 
@@ -98,7 +97,7 @@ Il corpo dovrebbe essere simile al seguente:
 
 Non è necessario specificare parametri. Viene applicato il valore predefinito.
 
-| Name             | Type  | Descrizione  |Predefinito  |
+| NOME             | Type  | Descrizione  |Predefinito  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | Il tipo di elaborazione da eseguire. I tipi sono allineati con i tipi del [comando refresh](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) di TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Il tipo add non è supportato.      |   automatic      |
 | `CommitMode`     | Enum  | Determina se verrà eseguito il commit degli oggetti in batch o solo al termine. Le modalità comprendono: default, transactional, partialBatch.  |  transactional       |

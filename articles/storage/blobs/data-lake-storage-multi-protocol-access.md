@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 471e3008c25ddef83dd9b502dd8f677ae31cc71b
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 9767282b3dd764a45f25a14d62af70a13c80b0ac
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259366"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300260"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage-preview"></a>Accesso a più protocolli su Azure Data Lake Storage (anteprima)
 
@@ -22,11 +22,11 @@ Le API blob ora funzionano con gli account che hanno uno spazio dei nomi gerarch
 Fino a poco tempo fa, potrebbe essere necessario mantenere soluzioni di archiviazione separate per l'archiviazione di oggetti e l'archiviazione di analisi. Questo perché Azure Data Lake Storage Gen2 aveva un supporto limitato per l'ecosistema. Ha anche accesso limitato alle funzionalità del servizio BLOB, ad esempio la registrazione diagnostica. Una soluzione di archiviazione frammentata è difficile da gestire perché è necessario spostare i dati tra gli account per realizzare diversi scenari. Questa operazione non è più necessario.
 
 > [!NOTE]
-> L'accesso a più protocolli su Data Lake Storage è disponibile in anteprima pubblica ed è disponibile nelle [aree geografiche](#region-availability). Per esaminare le limitazioni, vedere l'articolo relativo ai [problemi noti](data-lake-storage-known-issues.md) . Per eseguire la registrazione nell'anteprima, vedere [Questa pagina](https://aka.ms/blobinteropsignup).
+> L'accesso a più protocolli su Data Lake Storage è disponibile in anteprima pubblica ed è disponibile in tutte le aree geografiche. Non è necessario registrarsi nell'anteprima pubblica perché è automaticamente disponibile per tutti gli account che hanno uno spazio dei nomi gerarchico. Per esaminare le limitazioni, vedere l'articolo relativo ai [problemi noti](data-lake-storage-known-issues.md) .
 
 ## <a name="use-the-entire-ecosystem-of-applications-tools-and-services"></a>Usare l'intero ecosistema di applicazioni, strumenti e servizi
 
-Se si esegue la registrazione nell'anteprima dell'accesso con più protocolli su Data Lake Storage, è possibile usare tutti i dati usando l'intero ecosistema di strumenti, applicazioni e servizi. Sono inclusi i servizi di Azure, ad esempio [analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction), [Hub](https://docs.microsoft.com/azure/iot-hub/)Internet, [Power bi](https://docs.microsoft.com/power-bi/desktop-data-sources)e molti altri. 
+Con l'accesso a più protocolli su Data Lake Storage, è possibile usare tutti i dati usando l'intero ecosistema di strumenti, applicazioni e servizi. Sono inclusi i servizi di Azure, ad esempio [analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction), [Hub](https://docs.microsoft.com/azure/iot-hub/)Internet, [Power bi](https://docs.microsoft.com/power-bi/desktop-data-sources)e molti altri. Per un elenco completo, vedere [integrare Azure Data Lake storage con i servizi di Azure](data-lake-store-integrate-with-azure-services.md).
 
 Sono inclusi anche strumenti e applicazioni di terze parti. È possibile indirizzarli agli account che dispongono di uno spazio dei nomi gerarchico senza doverli modificare. Queste applicazioni funzionano *così come sono* anche se chiamano API blob, perché le API BLOB possono ora operare sui dati negli account che hanno uno spazio dei nomi gerarchico.
 
@@ -47,20 +47,6 @@ Le API BLOB e le API Data Lake Storage Gen2 possono operare sugli stessi dati ne
 ![Accesso a più protocolli su Data Lake Storage concettuale](./media/data-lake-storage-interop/interop-concept.png) 
 
 Gli strumenti e le applicazioni esistenti che usano l'API blob ottengono automaticamente questi vantaggi. Gli sviluppatori non dovranno modificarli. Data Lake Storage Gen2 applica in modo coerente le directory e gli ACL a livello di file indipendentemente dal protocollo usato da strumenti e applicazioni per accedere ai dati. 
-
-<a id="region-availability" />
-
-## <a name="region-availability"></a>Disponibilità a livello di area
-
-L'accesso a più protocolli su Azure Data Lake Storage (anteprima) è disponibile nelle aree geografiche seguenti:
-
-|||||
-|-|-|-|-|
-|Stati Uniti centrali|Stati Uniti centro-occidentali|Canada centrale|
-|East US|Asia orientale|Europa settentrionale|
-|Stati Uniti orientali 2|Asia sud-orientale|Europa occidentale|
-|Stati Uniti occidentali|Australia orientale|Giappone orientale|
-|Stati Uniti occidentali 2|Brasile meridionale||
 
 ## <a name="next-steps"></a>Passaggi successivi
 

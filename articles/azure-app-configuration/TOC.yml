@@ -101,6 +101,8 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
 - name: Risorse
   items:
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/en-us/pricing/details/app-configuration/'
     - name: Video
       items:
         - name: Introduzione
