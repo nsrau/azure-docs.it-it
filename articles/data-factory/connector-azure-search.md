@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: c2165d0ff16233766918f9e274324b02d1bf1ac8
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 703dcb5fee0c31328eee91c9673e62653d7aa698
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962106"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286334"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiare dati in un indice di Ricerca di Azure usando Azure Data Factory
 
@@ -43,8 +43,8 @@ Per il servizio collegato di Ricerca di Azure sono supportate le proprietà segu
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **AzureSearch** | Sì |
-| url | URL del servizio Ricerca di Azure. | Sì |
+| type | La proprietà type deve essere impostata su: **AzureSearch** | Yes |
+| url | URL del servizio Ricerca di Azure. | Yes |
 | key | Chiave amministratore del servizio Ricerca di Azure. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
@@ -81,8 +81,8 @@ Per copiare dati in ricerca di Azure, sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **AzureSearchIndex** | Sì |
-| indexName | Nome dell'indice di Ricerca di Azure. Il servizio Data Factory non crea l'indice. L'indice deve essere presente in Ricerca di Azure. | Sì |
+| type | La proprietà type del set di dati deve essere impostata su: **AzureSearchIndex** | Yes |
+| indexName | Nome dell'indice di Ricerca di Azure. Il servizio Data Factory non crea l'indice. L'indice deve essere presente in Ricerca di Azure. | Yes |
 
 **Esempio:**
 
@@ -113,7 +113,7 @@ Per copiare dati in Ricerca di Azure, impostare il tipo di origine nell'attivit�
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **AzureSearchIndexSink** | Sì |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **AzureSearchIndexSink** | Yes |
 | writeBehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. Vedere la [proprietà WriteBehavior](#writebehavior-property).<br/><br/>I valori consentiti sono i seguenti: **Merge** (predefinito) e **Upload**. | No |
 | writeBatchSize | Consente di caricare dati nell'indice di Ricerca di Azure quando le dimensioni del buffer raggiungono il valore indicato da writeBatchSize. Per informazioni dettagliate, vedere la [proprietà WriteBatchSize](#writebatchsize-property).<br/><br/>I valori consentiti sono: integer da 1 a 1.000; il valore predefinito è 1000. | No |
 
@@ -170,16 +170,16 @@ La tabella seguente indica se un tipo di dati di Ricerca di Azure è supportato 
 
 | Tipo di dati di Ricerca di Azure | Supportato nel sink di Ricerca di Azure |
 | ---------------------- | ------------------------------ |
-| String | S |
-| Int32 | S |
-| Int64 | S |
-| Double | S |
-| Boolean | S |
-| DataTimeOffset | S |
+| String | Y |
+| Int32 | Y |
+| Int64 | Y |
+| Double | Y |
+| Boolean | Y |
+| DataTimeOffset | Y |
 | String Array | N |
 | GeographyPoint | N |
 
-Attualmente, altri tipi di dati, ad esempio ComplexType, non sono supportati. Per un elenco completo dei tipi di dati supportati da Azure Serach, vedere [tipi di dati supportati (ricerca di Azure)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
+Attualmente, altri tipi di dati, ad esempio ComplexType, non sono supportati. Per un elenco completo dei tipi di dati supportati da ricerca di Azure, vedere [tipi di dati supportati (ricerca di Azure)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md##supported-data-stores-and-formats).

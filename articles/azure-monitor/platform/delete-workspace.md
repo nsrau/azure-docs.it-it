@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 09/26/2019
 ms.author: magoedte
-ms.openlocfilehash: f8dcab1a7a46d518b752e48f9886b60a37d8ec4c
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
-ms.translationtype: MT
+ms.openlocfilehash: 4f03fc71a11c1ecb2e96b316efac9249395fc333
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299533"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285536"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Eliminare e ripristinare l'area di lavoro di Azure Log Analytics
 Questo articolo illustra il concetto di eliminazione temporanea dell'area di lavoro di Azure Log Analytics e come ripristinare l'area di lavoro eliminata. 
@@ -41,7 +41,7 @@ L'operazione di eliminazione dell'area di lavoro consente di rimuovere l'area di
 > [!NOTE] 
 > Le soluzioni installate e i servizi collegati come l'account di automazione vengono rimossi definitivamente dall'area di lavoro in fase di eliminazione e non possono essere recuperati. Queste devono essere riconfigurate dopo l'operazione di ripristino per portare l'area di lavoro alla relativa funzionalità precedente. 
 
-È possibile eliminare un'area di lavoro usando [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete)o in [portale di Azure](https://portal.azure.com).
+È possibile eliminare un'area di lavoro usando [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), l' [API REST](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete)o in [portale di Azure](https://portal.azure.com).
 
 ### <a name="delete-workspace-in-azure-portal"></a>Elimina area di lavoro in portale di Azure
 1. Per accedere, passare alla [portale di Azure](https://portal.azure.com). 
@@ -54,11 +54,12 @@ L'operazione di eliminazione dell'area di lavoro consente di rimuovere l'area di
 ## <a name="recover-workspace"></a>Ripristina area di lavoro
 Se si dispone delle autorizzazioni di collaboratore per la sottoscrizione e il gruppo di risorse in cui l'area di lavoro è stata associata prima dell'operazione di eliminazione temporanea, è possibile ripristinarla durante il periodo di eliminazione temporanea, inclusi i dati, la configurazione e gli agenti connessi. Dopo il periodo di eliminazione temporanea, l'area di lavoro non è reversibile e assegnata per l'eliminazione permanente.
 
-Per ripristinare un'area di lavoro, è possibile ricreare l'area di lavoro usando uno dei metodi di creazione supportati: PowerShell, l'interfaccia della riga di comando di Azure o dal portale di Azure finché queste proprietà vengono popolate con i dettagli dell'area di lavoro eliminati, tra cui:
+È possibile ripristinare un'area di lavoro ricreando l'area di lavoro usando [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) o l'area di lavoro [API REST]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) creare i metodi purché queste proprietà vengano popolate con i dettagli dell'area di lavoro eliminati, tra cui:
 1.  ID sottoscrizione
 2.  Nome del gruppo di risorse
 3.  Nome dell'area di lavoro
 4.  Region
 
 > [!NOTE]
-> I nomi delle aree di lavoro eliminate vengono conservati per il periodo di eliminazione temporanea e non possono essere utilizzati durante la creazione di una nuova area di lavoro. I nomi delle aree di lavoro vengono *rilasciati* e disponibili per l'uso per la nuova creazione dell'area di lavoro dopo la scadenza del periodo di eliminazione temporanea.
+> * Il ripristino dell'area di lavoro non è supportato nell' [portale di Azure](https://portal.azure.com). La ricreazione di un'area di lavoro durante il periodo di eliminazione temporanea indica che il nome dell'area di lavoro è già in uso.
+> * I nomi delle aree di lavoro eliminate vengono conservati per il periodo di eliminazione temporanea e non possono essere utilizzati durante la creazione di una nuova area di lavoro.

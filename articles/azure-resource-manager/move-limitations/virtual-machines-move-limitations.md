@@ -4,14 +4,14 @@ description: Usare Azure Resource Manager per spostare le macchine virtuali in u
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 10/10/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7b9cce7ac367f42329e3198c75a7640a205d01fe
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 443d6f2bcbb61d9106b079a4e63c48bb433d19c6
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035533"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286728"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Spostare le linee guida per le macchine virtuali
 
@@ -24,8 +24,9 @@ Non sono ancora supportati gli scenari seguenti:
 * Non è possibile spostare Managed Disks in zone di disponibilità in una sottoscrizione diversa.
 * Non è possibile spostare i set di scalabilità di macchine virtuali con SKU standard Load Balancer o IP pubblico dello SKU standard.
 * Non è possibile spostare da un gruppo di risorse o una sottoscrizione a un'altra macchine virtuali create a partire da risorse Marketplace con piani assegnati. Effettuare il deprovisioning della macchina virtuale nella sottoscrizione corrente e ridistribuirla nella nuova sottoscrizione.
-* Macchine virtuali in una rete virtuale esistente ma non si stanno migrando tutte le risorse nella rete virtuale.
+* Non è possibile spostare le macchine virtuali in una rete virtuale esistente in una nuova sottoscrizione quando non si spostano tutte le risorse nella rete virtuale.
 * Le macchine virtuali con priorità bassa e i set di scalabilità di macchine virtuali con priorità bassa non possono essere spostati tra gruppi di risorse o sottoscrizioni.
+* Non è possibile spostare le macchine virtuali in un set di disponibilità singolarmente.
 
 ## <a name="virtual-machines-with-azure-backup"></a>Macchine virtuali con backup di Azure
 

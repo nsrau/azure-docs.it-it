@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8fbb09ecf09008c25c84a11c7b43dfb26450e30a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: ee7bbff8ab501a1159030a8ee9c57f1c5a64ea22
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338760"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286539"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi Azure Machine Learning
 
@@ -37,7 +37,7 @@ Potrebbe essere necessario eseguire un esperimento contenente solo il set di dat
  
 Prima della correzione, è possibile connettere il set di dati a qualsiasi modulo di trasformazione dati (selezionare le colonne nel set di dati, modificare i metadati, suddividere i dati e così via) ed eseguire l'esperimento. Sarà quindi possibile visualizzare il set di dati. 
 
-Nell'immagine seguente viene illustrato ![come: visulize-data](./media/resource-known-issues/aml-visualize-data.png)
+Nell'immagine seguente viene illustrato come: ![visulize-data @ no__t-1
 
 ## <a name="sdk-installation-issues"></a>Problemi di installazione dell'SDK
 
@@ -73,7 +73,7 @@ Se si osserva `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died wi
 
 Non sarà possibile distribuire i modelli in FPGA fino a quando non viene richiesta e approvata la quota FPGA. Per richiedere l'accesso, compilare il modulo di richiesta della quota: https://aka.ms/aml-real-time-ai
 
-## <a name="automated-machine-learning"></a>Machine Learning automatizzato
+## <a name="automated-machine-learning"></a>Funzionalità automatizzate di Machine Learning
 
 Il flusso tensore automatico Machine Learning non supporta attualmente il flusso tensore versione 1,13. Se si installa questa versione, le dipendenze del pacchetto smetteranno di funzionare. Ci stiamo impegnando per risolvere questo problema in una versione futura. 
 
@@ -101,7 +101,7 @@ Quando si usano le funzionalità automatiche di Machine Learning in Azure Databr
 
 ### <a name="10-iterations-for-automated-machine-learning"></a>> 10 iterazioni per Machine Learning automatizzato
 
-Nelle impostazioni automatiche di Machine Learning, se sono presenti più di 10 iterazioni `show_output` , `False` impostare su quando si invia l'esecuzione.
+Nelle impostazioni automatiche di Machine Learning, se sono presenti più di 10 iterazioni, impostare `show_output` su `False` quando si invia l'esecuzione.
 
 ### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Widget per Azure Machine Learning SDK/Machine Learning automatizzato
 
@@ -128,11 +128,11 @@ Se questi passaggi non risolvono il problema, provare a riavviare il cluster.
 
 ### <a name="failtosendfeather"></a>FailToSendFeather
 
-Se viene visualizzato un `FailToSendFeather` errore durante la lettura dei dati in Azure Databricks cluster, fare riferimento alle soluzioni seguenti:
+Se viene visualizzato un errore `FailToSendFeather` durante la lettura dei dati in Azure Databricks cluster, fare riferimento alle soluzioni seguenti:
 
-* Aggiornare `azureml-sdk[automl_databricks]` il pacchetto alla versione più recente.
-* Aggiungere `azure-dataprep` la versione 1.1.8 o successiva.
-* Aggiungere `pyarrow` la versione 0,11 o successiva.
+* Aggiornare il pacchetto `azureml-sdk[automl_databricks]` alla versione più recente.
+* Aggiungere `azure-dataprep` versione 1.1.8 o successiva.
+* Aggiungere `pyarrow` versione 0,11 o successiva.
 
 ## <a name="azure-portal"></a>Portale di Azure
 
@@ -177,7 +177,7 @@ Se si usa una condivisione file per altri carichi di lavoro, ad esempio il trasf
 
 ## <a name="webservices-in-azure-kubernetes-service-failures"></a>Problemi relativi ai servizi WebService in Azure Kubernetes 
 
-Molti errori WebService nel servizio Azure Kubernetes possono essere sottoposti a debug connettendosi al cluster usando `kubectl`. È possibile ottenere per `kubeconfig.json` un cluster del servizio Kubernetes di Azure eseguendo
+È possibile eseguire il debug di molti errori WebService nel servizio Azure Kubernetes connettendosi al cluster con `kubectl`. È possibile ottenere il `kubeconfig.json` per un cluster del servizio Kubernetes di Azure eseguendo
 
 ```bash
 az aks get-credentials -g <rg> -n <aks cluster name>
@@ -185,7 +185,12 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 ## <a name="updating-azure-machine-learning-components-in-aks-cluster"></a>Aggiornamento dei componenti di Azure Machine Learning nel cluster AKS
 
-È necessario applicare manualmente gli aggiornamenti ai componenti Azure Machine Learning installati in un cluster del servizio Azure Kubernetes. È possibile applicare questi aggiornamenti scollegando il cluster dall'area di lavoro Azure Machine Learning e quindi riconnettendo il cluster all'area di lavoro. Se SSL è abilitato nel cluster, sarà necessario fornire il certificato SSL e la chiave privata quando si riconnette il cluster. 
+È necessario applicare manualmente gli aggiornamenti ai componenti Azure Machine Learning installati in un cluster del servizio Azure Kubernetes. 
+
+> [!WARNING]
+> Prima di eseguire le azioni seguenti, controllare la versione del cluster del servizio Azure Kubernetes. Se la versione del cluster è uguale o maggiore di 1,14, non sarà possibile ricollegare il cluster all'area di lavoro Azure Machine Learning.
+
+È possibile applicare questi aggiornamenti scollegando il cluster dall'area di lavoro Azure Machine Learning e quindi riconnettendo il cluster all'area di lavoro. Se SSL è abilitato nel cluster, sarà necessario fornire il certificato SSL e la chiave privata quando si riconnette il cluster. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
@@ -206,14 +211,14 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-Se non sono più disponibili il certificato SSL e la chiave privata oppure si usa un certificato generato da Azure Machine Learning, è possibile recuperare i file prima di scollegare il cluster connettendosi al cluster usando `kubectl` e recuperando il segreto `azuremlfessl`.
+Se non sono più disponibili il certificato SSL e la chiave privata oppure si usa un certificato generato da Azure Machine Learning, è possibile recuperare i file prima di scollegare il cluster connettendosi al cluster con `kubectl` e recuperando il segreto `azuremlfessl`.
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes archivia i segreti nel formato con codifica base 64. Prima di fornire tali componenti, è necessario decodificare `key.pem` in base 64 i `cert.pem` componenti e dei segreti. `attach_config.enable_ssl` 
+>Kubernetes archivia i segreti nel formato con codifica base 64. Prima di fornire le `attach_config.enable_ssl`, è 64 necessario decodificare i componenti `cert.pem` e `key.pem` dei segreti. 
 
 ## <a name="recommendations-for-error-fix"></a>Suggerimenti per la correzione degli errori
 In base all'osservazione generale, di seguito sono riportate le raccomandazioni di Azure ML per correggere alcuni degli errori comuni in Azure ML.

@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: cbdf4f203204df2d26eb7c908167c1e1ca10d0ab
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: cfa8efe0b73811474b1e50a7d2fb1e9abe9045c6
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264325"
+ms.locfileid: "72286504"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Domande frequenti su Azure Container Registry
 
@@ -420,7 +420,7 @@ Il browser potrebbe non essere in grado di inviare la richiesta di recupero dei 
 * Blocchi ad
 * Errori DNS
 
-Contattare l'amministratore di rete o verificare la configurazione e la connettività di rete. Inoltre, è anche possibile provare una sessione in incognito o privata nel browser per evitare la cache o i cookie del browser obsoleti.
+Contattare l'amministratore di rete o verificare la configurazione e la connettività di rete. Provare a eseguire `az acr check-health -n yourRegistry` usando l'interfaccia della riga di comando di Azure per verificare se l'ambiente in uso è in grado di connettersi al Container Registry. Inoltre, è anche possibile provare una sessione in incognito o privata nel browser per evitare la cache o i cookie del browser obsoleti.
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Ricerca per categorie raccogliere tracce http in Windows?
 

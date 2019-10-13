@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 10/10/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 6cded49f14ae90f84b18c0a37059677c6c1fed99
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 07ca22ee84dc7579d59d95b1c303476f44f8f043
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562797"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286535"
 ---
 # <a name="supported-azure-blockchain-service-ledger-versions"></a>Versioni di Ledger del servizio blockchain di Azure supportate
 
@@ -27,7 +27,7 @@ Attualmente, il servizio Azure blockchain supporta il [quorum versione 2.2.3](ht
 
 Il controllo delle versioni in quorum viene eseguito tramite un rilascio principale, secondario e patch. Se, ad esempio, la versione del quorum è 2.0.1, il tipo di versione verrà categorizzato come indicato di seguito:
 
-|Principale | Secondaria  | Patch  |
+|Major | Minorenne  | Patch  |
 | :--- | :----- | :----- |
 | 2 | 0 | 1 | 
 
@@ -35,7 +35,7 @@ Il servizio Azure blockchain aggiorna automaticamente le versioni delle patch de
 
 ## <a name="availability-of-new-ledger-versions"></a>Disponibilità di nuove versioni del Ledger
 
-Il servizio Azure blockchain fornisce le versioni principali e secondarie più recenti del Ledger del quorum entro 60 giorni dalla disponibilità del produttore del quorum. Quando si effettua il provisioning di un nuovo membro e un consorzio, per i consorzi è possibile scegliere un massimo di quattro versioni secondarie. L'aggiornamento da a una versione principale o secondaria non è al momento supportato.
+Il servizio Azure blockchain fornisce le versioni principali e secondarie più recenti del Ledger del quorum entro 60 giorni dalla disponibilità del produttore del quorum. Quando si effettua il provisioning di un nuovo membro e un consorzio, per i consorzi è possibile scegliere un massimo di quattro versioni secondarie. L'aggiornamento da a una versione principale o secondaria non è al momento supportato. Ad esempio, se si esegue la versione 2. x, un aggiornamento alla versione 3. x non è al momento supportato. Analogamente, se si esegue la versione 2,2, non è attualmente supportato l'aggiornamento alla versione 2,3.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

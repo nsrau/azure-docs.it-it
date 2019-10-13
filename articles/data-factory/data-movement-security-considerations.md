@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b571ba8d259a5e3b3b049ad66d4718e9e85d488b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ca5a98fb4fd0fd07cd0e2557840a2e0aed6901e5
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931261"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285597"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerazioni sulla sicurezza dello spostamento dei dati in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -110,7 +110,7 @@ Il canale di comando consente la comunicazione tra i servizi di spostamento dei 
 ### <a name="on-premises-data-store-credentials"></a>Credenziali dell'archivio dati locale
 Le credenziali possono essere archiviate all'interno data factory o [a cui viene fatto riferimento da Data Factory](store-credentials-in-key-vault.md) durante il runtime da Azure Key Vault. Se si archiviano le credenziali all'interno data factory, questo viene sempre archiviato crittografato nel runtime di integrazione self-hosted. 
  
-- **Archiviare le credenziali in locale**. Se si usa direttamente il cmdlet **set-AzDataFactoryV2LinkedService** con le stringhe di connessione e le credenziali inline in JSON, il servizio collegato viene crittografato e archiviato nel runtime di integrazione self-hosted.  In questo caso, le credenziali passano attraverso il servizio back-end di Azure, che è estremamente sicuro, al computer di integrazione self-hosted in cui viene infine encrpted e archiviato. Il runtime di integrazione self-hosted usa Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) per crittografare i dati sensibili e le informazioni sulle credenziali.
+- **Archiviare le credenziali in locale**. Se si usa direttamente il cmdlet **set-AzDataFactoryV2LinkedService** con le stringhe di connessione e le credenziali inline in JSON, il servizio collegato viene crittografato e archiviato nel runtime di integrazione self-hosted.  In questo caso, le credenziali passano attraverso il servizio back-end di Azure, estremamente sicuro, al computer di integrazione self-hosted in cui viene infine crittografato e archiviato. Il runtime di integrazione self-hosted usa Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) per crittografare i dati sensibili e le informazioni sulle credenziali.
 
 - **Archiviare le credenziali in Azure Key Vault**. È anche possibile archiviare la credenziale dell'archivio dati in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory recupera la credenziale durante l'esecuzione di un'attività. Per altre informazioni, vedere [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) (Archiviare credenziali in Azure Key Vault).
 
@@ -152,24 +152,17 @@ Le immagini seguenti mostrano come usare il runtime di integrazione self-hosted 
 
 ![VPN IPSec con gateway](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a> Configurazioni del firewall e inserimento nell'elenco elementi consentiti degli indirizzi IP
+### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a>Configurazioni del firewall e configurazione dell'elenco Consenti per gli indirizzi IP
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisiti del firewall per la rete locale/privata  
 In un'azienda il firewall aziendale viene eseguito nel router centrale dell'organizzazione. Windows Firewall viene eseguito come daemon nel computer locale in cui è stato installato il runtime di integrazione self-hosted. 
 
 La tabella seguente indica la porta in uscita e i requisiti di dominio per i firewall aziendale:
 
-| Nomi di dominio                  | Porte in uscita | DESCRIZIONE                              |
-| ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net`    | 443            | Richieste dal runtime di integrazione self-hosted per connettersi ai servizi di spostamento dei dati in Data Factory. |
-| `*.frontend.clouddatahub.net` | 443            | Richiesta dal runtime di integrazione self-hosted per connettersi al servizio Data Factory. |
-| `download.microsoft.com`    | 443            | Richiesta dal runtime di integrazione self-hosted per il download degli aggiornamenti. Se è stato disabilitato l'aggiornamento automatico, è possibile ignorare questa impostazione. |
-| `*.core.windows.net`          | 443            | Usata dal runtime di integrazione self-hosted per connettersi all'account di archiviazione di Azure quando si usa la funzionalità di [copia temporanea](copy-activity-performance.md#staged-copy). |
-| `*.database.windows.net`      | 1433           | (Facoltativa) Richiesta quando si esegue la copia da o nel database SQL di Azure o in Azure SQL Data Warehouse. Usare la funzionalità di copia temporanea per copiare i dati nel database SQL di Azure o in Azure SQL Data Warehouse senza aprire la porta 1433. |
-| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (Facoltativa) Richiesta quando si esegue la copia da o in Azure Data Lake Store. |
+[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE] 
-> Potrebbe essere necessario gestire porte o domini di inserimento nell'elenco elementi consentiti a livello del firewall aziendale come richiesto dalle rispettive origini dati. Nella tabella sono riportati solo esempi di database SQL di Azure, Azure SQL Data Warehouse e Azure Data Lake Store.   
+> Potrebbe essere necessario gestire le porte o configurare l'elenco Consenti per i domini a livello di firewall aziendale come richiesto dalle rispettive origini dati. Nella tabella sono riportati solo esempi di database SQL di Azure, Azure SQL Data Warehouse e Azure Data Lake Store.   
 
 Nella tabella seguente vengono indicati i requisiti relativi alla porta in ingresso per Windows Firewall:
 
@@ -179,10 +172,10 @@ Nella tabella seguente vengono indicati i requisiti relativi alla porta in ingre
 
 ![Requisiti relativi alla porta del gateway](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
-#### <a name="ip-configurations-and-whitelisting-in-data-stores"></a>Configurazioni IP e inserimento nell'elenco elementi consentiti negli archivi dati
-Alcuni archivi dati nel cloud richiedono anche di inserire nell'elenco elementi consentiti l'indirizzo IP del computer che accede all'archivio. Assicurarsi che l'indirizzo IP del computer del runtime di integrazione self-hosted sia stato correttamente inserito nell'elenco elementi consentiti o configurato nel firewall.
+#### <a name="ip-configurations-and-allow-list-setting-up-in-data-stores"></a>Configurazioni IP e configurazione dell'elenco Consenti negli archivi dati
+Per alcuni archivi dati nel cloud è anche necessario consentire l'indirizzo IP del computer che accede all'archivio. Verificare che l'indirizzo IP del computer del runtime di integrazione self-hosted sia consentito o configurato nel firewall in modo appropriato.
 
-Gli archivi dati cloud seguenti richiedono di inserire nell'elenco elementi consentiti l'indirizzo IP del computer del runtime di integrazione self-hosted, ma, per impostazione predefinita, alcuni di questi archivi dati potrebbero non richiederlo. 
+Per gli archivi dati cloud seguenti è necessario consentire l'indirizzo IP del computer del runtime di integrazione self-hosted. Per impostazione predefinita, alcuni di questi archivi dati potrebbero non richiedere l'elenco Consenti. 
 
 - [Database SQL di Azure](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -198,7 +191,7 @@ Sì. Altri dettagli sono disponibili [qui](https://azure.microsoft.com/blog/shar
 
 **Quali sono i requisiti delle porte per il corretto funzionamento del runtime di integrazione self-hosted?**
 
-Il runtime di integrazione self-hosted stabilisce connessioni basate su HTTP per accedere a Internet. La porta in uscita 443 deve essere aperta per permettere al runtime di integrazione self-hosted di stabilire una connessione. Aprire la porta in ingresso 8060 solo a livello di computer (non a livello di firewall aziendale) per l'applicazione di gestione delle credenziali. Se si usa il database SQL di Azure o Azure SQL Data Warehouse come origine o destinazione, è necessario aprire anche la porta 1433. Per altre informazioni, vedere la sezione [Configurazioni del firewall e inserimento nell'elenco elementi consentiti degli indirizzi IP](#firewall-configurations-and-whitelisting-ip-address-of-gateway). 
+Il runtime di integrazione self-hosted stabilisce connessioni basate su HTTP per accedere a Internet. La porta in uscita 443 deve essere aperta per permettere al runtime di integrazione self-hosted di stabilire una connessione. Aprire la porta in ingresso 8060 solo a livello di computer (non a livello di firewall aziendale) per l'applicazione di gestione delle credenziali. Se si usa il database SQL di Azure o Azure SQL Data Warehouse come origine o destinazione, è necessario aprire anche la porta 1433. Per ulteriori informazioni, vedere la sezione [configurazioni del firewall e configurazione dell'elenco Consenti per gli indirizzi IP](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) . 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

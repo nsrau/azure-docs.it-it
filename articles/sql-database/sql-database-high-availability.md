@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 06/10/2019
-ms.openlocfilehash: 226b0c1cb11fc872cb7759e0d0e49275b9c2d9bf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: MT
+ms.openlocfilehash: 54994dd626df23694ea372d4a662d2b4fb051fc8
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568141"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285769"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Disponibilità elevata e database SQL di Azure
 
@@ -39,7 +39,7 @@ Questi livelli di servizio sfruttano l'architettura di disponibilità standard. 
 
 Il modello di disponibilità standard include due livelli:
 
-- Livello di calcolo senza stato che esegue il `sqlserver.exe` processo e contiene solo dati temporanei e memorizzati nella cache sull'unità SSD collegata, ad esempio tempdb, database modello, cache dei piani, pool di buffer e pool di archiviazione colonne. Questo nodo senza stato viene gestito da Azure Service fabric che `sqlserver.exe`Inizializza, controlla l'integrità del nodo ed esegue il failover in un altro nodo, se necessario.
+- Livello di calcolo senza stato che esegue il processo `sqlserver.exe` e contiene solo dati temporanei e memorizzati nella cache sull'unità SSD collegata, ad esempio TempDB, database modello, cache dei piani, pool di buffer e pool di archiviazione colonne. Questo nodo senza stato viene gestito da Azure Service Fabric che Inizializza `sqlserver.exe`, controlla l'integrità del nodo ed esegue il failover in un altro nodo, se necessario.
 - Un livello dati con stato con i file di database (con estensione MDF/ldf) archiviati nell'archivio BLOB di Azure. Archiviazione BLOB di Azure include funzionalità integrate di disponibilità e ridondanza dei dati. Garantisce che tutti i record nel file di log o nella pagina del file di dati verranno conservati anche se SQL Server processo si arresta in modo anomalo.
 
 Ogni volta che il motore di database o il sistema operativo viene aggiornato o viene rilevato un errore, Azure Service Fabric sposterà il processo di SQL Server senza stato in un altro nodo di calcolo senza stato con capacità sufficiente. I dati nell'archivio BLOB di Azure non sono interessati dallo spostamento e i file di dati e di log vengono associati al processo di SQL Server appena inizializzato. Questo processo garantisce una disponibilità del 99,99%, ma un carico di lavoro elevato può subire un calo delle prestazioni durante la transizione, perché la nuova istanza di SQL Server inizia con la cache a freddo.
@@ -54,14 +54,15 @@ I file di database sottostanti (con estensione MDF/ldf) vengono inseriti nell'ar
 
 Come vantaggio aggiuntivo, il modello di disponibilità Premium include la possibilità di reindirizzare le connessioni SQL di sola lettura a una delle repliche secondarie. Questa funzionalità è chiamata [scalabilità in lettura](sql-database-read-scale-out.md). Offre una capacità di calcolo aggiuntiva del 100% senza costi aggiuntivi per le operazioni di sola lettura non caricate, ad esempio i carichi di lavoro analitici, dalla replica primaria.
 
-## <a name="zone-redundant-configuration"></a>Configurazione con ridondanza della zona
+### <a name="zone-redundant-configuration"></a>Configurazione con ridondanza della zona
 
-Per impostazione predefinita, il cluster di nodi per il modello di disponibilità Premium viene creato nello stesso data center. Con l'introduzione di [zone di disponibilità di Azure](../availability-zones/az-overview.md), il database SQL può inserire diverse repliche nel cluster a diverse zone di disponibilità nella stessa area. Per eliminare un singolo punto di guasto, viene duplicato anche l'anello di controllo in più zone come tre anelli gateway. Il routing a un anello gateway specifico è controllato da [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md). Poiché la configurazione con ridondanza della zona nei livelli di servizio Premium o business critical non crea ridondanza aggiuntiva del database, è possibile abilitarla senza costi aggiuntivi. Selezionando una configurazione con ridondanza della zona, è possibile rendere i database Premium o business critical resilienti a un set molto più ampio di errori, incluse interruzioni irreversibili del Data Center, senza apportare modifiche alla logica dell'applicazione. È anche possibile convertire qualsiasi pool o database premium o business critical alla configurazione con ridondanza della zona.
+Per impostazione predefinita, il cluster di nodi per il modello di disponibilità Premium viene creato nello stesso data center. Con l'introduzione di [zone di disponibilità di Azure](../availability-zones/az-overview.md), il database SQL può inserire repliche diverse del database di business critical a diverse zone di disponibilità nella stessa area. Per eliminare un singolo punto di guasto, viene duplicato anche l'anello di controllo in più zone come tre anelli gateway. Il routing a un anello gateway specifico è controllato da [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md). Poiché la configurazione con ridondanza della zona nei livelli di servizio Premium o business critical non crea ridondanza aggiuntiva del database, è possibile abilitarla senza costi aggiuntivi. Selezionando una configurazione con ridondanza della zona, è possibile rendere i database Premium o business critical resilienti a un set molto più ampio di errori, incluse interruzioni irreversibili del Data Center, senza apportare modifiche alla logica dell'applicazione. È anche possibile convertire qualsiasi pool o database premium o business critical alla configurazione con ridondanza della zona.
 
 Poiché i database con ridondanza della zona hanno repliche in data center diversi con una certa distanza tra di essi, la latenza di rete aumentata può aumentare il tempo di commit e quindi influisca sulle prestazioni di alcuni carichi di lavoro OLTP. È sempre possibile tornare alla configurazione a singola zona disabilitando l'impostazione di ridondanza della zona. Questo processo è un'operazione online simile al normale aggiornamento del livello di servizio. Al termine del processo, viene eseguita la migrazione del database o del pool da un anello con ridondanza della zona a un anello a singola zona o viceversa.
 
 > [!IMPORTANT]
 > I database con ridondanza della zona e i pool elastici sono attualmente supportati solo nei livelli di servizio Premium e business critical in aree selezionate. Quando si usa il livello di business critical, la configurazione con ridondanza della zona è disponibile solo quando è selezionato l'hardware di calcolo quinta generazione. Per informazioni aggiornate sulle aree che supportano i database con ridondanza della zona, vedere [supporto dei servizi in base all'area](../availability-zones/az-overview.md#services-support-by-region).  
+> Questa funzionalità non è disponibile nell'istanza gestita.
 
 La versione con ridondanza della zona dell'architettura a disponibilità elevata è illustrata nel diagramma seguente:
 

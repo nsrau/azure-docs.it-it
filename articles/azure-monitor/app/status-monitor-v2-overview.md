@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: tilee
-ms.openlocfilehash: 3060659c5f870be60f1ac02e432dd0a8333f0900
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 7f045a95bcc9d5a61b26036e14e050a597347d1a
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057842"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286438"
 ---
 # <a name="status-monitor-v2"></a>Status Monitor v2
 
@@ -28,7 +28,7 @@ I dati di telemetria vengono inviati all'portale di Azure, in cui è possibile [
 
 ## <a name="powershell-gallery"></a>PowerShell Gallery
 
-Status Monitor V2 è disponibile qui: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+Status Monitor V2 si trova qui: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
 
 ![PowerShell Gallery](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
@@ -56,17 +56,13 @@ Status Monitor V2 è disponibile qui: https://www.powershellgallery.com/packages
 
 - Status Monitor V2 supporta le installazioni proxy?
 
-  *Sì*. Sono disponibili diversi modi per scaricare Status Monitor V2. Se il computer dispone di accesso a Internet, è possibile eseguire l'onboarding `-Proxy` nel PowerShell Gallery usando i parametri.
+  *Sì*. Sono disponibili diversi modi per scaricare Status Monitor V2. Se il computer dispone di accesso a Internet, è possibile eseguire l'onboarding nel PowerShell Gallery usando i parametri `-Proxy`.
 È anche possibile scaricare manualmente il modulo e installarlo nel computer o usarlo direttamente.
 Ognuna di queste opzioni è descritta nelle [istruzioni dettagliate](status-monitor-v2-detailed-instructions.md).
 
 - Status Monitor V2 supporta le applicazioni ASP.NET Core?
 
   *No*. Per istruzioni sull'abilitazione del monitoraggio delle applicazioni ASP.NET Core, vedere [Application Insights per ASP.NET Core applicazioni](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core). Non è necessario installare StatusMonitor per un'applicazione ASP.NET Core. Questo vale anche se ASP.NET Core applicazione è ospitata in IIS.
-  
-Status Monitor V2 supporta le applicazioni ASP.NET Core? 
-
-  *No*. Seguire [queste](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) istruzioni per abilitare il monitoraggio per le applicazioni ASP.NET Core. Non è necessario installare StatusMonitor per un'applicazione ASP.NET Core. Questo vale anche se ASP.NET Core applicazione è ospitata in IIS.
 
 - Ricerca per categorie verificare l'esito positivo dell'abilitazione?
 
@@ -90,6 +86,6 @@ Visualizzare i dati di telemetria:
 Aggiungere altri dati di telemetria:
 
 * [Creare test Web](monitor-web-app-availability.md) per assicurarsi che il sito rimanga attivo.
-* Aggiungere i dati di telemetria del [client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e per abilitare le chiamate di traccia.
+* Aggiungere i dati di [telemetria del client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e per abilitare le chiamate di traccia.
 * [Aggiungere il Application Insights SDK al codice per](../../azure-monitor/app/asp-net.md) poter inserire le chiamate di traccia e log.
 

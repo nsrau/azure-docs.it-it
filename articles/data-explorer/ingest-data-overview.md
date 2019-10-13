@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: be77ae932ec72239bea04fce298d7f1b84e5e4d8
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 35d3451327a0ce7bcaf567f93c48d532842b4f25
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240640"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285924"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Inserimento dati in Esplora dati di Azure
 
@@ -119,7 +119,7 @@ Per le organizzazioni con un'infrastruttura esistente basata su un servizio di m
 
 Per tutti i metodi di inserimento diversi dall'inserimento da query, formattare i dati in modo che Esplora dati di Azure possa analizzarli. Sono supportati i formati di dati seguenti:
 
-* CSV, TSV, TSVE, PSV, SCSV, RAPPORTO DI INTEGRITÀ
+* TXT, CSV, TSV, TSVE, PSV, SCSV, SOH
 * JSON (separato da righe, multiriga), Avro
 * ZIP e GZIP 
 

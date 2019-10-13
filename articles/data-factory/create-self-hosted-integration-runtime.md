@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: be59f5fd34c52397b54146a8aeaf51f4d594452f
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 8ea6a365b0c7bc6c254c1313445bb54231e161ae
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383359"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285637"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per distribuire le funzionalità di integrazione di dati in ambienti di rete diversi. Per informazioni dettagliate sul runtime di integrazione, vedere [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md).
@@ -82,7 +82,7 @@ Di seguito viene indicato un flusso di dati generale per il riepilogo dei passag
 - Le attività di copia vengono eseguite con una frequenza specifica e di conseguenza l'uso delle risorse, ovvero CPU e memoria, nel computer segue lo stesso schema costituito da periodi di picco alternati a periodi di inattività. L'utilizzo delle risorse dipende molto anche dalla quantità di dati da spostare. Quando sono in corso più processi di copia, l'utilizzo delle risorse aumenta durante i periodi di picco.
 - Le attività possono avere esito negativo se si estraggono dati in formati parquet, ORC o avro. La creazione del file viene eseguita nel computer di integrazione self-hosted e richiede i seguenti prerequisiti per funzionare come previsto (vedere il [formato parquet in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime)).
     - [Visual C++ 2010 Redistributable](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Package (x64)
-    - Java Runtime (JRE) versione 8 da un provider JRE, ad esempio [Adopt OpenJDK](https://adoptopenjdk.net/), assicurando che sia impostata la `JAVA_HOME` variabile di ambiente.
+    - Java Runtime (JRE) versione 8 da un provider JRE, ad esempio [Adopt OpenJDK](https://adoptopenjdk.net/), assicurando che sia impostata la variabile di ambiente `JAVA_HOME`.
 
 ## <a name="installation-best-practices"></a>Procedure consigliate per l'installazione
 Per installare il runtime di integrazione self-hosted, è possibile scaricare un pacchetto di installazione MSI nell'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Vedere l'[articolo sullo spostamento di dati tra origini locali e cloud](tutorial-hybrid-copy-powershell.md) per le istruzioni dettagliate.
@@ -132,16 +132,16 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
  *Dettagli (parametri/proprietà):* 
 
-| Proprietà                                                    | Descrizione                                                  | Obbligatoria |
+| Proprietà                                                    | Descrizione                                                  | Obbligatorio |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | RegisterNewNode "`<AuthenticationKey>`"                     | Registra Integration Runtime (self-hosted) nodo con la chiave di autenticazione specificata | No       |
 | EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | Abilitare l'accesso remoto nel nodo corrente per configurare un cluster a disponibilità elevata e/o abilitare l'impostazione delle credenziali direttamente sul runtime di integrazione self-hosted (senza passare attraverso il servizio ADF) utilizzando  **Cmdlet New-AzDataFactoryV2LinkedServiceEncryptedCredential** da un computer remoto nella stessa rete. | No       |
-| EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | Abilitare l'accesso remoto al nodo corrente quando il nodo è in esecuzione nel contenitore | No       |
+| EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | Abilita l'accesso remoto al nodo corrente quando il nodo è in esecuzione in Container | No       |
 | DisableRemoteAccess                                         | Disabilitare l'accesso remoto al nodo corrente. L'accesso remoto è necessario per la configurazione a più nodi. Il cmdlet di PowerShell New-**AzDataFactoryV2LinkedServiceEncryptedCredential** funziona ancora anche quando l'accesso remoto è disabilitato purché venga eseguito nello stesso computer del nodo IR self-hosted. | No       |
 | Chiave "`<AuthenticationKey>`"                                 | Sovrascrivere/aggiornare la chiave di autenticazione precedente. Prestare attenzione perché questo può comportare la disconnessione del nodo IR indipendente precedente, se la chiave è un nuovo runtime di integrazione. | No       |
-| GenerateBackupFile "`<filePath>``<password>`" "            | Genera file di backup per il nodo corrente, il file di backup include la chiave del nodo e le credenziali dell'archivio dati | No       |
-| ImportBackupFile "`<filePath>``<password>`" "              | Ripristinare il nodo da un file di backup                          | No       |
-| Riavvia                                                     | Riavviare il servizio Host Integration Runtime (self-hosted)   | No       |
+| GenerateBackupFile "`<filePath>`" "`<password>`"            | Genera file di backup per il nodo corrente, il file di backup include la chiave del nodo e le credenziali dell'archivio dati | No       |
+| ImportBackupFile "`<filePath>`" "`<password>`"              | Ripristina il nodo da un file di backup                          | No       |
+| Riavvio                                                     | Riavviare il servizio Host Integration Runtime (self-hosted)   | No       |
 | Start                                                       | Avviare il servizio Host Integration Runtime (self-hosted)     | No       |
 | Arresto                                                        | Arrestare il servizio di aggiornamento Integration Runtime (self-hosted)        | No       |
 | StartUpgradeService                                         | Avvia Integration Runtime (self-hosted) servizio di aggiornamento       | No       |
@@ -149,7 +149,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 | TurnOnAutoUpdate                                            | Attiva Integration Runtime (self-hosted) aggiornamento automatico        | No       |
 | TurnOffAutoUpdate                                           | Disattiva Integration Runtime (self-hosted) aggiornamento automatico       | No       |
 | SwitchServiceAccount "< dominio\utente >" ["password"]           | Impostare DIAHostService per l'esecuzione come nuovo account. Usa password vuota ("") per account di sistema o account virtuale | No       |
-| LogLevel`<logLevel>`                                       | Impostare il livello di registrazione ETW (disattivato, errore, Verbose o tutti). Utilizzato generalmente dal supporto tecnico Microsoft durante il debug. | No       |
+| LogLevel `<logLevel>`                                       | Impostare il livello di registrazione ETW (disattivato, errore, Verbose o tutti). Utilizzato generalmente dal supporto tecnico Microsoft durante il debug. | No       |
 
    
 
@@ -267,19 +267,15 @@ Se si sposta il cursore sul messaggio di notifica o sull'icona nell'area di noti
 
 A livello di *firewall aziendale* è necessario configurare le porte in uscita e i domini seguenti:
 
-Nomi di dominio | Porte | DESCRIZIONE
------------- | ----- | ------------
-*.servicebus.windows.net | 443 | Usato per la comunicazione con il servizio di spostamento di dati back-end
-*.core.windows.net | 443 | Usato per la copia di gestione temporanea tramite Archiviazione BLOB di Azure (se configurata)
-*.frontend.clouddatahub.net | 443 | Usato per la comunicazione con il servizio di spostamento di dati back-end
-download.microsoft.com | 443 | Utilizzato per il download di aggiornamenti
+[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
+
 
 A livello di *Windows Firewall* (nel computer) queste porte in uscita sono in genere abilitate. In caso contrario, è possibile configurare le porte e i domini nel modo appropriato in un computer del runtime di integrazione self-hosted.
 
 > [!NOTE]
-> In base all'origine oppure ai sink, potrebbe essere necessario consentire altri domini e porte in uscita nel firewall aziendale o in Windows Firewall.
+> In base all'origine e ai sink, potrebbe essere necessario consentire altri domini e porte in uscita nel firewall aziendale o in Windows Firewall.
 >
-> Per alcuni database cloud, ad esempio, database SQL di Azure, Azure Data Lake e così via, potrebbe essere necessario consentire gli indirizzi IP del computer del runtime di integrazione self-hosted nella configurazione del firewall.
+> Per alcuni database cloud (ad esempio, database SQL di Azure e Azure Data Lake), potrebbe essere necessario consentire gli indirizzi IP dei computer del runtime di integrazione self-hosted nella configurazione del firewall.
 
 ### <a name="copy-data-from-a-source-to-a-sink"></a>Copiare i dati da un'origine a un sink
 Verificare che le regole del firewall siano abilitate correttamente per il firewall aziendale, per Windows Firewall nel computer del runtime di integrazione self-hosted e per l'archivio dati stesso, per poter consentire al runtime di integrazione self-hosted di connettersi all'origine e al sink. Abilitare le regole per ogni archivio dati interessato dall'operazione di copia.
@@ -360,7 +356,7 @@ Se si seleziona l'impostazione **Usa il proxy di sistema** per il proxy HTTP, il
 > [!IMPORTANT]
 > Non dimenticare di aggiornare entrambi i file diahost.exe.config e diawp.exe.config.
 
-È anche necessario verificare che Microsoft Azure sia presente nell'elenco elementi consentiti dell'azienda. È possibile scaricare l'elenco di indirizzi IP validi per Microsoft Azure nell'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+È anche necessario assicurarsi che Microsoft Azure sia presente nell'elenco Consenti della società. È possibile scaricare l'elenco di indirizzi IP validi per Microsoft Azure nell'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Possibili sintomi di problemi correlati al firewall e al server proxy
 Se si verificano errori analoghi ai seguenti, potrebbero essere causati da una configurazione non corretta del firewall o del server proxy, che impedisce al runtime di integrazione self-hosted di connettersi a Data Factory per l'autenticazione. Per verificare che la configurazione del firewall e del server proxy sia corretta, vedere la sezione precedente.

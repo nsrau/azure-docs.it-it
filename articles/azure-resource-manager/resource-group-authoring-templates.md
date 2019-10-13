@@ -4,14 +4,14 @@ description: Descrive la struttura e le proprietà dei modelli di Azure Resource
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: b6d479935bc9e4bd731b93d3e027644b9ca4dbe0
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: e5ef3dcd7c2eec08237d5eb31fb95a0e450d9ac9
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694970"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286709"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendere la struttura e la sintassi dei modelli di Azure Resource Manger
 
@@ -36,7 +36,7 @@ La struttura più semplice di un modello è costituita dagli elementi seguenti:
 }
 ```
 
-| Nome dell'elemento | Richiesto | Descrizione |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--- |:--- |:--- |
 | $schema |Yes |Percorso del file di schema JSON che descrive la versione del linguaggio del modello.<br><br> Per le distribuzioni del gruppo di risorse, usare: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Per le distribuzioni della sottoscrizione, usare: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Yes |Versione del modello (ad esempio 1.0.0.0). Questo elemento accetta tutti i valori. Usare questo valore per documentare le modifiche significative al modello. Quando si distribuiscono risorse tramite il modello, è possibile usare questo valore per assicurarsi che venga usato il modello corretto. |
@@ -66,13 +66,13 @@ Le proprietà disponibili per un parametro sono:
     "minLength": <minimum-length-for-string-or-array>,
     "maxLength": <maximum-length-for-string-or-array-parameters>,
     "metadata": {
-      "description": "<description-of-the parameter>" 
+      "description": "<description-of-the parameter>"
     }
   }
 }
 ```
 
-| Nome dell'elemento | Richiesto | Descrizione |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--- |:--- |:--- |
 | Nome parametro |Yes |Nome del parametro. Deve essere un identificatore JavaScript valido. |
 | type |Yes |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **securestring**, **int**, **bool**, **object**, **secureObject** e **array**. Vedere [tipi di dati](#data-types). |
@@ -98,7 +98,7 @@ Non è possibile leggere stringhe protette e oggetti protetti dopo la distribuzi
 
 Per esempi di formattazione dei tipi di dati, vedere [formati di tipo di parametro](resource-manager-parameter-files.md#parameter-type-formats).
 
-## <a name="variables"></a>Variabili
+## <a name="variables"></a>variables
 
 Nella sezione variables è possibile costruire valori da usare in tutto il modello. Non è obbligatorio definire le variabili. Queste tuttavia consentono spesso di semplificare il modello, riducendo le espressioni complesse.
 
@@ -107,8 +107,8 @@ Nell'esempio seguente vengono illustrate le opzioni disponibili per la definizio
 ```json
 "variables": {
   "<variable-name>": "<variable-value>",
-  "<variable-name>": { 
-    <variable-complex-type-value> 
+  "<variable-name>": {
+    <variable-complex-type-value>
   },
   "<variable-object-name>": {
     "copy": [
@@ -129,7 +129,7 @@ Nell'esempio seguente vengono illustrate le opzioni disponibili per la definizio
 }
 ```
 
-Per informazioni sull'uso `copy` di per creare più valori per una variabile, vedere [iterazione delle variabili](resource-group-create-multiple.md#variable-iteration).
+Per informazioni sull'uso di `copy` per creare più valori per una variabile, vedere [iterazione delle variabili](resource-group-create-multiple.md#variable-iteration).
 
 Per esempi relativi all'uso delle variabili, vedere [variabili nel modello di Azure Resource Manager](template-variables.md).
 
@@ -167,10 +167,10 @@ Quando si crea una funzione definita dall'utente, è necessario tenere presente 
 ],
 ```
 
-| Nome dell'elemento | Richiesto | Descrizione |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--- |:--- |:--- |
-| spazio-dei-nomi |Yes |Spazio dei nomi per le funzioni personalizzate. Usare per evitare conflitti di denominazione con le funzioni di modello. |
-| Nome funzione |Yes |Nome della funzione personalizzata. Quando si chiama la funzione, combinare il nome della funzione con lo spazio dei nomi. Ad esempio, per chiamare una funzione denominata UniqueName nello spazio dei nomi contoso, `"[contoso.uniqueName()]"`usare. |
+| namespace |Yes |Spazio dei nomi per le funzioni personalizzate. Usare per evitare conflitti di denominazione con le funzioni di modello. |
+| Nome funzione |Yes |Nome della funzione personalizzata. Quando si chiama la funzione, combinare il nome della funzione con lo spazio dei nomi. Ad esempio, per chiamare una funzione denominata UniqueName nello spazio dei nomi contoso, utilizzare `"[contoso.uniqueName()]"`. |
 | Nome parametro |No |Nome del parametro da usare all'interno della funzione personalizzata. |
 | valore parametro |No |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **securestring**, **int**, **bool**, **object**, **secureObject** e **array**. |
 | tipo di output |Yes |Tipo del valore di output. I valori di output supportano gli stessi tipi dei parametri di input della funzione. |
@@ -238,7 +238,7 @@ Le risorse vengono definite con la struttura seguente:
 ]
 ```
 
-| Nome dell'elemento | Richiesto | Descrizione |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--- |:--- |:--- |
 | condizione | No | Valore booleano che indica se verrà eseguito il provisioning della risorsa durante questa distribuzione. Se `true`, la risorsa viene creata durante la distribuzione. Se `false`, la risorsa viene ignorata per questa distribuzione. Vedere [Condition](conditional-resource-deployment.md). |
 | apiVersion |Yes |Versione dell'API REST da utilizzare per la creazione della risorsa. Per determinare i valori disponibili, vedere [riferimento ai modelli](/azure/templates/). |
@@ -247,13 +247,13 @@ Le risorse vengono definite con la struttura seguente:
 | location |Variabile |Aree geografiche supportate della risorsa specificata. È possibile selezionare qualsiasi località disponibile, ma è in genere opportuno sceglierne una vicina agli utenti. Di solito è anche opportuno inserire le risorse che interagiscono tra loro nella stessa area. La maggior parte dei tipi di risorsa richiede una posizione, ma alcuni tipi (ad esempio un'assegnazione di ruolo) non la richiedono. Vedere [set Resource Location](resource-location.md). |
 | tags |No |Tag associati alla risorsa. Applicare i tag per organizzare in modo logico le risorse nella sottoscrizione. |
 | commenti |No |Le note per documentare le risorse nel modello. Per altre informazioni, consultare la sezione [Commenti in template](resource-group-authoring-templates.md#comments). |
-| copia |No |Numero di risorse da creare, se sono necessarie più istanze. La modalità predefinita è parallela. Specificare la modalità seriale quando si desidera che non tutte le risorse vengano distribuite contemporaneamente. Per altre informazioni, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md). |
+| copy |No |Numero di risorse da creare, se sono necessarie più istanze. La modalità predefinita è parallela. Specificare la modalità seriale quando si desidera che non tutte le risorse vengano distribuite contemporaneamente. Per altre informazioni, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |No |Risorse da distribuire prima della distribuzione di questa risorsa. Resource Manager valuta le dipendenze tra le risorse e le distribuisce nell'ordine corretto. Quando le risorse non sono interdipendenti, vengono distribuite in parallelo. Il valore può essere un elenco delimitato da virgole di nomi o identificatori univoci di risorse. Elencare solo le risorse distribuite in questo modello. Le risorse non definite in questo modello devono essere già esistenti. Evitare di aggiungere dipendenze non necessarie perché possono rallentare la distribuzione e creare dipendenze circolari. Per indicazioni sull'impostazione delle dipendenze, vedere l'articolo relativo alla [definizione delle dipendenze nei modelli di Azure Resource Manager](resource-group-define-dependencies.md). |
-| proprietà |No |Impostazioni di configurazione specifiche delle risorse. I valori per l'elemento properties corrispondono esattamente a quelli specificati nel corpo della richiesta per l'operazione API REST (metodo PUT) per creare la risorsa. È inoltre possibile specificare una matrice di copia per creare diverse istanze di una proprietà. Per determinare i valori disponibili, vedere [riferimento ai modelli](/azure/templates/). |
+| properties |No |Impostazioni di configurazione specifiche delle risorse. I valori per l'elemento properties corrispondono esattamente a quelli specificati nel corpo della richiesta per l'operazione API REST (metodo PUT) per creare la risorsa. È inoltre possibile specificare una matrice di copia per creare diverse istanze di una proprietà. Per determinare i valori disponibili, vedere [riferimento ai modelli](/azure/templates/). |
 | sku | No | Alcune risorse consentono valori che definiscono lo SKU da distribuire. Ad esempio, è possibile specificare il tipo di ridondanza per un account di archiviazione. |
-| tipologia | No | Alcune risorse consentono un valore che definisce il tipo di risorsa distribuito. Ad esempio, è possibile specificare il tipo di Cosmos DB da creare. |
-| piano | No | Alcune risorse consentono valori che definiscono il piano da distribuire. Ad esempio, è possibile specificare l'immagine del marketplace per una macchina virtuale. | 
-| risorse |No |Risorse figlio che dipendono dalla risorsa in via di definizione. Specificare solo tipi di risorsa consentiti dallo schema della risorsa padre. La dipendenza dalla risorsa padre non è implicita. È necessario definirla in modo esplicito. Vedere [Impostare il nome e il tipo per le risorse figlio](child-resource-name-type.md). |
+| kind | No | Alcune risorse consentono un valore che definisce il tipo di risorsa distribuito. Ad esempio, è possibile specificare il tipo di Cosmos DB da creare. |
+| piano | No | Alcune risorse consentono valori che definiscono il piano da distribuire. Ad esempio, è possibile specificare l'immagine del marketplace per una macchina virtuale. |
+| resources |No |Risorse figlio che dipendono dalla risorsa in via di definizione. Specificare solo tipi di risorsa consentiti dallo schema della risorsa padre. La dipendenza dalla risorsa padre non è implicita. È necessario definirla in modo esplicito. Vedere [Impostare il nome e il tipo per le risorse figlio](child-resource-name-type.md). |
 
 ## <a name="outputs"></a>Output
 
@@ -271,7 +271,7 @@ L'esempio seguente illustra la struttura di una definizione di output:
 }
 ```
 
-| Nome dell'elemento | Richiesto | Descrizione |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--- |:--- |:--- |
 | nome di output |Yes |Nome del valore di output. Deve essere un identificatore JavaScript valido. |
 | condizione |No | Valore booleano che indica se questo valore di output viene restituito. Quando è `true`, il valore è incluso nell'output per la distribuzione. Quando è `false`, il valore dell'output viene ignorato per questa distribuzione. Quando non è specificato, il valore predefinito è `true`. |
@@ -355,7 +355,10 @@ Per **outputs**, aggiungere un oggetto metadata al valore di output.
 
 Non è possibile aggiungere un oggetto metadata alle funzioni definite dall'utente.
 
-Per i commenti inline, è possibile usare `//`, ma questa sintassi non funziona con tutti gli strumenti. Non è possibile usare l'interfaccia della riga di comando di Azure per distribuire il modello con commenti inline. Inoltre, non è possibile usare l'editor dei modelli del portale per operare sui modelli con commenti inline. Se si aggiunge questo stile di commento, assicurarsi che gli strumenti usati supportino i commenti JSON inline.
+Per i commenti inline, è possibile usare `//` o `/* ... */`, ma questa sintassi non funziona con tutti gli strumenti. Non è possibile usare l'editor dei modelli del portale per lavorare con i modelli con commenti inline. Se si aggiunge questo stile di commento, assicurarsi che gli strumenti usati supportino i commenti JSON inline.
+
+> [!NOTE]
+> Per distribuire modelli con commenti usando l'interfaccia della riga di comando di Azure, è necessario usare l'opzione `--handle-extended-json-format`.
 
 ```json
 {
@@ -363,7 +366,7 @@ Per i commenti inline, è possibile usare `//`, ma questa sintassi non funziona 
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[parameters('location')]", //defaults to resource group location
   "apiVersion": "2018-10-01",
-  "dependsOn": [ // storage account and network interface must be deployed first
+  "dependsOn": [ /* storage account and network interface must be deployed first */
     "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
     "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
   ],
@@ -376,6 +379,30 @@ In Visual Studio Code è possibile impostare la modalità linguaggio su JSON con
 1. Selezionare **JSON with Comments** (JSON con commenti).
 
    ![Selezionare la modalità linguaggio](./media/resource-group-authoring-templates/select-json-comments.png)
+
+## <a name="multi-line-strings"></a>Stringhe a più righe
+
+È possibile suddividere una stringa in più righe. Ad esempio la proprietà Location e uno dei commenti nell'esempio JSON seguente.
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[
+    parameters('location')
+    ]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  /*
+    storage account and network interface
+    must be deployed first
+  */
+  "dependsOn": [
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
+```
+
+Per distribuire modelli con stringhe a più righe usando l'interfaccia della riga di comando di Azure, è necessario usare l'opzione `--handle-extended-json-format`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 10/13/2019
 ms.author: rkarlin
-ms.openlocfilehash: b3ca93d9e70456d25d5f78b2ca1fde8e4ea24f8d
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 5142204db86158937c16d19bf52fb677099598a5
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240209"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72284652"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Connettere l'appliance Barracuda 
 
@@ -37,10 +37,7 @@ Barracuda Web Application Firewall può integrare ed esportare i log direttament
 1. Passare a [Barracuda WAF Configuration Flow](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)e seguire le istruzioni per configurare la connessione, usando i parametri seguenti:
     - **ID area di lavoro**: copiare il valore dell'ID dell'area di lavoro dalla pagina del connettore Azure Sentinel Barracuda.
     - **Chiave primaria**: copiare il valore della chiave primaria dalla pagina del connettore Azure Sentinel Barracuda.
-2. Nel portale di Sentinel di Azure passare all'area di lavoro in cui è stato distribuito Azure Sentinel e selezionare i puntini di sospensione (...) alla fine della riga e selezionare **Impostazioni avanzate**. 
-1. Selezionare **dati** e quindi **syslog**.
-1. Verificare che la funzionalità impostata in Barracuda esista e impostare la gravità e fare clic su **Save (Salva**).
-6. Per usare lo schema pertinente in Log Analytics per gli eventi Barracuda, cercare **CommonSecurityLog** e **barracuda_CL**.
+1. Per usare lo schema pertinente in Log Analytics per gli eventi Barracuda, cercare **CommonSecurityLog** e **barracuda_CL**.
 
 
 ## <a name="validate-connectivity"></a>Convalidare la connettività

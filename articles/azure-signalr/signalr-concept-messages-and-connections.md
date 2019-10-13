@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: e82ce8f5c97aed7e2cb832d8e808ff84691f7c9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2785d85db47ed3b214044e673566a2837b83e984
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61401203"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285498"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Messaggi e connessioni in Servizio Azure SignalR
 
@@ -42,13 +42,15 @@ Il conteggio dei messaggi visualizzato nel portale di Azure rimane 0 finché non
 
 ## <a name="how-connections-are-counted"></a>Come vengono conteggiate le connessioni
 
-Esistono le connessioni server e le connessioni client. Per impostazione predefinita, ogni server applicazioni ha cinque connessioni per hub con Servizio Azure SignalR e ogni client ha una connessione client con Servizio Azure SignalR.
+Sono disponibili connessioni al server e client con il servizio Azure SignalR. Per impostazione predefinita, ogni server applicazioni inizia con cinque connessioni iniziali per hub e ogni client dispone di una connessione client.
 
 Il conteggio delle connessioni visualizzato nel portale di Azure include sia le connessioni server che quelle client.
 
 Si supponga, ad esempio, di avere due server applicazioni e di definire cinque hub nel codice. Le connessioni server sono 50: 2 server applicazioni * 5 hub * 5 connessioni per hub.
 
-ASP.NET SignalR il calcola le connessioni server in modo diverso. Include un hub predefinito in aggiunta agli hub definiti dall'utente. Per impostazione predefinita, per ogni server applicazioni sono necessarie altre cinque connessioni server. Il conteggio delle connessioni per l'hub predefinito rimane coerente con quello degli altri hub.
+ASP.NET SignalR il calcola le connessioni server in modo diverso. Include un hub predefinito in aggiunta agli hub definiti dall'utente. Per impostazione predefinita, ogni server applicazioni necessita di altre cinque connessioni server iniziali. Il numero di connessioni iniziale per l'Hub predefinito rimane coerente con quello degli altri hub.
+
+Durante il ciclo di vita del server applicazioni, il servizio e il server applicazioni mantengono lo stato della connessione di sincronizzazione e apportano modifiche alle connessioni server per una migliore stabilità dei servizi e delle prestazioni. Per questo motivo è possibile che le modifiche apportate al numero di connessione del server vengano apportate
 
 ## <a name="how-inboundoutbound-traffic-is-counted"></a>Come viene conteggiato il traffico in ingresso/in uscita
 

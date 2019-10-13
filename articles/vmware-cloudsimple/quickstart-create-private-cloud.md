@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1bd84a40236b54d799efcf04eae707aea9c6c945
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b38779681dfe612369fefb9d752389395965e7b4
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828935"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285778"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Guida introduttiva-configurare un ambiente cloud privato
 
@@ -27,7 +27,7 @@ Verificare i [prerequisiti di rete](cloudsimple-network-checklist.md).
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-a-private-cloud"></a>Crea un cloud privato
+## <a name="create-a-private-cloud"></a>Creare un cloud privato
 
 Un cloud privato è uno stack VMware isolato che supporta host ESXi, vCenter, rete VSAN e NSX.
 
@@ -47,7 +47,7 @@ I cloud privati vengono gestiti tramite il portale CloudSimple. Hanno il proprio
 
     ![Creare un cloud privato-informazioni di base](media/create-private-cloud-basic-info.png)
 
-9. Fare clic su **Avanti: Opzioni**avanzate.
+9. Fare clic su **Avanti: Opzioni avanzate @ no__t-0.
 10. Immettere l'intervallo CIDR per le subnet vSphere/rete VSAN. Verificare che l'intervallo CIDR non si sovrappongano con le subnet di Azure locali o altre (reti virtuali) o con la subnet del gateway.
 
     **Opzioni di intervallo CIDR:** /24,/23,/22 o/21. Un intervallo CIDR/24 supporta fino a 26 nodi, un intervallo CIDR/23 supporta fino a 58 nodi e un intervallo CIDR/22 e/21 supporta 64 nodi (il numero massimo di nodi in un cloud privato).  Per altre informazioni e VLAN e subnet, vedere [Panoramica di VLAN e subnet](cloudsimple-vlans-subnets.md).
@@ -55,7 +55,7 @@ I cloud privati vengono gestiti tramite il portale CloudSimple. Hanno il proprio
       > [!IMPORTANT]
       > Gli indirizzi IP nell'intervallo CIDR vSphere/rete VSAN sono riservati per l'uso da parte dell'infrastruttura di cloud privato.  Non usare l'indirizzo IP in questo intervallo in una macchina virtuale.
 
-11. Fare clic su **Avanti: Esaminare e creare**.
+11. Fare clic su **Avanti: Esaminare e creare @ no__t-0.
 12. Esaminare le impostazioni. Se è necessario modificare le impostazioni, fare clic su **indietro**.
 13. Fare clic su **Create**(Crea).
 
@@ -155,7 +155,7 @@ CloudSimple fornisce un circuito ExpressRoute per il cloud privato. È possibile
 
 1. Per accedere a vCenter, iniziare dal portale di CloudSimple. Nella Home page, in **attività comuni**, fare clic su **avvia client vSphere**.  Selezionare il cloud privato e quindi fare clic su **avvia client vSphere** nel cloud privato.
 
-    ![Avvia client vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
+    ![Avviare vSphere client](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. Selezionare il client vSphere preferito per accedere a vCenter e accedere con il nome utente e la password.  Le impostazioni predefinite sono:
     * Nome utente: **CloudOwner@cloudsimple.local**
@@ -183,9 +183,9 @@ Se si imposta una password che non soddisfa i requisiti:
 * Se si usa il client vSphere Flash, viene segnalato un errore
 * Se si usa il client HTML5, non viene segnalato alcun errore. Il client non accetta la modifica e la vecchia password continua a funzionare.
 
-## <a name="change-nsx-administrator-password"></a>Modificare la password dell'amministratore di NSX
+## <a name="access-nsx-manager"></a>Accedi a gestione NSX
 
-Gestione NSX viene distribuito con una password predefinita.  Si consiglia di modificare la password dopo avere creato il cloud privato.
+Gestione NSX viene distribuito con una password predefinita. 
 
 * Nome utente: **admin**
 * Password: **CloudSimple123!**
@@ -198,8 +198,6 @@ Gestione NSX viene distribuito con una password predefinita.  Si consiglia di mo
 4. Usare il nome FQDN o l'indirizzo IP di **gestione NSX** e connettersi usando un Web browser.
 
     ![Trovare il nome di dominio completo di gestione NSX](media/private-cloud-nsx-manager-fqdn.png)
-
-Per modificare la password, seguire le istruzioni riportate nell' [installazione di gestione NSX](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.2/com.vmware.nsxt.install.doc/GUID-A65FE3DD-C4F1-47EC-B952-DEDF1A3DD0CF.html).
 
 ## <a name="create-a-port-group"></a>Creazione di un gruppo di porte
 

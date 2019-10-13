@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/08/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 9c02db01d7b95f3178d73602089b30029fb0db9f
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: a788226ad5bd3f8cd6416ad032fc439e860fd713
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274839"
+ms.locfileid: "72286706"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creare una formula automatica per la scalabilità dei nodi di calcolo in un pool di batch
 
@@ -207,7 +207,7 @@ Queste **funzioni** predefinite sono disponibili per consentire la definizione d
 | lg(double) |Double |Restituisce il logaritmo in base 2 di double. |
 | lg(doubleVecList) |doubleVec |Restituisce il logaritmo in base 2 a livello di componente di doubleVecList. vec(double) deve essere passato in modo esplicito per il parametro. In caso contrario viene usata la versione double lg(double). |
 | ln(double) |Double |Restituisce il logaritmo naturale di double. |
-| ln(doubleVecList) |doubleVec |Restituisce il logaritmo in base 2 a livello di componente di doubleVecList. vec(double) deve essere passato in modo esplicito per il parametro. In caso contrario viene usata la versione double lg(double). |
+| ln(doubleVecList) |doubleVec |Restituisce il logaritmo naturale di double. |
 | log(double) |Double |Restituisce il logaritmo in base 10 di double. |
 | log(doubleVecList) |doubleVec |Restituisce il logaritmo in base 10 a livello di componente di doubleVecList. vec(double) deve essere passato in modo esplicito per il singolo parametro double. In caso contrario, viene usata la versione double log(double). |
 | max(doubleVecList) |Double |Restituisce il valore massimo in doubleVecList. |

@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: e6767c1e03b074f43993e449ca81af951c579090
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 39fab02ebc3a80e0aae34a86a1a6b7f3f46c96f3
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937313"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286743"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Procedure consigliate per l'uso di Power BI per eseguire query e visualizzare i dati di Azure Esplora dati
 
@@ -48,7 +48,7 @@ La sezione seguente include suggerimenti e consigli per l'uso del linguaggio di 
 
 Le query complesse sono più facilmente espresse in kusto rispetto a Power Query. Devono essere implementate come [funzioni kusto](/azure/kusto/query/functions)e richiamate in Power bi. Questo metodo è obbligatorio quando si usa **DirectQuery** con le istruzioni `let` nella query kusto. Poiché Power BI unisce due query e le istruzioni `let` non possono essere utilizzate con l'operatore `join`, possono verificarsi errori di sintassi. Quindi, salvare ogni parte del join come funzione kusto e consentire a Power BI di unire queste due funzioni insieme.
 
-### <a name="how-to-simulate-a-relative-data-time-operator"></a>Come simulare un operatore data-time relativo
+### <a name="how-to-simulate-a-relative-date-time-operator"></a>Come simulare un operatore di data e ora relativo
 
 Power BI non contiene un operatore di data e ora *relativo* , ad esempio `ago()`.
 Per simulare `ago()`, utilizzare una combinazione di funzioni `DateTime.FixedLocalNow()` e `#duration` Power BI.
@@ -106,7 +106,7 @@ Nella finestra **modifica query** **Home** > **Editor avanzato**
 
 1. Sostituire la parte pertinente della query con il parametro. Suddividere la query in più parti e concatenarle usando una e commerciale (&) insieme al parametro.
 
-   Nella query precedente, ad esempio, `State == 'ALABAMA'` si prenderà la parte e la si suddividerà in: `State == '` e `'` e il `State` parametro verrà inserito tra di essi:
+   Nella query precedente, ad esempio, si prenderà la parte `State == 'ALABAMA'` e la si suddividerà in: `State == '` e `'` e si inserirà il parametro `State` tra di essi:
    
     ```kusto
     "StormEvents | where State == '" & State & "' | take 100"
@@ -142,7 +142,7 @@ Power BI include un'utilità di pianificazione dell'aggiornamento dati che conse
 
 ### <a name="power-bi-can-send-only-short-lt2000-characters-queries-to-kusto"></a>Power BI possibile inviare query brevi (&lt;2000 caratteri) a kusto
 
-Se l'esecuzione di una query in Power BI genera il seguente errore: _"DataSource. Error: Impossibile per Web. Contents ottenere il contenuto da... "_ la query è probabilmente più lunga di 2000 caratteri. Power BI USA **PowerQuery** per eseguire una query su kusto generando una richiesta HTTP Get che codifica la query come parte dell'URI recuperato. Pertanto, le query kusto rilasciate da Power BI sono limitate alla lunghezza massima di un URI di richiesta (2000 caratteri, meno offset ridotto). Come soluzione alternativa, è possibile definire una [funzione archiviata](/azure/kusto/query/schema-entities/stored-functions) in Kusto e Power bi usare tale funzione nella query.
+Se l'esecuzione di una query in Power BI genera il seguente errore:  _"DataSource. Error: Impossibile per Web. Contents ottenere il contenuto da... "_ la query è probabilmente più lunga di 2000 caratteri. Power BI USA **PowerQuery** per eseguire una query su kusto generando una richiesta HTTP Get che codifica la query come parte dell'URI recuperato. Pertanto, le query kusto rilasciate da Power BI sono limitate alla lunghezza massima di un URI di richiesta (2000 caratteri, meno offset ridotto). Come soluzione alternativa, è possibile definire una [funzione archiviata](/azure/kusto/query/schema-entities/stored-functions) in Kusto e Power bi usare tale funzione nella query.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
