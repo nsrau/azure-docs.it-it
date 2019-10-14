@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab48579c6eda085d77e2a6ab080b0a4a1ce806bd
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: dfcd46f06035e356f6528a79b749350627541121
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72000325"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303532"
 ---
 # <a name="what-is-passwordless"></a>Informazioni sull'accesso senza password
 
@@ -55,9 +55,9 @@ Una chiave di sicurezza **deve** implementare le seguenti funzionalità ed esten
 | 3 | HMAC-segreto | Questa estensione garantisce che sia possibile accedere al dispositivo quando è offline o in modalità aereo. |
 | 4 | Più account per RP | Questa funzionalità garantisce la possibilità di usare la stessa chiave di sicurezza tra più servizi, ad esempio l'account Microsoft e Azure Active Directory. |
 
-I provider seguenti offrono chiavi di sicurezza FIDO2 di diversi fattori di forma che sono noti come compatibili con l'esperienza Paswordless. Microsoft consiglia ai clienti di valutare le proprietà di sicurezza di queste chiavi contattando il fornitore e l'Alleanza FIDO.
+I provider seguenti offrono chiavi di sicurezza FIDO2 di diversi fattori di forma che sono noti come compatibili con l'esperienza senza password. Microsoft consiglia ai clienti di valutare le proprietà di sicurezza di queste chiavi contattando il fornitore e l'Alleanza FIDO.
 
-| Provider | Contatti |
+| Provider | Contatto |
 | --- | --- |
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
 | Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |

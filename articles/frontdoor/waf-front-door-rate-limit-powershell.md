@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 99af39e996aaadd572603f63d019ff929b679550
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: c4cd906148f0f83ab4d66a9daaa606d7b9c183cd
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846254"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303603"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurare una regola di limitazione della velocità web application firewall usando Azure PowerShell
 La regola relativa al limite di velocità di Azure web application firewall (WAF) per la porta anteriore di Azure controlla il numero di richieste consentite da un singolo IP del client durante una durata di un minuto.
@@ -49,7 +49,7 @@ Install-Module PowerShellGet -Force -AllowClobber
 Install-Module -Name Az.FrontDoor
 ```
 ### <a name="create-a-front-door-profile"></a>Creare un profilo Frontdoor
-Creare un profilo Frontdoor seguendo le istruzioni descritte nell'articolo [Avvio rapido: Creare un profilo di porta anteriore](quickstart-create-front-door.md)
+Creare un profilo Frontdoor seguendo le istruzioni descritte nell'articolo [Avvio rapido: Creare un profilo di porta anteriore @ no__t-0
 
 ## <a name="define-url-match-conditions"></a>Definire le condizioni di corrispondenza URL
 Definire una condizione di corrispondenza URL (l'URL contiene/promo) usando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject).
@@ -78,9 +78,7 @@ Impostare un limite di velocità utilizzando [New-AzFrontDoorWafCustomRuleObject
 
 Individuare il nome del gruppo di risorse contenente il profilo Frontdoor usando `Get-AzureRmResourceGroup`. Configurare quindi un criterio di sicurezza con una regola di limitazione della frequenza personalizzata usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) nel gruppo di risorse specificato che contiene il profilo di porta anteriore.
 
-L'esempio seguente usa il nome del gruppo di risorse *myResourceGroupFD1* con il presupposto che il profilo Frontdoor sia stato creato seguendo le istruzioni fornite nell'articolo [Avvio rapido: Creare un profilo Frontdoor](quickstart-create-front-door.md).
-
- utilizzando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+L'esempio seguente usa il nome del gruppo di risorse *myResourceGroupFD1* con il presupposto che il profilo Frontdoor sia stato creato seguendo le istruzioni fornite nell'articolo [Avvio rapido: Creare un articolo di front door @ no__t-0 usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell-interactive
    $ratePolicy = New-AzFrontDoorWafPolicy `

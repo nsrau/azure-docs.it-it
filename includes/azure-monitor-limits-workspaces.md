@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 017c02a10137579e6e3497775e9e4a3ac0a5d72d
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 0f55f3ce4856e7b6eccf665faaa1b1fa45b84b58
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350869"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72302318"
 ---
 **Volume e conservazione della raccolta dati** 
 
-| Livello | Limite al giorno | Conservazione dei dati | Commento |
+| Livello | Limite al giorno | Conservazione dei dati | Comment |
 |:---|:---|:---|:---|
 | Piano tariffario per GB corrente<br>(introdotto il 2018 aprile) | Nessun limite | 30-730 giorni | La conservazione dei dati oltre i 31 giorni è disponibile per addebiti aggiuntivi. Scopri di più sui prezzi di monitoraggio di Azure. |
 | Livelli gratuiti legacy<br>(introdotto il 2016 aprile) | 500 MB | 7 giorni | Quando l'area di lavoro raggiunge il limite di 500 MB al giorno, l'inserimento dei dati si interrompe e riprende all'inizio del giorno successivo. Un giorno si basa su UTC. Si noti che i dati raccolti dal centro sicurezza di Azure non sono inclusi in questo limite di 500 MB al giorno e continueranno a essere raccolti oltre questo limite.  |
@@ -62,7 +62,7 @@ ms.locfileid: "71350869"
 |:---|:---|:---|
 | Numero massimo di colonne in una tabella         | 500 | |
 | Numero massimo di caratteri per il nome della colonna | 500 | |
-| Aree alla capacità | Stati Uniti centro-occidentali | Attualmente non è possibile creare una nuova area di lavoro in questa area perché si trova al limite di capacità temporanea. Questo limite è pianificato per essere risolto entro la fine dell'ottobre 2019. |
+| Aree alla capacità | Stati Uniti centro-occidentali | Attualmente non è possibile creare una nuova area di lavoro in questa area perché si trova al limite di capacità temporanea. Questo limite è pianificato per essere risolto entro la fine di novembre 2019. |
 | Esportazione dati | Attualmente non disponibile | Usare funzioni di Azure o app per la logica per aggregare ed esportare dati. | 
 
 **Velocità del volume di inserimento dati**

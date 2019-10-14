@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d852b786c1cc1c1eb9d39b931f9b8a142f969815
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 91f07b8da2cbc9beaa24730f2ec9f2ddb4639f37
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065864"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302534"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Domande frequenti
 
@@ -27,7 +27,7 @@ Esistono due motivi comuni per cui l'estensione di Azure AD non funziona per l'u
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>È possibile usare le funzionalità di Azure AD B2C nel tenant di Azure AD esistente per dipendenti aziendali?
 
-Azure AD e Azure AD B2C vengono offerti come prodotti separati e non possono coesistere nello stesso tenant. Un tenant di Azure AD rappresenta un'organizzazione. Un tenant di Azure AD B2C rappresenta una raccolta di identità da usare con le applicazioni relying party. Con i criteri personalizzati (in anteprima pubblica), Azure AD B2C può eseguire la federazione di Azure AD consentendo l'autenticazione dei dipendenti in un'organizzazione.
+Azure AD e Azure AD B2C vengono offerti come prodotti separati e non possono coesistere nello stesso tenant. Un tenant di Azure AD rappresenta un'organizzazione. Un tenant di Azure AD B2C rappresenta una raccolta di identità da usare con le applicazioni relying party. Con i criteri personalizzati Azure AD B2C possibile attuare la Federazione per Azure AD consentendo l'autenticazione dei dipendenti in un'organizzazione.
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>È possibile usare Azure AD B2C per fornire l'accesso a piattaforme di social networking (Facebook e Google+) in Office 365?
 
@@ -122,7 +122,7 @@ No, Azure AD B2C non supporta lo stesso set di report di Azure AD Premium. Esist
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>È possibile localizzare l'interfaccia utente delle pagine servite da Azure AD B2C? Quali lingue sono supportate?
 
-Sì.  Altre informazioni sulla [personalizzazione della lingua](active-directory-b2c-reference-language-customization.md) che è in anteprima pubblica. Offriamo traduzioni per 36 lingue ed è possibile eseguire l'override di qualsiasi stringa in base alle esigenze.
+Sì, vedere [personalizzazione della lingua](active-directory-b2c-reference-language-customization.md). Offriamo traduzioni per 36 lingue ed è possibile eseguire l'override di qualsiasi stringa in base alle esigenze.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>È possibile usare l'URL personale nelle pagine di iscrizione e accesso servite da Azure AD B2C? Ad esempio, è possibile modificare l'URL da contoso.b2clogin.com a login.contoso.com?
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
-ms.openlocfilehash: 80bca606a2b06d85afc8a2115133f44d738f7e0a
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 185bdd5f666da04238a575f3b7704baf10f5e281
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035241"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303471"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
@@ -45,13 +45,14 @@ Ulteriori informazioni sulle diverse funzionalità supportate da [Monitoraggio p
 NPM consente di monitorare la connettività tra reti e applicazioni in qualsiasi parte del mondo, da un'area di lavoro ospitata in una delle seguenti aree:
 * Europa occidentale
 * Stati Uniti centro-occidentali
-* Stati Uniti orientali
+* East US
 * Giappone orientale
 * Asia sudorientale
 * Australia sud-orientale
 * Regno Unito meridionale
 * India centrale
 * Virginia e Governo degli Stati Uniti
+* Cina orientale 2
 
 
 L'elenco delle aree supportate per Monitoraggio di ExpressRoute è disponibile nella [documentazione](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117).

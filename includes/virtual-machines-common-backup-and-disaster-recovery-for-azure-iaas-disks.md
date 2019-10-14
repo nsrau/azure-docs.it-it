@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d242b2815d59676432beb878bbc955a9f39de0f1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ca55d49721f9c22f35ba79e819efa354a660d92a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180144"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72302321"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Backup e ripristino di emergenza per dischi IaaS di Azure
 
@@ -130,7 +130,7 @@ Le opzioni per la disponibilità elevata, il backup e il ripristino di emergenza
 
 [Backup di Azure](../articles/backup/backup-azure-vms-introduction.md) può eseguire il backup delle VM che eseguono Windows o Linux nell'insieme di credenziali dei servizi di ripristino di Azure. Le operazioni di backup e ripristino dei dati aziendali critici sono ulteriormente complicate dal fatto che il backup di tali dati deve essere eseguito mentre le applicazioni che generano i dati sono in esecuzione. 
 
-Per risolvere questo problema, Backup di Azure fornisce funzionalità di backup coerenti con l'applicazione per i carichi di lavoro Microsoft. Si avvale del Servizio Copia Shadow del volume per garantire che i dati vengano scritti correttamente nella risorsa di archiviazione. Per le macchine virtuali Linux sono possibili solo backup coerenti con i file, perché Linux non offre una funzionalità equivalente al Servizio Copia Shadow del volume.
+Per risolvere questo problema, Backup di Azure fornisce funzionalità di backup coerenti con l'applicazione per i carichi di lavoro Microsoft. Si avvale del Servizio Copia Shadow del volume per garantire che i dati vengano scritti correttamente nella risorsa di archiviazione. Per le macchine virtuali Linux, la modalità di coerenza dei backup predefinita è costituita da backup coerenti con i file, perché Linux non ha funzionalità equivalenti al servizio shadow del volume come nel caso di Windows. Per i computer Linux, vedere [backup coerente con le applicazioni di VM Linux di Azure](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
 ![Flusso di Backup di Azure][1]
 
@@ -148,7 +148,7 @@ Usare la procedura seguente per abilitare i backup delle VM tramite il [portale 
 
     b. Dal menu **Insiemi di credenziali dei servizi di ripristino** scegliere **Aggiungi** e seguire la procedura per la creazione di un nuovo insieme di credenziali nella stessa area in cui si trova la VM. Se ad esempio la VM si trova nell'area Stati Uniti occidentali, scegliere Stati Uniti occidentali per l'insieme di credenziali.
 
-1.  Verificare la replica delle risorse di archiviazione per l'insieme di credenziali appena creato. Sotto l'insieme di credenziali di accesso **insiemi di credenziali dei servizi di ripristino** e passare alla **delle proprietà** > **configurazione Backup** > **Update** . Assicurarsi che l'opzione di **archiviazione con ridondanza geografica** sia selezionata per impostazione predefinita. In questo modo si garantisce che l'insieme di credenziali venga replicato automaticamente in un data center secondario. Ad esempio, l'insieme di credenziali nell'area Stati Uniti occidentali viene replicato automaticamente nell'area Stati Uniti orientali.
+1.  Verificare la replica delle risorse di archiviazione per l'insieme di credenziali appena creato. Accedere all'insieme di credenziali in insiemi di credenziali **dei servizi di ripristino** e passare a **Proprietà** > **Configuration backup** > **Update**. Assicurarsi che l'opzione di **archiviazione con ridondanza geografica** sia selezionata per impostazione predefinita. In questo modo si garantisce che l'insieme di credenziali venga replicato automaticamente in un data center secondario. Ad esempio, l'insieme di credenziali nell'area Stati Uniti occidentali viene replicato automaticamente nell'area Stati Uniti orientali.
 
 1.  Configurare i criteri di backup e selezionare la VM dalla stessa interfaccia utente.
 

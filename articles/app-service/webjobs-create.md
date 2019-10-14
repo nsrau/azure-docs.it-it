@@ -1,33 +1,31 @@
 ---
 title: Eseguire attività in background con Processi Web - Servizio app di Azure
 description: Informazioni su come usare Processi Web per eseguire attività in background in app Web del servizio app di Azure, app per le API e app per dispositivi mobili.
-services: app-service
 author: ggailey777
-manager: jeconnoc
-editor: jimbe
-ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
+manager: wgallace
+s.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 53f808570a298c8e576b6df7b4654196ffc56813
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 2d97f826f4288d13589a2fb9da8148d58a2c5e1e
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177499"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303572"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Eseguire attività in background con Processi Web in Servizio app di Azure
 
+L'articolo descrive come distribuire Processi Web usando il [portale di Azure](https://portal.azure.com) per caricare un eseguibile o uno script. Per informazioni su come sviluppare e distribuire processi Web usando Visual Studio, vedere [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md) (Distribuire processi Web usando Visual Studio).
+
 ## <a name="overview"></a>Panoramica
-Processi Web è una funzionalità di [Servizio app di Azure](https://docs.microsoft.com/azure/app-service/) che consente di eseguire un programma o uno script nello stesso contesto di un'app Web, un'app per le API o un'app per dispositivi mobili. Non sono previsti costi aggiuntivi per l'uso di Processi Web.
+Processi Web è una funzionalità di [Servizio app di Azure](index.yml) che consente di eseguire un programma o uno script nello stesso contesto di un'app Web, un'app per le API o un'app per dispositivi mobili. Non sono previsti costi aggiuntivi per l'uso di Processi Web.
 
 > [!IMPORTANT]
 > Processi Web non è ancora supportato per il servizio App in Linux.
-
-L'articolo descrive come distribuire Processi Web usando il [portale di Azure](https://portal.azure.com) per caricare un eseguibile o uno script. Per informazioni su come sviluppare e distribuire processi Web usando Visual Studio, vedere [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md) (Distribuire processi Web usando Visual Studio).
 
 Azure WebJobs SDK può essere usato con Processi Web per semplificare diverse attività di programmazione. Per ulteriori informazioni, vedere [Definizione dell'SDK di Processi Web](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
@@ -180,6 +178,8 @@ when making changes in one don't forget the other two.
 ```
 
 Per altre informazioni, vedere [pianificazione di un processo Web attivato](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
+
+[!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
 ## <a name="ViewJobHistory"></a> Visualizzare la cronologia processo
 

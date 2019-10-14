@@ -1,26 +1,21 @@
 ---
 title: Sviluppare e distribuire processi Web usando Visual Studio - Azure
 description: Informazioni su come sviluppare e distribuire processi Web di Azure in Servizio app di Azure usando Visual Studio.
-services: app-service
-documentationcenter: ''
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.service: app-service
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.custom: vs-azure
-ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 58d03d80c82fbf58803f7fefa8ef60c19f99bced
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: ac458b01135be8628fbf939e310f8bda02b8d290
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876878"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303558"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Sviluppare e distribuire processi Web usando Visual Studio - Servizio app di Azure
 
@@ -230,6 +225,8 @@ Quando si [Crea un processo Web dalla portale di Azure](webjobs-create.md), il f
 
 Processi Web usa le stesse espressioni CRON per la pianificazione del trigger timer in funzioni di Azure. Per altre informazioni sul supporto CRON, vedere l' [articolo di riferimento sul trigger del timer](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
 
+[!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
+
 ### <a name="settingjob-reference"></a>impostazione. riferimento al processo
 
 Le impostazioni seguenti sono supportate da processi Web:
@@ -238,7 +235,7 @@ Le impostazioni seguenti sono supportate da processi Web:
 | ----------- | --------- | --------------- |
 | `is_in_place` | Tutti | Consente di eseguire il processo senza essere prima copiato in una cartella temporanea. Per altre informazioni, vedere la pagina relativa alla [directory di lavoro dei processi](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)Web. |
 | `is_singleton` | Continuo | Quando si aumenta la scalabilità orizzontale, eseguire i processi Web solo in una singola istanza. Per altre informazioni, vedere [impostare un processo continuo come singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
-| `schedule` | Attivati | Eseguire processo Web in base a una pianificazione basata su CRON. Per altre informazioni, vedere l' [articolo di riferimento sul trigger del timer](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
+| `schedule` | Attivato | Eseguire processo Web in base a una pianificazione basata su CRON. Per altre informazioni, vedere l' [articolo di riferimento sul trigger del timer](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
 | `stopping_wait_time`| Tutti | Consente di controllare il comportamento di arresto. Per altre informazioni, vedere [arresto normale](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## <a name="next-steps"></a>Passaggi successivi

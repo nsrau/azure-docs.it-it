@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 10/13/2019
 ms.author: spelluru
-ms.openlocfilehash: e4d9aeb527461cc7292235fef1de0abdfa4242bd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1d7175d000eebd3f68665e7f097bbe3f68025bc8
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311369"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302793"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Aggiungere tag a un lab in Azure DevTest Labs
 
@@ -52,6 +52,9 @@ Ogni tag è costituito da una coppia **nome**/**valore**. Ad esempio, è possibi
 
     ![Gestire i tag](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)
 
+> [!NOTE]
+> I tag creati a livello di Lab passano attraverso tutte le risorse fatturabili avviate dal Lab nella sottoscrizione. Ad esempio, i tag del livello Lab vengono propagati alle macchine virtuali di calcolo sottostanti delle macchine virtuali del Lab. è possibile usare i tag nel contesto di gestione dei costi. I tag livello Lab vengono visualizzati nel filtro tag per gestione costi.
+
 ## <a name="understanding-limitations-to-tags"></a>Informazioni sulle limitazioni ai tag
 
 Ai tag si applicano le limitazioni seguenti:
@@ -66,4 +69,4 @@ Ai tag si applicano le limitazioni seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * È possibile applicare restrizioni e convenzioni all'interno della sottoscrizione tramite criteri personalizzati. Un criterio che è stato definito potrebbe richiedere che per tutte le risorse sia impostato un determinato tag. Per altre informazioni, vedere [Set policies and schedules](devtest-lab-set-lab-policy.md) (Impostare criteri e pianificazioni).
-* Esplorare la [raccolta dei modelli di avvio rapido di Azure Resource Manager di DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).
+* Esplorare la [raccolta di modelli di avvio rapido di DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

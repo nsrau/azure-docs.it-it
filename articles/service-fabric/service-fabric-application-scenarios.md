@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/24/2019
 ms.author: atsenthi
-ms.openlocfilehash: 91e85f762e05c836fe32f5743cc48afed30ae983
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: d72e124248887690ca26c2676e8036cb1b5c4339
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327302"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303509"
 ---
 # <a name="service-fabric-application-scenarios"></a>Scenari di applicazione di Service Fabric
 Azure Service Fabric offre una piattaforma affidabile e flessibile in cui è possibile scrivere ed eseguire molti tipi di applicazioni e servizi aziendali. Queste applicazioni e microservizi possono essere con o senza stato e sono sottoposte a bilanciamento delle risorse tra macchine virtuali per ottimizzare l'efficienza. 
@@ -70,7 +70,7 @@ I diagrammi seguenti illustrano le differenze tra la progettazione di un'applica
 
 Di seguito è riportato un esempio di applicazione che usa i servizi senza stato: ![Application che usa i servizi senza stato @ no__t-1
 
-Di seguito è riportato un esempio di applicazione che usa i servizi con stato: ![Application che usa i servizi senza stato @ no__t-1
+Di seguito è riportato un esempio di applicazione che usa i servizi con stato: ![Application che usa i servizi con stato @ no__t-1
 
 ## <a name="next-steps"></a>Passaggi successivi
 

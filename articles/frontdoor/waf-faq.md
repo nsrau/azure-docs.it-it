@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: f7d205920704ce8aedf3b2e3c07bd429b3c64964
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: f6e0ea7ca5b9b131a8d7d7c2c6546130a7d020b3
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375336"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302839"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Domande frequenti su Azure web application firewall
 
@@ -31,7 +31,7 @@ Un criterio di Azure WAF può essere applicato alle applicazioni Web ospitate ne
 
 ## <a name="what-is-waf-for-azure-front-door-service"></a>Che cos'è WAF per il servizio front door di Azure? 
 
-Il front-end di Azure è una rete per la distribuzione di contenuti e applicazioni distribuita a livello globale e altamente scalabile. Azure WAF, quando integrato con la porta anteriore, arresta gli attacchi Denial of Service e delle applicazioni mirate al perimetro della rete di Azure, vicino alle origini di attacco prima di immettere la rete virtuale, offre protezione senza sacrificare le prestazioni.
+Il front-end di Azure è una rete per la distribuzione di contenuti e applicazioni distribuita a livello globale e altamente scalabile. Quando Azure WAF è integrato con Azure front door, gli attacchi Denial of Service e le applicazioni di destinazione vengono arrestati al perimetro della rete di Azure. Questa protezione si verifica vicino all'origine degli attacchi prima che sia possibile accedere alla rete Appliance. WAF per il servizio front door di Azure offre protezione senza sacrificare le prestazioni.
 
 ## <a name="does-azure-waf-support-https"></a>Azure WAF supporta HTTPS?
 

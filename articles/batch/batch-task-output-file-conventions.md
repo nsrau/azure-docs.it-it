@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4446b92a8998f05aae47a3bab6a2cea4785fddf2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a2970c46c7cbc978bf6d7491c9258dcccc5404bd
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094560"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302683"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Rendere persistenti i dati di attività e processi in Archiviazione di Azure con la libreria Batch File Conventions per .NET
 
@@ -63,12 +63,12 @@ Per rendere persistenti i dati di output in Archiviazione di Azure usando la lib
 
 ## <a name="persist-output-data"></a>Rendere persistenti i dati di output
 
-Per rendere persistenti i dati di output di processi e attività con la libreria File Conventions, creare un contenitore in Archiviazione di Azure e quindi salvare l'output nel contenitore. Usare la [libreria client di Archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage) nel codice dell'attività per caricare l'output dell'attività nel contenitore. 
+Per rendere persistenti i dati di output di processi e attività con la libreria File Conventions, creare un contenitore in Archiviazione di Azure e quindi salvare l'output nel contenitore. Usare la [libreria client di Archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage) nel codice dell'attività per caricare l'output dell'attività nel contenitore.
 
 Per altre informazioni sull'uso di contenitori e BLOB in Archiviazione di Azure, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 > [!WARNING]
-> Tutti gli output di processi e attività resi persistenti con la libreria File Conventions vengono archiviati nello stesso contenitore. Se un numero elevato di attività tenta di rendere persistenti i file nello stesso momento, potrebbero essere applicate [limitazioni dell'archiviazione](../storage/common/storage-performance-checklist.md#blobs).
+> Tutti gli output di processi e attività resi persistenti con la libreria File Conventions vengono archiviati nello stesso contenitore. Se un numero elevato di attività tenta di salvare in modo permanente i file nello stesso momento, è possibile che vengano applicati limiti di limitazione dell'archiviazione di Azure. Per altre informazioni sui limiti di limitazione, vedere [elenco di controllo delle prestazioni e della scalabilità per l'archiviazione BLOB](../storage/blobs/storage-performance-checklist.md).
 
 ### <a name="create-storage-container"></a>Creare un contenitore di archiviazione
 
@@ -109,7 +109,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-Il parametro `kind` del metodo [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) consente di categorizzare i file persistenti. Sono disponibili quattro tipi di [TaskOutputKind][net_taskoutputkind] predefiniti: `TaskOutput`, `TaskPreview`, `TaskLog`e `TaskIntermediate.` è anche possibile definire categorie personalizzate di output.
+Il parametro `kind` del metodo [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) consente di categorizzare i file persistenti. Sono disponibili quattro tipi di [TaskOutputKind][net_taskoutputkind] predefiniti: `TaskOutput`, `TaskPreview`, `TaskLog` e `TaskIntermediate.`, è anche possibile definire categorie personalizzate di output.
 
 Questi tipi di output consentono di specificare il tipo di output da elencare, quando in seguito si eseguono query su Batch per visualizzare gli output salvati in modo permanente per una determinata attività. In altre parole, quando si elencano gli output per un'attività, è possibile filtrare l'elenco in base a uno dei tipi di output. Ad esempio, "Scaricare l'output di *anteprima* per l'attività *109*." Altre informazioni su come elencare e recuperare gli output sono disponibili più avanti nell'articolo alla sezione Retrieve output (Recuperare l'output).
 
@@ -136,7 +136,7 @@ Come per il tipo **TaskOutputKind** per gli output delle attività, è possibile
 
 Oltre a rendere persistente un file in una risorsa di archiviazione permanente quando un'attività o un processo viene completato, può essere necessario rendere persistenti i file aggiornati durante l'esecuzione di un'attività, ad esempio i file di log o `stdout.txt` e `stderr.txt`. A tale scopo, la libreria Azure Batch file Conventions fornisce [TaskOutputStorage][net_taskoutputstorage]. Metodo [SaveTrackedAsync][net_savetrackedasync] . Con [SaveTrackedAsync][net_savetrackedasync], è possibile tenere traccia degli aggiornamenti a un file nel nodo (in un intervallo specificato) e salvare in modo permanente gli aggiornamenti in archiviazione di Azure.
 
-Nel frammento di codice seguente viene usato [SaveTrackedAsync][net_savetrackedasync] per eseguire `stdout.txt` l'aggiornamento in archiviazione di Azure ogni 15 secondi durante l'esecuzione dell'attività:
+Nel frammento di codice seguente viene usato [SaveTrackedAsync][net_savetrackedasync] per aggiornare `stdout.txt` in archiviazione di Azure ogni 15 secondi durante l'esecuzione dell'attività:
 
 ```csharp
 TimeSpan stdoutFlushDelay = TimeSpan.FromSeconds(3);
@@ -161,7 +161,7 @@ using (ITrackedSaveOperation stdout =
 }
 ```
 
-La sezione impostata come commento `Code to process data and produce output file(s)` è un segnaposto per il codice eseguito normalmente da un'attività. Ad esempio, potrebbe essere disponibile codice che scarica i dati da Archiviazione di Azure ed esegue un calcolo o una trasformazione dei dati. La parte importante di questo frammento di codice è illustrare come è possibile eseguire il `using` wrapping di tale codice in un blocco per aggiornare periodicamente un file con [SaveTrackedAsync][net_savetrackedasync].
+La sezione impostata come commento `Code to process data and produce output file(s)` è un segnaposto per il codice eseguito normalmente da un'attività. Ad esempio, potrebbe essere disponibile codice che scarica i dati da Archiviazione di Azure ed esegue un calcolo o una trasformazione dei dati. La parte importante di questo frammento di codice è illustrare come è possibile eseguire il wrapping di tale codice in un blocco `using` per aggiornare periodicamente un file con [SaveTrackedAsync][net_savetrackedasync].
 
 L'agente del nodo è un programma in esecuzione in ogni nodo del pool e fornisce l'interfaccia di comando e controllo tra il nodo e il servizio Batch. La chiamata `Task.Delay` è necessaria alla fine di questo blocco `using` per garantire che l'agente del nodo abbia tempo sufficiente per scaricare il contenuto dell'output standard nel file stdout.txt nel nodo. Senza questo ritardo, è possibile perdere gli ultimi secondi dell'output. Questo ritardo potrebbe non essere necessario per tutti i file.
 

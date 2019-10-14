@@ -1,22 +1,21 @@
 ---
-title: Aggiungere la ricerca full-text all'archiviazione BLOB di Azure - Ricerca di Azure
-description: Contenuto di testo di ricerca per indicizzazione nell'archiviazione BLOB di Azure per l'indicizzazione di Ricerca di Azure nel codice con l'API REST HTTP.
-services: search
+title: Aggiungere la ricerca full-text all'archivio BLOB di Azure
+titleSuffix: Azure Search
+description: Estrai il contenuto e Aggiungi la struttura ai BLOB di Azure durante la compilazione di un indice di ricerca full-text in ricerca di Azure.
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/01/2019
-author: mgottein
-manager: nitinme
-ms.author: magottei
-ms.custom: seodec2018
-ms.openlocfilehash: f0801931b57302ae1d627dab783a40d2407c19ac
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 10/09/2019
+ms.openlocfilehash: 7e5eb73cc6abc72689bbc674b29f4d288dd66b6f
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650076"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302901"
 ---
-# <a name="searching-blob-storage-with-azure-search"></a>Ricerca nell'archiviazione BLOB tramite Ricerca di Azure
+# <a name="add-full-text-search-to-azure-blob-data-using-azure-search"></a>Aggiungere la ricerca full-text ai dati BLOB di Azure con ricerca di Azure
 
 La ricerca in un'ampia gamma di tipi di contenuto inclusi nell'archiviazione BLOB di Azure può rivelarsi un problema complesso da risolvere. Tuttavia, è possibile indicizzare e cercare il contenuto dei BLOB in pochi clic usando Ricerca di Azure. La ricerca nell'archiviazione BLOB richiede il provisioning di un servizio di Ricerca di Azure. I diversi limiti del servizio e i piani tariffari di Ricerca di Azure sono disponibili nella [pagina dei prezzi](https://aka.ms/azspricing).
 
@@ -45,12 +44,12 @@ La ricerca cognitiva include competenze di elaborazione di immagini quali il [ri
 
 L'analisi JSON non è attualmente configurabile tramite il portale. [Altre informazioni sull'analisi JSON in Ricerca di Azure.](https://aka.ms/azsjsonblobindexing)
 
-## <a name="quick-start"></a>Guida introduttiva
+## <a name="quickstart"></a>Guida introduttiva
 È possibile aggiungere Ricerca di Azure ai BLOB direttamente dalla pagina del portale dell'archiviazione BLOB.
 
 ![](./media/search-blob-storage-integration/blob-blade.png)
 
 Fare clic su **Aggiungi Ricerca di Azure** per avviare un flusso in cui è possibile selezionare un servizio di Ricerca di Azure esistente oppure crearne uno nuovo. Se si crea un nuovo servizio, si viene disconnessi dal portale dell'account di archiviazione. È possibile tornare alla pagina del portale dell'archiviazione e riselezionare l'opzione **Aggiungi Ricerca di Azure**, in cui è possibile selezionare il servizio esistente.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sull'indicizzatore BLOB di Ricerca di Azure sono disponibili nella [documentazione](https://aka.ms/azsblobindexer) completa.

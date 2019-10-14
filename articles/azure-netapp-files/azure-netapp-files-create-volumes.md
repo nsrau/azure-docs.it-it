@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: b7474ca8e8489edb37b3ac9b7c8b5be52867363c
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 1a479b4928631f27d5453d462a59fe7fed09a88c
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298516"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302770"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Creare un volume NFS per Azure NetApp Files
 
@@ -33,11 +33,11 @@ Azure NetApp Files supporta i volumi NFS (NFSv3 e NFSv 4.1) e SMBv3. L'utilizzo 
 
 ## <a name="considerations"></a>Considerazioni 
 
-* Scelta della versione NFS da usare  
-  NFSv3 è in grado di gestire un'ampia gamma di casi d'uso ed è comunemente distribuito nella maggior parte delle applicazioni aziendali. È necessario convalidare la versione (NFSv3 o NFSv 4.1) richiesta dall'applicazione e creare il volume utilizzando la versione appropriata. Ad esempio, se si usa [Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave), è consigliabile bloccare i file con NFSv 4.1 su NFSv3. 
-
 > [!IMPORTANT] 
 > Per accedere alla funzionalità NFSv 4.1 è necessario aggiungere l'elenco elementi consentiti.  Per richiedere la whitelist, inviare una richiesta a <anffeedback@microsoft.com>. 
+
+* Scelta della versione NFS da usare  
+  NFSv3 è in grado di gestire un'ampia gamma di casi d'uso ed è comunemente distribuito nella maggior parte delle applicazioni aziendali. È necessario convalidare la versione (NFSv3 o NFSv 4.1) richiesta dall'applicazione e creare il volume utilizzando la versione appropriata. Ad esempio, se si usa [Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave), è consigliabile bloccare i file con NFSv 4.1 su NFSv3. 
 
 * Security  
   Il supporto per BITS in modalità UNIX (lettura, scrittura ed esecuzione) è disponibile per NFSv3 e NFSv 4.1. Per il montaggio dei volumi NFS è necessario l'accesso a livello di radice nel client NFS.

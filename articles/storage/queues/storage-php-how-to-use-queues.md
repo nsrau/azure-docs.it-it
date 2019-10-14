@@ -8,19 +8,19 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: b175c34f131a7a0f172c7be0dda083fbfda3dc1e
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 692c943e48c08771b5f1c60b66412270081cf0e6
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721436"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302962"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Come usare l'archiviazione di accodamento da PHP
+
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Panoramica
 In questa guida viene illustrato come eseguire scenari comuni usando il servizio di archiviazione code di Azure. Gli esempi sono scritti tramite le classi della [libreria client di archiviazione di Azure per php][download]. Gli scenari presentati includono l'inserimento, la visualizzazione, il recupero e l'eliminazione dei messaggi in coda, oltre alle procedure di creazione ed eliminazione di code.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -28,12 +28,15 @@ In questa guida viene illustrato come eseguire scenari comuni usando il servizio
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>Creare un'applicazione PHP
+
 L'unico requisito per la creazione di un'applicazione PHP che accede all'archiviazione code di Azure è il riferimento delle classi nella [libreria client di archiviazione di Azure per php][download] dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo, incluso il Blocco note.
 
-In questa guida si usano le funzionalità del servizio di archiviazione code che possono essere chiamate in un'applicazione PHP in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in un sito Web di Azure.
+In questa guida vengono usate le funzionalità del servizio di archiviazione di accodamento che possono essere chiamate in un'applicazione PHP in locale o nel codice in esecuzione all'interno di un'applicazione Web in Azure.
 
 ## <a name="get-the-azure-client-libraries"></a>Acquisire le librerie client di Azure
+
 ### <a name="install-via-composer"></a>Installazione tramite Composer
+
 1. Creare un file denominato **composer.json** nella radice del progetto, quindi aggiungere nel file il codice seguente:
    
     ```json
@@ -53,6 +56,7 @@ In questa guida si usano le funzionalità del servizio di archiviazione code che
 In alternativa, passare alla [libreria client PHP di archiviazione di Azure][download] su GitHub per clonare il codice sorgente.
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Configurare l'applicazione per l'accesso all'archiviazione di accodamento
+
 Per utilizzare le API per l'archiviazione di accodamento di Azure, è necessario:
 
 1. Fare riferimento al file autoloader mediante l'istruzione [require_once].
@@ -68,6 +72,7 @@ use MicrosoftAzure\Storage\Queue\QueueRestProxy;
 Negli esempi seguenti viene sempre mostrata l'istruzione `require_once`, ma si fa riferimento solo alle classi necessarie per eseguire l'esempio.
 
 ## <a name="set-up-an-azure-storage-connection"></a>Configurare una connessione di archiviazione di Azure
+
 Per creare un'istanza di un client del Servizio di accodamento di Azure, è necessario innanzitutto disporre di una stringa di connessione valida. Il formato della stringa di connessione del servizio di accodamento è:
 
 Per accedere a un servizio attivo:
@@ -97,7 +102,8 @@ $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>
 $queueClient = QueueRestProxy::createQueueService($connectionString);
 ```
 
-## <a name="create-a-queue"></a>Crea una coda
+## <a name="create-a-queue"></a>Creare una coda
+
 Un oggetto **QueueRestProxy** consente di creare una coda usando il metodo **createQueue**. Quando si crea una coda, è possibile impostare le opzioni per la coda, anche se tale operazione non è necessaria. Nell'esempio seguente viene illustrato come impostare i metadati in una coda.
 
 ```php
@@ -137,6 +143,7 @@ catch(ServiceException $e){
 > 
 
 ## <a name="add-a-message-to-a-queue"></a>Aggiungere un messaggio a una coda
+
 Per aggiungere un messaggio a una coda, usare **QueueRestProxy->createMessage**. Il metodo utilizza il nome della coda, il testo del messaggio e le opzioni messaggio (facoltative).
 
 ```php
@@ -166,6 +173,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="peek-at-the-next-message"></a>Visualizzare il messaggio successivo
+
 È possibile visualizzare il messaggio (o i messaggi successivi) in cima a una coda senza rimuoverlo dalla coda chiamando il metodo **QueueRestProxy->peekMessages**. Per impostazione predefinita, il metodo **peekMessage** restituisce un solo messaggio, ma è possibile modificare tale valore con il metodo **PeekMessagesOptions->setNumberOfMessages**.
 
 ```php
@@ -214,6 +222,7 @@ else{
 ```
 
 ## <a name="de-queue-the-next-message"></a>Rimuovere il messaggio successivo dalla coda
+
 Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiamare **QueueRestProxy->listMessages** per rendere il messaggio invisibile a tutte le altre letture del codice dalla coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. Se il messaggio non viene eliminato in questo periodo di tempo, diventerà nuovamente visibile nella coda. Per completare la rimozione del messaggio dalla coda, è necessario chiamare **QueueRestProxy->deleteMessage**. Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio abbia esito negativo a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **deleteMessage** immediatamente dopo l'elaborazione del messaggio.
 
 ```php
@@ -255,6 +264,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="change-the-contents-of-a-queued-message"></a>Cambiare il contenuto di un messaggio in coda
+
 È possibile modificare il contenuto di un messaggio inserito nella coda chiamando **QueueRestProxy->updateMessage**. Se il messaggio rappresenta un'attività di lavoro, è possibile utilizzare questa funzionalità per aggiornarne lo stato. Il codice seguente consente di aggiornare il messaggio in coda con nuovo contenuto e di impostarne il timeout di visibilità per prolungarlo di altri 60 secondi. In questo modo lo stato del lavoro associato al messaggio viene salvato e il client ha a disposizione un altro minuto per continuare l'elaborazione del messaggio. È possibile utilizzare questa tecnica per tenere traccia di flussi di lavoro composti da più passaggi nei messaggi in coda, senza la necessità di ricominciare dall'inizio se un passaggio di elaborazione non riesce a causa di errori hardware o software. In genere, è consigliabile mantenere anche un conteggio dei tentativi, in modo da eliminare i messaggi per cui vengono effettuati più di *n* tentativi. In questo modo è possibile evitare che un messaggio attivi un errore dell'applicazione ogni volta che viene elaborato.
 
 ```php
@@ -300,6 +310,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="additional-options-for-de-queuing-messages"></a>Opzioni aggiuntive per rimuovere i messaggi dalla coda
+
 È possibile personalizzare il recupero di messaggi da una coda in due modi. Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di visibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene utilizzato il metodo **getMessages** per recuperare 16 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo **for** . Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti.
 
 ```php
@@ -350,6 +361,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="get-queue-length"></a>Recuperare la lunghezza della coda
+
 È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo **QueueRestProxy->getQueueMetadata** chiede al servizio di accodamento di restituire i metadati relativi alla coda. La chiamata al metodo **getApproximateMessageCount** sull'oggetto restituito fornisce il numero di messaggi presenti in una coda. Il conteggio è solo approssimativo, poiché è possibile aggiungere o rimuovere messaggi dopo la risposta del servizio di accodamento.
 
 ```php
@@ -381,6 +393,7 @@ echo $approx_msg_count;
 ```
 
 ## <a name="delete-a-queue"></a>Eliminare una coda
+
 Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **QueueRestProxy->deleteQueue**.
 
 ```php
@@ -409,6 +422,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 A questo punto, dopo aver appreso le nozioni di base sull'archiviazione delle code, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
 * Consultare le [Informazioni di riferimento API sulla libreria client di Archiviazione di Azure per PHP](https://azure.github.io/azure-storage-php/)
@@ -420,4 +434,3 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](htt
 [require_once]: https://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
 [composer-phar]: https://getcomposer.org/composer.phar
-
