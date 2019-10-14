@@ -270,7 +270,7 @@
         - name: Creare e gestire account di archiviazione
           items:
             - name: Creare un account di archiviazione per utilizzo generico
-              displayName: 'resource manager, resource manager template, template, ARM'
+              displayName: 'Resource Manager, Resource Manager template, template, ARM'
               href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Creare un account di archiviazione BLOB in blocchi
               href: storage-blob-create-account-block-blob.md
@@ -585,8 +585,6 @@
       items:
         - name: Introduzione a Data Lake Storage
           href: ../blobs/data-lake-storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Elaborazione di Big Data
-          href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Guide introduttive
       items:
         - name: Analizzare i dati con Databricks
@@ -617,6 +615,10 @@
       items:
         - name: Accesso multi-protocollo
           href: ../blobs/data-lake-storage-multi-protocol-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Elaborazione di Big Data
+          href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Integrazione con i servizi di Azure
+          href: ../blobs/data-lake-store-integrate-with-azure-services.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Driver del file system di BLOB di Azure per Hadoop
           href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: URI del file system di BLOB di Azure
@@ -693,18 +695,6 @@
                   href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Impostare le autorizzazioni a livello di file e di directory
               href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
-        - name: Eseguire l'integrazione con i servizi di Azure
-          items:
-            - name: Uso con i cluster HDInsight
-              href: ../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Uso con l'interfaccia della riga di comando del file system Hadoop
-              href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Uso con Azure Databricks
-              href: 'https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html'
-            - name: Uso con Azure SQL Data Warehouse
-              href: '../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase'
-            - name: Uso con Power BI
-              href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Ottimizzare le prestazioni
           items:
             - name: Panoramica
@@ -717,6 +707,7 @@
               href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Ottimizzare Storm in HDInsight
               href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Gestire i file (BLOB)
           items:
             - name: PowerShell
@@ -729,6 +720,9 @@
               href: ../blobs/data-lake-storage-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Eseguire la migrazione di un archivio HDFS locale
               href: ../blobs/data-lake-storage-migrate-on-premises-HDFS-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Uso con l'interfaccia della riga di comando del file system Hadoop
+          href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Uso con Power BI
     - name: riferimento
       items:
         - name: PowerShell

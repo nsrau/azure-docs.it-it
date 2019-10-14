@@ -135,6 +135,8 @@
               href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
             - name: Alter
               href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+            - name: Verificare il sovraccarico di visualizzazione
+              href: 'https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest'
         - name: Indice columnstore cluster ordinato
           items:
             - name: Linee guida sull'ottimizzazione delle prestazioni

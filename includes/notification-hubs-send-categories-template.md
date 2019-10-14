@@ -8,38 +8,37 @@ ms.topic: include
 ms.date: 03/30/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: f0ff729084d194ff2e05e89eadc45782f775b1c5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 299f92484000cb5c59291a5af87f24d89a771fee
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180392"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296782"
 ---
-In questa sezione si invieranno notizie aggiornate come notifiche modello con tag da un'app console .NET. 
+In questa sezione si invieranno notizie aggiornate come notifiche modello con tag da un'app console .NET.
 
-1. In Visual Studio creare una nuova applicazione console in Visual C#: a. Nel menu selezionare **File** > **Nuovo** > **Progetto**.
-    b. Espandere **Visual C#** e selezionare **Desktop Windows**. 
-    c. Selezionare **App console (.NET Framework)** nell'elenco di modelli. 
-    d. Immettere un **nome** per l'app. 
-    e. Selezionare una **cartella** per l'app.
-    f. Selezionare **OK** per creare il progetto. 
-2. Nel menu principale di Visual Studio scegliere **Strumenti**,  > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti** e quindi immettere la stringa seguente nella finestra della console:
-   
-    ```
-    Install-Package Microsoft.Azure.NotificationHubs
-    ```
-   
-3. Selezionare **Enter** (Invio).  
-    Questa azione aggiunge un riferimento ad Azure Notification Hubs SDK usando il [pacchetto NuGet Microsoft.Azure.NotificationHubs].
+1. In Visual Studio creare una nuova applicazione console in Visual C#:
+    1. Nel menu selezionare **File** > **Nuovo** > **Progetto**.
+    1. In **Crea un nuovo progetto** selezionare **App console (.NET Framework)** per C# nell'elenco di modelli e scegliere **Avanti**.
+    1. Immettere un nome per l'app.
+    1. Per **Soluzione** scegliere **Aggiungi a soluzione** e selezionare **Crea** per creare il progetto.
 
-4. Aprire il file Program.cs e aggiungere l'istruzione `using` seguente:
-   
-    ```csharp
-    using Microsoft.Azure.NotificationHubs;
-    ```
+1. Scegliere **Strumenti**,  > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti** e quindi eseguire il comando seguente nella finestra della console:
 
-5. Nella classe `Program` aggiungere il metodo seguente oppure sostituirlo se esiste già:
-   
+   ```powershell
+   Install-Package Microsoft.Azure.NotificationHubs
+   ```
+
+   Questa azione aggiunge un riferimento ad Azure Notification Hubs SDK usando il pacchetto [Microsoft.Azure.NotificationHubs].
+
+1. Aprire il file *Program.cs* e aggiungere l'istruzione `using` seguente:
+
+   ```csharp
+   using Microsoft.Azure.NotificationHubs;
+   ```
+
+1. Nella classe `Program` aggiungere il metodo seguente oppure sostituirlo se esiste già:
+
     ```csharp
     private static async void SendTemplateNotificationAsync()
     {
@@ -61,20 +60,20 @@ In questa sezione si invieranno notizie aggiornate come notifiche modello con ta
             await hub.SendTemplateNotificationAsync(templateParams, category);
         }
     }
-    ```   
-   
-    Questo codice invia una notifica modello per ognuno dei sei tag nella matrice di stringhe. L'uso di tag garantisce che i dispositivi ricevano le notifiche solo per le categorie registrate.
+    ```
 
-5. Nel codice precedente sostituire i segnaposto `<hub name>` e `<connection string with full access>` con il nome dell'hub di notifica e la stringa di connessione per *DefaultFullSharedAccessSignature* dal dashboard dell'hub di notifica.
+   Questo codice invia una notifica modello per ognuno dei sei tag nella matrice di stringhe. L'uso di tag garantisce che i dispositivi ricevano le notifiche solo per le categorie registrate.
 
-6. Nel metodo **Main** aggiungere le righe seguenti:
-   
-    ```csharp
+1. Nel codice precedente sostituire i segnaposto `<hub name>` e `<connection string with full access>` con il nome dell'hub di notifica e la stringa di connessione per *DefaultFullSharedAccessSignature* dal dashboard dell'hub di notifica.
+
+1. Nel metodo `Main()` aggiungere le righe seguenti:
+
+   ```csharp
     SendTemplateNotificationAsync();
     Console.ReadLine();
     ```
 
-7. Creare l'app console.
+1. Creare l'app console.
 
 <!-- Images. -->
 [13]: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
@@ -84,4 +83,4 @@ In questa sezione si invieranno notizie aggiornate come notifiche modello con ta
 [Notification Hubs REST interface]: https://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 [Add push notifications for Mobile Apps]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
 [How to use Notification Hubs from Java or PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
-[pacchetto NuGet Microsoft.Azure.NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/
+[Microsoft.Azure.NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/

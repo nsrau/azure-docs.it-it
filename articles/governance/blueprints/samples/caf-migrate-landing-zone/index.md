@@ -1,5 +1,5 @@
 ---
-title: Esempio - Progetto della zona di destinazione per la migrazione di Cloud Adoption Framework - Panoramica
+title: Esempio di progetto della zona di destinazione per la migrazione di Cloud Adoption Framework - Panoramica
 description: Panoramica e architettura del progetto di esempio della zona di destinazione per la migrazione di Cloud Adoption Framework.
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,16 +7,16 @@ ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 ms.custom: fasttrack-new
-ms.openlocfilehash: 469ddfa647a2ee739756414ba1bad87c983057c6
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: c74ec9f425b99bb11011fce7b0b7bdca98005ad8
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243979"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297867"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Panoramica del progetto di esempio della zona di destinazione per la migrazione di Microsoft Cloud Adoption Framework per Azure
 
-Il progetto della zona di destinazione per la migrazione di Microsoft Cloud Adoption Framework per Azure è un set di infrastrutture che consentono di configurare la migrazione del primo carico di lavoro e gestire l'ambiente cloud in linea con Cloud Adoption Framework.
+Il progetto della zona di destinazione per la migrazione di Microsoft Cloud Adoption Framework per Azure è un set di infrastrutture che consente di configurare la migrazione del primo carico di lavoro e gestire l'ambiente cloud in linea con Cloud Adoption Framework.
 
 Il progetto di esempio di [definizione della base di Cloud Adoption Framework](../caf-foundation/index.md) costituisce un'estensione di questo esempio.
 

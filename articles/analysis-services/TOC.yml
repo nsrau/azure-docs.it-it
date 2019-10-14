@@ -66,6 +66,8 @@
           href: analysis-services-addservprinc-admins.md
     - name: Modello
       items:
+        - name: Modellazione tabulare
+          href: 'https://docs.microsoft.com/analysis-services/tabular-models/tabular-models-ssas'
         - name: Eseguire una distribuzione da Visual Studio (SSDT)
           href: analysis-services-deploy.md
         - name: Eseguire l'aggiornamento con l'API REST

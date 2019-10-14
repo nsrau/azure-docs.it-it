@@ -177,6 +177,8 @@
       href: how-to-configure-proxy-support.md
     - name: Archiviare dati sul perimetro
       items:
+        - name: Consentire ai moduli di accedere all'archiviazione locale di un dispositivo
+          href: how-to-access-host-storage-from-module.md
         - name: Archiviazione BLOB di Azure in IoT Edge
           href: how-to-store-data-blob.md
         - name: Distribuire moduli di archiviazione BLOB

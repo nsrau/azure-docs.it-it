@@ -44,6 +44,8 @@
     - name: Visualizzare e gestire i provider di servizi
       displayName: 'managed services offer, azure marketplace, publish'
       href: ./how-to/view-manage-service-providers.md
+    - name: Distribuire un criterio che è possibile correggere
+      href: ./how-to/deploy-policy-remediation.md
 - name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

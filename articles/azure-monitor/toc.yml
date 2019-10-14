@@ -606,6 +606,8 @@
                   href: insights/vminsights-overview.md
                 - name: Problemi noti
                   href: insights/vminsights-known-issues.md
+                - name: Domande frequenti sulla disponibilità generale
+                  href: insights/vminsights-ga-release-faq.md
                 - name: Domande frequenti
                   href: insights/vminsights-faq.md
                 - name: Abilitare il monitoraggio
