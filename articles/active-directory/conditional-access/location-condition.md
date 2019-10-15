@@ -66,7 +66,7 @@ Criteri di accesso condizionale si applicano al traffico IPv4 e IPv6. Località 
 - Criteri di accesso condizionale non possono essere assegnati a specifici intervalli IPv6
 - Criteri di accesso condizionale non è possibile escludere specifici intervalli IPV6
 
-Se un criterio è configurato per applicare in "Qualsiasi percorso", verrà applicata al traffico IPv4 e IPv6. Località denominate configurate per paesi e regioni specificato supporta solo indirizzi IPv4. Il traffico IPv6 è solo se è selezionata l'opzione per "Includi aree sconosciute" inclusa.
+Se un criterio è configurato per applicare in "Qualsiasi percorso", verrà applicata al traffico IPv4 e IPv6. Località denominate configurate per paesi e aree geografiche specificato supporta solo indirizzi IPv4. Il traffico IPv6 è solo se è selezionata l'opzione per "Includi aree sconosciute" inclusa.
 
 ## <a name="trusted-ips"></a>Indirizzi IP attendibili
 

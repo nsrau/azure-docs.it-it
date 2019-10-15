@@ -49,7 +49,7 @@ Il linguaggio dominante del modello è disponibile nel file JSON di Insights `so
 
 ## <a name="guidelines-and-limitations"></a>Linee guida e limitazioni
 
-* Le lingue supportate sono inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, russo e portoghese brasiliano.
+* Le lingue supportate sono inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, russo e portoghese (Brasile).
 * Se l'audio contiene lingue diverse dall'elenco supportato, il risultato è imprevisto.
 * Se video Indexer non è in grado di identificare la lingua con una`>0.6`confidenza sufficientemente elevata (), la lingua di fallback è l'inglese.
 * Non è disponibile alcun supporto corrente per file con audio in lingue miste. Se l'audio contiene lingue miste, il risultato è imprevisto. 

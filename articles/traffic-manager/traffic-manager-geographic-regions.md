@@ -99,7 +99,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
 
         - ME (Montenegro)
 
-        - MK (Macedonia settentrionale)
+        - MK (Macedonia del Nord)
 
         - MT (Malta)
 

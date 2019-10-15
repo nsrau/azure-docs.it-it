@@ -47,7 +47,7 @@ I dati risiedono nella **Stati Uniti** per i paesi/aree geografiche seguenti:
 
 I dati si trovano in **Europa** per i paesi/aree geografiche seguenti:
 
-> Algeria, Austria, Azerbaijan, Bahrain, Bielorussia, Belgio, Bulgaria, Croazia, Cipro, Repubblica Ceca, Danimarca, Egitto, Estonia, Finlandia, Francia, Germania, Grecia, Ungheria, Islanda, Irlanda, Israele, Italia, Giordania, Kazakistan, Kenya, Kuwait, Lettonia, Libano Liechtenstein, Lituania, Lussemburgo, Macedonia settentrionale, Malta, Montenegro, Marocco, Paesi Bassi, Nigeria, Norvegia, Oman, Pakistan, Polonia, Portogallo, Qatar, Romania, Russia, Arabia Saudita, Serbia, Slovacchia, Slovenia, Sudafrica, Spagna, Svezia Svizzera, Tunisia, Turchia, Ucraina, Emirati Arabi Uniti e Regno Unito.
+> Algeria, Austria, Azerbaijan, Bahrain, Bielorussia, Belgio, Bulgaria, Croazia, Cipro, Repubblica Ceca, Danimarca, Egitto, Estonia, Finlandia, Francia, Germania, Grecia, Ungheria, Islanda, Irlanda, Israele, Italia, Giordania, Kazakistan, Kenya, Kuwait, Lettonia, Libano Liechtenstein, Lituania, Lussemburgo, Macedonia del Nord, Malta, Montenegro, Marocco, Paesi Bassi, Nigeria, Norvegia, Oman, Pakistan, Polonia, Portogallo, Qatar, Romania, Russia, Arabia Saudita, Serbia, Slovacchia, Slovenia, Sudafrica, Spagna, Svezia Svizzera, Tunisia, Turchia, Ucraina, Emirati Arabi Uniti e Regno Unito.
 
 I dati risiedono in **Asia Pacifico** per i paesi/aree geografiche seguenti:
 

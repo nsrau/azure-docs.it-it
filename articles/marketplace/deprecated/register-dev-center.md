@@ -126,7 +126,7 @@ Le informazioni bancarie e fiscali sono necessarie per tutte le offerte commerci
 1.  Accedere a Dev Center con l'ID Microsoft.  
     *   Per accedere a Dev Center, visitare la pagina di Windows Dev Center all'indirizzo [dev.windows.com](https://dev.windows.com).  
 2.  Selezionare Profilo fiscale nel menu a sinistra. 
-3.  Nella pagina `Set up your tax form`, selezionare il paese o la regione in cui si ha la residenza permanente.  
+3.  Nella pagina `Set up your tax form`, selezionare il paese o l'area geografica in cui si ha la residenza permanente.  
     
     Selezionare il paese o regione di cui si ha la cittadinanza principale.  
     

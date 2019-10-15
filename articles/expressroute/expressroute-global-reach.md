@@ -46,7 +46,7 @@ Il servizio Copertura globale di ExpressRoute è attualmente supportato nei paes
 * Regno Unito
 * Stati Uniti
 
-I circuiti ExpressRoute devono essere creati in [località di peering ExpressRoute](expressroute-locations.md) nei paesi o regioni indicati sopra. Per abilitare Copertura globale di ExpressRoute tra [diverse aree geopolitiche](expressroute-locations.md), i circuiti devono essere SKU Premium.
+I circuiti ExpressRoute devono essere creati in [località di peering ExpressRoute](expressroute-locations.md) nei paesi o aree geografiche indicati sopra. Per abilitare Copertura globale di ExpressRoute tra [diverse aree geopolitiche](expressroute-locations.md), i circuiti devono essere SKU Premium.
 
 ## <a name="next-steps"></a>Passaggi successivi
 1. [Altre informazioni su Copertura globale di ExpressRoute](expressroute-faqs.md)

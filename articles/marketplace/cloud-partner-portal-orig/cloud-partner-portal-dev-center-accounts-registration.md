@@ -169,7 +169,7 @@ Per poter pubblicare offerte commerciali per l'acquisto, è necessario aggiunger
 1.  Accedere a [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure) con l'account Microsoft, se necessario.
 2.  Selezionare **Profilo fiscale** nel menu a sinistra.
 3.  Nella pagina **Configura modulo per la tassazione**:
-    - Selezionare il paese o la regione in cui si ha la residenza permanente.
+    - Selezionare il paese o l'area geografica in cui si ha la residenza permanente.
     - Selezionare il paese o regione di cui si ha la cittadinanza principale.
     - Selezionare **Avanti**.
 4.  Immettere i dettagli fiscali e quindi selezionare **Avanti**.

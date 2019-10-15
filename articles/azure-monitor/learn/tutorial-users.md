@@ -59,11 +59,11 @@ Il pannello **Utenti** consente di ottenere informazioni importanti relative agl
 
     ![Modificare l'intervallo di tempo](media/tutorial-users/TimeRange.png)
 
-4. Fare clic sull'elenco a discesa **Split by** (Dividi per) per aggiungere al grafico una scomposizione in base a una proprietà utente.  Selezionare **Paese o area geografica**.  Il grafico include gli stessi dati, ma consente di visualizzare una scomposizione del numero di utenti in base ai diversi paesi o alle diverse regioni.
+4. Fare clic sull'elenco a discesa **Split by** (Dividi per) per aggiungere al grafico una scomposizione in base a una proprietà utente.  Selezionare **Paese o area geografica**.  Il grafico include gli stessi dati, ma consente di visualizzare una scomposizione del numero di utenti in base ai diversi paesi o alle diverse aree geografiche.
 
     ![Grafico Paese o area geografica](media/tutorial-users/CountryorRegion.png)
 
-5. Posizionando il cursore sulle diverse barre del grafico, si nota che il conteggio per ogni paese/regione riflette solo l'intervallo di tempo rappresentato da quella barra.
+5. Posizionando il cursore sulle diverse barre del grafico, si nota che il conteggio per ogni paese/area geografica riflette solo l'intervallo di tempo rappresentato da quella barra.
 6. La colonna **Informazioni dettagliate** a destra riporta le analisi effettuate sui dati utente.  Sono disponibili informazioni quali il numero di sessioni univoche per il periodo di tempo considerato e i record con proprietà comuni estrapolati dai dati utente più significativi. 
 
     ![Colonna Informazioni dettagliate](media/tutorial-users/insights.png)

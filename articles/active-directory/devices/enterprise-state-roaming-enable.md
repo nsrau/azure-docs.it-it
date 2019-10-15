@@ -40,7 +40,7 @@ I dati del servizio Enterprise State Roaming sono ospitati in una o più [aree d
 | -------------------- | ------------------------ |
 | Paese/area EMEA, ad esempio Francia o Zambia | Una o più aree di Azure in Europa |
 | Un paese nordamericano, ad esempio Stati Uniti o Canada | Una o più aree di Azure negli Stati Uniti |
-| Un paese/regione APAC, ad esempio Australia o Nuova Zelanda | Una o più aree di Azure in Asia |
+| Un paese/area geografica APAC, ad esempio Australia o Nuova Zelanda | Una o più aree di Azure in Asia |
 | Aree America del Sud e Antartide | Una o più aree di Azure negli Stati Uniti |
 
 Il valore relativo al paese/all'area geografica viene impostato come parte del processo di creazione della directory Azure AD e non può essere modificato successivamente. Se sono necessarie altre informazioni sulla posizione di archiviazione dei dati, inviare un ticket al [supporto tecnico Azure](https://azure.microsoft.com/support/options/).

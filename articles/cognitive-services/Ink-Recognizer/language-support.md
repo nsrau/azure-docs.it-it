@@ -68,7 +68,7 @@ Questo articolo spiega in quali lingue sono supportate per l'API di riconoscimen
 | Romansh                                    |     `rm-CH`     |
 | Rumeno                                   |     `ro-RO`     |
 | Russo                                    |     `ru-RU`     |
-| Scozzese Gaelico                            |     `gd-GB`     |
+| Gaelico scozzese                            |     `gd-GB`     |
 | Sotho del nord                           |    `nso-ZA`     |
 | Serbo (alfabeto cirillico, Bosnia ed Erzegovina) |  `sr-Cyrl-BA`   |
 | Serbo (alfabeto cirillico, Montenegro)             |  `sr-Cyrl-ME`   |

@@ -183,7 +183,7 @@ Il 5 febbraio 2018 è stata annunciata la rimozione della registrazione dell'ind
 > Questa operazione non influisce sui dati raccolti prima del 5 febbraio 2018.
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Dati geografici errati nella telemetria utente
-Le dimensioni relative alla città, all'area, al paese e alla regione vengono derivate dagli indirizzi IP e non sono sempre accurate. Questi indirizzi IP vengono elaborati prima di tutto per la posizione e quindi modificati su 0.0.0.0 per essere archiviati.
+Le dimensioni relative alla città, all'area, al paese e all'area geografica vengono derivate dagli indirizzi IP e non sono sempre accurate. Questi indirizzi IP vengono elaborati prima di tutto per la posizione e quindi modificati su 0.0.0.0 per essere archiviati.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Eccezione "metodo non trovato" durante l'esecuzione dei servizi cloud di Azure
 È stata eseguita la compilazione per .NET 4.6? La versione 4.6 non è supportata automaticamente nei ruoli dei servizi cloud di Azure. [Installare la versione 4.6 in ogni ruolo](../../cloud-services/cloud-services-dotnet-install-dotnet.md) prima di eseguire l'app.

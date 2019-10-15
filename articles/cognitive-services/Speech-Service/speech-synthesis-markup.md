@@ -58,7 +58,7 @@ Ogni documento SSML viene creato con elementi SSML (o tag). Questi elementi veng
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | versione | Indica la versione della specifica SSML usata per interpretare il markup del documento. La versione corrente è 1,0. | Richiesto |
-| xml:lang | Specifica la lingua del documento radice. Il valore può contenere un codice di lingua minuscolo di due lettere (ad esempio, **en**) o il codice della lingua e il paese/regione maiuscola (ad esempio, **en-US**). | Richiesto |
+| xml:lang | Specifica la lingua del documento radice. Il valore può contenere un codice di lingua minuscolo di due lettere (ad esempio, **en**) o il codice della lingua e il paese/area geografica maiuscolo (ad esempio, **en-US**). | Richiesto |
 | xmlns | Specifica l'URI del documento che definisce il vocabolario di markup (i tipi di elemento e i nomi di attributo) del documento SSML. L'URI corrente è https://www.w3.org/2001/10/synthesis. | Richiesto |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Scegliere una voce per la sintesi vocale

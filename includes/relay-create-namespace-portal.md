@@ -16,7 +16,7 @@ ms.locfileid: "71210254"
 1. Selezionare **Crea**e immettere un nome per lo spazio dei nomi nel campo **nome** . Portale di Azure verifica se il nome è disponibile.
 1. Scegliere una sottoscrizione di Azure in cui creare lo spazio dei nomi.
 1. Per [gruppo di risorse](../articles/azure-resource-manager/manage-resource-groups-portal.md)scegliere un gruppo di risorse esistente in cui inserire lo spazio dei nomi oppure crearne uno nuovo.  
-1. Selezionare il paese o la regione in cui deve essere ospitato lo spazio dei nomi.
+1. Selezionare il paese o l'area geografica in cui deve essere ospitato lo spazio dei nomi.
 
     ![Crea spazio dei nomi][create-namespace]
 

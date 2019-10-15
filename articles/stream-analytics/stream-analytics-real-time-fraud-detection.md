@@ -303,7 +303,7 @@ Per questa trasformazione si intende creare una sequenza di finestre temporali c
 
 Per questo esempio, considerare come uso fraudolento le chiamate che provengono dallo stesso utente ma in posizioni diverse, a 5 secondi l'una dall'altra. Ad esempio, lo stesso utente non può eseguire legittimamente una chiamata dagli Stati Uniti e dall'Australia nello stesso momento. 
 
-Per verificare questi casi, è possibile usare un self-join dei dati di streaming per creare un join del flusso a se stesso in base al valore `CallRecTime`. È quindi possibile cercare i record delle chiamate in `CallingIMSI` cui il valore (numero di origine) è lo stesso, ma `SwitchNum` il valore (paese/regione di origine) non è lo stesso.
+Per verificare questi casi, è possibile usare un self-join dei dati di streaming per creare un join del flusso a se stesso in base al valore `CallRecTime`. È quindi possibile cercare i record delle chiamate in `CallingIMSI` cui il valore (numero di origine) è lo stesso, ma `SwitchNum` il valore (paese/area di origine) non è lo stesso.
 
 Quando si usa un join con i dati di streaming, il join deve garantire alcuni limiti per la distanza di separazione delle righe corrispondenti nel tempo. Come indicato in precedenza, i dati di streaming sono effettivamente infiniti. I limiti di tempo per la relazione sono specificati all'interno della clausola `ON` del join usando la funzione `DATEDIFF`. In questo caso il join è basato su un intervallo di 5 secondi di dati di chiamata.
 

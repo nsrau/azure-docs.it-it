@@ -111,7 +111,7 @@ ms.locfileid: "69562781"
 | | Quechua (Peru) | | |
 | | Rumeno | | |
 | | Russo | | |
-| | Scozzese Gaelico | | |
+| | Gaelico scozzese | | |
 | | Serbo (alfabeto cirillico) | | |
 | | Serbo (alfabeto cirillico, Bosnia ed Erzegovina) | | |
 | | Serbo (alfabeto latino) | | |

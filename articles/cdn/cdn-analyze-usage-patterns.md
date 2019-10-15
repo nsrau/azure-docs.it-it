@@ -119,7 +119,7 @@ Il report fornisce i dettagli seguenti:
 
 Il report non include:
 
-* Richieste rifiutate a causa di opzioni di filtro di paese/regione.
+* Richieste rifiutate a causa di opzioni di filtro di paese/area geografica.
 * Richieste di asset le cui intestazioni indicano che non devono essere memorizzate nella cache. Ad esempio, le intestazioni `Cache-Control: private`, `Cache-Control: no-cache` o `Pragma: no-cache` impediscono la memorizzazione nella cache di un asset.
 * Richieste di intervallo di byte di contenuti parzialmente memorizzati nella cache.
 

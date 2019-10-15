@@ -223,7 +223,7 @@ Si noti che le selezioni in questo articolo si applicano solo alle nuove acquisi
 > [!IMPORTANT]
 > È responsabilità dell'utente soddisfare eventuali requisiti legali locali, anche se tali requisiti non sono elencati qui o nel centro per i partner.
 
-Tenere presente che, anche se si selezionano tutti i mercati, le leggi locali e le restrizioni o altri fattori possono impedire che alcune offerte siano elencate in alcuni paesi e regioni.
+Tenere presente che, anche se si selezionano tutti i mercati, le leggi locali e le restrizioni o altri fattori possono impedire che alcune offerte siano elencate in alcuni paesi e aree geografiche.
 
 ### <a name="preview-audience"></a>Anteprima destinatari
 
