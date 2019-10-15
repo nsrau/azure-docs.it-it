@@ -1,5 +1,5 @@
 ---
-title: Esercitazione - Configurare app nel servizio app di Azure tramite Ansible | Microsoft Docs
+title: Esercitazione - Configurare app nel Servizio app di Azure con Ansible
 description: Informazioni su come creare un'app nel servizio app di Azure con Java 8 e il runtime del contenitore Tomcat
 keywords: ansible, azure, devops, bash, playbook, Servizio app di Azure, App Web, Java
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: aed09baf410ce25f2e5383aa746344a440e2a052
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5104db6bd7fa57600c7212e041263971ca4c91d4
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231232"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242056"
 ---
 # <a name="tutorial-configure-apps-in-azure-app-service-using-ansible"></a>Esercitazione: Configurare app nel servizio app di Azure tramite Ansible
 

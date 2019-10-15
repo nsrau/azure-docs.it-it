@@ -1,5 +1,5 @@
 ---
-title: Avvio rapido - Eseguire i playbook di Ansible tramite Bash in Azure Cloud Shell | Microsoft Docs
+title: Avvio rapido - Eseguire i playbook di Ansible tramite Bash in Azure Cloud Shell
 description: In questo argomento di avvio rapido viene illustrato come eseguire diverse attività di Ansible con Bash in Azure Cloud Shell
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 083d10de94c39ab134b8e475b66ebf2df30088bc
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 10f71d5bcb7134ca0560e4fac617e6835cb3d48c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407660"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241528"
 ---
 # <a name="quickstart-run-ansible-playbooks-via-bash-in-azure-cloud-shell"></a>Guida introduttiva: Esegui i playbook di Ansible tramite Bash in Azure Cloud Shell
 

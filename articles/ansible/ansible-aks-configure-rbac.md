@@ -1,5 +1,5 @@
 ---
-title: Esercitazione - Configurare ruoli Controllo degli accessi in base al ruolo nel servizio Azure Kubernetes con Ansible | Microsoft Docs
+title: Esercitazione - Configurare ruoli Controllo degli accessi in base al ruolo nel servizio Azure Kubernetes con Ansible
 description: Informazioni su come usare Ansible per configurare Controllo degli accessi in base al ruolo nel cluster del servizio Azure Kubernetes
 keywords: ansible, azure, devops, bash, cloudshell, playbook, servizio Azure Kubernetes, contenitore, aks, kubernetes, azure active directory, controllo degli accessi in base al ruolo
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: eae23806ee1b4e2dac1d3410e32c3242e89d4be8
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 36a6f5ade7a60a989d2e80f2405aaa2d1d50b756
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719829"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242345"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Esercitazione: Configurare ruoli Controllo degli accessi in base al ruolo nel servizio Azure Kubernetes con Ansible
 

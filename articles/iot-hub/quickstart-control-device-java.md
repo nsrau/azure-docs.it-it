@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 9fb110eff1d498b2b20952048759c76a2dac39f2
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f59a3409d508c63f232294d8d66ade5669815b3c
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306476"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71843378"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT di Azure con Java
 
@@ -141,11 +141,11 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
 
     La schermata seguente mostra l'output mentre l'applicazione del dispositivo simulato invia i dati di telemetria all'hub IoT:
 
-    ![Eseguire il dispositivo simulato](./media/quickstart-control-device-java/SimulatedDevice-1.png)
+    ![Output dei dati di telemetria inviati dal dispositivo all'hub IoT](./media/quickstart-control-device-java/iot-hub-application-send-telemetry-output.png)
 
 ## <a name="call-the-direct-method"></a>Chiamare il metodo diretto
 
-L'applicazione back-end si connette a un endpoint sul lato servizio nell'IoT Hub dell'utente. L'applicazione esegue chiamate dei metodi diretti a un dispositivo tramite l'hub IoT e ascolta gli acknowledgement. Un'applicazione back-end dell'hub IoT in genere viene eseguita nel cloud.
+L'applicazione back-end si connette a un endpoint sul lato servizio nell'IoT Hub dell'utente. L'applicazione effettua chiamate dei metodi diretti a un dispositivo tramite l'hub IoT e rimane in ascolto degli acknowledgement. Un'applicazione back-end dell'hub IoT in genere viene eseguita nel cloud.
 
 1. In un'altra finestra del terminale locale passare alla cartella radice del progetto Java di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\back-end-application**.
 
@@ -165,13 +165,13 @@ L'applicazione back-end si connette a un endpoint sul lato servizio nell'IoT Hub
     java -jar target/back-end-application-1.0.0-with-deps.jar
     ```
 
-    La schermata seguente mostra l'output mentre l'applicazione esegue una chiamata del metodo diretto al dispositivo e riceve un acknowledgement:
+    La schermata seguente mostra l'output visualizzato quando l'applicazione effettua una chiamata del metodo diretto al dispositivo e riceve un acknowledgement:
 
-    ![Eseguire l'applicazione back-end](./media/quickstart-control-device-java/BackEndApplication.png)
+    ![Output mentre l'applicazione effettua una chiamata di metodo diretta tramite l'hub IoT](./media/quickstart-control-device-java/iot-hub-direct-method-call-output.png)
 
     Dopo l'esecuzione dell'applicazione back-end, viene visualizzato un messaggio nella finestra della console che esegue il dispositivo simulato e cambia la frequenza di invio dei messaggi:
 
-    ![Modifica nel client simulato](./media/quickstart-control-device-java/SimulatedDevice-2.png)
+    ![Il messaggio della console dal dispositivo mostra la frequenza con cui cambia](./media/quickstart-control-device-java/iot-hub-sent-message-change-rate.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

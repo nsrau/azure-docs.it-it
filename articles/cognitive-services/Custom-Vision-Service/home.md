@@ -1,5 +1,5 @@
 ---
-title: Informazioni su Visione personalizzata di Azure
+title: Informazioni su Visione personalizzata
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come usare il servizio Visione personalizzata per creare classificatori di immagini personalizzati nel cloud di Azure.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 033b0317b1738e24e4ac9c9ae2150b015cc5a8e5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9e455a42945ba4d6ce334d557b7390c3c50e7ff9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560957"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177817"
 ---
-# <a name="what-is-azure-custom-vision"></a>Informazioni su Visione personalizzata di Azure
+# <a name="what-is-custom-vision"></a>Informazioni su Visione personalizzata
 
-Visione personalizzata di Azure è un servizio cognitivo che consente di compilare, distribuire e migliorare classificatori di immagini. Un classificatore di immagini è un servizio di intelligenza artificiale che applica etichette (che rappresentano _classi_) alle immagini, in base alle relative caratteristiche visive. A differenza del servizio [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), il servizio Visione personalizzata consente di determinare le etichette da applicare.
+Visione personalizzata è un servizio cognitivo che consente di compilare, distribuire e migliorare classificatori di immagini. Un classificatore di immagini è un servizio di intelligenza artificiale che applica etichette (che rappresentano _classi_) alle immagini, in base alle relative caratteristiche visive. A differenza del servizio [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), il servizio Visione personalizzata consente di determinare le etichette da applicare.
 
 ## <a name="what-it-does"></a>Risultato
 

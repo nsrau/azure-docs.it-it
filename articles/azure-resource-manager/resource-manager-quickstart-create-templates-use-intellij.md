@@ -13,12 +13,12 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: quickstart
 ms.author: yucwan
-ms.openlocfilehash: cbeaccf4cdea87d6f34d5ee77e6a08b32abd76b5
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: d25a5720e3aaa8ad6306a72d2db8d3ca2e89861b
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708194"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169440"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-intellij-idea"></a>Guida introduttiva: Creare e distribuire modelli di Azure Resource Manager con IntelliJ IDEA
 
@@ -40,7 +40,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 ## <a name="deploy-a-quickstart-template"></a>Distribuire un modello di avvio rapido
 
-Invece di creare un modello da zero, aprire un modello da [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/). Modelli di avvio rapido di Azure è un repository di modelli di Resource Manager. Il modello usato in questa guida introduttiva è denominato [Create a standard storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/) (Creare un account di archiviazione Standard). Questo modello definisce una risorsa account di archiviazione di Azure. 
+Invece di creare un modello da zero, aprire un modello da [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/). I modelli di avvio rapido di Azure costituiscono un repository di modelli di Resource Manager. Il modello usato in questa guida introduttiva è denominato [Create a standard storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/) (Creare un account di archiviazione Standard). Questo modello definisce una risorsa account di archiviazione di Azure.
 
 1. Fare clic con il pulsante destro del mouse e salvare [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) e [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) sul computer locale.
 
@@ -89,10 +89,10 @@ Invece di creare un modello da zero, aprire un modello da [Modelli di avvio rapi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-L'obiettivo principale di questa guida di avvio rapido è usare IntelliJ IDEA per distribuire un modello esistente da Modelli di avvio rapido di Azure. È stato anche illustrato come visualizzare e aggiornare una distribuzione esistente in Azure. I modelli di avvio rapido di Azure potrebbero non fornire tutto il necessario. L'esercitazione successiva illustra come trovare le informazioni di riferimento sul modello per poter creare un account di archiviazione di Azure crittografato.
+L'obiettivo principale di questa guida di avvio rapido è usare IntelliJ IDEA per distribuire un modello esistente da Modelli di avvio rapido di Azure. È stato anche illustrato come visualizzare e aggiornare una distribuzione esistente in Azure. I modelli di avvio rapido di Azure potrebbero non fornire tutto il necessario. Per altre informazioni sullo sviluppo dei modelli, vedere la nuova serie di esercitazioni per principianti:
 
 > [!div class="nextstepaction"]
-> [Creare un account di archiviazione crittografato](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [Esercitazioni per principianti](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
 > [Visitare il centro per sviluppatori Java in Azure](https://docs.microsoft.com/azure/java)

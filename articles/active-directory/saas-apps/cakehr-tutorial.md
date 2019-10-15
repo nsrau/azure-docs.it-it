@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9acedc081166c84935e3abfde8401b55c64156a7
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 34ef0497b5cacb66ccf92079e740acd98a05021a
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174377"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026431"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con CakeHR
 
@@ -67,8 +67,8 @@ Configurare e testare l'accesso SSO di Azure AD con CakeHR usando un utente di t
 Per configurare e testare l'accesso SSO di Azure AD con CakeHR, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di CakeHR](#configure-cakehr-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di CakeHR](#create-cakehr-test-user)** : per avere una controparte di B.Simon in CakeHR collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -137,11 +137,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Aprire una nuova finestra del Web browser e accedere al sito aziendale di CakeHR come amministratore.
 
-2. Nell'angolo superiore destro della pagina fare clic su **Profile**  (Profilo) e quindi passare a **Settings** (Impostazioni).
+2. Nell'angolo in alto a destra della pagina fare clic su **Profile** (Profilo) e quindi passare a **Settings** (Impostazioni).
 
     ![Configurazione di CakeHR](./media/cakehr-tutorial/config01.png)
 
-3. Dal lato sinistro della barra dei menu fare clic su **INTEGRATIONS** (INTEGRAZIONI) > **SAML SSO** (SSO SAML) e seguire questa procedura:
+3. Dal lato sinistro della barra dei menu fare clic su**INTEGRATIONS** (INTEGRAZIONI) > **SAML SSO** (SSO SAML) e seguire questa procedura:
 
      ![Configurazione di CakeHR](./media/cakehr-tutorial/config02.png)
 
@@ -163,7 +163,7 @@ Per consentire agli utenti di Azure AD di accedere a CakeHR, è necessario effet
 
 1. Accedere a CakeHR come amministratore della sicurezza.
 
-2. Sul lato sinistro della barra dei menu fare clic su **COMPANY** (SOCIETÀ) > **ADD** (AGGIUNGI).
+2. Sul lato sinistro della barra dei menu fare clic su**COMPANY** (SOCIETÀ) > **ADD** (AGGIUNGI).
 
     ![Configurazione di CakeHR](./media/cakehr-tutorial/config03.png)
 

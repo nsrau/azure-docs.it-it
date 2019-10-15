@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurare le cache nella Cache di Azure per Redis usando Ansible | Microsoft Docs'
+title: Esercitazione - Configurare le cache in Cache di Azure per Redis con Ansible
 description: Informazioni su come usare Ansible per creare, ridimensionare e riavviare la Cache di Azure per Redis
 keywords: ansible, azure, devops, bash, playbook, cache, redis
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 693b042f631044352eaae708905fefca02f38415
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 92592dffb3a9094ae74328e8819cafc9469c2ac7
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231012"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241802"
 ---
 # <a name="tutorial-configure-caches-in-azure-cache-for-redis-using-ansible"></a>Esercitazione: Configurare le cache nella Cache di Azure per Redis usando Ansible
 
@@ -160,8 +160,8 @@ Il codice seguente elimina la cache:
 
 ## <a name="get-the-sample-playbook"></a>Ottenere il playbook di esempio
 
-È possibile completare il playbook di esempio in due modi:
-- [Scaricare il playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/rediscache.yml) e salvarlo nella `rediscache.yml`.
+È possibile ottenere il playbook di esempio completo in due modi:
+- [Scaricare il playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/rediscache.yml) e salvarlo in `rediscache.yml`.
 - Creare un nuovo file denominato `rediscache.yml` e copiarvi il contenuto seguente:
 
 ```yml

@@ -1,19 +1,19 @@
 ---
-title: Esercitazione - Configurare funzionalità di rete di kubenet nel servizio Azure Kubernetes con Ansible | Microsoft Docs
+title: Esercitazione - Configurare funzionalità di rete di kubenet nel servizio Azure Kubernetes con Ansible
 description: Informazioni su come usare Ansible per configurare funzionalità di rete kubenet nel cluster del servizio Azure Kubernetes
-keywords: ansible, azure, devops, bash, cloudshell, playbook, servizio Azure Kubernetes, contenitore, aks, kubernetes
+keywords: ansible, azure, devops, bash, cloudshell, playbook, servizio Azure Kubernetes, contenitore, servizio Azure Container, kubernetes
 ms.topic: tutorial
 ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: cd32347f9de87ea6272be922d0359f1cc7f6f758
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 949a55fd8c004bc656d02816231c4ebb6dd8f92b
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231309"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242174"
 ---
 # <a name="tutorial-configure-kubenet-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Esercitazione: Configurare funzionalità di rete di kubenet nel servizio Azure Kubernetes con Ansible
 
@@ -32,7 +32,7 @@ Per altre informazioni sulle funzionalità di rete per le applicazioni nel servi
 
 > [!div class="checklist"]
 >
-> * Creare un cluster del servizio Azure Kubernetes
+> * Creare un cluster del servizio Azure Container
 > * Configurare le funzionalità di rete kubenet di Azure
 
 ## <a name="prerequisites"></a>Prerequisiti

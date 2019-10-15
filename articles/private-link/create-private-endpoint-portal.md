@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: d7c2aee3ad73552a57776af5ce6585b36518d169
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 95dbe2b9ccfdc0a900ba53668869e3872b6e51d5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687063"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030317"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Creare un endpoint privato con il portale di Azure
 
@@ -135,7 +135,7 @@ In questa sezione si creerà un server di database SQL in Azure.
 In questa sezione si creerà un server SQL e vi si aggiungerà un endpoint privato. 
 
 1. Nella parte superiore sinistra della schermata del portale di Azure selezionare **Crea una risorsa** > **Rete** > **Centro collegamento privato (anteprima)** .
-2. In  **Centro collegamento privato - Informazioni generali** selezionare  **Avvia** per l'opzione  **Crea una connessione privata a un servizio**.
+2. In **Centro collegamento privato - Informazioni generali** selezionare **Avvia** per l'opzione **Crea una connessione privata a un servizio**.
 1. In **Crea un endpoint privato (anteprima) - Informazioni di base** immettere o selezionare queste informazioni:
 
     | Impostazione | Valore |

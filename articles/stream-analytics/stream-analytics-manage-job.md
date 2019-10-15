@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: d09ed0585250d078f728aa4e7272cca147a40c38
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 540cd0e136dc602848c34edbd3914d69ca725758
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612371"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000542"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analizzare i dati delle telefonate con Analisi di flusso di Azure e visualizzare i risultati in una dashboard Power BI
 
@@ -54,9 +54,9 @@ Per creare un nuovo hub eventi e inviare i dati delle chiamate, seguire la proce
    |**Impostazione**  |**Valore consigliato** |**Descrizione**  |
    |---------|---------|---------|
    |NOME     | myEventHubsNS        |  Nome univoco che identifica lo spazio dei nomi dell'hub eventi.       |
-   |Sottoscrizione     |   \<Sottoscrizione in uso\>      |   Selezionare una sottoscrizione di Azure in cui creare l'hub eventi.      |
-   |Gruppo di risorse     |   MyASADemoRG      |  Selezionare **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse per l'account.       |
-   |Località     |   Stati Uniti occidentali 2      |    Località in cui lo spazio dei nomi dell'hub eventi può essere distribuito.     |
+   |Subscription     |   \<Sottoscrizione in uso\>      |   Selezionare una sottoscrizione di Azure in cui creare l'hub eventi.      |
+   |Resource group     |   MyASADemoRG      |  Selezionare **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse per l'account.       |
+   |Location     |   Stati Uniti occidentali 2      |    Località in cui lo spazio dei nomi dell'hub eventi può essere distribuito.     |
 
 4. Usare le opzioni predefinite per le restanti impostazioni e selezionare **Crea**.
 
@@ -137,9 +137,9 @@ Dopo aver creato un flusso di eventi di chiamata, è possibile creare un process
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
    |Nome processo     |  ASATutorial       |   Nome univoco che identifica lo spazio dei nomi dell'hub eventi.      |
-   |Sottoscrizione    |  \<Sottoscrizione in uso\>   |   Selezionare una sottoscrizione di Azure in cui creare il processo.       |
-   |Gruppo di risorse   |   MyASADemoRG      |   Selezionare **Usa esistente** e immettere il nome di un nuovo gruppo di risorse per l'account.      |
-   |Località   |    Stati Uniti occidentali 2     |      Località in cui il processo può essere distribuito. È consigliabile posizionare il processo e l'hub eventi nella stessa area per ottenere prestazioni ottimali ed evitare di pagare il trasferimento dei dati tra aree.      |
+   |Subscription    |  \<Sottoscrizione in uso\>   |   Selezionare una sottoscrizione di Azure in cui creare il processo.       |
+   |Resource group   |   MyASADemoRG      |   Selezionare **Usa esistente** e immettere il nome di un nuovo gruppo di risorse per l'account.      |
+   |Location   |    Stati Uniti occidentali 2     |      Località in cui il processo può essere distribuito. È consigliabile posizionare il processo e l'hub eventi nella stessa area per ottenere prestazioni ottimali ed evitare di pagare il trasferimento dei dati tra aree.      |
    |Ambiente di hosting    | Cloud        |     Per la distribuzione dei processi di Analisi di flusso è possibile scegliere tra Cloud o Edge. L'opzione Cloud consente di eseguire la distribuzione nel cloud di Azure, mentre l'opzione Edge consente di eseguire la distribuzione in un dispositivo IoT Edge.    |
    |Unità di streaming     |    1       |      Le unità di streaming rappresentano le risorse di calcolo necessarie per eseguire un processo. Il valore predefinito di questa impostazione è 1. Per informazioni sul ridimensionamento delle unità di streaming, vedere [Informazioni sulle unità di flusso e su come modificarle](stream-analytics-streaming-unit-consumption.md).      |
 
@@ -160,7 +160,7 @@ Il passaggio successivo consiste nel definire un'origine di input da cui il proc
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
    |Alias di input     |  CallStream       |  Specificare un nome descrittivo per identificare l'input. L'alias di input può contenere solo caratteri alfanumerici, trattini e caratteri di sottolineatura e deve avere una lunghezza compresa tra 3 e 63 caratteri.       |
-   |Sottoscrizione    |   \<Sottoscrizione in uso\>      |   Selezionare la sottoscrizione di Azure in cui è stato creato l'hub eventi. L'hub eventi può trovarsi nella stessa sottoscrizione del processo di Analisi di flusso o in una sottoscrizione diversa.       |
+   |Subscription    |   \<Sottoscrizione in uso\>      |   Selezionare la sottoscrizione di Azure in cui è stato creato l'hub eventi. L'hub eventi può trovarsi nella stessa sottoscrizione del processo di Analisi di flusso o in una sottoscrizione diversa.       |
    |Spazio dei nomi dell'hub eventi    |  myEventHubsNS       |  Selezionare lo spazio dei nomi dell'hub eventi creato nella sezione precedente. Nell'elenco a discesa sono presenti tutti gli spazi dei nomi degli hub eventi disponibili nella sottoscrizione corrente.       |
    |Nome dell'hub eventi    |   MyEventHub      |  Selezionare l'hub eventi creato nella sezione precedente. Nell'elenco a discesa sono presenti tutti gli hub eventi disponibili nella sottoscrizione corrente.       |
    |Nome criteri hub eventi   |  MyPolicy       |  Selezionare i criteri di accesso condiviso dell'hub eventi creati nella sezione precedente. Nell'elenco a discesa sono presenti tutti i criteri degli hub eventi disponibili nella sottoscrizione corrente.       |
@@ -266,7 +266,7 @@ In questo esempio le chiamate fraudolente provengono dallo stesso utente ma da l
 
 Per questa parte dell'esercitazione si userà un'applicazione Web [ASP.NET](https://asp.net/) di esempio creata dal team di Power BI per incorporare il dashboard. Per altre informazioni sull'incorporamento di dashboard, vedere l'articolo [Incorporamento con Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
-Per configurare l'applicazione, passare al repository GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) e seguire le istruzioni nella sezione **User Owns Data** (Utente proprietario dei dati). Usare gli URL di reindirizzamento e della home page nella sottosezione **integrate-dashboard-web-app**. Dal momento che si sta usando l'esempio relativo al dashboard, usare il codice di esempio **integrate-dashboard-web-app** disponibile nel [repository GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
+Per configurare l'applicazione, passare al repository GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) e seguire le istruzioni nella sezione **User Owns Data** (Utente proprietario dei dati). Usare gli URL di reindirizzamento e della home page nella sottosezione **integrate-web-app**. Dal momento che si sta usando l'esempio relativo al dashboard, usare il codice di esempio **integrate-web-app** disponibile nel [repository GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-web-app).
 Una volta che l'applicazione è in esecuzione nel browser, seguire questa procedura per incorporare il dashboard creato in precedenza nella pagina Web:
 
 1. Selezionare **Accedi a Power BI**, per concedere all'applicazione l'accesso ai dashboard nell'account Power BI.

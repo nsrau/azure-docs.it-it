@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: b6ac528d0d2916f513be4e2a72bff061bdad8e58
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: bacd26cdba24e7ad503a3ae58d5c77d5a3311537
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718655"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177756"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Esercitazione: Configurare HTTPS in un dominio personalizzato della rete CDN di Azure
 
@@ -132,7 +132,9 @@ Concedere alla rete CDN di Azure l'autorizzazione ad accedere ai certificati (se
 
 3. Selezionare **Autorizzazioni del certificato** e quindi selezionare le caselle di controllo **Ottieni** ed **Elenca** per consentire alla rete CDN di eseguire queste autorizzazioni per ottenere ed elencare i certificati.
 
-4. Selezionare **OK**. 
+4. Selezionare **Autorizzazioni dei segreti** e quindi selezionare le caselle di controllo **Ottieni** ed **Elenca** per consentire alla rete CDN di eseguire queste autorizzazioni per ottenere ed elencare i segreti.
+
+5. Selezionare **OK**. 
 
     La rete CDN di Azure può ora accedere a questo insieme di credenziali delle chiavi e ai certificati (segreti) in esso archiviati.
  
@@ -190,7 +192,7 @@ La convalida automatica richiede in genere qualche ora. Se il dominio non viene 
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>Il dominio personalizzato non è mappato all'endpoint della rete CDN
 
 >[!NOTE]
->Se si usa la **rete CDN di Azure di Akamai**, è necessario configurare il record CNAME seguente per consentire la convalida automatica del dominio: "_acme-challenge.<custom domain hostname> -> CNAME -> <custom domain hostname>.ak-acme-challenge.azureedge.net"
+>Se si usa la **rete CDN di Azure di Akamai**, è necessario configurare il record CNAME seguente per consentire la convalida automatica del dominio: "_acme-challenge.&lt;nome host del dominio personalizzato&gt; -> CNAME -> &lt;nome host del dominio personalizzato&gt;.ak-acme-challenge.azureedge.net"
 
 Se la voce di record CNAME contiene il sottodominio cdnverify, seguire le istruzioni riportate in questo passaggio.
 

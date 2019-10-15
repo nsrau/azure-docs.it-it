@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 709bf2e413ddb40ae1ed84672cea0c0b71be2ce6
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 21409eb056743d92db42e0787af24f8cec07db1b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305935"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026952"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Harness
 
@@ -64,8 +64,8 @@ Configurare e testare l'accesso SSO di Azure AD con Harness usando un utente di 
 Per configurare e testare l'accesso SSO di Azure AD con Harness, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Harness](#configure-harness-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Harness](#create-harness-test-user)** : per avere una controparte di B.Simon in Harness collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -109,7 +109,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
@@ -141,11 +141,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 3. Se si vuole configurare manualmente Harness, aprire una nuova finestra del Web browser, accedere al sito aziendale di Harness come amministratore e seguire questa procedura:
 
-4. In alto a destra della pagina fare clic su  **Continuous Security** (Sicurezza continua) > **Access Management** (Gestione accesso)  > **Authentication Settings** (Impostazioni di autenticazione).
+4. In alto a destra nella pagina fare clic su **Continuous Security** (Sicurezza continua) > **Access Management** (Gestione accesso) > **Authentication Settings** (Impostazioni di autenticazione).
 
     ![Configurazione di Harness](./media/harness-tutorial/configure01.png)
 
-5. Nella sezione **SSO Providers** (Provider SSO) fare clic su  **+ Add SSO Providers** (+ Aggiungi provider SSO) > **SAML**.
+5. Nella sezione **SSO Providers** (Provider SSO) fare clic su **+ Add SSO Providers** (+ Aggiungi provider SSO) > **SAML**.
 
     ![Configurazione di Harness](./media/harness-tutorial/configure03.png)
 
@@ -169,11 +169,11 @@ Per consentire agli utenti di Azure AD di accedere a Harness, è necessario effe
 
 1. Accedere a Harness come amministratore.
 
-1. In alto a destra della pagina fare clic su  **Continuous Security** (Sicurezza continua) > **Access Management** (Gestione accesso)  > **Users** (Utenti).
+1. In alto a destra nella pagina fare clic su **Continuous Security** (Sicurezza continua) > **Access Management** (Gestione accesso) > **Users** (Utenti).
 
     ![Configurazione di Harness](./media/harness-tutorial/configure04.png)
 
-1. Sul lato destro della pagina fare clic su  **+ Add User** (+ Aggiungi utente).
+1. Sul lato destro della pagina fare clic su **+ Add User** (+ Aggiungi utente).
 
     ![Configurazione di Harness](./media/harness-tutorial/configure05.png)
 

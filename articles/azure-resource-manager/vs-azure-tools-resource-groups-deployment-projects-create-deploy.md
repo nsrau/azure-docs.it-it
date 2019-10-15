@@ -6,16 +6,16 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8677d906375853bdde5c192c86dacc7479f2e31e
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: c7f71dbadf24244756cf65f68ceea24547190737
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310969"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170246"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
 
-Con Visual Studio è possibile creare un progetto che distribuisce l'infrastruttura e il codice in Azure. Ad esempio, è possibile distribuire l'host Web, il sito Web e il codice per il sito Web. Visual Studio offre molti modelli di partenza per la distribuzione di scenari comuni. In questo articolo verrà distribuita un'app Web.  
+Con Visual Studio è possibile creare un progetto che distribuisce l'infrastruttura e il codice in Azure. Ad esempio, è possibile distribuire l'host Web, il sito Web e il codice per il sito Web. Visual Studio offre molti modelli di partenza per la distribuzione di scenari comuni. In questo articolo verrà distribuita un'app Web.
 
 Questo articolo illustra come usare [Visual Studio 2019 o versione successiva con i carichi di lavoro Sviluppo di Azure e ASP.NET installati](/visualstudio/install/install-visual-studio?view=vs-2019). Se si usa Visual Studio 2017, l'esperienza sarà molto simile.
 
@@ -205,13 +205,13 @@ A questo punto è stata distribuita l'infrastruttura per l'app, ma non è stato 
 
     ![Aggiungere una risorsa](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
 
-1. Questa volta selezionare **Distribuzione Web per app Web**. 
+1. Questa volta selezionare **Distribuzione Web per app Web**.
 
     ![Aggiunta della distribuzione Web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
 
    Salvare il modello.
 
-1. Esistono alcuni nuovi parametri nel modello, aggiunti nel passaggio precedente. Non è necessario specificare valori per **_artifactsLocation** o **_artifactsLocationSasToken**, perché vengono generati automaticamente. Tuttavia, è necessario impostare la cartella e il nome di file sul percorso che contiene il pacchetto di distribuzione. I nomi di questi parametri terminano con **PackageFolder** e **PackageFileName**. La prima parte del nome è il nome della risorsa di distribuzione Web aggiunta. In questo articolo i nomi sono **ExampleAppPackageFolder** ed **ExampleAppPackageFileName**. 
+1. Esistono alcuni nuovi parametri nel modello, aggiunti nel passaggio precedente. Non è necessario specificare valori per **_artifactsLocation** o **_artifactsLocationSasToken**, perché vengono generati automaticamente. Tuttavia, è necessario impostare la cartella e il nome di file sul percorso che contiene il pacchetto di distribuzione. I nomi di questi parametri terminano con **PackageFolder** e **PackageFileName**. La prima parte del nome è il nome della risorsa di distribuzione Web aggiunta. In questo articolo i nomi sono **ExampleAppPackageFolder** ed **ExampleAppPackageFileName**.
 
    Aprire **Website.parameters.json** e impostare questi parametri sui valori indicati nelle proprietà di riferimento. Impostare **ExampleAppPackageFolder** sul nome della cartella. Impostare **ExampleAppPackageFileName** sul nome del file ZIP.
 
@@ -386,7 +386,7 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è appreso come creare e distribuire modelli con Visual Studio. L'esercitazione successiva illustra come trovare le informazioni di riferimento sul modello per poter creare un account di archiviazione di Azure crittografato.
+In questa guida introduttiva si è appreso come creare e distribuire modelli con Visual Studio. Per altre informazioni sullo sviluppo dei modelli, vedere la nuova serie di esercitazioni per principianti:
 
 > [!div class="nextstepaction"]
-> [Creare un account di archiviazione crittografato](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [Esercitazioni per principianti](./template-tutorial-create-first-template.md)

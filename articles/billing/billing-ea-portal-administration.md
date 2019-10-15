@@ -4,16 +4,16 @@ description: Questo articolo illustra le attività comuni eseguite da un amminis
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/25/2019
+ms.date: 10/07/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 87947fb29d8fa7dd86818caef139e776c04c7650
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 21e9d4af783ed5d9eb3ace1c8b5189163b89f8b0
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71308096"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035212"
 ---
 # <a name="azure-ea-portal-administration"></a>Amministrazione di Azure EA Portal
 
@@ -87,10 +87,11 @@ Altri punti da tenere presenti prima del trasferimento di un account:
 - Per la registrazione di destinazione e di origine è necessaria l'approvazione di un amministratore EA
   - In alcuni casi, Microsoft potrebbe richiedere un'ulteriore approvazione da parte di un amministratore EA della registrazione di origine
 - Se il trasferimento di un account non soddisfa le proprie esigenze, prendere in considerazione un trasferimento di registrazione.
-- Il trasferimento dell'account trasferisce tutti i servizi, le sottoscrizioni, gli account, i reparti e l'intera struttura di registrazione, inclusi tutti gli amministratori del reparto EA.
-- Il trasferimento dell'account imposta lo stato di registrazione di origine su _Trasferito_. L'account trasferito è disponibile solo per la creazione di report cronologici sull'utilizzo.
-- Non è possibile aggiungere ruoli o sottoscrizioni a una registrazione con stato Trasferito. Lo stato impedisce ulteriori utilizzi per la registrazione.
-- Qualsiasi saldo dell'impegno monetario rimanente nel contratto di origine viene perso, inclusi i periodi futuri.
+- Con il trasferimento vengono trasferiti tutti i servizi e le sottoscrizioni correlati agli account specifici.
+- Al termine del trasferimento, l'account trasferito appare inattivo nella registrazione di origine.
+- Il trasferimento di un account può essere retrodatato a qualsiasi giorno entro la data di inizio della registrazione di destinazione.
+- L'account mostra la data di fine corrispondente alla data del trasferimento effettivo nella registrazione di origine e come data di inizio nella registrazione di destinazione.
+- Qualsiasi utilizzo che si verifica per l'account prima della data del trasferimento effettivo rimane nella registrazione di origine.
 
 
 ## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Trasferire la registrazione EA in una nuova registrazione
@@ -156,7 +157,7 @@ Se la sottoscrizione viene trasferita a un account in un altro tenant di Azure A
 - Chiavi di accesso per servizi quali Archiviazione. Per altre informazioni, vedere [Panoramica dell'account di archiviazione di Azure](../storage/common/storage-account-overview.md).
 - Credenziali di accesso remoto per servizi quali macchine virtuali di Azure.
 
-Se il destinatario deve limitare l'accesso alle risorse di Azure, deve prendere in considerazione l'aggiornamento degli eventuali segreti associati al servizio. La maggior parte delle risorse può essere aggiornata usando la procedura seguente:
+Se il destinatario deve limitare l'accesso alle risorse di Azure, deve prendere in considerazione l'aggiornamento degli eventuali segreti associati al servizio. La maggior parte delle risorse può essere aggiornate usando la procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Scegliere **Tutte le risorse** dal menu Hub.

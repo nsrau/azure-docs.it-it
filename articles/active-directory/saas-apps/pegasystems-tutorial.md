@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 013e477b66d2772698ce5c9cc61a59f8a5a04a5a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd54466e054055ff84cd5bb2b28c5cc074ac0017
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67094891"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026811"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Esercitazione: Integrazione di Azure Active Directory con Pegasystems
 
@@ -124,7 +124,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Pegasystems, seguire qu
     > [!NOTE]
     > I valori qui forniti sono segnaposto. È necessario usare l'identificatore, l'URL di risposta, l'URL di accesso e l'URL dello stato dell'inoltro effettivi. È possibile ottenere i valori dell'identificatore e dell'URL di risposta in un'applicazione Pega illustrata più avanti in questa esercitazione. Per ottenere il valore dello stato dell'inoltro, contattare il [team di supporto di Pegasystems](https://www.pega.com/contact-us). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-6. L'applicazione Pegasystems ha bisogno di un formato specifico per le asserzioni SAML. Per visualizzarle nel formato corretto, è necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi dei token SAML. Lo screenshot seguente mostra gli attributi predefiniti. Selezionare l'icona **Modifica** per aprire la finestra di dialogo **Attributi utente** :
+6. L'applicazione Pegasystems ha bisogno di un formato specifico per le asserzioni SAML. Per visualizzarle nel formato corretto, è necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi dei token SAML. Lo screenshot seguente mostra gli attributi predefiniti. Selezionare l'icona **Modifica** per aprire la finestra di dialogo **Attributi utente**:
 
     ![Attributi utente](common/edit-attribute.png)
 
@@ -216,7 +216,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Pegasystems, seguire qu
 
 7. Selezionare **Salva**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
@@ -240,7 +240,7 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     d. Selezionare **Create** (Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon sarà abilitata per l'uso dell'accesso Single Sign-On di Azure, concedendole l'accesso a Pegasystems.
 

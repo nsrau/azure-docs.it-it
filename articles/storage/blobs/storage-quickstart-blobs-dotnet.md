@@ -7,12 +7,12 @@ ms.date: 07/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 1b6348173f47b570efff25bf09e9a427ff2ba9b5
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 27ae562d38ee8734201299e10dbe6ac4be3cb2ee
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640985"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947655"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-net"></a>Guida introduttiva: Libreria client di archiviazione BLOB di Azure per .NET
 
@@ -31,11 +31,11 @@ Usare la libreria client di Archiviazione BLOB di Azure per .NET per:
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="required-before-you-begin"></a>Requisiti prima di iniziare
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Account di archiviazione di Azure: [creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* [NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core), o versione successiva, per il sistema operativo in uso. Assicurarsi di ottenere l'SDK e non il runtime.
+* Versione aggiornata di [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) per il sistema operativo in uso. Assicurarsi di ottenere l'SDK e non il runtime.
 
 ## <a name="setting-up"></a>Configurazione
 

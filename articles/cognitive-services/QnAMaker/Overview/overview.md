@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 08/01/2019
 ms.author: diberry
-ms.openlocfilehash: f56798359cdc8739a363bed3bfddadd584617adf
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: d647875895e33254b51fb8c3d11aa40c6c1ed71f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815462"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973794"
 ---
 # <a name="what-is-the-qna-maker-service"></a>Cos'è il servizio QnA Maker?
 
@@ -85,21 +85,8 @@ QnA Maker fornisce funzionalità di creazione, training e pubblicazione oltre al
 
 **Passaggio 4**: Dall'applicazione client, chiamare a livello di codice l'endpoint della knowledge base e leggere la risposta JSON che mostra la migliore risposta all'utente.  
 
-## <a name="news-and-updates"></a>Notizie e aggiornamenti
-
-Novità di QnA Maker.
-
-* Giugno 2019
-    * Modello di classificazione migliorato per francese, italiano, tedesco, spagnolo e portoghese
-* Aprile 2019
-    * Supporto dell'estrazione di contenuto da siti Web
-    * Supporto di documenti di SharePoint
-* Marzo 2019
-    * Apprendimento attivo 
-    * Modello di classificazione NLP migliorato per la lingua inglese 
-
 ## <a name="next-steps"></a>Passaggi successivi
 QnA Maker offre tutto il necessario per creare, gestire e distribuire una knowledge base personalizzata. 
 
 > [!div class="nextstepaction"]
-> [Creare un servizio QnA Maker](../how-to/set-up-qnamaker-service-azure.md)
+> [Esaminare le modifiche più recenti](../whats-new.md)

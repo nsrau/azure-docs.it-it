@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 45ac641948531aa27334762704eba3333aebba4d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 69c190b9ce9e5a99d39a46c147f7159ace47e4f7
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564335"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001435"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Guida introduttiva: Analizzare il contenuto del testo per individuare materiale inappropriato in C#
 
@@ -33,11 +33,12 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="create-the-visual-studio-project"></a>Creare il progetto di Visual Studio
 
 1. In Visual Studio creare un nuovo progetto **App console (.NET Framework)** e assegnargli il nome **TextModeration**. 
-1. Se la soluzione contiene anche altri progetti, selezionare questo come solo progetto di avvio.
-1. Ottenere i pacchetti NuGet necessari. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**, quindi trovare e installare i pacchetti seguenti:
-    - `Microsoft.Azure.CognitiveServices.ContentModerator`
-    - `Microsoft.Rest.ClientRuntime`
-    - `Newtonsoft.Json`
+1. Se la soluzione contiene anche altri progetti, selezionare questo come progetto di avvio singolo.
+1. Ottenere il pacchetto NuGet necessario. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**. Quindi trovare e installare il **pacchetto `Microsoft.Azure.CognitiveServices.ContentModerator`** . In alternativa, è possibile eseguire il comando seguente dalla directory della soluzione:
+
+```console
+dotnet add package Microsoft.Azure.CognitiveServices.ContentModerator
+```
 
 ## <a name="add-text-moderation-code"></a>Aggiungere il codice di moderazione testo
 

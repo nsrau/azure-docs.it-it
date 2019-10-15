@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Usare un rilevatore di logo personalizzato per riconoscere i servizi di Azure - Visione personalizzata'
 titleSuffix: Azure Cognitive Services
-description: In questa esercitazione verrà illustrata un'app di esempio che usa lo strumento Visione personalizzata di Azure in uno scenario di rilevamento di logo. Informazioni su come usare lo strumento Visione personalizzata con altri componenti per realizzare un'applicazione end-to-end.
+description: In questa esercitazione verrà illustrata un'app di esempio che usa l'API Visione personalizzata in uno scenario di rilevamento di logo. Informazioni su come usare lo strumento Visione personalizzata con altri componenti per realizzare un'applicazione end-to-end.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: bdcf8a0d63b880075cd22c73305afa8cf09a2e3b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b48d82354a8e733db5ddd0c86e34bab1fa9caa8d
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261979"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177780"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Esercitazione: Riconoscere i logo dei servizi di Azure nelle immagini della fotocamera
 
-In questa esercitazione verrà illustrata un'app di esempio che usa lo strumento Visione personalizzata di Azure come parte di uno scenario più ampio. L'app AI Visual Provision, un'app Xamarin.Forms per piattaforme mobili, analizza le immagini della fotocamera dei logo dei servizi di Azure e quindi distribuisce i servizi effettivi all'account Azure dell'utente. Si apprenderà come viene usato lo strumento Visione personalizzata in combinazione con altri componenti per realizzare un'utile applicazione end-to-end. È possibile eseguire l'intero scenario dell'app o limitarsi a completare la parte della configurazione relativa a Visione personalizzata ed esaminare il modo in cui lo strumento viene usato dall'app.
+In questa esercitazione verrà illustrata un'app di esempio che usa l'API Visione personalizzata nell'ambito di uno scenario più ampio. L'app AI Visual Provision, un'app Xamarin.Forms per piattaforme mobili, analizza le immagini della fotocamera dei logo dei servizi di Azure e quindi distribuisce i servizi effettivi all'account Azure dell'utente. Si apprenderà come viene usato lo strumento Visione personalizzata in combinazione con altri componenti per realizzare un'utile applicazione end-to-end. È possibile eseguire l'intero scenario dell'app o limitarsi a completare la parte della configurazione relativa a Visione personalizzata ed esaminare il modo in cui lo strumento viene usato dall'app.
 
 In questa esercitazione verranno illustrate le attività seguenti:
 

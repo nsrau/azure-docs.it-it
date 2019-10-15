@@ -8,17 +8,16 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 526c60916854d4918607a1fd1b887ac9d27cd1c7
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 29e0b05ee9cb8f7dc67f90b54081bca4db0691b6
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950020"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035234"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Informazioni sul servizio Backup di Azure
 
 Il servizio Backup di Azure consente di eseguire il backup dei dati nel cloud di Microsoft Azure. È possibile eseguire il backup di computer e carichi di lavoro locali, nonché di macchine virtuali di Azure (VM).
-
 
 ## <a name="why-use-azure-backup"></a>Perché usare Backup di Azure
 
@@ -28,16 +27,15 @@ Backup di Azure offre i vantaggi principali seguenti:
 - **Backup delle VM IaaS di Azure**: Backup di Azure fornisce backup indipendenti e isolati per salvaguardare dalla distruzione accidentale dei dati originali. I backup vengono archiviati in un insieme di credenziali di Servizi di ripristino con la gestione predefinita dei punti di ripristino. La configurazione e la scalabilità sono semplici, i backup sono ottimizzati ed è possibile eseguire il ripristino con facilità secondo necessità.
 - **Scalabilità semplificata**: Backup di Azure sfrutta le potenzialità e la scalabilità illimitata del cloud di Azure per offrire disponibilità elevata, senza costi generali di manutenzione o monitoraggio.
 - **Trasferimento dati senza limiti**: Backup di Azure non prevede limiti per la quantità di dati trasferiti in ingresso o in uscita né addebiti per il trasferimento dei dati.
-    - I dati in uscita sono i dati trasferiti da un insieme di credenziali di Servizi di ripristino durante un'operazione di ripristino.
-    - Se si esegue un backup iniziale offline con il servizio Importazione/esportazione di Azure per importare grandi quantità di dati, viene applicato un costo per i dati in ingresso.  [Altre informazioni](backup-azure-backup-import-export.md)
+  - I dati in uscita sono i dati trasferiti da un insieme di credenziali di Servizi di ripristino durante un'operazione di ripristino.
+  - Se si esegue un backup iniziale offline con il servizio Importazione/esportazione di Azure per importare grandi quantità di dati, viene applicato un costo per i dati in ingresso.  [Altre informazioni](backup-azure-backup-import-export.md)
 - **Sicurezza dei dati**: Backup di Azure offre soluzioni per la protezione dei dati in transito e inattivi.
 - **Backup coerenti con le app**: i backup coerenti con le applicazioni implicano che un punto di ripristino ha tutti i dati necessari per ripristinare la copia di backup. Backup di Azure offre backup coerenti con l'applicazione, che eliminano la necessità di correzioni aggiuntive per ripristinare i dati. Il ripristino di dati coerenti con l'applicazione riduce il tempo di ripristino e consente quindi di tornare rapidamente allo stato operativo.
-- **Conservazione a breve e a lungo termine**: è possibile usare gli insiemi di credenziali di Servizi di ripristino per la conservazione dei dati a breve termine e a lungo termine. Azure non limita la durata della conservazione dei dati in un insieme di credenziali di dei Servizi di ripristino. È possibile conservare i dati per il tempo desiderato. Backup di Azure ha un limite di 9999 punti di ripristino per ogni istanza protetta. 
+- **Conservazione a breve e a lungo termine**: è possibile usare gli insiemi di credenziali di Servizi di ripristino per la conservazione dei dati a breve termine e a lungo termine. Azure non limita la durata della conservazione dei dati in un insieme di credenziali di dei Servizi di ripristino. È possibile conservare i dati per il tempo desiderato. Backup di Azure ha un limite di 9999 punti di ripristino per ogni istanza protetta.
 - **Gestione automatica dell'archiviazione**. Gli ambienti ibridi richiedono spesso un'archiviazione eterogenea, in parte in locale e in parte nel cloud. Con Backup di Azure non sono previsti costi per l'uso di dispositivi di archiviazione locale. Backup di Azure alloca e gestisce automaticamente le risorse di archiviazione di backup e usa un modello di pagamento in base al consumo in modo che si pagano solo le risorse di archiviazione effettivamente usate. [Altre informazioni](https://azure.microsoft.com/pricing/details/backup) sui prezzi.
 - **Più opzioni di archiviazione**: Backup di Azure offre due tipi di replica per garantire la disponibilità elevata delle risorse di archiviazione e/o dei dati.
-    - L'[archiviazione con ridondanza locale](../storage/common/storage-redundancy-lrs.md) replica i dati tre volte (crea tre copie dei dati) in un'unità di scala di archiviazione in un data center. Tutte le copie dei dati si trovano nella stessa area geografica. L'archiviazione con ridondanza locale è un'opzione a costo contenuto per la protezione dei dati da errori hardware locali.
-    - L'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy-grs.md) è l'opzione di replica predefinita e consigliata. L'archiviazione con ridondanza geografica replica i dati in un'area secondaria a centinaia di chilometri di distanza dalla posizione primaria dei dati di origine. L'archiviazione con ridondanza geografica è più costosa dell'archiviazione con ridondanza locale, ma offre un livello più elevato di durabilità per i dati, anche in presenza di un'interruzione di area.
-
+  - L'[archiviazione con ridondanza locale](../storage/common/storage-redundancy-lrs.md) replica i dati tre volte (crea tre copie dei dati) in un'unità di scala di archiviazione in un data center. Tutte le copie dei dati si trovano nella stessa area geografica. L'archiviazione con ridondanza locale è un'opzione a costo contenuto per la protezione dei dati da errori hardware locali.
+  - L'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy-grs.md) è l'opzione di replica predefinita e consigliata. L'archiviazione con ridondanza geografica replica i dati in un'area secondaria a centinaia di chilometri di distanza dalla posizione primaria dei dati di origine. L'archiviazione con ridondanza geografica è più costosa dell'archiviazione con ridondanza locale, ma offre un livello più elevato di durabilità per i dati, anche in presenza di un'interruzione di area.
 
 ## <a name="whats-the-difference-between-azure-backup-and-azure-site-recovery"></a>Qual è la differenza tra Backup di Azure e Azure Site Recovery?
 
@@ -66,16 +64,16 @@ Backup di Azure consente di eseguire il backup sia di computer locali che di VM 
 **Computer** | **Scenario di backup**
 --- | ---
 **Backup locale** |  1) Eseguire l'agente di Servizi di ripristino di Microsoft Azure di Backup di Azure nei computer Windows locali per eseguire il backup di singoli file e dello stato del sistema. <br/><br/>2) Eseguire il backup dei computer locali in un server di backup, ad esempio System Center Data Protection Manager (DPM) o un server di Backup di Microsoft Azure, e quindi configurarlo per eseguire il backup in un insieme di credenziali di Servizi di ripristino di Backup di Azure in Azure.
-**Macchine virtuali di Azure** | 1) Abilitare il backup delle singole macchine virtuali di Azure. Quando si abilita il backup, Backup di Azure installa un'estensione dell'agente di macchine virtuali di Azure in esecuzione nella macchina virtuale. L'agente esegue il backup dell'intera macchina virtuale.<br/><br/> 2) Eseguire l'agente di Servizi di ripristino di Microsoft Azure in una macchina virtuale di Azure. Ciò è utile se si vuole eseguire il backup di singoli file e cartelle nella macchina virtuale.<br/><br/> 
-
+**Macchine virtuali di Azure** | 1) Abilitare il backup delle singole macchine virtuali di Azure. Quando si abilita il backup, Backup di Azure installa un'estensione dell'agente di macchine virtuali di Azure in esecuzione nella macchina virtuale. L'agente esegue il backup dell'intera macchina virtuale.<br/><br/> 2) Eseguire l'agente di Servizi di ripristino di Microsoft Azure in una macchina virtuale di Azure. Ciò è utile se si vuole eseguire il backup di singoli file e cartelle nella macchina virtuale.<br/><br/>
 
 ## <a name="why-use-a-backup-server"></a>Perché usare un server di backup?
+
 La scelta di eseguire il backup di computer e app in risorse di archiviazione del server DPM o del server di Backup di Microsoft Azure e quindi di eseguire il backup di tali risorse in un insieme di credenziali offre i vantaggi seguenti:
 
 - Con il backup in server DPM o server di Backup di Microsoft Azure si ottengono backup con riconoscimento delle app ottimizzati per app comuni come SQL Server, Exchange e SharePoint, oltre a backup di file, cartelle, volumi e dello stato del computer (bare metal, stato del sistema).
 - Per i computer locali non è necessario installare l'agente di Servizi di ripristino di Microsoft Azure in ogni computer di cui eseguire il backup. Ogni computer esegue l'agente protezione del server DPM o del server di Backup di Microsoft Azure, mentre l'agente di Servizi di ripristino di Microsoft Azure viene eseguito solo nei server DPM o server di Backup di Microsoft Azure.
 - Si ottiene una maggiore flessibilità e opzioni di pianificazione granulari per l'esecuzione dei backup.
-- È possibile gestire i backup per più computer raccolti in gruppi di protezione in una singola console. Questa opzione è particolarmente utile se si vuole eseguire contemporaneamente il backup di app divise in livelli tra più computer.
+- È possibile gestire i backup per più computer raccolti in gruppi di protezione in una singola console. Questa opzione è utile se si vuole eseguire contemporaneamente il backup di app divise in livelli tra più computer.
 
 Altre informazioni sul [funzionamento del backup](backup-architecture.md#architecture-back-up-to-dpmmabs) quando si usa un server di backup e i [requisiti di supporto](backup-support-matrix-mabs-dpm.md) per i server di backup.
 
@@ -118,7 +116,7 @@ Backup di Azure ha un limite di 9999 punti di ripristino, noti anche come copie 
 
 La tabella seguente illustra la frequenza massima di backup per ogni componente. La configurazione dei criteri di backup determina la rapidità con cui si utilizzano i punti di ripristino. Ad esempio, se si crea un punto di ripristino ogni giorno, è possibile mantenere i punti di ripristino per 27 anni prima di eseguirli. Se si gestisce un punto di ripristino mensile, è possibile mantenere i punti di ripristino per 833 anni prima di eseguirli. Il servizio Backup non imposta un limite di tempo di scadenza su un punto di ripristino.
 
-|  | Agente di Backup di Azure | System Center DPM | Server di backup di Azure | Backup di VM IaaS di Azure |
+|  | Agente di Backup di Azure (MARS)| System Center DPM | Server di backup di Azure | Backup di VM IaaS di Azure |
 | --- | --- | --- | --- | --- |
 | Frequenza di backup<br/> (nell'insieme di credenziali di Servizi di ripristino) |3 backup al giorno |2 backup al giorno |2 backup al giorno |1 backup al giorno |
 | Frequenza di backup<br/> (nel disco) |Non applicabile |Ogni 15 minuti per SQL Server<br/><br/> Ogni ora per altri carichi di lavoro |Ogni 15 minuti per SQL Server<br/><br/> Ogni ora per altri carichi di lavoro |Non applicabile |

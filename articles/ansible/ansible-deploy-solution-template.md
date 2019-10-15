@@ -1,5 +1,5 @@
 ---
-title: Avvio rapido - Distribuire il modello di soluzione Ansible per Azure in CentOS | Microsoft Docs
+title: Avvio rapido - Distribuire il modello di soluzione Ansible per Azure in CentOS
 description: In questo argomento di avvio rapido viene illustrato come distribuire il modello di soluzione Ansible in una macchina virtuale CentOS ospitata in Azure, insieme agli strumenti configurati per l'uso con Azure.
 keywords: ansible, azure, devops, modello di soluzione, macchina virtuale, Identità gestite per le risorse di azure, centos, red hat
 ms.topic: quickstart
@@ -8,19 +8,19 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 58f28d5cf7d31a3fbddc8e1ca18be4dbcf617f61
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5ababe9eb1f680378e882970df2d0b008287a7c4
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231009"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241704"
 ---
 # <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Guida introduttiva: Distribuire il modello di soluzione Ansible per Azure in CentOS
 
 Il modello di soluzione Ansible per Azure è progettato per configurare un'istanza di Ansible in una macchina virtuale CentOS insieme ad Ansible e a una suite di strumenti configurati per funzionare con Azure. Gli strumenti comprendono:
 
 - **Moduli Ansible per Azure**: i [moduli Ansible per Azure](./ansible-matrix.md) sono una suite di moduli che consente di creare e gestire l'infrastruttura in Azure. Per impostazione predefinita viene restituita la versione più recente di questi moduli. Tuttavia, durante il processo di distribuzione del modello di soluzione, è possibile specificare un numero di versione appropriato per l'ambiente.
-- **Interfaccia della riga di comando di Azure 2.0 (CLI)**: l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/?view=azure-cli-latest) è un comando multipiattaforma per la gestione delle risorse di Azure. 
+- **Interfaccia della riga di comando di Azure 2.0 (CLI)** : l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/?view=azure-cli-latest) è un comando multipiattaforma per la gestione delle risorse di Azure. 
 - **Identità gestite per le risorse di Azure**: la funzionalità delle [identità gestite per le risorse di Azure](/azure/active-directory/managed-identities-azure-resources/overview) risolve il problema della sicurezza delle credenziali dell'applicazione cloud.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -35,7 +35,7 @@ Il modello di soluzione Ansible per Azure è progettato per configurare un'istan
 
 1. Viene visualizzata una finestra che descrive in dettaglio le condizioni per l'utilizzo, l'informativa sulla privacy e le condizioni per l'utilizzo di Azure Marketplace. Selezionare **Continua**.
 
-1. Nel portale di Azure verrà visualizzata la pagina di Ansible che descrive il modello di soluzione. Selezionare **Create**.
+1. Nel portale di Azure verrà visualizzata la pagina di Ansible che descrive il modello di soluzione. Selezionare **Create** (Crea).
 
 1. Nella pagina **Crea Ansible** verranno visualizzate diverse schede. Nella scheda **Informazioni di base** immettere le informazioni necessarie:
 

@@ -7,17 +7,18 @@ ms.devlang: java
 ms.topic: sample
 ms.date: 12/03/2018
 ms.author: sngun
-ms.openlocfilehash: 46858affe44d488a9ade1693713072fded18afed
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 0a9b58a78ee9de48b721511646728bd8140ef980
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475800"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170169"
 ---
 # <a name="azure-cosmos-db-async-java-examples-for-the-sql-api"></a>Azure Cosmos DB: esempi di Java Async dell'API SQL
 
 > [!div class="op_single_selector"]
-> * [Esempi di .NET](sql-api-dotnet-samples.md)
+> * [Esempi di .NET V2 SDK](sql-api-dotnet-samples.md)
+> * [Esempi di .NET V3 SDK](sql-api-dotnet-v3sdk-samples.md)
 > * [Esempi di Java](sql-api-java-samples.md)
 > * [Esempi di Java Async](sql-api-async-java-samples.md)
 > * [Esempi di Node.js](sql-api-nodejs-samples.md)

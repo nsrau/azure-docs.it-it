@@ -1,5 +1,5 @@
 ---
-title: Esercitazione - Configurare tabelle di route di Azure tramite Ansible | Microsoft Docs
+title: Esercitazione - Configurare tabelle di route di Azure con Ansible
 description: Informazioni su come creare, modificare ed eliminare tabelle di route di Azure con Ansible
 keywords: ansible, azure, devops, bash, playbook, rete, route, tabella di route
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 846ff510603c0ed0888ec92ece8b86fad0354c19
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 14753af58a179ddf4011cb29c7ed08faab62875c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230880"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241773"
 ---
 # <a name="tutorial-configure-azure-route-tables-using-ansible"></a>Esercitazione: Configurare tabelle di route di Azure tramite Ansible
 

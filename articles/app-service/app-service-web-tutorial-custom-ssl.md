@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 32e6311a8796e708119f3e1df813b6ebb2ed0673
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: c5095bc8c274ef0985b00459b0d088371ab24d88
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743014"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177036"
 ---
 # <a name="tutorial-upload-and-bind-ssl-certificates-to-azure-app-service"></a>Esercitazione: Caricare e associare certificati SSL nel Servizio app di Azure
 
@@ -233,9 +233,18 @@ Il comando seguente aggiunge un'associazione SSL basata su SNI, usando l'identif
 ```azurecli-interactive
 az webapp config ssl bind \
     --name <app-name> \
-    --resource-group <resource-group-name>
+    --resource-group <resource-group-name> \
     --certificate-thumbprint $thumbprint \
     --ssl-type SNI \
+```
+
+Il comando seguente forza l'app a usare HTTPS.
+
+```azurecli-interactive
+az webapp update \
+    --name <app-name> \
+    --resource-group <resource-group-name> \
+    --https-only true
 ```
 
 Il comando seguente consente di applicare almeno la versione 1.2 di TLS
@@ -243,7 +252,7 @@ Il comando seguente consente di applicare almeno la versione 1.2 di TLS
 ```azurecli-interactive
 az webapp config set \
     --name <app-name> \
-    --resource-group <resource-group-name>
+    --resource-group <resource-group-name> \
     --min-tls-version 1.2
 ```
 

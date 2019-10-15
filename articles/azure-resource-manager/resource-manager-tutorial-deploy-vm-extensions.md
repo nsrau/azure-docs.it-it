@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a6d0c3e9daba6f4f37778fabde161751944e174a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 338054aadbf04c6c6e2b496677476c2c5634b6ba
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774867"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169291"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Esercitazione: Distribuire le estensioni di macchina virtuale con i modelli di Azure Resource Manager
 
@@ -48,7 +48,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 ## <a name="prepare-a-powershell-script"></a>Preparare uno script di PowerShell
 
-Uno script di PowerShell con il contenuto seguente è condiviso da un [account di archiviazione di Azure con accesso pubblico](https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1):
+Uno script di PowerShell con il contenuto seguente viene condiviso da [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -63,7 +63,7 @@ I modelli di avvio rapido di Azure costituiscono un repository di modelli di Res
 1. In Visual Studio Code selezionare **File** > **Apri file**.
 1. Nella casella **Nome file** incollare l'URL seguente: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
 
-1. Selezionare **Apri** per aprire il file.  
+1. Selezionare **Apri** per aprire il file.
     Il modello definisce cinque risorse:
 
    * **Microsoft.Storage/storageAccounts**. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
@@ -96,7 +96,7 @@ Aggiungere una risorsa estensione di macchina virtuale al modello esistente con 
         "autoUpgradeMinorVersion":true,
         "settings": {
             "fileUris": [
-                "https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1"
+                "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1"
             ],
             "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File installWebServer.ps1"
         }
@@ -109,7 +109,7 @@ Per altre informazioni su questa definizione di risorsa, vedere il [materiale di
 * **name**: dato che la risorsa estensione è una risorsa figlio dell'oggetto macchina virtuale, il nome deve includere il nome della macchina virtuale come prefisso. Vedere [Impostare il nome e il tipo per le risorse figlio](child-resource-name-type.md).
 * **dependsOn**: creare la risorsa estensione dopo aver creato la macchina virtuale.
 * **fileUris**: posizioni in cui risiedono i file di script. Se si sceglie di non usare la posizione indicata, è necessario aggiornare i valori.
-* **commandToExecute**: questo comando avvia lo script.  
+* **commandToExecute**: questo comando avvia lo script.
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
@@ -118,8 +118,7 @@ Per la procedura di distribuzione, vedere la sezione "Distribuire il modello" di
 ## <a name="verify-the-deployment"></a>Verificare la distribuzione
 
 1. Selezionare la macchina virtuale nel portale di Azure.
-1. Nella panoramica della macchina virtuale copiare l'indirizzo IP selezionando **Fare clic per copiare** e quindi incollarlo in una scheda del browser.  
-   Si aprirà la pagina iniziale predefinita di Internet Information Services (IIS):
+1. Nella panoramica della macchina virtuale copiare l'indirizzo IP selezionando **Fare clic per copiare** e quindi incollarlo in una scheda del browser. Si aprirà la pagina iniziale predefinita di Internet Information Services (IIS):
 
 ![Pagina iniziale di Internet Information Services](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 
@@ -129,7 +128,7 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 1. Nel portale di Azure selezionare **Gruppo di risorse** nel riquadro a sinistra.
 2. Immettere il nome del gruppo di risorse nella casella **Filtra per nome**.
-3. Selezionare il nome del gruppo di risorse.  
+3. Selezionare il nome del gruppo di risorse.
     Nel gruppo di risorse vengono visualizzate sei risorse.
 4. Selezionare **Elimina gruppo di risorse** nel menu in alto.
 

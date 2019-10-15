@@ -206,6 +206,8 @@
                   items:
                     - name: Node.js
                       href: app/nodejs.md
+                    - name: Python
+                      href: app/opencensus-python.md
                 - name: Pagina Web
                   items:
                     - name: JavaScript lato client
@@ -280,6 +282,9 @@
                 - name: Test in più passaggi
                   displayname: 'availability, GSM, visual studio web test, web test'
                   href: app/availability-multistep.md
+                - name: Disponibilità e Funzioni di Azure
+                  href: app/availability-azure-functions.md
+                  displayname: 'availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch'
                 - name: Avvisi di disponibilità
                   displayname: 'alerts, global, alerting'
                   href: app/availability-alerts.md
@@ -297,8 +302,6 @@
                   displayname: 'correlation headers, w3c, distributed tracing, tracing'
                 - name: Server d'inoltro locale
                   href: app/opencensus-local-forwarder.md
-                - name: Python
-                  href: app/opencensus-python.md
                 - name: Go
                   href: app/opencensus-go.md
             - name: Flusso metriche attive

@@ -1,5 +1,5 @@
 ---
-title: Esercitazione - Configurare il peering di rete virtuale di Azure tramite Ansible | Microsoft Docs
+title: Esercitazione - Configurare il peering di reti virtuali di Azure con Ansible
 description: Informazioni su come usare Ansible per connettere reti virtuali con il peering di rete virtuale.
 keywords: ansible, azure, devops, bash, playbook, rete, peering
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: f51e7c857a22a362a3d295fbe087c54b25f85780
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 180bdff48a2ace4dfee1d1cb10eb75a33d360f4c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230749"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241243"
 ---
 # <a name="tutorial-configure-azure-virtual-network-peering-using-ansible"></a>Esercitazione: Configurare il peering di rete virtuale di Azure tramite Ansible
 

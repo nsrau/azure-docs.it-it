@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1acef92ed5de86d4526d8b5c4bcf338b341c50f7
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 722feb29a08cd5e1113eae197fbcae9769ed5550
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241154"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029773"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Creare automaticamente eventi imprevisti dagli avvisi di sicurezza Microsoft
 
@@ -35,7 +35,7 @@ Per abilitare la creazione degli eventi imprevisti da avvisi del servizio di sic
 
 Usare le regole predefinite disponibili in Azure Sentinel per scegliere le soluzioni di sicurezza Microsoft connesse che dovrebbero creare automaticamente gli eventi imprevisti di Azure Sentinel in tempo reale. È anche possibile modificare le regole per definire opzioni più specifiche per filtrare quali avvisi generati dalla soluzione di sicurezza Microsoft devono creare eventi imprevisti in Azure Sentinel. Ad esempio, è possibile scegliere di creare automaticamente eventi imprevisti di Azure Sentinel solo da avvisi con gravità alta del Centro sicurezza di Azure.
 
-1. Nella portale di Azure in Azure Sentinel selezionare **Analisi**.
+1. Nella portale di Azure in Azure Sentinel selezionare**Analisi**.
 
 1. Selezionare la scheda **Rule templates** (Modelli di regole) per visualizzare tutte le regole di analisi predefinite.
 

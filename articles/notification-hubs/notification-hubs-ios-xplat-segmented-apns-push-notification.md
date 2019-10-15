@@ -194,7 +194,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
      }
     ```
 
-    This method handles notifications received when the app is running by displaying a simple **UIAlert**.
+    Questo metodo gestisce le notifiche ricevute quando l'app è in esecuzione visualizzando un **UIAlert** semplice.
 
 11. In `ViewController.m` aggiungere un'istruzione `import` per `AppDelegate.h` e copiare il codice seguente nel metodo `subscribe` generato da XCode. Questo codice aggiorna la registrazione della notifica per usare i nuovi tag di categoria selezionati dall'utente nell'interfaccia utente.
 
