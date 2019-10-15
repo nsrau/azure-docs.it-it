@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: 2b4d588799d72be85030e70aed58b2c8d6b0a9a3
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.date: 10/11/2019
+ms.openlocfilehash: 03d0d26a21e710c07019d3ffcb13a1482a96af50
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091759"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311725"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Usare gli strumenti di Spark & hive per Visual Studio Code
 
@@ -28,7 +28,7 @@ Per completare le procedure descritte in questo articolo, sono necessari gli ele
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono è necessario solo per Linux e macOS.
 - [Ambiente interattivo PySpark per Visual Studio Code](set-up-pyspark-interactive-environment.md).
-- Una directory locale denominata **HDexample**.  Questo articolo usa **C:\HD\HDexample**.
+- Una directory locale. Questo articolo usa **C:\HD\HDexample**.
 
 ## <a name="install-spark--hive-tools"></a>Installare Spark & gli strumenti hive
 
@@ -36,7 +36,7 @@ Dopo aver soddisfatto i prerequisiti, è possibile installare Spark & hive Tools
 
 1. Aprire Visual Studio Code.
 
-2. Dalla barra dei menu passare a **Visualizza** > **estensioni**.
+2. Dalla barra dei menu passare a **Visualizza** > **Estensioni**.
 
 3. Nella casella di ricerca immettere **Spark & hive**.
 
@@ -50,20 +50,20 @@ Dopo aver soddisfatto i prerequisiti, è possibile installare Spark & hive Tools
 
 Per aprire una cartella di lavoro e creare un file in Visual Studio Code, attenersi alla seguente procedura:
 
-1. Dalla barra dei menu passare a **file** > **Apri cartella** > **C:\HD\HDexample**, quindi selezionare il pulsante **Seleziona cartella** . La cartella viene visualizzata nella vista di **Explorer** a sinistra.
+1. Dalla barra dei menu passare a **File** > **Apri cartella...**  > **C:\HD\HDexample**, quindi selezionare il pulsante **Seleziona cartella** . La cartella viene visualizzata nella vista di **Explorer** a sinistra.
 
 2. Nella visualizzazione **Esplora risorse** selezionare la cartella **HDexample** , quindi selezionare l'icona **nuovo file** accanto alla cartella di lavoro:
 
    ![icona del nuovo file di Visual Studio Code](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
 
-3. Assegnare un nome al nuovo file usando l' `.hql` estensione di file (query hive `.py` ) o (script Spark). Questo esempio usa **HelloWorld.hql**.
+3. Assegnare un nome al nuovo file usando l'estensione di file `.hql` (query hive) o `.py` (script Spark). Questo esempio usa **HelloWorld.hql**.
 
 ## <a name="set-the-azure-environment"></a>Configurare l'ambiente di Azure
 
-Per un utente cloud nazionale, attenersi alla procedura seguente per impostare prima di tutto l'ambiente di Azure e **quindi usare Azure:**  Comando accedi per accedere ad Azure:
+Per un utente cloud nazionale, attenersi alla procedura seguente per impostare prima di tutto l'ambiente di Azure e quindi usare il **Azure: Accedere al comando @ no__t-0 per accedere ad Azure:
 
-1. Selezionare **File\Preferences\Settings**.
-2. Eseguire una ricerca nella stringa seguente: **Azure: Cloud**
+1. Passare a **File** > **Preferenze** > **Impostazioni**.
+2. Eseguire una ricerca nella stringa seguente: **Azure: Cloud @ no__t-0.
 3. Selezionare il cloud nazionale nell'elenco:
 
    ![Impostare la configurazione della voce di accesso predefinita](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
@@ -72,7 +72,7 @@ Per un utente cloud nazionale, attenersi alla procedura seguente per impostare p
 
 Prima di poter inviare script ai cluster da Visual Studio Code, è necessario connettersi al proprio account di Azure o collegare un cluster usando le credenziali di nome utente e password di Apache Ambari o un account aggiunto al dominio. Per connettersi ad Azure, seguire questa procedura:
 
-1. Dalla barra dei menu passare a **Visualizza** > **riquadro comandi**e immettere **Azure:** Accedi:
+1. Dalla barra dei menu passare a **visualizza** > **Command palette...** e immettere **Azure: Accedi @ no__t-0:
 
     ![Strumenti di Spark & hive per Visual Studio Code login](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
@@ -82,9 +82,9 @@ Prima di poter inviare script ai cluster da Visual Studio Code, è necessario co
 
 ### <a name="link-azure-hdinsight"></a>Collegamento HDInsight di Azure
 
-È possibile collegare un cluster normale usando un nome utente gestito da [Apache Ambari](https://ambari.apache.org/)oppure è possibile collegare un cluster Hadoop di Enterprise Security Pack protetto usando un nome utente di dominio (ad esempio `user1@contoso.com`,).
+È possibile collegare un cluster normale usando un nome utente gestito da [Apache Ambari](https://ambari.apache.org/)oppure è possibile collegare un cluster Hadoop di Enterprise Security Pack protetto usando un nome utente di dominio (ad esempio, `user1@contoso.com`).
 
-1. Dalla barra dei menu passare a **Visualizza** > **riquadro comandi**e immettere **Spark/hive: Link a Cluster**.
+1. Dalla barra dei menu passare a **visualizza** > **comando tavolozza**e immettere **Spark/hive: Link a Cluster**.
 
    ![Comando del cluster del collegamento del riquadro comandi](./media/hdinsight-for-vscode/link-cluster-command.png)
 
@@ -107,11 +107,11 @@ Prima di poter inviare script ai cluster da Visual Studio Code, è necessario co
 
 ### <a name="link-generic-livy-endpoint"></a>Collegamento Endpoint di Livio generico
 
-1. Dalla barra dei menu passare a **Visualizza** > **riquadro comandi**e immettere **Spark/hive: Link a Cluster**.
+1. Dalla barra dei menu passare a **visualizza** > **comando tavolozza**e immettere **Spark/hive: Link a Cluster**.
 
 2. Selezionare il tipo di cluster collegato**Generic Livy Endpoint** (Endpoint Livy generico).
 
-3. Immettere l'endpoint generico Livio. Ad esempio: http\://10.172.41.42:18080.
+3. Immettere l'endpoint generico Livio. Ad esempio: http @ no__t-0//10.172.41.42:18080.
 
 4. Selezionare il tipo di autorizzazione **Basic** (Di base) o **None** (Nessuna).  Se si seleziona di **base**:  
     &emsp;a. Immettere il nome utente di Ambari; il valore predefinito è **admin**.  
@@ -121,7 +121,7 @@ Prima di poter inviare script ai cluster da Visual Studio Code, è necessario co
 
 ## <a name="list-clusters"></a>Elencare cluster
 
-1. Dalla barra dei menu passare a **Visualizza** > **riquadro comandi**e immettere **Spark/hive: List Cluster**.
+1. Dalla barra dei menu passare a **visualizza** > **comando tavolozza**e immettere **Spark/hive: List Cluster**.
 
 2. Selezionare la sottoscrizione desiderata.
 
@@ -135,7 +135,7 @@ Prima di poter inviare script ai cluster da Visual Studio Code, è necessario co
 
 2. Selezionare il file **HelloWorld. HQL** creato in [precedenza](#open-a-work-folder). Viene aperto nell'editor di script.
 
-3. Fare clic con il pulsante destro del mouse sull'editor **di script e quindi selezionare Spark/hive: Set Default Cluster**.  
+3. Fare clic con il pulsante destro del mouse sull'editor di script e quindi selezionare **Spark/hive: Set Default Cluster**.  
 
 4. [Connettersi](#connect-to-an-azure-account) all'account Azure o collegare un cluster se non è ancora stato fatto.
 
@@ -159,7 +159,7 @@ Con Spark & gli strumenti hive per Visual Studio Code è possibile inviare query
 
 4. [Connettersi](#connect-to-an-azure-account) all'account Azure o collegare un cluster se non è ancora stato fatto.
 
-5. Fare clic con il pulsante destro del mouse **sull'editor di script e scegliere hive: Interattivo** per inviare la query oppure utilizzare il tasto di scelta rapida CTRL + ALT + i.  Selezionare **hive: Batch** per inviare lo script oppure usare il tasto di scelta rapida CTRL + ALT + H.  
+5. Fare clic con il pulsante destro del mouse sull'editor di script e selezionare **Hive: Interactive @ no__t-0 per inviare la query oppure usare il tasto di scelta rapida CTRL + ALT + I.  Selezionare **Hive: Batch @ no__t-0 per inviare lo script oppure usare il tasto di scelta rapida CTRL + ALT + H.  
 
 6. Se non è stato specificato un cluster predefinito, selezionare un cluster. Gli strumenti consentono anche di inviare un blocco di codice anziché l'intero file di script tramite il menu di scelta rapida. Dopo alcuni istanti, i risultati della query vengono visualizzati in una nuova scheda:
 
@@ -195,13 +195,13 @@ Per inviare query PySpark interattive, seguire questa procedura:
 
 4. [Connettersi](#connect-to-an-azure-account) all'account Azure o collegare un cluster se non è ancora stato fatto.
 
-5. Selezionare tutto il codice, fare clic con il pulsante destro del mouse sull' **editor di script e selezionare Spark: PySpark interattivo** per inviare la query. In alternativa, usare il tasto di scelta rapida CTRL + ALT + I.
+5. Selezionare tutto il codice, fare clic con il pulsante destro del mouse sull'editor di script e selezionare **Spark: PySpark Interactive @ no__t-0 per inviare la query. In alternativa, usare il tasto di scelta rapida CTRL + ALT + I.
 
    ![menu di scelta rapida interattivo pyspark](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
 6. Selezionare il cluster, se non è stato specificato un cluster predefinito. Dopo alcuni istanti, i risultati di **Python Interactive** vengono visualizzati in una nuova scheda. Gli strumenti consentono anche di inviare un blocco di codice anziché l'intero file di script tramite il menu di scelta rapida:
 
-   ![finestra interattiva di Python interattiva di pyspark](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png) 
+   ![finestra interattiva di Python interattiva di pyspark](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
 7. Immettere **%% info**e quindi premere MAIUSC + INVIO per visualizzare le informazioni sul processo (facoltativo):
 
@@ -250,7 +250,7 @@ Per inviare query PySpark interattive, seguire questa procedura:
 
 4. [Connettersi](#connect-to-an-azure-account) all'account Azure o collegare un cluster se non è ancora stato fatto.
 
-5. Fare clic con il pulsante destro del mouse sull'editor **di script e quindi selezionare Spark: PySpark batch**oppure usare il tasto di scelta rapida CTRL + ALT + H.
+5. Fare clic con il pulsante destro del mouse sull'editor di script e quindi selezionare **Spark: PySpark batch @ no__t-0 oppure usare il tasto di scelta rapida CTRL + ALT + H.
 
 6. Selezionare un cluster a cui inviare il processo PySpark:
 
@@ -265,8 +265,8 @@ La configurazione di [Apache Tito](https://livy.incubator.apache.org/) è suppor
 <a id="triggerlivyconf"></a>**Come attivare la configurazione di Livio**
 
 Metodo 1  
-1. Dalla barra dei menu passare a**Preferenze** >  **file** > **Impostazioni**.
-2. Nella casella **Cerca impostazioni** immettere **HDInsight Job Submission: Livy Conf** (Invio processo HDInsight: Conf. Livy).  
+1. Dalla barra dei menu passare a **File** > **Preferenze** > **Impostazioni**.
+2. Nella casella **Cerca impostazioni** immettere **HDInsight processo di invio: Livy Conf** (Invio processo HDInsight: Conf. Livy).  
 3. Selezionare **Edit in settings.json** (Modifica in settings.json) per il risultato della ricerca pertinente.
 
 Il metodo 2 Invia un file e si noti che la cartella. VSCODE viene aggiunta automaticamente alla cartella di lavoro. È possibile visualizzare la configurazione di Livio selezionando **. vscode\settings.JSON**.
@@ -284,64 +284,49 @@ Il metodo 2 Invia un file e si noti che la cartella. VSCODE viene aggiunta autom
 
     | name | description | type |
     | :- | :- | :- |
-    | file | File contenente l'applicazione da eseguire | percorso (obbligatorio) |
-    | proxyUser | Utente da rappresentare durante l'esecuzione del processo | String |
-    | className | Classe principale Java/Spark dell'applicazione | String |
-    | args | Argomenti della riga di comando per l'applicazione | elenco di stringhe |
-    | jars | jar da usare in questa sessione | elenco di stringhe | 
-    | pyFiles | File di Python da usare in questa sessione | elenco di stringhe |
-    | files | file da usare in questa sessione | elenco di stringhe |
-    | driverMemory | Quantità di memoria da usare per il processo del driver | String |
+    | file | File contenente l'applicazione da eseguire | Percorso (obbligatorio) |
+    | proxyUser | Utente da rappresentare durante l'esecuzione del processo | string |
+    | className | Classe principale Java/Spark dell'applicazione | string |
+    | args | Argomenti della riga di comando per l'applicazione | Elenco di stringhe |
+    | jars | Jar da usare in questa sessione | Elenco di stringhe | 
+    | pyFiles | File di Python da usare in questa sessione | Elenco di stringhe |
+    | files | File da usare in questa sessione | Elenco di stringhe |
+    | driverMemory | Quantità di memoria da usare per il processo del driver | string |
     | driverCores | Numero di core da usare per il processo del driver | Int |
-    | executorMemory | Quantità di memoria da usare per ogni processo executor | String |
+    | executorMemory | Quantità di memoria da usare per ogni processo executor | string |
     | executorCores | Numero di core da usare per ogni executor | Int |
     | numExecutors | Numero di executor da avviare per questa sessione | Int |
-    | archives | Archivi da usare in questa sessione | elenco di stringhe |
-    | queue | Nome della coda YARN da inviare a| String |
-    | name | Nome della sessione | String |
+    | archives | Archivi da usare in questa sessione | Elenco di stringhe |
+    | queue | Nome della coda YARN da inviare a| string |
+    | name | Nome della sessione | string |
     | conf | Proprietà di configurazione di Spark | Mapping della chiave = val |
 
-    Corpo della risposta   
-    Oggetto batch creato.
+    Corpo della risposta l'oggetto batch creato.
 
     | name | description | type |
-    | :- | :- | :- | 
-    | id | ID sessione | Int | 
-    | appId | ID applicazione della sessione | String |
+    | :- | :- | :- |
+    | id | ID sessione | Int |
+    | appId | ID applicazione della sessione | string |
     | appInfo | Informazioni dettagliate sull'applicazione | Mapping della chiave = val |
-    | log | Righe di log | elenco di stringhe |
-    | stato |Stato batch | String |
+    | log | Righe di log | Elenco di stringhe |
+    | state |Stato batch | string |
 
-    >[!NOTE]
-    >Quando si invia lo script, la configurazione di Livio assegnata viene visualizzata nel riquadro di output.
+    > [!NOTE]
+    > Quando si invia lo script, la configurazione di Livio assegnata viene visualizzata nel riquadro di output.
 
 ## <a name="integrate-with-azure-hdinsight-from-explorer"></a>Eseguire l'integrazione con Azure HDInsight da Explorer
 
-**Azure HDInsight** è stato aggiunto alla visualizzazione di Esplora risorse. È possibile esplorare e gestire i cluster direttamente tramite **Azure HDInsight**.
-
-1. [Connettersi](#connect-to-an-azure-account) all'account Azure o collegare un cluster se non è ancora stato fatto.
-
-2. Dalla barra dei menu passare a **Visualizza** > **Esplora**.
-
-3. Nel riquadro sinistro espandere **AZURE HDINSIGHT**.  Sono elencate le sottoscrizioni e i cluster disponibili (sono supportati Spark, Hadoop e HBase):
-
-   ![Visualizzazione della sottoscrizione di Azure HDInsight](./media/hdinsight-for-vscode/hdi-azure-hdinsight-subscription.png)
-
-4. Espandere il cluster per visualizzare il database dei metadati hive e lo schema della tabella:
-
-   ![Azure HDInsight eliminare il cluster](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
-
-## <a name="preview-hive-table"></a>Anteprima tabella hive
 È possibile visualizzare in anteprima la tabella hive nei cluster direttamente tramite **Azure HDInsight** Explorer:
+
 1. [Connettersi](#connect-to-an-azure-account) all'account Azure, se ancora non è stato fatto.
 
 2. Selezionare l'icona di **Azure** dalla colonna più a sinistra.
 
-3. Nel riquadro sinistro espandere **AZURE HDINSIGHT**. Sono elencate le sottoscrizioni e i cluster disponibili.
+3. Nel riquadro sinistro espandere **AZURE: HDINSIGHT @ NO__T-0. Sono elencate le sottoscrizioni e i cluster disponibili.
 
 4. Espandere il cluster per visualizzare il database dei metadati hive e lo schema della tabella.
 
-5. Fare clic con il pulsante destro del mouse sulla tabella hive. Ad esempio: **hivesampletable**. Selezionare **Anteprima**. 
+5. Fare clic con il pulsante destro del mouse sulla tabella hive. Ad esempio: **hivesampletable**. Selezionare **Anteprima**.
 
    ![Spark & hive per la tabella hive di Visual Studio Code Preview](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
 
@@ -363,7 +348,8 @@ Il metodo 2 Invia un file e si noti che la cartella. VSCODE viene aggiunta autom
         >In Linux installare XRITAGLIA per abilitare i dati di copia della tabella.
         >
         >![Spark & hive per Visual Studio Code in Linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
-    ## <a name="additional-features"></a>Funzionalità aggiuntive
+
+## <a name="additional-features"></a>Funzionalità aggiuntive
 
 Spark & hive per Visual Studio Code supporta anche le funzionalità seguenti:
 
@@ -399,7 +385,7 @@ Quando si invia un processo a un cluster HDInsight, viene richiesto di collegare
 
   > [!NOTE]
   >
-  >È possibile usare `Spark / Hive: List Cluster` per controllare il cluster collegato:
+  >Per controllare il cluster collegato, è possibile usare `Spark / Hive: List Cluster`:
   >
   >![Strumenti di Spark & hive per Visual Studio Code Reader collegati](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
@@ -421,15 +407,15 @@ Quando si invia un processo a un cluster HDInsight usando Data Lake Storage Gen2
 
 ## <a name="unlink-cluster"></a>Scollegare il cluster
 
-1. Dalla barra dei menu passare a **Visualizza** > **riquadro comandi**, quindi immettere **Spark/hive: Unlink a Cluster**.  
+1. Dalla barra dei menu passare a **View** > **Command palette**, quindi immettere **Spark/hive: Unlink a Cluster**.  
 
 2. Selezionare un cluster da scollegare.  
 
 3. Vedere la visualizzazione di **output** per la verifica.  
 
-## <a name="sign-out"></a>Esci  
+## <a name="sign-out"></a>Disconnessione  
 
-Dalla barra dei menu passare a **Visualizza** > **riquadro comandi**e quindi immettere **Azure: Disconnettersi**.
+Dalla barra dei menu passare a **View** > **Command palette**, quindi immettere **Azure: Disconnettersi @ no__t-0.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

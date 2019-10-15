@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.openlocfilehash: aad601a48b2b420a809a385e336f103612d2e378
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: c948d07bed99f1286e27d645fde7b96fdc699c02
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167104"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311699"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilare applicazioni Java per Apache HBase
 
@@ -704,4 +704,4 @@ Usare il parametro `-showErr` per visualizzare l'errore standard (STDERR) prodot
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Informazioni su come usare sqlline con Apache HBase](apache-hbase-phoenix-squirrel-linux.md)
+[Informazioni su come usare sqlline con Apache HBase](apache-hbase-query-with-phoenix.md)

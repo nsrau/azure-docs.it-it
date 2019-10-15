@@ -7,16 +7,19 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 5e52275cc7215f6c54c2ff6a11faf82114c414b4
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e651695055b9bfdbfbb5b6281af8c1d21235009b
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676607"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311804"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contenitori di profili FSLogix e file di Azure
 
 Il servizio desktop virtuale di Windows consiglia i contenitori del profilo FSLogix come soluzione di profilo utente. FSLogix è progettato per eseguire il roaming dei profili in ambienti di elaborazione remota, ad esempio desktop virtuale di Windows. Archivia un profilo utente completo in un singolo contenitore. Al momento dell'accesso, questo contenitore viene collegato dinamicamente all'ambiente di elaborazione usando un disco rigido virtuale (VHD) e un disco rigido virtuale Hyper-V supportati in modo nativo (VHDX). Il profilo utente è immediatamente disponibile e viene visualizzato nel sistema esattamente come un profilo utente nativo. Questo articolo descrive il modo in cui i contenitori di profili FSLogix usati con File di Azure funzione nel desktop virtuale di Windows.
+
+>[!NOTE]
+>Se si sta cercando materiale di confronto sulle diverse opzioni di archiviazione del contenitore del profilo FSLogix in Azure, vedere [Opzioni di archiviazione per i contenitori di profili FSLogix](store-fslogix-profile.md).
 
 ## <a name="user-profiles"></a>Profili utente
 
@@ -55,7 +58,7 @@ La tabella seguente illustra i vantaggi e le limitazioni delle tecnologie dei pr
 
 UPD richiede [spazi di archiviazione diretta (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) per soddisfare i requisiti di prestazioni. UPD usa il protocollo SMB (Server Message Block). Il profilo viene copiato nella macchina virtuale in cui viene registrato l'utente. UPD con S2D è la soluzione consigliata per desktop virtuale di Windows.  
 
-#### <a name="cost"></a>Costo
+#### <a name="cost"></a>Costi
 
 Sebbene i cluster S2D raggiungano le prestazioni necessarie, il costo è costoso per i clienti aziendali, ma è particolarmente costoso per i clienti di piccole e medie imprese (SMB). Per questa soluzione, le aziende pagano i dischi di archiviazione, insieme al costo delle macchine virtuali che usano i dischi per una condivisione.
 

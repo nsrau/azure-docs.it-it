@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 839faa4cf2455ee2b0de38046a464ce824f007cd
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f51263a91ca174a6c8108ed4414ff0f8b9745aff
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301867"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311886"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurare SQL Server istanza del cluster di failover con una condivisione file Premium in macchine virtuali di Azure
 
@@ -37,7 +37,7 @@ Prima di procedere, è necessario conoscere alcuni aspetti ed essere in possesso
 - [Tecnologie cluster di Windows](/windows-server/failover-clustering/failover-clustering-overview)
 - [Istanze del cluster di failover di SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
-Una differenza importante è che in un cluster di failover di macchine virtuali IaaS di Azure è consigliabile usare una singola scheda di interfaccia di rete per server (nodo del cluster) e una singola subnet. La ridondanza fisica della rete di Azure rende superfluo l'uso di altre schede di rete e subnet in un cluster guest di macchine virtuali IaaS di Azure. Anche se il report di convalida del cluster emette un avviso che indica che i nodi sono raggiungibili solo in una singola rete, questo avviso può essere ignorato in cluster di failover delle macchine virtuali IaaS di Azure. 
+Una differenza importante è che in un cluster di failover di macchine virtuali IaaS di Azure è consigliabile usare una singola scheda di interfaccia di rete per server (nodo del cluster) e una singola subnet. La rete di Azure ha una ridondanza fisica che rende superflue altre schede di rete e subnet in un cluster guest di macchine virtuali IaaS di Azure. Anche se il report di convalida del cluster emette un avviso che indica che i nodi sono raggiungibili solo in una singola rete, questo avviso può essere ignorato in cluster di failover delle macchine virtuali IaaS di Azure. 
 
 Inoltre, è necessario avere una conoscenza generale delle tecnologie seguenti:
 
@@ -51,7 +51,7 @@ Inoltre, è necessario avere una conoscenza generale delle tecnologie seguenti:
 
 Le condivisioni file Premium forniscono IOPS e tutta la capacità che soddisferà le esigenze di molti carichi di lavoro. Tuttavia, per i carichi di lavoro con utilizzo intensivo di i/o, prendere in considerazione [SQL Server FCI con spazi di archiviazione diretta](virtual-machines-windows-portal-sql-create-failover-cluster.md) basati su dischi Premium gestiti o dischi rigidi.  
 
-Controllare l'attività IOPS dell'ambiente corrente e verificare che i file Premium forniscano gli IOPS necessari prima di avviare una distribuzione o una migrazione. Utilizzare i contatori dei dischi di performance monitor di Windows e monitorare le operazioni SQL Server di i/o totali (trasferimenti disco/sec) e la velocità effettiva (byte disco/sec) richieste per i file di dati, log e Temp DB. Molti carichi di lavoro hanno picchi di i/o, quindi è consigliabile verificare durante i periodi di utilizzo intensivo e prendere nota del numero massimo di IOPS, oltre che di IOPS medio. Le condivisioni file Premium forniscono IOPS in base alle dimensioni della condivisione. I file Premium forniscono anche un'espansione gratuita in cui è possibile aumentare le operazioni di i/o per triplicare l'importo della linea di base per un massimo di un'ora. 
+Controllare l'attività IOPS dell'ambiente corrente e verificare che i file Premium forniscano gli IOPS necessari prima di avviare una distribuzione o una migrazione. Utilizzare i contatori dei dischi di performance monitor di Windows e monitorare le operazioni SQL Server di i/o totali (trasferimenti disco/sec) e la velocità effettiva (byte disco/sec) richieste per i file di dati, di log e di database temporaneo. Molti carichi di lavoro hanno picchi di i/o, quindi è consigliabile verificare durante i periodi di utilizzo intensivo e prendere nota del numero massimo di IOPS, oltre che di IOPS medio. Le condivisioni file Premium forniscono IOPS in base alle dimensioni della condivisione. I file Premium forniscono anche un'espansione gratuita in cui è possibile aumentare le operazioni di i/o per triplicare l'importo della linea di base per un massimo di un'ora. 
 
 ### <a name="licensing-and-pricing"></a>Licenze e prezzi
 
@@ -165,34 +165,20 @@ Dopo aver creato e configurato le macchine virtuali, è possibile configurare la
 1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'account di archiviazione.
 1. Passare a **condivisioni file** in **servizio file** e selezionare la condivisione file Premium che si vuole usare per l'archiviazione SQL. 
 1. Selezionare **Connetti** per visualizzare la stringa di connessione per la condivisione file. 
-1. Selezionare la lettera di unità che si vuole usare dall'elenco a discesa e quindi copiare i due comandi di PowerShell dai due blocchi di comando di PowerShell.  Incollarli in un editor di testo, ad esempio Blocco note. 
+1. Selezionare la lettera di unità che si desidera utilizzare dall'elenco a discesa, quindi copiare entrambi i blocchi di codice in un blocco note.
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/premium-file-storage-commands.png" alt-text="Copiare entrambi i comandi di PowerShell dal portale di connessione alla condivisione file":::
 
 1. Eseguire la connessione RDP alla macchina virtuale SQL Server usando l'account che la SQL Server FCI utilizzerà per l'account del servizio. 
 1. Avviare una console di comando di PowerShell amministrativa. 
-1. Eseguire il comando `Test-NetConnection` per testare la connettività all'account di archiviazione. Non eseguire il comando `cmdkey` dal primo blocco di codice. 
+1. Eseguire i comandi dal portale salvato in precedenza. 
+1. Passare alla condivisione con Esplora file o la finestra di dialogo **Esegui** (tasto Windows + r) utilizzando il percorso di rete `\\storageaccountname.file.core.windows.net\filesharename`. Esempio: `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
-   ```console
-   example: Test-NetConnection -ComputerName  sqlvmstorageaccount.file.core.windows.net -Port 445
-   ```
-
-1. Eseguire il comando `cmdkey` dal *secondo* blocco di codice per montare la condivisione file come unità e salvarla in modo permanente. 
-
-   ```console
-   example: cmdkey /add:sqlvmstorageaccount.file.core.windows.net /user:Azure\sqlvmstorageaccount /pass:+Kal01QAPK79I7fY/E2Umw==
-   net use M: \\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare /persistent:Yes
-   ```
-
-1. Aprire **Esplora file** e passare a **questo computer**. La condivisione file è visibile in percorsi di rete: 
-
-   :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/file-share-as-storage.png" alt-text="Condivisione file visibile come archiviazione in Esplora file":::
-
-1. Aprire l'unità appena mappata e creare almeno una cartella qui in cui inserire i file di dati SQL. 
+1. Creare almeno una cartella nella condivisione file appena connessa in cui inserire i file di dati SQL. 
 1. Ripetere questi passaggi in ogni macchina virtuale SQL Server che parteciperà al cluster. 
 
   > [!IMPORTANT]
-  > Non usare la stessa condivisione file per i file di dati e i backup. Usare la stessa procedura per configurare una condivisione file secondaria per i backup se si vuole eseguire il backup dei database in una condivisione file. 
+  > Provare a usare una condivisione file separata per i file di backup per salvare i dati di IOPS e la capacità di ridimensionamento della condivisione per i file di dati e di log. È possibile usare una condivisione file Premium o standard per i file di backup
 
 ## <a name="step-3-configure-failover-cluster-with-file-share"></a>Passaggio 3: Configurare il cluster di failover con la condivisione file 
 
@@ -349,7 +335,7 @@ Per creare il servizio di bilanciamento del carico:
    - **Nome**: un nome che identifichi il servizio di bilanciamento del carico.
    - **Area**: usare la stessa località di Azure delle macchine virtuali.
    - **Tipo**: il servizio di bilanciamento del carico può essere pubblico o privato. Un servizio di bilanciamento del carico privato è accessibile dalla stessa rete virtuale. La maggior parte delle applicazioni Azure può usare un servizio di bilanciamento del carico privato. Se l'applicazione deve accedere a SQL Server direttamente su Internet, usare un servizio di bilanciamento del carico pubblico.
-   - **SKU**: Lo SKU per il servizio di bilanciamento del carico deve essere standard. 
+   - **SKU**: Lo SKU del servizio di bilanciamento del carico deve essere standard. 
    - **Rete virtuale**: la stessa rete delle macchine virtuali.
    - **Assegnazione indirizzo IP**: L'assegnazione di indirizzi IP deve essere statica. 
    - **Indirizzo IP privato**: lo stesso indirizzo IP assegnato alla risorsa di rete cluster dell'istanza del cluster di failover di SQL Server.

@@ -1,8 +1,8 @@
 ---
-title: Eseguire attività in background con Processi Web - Servizio app di Azure
+title: Eseguire attività in background con processi Web-servizio app Azure
 description: Informazioni su come usare Processi Web per eseguire attività in background in app Web del servizio app di Azure, app per le API e app per dispositivi mobili.
 author: ggailey777
-manager: wgallace
+manager: gwallace
 s.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
 ms.topic: conceptual
@@ -10,14 +10,14 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 2d97f826f4288d13589a2fb9da8148d58a2c5e1e
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.openlocfilehash: 293227352f27a724228136532c88e35fe877feb2
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303572"
+ms.locfileid: "72312175"
 ---
-# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Eseguire attività in background con Processi Web in Servizio app di Azure
+# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Eseguire attività in background con processi Web nel servizio app Azure
 
 L'articolo descrive come distribuire Processi Web usando il [portale di Azure](https://portal.azure.com) per caricare un eseguibile o uno script. Per informazioni su come sviluppare e distribuire processi Web usando Visual Studio, vedere [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md) (Distribuire processi Web usando Visual Studio).
 

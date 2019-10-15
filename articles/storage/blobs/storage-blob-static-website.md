@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 85f7ea11638278a010b2a94d9c6472857f51b687
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 8de36ea9f7bb77443b22e038172ee69bb8435b29
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710163"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311213"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hosting di siti Web statici in Archiviazione di Azure
 
@@ -50,7 +50,7 @@ I file nel contenitore di **$Web** fanno distinzione tra maiuscole e minuscole, 
 
 Gli utenti possono visualizzare il contenuto del sito da un browser usando l'URL pubblico del sito Web. È possibile trovare l'URL usando il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell. Usare questa tabella come riferimento.
 
-|Tool| Materiale sussidiario |
+|Strumento| Materiale sussidiario |
 |----|----|
 |**Portale di Azure** | [Trovare l'URL del sito Web usando il portale di Azure](storage-blob-static-website-how-to.md#portal-find-url) |
 |**Interfaccia della riga di comando di Azure** | [Trovare l'URL del sito Web usando l'interfaccia della riga di comando di Azure](storage-blob-static-website-how-to.md#cli-find-url) |
@@ -58,7 +58,7 @@ Gli utenti possono visualizzare il contenuto del sito da un browser usando l'URL
 
 L'URL del sito contiene un codice regionale. Ad esempio, l'URL `https://contosoblobaccount.z22.web.core.windows.net/` contiene il codice regionale `z22`.
 
-Sebbene tale codice debba rimanere l'URL, è solo per uso interno e non sarà necessario usare tale codice in altro modo.
+Sebbene il codice debba rimanere nell'URL, è solo per uso interno e non sarà necessario usare tale codice in altro modo.
 
 Il documento di indice specificato quando si Abilita l'hosting di siti web statici viene visualizzato quando gli utenti aprono il sito e non specificano un file specifico (ad esempio: `https://contosoblobaccount.z22.web.core.windows.net`).  
 

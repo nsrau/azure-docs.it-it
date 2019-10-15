@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 43465a1c31b953620c45dfe759de7b6e1b4dc3c9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: f00f6bcf07cbdc5aeaeb04aeccf7e88cf4822dbf
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917256"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311719"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Caricamento bulk di dati in Apache Phoenix tramite psql
 
@@ -141,6 +141,6 @@ Per un caricamento con velocità effettiva più elevata distribuito nel cluster,
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Bulk Data Loading with Apache Phoenix](https://phoenix.apache.org/bulk_dataload.html) (Caricamento bulk di dati con Apache Phoenix)
-* [Usare Apache Phoenix con cluster Apache HBase basati su Linux in HDInsight](../hbase/apache-hbase-phoenix-squirrel-linux.md)
+* [Usare Apache Phoenix con cluster Apache HBase basati su Linux in HDInsight](../hbase/apache-hbase-query-with-phoenix.md)
 * [Salted Tables](https://phoenix.apache.org/salted.html) (Tabelle con valori salt)
 * [Apache Phoenix Grammar](https://phoenix.apache.org/language/index.html) (Grammatica di Apache Phoenix)

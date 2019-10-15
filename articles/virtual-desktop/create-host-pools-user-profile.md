@@ -7,18 +7,21 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: 9b187696524e96bc13254a24fd8f39d5aeb89e7d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 0e7516fc4874e4cbc387f2f494efc6ef745d64f7
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676690"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311597"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Creare un contenitore di profili per un pool di host con una condivisione file
 
 Il servizio desktop virtuale di Windows offre i contenitori del profilo FSLogix come soluzione di profilo utente consigliata. Non è consigliabile usare la soluzione disco profilo utente (UPD), che verrà deprecata nelle versioni future del desktop virtuale di Windows.
 
 Questo articolo illustra come configurare una condivisione del contenitore del profilo FSLogix per un pool host usando una condivisione file basata su macchina virtuale. Per ulteriori informazioni sulla documentazione di FSLogix, vedere il [sito di FSLogix](https://docs.fslogix.com/).
+
+>[!NOTE]
+>Se si sta cercando materiale di confronto sulle diverse opzioni di archiviazione del contenitore del profilo FSLogix in Azure, vedere [Opzioni di archiviazione per i contenitori di profili FSLogix](store-fslogix-profile.md).
 
 ## <a name="create-a-new-virtual-machine-that-will-act-as-a-file-share"></a>Creare una nuova macchina virtuale che fungerà da condivisione file
 
@@ -62,10 +65,10 @@ Per configurare le macchine virtuali con il software FSLogix, eseguire le operaz
 6. Creare una chiave denominata **profili**.
 7. Creare i valori seguenti per la chiave dei profili:
 
-| Attività                | Type               | Dati/valore                        |
+| NOME                | Type               | Dati/valore                        |
 |---------------------|--------------------|-----------------------------------|
 | Enabled             | DWORD              | 1                                 |
 | VHDLocations        | Valore multistringa | "Percorso di rete per la condivisione file"     |
 
 >[!IMPORTANT]
->Per proteggere l'ambiente di Desktop virtuale Windows in Azure, è consigliabile non aprire la porta 3389 in ingresso nelle macchine virtuali. Desktop virtuale Windows non richiede una porta in ingresso 3389 per permettere agli utenti di accedere alle macchine virtuali del pool di host. Se è necessario aprire la porta 3389 per la risoluzione dei problemi, è consigliabile usare l'[accesso Just-In-Time alla VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
+>Per proteggere l'ambiente di Desktop virtuale Windows in Azure, è consigliabile non aprire la porta 3389 in ingresso nelle macchine virtuali. Desktop virtuale Windows non richiede una porta in ingresso 3389 per permettere agli utenti di accedere alle macchine virtuali del pool di host. Se è necessario aprire la porta 3389 per la risoluzione dei problemi, è consigliabile usare l'[accesso Just-In-Time alla VM](../security-center/security-center-just-in-time.md).

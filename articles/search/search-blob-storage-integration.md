@@ -8,36 +8,29 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 7e5eb73cc6abc72689bbc674b29f4d288dd66b6f
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 1aec65ab08cd1c0711e51a222a8e674ef56ef508
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302901"
+ms.locfileid: "72312193"
 ---
 # <a name="add-full-text-search-to-azure-blob-data-using-azure-search"></a>Aggiungere la ricerca full-text ai dati BLOB di Azure con ricerca di Azure
 
-La ricerca in un'ampia gamma di tipi di contenuto inclusi nell'archiviazione BLOB di Azure può rivelarsi un problema complesso da risolvere. Tuttavia, è possibile indicizzare e cercare il contenuto dei BLOB in pochi clic usando Ricerca di Azure. La ricerca nell'archiviazione BLOB richiede il provisioning di un servizio di Ricerca di Azure. I diversi limiti del servizio e i piani tariffari di Ricerca di Azure sono disponibili nella [pagina dei prezzi](https://aka.ms/azspricing).
+La ricerca in un'ampia gamma di tipi di contenuto inclusi nell'archiviazione BLOB di Azure può rivelarsi un problema complesso da risolvere. Tuttavia, è possibile indicizzare e cercare il contenuto dei BLOB in pochi clic usando [ricerca di Azure](search-what-is-azure-search.md). Ricerca di Azure offre integrazione incorporata per l'indicizzazione dell'archiviazione BLOB tramite un [*indicizzatore BLOB*](search-howto-indexing-azure-blob-storage.md) che aggiunge funzionalità per l'indicizzazione in grado di riconoscere origini dati.
 
-## <a name="what-is-azure-search"></a>Che cos'è la Ricerca di Azure?
-[Ricerca di Azure](https://aka.ms/whatisazsearch) è un servizio di ricerca che aiuta gli sviluppatori ad aggiungere solide esperienze di ricerca full-text ad applicazioni Web e per dispositivi mobili. In qualità di servizio, Ricerca di Azure elimina la necessità di gestire qualsiasi infrastruttura di ricerca, offrendo un [contratto di servizio con tempo di attività del 99,9%](https://aka.ms/azuresearchsla).
+## <a name="supported-content-types"></a>Tipi di contenuto supportati
 
-## <a name="index-and-search-enterprise-document-formats"></a>Indicizzazione e ricerca in formati di documenti aziendali
-Con il supporto per l'[estrazione di documenti](https://aka.ms/azsblobindexer) nell'archiviazione BLOB di Azure, è possibile indicizzare il contenuto seguente:
+Eseguendo un indicizzatore BLOB su un contenitore, è possibile estrarre testo e metadati dai tipi di contenuto seguenti con una singola query:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-Estraendo testo e metadati da questi tipi di file, è possibile cercare in più formati di file con un'unica query. 
+Facoltativamente, è possibile alleghi l' [arricchimento di intelligenza artificiale](search-blob-ai-integration.md) sotto forma di un *skillt* per creare nuove informazioni e strutture dai BLOB, incluse le rappresentazioni di testo dei file di immagine. L'aggiunta di arricchimento intelligenza artificiale espande l'elenco dei tipi di contenuto per includere JPEG e PNG. Consente di aggiungere competenze di elaborazione di immagini, ad esempio il [riconoscimento ottico dei caratteri (OCR)](cognitive-search-skill-ocr.md) e l'identificazione di [funzionalità visive](cognitive-search-skill-image-analysis.md) che consentono di indicizzare il contenuto visivo trovato in ogni immagine.
 
 ## <a name="search-through-your-blob-metadata"></a>Ricerca nei metadati dei BLOB
 Uno scenario comune che semplifica l'ordinamento nei BLOB di qualsiasi tipo di contenuto consiste nell'indicizzare i metadati personalizzati e le proprietà di sistema per ogni BLOB. In questo modo, le informazioni per tutti i BLOB vengono indicizzate indipendentemente dal tipo di documento. È quindi possibile ordinare, filtrare e ottimizzare tutto il contenuto dell'archiviazione BLOB.
 
 [Altre informazioni sull'indicizzazione dei metadati dei BLOB.](https://aka.ms/azsblobmetadataindexing)
-
-## <a name="image-search"></a>Ricerca di immagini
-Le funzionalità di ricerca full-text, esplorazione in base a facet e ordinamento di Ricerca di Azure possono ora essere applicate ai metadati delle immagini archiviate in BLOB.
-
-La ricerca cognitiva include competenze di elaborazione di immagini quali il [riconoscimento ottico dei caratteri (OCR)](cognitive-search-skill-ocr.md) e l'identificazione di [funzionalità visive](cognitive-search-skill-image-analysis.md) che consentono di indicizzare il contenuto visivo trovato in ogni immagine.
 
 ## <a name="index-and-search-through-json-blobs"></a>Indicizzare e cercare contenuto in BLOB JSON
 È possibile configurare Ricerca di Azure in modo da estrarre il contenuto strutturato dei BLOB che contengono JSON. Ricerca di Azure può leggere BLOB JSON e analizzare il contenuto strutturato nei campi appropriati di un documento di Ricerca di Azure. Ricerca di Azure può anche usare BLOB che contengono una matrice di oggetti JSON ed eseguire il mapping di ogni elemento a un documento di Ricerca di Azure separato.
