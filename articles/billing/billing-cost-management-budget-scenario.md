@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 8ff402299b26637473f3fb762a3320255ea4df64
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: bc35ba74acb2ce807597230fee0685606a93a775
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719919"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958371"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gestire i costi con i budget di Azure
 
@@ -272,7 +272,7 @@ I gruppi di azioni sono l'unico endpoint che si integrerà con il budget. È pos
 Quando si crea il gruppo di azioni, è necessario definire un puntatore all'app per la logica creata in precedenza in questa esercitazione.
 
 1.  Se non si è già eseguito l'accesso al [portale di Azure](https://portal.azure.com/), accedere e selezionare **Tutti i servizi** > **Monitoraggio**.
-2.  Selezionare **Gruppi di azioni** dalla sezione **Impostazioni**.
+2.  Selezionare **Avvisi** e quindi **Gestisci azioni**.
 3.  Selezionare **Aggiungi gruppo di azioni** dal pannello **Gruppi di azioni**.
 4.  Aggiungere e verificare quanto segue:
     - Nome gruppo di azione

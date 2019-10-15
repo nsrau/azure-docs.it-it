@@ -580,7 +580,7 @@
     - name: Guide introduttive
       items:
         - name: Eseguire query su Apache HBase - Apache Phoenix
-          href: ./hbase/apache-hbase-phoenix-squirrel-linux.md
+          href: ./hbase/apache-hbase-query-with-phoenix.md
         - name: Eseguire query su Apache HBase - Shell HBase
           href: ./hbase/query-hbase-with-hbase-shell.md
     - name: Esercitazioni

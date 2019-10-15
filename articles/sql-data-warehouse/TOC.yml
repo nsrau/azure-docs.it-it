@@ -149,6 +149,8 @@
               href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/create-index-transact-sql?view=sql-server-2017#examples--and-'
         - name: Memorizzazione nella cache dei set di risultati
           items:
+            - name: Panoramica
+              href: sql-data-warehouse-result-set-caching-overview.md
             - name: Impostare per un database
               href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest'
             - name: Impostare per una sessione

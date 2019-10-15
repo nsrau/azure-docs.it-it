@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 05/06/2019
-ms.openlocfilehash: f4023fa84215a0319669de0d812d8306b62278e3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5194cf51fd7f1debeba76edb48e8377919ae448a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073277"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177959"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Che cos'è Database di Azure per PostgreSQL
 Il database di Azure per PostgreSQL è un servizio di database relazionale in Microsoft Cloud creato per gli sviluppatori. È basato sulla versione della community del motore di database [PostgreSQL](https://www.postgresql.org/) open source ed è disponibile in due opzioni di distribuzione: Server singolo e Hyperscale (Citus) (anteprima).
@@ -48,7 +48,7 @@ Tenere presente che Hyperscale (Citus) è in anteprima pubblica e quindi non off
 ## <a name="data-security"></a>Sicurezza dei dati
 Database di Azure per PostgreSQL rispetta la tradizione di sicurezza dei dati dei servizi di database di Azure. Ha funzionalità che limitano l'accesso, proteggono i dati inattivi e in transito e consentono di monitorare l'attività. Visitare il [Centro protezione di Azure](https://azure.microsoft.com/overview/trusted-cloud/) per informazioni sulla sicurezza della piattaforma Azure.
 
-Il servizio Database di Azure per PostgreSQL usa la crittografia del servizio di archiviazione per i dati inattivi ed è conforme allo standard FIPS 140-2. I dati, inclusi i backup, vengono crittografati su disco. Il servizio usa la crittografia AES a 256 bit inclusa nella crittografia di archiviazione di Azure e le chiavi vengono gestite dal sistema. La crittografia dell'archiviazione è sempre attiva e non può essere disabilitata. Per impostazione predefinita, il servizio Database di Azure per PostgreSQL richiede connessioni sicure per i dati in transito nella rete e tra il database e l'applicazione client.
+Il servizio Database di Azure per PostgreSQL usa il modulo crittografico convalidato FIPS 140-2 per la crittografia dei dati archiviati inattivi. I dati, inclusi i backup, vengono crittografati su disco, ad eccezione dei file temporanei creati durante l'esecuzione di query. Il servizio usa la crittografia AES a 256 bit inclusa nella crittografia di archiviazione di Azure e le chiavi vengono gestite dal sistema. La crittografia dell'archiviazione è sempre attiva e non può essere disabilitata. Per impostazione predefinita, il servizio Database di Azure per PostgreSQL richiede connessioni sicure per i dati in transito nella rete e tra il database e l'applicazione client.
 
 ## <a name="contacts"></a>Contatti
 Per eventuali domande o suggerimenti sull'uso di Database di Azure per PostgreSQL, inviare un messaggio di posta elettronica al team di Database di Azure per PostgreSQL ([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Questo indirizzo è per le domande generali, non per i ticket di supporto.
