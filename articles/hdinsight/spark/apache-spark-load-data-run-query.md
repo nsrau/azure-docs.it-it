@@ -2,18 +2,18 @@
 title: 'Esercitazione: Caricare dati ed eseguire query in un cluster Apache Spark in Azure HDInsight'
 description: 'Esercitazione: Come caricare i dati ed eseguire query interattive nei cluster Spark in Azure HDInsight.'
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.author: hrasheed
-ms.date: 05/16/2019
-ms.openlocfilehash: 109ed1a2ef22e498c2d19fd2e4f1848f289e9b55
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.date: 10/03/2019
+ms.openlocfilehash: 3d6b7cf67faa94d0947d16cc79d0d5b839de7acb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735282"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027801"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Esercitazione: Caricare i dati ed eseguire query in un cluster Apache Spark in Azure HDInsight
 
@@ -30,11 +30,11 @@ Un cluster Apache Spark in HDInsight. Vedere [Creare un cluster Apache Spark](./
 
 ## <a name="create-a-jupyter-notebook"></a>Creare un notebook Jupyter
 
-Jupyter Notebook è un ambiente notebook interattivo che supporta diversi linguaggi di programmazione. Il notebook consente di interagire con i dati, combinare codice e testo Markdown ed eseguire visualizzazioni semplici. 
+Jupyter Notebook è un ambiente notebook interattivo che supporta diversi linguaggi di programmazione. Il notebook consente di interagire con i dati, combinare codice e testo Markdown ed eseguire visualizzazioni semplici.
 
 1. Modificare l'URL `https://SPARKCLUSTER.azurehdinsight.net/jupyter` sostituendo `SPARKCLUSTER` con lo stesso nome del cluster Spark. Immettere quindi l'URL modificato in un Web browser. Se richiesto, immettere le credenziali di accesso del cluster.
 
-2. Dalla pagina Web di Jupyter, selezionare **Nuovo** > **PySpark** per creare un notebook. 
+2. Dalla pagina Web di Jupyter, selezionare **Nuovo** > **PySpark** per creare un notebook.
 
    ![Creare un oggetto Jupyter Notebook per eseguire una query Spark SQL interattiva](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Creare un oggetto Jupyter Notebook per eseguire una query Spark SQL interattiva")
 
@@ -45,8 +45,8 @@ Jupyter Notebook è un ambiente notebook interattivo che supporta diversi lingua
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>Creare un frame di dati da un file csv
 
-Le applicazioni possono creare frame di dati direttamente da file o cartelle nell'archiviazione remota, ad esempio Archiviazione di Azure o Azure Data Lake Storage, da una tabella Hive o da altre origini dati supportate da Spark, come Cosmos DB, il database SQL di Azure, DW e così via. Lo screenshot seguente mostra uno snapshot del file HVAC.csv usato in questa esercitazione. Il file csv è disponibile con tutti i cluster HDInsight Spark. I dati acquisiscono le variazioni di temperatura di alcuni edifici.
-    
+Le applicazioni possono creare frame di dati direttamente da file o cartelle nell'archiviazione remota, ad esempio Archiviazione di Azure o Azure Data Lake Storage, da una tabella Hive o da altre origini dati supportate da Spark, come Cosmos DB, data warehouse, database SQL di Azure e così via. Lo screenshot seguente mostra uno snapshot del file HVAC.csv usato in questa esercitazione. Il file csv è disponibile con tutti i cluster HDInsight Spark. I dati acquisiscono le variazioni di temperatura di alcuni edifici.
+
 ![Snapshot di dati per query SQL Spark interattive](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Snapshot di dati per query SQL Spark interattive")
 
 1. Incollare il codice seguente in una cella vuota del notebook Jupyter e quindi premere **MAIUSC+INVIO** per eseguire il codice. Il codice importa i tipi necessari per questo scenario:
@@ -60,7 +60,7 @@ Le applicazioni possono creare frame di dati direttamente da file o cartelle nel
 
     ![Stato della query interattiva Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Stato della query interattiva Spark SQL")
 
-2. Eseguire il codice seguente per creare un frame di dati e una tabella temporanea (**hvac**). 
+2. Eseguire il codice seguente per creare un frame di dati e una tabella temporanea (**hvac**).
 
     ```python
     # Create a dataframe and table from sample data
@@ -93,7 +93,7 @@ Dopo aver creato la tabella, è possibile eseguire una query interattiva sui dat
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Con HDInsight i dati e i notebook Jupyter vengono salvati in Archiviazione di Azure o Azure Data Lake Storage, in modo che sia possibile eliminare un cluster in modo sicuro quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati. Se si prevede di lavorare immediatamente nell'esercitazione successiva, si potrebbe voler mantenere il cluster.
+Con HDInsight i dati e i notebook Jupyter vengono salvati in Archiviazione di Azure o Azure Data Lake Storage, in modo che sia possibile eliminare un cluster in modo sicuro quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, eliminare i cluster quando non vengono usati è una scelta economicamente conveniente. Se si prevede di lavorare immediatamente nell'esercitazione successiva, si potrebbe voler mantenere il cluster.
 
 Aprire il cluster nel portale di Azure e selezionare **Elimina**.
 

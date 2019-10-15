@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: 809d76791522fa135932baaf6e237570ab0af35a
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: eae2319e8d1c162969a04f8dafa18eec671ee1d0
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172173"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034683"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Esercitazione: Creare un flusso di lavoro automatizzato basato su pianificazione e ricorrente con App per la logica di Azure
 
@@ -34,7 +34,7 @@ In questa esercitazione si apprenderà come:
 
 Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di lavoro simile al seguente:
 
-![Panoramica generale dell'app per la logica](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
+![Panoramica generale del flusso di lavoro dell'app per la logica](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -52,11 +52,11 @@ Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell
 
 1. Dal menu principale di Azure selezionare **Crea una risorsa** > **Integrazione** > **App per la logica**.
 
-   ![Creare l'app per la logica](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
+   ![Creare la risorsa app per la logica](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-new-logic-app-resource.png)
 
 1. In **Crea app per la logica** specificare le informazioni sull'app per la logica come mostrato e descritto di seguito. Al termine, selezionare **Crea**.
 
-   ![Specificare le informazioni sull'app per la logica](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
+   ![Specificare le informazioni sull'app per la logica.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
    | Proprietà | Valore | DESCRIZIONE |
    |----------|-------|-------------|
@@ -69,7 +69,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell
 
 1. Dopo che Azure ha distribuito l'app, sulla barra degli strumenti di Azure selezionare **Notifiche** > **Vai alla risorsa** per l'app per la logica distribuita.
 
-   ![Vai alla risorsa](./media/tutorial-build-scheduled-recurring-logic-app-workflow/go-to-logic-app.png)
+   ![Passare alla nuova risorsa app per la logica](./media/tutorial-build-scheduled-recurring-logic-app-workflow/go-to-new-logic-app-resource.png)
 
    In alternativa, è possibile trovare e selezionare l'app per la logica digitando il nome nella casella di ricerca.
 
@@ -87,11 +87,11 @@ Aggiungere quindi il trigger [Ricorrenza](../logic-apps/logic-apps-overview.md#l
 
 1. Nella forma **Ricorrenza** selezionare il pulsante con i **puntini di sospensione** ( **...** ) e quindi selezionare **Rinomina**. Rinominare il trigger con questa descrizione: `Check travel time every weekday morning`
 
-   ![Rinominare il trigger](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
+   ![Rinominare la descrizione del trigger di ricorrenza](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
 1. Modificare le proprietà seguenti all'interno del trigger.
 
-   ![Modificare l'intervallo e la frequenza](./media/tutorial-build-scheduled-recurring-logic-app-workflow/change-interval-frequency.png)
+   ![Modificare l'intervallo e la frequenza del trigger di ricorrenza](./media/tutorial-build-scheduled-recurring-logic-app-workflow/change-interval-frequency.png)
 
    | Proprietà | Obbligatoria | Value | DESCRIZIONE |
    |----------|----------|-------|-------------|
@@ -105,7 +105,7 @@ Aggiungere quindi il trigger [Ricorrenza](../logic-apps/logic-apps-overview.md#l
    * **A queste ore**
    * **A questi minuti**
 
-   ![Aggiungere le proprietà del trigger](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-trigger-properties.png)
+   ![Aggiungere le proprietà per il trigger di ricorrenza](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-trigger-properties.png)
 
 1. Impostare ora i valori per le proprietà aggiuntive, come illustrato e descritto qui.
 
@@ -140,7 +140,7 @@ Ora che si ha un trigger, aggiungere un'[azione](../logic-apps/logic-apps-overvi
 
 1. Se non si ha una connessione esistente a Bing Maps, viene chiesto di crearne una. Specificare i dettagli di connessione seguenti e scegliere **Crea**.
 
-   ![Creare la connessione Bing Maps](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
+   ![Creare una connessione all'API di Bing Maps](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
    | Proprietà | Obbligatoria | Value | DESCRIZIONE |
    |----------|----------|-------|-------------|
@@ -221,11 +221,11 @@ Per impostazione predefinita, l'azione **Get route** (Ottieni itinerario) preced
 
    1. Dopo la risoluzione del valore della proprietà nell'espressione, fare clic su **OK**.
 
-      ![Scegliere "OK"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-5.png)
+      ![Per completare la compilazione dell'espressione, scegliere "OK"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-5.png)
 
       La proprietà **Valore** verrà ora visualizzata come illustrato di seguito:
 
-      ![Proprietà "Valore" con l'espressione risolta](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-6.png)
+      ![Proprietà "Valore" visualizzata con l'espressione risolta](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-6.png)
 
 1. Salvare l'app per la logica.
 
@@ -247,7 +247,7 @@ Successivamente, aggiungere una condizione che controlla se il tempo di viaggio 
 
    1. Nell'elenco di contenuto dinamico che viene visualizzato selezionare la proprietà **TravelTime** in **Variabili**.
 
-      ![Creare una condizione, lato sinistro](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png)
+      ![Compilare il lato sinistro della condizione](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png)
 
    1. Nella casella di confronto centrale selezionare l'operatore **è maggiore di**.
 
@@ -255,7 +255,7 @@ Successivamente, aggiungere una condizione che controlla se il tempo di viaggio 
 
       Al termine, la condizione avrà un aspetto simile a questo esempio:
 
-      ![Condizione completata](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
+      ![Condizione completata per controllare il tempo di percorrenza](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
 
 1. Salvare l'app per la logica.
 
@@ -269,7 +269,7 @@ Aggiungere quindi un'azione per inviare un messaggio di posta elettronica quando
 
 1. In **Scegliere un'azione** selezionare **Standard**. Nella casella di ricerca immettere "invia un messaggio di posta elettronica". Dato che l'elenco restituisce molti risultati, selezionare prima il connettore di posta elettronica desiderato, ad esempio:
 
-   ![Selezionare il connettore di posta elettronica](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
+   ![Selezionare il connettore di posta elettronica da usare](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
 
    * Per gli account aziendali o dell'istituto di istruzione di Azure, selezionare **Office 365 Outlook**.
    * Per gli account Microsoft personali, selezionare **Outlook.com**.
@@ -320,17 +320,17 @@ Aggiungere quindi un'azione per inviare un messaggio di posta elettronica quando
 
    1. Dopo la risoluzione della proprietà nell'espressione, fare clic su **OK**.
 
-      ![Proprietà "Corpo" con l'espressione risolta](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
+      ![Al termine della risoluzione della proprietà "Corpo", scegliere "OK"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
 
       La proprietà **Corpo** verrà ora visualizzata come illustrato di seguito:
 
-      ![Proprietà "Corpo" con l'espressione risolta](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
+      ![Proprietà "Corpo" risolta nell'espressione](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
 
 1. Salvare l'app per la logica.
 
 Testare quindi l'app per la logica, che sarà simile a questo esempio:
 
-![App per la logica completata](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-finished.png)
+![Esempio completato del flusso di lavoro dell'app per la logica](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-finished.png)
 
 ## <a name="run-your-logic-app"></a>Eseguire l'app per la logica
 
@@ -340,7 +340,7 @@ Per avviare manualmente l'app per la logica, sulla barra degli strumenti della f
 
 * Se invece il tempo di percorrenza corrente supera il limite, si riceve un messaggio di posta elettronica con il tempo di percorrenza corrente e il numero di minuti oltre il limite. Ecco un esempio di messaggio di posta elettronica inviato dall'app per la logica:
 
-![Messaggio di posta elettronica inviato con il tempo di viaggio](./media/tutorial-build-scheduled-recurring-logic-app-workflow/email-notification.png)
+![Messaggio di posta elettronica di esempio inviato che mostra il tempo di percorrenza](./media/tutorial-build-scheduled-recurring-logic-app-workflow/received-example-email-notification.png)
 
 Se non si riceve alcun messaggio di posta elettronica, controllare la cartella della posta indesiderata. Il filtro della posta indesiderata potrebbe reindirizzare questi tipi di messaggi di posta elettronica. In caso contrario, se non si è certi che l'app per la logica sia stata eseguita correttamente, vedere [Risolvere i problemi dell'app per la logica](../logic-apps/logic-apps-diagnosing-failures.md).
 

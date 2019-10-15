@@ -1,5 +1,5 @@
 ---
-title: Creare il primo esperimento automatizzato di apprendimento automatico
+title: Creare il primo esperimento di classificazione con Machine Learning automatizzato
 titleSuffix: Azure Machine Learning
 description: Informazioni su come eseguire il training e la distribuzione di un modello di classificazione con Machine Learning automatizzato nella pagina di destinazione dell'area di lavoro di Azure Machine Learning (anteprima).
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/26/2019
-ms.openlocfilehash: 3ddd228488d8ba4adc6780db1f65fdb634291d3b
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dcd6f2ea6f5c79664af0c2431da07549e71c26bc
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350512"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035675"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Esercitazione: Creare il primo modello di classificazione con apprendimento automatico
 

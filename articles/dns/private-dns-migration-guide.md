@@ -7,16 +7,16 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: e7ebbf35cd572601f02a69930b58811686a92c86
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 870f8f43fb37f3f58fc19f2fd544e77b1a3a3967
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276319"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960563"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migrazione di zone private legacy di DNS di Azure nel nuovo modello di risorsa
 
-È disponibile un nuovo modello di risorsa/API per le zone private di DNS di Azure come parte della versione di aggiornamento in anteprima. L'aggiornamento in anteprima offre nuove funzionalità ed elimina diverse limitazioni e restrizioni rispetto all'anteprima pubblica iniziale. Tuttavia, questi vantaggi non sono disponibili per le zone DNS private create tramite l'API legacy. Per ottenere i vantaggi della nuova versione, è necessario eseguire la migrazione delle risorse delle zone DNS private legacy nel nuovo modello di risorsa. Il processo di migrazione è semplice ed è disponibile uno script di PowerShell per automatizzarlo. Questa guida offre istruzioni dettagliate per la migrazione delle zone private di DNS di Azure nel nuovo modello di risorsa.
+La versione corrente delle zone private di DNS di Azure offre nuove funzionalità ed elimina diverse limitazioni e restrizioni rispetto all'anteprima pubblica iniziale. Tuttavia, questi vantaggi non sono disponibili per le zone DNS privato create tramite l'API in anteprima. Per ottenere i vantaggi della nuova versione, è necessario eseguire la migrazione delle risorse delle zone DNS privato legacy nel nuovo modello di risorsa. Il processo di migrazione è semplice ed è disponibile uno script di PowerShell per automatizzarlo. Questa guida offre istruzioni dettagliate per la migrazione delle zone private di DNS di Azure al nuovo modello di risorsa.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,7 +29,7 @@ Install-Module -Name Az.PrivateDns -AllowPrerelease
 ```
 
 >[!IMPORTANT]
->Il processo di migrazione è completamente automatizzato e non causa tempo di inattività. Tuttavia, se si usano zone private di DNS di Azure (anteprima) in un ambiente di produzione critico, è necessario eseguire il processo di migrazione presentato di seguito durante un intervallo di tempo per la manutenzione pianificata. Assicurarsi di non modificare la configurazione o i set di record di una zona DNS privata durante l'esecuzione dello script di migrazione.
+>Il processo di migrazione è completamente automatizzato e non causa tempo di inattività. Tuttavia, se si usano zone private di DNS di Azure (anteprima) in un ambiente di produzione critico, è necessario eseguire il processo di migrazione seguente durante una finestra di manutenzione pianificata. Assicurarsi di non modificare la configurazione o i set di record di una zona DNS privata durante l'esecuzione dello script di migrazione.
 
 ## <a name="installing-the-script"></a>Installazione dello script
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d716eb761ab406b65f10898b29775327a801ac45
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f68bc211be3cffb61b3381390ae2eeacaffa4213
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875476"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960412"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Esercitazione: Usare Azure IoT Central per monitorare i dispositivi
 
@@ -41,7 +41,7 @@ Prima di iniziare, il generatore deve completare le esercitazioni per creare l'a
 
 Azure IoT Central invia le notifiche sui dispositivi come messaggi di posta elettronica. Il generatore ha aggiunto una regola che prevede l'invio di una notifica quando la temperatura in un dispositivo condizionatore d'aria connesso supera una certa soglia. Controllare i messaggi di posta elettronica inviati all'account scelto dal generatore per la ricezione delle notifiche.
 
-Aprire il messaggio di posta elettronica ricevuto al termine dell'esercitazione [Configurare le regole e le azioni per il dispositivo](tutorial-configure-rules.md). Nel messaggio di posta elettronica scegliere **Click here to open your device** (Fare clic qui per accedere al dispositivo):
+Aprire il messaggio di posta elettronica ricevuto al termine dell'esercitazione [Configurare le regole e le azioni per il dispositivo](tutorial-configure-rules.md). Nel messaggio di posta elettronica selezionare il collegamento al dispositivo accanto a **Nome dispositivo** nella sezione **Dettagli** :
 
 ![Messaggio di posta elettronica di notifica avvisi](media/tutorial-monitor-devices/email.png)
 

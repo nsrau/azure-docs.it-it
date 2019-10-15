@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Eseguire il training del primo modello di Machine Learning'
+title: 'Esercitazione: Eseguire il training del primo modello di Azure ML in Python'
 titleSuffix: Azure Machine Learning
 description: In questa esercitazione si apprenderanno gli schemi progettuali di base in Azure Machine Learning e si eseguirà il training di un semplice modello scikit-learn basato sul set di dati diabetes.
 services: machine-learning
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: c775b16eaa15ccd7115f4770bf197545a9de2500
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: c78a45cedbeb5cfa0f0cc7c5c976fceb36f1da2a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828024"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173298"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Esercitazione: Eseguire il training del primo modello di Machine Learning
 

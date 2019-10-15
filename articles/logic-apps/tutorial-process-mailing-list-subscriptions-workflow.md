@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: 734a6be81a8052b2894f4c27b165bb8dc4f14caf
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: fb92e882607575e99ae800bd9c6d7c36b5d89d8e
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71171726"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034593"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Esercitazione: Creare flussi di lavoro automatizzati basati su approvazione tramite App per la logica di Azure
 
@@ -35,7 +35,7 @@ In questa esercitazione si apprenderà come:
 
 Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di lavoro simile al seguente:
 
-![App per la logica completata](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-overview.png)
+![Panoramica generale dell'app per la logica completata](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-overview.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -53,7 +53,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell
 
 1. Dal menu principale di Azure selezionare **Crea una risorsa** > **Integrazione** > **App per la logica**.
 
-   ![Creare l'app per la logica](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app.png)
+   ![Creare la nuova risorsa app per la logica](./media/tutorial-process-mailing-list-subscriptions-workflow/create-new-logic-app-resource.png)
 
 1. In **Crea app per la logica** specificare le informazioni sull'app per la logica come mostrato e descritto di seguito. Al termine, selezionare **Crea**.
 
@@ -70,7 +70,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell
 
 1. Dopo che Azure ha distribuito l'app, sulla barra degli strumenti di Azure selezionare **Notifiche** > **Vai alla risorsa** per l'app per la logica distribuita.
 
-   ![Vai alla risorsa](./media/tutorial-process-mailing-list-subscriptions-workflow/go-to-logic-app.png)
+   ![Passare alla nuova risorsa app per la logica](./media/tutorial-process-mailing-list-subscriptions-workflow/go-to-logic-app-resource.png)
 
    In alternativa, è possibile trovare e selezionare l'app per la logica digitando il nome nella casella di ricerca.
 
@@ -108,13 +108,13 @@ Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
    1. Aggiungere ora un'altra proprietà al trigger, in modo da filtrare in base alla riga dell'oggetto del messaggio. Aprire l'elenco **Aggiungi nuovo parametro** e selezionare la proprietà **Filtro oggetto**.
 
-      ![Aggiungi nuovo parametro](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
+      ![Aggiungere la proprietà "filtro oggetto" al trigger](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
 
       Per altre informazioni sulle proprietà di questo trigger, vedere le [informazioni di riferimento sul connettore Office 365 Outlook](https://docs.microsoft.com/connectors/office365/) o le [informazioni di riferimento sul connettore Outlook.com](https://docs.microsoft.com/connectors/outlook/).
 
    1. Quando la proprietà viene visualizzata nel trigger, immettere questo testo: `subscribe-test-members-ML`
 
-      ![Immettere il testo del filtro in base a oggetto](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-subject-filter-property.png)
+      ![Immettere il testo per la proprietà "filtro oggetto"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-subject-filter-property.png)
 
 1. Per nascondere i dettagli del trigger per il momento, fare clic sulla barra del titolo del trigger.
 
@@ -161,13 +161,13 @@ Aggiungere quindi una condizione per controllare la risposta selezionata del res
 
 1. In **Scegliere un'azione** selezionare **Predefinita**. Nella casella di ricerca immettere `condition` come filtro. Nell'elenco di azioni selezionare **Condizione**.
 
-   ![Selezionare "Condizione"](./media/tutorial-process-mailing-list-subscriptions-workflow/select-condition.png)
+   ![Trovare e selezionare l'azione "Condizione"](./media/tutorial-process-mailing-list-subscriptions-workflow/select-condition-action.png)
 
 1. Rinominare la condizione con una descrizione migliore.
 
    1. Sulla barra del titolo della condizione selezionare i **puntini di sospensione** ( **...** ) > **Rinomina**.
 
-      ![Rinominare la condizione](./media/tutorial-process-mailing-list-subscriptions-workflow/rename-condition.png)
+      ![Rinominare la descrizione della condizione](./media/tutorial-process-mailing-list-subscriptions-workflow/rename-condition-description.png)
 
    1. Rinominare la condizione con questa descrizione: `If request approved`
 
@@ -177,7 +177,7 @@ Aggiungere quindi una condizione per controllare la risposta selezionata del res
 
    1. Nell'elenco di contenuto dinamico che viene visualizzato, in **Invia messaggio di posta elettronica di approvazione**, selezionare la proprietà **SelectedOption**.
 
-      ![In "Invia messaggio di posta elettronica di approvazione" selezionare "SelectedOption"](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response.png)
+      ![Nell'elenco di contenuto dinamico selezionare "SelectedOption"](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response.png)
 
    1. Nella casella di confronto centrale selezionare l'operatore **è uguale a**.
 
@@ -185,7 +185,7 @@ Aggiungere quindi una condizione per controllare la risposta selezionata del res
 
       Al termine, la condizione avrà un aspetto simile a questo esempio:
 
-      ![Condizione completata](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response-2.png)
+      ![Condizione completata per l'esempio "approvato"](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response-2.png)
 
 1. Salvare l'app per la logica.
 
@@ -242,7 +242,7 @@ Aggiungere quindi una condizione in modo che sia possibile controllare se il nuo
 
       Al termine, la condizione avrà un aspetto simile a questo esempio:
 
-      ![Condizione completata](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member-2.png)
+      ![Condizione completata per l'esempio "sottoscritto"](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member-2.png)
 
 Configurare quindi i messaggi di posta elettronica da inviare quando un membro approvato viene o meno aggiunto alla lista di distribuzione.
 
@@ -250,7 +250,7 @@ Configurare quindi i messaggi di posta elettronica da inviare quando un membro a
 
 1. Nel ramo **È true** per la condizione **If add member succeeded** (Se l'aggiunta del membro è riuscita) selezionare **Aggiungi un'azione**.
 
-   ![Nel ramo "È true" per la condizione selezionare "Aggiungi un'azione"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
+   ![Nel ramo "È true" selezionare "Aggiungi un'azione"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
 
 1. Nella casella di ricerca di **Scegliere un'azione** immettere `outlook send email` come filtro e selezionare l'azione **Invia un messaggio di posta elettronica**.
 
@@ -275,7 +275,7 @@ Configurare quindi i messaggi di posta elettronica da inviare quando un membro a
 
 1. Nel ramo **È false** per la condizione **If add member succeeded** (Se l'aggiunta del membro è riuscita) selezionare **Aggiungi un'azione**.
 
-   ![Nel ramo "È false" per la condizione selezionare "Aggiungi un'azione"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
+   ![Nel ramo "È false" selezionare "Aggiungi un'azione"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
 
 1. Nella casella di ricerca di **Scegliere un'azione** immettere `outlook send email` come filtro e selezionare l'azione **Invia un messaggio di posta elettronica**.
 
@@ -298,7 +298,7 @@ Configurare quindi i messaggi di posta elettronica da inviare quando un membro a
 
 Testare quindi l'app per la logica, che sarà simile a questo esempio:
 
-![App per la logica completata](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-complete.png)
+![Esempio di flusso di lavoro dell'app per la logica completato](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-completed.png)
 
 ## <a name="run-your-logic-app"></a>Eseguire l'app per la logica
 
@@ -312,11 +312,11 @@ Testare quindi l'app per la logica, che sarà simile a questo esempio:
 
 1. Se l'indirizzo di posta elettronica del sottoscrittore non è incluso nella lista di distribuzione, l'app per la logica aggiunge l'indirizzo di questa persona e invia un messaggio di posta elettronica come quello in questo esempio:
 
-   ![Messaggio di posta elettronica di conferma](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-success.png)
+   ![Indirizzo di posta elettronica di esempio: sottoscrizione riuscita](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-mailing-list-success.png)
 
    Se l'app per la logica non può aggiungere il sottoscrittore, si riceverà un messaggio di posta elettronica simile a quello in questo esempio:
 
-   ![Messaggi di posta elettronica di mancata conferma](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-failed.png)
+   ![Indirizzo di posta elettronica di esempio: sottoscrizione non riuscita](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-mailing-list-failed.png)
 
    Se non si riceve alcun messaggio di posta elettronica, controllare la cartella della posta indesiderata. Il filtro della posta indesiderata potrebbe reindirizzare questi tipi di messaggi di posta elettronica. In caso contrario, se non si è certi che l'app per la logica sia stata eseguita correttamente, vedere [Risolvere i problemi dell'app per la logica](../logic-apps/logic-apps-diagnosing-failures.md).
 
