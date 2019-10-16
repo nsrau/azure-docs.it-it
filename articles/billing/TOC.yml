@@ -195,8 +195,6 @@
       href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
     - name: Creare un'altra sottoscrizione
       href: billing-create-subscription.md
-    - name: Creare un'altra sottoscrizione - Contratto del cliente Microsoft
-      href: billing-mca-create-subscription.md
     - name: Creare sottoscrizioni Enterprise a livello di programmazione
       href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
     - name: Esportare le informazioni sulla sottoscrizione

@@ -50,7 +50,7 @@
           href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
         - name: Aggiornare un account di archiviazione
           href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-    - name: Ridondanza
+    - name: Ridondanza dei dati
       items:
         - name: Replica di Archiviazione di Azure
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
@@ -62,14 +62,14 @@
           href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
         - name: Archiviazione con ridondanza della zona geografica
           href: ../common/storage-redundancy-gzrs.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-        - name: Prestazioni e ridimensionamento
-          items:
-            - name: Obiettivi di scalabilità e prestazioni
-              href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-            - name: Elenco di controllo di prestazioni e scalabilità
-              href: storage-performance-checklist.md
-            - name: Progettare tabelle scalabili ad alte prestazioni
-              href: table-storage-design.md
+    - name: Prestazioni e ridimensionamento
+      items:
+        - name: Obiettivi di scalabilità e prestazioni
+          href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: Elenco di controllo di prestazioni e scalabilità
+          href: storage-performance-checklist.md
+        - name: Progettare tabelle scalabili ad alte prestazioni
+          href: table-storage-design.md
     - name: Linee guida per la progettazione di tabelle
       href: table-storage-design-guidelines.md
     - name: Progettazione per le query

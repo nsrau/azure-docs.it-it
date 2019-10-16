@@ -3,6 +3,10 @@
 - name: Architettura e progettazione
   href: overview.md
   expanded: false
+  items: null
+- name: Architettura e progettazione
+  href: overview.md
+  expanded: false
   items:
     - name: Rilevamento avanzato delle minacce
       displayName: 'vulnerability, virus, IDs, incident'
@@ -12,14 +16,7 @@
       href: log-audit.md
     - name: Sicurezza di rete di Azure
       displayName: 'firewall, ssl, vpn, IDs, gateway, https, application gateway, azure application gateway, ips, waf'
-      href: abstract-network-security.md
-    - name: Sicurezza della piattaforma senza server di Azure
-      href: abstract-serverless-platform-security.md
-    - name: Sicurezza del contenitore in Azure
-      href: abstract-container-security.md
-    - name: Abilitazione della sicurezza operativa
-      displayName: 'policy, policies, azure monitor, soc'
-      href: abstract-operational-security.md
+      href: 'https://azure.microsoft.com/resources/azure-network-security/'
     - name: Isolamento nel cloud di Azure
       displayName: trust boundary
       href: isolation-choices.md
@@ -28,8 +25,6 @@
       href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: Funzionalità tecniche per la sicurezza
       href: technical-capabilities.md
-    - name: Sviluppare app sicure in Azure
-      href: abstract-develop-secure-apps.md
 - name: Sicurezza e crittografia dei dati
   href: encryption-overview.md
   items:
@@ -90,8 +85,6 @@
                     - name: Crittografia dischi con un'app Azure AD per VM Linux
                       displayName: active directory
                       href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-linux-aad'
-    - name: Sicurezza di Archiviazione di Azure
-      href: storage-overview.md
     - name: Guida alla sicurezza di Archiviazione
       href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: Customer Lockbox
