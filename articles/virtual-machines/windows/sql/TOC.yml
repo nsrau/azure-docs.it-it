@@ -102,7 +102,7 @@
           items:
             - name: Con Spazi di archiviazione diretta
               href: virtual-machines-windows-portal-sql-create-failover-cluster.md
-            - name: Con archiviazione file Premium
+            - name: Con condivisione file Premium
               href: virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md
 - name: riferimento
   items:

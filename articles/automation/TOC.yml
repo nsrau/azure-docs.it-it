@@ -148,6 +148,8 @@
           href: automation-onboard-solutions-from-automation-account.md
     - name: Guide pratiche
       items:
+        - name: Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure
+          href: automation-tutorial-update-management.md
         - name: Gestire gli aggiornamenti per più macchine virtuali
           href: manage-update-multi.md
         - name: Script precedenti e successivi all'esecuzione
@@ -157,6 +159,14 @@
         - name: Integrare SCCM con Gestione aggiornamenti
           href: oms-solution-updatemgmt-sccmintegration.md
           displayName: Configuration Manager
+        - name: Configurare Windows Update per Gestione aggiornamenti
+          href: automation-configure-windows-update.md
+        - name: Usare i gruppi dinamici con Gestione aggiornamenti
+          href: automation-update-management-groups.md
+        - name: Eseguire query sui log di Gestione aggiornamenti
+          href: automation-update-management-query-logs.md
+        - name: Visualizzare la valutazione degli aggiornamenti
+          href: automation-view-update-assessments.md
     - name: Risolvere problemi
       items:
         - name: Onboarding
@@ -300,14 +310,18 @@
       href: automation-connections.md
     - name: Credenziali
       href: automation-credentials.md
-    - name: Moduli
-      href: automation-integration-modules.md
+    - name: Moduli di PowerShell
+      items:
+        - name: Moduli
+          href: automation-integration-modules.md
+        - name: Uso di moduli Az in Automazione di Azure
+          href: az-modules.md
+        - name: Aggiornare i moduli di Azure PowerShell
+          href: automation-update-azure-modules.md
     - name: Pianificazioni
       href: automation-schedules.md
     - name: variables
       href: automation-variables.md
-    - name: Aggiornare i moduli di Azure PowerShell
-      href: automation-update-azure-modules.md
     - name: Gestire i pacchetti di Python 2
       href: python-packages.md
     - name: Risolvere i problemi delle immagini condivise
