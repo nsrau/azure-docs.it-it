@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 2aae0ce7bbf5c8804dcaab90fcb60a66dfe59cf0
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: ca0dcc850b2db513c8d85d43ad76bc75053c0d04
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744414"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514016"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Guida introduttiva: Ripristinare un database in un'istanza gestita
 
@@ -40,7 +40,7 @@ La guida introduttiva:
 - Richiede un account di Archiviazione BLOB di Azure, ad esempio Standard_LRS V2, su un **indirizzo IP pubblico** protetto con **credenziali SAS** con autorizzazione `rw`. Gli [indirizzi IP privati per l'archiviazione BLOB protetti da firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security) e gli endpoint del servizio Archiviazione BLOB di Azure non sono attualmente supportati.
 
 > [!NOTE]
-> Per altre informazioni sul backup e sul ripristino di un database di SQL Server con l'archivio BLOB di Azure e una [chiave di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), vedere l'articolo relativo al [backup di SQL Server in un URL](sql-database-managed-instance-get-started-restore.md).
+> Per altre informazioni sul backup e sul ripristino di un database di SQL Server con l'archivio BLOB di Azure e una [chiave di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), vedere l'articolo relativo al [backup di SQL Server in un URL](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
 
 ## <a name="restore-the-database-from-a-backup-file"></a>Ripristinare il database da un file di backup
 

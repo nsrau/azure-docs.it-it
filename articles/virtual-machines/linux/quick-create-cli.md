@@ -14,17 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 0208e72263991daceed52073bcce8b3e01f8e8c2
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.custom:
+- mvc
+- seo-javascript-september2019
+- seo-javascript-october2019
+- seo-python-october2019
+ms.openlocfilehash: 7732320e987e6397dde2aff0f6c4328d551d99b1
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174288"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72427943"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Guida introduttiva: Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
 
-Questo argomento di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per distribuire una macchina virtuale Linux in Azure. L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. In questa esercitazione verrà installato Ubuntu 16.04 LTS. Per mostrare la macchina virtuale in azione, connettersi a essa con SSH nella macchina virtuale e installare il server Web NGINX.
+Questo argomento di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per distribuire una macchina virtuale Linux in Azure. L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script.
+
+In questa esercitazione verrà installato Ubuntu 16.04 LTS. Per mostrare la macchina virtuale in azione, connettersi a essa con SSH nella macchina virtuale e installare il server Web NGINX.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -107,7 +113,7 @@ Al termine, digitare `exit` per uscire dalla sessione SSH.
 
 Usare il Web browser che si preferisce per vedere la pagina iniziale di NGINX predefinita. Usare l'indirizzo IP pubblico della macchina virtuale come indirizzo Web. L'esempio seguente mostra il sito Web NGINX predefinito:
 
-![Sito NGINX predefinito](./media/quick-create-cli/nginx.png)
+![Visualizzare la pagina iniziale di NGINX](./media/quick-create-cli/view-the-nginx-welcome-page.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

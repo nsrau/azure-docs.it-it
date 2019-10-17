@@ -1,5 +1,5 @@
 ---
-title: Apprendimento attivo - Personalizza esperienze
+title: Eventi attivi e inattivi-personalizzatore
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
@@ -10,47 +10,36 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 8c1579be3d11ae14ca45ee861de2d4f705e5d62c
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: aa6f53901f21dcb0726454d641a4a2a66007f9e0
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663720"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429046"
 ---
-# <a name="active-learning-and-learning-policies"></a>Apprendimento attivo e criteri di apprendimento 
+# <a name="active-and-inactive-events"></a>Eventi attivi e inattivi
 
-Quando l'applicazione chiama l'API Rank, si riceve una classifica del contenuto. La logica di business può usare questa classifica per determinare se il contenuto dovrà essere mostrato all'utente. La visualizzazione del contenuto classificato corrisponde a un evento di classifica _attivo_. La mancata visualizzazione del contenuto classificato nell'applicazione corrisponde a un evento di classifica _inattivo_. 
+Quando l'applicazione chiama l'API Rank, viene visualizzata l'azione che l'applicazione deve visualizzare nel campo rewardActionId.  Da quel momento, il personale di personalizzazione si aspetta una chiamata Reward con lo stesso ID evento. Il Punteggio di ricompensa verrà usato per il training del modello che verrà usato per le chiamate di rango futura. Se non viene ricevuta alcuna chiamata Reward per gli eventId, viene applicata una ricompensa predefinita. I premi predefiniti vengono stabiliti nel portale di Azure.
 
-Le informazioni sugli eventi di classifica attivi vengono restituite a Personalizza esperienze. Queste informazioni vengono usate per continuare il training del modello tramite i criteri di apprendimento correnti.
-
-## <a name="active-events"></a>Eventi attivi
-
-Gli eventi attivi devono essere sempre mostrati agli utenti e, per chiudere il ciclo di apprendimento, è necessario che venga restituita la chiamata alla ricompensa. 
-
-### <a name="inactive-events"></a>Eventi inattivi 
-
-Gli eventi inattivi non dovrebbero cambiare il modello sottostante, perché all'utente non è stata offerta la possibilità di scegliere un contenuto classificato.
-
-## <a name="dont-train-with-inactive-rank-events"></a>Non eseguire il training con eventi di classifica inattivi 
-
-Per alcune applicazioni, può essere necessario chiamare l'API Rank senza sapere ancora se i risultati verranno mostrati all'utente. 
-
-Ciò si verifica quando:
+In alcuni casi, è possibile che l'applicazione debba chiamare Rank Bore, anche se il risultato verrà usato o disinterpretato dall'utente. Questo problema può verificarsi in situazioni in cui, ad esempio, il rendering della pagina dei contenuti promossi viene sovrascritto con una campagna di marketing. Se il risultato della chiamata di rango non è mai stato usato e l'utente non ha mai dovuto vederlo, non sarebbe corretto eseguirne il training con qualsiasi ricompensa, zero o altro.
+Questa situazione si verifica in genere nei casi seguenti:
 
 * Viene eseguito il pre-rendering di parte dell'interfaccia utente che potrebbe o meno essere visibile all'utente. 
 * L'applicazione potrebbe eseguire una personalizzazione predittiva in cui le chiamate a Rank vengono effettuate con meno contesto in tempo reale e l'output potrebbe o meno essere usato dall'applicazione. 
 
-### <a name="disable-active-learning-for-inactive-rank-events-during-rank-call"></a>Disabilitare l'apprendimento attivo per gli eventi di classifica inattivi durante la chiamata a Rank
+In questi casi, il modo corretto per usare la personalizzazione è chiamare Rank che richiede l'evento come _inattivo_. Il Personalizzatore non prevede una ricompensa per questo evento e non applica una ricompensa predefinita. Letr nella logica di business, se l'applicazione usa le informazioni della chiamata di rango, è sufficiente _attivare_ l'evento. Dal momento in cui l'evento è attivo, il personale si aspetta un premio per l'evento o applica una ricompensa predefinita se non viene effettuata alcuna chiamata esplicita all'API Reward.
 
-Per disabilitare l'apprendimento automatico, chiamare Rank con `learningEnabled = False`.
+## <a name="get-inactive-events"></a>Ottenere eventi inattivi
 
-L'apprendimento per gli eventi inattivi viene attivato implicitamente se si invia una ricompensa per Rank.
+Per disabilitare il training per un evento, chiamare Rank con `learningEnabled = False`.
 
-## <a name="learning-policies"></a>Criteri di apprendimento
+L'apprendimento di un evento inattivo viene attivato in modo implicito se si invia una ricompensa per gli EventID oppure si chiama l'API `activate` per l'ID evento.
 
-I criteri di apprendimento determinano gli *iperparametri* specifici del training del modello. Il comportamento di due modelli degli stessi dati sarà diverso se il training viene eseguito con criteri di apprendimento diversi.
+## <a name="learning-settings"></a>Impostazioni di apprendimento
 
-### <a name="importing-and-exporting-learning-policies"></a>Importazione ed esportazione dei criteri di apprendimento
+Le impostazioni di apprendimento determinano gli *iperparametri* specifici del training del modello. Due modelli degli stessi dati, sottoposti a training su diverse impostazioni di apprendimento, finiranno in modi diversi.
+
+### <a name="import-and-export-learning-policies"></a>Importare ed esportare i criteri di apprendimento
 
 È possibile importare ed esportare i file dei criteri di apprendimento nel portale di Azure. In questo modo è possibile salvare i criteri esistenti, testarli, sostituirli e archiviarli nel controllo del codice sorgente come artefatti per riferimento e controllo futuri.
 

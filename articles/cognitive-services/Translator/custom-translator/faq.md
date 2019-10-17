@@ -9,14 +9,14 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 25b7e7015b32609356eb138c86fbe537a87a7a22
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 3dacfc0d8371ad9e8fa66d8bb1c5fafa59271ce0
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595812"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388175"
 ---
-# <a name="frequently-asked-questions"></a>Domande frequenti
+# <a name="custom-translator-frequently-asked-questions"></a>Domande frequenti sul traduttore personalizzato
 
 Questo articolo contiene le risposte alle domande frequenti su [Custom Translator](https://portal.customtranslator.azure.ai).
 

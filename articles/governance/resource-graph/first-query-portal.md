@@ -3,15 +3,15 @@ title: Eseguire la prima query con Azure Resource Graph Explorer
 description: Questo articolo illustra la procedura per eseguire la prima query dal portale di Azure usando Azure Resource Graph Explorer.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/29/2019
+ms.date: 10/18/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: d533d24f9bfe133955c0f503e2458c8fcb0bf1de
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 755556b9ba049da7542494ee580215d29c1eb5f4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981257"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387610"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Guida introduttiva: Eseguire la prima query di Resource Graph con Azure Resource Graph Explorer
 
@@ -27,19 +27,19 @@ Aprire il [portale di Azure](https://portal.azure.com) per trovare e usare Resou
 
 1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Resource Graph Explorer**.
 
-1. Nella sezione **Query 1** della finestra immettere la query `project name, type | limit 5` e selezionare **Esegui query**.
+1. Nella sezione **Query 1** della finestra immettere la query `Resources | project name, type | limit 5` e selezionare **Esegui query**.
 
    > [!NOTE]
    > Poiché questo esempio di query non prevede un modificatore del tipo di ordinamento, ad esempio `order by`, se si esegue questa query più volte, è probabile che venga restituito un set di risorse diverso per ogni richiesta.
 
 1. Esaminare i risultati della query nella scheda **Risultati**. Selezionare la scheda **Messaggi** per visualizzare i dettagli relativi alla query, tra cui il numero di risultati e la durata. Gli eventuali errori vengono visualizzati in questa scheda.
 
-1. Aggiornare la query applicando `order by` alla proprietà **Name**: `project name, type | limit 5 | order by name asc`. Quindi, selezionare **Esegui query**.
+1. Aggiornare la query applicando `order by` alla proprietà **Name**: `Resources | project name, type | limit 5 | order by name asc`. Quindi, selezionare **Esegui query**.
 
    > [!NOTE]
    > Come nella prima query, se si esegue questa query più volte, è probabile che venga restituito un set di risorse diverso per ogni richiesta. L'ordine dei comandi della query è importante. In questo esempio `order by` segue `limit`. In questo modo i risultati della query verranno prima limitati e poi ordinati.
 
-1. Aggiornare la query applicando prima `order by` alla proprietà **Name** e quindi `limit` ai primi cinque risultati: `project name, type | order by name asc | limit 5`. Quindi, selezionare **Esegui query**.
+1. Aggiornare la query applicando prima `order by` alla proprietà **Name** e quindi `limit` ai primi cinque risultati: `Resources | project name, type | order by name asc | limit 5`. Quindi, selezionare **Esegui query**.
 
 Quando la query finale viene eseguita più volte, presupponendo che non vengano apportate modifiche all'ambiente, i risultati restituiti saranno coerenti e, come previsto, ordinati in base alla proprietà **Name**, ma ancora limitati ai primi cinque risultati.
 
@@ -54,7 +54,8 @@ Dopo aver eseguito l'ultima query illustrata sopra, se si seleziona la scheda **
 1. Nella sezione **Query 1** della finestra immettere la query seguente e selezionare **Esegui query**.
 
    ```kusto
-   where type =~ 'Microsoft.Compute/virtualMachines'
+   Resources
+   | where type =~ 'Microsoft.Compute/virtualMachines'
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
 

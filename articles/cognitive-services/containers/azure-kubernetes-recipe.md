@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 852530910f7a8c6c815493d0dbcc57f67695d6de
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
-ms.translationtype: MT
+ms.openlocfilehash: 927f5bc191c1bbd3e9f8ea89b9f4171ce82df612
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066098"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388148"
 ---
-# <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Distribuire il contenitore di rilevamento della lingua nel servizio Azure Kubernetes
+# <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Distribuire il contenitore di rilevamento della lingua Analisi del testo nel servizio Azure Kubernetes
 
 Informazioni su come distribuire il contenitore di rilevamento della lingua. Questa procedura illustra come creare i contenitori Docker locali, eseguire il push dei contenitori in un registro contenitori privato, eseguire il contenitore in un cluster Kubernetes e testarlo in un Web browser.
 
@@ -313,14 +313,14 @@ Questa sezione usa l'interfaccia della riga di comando di **kubectl** per comuni
 
 1. Modificare le righe nella sezione deployment del contenitore language-frontend in `language.yml` sulla base della tabella seguente per aggiungere il nome della propria immagine del registro contenitori, il segreto client e le impostazioni di analisi del testo.
 
-    Impostazioni di distribuzione del contenitore language-frontend|Scopo|
+    Impostazioni di distribuzione del contenitore language-frontend|Finalità|
     |--|--|
     |Riga 32<br> Proprietà `image`|Percorso dell'immagine di language-frontend nel registro contenitori<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
     |Riga 44<br> Proprietà `name`|Segreto del registro contenitori per l'immagine, definito `<client-secret>` in una sezione precedente.|
 
 1. Modificare le righe nella sezione deployment del contenitore language in `language.yml` sulla base della tabella seguente per aggiungere il nome della propria immagine del registro contenitori, il segreto client e le impostazioni di analisi del testo.
 
-    |Impostazioni di distribuzione del contenitore language|Scopo|
+    |Impostazioni di distribuzione del contenitore language|Finalità|
     |--|--|
     |Riga 78<br> Proprietà `image`|Percorso dell'immagine di language nel registro contenitori<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |Riga 95<br> Proprietà `name`|Segreto del registro contenitori per l'immagine, definito `<client-secret>` in una sezione precedente.|

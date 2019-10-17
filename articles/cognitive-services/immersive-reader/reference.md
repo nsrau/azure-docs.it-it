@@ -10,14 +10,14 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: b25a002cb1e2563ab97a2081c6b6a05362b66779
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 1908ed916d61c7a65b1f0061c0fe8d8a08b5e41c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338526"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388104"
 ---
-# <a name="immersive-reader-sdk-reference"></a>Guida di riferimento a immersive Reader SDK
+# <a name="immersive-reader-sdk-reference-guide"></a>Guida di riferimento a immersive Reader SDK
 
 Immersive Reader SDK è una libreria JavaScript che consente di integrare il lettore immersivo nell'applicazione Web.
 
@@ -39,16 +39,16 @@ Avvia il Reader immersivo all'interno di un `iframe` nell'applicazione Web.
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
 ```
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Attività | Type | Descrizione |
+| name | Type | Description |
 | ---- | ---- |------------ |
 | `token` | string | Token di autenticazione Azure AD. Vedere le [procedure per l'autenticazione Azure ad](./azure-active-directory-authentication.md). |
 | `subdomain` | string | Sottodominio personalizzato della risorsa Reader immersiva in Azure. Vedere le [procedure per l'autenticazione Azure ad](./azure-active-directory-authentication.md). |
 | `content` | [Contenuto](#content) | Oggetto contenente il contenuto da visualizzare nel lettore immersivo. |
 | `options` | [Opzioni](#options) | Opzioni per la configurazione di determinati comportamenti del lettore immersivo. facoltativo. |
 
-### <a name="returns"></a>Valori di codice restituiti
+### <a name="returns"></a>Restituisce
 
 Restituisce un `Promise<HTMLDivElement>`, che risolve quando il lettore immersivo viene caricato. Il `Promise` viene risolto in un elemento `div` il cui unico figlio è un elemento `iframe` che contiene la pagina Reader immersiva.
 
@@ -78,15 +78,15 @@ Per altre opzioni di rendering, vedere [attributi facoltativi](#optional-attribu
 renderButtons(options?: RenderButtonsOptions): void;
 ```
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Attività | Type | Descrizione |
+| name | Type | Description |
 | ---- | ---- |------------ |
 | `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Opzioni per la configurazione di determinati comportamenti della funzione renderButtons. facoltativo. |
 
 ## <a name="types"></a>Tipi
 
-### <a name="content"></a>Content
+### <a name="content"></a>Contenuto
 
 Contiene il contenuto da visualizzare nel lettore immersivo.
 
@@ -111,11 +111,11 @@ Singolo blocco di dati, che verrà passato al contenuto del lettore immersivo.
 
 #### <a name="supported-mime-types"></a>Tipi MIME supportati
 
-| Tipo MIME | Descrizione |
+| Tipo MIME | Description |
 | --------- | ----------- |
 | text/plain | Testo normale. |
-| text/html | Contenuto HTML. [Altre informazioni](#html-support)|
-| Application/MathML + XML | Linguaggio di markup matematico (MathML). [Altre informazioni](https://developer.mozilla.org/en-US/docs/Web/MathML)
+| text/html | Contenuto HTML. [Ulteriori informazioni](#html-support)|
+| Application/MathML + XML | Linguaggio di markup matematico (MathML). [Altre informazioni](https://developer.mozilla.org/en-US/docs/Web/MathML).
 | Application/vnd. openxmlformats-officedocument. WordprocessingML. Document | Documento di formato Microsoft Word. docx.
 
 ### <a name="html-support"></a>Supporto HTML
@@ -166,14 +166,14 @@ Contiene informazioni sull'errore.
 }
 ```
 
-#### <a name="error-codes"></a>Codici di errore
+#### <a name="error-codes"></a>Codici errore
 
-| Codice | Descrizione |
+| Codice | Description |
 | ---- | ----------- |
 | BadArgument | Argomento fornito non valido. per informazioni dettagliate, vedere `message`. |
 | Timeout | Non è stato possibile caricare il lettore immersivo entro il timeout specificato. |
 | TokenExpired | Il token fornito è scaduto. |
-| Limitato | È stato superato il limite di frequenza delle chiamate. |
+| Strozzato | È stato superato il limite di frequenza delle chiamate. |
 
 ## <a name="launching-the-immersive-reader"></a>Avvio del lettore immersivo
 
@@ -187,9 +187,9 @@ L'SDK fornisce lo stile predefinito per il pulsante per l'avvio del lettore imme
 
 Usare gli attributi seguenti per configurare l'aspetto del pulsante.
 
-| Attributo | Descrizione |
+| Attributo | Description |
 | --------- | ----------- |
-| `data-button-style` | Imposta lo stile del pulsante. Può essere `icon`, `text` o `iconAndText`. Il valore predefinito è `icon`. |
+| `data-button-style` | Imposta lo stile del pulsante. Può essere `icon`, `text` o `iconAndText`. L'impostazione predefinita è `icon`. |
 | `data-locale` | Imposta le impostazioni locali. Ad esempio, `en-US` o `fr-FR`. Il valore predefinito è l'inglese `en`. |
 | `data-icon-px-size` | Imposta la dimensione dell'icona in pixel. Il valore predefinito è 20px. |
 
@@ -206,4 +206,4 @@ Usare le versioni più recenti dei browser seguenti per un'esperienza ottimale c
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Esplorare [Immersive Reader SDK in GitHub](https://github.com/microsoft/immersive-reader-sdk)
-* [Avvio rapido: Creare un'app Web che avvii il lettore immersivoC#() ](./quickstart.md)
+* [Guida introduttiva: creare un'app Web che avvii il lettoreC#immersivo ()](./quickstart.md)
