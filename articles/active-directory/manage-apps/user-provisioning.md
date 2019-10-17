@@ -15,12 +15,12 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef652b05f62218ee1d0e72543bfa546f0c14abe
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 5ff6d9e33e15aa04adfa03705172166492f87e30
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001702"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330014"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory
 
@@ -56,11 +56,11 @@ Di seguito sono riportate alcune motivazioni comuni per l'uso di questa funziona
 
 Il **servizio di provisioning Azure ad esegue il provisioning** degli utenti nelle app SaaS e in altri sistemi connettendosi agli endpoint dell'API di gestione degli utenti forniti da ogni fornitore dell'applicazione. Gli endpoint dell'API di gestione utenti consentono ad Azure AD di creare, aggiornare e rimuovere utenti a livello di codice. Per le applicazioni selezionate, il servizio di provisioning può anche creare, aggiornare e rimuovere oggetti correlati all'identità aggiuntivi, ad esempio gruppi e ruoli.
 
-![Azure servizio di provisioning di Active Directory @ no__t-1 @ no__t-2Figure 1: Provisioning del servizio di Azure AD*
+![Azure servizio di provisioning di Active Directory @ no__t-1*Figura 1: il servizio di provisioning Azure ad*
 
-flusso di lavoro di provisioning utenti ![Outbound @ no__t-1 @ no__t-2Figure 2: Flusso di lavoro di provisioning degli utenti "in uscita" da Azure AD verso applicazioni SaaS comuni*
+flusso di lavoro di provisioning utenti ![Outbound @ no__t-1*Figura 2: flusso di lavoro di provisioning utenti in uscita da Azure ad a applicazioni SaaS più diffuse*
 
-flusso di lavoro di provisioning utenti ![Inbound @ no__t-1 @ no__t-2Figure 3: Flusso di lavoro di provisioning degli utenti "in ingresso" da applicazioni di gestione delle risorse umane (HCM) comuni verso Azure Active Directory e Windows Server Active Directory*
+flusso di lavoro di provisioning utenti ![Inbound @ no__t-1*Figura 3: flusso di lavoro di provisioning utenti "in ingresso" da applicazioni di gestione di capitale popolare (HCM) a Azure Active Directory e Windows Server Active Directory*
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Quali applicazioni e sistemi è possibile usare con il provisioning utenti automatico di Azure AD?
 
@@ -99,7 +99,7 @@ Usare il portale di Azure Active Directory per configurare il servizio di provis
 
 1. Selezionare l'opzione automatica per la **modalità di provisioning** per specificare le impostazioni per le credenziali di amministratore, i mapping, l'avvio e l'arresto e la sincronizzazione.
 
-   - Espandere **credenziali amministratore** per immettere le credenziali necessarie per Azure ad connettersi all'API di gestione degli utenti dell'applicazione. Questa sezione consente anche di abilitare le notifiche tramite posta elettronica se le credenziali hanno esito negativo oppure il processo di provisioning entra in [quarantena](#quarantine).
+   - Espandere **credenziali amministratore** per immettere le credenziali necessarie per Azure ad connettersi all'API di gestione degli utenti dell'applicazione. Questa sezione consente anche di abilitare le notifiche tramite posta elettronica se le credenziali hanno esito negativo oppure il processo di provisioning entra in [quarantena](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
    - Espandere **mapping** per visualizzare e modificare gli attributi utente che scorrono tra Azure ad e l'applicazione di destinazione quando viene eseguito il provisioning o l'aggiornamento degli account utente. Se l'applicazione di destinazione la supporta, questa sezione consente di configurare facoltativamente il provisioning di gruppi e account utente. Selezionare un mapping nella tabella per aprire l'editor di mapping a destra, in cui è possibile visualizzare e personalizzare gli attributi utente.
 
      I **filtri di ambito** indicano al servizio di provisioning quali utenti e gruppi del sistema di origine devono eseguire il provisioning o il deprovisioning nel sistema di destinazione. Nel riquadro **mapping attributi** selezionare ambito dell' **oggetto di origine** per filtrare in base a valori di attributo specifici. Ad esempio, è possibile specificare che solo gli utenti con un attributo "Department" di "Sales" devono essere inclusi nell'ambito del provisioning. Per altre informazioni, vedere [Uso di filtri per la definizione dell'ambito](define-conditional-rules-for-provisioning-user-accounts.md).
@@ -125,7 +125,7 @@ Quando viene avviato il servizio di provisioning, la prima sincronizzazione vien
 
 1. Il servizio esegue una query su tutti gli utenti e i gruppi presenti nel sistema di origine e recupera tutti gli attributi definiti nei [mapping degli attributi](customize-application-attributes.md).
 1. Il servizio filtra gli utenti e i gruppi restituiti, usando [assegnazioni](assign-user-or-group-access-portal.md) configurate o [filtri di ambito basati su attributi](define-conditional-rules-for-provisioning-user-accounts.md).
-1. Quando un utente viene assegnato o nell'ambito del provisioning, il servizio esegue una query sul sistema di destinazione per un utente corrispondente usando gli [attributi corrispondenti](customize-application-attributes.md#understanding-attribute-mapping-properties)specificati. Esempio: Se il nome userPrincipal nel sistema di origine è un attributo di corrispondenza ed è mappato a userName nel sistema di destinazione, il servizio di provisioning esegue una query sul sistema di destinazione per trovare i valori di userName che corrispondono ai valori del nome userPrincipal nel sistema di origine.
+1. Quando un utente viene assegnato o nell'ambito del provisioning, il servizio esegue una query sul sistema di destinazione per un utente corrispondente usando gli [attributi corrispondenti](customize-application-attributes.md#understanding-attribute-mapping-properties)specificati. Se ad esempio il nome userPrincipal nel sistema di origine è un attributo di corrispondenza ed è mappato a userName nel sistema di destinazione, il servizio di provisioning esegue una query sul sistema di destinazione per trovare i valori di userName che corrispondono ai valori del nome userPrincipal nel sistema di origine.
 1. Se nel sistema di destinazione non viene trovato un utente corrispondente, questo viene creato usando gli attributi restituiti dal sistema di origine. Dopo aver creato l'account utente, il servizio di provisioning rileva e memorizza nella cache l'ID del sistema di destinazione per il nuovo utente, usato per eseguire tutte le operazioni future su tale utente.
 1. Se viene trovato un utente corrispondente, questo viene aggiornato usando gli attributi forniti dal sistema di origine. Dopo che l'account utente è stato associato, il servizio di provisioning rileva e memorizza nella cache l'ID del sistema di destinazione per il nuovo utente, usato per eseguire tutte le operazioni future su tale utente.
 1. Se i mapping degli attributi contengono attributi di riferimento, il servizio esegue ulteriori aggiornamenti nel sistema di destinazione per creare e collegare gli oggetti a cui si fa riferimento. È ad esempio possibile che nel sistema di destinazione un utente abbia un attributo "Manager" collegato a un altro utente creato nel sistema di destinazione.
@@ -173,7 +173,7 @@ Se la maggior parte o tutte le chiamate effettuate sul sistema di destinazione h
 
 In quarantena, la frequenza dei cicli incrementali viene gradualmente ridotta a una volta al giorno.
 
-Il processo di provisioning verrà rimosso dalla quarantena dopo che tutti gli errori sono stati risolti e viene avviato il ciclo di sincronizzazione successivo. Se lo stato di quarantena dura per più di quattro settimane, il processo di provisioning viene disabilitato.
+Il processo di provisioning verrà rimosso dalla quarantena dopo che tutti gli errori sono stati risolti e viene avviato il ciclo di sincronizzazione successivo. Se lo stato di quarantena dura per più di quattro settimane, il processo di provisioning viene disabilitato. Per altre informazioni, vedere lo stato di quarantena [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>Quanto tempo sarà necessario per eseguire il provisioning degli utenti?
 

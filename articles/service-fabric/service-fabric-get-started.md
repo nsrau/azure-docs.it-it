@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/22/2019
+ms.date: 10/03/2019
 ms.author: atsenthi
-ms.openlocfilehash: 0bc8a5bbecc4e7d58265e9c10c2c8a3351fcc312
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: cc77995e12d756c5878ee62ef6dd0f0229506d4c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036002"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333080"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparare l'ambiente di sviluppo in Windows
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Per lo sviluppo, sono supportati i sistemi operativi seguenti:
 * Windows 8 e Windows 8.1
 * Windows Server 2012 R2
 * Windows Server 2016
-* Windows 10
+* Windows 10
 
 > [!NOTE]
 > Supporto per Windows 7:
@@ -69,8 +69,8 @@ Se è necessario solo l'SDK, è possibile installare questo pacchetto:
 * [Installare Microsoft Azure Service Fabric SDK][core-sdk]
 
 Le versioni correnti sono:
-* SDK e strumenti Service Fabric 3.4.664
-* 6\.5.664 runtime di Service Fabric
+* SDK e strumenti Service Fabric 3.4.676
+* 6\.5.676 runtime di Service Fabric
 * Strumenti di Service Fabric per Visual Studio 2015 2.5.20615.1
 * Visual Studio 2017 15.9 include Strumenti di Service Fabric per Visual Studio 2.4.11024.1 
 * Visual Studio 2019 16,1 include Strumenti di Service Fabric per Visual Studio 2.5.20423.3
@@ -93,7 +93,7 @@ Service Fabric è un [agente di orchestrazione dei contenitori](service-fabric-c
 Dopo avere configurato l'ambiente di sviluppo, iniziare a compilare ed eseguire le app.
 
 * [Informazioni su come creare, distribuire e gestire le applicazioni](service-fabric-tutorial-create-dotnet-app.md)
-* [Informazioni sui modelli di programmazione: Reliable Services e Reliable Actors](service-fabric-choose-framework.md)
+* [Informazioni sui modelli di programmazione Reliable Services e Reliable Actors](service-fabric-choose-framework.md)
 * [Vedere gli esempi di codice di Service Fabric in GitHub](https://aka.ms/servicefabricsamples)
 * [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md)

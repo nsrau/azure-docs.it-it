@@ -131,6 +131,8 @@
       href: howto-password-smart-lockout.md
     - name: Accesso senza password
       items:
+        - name: Distribuzione senza password
+          href: howto-authentication-passwordless-deployment.md
         - name: Chiavi di sicurezza senza password
           href: howto-authentication-passwordless-security-key.md
         - name: Accesso tramite telefono senza password

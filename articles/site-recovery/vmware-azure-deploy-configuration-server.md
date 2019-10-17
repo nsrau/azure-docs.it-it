@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: c25ca8c27b84f34b025ec5abce00c8d8c70e5df6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5812cc73fb1da58c591d0593e079851e05bd0940
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125696"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331968"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
 
@@ -32,26 +32,26 @@ I requisiti hardware minimi per un server di configurazione sono riepilogati nel
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
-## <a name="azure-active-directory-permission-requirements"></a>Requisiti di autorizzazione di Azure Active Directory
+## <a name="azure-active-directory-permission-requirements"></a>Requisiti di autorizzazione Azure Active Directory
 
-È necessario un utente con **uno dei seguenti** autorizzazioni impostate in AAD (Azure Active Directory) per registrare il server di configurazione con i servizi di Azure Site Recovery.
+È necessario che un utente disponga **di una delle autorizzazioni seguenti** impostate in AAD (Azure Active Directory) per registrare il server di configurazione con Azure Site Recovery Services.
 
-1. Utente deve avere il ruolo di "Sviluppatore di applicazioni" per creare l'applicazione.
-   1. Per verificare, accedere al portale di Azure</br>
-   1. Passare ad Azure Active Directory > ruoli e gli amministratori</br>
-   1. Verificare se all'utente viene assegnato il ruolo di "Sviluppatore di applicazioni". In caso contrario, usare un utente con l'autorizzazione oppure contattare [amministratore di abilitare l'autorizzazione](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+1. Per creare un'applicazione, l'utente deve disporre del ruolo "Sviluppatore applicazioni".
+   1. Per verificare, accedere a portale di Azure</br>
+   1. Passare a Azure Active Directory > ruoli e amministratori</br>
+   1. Verificare se all'utente è assegnato il ruolo "Sviluppatore applicazioni". In caso contrario, usare un utente con questa autorizzazione oppure contattare [l'amministratore per abilitare l'autorizzazione](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
     
-1. Se non è possibile assegnare il ruolo di "Sviluppatore di applicazioni", assicurarsi che "L'utente può registrare applicazioni" flag è impostato su true per creare l'identità utente. Per consentire di sopra delle autorizzazioni,
-   1. Accedere al portale di Azure
-   1. Passare ad Azure Active Directory > impostazioni utente
-   1. In * * registrazioni per l'App ","Gli utenti possono registrare applicazioni"devono essere scelte come"Sì".
+1. Se non è possibile assegnare il ruolo "sviluppatore di applicazioni", assicurarsi che il flag "utente possa registrare l'applicazione" sia impostato su true per consentire all'utente di creare l'identità. Per abilitare le autorizzazioni sopra indicate,
+   1. Accedi al portale di Azure
+   1. Passare a Azure Active Directory > impostazioni utente
+   1. In * * Registrazioni app "," gli utenti possono registrare le applicazioni "devono essere scelti come" Sì ".
 
       ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
-> È di Active Directory Federation Services(ADFS) **non è supportato**. Usare un account gestito tramite [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+> Active Directory Federation Services (ADFS) **non è supportato**. Usare un account gestito tramite [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
 
-## <a name="capacity-planning"></a>Pianificazione della capacità
+## <a name="capacity-planning"></a>pianificazione della capacità
 
 I requisiti di ridimensionamento del server di configurazione dipendono dalla frequenza potenziale di modifica dei dati. Usare questa tabella come riferimento.
 
@@ -74,7 +74,7 @@ Se si esegue la replica di più macchine virtuali VMware, leggere le [consideraz
    >È anche possibile scaricare l'ultima versione del modello del server di configurazione direttamente dall'[Area download Microsoft](https://aka.ms/asrconfigurationserver).
 
 > [!NOTE]
-> La licenza fornita con il modello con estensione OVA sia una licenza di valutazione valida per 180 giorni. Registra questo periodo, cliente deve attivare windows con una licenza acquisita.
+> La licenza fornita con il modello OVA è una licenza di valutazione valida per 180 giorni. Dopo questo periodo, il cliente deve attivare le finestre con una licenza acquistata.
 
 ## <a name="import-the-template-in-vmware"></a>Importare il modello in VMware
 
@@ -99,6 +99,9 @@ Se si esegue la replica di più macchine virtuali VMware, leggere le [consideraz
 
 ## <a name="add-an-additional-adapter"></a>Aggiungere un'altra scheda
 
+> [!NOTE]
+> Sono necessarie due schede di rete se si prevede di mantenere gli indirizzi IP delle macchine di origine in caso di failover e si vuole eseguire il failback in locale in un secondo momento. Una NIC verrà connessa ai computer di origine e l'altra NIC verrà usata per la connettività di Azure.
+
 Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di configurazione, eseguire questa operazione prima di registrare il server nell'insieme di credenziali. L'aggiunta di altre schede non è supportata dopo la registrazione.
 
 1. Nell'inventario del client vSphere fare clic con il pulsante destro del mouse sulla macchina virtuale e scegliere **Edit Settings** (Modifica impostazioni).
@@ -115,19 +118,19 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 5. Immettere un nome che verrà usato per registrare il server di configurazione in Site Recovery. Quindi selezionare **Avanti**.
 6. Lo strumento verifica che la macchina virtuale possa connettersi ad Azure. Dopo aver stabilito la connessione, selezionare **Accedi** per accedere alla sottoscrizione di Azure.</br>
     a. Le credenziali devono avere accesso all'insieme di credenziali in cui si vuole registrare il server di configurazione.</br>
-    b. Assicurarsi che l'account utente selezionato disponga delle autorizzazioni per creare un'applicazione in Azure. Per abilitare le autorizzazioni necessarie, attenersi alle istruzioni specificate [qui](#azure-active-directory-permission-requirements).
+    b. Assicurarsi che l'account utente scelto disponga delle autorizzazioni per creare un'applicazione in Azure. Per abilitare le autorizzazioni necessarie, seguire le linee guida fornite [qui](#azure-active-directory-permission-requirements).
 7. Lo strumento esegue alcune attività di configurazione e quindi il riavvio.
 8. Accedere di nuovo al computer. La procedura guidata per la gestione del server di configurazione viene avviata **automaticamente** entro pochi secondi.
 
 ### <a name="configure-settings"></a>Configurare le impostazioni
 
-1. Nella procedura guidata per la gestione del server di configurazione selezionare **Configura la connettività**. Dagli elenchi a discesa selezionare prima l'interfaccia di rete usata dal server di elaborazione predefinito per il rilevamento e l'installazione push del servizio Mobility nelle macchine di origine e quindi selezionare la scheda di rete usata dal server di configurazione per la connettività con Azure. Selezionare quindi **Salva**. È possibile modificare questa impostazione dopo averlo configurato. È consigliabile non modificare l'indirizzo IP di un server di configurazione. Verificare che l'indirizzo IP assegnato al server di configurazione sia un indirizzo IP STATICO e non DHCP.
-2. Nelle **insieme di credenziali dei servizi di ripristino selezionare**, accedere a Microsoft Azure con le credenziali utilizzate **passaggio 6** di "[Registra server di configurazione con servizi di Azure Site Recovery](#register-the-configuration-server-with-azure-site-recovery-services)" .
-3. Dopo aver effettuato l'accesso, selezionare la sottoscrizione di Azure e il gruppo di risorse rilevanti e insieme di credenziali.
+1. Nella procedura guidata per la gestione del server di configurazione selezionare **Configura la connettività**. Dagli elenchi a discesa selezionare prima l'interfaccia di rete usata dal server di elaborazione predefinito per il rilevamento e l'installazione push del servizio Mobility nelle macchine di origine e quindi selezionare la scheda di rete usata dal server di configurazione per la connettività con Azure. Selezionare quindi **Salva**. Questa impostazione non può essere modificata dopo la configurazione. È consigliabile non modificare l'indirizzo IP del server di configurazione. Verificare che l'indirizzo IP assegnato al server di configurazione sia un indirizzo IP STATICO e non DHCP.
+2. In **Seleziona**insieme di credenziali di servizi di ripristino accedere a Microsoft Azure con le credenziali usate nel **passaggio 6** di "[Registra server di configurazione con servizi Azure Site Recovery](#register-the-configuration-server-with-azure-site-recovery-services)".
+3. Dopo l'accesso, selezionare la sottoscrizione di Azure e il gruppo di risorse e l'insieme di credenziali pertinenti.
 
     > [!NOTE]
     > Dopo la registrazione, non è più possibile cambiare l'insieme di credenziali di Servizi di ripristino.
-    > Modifica insieme di credenziali di recovery services richiederebbe la dissociazione del server di configurazione dall'insieme di credenziali corrente e la replica di tutte le macchine virtuali protette nel server di configurazione viene arrestata. [Altre informazioni](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault).
+    > La modifica dell'insieme di credenziali di servizi di ripristino richiede la disassociazione del server di configurazione dall'insieme di credenziali corrente e la replica di tutte le macchine virtuali protette nel server di configurazione viene arrestata. [Altre informazioni](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault).
 
 4. In **Installa software di terze parti**
 
@@ -152,11 +155,11 @@ Per aggiornare il server di configurazione alla versione più recente, eseguire 
 
 Per evitare interruzioni nella replica in corso, verificare che l'indirizzo IP del server di configurazione non cambi dopo aver registrato il server di configurazione per un insieme di credenziali. Atre informazioni sulle attività comuni di gestione del server di configurazione sono disponibili [qui](vmware-azure-manage-configuration-server.md).
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>FAQ
 
 1. Per quanto tempo è valida la licenza fornita sul server di configurazione distribuito tramite OVF? Cosa accade se non si riattiva la licenza?
 
-    La licenza fornita con il modello con estensione OVA sia una licenza di valutazione valida per 180 giorni. Prima della scadenza, è necessario attivare la licenza. In caso contrario, questo può comportare l'arresto frequente del server di configurazione, pregiudicando le attività di replica.
+    La licenza fornita con il modello OVA è una licenza di valutazione valida per 180 giorni. Prima della scadenza, è necessario attivare la licenza. In caso contrario, questo può comportare l'arresto frequente del server di configurazione, pregiudicando le attività di replica.
 
 2. È possibile usare la macchina virtuale, in cui è installato il server di configurazione, per scopi diversi?
 
@@ -184,7 +187,7 @@ Per evitare interruzioni nella replica in corso, verificare che l'indirizzo IP d
     Nelle **credenziali di Servizi di ripristino**, **Gestisci** > **Infrastruttura di Site Recovery** > **Server di configurazione**. In Server, selezionare **Scarica chiave di registrazione** per scaricare il file di credenziali dell'insieme di credenziali.
 10. È possibile clonare un server di configurazione esistente e usarlo per l'orchestrazione della replica?
 
-    **No**, l'uso di un componente server di configurazione clonato non è supportato. Clone di server di elaborazione scale-out è anche uno scenario non supportato. La clonazione di Site Recovery componenti impatto sulle repliche in corso.
+    **No**, l'uso di un componente server di configurazione clonato non è supportato. Anche il clone del server di elaborazione con scalabilità orizzontale è uno scenario non supportato. La clonazione di Site Recovery componenti influisca sulle repliche in corso.
 
 11. È possibile cambiare l'indirizzo IP del server di configurazione?
 

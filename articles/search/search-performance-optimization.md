@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 97628535deb79733e9d286977534a6ea97ba60e6
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 566c208ef415f6fc9f3ada419e2f9e9244bc066d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182278"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333154"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Strategie di distribuzione e procedure consigliate per l'ottimizzazione delle prestazioni in ricerca di Azure
 
@@ -45,8 +45,8 @@ Durante la creazione di questi carichi di lavoro di test, è opportuno considera
 ## <a name="scaling-for-high-query-volume-and-throttled-requests"></a>Ridimensionamento per un volume di query elevato e richieste limitate
 Quando si ricevono troppe richieste limitate o si superano i tassi di latenza di destinazione da un carico di query più elevato, è possibile cercare di ridurre i tassi di latenza in uno dei due modi seguenti:
 
-1. **Aumentare le repliche:**  una replica è una copia dei dati che consente a Ricerca di Azure di bilanciare il carico delle richieste tra più copie.  Il bilanciamento del carico e la replica dei dati tra le repliche vengono gestiti da Ricerca di Azure ed è possibile modificare in qualsiasi momento il numero delle repliche allocate per il servizio.  È possibile allocare fino a 12 repliche in un servizio di ricerca Standard e 3 repliche in un servizio di ricerca Basic. Le repliche possono essere modificate dal [portale di Azure](search-create-service-portal.md) o da [PowerShell](search-manage-powershell.md).
-2. **Aumentare il livello di Ricerca:**  Ricerca di Azure è disponibile in [diversi livelli](https://azure.microsoft.com/pricing/details/search/) , ognuno dei quali offre diversi livelli di prestazioni.  In alcuni casi, è possibile che l'utente disponga di un numero talmente elevato di query che il livello a cui appartiene non fornisce tassi di latenza sufficientemente bassi, anche quando si raggiunge il limite massimo delle repliche. In questo caso, è consigliabile usare uno dei livelli di ricerca più elevati, ad esempio il livello S3 di ricerca di Azure particolarmente adatto per scenari con un numero elevato di documenti e carichi di lavoro di query estremamente elevati.
+1. **Aumentare le repliche:** una replica è una copia dei dati che consente a Ricerca di Azure di bilanciare il carico con le numerose copie.  Il bilanciamento del carico e la replica dei dati tra le repliche vengono gestiti da Ricerca di Azure ed è possibile modificare in qualsiasi momento il numero delle repliche allocate per il servizio.  È possibile allocare fino a 12 repliche in un servizio di ricerca Standard e 3 repliche in un servizio di ricerca Basic. Le repliche possono essere modificate dal [portale di Azure](search-create-service-portal.md) o da [PowerShell](search-manage-powershell.md).
+2. **Aumentare il livello di Ricerca:** sono disponibili [diversi livelli](https://azure.microsoft.com/pricing/details/search/) per Ricerca di Azure, ognuno dei quali offre diversi livelli di prestazioni.  In alcuni casi, è possibile che si disponga di un numero così elevato di query su cui il livello si è in grado di fornire tassi di latenza sufficientemente bassa, anche quando le repliche sono esaurite. In questo caso, è consigliabile usare uno dei livelli di ricerca più elevati, ad esempio il livello S3 di ricerca di Azure particolarmente adatto per scenari con un numero elevato di documenti e carichi di lavoro di query estremamente elevati.
 
 ## <a name="scaling-for-slow-individual-queries"></a>Ridimensionamento per singole query lente
 Un altro motivo per i tassi di latenza elevata è una singola query che richiede troppo tempo per il completamento. In questo caso, l'aggiunta di repliche non è utile. Di seguito sono riportate due possibili opzioni che possono essere utili:
@@ -55,9 +55,9 @@ Un altro motivo per i tassi di latenza elevata è una singola query che richiede
    
    Il servizio di ricerca Standard offe fino a un massimo di 12 partizioni, mentre il servizio Basic offre 1 partizione.  Le partizioni possono essere modificate dal [portale di Azure](search-create-service-portal.md) o da [PowerShell](search-manage-powershell.md).
 
-2. **Limitare i campi a cardinalità elevata:** Un campo di cardinalità elevata è costituito da un campo di facet o filtrabile con un numero significativo di valori univoci e, di conseguenza, utilizza risorse significative durante il calcolo dei risultati. Ad esempio, l'impostazione di un campo ID prodotto o descrizione come facet/filtrabile viene conteggiata come alta cardinalità poiché la maggior parte dei valori dal documento al documento sono univoci. Se possibile, limitare il numero di campi a cardinalità elevata.
+2. **Limitare i campi di cardinalità elevata:** Un campo di cardinalità elevata è costituito da un campo di facet o filtrabile con un numero significativo di valori univoci e, di conseguenza, utilizza risorse significative durante il calcolo dei risultati. Ad esempio, l'impostazione di un campo ID prodotto o descrizione come facet/filtrabile viene conteggiata come alta cardinalità poiché la maggior parte dei valori dal documento al documento sono univoci. Se possibile, limitare il numero di campi a cardinalità elevata.
 
-3. **Aumentare il livello di Ricerca:**  il passaggio a un livello superiore di Ricerca di Azure può essere un altro modo per migliorare le prestazioni delle query lente. Ogni livello superiore fornisce CPU più veloci e una maggiore quantità di memoria, che hanno un impatto positivo sulle prestazioni delle query.
+3. **Aumentare il livello di Ricerca:** il passaggio a un livello superiore di Ricerca di Azure può essere un altro modo per migliorare le prestazioni delle query lente. Ogni livello superiore fornisce CPU più veloci e una maggiore quantità di memoria, che hanno un impatto positivo sulle prestazioni delle query.
 
 ## <a name="scaling-for-availability"></a>Ridimensionamento per la disponibilità
 Le repliche non solo consentono di ridurre la latenza delle query ma possono anche favorire una disponibilità elevata. Con una singola replica, è necessario prevedere un tempo di inattività periodico dovuto al riavvio del server dopo gli aggiornamenti software o per altri interventi di manutenzione.  Di conseguenza, è importante considerare se l'applicazione richiede disponibilità elevata di ricerche, ovvero query, e operazioni di scrittura, ovvero eventi indicizzazione. Ricerca di Azure offre opzioni di Contratto di servizio in tutte le offerte a pagamento, con le caratteristiche seguenti:
@@ -94,11 +94,6 @@ Se si usa l'API REST di ricerca di Azure per eseguire il [push del contenuto nel
 [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md) consente di indirizzare le richieste su più siti Web geograficamente localizzati e supportati da più servizi di Ricerca di Azure. Uno dei vantaggi di Gestione traffico è la capacità di esplorare Ricerca di Azure per garantire che sia disponibile e di indirizzare gli utenti a servizi di ricerca alternativi in caso di tempi di inattività. In aggiunta, se si esegue il routing delle richieste di ricerca tramite siti Web di Azure, Gestione traffico di Azure consente di bilanciare i casi in cui il sito Web è attivo ma Ricerca di Azure non lo è. Di seguito è riportato un esempio di un'architettura che usa Gestione traffico.
 
    ![Incrocio dei servizi per area con Gestione traffico centrale][3]
-
-## <a name="monitor-performance"></a>Monitorare le prestazioni
-Ricerca di Azure offre la possibilità di analizzare e monitorare le prestazioni del servizio tramite [analisi del traffico di ricerca](search-traffic-analytics.md). Quando si abilita questa funzionalità e si aggiunge strumentazione all'app client, è possibile registrare facoltativamente le singole operazioni di ricerca, nonché le metriche aggregate in un account di archiviazione di Azure che può quindi essere elaborato per l'analisi o visualizzate in Power BI. Le metriche acquisiscono questo modo per fornire statistiche sulle prestazioni, ad esempio il numero medio di query o i tempi di risposta alle query. In aggiunta, la registrazione delle operazioni consente di esaminare i dettagli di operazioni di ricerca specifiche.
-
-Analisi del traffico è utile per comprendere i tassi di latenza dal punto di vista di ricerca di Azure. Poiché le metriche sulle prestazioni delle query registrate sono basate sul tempo necessario per l'elaborazione della query in Ricerca di Azure, ovvero dal momento della richiesta al momento del completamento, è possibile usare questa opzione per determinare se i problemi di latenza provengono dal servizio di Ricerca di Azure o dall'esterno del servizio, ad esempio dalla latenza di rete.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sui piani tariffari e sui limiti dei servizi, vedere [Limiti dei servizi in Ricerca di Azure](search-limits-quotas-capacity.md).

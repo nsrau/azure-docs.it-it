@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
 ms.openlocfilehash: c67f21a6ed8a7697977bb7737f0e46348efb2530
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
-ms.translationtype: MT
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71266653"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Risolvere i problemi relativi alle prestazioni di Apache HBase in Azure HDInsight
@@ -22,7 +22,7 @@ Questo documento descrive le varie linee guida per l'ottimizzazione delle presta
 
 Il primo collo di bottiglia nella maggior parte dei carichi di lavoro HBase è il log write-ahead (WAL). Influire gravemente sulle prestazioni di scrittura. HDInsight HBase ha un modello di calcolo di archiviazione separato, ovvero i dati vengono archiviati in remoto in archiviazione di Azure, ma i server di area sono ospitati nelle VM. Fino a poco tempo fa, anche il log write-ahead è stato scritto in archiviazione di Azure, in modo da amplificare questo collo di bottiglia nel caso di HDInsight. La funzionalità di scrittura [accelerata](./apache-hbase-accelerated-writes.md) è progettata per risolvere questo problema, scrivendo il log write-ahead in dischi gestiti di unità SSD Premium di Azure. In questo modo, le prestazioni di scrittura sono molto numerose e contribuiscono a molti problemi riscontrati da alcuni dei carichi di lavoro a elevato utilizzo di scrittura.
 
-Usare l' [account di archiviazione BLOB in blocchi Premium](https://azure.microsoft.com/blog/azure-premium-block-blob-storage-is-now-generally-available/) come archiviazione remota per ottenere un miglioramento significativo nelle operazioni di lettura. Questa opzione è disponibile solo se è abilitata la funzionalità registri write-ahead.
+Usare l'[account di archiviazione BLOB in blocchi Premium](https://azure.microsoft.com/blog/azure-premium-block-blob-storage-is-now-generally-available/) come risorsa di archiviazione remota per ottenere un miglioramento significativo nelle operazioni di lettura. Questa opzione è disponibile solo se è abilitata la funzionalità WAL.
 
 ## <a name="compaction"></a>Compattazione
 
@@ -39,7 +39,7 @@ La risposta alle domande seguenti consentirà di comprendere meglio il carico di
 * Tutte le "letture" si traducono in analisi?
     * In tal caso, quali sono le caratteristiche di queste analisi?
     * È stato ottimizzato lo schema della tabella Phoenix per queste analisi, inclusa l'indicizzazione appropriata?
-* È stata usata l' `EXPLAIN` istruzione per comprendere i piani di query generati da "Reads".
+* È stata usata l'istruzione `EXPLAIN` per comprendere i piani di query generati da "Reads".
 * Le Scritture "Upsert-Select"?
     * In tal caso, eseguiranno anche analisi. La latenza prevista per le analisi è dell'ordine di 100 ms in media, anziché di 10 ms per il punto in HBase.  
 
@@ -65,43 +65,43 @@ Se si esegue la migrazione ad Azure HDInsight, assicurarsi che la migrazione ven
 
 ## <a name="server-side-config-tunings"></a>Ottimizzazioni della configurazione lato server
 
-In HDInsight HBase, HFiles vengono archiviati nell'archiviazione remota. in questo modo, in caso di mancato riscontro nella cache, il costo delle letture sarà sicuramente superiore rispetto ai sistemi locali, che hanno dati supportati da HDFS locali grazie alla latenza di rete. Per la maggior parte degli scenari, l'uso intelligente delle cache HBase (cache a blocchi e cache di bucket) è progettato per aggirare questo problema. Tuttavia, esistono casi occasionali in cui questo potrebbe costituire un problema per i clienti. L'uso di un account BLOB in blocchi Premium è stato utile. Tuttavia, con il BLOB di WASB (driver di archiviazione di Microsoft Azure) che si basa `fs.azure.read.request.size` su determinate proprietà, ad esempio per recuperare i dati in blocchi in base a ciò che determina la modalità di lettura (sequenziale e casuale), si potrebbero continuare a vedere istanze di latenze più elevate con letture. Sono stati rilevati esperimenti empirici che impostano le dimensioni del`fs.azure.read.request.size`blocco della richiesta di lettura () su 512 KB e che corrispondono alle dimensioni del blocco delle tabelle HBase in modo che corrispondano ai risultati migliori in pratica.
+In HDInsight HBase, HFiles vengono archiviati nell'archiviazione remota. in questo modo, in caso di mancato riscontro nella cache, il costo delle letture sarà sicuramente superiore rispetto ai sistemi locali, che hanno dati supportati da HDFS locali grazie alla latenza di rete. Per la maggior parte degli scenari, l'uso intelligente delle cache HBase (cache a blocchi e cache di bucket) è progettato per aggirare questo problema. Tuttavia, esistono casi occasionali in cui questo potrebbe costituire un problema per i clienti. L'uso di un account BLOB in blocchi Premium è stato utile. Tuttavia, il BLOB di WASB (driver di archiviazione di Microsoft Azure) si basa su determinate proprietà, ad esempio `fs.azure.read.request.size` per recuperare i dati in blocchi in base a ciò che determina la modalità di lettura (sequenziale e casuale). si potrebbero continuare a vedere istanze di latenze più elevate con letture. Sono stati rilevati esperimenti empirici che consentono di impostare le dimensioni del blocco della richiesta di lettura (`fs.azure.read.request.size`) su 512 KB e di abbinare le dimensioni del blocco delle tabelle HBase in modo che corrispondano ai risultati migliori in pratica.
 
-HDInsight HBase, per la maggior parte dei cluster di nodi di `bucketcache` grandi dimensioni, fornisce come file nell'unità SSD locale collegata alla VM, `regionservers`che esegue il. In alcuni casi, l'utilizzo di off cache heap può dare un certo miglioramento. Questa operazione prevede la limitazione dell'utilizzo della memoria disponibile e di dimensioni potenzialmente inferiori rispetto alla cache basata su file, pertanto questo potrebbe non essere sempre la scelta migliore.
+HDInsight HBase, per la maggior parte dei cluster di nodi di dimensioni maggiori, fornisce `bucketcache` come file nell'unità SSD locale collegata alla VM, che esegue il `regionservers`. In alcuni casi, l'utilizzo di off cache heap può dare un certo miglioramento. Questa operazione prevede la limitazione dell'utilizzo della memoria disponibile e di dimensioni potenzialmente inferiori rispetto alla cache basata su file, pertanto questo potrebbe non essere sempre la scelta migliore.
 
 Alcuni degli altri parametri specifici che sono stati ottimizzati sembravano avere contribuito a variare i gradi con una logica come la seguente:
 
-1. Aumentare `memstore` le dimensioni dal valore predefinito 128 MB a 256 MB: questa impostazione è in genere consigliata per uno scenario di scrittura intensivo.
+1. Aumento delle dimensioni di @no__t 0 da 128 MB predefiniti a 256 MB. questa impostazione è generalmente consigliata per uno scenario di scrittura intensivo.
 
 1. Aumento del numero di thread dedicati per la compattazione, dal valore predefinito da 1 a 4. Questa impostazione è pertinente se si osservano compattazioni secondarie frequenti.
 
-1. Evitare il `memstore` blocco dello scaricamento a causa del limite del negozio. `Hbase.hstore.blockingStoreFiles`può essere aumentato a 100 per fornire questo buffer.
+1. Evitare il blocco dello scaricamento `memstore` a causa del limite del negozio. `Hbase.hstore.blockingStoreFiles` può essere aumentato a 100 per fornire questo buffer.
 
 1. Per il controllo degli Scaricamenti, le impostazioni predefinite possono essere risolte come indicato di seguito:
 
-    1. `Hbase.regionserver.maxlogs`può essere incrementato a 140 da 32 (evitando gli scaricamenti a causa dei limiti di WAL).
+    1. `Hbase.regionserver.maxlogs` può essere aumentato a 140 da 32 (evitando gli scaricamenti a causa dei limiti di WAL).
 
-    1. `Hbase.regionserver.global.memstore.lowerLimit`= 0,55.
+    1. `Hbase.regionserver.global.memstore.lowerLimit` = 0,55.
 
-    1. `Hbase.regionserver.global.memstore.upperLimit`= 0,60.
+    1. `Hbase.regionserver.global.memstore.upperLimit` = 0,60.
 
 1. Configurazioni specifiche di Phoenix per l'ottimizzazione del pool di thread:
 
-    1. `Phoenix.query.queuesize`può essere incrementato a 10000.
+    1. `Phoenix.query.queuesize` può essere aumentato a 10000.
 
-    1. `Phoenix.query.threadpoolsize`può essere incrementato a 512.
+    1. `Phoenix.query.threadpoolsize` può essere aumentato a 512.
 
 1. Altre configurazioni specifiche di Phoenix:
 
-    1. `Phoenix.rpc.index.handler.count`può essere impostato su 50 se sono presenti grandi o numerose ricerche nell'indice.
+    1. `Phoenix.rpc.index.handler.count` può essere impostato su 50 se sono presenti grandi o numerose ricerche nell'indice.
 
     1. `Phoenix.stats.updateFrequency`: il valore predefinito di 15 minuti può essere aumentato a 1 ora.
 
-    1. `Phoenix.coprocessor.maxmetadatacachetimetolivems`: può essere incrementato di 1 ora da 30 minuti.
+    1. `Phoenix.coprocessor.maxmetadatacachetimetolivems`: può essere aumentato a 1 ora da 30 minuti.
 
     1. `Phoenix.coprocessor.maxmetadatacachesize`: può essere incrementato a 50 MB da 20 MB.
 
-1. Timeout RPC: timeout RPC HBase, timeout scanner client HBase e timeout query Phoenix possono essere aumentati fino a 3 minuti. È importante notare che il `hbase.client.scanner.caching` parametro è impostato su un valore che corrisponde a End Server e client end. In caso contrario, questa impostazione causa errori `OutOfOrderScannerException` correlati al lato client. Questa impostazione deve essere impostata su un valore basso per le analisi di grandi dimensioni. Questo valore viene impostato su 100.
+1. Timeout RPC: timeout RPC HBase, timeout scanner client HBase e timeout query Phoenix possono essere aumentati fino a 3 minuti. È importante notare che il parametro `hbase.client.scanner.caching` è impostato su un valore che corrisponde a End Server e client end. In caso contrario, questa impostazione genera errori correlati a `OutOfOrderScannerException` al termine del client. Questa impostazione deve essere impostata su un valore basso per le analisi di grandi dimensioni. Questo valore viene impostato su 100.
 
 ## <a name="other-considerations"></a>Altre considerazioni
 
@@ -119,6 +119,6 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 - Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
 
-- Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse appropriate: risposte, supporto ed esperti.
+- Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account Microsoft Azure ufficiale per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse appropriate: risposte, supporto ed esperti.
 
 - Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 275eff59c56229f45a131e107668b8fefab24536
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 389e1472e1e1fcbed6dd3b6c1d155199246d877f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70123821"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332940"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorare e ridurre la limitazione per evitare la latenza in Azure Time Series Insights
 
@@ -30,7 +30,7 @@ Quando la quantità di dati in ingresso è superiore alla configurazione dell'am
 - Aggiunta di un'origine eventi contenente dati meno recenti che potrebbero superare la velocità in ingresso assegnata, imponendo a Time Series Insights di recuperare.
 - Aggiunta di più origini eventi a un ambiente con conseguente picco a causa degli eventi aggiuntivi, che potrebbero superare la capacità dell'ambiente.
 - Push di grandi quantità di dati cronologici a un'origine eventi, che potrebbe determinare un ritardo imponendo a Time Series Insights di recuperare.
-- Aggiunta di dati di riferimento alla telemetria, che determina un aumento delle dimensioni degli eventi.  Dal punto di vista della limitazione, un pacchetto di dati in ingresso di dimensioni pari a 32 KB viene considerato come 32 eventi, ognuno di 1 KB di dimensioni. Le dimensioni massime degli eventi consentite sono 32 KB e i pacchetti di dati di dimensioni superiori a 32 KB vengono troncati.
+- Aggiunta di dati di riferimento alla telemetria, che determina un aumento delle dimensioni degli eventi.  Dal punto di vista della limitazione, un pacchetto di dati in ingresso la cui dimensione è 32 KB viene interpretato come 32 eventi, ciascuno con dimensioni pari a 1 KB. La dimensione massima consentita per ogni evento è pari a 32 KB. Pertanto, i pacchetti di dati con dimensioni maggiori di 32 KB vengono troncati.
 
 ## <a name="video"></a>Video
 
@@ -44,19 +44,19 @@ Gli avvisi consentono di diagnosticare e attenuare i problemi di latenza causati
 
 1. Nella portale di Azure selezionare **avvisi**.
 
-   [![Avvisi](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
+   [![Alerts](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
 
 1. Verrà quindi visualizzato il pannello **Crea regola** . Selezionare **Aggiungi** in **condizione**.
 
-   [![Aggiungi avviso](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
+   [avviso ![Add](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
 
 1. Configurare quindi le condizioni esatte per la logica del segnale.
 
-   [![Configurare la logica del segnale](media/environment-mitigate-latency/configure-alert-rule.png)](media/environment-mitigate-latency/configure-alert-rule.png#lightbox)
+   [logica del segnale ![Configure](media/environment-mitigate-latency/configure-alert-rule.png)](media/environment-mitigate-latency/configure-alert-rule.png#lightbox)
 
    Da qui è possibile configurare gli avvisi usando alcune delle condizioni seguenti:
 
-   |Metrica  |DESCRIZIONE  |
+   |Metrica  |Description  |
    |---------|---------|
    |**Ingress Received Bytes** (Byte ricevuti in ingresso)     | Numero di byte non elaborati letti dalle origini eventi. Include in genere il nome e il valore delle proprietà.  |  
    |**Ingress Received Invalid Messages** (Messaggi non validi ricevuti in ingresso)     | Numero dei messaggi non validi letti da tutte le origini eventi di Hub eventi di Azure o Hub IoT di Azure.      |
@@ -70,15 +70,15 @@ Gli avvisi consentono di diagnosticare e attenuare i problemi di latenza causati
 
 1. Dopo aver configurato la logica del segnale desiderata, esaminare visivamente la regola di avviso scelta.
 
-   [![Ingresso](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
+   [![Ingress](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
 
 ## <a name="throttling-and-ingress-management"></a>Limitazione e gestione in ingresso
 
-* Se si sta eseguendo la limitazione, verrà visualizzato un valore per l'intervallo di *tempo del messaggio in ingresso ricevuto*, che indica il numero di secondi di ritardo della proseguimento dal momento effettivo in cui il messaggio raggiunge l'origine evento, escluso il tempo di indicizzazione di appx. 30-60 secondi.  
+* Se si sta eseguendo la limitazione, verrà visualizzato un valore per l'intervallo di *tempo del messaggio in ingresso ricevuto*, che indica il numero di secondi di ritardo dell'ambiente Time Series Insights dall'ora effettiva in cui il messaggio raggiunge l'origine evento (escluso il tempo di indicizzazione di appx. 30-60 secondi.  
 
   Anche per *Ingress Received Message Count Lag* (Differenza numero messaggi ricevuti in ingresso) deve essere disponibile un valore, che consente di determinare di quanti messaggi si è in ritardo.  Il modo più semplice per mettersi in pari consiste nell'aumentare la capacità dell'ambiente fino a dimensioni che consentono di recuperare la differenza.  
 
-  Se, ad esempio, si dispone di un ambiente S1 a unità singola e si verifica un ritardo di 5 milioni messaggi, è possibile aumentare le dimensioni dell'ambiente a sei unità per circa un giorno per essere rilevati.  È possibile aumentare ulteriormente per recuperare più velocemente. Il periodo di recupero è una situazione comune durante il provisioning iniziale di un ambiente, in particolare quando lo si connette a un'origine eventi che già include eventi oppure quando si esegue un caricamento in blocco di molti dati cronologici.
+  Se, ad esempio, si nota che l'ambiente S1 sta dimostrando un ritardo di 5 milioni messaggi, è possibile aumentare le dimensioni dell'ambiente a sei unità per circa un giorno per essere rilevati.  È possibile aumentare ulteriormente per recuperare più velocemente. Il periodo di recupero è una situazione comune durante il provisioning iniziale di un ambiente, in particolare quando lo si connette a un'origine eventi che già include eventi oppure quando si esegue un caricamento in blocco di molti dati cronologici.
 
 * Un'altra tecnica consiste nell'impostare un avviso **Ingress Stored Events** (Eventi archiviati in ingresso) per un valore maggiore o uguale a una soglia leggermente inferiore alla capacità totale dell'ambiente per un periodo di 2 ore.  Questo avviso consentirà di comprendere se si raggiunge costantemente la capacità e la probabilità di latenza è quindi elevata. 
 
@@ -94,6 +94,6 @@ Per ridurre la limitazione o i casi di latenza, la correzione migliore consiste 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre procedure di risoluzione dei problemi, vedere [Diagnosticare e risolvere i problemi nell'ambiente Time Series Insights](time-series-insights-diagnose-and-solve-problems.md).
+- Leggere le informazioni su come [diagnosticare e risolvere i problemi nell'ambiente Time Series Insights](time-series-insights-diagnose-and-solve-problems.md).
 
-- Per ulteriore assistenza, avviare una conversazione nel [forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) o in [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). È anche possibile contattare il [supporto di Azure](https://azure.microsoft.com/support/options/) per opzioni di supporto assistito.
+- Informazioni [su come ridimensionare l'ambiente di Time Series Insights](time-series-insights-how-to-scale-your-environment.md).

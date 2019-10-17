@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 125f1bc14a376523a22984e9d8efa7848408bf7a
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 654e4bc35de1ed33842944ba360d319705589683
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035211"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372514"
 ---
-# <a name="explore-netnet-core-trace-logs-in-application-insights"></a>Esplorare i log di traccia .NET/.NET Core in Application Insights
+# <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Esplorare i log di traccia .NET/.NET Core e Python in Application Insights
 
-Inviare i log di traccia di diagnostica per l'applicazione ASP.NET/ASP.NET Core da ILogger, NLog, log4Net o System. Diagnostics. Trace per [applicazione Azure informazioni dettagliate][start]. Sarà quindi possibile esplorarli e cercarli. Questi log vengono uniti con gli altri file di log dell'applicazione, pertanto è possibile identificare le tracce associate a ogni richiesta utente e metterle in correlazione con altri eventi e report di eccezioni.
+Inviare i log di traccia di diagnostica per l'applicazione ASP.NET/ASP.NET Core da ILogger, NLog, log4Net o System. Diagnostics. Trace per [applicazione Azure informazioni dettagliate][start]. Per le applicazioni Python, inviare i log di traccia di diagnostica usando AzureLogHandler in OpenCensus Python per monitoraggio di Azure. Sarà quindi possibile esplorarli e cercarli. Questi log vengono uniti con gli altri file di log dell'applicazione, pertanto è possibile identificare le tracce associate a ogni richiesta utente e metterle in correlazione con altri eventi e report di eccezioni.
 
 > [!NOTE]
 > È necessario il modulo di acquisizione log? Si tratta di un adattatore utile per i logger di terze parti. Tuttavia, se non si usa già NLog, log4Net o System. Diagnostics. Trace, è sufficiente chiamare direttamente [**Application Insights TrackTrace ()** ](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) .
@@ -58,17 +58,17 @@ Usare questo metodo se il tipo di progetto non è supportato dal programma di in
 3. Cercare "Application Insights".
 4. Selezionare uno dei pacchetti seguenti:
 
-   - Per ILogger: [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+   - Per ILogger: [Microsoft. Extensions. Logging. ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
 [![NuGet](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
-   - Per NLog: [Microsoft.ApplicationInsights.NLogTarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+   - Per NLog: [Microsoft. ApplicationInsights. NLogTarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
 [![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
-   - Per Log4Net: [Microsoft.ApplicationInsights.Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+   - Per Log4Net: [Microsoft. ApplicationInsights. Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
 [![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
-   - Per System.Diagnostics: [Microsoft.ApplicationInsights.TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+   - Per System. Diagnostics: [Microsoft. ApplicationInsights. TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
 [![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
-   - [Microsoft.ApplicationInsights.DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+   - [Microsoft. ApplicationInsights. DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
 [![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
-   - [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+   - [Microsoft. ApplicationInsights. EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
 [![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
    - [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
 [![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
@@ -101,7 +101,7 @@ Se si preferisce log4net o NLog, usare:
 
 Per ogni origine è possibile impostare i parametri seguenti:
  * **Nome** specifica il nome del EventSource da raccogliere.
- * **Level** specifica il livello di registrazione da raccogliere: *Critical*, *Error*, *Informational*, *LogAlways*, *verbose*o *warning*.
+ * **Level** specifica il livello di registrazione da raccogliere *: Critical*, *Error*, *Informational*, *LogAlways*, *verbose*o *warning*.
  * **Parole chiave** (facoltativo) specificare il valore intero delle combinazioni di parole chiave da usare.
 
 ## <a name="use-diagnosticsource-events"></a>USA eventi DiagnosticSource
@@ -140,14 +140,14 @@ Per ogni origine è possibile impostare i parametri seguenti:
 ## <a name="use-the-trace-api-directly"></a>Usare direttamente l'API Trace
 È possibile chiamare direttamente l'API di traccia di Application Insights. Gli adattatori di registrazione usano questa API.
 
-Ad esempio:
+ad esempio:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
 Un vantaggio di TrackTrace è che è possibile inserire dati relativamente lunghi nel messaggio. Ad esempio è possibile codificare dati POST.
 
-È anche possibile aggiungere un livello di gravità al messaggio. Analogamente ad altri dati di telemetria, è possibile aggiungere valori di proprietà per filtrare o cercare set di tracce diversi. Esempio:
+È anche possibile aggiungere un livello di gravità al messaggio. Analogamente ad altri dati di telemetria, è possibile aggiungere valori di proprietà per filtrare o cercare set di tracce diversi. ad esempio:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
@@ -155,6 +155,23 @@ Un vantaggio di TrackTrace è che è possibile inserire dati relativamente lungh
                    new Dictionary<string,string> { {"database", db.ID} });
 
 Ciò consente di filtrare facilmente in [Cerca][diagnostic] tutti i messaggi di un determinato livello di gravità correlati a un determinato database.
+
+## <a name="azureloghandler-for-opencensus-python"></a>AzureLogHandler per OpenCensus Python
+Il gestore di log di monitoraggio di Azure consente di esportare i log Python in monitoraggio di Azure.
+
+Instrumentare l'applicazione con il monitoraggio di [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md) per Azure.
+
+Questo esempio Mostra come inviare un log a livello di avviso a monitoraggio di Azure.
+
+```python
+import logging
+
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+logger = logging.getLogger(__name__)
+logger.addHandler(AzureLogHandler(connection_string='InstrumentationKey=<your-instrumentation_key-here>'))
+logger.warning('Hello, World!')
+```
 
 ## <a name="explore-your-logs"></a>Esplorare i log
 Eseguire l'app in modalità di debug o distribuirla in tempo reale.
@@ -169,15 +186,15 @@ Ad esempio, è possibile:
 * Salva la configurazione di una pagina come preferita.
 
 > [!NOTE]
->Se l'applicazione invia una grande quantità di dati e si usa Application Insights SDK per ASP.NET versione 2.0.0-beta3 o successiva, la funzionalità di campionamento adattivo può funzionare e inviare solo una parte dei dati di telemetria. [Altre informazioni sul campionamento.](../../azure-monitor/app/sampling.md)
+>Se l'applicazione invia una grande quantità di dati e si usa Application Insights SDK per ASP.NET versione 2.0.0-beta3 o successiva, la funzionalità di *campionamento adattivo* può funzionare e inviare solo una parte dei dati di telemetria. [Altre informazioni sul campionamento.](../../azure-monitor/app/sampling.md)
 >
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 ### <a name="how-do-i-do-this-for-java"></a>Come procedere per Java?
 Usare gli [adattatori log Java](../../azure-monitor/app/java-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Non è disponibile alcuna opzione di Application Insights nel menu di scelta rapida del progetto
-* Assicurarsi che Developer Analytics Tools sia installato nel computer di sviluppo. In Visual Studio **Tools** > **extensions and Updates**cercare **Developer Analytics Tools**. Se la scheda non è **installata** , aprire la scheda **online** e installarla.
+* Assicurarsi che Developer Analytics Tools sia installato nel computer di sviluppo. In Visual Studio **Tools** > **extensions and Updates**, cercare **Developer Analytics Tools**. Se la scheda non è **installata** , aprire la scheda **online** e installarla.
 * Potrebbe trattarsi di un tipo di progetto non supportato dagli strumenti di analisi di Devloper. Usare l' [installazione manuale](#manual-installation).
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Non è disponibile alcuna opzione per l'adapter di log nello strumento di configurazione
@@ -202,7 +219,7 @@ Se l'applicazione invia enormi quantità di dati e si usa Application Insights S
 * [Diagnosticare errori ed eccezioni in ASP.NET][exceptions]
 * [Altre informazioni sulla ricerca][diagnostic]
 * [Configurare i test di disponibilità e velocità di risposta][availability]
-* [Risoluzione dei problemi][qna]
+* [risoluzione dei problemi][qna]
 
 <!--Link references-->
 

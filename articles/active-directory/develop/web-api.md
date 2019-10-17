@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 484e6b4c5f0e064254c957b07b8ba15ef98f2634
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4babb7e869f4fc83bcdb530a580a29dda234293
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545220"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373786"
 ---
 # <a name="web-api"></a>API Web
 
@@ -69,7 +69,7 @@ Vedere gli esempi di codice per gli scenari Da applicazione Web ad API Web. Cons
 
 ## <a name="app-registration"></a>Registrazione delle app
 
-Per registrare un'applicazione con l'endpoint v1.0 di Azure AD, vedere [registrare un'app](quickstart-register-app.md).
+Per registrare un'applicazione con l'endpoint Azure AD v 1.0, vedere [registrare un'app](quickstart-register-app.md).
 
 * Tenant singolo: in entrambi i casi (identità applicazione e identità utente delegato), l'applicazione Web e l'API Web devono essere registrate nella stessa directory in Azure AD. L'API Web può essere configurata per esporre un set di autorizzazioni, che vengono usate per limitare l'accesso dell'applicazione Web alle relative risorse. Se viene usato il tipo di identità utente delegato, l'applicazione Web deve selezionare le autorizzazioni desiderate dal menu a discesa **Autorizzazioni per altre applicazioni** nel portale di Azure. Questo passaggio non è necessario se viene usato il tipo di identità applicazione.
 * Multi-tenant: per prima cosa, l'applicazione Web viene configurata per indicare le autorizzazioni necessarie per il funzionamento. Questo elenco di autorizzazioni richieste viene visualizzato in una finestra di dialogo quando un utente o amministratore nella directory di destinazione concede il consenso all'applicazione, rendendola disponibile per la propria organizzazione. Alcune applicazioni richiedono solo autorizzazioni a livello utente, che possono essere concesse da qualsiasi utente dell'organizzazione. Altre applicazioni richiedono autorizzazioni a livello amministratore, che non possono essere concesse dagli utenti dell'organizzazione. Solo un amministratore di directory può concedere il consenso alle applicazioni che richiedono questo livello di autorizzazione. Quando l'utente o l'amministratore acconsente, l'applicazione Web e l'API Web vengono registrate nella directory.
@@ -80,5 +80,5 @@ Quando l'applicazione Web usa il proprio codice di autorizzazione per ottenere u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su altri [tipi di applicazione e scenari](app-types.md)
-- [Nozioni di base sull'autenticazione](authentication-scenarios.md) in Azure AD
+- Altre informazioni su altri [Tipi di applicazione e scenari](app-types.md)
+- [Nozioni di base sull'autenticazione](v1-authentication-scenarios.md) in Azure AD

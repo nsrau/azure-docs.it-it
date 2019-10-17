@@ -9,18 +9,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: heidist
-ms.openlocfilehash: 6090881cc2b94fa42fdac22220c858a0153ccc5c
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: d56ddcd48f6a1907bed865d391e1d4e64da2999d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648106"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331250"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Gestire il servizio Ricerca di Azure con PowerShell
 > [!div class="op_single_selector"]
-> * [Portale](search-manage.md)
+> * [di Microsoft Azure](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
@@ -39,8 +39,8 @@ Non è possibile usare PowerShell per modificare il nome, l'area o il livello de
 Sebbene non esistano comandi di PowerShell dedicati per la gestione dei contenuti, è possibile scrivere script di PowerShell che chiama REST o .NET per creare e caricare gli indici. Il modulo **AZ. search** non fornisce queste operazioni.
 
 Altre attività non supportate tramite PowerShell o altre API (solo portale) includono:
-+ [Alleghi una risorsa di servizi cognitivi per l'](cognitive-search-attach-cognitive-services.md) indicizzazione arricchita con [intelligenza artificiale](cognitive-search-concept-intro.md). Un servizio cognitivo è associato a un skillt, non a una sottoscrizione o un servizio.
-+ [Soluzioni di monitoraggio dei componenti aggiuntivi](search-monitor-usage.md#add-on-monitoring-solutions) o [analisi del traffico di ricerca](search-traffic-analytics.md) usate per il monitoraggio di ricerca di Azure.
++ [Alleghi una risorsa di servizi cognitivi per l'](cognitive-search-attach-cognitive-services.md) [indicizzazione arricchita con intelligenza artificiale](cognitive-search-concept-intro.md). Un servizio cognitivo è associato a un skillt, non a una sottoscrizione o un servizio.
++ [Soluzioni di monitoraggio dei componenti aggiuntivi per il](search-monitor-usage.md#add-on-monitoring-solutions) monitoraggio di ricerca di Azure.
 
 <a name="check-versions-and-load"></a>
 
@@ -94,7 +94,7 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 ## <a name="list-all-azure-search-services-in-your-subscription"></a>Elencare tutti i servizi di ricerca di Azure nella sottoscrizione
 
-I comandi seguenti sono da [**AZ.** ](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources)Resources, restituendo informazioni sulle risorse e i servizi esistenti già sottoposti a provisioning nella sottoscrizione. Se non si conosce il numero di servizi di ricerca già creati, questi comandi restituiscono tali informazioni, salvando un viaggio nel portale.
+I comandi seguenti sono da [**AZ. resources**](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources), restituendo informazioni sulle risorse e i servizi esistenti già sottoposti a provisioning nella sottoscrizione. Se non si conosce il numero di servizi di ricerca già creati, questi comandi restituiscono tali informazioni, salvando un viaggio nel portale.
 
 Il primo comando restituisce tutti i servizi di ricerca.
 
@@ -197,11 +197,11 @@ Tags
 
 [**New-AzSearchAdminKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) viene usato per eseguire il rollover delle [chiavi API](search-security-api-keys.md)di amministrazione. Vengono create due chiavi amministratore con ogni servizio per l'accesso autenticato. Le chiavi sono obbligatorie per ogni richiesta. Entrambe le chiavi di amministrazione sono equivalenti dal punto di vista funzionale, concedendo l'accesso in scrittura completo a un servizio di ricerca con la possibilità di recuperare informazioni oppure di creare ed eliminare qualsiasi oggetto. Esistono due chiavi in modo che sia possibile utilizzarne una mentre si sostituisce l'altra. 
 
-È possibile rigenerare solo una alla volta, specificata come `primary` chiave o. `secondary` Per il servizio senza interruzioni, ricordarsi di aggiornare tutto il codice client per l'uso di una chiave secondaria durante il rollover della chiave primaria. Evitare di modificare le chiavi mentre le operazioni sono in corso.
+È possibile rigenerarne solo una alla volta, specificata come chiave `primary` o `secondary`. Per il servizio senza interruzioni, ricordarsi di aggiornare tutto il codice client per l'uso di una chiave secondaria durante il rollover della chiave primaria. Evitare di modificare le chiavi mentre le operazioni sono in corso.
 
 Come si può immaginare, se si rigenerano le chiavi senza aggiornare il codice client, le richieste che usano la chiave precedente avranno esito negativo. La rigenerazione di tutte le nuove chiavi non blocca definitivamente il servizio ed è comunque possibile accedere al servizio tramite il portale. Dopo la rigenerazione delle chiavi primarie e secondarie, è possibile aggiornare il codice client per l'uso delle nuove chiavi e le operazioni riprenderanno di conseguenza.
 
-I valori per le chiavi API vengono generati dal servizio. Non è possibile fornire una chiave personalizzata per l'uso di ricerca di Azure. Analogamente, non esiste alcun nome definito dall'utente per le chiavi API di amministrazione. I riferimenti alla chiave sono stringhe fisse, `primary` ovvero o. `secondary` 
+I valori per le chiavi API vengono generati dal servizio. Non è possibile fornire una chiave personalizzata per l'uso di ricerca di Azure. Analogamente, non esiste alcun nome definito dall'utente per le chiavi API di amministrazione. I riferimenti alla chiave sono stringhe fisse, ovvero `primary` o `secondary`. 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary

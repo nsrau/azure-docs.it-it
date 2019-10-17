@@ -1,21 +1,21 @@
 ---
-title: Assegnare un accesso ai dati di Gestione costi di Azure | Microsoft Docs
+title: Assegnare l'accesso ai dati di gestione costi di Azure
 description: Questo articolo illustra in modo dettagliato l'assegnazione di autorizzazioni per i dati di Gestione costi di Azure per vari ambiti di accesso.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/30/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: f9db07f648956130bb5bdebb23321b0eb14679c7
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: ebc56d27b7adc8f1fea9eafabe1b211f3f0ad560
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695403"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375136"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Assegnare l’accesso ai dati di Gestione costi
 
@@ -37,8 +37,8 @@ Gestione costi supporta un'ampia gamma di tipi di account di Azure. Per visualiz
 
 | **Ambito** | **Definito in** | **Accesso richiesto per visualizzare i dati** | **Impostazione prerequisita del Contratto Enterprise** | **Consolida dati in** |
 | --- | --- | --- | --- | --- |
-| Account di fatturazione<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | Amministratore aziendale | Nessuna | Tutte le sottoscrizioni del Contratto Enterprise |
-| department | [https://ea.azure.com](https://ea.azure.com/) | Amministratore del reparto | **Visualizzazione addebiti addebitata per gli amministratori di reparto** | Tutte le sottoscrizioni che appartengono a un account di registrazione collegato al reparto |
+| Account di fatturazione<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | Amministratore aziendale | Nessuno | Tutte le sottoscrizioni del Contratto Enterprise |
+| Department | [https://ea.azure.com](https://ea.azure.com/) | Amministratore del reparto | **Visualizzazione addebiti addebitata per gli amministratori di reparto** | Tutte le sottoscrizioni che appartengono a un account di registrazione collegato al reparto |
 | Account di registrazione<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Proprietario dell'account | **Visualizzazione addebiti abilitata per i proprietari dell'account** | Tutte le sottoscrizioni dell'account di registrazione |
 | Gruppo di gestione | [https://portal.azure.com](https://portal.azure.com/) | Lettore Gestione costi (o Lettore) | **Visualizzazione addebiti abilitata per i proprietari dell'account** | Tutte le sottoscrizioni incluse nel gruppo di gestione |
 | Sottoscrizione | [https://portal.azure.com](https://portal.azure.com/) | Lettore Gestione costi (o Lettore) | **Visualizzazione addebiti abilitata per i proprietari dell'account** | Tutte le risorse o i gruppi di risorse inclusi nella sottoscrizione |
@@ -63,6 +63,8 @@ Analogamente, se l'opzione **AO view charges** (Visualizzazione addebiti per pro
 - Account Azure
 - Gruppo di gestione
 - Gruppo di risorse
+
+Sono disponibili vari ambiti dopo che i partner hanno eseguito l'onboarding dei clienti a un contratto di cliente Microsoft. I clienti CSP possono quindi usare le funzionalità di gestione dei costi quando sono abilitate dal partner CSP. Per altre informazioni, vedere [Introduzione a gestione costi di Azure per i partner](get-started-partners.md).
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Abilitare l'accesso ai costi nel portale EA
 
@@ -140,7 +142,7 @@ L'accesso per visualizzare l'ambito del gruppo di gestione richiede almeno l'aut
 7. Sotto **Ruolo**, selezionare **Lettore Gestione costi**.
 8. Per **Assegna l’accesso a**, selezionare **Applicazione, gruppo o utente di Azure AD**.
 9. Per assegnare l'accesso, cercare e quindi selezionare l'utente.
-10. Fare clic su **Salva**.  
+10. Fare clic su **Salva**  
     ![Informazioni di esempio nella casella Aggiungi autorizzazioni per un gruppo di gestione](./media/assign-access-acm-data/add-permissions.png)
 
 ## <a name="assign-subscription-scope-access"></a>Assegnare l'accesso all'ambito di sottoscrizione
@@ -155,7 +157,7 @@ Per accedere a una sottoscrizione è richiesta almeno l'autorizzazione Lettore G
 6. Sotto **Ruolo**, selezionare **Lettore Gestione costi**.
 7. Per **Assegna l’accesso a**, selezionare **Applicazione, gruppo o utente di Azure AD**.
 8. Per assegnare l'accesso, cercare e quindi selezionare l'utente.
-9. Fare clic su **Salva**.
+9. Fare clic su **Salva**
 
 ## <a name="assign-resource-group-scope-access"></a>Assegnare l'accesso all’ambito Gruppo di risorse
 
@@ -169,13 +171,13 @@ Per accedere a un gruppo di risorse è richiesta almeno l'autorizzazione Lettore
 6. Sotto **Ruolo**, selezionare **Lettore Gestione costi**.
 7. Per **Assegna l’accesso a**, selezionare **Applicazione, gruppo o utente di Azure AD**.
 8. Per assegnare l'accesso, cercare e quindi selezionare l'utente.
-9. Fare clic su **Salva**.
+9. Fare clic su **Salva**
 
 ## <a name="cross-tenant-authentication-issues"></a>Problemi di autenticazione tra tenant
 
 Attualmente, gestione costi di Azure ha un supporto limitato per l'autenticazione tra tenant. In alcuni casi, quando si tenta di eseguire l'autenticazione tra i tenant, è possibile che venga visualizzato un errore di **accesso negato** nell'analisi dei costi. Questo problema può verificarsi se si configura il controllo degli accessi in base al ruolo (RBAC) per la sottoscrizione di un altro tenant e quindi si prova a visualizzare i dati sui costi.
 
-*Per ovviare al problema*: Dopo aver configurato il controllo degli accessi in base al ruolo tra tenant, attendere un'ora. Provare quindi a visualizzare i costi nell'analisi dei costi o concedere l'accesso di gestione costi agli utenti in entrambi i tenant.  
+*Per risolvere il problema*: dopo aver configurato il controllo degli accessi in base al ruolo tra tenant, attendere un'ora. Provare quindi a visualizzare i costi nell'analisi dei costi o concedere l'accesso di gestione costi agli utenti in entrambi i tenant.  
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -21,6 +21,8 @@
   items:
     - name: Criteri comuni di accesso condizionale
       href: concept-conditional-access-policy-common.md
+    - name: Impostazioni predefinite di sicurezza
+      href: concept-conditional-access-security-defaults.md
     - name: Componenti dei criteri di accesso condizionale
       href: concept-conditional-access-policies.md
     - name: Condizioni
@@ -76,16 +78,6 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Eseguire la migrazione di criteri classici
       href: policy-migration.md
-    - name: Criteri di base
-      items:
-        - name: Richiedere l'autenticazione a più fattori per gli amministratori
-          href: howto-baseline-protect-administrators.md
-        - name: Protezione dell'utente finale
-          href: howto-baseline-protect-end-users.md
-        - name: Bloccare l'autenticazione legacy
-          href: howto-baseline-protect-legacy-auth.md
-        - name: Richiedere MFA per la gestione dei servizi
-          href: howto-baseline-protect-azure.md
     - name: Adozione dell'accesso condizionale
       href: howto-conditional-access-adoption-kit.md
     - name: risoluzione dei problemi

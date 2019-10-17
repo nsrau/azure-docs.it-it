@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: eb15aa3c6dbe0f4db62a2029a3c97b4475ab53a2
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 78a5b180d6e1531ca3ea15fbd6ec040a90d75e5c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255875"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330774"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -41,7 +41,7 @@ Dopo che il provider di risorse restituisce un codice di riuscita, vengono valut
 
 Attualmente non è presente alcun ordine di valutazione per l'effetto **EnforceRegoPolicy** .
 
-## <a name="disabled"></a>Disabilitata
+## <a name="disabled"></a>Disabled
 
 Questo effetto è utile per gli scenari di test o quando la definizione dei criteri ha parametrizzato l'effetto. Grazie a questa flessibilità è possibile disabilitare una singola assegnazione invece di disabilitare tutte le assegnazioni di quei criteri.
 
@@ -67,7 +67,7 @@ Un effetto Append ha solo una matrice **details** obbligatoria. Essendo una matr
 
 ### <a name="append-examples"></a>Esempi di Append
 
-Esempio 1: Coppia **campo/valore** singola che usa un [alias](definition-structure.md#aliases) non **[\*]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Quando l'alias diverso da **[\*]** è una matrice, l'effetto accoda il **valore** come intera matrice. Se la matrice esiste già, si verifica un evento Deny per effetto del conflitto.
+Esempio 1: singola coppia **campo/valore** che usa un [alias](definition-structure.md#aliases) non **[\*]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Quando l'alias diverso da **[\*]** è una matrice, l'effetto accoda il **valore** come intera matrice. Se la matrice esiste già, si verifica un evento Deny per effetto del conflitto.
 
 ```json
 "then": {
@@ -82,7 +82,7 @@ Esempio 1: Coppia **campo/valore** singola che usa un [alias](definition-structu
 }
 ```
 
-Esempio 2 coppia **campo/valore** singola che usa un [alias](definition-structure.md#aliases) **[\*]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Usando l'alias **[\*]** , l'effetto accoda il **valore** a una matrice potenzialmente già esistente. Se la matrice non esiste ancora, verrà creata.
+Esempio 2: singola coppia **campo/valore** con un [alias](definition-structure.md#aliases) **[\*]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Usando l'alias **[\*]** , l'effetto accoda il **valore** a una matrice potenzialmente già esistente. Se la matrice non esiste ancora, verrà creata.
 
 ```json
 "then": {
@@ -99,8 +99,7 @@ Esempio 2 coppia **campo/valore** singola che usa un [alias](definition-structur
 
 ## <a name="modify"></a>Modifica
 
-La modifica viene utilizzata per aggiungere, aggiornare o rimuovere tag in una risorsa durante la creazione o l'aggiornamento. Un esempio comune è l'aggiornamento di tag per le risorse, ad esempio costCenter. Un criterio di modifica deve sempre avere `mode` impostato su _indicizzato_. È possibile correggere le risorse non conformi esistenti con un' [attività di correzione](../how-to/remediate-resources.md).
-Una singola regola di modifica può avere un numero qualsiasi di operazioni.
+La modifica viene utilizzata per aggiungere, aggiornare o rimuovere tag in una risorsa durante la creazione o l'aggiornamento. Un esempio comune è l'aggiornamento di tag per le risorse, ad esempio costCenter. Un criterio di modifica deve sempre avere `mode` impostato su _indicizzato_ , a meno che la risorsa di destinazione non sia un gruppo di risorse. È possibile correggere le risorse non conformi esistenti con un' [attività di correzione](../how-to/remediate-resources.md). Una singola regola di modifica può avere un numero qualsiasi di operazioni.
 
 > [!IMPORTANT]
 > La modifica è attualmente disponibile solo per l'uso con tag. Se si gestiscono i tag, è consigliabile usare modifica anziché Accodamento come modifica fornisce tipi di operazione aggiuntivi e la possibilità di correggere le risorse esistenti. Tuttavia, è consigliabile aggiungere se non si è in grado di creare un'identità gestita.
@@ -161,15 +160,15 @@ La matrice di proprietà **Operations** consente di modificare diversi tag in mo
 
 Per la proprietà **Operation** sono disponibili le opzioni seguenti:
 
-|Operazione |Descrizione |
+|Operazione |Description |
 |-|-|
 |addOrReplace |Aggiunge il tag e il valore definiti alla risorsa, anche se il tag esiste già con un valore diverso. |
-|Add |Aggiunge il tag e il valore definiti alla risorsa. |
-|Rimuovere |Rimuove il tag definito dalla risorsa. |
+|Aggiungi |Aggiunge il tag e il valore definiti alla risorsa. |
+|Rimuovi |Rimuove il tag definito dalla risorsa. |
 
 ### <a name="modify-examples"></a>Modificare esempi
 
-Esempio 1: Aggiungere il tag `environment` e sostituire i tag esistenti `environment` con "test":
+Esempio 1: aggiungere il tag `environment` e sostituire i tag esistenti `environment` con "test":
 
 ```json
 "then": {
@@ -189,7 +188,7 @@ Esempio 1: Aggiungere il tag `environment` e sostituire i tag esistenti `environ
 }
 ```
 
-Esempio 2 Rimuovere il tag `env` e aggiungere il tag `environment` o sostituire i tag `environment` esistenti con un valore con parametri:
+Esempio 2: rimuovere il tag `env` e aggiungere il tag `environment` o sostituire i tag `environment` esistenti con un valore con parametri:
 
 ```json
 "then": {
@@ -213,7 +212,7 @@ Esempio 2 Rimuovere il tag `env` e aggiungere il tag `environment` o sostituire 
 }
 ```
 
-## <a name="deny"></a>Nega
+## <a name="deny"></a>Deny
 
 Deny viene usato per impedire una richiesta di risorse che non corrisponde agli standard definiti tramite una definizione dei criteri e che genera un errore della richiesta.
 
@@ -457,7 +456,7 @@ La proprietà **Details** dell'effetto EnforceRegoPolicy include le sottoproprie
 
 ### <a name="enforceregopolicy-example"></a>Esempio di EnforceRegoPolicy
 
-Esempio: Regola di controllo dell'ammissione di rego per consentire solo le immagini del contenitore specificate in AKS.
+Esempio: regola di controllo dell'ammissione di rego per consentire solo le immagini del contenitore specificate in AKS.
 
 ```json
 "if": {
@@ -486,7 +485,7 @@ Esempio: Regola di controllo dell'ammissione di rego per consentire solo le imma
 
 ## <a name="layering-policies"></a>Livelli dei criteri
 
-Una risorsa potrebbe essere interessata da diverse assegnazioni. Queste assegnazioni possono essere nello stesso ambito o in ambiti diversi. È anche probabile che ognuna di queste assegnazioni abbia un effetto diverso definito. La condizione e l'effetto per ogni criterio vengono valutati in modo indipendente. Esempio:
+Una risorsa potrebbe essere interessata da diverse assegnazioni. Queste assegnazioni possono essere nello stesso ambito o in ambiti diversi. È anche probabile che ognuna di queste assegnazioni abbia un effetto diverso definito. La condizione e l'effetto per ogni criterio vengono valutati in modo indipendente. ad esempio:
 
 - Criterio 1
   - Limita la posizione delle risorse a "westus"

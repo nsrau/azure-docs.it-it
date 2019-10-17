@@ -1,29 +1,29 @@
 ---
-title: DALLA clausola in Azure Cosmos DB
-description: Informazioni sulla clausola FROM SQL per Azure Cosmos DB
+title: Clausola FROM in Azure Cosmos DB
+description: Informazioni sulla clausola SQL FROM per Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: tisande
-ms.openlocfilehash: 6bc93569dc9a0405ec3a8dfd719c89ede01df84d
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 79bb17277a041f71c095ed724737012f9501f16f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342670"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327002"
 ---
-# <a name="from-clause"></a>Clausola FROM
+# <a name="from-clause-in-azure-cosmos-db"></a>Clausola FROM in Azure Cosmos DB
 
-FROM (`FROM <from_specification>`) clausola è facoltativa, a meno che non sia filtrata o proiettata più avanti nella query di origine. Una query come `SELECT * FROM Families` enumera l'intera `Families` contenitore. È anche possibile usare la speciale identificatore ROOT per il contenitore invece di usare il nome del contenitore.
+La clausola FROM (`FROM <from_specification>`) è facoltativa, a meno che l'origine non venga filtrata o proiettata più avanti nella query. Una query come `SELECT * FROM Families` enumera l'intero contenitore `Families`. È anche possibile usare la radice identificatore speciale per il contenitore invece di usare il nome del contenitore.
 
-La clausola FROM vengono applicate le regole seguenti per ogni query:
+La clausola FROM applica le regole seguenti per ogni query:
 
-* È possibile effettuare l'aliasing del contenitore, come in `SELECT f.id FROM Families AS f` o semplicemente in `SELECT f.id FROM Families f`. Di seguito `f` corrisponde all'alias `Families`. COME parola chiave facoltativa per [alias](sql-query-aliasing.md) l'identificatore.  
+* È possibile effettuare l'aliasing del contenitore, come in `SELECT f.id FROM Families AS f` o semplicemente in `SELECT f.id FROM Families f`. Qui `f` è l'alias per `Families`. COME è una parola chiave facoltativa per l' [alias](sql-query-aliasing.md) dell'identificatore.  
 
-* Una volta effettuato l'aliasing, non è possibile associare il nome di origine originale. Ad esempio, `SELECT Families.id FROM Families f` sintatticamente non valido perché l'identificatore `Families` è stato utilizzato un alias e non è più possibile risolvere.  
+* Una volta eseguito l'aliasing, non è possibile associare il nome di origine originale. Ad esempio, `SELECT Families.id FROM Families f` è sintatticamente non valido perché l'identificatore `Families` è stato associato a un alias e non è più possibile risolverlo.  
 
-* Tutte le proprietà di cui viene fatto riferimento devono essere completo evitare eventuali associazioni ambigue in assenza di aderenza allo schema rigoroso. Ad esempio, `SELECT id FROM Families f` sintatticamente non valido perché la proprietà `id` non è associato.
+* Tutte le proprietà a cui viene fatto riferimento devono essere complete per evitare qualsiasi binding ambiguo in assenza di una rigida aderenza allo schema. Ad esempio, `SELECT id FROM Families f` è sintatticamente non valido perché la proprietà `id` non è associata.
 
 ## <a name="syntax"></a>Sintassi
   
@@ -87,7 +87,7 @@ FROM <from_specification>
   
   Specifica che il documento deve essere recuperato eseguendo l'accesso alla proprietà `property_name` o all'elemento di matrice array_index per tutti i documenti recuperati dall'espressione di contenitore specificata.  
   
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
   
 Tutti gli alias specificati o dedotti in `<from_source>(` devono essere univoci. La sintassi `<container_expression>.`nome proprietà equivale a `<container_expression>' ['"property_name"']'`. Tuttavia, la seconda sintassi può essere usata se un nome di proprietà contiene un carattere non identificatore.  
   
@@ -103,11 +103,11 @@ Un'espressione di contenitore può avere come ambito un contenitore o un documen
   
 -   Un'espressione ha un ambito documento se l'origine dell'espressione di contenitore sottostante è `input_alias` introdotta in precedenza nella query. Tale espressione rappresenta un set di documenti ottenuti dalla valutazione dell'espressione di contenitore nell'ambito di ogni documento appartenente al set associato al contenitore con alias.  Il set risultante sarà un'unione di set ottenuti dalla valutazione dell'espressione di contenitore per ogni documento del set sottostante. 
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
-### <a name="get-subitems-by-using-the-from-clause"></a>Ottenere gli elementi secondari usando la clausola FROM
+### <a name="get-subitems-by-using-the-from-clause"></a>Ottenere gli elementi secondari utilizzando la clausola FROM
 
-La clausola FROM può ridurre l'origine a un sottoinsieme più piccolo. Per enumerare un solo sottoalbero in ogni elemento, la sottoradice può diventare l'origine, come illustrato nell'esempio seguente:
+La clausola FROM può ridurre l'origine a un subset più piccolo. Per enumerare solo un sottoalbero in ogni elemento, la sottoradice può diventare l'origine, come illustrato nell'esempio seguente:
 
 ```sql
     SELECT *
@@ -147,7 +147,7 @@ I risultati sono:
     ]
 ```
 
-La query precedente utilizzata una matrice come origine, ma è anche possibile usare un oggetto come origine. La query prende in considerazione qualsiasi valore JSON valido, definita nell'origine per l'inclusione nel risultato. L'esempio seguente verrebbe escluderà `Families` che non hanno un `address.state` valore.
+Nella query precedente è stata usata una matrice come origine, ma è anche possibile usare un oggetto come origine. La query considera qualsiasi valore JSON valido e definito nell'origine per l'inclusione nel risultato. Nell'esempio seguente viene escluso `Families` che non hanno un valore `address.state`.
 
 ```sql
     SELECT *

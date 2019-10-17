@@ -7,20 +7,20 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: ea80fda927d293d743f1fdc69f9a7f5fa29838fa
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 7d6941c347f1121654084c8d71ba7c0a293bf558
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266586"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333242"
 ---
-# <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurare una connessione VPN da punto a sito a una VNet usando l'autenticazione del certificato nativa di Azure: Portale di Azure
+# <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurare una connessione VPN da punto a sito a una VNet usando l'autenticazione del certificato di Azure nativo: portale di Azure
 
 Questo articolo illustra come connettere in modo sicuro singoli client che eseguono Windows, Linux o Mac OS X a una rete virtuale di Azure. Le connessioni VPN da punto a sito sono utili per connettersi alla rete virtuale da una posizione remota, ad esempio nel caso di telecomunicazioni da casa o durante una riunione. È anche possibile usare una VPN da punto a sito al posto di una VPN da sito a sito quando solo pochi client devono connettersi a una rete virtuale. Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico. La modalità da punto a sito crea la connessione VPN tramite SSTP (Secure Sockets Tunneling Protocol) o IKEv2. Per altre informazioni sulle connessioni VPN da punto a sito, vedere [Informazioni sulla VPN da punto a sito](point-to-site-about.md).
 
 ![Connettere un computer a una rete virtuale di Azure: diagramma di connessione da punto a sito](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 Le connessioni con autenticazione tramite certificato da punto a sito di Azure usano gli elementi seguenti, che vengono configurati in questo esercizio:
 
@@ -34,28 +34,28 @@ Le connessioni con autenticazione tramite certificato da punto a sito di Azure u
 È possibile usare i valori seguenti per creare un ambiente di test o fare riferimento a questi valori per comprendere meglio gli esempi di questo articolo:
 
 * **Nome della rete virtuale:** VNet1
-* **Spazio indirizzi**: 192.168.0.0/16<br>Per questo esempio, viene usato un solo spazio indirizzi. È possibile avere più di uno spazio indirizzi per la rete virtuale.
-* **Nome della subnet:** Front-end
+* **Spazio indirizzi:** 192.168.0.0/16<br>Per questo esempio, viene usato un solo spazio indirizzi. È possibile avere più di uno spazio indirizzi per la rete virtuale.
+* **Nome subnet:** FrontEnd
 * **Intervallo di indirizzi subnet:** 192.168.1.0/24
-* **Sottoscrizione:** se si dispone di più sottoscrizioni, verificare di usare quella corretta.
+* **Sottoscrizione:** se si hanno più sottoscrizioni, verificare di usare quella corretta.
 * **Gruppo di risorse:** TestRG
-* **Località:** East US
+* **Località:** Stati Uniti orientali
 * **GatewaySubnet:** 192.168.200.0/24<br>
-* **Nome del gateway di rete virtuale:** VNet1GW
+* **Nome gateway di rete virtuale:** VNet1GW
 * **Tipo di gateway:** VPN
-* **Tipo di VPN:** basato su route
-* **Nome dell'indirizzo IP pubblico**: VNet1GWpip
-* **Tipo di connessione**: Da punto a sito
+* **Tipo VPN:** Basato su route
+* **Nome indirizzo IP pubblico:** VNet1GWpip
+* **Tipo di connessione:** Da punto a sito
 * **Pool di indirizzi client:** 172.16.201.0/24<br>I client VPN che si connettono alla rete virtuale con questa connessione da punto a sito ricevono un indirizzo IP dal pool di indirizzi client.
 
-## <a name="createvnet"></a>1. Crea rete virtuale
+## <a name="createvnet"></a>1. creare una rete virtuale
 
 Prima di iniziare, verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial).
 [!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-p2s-vnet-rm-portal-include.md)]
 
-## <a name="creategw"></a>2. Creare un gateway di rete virtuale
+## <a name="creategw"></a>2. creare un gateway di rete virtuale
 
-Questo passaggio illustra come creare il gateway di rete virtuale per la rete virtuale. La creazione di un gateway spesso richiede anche più di 45 minuti di tempo a seconda dello SKU gateway selezionato.
+Questo passaggio illustra come creare il gateway di rete virtuale per la rete virtuale. La creazione di un gateway spesso richiede anche più di 45 minuti di tempo a seconda dell'SKU gateway selezionato.
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
@@ -65,21 +65,21 @@ Questo passaggio illustra come creare il gateway di rete virtuale per la rete vi
 >Lo SKU del gateway Basic non supporta l'autenticazione IKEv2 o RADIUS. Se si prevede che i client Mac si connettano alla rete virtuale, non usare lo SKU Basic.
 >
 
-## <a name="generatecert"></a>3. Generare i certificati
+## <a name="generatecert"></a>3. generare certificati
 
 I certificati vengono usati da Azure per autenticare i client che si connettono a una rete virtuale tramite una connessione VPN da punto a sito. Dopo avere ottenuto un certificato radice, è necessario [caricare](#uploadfile) le informazioni della chiave pubblica in Azure. Il certificato radice viene quindi considerato "attendibile" da Azure per la connessione da punto a sito alla rete virtuale. È anche possibile generare i certificati client dal certificato radice considerato attendibile e quindi installarli in ogni computer client. Il certificato client viene usato per l'autenticazione del client all'avvio di una connessione alla rete virtuale. 
 
-### <a name="getcer"></a>1. Ottenere il file CER per il certificato radice
+### <a name="getcer"></a>1. ottenere il file CER per il certificato radice
 
 [!INCLUDE [root-certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
-### <a name="generateclientcert"></a>2. Generazione di un certificato client
+### <a name="generateclientcert"></a>2. generare un certificato client
 
 [!INCLUDE [generate-client-cert](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
-## <a name="addresspool"></a>4. Aggiungere il pool di indirizzi client
+## <a name="addresspool"></a>4. aggiungere il pool di indirizzi client
 
-Il pool di indirizzi client è un intervallo di indirizzi IP privati specificati dall'utente. I client che si connettono dinamicamente tramite VPN da punto a sito ricevono un indirizzo IP da questo intervallo. Usare un intervallo di indirizzi IP privati che non si sovrapponga con la posizione locale da cui viene effettuata la connessione o con la rete virtuale a cui ci si vuole connettere.
+Il pool di indirizzi client è un intervallo di indirizzi IP privati specificati dall'utente. I client che si connettono dinamicamente tramite VPN da punto a sito ricevono un indirizzo IP da questo intervallo. Usare un intervallo di indirizzi IP privati che non si sovrapponga con la posizione locale da cui viene effettuata la connessione o con la rete virtuale a cui ci si vuole connettere. Se si configurano più protocolli e SSTP è uno dei protocolli, il pool di indirizzi configurato viene suddiviso equamente tra i protocolli configurati.
 
 1. Dopo avere creato il gateway di rete virtuale, andare alla sezione **Impostazioni** della pagina della rete virtuale. Nella sezione **Impostazioni** fare clic su **Configurazione da punto a sito**.
 
@@ -89,25 +89,25 @@ Il pool di indirizzi client è un intervallo di indirizzi IP privati specificati
    ![Configura ora](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
 3. Nella pagina **Configurazione da punto a sito** aggiungere nella casella **Pool di indirizzi** l'intervallo di indirizzi IP privati da usare. I client VPN ricevono dinamicamente un indirizzo IP dall'intervallo specificato. Il subnet mask minimo è 29 bit per attivo/passivo e 28 bit per la configurazione attiva/attiva. Fare clic su **Salva** per convalidare e salvare le impostazioni.
 
-   ![Pool indirizzi client](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
+   ![Pool di indirizzi client](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
    >[!NOTE]
    >Se in questa pagina non viene visualizzato il tipo di tunnel o il tipo di autenticazione nel portale, il gateway usa lo SKU Basic. Lo SKU Basic non supporta l'autenticazione IKEv2 o RADIUS.
    >
 
-## <a name="tunneltype"></a>5. Configurare il tipo di tunnel
+## <a name="tunneltype"></a>5. configurare il tipo di tunnel
 
 È possibile selezionare il tipo di tunnel. Le opzioni del tunnel sono OpenVPN, SSTP e IKEv2. Il client strongSwan in Android e Linux e il client VPN IKEv2 nativo in iOS e OSX useranno solo il tunnel IKEv2 per la connessione. I client Windows provano prima IKEv2 e, se la connessione non viene stabilita, tornano a SSTP. È possibile usare il client OpenVPN per connettersi al tipo di tunnel OpenVPN.
 
 ![Tipo di tunnel](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
 
-## <a name="authenticationtype"></a>6. Configurare il tipo di autenticazione
+## <a name="authenticationtype"></a>6. configurare il tipo di autenticazione
 
 Selezionare **Certificato di Azure**.
 
   ![Tipo di tunnel](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/authenticationtype.png)
 
-## <a name="uploadfile"></a>7. Caricare i dati del certificato pubblico per il certificato radice
+## <a name="uploadfile"></a>7. caricare i dati del certificato pubblico del certificato radice
 
 È possibile caricare fino a 20 certificati radice attendibili aggiuntivi. Al termine del caricamento dei dati del certificato pubblico, Azure li può usare per autenticare i client che hanno installato un certificato client generato dal certificato radice attendibile. Caricare le informazioni della chiave pubblica del certificato radice in Azure.
 
@@ -123,7 +123,7 @@ Selezionare **Certificato di Azure**.
 
    ![Salva](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
 
-## <a name="installclientcert"></a>8. Installare un certificato client esportato
+## <a name="installclientcert"></a>8. installare un certificato client esportato
 
 Se si vuole creare una connessione da punto a sito da un computer client diverso da quello usato per generare i certificati client, è necessario installare un certificato client. Quando si installa un certificato client, è necessaria la password che è stata creata durante l'esportazione del certificato client.
 
@@ -131,11 +131,11 @@ Verificare che il certificato client sia stato esportato come PFX con l'intera c
 
 Per la procedura di installazione, vedere [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md) (Installare un certificato client).
 
-## <a name="clientconfig"></a>9. Generare e installare il pacchetto di configurazione del client VPN
+## <a name="clientconfig"></a>9. generare e installare il pacchetto di configurazione del client VPN
 
 I file di configurazione del client VPN contengono le impostazioni per configurare i dispositivi per la connessione a una rete virtuale tramite una connessione P2S. Per le istruzioni per generare e installare i file di configurazione del client VPN, vedere [Create and install VPN client configuration files for native Azure certificate authentication P2S configurations](point-to-site-vpn-client-configuration-azure-cert.md) (Creare e installare i file di configurazione del client VPN per le configurazioni P2S per l'autenticazione del certificato di Azure nativo).
 
-## <a name="connect"></a>10. Connect to Azure
+## <a name="connect"></a>10. connettersi ad Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Per connettersi da un client VPN Windows
 

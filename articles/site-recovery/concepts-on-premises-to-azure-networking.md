@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 182c93ea0b887242d142eda5aeb44b2749c7ac66
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: f535a681ac3508aafc2823bcc9b9ae7f22cc2d8e
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937564"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333037"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Connettersi alle macchine virtuali di Azure dopo il failover da locale 
 
@@ -35,13 +35,13 @@ Per garantire la connettività alle VM di Azure, preparare i computer locali pri
 
 ### <a name="prepare-windows-machines"></a>Preparare i computer Windows
 
-Nei computer Windows locali eseguire le operazioni seguenti:
+Nei computer Windows locali eseguire questa procedura:
 
 1. Configurare le impostazioni di Windows. Sono incluse la rimozione di route persistenti statiche o proxy WinHTTP e l'impostazione dei criteri SANdel disco su onlineal. [Seguire](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure) queste istruzioni.
 
-2. Verificare che [questi servizi](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services) siano in esecuzione.
+2. Assicurarsi che [questi servizi](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services) siano in esecuzione.
 
-3. Abilitare Desktop remoto (RDP) per consentire le connessioni remote al computer locale. [Informazioni su come](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings) abilitare RDP con PowerShell.
+3. Abilitare Desktop remoto (RDP) per consentire le connessioni remote al computer locale. [Informazioni](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings) su come abilitare RDP con PowerShell.
 
 4. Per accedere a una macchina virtuale di Azure tramite Internet dopo il failover, in Windows Firewall nel computer locale, consentire TCP e UDP nel profilo pubblico e impostare RDP come app consentita per tutti i profili.
 
@@ -50,9 +50,9 @@ Nei computer Windows locali eseguire le operazioni seguenti:
 
 ### <a name="prepare-linux-machines"></a>Preparare i computer Linux
 
-Nei computer Linux locali eseguire le operazioni seguenti:
+Nei computer Linux locali eseguire questa procedura:
 
-1. Verificare che il servizio Secure Shell sia impostato per l'avvio automatico all'avvio del sistema.
+1. Assicurarsi che il servizio Secure Shell sia impostato per l'avvio automatico all'avvio del sistema.
 2. Controllare che le regole del firewall consentano una connessione SSH.
 
 
@@ -60,13 +60,13 @@ Nei computer Linux locali eseguire le operazioni seguenti:
 
 Dopo il failover, eseguire le operazioni seguenti nelle macchine virtuali di Azure create.
 
-1. Per connettersi alla macchina virtuale tramite Internet, assegnare un indirizzo IP pubblico alla macchina virtuale. Non è possibile usare lo stesso indirizzo IP pubblico per la macchina virtuale di Azure usata per il computer locale. [Altre informazioni](../virtual-network/virtual-network-public-ip-address.md)
-2. Verificare che le regole del gruppo di sicurezza di rete (NSG) nella macchina virtuale consentano le connessioni in ingresso alla porta RDP o SSH.
-3. Controllare la [diagnostica di avvio](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) per visualizzare la macchina virtuale.
+1. Per connettersi alla macchina virtuale tramite Internet, assegnare alla macchina virtuale un indirizzo IP pubblico. Per la macchina virtuale di Azure non è possibile usare lo stesso indirizzo IP pubblico usato in precedenza per il computer locale. [Ulteriori informazioni](../virtual-network/virtual-network-public-ip-address.md)
+2. Verificare che le regole del gruppo di sicurezza di rete nella macchina virtuale consentano le connessioni in ingresso alla porta RDP o SSH.
+3. Controllare la [Diagnostica di avvio](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) per visualizzare la macchina virtuale.
 
 
 > [!NOTE]
-> Il servizio Azure Bastion offre accesso privato RDP e SSH alle macchine virtuali di Azure. [Altre](../bastion/bastion-overview.md) informazioni su questo servizio.
+> Il servizio Azure Bastion offre accesso privato RDP e SSH alle macchine virtuali di Azure. [Altre informazioni](../bastion/bastion-overview.md) su questo servizio.
 
 ## <a name="set-a-public-ip-address"></a>Impostare un indirizzo IP pubblico
 
@@ -77,8 +77,8 @@ In alternativa all'assegnazione manuale di un indirizzo IP pubblico a una macchi
 
 Per impostare l'indirizzo IP interno di una macchina virtuale di Azure dopo il failover, sono disponibili due opzioni:
 
-- **Mantenere lo stesso indirizzo IP**: È possibile usare lo stesso indirizzo IP nella macchina virtuale di Azure come quello allocato al computer locale.
-- **Usare un indirizzo IP diverso**: È possibile usare un indirizzo IP diverso per la macchina virtuale di Azure.
+- **Mantenere lo stesso indirizzo IP**: è possibile usare lo stesso indirizzo IP nella macchina virtuale di Azure come quello allocato al computer locale.
+- **Usare un indirizzo IP diverso**: è possibile usare un indirizzo IP diverso per la macchina virtuale di Azure.
 
 
 ## <a name="retain-ip-addresses"></a>Mantenere gli indirizzi IP
@@ -91,7 +91,7 @@ Site Recovery consente di mantenere gli stessi indirizzi IP in caso di failover 
 
 Per mantenere gli indirizzi IP sono necessari i passaggi seguenti:
 
-- Nelle proprietà del computer locale impostare la rete e gli indirizzi IP per la macchina virtuale di Azure di destinazione per eseguire il mirroring dell'impostazione locale.
+- Nelle proprietà di rete del & di calcolo dell'elemento replicato impostare la rete e gli indirizzi IP per la macchina virtuale di Azure di destinazione per eseguire il mirroring dell'impostazione locale.
 - Le subnet devono essere gestite come parte del processo di ripristino di emergenza. È necessario disporre di una VNet di Azure in modo che corrisponda alla rete locale e dopo che le route di rete di failover devono essere modificate per indicare che la subnet è stata spostata in Azure e le nuove posizioni degli indirizzi IP.  
 
 ### <a name="failover-example"></a>Esempio di failover
@@ -120,7 +120,7 @@ Per mantenere gli indirizzi, ecco cosa accade.
     > A seconda dei requisiti dell'applicazione, è possibile configurare una connessione da VNet a VNet prima del failover, come passaggio manuale/passaggio con script/Runbook di automazione di Azure in un [piano di ripristino](site-recovery-create-recovery-plans.md)Site Recovery o dopo il completamento del failover.
 
 4. Prima del failover, nelle proprietà del computer in Site Recovery, l'indirizzo IP di destinazione viene impostato sull'indirizzo del computer locale, come descritto nella procedura seguente.
-5. Dopo il failover, le macchine virtuali di Azure vengono create con lo stesso indirizzo IP. Woodgrove si connette dalla **rete di Azure** alla rete di **ripristino** VNet usando un 
+5. Dopo il failover, le macchine virtuali di Azure vengono create con lo stesso indirizzo IP. Woodgrove si connette dalla **rete di Azure** alla rete di **ripristino** VNet usando il peering VNet (con connettività di transito abilitata).
 6. In locale, Woodgrove deve apportare modifiche alla rete, inclusa la modifica delle route per indicare che 192.168.1.0/24 è stato spostato in Azure.  
 
 **Infrastruttura prima del failover**

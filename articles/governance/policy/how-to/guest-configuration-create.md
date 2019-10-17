@@ -6,16 +6,16 @@ ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: fcb65e75de730178901742dc36c72776e39b044b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 0be6afc2d4d7f97717200b86d5e5b3bc2194afee
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977962"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376179"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Come creare i criteri di configurazione Guest
 
-La configurazione Guest usa un modulo di risorse DSC ( [desired state Configuration](/powershell/dsc) ) per creare la configurazione per il controllo delle macchine Azure. La configurazione DSC definisce la condizione in cui deve trovarsi il computer. Se la valutazione della configurazione ha esito negativo, viene attivato l'effetto del criterio **auditIfNotExists** e il computer viene considerato **non conforme**.
+La configurazione Guest usa un modulo di risorse DSC ( [desired state Configuration](/powershell/scripting/dsc/overview/overview) ) per creare la configurazione per il controllo delle macchine Azure. La configurazione DSC definisce la condizione in cui deve trovarsi il computer. Se la valutazione della configurazione ha esito negativo, viene attivato l'effetto del criterio **auditIfNotExists** e il computer viene considerato **non conforme**.
 
 La [configurazione Guest di criteri di Azure](/azure/governance/policy/concepts/guest-configuration) può essere usata solo per controllare le impostazioni all'interno dei computer. La correzione delle impostazioni all'interno dei computer non è ancora disponibile.
 
@@ -55,7 +55,7 @@ La configurazione Guest usa il modulo della risorsa **GuestConfiguration** per l
 
 ## <a name="create-custom-guest-configuration-configuration-and-resources"></a>Creazione di risorse e configurazione personalizzate per la configurazione Guest
 
-Il primo passaggio per la creazione di un criterio personalizzato per la configurazione Guest consiste nel creare la configurazione DSC. Per una panoramica dei concetti e della terminologia DSC, vedere [Panoramica di PowerShell DSC](/powershell/dsc/overview/overview).
+Il primo passaggio per la creazione di un criterio personalizzato per la configurazione Guest consiste nel creare la configurazione DSC. Per una panoramica dei concetti e della terminologia DSC, vedere [Panoramica di PowerShell DSC](/powershell/scripting/dsc/overview/overview).
 
 Se la configurazione richiede solo risorse compilate con l'installazione dell'agente di configurazione Guest, è sufficiente creare un file MOF di configurazione. Se è necessario eseguire script aggiuntivi, è necessario creare un modulo di risorse personalizzato.
 
@@ -73,9 +73,9 @@ La proprietà reasons viene usata dal servizio per standardizzare il modo in cui
 
 Il **codice** e la **frase** delle proprietà sono previsti dal servizio. Quando si crea una risorsa personalizzata, impostare il testo (in genere stdout) da mostrare come motivo per cui la risorsa non è conforme come valore per la **frase**. Il **codice** presenta requisiti di formattazione specifici, quindi la creazione di report consente di visualizzare chiaramente le informazioni sulla risorsa utilizzata per eseguire il controllo. Questa soluzione rende estendibile la configurazione Guest. È possibile eseguire qualsiasi comando per controllare un computer purché l'output possa essere acquisito e restituito come valore stringa per la proprietà **Phrase** .
 
-- **Codice** (stringa): Nome della risorsa, ripetuto, quindi nome breve senza spazi come identificatore per il motivo. Questi tre valori devono essere delimitati da due punti senza spazi.
+- **Code** (String): nome della risorsa, ripetuto, quindi nome breve senza spazi come identificatore per il motivo. Questi tre valori devono essere delimitati da due punti senza spazi.
   - Un esempio è `registry:registry:keynotpresent`
-- **Frase** (stringa): Testo leggibile per spiegare il motivo per cui l'impostazione non è conforme.
+- **Phrase** (String): testo leggibile per spiegare il motivo per cui l'impostazione non è conforme.
   - Un esempio è `The registry key $key is not present on the machine.`
 
 ```powershell
@@ -115,7 +115,7 @@ Configuration baseline
 baseline
 ```
 
-Per altre informazioni, vedere [scrivere, compilare e applicare una configurazione](/powershell/dsc/configurations/write-compile-apply-configuration).
+Per altre informazioni, vedere [scrivere, compilare e applicare una configurazione](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
 
 ### <a name="custom-guest-configuration-configuration-on-windows"></a>Configurazione personalizzata della configurazione Guest in Windows
 
@@ -141,7 +141,7 @@ Configuration AuditBitLocker
 AuditBitLocker
 ```
 
-Per altre informazioni, vedere [scrivere, compilare e applicare una configurazione](/powershell/dsc/configurations/write-compile-apply-configuration).
+Per altre informazioni, vedere [scrivere, compilare e applicare una configurazione](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
 
 ## <a name="create-guest-configuration-custom-policy-package"></a>Creare un pacchetto di criteri personalizzato per la configurazione Guest
 
@@ -163,10 +163,10 @@ New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}'
 
 Parametri del cmdlet `New-GuestConfigurationPackage`:
 
-- **Nome**: Nome del pacchetto di configurazione Guest.
-- **Configurazione**: Percorso completo del documento di configurazione DSC compilato.
-- **Percorso**: Percorso della cartella di output. Questo parametro è facoltativo e, Se non è specificato, il pacchetto viene creato nella directory corrente.
-- **ChefProfilePath**: Percorso completo del profilo INSPEC. Questo parametro è supportato solo quando si crea contenuto per il controllo di Linux.
+- **Nome**: nome del pacchetto di configurazione Guest.
+- **Configurazione**: percorso completo del documento di configurazione DSC compilato.
+- **Path**: percorso della cartella di output. Questo parametro è facoltativo e, Se non è specificato, il pacchetto viene creato nella directory corrente.
+- **ChefProfilePath**: percorso completo del profilo INSPEC. Questo parametro è supportato solo quando si crea contenuto per il controllo di Linux.
 
 Il pacchetto completato deve essere archiviato in un percorso accessibile dalle macchine virtuali gestite. Gli esempi includono repository GitHub, un repository di Azure o archiviazione di Azure. Se si preferisce non rendere pubblico il pacchetto, è possibile includere un [token SAS](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) nell'URL. È anche possibile implementare l' [endpoint di servizio](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) per i computer in una rete privata, anche se questa configurazione si applica solo all'accesso al pacchetto e non alla comunicazione con il servizio.
 
@@ -190,7 +190,7 @@ Nella configurazione Guest di criteri di Azure, il modo migliore per gestire i s
 
 1. Infine, all'interno della risorsa personalizzata usare l'ID client generato in precedenza per accedere Key Vault usando il token disponibile dal computer.
 
-   Il `client_id` e l'URL dell'istanza di Key Vault possono essere passati alla risorsa come [Proprietà](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema) in modo che la risorsa non debba essere aggiornata per più ambienti o se è necessario modificare i valori.
+   Il `client_id` e l'URL dell'istanza di Key Vault possono essere passati alla risorsa come [Proprietà](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema) in modo che la risorsa non debba essere aggiornata per più ambienti o se è necessario modificare i valori.
 
 L'esempio di codice seguente può essere usato in una risorsa personalizzata per recuperare i segreti da Key Vault usando un'identità assegnata dall'utente. Il valore restituito dalla richiesta a Key Vault è testo normale. Come procedura consigliata, archiviarlo in un oggetto credenziale.
 
@@ -216,9 +216,9 @@ Test-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsS
 
 Parametri del cmdlet `Test-GuestConfigurationPackage`:
 
-- **Nome**: Nome dei criteri di configurazione Guest.
-- **Parametro**: Parametri dei criteri forniti nel formato Hashtable.
-- **Percorso**: Percorso completo del pacchetto di configurazione Guest.
+- **Nome**: nome dei criteri di configurazione Guest.
+- **Parametro**: parametri dei criteri forniti nel formato Hashtable.
+- **Percorso**: percorso completo del pacchetto di configurazione Guest.
 
 Il cmdlet supporta anche l'input dalla pipeline di PowerShell. Inviare tramite pipe l'output del cmdlet `New-GuestConfigurationPackage` al cmdlet `Test-GuestConfigurationPackage`.
 
@@ -226,7 +226,7 @@ Il cmdlet supporta anche l'input dalla pipeline di PowerShell. Inviare tramite p
 New-GuestConfigurationPackage -Name AuditWindowsService -Configuration .\DSCConfig\localhost.mof -Path .\package -Verbose | Test-GuestConfigurationPackage -Verbose
 ```
 
-Per ulteriori informazioni su come eseguire il test con i parametri, vedere la sezione seguente [utilizzo di parametri nei criteri di configurazione Guest personalizzati](/azure/governance/policy/how-to/guest-configuration-create#using-parameters-in-custom-guest-configuration-policies).
+Per ulteriori informazioni su come eseguire il test con i parametri, vedere la sezione seguente [utilizzo di parametri nei criteri di configurazione Guest personalizzati](#using-parameters-in-custom-guest-configuration-policies).
 
 ## <a name="create-the-azure-policy-definition-and-initiative-deployment-files"></a>Creare i file di definizione dei criteri e di distribuzione delle iniziative di Azure
 
@@ -248,12 +248,12 @@ New-GuestConfigurationPolicy
 Parametri del cmdlet `New-GuestConfigurationPolicy`:
 
 - **ContentUri**: URI http (s) pubblico del pacchetto del contenuto di configurazione Guest.
-- **DisplayName**: Nome visualizzato del criterio.
-- **Descrizione**: Descrizione dei criteri.
-- **Parametro**: Parametri dei criteri forniti nel formato Hashtable.
-- **Versione**: Versione dei criteri.
-- **Percorso**: Percorso di destinazione in cui vengono create le definizioni dei criteri.
-- **Piattaforma**: Piattaforma di destinazione (Windows/Linux) per i criteri di configurazione Guest e il pacchetto di contenuto.
+- **DisplayName**: nome visualizzato del criterio.
+- **Descrizione**: Descrizione del criterio.
+- **Parametro**: parametri dei criteri forniti nel formato Hashtable.
+- **Versione**: versione dei criteri.
+- **Path**: percorso di destinazione in cui vengono create le definizioni dei criteri.
+- **Piattaforma**: piattaforma di destinazione (Windows/Linux) per i criteri di configurazione Guest e il pacchetto di contenuto.
 
 I file seguenti vengono creati da `New-GuestConfigurationPolicy`:
 
@@ -298,7 +298,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-Per i criteri di Linux, includere la proprietà **AttributesYmlContent** nella configurazione e sovrascrivere i valori di conseguenza. L'agente di configurazione Guest crea automaticamente il file YaML usato da INSPEC per archiviare gli attributi. Vedere l'esempio seguente.
+Per i criteri di Linux, includere la proprietà **AttributesYmlContent** nella configurazione e sovrascrivere i valori di conseguenza. L'agente di configurazione Guest crea automaticamente il file YaML usato da INSPEC per archiviare gli attributi. Vedi l'esempio seguente.
 
 ```azurepowershell-interactive
 Configuration FirewalldEnabled {
@@ -360,17 +360,17 @@ Con le definizioni di criteri e iniziative create in Azure, l'ultimo passaggio c
 
 Dopo aver pubblicato un criterio personalizzato di Azure usando il pacchetto di contenuto personalizzato, è necessario aggiornare due campi se si vuole pubblicare una nuova versione.
 
-- **Versione**: Quando si esegue il cmdlet `New-GuestConfigurationPolicy`, è necessario specificare un numero di versione maggiore di quello attualmente pubblicato. Tramite la proprietà viene aggiornata la versione dell'assegnazione di configurazione Guest nel nuovo file dei criteri in modo che l'estensione riconosca che il pacchetto è stato aggiornato.
-- **contentHash**: Questa proprietà viene aggiornata automaticamente dal cmdlet `New-GuestConfigurationPolicy`. Si tratta di un valore hash del pacchetto creato da `New-GuestConfigurationPackage`. La proprietà deve essere corretta per il file `.zip` da pubblicare. Se viene aggiornata solo la proprietà **contentUri** , ad esempio nel caso in cui un utente possa apportare una modifica manuale alla definizione dei criteri dal portale, l'estensione non accetterà il pacchetto di contenuto.
+- **Versione**: quando si esegue il cmdlet `New-GuestConfigurationPolicy`, è necessario specificare un numero di versione maggiore di quello attualmente pubblicato. Tramite la proprietà viene aggiornata la versione dell'assegnazione di configurazione Guest nel nuovo file dei criteri in modo che l'estensione riconosca che il pacchetto è stato aggiornato.
+- **contentHash**: questa proprietà viene aggiornata automaticamente dal cmdlet `New-GuestConfigurationPolicy`. Si tratta di un valore hash del pacchetto creato da `New-GuestConfigurationPackage`. La proprietà deve essere corretta per il file `.zip` da pubblicare. Se viene aggiornata solo la proprietà **contentUri** , ad esempio nel caso in cui un utente possa apportare una modifica manuale alla definizione dei criteri dal portale, l'estensione non accetterà il pacchetto di contenuto.
 
 Il modo più semplice per rilasciare un pacchetto aggiornato consiste nel ripetere il processo descritto in questo articolo e fornire un numero di versione aggiornato. Questo processo garantisce che tutte le proprietà siano state aggiornate correttamente.
 
 ## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Conversione del contenuto di Windows Criteri di gruppo nella configurazione Guest di criteri di Azure
 
-La configurazione Guest, quando si controllano i computer Windows, è un'implementazione della sintassi di PowerShell DSC (Desired state Configuration). La community DSC ha pubblicato strumenti per convertire i modelli esportati Criteri di gruppo in formato DSC. Usando questo strumento con i cmdlet di configurazione Guest descritti in precedenza, è possibile convertire il contenuto di Windows Criteri di gruppo e il pacchetto/pubblicarlo per il controllo di criteri di Azure. Per informazioni dettagliate sull'uso dello strumento, vedere l'articolo [Quickstart: Convertire Criteri di gruppo in DSC @ no__t-0.
+La configurazione Guest, quando si controllano i computer Windows, è un'implementazione della sintassi di PowerShell DSC (Desired state Configuration). La community DSC ha pubblicato strumenti per convertire i modelli esportati Criteri di gruppo in formato DSC. Usando questo strumento con i cmdlet di configurazione Guest descritti in precedenza, è possibile convertire il contenuto di Windows Criteri di gruppo e il pacchetto/pubblicarlo per il controllo di criteri di Azure. Per informazioni dettagliate sull'uso dello strumento, vedere l'articolo [Guida introduttiva: convertire criteri di gruppo in DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
 Una volta che il contenuto è stato convertito, i passaggi precedenti per creare un pacchetto e pubblicarlo come criterio di Azure saranno identici a quelli per qualsiasi contenuto DSC.
 
-## <a name="optional-signing-guest-configuration-packages"></a>FACOLTATIVO: Firma dei pacchetti di configurazione Guest
+## <a name="optional-signing-guest-configuration-packages"></a>FACOLTATIVO: firma dei pacchetti di configurazione Guest
 
 Per impostazione predefinita, i criteri personalizzati di configurazione Guest usano l'hash SHA256 per convalidare che il pacchetto di criteri non è stato modificato da quando è stato pubblicato in quando viene letto dal server sottoposto a controllo.
 Facoltativamente, i clienti possono anche usare un certificato per firmare i pacchetti e forzare l'estensione di configurazione Guest in modo che consenta solo il contenuto firmato.
@@ -386,10 +386,10 @@ Protect-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindo
 
 Parametri del cmdlet `Protect-GuestConfigurationPackage`:
 
-- **Percorso**: Percorso completo del pacchetto di configurazione Guest.
-- **Certificato**: Certificato di firma del codice per la firma del pacchetto. Questo parametro è supportato solo per la firma di contenuto per Windows.
-- **PrivateGpgKeyPath**: Percorso della chiave GPG privata. Questo parametro è supportato solo quando si firma il contenuto per Linux.
-- **PublicGpgKeyPath**: Percorso della chiave GPG pubblica. Questo parametro è supportato solo quando si firma il contenuto per Linux.
+- **Percorso**: percorso completo del pacchetto di configurazione Guest.
+- **Certificato**: certificato di firma del codice per la firma del pacchetto. Questo parametro è supportato solo per la firma di contenuto per Windows.
+- **PrivateGpgKeyPath**: percorso della chiave GPG privata. Questo parametro è supportato solo quando si firma il contenuto per Linux.
+- **PublicGpgKeyPath**: percorso della chiave GPG pubblico. Questo parametro è supportato solo quando si firma il contenuto per Linux.
 
 GuestConfiguration Agent prevede che la chiave pubblica del certificato sia presente in "autorità di certificazione radice attendibili" nei computer Windows e nel percorso `/usr/local/share/ca-certificates/extra` nei computer Linux. Per consentire al nodo di verificare il contenuto firmato, installare la chiave pubblica del certificato nel computer prima di applicare il criterio personalizzato. Questo processo può essere eseguito usando qualsiasi tecnica all'interno della macchina virtuale o usando criteri di Azure. Un modello di esempio è [disponibile qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows).
 Il criterio di accesso Key Vault deve consentire al provider di risorse di calcolo di accedere ai certificati durante le distribuzioni. Per i passaggi dettagliati, vedere [configurare Key Vault per le macchine virtuali in Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).

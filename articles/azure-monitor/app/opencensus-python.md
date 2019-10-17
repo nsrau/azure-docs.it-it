@@ -1,5 +1,5 @@
 ---
-title: Monitorare le applicazioni Python con monitoraggio di Azure | Microsoft Docs
+title: Monitorare le applicazioni Python con monitoraggio di Azure (anteprima) | Microsoft Docs
 description: Fornisce istruzioni per collegare OpenCensus Python con monitoraggio di Azure
 services: application-insights
 keywords: ''
@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.reviewer: mbullwin
 manager: carmonm
-ms.openlocfilehash: 1316cf6808f6ccfc4165ad162c51421638b130be
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: ed61cb1bc88c48fe89c4a9390f04747749bd48c5
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293986"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329470"
 ---
-# <a name="set-up-azure-monitor-for-your-python-application"></a>Configurare monitoraggio di Azure per l'applicazione Python
+# <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurare monitoraggio di Azure per l'applicazione Python (anteprima)
 
 Monitoraggio di Azure supporta la traccia distribuita, la raccolta delle metriche e la registrazione delle applicazioni Python tramite l'integrazione con [OpenCensus](https://opencensus.io). Questo articolo illustra in modo dettagliato il processo di configurazione di OpenCensus per Python e di recupero dei dati di monitoraggio in monitoraggio di Azure.
 
@@ -42,11 +42,11 @@ Prima di tutto è necessario creare una risorsa Application Insights in monitora
 
    Verrà visualizzata una casella di configurazione. Usare la tabella seguente per completare i campi di input.
 
-    | Impostazioni        | Value           | Descrizione  |
+    | Impostazioni        | Value           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Valore globalmente univoco | Nome che identifica l'app da monitorare |
+   | **Nome**      | Valore globalmente univoco | Nome che identifica l'app da monitorare |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per l'hosting dei dati di Application Insights |
-   | **Location** | East US | Scegliere una località nelle vicinanze o vicina a quella in cui è ospitata l'app |
+   | **Località** | Stati Uniti Orientali | Scegliere una località nelle vicinanze o vicina a quella in cui è ospitata l'app |
 
 2. Fare clic su **Create**(Crea).
 
@@ -130,7 +130,7 @@ Prima di tutto è necessario creare una risorsa Application Insights in monitora
 
 4. A questo punto, quando si esegue lo script Python, viene comunque richiesto di immettere i valori, ma ora viene stampato solo il valore nella shell. Il `SpanData` creato verrà inviato a monitoraggio di Azure. È possibile trovare i dati di intervallo emessi in `dependencies`.
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>Metriche
 
 1. Prima di tutto, è necessario generare alcuni dati sulle metriche locali. Viene creata una metrica semplice per tenere traccia del numero di volte in cui l'utente preme INVIO.
 
@@ -347,6 +347,6 @@ Prima di tutto è necessario creare una risorsa Application Insights in monitora
 
 ### <a name="alerts"></a>Avvisi
 
-* [Test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md): creare test per assicurarsi che il sito sia visibile sul Web.
+* [Test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md): creare test per verificare che il sito sia visibile sul Web.
 * [Diagnostica intelligente](../../azure-monitor/app/proactive-diagnostics.md): questi test vengono eseguiti automaticamente e non è quindi necessario effettuare alcuna operazione per configurarli. Se l'app ha una frequenza insolita di richieste non riuscite, verrà comunicato automaticamente.
-* [Avvisi delle metriche](../../azure-monitor/app/alerts.md): Impostare gli avvisi in modo da ricevere un avviso se una metrica supera una soglia. È possibile impostarli nelle metriche personalizzate di cui si scrive il codice nell'app.
+* [Avvisi metrica](../../azure-monitor/app/alerts.md): impostare gli avvisi in modo da ricevere un avviso se una metrica supera una soglia. È possibile impostarli nelle metriche personalizzate di cui si scrive il codice nell'app.

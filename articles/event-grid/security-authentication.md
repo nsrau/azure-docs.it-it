@@ -1,6 +1,6 @@
 ---
 title: Sicurezza e autenticazione di Griglia di eventi di Azure
-description: Vengono descritti il servizio Griglia di eventi di Azure e i concetti correlati.
+description: Descrive Griglia di eventi di Azure e ne illustra i principali concetti.
 services: event-grid
 author: banisadr
 manager: timlt
@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 87cfce6045ce84f83ca651472635227547c26ee9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f22d8c57b0127e646321a20587d0cd89f5c9ea45
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66117015"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72325416"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sicurezza e autenticazione di Griglia di eventi 
 
@@ -35,18 +35,18 @@ Analogamente a molti altri servizi che supportano i webhook, Griglia di eventi r
 
 Se si usa un altro tipo di endpoint, ad esempio un trigger HTTP basato su una funzione di Azure, il codice dell'endpoint deve partecipare a un handshake di convalida con Griglia di eventi. Griglia di eventi supporta due modalità di convalida della sottoscrizione.
 
-1. **Handshake ValidationCode (programmatico)** : se si controlla il codice sorgente per l'endpoint, è consigliabile usare questo metodo. In fase di creazione della sottoscrizione di eventi, Griglia di eventi invia un evento di convalida della sottoscrizione all'endpoint. Lo schema di questo evento è simile a qualsiasi altro evento di Griglia di eventi. La parte di dati dell'evento include una proprietà `validationCode`. L'applicazione verifica che la richiesta di convalida sia per una sottoscrizione di eventi prevista e restituisce il codice di convalida a Griglia di eventi. Questo meccanismo di handshake è supportato in tutte le versioni di Griglia di eventi.
+1. **Handshake ValidationCode (programmatico)** : se si controlla il codice sorgente per l'endpoint, questo metodo è consigliato. In fase di creazione della sottoscrizione di eventi, Griglia di eventi invia un evento di convalida della sottoscrizione all'endpoint. Lo schema di questo evento è simile a qualsiasi altro evento di Griglia di eventi. La parte di dati dell'evento include una proprietà `validationCode`. L'applicazione verifica che la richiesta di convalida sia per una sottoscrizione di eventi prevista e restituisce il codice di convalida a Griglia di eventi. Questo meccanismo di handshake è supportato in tutte le versioni di Griglia di eventi.
 
-2. **Handshake ValidationURL (manuale)** : in alcuni casi è impossibile accedere al codice sorgente dell'endpoint per implementare l'handshake ValidationCode. Se ad esempio si usa un servizio di terze parti, come [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/), non è possibile rispondere con il codice di convalida a livello di programmazione.
+2. **Handshake ValidationURL (manuale)** : in alcuni casi non è possibile accedere al codice sorgente dell'endpoint per implementare l'handshake ValidationCode. Se ad esempio si usa un servizio di terze parti, come [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/), non è possibile rispondere con il codice di convalida a livello di programmazione.
 
    A partire dalla versione 2018-05-01-preview, Griglia di eventi supporta un handshake di convalida manuale. Se si sta creando una sottoscrizione di eventi con un SDK o uno strumento che usa l'API 2018-05-01-preview o versione successiva, Griglia di eventi invia una proprietà `validationUrl` nella parte di dati dell'evento di convalida della sottoscrizione. Per completare l'handshake, trovare l'URL nei dati dell'evento e inviare manualmente una richiesta GET a tali dati. È possibile usare un client REST o un Web browser.
 
-   L'URL specificato è valido per 5 minuti. Durante questo periodo, lo stato di provisioning della sottoscrizione di eventi è `AwaitingManualAction`. Se si non completata la convalida manuale entro 5 minuti, lo stato di provisioning è impostato su `Failed`. È possibile creare la sottoscrizione all'evento nuovamente prima di avviare la convalida manuale.
+   L'URL specificato è valido per 5 minuti. Durante questo periodo, lo stato di provisioning della sottoscrizione di eventi è `AwaitingManualAction`. Se la convalida manuale non viene completata entro 5 minuti, lo stato di provisioning viene impostato su `Failed`. È possibile creare la sottoscrizione all'evento nuovamente prima di avviare la convalida manuale.
 
-    Questo meccanismo di autenticazione richiede anche l'endpoint di webhook per restituire un codice di stato HTTP 200, in modo che sappia che è stata accettata la richiesta POST per l'evento di convalida prima che possa essere inviato in modalità di convalida manuale. In altre parole, se l'endpoint restituisce 200, ma non restituisce nuovamente una risposta di convalida a livello di codice, la modalità viene passata alla modalità di convalida manuale. Se è presente una richiesta GET nell'URL di convalida entro 5 minuti, viene considerato l'handshake di convalida abbia esito positivo.
+    Questo meccanismo di autenticazione richiede anche che l'endpoint del webhook restituisca un codice di stato HTTP 200 in modo che sappia che il POST per l'evento di convalida è stato accettato prima di poter essere inserito nella modalità di convalida manuale. In altre parole, se l'endpoint restituisce 200 ma non restituisce una risposta di convalida a livello di codice, la modalità viene passata alla modalità di convalida manuale. Se è presente un'operazione GET sull'URL di convalida entro 5 minuti, l'handshake di convalida viene considerato riuscito.
 
 > [!NOTE]
-> Utilizzo dei certificati autofirmati per la convalida non è supportata. Usare invece un certificato firmato da un'autorità di certificazione (CA).
+> L'uso di certificati autofirmati per la convalida non è supportato. Usare invece un certificato firmato da un'autorità di certificazione (CA).
 
 ### <a name="validation-details"></a>Dettagli di convalida
 
@@ -67,8 +67,8 @@ Un esempio di SubscriptionValidationEvent è mostrato di seguito:
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "subject": "",
   "data": {
-    "validationCode": "0000000000-0000-0000-0000-00000000000000",
-    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=0000000000-0000-0000-0000-0000000000000&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
+    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
+    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=512d38b6-c7b8-40c8-89fe-f46f9e9622b6&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
   "eventTime": "2018-01-25T22:12:19.4556811Z",
@@ -93,7 +93,7 @@ Per un esempio di gestione dell'handshake di convalida della sottoscrizione, ved
 
 ### <a name="checklist"></a>Elenco di controllo
 
-Durante la creazione della sottoscrizione di evento, se viene visualizzato un messaggio di errore, ad esempio "il tentativo di convalidare il protocollo https endpoint fornito:\//your-endpoint-here non è riuscita. Per altre informazioni, visitare https:\//aka.ms/esvalidation ", indica che si verifica un errore nell'handshake di convalida. Per risolvere questo errore, verificare gli aspetti seguenti:
+Durante la creazione della sottoscrizione di eventi, se viene visualizzato un messaggio di errore, ad esempio "tentativo di convalidare l'endpoint specificato https: \//your-endpoint-qui non riuscito. Per altri dettagli, vedere https: \//aka. ms/esvalidation "indica che si è verificato un errore nell'handshake di convalida. Per risolvere questo errore, verificare gli aspetti seguenti:
 
 * È possibile controllare il codice dell'applicazione nell'endpoint di destinazione? Se, ad esempio, si scrive una funzione di Azure basata su un trigger HTTP, si è autorizzati ad accedere al codice dell'applicazione per modificarlo?
 * Se si è autorizzati ad accedere al codice dell'applicazione, implementare il meccanismo di handshake basato su ValidationCode, come illustrato nell'esempio precedente.
@@ -278,7 +278,7 @@ Se è necessario specificare autorizzazioni diverse rispetto ai ruoli predefinit
 
 Le seguenti sono definizioni di esempio del ruolo di Griglia di eventi che consentono agli utenti di eseguire diverse azioni. Questi ruoli personalizzati sono diversi dai ruoli predefiniti perché garantiscono un accesso più ampio rispetto alle sole sottoscrizioni di eventi.
 
-**EventGridReadOnlyRole.json**: consente esclusivamente operazioni di sola lettura.
+**EventGridReadOnlyRole.json**: consente solo operazioni di sola lettura.
 
 ```json
 {
@@ -320,7 +320,7 @@ Le seguenti sono definizioni di esempio del ruolo di Griglia di eventi che conse
 }
 ```
 
-**EventGridContributorRole.json**: consente a tutte le azioni di Griglia di eventi.
+**EventGridContributorRole.json**: consente tutte le azioni di Griglia di eventi.
 
 ```json
 {

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
-ms.openlocfilehash: 49c82339e5a3774cd286d700d709371d46cf0571
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: d090fb52beb266f006e69688c09f66412f1fe8c2
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051848"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376204"
 ---
 # <a name="monitoring-scheduled-events"></a>Eventi pianificati di monitoraggio
 
@@ -61,7 +61,7 @@ New-AzVm `
 
 Scaricare il file zip di installazione del progetto da [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip).
 
-Connettersi a **myCollectorVM** e copiare il file con estensione zip nella macchina virtuale ed estrarre tutti i file. Nella macchina virtuale aprire un prompt di PowerShell. Spostare il prompt nella cartella contenente `SchService.ps1`, ad `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`esempio, e configurare il servizio.
+Connettersi a **myCollectorVM** e copiare il file con estensione zip nella macchina virtuale ed estrarre tutti i file. Nella macchina virtuale aprire un prompt di PowerShell. Spostare il prompt nella cartella che contiene `SchService.ps1`, ad esempio: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`, e configurare il servizio.
 
 ```powershell
 .\SchService.ps1 -Setup
@@ -81,7 +81,7 @@ Convalidare lo stato del servizio e verificare che sia in esecuzione.
 .\SchService.ps1 -status  
 ```
 
-Questa operazione dovrebbe `Running`restituire.
+Questa operazione deve restituire `Running`.
 
 Il servizio avvierà ora il polling ogni 10 secondi per tutti gli eventi pianificati e approverà gli eventi per velocizzare la manutenzione.  Il blocco, il riavvio, la ridistribuzione e l'interruzione sono gli eventi acquisiti dagli eventi di pianificazione. È possibile estendere lo script per attivare alcune attenuazioni prima di approvare l'evento.
 
@@ -159,12 +159,12 @@ Una volta effettuato il push degli eventi in Log Analytics, è possibile eseguir
 
 1. Selezionare **nuova regola di avviso**. 
 1. Nella pagina **Crea regola** lasciare `collectorworkspace` come **risorsa**.
-1. In **condizione**selezionare la voce *ogni volta che la ricerca nei log <login undefined>del cliente è* . Viene visualizzata la pagina **Configura logica di segnalazione** .
+1. In **condizione**selezionare la voce *ogni volta che la ricerca log del cliente è <login undefined>* . Viene visualizzata la pagina **Configura logica di segnalazione** .
 1. In **valore soglia**immettere *0* e quindi fare clic su **fine**.
 1. In **azioni**selezionare **Crea gruppo di azioni**. Viene visualizzata la pagina **Aggiungi gruppo di azioni** .
 1. Digitare *myActionGroup*in **nome gruppo di azioni**.
 1. In **nome breve**digitare **myActionGroup**.
-1. In **gruppo di risorse**selezionare *myResourceGroupAvailability* *.
+1. In **gruppo di risorse**selezionare **myResourceGroupAvailability**.
 1. In azioni, in **nome azione** digitare **posta elettronica**, quindi selezionare **posta elettronica/SMS/push/voce**. Viene visualizzata la pagina **posta elettronica/SMS/push/Voice** .
 1. Selezionare **e-mail**, digitare l'indirizzo di posta elettronica, quindi fare clic su **OK**.
 1. Nella pagina **Aggiungi gruppo di azione** fare clic su **OK**. 

@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9a73b4664e363e80c514ba4c01f754de3a2eed24
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 31b005bd76591d8098f119c7aa9b87a68841658c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719875"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331265"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Amministrazione del servizio per Ricerca di Azure nel portale di Azure
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
-> * [API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
-> * [Portale](search-manage.md)
+> * [di Microsoft Azure](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Ricerca di Azure è un servizio di ricerca basato sul cloud completamente gestito usato per offrire un'esperienza di ricerca avanzata nelle app personalizzate. Questo articolo illustra le attività di amministrazione del servizio che è possibile eseguire nel [portale di Azure](https://portal.azure.com) per un servizio di ricerca di cui si è già effettuato il provisioning. L'amministrazione del servizio è leggera come previsto dalla progettazione ed è limitata alle attività seguenti:
@@ -34,8 +34,7 @@ Ricerca di Azure è un servizio di ricerca basato sul cloud completamente gestit
 
 Tenere presente che l'*aggiornamento* non è un'attività amministrativa. Poiché le risorse vengono allocate quando viene eseguito il provisioning sul servizio, lo spostamento a un altro livello richiede un nuovo servizio. Per informazioni dettagliate vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
-> [!Tip]
-> Per indicazioni su come analizzare il traffico di ricerca o le prestazioni delle query, è possibile monitorare il volume delle query e i termini cercati dagli utenti e scoprire se dai risultati della ricerca i clienti riescono ad arrivare a specifici documenti dell'indice. Per altre informazioni, vedere [Analisi del traffico di ricerca per Ricerca di Azure](search-traffic-analytics.md), [Utilizzo del monitoraggio e metriche delle query](search-monitor-usage.md) e [Prestazioni e ottimizzazione](search-performance-optimization.md).
+È possibile monitorare il volume di query e altre metriche e usare tali informazioni per modificare il servizio per tempi di risposta più rapidi. Per altre informazioni, vedere [Monitorare l'utilizzo e le statistiche in un servizio Ricerca di Azure](search-monitor-usage.md) e [Prestazioni e ottimizzazione](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -55,7 +54,7 @@ In termini di informazioni generali sul servizio, è possibile ottenere informaz
 
 * Nel portale tramite notifiche, proprietà e messaggi di stato nel dashboard del servizio.
 * Uso di [PowerShell](search-manage-powershell.md) o dell'interfaccia [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/) per [ottenere le proprietà del servizio](https://docs.microsoft.com/rest/api/searchmanagement/services) oppure lo stato nell'uso della risorsa dell'indice.
-* Tramite l' [analisi del traffico di ricerca](search-traffic-analytics.md), come indicato prima.
+
 
 <a id="sub-5"></a>
 
@@ -64,8 +63,8 @@ Nel dashboard il monitoraggio delle risorse è limitato alle informazioni visual
 
 Usando l'API REST del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici a livello di codice: 
 
-* [Ottenere le statistiche di un indice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
-* [Conteggio documenti](https://docs.microsoft.com/rest/api/searchservice/count-documents)
+* [Ottenere le statistiche di indice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
+* [Contare i documenti](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
 ## <a name="disaster-recovery-and-service-outages"></a>Interruzioni di servizio e ripristino di emergenza
 
@@ -77,7 +76,7 @@ I clienti che usano gli [indicizzatori](search-indexer-overview.md) per compilar
 
 Se non si usano gli indicizzatori, l'utente userà il codice dell'applicazione per eseguire il push sugli oggetti e i dati per diversi servizi in parallelo. Per altre informazioni, vedere [Prestazioni e ottimizzazione in Ricerca di Azure](search-performance-optimization.md).
 
-## <a name="backup-and-restore"></a>Backup e ripristino
+## <a name="backup-and-restore"></a>Eseguire backup e ripristino
 
 Poiché Ricerca di Azure non è una soluzione di archiviazione dati primaria, Microsoft non fornisce un meccanismo formale per il backup e il ripristino self-service. Tuttavia, è possibile usare il codice di esempio **index-backup-restore** in questo [repository di esempio .NET di ricerca di Azure](https://github.com/Azure-Samples/azure-search-dotnet-samples) per eseguire il backup della definizione dell'indice e dello snapshot in una serie di file JSON e quindi usare questi file per ripristinare l'indice, se necessario. Questo strumento può inoltre spostare gli indici tra i livelli di servizio.
 
@@ -85,7 +84,7 @@ In caso contrario, il codice dell'applicazione utilizzato per creare e popolare 
 
 <a id="scale"></a>
 
-## <a name="scale-up-or-down"></a>Aumentare o ridurre la quantità di risorse
+## <a name="scale-up-or-down"></a>Scalabilità verticale
 Ogni servizio di ricerca viene creato con un minimo di una replica e una partizione. Se l'utente ha effettuato l'iscrizione a un [livello che offre risorse dedicate](search-limits-quotas-capacity.md), fare clic su sul riquadro **SCALA** nel dashboard del servizio per regolare l'uso delle risorse.
 
 Quando si aggiunge capacità tramite l'una o l'altra risorsa, la risorsa aggiunta viene usata dal servizio in modo automatico. Non sono necessarie altre azioni da parte dell'utente, ma vi sarà un lieve ritardo prima che l'impatto delle nuove risorse sia apprezzabile. Possono essere necessari 15 o più minuti per il provisioning delle risorse aggiuntive.

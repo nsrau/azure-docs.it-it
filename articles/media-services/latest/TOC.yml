@@ -285,6 +285,8 @@
       items:
         - name: Pubblicare un asset - Interfaccia della riga di comando
           href: cli-publish-asset.md
+        - name: Segnalare l'audio descrittivo
+          href: signal-descriptive-audio-howto.md
 - name: riferimento
   items:
     - name: Specifica OpenAPI (Swagger)

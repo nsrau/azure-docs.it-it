@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: f607ba68563aa92797f45cf77db0575ae6802fee
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 4e3cf302437c3e4954ac977ac3f4ff6b2021a760
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385594"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330621"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Creare e gestire le pianificazioni dei lab per le classi in Azure Lab Services 
 Le pianificazioni consentono di configurare un lab per le classi in modo che le macchine virtuali nel lab vengano automaticamente avviate e arrestate a un orario specificato. È possibile definire una pianificazione occasionale o una pianificazione ricorrente. Le procedure seguenti illustrano i passaggi per creare e gestire le pianificazioni di lab per le classi: 
@@ -26,61 +26,52 @@ Le pianificazioni consentono di configurare un lab per le classi in modo che le 
 > [!IMPORTANT]
 > Il tempo di esecuzione pianificato delle macchine virtuali non interferisce con la [quota assegnata a un utente](how-to-configure-student-usage.md#set-quotas-for-users). La quota è relativa al periodo di tempo non compreso nelle ore di pianificazione trascorso da uno studente sulle macchine virtuali. 
 
-## <a name="add-a-schedule-once"></a>Aggiungere una pianificazione (occasionale)
+## <a name="set-a-schedule-for-the-lab"></a>Impostare una pianificazione per il lab
+Creare un evento pianificato per il Lab in modo che le macchine virtuali nel Lab vengano avviate/interrotte automaticamente in momenti specifici. La quota utente specificata in precedenza corrisponde al tempo aggiuntivo assegnato a ogni utente al di fuori di questa ora pianificata. 
 
-1. Passare alla pagina **Pianificazioni** e selezionare **Aggiungi pianificazione** sulla barra degli strumenti. 
-
-    ![Pulsante Aggiungi pianificazione nella pagina Pianificazioni](../media/how-to-create-schedules/add-schedule-button.png)
-2. Nella pagina **Aggiungi pianificazione** verificare che sia selezionata l'opzione **Una sola volta** nella parte superiore. Se necessario, selezionare **Una sola volta**. 
-3. In **Schedule date (required)** (Data pianificazione - obbligatoria) immettere la data o selezionare l'icona del calendario per selezionare una data. 
-4. In **Ora di inizio** selezionare l'ora in cui le macchine virtuali devono essere avviate. L'ora di inizio è obbligatoria se non è impostata l'ora di arresto. Selezionare **Remove start event** (Rimuovi evento di avvio) per specificare solo l'ora di arresto. Se l'**ora di inizio** è disabilitata, selezionare **Add start event** (Aggiungi evento di avvio) accanto all'elenco a discesa per abilitarla. 
-5. In **Ora di arresto** selezionare l'ora in cui le macchine virtuali devono arrestate. L'ora di arresto è obbligatoria se non è impostata l'ora di inizio. Selezionare **Remove stop event** (Rimuovi evento di arresto) per specificare solo l'ora di arresto. Se l'**ora di arresto** è disabilitata, selezionare **Add stop event** (Aggiungi evento di arresto) accanto all'elenco a discesa per abilitarla.
-6. In **Time zone (required)** (Fuso orario - obbligatorio) selezionare il fuso orario per le ore di inizio e di arresto specificate. 
-7. In **Note** immettere la descrizione o le note per la pianificazione. 
-8. Selezionare **Salva**. 
-
-    ![Pianificazione occasionale](../media/how-to-create-schedules/add-schedule-page.png)
-
-## <a name="add-a-recurring-schedule-weekly"></a>Aggiungere una pianificazione ricorrente (settimanale)
-
-1. Passare alla pagina **Pianificazioni** e selezionare **Aggiungi pianificazione** sulla barra degli strumenti. 
+1. Passare alla pagina **pianificazioni** e selezionare **Aggiungi evento pianificato** sulla barra degli strumenti. 
 
     ![Pulsante Aggiungi pianificazione nella pagina Pianificazioni](../media/how-to-create-schedules/add-schedule-button.png)
-2. Nella pagina **Aggiungi pianificazione** passare a **Settimanale** nella parte superiore. 
-3. In **Schedule days (required)** (Giorni pianificazione - obbligatori) selezionare i giorni in cui la pianificazione deve essere effettiva. Nell'esempio seguente sono selezionati i giorni compresi tra lunedì e venerdì. 
-4. Nel campo **Da** immettere la **data di inizio della pianificazione** o selezionare una data facendo clic sul pulsante del **calendario**. Il campo è obbligatorio. 
-5. In **Schedule end date** (Data fine pianificazione) immettere o selezionare una data di fine in cui arrestare le macchine virtuali. 
-6. In **Ora di inizio** selezionare l'ora in cui le macchine virtuali devono essere avviate. L'ora di inizio è obbligatoria se non è impostata l'ora di arresto. Selezionare **Remove start event** (Rimuovi evento di avvio) per specificare solo l'ora di arresto. Se l'**ora di inizio** è disabilitata, selezionare **Add start event** (Aggiungi evento di avvio) accanto all'elenco a discesa per abilitarla. 
-7. In **Ora di arresto** selezionare l'ora in cui le macchine virtuali devono arrestate. L'ora di arresto è obbligatoria se non è impostata l'ora di inizio. Selezionare **Remove stop event** (Rimuovi evento di arresto) per specificare solo l'ora di arresto. Se l'**ora di arresto** è disabilitata, selezionare **Add stop event** (Aggiungi evento di arresto) accanto all'elenco a discesa per abilitarla.
-8. In **Time zone (required)** (Fuso orario - obbligatorio) selezionare il fuso orario per le ore di inizio e di arresto specificate.  
-9. In **Note** immettere la descrizione o le note per la pianificazione. 
-10. Selezionare **Salva**. 
+2. Verificare che sia selezionato **standard** come **tipo di evento**. Selezionare **Avvia solo** per specificare solo l'ora di inizio per le macchine virtuali. Selezionare **Interrompi solo** per specificare solo l'ora di arresto per le macchine virtuali. 
+7. Nella sezione **Ripeti** selezionare la pianificazione corrente. 
+
+    ![Pulsante Aggiungi pianificazione nella pagina Pianificazioni](../media/how-to-create-schedules/select-current-schedule.png)
+5. Nella finestra di dialogo **Ripeti** eseguire le operazioni seguenti:
+    1. Verificare che **ogni settimana** sia impostata per il campo di **ripetizione** . 
+    3. Specificare la **Data di inizio**.
+    4. Specificare l' **ora di inizio** in cui si desidera che le macchine virtuali vengano avviate.
+    5. Specificare l' **ora di arresto** in cui devono essere arrestate le macchine virtuali. 
+    6. Specificare il **fuso orario** per le ore di inizio e di fine specificate. 
+    2. Consente di selezionare i giorni in cui si desidera rendere effettiva la pianificazione. Nell'esempio seguente è selezionato Monday-Thursday. 
+    8. Selezionare **Salva**. 
+
+        ![Imposta pianificazione ripetizione](../media/how-to-create-schedules/set-repeat-schedule.png)
+
+3. A questo punto, nella pagina **Aggiungi evento pianificato** , per **Note (facoltativo)** , immettere eventuali descrizioni o note per la pianificazione. 
+4. Nella pagina **Aggiungi evento pianificato** selezionare **Salva**. 
 
     ![Pianificazione settimanale](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
 ## <a name="view-schedules-in-calendar"></a>Visualizzare le pianificazioni nel calendario
 È possibile vedere le date e gli orari pianificati evidenziati nella visualizzazione del calendario, come illustrato nell'immagine seguente:
 
-![Pianificazioni nella visualizzazione del calendario](../media/how-to-create-schedules/schedules-in-calendar.png)
+![Pianificazioni nella visualizzazione del calendario](../media/how-to-create-schedules/schedules-calendar.png)
 
 Selezionare il pulsante **Oggi** nell'angolo in alto a destra per passare alla data corrente nel calendario. Selezionare la **freccia sinistra** per passare alla settimana precedente e la **freccia destra** per passare a quella successiva nel calendario. 
 
 ## <a name="edit-a-schedule"></a>Modificare pianificazione
-Quando si fa doppio clic su una pianificazione evidenziata nel calendario o si seleziona il pulsante con la **matita** sulla barra degli strumenti, viene visualizzata la pagina **Modifica pianificazione**. L'aggiornamento delle impostazioni in questa pagina corrisponde a quello delle impostazioni nella pagina **Aggiungi pianificazione** descritto nella sezione [Aggiungere una pianificazione ricorrente](#add-a-recurring-schedule-weekly). 
+Quando si seleziona una pianificazione evidenziata nel calendario, vengono visualizzati i pulsanti per **modificare** o **eliminare** la pianificazione. 
 
-![Modificare la pagina della pianificazione](../media/how-to-create-schedules/edit-schedule-page.png)
+![Modificare la pagina della pianificazione](../media/how-to-create-schedules/schedule-edit-button.png)
+
+Nella pagina **modifica evento pianificato** è possibile aggiornare la pianificazione e selezionare **Salva**. 
 
 ## <a name="delete-a-schedule"></a>Eliminare una pianificazione
 
-1. Per eliminare una pianificazione, selezionare il pulsante con il cestino (Elimina) sulla barra degli strumenti, come illustrato nell'immagine seguente:
+1. Per eliminare una pianificazione, selezionare una pianificazione evidenziata nel calendario e selezionare il pulsante icona del cestino (Elimina):
 
-    ![Pulsante Elimina sulla barra degli strumenti](../media/how-to-create-schedules/delete-schedule-button.png)
-
-    È possibile usare il pulsante **Elimina** per tutte le date e ore pianificate nel calendario. 
-2. Nella pagina **Delete schedules** (Elimina pianificazioni) selezionare **Sì**.
-
-    ![Conferma dell'eliminazione di una pianificazione](../media/how-to-create-schedules/delete-schedules-confirmation.png)
-
+    ![Pulsante Elimina sulla barra degli strumenti](../media/how-to-create-schedules/schedule-delete-button.png)
+2. Nella finestra di dialogo **Elimina evento pianificato** selezionare **Sì** per confermare l'eliminazione. 
 
 
 

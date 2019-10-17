@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 65cc2d9ac2b96822f2c1b740f3180ba1d9eaf98c
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: e9073e7cba97c4f5e2d550e5e49a6655ec76abbe
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389998"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332027"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Usare una raccolta di immagini condivise in Azure Lab Services
 Questo articolo illustra in che modo i docenti e gli amministratori del Lab possono salvare un'immagine di macchina virtuale modello affinché venga riutilizzata da altri. Queste immagini vengono salvate in una [raccolta di immagini condivise](../../virtual-machines/windows/shared-image-galleries.md)di Azure. Come primo passaggio, l'amministratore del Lab connette una raccolta di immagini condivise esistente all'account Lab. Una volta collegata la raccolta di immagini condivise, i Lab creati nell'account Lab possono salvare le immagini nella raccolta di immagini condivise. Altri docenti possono selezionare questa immagine dalla raccolta di immagini condivise per creare un modello per le classi. 
@@ -31,18 +31,18 @@ Questo articolo illustra in che modo i docenti e gli amministratori del Lab poss
 ## <a name="save-an-image-to-the-shared-image-gallery"></a>Salvare un'immagine nella raccolta immagini condivise
 Una volta collegata una raccolta di immagini condivise, un amministratore dell'account Lab o un insegnante può salvare un'immagine nella raccolta di immagini condivise in modo che possa essere riutilizzata da altri docenti. 
 
-1. Nella home page per il Lab selezionare **Salva immagine** nel riquadro nella sezione **modello** .
+1. Nella pagina **modello** per il Lab selezionare **Esporta in raccolta immagini condivise** sulla barra degli strumenti.
 
-    ![Pulsante Salva immagine](../media/how-to-use-shared-image-gallery/save-image-button.png)
-2.  Nella finestra **Salva immagine macchina virtuale** immettere un nome per l'immagine e selezionare **Salva**. 
+    ![Pulsante Salva immagine](../media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-button.png)
+2. Nella finestra **di dialogo Esporta in raccolta immagini condivise** immettere un **nome per l'immagine**e quindi selezionare **Esporta**. 
 
-    ![Salva finestra immagine macchina virtuale](../media/how-to-use-shared-image-gallery/save-virtual-machine-image.png)
-3. Controllare lo stato nel riquadro Lab. 
+    ![Finestra di dialogo Esporta nella raccolta immagini condivise](../media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-dialog.png)
+3. È possibile visualizzare lo stato di avanzamento di questa operazione nella pagina **modello** . Questa operazione può richiedere qualche minuto. 
 
-    ![Stato dell'operazione di salvataggio dell'immagine](../media/how-to-use-shared-image-gallery/save-image-status.png)
-4. Verificare che l'operazione abbia esito positivo.
+    ![Esportazione in corso](../media/how-to-use-shared-image-gallery/exporting-image-in-progress.png)
+4. Quando l'operazione di esportazione ha esito positivo, viene visualizzato il messaggio seguente:
 
-    ![Operazione di salvataggio immagine riuscita](../media/how-to-use-shared-image-gallery/save-image-successful.png)
+    ![Esportazione completata](../media/how-to-use-shared-image-gallery/exporting-image-completed.png)
 
 È anche possibile caricare un'immagine nella raccolta di immagini condivise all'esterno del contesto di un Lab. Per altre informazioni, vedere [Cenni preliminari sulla raccolta di immagini condivise](../../virtual-machines/windows/shared-images.md). 
 

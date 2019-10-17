@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1e0fee903372668d30db0686f6a23dd913428454
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 659a6357736817f4a590b97e585230ec8c2b7dae
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828179"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332898"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Pianificare l'ambiente Azure Time Series Insights GA
 
@@ -31,17 +31,17 @@ Questo articolo descrive come pianificare l'ambiente di Azure Time Series Insigh
 
 ## <a name="best-practices"></a>Procedure consigliate
 
-Per iniziare a usare Time Series Insights, è consigliabile conoscere la quantità di dati che si prevede di eseguire il push in base al minuto e il tempo necessario per archiviare i dati.  
+Per iniziare a usare Azure Time Series Insights, è consigliabile conoscere la quantità di dati che si prevede di eseguire il push in base al minuto e il tempo necessario per archiviare i dati.  
 
 Per altre informazioni sulla capacità e sulla conservazione per entrambi gli SKU di Time Series Insights, vedere [Prezzi di Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
 Per pianificare meglio l'ambiente di Time Series Insights per il successo a lungo termine, considerare gli attributi seguenti:
 
-- <a href="#storage-capacity">Capacità di archiviazione</a>
-- <a href="#data-retention">Periodo di conservazione dei dati</a>
-- <a href="#ingress-capacity">Capacità in ingresso</a>
-- <a href="#shape-your-events">Data Shaping degli eventi</a>
-- <a href="#ensure-that-you-have-reference-data">Assicurarsi di disporre di dati di riferimento sul posto</a>
+- [Capacità di archiviazione](#storage-capacity)
+- [Periodo di conservazione dei dati](#data-retention)
+- [Capacità in ingresso](#ingress-capacity)
+- [Data Shaping degli eventi](#shape-your-events)
+- [Assicurarsi di disporre di dati di riferimento sul posto](#ensure-that-you-have-reference-data)
 
 ## <a name="storage-capacity"></a>Capacità di archiviazione
 
@@ -49,15 +49,17 @@ Per impostazione predefinita, Time Series Insights mantiene i dati in base alla 
 
 ## <a name="data-retention"></a>Conservazione dei dati
 
-È possibile modificare l'impostazione relativa al **tempo di conservazione dei dati** nell'ambiente Time Series Insights. È possibile abilitare fino a 400 giorni di conservazione. 
+È possibile modificare l'impostazione relativa al **tempo di conservazione dei dati** nell'ambiente Azure Time Series Insights. È possibile abilitare fino a 400 giorni di conservazione. 
 
-Time Series Insights dispone di due modalità. Una modalità ottimizza per garantire che l'ambiente disponga dei dati più aggiornati. Questa modalità è abilitata per impostazione predefinita. 
+Azure Time Series Insights dispone di due modalità:
 
-L'altra modalità ottimizza per garantire che vengano soddisfatti i limiti di conservazione. Nella seconda modalità, il traffico in ingresso viene sospeso se viene soddisfatta la capacità complessiva di archiviazione dell'ambiente. 
+* Una modalità ottimizza i dati più aggiornati. Impone un criterio per **eliminare i dati obsoleti** lasciando disponibili i dati recenti con l'istanza. Questa modalità è abilitata per impostazione predefinita. 
+* L'altro ottimizza i dati in modo che rimangano al di sotto dei limiti di conservazione configurati. La sospensione del traffico in **ingresso** impedisce l'inserimento di nuovi dati quando il valore selezionato come **limite di archiviazione supera il comportamento**. 
 
 È possibile modificare la conservazione e passare tra le due modalità nella pagina di configurazione dell'ambiente nel portale di Azure.
 
-Nell'ambiente Time Series Insights è possibile configurare un massimo di 400 giorni di conservazione dei dati.
+> [!IMPORTANT]
+> È possibile configurare un massimo di 400 giorni di conservazione dei dati nell'ambiente Azure Time Series Insights GA.
 
 ### <a name="configure-data-retention"></a>Configurare la conservazione dei dati
 
@@ -67,14 +69,14 @@ Nell'ambiente Time Series Insights è possibile configurare un massimo di 400 gi
 
 1. Nella casella **tempo di conservazione dati (in giorni)** immettere un valore compreso tra 1 e 400.
 
-   [![Configurare la conservazione](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
+   [conservazione @no__t 1Configure](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
 
 > [!TIP]
 > Per ulteriori informazioni su come implementare i criteri di conservazione dei dati appropriati, vedere [come configurare la conservazione](./time-series-insights-how-to-configure-retention.md).
 
 ## <a name="ingress-capacity"></a>Capacità in ingresso
 
-La seconda area in cui concentrarsi per la pianificazione dell'ambiente Time Series Insights è la capacità in ingresso. La capacità in ingresso è una derivata dell'allocazione al minuto.
+La seconda area in cui concentrarsi quando si pianifica l'ambiente Time Series Insights è la *capacità in ingresso*. La capacità in ingresso è una derivata dell'allocazione al minuto.
 
 Dal punto di vista della limitazione, un pacchetto di dati in ingresso con dimensioni del pacchetto pari a 32 KB viene considerato come 32 eventi, ogni 1 KB di dimensioni. La dimensione massima consentita per gli eventi è 32 KB. I pacchetti di dati di dimensioni superiori a 32 KB vengono troncati.
 

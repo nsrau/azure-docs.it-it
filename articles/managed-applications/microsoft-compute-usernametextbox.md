@@ -1,6 +1,6 @@
 ---
 title: Elemento UserNameTextBox dell'interfaccia utente di Azure | Microsoft Docs
-description: Illustra l'elemento Microsoft.Compute.UserNameTextBox dell'interfaccia utente per il portale di Azure.
+description: Illustra l'elemento Microsoft.Compute.UserNameTextBox dell'interfaccia utente per il portale di Azure. Consente agli utenti di fornire nomi utente Windows o Linux.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 88ab13329a719ba1e1b8a7b5fba2f7a2d381eca2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 875c73c546fa52642959e2593d41f9af82c13797
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64700849"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331586"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Elemento Microsoft.Compute.UserNameTextBox dell'interfaccia utente
 Controllo casella di testo con convalida predefinita per i nomi utente di Windows e Linux.
@@ -43,7 +43,7 @@ Controllo casella di testo con convalida predefinita per i nomi utente di Window
 }
 ```
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 - Se `constraints.required` è impostato su **true**, perché la convalida abbia esito positivo la casella di testo deve avere un valore. Il valore predefinito è **true**.
 - È necessario specificare `osPlatform`, che può essere **Windows** o **Linux**.
 - `constraints.regex` è un modello di espressione regolare di JavaScript. Se specificato, perché la convalida venga abbia esito positivo il valore della casella di testo deve corrispondere al modello. Il valore predefinito è **null**.

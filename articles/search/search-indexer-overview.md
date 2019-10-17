@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: e50d88181a27dcc46da858f220404eb09ad9b4bd
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 55a9e06ad09c4c3635a2925956cac75c24b2c3c6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308961"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376390"
 ---
 # <a name="indexers-in-azure-search"></a>Indicizzatori in Ricerca di Azure
 
@@ -35,7 +35,7 @@ Gli indicizzatori sono basati su piattaforme o tipi di origini dati, con singoli
 
 Un nuovo indicizzatore viene inizialmente annunciato come funzionalità di anteprima. Le funzionalità di anteprima vengono introdotte nelle API (REST e .NET) e quindi integrate nel portale dopo il passaggio alla disponibilità generale. Se si sta valutando un nuovo indicizzatore, è consigliabile prevedere la scrittura di codice.
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>autorizzazioni
 
 Tutte le operazioni correlate agli indicizzatori, incluse le richieste GET per lo stato o le definizioni, richiedono una [chiave API di amministrazione](search-security-api-keys.md). 
 
@@ -45,10 +45,12 @@ Tutte le operazioni correlate agli indicizzatori, incluse le richieste GET per l
 
 Gli indicizzatori eseguono ricerche per indicizzazione negli archivi dati in Azure.
 
-* [SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Archivio BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
+* [Archivio tabelle di Azure](search-howto-indexing-azure-tables.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
-* [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
+* [Database SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [SQL Server in Macchine virtuali di Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+* [Istanze gestite di SQL in Azure](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
 ## <a name="basic-configuration-steps"></a>Procedura di configurazione di base
 Gli indicizzatori possono offrire funzionalità univoche per l'origine dati. In questo senso, alcuni aspetti della configurazione dell'indicizzatore o dell'origine dati possono variare a seconda del tipo di indicizzatore. Tutti gli indicizzatori, tuttavia, condividono la stessa composizione e gli stessi requisiti di base. Le procedure comuni a tutti gli indicizzatori sono descritte sotto.
@@ -126,7 +128,7 @@ Dopo aver acquisito queste informazioni di base, il passaggio successivo prevede
 
 * [Database SQL di Azure o SQL Server in una macchina virtuale di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
-* [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
+* [Archivio BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
+* [Archivio tabelle di Azure](search-howto-indexing-azure-tables.md)
 * [Indicizzazione di BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure](search-howto-index-csv-blobs.md)
 * [Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure](search-howto-index-json-blobs.md)

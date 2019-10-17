@@ -1,20 +1,20 @@
 ---
-title: Monitorare Azure Site Recovery con i log di monitoraggio di Azure (Log Analytics)
+title: Monitorare Azure Site Recovery con i log di monitoraggio di Azure (Log Analytics) | Microsoft Docs
 description: Informazioni su come monitorare Azure Site Recovery con i log di monitoraggio di Azure (Log Analytics)
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/13/2019
 ms.author: raynew
-ms.openlocfilehash: 4eb88658437d3b29cc55d24bb83f73b660daea43
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 889fa3bee17aa3b0300431b058332c5ec10d9faf
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68718483"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331929"
 ---
-# <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorare Site Recovery con i log di monitoraggio di Azure
+# <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorare Site Recovery con i log di Monitoraggio di Azure
 
 Questo articolo descrive come monitorare i computer replicati da Azure [Site Recovery](site-recovery-overview.md), usando i [log di monitoraggio di Azure](../azure-monitor/platform/data-platform-logs.md)e [log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
@@ -25,26 +25,31 @@ Per Site Recovery, è possibile usare i log di monitoraggio di Azure per eseguir
 - **Monitorare l'integrità e lo stato di Site Recovery**. Ad esempio, è possibile monitorare lo stato di replica, lo stato del failover di test, gli eventi Site Recovery, gli obiettivi del punto di ripristino (RPOs) per i computer protetti e i tassi di modifica dei dati e del disco.
 - **Configurare gli avvisi per Site Recovery**. Ad esempio, è possibile configurare avvisi per l'integrità del computer, lo stato del failover di test o lo stato del processo Site Recovery.
 
-L'uso dei log di monitoraggio di Azure con Site Recovery è supportato per la replica da Azure ad Azure e da server fisici/VM VMware ad Azure.
+L'uso dei log di monitoraggio di Azure con Site Recovery è supportato per la replica da **Azure ad Azure** e **da server fisici/VM VMware ad Azure** .
+
+> [!NOTE]
+> I registri dei dati di varianza e i log della velocità di caricamento sono disponibili solo per le VM di Azure che eseguono la replica in un'area di Azure secondaria.
+
 ## <a name="before-you-start"></a>Prima di iniziare
 
 Ecco gli elementi necessari:
 
 - Almeno un computer protetto in un insieme di credenziali di servizi di ripristino.
 - Area di lavoro Log Analytics per archiviare i log di Site Recovery. Informazioni sulla configurazione di un'area [di](../azure-monitor/learn/quick-create-workspace.md) lavoro.
-- Conoscenza di base di come scrivere, eseguire e analizzare le query del log in Log Analytics. [Altre informazioni](../azure-monitor/log-query/get-started-portal.md)
+- Conoscenza di base di come scrivere, eseguire e analizzare le query del log in Log Analytics. [Altre informazioni](../azure-monitor/log-query/get-started-portal.md).
 
 Prima di iniziare, è consigliabile esaminare le [domande di monitoraggio più comuni](monitoring-common-questions.md) .
 
 ## <a name="configure-site-recovery-to-send-logs"></a>Configurare Site Recovery per inviare i log
 
-1. Nell'insieme di credenziali fare clic su **Impostazioni** > di diagnostica Aggiungi impostazioni di**diagnostica**.
+1. Nell'insieme di credenziali fare clic su **impostazioni di diagnostica** >  Aggiungi impostazioni di**diagnostica**.
 
     ![Selezione registrazione diagnostica](./media/monitoring-log-analytics/add-diagnostic.png)
 
-2. In **impostazioni di diagnostica**specificare un nome per l'azione di log e selezionare **Invia a log Analytics**.
+2. In **impostazioni di diagnostica**specificare un nome e selezionare la casella **Invia a log Analytics**.
 3. Selezionare la sottoscrizione dei log di monitoraggio di Azure e l'area di lavoro Log Analytics.
-4. Dall'elenco log selezionare tutti i log con il prefisso **AzureSiteRecovery**. Fare quindi clic su **OK**.
+4. Selezionare **diagnostica di Azure** nell'interruttore.
+5. Dall'elenco log selezionare tutti i log con il prefisso **AzureSiteRecovery**. Fare quindi clic su **OK**.
 
     ![Selezionare l'area di lavoro](./media/monitoring-log-analytics/select-workspace.png)
 
@@ -61,7 +66,7 @@ I log Site Recovery iniziano a essere inseriti in una tabella (**AzureDiagnostic
 
 ### <a name="query-replication-health"></a>Stato replica query
 
-Questa query traccia un grafico a torta per lo stato di replica corrente di tutte le macchine virtuali di Azure protette, suddiviso in tre stati: Normale, avviso o critico.
+Questa query traccia un grafico a torta per lo stato di replica corrente di tutte le macchine virtuali di Azure protette, suddiviso in tre stati: normale, avviso o critico.
 
 ```
 AzureDiagnostics  
@@ -88,7 +93,7 @@ AzureDiagnostics 
 
 ### <a name="query-rpo-time"></a>Tempo RPO query
 
-Questa query traccia un grafico a barre delle macchine virtuali di Azure replicate con Site Recovery, suddivise in base all'obiettivo del punto di ripristino (RPO): Meno di 15 minuti, tra 15-30 minuti e più di 30 minuti.
+Questa query traccia un grafico a barre delle macchine virtuali di Azure replicate con Site Recovery, suddivise in base all'obiettivo del punto di ripristino (RPO): meno di 15 minuti, tra 15-30 minuti e più di 30 minuti.
 
 ```
 AzureDiagnostics 
@@ -171,7 +176,10 @@ AzureDiagnostics  
 
 ### <a name="query-data-change-rate-churn-for-a-vm"></a>Frequenza di modifica dei dati delle query (varianza) per una macchina virtuale
 
-Questa query traccia un grafico di tendenza per una macchina virtuale di Azure specifica (ContosoVM123), che tiene traccia della frequenza di modifica dei dati (byte scritti al secondo) e della velocità di caricamento dei dati. Queste informazioni sono disponibili solo per le macchine virtuali di Azure replicate in un'area di Azure secondaria.
+> [!NOTE] 
+> Le informazioni sulla varianza sono disponibili solo per le macchine virtuali di Azure che eseguono la replica in un'area di Azure secondaria.
+
+Questa query traccia un grafico di tendenza per una macchina virtuale di Azure specifica (ContosoVM123), che tiene traccia della frequenza di modifica dei dati (byte scritti al secondo) e della velocità di caricamento dei dati. 
 
 ```
 AzureDiagnostics   

@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 manager: nitinme
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: d9ddb5af42c538558a69ce68e7ea90161c947b12
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: a17e2ae5313f9d0b662d343230a04dd3e726c16d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186452"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331173"
 ---
 # <a name="synonyms-in-azure-search"></a>Sinonimi in Ricerca di Azure
 
@@ -25,7 +25,7 @@ In Ricerca di Azure l'espansione sinonimica viene eseguita in fase di query. È 
 
 ## <a name="create-synonyms"></a>Creare sinonimi
 
-Non è disponibile il supporto del portale per la creazione di sinonimi, ma è possibile usare l'API REST o .NET SDK. Per iniziare a usare REST, è consigliabile [usare il post](search-get-started-postman.md) e la formulazione delle richieste tramite questa API: [Creare mappe sinonimo](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Per C# gli sviluppatori, è possibile iniziare a [aggiungere sinonimi in ricerca di C#Azure usando ](search-synonyms-tutorial-sdk.md).
+Non è disponibile il supporto del portale per la creazione di sinonimi, ma è possibile usare l'API REST o .NET SDK. Per iniziare a usare REST, è consigliabile [usare il post](search-get-started-postman.md) e la formulazione delle richieste usando questa API: [create sinonime Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Per C# gli sviluppatori, è possibile iniziare a [aggiungere sinonimi in ricerca di C#Azure usando ](search-synonyms-tutorial-sdk.md).
 
 Facoltativamente, se si usano [chiavi gestite dal cliente](search-security-manage-encryption-keys.md) per la crittografia sul lato servizio, è possibile applicare tale protezione al contenuto della mappa di sinonimi.
 
@@ -40,6 +40,8 @@ L'aggiunta di sinonimi in un'applicazione di ricerca è una procedura in due pas
 1.  Aggiungere una mappa sinonimica al servizio di ricerca tramite le API indicate di seguito.  
 
 2.  Configurare un campo ricercabile per l'uso della mappa sinonimica nella definizione dell'indice.
+
+È possibile creare più mappe sinonimiche per l'applicazione di ricerca (ad esempio in base alla lingua se l'applicazione supporta clienti multilingue). Attualmente un campo può usarne una sola. È possibile aggiornare la proprietà synonymMaps di un campo in qualsiasi momento.
 
 ### <a name="synonymmaps-resource-apis"></a>API di risorsa SynonymMaps
 
@@ -154,16 +156,9 @@ Le espansioni dei sinonimi non si applicano ai termini di ricerca con caratteri 
 
 Se è necessario eseguire un'unica query che comprenda espansioni sinonimiche, caratteri jolly, espressioni regolari o ricerche fuzzy, è possibile combinare le relative istruzioni con la sintassi OR. Ad esempio, per combinare sinonimi e caratteri jolly in una sintassi di query semplice, il termine è `<query> | <query>*`.
 
-## <a name="tips-for-building-a-synonym-map"></a>Suggerimenti per la creazione di una mappa sinonimica
-
-- Una mappa sinonimica concisa e ben progettata è più efficiente rispetto a un elenco completo delle possibili corrispondenze. I dizionari eccessivamente grandi o complessi richiedono più tempo di analisi e influenzano la latenza della query se la query si espande in molti sinonimi. Invece di indovinare quali termini potrebbero essere usati, è possibile ottenere i termini effettivi tramite un [report di analisi del traffico di ricerca](search-traffic-analytics.md).
-
-- Come esercizio sia preliminare che di convalida, abilitare e usare questo report per determinare con precisione quali termini trarranno vantaggio da una corrispondenza sinonimica e quindi continuare a usarlo per verificare che la mappa sinonimica sta generando risultati migliori. Nel report predefinito il riquadro delle query di ricerca più comuni e il riquadro delle query di ricerca senza risultati forniranno le informazioni necessarie.
-
-- È possibile creare più mappe sinonimiche per l'applicazione di ricerca (ad esempio in base alla lingua se l'applicazione supporta clienti multilingue). Attualmente un campo può usarne una sola. È possibile aggiornare la proprietà synonymMaps di un campo in qualsiasi momento.
+Se si ha un indice esistente in un ambiente di sviluppo (non di produzione), provare con un piccolo dizionario per vedere come l'aggiunta di sinonimi cambia l'esperienza di ricerca, compreso l'impatto sui profili di punteggio, l'evidenziazione dei risultati e i suggerimenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Se si ha un indice esistente in un ambiente di sviluppo (non di produzione), provare con un piccolo dizionario per vedere come l'aggiunta di sinonimi cambia l'esperienza di ricerca, compreso l'impatto sui profili di punteggio, l'evidenziazione dei risultati e i suggerimenti.
-
-- [Abilitare l'analisi del traffico di ricerca](search-traffic-analytics.md) e usare i report predefiniti di Power BI per ottenere informazioni su quali termini sono più utilizzati e quali non restituiscono documenti. In base a queste informazioni, modificare il dizionario per includere i sinonimi per le query improduttive che devono risolversi in documenti nell'indice.
+> [!div class="nextstepaction"]
+> [Creare una mappa di sinonimi](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)

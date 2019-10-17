@@ -143,7 +143,7 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Runtime di integrazione
       href: concepts-integration-runtime.md
-    - name: Mapping di flussi di dati
+    - name: Flussi di dati di mapping
       items:
         - name: Panoramica del flusso di dati di mapping
           href: concepts-data-flow-overview.md

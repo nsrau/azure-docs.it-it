@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: deab527d44713bffed1f430ec283592d0e4232ee
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.date: 10/14/2019
+ms.openlocfilehash: 198ef6889ffb7874c44f15338afbd8b3135ae3ef
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764407"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331309"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorare le prestazioni con Query Store
 
@@ -58,6 +58,10 @@ Gli scenari comuni per l'uso di Query Store includono:
 
 Per ridurre al minimo l'utilizzo di spazio, le statistiche di esecuzione di runtime nell'archivio delle statistiche di runtime vengono aggregate per un intervallo di tempo fisso configurabile. Le informazioni negli archivi sono visibili eseguendo query sulle viste di Query Store.
 
+## <a name="access-query-store-information"></a>Informazioni sull'accesso Query Store
+
+I dati Query Store vengono archiviati nel database azure_sys nel server postgres. 
+
 La query seguente restituisce informazioni sulle query in Query Store:
 ```sql
 SELECT * FROM query_store.qs_view; 
@@ -67,6 +71,9 @@ In alternativa, usare questa query per le statistiche di attesa:
 ```sql
 SELECT * FROM query_store.pgms_wait_sampling_view;
 ```
+
+È anche possibile creare dati Query Store nei [log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) per l'analisi e gli avvisi, Hub eventi per lo streaming e archiviazione di Azure per l'archiviazione. Le categorie di log da configurare sono **QueryStoreRuntimeStatistics** e **QueryStoreWaitStatistics**. Per informazioni sull'installazione, vedere l'articolo relativo alle [impostazioni di diagnostica di monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md) .
+
 
 ## <a name="finding-wait-queries"></a>Ricerca di query in relazione all'attesa
 I tipi di eventi di attesa combinano diversi eventi di attesa in bucket in base alla somiglianza. Query Store indica il tipo di evento di attesa, il nome dello specifico evento di attesa e la query in questione. La possibilità di correlare queste informazioni sulle attese alle statistiche di runtime delle query consente di comprendere in modo più approfondito ciò che contribuisce alle caratteristiche di prestazioni delle query.
@@ -86,16 +93,16 @@ Per la configurazione dei parametri di Query Store sono disponibili le opzioni s
 
 | **Parametro** | **Descrizione** | **Default** | **Range**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia. | none | none, top, all |
+| pg_qs.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia. | None | none, top, all |
 | pg_qs.max_query_text_length | Imposta la lunghezza massima di query che è possibile salvare. Le query più lunghe verranno troncate. | 6000 | 100-10000 |
 | pg_qs.retention_period_in_days | Imposta il periodo di conservazione. | 7 | 1-30 |
-| pg_qs.track_utility | Imposta se deve essere tenuta traccia dei comandi dell'utilità. | sì | on, off |
+| pg_qs.track_utility | Imposta se deve essere tenuta traccia dei comandi dell'utilità. | in | on, off |
 
 Le opzioni seguenti si applicano specificamente alle statistiche di attesa.
 
 | **Parametro** | **Descrizione** | **Default** | **Range**|
 |---|---|---|---|
-| pgms_wait_sampling.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia per le statistiche di attesa. | none | none, all|
+| pgms_wait_sampling.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia per le statistiche di attesa. | None | none, all|
 | Pgms_wait_sampling.history_period | Imposta la frequenza di campionamento degli eventi di attesa, in millisecondi. | 100 | 1-600000 |
 
 > [!NOTE] 
@@ -122,13 +129,13 @@ Questa vista restituisce tutti i dati in Query Store. Contiene una riga per ogni
 |plan_id    |bigint |   |ID del piano corrispondente alla query, non ancora disponibile|
 |start_time |timestamp  ||  Le query vengono aggregate per intervalli di tempo. La durata di un intervallo è di 15 minuti per impostazione predefinita. Questo timestamp è l'ora di inizio corrispondente all'intervallo di tempo della voce.|
 |end_time   |timestamp  ||  Ora di fine corrispondente all'intervallo di tempo della voce|
-|chiamate  |bigint  || Numero di volte in cui la query è stata eseguita|
+|calls  |bigint  || Numero di volte in cui la query è stata eseguita|
 |total_time |double precision   ||  Tempo totale di esecuzione della query, in millisecondi|
 |min_time   |double precision   ||  Tempo minimo di esecuzione della query, in millisecondi|
 |max_time   |double precision   ||  Tempo massimo di esecuzione della query, in millisecondi|
 |mean_time  |double precision   ||  Tempo medio di esecuzione della query, in millisecondi|
 |stddev_time|   double precision    ||  Deviazione standard del tempo di esecuzione della query, in millisecondi |
-|righe   |bigint ||  Numero totale di righe recuperate o interessate dall'istruzione|
+|rows   |bigint ||  Numero totale di righe recuperate o interessate dall'istruzione|
 |shared_blks_hit|   bigint  ||  Numero totale di riscontri nella cache dei blocchi condivisi ottenuto dall'istruzione|
 |shared_blks_read|  bigint  ||  Numero totale dei blocchi condivisi letti dall'istruzione|
 |shared_blks_dirtied|   bigint   || Numero totale dei blocchi condivisi modificati ma non salvati dall'istruzione |
@@ -160,7 +167,7 @@ Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene 
 |query_id   |bigint     ||Codice hash interno, calcolato dall'albero di analisi dell'istruzione|
 |event_type |text       ||Tipo di evento atteso dal back-end|
 |event  |text       ||Nome dell'evento di attesa, se il back-end è attualmente in attesa|
-|chiamate  |Integer        ||Numero dello stesso evento acquisito|
+|calls  |Integer        ||Numero dello stesso evento acquisito|
 
 
 ### <a name="functions"></a>Funzioni

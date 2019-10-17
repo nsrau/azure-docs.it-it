@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 30994133b19c4f59ae9e8be26caffe14348638f6
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 30394ba7b71d7dcb4233e5dca341dda47fd9ffa7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219376"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376324"
 ---
 # <a name="create-a-private-endpoint-using-azure-cli"></a>Creare un endpoint privato usando l'interfaccia della riga di comando
 L'endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse di collegamento privato. In questa Guida introduttiva si apprenderà come creare una VM in una rete virtuale, un server di database SQL con un endpoint privato usando l'interfaccia della riga di comando di Azure. Quindi, è possibile accedere alla macchina virtuale e accedere in modo sicuro alla risorsa di collegamento privato (un server di database SQL di Azure privato in questo esempio). 
@@ -29,7 +29,7 @@ Prima di poter creare una risorsa, è necessario creare un gruppo di risorse per
 az group create --name myResourceGroup --location westcentralus
 ```
 
-## <a name="create-a-virtual-network"></a>Crea rete virtuale
+## <a name="create-a-virtual-network"></a>Creare una rete virtuale
 Creare una rete virtuale con [AZ Network VNET create](/cli/azure/network/vnet). Questo esempio crea una rete virtuale predefinita denominata *myVirtualNetwork* con una subnet denominata *Subnet*:
 
 ```azurecli-interactive
@@ -39,7 +39,7 @@ az network vnet create \
  --subnet-name mySubnet
 ```
 ## <a name="disable-subnet-private-endpoint-policies"></a>Disabilitare i criteri dell'endpoint privato della subnet 
-Azure distribuisce le risorse in una subnet all'interno di una rete virtuale, pertanto è necessario creare o aggiornare la subnet per disabilitare i criteri di rete degli endpoint privati. Aggiornare una configurazione di subnet denominata * subnet * * con [AZ Network VNET subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+Azure distribuisce le risorse in una subnet all'interno di una rete virtuale, pertanto è necessario creare o aggiornare la subnet per disabilitare i criteri di rete degli endpoint privati. Aggiornare una configurazione di subnet *denominata subnet* With [AZ Network VNET subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -81,7 +81,7 @@ az sql db create \
     --capacity 1 
 ```
 
-Si noti che l'ID del SQL Server ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/myserver.``` è simile a quello che verrà SQL Server usato nel passaggio successivo. 
+Si noti che l'ID SQL Server è simile a @ no__t-0. verrà usato l'ID SQL Server nel passaggio successivo. 
 
 ## <a name="create-the-private-endpoint"></a>Creare l'endpoint privato 
 Creare un endpoint privato per il server di database SQL nella rete virtuale: 
@@ -138,7 +138,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
         > [!NOTE]
         > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un altro account** per specificare le credenziali immesse al momento della creazione della macchina virtuale.
 
-1. Scegliere **OK**.
+1. Selezionare **OK**.
 
 1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare **Sì** oppure **Continua**.
 
@@ -149,7 +149,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 In questa sezione si effettuerà la connessione al server di database SQL dalla macchina virtuale usando l'endpoint privato.
 
  1. Nel desktop remoto di  *myVM* aprire PowerShell.
- 2. Immettere nslookup MyServer.database.Windows.NET  verrà visualizzato un messaggio simile al seguente: 
+ 2. Immettere nslookup MyServer. database. Windows. NET @ no__t-0. verrà visualizzato un messaggio simile al seguente: 
 
 ```
       Server:  UnKnown 
@@ -160,10 +160,10 @@ In questa sezione si effettuerà la connessione al server di database SQL dalla 
       Aliases:  myserver.database.windows.net 
 ```
  3. Installa SQL Server Management Studio 
- 4. In Connetti al server immettere o selezionare queste informazioni: Tipo di server: Selezionare motore di database.
- Nome server: Selezionare il nome utente myserver.database.windows.net: Immettere un nome utente specificato durante la creazione.
- Password: Immettere una password specificata durante la creazione.
- Ricorda password: Selezionare Sì.
+ 4. In Connetti al server immettere o selezionare le informazioni seguenti: tipo di server: selezionare motore di database.
+ Nome server: selezionare myserver.database.windows.net nomeutente: immettere un nome utente specificato durante la creazione.
+ Password: immettere una password specificata durante la creazione.
+ Ricorda password: selezionare Sì.
  
  5. Selezionare **Connetti**.
  6. Esplorare i **database** dal menu a sinistra.

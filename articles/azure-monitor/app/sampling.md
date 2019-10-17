@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: d43fe7f1f0fc63ab50821a345802a9e7e62881b2
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 83243ba7df48db5cd7757a464f0818ef69c4559e
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169485"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372570"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -33,7 +33,7 @@ Il campionamento riduce i costi del traffico e dei dati e consente di evitare la
 * Il campionamento adattivo è abilitato per impostazione predefinita in tutta la versione più recente di ASP.NET e ASP.NET Core Software Development Kit (SDK).
 * È anche possibile impostare il campionamento manualmente. Questa configurazione può essere configurata nel portale nella *pagina utilizzo e costi stimati*, in ASP.NET SDK nel file ApplicationInsights. config, in ASP.NET Core SDK tramite codice o in Java SDK nel file ApplicationInsights. XML.
 * Se si registrano eventi personalizzati ed è necessario assicurarsi che un set di eventi venga mantenuto o rimosso insieme, gli eventi devono avere lo stesso valore OperationId.
-* Il divisore di campionamento *n* è indicato in ogni record nella proprietà `itemCount`, visualizzata nella ricerca con il nome descrittivo "Conteggio delle richieste" o "Conteggio degli eventi". `itemCount==1`Quando il campionamento non è in esecuzione.
+* Il divisore di campionamento *n* è indicato in ogni record nella proprietà `itemCount`, visualizzata nella ricerca con il nome descrittivo "Conteggio delle richieste" o "Conteggio degli eventi". il campionamento `itemCount==1`when non è in esecuzione.
 * Se si scrivono query di Dati di analisi, è necessario [tener conto del campionamento](../../azure-monitor/log-query/aggregations.md). In particolare, anziché eseguire semplicemente il conteggio dei record, è necessario usare `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Tipi di campionamento
@@ -53,7 +53,7 @@ Se è in esecuzione il campionamento adattivo o a frequenza fissa, il campioname
 
 Il campionamento adattivo è disponibile per Application Insights SDK per ASP.NET versione 2.0.0-beta3 e versioni successive, Microsoft. ApplicationInsights. AspNetCore SDK v 2.2.0-beta1 e versioni successive ed è abilitato per impostazione predefinita.
 
-Il campionamento adattivo riguarda il volume dei dati di telemetria inviati dall'app del server Web all'endpoint del servizio Application Insights. Il volume viene regolato automaticamente per rimanere entro una frequenza massima specificata di traffico e viene controllato tramite l'impostazione `MaxTelemetryItemsPerSecond`. Se l'applicazione produce una quantità ridotta di dati di telemetria, ad esempio durante il debug o a causa di un utilizzo ridotto, gli elementi non verranno eliminati dal processore di `MaxTelemetryItemsPerSecond`campionamento purché il volume sia inferiore. Man mano che aumenta il volume dei dati di telemetria, la frequenza di campionamento viene regolata in modo da ottenere il volume di destinazione.
+Il campionamento adattivo riguarda il volume dei dati di telemetria inviati dall'app del server Web all'endpoint del servizio Application Insights. Il volume viene regolato automaticamente per mantenuta entro una frequenza massima specificata di traffico e viene controllato tramite l'impostazione `MaxTelemetryItemsPerSecond`. Se l'applicazione produce una quantità ridotta di dati di telemetria, ad esempio durante il debug o a causa di un utilizzo ridotto, gli elementi non verranno eliminati dal processore di campionamento purché il volume sia inferiore `MaxTelemetryItemsPerSecond`. Man mano che aumenta il volume dei dati di telemetria, la frequenza di campionamento viene regolata in modo da ottenere il volume di destinazione.
 
 Per ottenere il volume di destinazione, alcuni dei dati di telemetria generati vengono eliminati. Tuttavia, come in altri tipi di campionamento, l'algoritmo consente di mantenere gli elementi di telemetria correlati. Ad esempio, quando si controllano i dati di telemetria nella ricerca, sarà possibile trovare la richiesta correlata a una particolare eccezione.
 
@@ -92,11 +92,11 @@ In [ApplicationInsights.config](../../azure-monitor/app/configuration-with-appli
 
 * `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
   
-    Elenco dei tipi da non campionare delimitato dal punto e virgola. I tipi riconosciuti sono: Dependency, Event, Exception, PageView, Request, Trace. Tutte le istanze dei tipi specificati vengono trasmesse; i tipi non specificati vengono campionati.
+    Elenco dei tipi da non campionare delimitato dal punto e virgola. I tipi riconosciuti sono: dipendenza, evento, eccezione, pageview, richiesta, traccia. Tutte le istanze dei tipi specificati vengono trasmesse; i tipi non specificati vengono campionati.
 
 * `<IncludedTypes>Request;Dependency</IncludedTypes>`
   
-    Elenco dei tipi da campionare delimitato dal punto e virgola. I tipi riconosciuti sono: Dependency, Event, Exception, PageView, Request, Trace. I tipi specificati vengono campionati; tutte le istanze degli altri tipi vengono sempre trasmesse.
+    Elenco dei tipi da campionare delimitato dal punto e virgola. I tipi riconosciuti sono: dipendenza, evento, eccezione, pageview, richiesta, traccia. I tipi specificati vengono campionati; tutte le istanze degli altri tipi vengono sempre trasmesse.
 
 
 **Per** disattivare il campionamento adattivo, rimuovere il nodo o i nodi AdaptiveSamplingTelemetryProcessor da applicationinsights-config.
@@ -105,7 +105,7 @@ In [ApplicationInsights.config](../../azure-monitor/app/configuration-with-appli
 
 Invece di impostare il parametro di campionamento nel file con estensione config è possibile impostare questi valori a livello di codice.
 
-1. Rimuovere tutti i `AdaptiveSamplingTelemetryProcessor` nodi dal file config.
+1. Rimuovere tutti i nodi @no__t 0 dal file config.
 2. Usare il frammento di codice seguente per configurare il campionamento adattivo.
 
 *C#*
@@ -145,12 +145,12 @@ Invece di impostare il parametro di campionamento nel file con estensione config
 
 ## <a name="configuring-adaptive-sampling-for-aspnet-core-applications"></a>Configurazione del campionamento adattivo per applicazioni ASP.NET Core.
 
-Non esiste alcuna `ApplicationInsights.Config` per ASP.NET Core applicazioni, quindi ogni configurazione viene eseguita tramite codice.
+Non esiste `ApplicationInsights.Config` per le applicazioni ASP.NET Core, quindi ogni configurazione viene eseguita tramite codice.
 Il campionamento adattivo è abilitato per impostazione predefinita in tutte le applicazioni ASP.NET Core, ma può essere disabilitato o è possibile personalizzarne il comportamento.
 
 ### <a name="turning-off-adaptive-sampling"></a>Disabilitazione del campionamento adattivo
 
-La funzionalità di campionamento predefinita può essere disabilitata durante l'aggiunta Application Insights servizio ```ConfigureServices```nel metodo ```ApplicationInsightsServiceOptions``` usando all' `Startup.cs` interno del file:
+La funzionalità di campionamento predefinita può essere disabilitata durante l'aggiunta di Application Insights servizio, nel metodo ```ConfigureServices```, usando ```ApplicationInsightsServiceOptions``` all'interno del file `Startup.cs`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -195,9 +195,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ```
 
-**Se si usa il metodo precedente per configurare il campionamento, assicurarsi ```aiOptions.EnableAdaptiveSampling = false;``` di usare le impostazioni con AddApplicationInsightsTelemetry ().**
+**Se si usa il metodo precedente per configurare il campionamento, assicurarsi di usare le impostazioni ```aiOptions.EnableAdaptiveSampling = false;``` con AddApplicationInsightsTelemetry ().**
 
-## <a name="fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites"></a>Campionamento a frequenza fissa per siti Web ASP.NET, ASP.NET Core e Java
+## <a name="fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications"></a>Campionamento a frequenza fissa per ASP.NET, ASP.NET Core, siti Web Java e applicazioni Python
 
 Il campionamento a frequenza fissa riduce il traffico inviato dal server e dai Web browser. A differenza del campionamento adattivo, riduce i dati di telemetria a una frequenza fissa definita dall'utente. Sincronizza inoltre il campionamento del client e del server in modo che gli elementi correlati vengano mantenuti, ad esempio quando si esamina una pagina di ricerca, è possibile trovare la richiesta correlata.
 
@@ -262,7 +262,7 @@ In Esplora metriche, frequenze quali il numero di richieste ed eccezioni vengono
 
 ### <a name="configuring-fixed-rate-sampling-in-aspnet-core"></a>Configurazione del campionamento a frequenza fissa in ASP.NET Core
 
-1. **Disabilitare il campionamento adattivo**:  È possibile apportare modifiche nel metodo ```ConfigureServices```usando: ```ApplicationInsightsServiceOptions```
+1. **Disabilitare il campionamento adattivo**: le modifiche possono essere apportate nel metodo ```ConfigureServices```, usando ```ApplicationInsightsServiceOptions```:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -276,7 +276,7 @@ In Esplora metriche, frequenze quali il numero di richieste ed eccezioni vengono
     }
     ```
 
-2. **Abilitare il modulo di campionamento a frequenza fissa.** Le modifiche possono essere apportate ```Configure``` nel metodo, come illustrato nel frammento di codice seguente:
+2. **Abilitare il modulo di campionamento a frequenza fissa.** È possibile apportare modifiche nel metodo ```Configure```, come illustrato nel frammento di codice seguente:
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -327,7 +327,7 @@ In Esplora metriche, frequenze quali il numero di richieste ed eccezioni vengono
         </IncludedTypes>
     ```
 
-I tipi di dati di telemetria che possono essere inclusi o esclusi dal campionamento sono: Dipendenza, evento, eccezione, visualizzazione pagina, richiesta e traccia.
+I tipi di dati di telemetria che possono essere inclusi o esclusi dal campionamento sono: Dependency, Event, Exception, di visualizzazione, Request e Trace.
 
 > [!NOTE]
 > Come percentuale di campionamento, sceglierne una vicina a 100/N dove N è un numero intero.  Il campionamento attualmente non supporta altri valori.
@@ -336,7 +336,27 @@ I tipi di dati di telemetria che possono essere inclusi o esclusi dal campioname
 
 <a name="other-web-pages"></a>
 
+### <a name="configuring-fixed-rate-sampling-in-opencensus-python"></a>Configurazione del campionamento a frequenza fissa in OpenCensus Python ###
 
+1. Instrumentare l'applicazione con le più recenti utilità di [esportazione di monitoraggio di Azure OpenCensus](../../azure-monitor/app/opencensus-python.md).
+
+> [!NOTE]
+> Il campionamento a frequenza fissa è disponibile solo tramite l'utilità di esportazione della traccia. Ciò significa che le richieste in ingresso e in uscita sono gli unici tipi di dati di telemetria in cui è possibile configurare il campionamento.
+> 
+> 
+
+2. È possibile specificare un `sampler` come parte della configurazione `Tracer`. Se non viene fornito alcun campionatore esplicito, il ProbabilitySampler verrà usato per impostazione predefinita. Per impostazione predefinita, ProbabilitySampler utilizzerebbe una velocità di 1/10000, ovvero una delle richieste 10000 verrà inviata a Application Insights. Se si desidera specificare una frequenza di campionamento, vedere di seguito.
+
+3. Quando si specifica un campionatore, verificare che `Tracer` specifichi un campionatore con una frequenza di campionamento compresa tra 0,0 e 1,0 inclusi. Una frequenza di campionamento di 1,0 rappresenta il 100%, vale a dire che tutte le richieste verranno inviate come dati di telemetria a Application Insights.
+
+    ```python
+    tracer = Tracer(
+        exporter=AzureExporter(
+            instrumentation_key='00000000-0000-0000-0000-000000000000',
+        ),
+        sampler=ProbabilitySampler(1.0),
+    )
+    ```
 
 ## <a name="ingestion-sampling"></a>Campionamento per inserimento
 
@@ -361,7 +381,7 @@ Il campionamento per inserimento non funziona mentre è attivo il campionamento 
 ## <a name="sampling-for-web-pages-with-javascript"></a>Campionamento per pagine Web con JavaScript
 È possibile configurare le pagine Web per il campionamento a frequenza fissa da qualsiasi server. 
 
-Quando si [configurano le pagine Web per Application Insights](../../azure-monitor/app/javascript.md), modificare il frammento JavaScript ottenuto dal portale di Application Insights. Nelle app ASP.NET il frammento viene in genere salvato in _Layout.cshtml.  Inserire una riga simile a `samplingPercentage: 10,` prima della chiave di strumentazione:
+Quando si [configurano le pagine Web per Application Insights](../../azure-monitor/app/javascript.md), modificare il frammento JavaScript ottenuto dal portale di Application Insights. Nelle app ASP.NET, il frammento viene in genere inserito in file. cshtml.  Inserire una riga come `samplingPercentage: 10,` prima della chiave di strumentazione:
 
     <script>
     var appInsights= ... 
@@ -519,7 +539,7 @@ Seguire le istruzioni di questo per configurare [il](https://docs.microsoft.com/
 
 *Esistono alcuni eventi rari che si vuole visualizzare sempre. Come è possibile passarli al modulo di campionamento?*
 
-* Il modo migliore per ottenere questo risultato è scrivere un [personalizzata telemetryinitializer](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)personalizzato, che imposta `SamplingPercentage` su 100 sull'elemento di telemetria che si vuole mantenere, come illustrato di seguito. Poiché gli inizializzatori sono garantiti per l'esecuzione prima dei processori di telemetria (incluso il campionamento), ciò garantisce che tutte le tecniche di campionamento ignoreranno questo elemento da eventuali considerazioni di campionamento.
+* Il modo migliore per ottenere questo risultato è scrivere un [personalizzata telemetryinitializer](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)personalizzato, che imposta il `SamplingPercentage` su 100 sull'elemento di telemetria che si vuole mantenere, come illustrato di seguito. Poiché gli inizializzatori sono garantiti per l'esecuzione prima dei processori di telemetria (incluso il campionamento), ciò garantisce che tutte le tecniche di campionamento ignoreranno questo elemento da eventuali considerazioni di campionamento.
 
 ```csharp
      public class MyTelemetryInitializer : ITelemetryInitializer

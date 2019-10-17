@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2508090fa8831c8fefb0e710c28e512ec0c94c6e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: de98f972a43f3845d2a01b928d90283732ef4843
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074150"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329787"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Indirizzi IP in ingresso e in uscita in Servizio app di Azure
 
@@ -52,7 +52,7 @@ Indipendentemente dal numero di istanze cui è applicata scalabilità orizzontal
 
 Il set di indirizzi IP in uscita per l'app cambia quando si ridimensiona l'app tra i livelli inferiori (**Basic**, **Standard** e **Premium**) e il livello  **Premium V2**.
 
-È possibile trovare il set di tutti i possibili indirizzi IP in uscita che possono essere usati dall'app, indipendentemente dai piani tariffari, cercando la `possibleOutboundIPAddresses` proprietà o nel campo **indirizzi IP in uscita aggiuntivi** nel pannello **Proprietà** della portale di Azure. Vedere [Trovare gli indirizzi IP in uscita](#find-outbound-ips).
+È possibile trovare il set di tutti i possibili indirizzi IP in uscita che possono essere usati dall'app, indipendentemente dai piani tariffari, cercando la proprietà `possibleOutboundIpAddresses` o nel campo **indirizzi IP in uscita aggiuntivi** nel pannello **Proprietà** della portale di Azure. Vedere [Trovare gli indirizzi IP in uscita](#find-outbound-ips).
 
 ## <a name="find-outbound-ips"></a>Trovare gli indirizzi IP in uscita
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 69fe370029cef391b8ee483ffdee5c588df41d58
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 147d3dba2e2dc271d5b7422d7ba2b28c04f583af
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030667"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330630"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Configurare un Lab per insegnare lo script della shell in Linux
 Questo articolo illustra come configurare un Lab per insegnare lo script della shell in Linux. Lo scripting è una parte utile dell'amministrazione del sistema che consente agli amministratori di evitare attività ripetitive. In questo scenario di esempio, la classe illustra gli script bash tradizionali e gli script avanzati. Gli script avanzati sono script che combinano i comandi bash e Ruby. Questo approccio consente a Ruby di passare dati e comandi bash per interagire con la shell. 
@@ -26,7 +26,7 @@ Questo articolo illustra come configurare un Lab per insegnare lo script della s
 Gli studenti che frequentano queste classi di scripting lavorano su una macchina virtuale Linux per apprendere le nozioni di base di Linux e acquisire familiarità con gli script della shell bash. La macchina virtuale Linux viene fornita con accesso tramite Desktop remoto abilitato e con gli editor di testo [gedit](https://help.gnome.org/users/gedit/stable/) e [Visual Studio Code](https://code.visualstudio.com/) installati.
 
 ## <a name="lab-configuration"></a>Configurazione del lab
-Per configurare questo Lab, è necessaria una sottoscrizione di Azure per iniziare. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. Quando si dispone di una sottoscrizione di Azure, è possibile creare un nuovo account Lab in Azure Lab Services o usare un account lab esistente. Per la creazione di un nuovo account Lab, vedere l'esercitazione seguente: [Esercitazione per configurare un account Lab](tutorial-setup-lab-account.md).
+Per configurare questo Lab, è necessaria una sottoscrizione di Azure per iniziare. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. Quando si dispone di una sottoscrizione di Azure, è possibile creare un nuovo account Lab in Azure Lab Services o usare un account lab esistente. Vedere l'esercitazione seguente per la creazione di un nuovo account Lab: [esercitazione per la configurazione di un account Lab](tutorial-setup-lab-account.md).
 
 Dopo aver creato l'account Lab, abilitare le impostazioni seguenti nell'account Lab: 
 
@@ -40,7 +40,7 @@ Seguire [questa esercitazione](tutorial-setup-classroom-lab.md) per creare un nu
 | ------------ | ------------------ |
 | Dimensioni delle macchine virtuali (VM) | Small  |
 | Immagine VM | [Ubuntu server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer1804LTS) |
-| Abilita connessione Desktop remoto | Abilita. <p>L'abilitazione di questa impostazione consentirà agli insegnanti e agli studenti di connettersi alle macchine virtuali tramite Desktop remoto (RDP). Per ulteriori informazioni, vedere [Enable Remote Desktop for Linux Virtual Machines in a Lab in Azure Lab Services](how-to-enable-remote-desktop-linux.md#teachers-connecting-to-the-template-vm-using-rdp). </p>|
+| Abilita connessione Desktop remoto | Abilita. <p>L'abilitazione di questa impostazione consentirà agli insegnanti e agli studenti di connettersi alle macchine virtuali tramite Desktop remoto (RDP). Per ulteriori informazioni, vedere [Enable Remote Desktop for Linux Virtual Machines in a Lab in Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
 
 
 ## <a name="install-desktop-and-xrdp"></a>Installare desktop e xrdp
@@ -80,14 +80,14 @@ In questa sezione viene illustrato come installare un paio di editor di testo. G
 
     Il modello è stato aggiornato e include il linguaggio di programmazione e gli strumenti di sviluppo necessari per completare il Lab. È ora possibile pubblicare l'immagine modello nel Lab. Selezionare il pulsante **pubblica** nella pagina modello per pubblicare il modello nel Lab.  
 
-## <a name="cost"></a>Costi 
+## <a name="cost"></a>Costo 
 Se si desidera stimare il costo di questo Lab, è possibile utilizzare l'esempio seguente:
  
 Per una classe di 25 studenti con 20 ore di tempo di classe pianificata e 10 ore di quota per il lavoro o le assegnazioni, il prezzo del Lab sarà: 
 
 25 studenti * (20 + 10) ore * 20 unità Lab * 0,01 USD all'ora = 150 USD
 
-Per ulteriori informazioni sui prezzi, vedere il documento seguente: [Prezzi Azure Lab Services](https://azure.microsoft.com/pricing/details/lab-services/).
+Per ulteriori informazioni sui prezzi, vedere il documento seguente: [Azure Lab Services prezzi](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## <a name="conclusion"></a>Conclusione
 Questo articolo illustra la procedura per creare un Lab per le classi di scripting. Sebbene questo articolo sia incentrato sulla configurazione di strumenti di scripting Ruby nel computer Linux, è possibile usare la stessa configurazione per altre classi di scripting come Python in Linux.
@@ -96,9 +96,9 @@ Questo articolo illustra la procedura per creare un Lab per le classi di scripti
 I passaggi successivi sono comuni alla configurazione di qualsiasi Lab:
 
 - [Aggiungere utenti](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Imposta quota](tutorial-setup-classroom-lab.md#set-quotas-for-users)
+- [Imposta quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Impostare una pianificazione](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [Collegamenti per la registrazione tramite posta elettronica agli studenti](tutorial-setup-classroom-lab.md#send-an-email-with-the-registration-link). 
+- [Collegamenti per la registrazione tramite posta elettronica agli studenti](how-to-configure-student-usage.md#send-invitations-to-users). 
 
 
 

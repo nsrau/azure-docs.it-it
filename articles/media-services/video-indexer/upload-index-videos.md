@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 09/10/2019
 ms.author: juliako
-ms.openlocfilehash: 7233bea4a030b814a5332284a80f07a71f288dba
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: d6338f3840b6f8afe21f8115304ba00bba90c6ea
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128210"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372384"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -29,14 +29,15 @@ Questo articolo illustra come usare l'API [Upload video](https://api-portal.vide
 
 Una volta caricato il video, facoltativamente Video Indexer lo codifica (illustrato in questo articolo). Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, si crea un account di Video Indexer [collegato alla sottoscrizione di Azure e un account di Servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account multimediale. 
 
-## <a name="uploading-considerations"></a>Considerazioni sul caricamento
+## <a name="uploading-considerations-and-limitations"></a>Caricamento di considerazioni e limitazioni
  
+- Il nome del video non deve contenere più di 80 caratteri.
 - Quando si carica il video in base all'URL (scelta consigliata), l'endpoint deve essere protetto con TLS 1,2 (o versione successiva).
 - Le dimensioni di caricamento con l'opzione URL sono limitate a 30 GB.
 - La lunghezza dell'URL della richiesta è limitata a 6144 caratteri, in cui la lunghezza dell'URL della stringa di query è limitata a 4096 caratteri.
 - Le dimensioni di caricamento con l'opzione di matrice di byte sono limitate a 2 GB.
 - L'opzione della matrice di byte scade dopo 30 minuti.
-- L'URL specificato nel `videoURL` parametro deve essere codificato.
+- L'URL specificato nel param `videoURL` deve essere codificato.
 - L'indicizzazione degli asset di servizi multimediali ha la stessa limitazione dell'indicizzazione dall'URL.
 - Video Indexer ha un limite di durata massima di 4 ore per un singolo file.
 
@@ -60,22 +61,22 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
 - Modifica stato indicizzazione: 
     - Proprietà:    
     
-        |NOME|Descrizione|
+        |name|Description|
         |---|---|
         |id|ID video|
-        |stato|Lo stato del video|  
-    - Esempio: https:\//test.com/NotifyMe?ProjectName=MyProject&ID=1234abcd&state=processed
+        |state|Lo stato del video|  
+    - Esempio: https: \//test. com/NotifyMe? NomeProgetto = MyProject & ID = 1234abcd & state = processed
 - Persona identificata nel video:
-  - Properties
+  - properties
     
-      |Name|Descrizione|
+      |name|Description|
       |---|---|
       |id| ID video|
       |faceId|L'ID viso che appare nell'indice video|
       |knownPersonId|L'ID utente univoco all'interno di un modello di viso|
       |personName|Il nome della persona|
         
-    - Esempio: https:\//test.com/NotifyMe?ProjectName=MyProject&ID=1234abcd&FaceId=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&PersonName=Inigo_Montoya 
+    - Esempio: https: \//test. com/NotifyMe? NomeProgetto = MyProject & ID = 1234abcd & FaceId = 12 & knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5 & personaname = Inigo_Montoya 
 
 #### <a name="notes"></a>Note
 
@@ -92,9 +93,9 @@ Usare questo parametro se registrazioni non elaborate o esterne contengono rumor
 
 Il prezzo dipende dall'opzione di indicizzazione selezionata.  
 
-### <a name="priority"></a>priorità
+### <a name="priority"></a>priority
 
-I video vengono indicizzati da Video Indexer in base alle rispettive priorità. Usare il parametro **priority** per specificare la priorità dell'indice. I valori seguenti sono validi: **Bassa**, **Normale** (impostazione predefinita), e **Elevata**.
+I video vengono indicizzati da Video Indexer in base alle rispettive priorità. Usare il parametro **priority** per specificare la priorità dell'indice. Sono validi i valori seguenti: **Basso**, **Normale** (predefinito) e **Alto**.
 
 Il parametro **priority** è supportato solo per gli account a pagamento.
 
@@ -284,7 +285,7 @@ public class AccountContractSlim
 
 L'operazione di caricamento può restituire i codici di stato elencati nella tabella seguente.
 
-|status code|ErrorType (nel corpo della risposta)|DESCRIZIONE|
+|Codice di stato|ErrorType (nel corpo della risposta)|Description|
 |---|---|---|
 |400|VIDEO_ALREADY_IN_PROGRESS|Lo stesso video è già in fase di elaborazione nell'account specificato.|
 |400|VIDEO_ALREADY_FAILED|Lo stesso video ha restituito un errore di elaborazione nell'account specificato meno di 2 ore prima. I client API devono attendere almeno 2 ore prima di caricare nuovamente un video.|

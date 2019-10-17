@@ -7,18 +7,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 4941e7af000e97e4ace0a9e90a187ed92409942d
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 1ed1b105f64d109284de441af1bcaee5f0827d75
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264647"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331371"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
 Questo articolo illustra le quote per un hub Internet e fornisce informazioni utili per comprendere il funzionamento della limitazione delle richieste.
 
-## <a name="quotas-and-throttling"></a>Quote e limitazioni
+## <a name="quotas-and-throttling"></a>Quote e limitazione
 
 Ogni sottoscrizione di Azure può avere al massimo 50 hub IoT e al massimo un hub gratuito.
 
@@ -26,7 +26,7 @@ Il provisioning di ogni hub IoT viene eseguito con un determinato numero di unit
 
 Il livello determina anche le limitazioni che l'hub IoT applica alle operazioni.
 
-### <a name="iot-plug-and-play"></a>Plug and Play IoT
+### <a name="iot-plug-and-play"></a>IoT Plug and Play
 
 Durante la fase di anteprima pubblica, gli Plug and Play dispositivi invieranno messaggi distinti per interfaccia, che potrebbero aumentare il numero di messaggi conteggiati per la quota del messaggio.
 
@@ -95,7 +95,7 @@ L'hub IoT applica altri limiti operativi:
 
 | Operazione | Limite |
 | --------- | ----- |
-| Dispositivi | Il numero massimo di dispositivi che è possibile connettere a un singolo hub Internet è 1 milione. L'unico modo per aumentare questo limite è contattare [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).|
+| Dispositivi | Il numero totale di dispositivi e moduli che possono essere registrati per un singolo hub Internet è limitato a 1 milione. L'unico modo per aumentare questo limite è contattare [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).|
 | Caricamenti di file | 10 caricamenti di file simultanei per dispositivo. |
 | Processi<sup>1</sup> | Il numero massimo di processi simultanei è 1 (per il livello gratuito e S1), 5 (per S2) e 10 (per S3). Tuttavia, il numero massimo di [processi di importazione/esportazione di dispositivi](iot-hub-bulk-identity-mgmt.md) simultanei è 1 per tutti i livelli. <br/>La cronologia processo viene mantenuta fino a 30 giorni. |
 | Altri endpoint | Agli hub SKU a pagamento possono essere associati 10 endpoint aggiuntivi. Agli hub SKU gratuiti può essere associato solo un endpoint aggiuntivo. |

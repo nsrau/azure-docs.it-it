@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ce0ac4f40f3dd1bd7252689618459769d0aeb56
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: fcc704e7027903a1ede14c787a64c35d6b5fd9c0
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203075"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373468"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect
 Questo articolo contiene le informazioni necessarie per sincronizzare le password utente da un'istanza di Active Directory locale a un'istanza di Azure Active Directory (Azure AD) basata sul cloud.
@@ -63,7 +63,7 @@ La sezione seguente illustra in dettaglio il funzionamento della sincronizzazion
 > [!NOTE]
 > L'hash MD4 originale non viene trasmesso ad Azure AD. Viene invece trasmesso l'hash SHA256 dell'hash MD4 originale. Di conseguenza, se si riesce a ottenere l'hash archiviato in Azure AD, questo non può essere usato in un attacco di tipo Pass-the-Hash locale.
 
-### <a name="security-considerations"></a>Considerazioni relative alla sicurezza
+### <a name="security-considerations"></a>Considerazioni sulla sicurezza
 
 Quando si sincronizzano le password, la versione in testo normale della password non viene esposta alla funzionalità di sincronizzazione dell'hash delle password, né ad Azure AD o a qualsiasi servizio associato.
 
@@ -93,7 +93,7 @@ Se un utente rientra nell'ambito della sincronizzazione dell'hash delle password
 
 Se sono presenti utenti sincronizzati che interagiscono solo con Azure AD servizi integrati e devono essere conformi ai criteri di scadenza delle password, è possibile forzarli a conformarsi ai criteri di scadenza della password Azure AD abilitando il  *Funzionalità EnforceCloudPasswordPolicyForPasswordSyncedUsers* .
 
-Quando *EnforceCloudPasswordPolicyForPasswordSyncedUsers* è disabilitato (impostazione predefinita), Azure ad Connect imposta l'attributo PasswordPolicies degli utenti sincronizzati su "DisablePasswordExpiration". Questa operazione viene eseguita ogni volta che la password di un utente viene sincronizzata e indica Azure AD di ignorare i criteri di scadenza della password cloud per tale utente. È possibile controllare il valore dell'attributo usando il modulo Azure AD PowerShell con il comando seguente:
+Quando *EnforceCloudPasswordPolicyForPasswordSyncedUsers* è disabilitato (impostazione predefinita), Azure ad Connect imposta l'attributo PasswordPolicies degli utenti sincronizzati su "DisablePasswordExpiration". Questa operazione viene eseguita ogni volta che la password di un utente viene sincronizzata e indica Azure AD di ignorare i criteri di scadenza della password cloud per tale utente. È possibile controllare il valore dell'attributo usando il modulo Azure AD PowerShell con il comando seguente:
 
 `(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
 
@@ -102,15 +102,15 @@ Per abilitare la funzionalità EnforceCloudPasswordPolicyForPasswordSyncedUsers,
 
 `Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers  $true`
 
-Una volta abilitata, Azure ad non passa a ogni utente sincronizzato per `DisablePasswordExpiration` rimuovere il valore dall'attributo PasswordPolicies. Al contrario, il valore viene impostato `None` su durante la sincronizzazione della password successiva per ogni utente alla successiva modifica della password in ad locale.  
+Una volta abilitata, Azure AD non passa a ogni utente sincronizzato per rimuovere il valore `DisablePasswordExpiration` dall'attributo PasswordPolicies. Al contrario, il valore viene impostato su `None` durante la sincronizzazione della password successiva per ogni utente alla successiva modifica della password in AD locale.  
 
-È consigliabile abilitare EnforceCloudPasswordPolicyForPasswordSyncedUsers, prima di abilitare la sincronizzazione dell'hash delle password, in modo che la sincronizzazione iniziale degli hash delle password non aggiunga `DisablePasswordExpiration` il valore all'attributo PasswordPolicies per gli utenti.
+È consigliabile abilitare EnforceCloudPasswordPolicyForPasswordSyncedUsers, prima di abilitare la sincronizzazione dell'hash delle password, in modo che la sincronizzazione iniziale degli hash delle password non aggiunga il valore `DisablePasswordExpiration` all'attributo PasswordPolicies per gli utenti.
 
 I criteri predefiniti per le password Azure AD richiedono agli utenti di modificare le password ogni 90 giorni. Se il criterio in Active Directory è anche di 90 giorni, i due criteri devono corrispondere. Tuttavia, se i criteri di Active Directory non sono 90 giorni, è possibile aggiornare i criteri di Azure AD password in modo che corrispondano usando il comando di PowerShell Set-MsolPasswordPolicy.
 
 Azure AD supporta un criterio di scadenza della password separato per ogni dominio registrato.
 
-Avvertimento Se sono presenti account sincronizzati che devono avere password non in scadenza in Azure ad, è necessario aggiungere in modo esplicito `DisablePasswordExpiration` il valore all'attributo PasswordPolicies dell'oggetto utente nella Azure ad.  È possibile eseguire questa operazione eseguendo il comando seguente.
+Avvertenza: se sono presenti account sincronizzati che devono avere password non in scadenza in Azure AD, è necessario aggiungere in modo esplicito il valore `DisablePasswordExpiration` all'attributo PasswordPolicies dell'oggetto utente in Azure AD.  È possibile eseguire questa operazione eseguendo il comando seguente.
 
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
@@ -123,7 +123,7 @@ Avvertimento Se sono presenti account sincronizzati che devono avere password no
   
 La funzionalità relativa alle password temporanee consente di garantire che il trasferimento della proprietà delle credenziali venga completato al primo utilizzo, per ridurre al minimo la durata del tempo in cui più persone hanno la conoscenza di tale credenziale.
 
-Per supportare password temporanee in Azure ad per gli utenti sincronizzati, è possibile abilitare la funzionalità *ForcePasswordResetOnLogonFeature* eseguendo il comando seguente nel server Azure ad Connect, sostituendo <AAD Connector Name> con il nome del connettore specifico per l'ambiente:
+Per supportare password temporanee in Azure AD per gli utenti sincronizzati, è possibile abilitare la funzionalità *ForcePasswordResetOnLogonFeature* eseguendo il comando seguente nel server Azure ad Connect, sostituendo <AAD Connector Name> con il nome del connettore specifico di ambiente:
 
 `Set-ADSyncAADCompanyFeature -ConnectorName "<AAD Connector name>" -ForcePasswordResetOnLogonFeature $true`
 
@@ -131,7 +131,7 @@ Per determinare il nome del connettore, è possibile usare il comando seguente:
 
 `(Get-ADSyncConnector | where{$_.ListName -eq "Windows Azure Active Directory (Microsoft)"}).Name`
 
-Avvertimento  Per forzare l'utente a modificare la password all'accesso successivo è necessario modificare la password nello stesso momento.  AD Connect non preleverà il flag di modifica Force password da solo, ma è supplementare per la modifica della password rilevata che si verifica durante la sincronizzazione degli hash delle password.
+Avvertenza: se si impone a un utente di modificare la password all'accesso successivo, è necessario modificare la password nello stesso momento.  AD Connect non preleverà il flag di modifica Force password da solo, ma è supplementare per la modifica della password rilevata che si verifica durante la sincronizzazione degli hash delle password.
 
 > [!CAUTION]
 > Se non si Abilita la reimpostazione della password self-service (SSPR) in Azure AD gli utenti avranno un'esperienza confusa quando reimpostano la password in Azure AD e quindi tenteranno di accedere Active Directory con la nuova password, perché la nuova password non è valida in Active Directory . È consigliabile usare questa funzionalità solo quando SSPR e il writeback delle password sono abilitati nel tenant.

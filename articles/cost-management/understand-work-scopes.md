@@ -1,21 +1,21 @@
 ---
-title: Comprendere e usare gli ambiti di gestione dei costi di Azure | Microsoft Docs
+title: Comprendere e usare gli ambiti di gestione dei costi di Azure
 description: Questo articolo consente di comprendere gli ambiti di fatturazione e di gestione delle risorse disponibili in Azure e come usare gli ambiti in gestione costi e API.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 41d83d4a6c5aad4c3b575513c6b3e2e25a425829
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 664307b64d5a2869130df9ab123119d869f36e21
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338644"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374477"
 ---
 # <a name="understand-and-work-with-scopes"></a>Informazioni e utilizzo degli ambiti
 
@@ -43,11 +43,11 @@ Azure supporta tre ambiti per la gestione delle risorse. Ogni ambito supporta la
 
 - **Sottoscrizioni** : contenitori primari per le risorse di Azure.
 
-    Tipo di risorsa: [Microsoft.Resources/subscriptions](/rest/api/resources/subscriptions)
+    Tipo di risorsa: [Microsoft. resources/subscriptions](/rest/api/resources/subscriptions)
 
 - [**Gruppi di risorse**](../azure-resource-manager/resource-group-overview.md#resource-groups) : raggruppamenti logici di risorse correlate per una soluzione di Azure che condividono lo stesso ciclo di vita. Ad esempio risorse distribuite ed eliminate insieme.
 
-    Tipo di risorsa: [Microsoft.Resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
+    Tipo di risorsa: [Microsoft. resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
 
 I gruppi di gestione consentono di organizzare le sottoscrizioni in una gerarchia. Ad esempio, è possibile creare una gerarchia di organizzazioni logiche usando i gruppi di gestione. Assegnare quindi ai team le sottoscrizioni per i carichi di lavoro di produzione e di sviluppo/test. E quindi creare gruppi di risorse nelle sottoscrizioni per gestire ogni sottosistema o componente.
 
@@ -106,7 +106,7 @@ Le sottoscrizioni di Azure create da singole offerte come il pagamento in base a
 
 - [**Account di fatturazione**](../billing/billing-view-all-accounts.md) : rappresenta un singolo proprietario dell'account per una o più sottoscrizioni di Azure. Attualmente non supporta la concessione dell'accesso a più persone o l'accesso alle visualizzazioni di costo aggregate.
 
-    Tipo di risorsa: Non applicabile
+    Tipo di risorsa: non applicabile
 
 Gli amministratori dell'account di sottoscrizione di Azure singoli possono visualizzare e gestire i dati di fatturazione, ad esempio fatture e pagamenti, dal [centro account di Azure](https://account.azure.com/subscriptions). Tuttavia, non possono visualizzare i dati sui costi o gestire le risorse nella portale di Azure. Per concedere l'accesso all'amministratore dell'account, usare i ruoli di gestione costi indicati in precedenza.
 
@@ -128,7 +128,10 @@ Gli account di fatturazione del contratto cliente Microsoft hanno gli ambiti seg
 
     Tipo di risorsa: `Microsoft.Billing/billingAccounts/invoiceSections`
 
+- **Cliente** : rappresenta un gruppo di sottoscrizioni associate a un cliente specifico che è stato caricato in un contratto cliente Microsoft dal partner. Questo ambito è specifico per CSP.
+
 Diversamente dagli ambiti di fatturazione EA, gli account di fatturazione del contratto cliente _sono_ associati a una singola directory e non possono avere sottoscrizioni tra più directory Azure ad.
+
 
 Gli ambiti di fatturazione del contratto del cliente supportano i ruoli seguenti:
 
@@ -149,7 +152,7 @@ Al termine dell'integrazione di AWS, vedere [Setup and Configure AWS Integration
 - **Account di fatturazione esterno** : rappresenta un contratto del cliente con un fornitore di terze parti. Questa operazione è simile all'account di fatturazione EA.
 
     Tipo di risorsa: `Microsoft.CostManagement/externalBillingAccounts`
-    
+
 - **Sottoscrizione esterna** : rappresenta un account operativo del cliente con un fornitore di terze parti. Questa operazione è simile a una sottoscrizione di Azure.
 
     Tipo di risorsa: `Microsoft.CostManagement/externalSubscriptions`

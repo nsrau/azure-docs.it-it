@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: e005cf0860faeaad7010ea4da3ca1c5227ade14b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: fda6c72504a75d600931185e224bb46db03e23ed
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034784"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374300"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Come usare un modello di Azure Machine Learning distribuito come servizio Web
 
@@ -40,21 +40,18 @@ Il flusso di lavoro generale per creare un client che usa un servizio Web di Mac
 
 La classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) fornisce le informazioni necessarie per creare un client. Per la creazione di un'applicazione client sono utili le proprietà `Webservice` seguenti:
 
-* `auth_enabled`-Se è abilitata `True`l'autenticazione della chiave; in caso contrario,. `False`
-* `token_auth_enabled`-Se è abilitata `True`l'autenticazione del token; in caso contrario,. `False`
+* `auth_enabled`-se è abilitata l'autenticazione della chiave, `True`; in caso contrario, `False`.
+* `token_auth_enabled`-se è abilitata l'autenticazione basata su token, `True`; in caso contrario, `False`.
 * `scoring_uri` - L'indirizzo dell'API REST.
-* `swagger_uri`: Indirizzo della specifica OpenAPI. Questo URI è disponibile se è stata abilitata la generazione automatica dello schema. Per altre informazioni, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md#schema).
+* `swagger_uri`-l'indirizzo della specifica OpenAPI. Questo URI è disponibile se è stata abilitata la generazione automatica dello schema. Per altre informazioni, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md#schema).
 
 Sono disponibili tre modi per recuperare queste informazioni per servizi Web distribuiti:
 
 * Quando si distribuisce un modello, viene restituito un `Webservice` oggetto con informazioni sul servizio:
 
     ```python
-    service = Webservice.deploy_from_model(name='myservice',
-                                           deployment_config=myconfig,
-                                           models=[model],
-                                           image_config=image_config,
-                                           workspace=ws)
+    service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
+    service.wait_for_deployment(show_output = True)
     print(service.scoring_uri)
     print(service.swagger_uri)
     ```
@@ -79,12 +76,12 @@ Sono disponibili tre modi per recuperare queste informazioni per servizi Web dis
 
 Azure Machine Learning offre due modi per controllare l'accesso ai servizi Web.
 
-|Metodo di autenticazione|ACI|Servizio Azure Kubernetes|
+|Metodo di autenticazione|ACI|servizio Azure Container|
 |---|---|---|
 |Chiave|Disabilitato per impostazione predefinita| Abilitato per impostazione predefinita|
-|Token| Non disponibile| Disabilitato per impostazione predefinita |
+|token| Non disponibile| Disabilitato per impostazione predefinita |
 
-Quando si invia una richiesta a un servizio protetto con una chiave o un token, usare l'intestazione __authorization__ per passare la chiave o il token. La chiave o il token deve essere formattato `Bearer <key-or-token>`come `<key-or-token>` , dove è il valore della chiave o del token.
+Quando si invia una richiesta a un servizio protetto con una chiave o un token, usare l'intestazione __authorization__ per passare la chiave o il token. La chiave o il token deve essere formattato come `Bearer <key-or-token>`, dove `<key-or-token>` è la chiave o il valore del token.
 
 #### <a name="authentication-with-keys"></a>Autenticazione con chiavi
 
@@ -112,9 +109,9 @@ Quando si Abilita l'autenticazione basata su token per un servizio Web, è neces
 * Per impostazione predefinita, l'autenticazione del token è disabilitata quando si esegue la distribuzione nel servizio Azure Kubernetes.
 * L'autenticazione basata su token non è supportata quando si esegue la distribuzione in istanze di contenitore di Azure.
 
-Per controllare l'autenticazione del token, `token_auth_enabled` usare il parametro durante la creazione o l'aggiornamento di una distribuzione.
+Per controllare l'autenticazione basata su token, usare il parametro `token_auth_enabled` quando si crea o si aggiorna una distribuzione.
 
-Se l'autenticazione basata su token è abilitata, `get_token` è possibile usare il metodo per recuperare una Bearer token e l'ora di scadenza dei token:
+Se è abilitata l'autenticazione basata su token, è possibile usare il metodo `get_token` per recuperare una bearer token e l'ora di scadenza del token:
 
 ```python
 token, refresh_by = service.get_token()
@@ -122,7 +119,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Sarà necessario richiedere un nuovo token dopo l' `refresh_by` ora del token. 
+> Sarà necessario richiedere un nuovo token dopo l'ora `refresh_by` del token. 
 
 ## <a name="request-data"></a>Dati richiesta
 

@@ -1,5 +1,5 @@
 ---
-title: Ottieni URI di firma di accesso condiviso per l'immagine di macchina virtuale di Microsoft basata su Azure | Azure Marketplace
+title: Ottenere l'URI della firma di accesso condiviso per l'immagine di macchina virtuale basata su Microsoft Azure | Azure Marketplace
 description: L'articolo illustra come ottenere l'URI di firma di accesso condiviso per l'immagine di macchina virtuale.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 4da82b2f6aaa3fc664d2e91b80722329533b0cd0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c242fbcd19187abb608ca80a49d04dae195bd7c6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938673"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374364"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Ottenere l'URI di firma di accesso condiviso per l'immagine di macchina virtuale
 
@@ -44,7 +44,7 @@ Per generare un URI di firma di accesso condiviso con l'interfaccia della riga d
    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
    ```
     
-3. Modificare il file per specificare i valori dei parametri seguenti.  Le date devono essere specificate nel formato di data/ora UTC, ad esempio `10-25-2016T00:00:00Z`.
+3. Modificare il file per specificare i valori dei parametri seguenti.  Le date devono essere specificate nel formato di data/ora UTC, ad esempio `2016-10-25T00:00:00Z`.
    - `<account-name>`: nome dell'account di archiviazione di Azure
    - `<account-key>`: chiave dell'account di archiviazione di Azure
    - `<vhd-name>`: nome del disco rigido virtuale

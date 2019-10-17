@@ -1,21 +1,21 @@
 ---
-title: Uso dell'API REST di Azure blockchain Workbench Preview
+title: Usare l'API REST di Azure Blockchain Workbench
 description: Scenari per l'uso dell'API REST di Azure blockchain Workbench Preview
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 412b78363be70918969734cd8890a8ee940df431
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 2f751cc4f0037b8d60034636a0c512989113e441
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70843818"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72328865"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Uso dell'API REST di Azure blockchain Workbench Preview
 
@@ -210,8 +210,8 @@ Content-type: application/json
 
 Quando un utente decide di esplorare un contratto, il client della blockchain può quindi visualizzare le azioni utente disponibili considerato lo stato del contratto. In questo esempio l'utente cerca tutte le azioni disponibili per il nuovo contratto smart creato:
 
-* Modificare Consente all'utente di modificare la descrizione e il prezzo di un asset.
-* Terminare Consente all'utente di terminare il contratto dell'asset.
+* Modify: consente all'utente di modificare la descrizione e il prezzo di una risorsa.
+* Terminate: consente all'utente di terminare il contratto della risorsa.
 
 Usare l'[API GET dell'azione del contratto](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget):
 
@@ -277,7 +277,7 @@ Content-type: application/json
 
 Un utente può quindi decidere di eseguire un'azione per l'istanza del contratto smart specificato. In questo caso si consideri lo scenario in cui un utente desidera modificare la descrizione e il prezzo di una risorsa nell'azione seguente:
 
-* Descrizione: "Auto aggiornata"
+* Descrizione: "My updated car"
 * Prezzo: 54321
 
 Usare l'[API POST dell'azione del contratto](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost):

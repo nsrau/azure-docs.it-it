@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7c5786f4510e11d431f9e80dd52d1ffc3adb410
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 78a991fb310c635648513e6472543b9f5c01119d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129143"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330861"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnosticare e risolvere i problemi nell'ambiente Time Series Insights
 
@@ -40,11 +40,11 @@ Azure Time Series Insights supporta solo dati in formato JSON. Per alcuni esempi
 
 * Per un hub IoT in Hub IoT di Azure è necessario indicare la chiave con le autorizzazioni di **connessione al servizio**. Entrambi i criteri **iothubowner** o **service** funzioneranno perché entrambi dispongono delle autorizzazioni di **connessione al servizio**.
 
-   [![Autorizzazioni di connessione al servizio hub Internet](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
+   [@no__t-autorizzazioni di connessione al servizio Hub 1IoT](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
 * Per un hub eventi in Hub eventi di Azure è necessario indicare la chiave che dispone delle autorizzazioni di **ascolto**. Entrambi i criteri **read** o **manage** funzioneranno in quanto entrambi dispongono delle autorizzazioni di **ascolto**.
 
-   [![Autorizzazioni di ascolto dell'hub eventi](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
+   [autorizzazioni di ascolto dell'hub ![Event](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
 ### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>Motivo C: il gruppo di consumer specificato non è esclusivo per Time Series Insights
 
@@ -69,7 +69,7 @@ La limitazione viene applicata in base alla capacità e al tipo di SKU dell'ambi
 
 Il diagramma seguente mostra un ambiente Time Series Insights con uno SKU S1 e una capacità pari a 3. È consentito l'ingresso di 3 milioni di eventi al giorno.
 
-[![Capacità corrente dello SKU dell'ambiente](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
+[capacità corrente dello SKU ![Environment](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
 Si supponga, ad esempio, che un ambiente inserisca messaggi da un hub eventi. La velocità di ingresso giornaliera è pari a circa 67.000 messaggi. Questa velocità si traduce approssimativamente in 46 messaggi al minuto. 
 
@@ -109,12 +109,12 @@ L'intestazione della prima colonna deve essere il nome della proprietà timestam
 
 Non dovrebbero essere presenti i valori seguenti:
 
-- *(abc)* : indica che Time Series Insights sta leggendo i valori dei dati come stringhe.
-- *Icona calendario*: indica che Time Series Insights sta leggendo i valori dei dati come *datetime*.
-- *#* : indica che Time Series Insights sta leggendo i valori dei dati come valori Integer.
+- *(ABC)* : indica che Time Series Insights sta leggendo i valori dei dati come stringhe.
+- *Calendar Icon*: indica che Time Series Insights sta leggendo il valore dei dati come *DateTime*.
+- *#* : indica che Time Series Insights sta leggendo i valori dei dati come Integer.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per assistenza, avviare una conversazione nel [forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) o in [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights).
+- Leggere le informazioni su [come ridurre la latenza in Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
 
-- Per le opzioni di supporto assistito, usare il [Supporto tecnico di Azure](https://azure.microsoft.com/support/options/).
+- Informazioni [su come ridimensionare l'ambiente di Time Series Insights](time-series-insights-how-to-scale-your-environment.md).

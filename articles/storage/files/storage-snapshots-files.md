@@ -1,18 +1,18 @@
 ---
 title: Panoramica degli snapshot di condivisione per File di Azure | Microsoft Docs
-description: Uno snapshot di condivisione è una versione di sola lettura di una condivisione di File di Azure, acquisita in un determinato momento per eseguire un backup della condivisione stessa.
+description: Uno snapshot di condivisione è una versione di sola lettura di una condivisione di File di Azure, acquisita in un determinato momento per creare un backup della condivisione stessa.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f3cbf740016a4c162c63343be4cb9cd577f85935
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c05b79d2f1da8076b507ca9ee7a06504de21d5ea
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699361"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333185"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Panoramica degli snapshot di condivisione per File di Azure 
 File di Azure consente di acquisire snapshot di condivisione delle condivisioni file. Gli snapshot di condivisione acquisiscono lo stato di condivisione in un momento specifico. In questo articolo vengono descritte le funzionalità offerte dagli snapshot di condivisione e come trarne vantaggio in un caso d'uso personalizzato.
@@ -28,7 +28,7 @@ Si supponga di lavorare su un file di testo in una condivisione di file. Quando 
 ### <a name="general-backup-purposes"></a>Scopi generali di backup
 Dopo la creazione di una condivisione file, è possibile creare periodicamente uno snapshot della condivisione file e usarlo per il backup dei dati. Se acquisito periodicamente, lo snapshot di condivisione aiuta a gestire versioni precedenti dei dati che possono essere usate per requisiti di controllo futuri o per il ripristino di emergenza.
 
-## <a name="capabilities"></a>Funzionalità
+## <a name="capabilities"></a>Capabilities
 Uno snapshot di condivisione è una copia di sola lettura temporizzata dei dati. È possibile creare, eliminare e gestire gli snapshot usando l'API REST. Le stesse funzionalità sono anche disponibili nella libreria client, nell'interfaccia della riga di comando di Azure e nel portale di Azure. 
 
 È possibile visualizzare gli snapshot di una condivisione sia con l'API REST sia con SMB. È possibile recuperare l'elenco delle versioni della directory o del file e montare direttamente una versione specifica come unità (disponibile solo per Windows, vedere [Limiti](#limits)). 
@@ -55,9 +55,9 @@ Per risparmiare spazio è possibile eliminare lo snapshot di condivisione corris
 
 Anche se gli snapshot di condivisione vengono salvati in modo incrementale, è sufficiente mantenere lo snapshot più recente per ripristinare la condivisione. Quando si elimina uno snapshot di condivisione, vengono rimossi solo i dati univoci per lo snapshot di condivisione stesso. Gli snapshot attivi contengono tutte le informazioni necessarie per trovare e ripristinare i dati (dal momento in cui è stato acquisito lo snapshot di condivisione) nel percorso originale o in uno alternativo. È possibile eseguire il ripristino a livello di elemento.
 
-Gli snapshot non vengono inclusi nel conteggio per il limite di condivisione di 5 TB. Non è previsto alcun limite per la quantità di spazio totale occupata dagli snapshot di condivisione. Si applicano i limiti dell'account di archiviazione.
+Gli snapshot non vengono inclusi nel conteggio per il limite di condivisione di 5 TB. Non è previsto alcun limite per la quantità di spazio totale occupata dagli snapshot di condivisione. Continuano ad applicarsi i limiti dell'account di archiviazione.
 
-## <a name="limits"></a>Limiti
+## <a name="limits"></a>limiti
 Il numero massimo di snapshot di condivisione attualmente supportato da File di Azure è 200. Dopo 200 snapshot di condivisione, per poter creare nuovi snapshot è necessario eliminare quelli meno recenti. 
 
 Il numero di chiamate simultanee per la creazione di snapshot di condivisione è illimitato. La quantità di spazio che può essere usata dagli snapshot di condivisione di una condivisione file specifica è illimitata. 
@@ -71,7 +71,7 @@ Le operazioni di copia che interessano file e snapshot di condivisione osservano
 
 Lo snapshot di condivisione resta intatto dopo la copia, ma la condivisione file di base viene sovrascritta con una copia dei dati disponibili nello snapshot di condivisione. Tutti i file ripristinati vengono conteggiati come "contenuto modificato".
 
-È possibile copiare un file incluso in uno snapshot di condivisione in una destinazione con un nome diverso. Il file di destinazione risultante è un file scrivibile e non uno snapshot di condivisione.
+È possibile copiare un file in uno snapshot di condivisione in una destinazione diversa con un nome diverso. Il file di destinazione risultante è un file scrivibile e non uno snapshot di condivisione. In questo caso, la condivisione file di base rimarrà intatta.
 
 Quando un file di destinazione viene sovrascritto con una copia, qualsiasi snapshot di condivisione associato al file di destinazione originale resta intatto.
 
@@ -85,6 +85,6 @@ Gli snapshot di condivisione offrono solo la protezione a livello di file. Gli s
 ## <a name="next-steps"></a>Passaggi successivi
 - Usare gli snapshot di condivisione in:
     - [PowerShell](storage-how-to-use-files-powershell.md)
-    - [CLI](storage-how-to-use-files-cli.md)
+    - [Interfaccia della riga di comando](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
     - [Domande frequenti sugli snapshot di condivisione](storage-files-faq.md#share-snapshots)

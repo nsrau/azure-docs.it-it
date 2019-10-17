@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/12/2019
+ms.date: 10/14/2019
 ms.author: mayg
-ms.openlocfilehash: 4202d95b540efb98b526f8a8abd17da22a908ebe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2f6f865f019b8b2a403865db4e59a7e86f59e509
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60482932"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331067"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Ristabilire la protezione ed eseguire il failback su macchine in un sito locale dopo il failover in Azure
 
@@ -34,8 +34,9 @@ Se è stato usato un modello per creare le macchine virtuali, assicurarsi che og
 - Se le macchine virtuali in cui si vuole eseguire il failback sono gestite da un server vCenter, verificare di avere le [autorizzazioni necessarie](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) per l'individuazione di macchine virtuali nei server vCenter.
 - Eliminare gli snapshot nel server di destinazione master prima di abilitare la riprotezione. Se nella destinazione master o nella macchina virtuale locale sono presenti snapshot, la riprotezione avrà esito negativo. Durante il processo di riprotezione, gli snapshot nella macchina virtuale vengono uniti automaticamente.
 - Le macchine virtuali di un gruppo di replica devono avere tutte lo stesso tipo di sistema operativo, ovvero devono essere tutte Windows o tutte Linux. Non è attualmente previsto il supporto per la riprotezione e il failback in locale di un gruppo di replica con sistemi operativi misti. Questo perché la destinazione master deve avere lo stesso sistema operativo della macchina virtuale. Tutte le macchine virtuali di un gruppo di replica devono avere la stessa destinazione master. 
-- Quando si esegue un failback, è necessario un server di configurazione locale. Durante il failback, la macchina virtuale deve esistere nel database del server di configurazione. In caso contrario, il failback ha esito negativo. Assicurarsi di pianificare backup regolari del server di configurazione. In caso di emergenza, ripristinare il server con lo stesso indirizzo IP in modo che il failback funzioni.
-- La riprotezione e il failback richiedono una VPN da sito a sito (S2S) per la replica dei dati. La rete deve essere configurata per consentire alle macchine virtuali con failover in Azure di raggiungere (ping) il server di configurazione locale. Può anche essere necessario distribuire un server di elaborazione nella rete di Azure della macchina virtuale sottoposta a failover. Questo server di elaborazione deve anche poter comunicare con il server di configurazione locale.
+- Quando si esegue un failback, è necessario un server di configurazione locale. Durante il failback, la macchina virtuale deve esistere nel database del server di configurazione. In caso contrario, il failback ha esito negativo. Assicurarsi di pianificare backup regolari del server di configurazione. In caso di emergenza, ripristinare il server con lo stesso indirizzo IP in modo che il failback funzioni. 
+- Per la replica dei dati, la riprotezione e il failback richiedono una VPN da sito a sito (S2S) o un peering privato ExpressRoute. La rete deve essere configurata per consentire alle macchine virtuali con failover in Azure di raggiungere (ping) il server di configurazione locale. È necessario distribuire un server di elaborazione nella rete di Azure delle macchine virtuali sottoposte a failover. Questo server di elaborazione deve anche essere in grado di comunicare con il server di configurazione locale e il server di destinazione master.
+- Se gli indirizzi IP degli elementi replicati sono stati conservati in caso di failover, è necessario stabilire la connettività S2S o ExpressRoute tra macchine virtuali di Azure e la scheda di interfaccia di rete di failback del server di configurazione. Si noti che la conservazione degli indirizzi IP richiede un server di configurazione con due schede di rete, una per la connettività dei computer di origine e una per la connettività di failback di Azure Questo consente di evitare la sovrapposizione degli intervalli di indirizzi di subnet dell'origine e le macchine virtuali di cui è stato eseguito il failover.
 - Assicurarsi di aprire le porte seguenti per il failover e il failback:
 
     ![Porte per il failover e il failback](./media/vmware-azure-reprotect/failover-failback.png)
@@ -44,12 +45,11 @@ Se è stato usato un modello per creare le macchine virtuali, assicurarsi che og
 
 ## <a name="deploy-a-process-server-in-azure"></a>Distribuire un server di elaborazione in Azure
 
-Potrebbe essere necessario un server di elaborazione in Azure prima di eseguire il failback del sito locale:
-- Il server di elaborazione riceve i dati dalla macchina virtuale protetta in Azure e quindi invia i dati al sito locale.
-- È necessaria una rete a bassa latenza tra il server di elaborazione e la macchina virtuale protetta. In generale, è necessario prendere in considerazione la latenza quando si decide se è necessario un server di elaborazione in Azure:
-    - Se è stata configurata una connessione Azure ExpressRoute, è possibile usare un server di elaborazione locale per inviare i dati, perché la latenza tra la macchina virtuale e il server di elaborazione è bassa.
-    - Se, tuttavia, è disponibile solo una rete VPN da sito a sito, è consigliabile distribuire il server di elaborazione in Azure.
-    - È consigliabile usare un server di elaborazione basato su Azure durante il failback. Le prestazioni di replica sono migliori se il server di elaborazione è più vicino alla macchina virtuale di replica (computer su cui viene eseguito il failover in Azure). Per un modello di verifica è possibile usare il server di elaborazione locale ed ExpressRoute con peering privato.
+È necessario un server di elaborazione in Azure prima di eseguire il failback nel sito locale:
+
+- Il server di elaborazione riceve i dati dalle macchine virtuali protette in Azure e quindi invia i dati al sito locale.
+- È necessaria una rete a bassa latenza tra il server di elaborazione e la macchina virtuale protetta. È quindi consigliabile distribuire un server di elaborazione in Azure. Le prestazioni di replica sono migliori se il server di elaborazione è più vicino alla macchina virtuale di replica (computer su cui viene eseguito il failover in Azure). 
+- Per un modello di verifica è possibile usare il server di elaborazione locale ed ExpressRoute con peering privato.
 
 Per distribuire un server di elaborazione in Azure:
 
@@ -62,7 +62,7 @@ Per distribuire un server di elaborazione in Azure:
 Il server di destinazione master riceve i dati di failback. Per impostazione predefinita, il server di destinazione master viene eseguito nel server di configurazione locale. Tuttavia, a seconda del volume di traffico sottoposto a failback, potrebbe essere necessario creare un server di destinazione master separato per il failback. Di seguito viene illustrata la procedura di creazione:
 
 * [Creare un server di destinazione master Linux](vmware-azure-install-linux-master-target.md) per il failback delle macchine virtuali Linux. È un'operazione obbligatoria. Si noti che il server master di destinazione su LVM non è supportato.
-* Creare facoltativamente un server di destinazione master separato per il failback della macchina virtuale Windows. A tale scopo, eseguire nuovamente l'installazione unificata e selezionare l'opzione per creare un server di destinazione master. [Altre informazioni](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers) 
+* Creare facoltativamente un server di destinazione master separato per il failback della macchina virtuale Windows. A tale scopo, eseguire nuovamente l'installazione unificata e selezionare l'opzione per creare un server di destinazione master. [Altre informazioni](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers). 
 
 Dopo aver creato un server di destinazione master, eseguire le attività seguenti:
 
@@ -98,7 +98,7 @@ Dopo l'avvio di una macchina virtuale in Azure, registrare di nuovo l'agente nel
 4. Per **Archivio dati**, selezionare l'archivio dati in cui ripristinare i dischi in locale. Questa opzione viene usata quando la macchina virtuale locale viene eliminata e devono essere creati nuovi dischi. Questa opzione viene ignorata se i dischi esistono già. È comunque necessario specificare un valore.
 5. Selezionare l'unità di conservazione.
 6. I criteri di failback vengono selezionati automaticamente.
-7. Selezionare **OK** per avviare la riprotezione. Avrà inizio un processo di replica della macchina virtuale da Azure al sito locale. È possibile monitorare l'avanzamento nella scheda **Processi** . In caso di esito positivo della riprotezione, la macchina virtuale entra in uno stato protetto.
+7. Selezionare **OK** per avviare la riprotezione. Avrà inizio un processo di replica della macchina virtuale da Azure al sito locale. È possibile tenere traccia dello stato di avanzamento nella scheda **processi** . Quando la riprotezione ha esito positivo, la macchina virtuale entra in uno stato protetto.
 
 Tenere presente quanto segue:
 - Per eseguire il ripristino in un percorso alternativo (quando viene eliminata la macchina virtuale locale), selezionare l'unità di conservazione e l'archivio dati configurati per il server di destinazione master. Quando si esegue il failback al sito locale, le macchine virtuali VMware nel piano di protezione di failback usano lo stesso archivio dati del server di destinazione master. Una nuova macchina virtuale viene quindi creata in vCenter.
@@ -121,7 +121,7 @@ Tenere presente quanto segue:
 - Se non è possibile raggiungere il server di configurazione dal server di elaborazione, usare Telnet per verificare la connettività al server di configurazione sulla porta 443. È anche possibile provare a eseguire il ping del server di configurazione dal server di elaborazione. Un server di elaborazione deve avere anche un heartbeat quando è connesso al server di configurazione.
 - Non è possibile eseguire il failback da Azure a un sito locale di un server Windows Server 2008 R2 SP1 protetto come server locale fisico.
 - Non è possibile eseguire il failback nelle circostanze seguenti:
-    - È stata eseguita la migrazione di macchine virtuali ad Azure. [Altre informazioni](migrate-overview.md#what-do-we-mean-by-migration)
+    - È stata eseguita la migrazione di macchine virtuali ad Azure. [Altre informazioni](migrate-overview.md#what-do-we-mean-by-migration).
     - Una macchina virtuale è stata spostata in un altro gruppo di risorse.
     - La macchina virtuale Azure è stata eliminata.
     - È stata disabilitata la protezione della macchina virtuale.

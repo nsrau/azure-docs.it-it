@@ -1,24 +1,24 @@
 ---
 title: Informazioni di riferimento sull'artefatto di definizione della vista applicazione gestita
-description: Questo articolo è un riferimento all'elemento della definizione della vista.
+description: Viene fornito un esempio di elemento della definizione della vista per le applicazioni gestite di Azure. Il nome del file è viewDefinition. JSON.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: e60f26fe0a7144d768bac020d62c61cb92594914
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 1f56f6c9c519bd29423d92a8dc8b8ce5904b523c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68336543"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332628"
 ---
-# <a name="reference-view-definition-artifact"></a>Riferimenti: Artefatto di definizione delle visualizzazioni
+# <a name="reference-view-definition-artifact"></a>Riferimento: elemento della definizione della visualizzazione
 
 Questo articolo è un riferimento per un elemento *viewDefinition. JSON* nelle applicazioni gestite di Azure. Per ulteriori informazioni sulla creazione della configurazione delle visualizzazioni, vedere l' [elemento della definizione della vista](concepts-view-definition.md).
 
-## <a name="view-definition"></a>Visualizza definizione
+## <a name="view-definition"></a>Visualizzare la definizione
 
 Il codice JSON seguente mostra un esempio di file *viewDefinition. JSON* per le applicazioni gestite di Azure:
 
@@ -89,6 +89,6 @@ Il codice JSON seguente mostra un esempio di file *viewDefinition. JSON* per le 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: Creare un'applicazione gestita con azioni e risorse personalizzate](tutorial-create-managed-app-with-custom-provider.md)
-- [Informazioni di riferimento: Elemento dell'interfaccia utente elementi](reference-createuidefinition-artifact.md)
-- [Informazioni di riferimento: Artefatto modello di distribuzione](reference-main-template-artifact.md)
+- [Esercitazione: creare un'applicazione gestita con azioni e risorse personalizzate](tutorial-create-managed-app-with-custom-provider.md)
+- [Riferimento: artefatto degli elementi dell'interfaccia utente](reference-createuidefinition-artifact.md)
+- [Riferimento: artefatto modello di distribuzione](reference-main-template-artifact.md)

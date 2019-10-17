@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: f51263a91ca174a6c8108ed4414ff0f8b9745aff
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
-ms.translationtype: MT
+ms.openlocfilehash: 39f04005776f3b451ad7c64c76f9aa5d8c4a7768
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311886"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330097"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurare SQL Server istanza del cluster di failover con una condivisione file Premium in macchine virtuali di Azure
 
@@ -52,6 +52,8 @@ Inoltre, è necessario avere una conoscenza generale delle tecnologie seguenti:
 Le condivisioni file Premium forniscono IOPS e tutta la capacità che soddisferà le esigenze di molti carichi di lavoro. Tuttavia, per i carichi di lavoro con utilizzo intensivo di i/o, prendere in considerazione [SQL Server FCI con spazi di archiviazione diretta](virtual-machines-windows-portal-sql-create-failover-cluster.md) basati su dischi Premium gestiti o dischi rigidi.  
 
 Controllare l'attività IOPS dell'ambiente corrente e verificare che i file Premium forniscano gli IOPS necessari prima di avviare una distribuzione o una migrazione. Utilizzare i contatori dei dischi di performance monitor di Windows e monitorare le operazioni SQL Server di i/o totali (trasferimenti disco/sec) e la velocità effettiva (byte disco/sec) richieste per i file di dati, di log e di database temporaneo. Molti carichi di lavoro hanno picchi di i/o, quindi è consigliabile verificare durante i periodi di utilizzo intensivo e prendere nota del numero massimo di IOPS, oltre che di IOPS medio. Le condivisioni file Premium forniscono IOPS in base alle dimensioni della condivisione. I file Premium forniscono anche un'espansione gratuita in cui è possibile aumentare le operazioni di i/o per triplicare l'importo della linea di base per un massimo di un'ora. 
+
+Per ulteriori informazioni sulle prestazioni di condivisione file Premium, vedere [livelli di prestazioni di condivisione file](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-planning#file-share-performance-tiers). 
 
 ### <a name="licensing-and-pricing"></a>Licenze e prezzi
 
@@ -86,7 +88,7 @@ Prima di seguire le istruzioni di questo articolo, è necessario avere gli eleme
 
 Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazione del cluster di failover. Il primo passaggio consiste nel creare le macchine virtuali.
 
-## <a name="step-1-create-virtual-machines"></a>Passaggio 1: Creare macchine virtuali
+## <a name="step-1-create-virtual-machines"></a>Passaggio 1: Creare le macchine virtuali
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con la propria sottoscrizione.
 
@@ -100,12 +102,12 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
    - Fare clic su **Set di disponibilità**.
    - Fare clic su **Create**(Crea).
    - Nel pannello **Crea set di disponibilità** impostare i valori seguenti.
-      - **Nome**: un nome per il set di disponibilità.
-      - **Sottoscrizione** La sottoscrizione di Azure.
+      - **Nome**: nome del set di disponibilità.
+      - **Sottoscrizione**: sottoscrizione di Azure.
       - **Gruppo di risorse**: se si vuole usare un gruppo esistente, fare clic su **Usa esistente** e selezionare il gruppo nell'elenco a discesa. In caso contrario, scegliere **Crea nuovo** e digitare un nome per il gruppo.
       - **Località**: impostare la località in cui si intende creare le macchine virtuali.
       - **Domini di errore**: usare il valore predefinito (3).
-      - **Domini di aggiornamento**: Usare il valore predefinito (5).
+      - **Domini di aggiornamento**: usare il valore predefinito (5).
    - Fare clic su **Crea** per creare il set di disponibilità.
 
 1. Creare le macchine virtuali nel set di disponibilità.
@@ -133,7 +135,7 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
 
 1. Dopo aver creato le macchine virtuali di Azure, connettersi a ognuna con RDP.
 
-   Quando ci si connette per la prima volta a una macchina virtuale con RDP, il computer chiede se si vuole rendere il PC individuabile sulla rete. Scegliere **Sì**.
+   Quando ci si connette per la prima volta a una macchina virtuale con RDP, il computer chiede se si vuole rendere il PC individuabile sulla rete. Fare clic su **Sì**.
 
 1. Se si usa un'immagine di macchina virtuale basata su SQL Server, rimuovere l'istanza di SQL Server.
 
@@ -150,7 +152,7 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
 
    In ogni macchina virtuale aprire le porte seguenti in Windows Firewall.
 
-   | Scopo | Porta TCP | Note
+   | Finalità | Porta TCP | Note
    | ------ | ------ | ------
    | SQL Server | 1433 | Porta normale per le istanze predefinite di SQL Server. Se è stata usata un'immagine della raccolta, questa porta è automaticamente aperta.
    | Probe di integrità | 59999 | Qualsiasi porta TCP aperta. In un passaggio successivo, configurare il [probe di integrità](#probe) del servizio di bilanciamento del carico e il cluster per l'uso di questa porta.   
@@ -160,7 +162,7 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
 
 Dopo aver creato e configurato le macchine virtuali, è possibile configurare la condivisione file Premium.
 
-## <a name="step-2-mount-premium-file-share"></a>Passaggio 2: Montare la condivisione file Premium
+## <a name="step-2-mount-premium-file-share"></a>Passaggio 2: montare la condivisione file Premium
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'account di archiviazione.
 1. Passare a **condivisioni file** in **servizio file** e selezionare la condivisione file Premium che si vuole usare per l'archiviazione SQL. 
@@ -180,7 +182,7 @@ Dopo aver creato e configurato le macchine virtuali, è possibile configurare la
   > [!IMPORTANT]
   > Provare a usare una condivisione file separata per i file di backup per salvare i dati di IOPS e la capacità di ridimensionamento della condivisione per i file di dati e di log. È possibile usare una condivisione file Premium o standard per i file di backup
 
-## <a name="step-3-configure-failover-cluster-with-file-share"></a>Passaggio 3: Configurare il cluster di failover con la condivisione file 
+## <a name="step-3-configure-failover-cluster-with-file-share"></a>Passaggio 3: configurare il cluster di failover con la condivisione file 
 
 Il passaggio successivo consiste nel configurare il cluster di failover. Questo passaggio include i passaggi secondari seguenti:
 
@@ -219,14 +221,14 @@ Per convalidare il cluster con l'interfaccia utente, eseguire questa procedura d
 
 1. In **Server Manager** fare clic su **Strumenti** e quindi su **Gestione cluster di failover**.
 1. In **Gestione cluster di failover** fare clic su **Azione** e quindi su **Convalida configurazione**.
-1. Fare clic su **Avanti**.
+1. Fare clic su **Next** (Avanti).
 1. In **Selezione di server o di un cluster** digitare il nome di entrambe le macchine virtuali.
-1. In **Opzioni di testing** scegliere **Esegui solo test selezionati**. Fare clic su **Avanti**.
+1. In **Opzioni di testing** scegliere **Esegui solo test selezionati**. Fare clic su **Next** (Avanti).
 1. In **selezione test**includere tutti i test ad eccezione di **archiviazione** e **spazi di archiviazione diretta**. Vedere l'immagine seguente:
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/cluster-validation.png" alt-text="Test di convalida del cluster":::
 
-1. Fare clic su **Avanti**.
+1. Fare clic su **Next** (Avanti).
 1. In **Conferma** fare clic su **Avanti**.
 
 La **Convalida guidata configurazione** eseguirà i test di convalida.
@@ -257,7 +259,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 #### <a name="windows-server-2019"></a>Windows Server 2019
 
-Il seguente PowerShell crea un cluster di failover per Windows Server 2019.  Per altre informazioni, vedere il Blog @no__t-cluster 0Failover: Oggetto rete cluster @ no__t-0.  Aggiornare lo script con i nomi dei nodi (ossia i nomi delle macchine virtuali) e un indirizzo IP disponibile della rete virtuale di Azure:
+Il seguente PowerShell crea un cluster di failover per Windows Server 2019.  Per ulteriori informazioni, esaminare il cluster di failover del Blog [: oggetto rete cluster](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).  Aggiornare lo script con i nomi dei nodi (ossia i nomi delle macchine virtuali) e un indirizzo IP disponibile della rete virtuale di Azure:
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
@@ -277,13 +279,13 @@ Il cloud di controllo è un nuovo tipo di quorum di controllo del cluster archiv
 1. Configurare il quorum di controllo del cluster di failover. Vedere [Configurare il quorum di controllo nell'interfaccia utente](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) nell'interfaccia utente.
 
 
-## <a name="step-4-test-cluster-failover"></a>Passaggio 4: Test del failover del cluster
+## <a name="step-4-test-cluster-failover"></a>Passaggio 4: testare il failover del cluster
 
 Test del failover del cluster. In Gestione cluster di failover fare clic con il pulsante destro del mouse sul cluster > **altre azioni** > **spostare la risorsa cluster principale** > **selezionare un nodo** e selezionare l'altro nodo del cluster. Spostare la risorsa cluster principale in ogni nodo del cluster e quindi spostarla di nuovo nel nodo primario. Se si è in grado di spostare correttamente il cluster in ogni nodo, è possibile procedere con l'installazione SQL Server.  
 
 :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/test-cluster-failover.png" alt-text="Testare il failover del cluster spostando la risorsa principale negli altri nodi":::
 
-## <a name="step-5-create-sql-server-fci"></a>Passaggio 5: Creare l'istanza del cluster di failover di SQL Server
+## <a name="step-5-create-sql-server-fci"></a>Passaggio 5: creare SQL Server FCI
 
 Dopo aver configurato il cluster di failover, è possibile creare il SQL Server FCI.
 
@@ -312,7 +314,7 @@ Dopo aver configurato il cluster di failover, è possibile creare il SQL Server 
    >[!NOTE]
    >Se è stata usata un'immagine della raccolta di Azure Marketplace con SQL Server, gli strumenti di SQL Server sono stati inclusi con l'immagine. In caso contrario, installare gli strumenti di SQL Server separatamente. Vedere [Scaricare SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## <a name="step-6-create-azure-load-balancer"></a>Passaggio 6: Creare un Azure Load Balancer
+## <a name="step-6-create-azure-load-balancer"></a>Passaggio 6: creare il servizio di bilanciamento del carico di Azure
 
 Nelle macchine virtuali di Azure, per contenere un indirizzo IP che deve trovarsi in un nodo del cluster alla volta viene usato nei cluster un servizio di bilanciamento del carico. In questa soluzione, il servizio di bilanciamento del carico contiene l'indirizzo IP per l'istanza del cluster di failover di SQL Server.
 
@@ -330,14 +332,14 @@ Per creare il servizio di bilanciamento del carico:
 
 1. Configurare il servizio di bilanciamento del carico con le impostazioni seguenti.
 
-   - **Sottoscrizione** La sottoscrizione di Azure.
+   - **Sottoscrizione**: sottoscrizione di Azure.
    - **Gruppo di risorse**: usare lo stesso gruppo di risorse delle macchine virtuali.
    - **Nome**: un nome che identifichi il servizio di bilanciamento del carico.
    - **Area**: usare la stessa località di Azure delle macchine virtuali.
    - **Tipo**: il servizio di bilanciamento del carico può essere pubblico o privato. Un servizio di bilanciamento del carico privato è accessibile dalla stessa rete virtuale. La maggior parte delle applicazioni Azure può usare un servizio di bilanciamento del carico privato. Se l'applicazione deve accedere a SQL Server direttamente su Internet, usare un servizio di bilanciamento del carico pubblico.
-   - **SKU**: Lo SKU del servizio di bilanciamento del carico deve essere standard. 
+   - **SKU**: lo SKU per il servizio di bilanciamento del carico deve essere standard. 
    - **Rete virtuale**: la stessa rete delle macchine virtuali.
-   - **Assegnazione indirizzo IP**: L'assegnazione di indirizzi IP deve essere statica. 
+   - **Assegnazione di indirizzi IP**: l'assegnazione di indirizzi IP deve essere statica. 
    - **Indirizzo IP privato**: lo stesso indirizzo IP assegnato alla risorsa di rete cluster dell'istanza del cluster di failover di SQL Server.
    Vedere l'immagine seguente:
 
@@ -365,11 +367,11 @@ Per creare il servizio di bilanciamento del carico:
 
 1. Nel pannello **Aggiungi probe integrità** <a name="probe"></a>impostare i parametri del probe di integrità.
 
-   - **Nome**: un nome per il probe di integrità.
+   - **Nome**: nome del probe di integrità.
    - **Protocollo**: TCP.
-   - **Porta**: Impostare sulla porta creata nel firewall per il probe di integrità in [questo passaggio](#ports). In questo articolo viene usata la porta TCP `59999`.
+   - **Porta**: impostare sulla porta creata nel firewall per il probe di integrità in [questo passaggio](#ports). In questo articolo viene usata la porta TCP `59999`.
    - **Intervallo**: 5 secondi.
-   - **Soglia non integra**: 2 errori consecutivi.
+   - **Soglia di non integrità**: 2 errori consecutivi.
 
 1. Fare clic su OK.
 
@@ -381,19 +383,19 @@ Per creare il servizio di bilanciamento del carico:
 
 1. Impostare i parametri delle regole di bilanciamento del carico:
 
-   - **Nome**: Nome per le regole di bilanciamento del carico.
+   - **Nome**: nome per le regole di bilanciamento del carico.
    - **Indirizzo IP front-end**: usare l'indirizzo IP per la risorsa di rete cluster dell'istanza del cluster di failover di SQL Server.
    - **Porta**: impostare la porta TCP dell'istanza del cluster di failover di SQL Server. La porta predefinita dell'istanza è 1433.
-   - **Porta back-end**: viene usata la stessa porta specificata nel campo **Porta** quando si abilita **IP mobile (Direct Server Return)** .
+   - **Porta back-end**: per questo valore viene usata la stessa porta inserita come valore in **Porta** quando si abilita **IP mobile (Direct Server Return)** .
    - **Pool back-end**: usare il nome del pool back-end configurato in precedenza.
-   - **Probe di integrità**: usare il probe di integrità configurato in precedenza.
-   - **Salvataggio permanente sessione**: No.
+   - **Probe integrità**: usare il probe di integrità configurato in precedenza.
+   - **Salvataggio permanente sessione**: Nessuno.
    - **Timeout di inattività (minuti)** : 4.
-   - **IP mobile (Direct Server Return)** : Enabled
+   - **IP mobile (Direct Server Return)** : Abilitato.
 
 1. Fare clic su **OK**.
 
-## <a name="step-7-configure-cluster-for-probe"></a>Passaggio 7: Configurare il cluster per il probe
+## <a name="step-7-configure-cluster-for-probe"></a>Passaggio 7: configurare il cluster per il probe
 
 Impostare il parametro della porta probe del cluster in PowerShell.
 
@@ -429,7 +431,7 @@ Dopo aver impostato il probe del cluster, è possibile visualizzare tutti i para
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 
-## <a name="step-8-test-fci-failover"></a>Passaggio 8: Testare il failover dell'istanza del cluster di failover
+## <a name="step-8-test-fci-failover"></a>Passaggio 8: testare il failover dell'istanza FCI
 
 Testare il failover dell'istanza del cluster di failover per convalidare le funzionalità del cluster. Seguire anche questa procedura:
 

@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: df24f846f1600685803fdd485f1810d66e32ae37
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 9c11d4648635e62ebc2e68734e14dd2bdc028a7c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028685"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330661"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Configurare un Lab per insegnare una classe di hacking etico 
-Questo articolo illustra come configurare una classe incentrata sul lato forense dell'hacking etico. I test di penetrazione, una pratica utilizzata dalla community di hacker etico, si verificano quando un utente tenta di accedere al sistema o alla rete per dimostrare le vulnerabilità che possono essere sfruttate da un utente malintenzionato malintenzionato. 
+Questo articolo illustra come configurare una classe incentrata sul lato forense dell'hacking etico. I test di penetrazione, una pratica usata dalla community di hacking etico, si verificano quando un utente tenta di accedere al sistema o alla rete per dimostrare le vulnerabilità che possono essere sfruttate da un utente malintenzionato. 
 
-In una classe di hacker etici gli studenti possono apprendere tecniche moderne per la difesa da vulnerabilità. Ogni studente ottiene una macchina virtuale host Windows Server con due macchine virtuali nidificate, una macchina virtuale con immagine **Metaspoiltable** e un altro computer con l'immagine di [Kali Linux](https://www.kali.org/) . La macchina virtuale Metasploitable viene usata a scopo di exploit e la macchina virtuale Kali fornisce l'accesso agli strumenti necessari per eseguire attività forensi.
+In un corso di hacking etico gli studenti possono apprendere tecniche moderne per la difesa dalle vulnerabilità. Ogni studente ottiene una macchina virtuale host Windows Server con due macchine virtuali annidate, una con un'immagine **Metasploitable** e l'altra con un'immagine [Kali Linux](https://www.kali.org/). La macchina virtuale Metasploitable viene usata a scopo di exploit, mentre la macchina virtuale Kali fornisce l'accesso agli strumenti necessari per eseguire attività forensi.
 
 Questo articolo è costituito da due sezioni principali. La prima sezione illustra come creare il Lab della classe. La seconda sezione illustra come creare il computer modello con la virtualizzazione annidata abilitata e con gli strumenti e le immagini necessari. In questo caso, un'immagine Metasploitable e un'immagine di Kali Linux in un computer in cui è abilitato Hyper-V per ospitare le immagini.
 
 ## <a name="lab-configuration"></a>Configurazione del lab
-Per configurare questo Lab, è necessaria una sottoscrizione di Azure per iniziare. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. Una volta ottenuto una sottoscrizione di Azure, è possibile creare un nuovo account Lab in Azure Lab Services o usare un account esistente. Per la creazione di un nuovo account Lab, vedere l'esercitazione seguente: [Esercitazione per configurare un account Lab](tutorial-setup-lab-account.md).
+Per configurare questo Lab, è necessaria una sottoscrizione di Azure per iniziare. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. Una volta ottenuto una sottoscrizione di Azure, è possibile creare un nuovo account Lab in Azure Lab Services o usare un account esistente. Vedere l'esercitazione seguente per la creazione di un nuovo account Lab: [esercitazione per la configurazione di un account Lab](tutorial-setup-lab-account.md).
 
 Seguire [questa esercitazione](tutorial-setup-classroom-lab.md) per creare un nuovo Lab e quindi applicare le impostazioni seguenti:
 
@@ -125,7 +125,7 @@ L'immagine Rapid7 Metasploitable è un'immagine configurata appositamente con vu
 Il modello è stato aggiornato e presenta le immagini necessarie per una classe di test di penetrazione etica, un'immagine con strumenti per eseguire il test di penetrazione e un'altra immagine con vulnerabilità di sicurezza da individuare. È ora possibile pubblicare l'immagine modello nella classe. Selezionare il pulsante **pubblica** nella pagina modello per pubblicare il modello nel Lab.
   
 
-## <a name="cost"></a>Costi  
+## <a name="cost"></a>Costo  
 Se si desidera stimare il costo di questo Lab, è possibile utilizzare l'esempio seguente: 
  
 Per una classe di 25 studenti con 20 ore di tempo di classe pianificata e 10 ore di quota per il lavoro o le assegnazioni, il prezzo del Lab sarà: 
@@ -141,7 +141,7 @@ Questo articolo illustra la procedura per creare un Lab per la classe di hacker 
 I passaggi successivi sono comuni alla configurazione di qualsiasi Lab:
 
 - [Aggiungere utenti](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Imposta quota](tutorial-setup-classroom-lab.md#set-quotas-for-users)
+- [Imposta quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Impostare una pianificazione](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [Collegamenti per la registrazione tramite posta elettronica agli studenti](tutorial-setup-classroom-lab.md#send-an-email-with-the-registration-link). 
+- [Collegamenti per la registrazione tramite posta elettronica agli studenti](how-to-configure-student-usage.md#send-invitations-to-users). 
 

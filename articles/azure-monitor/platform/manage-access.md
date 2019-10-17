@@ -13,24 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 920e470a8bc06050219d0f603ab842cfc267e6ce
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 010f7bb2f19eed757da3f62011b69e1f09ddadf0
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695013"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329418"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gestire l'accesso ai dati e alle aree di lavoro di log in monitoraggio di Azure
 
-Monitoraggio di Azure archivia i dati di [log](data-platform-logs.md) in un'area di lavoro log Analytics, che è essenzialmente un contenitore che include informazioni sulla configurazione e sui dati. Per gestire l'accesso ai dati di log, è necessario eseguire diverse attività amministrative correlate all'area di lavoro.
+Monitoraggio di Azure archivia i dati di [log](data-platform-logs.md) in un'area di lavoro log Analytics. Un'area di lavoro è un contenitore che include informazioni sui dati e sulla configurazione. Per gestire l'accesso ai dati di log, è necessario eseguire diverse attività amministrative correlate all'area di lavoro.
 
-Questo articolo illustra come gestire l'accesso ai log e per amministrare le aree di lavoro che li contengono, tra cui:
+Questo articolo illustra come gestire l'accesso ai log e come amministrare le aree di lavoro che li contengono, inclusa la procedura per concedere l'accesso a: 
 
-* Come concedere l'accesso agli utenti che devono accedere ai dati di log da risorse specifiche usando il controllo degli accessi in base al ruolo (RBAC) di Azure.
-
-* Come concedere l'accesso all'area di lavoro utilizzando le autorizzazioni dell'area di lavoro.
-
-* Come concedere l'accesso agli utenti che devono accedere ai dati di log in una tabella specifica nell'area di lavoro usando il controllo degli accessi in base al ruolo di Azure
+* Area di lavoro utilizzando le autorizzazioni dell'area di lavoro.
+* Utenti che devono accedere ai dati di log da risorse specifiche usando il controllo degli accessi in base al ruolo di Azure (RBAC).
+* Utenti che devono accedere ai dati di log in una tabella specifica nell'area di lavoro usando il controllo degli accessi in base al ruolo
 
 ## <a name="configure-access-control-mode"></a>Configurare la modalità di controllo di accesso
 
@@ -55,7 +53,7 @@ Questo articolo illustra come gestire l'accesso ai log e per amministrare le are
 
 ![Modificare la modalità di accesso all'area di lavoro](media/manage-access/change-access-control-mode.png)
 
-### <a name="using-powershell"></a>Tramite PowerShell
+### <a name="using-powershell"></a>Con PowerShell
 
 Usare il comando seguente per esaminare la modalità di controllo di accesso per tutte le aree di lavoro nella sottoscrizione:
 
@@ -103,8 +101,8 @@ Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 
 Per configurare la modalità di accesso in un modello di Azure Resource Manager, impostare il flag della funzionalità **enableLogAccessUsingOnlyResourcePermissions** nell'area di lavoro su uno dei valori seguenti.
 
-* **false**: Impostare l'area di lavoro su autorizzazioni del contesto dell'area di lavoro. Si tratta dell'impostazione predefinita se il flag non è impostato.
-* **true**: Impostare l'area di lavoro su autorizzazioni del contesto di risorsa.
+* **false**: impostare l'area di lavoro sulle autorizzazioni per il contesto dell'area di lavoro. Si tratta dell'impostazione predefinita se il flag non è impostato.
+* **true**: impostare l'area di lavoro sulle autorizzazioni del contesto di risorsa.
 
 ## <a name="manage-access-using-workspace-permissions"></a>Gestire l'accesso con le autorizzazioni dell'area di lavoro
 
@@ -140,7 +138,7 @@ I membri del ruolo *Lettore di Log Analytics* possono eseguire queste operazioni
 
 Il ruolo di lettore di Log Analytics include le azioni di Azure seguenti:
 
-| Type    | Autorizzazione | Descrizione |
+| Type    | Autorizzazione | Description |
 | ------- | ---------- | ----------- |
 | Azione | `*/read`   | Consente di visualizzare tutte le risorse di Azure e la configurazione delle risorse. Include la visualizzazione di: <br> Stato dell'estensione macchina virtuale <br> Configurazione della diagnostica di Azure nelle risorse <br> Tutte le proprietà e le impostazioni di tutte le risorse. <br> Per le aree di lavoro, consente autorizzazioni complete senza restrizioni per leggere le impostazioni dell'area di lavoro ed eseguire query sui dati. Vedere le opzioni più granulari precedenti. |
 | Azione | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Deprecato, non è necessario assegnarli agli utenti. |
@@ -150,15 +148,15 @@ Il ruolo di lettore di Log Analytics include le azioni di Azure seguenti:
 
 I membri del ruolo *Collaboratore di Log Analytics* possono eseguire queste operazioni:
 
-* Leggere tutti i dati di monitoraggio come Lettore di Log Analytics può
-* Creare e configurare account di automazione
-* Aggiunta e rimozione di soluzioni di gestione
+* Leggi tutti i dati di monitoraggio che il lettore Log Analytics può
+* Creare e configurare gli account di automazione
+* Consente di aggiungere e rimuovere soluzioni di gestione
 
     > [!NOTE]
     > Per eseguire correttamente le ultime due azioni, questa autorizzazione deve essere concessa a livello di gruppo di risorse o di abbonamento.
 
-* Leggere le chiavi degli account di archiviazione
-* Configurare la raccolta di log da Archiviazione di Azure
+* Leggere le chiavi dell'account di archiviazione
+* Configurare la raccolta di log da archiviazione di Azure
 * Modificare le impostazioni di monitoraggio per le risorse di Azure, tra cui
   * Aggiunta dell'estensione macchina virtuale alle VM
   * Configurazione della diagnostica di Azure in tutte le risorse di Azure
@@ -168,7 +166,7 @@ I membri del ruolo *Collaboratore di Log Analytics* possono eseguire queste oper
 
 Il ruolo di collaboratore di Log Analytics include le azioni di Azure seguenti:
 
-| Autorizzazione | Descrizione |
+| Autorizzazione | Description |
 | ---------- | ----------- |
 | `*/read`     | Consente di visualizzare tutte le risorse e le configurazioni delle risorse. Include la visualizzazione di: <br> Stato dell'estensione macchina virtuale <br> Configurazione della diagnostica di Azure nelle risorse <br> Tutte le proprietà e le impostazioni di tutte le risorse. <br> Per le aree di lavoro, consente autorizzazioni complete senza restrizioni per leggere l'impostazione dell'area di lavoro ed eseguire query sui dati. Vedere le opzioni più granulari precedenti. |
 | `Microsoft.Automation/automationAccounts/*` | Consente di creare e configurare account di automazione di Azure, inclusa l'aggiunta e modifica di runbook |
@@ -195,7 +193,7 @@ Usare questi ruoli per concedere agli utenti l'accesso ad ambiti diversi:
 
 Quando gli utenti eseguono query sui log da un'area di lavoro usando l'accesso al contesto delle risorse, avranno le autorizzazioni seguenti per la risorsa:
 
-| Autorizzazione | Descrizione |
+| Autorizzazione | Description |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Esempi:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Possibilità di visualizzare tutti i dati di log per la risorsa.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Possibilità di configurare l'impostazione di diagnostica per consentire l'impostazione dei log per questa risorsa. |
@@ -254,7 +252,7 @@ Implementare il controllo di accesso alle tabelle con i [ruoli personalizzati di
 Creare un [ruolo personalizzato](../../role-based-access-control/custom-roles.md) con le azioni seguenti per definire l'accesso al controllo di accesso alla tabella.
 
 * Per concedere l'accesso a una tabella, includerlo nella sezione **azioni** della definizione di ruolo.
-* Per negare l'accesso a una tabella, includerlo nella sezione notacts della definizione di ruolo.
+* Per negare l'accesso a una tabella, includerlo nella sezione **Notacts** della definizione di ruolo.
 * Usare * per specificare tutte le tabelle.
 
 Per creare un ruolo con accesso alle tabelle _heartbeat_ e _AzureActivity_ , ad esempio, creare un ruolo personalizzato utilizzando le azioni seguenti:
@@ -291,7 +289,7 @@ Per creare un ruolo con accesso solo a _SecurityBaseline_ e nessuna altra tabell
 
 ### <a name="considerations"></a>Considerazioni
 
-* Se a un utente viene concessa l'autorizzazione di lettura globale con i ruoli Reader o collaboratore standard che includono l'  _\*azione/Read_ , eseguirà l'override del controllo di accesso per ogni tabella e consentirà l'accesso a tutti i dati di log.
+* Se a un utente viene concessa l'autorizzazione di lettura globale con i ruoli Reader o collaboratore standard che includono l'azione _\*/Read_ , verrà eseguito l'override del controllo di accesso per tabella e sarà possibile accedere a tutti i dati di log.
 * Se a un utente viene concesso l'accesso per tabella ma non altre autorizzazioni, potranno accedere ai dati di log dall'API ma non dal portale di Azure. Per fornire l'accesso dalla portale di Azure, utilizzare Log Analytics Reader come ruolo di base.
 * Gli amministratori della sottoscrizione avranno accesso a tutti i tipi di dati indipendentemente dalle altre impostazioni di autorizzazione.
 * I proprietari dell'area di lavoro vengono trattati come qualsiasi altro utente per il controllo di accesso per tabella.

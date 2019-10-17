@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: ed231bc05d58a40c93cea74081c027e5b49f5306
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
-ms.translationtype: MT
+ms.openlocfilehash: b6de3a520150a95316371c4454fd2537f2beab5d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254496"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331151"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Funzionalità supportate disponibili nel centro sicurezza di Azure
 
@@ -37,26 +37,26 @@ Le sezioni seguenti illustrano le funzionalità del Centro sicurezza disponibili
 
 |Server|Windows|||Linux|||Prezzi|
 |----|----|----|----|----|----|----|----|
-|**Environment**|**Azure**||**Non Azure**|**Azure**||**Non Azure**||
+|**Ambiente**|**Azure**||**Non Azure**|**Azure**||**Non Azure**||
 ||**Macchina virtuale**|**Set di scalabilità della macchina virtuale**||**Macchina virtuale**|**Set di scalabilità della macchina virtuale**|
-|[Integrazione di Microsoft Defender ATP](https://docs.microsoft.com/azure/security-center/security-center-wdatp)|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|x|X|x|Standard|
+|[Integrazione di Microsoft Defender ATP](https://docs.microsoft.com/azure/security-center/security-center-wdatp)|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|X|X|X|Standard|
 |[Avvisi di rilevamento delle minacce per l'analisi comportamentale delle macchine virtuali](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas)|✔|✔|✔|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|Indicazioni (gratuite) rilevamento minacce (standard)|
-|[Avvisi di rilevamento minacce non file](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas#fileless-attack-detection-)|✔|✔|✔|x|X|x|Standard|
-|[Avvisi di rilevamento minacce basati sulla rete](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer#azure-network-layer)|✔|✔|x|✔|✔|x|Standard|
-|[Accesso just-in-time alle macchine virtuali](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|✔|x|x|✔|x|x|Standard|
+|[Avvisi di rilevamento minacce non file](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas#fileless-attack-detection-)|✔|✔|✔|X|X|X|Standard|
+|[Avvisi di rilevamento minacce basati sulla rete](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer#azure-network-layer)|✔|✔|X|✔|✔|X|Standard|
+|[Accesso just-in-time alle macchine virtuali](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|✔|X|X|✔|X|X|Standard|
 |[Monitoraggio dell'integrità dei file](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)|✔|✔|✔|✔|✔|✔|Standard|
-|[Controlli adattivi delle applicazioni](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)|✔|x|✔|✔|x|✔|Standard|
-|[Mappa di rete](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations#network-map)|✔|✔|x|✔|✔|x|Standard|
-|[Protezione avanzata della rete adattiva](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)|✔|x|x|✔|x|x|Standard|
-|Controlli adattivi della rete|✔|✔|x|✔|✔|x|Standard|
+|[Controlli adattivi delle applicazioni](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)|✔|X|✔|✔|X|✔|Standard|
+|[Mappa di rete](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations#network-map)|✔|✔|X|✔|✔|X|Standard|
+|[Protezione avanzata della rete adattiva](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)|✔|X|X|✔|X|X|Standard|
+|Controlli adattivi della rete|✔|✔|X|✔|✔|X|Standard|
 |[Dashboard di conformità normativa & report](https://docs.microsoft.com/azure/security-center/security-center-compliance-dashboard)|✔|✔|✔|✔|✔|✔|Standard|
-|Raccomandazioni e rilevamento delle minacce nei contenitori IaaS ospitati da Docker|x|X|x|✔|✔|✔|Standard|
-|Valutazione patch del sistema operativo mancanti|✔|✔|✔|✔|✔|✔|Gratuito|
-|Valutazione delle configurazioni errate della sicurezza|✔|✔|✔|✔|✔|✔|Gratuito|
-|[Valutazione di Endpoint Protection](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|x|X|x|Gratuito|
-|Valutazione della crittografia del disco|✔|✔|x|✔|✔|x|Gratuito|
-|Valutazione della vulnerabilità di terze parti|✔|x|x|✔|x|x|Gratuito|
-|[Valutazione della sicurezza di rete]()|✔|✔|x|✔|✔|x|Gratuito|
+|Raccomandazioni e rilevamento delle minacce nei contenitori IaaS ospitati da Docker|X|X|X|✔|✔|✔|Standard|
+|Valutazione patch del sistema operativo mancanti|✔|✔|✔|✔|✔|✔|Gratis|
+|Valutazione delle configurazioni errate della sicurezza|✔|✔|✔|✔|✔|✔|Gratis|
+|[Valutazione di Endpoint Protection](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|X|X|X|Gratis|
+|Valutazione della crittografia del disco|✔|✔|X|✔|✔|X|Gratis|
+|Valutazione della vulnerabilità di terze parti|✔|X|X|✔|X|X|Gratis|
+|[Valutazione della sicurezza di rete](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)|✔|✔|X|✔|✔|X|Gratis|
 
 ### Soluzioni di Endpoint Protection supportate<a name="endpoint-supported"></a>
 
@@ -69,11 +69,11 @@ Per informazioni sul momento in cui vengono generate le indicazioni per ognuna d
 
 | Endpoint Protection| Piattaforme | Installazione del Centro sicurezza | Individuazione del Centro sicurezza |
 |------|------|-----|-----|
-| Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, predefinito nel sistema operativo| Yes |
-| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (vedere la nota seguente) | Tramite estensione | Yes |
-| Tendenza Micro-tutte le versioni * | Famiglia Windows Server  | No | Yes |
-| Symantec v12.1.1100+| Famiglia Windows Server  | No | Yes |
-| McAfee v10+ | Famiglia Windows Server  | No | Yes |
+| Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, predefinito nel sistema operativo| SÌ |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (vedere la nota seguente) | Tramite estensione | SÌ |
+| Tendenza Micro-tutte le versioni * | Famiglia Windows Server  | No | SÌ |
+| Symantec v12.1.1100+| Famiglia Windows Server  | No | SÌ |
+| McAfee v10+ | Famiglia Windows Server  | No | SÌ |
 | McAfee v10+ | Famiglia di server Linux  | No | Sì **\*** |
 | Sophos V9 +| Famiglia di server Linux  | No | Sì **\***  |
 
@@ -89,35 +89,35 @@ Per informazioni sul momento in cui vengono generate le indicazioni per ognuna d
 
 Le risorse PaaS seguenti sono supportate dal centro sicurezza di Azure:
 
-|Service|Raccomandazioni (gratuito)|Rilevamento delle minacce (standard)|
+|Servizio|Raccomandazioni (gratuito)|Rilevamento delle minacce (standard)|
 |----|----|----|
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
-|CosmosDB|x| ✔|
+|CosmosDB|X| ✔|
 |Archiviazione BLOB|✔| ✔|
 |Account di archiviazione|✔| ND|
 |Servizio app|✔| ✔|
-|Funzione|✔| x|
-|Servizio cloud|✔| x|
+|Funzione|✔| X|
+|Servizio cloud|✔| X|
 |VNet|✔| ND|
 |Subnet|✔| ND|
 |NIC|✔| ND|
 |NSG|✔| ND|
-|Sottoscrizione|✔ **| ✔|
-|Account Batch|✔| x|
-|Account di Service Fabric|✔| x|
-|Account di Automazione|✔| x|
-|Bilanciamento del carico|✔| x|
-|Cerca|✔| x|
-|Spazio dei nomi del bus di servizio|✔| x|
-|Analisi dei flussi|✔| x|
-|Spazio dei nomi dell'hub eventi|✔| x|
-|App per la logica|✔| x|
+|Sottoscrizione|✔ * *| ✔|
+|Account Batch|✔| X|
+|Account di Service Fabric|✔| X|
+|Account di Automazione|✔| X|
+|Load Balancer|✔| X|
+|Ricerca|✔| X|
+|Spazio dei nomi del bus di servizio|✔| X|
+|Analisi dei flussi|✔| X|
+|Spazio dei nomi dell'hub eventi|✔| X|
+|App per la logica|✔| X|
 |Redis|✔| ND|
-|Data Lake Analytics|✔| x|
-|Data Lake Store|✔| x|
-|Insieme di credenziali delle chiavi|✔| x|
+|Analisi Data Lake|✔| X|
+|Archivio Data Lake|✔| X|
+|Key Vault|✔| X|
 
 \* Queste funzionalità sono attualmente supportate in anteprima pubblica.
 

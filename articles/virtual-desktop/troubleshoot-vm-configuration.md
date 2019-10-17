@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 167d880f82314fc3b5ade299442f04d62b5dacb9
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: a847ba7d782b332d9cae7f83bc1278fea58b8811
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274484"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330829"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configurazione di macchine virtuali nell'host sessione
 
 Usare questo articolo per risolvere i problemi che si verificano durante la configurazione delle macchine virtuali (VM) host sessione desktop virtuale di Windows.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
@@ -30,43 +30,43 @@ Se si verificano problemi durante l'aggiunta di macchine virtuali al dominio, se
 - Provare a eseguire il ping del nome di dominio dalla riga di comando nella macchina virtuale.
 - Esaminare l'elenco dei messaggi di errore di aggiunta a un dominio nella [sezione risoluzione dei problemi di aggiunta al dominio](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx)
 
-### <a name="error-incorrect-credentials"></a>Errore: Credenziali non corrette
+### <a name="error-incorrect-credentials"></a>Errore: credenziali non corrette
 
-**Causa:** Si è verificato un errore di digitazione quando sono state immesse le credenziali nelle correzioni dell'interfaccia del modello Azure Resource Manager.
+**Motivo:** Si è verificato un errore di digitazione quando sono state immesse le credenziali nelle correzioni dell'interfaccia del modello Azure Resource Manager.
 
-**Difficoltà** Eseguire una delle azioni seguenti per risolvere il comportamento.
+**Correzione:** Eseguire una delle azioni seguenti per risolvere il comportamento.
 
 - Aggiungere manualmente le VM a un dominio.
 - Ridistribuire il modello dopo aver confermato le credenziali. Vedere [creare un pool di host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 - Aggiungere macchine virtuali a un dominio usando un modello con un join di una [macchina virtuale Windows esistente al dominio di Active Directory](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 
-### <a name="error-timeout-waiting-for-user-input"></a>Errore: Timeout in attesa dell'input dell'utente
+### <a name="error-timeout-waiting-for-user-input"></a>Errore: timeout in attesa dell'input dell'utente
 
-**Causa:** L'account usato per completare l'aggiunta a un dominio può avere multi-factor authentication.
+**Motivo:** L'account usato per completare l'aggiunta a un dominio può avere multi-factor authentication.
 
-**Difficoltà** Eseguire una delle azioni seguenti per risolvere il comportamento.
+**Correzione:** Eseguire una delle azioni seguenti per risolvere il comportamento.
 
 - Rimuovere temporaneamente l'autenticazione a più fattori per l'account.
 - Usare un account del servizio.
 
-### <a name="error-the-account-used-during-provisioning-doesnt-have-permissions-to-complete-the-operation"></a>Errore: L'account usato durante il provisioning non ha le autorizzazioni necessarie per completare l'operazione
+### <a name="error-the-account-used-during-provisioning-doesnt-have-permissions-to-complete-the-operation"></a>Errore: l'account usato durante il provisioning non ha le autorizzazioni necessarie per completare l'operazione
 
-**Causa:** L'account usato non dispone delle autorizzazioni per aggiungere macchine virtuali al dominio a causa della conformità e delle normative.
+**Motivo:** L'account usato non dispone delle autorizzazioni per aggiungere macchine virtuali al dominio a causa della conformità e delle normative.
 
-**Difficoltà** Eseguire una delle azioni seguenti per risolvere il comportamento.
+**Correzione:** Eseguire una delle azioni seguenti per risolvere il comportamento.
 
 - Utilizzare un account membro del gruppo Administrators.
 - Concedere le autorizzazioni necessarie all'account in uso.
 
-### <a name="error-domain-name-doesnt-resolve"></a>Errore: Il nome di dominio non viene risolto
+### <a name="error-domain-name-doesnt-resolve"></a>Errore: il nome di dominio non viene risolto
 
-**Causa 1:** Le macchine virtuali si trovano in una rete virtuale non associata alla rete virtuale (VNET) in cui si trova il dominio.
+**Cause 1:** Le macchine virtuali si trovano in una rete virtuale non associata alla rete virtuale (VNET) in cui si trova il dominio.
 
 **Correzione 1:** Creare il peering VNET tra il VNET in cui è stato effettuato il provisioning delle macchine virtuali e il VNET in cui è in esecuzione il controller di dominio (DC). Vedere [creare un peering di rete virtuale-Gestione risorse, sottoscrizioni diverse](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions).
 
-**Causa 2:** Quando si usa Azure Active Directory Domain Services (Azure AD DS), le impostazioni del server DNS per la rete virtuale non sono aggiornate in modo che puntino ai controller di dominio gestiti.
+**Motivo 2:** Quando si usa Azure Active Directory Domain Services (Azure AD DS), le impostazioni del server DNS per la rete virtuale non sono aggiornate in modo che puntino ai controller di dominio gestiti.
 
-**Fix 2:** Per aggiornare le impostazioni DNS per la rete virtuale che contiene Azure AD DS, vedere [aggiornare le impostazioni DNS per la rete virtuale di Azure](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network).
+**Correzione 2:** Per aggiornare le impostazioni DNS per la rete virtuale che contiene Azure AD DS, vedere [aggiornare le impostazioni DNS per la rete virtuale di Azure](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network).
 
 **Motivo 3:** Le impostazioni del server DNS dell'interfaccia di rete non puntano al server DNS appropriato nella rete virtuale.
 
@@ -84,25 +84,25 @@ Seguire queste istruzioni per confermare che i componenti sono installati e per 
 2. Aprire **Esplora file** e passare a **C:\Windows\Temp\scriptlogs.log**. Se il file è mancante, significa che non è stato possibile eseguire PowerShell DSC che ha installato i due componenti nel contesto di sicurezza fornito.
 3. Se il file **C:\Windows\Temp\scriptlogs.log** è presente, aprirlo e verificare la presenza di messaggi di errore.
 
-### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptlogslog-is-also-missing"></a>Errore: Il caricatore di avvio di Windows Virtual Desktop Agent e Windows Virtual Desktop Agent risulta mancante. Manca anche C:\Windows\Temp\scriptlogs.log
+### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptlogslog-is-also-missing"></a>Errore: manca il caricatore di avvio dell'agente desktop virtuale di Windows e dell'agente desktop virtuale di Windows. Manca anche C:\Windows\Temp\scriptlogs.log
 
-**Causa 1:** Le credenziali fornite durante l'input per il modello di Azure Resource Manager non sono corrette oppure le autorizzazioni sono insufficienti.
+**Cause 1:** Le credenziali fornite durante l'input per il modello di Azure Resource Manager non sono corrette oppure le autorizzazioni sono insufficienti.
 
 **Correzione 1:** Aggiungere manualmente i componenti mancanti alle macchine virtuali usando [Crea un pool di host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
-**Causa 2:** PowerShell DSC è stato in grado di essere avviato ed eseguito, ma non è stato possibile completarlo perché non è in grado di accedere a desktop virtuale Windows e ottenere le informazioni necessarie.
+**Motivo 2:** PowerShell DSC è stato in grado di essere avviato ed eseguito, ma non è stato possibile completarlo perché non è in grado di accedere a desktop virtuale Windows e ottenere le informazioni necessarie.
 
-**Fix 2:** Confermare gli elementi nell'elenco seguente.
+**Correzione 2:** Confermare gli elementi nell'elenco seguente.
 
 - Assicurarsi che l'account non disponga dell'autenticazione a più fattori.
 - Verificare che il nome del tenant sia accurato e che il tenant esista nel desktop virtuale di Windows.
 - Verificare che l'account disponga almeno delle autorizzazioni di collaboratore Servizi Desktop remoto.
 
-### <a name="error-authentication-failed-error-in-cwindowstempscriptlogslog"></a>Errore: Autenticazione non riuscita. errore in C:\Windows\Temp\scriptlogs.log
+### <a name="error-authentication-failed-error-in-cwindowstempscriptlogslog"></a>Errore: autenticazione non riuscita. errore in C:\Windows\Temp\scriptlogs.log
 
-**Causa:** PowerShell DSC è stato in grado di eseguire ma non è riuscito a connettersi al desktop virtuale di Windows.
+**Motivo:** PowerShell DSC è stato in grado di eseguire ma non è riuscito a connettersi al desktop virtuale di Windows.
 
-**Difficoltà** Confermare gli elementi nell'elenco seguente.
+**Correzione:** Confermare gli elementi nell'elenco seguente.
 
 - Registrare manualmente le VM con il servizio desktop virtuale di Windows.
 - Verificare che l'account utilizzato per la connessione a desktop virtuale Windows disponga delle autorizzazioni per il tenant per la creazione di pool host.
@@ -112,13 +112,13 @@ Seguire queste istruzioni per confermare che i componenti sono installati e per 
 
 Quando l'agente desktop virtuale di Windows viene installato per la prima volta nelle VM host sessione (manualmente o tramite il modello di Azure Resource Manager e PowerShell DSC), fornisce un token di registrazione. Nella sezione seguente vengono illustrati i problemi relativi alla risoluzione dei problemi applicabili all'agente desktop virtuale di Windows e al token.
 
-### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Errore: Lo stato archiviato nel cmdlet Get-RdsSessionHost Mostra lo stato non disponibile
+### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Errore: lo stato archiviato nel cmdlet Get-RdsSessionHost Mostra lo stato non disponibile
 
 ![Il cmdlet Get-RdsSessionHost Mostra lo stato come non disponibile.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-**Causa:** L'agente non è in grado di eseguire l'aggiornamento a una nuova versione.
+**Motivo:** L'agente non è in grado di eseguire l'aggiornamento a una nuova versione.
 
-**Difficoltà** Seguire queste istruzioni per aggiornare manualmente l'agente.
+**Correzione:** Seguire queste istruzioni per aggiornare manualmente l'agente.
 
 1. Scaricare una nuova versione dell'agente nella macchina virtuale host sessione.
 2. Avviare Gestione attività e, nella scheda servizio, arrestare il servizio RDAgentBootLoader.
@@ -127,25 +127,25 @@ Quando l'agente desktop virtuale di Windows viene installato per la prima volta 
 5. Completare l'installazione guidata di.
 6. Aprire Task Manager e avviare il servizio RDAgentBootLoader.
 
-## <a name="error--windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Errore:  La voce del registro di sistema di Windows Virtual Desktop Agent è stata registrata con un valore pari a 0
+## <a name="error--windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Errore: la voce del registro di sistema di Windows Virtual Desktop Agent ha registrato un valore pari a 0
 
-**Causa:** Il token di registrazione è scaduto o è stato generato con un valore di scadenza pari a 999999.
+**Motivo:** Il token di registrazione è scaduto o è stato generato con un valore di scadenza pari a 999999.
 
-**Difficoltà** Per correggere l'errore del registro di sistema di Agent, seguire queste istruzioni.
+**Correzione:** Per correggere l'errore del registro di sistema di Agent, seguire queste istruzioni.
 
 1. Se è già presente un token di registrazione, rimuoverlo con Remove-RDSRegistrationInfo.
 2. Generare un nuovo token con RDS-NewRegistrationInfo.
 3. Verificare che il parametro-ExpriationHours sia impostato su 72 (il valore massimo è 99999).
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Errore: L'agente desktop virtuale Windows non segnala un heartbeat durante l'esecuzione di Get-RdsSessionHost
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Errore: l'agente desktop virtuale di Windows non segnala un heartbeat durante l'esecuzione di Get-RdsSessionHost
 
-**Causa 1:** Il servizio RDAgentBootLoader è stato arrestato.
+**Cause 1:** Il servizio RDAgentBootLoader è stato arrestato.
 
 **Correzione 1:** Avviare Gestione attività e, se la scheda servizio segnala uno stato arrestato per il servizio RDAgentBootLoader, avviare il servizio.
 
-**Causa 2:** La porta 443 può essere chiusa.
+**Motivo 2:** La porta 443 può essere chiusa.
 
-**Fix 2:** Seguire queste istruzioni per aprire la porta 443.
+**Correzione 2:** Seguire queste istruzioni per aprire la porta 443.
 
 1. Verificare che la porta 443 sia aperta scaricando lo strumento PSPing da [Sysinternal Tools](https://docs.microsoft.com/sysinternals/downloads/psping).
 2. Installare PSPing nella macchina virtuale host sessione in cui è in esecuzione l'agente.
@@ -203,9 +203,9 @@ Esaminare le voci del registro di sistema elencate di seguito e verificare che i
 
 ![Codice di errore O_REVERSE_CONNECT_STACK_FAILURE.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-**Causa:** Lo stack affiancato non è installato nella macchina virtuale host sessione.
+**Motivo:** Lo stack affiancato non è installato nella macchina virtuale host sessione.
 
-**Difficoltà** Seguire queste istruzioni per installare lo stack affiancato nella macchina virtuale host sessione.
+**Correzione:** Seguire queste istruzioni per installare lo stack affiancato nella macchina virtuale host sessione.
 
 1. Usare Remote Desktop Protocol (RDP) per accedere direttamente alla macchina virtuale host sessione come amministratore locale.
 2. Scaricare e importare [il modulo PowerShell per desktop virtuale Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell, se non è già stato fatto, quindi eseguire questo cmdlet per accedere al proprio account:
@@ -302,10 +302,17 @@ Se si accede a una multisessione Enterprise di Windows 10 con un account amminis
 
 Se il limite di tempo scade, verrà visualizzato un messaggio di errore che indica che la sessione remota è stata disconnessa perché non sono disponibili Desktop remoto licenze di accesso client per questo computer.
 
-Se viene visualizzato uno di questi messaggi, significa che nell'immagine non sono installati gli aggiornamenti di Windows più recenti o che si sta impostando la modalità di gestione licenze Desktop remoto su per **utente**. Rimuovere qualsiasi configurazione che sta impostando questo criterio, quindi seguire i passaggi per identificare la versione di Windows 10 Enterprise multisessione e installare l'aggiornamento corrispondente.  
+Se viene visualizzato uno di questi messaggi, significa che nell'immagine non sono installati gli aggiornamenti di Windows più recenti o che si sta impostando la modalità di gestione licenze Desktop remoto tramite criteri di gruppo. Seguire i passaggi nelle sezioni successive per verificare l'impostazione di criteri di gruppo, identificare la versione di Windows 10 Enterprise Multisession e installare l'aggiornamento corrispondente.  
 
 >[!NOTE]
 >Desktop virtuale Windows richiede solo una licenza CAL (Client Access License) RDS quando il pool host contiene host sessione Windows Server. Per informazioni su come configurare una licenza CAL Servizi Desktop remoto, vedere [concedere in licenza la distribuzione di Servizi Desktop remoto con licenze di accesso client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
+
+### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Disabilitare l'impostazione di criteri di gruppo Desktop remoto modalità di gestione licenze
+
+Per verificare l'impostazione di criteri di gruppo, aprire l'Editor Criteri di gruppo nella macchina virtuale e passare a **Modelli amministrativi** > **componenti di Windows** > **Servizi Desktop remoto** > **host sessione Desktop remoto**@no __t-7**licensing** > **impostare la modalità di gestione licenze Desktop remoto**. Se l'impostazione di criteri di gruppo è **abilitata**, modificarla in **disabilitata**. Se è già disabilitato, lasciarlo invariato.
+
+>[!NOTE]
+>Se si impostano i criteri di gruppo tramite il dominio, disabilitare questa impostazione nei criteri destinati a queste VM multisessione Enterprise di Windows 10.
 
 ### <a name="identify-which-version-of-windows-10-enterprise-multi-session-youre-using"></a>Identificare la versione di Windows 10 Enterprise multisessione in uso
 
@@ -336,6 +343,6 @@ Se il numero di versione indica "1903", installare [l'aggiornamento di KB4517211
 - Per risolvere i problemi relativi alle connessioni client di desktop virtuali Windows, vedere [Desktop remoto connessioni client](troubleshoot-client-connection.md).
 - Per risolvere i problemi relativi all'uso di PowerShell con desktop virtuale di Windows, vedere [PowerShell per desktop virtuale di Windows](troubleshoot-powershell.md).
 - Per ulteriori informazioni sul servizio, vedere [ambiente desktop virtuale di Windows](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- Per eseguire un'esercitazione di risoluzione dei problemi, vedere [Esercitazione: Risolvere i problemi relativi alle distribuzioni di Gestione risorse template @ no__t-0.
+- Per un'esercitazione per la risoluzione dei problemi, vedere [esercitazione: risolvere i problemi relativi alle distribuzioni di modelli gestione risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - Per altre informazioni sulle azioni di controllo, vedere [Operazioni di controllo con Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - Per altre informazioni sulle azioni che consentono di determinare gli errori di distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

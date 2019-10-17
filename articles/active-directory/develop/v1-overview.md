@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91f406198418571ec0d2c4d488909d3baaa494b1
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e790728cbc7415532754d10773d466e9a0280422
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834677"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373901"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Panoramica di Azure Active Directory for Developers (v 1.0)
 
@@ -33,15 +33,15 @@ Azure Active Directory (Azure AD) è un servizio cloud di gestione delle identit
 
 | | |
 | --- | --- |
-|[Nozioni di base sull'autenticazione](authentication-scenarios.md) | Introduzione all'autenticazione con Azure AD. |
+|[Nozioni di base sull'autenticazione](v1-authentication-scenarios.md) | Introduzione all'autenticazione con Azure AD. |
 |[Tipi di applicazioni](app-types.md) | Panoramica degli scenari di autenticazione supportati da Azure AD. |
 | | |
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Inizia oggi stesso
 
 Le esercitazioni e le guide introduttive per la versione 1.0 illustrano in modo dettagliato come creare un'app sulla piattaforma preferita tramite Azure AD Authentication Library (ADAL) SDK. Per iniziare, vedere le **guide introduttive per la versione 1.0** e le **esercitazioni pe la versione 1.0** in [Microsoft Identity Platform (Azure Active Directory per gli sviluppatori)](index.yml).
 
-## <a name="how-to-guides"></a>Guide alle procedure
+## <a name="how-to-guides"></a>Guide pratiche
 
 Vedere le **guide alle procedure per la versione 1.0** per informazioni e procedure dettagliate relative alle attività più comuni in Azure AD.
 

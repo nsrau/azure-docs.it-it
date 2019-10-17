@@ -1,22 +1,22 @@
 ---
 title: Riferimento all' C# endpoint RESTful del provider personalizzato-Azure
-description: Questo articolo è un riferimento di base per un endpoint C# RESTful del provider personalizzato.
+description: Fornisce un riferimento di base per un endpoint C# RESTful dei provider personalizzati di Azure. L'endpoint viene fornito tramite un'app per le funzioni di Azure.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: 8007c92c832ab7621d0192f924b15abf8bda9262
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 37b7997bc029942a84c9be5743f6ef3c6195fd27
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172901"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332655"
 ---
 # <a name="custom-provider-c-restful-endpoint-reference"></a>Riferimento all' C# endpoint RESTful del provider personalizzato
 
-Questo articolo è un riferimento di base per un endpoint C# RESTful del provider personalizzato. Se non si ha familiarità con i provider personalizzati di Azure, vedere [la panoramica sui provider di risorse personalizzati](./custom-providers-overview.md).
+Questo articolo è un riferimento di base per un endpoint C# RESTful del provider personalizzato. Se non si ha familiarità con i provider personalizzati di Azure, vedere la [panoramica dei provider di risorse personalizzati](./custom-providers-overview.md).
 
 ## <a name="azure-function-app-restful-endpoint"></a>Endpoint RESTful dell'app per le funzioni di Azure
 
@@ -258,6 +258,6 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Panoramica dei provider di risorse personalizzati di Azure](./custom-providers-overview.md)
-- [Esercitazione: Creare un provider di risorse personalizzato di Azure e distribuire le risorse personalizzate](./create-custom-provider.md)
-- [Procedura: Aggiunta di azioni personalizzate all'API REST di Azure](./custom-providers-action-endpoint-how-to.md)
-- [Informazioni di riferimento: Riferimento alla cache delle risorse personalizzate](./custom-providers-proxy-cache-resource-endpoint-reference.md)
+- [Esercitazione: creare un provider di risorse personalizzato di Azure e distribuire le risorse personalizzate](./create-custom-provider.md)
+- [Procedura: aggiungere azioni personalizzate all'API REST di Azure](./custom-providers-action-endpoint-how-to.md)
+- [Riferimento: informazioni di riferimento sulla cache delle risorse personalizzate](./custom-providers-proxy-cache-resource-endpoint-reference.md)

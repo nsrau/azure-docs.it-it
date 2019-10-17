@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: d63fd3d1b778c691d053f13fbf0fbb2ed5ccb3e3
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: edce98e6babb676ee72f1d254b929e557332dd75
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968273"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333130"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Identità gestita per Service Fabric applicazione (anteprima)
 
@@ -45,7 +45,7 @@ I termini seguenti vengono usati in tutta l'identità gestita per le risorse di 
 
 ## <a name="supported-scenarios-for-service-fabric-applications"></a>Scenari supportati per applicazioni Service Fabric
 
-Le identità gestite per Service Fabric sono supportate solo nei cluster Service Fabric distribuiti di Azure e solo per le applicazioni distribuite come risorse di Azure. alle applicazioni non distribuite come risorsa di Azure non può essere assegnata un'identità. In teoria, il supporto per le identità gestite in Azure Service Fabric cluster è costituito da due fasi:
+Le identità gestite per Service Fabric sono supportate solo nei cluster Service Fabric distribuiti di Azure e solo per le applicazioni distribuite come risorse di Azure. non è possibile assegnare un'identità a un'applicazione non distribuita come risorsa di Azure. In teoria, il supporto per le identità gestite in Azure Service Fabric cluster è costituito da due fasi:
 
 1. Assegnare una o più identità gestite alla risorsa dell'applicazione; a un'applicazione può essere assegnata una sola identità assegnata dal sistema e/o fino a 32 identità assegnate dall'utente, rispettivamente.
 
@@ -63,6 +63,8 @@ L'elenco degli scenari supportati per la versione di anteprima è il seguente:
 Gli scenari seguenti non sono supportati o non sono consigliati. Si noti che queste azioni potrebbero non essere bloccate, ma possono causare interruzioni nelle applicazioni:
 
    - Rimuovere o modificare le identità assegnate a un'applicazione; Se è necessario apportare modifiche, inviare distribuzioni separate prima di aggiungere una nuova assegnazione di identità e quindi rimuovere una assegnata in precedenza. La rimozione di un'identità da un'applicazione esistente può avere effetti indesiderati, inclusa l'uscita dell'applicazione in uno stato non aggiornabile. Se la rimozione di un'identità è necessaria, è possibile eliminare l'applicazione in modo sicuro. Si noti che questa operazione eliminerà l'identità assegnata dal sistema (se così definita) associata all'applicazione e rimuoverà tutte le associazioni con le identità assegnate dall'utente assegnate all'applicazione.
+
+   - Il supporto SF per le identità gestite non è integrato al momento nel [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md); l'integrazione verrà eseguita entro la fine del periodo di anteprima per la funzionalità Gestione identità gestita.
 
 >
 > [!NOTE]

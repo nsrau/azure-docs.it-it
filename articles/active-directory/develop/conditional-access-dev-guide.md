@@ -16,18 +16,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc93a7de824aeaf173e7179de0b0233b73488feb
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 91947c243b521e970a89152f76abe9a99142b89d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321165"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374012"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Linee guida per gli sviluppatori per l'accesso condizionale Azure Active Directory
 
 La funzionalità di accesso condizionale in Azure Active Directory (Azure AD) offre uno dei diversi modi in cui è possibile usare per proteggere l'app e proteggere un servizio. L'accesso condizionale consente agli sviluppatori e ai clienti aziendali di proteggere i servizi in molti modi, tra cui:
 
-* Autenticazione a più fattori
+* Multi-Factor Authentication
 * Autorizzazione dell'accesso a servizi specifici solo per dispositivi registrati in Intune
 * Limitazione delle posizioni dell'utente e degli intervalli IP
 
@@ -35,13 +35,13 @@ Per altre informazioni sulle funzionalità complete dell'accesso condizionale, v
 
 Per gli sviluppatori che compilano app per Azure AD, questo articolo illustra come usare l'accesso condizionale e si apprenderà anche l'effetto dell'accesso alle risorse di cui non si ha il controllo che potrebbero avere criteri di accesso condizionale applicati. Questo articolo illustra anche le implicazioni dell'accesso condizionale nel flusso per conto, app Web, accesso a Microsoft Graph e chiamate alle API.
 
-Si presuppone una conoscenza delle app a [tenant singolo](quickstart-v1-integrate-apps-with-azure-ad.md) e [multi-tenant](howto-convert-app-to-be-multi-tenant.md) e dei [modelli di autenticazione comuni](authentication-scenarios.md).
+Si presuppone una conoscenza delle app a [tenant singolo](quickstart-v1-integrate-apps-with-azure-ad.md) e [multi-tenant](howto-convert-app-to-be-multi-tenant.md) e dei [modelli di autenticazione comuni](v1-authentication-scenarios.md).
 
 ## <a name="how-does-conditional-access-impact-an-app"></a>In che modo l'accesso condizionale influisca su un'app?
 
 ### <a name="app-types-impacted"></a>Tipi di app interessati
 
-Nella maggior parte dei casi, l'accesso condizionale non modifica il comportamento di un'app o richiede modifiche da parte dello sviluppatore. Solo in alcuni casi, quando un'app richiede indirettamente o automaticamente un token per un servizio, un'app richiede modifiche al codice per gestire l'accesso condizionale "problemi". L'operazione può essere semplice quanto l'esecuzione di una richiesta di accesso interattiva.
+Nella maggior parte dei casi, l'accesso condizionale non modifica il comportamento di un'app o richiede modifiche da parte dello sviluppatore. Solo in alcuni casi, quando un'app richiede indirettamente o automaticamente un token per un servizio, un'app richiede modifiche al codice per gestire l'accesso condizionale "problemi". Potrebbe essere semplice come eseguire una richiesta di accesso interattiva.
 
 In particolare, per gli scenari seguenti è necessario il codice per gestire l'accesso condizionale "problemi":
 
@@ -50,7 +50,7 @@ In particolare, per gli scenari seguenti è necessario il codice per gestire l'a
 * App a pagina singola che usano ADAL.js
 * App Web che chiamano una risorsa
 
-I criteri di accesso condizionale possono essere applicati all'app, ma possono anche essere applicati a un'API Web a cui l'app accede. Per ulteriori informazioni su come configurare i criteri di accesso condizionale, [vedere Guida introduttiva: Richiedere l'autenticazione a più fattori per app specifiche](../conditional-access/app-based-mfa.md)con Azure Active Directory accesso condizionale.
+I criteri di accesso condizionale possono essere applicati all'app, ma possono anche essere applicati a un'API Web a cui l'app accede. Per altre informazioni su come configurare i criteri di accesso condizionale, vedere [Guida introduttiva: richiedere l'autenticazione a più fattori per app specifiche con Azure Active Directory l'accesso condizionale](../conditional-access/app-based-mfa.md).
 
 A seconda dello scenario, un cliente aziendale può applicare e rimuovere i criteri di accesso condizionale in qualsiasi momento. Affinché l'app continui a funzionare quando vengono applicati nuovi criteri, è necessario implementare la gestione delle richieste. Gli esempi seguenti illustrano la gestione delle richieste.
 
@@ -79,7 +79,7 @@ Un'app può prevedere che i loro utenti soddisfino tutti i criteri impostati per
 
 Per le diverse topologie di app, i criteri di accesso condizionale vengono valutati quando viene stabilita la sessione. Poiché i criteri di accesso condizionale operano per la granularità di app e servizi, il punto in cui viene richiamato dipende molto dallo scenario che si sta tentando di eseguire.
 
-Quando l'app tenta di accedere a un servizio con criteri di accesso condizionale, è possibile che si verifichi una richiesta di accesso condizionale. Questa richiesta è codificata nel `claims` parametro incluso in una risposta da Azure ad. Ecco un esempio del parametro della richiesta: 
+Quando l'app tenta di accedere a un servizio con criteri di accesso condizionale, è possibile che si verifichi una richiesta di accesso condizionale. Questa richiesta è codificata nel parametro `claims` che è presente in una risposta da Azure AD. Ecco un esempio del parametro della richiesta: 
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -114,7 +114,7 @@ La richiesta di token iniziale per l'API Web 1 non comporta la richiesta all'ute
 Azure AD restituisce una risposta HTTP con alcuni dati interessanti:
 
 > [!NOTE]
-> In questo caso si tratta di una descrizione dell'errore di autenticazione a più fattori, ma esiste una vasta `interaction_required` gamma di possibili riguardante l'accesso condizionale.
+> In questo caso si tratta di una descrizione dell'errore di autenticazione a più fattori, ma è disponibile un'ampia gamma di `interaction_required` per quanto riguarda l'accesso condizionale.
 
 ```
 HTTP 400; Bad Request
@@ -146,7 +146,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ![App che accede a più servizi e richiede un nuovo token](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-Se l'app usa la libreria ADAL, in caso di errore di acquisizione del token viene sempre eseguito un nuovo tentativo in modo interattivo. Quando si verifica questa richiesta interattiva, l'utente finale ha la possibilità di conformarsi all'accesso condizionale. Questo vale a meno che la richiesta non sia `AcquireTokenSilentAsync` o `PromptBehavior.Never` , nel qual caso l'app deve eseguire una richiesta ```AcquireToken``` interattiva per fornire all'utente finale la possibilità di conformarsi ai criteri.
+Se l'app usa la libreria ADAL, in caso di errore di acquisizione del token viene sempre eseguito un nuovo tentativo in modo interattivo. Quando si verifica questa richiesta interattiva, l'utente finale ha la possibilità di conformarsi all'accesso condizionale. Questo vale a meno che la richiesta non sia un `AcquireTokenSilentAsync` o `PromptBehavior.Never` nel qual caso l'app deve eseguire una richiesta ```AcquireToken``` interattiva per fornire all'utente finale l'opportunità di conformarsi ai criteri.
 
 ## <a name="scenario-single-page-app-spa-using-adaljs"></a>Scenario: App a pagina singola che usa ADAL.js
 
@@ -154,15 +154,15 @@ In questo scenario viene illustrato il caso in cui è presente un'app a singola 
 
 In ADAL.js ci sono poche funzioni che ottengono token: `login()`, `acquireToken(...)`, `acquireTokenPopup(…)` e `acquireTokenRedirect(…)`.
 
-* `login()`Ottiene un token ID tramite una richiesta di accesso interattiva ma non ottiene i token di accesso per qualsiasi servizio (inclusa un'API Web protetta con accesso condizionale).
+* `login()` Ottiene un token ID tramite una richiesta di accesso interattiva ma non ottiene i token di accesso per qualsiasi servizio (inclusa un'API Web protetta dall'accesso condizionale).
 * È quindi possibile usare `acquireToken(…)` per ottenere automaticamente un token di accesso, senza visualizzazione dell'interfaccia utente in nessun caso.
 * `acquireTokenPopup(…)` e `acquireTokenRedirect(…)` vengono entrambi usati per richiedere in modo interattivo un token per una risorsa, quindi l'interfaccia utente di accesso viene sempre visualizzata.
 
-Quando un'app necessita di un token di accesso per chiamare un'API Web, viene eseguito un tentativo di chiamata a `acquireToken(…)`. Se la sessione del token è scaduta o è necessario conformarsi a un criterio di accesso condizionale, la funzione *acquireToken* ha esito negativo e `acquireTokenPopup()` l' `acquireTokenRedirect()`app usa o.
+Quando un'app necessita di un token di accesso per chiamare un'API Web, viene eseguito un tentativo di chiamata a `acquireToken(…)`. Se la sessione del token è scaduta o è necessario conformarsi a un criterio di accesso condizionale, la funzione *acquireToken* ha esito negativo e l'app usa `acquireTokenPopup()` o `acquireTokenRedirect()`.
 
 ![Diagramma di flusso per le app a pagina singola che usano ADAL](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
 
-Esaminiamo un esempio con lo scenario di accesso condizionale. L'utente finale è appena arrivato nel sito e non ha una sessione. Si esegue una chiamata a `login()` e si ottiene un token ID senza autenticazione a più fattori. L'utente preme quindi un pulsante che comporta una richiesta di dati dall'app a un'API Web. L'app tenta di effettuare una `acquireToken()` chiamata ma ha esito negativo perché l'utente non ha ancora eseguito l'autenticazione a più fattori e deve essere conforme ai criteri di accesso condizionale.
+Esaminiamo un esempio con lo scenario di accesso condizionale. L'utente finale è appena arrivato nel sito e non ha una sessione. Si esegue una chiamata a `login()` e si ottiene un token ID senza autenticazione a più fattori. L'utente preme quindi un pulsante che comporta una richiesta di dati dall'app a un'API Web. L'app tenta di eseguire una chiamata `acquireToken()`, ma ha esito negativo perché l'utente non ha ancora eseguito l'autenticazione a più fattori e deve essere conforme ai criteri di accesso condizionale.
 
 Azure AD invia la risposta HTTP seguente:
 
@@ -176,7 +176,7 @@ L'app deve intercettare l'errore `error=interaction_required`. L'applicazione pu
 
 Per provare questo scenario, vedere l'[esempio di codice on-behalf-of JS SPA](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). Questo esempio di codice usa i criteri di accesso condizionale e l'API Web registrata in precedenza con JS SPA per illustrare questo scenario. Mostra come gestire correttamente la richiesta di attestazioni e ottenere un token di accesso che può essere usato per l'API Web. In alternativa, vedere l'[esempio di codice Angular.js](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) generale, per informazioni su Angular SPA
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * Per altre informazioni sulle funzionalità, vedere [Accesso condizionale in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 * Per altri esempi di codice di Azure AD, vedere il [repository GitHub di esempi di codice](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory).

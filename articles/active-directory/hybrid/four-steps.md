@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36433aef75d38418cb74fcd195dc1e9e902f24a8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 08db59e26a66aca57d65458a302c3c1de2e34a7b
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124935"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373492"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Quattro passaggi per una solida base di identità con Azure Active Directory
 
@@ -81,9 +81,9 @@ Azure AD proxy di applicazione offre i vantaggi seguenti:
 
 Nelle aziende moderne, i reparti IT spesso non sono a conoscenza di tutte le applicazioni cloud usate dagli utenti per svolgere il proprio lavoro. Quando gli amministratori IT vengono invitati a quante app Cloud pensano che i dipendenti usino, in media si dicono 30 o 40. In realtà, la media è superiore a 1.000 app separate usate dai dipendenti dell'organizzazione. il 80% dei dipendenti USA app non approvate che nessuno ha esaminato e che potrebbero non essere conformi ai criteri di sicurezza e conformità.
 
-[Microsoft cloud app Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) consente di identificare le app utili più diffuse con gli utenti che possono approvare e aggiungere alla raccolta di applicazioni aziendali, in modo che gli utenti possano trarre vantaggio dalle funzionalità quali SSO e accesso condizionale.
+[Microsoft cloud app Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) consente di identificare le app utili più diffuse con gli utenti che potrebbero approvare e aggiungere alla raccolta di applicazioni aziendali in modo che gli utenti possano trarre vantaggio dalle funzionalità quali SSO e accesso condizionale.
 
-*" **Cloud app Security** aiuta Microsoft a garantire che gli utenti utilizzino correttamente le applicazioni cloud e Saas, in modo da supportare i criteri di sicurezza di base che consentono di proteggere Accenture*" --- [John Blasi, Managing Director, Information Security, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>"**Cloud app Security** ci aiuta a garantire che gli utenti utilizzino correttamente le nostre applicazioni cloud e Saas, in modo da supportare i criteri di sicurezza di base che consentono di proteggere Accenture".</em> --- [John Blasi, Managing Director, Information Security, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 Oltre a rilevare shadow IT, MCAS può anche determinare il livello di rischio delle app, impedire l'accesso non autorizzato ai dati aziendali, possibili perdite di dati e altri rischi per la sicurezza inerenti alle applicazioni.
 
@@ -121,7 +121,7 @@ Per le organizzazioni che usano già AD FS o un altro provider di autenticazione
 
 ### <a name="enable-automatic-deprovisioning-of-accounts"></a>Abilitare il deprovisioning automatico degli account
 
-L'abilitazione del provisioning e deprovisioning automatizzato per le applicazioni è la strategia migliore per gestire il ciclo di vita delle identità in più sistemi. Azure AD supporta il provisioning [automatizzato basato su criteri e](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal) il deprovisioning degli account utente in un'ampia gamma di applicazioni SaaS comuni, ad esempio ServiceNow e Salesforce, e altre che implementano il [protocollo scim 2,0](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups). Diversamente dalle soluzioni di provisioning tradizionali, che richiedono codice personalizzato o caricamento manuale dei file CSV, il servizio di provisioning è ospitato nel cloud e include connettori preintegrati che possono essere configurati e gestiti usando il portale di Azure. Un vantaggio fondamentale del deprovisioning automatico è che aiuta a proteggere l'organizzazione rimuovendo immediatamente le identità degli utenti dalle principali app SaaS quando lasciano l'organizzazione.
+L'abilitazione del provisioning e deprovisioning automatizzato per le applicazioni è la strategia migliore per gestire il ciclo di vita delle identità in più sistemi. Azure AD supporta il [provisioning automatizzato basato su criteri e il deprovisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal) degli account utente in un'ampia gamma di applicazioni SaaS comuni, ad esempio ServiceNow e Salesforce, e altre che implementano il [protocollo scim 2,0](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups). Diversamente dalle soluzioni di provisioning tradizionali, che richiedono codice personalizzato o caricamento manuale dei file CSV, il servizio di provisioning è ospitato nel cloud e include connettori preintegrati che possono essere configurati e gestiti usando il portale di Azure. Un vantaggio fondamentale del deprovisioning automatico è che aiuta a proteggere l'organizzazione rimuovendo immediatamente le identità degli utenti dalle principali app SaaS quando lasciano l'organizzazione.
 
 Per altre informazioni sul provisioning automatico degli account utente e sul relativo funzionamento, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 
@@ -133,7 +133,7 @@ Questa sezione elenca i consigli per la rimozione dell'attrito dall'organizzazio
 
 ### <a name="enable-self-service-password-reset-for-all-users"></a>Abilitare la reimpostazione self-service delle password per tutti gli utenti
 
-La reimpostazione della [password self-service](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) di Azure (SSPR) offre agli amministratori IT un metodo semplice per consentire agli utenti di reimpostare e sbloccare le password o gli account senza l'intervento dell'amministratore. Il sistema include report dettagliati per tenere traccia del momento in cui gli utenti accedono al sistema, oltre a notifiche per segnalare usi impropri.
+La [reimpostazione della password self-service](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) di Azure (SSPR) offre agli amministratori IT un metodo semplice per consentire agli utenti di reimpostare e sbloccare le password o gli account senza l'intervento dell'amministratore. Il sistema include report dettagliati per tenere traccia del momento in cui gli utenti accedono al sistema, oltre a notifiche per segnalare usi impropri.
 
 Per impostazione predefinita, Azure AD sblocca gli account quando esegue la reimpostazione di una password. Tuttavia, quando si Abilita l' [integrazione Azure ad Connect in locale](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks#on-premises-integration), è anche possibile separare le due operazioni, che consentono agli utenti di sbloccare l'account senza dover reimpostare la password.
 
@@ -141,7 +141,7 @@ Per impostazione predefinita, Azure AD sblocca gli account quando esegue la reim
 
 Azure fornisce report che possono essere usati dall'utente e dall'organizzazione per assicurarsi che gli utenti siano registrati per l'autenticazione a più fattori e SSPR. Per gli utenti che non hanno eseguito la registrazione potrebbe essere necessario istruire il processo.
 
-Il [report](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting) degli accessi a più fattori include informazioni sull'utilizzo dell'autenticazione a più fattori e fornisce informazioni approfondite sul funzionamento dell'autenticazione a più fattori nell'organizzazione. La possibilità di accedere alle attività di accesso (e ai controlli e ai rilevamenti dei rischi) per Azure AD è fondamentale per la risoluzione dei problemi, l'analisi dell'utilizzo e le indagini forensi.
+Il [report degli accessi](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting) a più fattori include informazioni sull'utilizzo dell'autenticazione a più fattori e fornisce informazioni approfondite sul funzionamento dell'autenticazione a più fattori nell'organizzazione. La possibilità di accedere alle attività di accesso (e ai controlli e ai rilevamenti dei rischi) per Azure AD è fondamentale per la risoluzione dei problemi, l'analisi dell'utilizzo e le indagini forensi.
 
 Analogamente, è possibile usare il [report di gestione delle password self-service](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting) per determinare chi ha o non è registrato per sspr.
 
@@ -200,7 +200,7 @@ Quando si implementa una soluzione di identità ibrida come descritto in questo 
 
 Se non si osserva una riduzione delle chiamate al supporto tecnico, è consigliabile analizzare i driver delle chiamate di supporto nel tentativo di verificare se la configurazione di SSPR o dell'accesso alle applicazioni self-service è stata eseguita correttamente o se sono presenti altri nuovi problemi che possono essere sistematicamente affrontato.
 
-*"Nel nostro percorso di trasformazione digitale abbiamo bisogno di un provider di gestione delle identità e degli accessi affidabile per semplificare l'integrazione senza problemi tra US, partner e provider di servizi cloud, per un ecosistema efficace; Azure AD è stata l'opzione migliore che offre le funzionalità e la visibilità necessarie che ci hanno permesso di rilevare e rispondere ai rischi ".* --- [ALMASRI, responsabile sicurezza informazioni globali, ARAMEX](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en)
+*"Nel nostro percorso di trasformazione digitale abbiamo bisogno di un provider di gestione delle identità e degli accessi affidabile per semplificare l'integrazione senza problemi tra US, partner e provider di servizi cloud, per un ecosistema efficace; Azure AD è stata l'opzione migliore che offre le funzionalità e la visibilità necessarie che ci hanno permesso di rilevare e rispondere ai rischi ".* --- [ALMASRI, Global Information Security Director, ARAMEX](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en)
 
 ### <a name="monitor-your-usage-of-apps-to-drive-insights"></a>Monitora l'utilizzo delle app per ottenere informazioni dettagliate
 
@@ -212,7 +212,7 @@ Oltre ad individuare Shadow IT, il monitoraggio dell'utilizzo delle app nell'org
 
 *"Con Cloud App Security, possiamo individuare rapidamente le anomalie e intervenire".* --- [Eric LePenske, Senior Manager, Information Security, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Esistono molti aspetti per implementare una soluzione di identità ibrida, ma questo elenco di controllo in quattro passaggi consente di realizzare rapidamente un'infrastruttura di identità che consentirà agli utenti di essere più produttivi e protetti.
 
@@ -247,7 +247,7 @@ Si consiglia di stampare l'elenco di controllo seguente per informazioni di rife
 ||Avviare la migrazione di app da ADFS a Azure AD|
 ||Crea dashboard personalizzati per la tua leadership e il giorno a giorno|
 
-### <a name="next-month"></a>Mese successivo
+### <a name="next-month"></a>Mese prossimo
 
 |Dopo aver completato l'operazione,|Elemento|
 |:-|:-|

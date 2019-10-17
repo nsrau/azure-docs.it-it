@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: d2c84f5b6389ac83206472440d26aa8d81ba76be
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 5d21d3800655cc0be78a2b63d13a3616b1d0f2f8
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147367"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372724"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a endpoint diversi
 
@@ -41,7 +41,7 @@ L'hub IoT supporta attualmente i servizi seguenti come endpoint personalizzati:
 
 È possibile usare l'[integrazione standard di Hub eventi e gli SDK](iot-hub-devguide-messages-read-builtin.md) per ricevere i messaggi da dispositivo a cloud dall'endpoint predefinito (**messaggi/eventi**). Una volta creata una route, i dati vengono interrotti verso l'endpoint incorporato, a meno che non venga creata una route per tale endpoint.
 
-### <a name="azure-blob-storage"></a>Archivio BLOB di Azure
+### <a name="azure-blob-storage"></a>Archiviazione BLOB di Azure
 
 L'hub Internet delle cose supporta la scrittura di dati nell'archivio BLOB di Azure in formato [Apache avro](https://avro.apache.org/) e in formato JSON. La funzionalità di codifica del formato JSON è disponibile a livello generale in tutte le aree in cui è disponibile l'hub Internet. Il valore predefinito è AVRO. Il formato di codifica può essere impostato solo quando viene configurato l'endpoint di archiviazione BLOB. Non è possibile modificare il formato per un endpoint esistente. Quando si usa la codifica JSON, è necessario impostare contentType su **Application/JSON** e ContentEncoding su **UTF-8** nelle [proprietà del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)del messaggio. Entrambi i valori non fanno distinzione tra maiuscole e minuscole. Se la codifica del contenuto non è impostata, l'hub Internet scriverà i messaggi nel formato con codifica base 64. È possibile selezionare il formato di codifica usando l'API REST di creazione o aggiornamento dell'hub Internet, in particolare [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), il portale di Azure, l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Il diagramma seguente illustra come selezionare il formato di codifica nel portale di Azure.
 
@@ -114,6 +114,12 @@ L'hub Internet si [integra anche con griglia di eventi di Azure](iot-hub-event-g
 ## <a name="testing-routes"></a>Test delle route
 
 Quando si crea una nuova route o si modifica una route esistente, è consigliabile testare la query di route con un messaggio di esempio. È possibile testare singole route o testarle tutte contemporaneamente. Nessuno messaggio viene indirizzato agli endpoint durante il test. Per i test è possibile usare portale di Azure, Azure Resource Manager, Azure PowerShell e l'interfaccia della riga di comando di Azure. I risultati consentono di identificare se il messaggio di esempio corrisponde alla query, il messaggio non corrisponde alla query o se il test non è stato eseguito perché la sintassi del messaggio o della query di esempio non è corretta. Per altre informazioni, vedere [Test Route](/rest/api/iothub/iothubresource/testroute) (Testare una route) e [Test all routes](/rest/api/iothub/iothubresource/testallroutes) (Testare tutte le route).
+
+## <a name="ordering-guarantees-with-at-least-once-delivery"></a>Ordinamento delle garanzie con recapito almeno una volta
+
+Il routing dei messaggi dell'hub Internet garantisce il recapito ordinato e almeno una volta per gli endpoint. Ciò significa che possono essere presenti messaggi duplicati e una serie di messaggi può essere ritrasmessa rispettando l'ordinamento originale del messaggio. Se, ad esempio, l'ordine originale del messaggio è [1, 2, 3, 4], è possibile ricevere una sequenza di messaggi come [1, 2, 1, 2, 3, 1, 2, 3, 4]. La garanzia di ordinamento è che, se si riceve un messaggio [1], sarà sempre seguito da [2, 3, 4].
+
+Per la gestione dei duplicati dei messaggi, è consigliabile contrassegnare un identificatore univoco nelle proprietà dell'applicazione del messaggio al punto di origine, che in genere è un dispositivo o un modulo. Il servizio che utilizza i messaggi è in grado di gestire i messaggi duplicati utilizzando questo identificatore.
 
 ## <a name="latency"></a>Latency
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 1bb23e3330f2350572175733445c8ef2c5ea79bb
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 4718ee7943b4130bb977d5eefeb82bb385c71835
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177775"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332846"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuire lo strumento di diagnostica
 
@@ -108,8 +108,8 @@ Di seguito viene illustrato come configurare manualmente i contatori delle prest
 3. Nella sezione **Impostazioni** selezionare **Impostazioni avanzate**.
 4. Passare quindi a **Data** > **Windows Performance Counters** e aggiungere i contatori seguenti:
 
-    -   Disco logico (\*) \|% di spazio disponibile
-    -   Disco logico (C:) \\Avg. Lunghezza coda disco
+    -   Disco logico (\*) @no__t-spazio 1Free
+    -   Disco logico (C:) \\Avg. Lunghezza coda del disco
     -   Memoria (\*) \\Available MByte
     -   Informazioni sul processore (\*) \\Processor tempo
     -   Ritardo input utente per sessione (\*) @no__t ritardo input 1Max
@@ -142,9 +142,9 @@ Per assicurarsi che l'area di lavoro di Log Analytics disponga dei contatori del
 3. Passare quindi a **Data** > **Windows Performance Counters**.
 4. Verificare che i contatori seguenti siano preconfigurati:
 
-   - Disco logico (\*) \|% di spazio disponibile: Visualizza la quantità di spazio libero disponibile sul disco come percentuale.
-   - Disco logico (C:) \\Avg. Lunghezza coda del disco: Lunghezza della richiesta di trasferimento del disco per l'unità C. Il valore non deve superare 2 per più di un breve periodo di tempo.
-   - Memoria (\*) \\Available MByte: Memoria disponibile per il sistema in megabyte.
+   - Disco logico (\*) @no__t-spazio 1Free: Visualizza la quantità di spazio disponibile sul disco come percentuale.
+   - Disco logico (C:) \\Avg. Lunghezza coda del disco: lunghezza della richiesta di trasferimento disco per l'unità C. Il valore non deve superare 2 per più di un breve periodo di tempo.
+   - Memoria (\*) \\Available MBytes: la memoria disponibile per il sistema in megabyte.
    - Informazioni sul processore (\*) \\Processor tempo: la percentuale di tempo impiegato dal processore per eseguire un thread non inattivo.
    - Ritardo input utente per sessione (\*) @no__t ritardo input 1Max
 
@@ -237,22 +237,22 @@ Nei risultati della ricerca trovare e selezionare l'host sessione per cui si vog
 - Disco logico (\*) \|% di spazio disponibile:
 
     - Visualizza la percentuale dello spazio totale utilizzabile nel disco logico che è disponibile.
-    - Soglia: Minore del 20% è contrassegnato come non integro.
+    - Soglia: minore del 20% è contrassegnato come non integro.
 
 - Disco logico (C:) \\Avg. Lunghezza coda del disco:
 
     - Rappresenta le condizioni del sistema di archiviazione.
-    - Soglia: Maggiore di 5 è contrassegnato come non integro.
+    - Soglia: maggiore di 5 è contrassegnato come non integro.
 
 - Memoria (\*) \\Available MByte:
 
     - Memoria disponibile per il sistema.
-    - Soglia: Inferiore a 500 megabyte contrassegnati come non integri.
+    - Soglia: inferiore a 500 megabyte contrassegnati come non integri.
 
 - Informazioni sul processore (\*) \\Processor tempo:
 
-    - Soglia: Superiore al 80% è contrassegnato come non integro.
+    - Soglia: superiore al 80% è contrassegnato come non integro.
 
 - [Ritardo input utente per sessione (\*) @no__t ritardo input 2max](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
-    - Soglia: Superiore a 2000 ms è contrassegnato come non integro.
+    - Soglia: superiore a 2000 ms è contrassegnato come non integro.

@@ -4,16 +4,16 @@ description: Informazioni su come usare la libreria BulkExecutor per importare v
 author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 51bd14c536e46291c8720e6c22e2e03a30243ddf
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
-ms.translationtype: HT
+ms.openlocfilehash: 35f42f3e222767d9d201d9948581151ae3cb5127
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827278"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327183"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Uso della libreria .NET BulkExecutor per i grafi per eseguire operazioni in blocco nell'API Gremlin di Azure Cosmos DB
 
@@ -128,7 +128,7 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 
 Questo repository contiene l'esempio GraphBulkExecutor con i file seguenti:
 
-File|DESCRIZIONE
+File|Description
 ---|---
 `App.config`|Contiene i parametri specifici dell'applicazione e del database. Questo file deve essere innanzitutto modificato per connettersi alle raccolte e al database di destinazione.
 `Program.cs`| Contiene la logica alla base per la creazione della raccolta `DocumentClient`, la gestione delle pulizie e l'invio delle richieste BulkExecutor.
@@ -136,7 +136,7 @@ File|DESCRIZIONE
 
 Nel file `App.config` possono essere specificati i valori di configurazione seguenti:
 
-Impostazione|DESCRIZIONE
+Impostazione|Description
 ---|---
 `EndPointUrl`|**Endpoint .NET SDK** che si trova nel pannello Panoramica dell'account di database di API Gremlin di Azure Cosmos DB. Ha questo formato: `https://your-graph-database-account.documents.azure.com:443/`
 `AuthorizationKey`|Chiave primaria o secondaria elencata nell'account Azure Cosmos DB. Per altre informazioni, vedere [Protezione dell'accesso ai dati di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#master-keys)

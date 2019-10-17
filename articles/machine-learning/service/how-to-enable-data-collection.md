@@ -11,17 +11,17 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c747f25b92d9f165bfeb4468a0e263f102976f9
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 109db23976f6332b24bcfa565812bd9491062691
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350580"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330741"
 ---
 # <a name="collect-data-for-models-in-production"></a>Raccogliere i dati per i modelli nell'ambiente di produzione
 
 >[!IMPORTANT]
-> Questo SDK verrà ritirato a breve e verrà sostituito con il [monitoraggio semplificato dei dati con Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
+> Questo SDK verrà ritirato a breve. Questo SDK è ancora appropriato per gli sviluppatori che monitorano la tendenza dei dati nei modelli, ma la maggior parte degli sviluppatori deve usare il monitoraggio semplificato [dei dati con Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
 
 In questo articolo si apprenderà come raccogliere i dati del modello di input da Azure Machine Learning distribuiti in un cluster Azure Kubernetes (AKS) in un archivio BLOB di Azure. 
 
@@ -53,7 +53,7 @@ La sintassi per il percorso dei dati di output nel BLOB è la seguente:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
+- Se non si dispone di una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Un'area di lavoro di Azure Machine Learning, una directory locale contenente gli script e Azure Machine Learning SDK per Python installato. Informazioni su come ottenere questi prerequisiti usando il documento [Come configurare un ambiente di sviluppo](how-to-configure-environment.md).
 
@@ -84,7 +84,7 @@ Per abilitarla, è necessario:
     prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
-    *CorrelationId* è un parametro facoltativo. Non è necessario configurarlo se il modello non lo richiede. La presenza di un elemento correlationId semplifica il mapping con altri dati. Tra gli esempi sono inclusi LoanNumber, CustomerId e così via.
+    *CorrelationId* è un parametro facoltativo. Non è necessario configurarlo se il modello non lo richiede. La presenza di un elemento correlationId semplifica il mapping con altri dati. Alcuni esempi sono: LoanNumber, CustomerId e così via.
     
     *Identifier* viene usato in un secondo momento per creare la struttura di cartelle del BLOB. Può essere usato per dividere i dati "raw" da quelli "elaborati".
 
@@ -192,7 +192,7 @@ Per accedere rapidamente ai dati dal BLOB:
 
 1. Nell'editor di query fare clic sotto la colonna "Nome" e aggiungere l'account di archiviazione 1. Modellare il percorso nel filtro. Nota: se si vogliono esaminare solo i file da un anno o un mese specifico, espandere semplicemente il percorso di filtro. Ad esempio, esaminare semplicemente i dati di marzo: /modeldata/subscriptionid>/resourcegroupname>/workspacename>/webservicename>/modelname>/modelversion>/identifier>/year>/3
 
-1. Filtrare i dati di interesse in base a **Nome**. Se sono stati archiviati **stime** e **input**, sarà necessario creare una query per ognuno.
+1. Filtrare i dati di interesse in base a **Nome**. Se sono state archiviate **stime** e **input**, è necessario creare una query per ciascuna di esse.
 
 1. Fare clic sulla freccia doppia a lato della colonna **Contenuto** per combinare i file. 
 
@@ -204,7 +204,7 @@ Per accedere rapidamente ai dati dal BLOB:
 
 1. È ora possibile fare clic su **Chiudi e applica**.
 
-1.  Se sono stati aggiunti input e stime, le tabelle verranno automaticamente correlate in base a **RequestId**.
+1.  Se sono stati aggiunti input e stime, le tabelle verranno automaticamente correlate in base ai **RequestId**.
 
 1. Iniziare a creare report personalizzati per i dati del modello.
 
@@ -215,7 +215,7 @@ Per accedere rapidamente ai dati dal BLOB:
 
 1. Passare all'area di lavoro di Databricks. 
 
-1. Nell'area di lavoro di Databricks selezionare **Upload Data** (Carica dati).
+1. Nell'area di lavoro databricks selezionare **Carica dati**.
 
     [![Caricamento dei dati](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
 

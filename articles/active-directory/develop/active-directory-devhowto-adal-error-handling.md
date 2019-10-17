@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0c1bbbdf9b42dfe2b507f533ad1806e06991f33
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e7008a5909d8f530920628125fec1b826be3f984
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835425"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374196"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Procedure consigliate di gestione degli errori per i client di Azure Active Directory Authentication Library (ADAL)
 
@@ -43,7 +43,7 @@ AcquireTokenSilent tenta di ottenere un token con la garanzia che l'utente final
 
 Esiste un set di errori generati dal sistema operativo, che potrebbe richiedere una gestione degli errori specifica per l'applicazione. Per altre informazioni, vedere la sezione "Errori del sistema operativo" in [Informazioni di riferimento su errori e registrazione](#error-and-logging-reference). 
 
-### <a name="application-scenarios"></a>Scenari applicativi
+### <a name="application-scenarios"></a>Scenari di applicazione
 
 - Applicazioni [client native](developer-glossary.md#native-client) (iOS, Android, desktop .NET o Xamarin)
 - Applicazioni [client Web](developer-glossary.md#web-client) che chiamano una [risorsa](developer-glossary.md#resource-server) (.NET)
@@ -52,10 +52,10 @@ Esiste un set di errori generati dal sistema operativo, che potrebbe richiedere 
 
 Fondamentalmente, esistono due casi di errori AcquireTokenSilent:
 
-| Case | Descrizione |
+| Caso | Description |
 |------|-------------|
 | **Caso 1**: l'errore è risolvibile con un accesso interattivo | Per gli errori causati dalla mancanza di token validi, è necessaria una richiesta interattiva. In particolare, per la risoluzione di ricerche nella cache e token di aggiornamento non validi/scaduti è necessaria una chiamata di AcquireToken.<br><br>In questi casi, occorre chiedere all'utente finale di eseguire l'accesso. L'applicazione può scegliere di effettuare una richiesta interattiva immediatamente dopo l'interazione con l'utente finale (ad esempio, l'uso di un pulsante di accesso) o in seguito. La scelta dipende dal comportamento desiderato dell'applicazione.<br><br>Vedere il codice nella sezione seguente per questo caso specifico e gli errori per diagnosticarlo.|
-| **Caso 2**: l'errore non è risolvibile con un accesso interattivo | Per la rete e gli errori temporanei o altri malfunzionamenti, l'esecuzione di una richiesta AcquireToken interattiva non risolve il problema. Le richieste di accesso interattivo non necessarie possono anche risultare frustranti per gli utenti finali. ADAL esegue automaticamente solo un ulteriore tentativo per la maggior parte degli errori AcquireTokenSilent.<br><br>L'applicazione client può anche eseguire un altro tentativo in seguito, ma quando e come eseguirlo dipende dal comportamento dell'applicazione e dall'esperienza desiderata per gli utenti finali. Ad esempio, l'applicazione può eseguire un nuovo tentativo di chiamata di AcquireTokenSilent dopo alcuni minuti oppure in risposta a un'azione dell'utente finale. Un tentativo immediato causerebbe la limitazione dell'applicazione ed è sconsigliato.<br><br>Un tentativo successivo che genera lo stesso errore non significa che il client deve eseguire una richiesta interattiva tramite AcquireToken, perché non risolverebbe l'errore.<br><br>Vedere il codice nella sezione seguente per questo caso specifico e gli errori per diagnosticarlo. |
+| **Caso 2**: l'errore non è risolvibile con un accesso interattivo | Per la rete e gli errori temporanei o altri malfunzionamenti, l'esecuzione di una richiesta AcquireToken interattiva non risolve il problema. Le richieste di accesso interattivo non necessarie possono anche risultare frustranti per gli utenti finali. ADAL esegue automaticamente solo un ulteriore tentativo per la maggior parte degli errori AcquireTokenSilent.<br><br>L'applicazione client può anche tentare un nuovo tentativo in un secondo momento, ma quando e come dipende dal comportamento dell'applicazione e dall'esperienza dell'utente finale desiderata. Ad esempio, l'applicazione può eseguire un nuovo tentativo di chiamata di AcquireTokenSilent dopo alcuni minuti oppure in risposta a un'azione dell'utente finale. Un tentativo immediato causerebbe la limitazione dell'applicazione ed è sconsigliato.<br><br>Un tentativo successivo che genera lo stesso errore non significa che il client deve eseguire una richiesta interattiva tramite AcquireToken, perché non risolverebbe l'errore.<br><br>Vedere il codice nella sezione seguente per questo caso specifico e gli errori per diagnosticarlo. |
 
 ### <a name="net"></a>.NET
 
@@ -179,7 +179,7 @@ Per la gestione degli errori AcquireToken, la gestione degli errori dipende dall
 
 Anche il sistema operativo può generare un set di errori e ciò richiede una gestione degli errori dipendente dall'applicazione specifica. Per altre informazioni, vedere "Errori del sistema operativo" in [Informazioni di riferimento su errori e registrazione](#error-and-logging-reference). 
 
-### <a name="application-scenarios"></a>Scenari applicativi
+### <a name="application-scenarios"></a>Scenari di applicazione
 
 - Applicazioni client native (iOS, Android, desktop .NET o Xamarin)
 - Applicazioni Web che chiamano un'API di risorse (.NET)
@@ -188,7 +188,7 @@ Anche il sistema operativo può generare un set di errori e ciò richiede una ge
   - Tutti gli scenari, tra cui per-conto-di
   - Scenari specifici per-conto-di
 
-### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Casi di errore e azioni implementabili: Applicazioni client native
+### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Casi di errore e azioni implementabili: applicazioni client native
 
 Se si sta creando un'applicazione client nativa, esistono alcuni casi di gestione degli errori da prendere in considerazione che riguardano i problemi di rete, gli errori temporanei e altri errori specifici della piattaforma. Nella maggior parte dei casi, un'applicazione non deve eseguire nuovi tentativi immediati, ma attendere invece l'interazione con l'utente finale che richiede un accesso. 
 
@@ -200,8 +200,8 @@ La gestione degli errori nelle applicazioni native può essere definita da due c
 
 |  |  |
 |------|-------------|
-| **Caso 1**:<br>Errore irreversibile (la maggior parte dei casi) | 1. Non eseguire immediatamente un nuovo tentativo. Presentare l'interfaccia utente all'utente finale in base all'errore specifico che richiama un nuovo tentativo ("Ritenta l'accesso", "Scarica applicazione broker Azure AD" e così via). |
-| **Caso 2**:<br>Errore non irreversibile | 1. Eseguire un singolo tentativo perché l'utente finale potrebbe trovarsi in uno stato che consente l'esito positivo.<br><br>2. Se il tentativo ha esito negativo, presentare l'interfaccia utente all'utente finale in base all'errore specifico che richiama un nuovo tentativo ("Ritenta l'accesso", "Scarica applicazione broker Azure AD" e così via). |
+| **Caso 1**:<br>Errore irreversibile (la maggior parte dei casi) | 1. non provare immediatamente a riprovare. Presentare l'interfaccia utente dell'utente finale in base all'errore specifico che richiama un nuovo tentativo (ad esempio, "riprovare ad accedere" o "scaricare Azure AD applicazione broker"). |
+| **Caso 2**:<br>Errore non irreversibile | 1. eseguire un singolo tentativo perché l'utente finale potrebbe essere entrato in uno stato che comporta un esito positivo.<br><br>2. se il tentativo non riesce, presentare l'interfaccia utente dell'utente finale in base all'errore specifico che richiama un nuovo tentativo ("riprovare a eseguire l'accesso", "Scarica Azure AD app broker" e così via). |
 
 > [!IMPORTANT]
 > Se un account utente viene passato ad ADAL in una chiamata invisibile all'utente con esito negativo, la richiesta interattiva successiva consente all'utente finale di eseguire l'accesso con un account diverso. Dopo una corretta chiamata di AcquireToken con un account utente, l'applicazione deve verificare che l'utente connesso corrisponda all'oggetto utente locale dell'applicazione. Una mancata corrispondenza non genera un'eccezione (tranne che in Objective C), ma deve essere presa in considerazione nei casi in cui un utente è noto in locale prima delle richieste di autenticazione (ad esempio una chiamata invisibile all'utente non riuscita).
@@ -212,9 +212,9 @@ La gestione degli errori nelle applicazioni native può essere definita da due c
 Le linee guida seguenti offrono esempi per la gestione degli errori in combinazione con tutti i metodi ADAL AcquireToken(…) non invisibili all'utente, *tranne*: 
 
 - AcquireTokenAsync(…, IClientAssertionCertification, …)
-- AcquireTokenAsync(…,ClientCredential, …)
-- AcquireTokenAsync(…,ClientAssertion, …)
-- AcquireTokenAsync(…,UserAssertion,…)   
+- AcquireTokenAsync (..., ClientCredential,...)
+- AcquireTokenAsync (..., ClientAssertion,...)
+- AcquireTokenAsync (..., UserAssertion,...)   
 
 Il codice verrebbe implementato come segue:
 
@@ -341,7 +341,7 @@ Il codice verrebbe implementato come segue:
 }]
 ```
 
-### <a name="error-cases-and-actionable-steps-web-applications-that-call-a-resource-api-net"></a>Casi di errore e azioni implementabili: Applicazioni Web che chiamano un'API di risorse (.NET)
+### <a name="error-cases-and-actionable-steps-web-applications-that-call-a-resource-api-net"></a>Casi di errore e azioni implementabili: applicazioni Web che chiamano una risorsa API (.NET)
 
 Se si sta creando un'app Web .NET che ottiene un token usando codice di autorizzazione per una risorsa, l'unico codice richiesto è un gestore predefinito per il caso generico. 
 
@@ -366,7 +366,7 @@ catch (AdalException e) {
 }
 ```
 
-### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Casi di errore e azioni implementabili: Applicazioni a pagina singola (adal.js)
+### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Casi di errore e azioni implementabili: applicazioni a pagina singola (adal.js)
 
 Se si sta creando un'applicazione a pagina singola con adal.js e AcquireToken, il codice di gestione degli errori è simile a quello di una tipica chiamata invisibile all'utente. In particolare in adal.js, AcquireToken non visualizza mai un'interfaccia utente. 
 
@@ -374,9 +374,9 @@ Per una chiamata AcquireToken non riuscita esistono i casi seguenti:
 
 |  |  |
 |------|-------------|
-| **Caso 1**:<br>Risolvibile con una richiesta interattiva | 1. In caso di esito negativo di login(), non eseguire immediatamente un nuovo tentativo. Ripetere solo dopo la richiesta di un nuovo tentativo con un'azione dell'utente.|
-| **Caso 2**:<br>Non risolvibile con una richiesta interattiva. L'errore non è irreversibile. | 1. Eseguire un singolo tentativo perché l'utente finale potrebbe trovarsi in uno stato che consente l'esito positivo.<br><br>2. Se il tentativo ha esito negativo, presentare all'utente finale un'azione basata sull'errore specifico che può richiamare un nuovo tentativo ("Ritenta l'accesso"). |
-| **Caso 3**:<br>Non risolvibile con una richiesta interattiva. L'errore è irreversibile. | 1. Non eseguire immediatamente un nuovo tentativo. Presentare all'utente finale un'azione basata sull'errore specifico che può richiamare un nuovo tentativo ("Ritenta l'accesso"). |
+| **Caso 1**:<br>Risolvibile con una richiesta interattiva | 1. Se login () non riesce, non eseguire immediatamente un nuovo tentativo. Ripetere solo dopo la richiesta di un nuovo tentativo con un'azione dell'utente.|
+| **Caso 2**:<br>Non risolvibile con una richiesta interattiva. L'errore non è irreversibile. | 1. eseguire un singolo tentativo quando il principale dell'utente finale è entrato in uno stato che determina un esito positivo.<br><br>2. se il tentativo non riesce, presentare all'utente finale un'azione basata sull'errore specifico che può richiamare un nuovo tentativo ("riprovare a eseguire l'accesso"). |
+| **Caso 3**:<br>Non risolvibile con una richiesta interattiva. L'errore è irreversibile. | 1. non provare immediatamente a riprovare. Presentare all'utente finale un'azione basata sull'errore specifico che può richiamare un nuovo tentativo ("Ritenta l'accesso"). |
 
 Il codice verrebbe implementato come segue:
 
@@ -482,8 +482,8 @@ catch (AdalException e) {
 
 ## <a name="error-and-logging-reference"></a>Informazioni di riferimento su errori e registrazione
 
-### <a name="logging-personal-identifiable-information-pii--organizational-identifiable-information-oii"></a>Registrazione di informazioni personali e informazioni aziendali
-Per impostazione predefinita, la registrazione ADAL non acquisisce o registra informazioni personali o aziendali. La libreria consente agli sviluppatori di app di attivare questa funzionalità tramite un setter della classe Logger. Attivando la registrazione delle informazioni personali o aziendali, l'app si assume la responsabilità per la gestione di dati riservati in modo sicuro e per la conformità ai requisiti normativi.
+### <a name="logging-personal-identifiable-information--organizational-identifiable-information"></a>Registrazione di informazioni personali & informazioni di identificazione dell'organizzazione 
+Per impostazione predefinita, la registrazione ADAL non acquisisce né registra informazioni personali o informazioni identificabili dall'organizzazione. La libreria consente agli sviluppatori di app di attivare questa funzionalità tramite un setter della classe Logger. Grazie alla registrazione di informazioni personali o informazioni identificabili dall'organizzazione, l'app si assume la responsabilità di gestire in modo sicuro i dati altamente sensibili e rispettare eventuali requisiti normativi.
 
 ### <a name="net"></a>.NET
 
@@ -586,11 +586,11 @@ window.Logging = {
 
 Usare la sezione dei commenti di seguito per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
 
-[![Mostra il pulsante "Accedi con Microsoft"][AAD-Sign-In]][AAD-Sign-In]
+[![Shows il pulsante "Accedi con Microsoft"][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
-[AAD-Auth-Scenarios]:authentication-scenarios.md
+[AAD-Auth-Scenarios]:v1-authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AZURE-portal]: https://portal.azure.com

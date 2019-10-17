@@ -1,6 +1,6 @@
 ---
 title: Elemento DropDown dell'interfaccia utente di Azure | Microsoft Docs
-description: Illustra l'elemento Microsoft.Common.DropDown dell'interfaccia utente per il portale di Azure.
+description: Illustra l'elemento Microsoft.Common.DropDown dell'interfaccia utente per il portale di Azure. Consente di selezionare le opzioni disponibili durante la distribuzione di un'applicazione gestita.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: e78fa419b067c0bad48229dcfd8d4e986fc16903
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5784b5df9b522f0489ca1f6087627b45cec5349d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62117302"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331731"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Elemento Microsoft.Common.DropDown dell'interfaccia utente
 Controllo di selezione con elenco a discesa.
@@ -51,7 +51,7 @@ Controllo di selezione con elenco a discesa.
 }
 ```
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 - L'etichetta per `constraints.allowedValues` è il testo visualizzato per un elemento e il rispettivo valore è il valore di output dell'elemento in caso di selezione.
 - Se specificato, il valore predefinito deve essere un'etichetta presente in `constraints.allowedValues`. Se non è specificato, viene selezionato il primo elemento in `constraints.allowedValues`. Il valore predefinito è **null**.

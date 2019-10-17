@@ -1,21 +1,21 @@
 ---
-title: Risoluzione dei problemi di anteprima di Azure blockchain Workbench
+title: Risoluzione dei problemi relativi ad Azure Blockchain Workbench
 description: Come risolvere i problemi di un'applicazione Azure blockchain Workbench Preview.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 8fec065b629f2f2b93e78a63521ea0ce4669dd4e
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 3032a81a4411cb162a335189ca65b845f8d6305f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844035"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329077"
 ---
 # <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Risoluzione dei problemi di anteprima di Azure blockchain Workbench
 
@@ -41,17 +41,17 @@ git clone https://github.com/Azure-Samples/blockchain.git
 ## <a name="run-the-script"></a>Esecuzione dello script
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
-Eseguire lo script `collectBlockchainWorkbenchTroubleshooting.ps1` per raccogliere i log e creare un file ZIP che contiene una cartella delle informazioni di risoluzione dei problemi. Ad esempio:
+Eseguire lo script `collectBlockchainWorkbenchTroubleshooting.ps1` per raccogliere i log e creare un file ZIP che contiene una cartella delle informazioni di risoluzione dei problemi. ad esempio:
 
 ``` powershell
 collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>" -ResourceGroupName "workbench-resource-group-name"
 ```
 Questo script accetta i parametri seguenti:
 
-| Parametro  | DESCRIZIONE | Obbligatorio |
+| Parametro  | Description | Obbligatoria |
 |---------|---------|----|
-| SubscriptionID | ID sottoscrizione per creare o individuare tutte le risorse. | Sì |
-| ResourceGroupName | Nome del gruppo di risorse di Azure in cui è stato distribuito Blockchain Workbench. | Sì |
+| SubscriptionID | ID sottoscrizione per creare o individuare tutte le risorse. | SÌ |
+| ResourceGroupName | Nome del gruppo di risorse di Azure in cui è stato distribuito Blockchain Workbench. | SÌ |
 | OutputDirectory | Percorso in cui creare il file ZIP di output. Se non è specificato, per impostazione predefinita viene usata la directory corrente. | No |
 | LookbackHours | Numero di ore da usare durante il pull dei dati di telemetria. Il valore predefinito è 24 ore. Il valore massimo è 90 ore. | No |
 | OmsSubscriptionId | ID sottoscrizione in cui vengono distribuiti i log di monitoraggio di Azure. Passare questo parametro solo se i log di monitoraggio di Azure per la rete blockchain vengono distribuiti all'esterno del gruppo di risorse di blockchain Workbench.| No |
@@ -62,7 +62,7 @@ Questo script accetta i parametri seguenti:
 
 Il file ZIP di output contiene la struttura di cartelle seguente:
 
-| File o cartella | DESCRIZIONE  |
+| File o cartella | Description  |
 |---------|---------|
 | \Summary.txt | Riepilogo del sistema |
 | \Metrics\blockchain | Metriche relative alla blockchain |

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efed9e35aed729c9efa39b0772b681d8c53ba7b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72fab8a51f1ea1b9c7bda14d825dad538f96cde6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540654"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374054"
 ---
 # <a name="application-types-in-v10"></a>Tipi di applicazioni nella versione 1.0
 
@@ -34,11 +34,11 @@ Il diagramma seguente illustra questi scenari e tipi di applicazioni, oltre che 
 
 Azure AD supporta i cinque scenari di applicazione principali descritti di seguito:
 
-- **[Applicazione a pagina singola](single-page-application.md)** : un utente deve accedere a un'applicazione a pagina singola protetta da Azure AD.
+- **[Applicazione a pagina singola](single-page-application.md)** : un'utente deve accedere a un'applicazione a pagina singola protetta da Azure AD.
 - **[Da Web browser ad applicazione Web](web-app.md)** : un utente deve accedere a un'applicazione Web protetta da Azure AD.
 - **[Da applicazione nativa ad API Web](native-app.md)** : un'applicazione nativa in esecuzione su un telefono, tablet o PC deve autenticare un utente per ottenere le risorse da un'API Web protetta da Azure AD.
 - **[Da applicazione Web ad API Web](web-api.md)** : un'applicazione Web deve ottenere le risorse da un'API Web protetta da Azure AD.
-- **[Da applicazione server o daemon ad API Web](service-to-service.md)** : un'applicazione daemon o un'applicazione server priva di interfaccia utente Web deve ottenere le risorse da un'API Web protetta da Azure AD.
+- **[Da daemon o applicazione server ad API Web](service-to-service.md)** : un'applicazione daemon o un'applicazione server priva di interfaccia utente Web deve ottenere le risorse da un'API Web protetta da Azure AD.
 
 Fare clic sui collegamenti per ottenere altre informazioni su ogni tipo di app e comprendere gli scenari generali prima di iniziare a usare il codice. È possibile ottenere anche informazioni sulle differenze che è necessario conoscere quando si scrive un'app specifica che funziona con l'endpoint v1.0 o v2.0.
 
@@ -82,4 +82,4 @@ Ogni scenario indicato in questo documento include una sottosezione in cui sono 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Leggere altre informazioni sulle [nozioni di base dell'autenticazione](authentication-scenarios.md) di Azure AD
+- Leggere altre informazioni sulle [nozioni di base dell'autenticazione](v1-authentication-scenarios.md) di Azure AD

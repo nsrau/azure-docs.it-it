@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d15d76f4c16fa89b41ebfc10c9617c4709203d38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d41cd23d551e4834bf6b94f513e36ff46c1cd45
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544715"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373652"
 ---
 # <a name="web-apps"></a>App Web
 
@@ -45,7 +45,7 @@ Vedere gli esempi di codice per gli scenari da Web browser ad applicazione Web. 
 
 ## <a name="app-registration"></a>Registrazione delle app
 
-Per registrare un'app web, vedere [registrare un'app](quickstart-register-app.md).
+Per registrare un'app Web, vedere [registrare un'app](quickstart-register-app.md).
 
 * Tenant singolo: se si crea un'applicazione solo per la propria organizzazione, è necessario registrarla nella directory aziendale tramite il portale di Azure.
 * Multi-tenant: se si crea un'applicazione che può essere usata da utenti esterni all'organizzazione, è necessario registrarla nella directory aziendale, ma anche nella directory delle singole organizzazioni che useranno l'applicazione. Per rendere disponibile l'applicazione nella propria directory, è possibile includere un processo di accesso per i clienti che permetta loro di concedere il consenso all'applicazione. Al momento dell'iscrizione all'applicazione, viene visualizzata una finestra di dialogo in cui sono indicate le autorizzazioni richieste dall'applicazione e quindi viene presentata l'opzione per il consenso. A seconda delle autorizzazioni richieste, è possibile che il consenso debba essere fornito da un amministratore dell'altra organizzazione. Quando l'utente o l'amministratore acconsente, l'applicazione viene registrata nella directory.
@@ -56,5 +56,5 @@ La sessione dell'utente scade al termine del periodo di validità del token emes
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni su altri [tipi di applicazione e scenari](app-types.md)
-* [Nozioni di base sull'autenticazione](authentication-scenarios.md) in Azure AD
+* Altre informazioni su altri [Tipi di applicazione e scenari](app-types.md)
+* [Nozioni di base sull'autenticazione](v1-authentication-scenarios.md) in Azure AD

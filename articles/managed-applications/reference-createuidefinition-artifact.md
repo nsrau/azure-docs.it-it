@@ -1,20 +1,20 @@
 ---
 title: Informazioni di riferimento sull'artefatto createUiDefinition dell'applicazione gestita di Azure
-description: Questo articolo è un riferimento all'artefatto createUiDefinition.
+description: Viene illustrato come creare l'elemento createUiDefinition per un'applicazione gestita di Azure. Il file è denominato createUiDefinition. JSON.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: 5168e977a7bc289ec8981ef1df8cddd5cc6df678
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
-ms.translationtype: MT
+ms.openlocfilehash: 09364a849926fc829a890bfcdc8b760c7c7e189c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68336478"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330187"
 ---
-# <a name="reference-user-interface-elements-artifact"></a>Riferimenti: Elemento dell'interfaccia utente elementi
+# <a name="reference-user-interface-elements-artifact"></a>Riferimento: artefatto degli elementi dell'interfaccia utente
 
 Questo articolo è un riferimento per un elemento *createUiDefinition. JSON* nelle applicazioni gestite di Azure. Per ulteriori informazioni sulla creazione di elementi dell'interfaccia utente, vedere [creare elementi dell'interfaccia utente](create-uidefinition-elements.md).
 
@@ -83,6 +83,6 @@ Il codice JSON seguente mostra un esempio di file *createUiDefinition. JSON* per
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: Creare un'applicazione gestita con azioni e risorse personalizzate](tutorial-create-managed-app-with-custom-provider.md)
-- [Informazioni di riferimento: Artefatto modello di distribuzione](reference-main-template-artifact.md)
-- [Informazioni di riferimento: Visualizza elemento definizione](reference-view-definition-artifact.md)
+- [Esercitazione: creare un'applicazione gestita con azioni e risorse personalizzate](tutorial-create-managed-app-with-custom-provider.md)
+- [Riferimento: artefatto modello di distribuzione](reference-main-template-artifact.md)
+- [Riferimento: elemento della definizione della visualizzazione](reference-view-definition-artifact.md)

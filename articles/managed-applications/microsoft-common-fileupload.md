@@ -1,6 +1,6 @@
 ---
 title: Elemento FileUpload dell'interfaccia utente di Azure | Microsoft Docs
-description: Illustra l'elemento Microsoft.Common.FileUpload dell'interfaccia utente per il portale di Azure.
+description: Illustra l'elemento Microsoft.Common.FileUpload dell'interfaccia utente per il portale di Azure. Consente agli utenti di caricare file durante la distribuzione di un'applicazione gestita.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: b06134c6694e54cf246f9527d10147c573b95ad9
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b7f73dcfe3e0e2827083feba906e2efcd0265305
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828012"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331703"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elemento Microsoft.Common.FileUpload dell'interfaccia utente
 Controllo che consente a un utente di specificare uno o più file da caricare.
@@ -26,7 +26,7 @@ Controllo che consente a un utente di specificare uno o più file da caricare.
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
 
-## <a name="schema"></a>Schema
+## <a name="schema"></a>SCHEMA
 ```json
 {
   "name": "element1",
@@ -47,7 +47,7 @@ Controllo che consente a un utente di specificare uno o più file da caricare.
 }
 ```
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 - `constraints.accept` specifica i tipi di file visualizzati nella finestra di dialogo del browser relativa ai file. Per informazioni sui valori consentiti, vedere la [specifica HTML5](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept). Il valore predefinito è **null**.
 - Se la proprietà `options.multiple` è impostata su **true**, l'utente è autorizzato a selezionare più di un file nella finestra di dialogo del browser relativa ai file. Il valore predefinito è **false**.
 - Questo elemento supporta il caricamento dei file in due modalità in base al valore di `options.uploadMode`. Se il valore **file** è specificato, l'output include i contenuti del file sotto forma di BLOB. Se il valore **url** è specificato, il file viene caricato in una posizione temporanea e l'output contiene l'URL del BLOB. I BLOB temporanei verranno eliminati dopo 24 ore. Il valore predefinito è **file**.

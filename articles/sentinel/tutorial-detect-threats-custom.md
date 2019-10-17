@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 18c11198f6b81e72e371b3ab06ed3a7330078c52
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 5d4c549eaded78c69d3e7fa7173b5ad9b1d82f2f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023779"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333152"
 ---
-# <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>Esercitazione: Creare regole analitiche personalizzate per rilevare minacce sospette
+# <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>Esercitazione: creare regole analitiche personalizzate per rilevare minacce sospette
 
 Dopo aver [connesso le origini dati](quickstart-onboard.md)@no__t 1per di Azure Sentinel, è possibile creare regole personalizzate che consentono di cercare criteri specifici nell'ambiente e generare eventi imprevisti quando i criteri vengono confrontati in modo da poterli analizzare. Questa esercitazione consente di creare regole personalizzate per rilevare le minacce con Azure Sentinel.
 
@@ -34,7 +34,7 @@ Questa esercitazione consente di rilevare le minacce con Azure Sentinel.
 
 È possibile creare regole analitiche personalizzate che consentono di cercare i tipi di minacce e le anomalie sospette nell'ambiente in uso. La regola assicura che la notifica venga effettuata immediatamente, in modo da poter valutare, analizzare e correggere le minacce.
 
-1. Nel portale di Azure in Sentinel di Azure selezionare **Analytics**.
+1. Nella portale di Azure in Azure Sentinel selezionare**Analisi**.
 
 1. Nella barra dei menu superiore selezionare **+ Crea** e selezionare **regola di query pianificata**. Verrà visualizzata la **creazione guidata regola personalizzata**.
 
@@ -56,7 +56,7 @@ Questa esercitazione consente di rilevare le minacce con Azure Sentinel.
     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
 
    > [!NOTE]
-   > La lunghezza della query deve avere una lunghezza compresa tra 1 e 1, 0000 caratteri e non può contenere "Search \*" o "Union \*".
+   > La lunghezza della query deve avere una lunghezza compresa tra 1 e 1.000 caratteri e non può contenere "Search \*" o "Union \*".
 
     1. In **pianificazione query**impostare i parametri seguenti:
 

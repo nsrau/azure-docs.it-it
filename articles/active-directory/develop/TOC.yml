@@ -345,6 +345,8 @@
               href: active-directory-how-applications-are-added.md
             - name: Restrizioni e limitazioni degli URI di reindirizzamento/URL di risposta
               href: reply-url.md
+            - name: Differenze di convalida per tipi di account supportati
+              href: supported-accounts-validation.md
             - name: App a tenant singolo e multi-tenant
               href: single-and-multi-tenant-apps.md
         - name: Autorizzazioni e consenso

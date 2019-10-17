@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: b00f60394a24008ca39f3ac7b378b1936c46ef76
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: eca3a969d56d9b016afbf2d104aaf951cdbf6360
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240605"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372414"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel"></a>Cercare le minacce con in Sentinel di Azure
 
@@ -35,20 +35,20 @@ Una query predefinita, ad esempio, fornisce dati relativi ai processi più comun
 
 Con Azure Sentinel Hunting è possibile sfruttare le funzionalità seguenti:
 
-- Query predefinite: Per iniziare, una pagina iniziale fornisce esempi di query precaricati progettati per iniziare e acquisire familiarità con le tabelle e il linguaggio di query. Queste query di caccia predefinite sono sviluppate dai ricercatori della sicurezza Microsoft su base continua, aggiungendo nuove query e ottimizzando le query esistenti per fornire un punto di ingresso per cercare nuovi rilevamenti e scoprire dove iniziare a cercare il inizia con nuovi attacchi. 
+- Query predefinite: per iniziare, una pagina iniziale fornisce esempi di query precaricati progettati per iniziare e acquisire familiarità con le tabelle e il linguaggio di query. Queste query di caccia predefinite sono sviluppate dai ricercatori della sicurezza Microsoft su base continua, aggiungendo nuove query e ottimizzando le query esistenti per fornire un punto di ingresso per cercare nuovi rilevamenti e scoprire dove iniziare a cercare il inizia con nuovi attacchi. 
 
-- Linguaggio di query avanzato con IntelliSense: Basato su un linguaggio di query che ti offre la flessibilità necessaria per passare al livello successivo.
+- Linguaggio di query avanzato con IntelliSense: basato su un linguaggio di query che ti offre la flessibilità necessaria per passare a un livello superiore.
 
-- Creare segnalibri personalizzati: Durante il processo di ricerca, è possibile che si trovino corrispondenze o risultati, dashboard o attività che hanno un aspetto insolito o sospetto. Per contrassegnare gli elementi in modo da poterli tornare in futuro, usare la funzionalità di segnalibro. I segnalibri consentono di salvare gli elementi per un momento successivo, da usare per creare un evento imprevisto per l'analisi. Per ulteriori informazioni sui segnalibri, vedere [Use Bookmarks in Hunting](hunting.md).
-- Usare i notebook per automatizzare l'analisi: I notebook sono simili a schemi Step-by-step che è possibile compilare per esaminare i passaggi di un'indagine e una ricerca.  I notebook incapsulano tutti i passaggi di caccia in un PlayBook riutilizzabile che può essere condiviso con altri utenti dell'organizzazione. 
-- Eseguire una query sui dati archiviati: I dati sono accessibili nelle tabelle in cui è possibile eseguire una query. Ad esempio, è possibile eseguire query su creazione di processi, eventi DNS e molti altri tipi di evento.
+- Creare segnalibri personalizzati: durante il processo di ricerca è possibile che si verifichino corrispondenze o risultati, dashboard o attività che hanno un aspetto insolito o sospetto. Per contrassegnare gli elementi in modo da poterli tornare in futuro, usare la funzionalità di segnalibro. I segnalibri consentono di salvare gli elementi per un momento successivo, da usare per creare un evento imprevisto per l'analisi. Per ulteriori informazioni sui segnalibri, vedere [Use Bookmarks in Hunting](hunting.md).
+- Usare i notebook per automatizzare l'analisi: i notebook sono simili a schemi Step-by-step che è possibile compilare per esaminare i passaggi di un'indagine e una ricerca.  I notebook incapsulano tutti i passaggi di caccia in un PlayBook riutilizzabile che può essere condiviso con altri utenti dell'organizzazione. 
+- Eseguire una query sui dati archiviati: i dati sono accessibili nelle tabelle in cui è possibile eseguire una query. Ad esempio, è possibile eseguire query su creazione di processi, eventi DNS e molti altri tipi di evento.
 
-- Collegamenti alla community: Sfrutta la potenza della community maggiore per trovare query e origini dati aggiuntive.
+- Collegamenti alla community: sfruttare la potenza della community più grande per trovare query e origini dati aggiuntive.
  
 ## <a name="get-started-hunting"></a>Inizia a cercare
 
 1. Nel portale di Azure Sentinel fare clic su **Hunting**.
-  ![Azure Sentinel avvia la ricerca](media/tutorial-hunting/hunting-start.png)
+  @no__t 0Azure Sentinel inizia a cercare @ no__t-1
 
 2. Quando si apre la pagina di **ricerca** , tutte le query di ricerca vengono visualizzate in un'unica tabella. La tabella elenca tutte le query scritte dal team Microsoft degli analisti di sicurezza, nonché qualsiasi query aggiuntiva creata o modificata. Ogni query fornisce una descrizione di ciò che cerca e del tipo di dati in cui viene eseguito. Questi modelli sono raggruppati in base alle varie tattiche, ovvero le icone a destra categorizzano il tipo di minaccia, ad esempio l'accesso iniziale, la persistenza e la exfiltration. È possibile filtrare i modelli di query di caccia usando uno dei campi. È possibile salvare qualsiasi query nei Preferiti. Salvando una query nei Preferiti, la query viene eseguita automaticamente ogni volta che si accede alla pagina di **ricerca** . È possibile creare una query di ricerca personalizzata o clonare e personalizzare un modello di query di ricerca esistente. 
  
@@ -68,7 +68,7 @@ Con Azure Sentinel Hunting è possibile sfruttare le funzionalità seguenti:
 
 ## <a name="query-language"></a>Linguaggio di query 
 
-La ricerca in Sentinel di Azure è basata sul linguaggio di query di Azure Log Analytics. Per altre informazioni sul linguaggio di query e sugli operatori supportati, vedere [riferimento al linguaggio di query](https://docs.loganalytics.io/docs/Language-Reference/).
+La ricerca in Sentinel di Azure è basata sul linguaggio di query kusto. Per altre informazioni sul linguaggio di query e sugli operatori supportati, vedere [riferimento al linguaggio di query](https://docs.loganalytics.io/docs/Language-Reference/).
 
 ## <a name="public-hunting-query-github-repository"></a>Repository GitHub della query di ricerca pubblica
 
@@ -78,7 +78,7 @@ Vedere il [repository di query di caccia](https://github.com/Azure/Orion). Colla
 
 ## <a name="sample-query"></a>Query di esempio
 
-Una query tipica inizia con un nome di tabella seguito da una serie di operatori separati \|da.
+Una query tipica inizia con un nome di tabella seguito da una serie di operatori separati da \|.
 
 Nell'esempio precedente, iniziare con il nome della tabella SecurityEvent e aggiungere gli elementi inviati tramite pipe in base alle esigenze.
 
@@ -119,7 +119,7 @@ Il linguaggio di query è potente ed è dotato di molti operatori disponibili. d
 
 È possibile creare o modificare una query e salvarla come query o condividerla con utenti che si trovano nello stesso tenant.
 
-   ![Salva query](./media/tutorial-hunting/save-query.png)
+   ![Salvare la query](./media/tutorial-hunting/save-query.png)
 
 Creare una nuova query di ricerca:
 

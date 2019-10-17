@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
-ms.openlocfilehash: d34b1c39d9789409dc365cd4cf07fdc3d5a780fd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b90fc6f1f50ec2ea75619188cca36f78061f28df
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003517"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326797"
 ---
-# <a name="select-clause"></a>Clausola SELECT
+# <a name="select-clause-in-azure-cosmos-db"></a>Clausola SELECT in Azure Cosmos DB
 
 Ogni query è costituita da una clausola SELECT e dalle clausole [from](sql-query-from.md) e [where](sql-query-where.md) facoltative per gli standard SQL ANSI. In genere, l'origine nella clausola FROM viene enumerata e la clausola WHERE applica un filtro sull'origine per recuperare un subset di elementi JSON. La clausola SELECT proietta quindi i valori JSON richiesti nell'elenco di selezione.
 
@@ -58,7 +58,7 @@ SELECT <select_specification>
 
   Espressione che rappresenta il valore da calcolare. Vedere la sezione [Espressioni scalari](sql-query-scalar-expressions.md) per informazioni dettagliate.  
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 La sintassi di `SELECT *` è valida solo se la clausola FROM ha dichiarato esattamente un alias. `SELECT *` offre una proiezione dell'identità, che può essere utile se non è necessaria alcuna proiezione. SELECT * è valida solo se viene specificata la clausola FROM e se viene introdotta solo una singola origine di input.  
   
@@ -76,9 +76,9 @@ La sintassi di `SELECT *` è valida solo se la clausola FROM ha dichiarato esatt
   
    `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
-L'esempio di query SELECT seguente `address` restituisce `Families` da `id` le `AndersenFamily`cui corrispondenze:
+L'esempio di query SELECT seguente restituisce `address` da `Families` il cui `id` corrisponde a `AndersenFamily`:
 
 ```sql
     SELECT f.address
@@ -109,7 +109,7 @@ I risultati sono:
 
 ### <a name="nested-properties"></a>Proprietà annidate
 
-Nell'esempio seguente vengono proiettate due proprietà `f.address.state` annidate, e `f.address.city`.
+Nell'esempio seguente vengono proiettate due proprietà annidate, `f.address.state` e `f.address.city`.
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -147,7 +147,7 @@ I risultati sono:
     }]
 ```
 
-Nell'esempio precedente, la clausola SELECT deve creare un oggetto JSON e, poiché l'esempio non fornisce alcuna chiave, la clausola usa il nome `$1`della variabile dell'argomento implicito. La query seguente restituisce due variabili di argomento implicite `$2`: `$1` e.
+Nell'esempio precedente, la clausola SELECT deve creare un oggetto JSON e, poiché l'esempio non fornisce alcuna chiave, la clausola usa il nome della variabile di argomento implicita `$1`. La query seguente restituisce due variabili di argomento implicite: `$1` e `$2`.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },

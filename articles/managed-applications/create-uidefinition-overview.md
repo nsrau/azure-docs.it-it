@@ -1,6 +1,6 @@
 ---
 title: CreateUiDefinition. JSON per l'esperienza di creazione di un'applicazione gestita di Azure | Microsoft Docs
-description: Illustra come creare definizioni dell'interfaccia utente per le applicazioni gestite di Azure
+description: Viene descritto come creare definizioni dell'interfaccia utente per la portale di Azure. Usato durante la definizione di applicazioni gestite di Azure.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 013e861bb93d76454f2f0fd9c36259197dd671b9
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
-ms.translationtype: MT
+ms.openlocfilehash: 7177b9513a1e51bc24672a69935a0e9430292537
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308657"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332695"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition. JSON per l'esperienza di creazione di un'applicazione gestita di Azure
 
@@ -44,9 +44,9 @@ CreateUiDefinition contiene sempre tre proprietà:
 
 * handler
 * version
-* parameters
+* Parametri
 
-Il gestore deve essere `Microsoft.Azure.CreateUIDef`sempre e la versione supportata più recente è. `0.1.2-preview`
+Il gestore deve sempre essere `Microsoft.Azure.CreateUIDef` e la versione supportata più recente è `0.1.2-preview`.
 
 Lo schema della proprietà parameters dipende dalla combinazione delle proprietà handler e version specificate. Per le applicazioni gestite sono supportate le proprietà `basics`, `steps` e `outputs`. Le proprietà basics e steps contengono [elementi](create-uidefinition-elements.md), ad esempio caselle di testo ed elenchi a discesa, da visualizzare nel portale di Azure. La proprietà outputs viene usata per il mapping dei valori di output degli elementi specificati ai parametri del modello di distribuzione Azure Resource Manager.
 
@@ -54,11 +54,11 @@ L'inclusione di `$schema` è consigliata ma facoltativa. Se specificato, il valo
 
 È possibile usare un editor JSON per creare il createUiDefinition, quindi testarlo nella [sandbox createUiDefinition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) per visualizzarne l'anteprima. Per altre informazioni sulla sandbox, vedere [testare l'interfaccia del portale per le applicazioni gestite di Azure](test-createuidefinition.md).
 
-## <a name="basics"></a>Generale
+## <a name="basics"></a>Nozioni di base
 
 Le nozioni di base sono il primo passaggio generato quando il portale di Azure analizza il file. Oltre a visualizzare gli elementi specificati in `basics`, il portale inserisce elementi che consentono agli utenti di scegliere la sottoscrizione, il gruppo di risorse e la posizione della distribuzione. Quando possibile, gli elementi che eseguono query sui parametri a livello di distribuzione, ad esempio il nome di un cluster o le credenziali di amministratore, dovrebbero procedere in questo passaggio.
 
-## <a name="steps"></a>Passaggi
+## <a name="steps"></a>Procedure
 
 La proprietà steps può contenere zero o più passaggi aggiuntivi da visualizzare dopo la proprietà basics, ognuna delle quali contiene uno o più elementi. Prendere in considerazione l'aggiunta di passaggi per ogni ruolo o livello dell'applicazione in fase di distribuzione. Ad esempio, aggiungere un passaggio per gli input del nodo master e un passaggio per i nodi del ruolo di lavoro in un cluster.
 
@@ -78,7 +78,7 @@ Per impostare il nome della risorsa applicazione gestita, è necessario includer
 }
 ```
 
-## <a name="resource-types"></a>Tipi di risorsa
+## <a name="resource-types"></a>Tipi di risorse
 
 Per filtrare i percorsi disponibili solo per i percorsi che supportano i tipi di risorse da distribuire, fornire una matrice di tipi di risorse. Se si specifica più di un tipo di risorsa, vengono restituiti solo i percorsi che supportano tutti i tipi di risorsa. Questa proprietà è facoltativa.
 

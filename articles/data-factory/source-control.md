@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: fd8168b5786f669de0c5c2109c9e02b43c62c582
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f3d443eed43cc1e131cd3dc47407ce2dfb023ce8
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933660"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326390"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controllo del codice sorgente in Azure Data Factory
 
@@ -25,6 +25,9 @@ L'esperienza dell'interfaccia utente Azure Data Factory (UX) offre due esperienz
 
 - Creare direttamente con il servizio Data Factory
 - Crea con Azure Repos integrazione git o GitHub
+
+> [!NOTE]
+> Il cloud di Azure per enti pubblici supporta solo la creazione diretta con il servizio Data Factory.
 
 ## <a name="author-directly-with-the-data-factory-service"></a>Creare direttamente con il servizio Data Factory
 
@@ -68,17 +71,17 @@ Entrambi i metodi aprono il riquadro di configurazione delle impostazioni del re
 
 Il riquadro Configurazione Mostra le seguenti impostazioni del repository di codice Azure Repos:
 
-| Impostazione | DESCRIZIONE | Value |
+| Impostazione | Description | Value |
 |:--- |:--- |:--- |
 | **Tipo di repository** | Tipo del repository di codice Azure Repos.<br/> | Azure DevOps git o GitHub |
 | **Azure Active Directory** | Nome del tenant di Azure AD. | `<your tenant name>` |
 | **Organizzazione Azure Repos** | Il nome dell'organizzazione di Azure Repos. È possibile individuare il nome dell'organizzazione Azure Repos all'indirizzo `https://{organization name}.visualstudio.com`. È possibile [accedere all'organizzazione Azure Repos](https://www.visualstudio.com/team-services/git/) e quindi accedere al proprio profilo di Visual Studio e visualizzare i repository e i progetti. | `<your organization name>` |
 | **Nome progetto** | Il nome del progetto Azure Repos. È possibile trovare il nome del progetto Azure Repos all'indirizzo `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
 | **Nome repository** | Il nome del repository di codice Azure Repos. I progetti Azure Repos contengono repository GIT per gestire il codice sorgente man mano che aumentano le dimensioni del progetto. È possibile creare un nuovo repository o usare un repository già presente nel progetto. | `<your Azure Repos code repository name>` |
-| **Ramo di collaborazione** | Ramo di collaborazione di Azure Repos usato per la pubblicazione. Per impostazione predefinita, `master`il relativo oggetto. Modificare questa impostazione se si vuole pubblicare risorse da un altro ramo. | `<your collaboration branch name>` |
+| **Ramo di collaborazione** | Ramo di collaborazione di Azure Repos usato per la pubblicazione. Per impostazione predefinita, il relativo `master`. Modificare questa impostazione se si vuole pubblicare risorse da un altro ramo. | `<your collaboration branch name>` |
 | **Cartella radice** | Cartella radice nel ramo di collaborazione di Azure Repos. | `<your root folder name>` |
 | **Import existing Data Factory resources to repository** (Importa risorse Data Factory esistenti nel repository) | Specifica se importare le risorse di Data Factory esistenti dall'**area di disegno di creazione** dell'esperienza utente in un repository GIT Azure Repos. Selezionare la casella per importare le risorse di Data Factory nel repository GIT associato in formato JSON. Questa azione esporta ogni risorsa singolarmente, vale a dire che i servizi collegati e i set di dati vengono esportati in file JSON separati. Quando questa casella non è selezionata, le risorse esistenti non vengono importate. | Selezionata (impostazione predefinita) |
-| **Branch to import resource into** (Ramo in cui importare risorse) | Specifica il ramo in cui vengono importate le risorse di Data Factory (pipeline, set di dati, servizi collegati e così via). È possibile importare le risorse in uno dei rami seguenti: a. Collaborazione b. Crea nuovo c. Utilizza esistente |  |
+| **Branch to import resource into** (Ramo in cui importare risorse) | Specifica il ramo in cui vengono importate le risorse di Data Factory (pipeline, set di dati, servizi collegati e così via). È possibile importare le risorse in uno dei rami seguenti: a. Collaborazione b. Crea nuovo c. Usa esistente |  |
 
 > [!NOTE]
 > Se si usa Microsoft Edge e non vengono visualizzati valori nell'elenco a discesa dell'account Azure DevOps, aggiungere https://*. VisualStudio. com all'elenco siti attendibili.
@@ -140,12 +143,12 @@ Il riquadro Configurazione Mostra le impostazioni del repository GitHub seguenti
 | **Tipo di repository** | Tipo del repository di codice Azure Repos. | GitHub |
 | **Use GitHub Enterprise** (Usa GitHub Enterprise) | Casella di controllo per selezionare GitHub Enterprise | non selezionato (impostazione predefinita) |
 | **GitHub Enterprise URL** (URL GitHub Enterprise) | URL radice di GitHub Enterprise. Ad esempio: https://github.mydomain.com. Obbligatorio solo se è selezionata l'opzione **usa github Enterprise** | `<your GitHub enterprise url>` |                                                           
-| **Account GitHub** | Nome dell'account GitHub. Questo nome può essere trovato da https:\//github.com/{account nome}/{repository}. Se si passa a questa pagina, viene chiesto di immettere le credenziali OAuth di GitHub per l'account GitHub. | `<your GitHub account name>` |
+| **Account GitHub** | Nome dell'account GitHub. È possibile trovare questo nome da https: \//github. com/{nome account}/{repository nome}. Se si passa a questa pagina, viene chiesto di immettere le credenziali OAuth di GitHub per l'account GitHub. | `<your GitHub account name>` |
 | **Nome del repository**  | Nome del repository del codice GitHub. Gli account GitHub contengono repository Git per la gestione del codice sorgente. È possibile creare un nuovo repository o usarne uno esistente già presente nell'account. | `<your repository name>` |
 | **Ramo di collaborazione** | Ramo di collaborazione di GitHub usato per la pubblicazione. Per impostazione predefinita, il relativo master. Modificare questa impostazione se si vuole pubblicare risorse da un altro ramo. | `<your collaboration branch>` |
 | **Cartella radice** | Cartella radice nel ramo di collaborazione di GitHub. |`<your root folder name>` |
 | **Import existing Data Factory resources to repository** (Importa risorse Data Factory esistenti nel repository) | Specifica se importare le risorse di data factory esistenti dall'area di disegno di creazione dell'esperienza utente in un repository GitHub. Selezionare la casella per importare le risorse di Data Factory nel repository GIT associato in formato JSON. Questa azione esporta ogni risorsa singolarmente, vale a dire che i servizi collegati e i set di dati vengono esportati in file JSON separati. Quando questa casella non è selezionata, le risorse esistenti non vengono importate. | Selezionata (impostazione predefinita) |
-| **Branch to import resource into** (Ramo in cui importare risorse) | Specifica il ramo in cui vengono importate le risorse di Data Factory (pipeline, set di dati, servizi collegati e così via). È possibile importare le risorse in uno dei rami seguenti: a. Collaborazione b. Crea nuovo c. Utilizza esistente |  |
+| **Branch to import resource into** (Ramo in cui importare risorse) | Specifica il ramo in cui vengono importate le risorse di Data Factory (pipeline, set di dati, servizi collegati e così via). È possibile importare le risorse in uno dei rami seguenti: a. Collaborazione b. Crea nuovo c. Usa esistente |  |
 
 ### <a name="known-github-limitations"></a>Limitazioni note di GitHub
 
@@ -183,7 +186,7 @@ Quando si è pronti per eseguire il merge delle modifiche dal ramo funzionalità
 
 ### <a name="configure-publishing-settings"></a>Configurare le impostazioni di pubblicazione
 
-Per configurare il ramo di pubblicazione, vale a dire, il ramo in cui vengono salvati i modelli di Resource Manager, aggiungere un file `publish_config.json` nella cartella radice nel ramo di collaborazione. Data Factory legge questo file, cerca il campo `publishBranch` e crea un nuovo ramo (se non esiste già) con il valore specificato. Quindi salva tutti i modelli di Resource Manager nel percorso specificato. Ad esempio:
+Per configurare il ramo di pubblicazione, vale a dire, il ramo in cui vengono salvati i modelli di Resource Manager, aggiungere un file `publish_config.json` nella cartella radice nel ramo di collaborazione. Data Factory legge questo file, cerca il campo `publishBranch` e crea un nuovo ramo (se non esiste già) con il valore specificato. Quindi salva tutti i modelli di Resource Manager nel percorso specificato. ad esempio:
 
 ```json
 {
@@ -198,7 +201,7 @@ Quando si specifica un nuovo ramo di pubblicazione, Data Factory non elimina il 
 
 ### <a name="publish-code-changes"></a>Pubblicare le modifiche al codice
 
-Dopo aver unito le modifiche al ramo collaborazione (`master` impostazione predefinita), fare clic su **pubblica** per pubblicare manualmente le modifiche del codice nel ramo master nel servizio Data Factory.
+Dopo aver unito le modifiche al ramo collaborazione (`master` è l'impostazione predefinita), fare clic su **pubblica** per pubblicare manualmente le modifiche del codice nel ramo master nel servizio Data Factory.
 
 ![Pubblicare le modifiche nel servizio Data Factory](media/author-visually/publish-changes.png)
 
@@ -222,7 +225,7 @@ Verrà aperto un riquadro laterale in cui si conferma che il ramo di pubblicazio
 
 ## <a name="best-practices-for-git-integration"></a>Procedure consigliate per l'integrazione con GIT
 
-### <a name="permissions"></a>Autorizzazioni
+### <a name="permissions"></a>autorizzazioni
 
 In genere, non è necessario che ogni membro del team disponga delle autorizzazioni per aggiornare la factory. Sono consigliate le seguenti impostazioni di autorizzazione:
 
@@ -248,10 +251,10 @@ Se il ramo di pubblicazione non è sincronizzato con il ramo master e contiene r
 1. Elimina tutte le risorse dal ramo di collaborazione
 1. Creare una richiesta pull per unire le modifiche al ramo di collaborazione 
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 Selezionare **Commenti e suggerimenti** per lasciare un commento sulle funzionalità o per notificare a Microsoft i problemi con gli strumenti:
 
-![Commenti e suggerimenti](media/author-visually/provide-feedback.png)
+![Commenti](media/author-visually/provide-feedback.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

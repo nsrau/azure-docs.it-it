@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da694dd77186ce22bd7080540bd3b08e14f205b0
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 48be16827da21643af485d1fb94b9a7b76728325
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835376"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374045"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integrazione con Azure Active Directory
 
@@ -37,7 +37,7 @@ Per eseguire l'integrazione con Azure AD, sono disponibili diversi modi. Fare ri
 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Supportare Azure AD come un modo per accedere all'applicazione
 
-**Ridurre i problemi di accesso e i costi di supporto.** Grazie all'uso di Azure AD per l'accesso, gli utenti non avranno un nome utente e una password in più da ricordare. Gli sviluppatori avranno invece una password in meno da archiviare e proteggere. Anche il solo fatto di non dover gestire la reimpostazione delle password dimenticate costituisce un risparmio significativo. Azure AD offre la tecnologia di accesso per alcune delle applicazioni cloud più diffuse al mondo, tra cui Office 365 e Microsoft Azure. Con centinaia di milioni di utenti da milioni di organizzazioni, la probabilità che un utente abbia già eseguito l'accesso ad Azure AD è molto elevata. Altre informazioni sull'[aggiunta del supporto per l'accesso ad Azure AD](authentication-scenarios.md).
+**Ridurre i problemi di accesso e i costi di supporto.** Grazie all'uso di Azure AD per l'accesso, gli utenti non avranno un nome utente e una password in più da ricordare. Gli sviluppatori avranno invece una password in meno da archiviare e proteggere. Anche il solo fatto di non dover gestire la reimpostazione delle password dimenticate costituisce un risparmio significativo. Azure AD offre la tecnologia di accesso per alcune delle applicazioni cloud più diffuse al mondo, tra cui Office 365 e Microsoft Azure. Con centinaia di milioni di utenti da milioni di organizzazioni, la probabilità che un utente abbia già eseguito l'accesso ad Azure AD è molto elevata. Altre informazioni sull'[aggiunta del supporto per l'accesso ad Azure AD](v1-authentication-scenarios.md).
 
 **Semplificare l'iscrizione all'applicazione.**  Durante l'iscrizione all'applicazione, Azure AD può inviare le informazioni essenziali relative a un utente per precompilare il modulo di iscrizione o eliminarle completamente. Gli utenti possono effettuare l'iscrizione all'applicazione usando l'account Azure AD tramite un'esperienza di consenso nota simile a quelle dei social media e delle applicazioni per dispositivi mobili. Qualsiasi utente può iscriversi e accedere a un'applicazione integrata con Azure AD senza richiedere l'intervento del reparto IT. Altre informazioni sulla [registrazione dell'applicazione per l'accesso con l'account Azure AD](../../app-service/configure-authentication-provider-aad.md) .
 
@@ -45,7 +45,7 @@ Per eseguire l'integrazione con Azure AD, sono disponibili diversi modi. Fare ri
 
 **Esplorare la directory per cercare gli utenti.**  L'API Graph consente agli utenti di cercare altri utenti all'interno dell'organizzazione per invitarli o concedere loro l'accesso alle applicazioni in modo da non dover digitare gli indirizzi di posta elettronica. Gli utenti possono esplorare la directory tramite un'interfaccia simile a una rubrica e possono visualizzare anche i dettagli della gerarchia all'interno dell'organizzazione. Altre informazioni sull'[API Graph](active-directory-graph-api.md).
 
-**Riutilizzare i gruppi e le liste di distribuzione di Active Directory che il cliente gestisce già.**  In Azure AD sono già presenti i gruppi che il cliente usa per la distribuzione della posta elettronica e per la gestione degli accessi. L'API Graph consente di riutilizzare questi gruppi per evitare che il cliente debba creare e gestire un set di gruppi separato nell'applicazione. Le informazioni sui gruppi possono anche essere inviate all'applicazione nei token di accesso. Altre informazioni sull' [API Graph](active-directory-graph-api.md).
+**Riutilizzare i gruppi e le liste di distribuzione di Active Directory che il cliente gestisce già.**  In Azure AD sono già presenti i gruppi che il cliente usa per la distribuzione della posta elettronica e per la gestione degli accessi. L'API Graph consente di riutilizzare questi gruppi per evitare che il cliente debba creare e gestire un set di gruppi separato nell'applicazione. Le informazioni sui gruppi possono anche essere inviate all'applicazione nei token di accesso. Altre informazioni sull'[API Graph](active-directory-graph-api.md).
 
 **Usare Azure AD per controllare gli utenti che hanno accesso all'applicazione.**  Gli amministratori e i proprietari di applicazioni in Azure AD possono assegnare l'accesso alle applicazioni a utenti e gruppi specifici. L'API Graph consente di leggere l'elenco e usarlo per controllare il provisioning e il deprovisioning delle risorse e gli accessi all'interno dell'applicazione.
 
@@ -97,5 +97,5 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 
 [Introduzione alla scrittura di codice](v2-overview.md#getting-started).
 
-[Consentire agli utenti di accedere usando la piattaforma di identità Microsoft](authentication-scenarios.md)
+[Consentire agli utenti di accedere usando la piattaforma di identità Microsoft](v1-authentication-scenarios.md)
 

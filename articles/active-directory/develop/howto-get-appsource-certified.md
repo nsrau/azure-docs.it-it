@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 034c02c89c6e720311b3dc36428035e8cbdd2b3b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 139c7c2e6736eeb3e78ac0aab913378ac84160e1
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835207"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374086"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Come ottenere la certificazione AppSource per Azure Active Directory
 
@@ -33,7 +33,7 @@ Per inserire un'applicazione SaaS autonoma in AppSource, è necessario che l'app
 
 ## <a name="guides-and-code-samples"></a>Guide ed esempi di codice
 
-Per informazioni su come integrare l'applicazione con Azure AD usando OpenID Connect, seguire le guide e gli esempi di codice della [Guida per gli sviluppatori di Azure Active Directory](v1-overview.md#get-started "Introduzione ad Azure AD per sviluppatori").
+Per informazioni su come integrare l'applicazione con Azure AD usando Open ID Connect, seguire le guide e gli esempi di codice riportati nella Guida per gli [sviluppatori di Azure Active Directory](v1-overview.md#get-started "Introduzione a Azure AD per sviluppatori").
 
 ## <a name="multi-tenant-applications"></a>Applicazioni multi-tenant
 
@@ -113,10 +113,10 @@ Per altre informazioni sull'esperienza di valutazione di AppSource, vedere [ques
 
 ## <a name="next-steps"></a>Fasi successive
 
-- Per altre informazioni sulla creazione di applicazioni che supportano gli accessi di Azure AD, vedere [Scenari di autenticazione per Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
+- Per altre informazioni sulla creazione di applicazioni che supportano gli accessi di Azure AD, vedere [Scenari di autenticazione per Azure AD](https://docs.microsoft.com/azure/active-directory/develop/v1-authentication-scenarios).
 - Per informazioni su come inserire un'app SaaS in AppSource, vedere le [informazioni per i partner di AppSource](https://appsource.microsoft.com/partners)
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 Per l'integrazione di Azure AD, viene usato [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource), con il supporto della community.
 
@@ -125,8 +125,8 @@ Per l'integrazione di Azure AD, viene usato [Stack Overflow](https://stackoverfl
 Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
 
 <!--Reference style links -->
-[AAD-Auth-Scenarios]:authentication-scenarios.md
-[AAD-Auth-Scenarios-Browser-To-WebApp]:authentication-scenarios.md#web-browser-to-web-application
+[AAD-Auth-Scenarios]:v1-authentication-scenarios.md
+[AAD-Auth-Scenarios-Browser-To-WebApp]:v1-authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: v1-overview.md
 [AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
 [AAD-QuickStart-Web-Apps]: v1-overview.md#get-started

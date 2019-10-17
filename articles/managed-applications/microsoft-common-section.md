@@ -1,6 +1,6 @@
 ---
 title: Elemento Section dell'interfaccia utente di Azure | Microsoft Docs
-description: Illustra l'elemento Microsoft.Common.Section dell'interfaccia utente per il portale di Azure.
+description: Illustra l'elemento Microsoft.Common.Section dell'interfaccia utente per il portale di Azure. Usare per raggruppare gli elementi nel portale per la distribuzione di applicazioni gestite.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: c89b45dd4d8e6c2964f3d2bcbb6c3cef445c79e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a48c89785e0a448609026aab53364f6cf704e948
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698901"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331660"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Elemento Microsoft.Common.Section dell'interfaccia utente
 Controllo che raggruppa uno o più elementi sotto un'intestazione.
@@ -48,7 +48,7 @@ Controllo che raggruppa uno o più elementi sotto un'intestazione.
 }
 ```
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 - `elements` deve avere almeno un elemento e può avere tutti i tipi di elemento, ad eccezione di `Microsoft.Common.Section`.
 - Questo elemento non supporta la proprietà `toolTip`.
 

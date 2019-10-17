@@ -9,18 +9,18 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5be247e8bb999ee5306d10e67c46c7273953dc71
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 3e56b44988dc6dbfed99f339795fee6d15c7dd57
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534694"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372796"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Abilitare le soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario in più VM
 
 Automazione di Azure fornisce soluzioni per gestire gli aggiornamenti della sicurezza del sistema operativo, tenere traccia delle modifiche e gestire l'inventario dei componenti installati nei computer. Esistono diversi modi per eseguire l'onboarding di computer. Ad esempio, è possibile eseguire l'onboarding della soluzione [da una macchina virtuale](automation-onboard-solutions-from-vm.md), dall'[account di Automazione](automation-onboard-solutions-from-automation-account.md), durante l'esplorazione delle macchine virtuali o tramite [runbook](automation-onboard-solutions.md). Questo articolo descrive il processo di onboarding di queste soluzioni durante l'esplorazione delle macchine virtuali in Azure.
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
+## <a name="sign-in-to-azure"></a>Accedere a Azure
 
 Accedere ad Azure all'indirizzo https://portal.azure.com
 
@@ -109,25 +109,25 @@ Se è stata usata la soluzione per avviare/arrestare VM durante gli orari di min
 
 In alternativa, è anche possibile scollegare l'area di lavoro dall'account di automazione dall'area di lavoro Log Analytics. Nell'area di lavoro selezionare **account di automazione** in **risorse correlate**. Nella pagina account di automazione selezionare **Scollega account**.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Durante l'onboarding di più computer, per alcuni computer potrebbe essere visualizzato **Cannot enable** (Abilitazione non consentita). Esistono diversi motivi per cui alcuni computer non possono essere abilitati. Le sezioni seguenti indicano i possibili motivi dello stato **Cannot enable** (Abilitazione non consentita) in una VM durante un tentativo di onboarding.
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>La VM invia report a un'area di lavoro diversa: "\<workspaceName\>".  Modificare la configurazione per usarla per l'abilitazione
 
-**Causa**: questo errore indica che la macchina che si sta provando a caricare segnala i dati a un'altra area di lavoro.
+**Causa**: questo errore indica che la VM che si sta provando a caricare invia report a un'altra area di lavoro.
 
-**Soluzione**: fare clic su **Usa come configurazione** per modificare l'account di Automazione e l'area di lavoro Log Analytics di destinazione.
+**Soluzione**: fare clic su **Use as configuration** (Usa come configurazione) per modificare l'account di Automazione e l'area di lavoro Log Analytics di destinazione.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>La VM invia report a un'area di lavoro che non è disponibile in questa sottoscrizione
 
-**Causa**: l'area di lavoro a cui la macchina virtuale segnala i dati:
+**Causa**: l'area di lavoro a cui la macchina virtuale invia i report:
 
 * È in una sottoscrizione diversa
 * Non esiste più
 * È in un gruppo di risorse per cui non si hanno autorizzazioni di accesso
 
-**Soluzione**: trovare l'account di Automazione associato all'area di lavoro a cui la macchina virtuale segnala i dati e caricare la macchina virtuale modificando la configurazione dell'ambito.
+**Soluzione**: trovare l'account di Automazione associato all'area di lavoro a cui la VM invia i report e caricare la macchina virtuale modificando la configurazione dell'ambito.
 
 ### <a name="vm-operating-system-version-or-distribution-is-not-supported"></a>La versione o la distribuzione del sistema operativo della macchina virtuale non è supportata
 
@@ -139,20 +139,27 @@ Durante l'onboarding di più computer, per alcuni computer potrebbe essere visua
 
 **Causa**: le macchine virtuali che usano il modello di distribuzione classica non sono supportate.
 
-**Soluzione**: Eseguire la migrazione della macchina virtuale al modello di distribuzione Gestione risorse. Per altre informazioni in proposito, vedere [Eseguire la migrazione di risorse del modello di distribuzione classica](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Soluzione**: eseguire la migrazione della macchina virtuale al modello di distribuzione gestione risorse. Per altre informazioni in proposito, vedere [Eseguire la migrazione di risorse del modello di distribuzione classica](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>La macchina virtuale viene arrestata (deallocata).
 
 **Causa**: lo stato della macchina virtuale non è **In esecuzione**.
 
-**Soluzione**: per caricare una macchina virtuale in una soluzione la macchina virtuale deve essere in esecuzione. Fare clic sul collegamento inline **Avvia macchina virtuale** per avviare la VM senza uscire dalla pagina.
+**Soluzione**: per caricare una VM in una soluzione la VM deve essere in esecuzione. Fare clic sul collegamento inline **Avvia macchina virtuale** per avviare la VM senza uscire dalla pagina.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Per rimuovere una macchina virtuale per Gestione aggiornamenti:
+
+* Nell'area di lavoro Log Analytics rimuovere la macchina virtuale dalla ricerca salvata per la configurazione dell'ambito `MicrosoftDefaultScopeConfig-Updates`. Le ricerche salvate sono disponibili in **Generale** nell'area di lavoro.
+* Rimuovere [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) o l'[agente di Log Analytics per Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che la soluzione è abilitata per le macchine virtuali, vedere l'articolo Panoramica di Gestione aggiornamenti per informazioni su come visualizzare la valutazione degli aggiornamenti per i computer.
+Ora che la soluzione è abilitata per le macchine virtuali, vedere l'articolo Panoramica di Gestione aggiornamenti per informazioni su come creare una **distribuzione degli aggiornamenti** per i computer.
 
 > [!div class="nextstepaction"]
-> [Gestione aggiornamenti - Visualizzare la valutazione degli aggiornamenti](./automation-update-management.md#viewing-update-assessments)
+> [Gestione aggiornamenti gestire gli aggiornamenti e le patch per le macchine virtuali di Azure](./automation-tutorial-update-management.md)
 
 Esercitazioni aggiuntive sulle soluzioni e su come usarle:
 

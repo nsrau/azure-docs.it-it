@@ -1,18 +1,18 @@
 ---
 title: Compatibilità di Azure Cosmos DB Gremlin con le funzionalità di TinkerPop
 description: Documentazione di riferimento problemi di compatibilità del motore grafico
-author: olignat
+author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/10/2019
-ms.author: olignat
-ms.openlocfilehash: d58d1ea50251c3568161ce008db2672ff0fd6372
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.author: sngun
+ms.openlocfilehash: 0ed5824859b8463919a809861993f9f98a4f9251
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910958"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327022"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Compatibilità di Azure Cosmos DB Gremlin
 Il motore di Azure Cosmos DB Graph segue strettamente la specifica della procedura di attraversamento di [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) , ma esistono differenze.
@@ -25,15 +25,15 @@ Il motore di Azure Cosmos DB Graph segue strettamente la specifica della procedu
 
 * ***[Gremlin Bytecode](http://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** è una specifica non dipendente da un linguaggio di programmazione per gli attraversamenti grafici. Cosmos DB Graph non lo supporta ancora. Usare ```GremlinClient.SubmitAsync()``` e passare l'attraversamento come stringa di testo.
 
-* ***```property(set, 'xyz', 1)```*** la cardinalità impostata non è attualmente supportata. In alternativa, utilizzare ```property(list, 'xyz', 1)```.
+* la cardinalità set ***```property(set, 'xyz', 1)```*** non è attualmente supportata. Usare invece ```property(list, 'xyz', 1)```.
 
-* ***```match()```*** consente di eseguire query sui grafici usando criteri di ricerca dichiarativi. Questa funzionalità non è disponibile.
+* ***```match()``` consente di*** eseguire query sui grafici usando criteri di ricerca dichiarativi. Questa funzionalità non è disponibile.
 
 * ***Gli oggetti come proprietà*** su vertici o bordi non sono supportati. Le proprietà possono essere solo tipi primitivi o matrici.
 
-* ***Ordinamento in base alle proprietà della matrice*** ```.order().by(<array property>)``` non è supportato. L'ordinamento è supportato solo per tipi primitivi.
+* L' ***ordinamento in base alle proprietà di matrice*** ```.order().by(<array property>)``` non è supportato. L'ordinamento è supportato solo per tipi primitivi.
 
-* I ***tipi JSON non primitivi*** non sono supportati. Usare ```string```i ```number```tipi, ```true``` o ./ ```false``` ```null```i valori non sono supportati. 
+* I ***tipi JSON non primitivi*** non sono supportati. Usare i tipi ```string```, ```number``` o ```true``` @ no__t-3 @ no__t-4. i valori @no__t 0 non sono supportati. 
 
 * Il serializzatore ***GraphSONv3*** non è attualmente disponibile.
 

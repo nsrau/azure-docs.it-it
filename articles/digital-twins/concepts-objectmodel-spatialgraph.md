@@ -1,6 +1,6 @@
 ---
 title: Informazioni sui modelli a oggetti gemelli digitali di Azure e sul grafico di intelligence spaziale | Microsoft Docs
-description: Gemelli digitali di Azure consente di modellare le relazioni tra persone, luoghi e dispositivi
+description: Usa Gemelli digitali di Azure per modellare le relazioni tra persone, luoghi e dispositivi
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 67a4aceb157ee3fe1b1d1553efd587a0f2838d88
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 1186fec8d50d7e986d1c613cd96f741c34ca181a
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950016"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372611"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Informazioni sui modelli a oggetti di Gemelli digitali e sul grafico di intelligenza spaziale
 
@@ -78,14 +78,14 @@ Dopo aver distribuito Gemelli digitali dal [portale di Azure](https://portal.azu
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Attività | Sostituire con |
+| name | Sostituire con |
 | --- | --- |
 | NOME_ISTANZA_UTENTE | Nome dell'istanza di Gemelli digitali dell'utente |
 | POSIZIONE_UTENTE | Area del server in cui è ospitata l'istanza |
 
  Il formato dell'URL completo viene visualizzato in questa immagine.
 
-(![API di gestione del portale di Gemelli digitali](media/concepts/digital-twins-spatial-graph-management-api-url.png)] (media/Concepts/Digital-Twins-Spatial-Graph-Management-API-URL. png # Lightbox)
+[API di gestione del portale di 1Digital gemelli @no__t](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
 
 Per altre informazioni sull'uso dei grafici di intelligenza spaziale, visitare l'anteprima di prova delle API di gestione di Gemelli digitali di Azure.
 

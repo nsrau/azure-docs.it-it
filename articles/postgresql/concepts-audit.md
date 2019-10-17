@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/18/2019
-ms.openlocfilehash: 198ab5f567652a76d209168041f305b9da4d0b43
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.date: 10/14/2019
+ms.openlocfilehash: 49ad7334c418e29c821320608be729e060b4a8ae
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147178"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331323"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registrazione di controllo nel database di Azure per PostgreSQL-server singolo
 
@@ -21,12 +21,14 @@ Registrazione di controllo delle attività del database nel database di Azure pe
 > pgAudit è in anteprima nel database di Azure per PostgreSQL.
 > L'estensione può essere abilitata solo nei server per utilizzo generico e con ottimizzazione per la memoria.
 
+Se si vuole che i log a livello di risorsa di Azure per operazioni come il ridimensionamento di calcolo e archiviazione, vedere [log attività di Azure](../azure-monitor/platform/activity-logs-overview.md).
+
 ## <a name="usage-considerations"></a>Considerazioni sull'utilizzo
-Per impostazione predefinita, le istruzioni di log di pgAudit vengono emesse insieme alle istruzioni log regolari usando la funzionalità di registrazione standard di postgres. In database di Azure per PostgreSQL è possibile scaricare questi file con estensione log tramite il portale di Azure o l'interfaccia della riga di comando. Lo spazio di archiviazione massimo per la raccolta di file è 1 GB e ogni file è disponibile per un massimo di sette giorni (il valore predefinito è tre giorni). Questo servizio è un'opzione di archiviazione a breve termine.
+Per impostazione predefinita, le istruzioni di log di pgAudit vengono emesse insieme alle istruzioni di log regolari usando la funzionalità di registrazione standard di Postgres. In Database di Azure per PostgreSQL è possibile scaricare questi file con estensione log tramite il portale di Azure o l'interfaccia della riga di comando. Lo spazio di archiviazione massimo per la raccolta di file è 1 GB e ogni file è disponibile per un massimo di sette giorni (il valore predefinito è tre giorni). Questo servizio è un'opzione di archiviazione a breve termine.
 
 In alternativa, è possibile configurare tutti i log da emettere al servizio di log di diagnostica di monitoraggio di Azure. Se si Abilita la registrazione diagnostica di monitoraggio di Azure, i log verranno inviati automaticamente (in formato JSON) ad archiviazione di Azure, Hub eventi e/o log di monitoraggio di Azure, a seconda della scelta effettuata.
 
-L'abilitazione di pgAudit genera un volume elevato di registrazione in un server, che influisca sulle prestazioni e sull'archiviazione dei log. Si consiglia di usare il servizio log di diagnostica di Azure, che offre opzioni di archiviazione a lungo termine, nonché le funzionalità di analisi e avviso. Si consiglia di disattivare la registrazione standard per ridurre l'effetto sulle prestazioni della registrazione aggiuntiva:
+L'abilitazione di pgAudit genera un volume elevato di log in un server, cosa che influisc sulle prestazioni e sull'archiviazione dei log. Si consiglia di usare il servizio log di diagnostica di Azure, che offre opzioni di archiviazione a lungo termine, nonché le funzionalità di analisi e avvisi. Si consiglia di disattivare la registrazione standard per ridurre l'effetto sulle prestazioni delle registrazioni aggiuntive:
 
    1. Impostare il parametro `logging_collector` su disattivato. 
    2. Riavviare il server per applicare questa modifica.
@@ -35,7 +37,7 @@ Per informazioni su come configurare la registrazione in archiviazione di Azure,
 
 ## <a name="installing-pgaudit"></a>Installazione di pgAudit
 
-Per installare pgAudit, è necessario includerlo nelle librerie di precaricamento condivise del server. Per rendere effettiva una modifica al `shared_preload_libraries` parametro Postgres è necessario riavviare il server. È possibile modificare i parametri usando il [portale di Azure](howto-configure-server-parameters-using-portal.md), l'interfaccia della riga di comando di [Azure](howto-configure-server-parameters-using-cli.md)o l' [API REST](/rest/api/postgresql/configurations/createorupdate).
+Per installare pgAudit, è necessario includerlo nelle librerie di precaricamento condivise del server. Per rendere effettiva una modifica al parametro `shared_preload_libraries` di Postgres è necessario riavviare il server. È possibile modificare i parametri usando il [portale di Azure](howto-configure-server-parameters-using-portal.md), l'interfaccia della riga di comando di [Azure](howto-configure-server-parameters-using-cli.md)o l' [API REST](/rest/api/postgresql/configurations/createorupdate).
 
 Utilizzando la [portale di Azure](https://portal.azure.com):
 
@@ -51,7 +53,7 @@ Utilizzando la [portale di Azure](https://portal.azure.com):
       ```
 
 > [!TIP]
-> Se viene visualizzato un errore, confermare che il server è stato riavviato dopo `shared_preload_libraries`il salvataggio.
+> Se viene visualizzato un errore, confermare che il server è stato riavviato dopo il salvataggio `shared_preload_libraries`.
 
 ## <a name="pgaudit-settings"></a>impostazioni pgAudit
 
@@ -63,18 +65,18 @@ pgAudit consente di configurare la registrazione di controllo di una sessione o 
 Dopo aver [installato pgAudit](#installing-pgaudit), è possibile configurarne i parametri per avviare la registrazione. La [documentazione di pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) fornisce la definizione di ogni parametro. Testare prima i parametri e confermare che si sta ottenendo il comportamento previsto.
 
 > [!NOTE]
-> Se `pgaudit.log_client` si imposta su on, i log vengono reindirizzati a un processo client, ad esempio PSQL, anziché essere scritti nel file. Questa impostazione viene in genere disabilitata.
+> Se si imposta `pgaudit.log_client` su ON, i log vengono reindirizzati a un processo client, ad esempio PSQL, anziché essere scritti nel file. Questa impostazione viene in genere disabilitata.
 
 > [!NOTE]
-> `pgaudit.log_level`viene abilitato solo quando `pgaudit.log_client` è on. Inoltre, nel portale di Azure, esiste attualmente un bug con `pgaudit.log_level`: viene visualizzata una casella combinata, che implica che è possibile selezionare più livelli. Tuttavia, deve essere selezionato un solo livello. 
+> `pgaudit.log_level` è abilitato solo quando `pgaudit.log_client` è on. Inoltre, nel portale di Azure esiste attualmente un bug con `pgaudit.log_level`: viene visualizzata una casella combinata, che implica la possibilità di selezionare più livelli. Tuttavia, deve essere selezionato un solo livello. 
 
 > [!NOTE]
-> In database di Azure per PostgreSQL `pgaudit.log` non è possibile impostare l' `-` uso di un collegamento di segno (meno), come descritto nella documentazione di pgAudit. Tutte le classi di istruzioni obbligatorie (lettura, scrittura e così via) devono essere specificate singolarmente.
+> In database di Azure per PostgreSQL non è possibile impostare `pgaudit.log` usando un collegamento di segno `-` (meno), come descritto nella documentazione di pgAudit. Tutte le classi di istruzioni obbligatorie (READ, WRITE e così via) devono essere specificate singolarmente.
 
 ### <a name="audit-log-format"></a>Formato del log di controllo
-Ogni voce di controllo è indicata `AUDIT:` da vicino all'inizio della riga del log. Il formato del resto della voce è descritto in dettaglio nella [documentazione di pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).
+Ogni voce di controllo è indicata da `AUDIT:` in prossimità dell'inizio della riga del log. Il formato del resto della voce è descritto in dettaglio nella [documentazione di pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).
 
-Se sono necessari altri campi per soddisfare i requisiti di controllo, usare il parametro `log_line_prefix`postgres. `log_line_prefix`è una stringa che viene restituita all'inizio di ogni riga del log di postgres. Ad esempio, l'impostazione `log_line_prefix` seguente fornisce il timestamp, il nome utente, il nome del database e l'ID del processo:
+Se sono necessari altri campi per soddisfare i requisiti di controllo, usare il parametro Postgres `log_line_prefix`. `log_line_prefix` è una stringa che viene restituita all'inizio di ogni riga del log di postgres. L'impostazione @no__t 0 seguente, ad esempio, fornisce il timestamp, il nome utente, il nome del database e l'ID del processo:
 
 ```
 t=%m u=%u db=%d pid=[%p]:
@@ -82,8 +84,8 @@ t=%m u=%u db=%d pid=[%p]:
 
 Per altre informazioni su `log_line_prefix`, vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX).
 
-### <a name="getting-started"></a>Introduzione
-Per iniziare rapidamente, impostare `pgaudit.log` su `WRITE`e aprire i log per esaminare l'output. 
+### <a name="getting-started"></a>Inizia ora
+Per iniziare rapidamente, impostare `pgaudit.log` su `WRITE` e aprire i log per esaminare l'output. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 334ccbf64e32655b5e78ac6564abb65996ac53da
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1cbbc1fde22262d5841766978d40487f812e0963
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167433"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333116"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
 La pianificazione della capacità è un passaggio importante per qualsiasi distribuzione di produzione. Ecco alcuni aspetti da considerare nell'ambito di tale processo.
@@ -81,7 +81,7 @@ Il livello di durabilità viene usato per indicare al sistema i privilegi delle 
 | Bronze           | 1                              | VM con almeno 50 GB di unità SSD locale                                              | Non verrà ritardato dal cluster di Service Fabric           | Non può essere ritardato per un periodo di tempo significativo                                                    |
 
 > [!WARNING]
-> I tipi di nodo in esecuzione con durabilità Bronze _non ottengono privilegi_. Ciò significa che i processi di infrastruttura che influiscono sui carichi di lavoro senza stato non verranno interrotti o posticipati, il che potrebbe influire sui carichi di lavoro. Usare il livello Bronze solo per i tipi di nodo che eseguono esclusivamente carichi di lavoro senza stato. Per i carichi di lavoro di produzione è consigliabile eseguire il livello Silver o superiore. 
+> I tipi di nodo in esecuzione con durabilità Bronze _non ottengono privilegi_. Ciò significa che i processi di infrastruttura che influiscano sui carichi di lavoro con stato non verranno interrotti o posticipati, che potrebbero influito sui carichi di lavoro. Usare il livello Bronze solo per i tipi di nodo che eseguono esclusivamente carichi di lavoro senza stato. Per i carichi di lavoro di produzione è consigliabile eseguire il livello Silver o superiore. 
 > 
 > Indipendentemente dal livello di durabilità, l'operazione di [deallocazione](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) nel set di scalabilità delle macchine virtuali comporta l'eliminazione del cluster
 
@@ -108,8 +108,8 @@ Usare la durabilità Silver o Gold per tutti i tipi di nodo che ospitano servizi
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Raccomandazioni operative per il tipo di nodo impostato sul livello di durabilità Silver o Gold.
 
 - Mantenere sempre integri il cluster e le applicazioni e verificare che le applicazioni rispondano in modo tempestivo a tutti gli [eventi del ciclo di vita della replica del servizio](service-fabric-reliable-services-lifecycle.md), ad esempio al blocco della replica in compilazione.
-- Adottare modi più sicuri per eseguire una modifica dello SKU di VM (aumento/riduzione delle prestazioni): Per modificare lo SKU di VM di un set di scalabilità di macchine virtuali, è necessario eseguire una serie di passaggi e considerazioni. Di seguito è illustrato il processo che è possibile seguire per evitare i problemi comuni.
-    - **Per i tipi di nodo non primari:** È consigliabile creare un nuovo set di scalabilità di macchine virtuali, modificare il vincolo di posizionamento del servizio in modo da includere il nuovo tipo di nodo/set di scalabilità di macchine virtuali e quindi ridurre il numero di istanze del set di scalabilità di macchine virtuali precedente a zero, un nodo alla volta. Assicurarsi che la rimozione dei nodi non influisca sull'affidabilità del cluster.
+- Adottare modi più sicuri per apportare una modifica dello SKU di VM (aumento/riduzione delle prestazioni): la modifica dello SKU di VM di un set di scalabilità di macchine virtuali richiede una serie di passaggi e considerazioni. Di seguito è illustrato il processo che è possibile seguire per evitare i problemi comuni.
+    - **Per i tipi di nodo non primari:** è consigliabile creare un nuovo set di scalabilità di macchine virtuali, modificare il vincolo di posizionamento del servizio per poter includere il nuovo tipo di nodo/set di scalabilità di macchine virtuali e quindi ridurre il numero di istanze del set di scalabilità di macchine virtuali precedente a zero, un nodo alla volta (perché la rimozione dei nodi non influisca sull'affidabilità del cluster).
     - **Per il tipo di nodo primario:** Se lo SKU della macchina virtuale selezionato è a capacità e si vuole passare a uno SKU di VM più grande, seguire le indicazioni sulla [scalabilità verticale per un tipo di nodo primario](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-node-type). 
 
 - Mantenere un numero minimo di cinque nodi per tutti i set di scalabilità di macchine virtuali con livello di durabilità Gold o Silver abilitato.
@@ -123,7 +123,7 @@ Il livello di affidabilità viene usato per impostare il numero di repliche dei 
 
 Il livello di affidabilità può avere i valori seguenti:
 
-* Platinum: esegue i servizi di sistema con un totale di set di repliche di destinazione pari a sette
+* Platinum: esegue i servizi di sistema con un totale di set di repliche di destinazione pari a nove
 * Gold: esegue i servizi di sistema con un totale di set di repliche di destinazione pari a sette
 * Silver: esegue i servizi di sistema con un totale di set di repliche di destinazione pari a cinque 
 * Bronze: esegue i servizi di sistema con un totale di set di repliche di destinazione pari a tre
@@ -151,9 +151,9 @@ Ecco la raccomandazione per la scelta del livello di affidabilità.  Il numero d
 
 Ecco le indicazioni per pianificare la capacità del tipo di nodo primario:
 
-- **Numero di istanze di VM per eseguire qualsiasi carico di lavoro di produzione in Azure:** È necessario specificare una dimensione minima del tipo di nodo primario pari a 5 e un livello di affidabilità Silver.  
+- **Numero di istanze delle VM per eseguire qualsiasi carico di lavoro di produzione in Azure:** è necessario specificare una dimensione minima del tipo di nodo primario pari a 5 e un livello di affidabilità Silver.  
 - **Numero di istanze delle VM per eseguire carichi di lavoro di test in Azure:** è possibile specificare una dimensione minima del tipo di nodo primario pari a 1 o 3. Il cluster a un nodo viene eseguito con una configurazione speciale, pertanto la scalabilità orizzontale di tale cluster non è supportata. Il cluster a un nodo non ha alcun livello di affidabilità, di conseguenza nel modello di Resource Manager è necessario rimuovere/non specificare tale configurazione (non è sufficiente non impostare il valore di configurazione). Se si configura il cluster a un nodo tramite il portale, la configurazione viene gestita automaticamente. I cluster a uno e tre nodi non sono supportati per l'esecuzione di carichi di lavoro di produzione. 
-- **SKU MACCHINA VIRTUALE:** Il tipo di nodo primario è il punto in cui vengono eseguiti i servizi di sistema, quindi lo SKU della macchina virtuale scelto, deve prendere in considerazione il carico di picco complessivo che si prevede di inserire nel cluster. Per comprendere questo concetto, si pensi all'analogia seguente: il tipo di nodo primario è come i polmoni che forniscono ossigeno al cervello e quindi, se il cervello non riceve abbastanza ossigeno, il corpo ne risente. 
+- **SKU di VM:** nel tipo di nodo primario vengono eseguiti i servizi di sistema, quindi lo SKU della VM scelto deve tenere in considerazione il carico massimo totale che si prevede di inserire nel cluster. Per comprendere questo concetto, si pensi all'analogia seguente: il tipo di nodo primario è come i polmoni che forniscono ossigeno al cervello e quindi, se il cervello non riceve abbastanza ossigeno, il corpo ne risente. 
 
 Poiché le esigenze in termini di capacità di un cluster dipendono dal carico di lavoro che si prevede di eseguire nel cluster, non è possibile offrire una guida valida per un carico di lavoro specifico. Di seguito sono tuttavia riportate indicazioni generali per poter iniziare.
 
@@ -174,11 +174,11 @@ Per i carichi di lavoro di produzione:
 
 Queste linee guida sono relative ai carichi di lavoro con stato che usano [Reliable Collections o Reliable Actors](service-fabric-choose-framework.md) di Service Fabric in esecuzione nel tipo di nodo non primario.
 
-**Numero di istanze di VM:** Per i carichi di lavoro di produzione con stato, è consigliabile eseguirli con un numero minimo di repliche di destinazione pari a 5. Nello stato stabile viene quindi creata una replica (da un set di repliche) in ogni dominio di errore e in ogni dominio di aggiornamento. L'intero concetto di livello di affidabilità per il tipo di nodo primario è un modo per specificare questa impostazione per i servizi di sistema. La stessa considerazione è quindi valida anche per i servizi con stato.
+**Numero di istanze delle VM:** è consigliabile eseguire i carichi di lavoro di produzione con stato con un numero di repliche di destinazione di almeno 5 istanze. Nello stato stabile viene quindi creata una replica (da un set di repliche) in ogni dominio di errore e in ogni dominio di aggiornamento. L'intero concetto di livello di affidabilità per il tipo di nodo primario è un modo per specificare questa impostazione per i servizi di sistema. La stessa considerazione è quindi valida anche per i servizi con stato.
 
 Per i carichi di lavoro di produzione, la dimensione minima consigliata per il tipo di nodo non primario è quindi 5, se si eseguono carichi di lavoro con stato.
 
-**SKU MACCHINA VIRTUALE:** Questo è il tipo di nodo in cui sono in esecuzione i servizi dell'applicazione, quindi lo SKU della macchina virtuale scelto, deve prendere in considerazione il carico massimo che si prevede di inserire in ogni nodo. Poiché le esigenze in termini di capacità del tipo di nodo dipendono dal carico di lavoro che si prevede di eseguire nel cluster, non è possibile offrire una guida valida per un carico di lavoro specifico. Di seguito sono tuttavia riportate indicazioni generali per poter iniziare
+**SKU di VM:** in questo tipo di nodo sono in esecuzione i servizi dell'applicazione, quindi lo SKU per le VM scelto deve tenere in considerazione il carico massimo che si prevede di inserire in ogni nodo. Poiché le esigenze in termini di capacità del tipo di nodo dipendono dal carico di lavoro che si prevede di eseguire nel cluster, non è possibile offrire una guida valida per un carico di lavoro specifico. Di seguito sono tuttavia riportate indicazioni generali per poter iniziare
 
 Per i carichi di lavoro di produzione 
 
@@ -191,9 +191,9 @@ Per i carichi di lavoro di produzione
 
 Linee guida per i carichi di lavoro senza stato in esecuzione nel tipo di nodo non primario.
 
-**Numero di istanze di VM:** Per i carichi di lavoro di produzione senza stato, la dimensione minima supportata per il tipo di nodo non primario è 2. Ciò consente di eseguire due istanze senza stato dell'applicazione e consente al servizio di resistere alla perdita di un'istanza di una VM. 
+**Numero di istanze delle VM:** per i carichi di lavoro di produzione senza stato, la dimensione minima supportata per il tipo di nodo non primario è pari a 2. Ciò consente di eseguire due istanze senza stato dell'applicazione e consente al servizio di resistere alla perdita di un'istanza di una VM. 
 
-**SKU MACCHINA VIRTUALE:** Questo è il tipo di nodo in cui sono in esecuzione i servizi dell'applicazione, quindi lo SKU della macchina virtuale scelto, deve prendere in considerazione il carico massimo che si prevede di inserire in ogni nodo. Le esigenze di capacità del tipo di nodo sono determinate dal carico di lavoro che si prevede di eseguire nel cluster. Non è possibile offrire una guida valida per il carico di lavoro specifico.  Di seguito sono tuttavia riportate le indicazioni generali per iniziare.
+**SKU di VM:** in questo tipo di nodo sono in esecuzione i servizi dell'applicazione, quindi lo SKU per le VM scelto deve tenere in considerazione il carico massimo che si prevede di inserire in ogni nodo. Le esigenze di capacità del tipo di nodo sono determinate dal carico di lavoro che si prevede di eseguire nel cluster. Non è possibile offrire una guida valida per il carico di lavoro specifico.  Di seguito sono tuttavia riportate le indicazioni generali per iniziare.
 
 Per i carichi di lavoro di produzione 
 

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: ebf4f516b8f90ce2ba8b277281300ae3239821c5
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 0d59b1cfed1de710725a5dfc91341fec0baa6cb4
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640812"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331017"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Che cos'è l'istanza gestita di database SQL di Azure?
 
@@ -53,18 +53,18 @@ L'istanza gestita combina le migliori funzionalità disponibili sia nel database
 
 Nella tabella seguente sono elencate le principali funzionalità delle istanze gestite:
 
-|Funzionalità | Descrizione|
+|Funzionalità | Description|
 |---|---|
 | Versione/build di SQL Server | Motore di database di SQL Server (ultima versione stabile) |
-| Backup automatici gestiti | Yes |
-| Monitoraggio predefinito e metriche dell'istanza e del database | Sì |
-| Applicazione automatica di patch software | Yes |
-| Funzionalità più recenti del motore di database | Sì |
-| Numero di file di dati (RIGHE) per il database | Più posizioni |
+| Backup automatici gestiti | SÌ |
+| Monitoraggio predefinito e metriche dell'istanza e del database | SÌ |
+| Applicazione automatica di patch software | SÌ |
+| Funzionalità più recenti del motore di database | SÌ |
+| Numero di file di dati (RIGHE) per il database | Multipli |
 | Numero di file di log (LOG) per il database | 1 |
-| Rete virtuale: distribuzione di Azure Resource Manager | Yes |
+| Rete virtuale: distribuzione di Azure Resource Manager | SÌ |
 | Rete virtuale: modello di distribuzione classica | No |
-| Supporto del portale | Sì|
+| Supporto del portale | SÌ|
 | Integration Services (SSIS) incorporato | No - SSIS fa parte di [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Analysis Services (SSAS) incorporato | No - SSAS fa parte di una [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) distinta |
 | Reporting Services (SSRS) incorporato | No - usare Power BI o SSRS IaaS |
@@ -88,8 +88,8 @@ Per altre informazioni sulle differenze tra le generazioni di hardware, vedere [
 
 L'istanza gestita è disponibile in due livelli di servizio:
 
-- **Utilizzo generico**: progettato per applicazioni con prestazioni tipiche e requisiti di latenza di I/O comuni.
-- **Business Critical**: progettata per applicazioni con requisiti di latenza dei I/O bassi e un impatto minimo di operazioni di manutenzione sottostanti sul carico di lavoro.
+- **Utilizzo generico**: progettato per applicazioni con requisiti di latenza di i/o di prestazioni tipici.
+- **Business critical**: progettato per applicazioni con requisiti di latenza di i/o basso e con un minimo effetto delle operazioni di manutenzione sottostanti sul carico di lavoro.
 
 Entrambi i livelli di servizio garantiscono una disponibilità del 99,99% e consentono di selezionare le dimensioni di archiviazione e capacità di calcolo in modo indipendente. Per altre informazioni sull'architettura di disponibilità elevata del database SQL di Azure, vedere [High Availability and Azure SQL Database](sql-database-high-availability.md) (Disponibilità elevata e database SQL di Azure).
 
@@ -122,13 +122,13 @@ Per altre informazioni sulle differenze tra i livelli di servizio, vedere [Limit
 
 ## <a name="managed-instance-management-operations"></a>Operazioni di gestione di istanze gestite
 
-Il database SQL di Azure fornisce operazioni di gestione che è possibile usare per distribuire automaticamente nuove istanze gestite, aggiornare le proprietà dell'istanza ed eliminare istanze quando non sono più necessarie. In questa sezione vengono fornite informazioni sulle operazioni di gestione e le relative durate tipiche.
+Il database SQL di Azure consente di eseguire operazioni di gestione per distribuire automaticamente nuove istanze gestite, aggiornare le proprietà di un'istanza ed eliminare le istanze quando non sono più necessarie. In questa sezione vengono fornite informazioni sulle operazioni di gestione e le relative durate tipiche.
 
 Per supportare le [distribuzioni nelle reti virtuali di Azure (reti virtuali)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) e garantire l'isolamento e la sicurezza per i clienti, l'istanza gestita si basa su [cluster virtuali](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), che rappresentano un set dedicato di macchine virtuali isolate distribuite all'interno del subnet della rete virtuale del cliente. In pratica, tutte le distribuzioni di istanze gestite in una subnet vuota generano una nuova compilazione del cluster virtuale.
 
 Anche le operazioni successive sulle istanze gestite distribuite potrebbero avere effetti sul cluster virtuale sottostante. Ciò influiscono sulla durata delle operazioni di gestione, in quanto la distribuzione di macchine virtuali aggiuntive comporta un sovraccarico da tenere in considerazione quando si pianificano nuove distribuzioni o aggiornamenti per le istanze gestite esistenti.
 
-Tutte le operazioni di gestione possono essere categorizzate come indicato di seguito:
+Tutte le operazioni di gestione possono essere suddivise per categoria, come indicato di seguito:
 
 - Distribuzione istanza (creazione nuova istanza). 
 - Aggiornamento dell'istanza (modifica delle proprietà dell'istanza, ad esempio Vcore, archiviazione riservata e così via).
@@ -147,7 +147,7 @@ Inoltre, la gestione delle istanze può includere anche una delle operazioni sui
 
 Nella tabella seguente sono riepilogate le operazioni e le durate generali tipiche:
 
-|Category  |Operazione  |Segmento con esecuzione prolungata  |Durata stimata  |
+|Categoria  |Operazione  |Segmento con esecuzione prolungata  |Durata stimata  |
 |---------|---------|---------|---------|
 |**Distribuzione** |Prima istanza in una subnet vuota|Creazione di un cluster virtuale|90% di operazioni completate tra 4 ore|
 |Distribuzione |Prima istanza di un'altra generazione di hardware in una subnet non vuota (ad esempio, la prima istanza di generazione 5 in una subnet con istanze di generazione 4)|Creazione di un cluster virtuale *|90% di operazioni completate tra 4 ore|
@@ -164,11 +164,11 @@ Nella tabella seguente sono riepilogate le operazioni e le durate generali tipic
 |**Eliminazione**|Eliminazione di un'istanza|Backup della parte finale del log per tutti i database|90% le operazioni vengono completate fino a un minuto.<br>Nota: se viene eliminata l'ultima istanza della subnet, questa operazione pianifica l'eliminazione del cluster virtuale dopo 12 ore * * *|
 |Eliminazione|Eliminazione di un cluster virtuale (operazione avviata dall'utente)|Eliminazione cluster virtuale|90% di operazioni completate in un massimo di 1,5 ore|
 
-\*Il cluster virtuale è compilato per ogni generazione di hardware.
+il cluster virtuale \* è compilato per ogni generazione di hardware.
 
-\*\*L'opzione di distribuzione vcore di 4 è stata rilasciata nel 2019 giugno e richiede una nuova versione del cluster virtuale. Se nella subnet di destinazione sono presenti istanze che sono state create prima del 12 giugno, un nuovo cluster virtuale verrà distribuito automaticamente per ospitare 4 istanze vCore.
+\* @ no__t-1 l'opzione di distribuzione vcore di 4 è stata rilasciata nel 2019 giugno e richiede una nuova versione del cluster virtuale. Se nella subnet di destinazione sono presenti istanze che sono state create prima del 12 giugno, un nuovo cluster virtuale verrà distribuito automaticamente per ospitare 4 istanze vCore.
 
-\*\*\*12 ore è la configurazione corrente, ma potrebbe cambiare in futuro, quindi non assumere una dipendenza difficile. Se è necessario eliminare un cluster virtuale in precedenza (per rilasciare la subnet, ad esempio), vedere [eliminare una subnet dopo l'eliminazione di un'istanza gestita di database SQL di Azure](sql-database-managed-instance-delete-virtual-cluster.md).
+\* @ no__t-1 @ no__t-2 12 ore è la configurazione corrente, ma potrebbe cambiare in futuro, quindi non assumere una dipendenza rigida. Se è necessario eliminare un cluster virtuale in precedenza (per rilasciare la subnet, ad esempio), vedere [eliminare una subnet dopo l'eliminazione di un'istanza gestita di database SQL di Azure](sql-database-managed-instance-delete-virtual-cluster.md).
 
 ### <a name="instance-availability-during-management"></a>Disponibilità dell'istanza durante la gestione
 
@@ -177,7 +177,7 @@ Le istanze gestite non sono disponibili per le applicazioni client durante le op
 Le istanze gestite sono disponibili durante le operazioni di aggiornamento, ma si verifica un breve tempo di inattività causato dal failover che si verifica alla fine degli aggiornamenti che in genere durano fino a 10 secondi.
 
 > [!IMPORTANT]
-> La durata di un failover può variare in modo significativo in caso di transazioni a esecuzione prolungata che si verificano nei database a causa del [tempo di recupero](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process)prolungato. Non è quindi consigliabile ridimensionare le risorse di calcolo o di archiviazione dell'istanza gestita di database SQL di Azure o per modificare il livello di servizio contemporaneamente con le transazioni a esecuzione prolungata (importazione di dati, processi di elaborazione dei dati, ricompilazione dell'indice e così via). Il failover del database che verrà eseguito al termine dell'operazione Annulla le transazioni in corso e genera tempi di ripristino prolungati.
+> La durata di un failover può variare in modo significativo in caso di transazioni a esecuzione prolungata che si verificano nei database a causa del [tempo di recupero prolungato](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). Non è quindi consigliabile ridimensionare le risorse di calcolo o di archiviazione dell'istanza gestita di database SQL di Azure o per modificare il livello di servizio contemporaneamente con le transazioni a esecuzione prolungata (importazione di dati, processi di elaborazione dei dati, ricompilazione dell'indice e così via). Il failover del database che verrà eseguito al termine dell'operazione Annulla le transazioni in corso e genera tempi di ripristino prolungati.
 
 Il [recupero accelerato del database](sql-database-accelerated-database-recovery.md) non è attualmente disponibile per le istanze gestite del database SQL di Azure. Una volta abilitata, questa funzionalità ridurrà significativamente la variabilità del tempo di failover, anche in caso di transazioni a esecuzione prolungata.
 
@@ -217,7 +217,7 @@ Database SQL di Azure fornisce un set di funzionalità di sicurezza avanzato che
 
 La migrazione di un database crittografato in un'istanza gestita è supportata tramite il Servizio Migrazione del database di Azure o il ripristino nativo. Se si prevede di eseguire la migrazione di un database crittografato usando il ripristino nativo, la migrazione del certificato Transparent Data Encryption esistente dal SQL Server locale o SQL Server in una macchina virtuale a un'istanza gestita è un passaggio obbligatorio. Per altre informazioni sui vari metodi di migrazione, vedere [Migrazione di un'istanza di SQL Server a un'istanza gestita](sql-database-managed-instance-migrate.md).
 
-## <a name="azure-active-directory-integration"></a>Integrazione di Azure Active Directory
+## <a name="azure-active-directory-integration"></a>Integrazione con Azure Active Directory
 
 L'opzione di distribuzione dell'istanza gestita supporta i tradizionali account di accesso del motore di database di SQL Server e gli account di accesso integrati con Azure Active Directory (AAD). Le entità server (account di accesso) di Azure AD (**anteprima pubblica**) sono una versione cloud di Azure degli account di accesso ai database di Windows usati nell'ambiente locale. Azure AD entità server (account di accesso) consentono di specificare gli utenti e i gruppi dal tenant di Azure Active Directory come entità con ambito di istanza reale, in grado di eseguire qualsiasi operazione a livello di istanza, incluse le query tra database all'interno della stessa gestione istanza.
 
@@ -246,7 +246,7 @@ Per autorizzazione si intendono le operazioni che l'utente può eseguire in un d
 
 L'opzione di distribuzione dell'istanza gestita è destinata a scenari utente con migrazione di massa di database da implementazioni di database locali o IaaS. L'istanza gestita supporta diverse opzioni di migrazione di database:
 
-### <a name="back-up-and-restore"></a>Eseguire il backup e il ripristino  
+### <a name="back-up-and-restore"></a>Backup e ripristino  
 
 L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione BLOB di Azure. I backup archiviati in BLOB del servizio di archiviazione di Azure possono essere ripristinati direttamente in un'istanza gestita usando il [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
@@ -276,10 +276,10 @@ L'opzione di distribuzione dell'istanza gestita offre vantaggi derivanti dall'es
 
 - La disponibilità elevata è integrata e preconfigurata mediante una tecnologia simile a [Gruppi di disponibilità AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - Backup automatici e ripristino temporizzato. Il cliente può avviare backup `copy-only` che non interferiscono con la catena di backup automatica.
-- L'istanza gestita non consente l'uso di percorsi fisici completi, pertanto tutti gli scenari corrispondenti devono essere supportati in modo diverso: RESTORE DB non supporta WITH MOVE, CREATE DB non consente i percorsi fisici, BULK INSERT funziona solo con i BLOB di Azure e così via.
+- L'istanza gestita non consente l'uso di percorsi fisici completi, in modo che tutti gli scenari corrispondenti debbano essere supportati in modo diverso: RESTOre DB non supporta WITH MOVE, CREATE DB non consente percorsi fisici, BULK INSERT funziona solo con i BLOB di Azure e così via.
 - L'istanza gestita supporta l'[autenticazione di Azure AD](sql-database-aad-authentication.md) come alternativa cloud all'autenticazione di Windows.
 - L'istanza gestita gestisce automaticamente filegroup XTP e i file per i database contenenti oggetti di OLTP in memoria
-- L'istanza gestita supporta SQL Server Integration Services e può ospitare il catalogo SSIS, ovvero SSISDB, che archivia i pacchetti SSIS, che però vengono eseguiti in un'istanza gestita di Azure-SSIS Integration Runtime in Azure Data Factory. Per informazioni, vedere [Creare Azure-SSIS Integration Runtime in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Per confrontare le funzioni SSIS nel database SQL, vedere [Confrontare database singoli/pool elastici e l'istanza gestita di database SQL di Azure](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance).
+- L'istanza gestita supporta SQL Server Integration Services e può ospitare il catalogo SSIS, ovvero SSISDB, che archivia i pacchetti SSIS, che però vengono eseguiti in un'istanza gestita di Azure-SSIS Integration Runtime in Azure Data Factory. Per informazioni, vedere [Creare Azure-SSIS Integration Runtime in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Per confrontare le funzionalità SSIS nel database SQL, vedere [confrontare un database singolo di database SQL di Azure, un pool elastico e un'istanza gestita](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance).
 
 ### <a name="managed-instance-administration-features"></a>Funzionalità di amministrazione dell'istanza gestita
 
@@ -292,7 +292,7 @@ L'opzione di distribuzione dell'istanza gestita consente all'amministratore di s
 
 La tabella seguente mostra diverse proprietà, accessibili tramite Transact SQL, che è possibile usare per rilevare se l'applicazione funziona con l'istanza gestita e recuperare proprietà importanti.
 
-|Proprietà|Valore|Commento|
+|Proprietà|Value|Comment|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Questo valore è uguale a quello del database SQL.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Questo valore è uguale a quello del database SQL.|

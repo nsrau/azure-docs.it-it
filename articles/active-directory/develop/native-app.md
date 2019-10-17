@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6bf24124c4b072a64ef59500b2f723ff6abbb0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0034668231d97e64602bdbdd0836bded97bb733d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545850"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373880"
 ---
 # <a name="native-apps"></a>App native
 
@@ -52,7 +52,7 @@ Vedere gli esempi di codice per gli scenari Da applicazione nativa ad API Web. C
 
 ## <a name="app-registration"></a>Registrazione delle app
 
-Per registrare un'applicazione con l'endpoint v1.0 di Azure AD, vedere [registrare un'app](quickstart-register-app.md).
+Per registrare un'applicazione con l'endpoint Azure AD v 1.0, vedere [registrare un'app](quickstart-register-app.md).
 
 * Tenant singolo: l'applicazione nativa e l'API Web devono essere registrate nella stessa directory di Azure AD. L'API Web può essere configurata per esporre un set di autorizzazioni, che vengono usate per limitare l'accesso dell'applicazione nativa alle relative risorse. L'applicazione client seleziona quindi le autorizzazioni desiderate dal menu a discesa "Autorizzazioni per altre applicazioni" nel portale di Azure.
 * Multi-tenant: per prima cosa, l'applicazione nativa viene registrata solo nella directory dello sviluppatore o dell'editore. Quindi, l'applicazione nativa viene configurata per indicare le autorizzazioni necessarie per il funzionamento. Questo elenco di autorizzazioni richieste viene visualizzato in una finestra di dialogo quando un utente o amministratore nella directory di destinazione concede il consenso all'applicazione, rendendola disponibile per la propria organizzazione. Alcune applicazioni richiedono solo autorizzazioni a livello utente, che possono essere concesse da qualsiasi utente dell'organizzazione. Altre applicazioni richiedono autorizzazioni a livello amministratore, che non possono essere concesse dagli utenti dell'organizzazione. Solo un amministratore di directory può concedere il consenso alle applicazioni che richiedono questo livello di autorizzazione. Quando l'utente o l'amministratore acconsente, solo l'API Web viene registrata nella directory. 
@@ -63,5 +63,5 @@ Quando l'applicazione nativa usa il proprio codice di autorizzazione per ottener
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su altri [tipi di applicazione e scenari](app-types.md)
-- [Nozioni di base sull'autenticazione](authentication-scenarios.md) in Azure AD
+- Altre informazioni su altri [Tipi di applicazione e scenari](app-types.md)
+- [Nozioni di base sull'autenticazione](v1-authentication-scenarios.md) in Azure AD

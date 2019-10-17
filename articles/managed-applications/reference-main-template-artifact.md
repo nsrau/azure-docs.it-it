@@ -1,20 +1,20 @@
 ---
 title: Riferimento all'elemento del modello di distribuzione di applicazioni gestite di Azure
-description: Questo articolo è un riferimento all'elemento del modello di distribuzione.
+description: Viene fornito un esempio dell'artefatto del modello di distribuzione per le applicazioni gestite di Azure.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: fe2517a8cc2ddee6623f88b2ae5e46c9e5319567
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
-ms.translationtype: MT
+ms.openlocfilehash: ec59c9cde4f23b4a9d641d286e152ea737576534
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68336491"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330183"
 ---
-# <a name="reference-deployment-template-artifact"></a>Riferimenti: Artefatto modello di distribuzione
+# <a name="reference-deployment-template-artifact"></a>Riferimento: artefatto modello di distribuzione
 
 Questo articolo è un riferimento per un elemento *mainTemplate. JSON* nelle applicazioni gestite di Azure. Per ulteriori informazioni sulla creazione di un modello di distribuzione, vedere [Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -191,6 +191,6 @@ Il codice JSON seguente mostra un esempio di file *mainTemplate. JSON* per le ap
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: Creare un'applicazione gestita con azioni e risorse personalizzate](tutorial-create-managed-app-with-custom-provider.md)
-- [Informazioni di riferimento: Elemento dell'interfaccia utente elementi](reference-createuidefinition-artifact.md)
-- [Informazioni di riferimento: Visualizza elemento definizione](reference-view-definition-artifact.md)
+- [Esercitazione: creare un'applicazione gestita con azioni e risorse personalizzate](tutorial-create-managed-app-with-custom-provider.md)
+- [Riferimento: artefatto degli elementi dell'interfaccia utente](reference-createuidefinition-artifact.md)
+- [Riferimento: elemento della definizione della visualizzazione](reference-view-definition-artifact.md)

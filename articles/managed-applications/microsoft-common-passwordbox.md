@@ -1,6 +1,6 @@
 ---
 title: Elemento PasswordBox dell'interfaccia utente di Azure | Microsoft Docs
-description: Illustra l'elemento Microsoft.Common.PasswordBox dell'interfaccia utente per il portale di Azure.
+description: Illustra l'elemento Microsoft.Common.PasswordBox dell'interfaccia utente per il portale di Azure. Consente agli utenti di fornire un valore segreto quando si distribuiscono applicazioni gestite.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 944f59da680c3a058a3cd245cca48d903e44ab87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4a8b760d113e29efb0efacbd41dcaa7432ecdcfd
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710931"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332811"
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>Elemento Microsoft.Common.PasswordBox dell'interfaccia utente
 Controllo che può essere usato per fornire e confermare una password.
@@ -48,7 +48,7 @@ Controllo che può essere usato per fornire e confermare una password.
 }
 ```
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 - Questo elemento non supporta la proprietà `defaultValue`.
 - Per i dettagli sull'implementazione di `constraints`, vedere [Microsoft.Common.TextBox](microsoft-common-textbox.md).
 - Se la proprietà `options.hideConfirmation` è impostata su **true**, la seconda casella di testo per la conferma della password dell'utente è nascosta. Il valore predefinito è **false**.

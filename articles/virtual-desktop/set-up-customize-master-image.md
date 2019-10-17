@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 57070b297446badb92ae1df4c435dd54cfe26823
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 622b4e53be68025ad9553ce604041d14885bb2b2
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710189"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330837"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparare e personalizzare un'immagine master di disco rigido virtuale
 
-Questo articolo illustra come preparare un'immagine del disco rigido virtuale (VHD) master per il caricamento in Azure, tra cui come creare macchine virtuali (VM) e installare software su di essi. Queste istruzioni sono relative a una configurazione specifica di un desktop virtuale di Windows che può essere usata con i processi esistenti dell'organizzazione.
+Questo articolo illustra come preparare un'immagine del disco rigido virtuale (VHD) master per il caricamento in Azure, tra cui come creare macchine virtuali (VM) e installare software su di essi. Le istruzioni riguardano una configurazione specifica di Desktop virtuale Windows che può essere usata con processi esistenti dell'organizzazione.
 
-## <a name="create-a-vm"></a>Creare una macchina virtuale
+## <a name="create-a-vm"></a>Creare una VM
 
 La funzionalità multisessione Enterprise di Windows 10 è disponibile nella raccolta immagini di Azure. Sono disponibili due opzioni per la personalizzazione di questa immagine.
 
@@ -62,11 +62,25 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 ## <a name="software-preparation-and-installation"></a>Preparazione e installazione del software
 
-Questa sezione illustra come preparare e installare FSLogix, Windows Defender e altre applicazioni comuni. 
+Questa sezione illustra come preparare e installare FSLogix e Windows Defender, nonché alcune opzioni di configurazione di base per le app e il registro di sistema dell'immagine. 
 
-Se si installa Office 365 ProPlus e OneDrive nella macchina virtuale, vedere [installare Office in un'immagine del disco rigido virtuale Master](install-office-on-wvd-master-image.md). Seguire il collegamento nei passaggi successivi dell'articolo per tornare a questo articolo e completare il processo del disco rigido virtuale master.
+Se si installa Office 365 ProPlus e OneDrive nella macchina virtuale, passare a [installa Office in un'immagine del disco rigido virtuale Master](install-office-on-wvd-master-image.md) e seguire le istruzioni per installare le app. Al termine, tornare a questo articolo.
 
 Se gli utenti devono accedere ad alcune applicazioni LOB, è consigliabile installarle dopo aver completato le istruzioni della sezione.
+
+### <a name="set-up-user-profile-container-fslogix"></a>Configurare il contenitore profili utente (FSLogix)
+
+Per includere il contenitore FSLogix come parte dell'immagine, seguire le istruzioni riportate in [creare un contenitore di profili per un pool di host usando una condivisione file](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). È possibile testare la funzionalità del contenitore FSLogix con [questa Guida introduttiva](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial).
+
+### <a name="configure-windows-defender"></a>Configurare Windows Defender
+
+Se Windows Defender è configurato nella macchina virtuale, assicurarsi che sia configurato in modo da non eseguire l'analisi dell'intero contenuto dei file VHD e VHDX durante l'allegato.
+
+Questa configurazione rimuove solo l'analisi dei file VHD e VHDX durante l'allegato, ma non influisce sull'analisi in tempo reale.
+
+Per istruzioni più dettagliate su come configurare Windows Defender in Windows Server, vedere [configurare le esclusioni di Windows Defender antivirus in Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus).
+
+Per altre informazioni su come configurare Windows Defender in modo da escludere determinati file dall'analisi, vedere [configurare e convalidare le esclusioni in base all'estensione di file e al percorso della cartella](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus).
 
 ### <a name="disable-automatic-updates"></a>Disabilitare Aggiornamenti automatici
 
@@ -88,20 +102,6 @@ Eseguire questo comando per specificare un layout iniziale per i PC Windows 10.
 ```batch
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
-
-### <a name="set-up-user-profile-container-fslogix"></a>Configurare il contenitore profili utente (FSLogix)
-
-Per includere il contenitore FSLogix come parte dell'immagine, seguire le istruzioni riportate in [creare un contenitore di profili per un pool di host usando una condivisione file](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). È possibile testare la funzionalità del contenitore FSLogix con [questa Guida introduttiva](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial).
-
-### <a name="configure-windows-defender"></a>Configurare Windows Defender
-
-Se Windows Defender è configurato nella macchina virtuale, assicurarsi che sia configurato in modo da non eseguire l'analisi dell'intero contenuto dei file VHD e VHDX durante l'allegato.
-
-Questa configurazione rimuove solo l'analisi dei file VHD e VHDX durante l'allegato, ma non influisce sull'analisi in tempo reale.
-
-Per istruzioni più dettagliate su come configurare Windows Defender in Windows Server, vedere [configurare le esclusioni di Windows Defender antivirus in Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus).
-
-Per altre informazioni su come configurare Windows Defender in modo da escludere determinati file dall'analisi, vedere [configurare e convalidare le esclusioni in base all'estensione di file e al percorso della cartella](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus).
 
 ### <a name="configure-session-timeout-policies"></a>Configurare i criteri di timeout della sessione
 
@@ -225,7 +225,7 @@ Le istruzioni seguenti illustrano come caricare l'immagine master in un account 
 Ora che si dispone di un'immagine, è possibile creare o aggiornare i pool host. Per ulteriori informazioni su come creare e aggiornare i pool host, vedere gli articoli seguenti:
 
 - [Creare un pool di host con un modello di Azure Resource Manager](create-host-pools-arm-template.md)
-- [Esercitazione: Creare un pool di host con Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Esercitazione: creare un pool di host con Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Creare un pool di host con PowerShell](create-host-pools-powershell.md)
 - [Creare un contenitore di profili per un pool host usando una condivisione file](create-host-pools-user-profile.md)
 - [Configurare il metodo di bilanciamento del carico per desktop virtuali Windows](configure-host-pool-load-balancing.md)

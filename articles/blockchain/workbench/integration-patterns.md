@@ -1,21 +1,21 @@
 ---
-title: Modelli di integrazione di Smart Contract nell'anteprima di Azure blockchain Workbench
+title: Modelli di integrazione dei contratti intelligenti in Azure Blockchain Workbench
 description: Panoramica dei modelli di integrazione di Smart Contract nell'anteprima di Azure blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 80c4f2683efacf575be853b6268ee958f1567440
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b3e7ff18dddeaeb1a42d69b9ed57d163410fbfa1
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845180"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329216"
 ---
 # <a name="smart-contract-integration-patterns"></a>Modelli di integrazione dei contratti intelligenti
 
@@ -200,11 +200,11 @@ Il processo illustra un modello:
 -   Azure Blockchain Workbench avvia una chiamata al libro mastro, inviando i dati dal sistema esterno a un contratto specifico.
 -   Al momento della ricezione del messaggio, il contratto valuta i dati e può modificare lo stato in base al risultato della valutazione. Ad esempio, per una temperatura elevata, potrebbe modificare lo stato in *Non conforme*.
 
-## <a name="data-integration"></a>Integrazione dei dati
+## <a name="data-integration"></a>Integrazione dati
 
 Oltre alle API REST e basata su messaggi, Azure Blockchain Workbench fornisce anche l'accesso a un database SQL popolato con i metadati sulle applicazioni e sui contratti, nonché i dati transazionali dal libri mastri distribuiti.
 
-![Integrazione dei dati](./media/integration-patterns/data-integration.png)
+![Integrazione dati](./media/integration-patterns/data-integration.png)
 
 L'integrazione dei dati è ben nota:
 

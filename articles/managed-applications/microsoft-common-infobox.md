@@ -1,6 +1,6 @@
 ---
 title: Elemento InfoBox dell'interfaccia utente di Azure | Microsoft Docs
-description: Descrive l'elemento Microsoft.Common.TextBlock dell'interfaccia utente per il portale di Azure.
+description: Descrive l'elemento Microsoft. Common. InfoBox dell'interfaccia utente per portale di Azure. Usare per aggiungere testo o avvisi quando si distribuisce un'applicazione gestita.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2330197b4512dfdd72de3529145103b644594e25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67ae05c2ec7b36d76e49f26d5765bbc68b952292
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711231"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331683"
 ---
 # <a name="microsoftcommoninfobox-ui-element"></a>Elemento Microsoft.Common.InfoBox dell'interfaccia utente
 Un controllo che aggiunge una casella di informazioni. La casella contiene testo importante o avvisi che consentono agli utenti di conoscere i valori che forniscono. Può anche fornire un collegamento a un URI per altre informazioni.
@@ -41,7 +41,7 @@ Un controllo che aggiunge una casella di informazioni. La casella contiene testo
 }
 ```
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 * Per `icon`, usare **Nessuno**, **Informazioni**, **Avviso** o **Errore**.
 * La proprietà `uri` è facoltativa.

@@ -10,18 +10,18 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: conceptual
 ms.date: 10/3/2019
-ms.openlocfilehash: 62eb5f72d4b4395602b2665c0d1b3da4f6bb459b
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 76a550e95de24bf65b9b6097dd332e535da5b1c4
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950190"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330723"
 ---
 # <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Strumenti di sviluppo nel Data Science Virtual Machine di Azure
 
 Il Data Science Virtual Machine (DSVM) raggruppa diversi strumenti diffusi in un ambiente IDE (highly produttivi Integrated Development Environment). Ecco alcuni strumenti offerti dalla macchina virtuale per data science.
 
-## <a name="visual-studio-2017"></a>Visual Studio 2017
+## <a name="visual-studio-community-2017"></a>Visual Studio Community 2017
 
 |    |           |
 | ------------- | ------------- |
@@ -29,8 +29,11 @@ Il Data Science Virtual Machine (DSVM) raggruppa diversi strumenti diffusi in un
 | Versioni di DSVM supportate      | Windows      |
 | Usi tipici      | Sviluppo di software    |
 | Come viene configurato e installato in DSVM?      | Carico di lavoro di data science (strumenti Python e R), carico di lavoro di Azure (Hadoop e Data Lake), Node.js, strumenti di SQL Server, [Azure Machine Learning per Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
-| Come usarlo ed eseguirlo      | Collegamento sul desktop (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
+| Come usarlo ed eseguirlo      | Collegamento sul desktop (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`). Graficamente, aprire Visual Studio usando l'icona del desktop o il menu **Start** . Cercare i programmi premendo il tasto WINDOWS + S e poi **Visual Studio**. È quindi possibile creare progetti in linguaggi come C#, Python, R e Node.js.   |
 | Strumenti correlati in DSVM      |     Visual Studio Code, RStudio, Juno  |
+
+> [!NOTE]
+> Potrebbe essere visualizzato un messaggio indicante che il periodo di valutazione è scaduto. Immettere le credenziali dell'account Microsoft oppure creare un nuovo account gratuito per poter accedere a Visual Studio Community.
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
 
