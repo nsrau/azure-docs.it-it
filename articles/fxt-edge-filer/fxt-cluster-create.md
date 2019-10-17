@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: v-erkell
-ms.openlocfilehash: 94ec2b088940f4f1f683a4f88ae312879d909bc1
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.author: rohogue
+ms.openlocfilehash: 54d70f60d4b7290b60c864817c756648fef1f481
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543619"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256080"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Esercitazione: Creare il cluster Azure FXT Edge Filer
 
@@ -379,13 +379,13 @@ Attenersi alla procedura seguente per configurare il supporto dei caricamenti.
 1. Fare clic sul pulsante **Revalidate upload information** (Riconvalida informazioni caricamento).
 1. Impostare il nome del cluster per il supporto in **Unique Cluster Name** (Nome univoco cluster), assicurandosi che identifichi il cluster in modo univoco per il personale di supporto.
 1. Selezionare le caselle relative a **Statistics Monitoring** (Monitoraggio statistiche), **General Information Upload** (Caricamento informazioni generali) e **Crash Information Upload** (Caricamento informazioni arresto anomalo).
-1. Fare clic su **Submit**.  
+1. Fare clic su **Submit** (Invia).  
 
    ![Screenshot con la sezione delle informazioni del cliente completata nella pagina delle impostazioni di supporto](media/fxt-cluster-create/fxt-support-info.png)
 
 1. Fare clic sul triangolo a sinistra di **Secure Proactive Support (SPS)** (Supporto proattivo sicuro (SPS)) per espandere la sezione.
 1. Selezionare la casella **Enable SPS Link** (Abilita collegamento SPS).
-1. Fare clic su **Submit**.
+1. Fare clic su **Submit** (Invia).
 
    ![Schermata contenente la sezione del supporto proattivo sicuro completata nella pagina delle impostazioni di supporto](media/fxt-cluster-create/fxt-support-sps.png)
 

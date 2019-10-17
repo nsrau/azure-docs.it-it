@@ -5,19 +5,19 @@ author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: v-erkell
-ms.openlocfilehash: ae179e8ce2a2ba772a7fb14825660e0fff9e7410
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.author: rohogue
+ms.openlocfilehash: 474172284383bc9ba0e5b5c11c66e1b990010184
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542924"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254866"
 ---
 # <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Esercitazione: Creare connessioni di rete e alimentare il nodo Azure FXT Edge Filer
 
 Questa esercitazione spiega su come cablare le connessioni di rete per un nodo hardware Azure FXT Edge Filer.
 
-In questa esercitazione si apprenderà come: 
+In questa esercitazione si apprenderà: 
 
 > [!div class="checklist"]
 > * Scegliere il tipo di cavo di rete per l'ambiente corrente

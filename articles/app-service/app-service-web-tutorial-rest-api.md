@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 137b569820ea7394b6a3beb24129c905a2efd123
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: f13b390047ea4d8280b106f3b02a8f18944a6f99
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743869"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255143"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Esercitazione: Ospitare un'API RESTful con CORS nel servizio app di Azure
 
@@ -72,7 +72,7 @@ dotnet run
 
 Passare a `http://localhost:5000/swagger` in un browser per provare a usare l'interfaccia utente Swagger.
 
-![API ASP.NET Core in esecuzione in locale](./media/app-service-web-tutorial-rest-api/local-run.png)
+![API ASP.NET Core in esecuzione in locale](./media/app-service-web-tutorial-rest-api/azure-app-service-local-swagger-ui.png)
 
 Passare a `http://localhost:5000/api/todo` e visualizzare un elenco di elementi ToDo JSON.
 
@@ -136,7 +136,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 Passare a `http://<app_name>.azurewebsites.net/swagger` in un browser e provare a usare l'interfaccia utente Swagger.
 
-![API ASP.NET Core in esecuzione nel servizio app di Azure](./media/app-service-web-tutorial-rest-api/azure-run.png)
+![API ASP.NET Core in esecuzione nel servizio app di Azure](./media/app-service-web-tutorial-rest-api/azure-app-service-browse-app.png)
 
 Passare a `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json` per visualizzare il file _swagger.json_ per l'API distribuita.
 
@@ -160,7 +160,7 @@ dotnet run
 
 Passare all'app browser all'indirizzo `http://localhost:5000`. Aprire la finestra degli strumenti di sviluppo nel browser (`Ctrl`+`Shift`+`i` in Chrome per Windows) ed esaminare la scheda **Console**. Verrà visualizzato il messaggio di errore `No 'Access-Control-Allow-Origin' header is present on the requested resource`
 
-![Errore CORS nel client browser](./media/app-service-web-tutorial-rest-api/cors-error.png)
+![Errore CORS nel client browser](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
 A causa della mancata corrispondenza di dominio tra l'app browser (`http://localhost:5000`) e la risorsa remota (`http://<app_name>.azurewebsites.net`) e dato che l'API nel servizio app non invia l'intestazione `Access-Control-Allow-Origin`, il browser ha impedito il caricamento di contenuto tra domini nell'app browser.
 
@@ -183,7 +183,7 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 
 Aggiornare l'app browser all'indirizzo `http://localhost:5000`. Il messaggio di errore nella finestra **Console** non viene più visualizzato ed è possibile esaminare i dati dell'API distribuita e interagirvi. L'API remota supporta ora CORS per l'app browser in esecuzione in locale. 
 
-![Supporto per CORS abilitato nel client browser](./media/app-service-web-tutorial-rest-api/cors-success.png)
+![Supporto per CORS abilitato nel client browser](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-success.png)
 
 L'API viene ora eseguita nel servizio app di Azure con il supporto per CORS.
 
