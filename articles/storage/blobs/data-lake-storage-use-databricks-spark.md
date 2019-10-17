@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 66394600963cf154b3cb1fe661968f4ded2ec225
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 0607c2b848a486e24654081bd7937cb734394e58
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992273"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331827"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Esercitazione: Accedere ai dati di Data Lake Storage Gen2 con Azure Databricks usando Spark
 
@@ -97,15 +97,13 @@ In questa sezione si crea un servizio Azure Databricks con il portale di Azure.
 
     ![Creare il cluster Databricks Spark in Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Creare il cluster Databricks Spark in Azure")
 
-4. Specificare i valori per i campi seguenti e accettare i valori predefiniti per gli altri campi:
+    Specificare i valori per i campi seguenti e accettare i valori predefiniti per gli altri campi:
 
-    * Immettere un nome per il cluster.
+    - Immettere un nome per il cluster.
+     
+    - Assicurarsi di selezionare la casella di controllo **Terminate after 120 minutes of inactivity** (Termina dopo 120 minuti di inattività). Specificare una durata in minuti per terminare il cluster, se questo non viene usato.
 
-    * Per questo articolo, creare un cluster con il runtime **5.1**.
-
-    * Assicurarsi di selezionare la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo \_\_ minuti di inattività). Se il cluster non viene usato, specificare una durata in minuti per terminarlo.
-
-    * Selezionare **Crea cluster**. Quando il cluster è in esecuzione, è possibile collegarvi notebook ed eseguire processi Spark.
+4. Selezionare **Crea cluster**. Quando il cluster è in esecuzione, è possibile collegarvi notebook ed eseguire processi Spark.
 
 ## <a name="ingest-data"></a>Inserire dati
 

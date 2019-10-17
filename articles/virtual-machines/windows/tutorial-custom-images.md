@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1c216e5a572a36d2306326dd0dd6e1b7ed586de8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 58f7e530008303f16f2d015e29e60e95480cab2c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350840"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390561"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Esercitazione: Creare un'immagine personalizzata di una macchina virtuale di Azure con Azure PowerShell
 
@@ -134,6 +134,7 @@ New-AzVm `
 ```
 
 È consigliabile limitare il numero delle distribuzioni simultanee a 20 macchine virtuali per singola immagine. Se si pianificano distribuzioni simultanee su larga scala di più di 20 macchine virtuali dalla stessa immagine personalizzata, è consigliabile usare una [Raccolta immagini condivise](shared-image-galleries.md) con più repliche di immagini. 
+
 
 ## <a name="image-management"></a>Gestione delle immagini 
 
