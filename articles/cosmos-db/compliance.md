@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 35c8841220c116cc34ba670eaa9ac7b36dc4cd7a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 3c77cc1baa07b0ee0e9f0141d81c623259ea57c4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615524"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387517"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Conformità in Azure Cosmos DB 
 
@@ -36,7 +36,7 @@ La copertura di certificazione per Azure Cosmos DB è in continua espansione. At
 
 | **Applicabile a livello globale** | **US Government** | **Specifici del settore** | **Specifici di area o paese** |
 | --- | --- | --- | --- |
-| Certificazione CSA STAR | DoD SRG livello 2 | HIPAA BAA | Australia IRAP Unclassified |
+| Certificazione CSA STAR | DoD SRG livello 2 | Contratto di società in affari HIPAA | IRAP australiano |
 | Attestazione CSA STAR | FedRAMP Moderate | HITRUST | Germania C5|
 | ISO 20000-1:2011 | GxP (FDA 21 CFR parte 11) | PCI DSS | Singapore MTCS livello 3 |
 | ISO 22301:2012 | | | Spagna ENS High|
@@ -52,7 +52,7 @@ La tabella seguente elenca le certificazioni supportate da Azure Cosmos DB in Az
 
 | **Applicabile a livello globale** | **US Government** | **Specifici del settore** | 
 | --- | --- | --- | --- |
-| Certificazione CSA STAR | CJIS| HIPAA BAA | 
+| Certificazione CSA STAR | CJIS| Contratto di società in affari HIPAA | 
 | Attestazione CSA STAR| DoD SRG livello 2| HITRUST  | 
 | ISO 20000-1:2011 | Livello 4 della SRG di DoD | PCI DSS | 
 | ISO 9001:2012 | DoD SRG livello 5 | | 

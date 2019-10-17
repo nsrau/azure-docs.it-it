@@ -14,20 +14,21 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 74a522f8761c2eeaf329c90ae35aef0f44c40254
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: a3883d233bd621607ec724e0c85734b508195340
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027199"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388667"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Come usare Node.js SDK per App per dispositivi mobili
 
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
 > [!NOTE]
-> Visual Studio App Center supporta end-to-end e servizi integrati centrali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare i servizi di **compilazione**, **test** e **distribuzione** per configurare la pipeline di integrazione e recapito continua. Una volta distribuita l'app, gli sviluppatori possono monitorare lo stato e l'utilizzo dell'app usando i servizi di **analisi** e **diagnostica** e coinvolgere gli utenti che usano il servizio di **push** . Gli sviluppatori possono inoltre sfruttare l' **autenticazione** per autenticare gli utenti e il servizio **dati** per salvare in modo permanente e sincronizzare i dati delle app nel cloud.
-> Se si intende integrare servizi cloud nell'applicazione per dispositivi mobili, iscriversi con App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) oggi stesso.
+> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
+>
+>  Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
 Questo articolo fornisce informazioni dettagliate ed esempi sull'uso di un back-end Node.js nella funzionalità App per dispositivi mobili del servizio app di Azure.
 
@@ -110,7 +111,7 @@ Visual Studio 2015 richiede un'estensione per lo sviluppo di applicazioni Node.j
 1. Aprire la finestra di dialogo **Nuovo progetto** da **File** > **Nuovo** > **Progetto**.
 1. Espandere **Modelli** > **JavaScript** > **Node.js**.
 1. Selezionare **Applicazione Express 4 Node.js di base**.
-1. Immettere il nome del progetto. Scegliere **OK**.
+1. Immettere il nome del progetto. Selezionare **OK**.
 
    ![Nuovo progetto di Visual Studio 2015][1]
 1. Fare clic con il pulsante destro del mouse sul nodo **npm** e scegliere **Installa nuovi pacchetti npm**.
@@ -143,7 +144,7 @@ Visual Studio 2015 richiede un'estensione per lo sviluppo di applicazioni Node.j
 
 ### <a name="create-node-backend-portal"></a>Creare un back-end Node.js usando il portale di Azure
 
-È possibile creare un back-end di App per dispositivi mobili direttamente nel [portale di Azure]. È possibile completare i passaggi seguenti o creare un client e un server seguendo l'esercitazione [Creare un'app per dispositivi mobili](app-service-mobile-ios-get-started.md). L'esercitazione contiene una versione semplificata di queste istruzioni ed è ideale per progetti di prova.
+È possibile creare un back-end di App per dispositivi mobili direttamente nel [Azure portal]. È possibile completare i passaggi seguenti o creare un client e un server seguendo l'esercitazione [Creare un'app per dispositivi mobili](app-service-mobile-ios-get-started.md). L'esercitazione contiene una versione semplificata di queste istruzioni ed è ideale per progetti di prova.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
@@ -196,7 +197,7 @@ var mobile = azureMobileApps({ homePage: true });
 
 Node.js Server SDK (azure-mobile-apps) offre diversi meccanismi per esporre le tabelle dati archiviate nel database SQL di Azure come API Web. Offre cinque operazioni:
 
-| Operazione | Descrizione |
+| Operazione | Description |
 | --- | --- |
 | GET /tables/*tablename* |Ottenere tutti i record nella tabella. |
 | GET /tables/*tablename*/:id |Ottenere un record specifico nella tabella. |
@@ -302,7 +303,7 @@ Node.js SDK per App per dispositivi mobili usa il [pacchetto mssql per Node.js] 
 
       ![Configurare SQL Server Express per TCP/IP][3]
 
-   g. Scegliere **OK**. Selezionare **OK** nella finestra di dialogo popup.
+   g. Selezionare **OK**. Selezionare **OK** nella finestra di dialogo popup.
 
    h. Fare clic su **Servizi di SQL Server** nel menu ad albero.
 
@@ -315,19 +316,19 @@ Node.js SDK per App per dispositivi mobili usa il [pacchetto mssql per Node.js] 
    1. Fare clic con il pulsante destro del mouse sull'istanza in Esplora oggetti e scegliere **Proprietà**.
    1. Selezionare la pagina **Sicurezza** .
    1. Assicurarsi che l'opzione **Autenticazione di SQL Server e di Windows** sia selezionata.
-   1. Scegliere **OK**.
+   1. Selezionare **OK**.
 
       ![Configurare l'autenticazione di SQL Server Express][4]
    1. Espandere **Sicurezza** > **Account di accesso** in Esplora oggetti.
    1. Fare clic con il pulsante destro del mouse su **Account di accesso** e scegliere **Nuovo account accesso**.
    1. Immettere un nome account di accesso. Selezionare **Autenticazione di SQL Server**. Immettere una password e quindi immetterla di nuovo in **Conferma password**. La password deve soddisfare i requisiti di complessità di Windows.
-   1. Scegliere **OK**.
+   1. Selezionare **OK**.
 
       ![Aggiungere un nuovo utente a SQL Server Express][5]
    1. Fare clic con il pulsante destro del mouse sul nuovo account di accesso e scegliere **Proprietà**.
    1. Selezionare la pagina **Ruoli server**.
    1. Selezionare la casella di controllo accanto al ruolo server **dbcreator**.
-   1. Scegliere **OK**.
+   1. Selezionare **OK**.
    1. Chiudere SQL Server 2015 Management Studio.
 
 Prendere nota del nome utente e della password selezionati. Potrebbe essere necessario assegnare autorizzazioni o ruoli del server aggiuntivi a seconda dei requisiti di database specifici.
@@ -340,7 +341,7 @@ Accedere al database con una connessione TCP/IP. Fornire un nome utente e una pa
 
 ### <a name="howto-config-localdev"></a>Configurare il progetto per lo sviluppo locale
 
-App per dispositivi mobili legge un file JavaScript denominato *azureMobile.js* dal file system locale. Non usare questo file per configurare Mobile Apps SDK nell'ambiente di produzione. Usare invece **Impostazioni app** nel [portale di Azure].
+App per dispositivi mobili legge un file JavaScript denominato *azureMobile.js* dal file system locale. Non usare questo file per configurare Mobile Apps SDK nell'ambiente di produzione. Usare invece **Impostazioni app** nel [Azure portal].
 
 Il file azureMobile.js deve esportare un oggetto di configurazione. Le impostazioni più comuni sono:
 
@@ -368,13 +369,13 @@ module.exports = {
 };
 ```
 
-È consigliabile aggiungere **azureMobile.js** al file con estensione **.gitignore**, o altro file IGNORE di controllo del codice sorgente, per evitare che le password vengano archiviate nel cloud. Configurare sempre le impostazioni di produzione in **Impostazioni app** nel [portale di Azure].
+È consigliabile aggiungere **azureMobile.js** al file con estensione **.gitignore**, o altro file IGNORE di controllo del codice sorgente, per evitare che le password vengano archiviate nel cloud. Configurare sempre le impostazioni di produzione in **Impostazioni app** nel [Azure portal].
 
 ### <a name="howto-appsettings"></a>Configurare le impostazioni dell'app per dispositivi mobili
 
-Quasi tutte le impostazioni nel file azureMobile.js hanno un'impostazione app equivalente nel [portale di Azure]. Usare l'elenco seguente per configurare l'app in **Impostazioni app**:
+Quasi tutte le impostazioni nel file azureMobile.js hanno un'impostazione app equivalente nel [Azure portal]. Usare l'elenco seguente per configurare l'app in **Impostazioni app**:
 
-| Impostazione app | Impostazione in azureMobile.js | Descrizione | Valori validi |
+| Impostazione app | Impostazione in azureMobile.js | Description | Valori validi |
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |name |Nome dell'app |string |
 | **MS_MobileLoggingLevel** |logging.level |Livello log minimo di messaggi da registrare |error, warning, info, verbose, debug, silly |
@@ -386,7 +387,7 @@ Quasi tutte le impostazioni nel file azureMobile.js hanno un'impostazione app eq
 
 Per definire un'impostazione app:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Azure portal].
 1. Selezionare **Tutte le risorse** o **Servizi app** e quindi selezionare il nome dell'app per dispositivi mobili.
 1. Per impostazione predefinita si apre il riquadro **Impostazioni**. In caso contrario selezionare **Impostazioni**.
 1. Nel menu **GENERALE** selezionare **Impostazioni dell'applicazione**.
@@ -403,7 +404,7 @@ Per modificare la maggior parte delle impostazioni dell'app, è necessario riavv
 
 L'uso del database SQL di Azure come archivio dati è identico in tutti i tipi di applicazione del Servizio app di Azure. Se non è già stato fatto, seguire questa procedura per creare un back-end di App per dispositivi mobili:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Azure portal].
 1. Nella parte superiore sinistra della finestra selezionare **+NUOVO** > **Web e dispositivi mobili** > **App per dispositivi mobili** e quindi specificare un nome per il back-end di App per dispositivi mobili.
 1. Nella casella **Gruppo di risorse** immettere lo stesso nome dell'app.
 1. Viene selezionato il piano di servizio app predefinito. Per modificare il piano di servizio App:
@@ -414,10 +415,10 @@ L'uso del database SQL di Azure come archivio dati è identico in tutti i tipi d
 
    c. Selezionare un piano tariffario appropriato per il servizio. Selezionare **Visualizza tutto** per visualizzare altre opzioni sui prezzi, ad esempio **Gratuito** e **Condiviso**.
 
-   d. Scegliere il **seleziona** pulsante.
+   d. Fare clic sul pulsante **Seleziona**.
 
    e. Nel riquadro **Piano di servizio app** fare clic su **OK**.
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
 L'operazione di provisioning di un back-end di App per dispositivi mobili può richiedere alcuni minuti. Dopo avere eseguito il provisioning del back-end di App per dispositivi mobili, nel portale si apre il riquadro **Impostazioni** relativo al back-end di App per dispositivi mobili.
 
@@ -428,11 +429,11 @@ L'operazione di provisioning di un back-end di App per dispositivi mobili può r
 
 1. Nel nuovo back-end di App per dispositivi mobili selezionare **Impostazioni** > **App per dispositivi mobili** > **Dati** >  **+Aggiungi**.
 1. Nel riquadro **Aggiungi connessione dati** selezionare **Database SQL - Configura le impostazioni obbligatorie** > **Crea un nuovo database**. Immettere il nome del nuovo database nella casella **Nome**.
-1. Selezionare **Server**. Nel riquadro **Nuovo server** immettere un nome di server univoco nella casella **Nome server** e specificare un account di accesso amministratore server e una password idonei. Verificare che l'opzione **Consenti ai servizi di Azure di accedere al server** sia selezionata. Scegliere **OK**.
+1. Selezionare **Server**. Nel riquadro **Nuovo server** immettere un nome di server univoco nella casella **Nome server** e specificare un account di accesso amministratore server e una password idonei. Verificare che l'opzione **Consenti ai servizi di Azure di accedere al server** sia selezionata. Selezionare **OK**.
 
    ![Creare un database SQL di Azure][6]
 1. Nel riquadro **Nuovo database** selezionare **OK**.
-1. Nel pannello **Aggiungi connessione dati** selezionare **Stringa di connessione** e immettere l'account di accesso e la password specificati al momento della creazione del database. Se si usa un database esistente, fornire le credenziali di accesso per il database. Scegliere **OK**.
+1. Nel pannello **Aggiungi connessione dati** selezionare **Stringa di connessione** e immettere l'account di accesso e la password specificati al momento della creazione del database. Se si usa un database esistente, fornire le credenziali di accesso per il database. Selezionare **OK**.
 1. Nel riquadro **Aggiungi connessione dati** selezionare **OK** per creare il database.
 
 <!--- END OF ALTERNATE INCLUDE -->
@@ -441,7 +442,7 @@ La creazione del database può richiedere alcuni minuti. Usare l'area **Notifich
 
 ### <a name="howto-tables-auth"></a>Richiedere l'autenticazione per l'accesso alle tabelle
 
-Per usare l'autenticazione del servizio app con l'endpoint `tables`, è prima necessario configurare l'autenticazione del servizio app nel [portale di Azure]. Per altre informazioni, vedere la guida alla configurazione del provider di identità che si intende usare:
+Per usare l'autenticazione del servizio app con l'endpoint `tables`, è prima necessario configurare l'autenticazione del servizio app nel [Azure portal]. Per altre informazioni, vedere la guida alla configurazione del provider di identità che si intende usare:
 
 * [Configurare l'autenticazione di Azure Active Directory]
 * [Configurare l'autenticazione di Facebook]
@@ -752,7 +753,7 @@ Durante la registrazione per le notifiche push da un client autenticato, assicur
 
 Oltre all'API di accesso ai dati tramite l'endpoint `/tables`, App per dispositivi mobili può fornire la copertura per le API personalizzate. Le API personalizzate sono definite in modo analogo alle definizioni di tabella e possono accedere alle stesse funzionalità, inclusa l'autenticazione.
 
-Per usare l'autenticazione del servizio app con un'API personalizzata, è prima necessario configurare l'autenticazione del servizio app nel [portale di Azure]. Per altre informazioni, vedere la guida alla configurazione del provider di identità che si intende usare:
+Per usare l'autenticazione del servizio app con un'API personalizzata, è prima necessario configurare l'autenticazione del servizio app nel [Azure portal]. Per altre informazioni, vedere la guida alla configurazione del provider di identità che si intende usare:
 
 * [Configurare l'autenticazione di Azure Active Directory]
 * [Configurare l'autenticazione di Facebook]
@@ -906,7 +907,7 @@ Per iniziare la risoluzione dei problemi del back-end Node.js di App per disposi
 * [Abilitare la registrazione diagnostica nel servizio app di Azure]
 * [Risolvere i problemi del servizio app di Azure in Visual Studio]
 
-Le applicazioni Node.js hanno accesso a un'ampia gamma di strumenti per i log di diagnostica. Node.js SDK per App per dispositivi mobili usa al suo interno [Winston] per la registrazione diagnostica. La registrazione viene abilitata automaticamente abilitando la modalità di debug o usando true per l'impostazione `MS_DebugMode` dell'app nel [portale di Azure]. I log generati vengono visualizzati tra i log di diagnostica del [portale di Azure].
+Le applicazioni Node.js hanno accesso a un'ampia gamma di strumenti per i log di diagnostica. Node.js SDK per App per dispositivi mobili usa al suo interno [Winston] per la registrazione diagnostica. La registrazione viene abilitata automaticamente abilitando la modalità di debug o usando true per l'impostazione `MS_DebugMode` dell'app nel [Azure portal]. I log generati vengono visualizzati tra i log di diagnostica del [Azure portal].
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png
@@ -942,7 +943,7 @@ Le applicazioni Node.js hanno accesso a un'ampia gamma di strumenti per i log di
 [Express]: https://expressjs.com/
 [Swagger]: https://swagger.io/
 
-[Portale di Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [OData]: https://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [esempio basicapp in GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

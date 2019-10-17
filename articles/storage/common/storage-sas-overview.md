@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0410da26a2ea5811c5a107ce233f2442b60fd9ca
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 9623152bdea5cc56e6b9bcb7d9911a730fd7a4a4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670838"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72382004"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)
 
@@ -24,17 +24,25 @@ Una firma di accesso condiviso (SAS) fornisce accesso delegato sicuro alle risor
 
 Archiviazione di Azure supporta tre tipi di firme di accesso condiviso:
 
-- **SAS di delega utente (anteprima).** Una firma di accesso condiviso di delega utente è protetta con credenziali Azure Active Directory (Azure AD) e anche dalle autorizzazioni specificate per la firma di accesso condiviso. Una firma di accesso condiviso di delega utente si applica solo all'archiviazione BLOB. Per creare una firma di accesso condiviso dell'utente, è necessario innanzitutto richiedere una chiave di delega utente, usata per firmare la firma di accesso condiviso. Per altre informazioni sulla firma di accesso condiviso della delega utente, vedere [creare una firma di accesso condiviso utente (API REST)](/rest/api/storageservices/create-user-delegation-sas).
-- **Firma di accesso condiviso del servizio.** Una firma di accesso condiviso del servizio è protetta con la chiave dell'account di archiviazione. Una firma di accesso condiviso del servizio delega l'accesso a una risorsa in uno solo dei servizi di archiviazione di Azure: Archiviazione BLOB, archiviazione code, archiviazione tabelle o File di Azure. Per altre informazioni sulla firma di accesso condiviso del servizio, vedere creare una firma di accesso condiviso del [servizio (API REST)](/rest/api/storageservices/create-service-sas).
-- **Firma di accesso condiviso dell'account.** Una firma di accesso condiviso dell'account è protetta con la chiave dell'account di archiviazione. Una firma di accesso condiviso dell'account delega l'accesso alle risorse in uno o più servizi di archiviazione. Tutte le operazioni disponibili tramite una firma di accesso condiviso dell'utente o del servizio sono disponibili anche tramite una firma di accesso condiviso dell'account. Con la firma di accesso condiviso dell'account è inoltre possibile delegare l'accesso alle operazioni che si applicano a livello del servizio, ad esempio **Get/Set Service Properties** e **Get Service stats** Operation. È anche possibile delegare l'accesso alle operazioni di lettura, scrittura ed eliminazioni in contenitori BLOB, tabelle, code e condivisioni file, che con una firma di accesso condiviso del servizio non è consentito. Per altre informazioni sulla firma di accesso condiviso dell'account, creare una firma di accesso condiviso dell' [account (API REST)](/rest/api/storageservices/create-account-sas).
+- **SAS di delega utente (anteprima).** Una firma di accesso condiviso di delega utente è protetta con credenziali Azure Active Directory (Azure AD) e anche dalle autorizzazioni specificate per la firma di accesso condiviso. Una firma di accesso condiviso di delega utente si applica solo all'archiviazione BLOB.
+
+    Per altre informazioni sulla firma di accesso condiviso della delega utente, vedere [creare una firma di accesso condiviso utente (API REST)](/rest/api/storageservices/create-user-delegation-sas).
+
+- **Firma di accesso condiviso del servizio.** Una firma di accesso condiviso del servizio è protetta con la chiave dell'account di archiviazione. Una firma di accesso condiviso del servizio delega l'accesso a una risorsa in uno solo dei servizi di archiviazione di Azure: archiviazione BLOB, archiviazione code, archiviazione tabelle o File di Azure. 
+
+    Per altre informazioni sulla firma di accesso condiviso del servizio, vedere creare una firma di accesso condiviso del [servizio (API REST)](/rest/api/storageservices/create-service-sas).
+
+- **Firma di accesso condiviso dell'account.** Una firma di accesso condiviso dell'account è protetta con la chiave dell'account di archiviazione. Una firma di accesso condiviso dell'account delega l'accesso alle risorse in uno o più servizi di archiviazione. Tutte le operazioni disponibili tramite una firma di accesso condiviso dell'utente o del servizio sono disponibili anche tramite una firma di accesso condiviso dell'account. Con la firma di accesso condiviso dell'account è inoltre possibile delegare l'accesso alle operazioni che si applicano a livello del servizio, ad esempio **Get/Set Service Properties** e **Get Service stats** Operation. È anche possibile delegare l'accesso alle operazioni di lettura, scrittura ed eliminazioni in contenitori BLOB, tabelle, code e condivisioni file, che con una firma di accesso condiviso del servizio non è consentito. 
+
+    Per altre informazioni sulla firma di accesso condiviso dell'account, creare una firma di accesso condiviso dell' [account (API REST)](/rest/api/storageservices/create-account-sas).
 
 > [!NOTE]
 > Microsoft consiglia di utilizzare le credenziali di Azure AD quando possibile come procedura di sicurezza consigliata, anziché utilizzare la chiave dell'account, che può essere compromessa in modo più semplice. Quando la progettazione dell'applicazione richiede firme di accesso condiviso per l'accesso all'archiviazione BLOB, usare le credenziali Azure AD per creare una firma di accesso condiviso di delega utente quando possibile per una sicurezza superiore.
 
 Una firma di accesso condiviso può assumere una delle due forme seguenti:
 
-- **Firma di accesso condiviso ad hoc:** Quando si crea una firma di accesso condiviso ad hoc, l'ora di inizio, l'ora di scadenza e le autorizzazioni per la firma di accesso condiviso vengono tutte specificate nell'URI della firma di accesso condiviso (o implicita se l'ora di inizio viene omessa). Qualsiasi tipo di firma di accesso condiviso può essere una firma di accesso condiviso ad hoc.
-- **Firma di accesso condiviso del servizio con criteri di accesso archiviati:** Un criterio di accesso archiviato è definito in un contenitore di risorse, che può essere un contenitore BLOB, una tabella, una coda o una condivisione file. I criteri di accesso archiviati possono essere usati per gestire i vincoli per una o più firme di accesso condiviso del servizio. Quando si associa una firma di accesso condiviso del servizio a un criterio di accesso archiviato, la firma di accesso condiviso eredita i vincoli @ no__t-0The per l'ora di inizio, l'ora di scadenza e le autorizzazioni @ no__t-1defined per i criteri di accesso archiviati.
+- **SAS ad hoc:** Quando si crea una firma di accesso condiviso ad hoc, l'ora di inizio, l'ora di scadenza e le autorizzazioni per la firma di accesso condiviso vengono tutte specificate nell'URI della firma di accesso condiviso (o implicita se l'ora di inizio viene omessa). Qualsiasi tipo di firma di accesso condiviso può essere una firma di accesso condiviso ad hoc.
+- Firma **di accesso condiviso del servizio con criteri di accesso archiviati:** Un criterio di accesso archiviato è definito in un contenitore di risorse, che può essere un contenitore BLOB, una tabella, una coda o una condivisione file. I criteri di accesso archiviati possono essere usati per gestire i vincoli per una o più firme di accesso condiviso del servizio. Quando si associa una firma di accesso condiviso del servizio a un criterio di accesso archiviato, la firma di accesso condiviso eredita i vincoli @ no__t-0The per l'ora di inizio, l'ora di scadenza e le autorizzazioni @ no__t-1defined per i criteri di accesso archiviati.
 
 > [!NOTE]
 > Una firma di accesso condiviso dell'utente o una firma di accesso condiviso dell'account deve essere una SAS ad hoc. I criteri di accesso archiviati non sono supportati per la firma di accesso condiviso utente o la firma di accesso condiviso dell'account.
@@ -47,13 +55,13 @@ Una firma di accesso condiviso è un URI con fimra che punta a una o più risors
 
 È possibile firmare una firma di accesso condiviso in uno dei due modi seguenti:
 
-- Con una chiave di delega utente creata con le credenziali Azure Active Directory (Azure AD). Una firma di accesso condiviso di delega utente è firmata con la chiave di delega utente.
+- Con una *chiave di delega utente* creata con le credenziali Azure Active Directory (Azure ad). Una firma di accesso condiviso di delega utente è firmata con la chiave di delega utente.
 
     Per ottenere la chiave di delega utente e creare la firma di accesso condiviso, è necessario assegnare a un'entità di sicurezza Azure AD un ruolo di controllo degli accessi in base al ruolo che includa l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** . Per informazioni dettagliate sui ruoli di controllo degli accessi in base al ruolo con autorizzazioni per ottenere la chiave di delega utente, vedere creare una firma di accesso condiviso [utente (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
 - Con la chiave dell'account di archiviazione. Una firma di accesso condiviso del servizio e una firma di accesso condiviso dell'account sono firmate con la chiave account di archiviazione Per creare una firma di accesso condiviso con la chiave dell'account, un'applicazione deve avere accesso alla chiave dell'account.
 
-### <a name="sas-token"></a>Token di firma di accesso condiviso
+### <a name="sas-token"></a>Token SAS
 
 Il token di firma di accesso condiviso è una stringa generata sul lato client, ad esempio usando una delle librerie client di archiviazione di Azure. Il token di firma di accesso condiviso non viene rilevato in alcun modo da archiviazione di Azure. È possibile creare un numero illimitato di token di firma di accesso condiviso sul lato client. Dopo aver creato una firma di accesso condiviso, è possibile distribuirla alle applicazioni client che richiedono l'accesso alle risorse nell'account di archiviazione.
 
@@ -71,11 +79,11 @@ Uno scenario comune in cui la firma di accesso condiviso risulta utile è costit
 
 1. I client caricano e scaricano dati tramite un servizio proxy front-end che esegue l'autenticazione. Tale servizio presenta il vantaggio di consentire la convalida delle regole di business, tuttavia per grandi quantità di dati o per transazioni con volumi elevati, la creazione di un servizio scalabile in base alla domanda può risultare oneroso o complesso.
 
-   ![Diagramma dello scenario: Servizio proxy front-end](./media/storage-sas-overview/sas-storage-fe-proxy-service.png)
+   ![Diagramma dello scenario: il servizio proxy front-end](./media/storage-sas-overview/sas-storage-fe-proxy-service.png)
 
 1. Un servizio semplificato autentica il client in base alle necessità e quindi genera una firma di accesso condiviso. Quando l'applicazione client riceve la firma di accesso condiviso, può accedere alle risorse dell'account di archiviazione direttamente con le autorizzazioni definite dalla firma di accesso condiviso e per l'intervallo consentito dalla firma di accesso condiviso. La firma di accesso condiviso consente di ridurre la necessità di instradare tutti i dati tramite il servizio proxy front-end.
 
-   ![Diagramma dello scenario: Servizio provider di firma di accesso condiviso](./media/storage-sas-overview/sas-storage-provider-service.png)
+   ![Diagramma dello scenario: servizio provider di firma di accesso condiviso](./media/storage-sas-overview/sas-storage-provider-service.png)
 
 Molti servizi reali possono usare una combinazione di questi due approcci. Ad esempio, alcuni dati potrebbero essere elaborati e convalidati tramite il proxy front-end, mentre altri vengono salvati e/o letti direttamente tramite la firma di accesso condiviso.
 
@@ -99,7 +107,7 @@ Per mitigare questi rischi, è consigliabile attenersi ai consigli seguenti rela
 - **Disporre di un piano di revoca per una firma di accesso condiviso.** Assicurarsi di essere pronti a rispondere se una firma di accesso condiviso è compromessa.
 - **Definire un criterio di accesso archiviato per una firma di accesso condiviso del servizio.** I criteri di accesso archiviati offrono la possibilità di revocare le autorizzazioni per una firma di accesso condiviso del servizio senza dover rigenerare le chiavi dell'account di archiviazione. Impostare la loro scadenza a un momento molto lontano nel futuro (o infinito) e assicurarsi che venga aggiornata regolarmente in modo che ricorra nel futuro.
 - **Usare i tempi di scadenza a breve termine per una firma di accesso condiviso ad hoc o una firma di accesso condiviso del servizio.** In questo modo, anche se una firma di accesso condiviso viene compromessa, è valida solo per un breve periodo di tempo. Questo consiglio è particolarmente importante se non è possibile fare riferimento a criteri di accesso archiviati Una scadenza breve consente anche di limitare la quantità di dati che è possibile scrivere in un BLOB riducendo il tempo disponibile per il caricamento.
-- **Se necessario, chiedere ai client di rinnovare automaticamente la firma di accesso condiviso..** È consigliabile rinnovare la firma di accesso condiviso nei client prima della scadenza in modo da avere la possibilità di effettuare altri tentativi qualora il servizio che fornisce la firma di accesso condiviso non sia disponibile. Se la firma di accesso condiviso è destinata a essere utilizzata per poche operazioni immediate e di breve durata da completare entro la data di scadenza, il rinnovo della firma di accesso condiviso non è necessario. Se tuttavia si dispone di client che effettuano normalmente richieste tramite la firma di accesso condiviso, è necessario considerare la possibilità che la firma scada. In questo caso è essenziale trovare un punto di equilibrio tale da garantire che la firma di accesso condiviso sia di breve durata (come indicato in precedenza) e che il client richieda il rinnovo in tempo utile per evitare malfunzionamenti causati dalla scadenza della firma prima del rinnovo.
+- **Se necessario, chiedere ai client di rinnovare automaticamente la firma di accesso condiviso.** È consigliabile rinnovare la firma di accesso condiviso nei client prima della scadenza in modo da avere la possibilità di effettuare altri tentativi qualora il servizio che fornisce la firma di accesso condiviso non sia disponibile. Se la firma di accesso condiviso è destinata a essere utilizzata per poche operazioni immediate e di breve durata da completare entro la data di scadenza, il rinnovo della firma di accesso condiviso non è necessario. Se tuttavia si dispone di client che effettuano normalmente richieste tramite la firma di accesso condiviso, è necessario considerare la possibilità che la firma scada. In questo caso è essenziale trovare un punto di equilibrio tale da garantire che la firma di accesso condiviso sia di breve durata (come indicato in precedenza) e che il client richieda il rinnovo in tempo utile per evitare malfunzionamenti causati dalla scadenza della firma prima del rinnovo.
 - **Prestare attenzione all'ora di inizio della firma di accesso condiviso.** Se si imposta l'ora di inizio della firma di accesso condiviso su **ora**, a causa dello sfasamento di orario, ovvero delle differenze dell'ora corrente a seconda del computer in uso, potrebbero verificarsi problemi intermittenti nei primi minuti. In generale, impostare l'ora di inizio ad almeno 15 minuti prima. Oppure evitare di impostarla, in modo che la firma diventi immediatamente valida in tutti i casi. Le stesse considerazioni sono valide anche per la scadenza, pertanto è consigliabile osservare fino a 15 minuti di sfasamento di orario in entrambe le direzioni per qualsiasi richiesta. Per i client che usano una versione di REST precedente la 2012-02-12, la durata massima della firma di accesso condiviso che non fa riferimento a criteri di accesso archiviati è di 1 ora, pertanto tutti i criteri di durata maggiore non saranno validi.
 - **Indicare in modo specifico la risorsa cui accedere.** Una procedura di sicurezza consigliata consiste nel fornire a un utente i privilegi minimi necessari. Se un utente necessita solo dell'accesso in lettura a una singola entità, concedere solo tale tipo di accesso per tale entità e non l'accesso in lettura/scrittura/eliminazione per tutte le entità. Ciò consente anche di ridurre i danni se una firma di accesso condiviso viene compromessa in quanto la firma è meno potente nelle mani di un utente malintenzionato.
 - **Tenere presente che l'account verrà fatturato per qualsiasi utilizzo, inclusa la firma di accesso condiviso.** Se si fornisce l'accesso in scrittura a un BLOB, un utente può scegliere di caricare un BLOB di 200 GB. Se si offre anche l'accesso in lettura, l'utente potrebbe scegliere di scaricarlo 10 volte e ciò potrebbe comportare 2 TB di costi in uscita. Anche in questo caso, fornire autorizzazioni limitate per ridurre l'impatto potenziale delle azioni di utenti malintenzionati. Per ridurre questa minaccia, usare firme di accesso condiviso di breve durata, prestando però attenzione allo sfasamento di orario per la scadenza.

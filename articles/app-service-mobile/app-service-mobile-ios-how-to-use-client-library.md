@@ -13,27 +13,28 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 44b3259745877ddb43e643f1fa8307e100ca8b38
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 175351d6bab6cc6aee06b83bdeb8544c2e7c2d24
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025251"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435389"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Come usare la libreria client iOS per le app mobili di Azure
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center supporta end-to-end e servizi integrati centrali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare i servizi di **compilazione**, **test** e **distribuzione** per configurare la pipeline di integrazione e recapito continua. Una volta distribuita l'app, gli sviluppatori possono monitorare lo stato e l'utilizzo dell'app usando i servizi di **analisi** e **diagnostica** e coinvolgere gli utenti che usano il servizio di **push** . Gli sviluppatori possono inoltre sfruttare l' **autenticazione** per autenticare gli utenti e il servizio **dati** per salvare in modo permanente e sincronizzare i dati delle app nel cloud.
-> Se si intende integrare servizi cloud nell'applicazione per dispositivi mobili, iscriversi con App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) oggi stesso.
+> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
+>
+> Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
 ## <a name="overview"></a>Panoramica
-Questa guida illustra come eseguire scenari comuni usando la versione più recente di [iOS SDK per app per dispositivi mobili di Azure][1]. Se si ha familiarità con le App per dispositivi mobili di Azure, completare innanzitutto [Azure Mobile App Quick Start] per creare un back-end, creare una tabella e scaricare un progetto Xcode iOS preesistente. In questa Guida, l'attenzione è posta sul lato client iOS SDK. Per altre informazioni sull'SDK sul lato server per il back-end, vedere le procedure per l'SDK del server.
+Questa guida illustra come eseguire scenari comuni usando la versione più recente di [iOS SDK per app per dispositivi mobili di Azure][1]. Se si ha familiarità con le App per dispositivi mobili di Azure, completare innanzitutto [esercitazione introduttiva sulle app per dispositivi mobili di Azure] per creare un back-end, creare una tabella e scaricare un progetto Xcode iOS preesistente. In questa Guida, l'attenzione è posta sul lato client iOS SDK. Per altre informazioni sull'SDK sul lato server per il back-end, vedere le procedure per l'SDK del server.
 
 ## <a name="reference-documentation"></a>Documentazione di riferimento
 
-La documentazione di riferimento per l'SDK del client iOS è disponibile qui: [Riferimento al client iOS per app per dispositivi mobili di Azure][2].
+La documentazione di riferimento per iOS Client SDK è disponibile qui: [riferimento al client iOS di app per dispositivi mobili di Azure][2].
 
 ## <a name="supported-platforms"></a>Piattaforme supportate
 
@@ -46,7 +47,7 @@ Questo SDK non è quindi adatto per i dispositivi di tipo controllo o con restri
 
 In questa guida si presuppone che siano stati creati un backend e una tabella. In questa guida si presuppone che la tabella abbia lo stesso schema delle tabelle presenti in tali esercitazioni. In questa guida si presuppone inoltre che nel codice, si faccia riferimento a `MicrosoftAzureMobile.framework` e si importi `MicrosoftAzureMobile/MicrosoftAzureMobile.h`.
 
-## <a name="create-client"></a>Procedura: Creare un client
+## <a name="create-client"></a>Procedura: creare Client
 
 Per accedere a un back-end di applicazioni per dispositivi mobili di Azure nel progetto, creare un `MSClient`. Sostituire `AppUrl` con l'URL dell'app. È possibile lasciare `gatewayURLString` e `applicationKey` vuoti. Se si configura un gateway per l'autenticazione, popolare `gatewayURLString` con l'URL del gateway.
 
@@ -260,7 +261,7 @@ Questa impostazione controlla la dimensione di pagina solo sul lato client. Se i
 
 Questa impostazione è inoltre il *numero* dei record dei dati, e non la *dimensione in byte*.
 
-Se si aumenta la dimensione di pagina del client, è necessario aumentare anche la dimensione di pagina sul server. Vedere [Procedura: Modificare le dimensioni di pagina delle tabelle"](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) per i passaggi da eseguire.
+Se si aumenta la dimensione di pagina del client, è necessario aumentare anche la dimensione di pagina sul server. Per la procedura da eseguire, vedere ["Procedura: Modificare le dimensioni di pagina delle tabelle"](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 **Objective-C**:
 
@@ -380,7 +381,7 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
 
 Per le operazioni di aggiornamento è necessario che sia impostato almeno l'attributo `id` .
 
-## <a name="deleting"></a>Procedura: Eliminare i dati
+## <a name="deleting"></a>Procedura: Eliminare dati
 
 Per eliminare un elemento, richiamare `delete` con l'elemento:
 
@@ -440,7 +441,7 @@ Per le operazioni di eliminazione, è necessario che sia impostato almeno l'attr
 
 Con un'API personalizzata è possibile esporre qualsiasi funzionalità di back-end. Non occorre eseguire il mapping a un'operazione su tabella. In questo modo, non solo si ottiene maggiore controllo sulla messaggistica, ma è anche possibile leggere o impostare le intestazioni e modificare il formato del corpo della risposta.
 
-Per chiamare un'API personalizzata, chiamare `MSClient.invokeAPI`. Il contenuto della richiesta e della risposta è in formato JSON. Per usare altri tipi di supporto, [usare l'altro overload di `invokeAPI`][5].  Per eseguire una richiesta `GET` invece di una richiesta `POST`, impostare il parametro `HTTPMethod` su `"GET"` e il parametro `body` su `nil` (dal momento che le richieste GET non hanno corpi dei messaggi). Se l'API personalizzata supporta altri verbi HTTP, modificare `HTTPMethod` in modo appropriato.
+Per chiamare un'API personalizzata, chiamare `MSClient.invokeAPI`. Il contenuto della richiesta e della risposta è in formato JSON. Per usare altri tipi di supporto, [usare l'altro overload di `invokeAPI`][5].  Per eseguire una richiesta `GET` anziché una richiesta `POST`, impostare il parametro `HTTPMethod` su `"GET"` e il parametro `body` su `nil` (poiché le richieste GET non hanno corpi dei messaggi). Se l'API personalizzata supporta altri verbi HTTP, modificare `HTTPMethod` in modo appropriato.
 
 **Objective-C**:
 
@@ -477,7 +478,7 @@ client.invokeAPI("sendEmail",
         }
 ```
 
-## <a name="templates"></a>Procedura: Registrare modelli push per inviare notifiche multipiattaforma
+## <a name="templates"></a>Procedura: registrare modelli push per inviare notifiche multipiattaforma
 
 Per registrare i modelli, passare modelli con il metodo **client.push registerDeviceToken** nell'app client.
 
@@ -567,7 +568,7 @@ if (error.code == MSErrorPreconditionFailed) {
 3. Nel terminale eseguire `pod install` dalla directory contenente il progetto e quindi aprire l'area di lavoro di Xcode generata (non il progetto).
 4. Aggiungere il codice seguente all'applicazione, in base al linguaggio usato. In ogni esempio eseguire queste sostituzioni:
 
-   * Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato eseguito il provisioning dell'applicazione. Il formato deve essere https://login.microsoftonline.com/contoso.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di Azure].
+   * Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato eseguito il provisioning dell'applicazione. Il formato deve essere https://login.microsoftonline.com/contoso.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [Azure portal].
    * Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili. L'ID client è disponibile nella scheda **Avanzate** in **Impostazioni di Azure Active Directory** nel portale.
    * Sostituire **INSERT-CLIENT-ID-HERE** con l'ID client copiato dall'applicazione client nativa.
    * Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint */.auth/login/done* del sito, usando lo schema HTTPS. Questo valore deve essere simile a *https://contoso.azurewebsites.net/.auth/login/done* .
@@ -895,7 +896,7 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 <!-- Images. -->
 
 <!-- URLs. -->
-[Azure Mobile App Quick Start]: app-service-mobile-ios-get-started.md
+[esercitazione introduttiva sulle app per dispositivi mobili di Azure]: app-service-mobile-ios-get-started.md
 
 [Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
@@ -903,13 +904,13 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
-[Portale di Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Handling Expired Tokens]: https://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: https://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: https://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
 [Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
-[Schema dinamico]: https://go.microsoft.com/fwlink/p/?LinkId=296271
+[Schema dinamico]: https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/dynamic-schema
 [How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Create a table]: https://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: https://go.microsoft.com/fwlink/p/?LinkId=301965

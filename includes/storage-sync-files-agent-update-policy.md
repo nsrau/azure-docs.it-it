@@ -1,20 +1,20 @@
 ---
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 12/11/2018
-ms.author: tamram
-ms.openlocfilehash: 5be5cf6cd410874d870b351c209517e90fcf3848
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.author: rogarana
+ms.openlocfilehash: 02e9553b9704c96794e0c1113ab3e06458f0f7c8
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699329"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391685"
 ---
 L'agente Sincronizzazione file di Azure viene aggiornato a intervalli regolari per aggiungere nuove funzionalità e risolvere eventuali problemi. È consigliabile configurare Microsoft Update per ricevere gli aggiornamenti dell'agente Sincronizzazione file di Azure non appena vengono rilasciati.
 
 #### <a name="major-vs-minor-agent-versions"></a>Confronto tra versioni principali e secondarie dell'agente
-* Le versioni principali dell'agente contengono spesso nuove funzionalità e hanno un numero crescente come prima parte del numero di versione. Ad esempio:  \*2.\*.\*\*
+* Le versioni principali dell'agente contengono spesso nuove funzionalità e hanno un numero crescente come prima parte del numero di versione. Ad esempio: \*2.\*.\*\*
 * Le versioni secondarie dell'agente sono denominate anche "patch" e vengono rilasciate con maggiore frequenza rispetto alle versioni principali. Spesso contengono correzioni di bug e miglioramenti di entità minore, ma non nuove funzionalità. Ad esempio: \*\*.3.\*\*
 
 #### <a name="upgrade-paths"></a>Percorsi di aggiornamento
@@ -23,7 +23,7 @@ Esistono quattro modi approvati e testati per installare gli aggiornamenti dell'
     È consigliabile scaricare tutti gli aggiornamenti di Sincronizzazione file di Azure per avere accesso alle ultime correzioni per l'agente server. Microsoft Update semplifica questo processo, scaricando e installando gli aggiornamenti automaticamente.
 2. **Usare AfsUpdater.exe per scaricare e installare gli aggiornamenti dell'agente.**  
     Il file AfsUpdater.exe si trova nella directory di installazione dell'agente. Fare doppio clic sul file eseguibile per scaricare e installare gli aggiornamenti dell'agente. 
-3. **Applicare una patch a un agente Sincronizzazione file di Azure esistente usando un file di patch di Microsoft Update o un eseguibile con estensione msp. L'ultimo aggiornamento di Sincronizzazione file di Azure può essere scaricato da [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
+3. **Applicare una patch a un agente di Sincronizzazione file di Azure esistente utilizzando un file di patch Microsoft Update o un eseguibile con estensione msp. Il pacchetto di aggiornamento Sincronizzazione file di Azure più recente può essere scaricato dal [Catalogo di Microsoft Update](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
     Eseguendo un eseguibile con estensione msp, l'installazione di Sincronizzazione file di Azure viene aggiornata con lo stesso metodo usato automaticamente da Microsoft Update nel percorso di aggiornamento precedente. Applicando una patch di Microsoft Update verrà eseguito un aggiornamento sul posto di un'installazione di Sincronizzazione file di Azure.
 4. **Scaricare il programma di installazione di Sincronizzazione file di Azure Agent più recente dall' [area download Microsoft](https://go.microsoft.com/fwlink/?linkid=858257).**  
     Per aggiornare un'installazione esistente dell'agente Sincronizzazione file di Azure, disinstallare la versione precedente e quindi installare la versione più recente dal programma di installazione scaricato. Il programma di installazione di Sincronizzazione file di Azure mantiene la registrazione del server, i gruppi di sincronizzazione e tutte le altre impostazioni.
@@ -37,18 +37,23 @@ Con l'agente versione 6, il team di sincronizzazione file ha introdotto una funz
 
 Le istruzioni seguenti descrivono come modificare le impostazioni dopo aver completato il programma di installazione, se è necessario apportare modifiche.
 
-Aprire una shell e passare alla directory in cui è stato installato l'agente di sincronizzazione, quindi importare i cmdlet del server. per impostazione predefinita, il risultato sarà simile al seguente:
+Aprire una console di PowerShell e passare alla directory in cui è stato installato l'agente di sincronizzazione e quindi importare i cmdlet del server. Per impostazione predefinita, il risultato sarà simile al seguente:
 ```powershell
-cd C:\Program Files\Azure\StorageSyncAgent
-
-ipmo .\StorageSync.Management.ServerCmdlets.dll
+cd 'C:\Program Files\Azure\StorageSyncAgent'
+Import-Module -Name \StorageSync.Management.ServerCmdlets.dll
 ```
 
 È possibile eseguire `Get-StorageSyncAgentAutoUpdatePolicy` per controllare l'impostazione dei criteri corrente e determinare se si desidera modificarla.
 
-Per modificare l'impostazione dei criteri corrente sulla traccia di aggiornamento ritardata, è possibile usare:`Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode UpdateBeforeExpiration`
+Per modificare l'impostazione dei criteri corrente sulla traccia di aggiornamento ritardata, è possibile usare:
+```powershell
+Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode UpdateBeforeExpiration
+```
 
-Per modificare l'impostazione dei criteri corrente sulla traccia di aggiornamento immediato, è possibile usare:`Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode InstallLatest`
+Per modificare l'impostazione dei criteri corrente sulla traccia di aggiornamento immediato, è possibile usare:
+```powershell
+Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode InstallLatest
+```
 
 #### <a name="agent-lifecycle-and-change-management-guarantees"></a>Garanzie relative al ciclo di vita dell'agente e alla gestione del cambiamento
 Sincronizzazione file di Azure è un servizio cloud che introduce continuamente nuove funzionalità e miglioramenti. Ciò significa che una specifica versione dell'agente Sincronizzazione file di Azure può essere supportata solo per un periodo di tempo limitato. Per semplificare la distribuzione, le regole seguenti garantiscono che l'utente disponga di un tempo sufficiente e di una notifica per gestire gli aggiornamenti o gli aggiornamenti degli agenti nel processo di gestione delle modifiche:

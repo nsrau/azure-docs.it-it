@@ -1,17 +1,17 @@
 ---
-title: Criteri della colonna del flusso di dati di mapping di Azure Data Factory
+title: Modelli di colonna nel mapping Azure Data Factory flussi di dati
 description: Creare modelli di trasformazione dei dati generalizzati usando Azure Data Factory modelli di colonna nel mapping dei flussi di dati
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 535656f315f65ffb7aa241618fe9e73b8246b71f
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: a95bbb726f8c391270d3f60ed769d9475004b1e4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027856"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388013"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>Mapping dei flussi di dati modelli di colonna
 
@@ -21,7 +21,7 @@ Diverse trasformazioni del flusso di dati di Azure Data Factory supportano il co
 
 Questa gestione "Schema flessibile" è attualmente disponibile nella colonna derivata e nelle trasformazioni di aggregazione, nonché nelle trasformazioni selezione e sink come "mapping basato su regole".
 
-![criteri della colonna](media/data-flow/columnpattern2.png "Criteri della colonna")
+![modelli di colonna](media/data-flow/columnpattern2.png "Criteri delle colonne")
 
 ## <a name="column-patterns"></a>Criteri delle colonne
 I criteri della colonna sono utili per gestire sia gli scenari Deviazione schema sia gli scenari generici. Sono consigliabili per le condizioni in cui non è possibile conoscere tutti i nomi della colonna. È possibile creare criteri di corrispondenza sul nome della colonna e sul tipo di dati della colonna, che eseguirà l'operazione rispetto qualsiasi campo nel flusso di dati che corrisponde ai propri criteri `name` & `type`.
@@ -35,16 +35,16 @@ Se si sceglie di usare una delle funzioni regex del Generatore di espressioni, s
 Un esempio di scenario di criteri della colonna è l'uso di SUM con una serie di campi in ingresso. I calcoli di aggregazione SUM si trovano in Trasformazione aggregazione. È quindi possibile usare SUM per ogni corrispondenza dei tipi di campo che corrispondono a "Integer" e quindi usare $ $ per fare riferimento a ogni corrispondenza nell'espressione.
 
 ## <a name="match-columns"></a>Corrisponde a colonne
-![](media/data-flow/pattern2.png "tipi di criteri") di ricerca colonna
+![tipi di criteri di colonna](media/data-flow/pattern2.png "Tipi di modello")
 
 Per compilare modelli basati su colonne, è possibile trovare la corrispondenza con il nome della colonna, il tipo, il flusso o la posizione e usare qualsiasi combinazione di quelli con le funzioni di espressione e le espressioni regolari.
 
-posizione(media/data-flow/position.png "colonna") ![posizione]colonna
+![posizione colonna](media/data-flow/position.png "Posizione colonna")
 
 ## <a name="rule-based-mapping"></a>Mapping basato su regole
 Quando si esegue il mapping delle colonne nell'origine e si selezionano le trasformazioni, sarà possibile scegliere "mapping fisso" o "mapping basato su regole". Quando si conosce lo schema dei dati e si prevede che le colonne specifiche del set di dati di origine corrispondano sempre a nomi statici specifici, è possibile usare il mapping fisso. Tuttavia, quando si utilizzano schemi flessibili, utilizzare il mapping basato sulle regole. Sarà possibile creare una corrispondenza dei modelli usando le regole descritte in precedenza.
 
-(media/data-flow/rule2.png "mapping basato su regole") di ![mapping basato su regole]
+![mapping basato su regole](media/data-flow/rule2.png "Mapping basato su regole")
 
 Compilare le regole usando il generatore di espressioni. Le espressioni restituiranno un valore booleano per trovare la corrispondenza con le colonne (true) o escludere le colonne (false).
 

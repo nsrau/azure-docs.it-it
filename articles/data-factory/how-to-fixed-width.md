@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
-ms.openlocfilehash: 9964aaf060c43cc3e9992f515bf272011e795043
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: d6885e9b30cc71bda822a29574c4d574f2b020a0
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962121"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387039"
 ---
 # <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Elaborare file di testo a lunghezza fissa usando Data Factory i flussi di dati di mapping
 
@@ -71,7 +71,7 @@ Utilizzando i flussi di dati di mapping in Microsoft Azure Data Factory, è poss
 
 12. Selezionare la scheda **Controlla** per visualizzare le nuove colonne che verranno generate:
 
-    ![ispezionare](media/data-flow/fwinspect.png)
+    ![Ispezionare](media/data-flow/fwinspect.png)
 
 13. Usare la trasformazione seleziona per rimuovere le colonne non necessarie per la trasformazione:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ac210a03f8b1a0a5f7fff07cbc68b4cd6bc98632
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 40fb44857126c3562e01585c3131afec87f01e42
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016355"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430071"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Uso di Azure PowerShell con Archiviazione di Azure
 
@@ -42,7 +42,7 @@ Per questa esercitazione è possibile digitare i comandi in una normale finestra
 
 Per altre informazioni sugli account di archiviazione, vedere [Introduzione ad Archiviazione](storage-introduction.md) e [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md).
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
+## <a name="sign-in-to-azure"></a>Accedere a Azure
 
 Accedere alla sottoscrizione di Azure con il comando `Connect-AzAccount` e seguire le istruzioni visualizzate.
 
@@ -131,7 +131,7 @@ Per modificare le impostazioni di un account di archiviazione, usare [Set-AzStor
 
 * I **tag** assegnati all'account di archiviazione. I tag vengono usati spesso per categorizzare le risorse a scopi di fatturazione.
 
-* Lo **SKU**, ovvero l'impostazione di replica per l'account di archiviazione, ad esempio LRS per l'archiviazione con ridondanza locale. È possibile, ad esempio, modificare Standard\_LRS in Standard\_GRS o Standard\_RAGRS. Si noti che non è possibile\_modificare ZRS\_standard, GZRS standard\_, RAGZRS standard o\_Premium con ridondanza locale in altri SKU o modificare altri SKU in questi.
+* Lo **SKU**, ovvero l'impostazione di replica per l'account di archiviazione, ad esempio LRS per l'archiviazione con ridondanza locale. È possibile, ad esempio, modificare Standard\_LRS in Standard\_GRS o Standard\_RAGRS. Si noti che non è possibile modificare standard @ no__t-0ZRS, standard @ no__t-1GZRS, standard @ no__t-2RAGZRS o Premium @ no__t-3LRS in altri SKU o modificare altri SKU in questi.
 
 * Il **livello di accesso** per gli account di archiviazione BLOB. Il valore per il livello di accesso è impostato su **Frequente** o **Sporadico** e consente di ridurre al minimo i costi selezionando il livello di accesso più adatto al modo in cui viene usato l'account di archiviazione. Per altre informazioni, vedere [Livelli di archiviazione ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md).
 
@@ -252,4 +252,4 @@ Questo articolo offre anche riferimenti a vari altri articoli, ad esempio su com
 
 * [Cmdlet di PowerShell per il piano di controllo di Archiviazione di Azure](/powershell/module/az.storage/)
 * [Cmdlet di PowerShell per il piano dati di Archiviazione di Azure](/powershell/module/azure.storage/)
-* [Riferimenti Windows PowerShell](https://msdn.microsoft.com/library/ms714469.aspx)
+* [Riferimenti Windows PowerShell](/powershell/scripting/developer/windows-powershell)

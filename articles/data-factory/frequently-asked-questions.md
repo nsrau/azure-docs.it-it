@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Factory: Domande frequenti | Microsoft Docs'
+title: 'Azure Data Factory: domande frequenti | Microsoft Docs'
 description: Risposte alle domande frequenti su Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: c4836d519556e5a031f81279fef4891ba8d47c05
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: ee57d943016c2d166f3c8469b403b56b1009385c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141574"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387069"
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
 Questo articolo risponde ad alcune domande frequenti su Azure Data Factory.  
@@ -36,7 +36,7 @@ Data Factory consente di modellare liberamente qualsiasi stile di flusso che ris
 - Flussi di controllo:
     - Le attività possono essere concatenate in una sequenza all'interno di una pipeline.
     - Le attività possono essere diramate all'interno di una pipeline.
-    - Parametri:
+    - Parametri
         - I parametri possono essere definiti a livello di pipeline e gli argomenti possono essere passati quando si richiama la pipeline su richiesta o da un trigger.
         - Le attività possono utilizzare gli argomenti passati alla pipeline.
     - Passaggio stato personalizzato:
@@ -74,7 +74,7 @@ Per spostare i carichi di lavoro SSIS, è possibile creare un'istanza di Data Fa
 ### <a name="sdks"></a>SDK
 Se si è un utente avanzato e si cerca un'interfaccia a livello di codice, Data Factory offre un set completo di SDK che è possibile usare per creare, gestire o monitorare le pipeline usando l'IDE preferito. Sono supportati, tra gli altri, i linguaggi .NET, PowerShell, Python e REST.
 
-### <a name="monitoring"></a>Monitoraggio
+### <a name="monitoring"></a>Monitorare
 È possibile monitorare le istanze di Data Factory tramite PowerShell, SDK o gli strumenti di monitoraggio visivi nell'interfaccia utente del browser. È possibile monitorare e gestire flussi personalizzati basati su richiesta, basati su trigger e basati su clock in modo efficiente ed efficace. Annulla le attività esistenti, Visualizza gli errori a colpo d'occhio, Esegui il drill-down per visualizzare i messaggi di errore dettagliati ed Esegui il debug dei problemi, tutto da un unico riquadro di vetro senza cambio di contesto o spostamento tra le schermate. 
 
 ### <a name="new-features-for-ssis-in-data-factory"></a>Nuove funzionalità per SSIS in Data Factory
@@ -94,9 +94,9 @@ Dalla versione di anteprima pubblica iniziale in 2017, Data Factory ha aggiunto 
 ## <a name="what-is-the-integration-runtime"></a>Che cos'è il runtime di integrazione?
 Integration Runtime è l'infrastruttura di calcolo che Azure Data Factory USA per fornire le funzionalità di integrazione dei dati seguenti in diversi ambienti di rete:
 
-- **Spostamento dei dati**: Per lo spostamento dei dati, il runtime di integrazione Sposta i dati tra gli archivi dati di origine e di destinazione, fornendo al tempo stesso il supporto per connettori incorporati, conversione di formato, mapping di colonne e trasferimento di dati scalabile e a prestazioni elevate.
-- **Attività di invio**: Per la trasformazione, il runtime di integrazione fornisce funzionalità per l'esecuzione nativa di pacchetti SSIS.
-- **Esecuzione di pacchetti SSIS**: Il runtime di integrazione esegue in modo nativo i pacchetti SSIS in un ambiente di calcolo di Azure gestito. Integration Runtime supporta anche l'invio e il monitoraggio delle attività di trasformazione in esecuzione in un'ampia gamma di servizi di calcolo, ad esempio Azure HDInsight, Azure Machine Learning, database SQL e SQL Server.
+- **Spostamento dei**dati: per lo spostamento dei dati, il runtime di integrazione Sposta i dati tra gli archivi dati di origine e di destinazione, fornendo al tempo stesso il supporto per connettori incorporati, conversione di formato, mapping di colonne e trasferimento di dati scalabile e a prestazioni elevate.
+- **Attività di invio**: per la trasformazione, il runtime di integrazione fornisce funzionalità per l'esecuzione nativa di pacchetti SSIS.
+- **Eseguire pacchetti SSIS**: il runtime di integrazione esegue in modo nativo i pacchetti SSIS in un ambiente di calcolo di Azure gestito. Integration Runtime supporta anche l'invio e il monitoraggio delle attività di trasformazione in esecuzione in un'ampia gamma di servizi di calcolo, ad esempio Azure HDInsight, Azure Machine Learning, database SQL e SQL Server.
 
 È possibile distribuire una o più istanze del runtime di integrazione come richiesto per lo spostamento e la trasformazione dei dati. Il runtime di integrazione può essere eseguito in una rete pubblica di Azure o in una rete privata (locale, rete virtuale di Azure o Amazon Web Services cloud privato virtuale [VPC]). 
 
@@ -118,7 +118,7 @@ Le attività rappresentano un passaggio di elaborazione in una pipeline. Ad esem
 I set di dati rappresentano strutture dei dati all'interno degli archivi dati e fanno semplicemente riferimento ai dati da usare nelle attività come input o output. 
 
 ### <a name="linked-services"></a>Servizi collegati
-I servizi collegati sono molto simili a stringhe di connessione e definiscono le informazioni necessarie per la connessione di Data Factory a risorse esterne. In questo modo: Un servizio collegato definisce la connessione all'origine dati e un set di dati rappresenta la struttura dei dati. Ad esempio, un servizio collegato di Archiviazione di Azure specifica la stringa per la connessione all'account di archiviazione di Azure. Un set di dati BLOB di Azure specifica il contenitore BLOB e la cartella che contiene i dati.
+I servizi collegati sono molto simili a stringhe di connessione e definiscono le informazioni necessarie per la connessione di Data Factory a risorse esterne. In questo modo, un servizio collegato definisce la connessione all'origine dati e un set di dati rappresenta la struttura dei dati. Ad esempio, un servizio collegato di Archiviazione di Azure specifica la stringa per la connessione all'account di archiviazione di Azure. Un set di dati BLOB di Azure specifica il contenitore BLOB e la cartella che contiene i dati.
 
 In Data Factory i servizi collegati hanno due scopi:
 
@@ -131,8 +131,8 @@ I trigger rappresentano unità di elaborazione che determinano quando viene avvi
 ### <a name="pipeline-runs"></a>Esecuzioni di pipeline
 Un'esecuzione di pipeline è un'istanza dell'esecuzione di una pipeline. In genere si crea un'istanza di un'esecuzione di pipeline passando gli argomenti ai parametri definiti nella pipeline. È possibile passare gli argomenti manualmente o nella definizione di trigger.
 
-### <a name="parameters"></a>Parametri
-I parametri sono coppie chiave-valore in una configurazione di sola lettura. Si definiscono i parametri in una pipeline ed è possibile passare gli argomenti per i parametri definiti durante l'esecuzione da un contesto di esecuzione. Il contesto di esecuzione viene creato da un trigger o da una pipeline eseguita manualmente. Le attività all'interno della pipeline usano i valori dei parametri.
+### <a name="parameters"></a>parameters
+I parametri sono coppie chiave-valore in una configurazione di sola lettura. È possibile definire i parametri in una pipeline e passare gli argomenti per i parametri definiti durante l'esecuzione da un contesto di esecuzione. Il contesto di esecuzione viene creato da un trigger o da una pipeline eseguita manualmente. Le attività all'interno della pipeline usano i valori dei parametri.
 
 Un set di dati è un parametro fortemente tipizzato e un'entità che è possibile riutilizzare o a cui fare riferimento. Un'attività può fare riferimento a set di dati e può utilizzare le proprietà definite nella definizione del set di dati.
 
@@ -195,7 +195,7 @@ Sì. [Seguire le istruzioni](https://www.slideshare.net/kromerm/adf-mapping-data
 
 ### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>Ho bisogno di aiuto per la risoluzione dei problemi della logica del flusso di dati. Quali informazioni è necessario fornire per ottenere assistenza?
 
-Quando Microsoft fornisce assistenza o risoluzione dei problemi relativi ai flussi di dati, specificare il piano di codice DSL. A tale scopo, effettuare le operazioni seguenti:
+Quando Microsoft fornisce assistenza o risoluzione dei problemi relativi ai flussi di dati, specificare il piano di codice DSL. A questo scopo, seguire questa procedura:
 
 1. Nella finestra di progettazione del flusso di dati selezionare il **codice** nell'angolo superiore destro. Verrà visualizzato il codice JSON modificabile per il flusso di dati.
 2. Dalla visualizzazione codice selezionare **piano** nell'angolo superiore destro. Questo interruttore passerà da JSON al piano di script DSL formattato in sola lettura.
@@ -210,5 +210,5 @@ Usare l'attività di copia per organizzare i dati da uno qualsiasi degli altri c
 ## <a name="next-steps"></a>Passaggi successivi
 Per istruzioni dettagliate per la creazione di una data factory, vedere le esercitazioni seguenti:
 
-- [Avvio rapido: Creare una data factory](quickstart-create-data-factory-dot-net.md)
+- [Guida introduttiva: Creare una data factory](quickstart-create-data-factory-dot-net.md)
 - [Esercitazione: Copiare i dati nel cloud](tutorial-copy-data-dot-net.md)

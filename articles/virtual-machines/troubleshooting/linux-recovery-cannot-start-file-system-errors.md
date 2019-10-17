@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: 298fd336e87d07f9e65221d5e5f539e255c94993
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: a47dc1032115f8bcae0c7bdc37c84ab3b68ec4a8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245331"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72432298"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Risolvere i problemi di avvio della macchina virtuale Linux a causa di errori file system
 
 Non è possibile connettersi a una macchina virtuale (VM) Linux di Azure usando Secure Shell (SSH). Quando si esegue la funzionalità di diagnostica di avvio in [portale di Azure](https://portal.azure.com/), vengono visualizzate le voci di log simili ai seguenti esempi.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 Di seguito sono riportati alcuni esempi di possibili errori.
 
@@ -71,7 +71,7 @@ Checking all file systems.
 
 Questo problema può verificarsi se il file system non è stato arrestato in modo corretto o in caso di problemi relativi all'archiviazione. I problemi includono errori hardware o software, problemi relativi a driver o programmi, errori di scrittura e così via. È sempre importante avere un backup dei dati critici. Gli strumenti descritti in questo articolo possono contribuire a ripristinare i file System, ma è comunque possibile che si verifichi una perdita di dati.
 
-Per Linux sono disponibili diversi file system Checker. Il più comune per le distribuzioni in Azure è: [FSCK](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific), [E2FSCK](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific)e [Xfs_repair](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair).
+Per Linux sono disponibili diversi file system Checker. I più comuni per le distribuzioni in Azure sono: [FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific), [E2FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific)e [Xfs_repair](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair).
 
 ## <a name="resolution"></a>Risoluzione
 
@@ -106,7 +106,7 @@ Per risolvere il problema, avviare la macchina virtuale in modalità di emergenz
    xfs_repair /dev/sda1
    ```
 
-7. Se viene visualizzato il messaggio di errore "errore: Il file System presenta importanti modifiche ai metadati in un log che deve essere riprodotto ", creare una directory temporanea e montare il file System:
+7. Se viene visualizzato il messaggio di errore "errore: il file System presenta importanti modifiche ai metadati in un log che deve essere riprodotto", creare una directory temporanea e montare il file System:
 
    ```
    mkdir /temp
@@ -150,7 +150,7 @@ Per risolvere il problema, avviare la macchina virtuale in modalità di emergenz
    xfs_repair /dev/sdc1
    ```
 
-5. Se viene visualizzato il messaggio di errore "errore: Il file System presenta importanti modifiche ai metadati in un log che deve essere riprodotto ", creare una directory temporanea e montare il file System:
+5. Se viene visualizzato il messaggio di errore "errore: il file System presenta importanti modifiche ai metadati in un log che deve essere riprodotto", creare una directory temporanea e montare il file System:
 
    ```
    mkdir /temp

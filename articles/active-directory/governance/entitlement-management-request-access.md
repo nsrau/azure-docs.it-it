@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aaa58d3027fecdbfdf594e5712cbdbd758380a7
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 86ab995327522ac5dead9b3f944e0760084aedce
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169825"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389095"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Richiedere l'accesso a un pacchetto di accesso in Azure AD gestione dei diritti (anteprima)
 
@@ -30,7 +30,7 @@ ms.locfileid: "72169825"
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Con Azure AD gestione dei diritti, i pacchetti di accesso consentono una configurazione unica di risorse e criteri che amministra automaticamente l'accesso per la durata del pacchetto di accesso. 
+Con Azure AD gestione dei diritti, un pacchetto di accesso consente di impostare una sola volta le risorse e i criteri che gestiscono automaticamente l'accesso per tutta la durata del pacchetto di accesso. 
 
 Una gestione pacchetti di accesso può configurare i criteri per richiedere l'approvazione per consentire agli utenti di accedere ai pacchetti. Un utente che deve accedere a un pacchetto di accesso può inviare una richiesta per ottenere l'accesso. Questo articolo descrive come inviare una richiesta di accesso.
 
@@ -38,9 +38,9 @@ Una gestione pacchetti di accesso può configurare i criteri per richiedere l'ap
 
 Il primo passaggio consiste nell'accedere al portale di accesso personale, in cui è possibile richiedere l'accesso a un pacchetto di accesso.
 
-**Ruolo prerequisito:** Richiedente
+**Ruolo prerequisiti:** Richiedente
 
-1. Cercare un messaggio di posta elettronica o un messaggio dal progetto o dal gestore di business che si sta utilizzando. Il messaggio di posta elettronica deve includere un collegamento al pacchetto di accesso a cui sarà necessario accedere. Il collegamento inizierà con "accesso", includerà un hint di directory e terminerà con un ID pacchetto di accesso simile al seguente:
+1. Cercare un messaggio di posta elettronica o un messaggio dal progetto o dal gestore di business che si sta utilizzando. Il messaggio di posta elettronica deve includere un collegamento al pacchetto di accesso a cui sarà necessario accedere. Il collegamento inizia con `myaccess`, include un hint di directory e termina con un ID pacchetto di accesso.
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 
@@ -54,7 +54,7 @@ Il primo passaggio consiste nell'accedere al portale di accesso personale, in cu
 
 Dopo aver trovato il pacchetto di accesso nel portale di accesso personale, è possibile inviare una richiesta.
 
-**Ruolo prerequisito:** Richiedente
+**Ruolo prerequisiti:** Richiedente
 
 1. Trovare il pacchetto di accesso nell'elenco.  Se necessario, è possibile eseguire una ricerca digitando una stringa di ricerca e quindi selezionando il **nome**, il **Catalogo**o il filtro **risorse** .
 
@@ -83,7 +83,7 @@ Dopo aver trovato il pacchetto di accesso nel portale di accesso personale, è p
 
 Se si invia una richiesta di accesso e la richiesta è ancora in stato di **approvazione in sospeso** , è possibile annullare la richiesta.
 
-**Ruolo prerequisito:** Richiedente
+**Ruolo prerequisiti:** Richiedente
 
 1. Nel portale di accesso personale, a sinistra, fare clic su **Richiedi cronologia** per visualizzare un elenco delle richieste e dello stato.
 
@@ -99,7 +99,7 @@ Se si invia una richiesta di accesso e la richiesta è ancora in stato di **appr
 
 Se si richiede l'accesso a un pacchetto di accesso con più criteri applicabili, potrebbe essere richiesto di selezionare un criterio. Una gestione pacchetti di Access, ad esempio, potrebbe configurare un pacchetto di accesso con due criteri per due gruppi di dipendenti interni. Il primo criterio potrebbe consentire l'accesso per 60 giorni e richiedere l'approvazione. Il secondo criterio potrebbe consentire l'accesso per 2 giorni e non richiede l'approvazione. Se si verifica questo scenario, è necessario selezionare il criterio che si desidera utilizzare.
 
-**Ruolo prerequisito:** Richiedente
+**Ruolo prerequisiti:** Richiedente
 
 ## <a name="next-steps"></a>Passaggi successivi
 

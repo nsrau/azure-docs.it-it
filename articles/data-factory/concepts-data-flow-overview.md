@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/7/2019
-ms.openlocfilehash: 8d0ad794caee8a06c8d403a981037d6560fb3f43
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 37fec388acda78f3d13c8e85ddddf780ad099d69
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030091"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388007"
 ---
 # <a name="what-are-mapping-data-flows"></a>Cosa sono i flussi di dati di mapping?
 
@@ -20,11 +20,11 @@ I flussi di dati di mapping sono le trasformazioni di dati progettate visivament
 
 Il mapping di flussi di dati offre un'esperienza visiva completamente senza necessità di scrivere codice. I flussi di dati vengono eseguiti nel proprio cluster di esecuzione per l'elaborazione dei dati con scalabilità orizzontale. Azure Data Factory gestisce automaticamente tutte le attività di conversione del codice, ottimizzazione dei percorsi ed esecuzione dei processi dei flussi di dati.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 Per creare un flusso di dati, fare clic sul segno più in risorse Factory. 
 
-![nuovo flusso]di dati nuovo flusso di(media/data-flow/newdataflow2.png "dati")
+![nuovo flusso di dati](media/data-flow/newdataflow2.png "nuovo flusso di dati")
 
 Viene quindi riportata l'area di disegno del flusso di dati in cui è possibile creare la logica di trasformazione. Fare clic sulla casella ' Aggiungi origine ' per avviare la configurazione della trasformazione origine. Per ulteriori informazioni, vedere [trasformazione origine](data-flow-source.md).
 
@@ -32,13 +32,13 @@ Viene quindi riportata l'area di disegno del flusso di dati in cui è possibile 
 
 L'area di disegno del flusso di dati è suddivisa in tre parti: la barra superiore, il grafico e il pannello di configurazione. 
 
-![Canvas](media/data-flow/canvas1.png "Canvas")
+![Disegno](media/data-flow/canvas1.png "Canvas")
 
-### <a name="graph"></a>Grafico
+### <a name="graph"></a>Grafo
 
 Il grafico mostra il flusso di trasformazione. Mostra la derivazione dei dati di origine durante il flusso in uno o più sink. Per aggiungere una nuova origine, fare clic sulla casella "Aggiungi origine". Per aggiungere una nuova trasformazione, fare clic sul segno più nella parte inferiore destra di una trasformazione esistente.
 
-![Canvas](media/data-flow/canvas2.png "Canvas")
+![Disegno](media/data-flow/canvas2.png "Canvas")
 
 ### <a name="configuration-panel"></a>Pannello di configurazione
 
@@ -50,13 +50,13 @@ Per ogni trasformazione sono disponibili almeno quattro schede di configurazione
 
 La prima scheda del riquadro di configurazione di ogni trasformazione contiene le impostazioni specifiche della trasformazione. Per ulteriori informazioni, vedere la pagina della documentazione relativa alla trasformazione.
 
-Scheda Impostazioni di(media/data-flow/source1.png "origine") scheda Impostazioni di ![origine]
+![Scheda Impostazioni di origine](media/data-flow/source1.png "Scheda Impostazioni di origine")
 
-#### <a name="optimize"></a>Eseguire l'ottimizzazione
+#### <a name="optimize"></a>Ottimizzare
 
 La scheda _ottimizza_ contiene le impostazioni per la configurazione degli schemi di partizionamento.
 
-![Ottimizza](media/data-flow/optimize1.png "ottimizzazione")
+![Optimize](media/data-flow/optimize1.png "Ottimizzare") (Ottimizza)
 
 L'impostazione predefinita è "usa il partizionamento corrente", che indica Azure Data Factory di usare lo schema di partizionamento nativo per i flussi di dati in esecuzione in Spark. Nella maggior parte degli scenari questa impostazione è l'approccio consigliato.
 
@@ -92,7 +92,7 @@ Se si ha una buona comprensione della cardinalità dei dati, il partizionamento 
 
 La scheda _Controlla_ fornisce una visualizzazione dei metadati del flusso di dati che si sta trasformando. È possibile visualizzare i conteggi delle colonne, le colonne modificate, le colonne aggiunte, i tipi di dati, l'ordinamento delle colonne e i riferimenti alle colonne. Esaminare è una visualizzazione di sola lettura dei metadati. Non è necessario che la modalità di debug sia abilitata per visualizzare i metadati nel riquadro di controllo.
 
-![Controllare]il(media/data-flow/inspect1.png "controllo")
+![Ispezionare](media/data-flow/inspect1.png "Ispezionare")
 
 Quando si modifica la forma dei dati tramite le trasformazioni, si noterà che le modifiche ai metadati passano attraverso il riquadro di controllo. Se non è presente uno schema definito nella trasformazione origine, i metadati non saranno visibili nel riquadro ispezione. L'assenza di metadati è comune negli scenari di deviazione dello schema.
 
@@ -104,11 +104,11 @@ Se la modalità di debug è attiva, la scheda _Anteprima dati_ fornisce uno snap
 
 La barra superiore contiene azioni che interessano l'intero flusso di dati, ad esempio il salvataggio e la convalida. È anche possibile passare tra le modalità grafico e configurazione usando i pulsanti **Mostra grafico** e **Nascondi grafico** .
 
-![Nascondi grafico](media/data-flow/hideg.png "Nascondi") grafico
+![Nascondi grafico](media/data-flow/hideg.png "Nascondi grafico")
 
 Se si nasconde il grafo, è possibile spostarsi tra i nodi di trasformazione in un secondo momento tramite i pulsanti **indietro** e **Avanti** .
 
-![Esplora](media/data-flow/showhide.png "esplorazione")
+![Navigare](media/data-flow/showhide.png "Navigare")
 
 ## <a name="next-steps"></a>Passaggi successivi
 

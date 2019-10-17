@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: c3c24e9dc674ac29c8ca4d0d445cc3f572cda71e
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: aef9eaebc2da12e322ab6eda97385aa9cf14998a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029226"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387754"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Trasformazione origine per il mapping del flusso di dati 
 
@@ -28,10 +28,10 @@ Ogni trasformazione di origine è associata a un solo set di dati Data Factory. 
 Il flusso di dati di mapping segue un approccio di estrazione, caricamento e trasformazione (ELT) e funziona con i set di dati di *staging* che sono tutti in Azure. Attualmente i set di dati seguenti possono essere utilizzati in una trasformazione di origine:
     
 * Archiviazione BLOB di Azure
-* Azure Data Lake Storage Gen1
+* Archiviazione Azure Data Lake di prima generazione
 * Azure Data Lake Storage Gen2
-* Azure SQL Data Warehouse
-* Database SQL di Azure
+* SQL Data Warehouse di Azure
+* database SQL di Azure
 
 Azure Data Factory ha accesso a oltre 80 connettori nativi. Per includere dati da tali origini nel flusso di dati, usare l'attività di copia per caricare i dati in una delle aree di gestione temporanea supportate.
 
@@ -39,9 +39,9 @@ Azure Data Factory ha accesso a oltre 80 connettori nativi. Per includere dati d
 
 Dopo aver aggiunto un'origine, configurare tramite la scheda **impostazioni di origine** . Qui è possibile selezionare o creare il set di dati a cui si riportano i punti di origine. È anche possibile selezionare le opzioni relative allo schema e al campionamento per i dati.
 
-Scheda Impostazioni di(media/data-flow/source1.png "origine") scheda Impostazioni di ![origine]
+![Scheda Impostazioni di origine](media/data-flow/source1.png "Scheda Impostazioni di origine")
 
-**Drift schema:** La [deriva dello schema](concepts-data-flow-schema-drift.md) è data factory capacità di gestire in modo nativo schemi flessibili nei flussi di dati senza dover definire esplicitamente le modifiche della colonna.
+**Schema Drift:** la [deriva dello schema](concepts-data-flow-schema-drift.md) è data factory capacità di gestire in modo nativo schemi flessibili nei flussi di dati senza dover definire in modo esplicito le modifiche apportate alle colonne.
 
 * Controllare la casella **Consenti la deviazione dello schema** se le colonne di origine vengono modificate spesso. Questa impostazione consente a tutti i campi di origine in ingresso di scorrere le trasformazioni nel sink.
 
@@ -51,7 +51,7 @@ Scheda Impostazioni di(media/data-flow/source1.png "origine") scheda Impostazion
 
 **Ignora conteggio righe:** Il campo Skip line count specifica il numero di righe da ignorare all'inizio del set di dati.
 
-**Campionamento** Abilitare il campionamento per limitare il numero di righe dall'origine. Usare questa impostazione quando si testano o si campionano i dati dall'origine a scopo di debug.
+**Campionamento:** Abilitare il campionamento per limitare il numero di righe dall'origine. Usare questa impostazione quando si testano o si campionano i dati dall'origine a scopo di debug.
 
 Per convalidare che l'origine sia configurata correttamente, attivare la modalità di debug e recuperare un'anteprima dei dati. Per altre informazioni, vedere [modalità di debug](concepts-data-flow-debug-mode.md).
 
@@ -62,7 +62,7 @@ Per convalidare che l'origine sia configurata correttamente, attivare la modalit
 
 Se si usa un set di dati basato su file, ad esempio archiviazione BLOB di Azure o Azure Data Lake Storage, la scheda **Opzioni di origine** consente di gestire il modo in cui l'origine legge i file.
 
-Opzioni(media/data-flow/sourceOPtions1.png "di origine") ![Opzioni]origine
+![Opzioni di origine](media/data-flow/sourceOPtions1.png "Opzioni di origine")
 
 **Percorso con caratteri jolly:** L'utilizzo di un modello con caratteri jolly indicherà ad ADF di scorrere ogni cartella e file corrispondente in un'unica trasformazione origine. Si tratta di un modo efficace per elaborare più file all'interno di un singolo flusso. Aggiungere più modelli di corrispondenza con caratteri jolly con il segno + visualizzato quando si passa il mouse sul modello con caratteri jolly esistente.
 
@@ -83,11 +83,11 @@ Esempi di caratteri jolly:
 
 Per prima cosa, impostare un carattere jolly per includere tutti i percorsi che rappresentano le cartelle partizionate e i file foglia che si desidera leggere.
 
-(media/data-flow/partfile2.png "Impostazione del file di partizione") ![delle impostazioni del file di origine partizione]
+![Impostazioni del file di origine della partizione](media/data-flow/partfile2.png "Impostazione del file di partizione")
 
 Utilizzare l'impostazione percorso radice partizione per definire il livello superiore della struttura di cartelle. Quando si Visualizza il contenuto dei dati tramite un'anteprima dei dati, si noterà che ADF aggiungerà le partizioni risolte presenti in ogni livello di cartella.
 
-![](media/data-flow/partfile1.png "Anteprima percorso") radice partizione percorso radice partizione
+![Percorso radice partizione](media/data-flow/partfile1.png "Anteprima percorso radice partizione")
 
 **Elenco di file:** Si tratta di un set di file. Creare un file di testo che includa un elenco di file di percorso relativi da elaborare. Puntare a questo file di testo.
 
@@ -120,32 +120,32 @@ In questo caso, tutti i file originati in/data/Sales vengono spostati in/backup/
 
 È possibile specificare tutte le impostazioni di origine come espressioni utilizzando il [linguaggio delle espressioni di trasformazione del flusso di dati di mapping](data-flow-expression-functions.md). Per aggiungere contenuto dinamico, fare clic o passare il puntatore del mouse all'interno dei campi nel pannello impostazioni. Fare clic sul collegamento ipertestuale per **Aggiungi contenuto dinamico**. Verrà avviato il generatore di espressioni in cui è possibile impostare i valori in modo dinamico tramite espressioni, valori letterali statici o parametri.
 
-![Parametri](media/data-flow/params6.png "Parametri") di
+![Parameters](media/data-flow/params6.png "parameters")
 
 ## <a name="sql-source-options"></a>Opzioni origine SQL
 
 Se l'origine si trova nel database SQL o in SQL Data Warehouse, nella scheda **Opzioni di origine** sono disponibili altre impostazioni specifiche di SQL. 
 
-**Input** Consente di specificare se puntare l'origine a una tabella (equivalente a ```Select * from <table-name>```) oppure immettere una query SQL personalizzata.
+**Input:** Consente di scegliere se puntare l'origine a una tabella (equivalente a ```Select * from <table-name>```) o immettere una query SQL personalizzata.
 
-**Query**: Se si seleziona query nel campo di input, immettere una query SQL per l'origine. Questa impostazione esegue l'override di qualsiasi tabella scelta nel set di dati. Le clausole **Order by** non sono supportate in questo punto, ma è possibile impostare un'istruzione SELECT from completa. È anche possibile usare funzioni di tabella definite dall'utente. **Select * from udfGetData ()** è una funzione definita dall'utente in SQL che restituisce una tabella. Questa query produrrà una tabella di origine che è possibile utilizzare nel flusso di dati.
+**Query**: se si seleziona query nel campo di input, immettere una query SQL per l'origine. Questa impostazione esegue l'override di qualsiasi tabella scelta nel set di dati. Le clausole **Order by** non sono supportate in questo punto, ma è possibile impostare un'istruzione SELECT from completa. È anche possibile usare funzioni di tabella definite dall'utente. **Select * from udfGetData ()** è una funzione definita dall'utente in SQL che restituisce una tabella. Questa query produrrà una tabella di origine che è possibile utilizzare nel flusso di dati.
 
-**Dimensioni batch**: Immettere le dimensioni del batch per suddividere i dati di grandi dimensioni in letture.
+**Dimensioni batch**: immettere le dimensioni del batch per suddividere i dati di grandi dimensioni in letture.
 
-**Livello di isolamento**: Il valore predefinito per le origini SQL nel flusso di dati di mapping è READ UNCOMMITTED. È possibile modificare il livello di isolamento in uno dei seguenti valori:
+**Livello di isolamento**: il valore predefinito per le origini SQL nel flusso di dati di mapping è READ UNCOMMITTED. È possibile modificare il livello di isolamento in uno dei seguenti valori:
 * Read Committed
 * Read uncommitted
 * Repeatable Read
 * Serializzabile
 * Nessuno (ignora il livello di isolamento)
 
-![](media/data-flow/isolationlevel.png "Livello di isolamento") del livello di isolamento
+![Livello di isolamento](media/data-flow/isolationlevel.png "Livello di isolamento")
 
 ## <a name="projection"></a>Proiezione
 
 Analogamente agli schemi nei set di dati, la proiezione in un'origine definisce le colonne di dati, i tipi e i formati dei dati di origine. Per la maggior parte dei tipi di set di dati, ad esempio SQL e parquet, la proiezione in un'origine è fissa per riflettere lo schema definito in un set di dati. Quando i file di origine non sono fortemente tipizzati, ad esempio file con estensione CSV flat anziché file parquet, è possibile definire i tipi di dati per ogni campo nella trasformazione di origine.
 
-![Impostazioni nella proiezione della scheda proiezione](media/data-flow/source3.png "")
+![Impostazioni nella scheda proiezione](media/data-flow/source3.png "Proiezione")
 
 Se nel file di testo non è definito alcuno schema, selezionare **rileva tipo di dati** in modo che data factory campionare e dedurre i tipi di dati. Selezionare **Definisci il formato predefinito** per rilevare automaticamente i formati di dati predefiniti. 
 
@@ -155,7 +155,7 @@ Se nel file di testo non è definito alcuno schema, selezionare **rileva tipo di
 
 Nella scheda **ottimizza** per la trasformazione origine è possibile che venga visualizzato un tipo di partizione di **origine** . Questa opzione è disponibile solo quando l'origine è il database SQL di Azure. Questo perché Data Factory tenta di rendere le connessioni parallele per eseguire query di grandi dimensioni sull'origine del database SQL.
 
-(media/data-flow/sourcepart3.png "Partizionamento") ![delle impostazioni della partizione di origine]
+![Impostazioni partizione di origine](media/data-flow/sourcepart3.png "partizionamento")
 
 Non è necessario partizionare i dati nell'origine del database SQL, ma le partizioni sono utili per le query di grandi dimensioni. È possibile basare la partizione su una colonna o su una query.
 

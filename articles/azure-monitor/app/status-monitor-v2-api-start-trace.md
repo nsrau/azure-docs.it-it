@@ -1,6 +1,6 @@
 ---
-title: 'Informazioni di riferimento sulle API di Azure Status Monitor V2: Avvia traccia | Microsoft Docs'
-description: Riferimento all'API Status Monitor V2. Start-Trace. Raccogliere i log ETW da Status Monitor e Application Insights SDK.
+title: "Informazioni di riferimento sull'API dell'agente applicazione Azure Insights: avviare la traccia | Microsoft Docs"
+description: Informazioni di riferimento sull'API dell'agente Application Insights. Start-Trace. Raccogliere i log ETW da Status Monitor e Application Insights SDK.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,29 +12,29 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: f4c43e6bdb70687606041c2f0859ab072db2b587
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b1c5aa34c46a20631b328abfb061dc2477150c72
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200366"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389859"
 ---
-# <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace"></a>API Status Monitor V2: Start-ApplicationInsightsMonitoringTrace
+# <a name="application-insights-agent-api-start-applicationinsightsmonitoringtrace"></a>API dell'agente di Application Insights: Start-ApplicationInsightsMonitoringTrace
 
 Questo articolo descrive un cmdlet che fa parte del modulo di [PowerShell AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
-## <a name="description"></a>Descrizione
+## <a name="description"></a>Description
 
 Raccoglie [gli eventi ETW](https://docs.microsoft.com/windows/desktop/etw/event-tracing-portal) dal runtime di associazione non codificabile. Questo cmdlet rappresenta un'alternativa all'esecuzione di [PerfView](https://github.com/microsoft/perfview).
 
 Gli eventi raccolti verranno stampati nella console in tempo reale e salvati in un file ETL. Il file ETL di output può essere aperto da [PerfView](https://github.com/microsoft/perfview) per un'analisi più approfondita.
 
-Questo cmdlet verrà eseguito fino a quando non raggiungerà la durata del timeout (valore predefinito di 5 minuti`Ctrl + C`) o verrà interrotto manualmente ().
+Questo cmdlet verrà eseguito fino a quando non raggiungerà la durata del timeout (valore predefinito di 5 minuti) o verrà interrotto manualmente (`Ctrl + C`).
 
 > [!IMPORTANT] 
 > Questo cmdlet richiede una sessione di PowerShell con autorizzazioni di amministratore.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 ### <a name="how-to-collect-events"></a>Come raccogliere gli eventi
 
@@ -47,18 +47,18 @@ Per raccogliere questi eventi:
 2. Esegui questo cmdlet
 3. In una console CMD con privilegi di amministratore eseguire `iisreset /start` per avviare IIS.
 4. Provare a passare all'app.
-5. Al termine del caricamento dell'app, è possibile arrestarla manualmente`Ctrl + C`() o attendere il timeout.
+5. Al termine del caricamento dell'app, è possibile arrestarla manualmente (`Ctrl + C`) o attendere il timeout.
 
 ### <a name="what-events-to-collect"></a>Eventi da raccogliere
 
 Sono disponibili tre opzioni per la raccolta di eventi:
-1. Usare l'opzione `-CollectSdkEvents` per raccogliere gli eventi generati da Application Insights SDK.
-2. Usare l'opzione `-CollectRedfieldEvents` per raccogliere gli eventi generati da status monitor e dal runtime di Redfield. Questi log sono utili per la diagnosi di IIS e l'avvio dell'applicazione.
+1. Usare l'opzione `-CollectSdkEvents` per raccogliere gli eventi emessi da Application Insights SDK.
+2. Usare l'opzione `-CollectRedfieldEvents` per raccogliere gli eventi generati da Status Monitor e dal runtime di Redfield. Questi log sono utili per la diagnosi di IIS e l'avvio dell'applicazione.
 3. Usare entrambe le opzioni per raccogliere entrambi i tipi di evento.
 4. Per impostazione predefinita, se non viene specificata alcuna opzione, verranno raccolti entrambi i tipi di evento.
 
 
-## <a name="parameters"></a>Parametri
+## <a name="parameters"></a>parameters
 
 ### <a name="-maxdurationinminutes"></a>-MaxDurationInMinutes
 **Facoltativo.** Utilizzare questo parametro per impostare per quanto tempo lo script deve raccogliere gli eventi. Il valore predefinito è 5 minuti.
@@ -121,7 +121,7 @@ Risoluzione dei problemi aggiuntiva:
 
 
 
- Eseguire altre operazioni con Status Monitor V2:
- - Usare la guida per la [risoluzione dei problemi](status-monitor-v2-troubleshoot.md) Status Monitor V2.
+ Eseguire altre operazioni con Application Insights Agent:
+ - Usare la guida per [risolvere i problemi relativi](status-monitor-v2-troubleshoot.md) a Application Insights Agent.
  - [Ottenere la configurazione](status-monitor-v2-api-get-config.md) per verificare che le impostazioni siano state registrate correttamente.
  - [Ottenere lo stato](status-monitor-v2-api-get-status.md) per controllare il monitoraggio.

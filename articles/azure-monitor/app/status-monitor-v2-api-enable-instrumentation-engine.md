@@ -1,6 +1,6 @@
 ---
-title: 'Informazioni di riferimento sulle API di Azure Status Monitor V2: Abilitare il motore di strumentazione | Microsoft Docs'
-description: Riferimento all'API Status Monitor V2. Enable-InstrumentationEngine. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
+title: "Informazioni di riferimento sull'API dell'agente applicazione Azure Insights: abilitare il motore di strumentazione | Microsoft Docs"
+description: Informazioni di riferimento sull'API dell'agente Application Insights. Enable-InstrumentationEngine. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 3c0f4e015d3e01e86daaf101c15e16857540a520
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 9958121c38b96dc9cfa4dda2812fa9ce2b18d785
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033158"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388294"
 ---
-# <a name="status-monitor-v2-api-enable-instrumentationengine"></a>API Status Monitor V2: Enable-InstrumentationEngine
+# <a name="application-insights-agent-api-enable-instrumentationengine"></a>API dell'agente di Application Insights: Enable-InstrumentationEngine
 
 Questo articolo descrive un cmdlet che fa parte del modulo di [PowerShell AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
-## <a name="description"></a>Descrizione
+## <a name="description"></a>Description
 
 Abilita il motore di strumentazione impostando alcune chiavi del registro di sistema.
 Riavviare IIS per rendere effettive le modifiche.
@@ -42,13 +42,13 @@ Abilitare il motore di strumentazione se:
 > - Questo cmdlet richiede la revisione e l'accettazione delle condizioni di licenza e informativa sulla privacy.
 > - Il motore di strumentazione aggiunge ulteriore overhead ed è disattivato per impostazione predefinita.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 ```powershell
 PS C:\> Enable-InstrumentationEngine
 ```
 
-## <a name="parameters"></a>Parametri
+## <a name="parameters"></a>parameters
 
 ### <a name="-acceptlicense"></a>-AcceptLicense
 **Facoltativo.** Usare questa opzione per accettare la licenza e l'informativa sulla privacy nelle installazioni senza intestazione.
@@ -76,10 +76,10 @@ Configuring registry for instrumentation engine...
  
  Aggiungere altri dati di telemetria:
  - [Creare test Web](monitor-web-app-availability.md) per assicurarsi che il sito rimanga attivo.
-- Aggiungere i dati di telemetria del [client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e per abilitare le chiamate di traccia.
+- Aggiungere i dati di [telemetria del client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e per abilitare le chiamate di traccia.
 - [Aggiungere il Application Insights SDK al codice per](../../azure-monitor/app/asp-net.md) poter inserire le chiamate di traccia e log.
  
- Eseguire altre operazioni con Status Monitor V2:
- - Usare la guida per la [risoluzione dei problemi](status-monitor-v2-troubleshoot.md) Status Monitor V2.
+ Eseguire altre operazioni con Application Insights Agent:
+ - Usare la guida per [risolvere i problemi relativi](status-monitor-v2-troubleshoot.md) a Application Insights Agent.
  - [Ottenere la configurazione](status-monitor-v2-api-get-config.md) per verificare che le impostazioni siano state registrate correttamente.
  - [Ottenere lo stato](status-monitor-v2-api-get-status.md) per controllare il monitoraggio.

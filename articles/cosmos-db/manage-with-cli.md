@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 59f1a678b7a2edc64a2079eff0e819e206c2e509
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 06df85c73b6060bf166df37679457715522f80d8
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811691"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72385777"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gestire le risorse di Azure Cosmos DB usando l'interfaccia della riga di comando di Azure
 
@@ -156,9 +156,10 @@ Ottenere le chiavi di sola lettura per un account Cosmos.
 resourceGroupName='MyResourceGroup'
 accountName='mycosmosaccount'
 
-az cosmosdb list-read-only-keys \
-   -n $accountName \
-   -g $resourceGroupName
+az cosmosdb keys list \
+    -n $accountName \
+    -g $resourceGroupName \
+    --type read-only-keys
 ```
 
 ## <a name="list-connection-strings"></a>Elencare le stringhe di connessione
@@ -170,9 +171,10 @@ Ottenere le stringhe di connessione per un account Cosmos.
 resourceGroupName='MyResourceGroup'
 accountName='mycosmosaccount'
 
-az cosmosdb list-connection-strings \
+az cosmosdb keys list \
     -n $accountName \
-    -g $resourceGroupName
+    -g $resourceGroupName \
+    --type connection-strings
 ```
 
 ## <a name="regenerate-account-key"></a>Rigenerare una chiave dell'account
@@ -182,13 +184,13 @@ Rigenerare una nuova chiave per un account Cosmos.
 ```azurecli-interactive
 # Regenerate secondary account keys
 # key-kind values: primary, primaryReadonly, secondary, secondaryReadonly
-az cosmosdb regenerate-key \
+az cosmosdb keys regenerate \
     -n $accountName \
     -g $resourceGroupName \
     --key-kind secondary
 ```
 
-## <a name="create-a-database"></a>Creazione di un database
+## <a name="create-a-database"></a>Creare un database
 
 Creare un database Cosmos.
 

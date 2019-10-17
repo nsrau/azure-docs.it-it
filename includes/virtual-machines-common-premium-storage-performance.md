@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ca7136f6e1c24d32ff5d6e3e53878c11fb5f1edb
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 961f4595d60e85677d2c7c4a1abd97736d0180ec
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71975311"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391680"
 ---
 ## <a name="application-performance-indicators"></a>Indicatori di prestazioni dell'applicazione
 
@@ -92,7 +92,7 @@ Il modo migliore per misurare i requisiti relativi alle prestazioni per l'applic
 
 Sono disponibili contatori di PerfMon per il processore, la memoria e ogni disco logico e fisico del server. Quando si usano dischi di Archiviazione Premium con una VM, i contatori per dischi fisici sono relativi a ogni disco di Archiviazione Premium e i contatori per dischi logici sono relativi a ogni volume creato nei dischi di Archiviazione Premium. È necessario acquisire i valori per i dischi che ospitano il carico di lavoro dell'applicazione. Se è disponibile il mapping uno a uno tra i dischi logici e i dischi fisici, sarà possibile fare riferimento ai contatori per i dischi fisici. In caso contrario, fare riferimento ai contatori per i dischi logici. In Linux il comando iostat genera un report relativo all'utilizzo della CPU e dei dischi. Il report di utilizzo dischi fornisce statistiche relative al singolo dispositivo o alla singola partizione. Se si dispone di un server di database con i relativi dati e si accede a dischi distinti, raccogliere i dati per entrambi i dischi. La tabella seguente descrive i contatori per i dischi, i processori e la memoria:
 
-| Contatore | Descrizione | PerfMon | Iostat |
+| Contatore | Description | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **IOPS o transazioni al secondo** |Numero di richieste I/O rilasciate al disco di archiviazione a secondo. |Letture disco/sec <br> Scritture disco/sec |tps <br> r/s <br> w/s |
 | **Letture e scritture del disco** |% di operazioni di lettura e scrittura eseguite sul disco. |% Tempo lettura disco <br> % Tempo scrittura disco |r/s <br> w/s |
@@ -154,9 +154,9 @@ Se si usa un'applicazione che consente la modifica delle dimensioni di I/O, usar
 
 Ecco un esempio di come è possibile calcolare i valori di IOPS e larghezza di banda/velocità effettiva per l'applicazione. Prendere in considerazione un'applicazione che usa un disco P30. Il valore massimo di IOPS e larghezza di banda/velocità effettiva che può essere raggiunto da un disco P30 è pari a 5000 IOPS e 200 MB al secondo, rispettivamente. Se l'applicazione richiede il valore di IOPS massimo dal disco P30 e si usano dimensioni di I/O minori, ad esempio 8 KB, il valore di larghezza di banda risultante che si potrà ottenere è pari a 40 MB al secondo. Se l'applicazione richiede il valore massimo di larghezza di banda/velocità effettiva dal disco P30 e si usano dimensioni di I/O maggiori, ad esempio 1024 KB, il valore di IOPS risultante sarà più basso, ad esempio 200 IOPS. È quindi necessario perfezionare le dimensioni di I/O in modo che soddisfino i requisiti relativi a IOPS e velocità effettiva/larghezza di banda dell'applicazione. Nella tabella seguente sono riepilogate le diverse dimensioni di i/o e il valore di IOPS e velocità effettiva corrispondenti per un disco P30.
 
-| Requisiti dell'applicazione | Dimensioni di I/O | IOPS | Velocità effettiva/Larghezza di banda |
+| Requisiti dell'applicazione | Dimensioni di I/O | Operazioni di I/O al secondo | Velocità effettiva/Larghezza di banda |
 | --- | --- | --- | --- |
-| Numero massimo di operazioni di I/O al secondo |8 KB |5\.000 |40 MB al secondo |
+| Operazioni di I/O al secondo max |8 KB |5\.000 |40 MB al secondo |
 | Velocità effettiva massima |1024 KB |200 |200 MB al secondo |
 | Velocità effettiva massima + IOPS elevati |64 KB |3\.200 |200 MB al secondo |
 | IOPS massimi + Velocità effettiva elevata |32 KB |5\.000 |160 MB al secondo |
@@ -174,10 +174,10 @@ Quando si inizia a progettare un'applicazione, uno dei primi passaggi da eseguir
 
 Le macchine virtuali a scalabilità elevata sono disponibili in dimensioni diverse con un numero diverso di core CPU, memoria, sistema operativo e dimensioni del disco temporaneo. Ogni dimensione di VM prevede anche un numero massimo di dischi dati che possono essere collegati alla VM. La dimensione di VM scelta influirà quindi sulla quantità di elaborazione, memoria e capacità di archiviazione disponibile per l'applicazione. Influisce anche sui costi di calcolo e archiviazione. Ad esempio, sono riportate di seguito le specifiche per la VM di dimensione massima per le serie DS, DSv2 e GS:
 
-| Dimensioni macchina virtuale | Core CPU | Memoria | Dimensioni di disco della VM | Max. dischi dati | Dimensioni cache | Operazioni di I/O al secondo | Limiti di I/O della cache della larghezza di banda |
+| Dimensioni VM | Core CPU | Memoria | Dimensioni di disco della VM | Max. dischi dati | Dimensioni cache | Operazioni di I/O al secondo | Limiti di I/O della cache della larghezza di banda |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS14 |16 |112 GB |Sistema operativo = 1023 GB <br> SSD locale = 224 GB |32 |576 GB |50.000 IOPS <br> 512 MB al secondo |4\.000 IOPS e 33 MB al secondo |
-| Standard_GS5 |32 |448 GB |Sistema operativo = 1023 GB <br> SSD locale = 896 GB |64 |4224 GB |80.000 IOPS <br> 2.000 MB al secondo |5\.000 IOPS e 50 MB al secondo |
+| Standard_GS5 |32 |448 GB |Sistema operativo = 1023 GB <br> SSD locale = 896 GB |64 |4224 GB |80.000 IOPS <br> 2\.000 MB al secondo |5\.000 IOPS e 50 MB al secondo |
 
 Per visualizzare un elenco completo di tutte le dimensioni delle VM di Azure disponibili, vedere [Dimensioni per le macchine virtuali Windows](../articles/virtual-machines/windows/sizes.md) o [Dimensioni per le macchine virtuali Linux](../articles/virtual-machines/linux/sizes.md). Scegliere una dimensione di VM in grado di soddisfare e adeguarsi ai requisiti relativi alle prestazioni dell'applicazione. Quando si scelgono le dimensioni delle VM, è inoltre necessario esaminare le importanti considerazioni seguenti.
 
@@ -245,14 +245,14 @@ Per altre informazioni sul funzionamento di BlobCache, vedere il post di blog re
 
 | **Tipo di disco** | **Impostazione predefinita per la cache** |
 | --- | --- |
-| Disco sistema operativo |ReadWrite |
+| Disco del sistema operativo |ReadWrite |
 | Disco dati |ReadOnly |
 
 Ecco le impostazioni consigliate per la cache su disco per i dischi dati:
 
 | **Impostazione per la memorizzazione nella cache su disco** | **Indicazione sull'uso di questa impostazione** |
 | --- | --- |
-| Nessuna |Configurare la cache host come None per dischi di sola scrittura e dischi con numero elevato di operazioni di scrittura. |
+| Nessuno |Configurare la cache host come None per dischi di sola scrittura e dischi con numero elevato di operazioni di scrittura. |
 | ReadOnly |Configurare la cache host come ReadOnly per dischi di sola lettura e di lettura-scrittura. |
 | ReadWrite |Configurare la cache host come ReadWrite solo se l'applicazione gestisce correttamente la scrittura di dati memorizzati nella cache in dischi persistenti, quando necessario. |
 
@@ -265,7 +265,7 @@ Configurando la memorizzazione nella cache ReadOnly nei dischi dati di Archiviaz
 *ReadWrite*  
 Per impostazione predefinita, la memorizzazione nella cache ReadWrite è abilitata nei dischi sistema operativo. È stato recentemente aggiunto il supporto per la memorizzazione nella cache ReadWrite anche sui dischi dati. Se si usa la memorizzazione nella cache ReadWrite, è necessario scrivere in modo corretto i dati dalla cache ai dischi persistenti. Ad esempio, SQL Server gestisce automaticamente la scrittura di dati memorizzati nella cache nei dischi di archiviazione permanente. L'uso della cache di tipo ReadWrite con un'applicazione che non gestisce la persistenza dei dati necessari può provocare la perdita dei dati, in caso di arresto anomalo della VM.
 
-*None*  
+*Nessuno*  
 Attualmente, **None** è supportato solo nei dischi dati. Non è supportata nei dischi del sistema operativo. Se si imposta **None** su un disco del sistema operativo, quest'operazione verrà sostituita internamente e impostata su **ReadOnly**.
 
 È ad esempio possibile applicare queste indicazioni a SQL Server in esecuzione sull'Archiviazione Premium seguendo questa procedura:
@@ -286,24 +286,24 @@ Per tutti i dischi Ultra o le unità SSD Premium con cache impostata su **ReadOn
 * Per i dischi di Archiviazione Premium con cache impostata su **ReadWrite**, abilitare le barriere per la durabilità della scrittura.
 * Per far sì che le etichette di volume si mantengano dopo il riavvio della VM, è necessario aggiornare /etc/fstab con i riferimenti degli identificatori universalmente univoci (UUID) ai dischi. Per altre informazioni, vedere [Aggiungere un disco gestito a una VM Linux](../articles/virtual-machines/linux/add-disk.md).
 
-Le distribuzioni Linux seguenti sono state convalidate per le unità SSD Premium. Per prestazioni e stabilità migliori con le unità SSD Premium, si consiglia di aggiornare le macchine virtuali ad almeno una di queste versioni o successive. 
+Le distribuzioni Linux seguenti sono state convalidate per le unità SSD Premium. Per migliorare le prestazioni e la stabilità con le unità SSD Premium, è consigliabile aggiornare le macchine virtuali a una di queste versioni o a una versione più recente. 
 
 Alcune versioni richiedono la versione più recente di Linux Integration Services (LIS) 4.0 per Azure. Per scaricare e installare una distribuzione, fare clic sul collegamento riportato nella tabella seguente. Nuove immagini vengono aggiunte all'elenco non appena viene completata la convalida. Le convalide mostrano che le prestazioni variano per ogni immagine. Le prestazioni dipendono dalle caratteristiche del carico di lavoro e dalle impostazioni. Immagini diverse sono ottimizzate per tipi di carico di lavoro diversi.
 
 | Distribuzione | Versione | Kernel supportato | Dettagli |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
-| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
-| Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
-| SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 richiesto](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Vedere la nota nella sezione successiva* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 consigliato](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Vedere la nota nella sezione successiva* |
-| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
-| Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 o RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 or RHCK con [LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 or RHCK con [LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Ubuntu | 12,04 o versione successiva| 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
+| Ubuntu | 14,04 o versione successiva| 3.13.0-44.73+  | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
+| Debian | 7. x, 8. x o versione successiva| 3.16.7-ckt4-1+ | &nbsp; |
+| SUSE | SLES 12 o versione successiva| 3.12.36-38.1+ | suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 11 SP4 o versione successiva| 3.0.101-0.63.1+ | &nbsp; |
+| CoreOS | 584.0.0 + o versione successiva| 3.18.4+ | CoreOS 584.0.0 |
+| CentOS | 6,5, 6,6, 6,7, 7,0 o versione successiva| &nbsp; | [LIS4 richiesto](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Vedere la nota nella sezione successiva* |
+| CentOS | 7.1 + o versione successiva| 3.10.0-229.1.2.el7+ | [LIS4 consigliato](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Vedere la nota nella sezione successiva* |
+| Red Hat Enterprise Linux (RHEL) | 6.8 +, 7,2 + o versione successiva | &nbsp; | &nbsp; |
+| Oracle | 6.0 +, 7,2 + o versione successiva | &nbsp; | UEK4 o RHCK |
+| Oracle | 7.0-7.1 o versione successiva | &nbsp; | UEK4 or RHCK con [LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 o versione successiva | &nbsp; | UEK4 or RHCK con [LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>Driver LIS per Openlogic CentOS
 

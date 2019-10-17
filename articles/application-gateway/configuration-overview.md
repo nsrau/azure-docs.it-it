@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: f69348f1a56845716d8d862f2926774cbc537cf0
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: d67a14b1cbd3fb352ee1c4b271945ab347ee7fed
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177427"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389964"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica della configurazione del gateway applicazione
 
@@ -38,7 +38,7 @@ Un gateway applicazione è una distribuzione dedicata nella rete virtuale. All'i
 
 Il gateway applicazione USA 1 indirizzo IP privato per istanza, oltre a un altro indirizzo IP privato se è configurato un IP front-end privato.
 
-Azure riserva inoltre 5 indirizzi IP in ogni subnet per uso interno: i primi 4 e gli ultimi indirizzi IP. Si considerino, ad esempio, 15 istanze del gateway applicazione senza IP front-end privato. Per questa subnet sono necessari almeno 20 indirizzi IP: 5 per uso interno e 15 per le istanze del gateway applicazione. Quindi, è necessario disporre di una o più dimensioni della subnet/27.
+Azure riserva inoltre 5 indirizzi IP in ogni subnet per uso interno: i primi 4 e gli ultimi indirizzi IP. Si considerino, ad esempio, 15 istanze del gateway applicazione senza IP front-end privato. Sono necessari almeno 20 indirizzi IP per questa subnet: 5 per uso interno e 15 per le istanze del gateway applicazione. Quindi, è necessario disporre di una o più dimensioni della subnet/27.
 
 Si consideri una subnet con 27 istanze del gateway applicazione e un indirizzo IP per un indirizzo IP front-end privato. In questo caso sono necessari 33 indirizzi IP: 27 per le istanze del gateway applicazione, 1 per il front-end privato e 5 per uso interno. Quindi, è necessario disporre di una o più dimensioni della subnet/26.
 
@@ -48,7 +48,7 @@ Si consiglia di usare una dimensione della subnet pari ad almeno/28. Questa dime
 
 I gruppi di sicurezza di rete (gruppi) sono supportati nel gateway applicazione. Esistono tuttavia diverse limitazioni:
 
-- È necessario includere le eccezioni per il traffico in ingresso sulle porte 65503-65534 per lo SKU del gateway applicazione V1 e le porte 65200-65535 per lo SKU V2. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Queste porte sono protette (bloccate) dai certificati di Azure. Le entità esterne, inclusi i clienti di tali gateway, non possono avviare modifiche su tali endpoint senza certificati appropriati.
+- È necessario consentire il traffico Internet in ingresso sulle porte TCP 65503-65534 per lo SKU del gateway applicazione V1 e le porte TCP 65200-65535 per lo SKU V2 con la subnet di destinazione come *qualsiasi*. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Queste porte sono protette (bloccate) dai certificati di Azure. Le entità esterne, inclusi i clienti di tali gateway, non possono avviare modifiche su tali endpoint senza certificati appropriati.
 
 - La connettività Internet in uscita non può essere bloccata. Le regole in uscita predefinite in NSG consentono la connettività Internet. È consigliabile:
 
@@ -218,7 +218,7 @@ Per altre informazioni sui reindirizzamenti, vedere [Panoramica del reindirizzam
 
 #### <a name="redirection-type"></a>Tipo di Reindirizzamento
 
-Scegliere il tipo di reindirizzamento necessario: *Permanente (301*), *temporaneo (307)* , *trovato (302)* o *vedere altro (303)* .
+Scegliere il tipo di reindirizzamento necessario: *permanente (301*), *temporaneo (307)* , *trovato (302)* o *vedere altro (303)* .
 
 #### <a name="redirection-target"></a>Destinazione di Reindirizzamento
 
@@ -245,7 +245,7 @@ Per ulteriori informazioni sul reindirizzamento, vedere:
 
 #### <a name="rewrite-the-http-header-setting"></a>Riscrivere l'impostazione dell'intestazione HTTP
 
-Questa impostazione consente di aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP mentre i pacchetti di richiesta e risposta vengono spostati tra il client e i pool back-end. Questa funzionalità può essere configurata solo tramite PowerShell. Il supporto per portale di Azure e CLI non è ancora disponibile. Per altre informazioni, vedere:
+Questa impostazione consente di aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP mentre i pacchetti di richiesta e risposta vengono spostati tra il client e i pool back-end. Questa funzionalità può essere configurata solo tramite PowerShell. Il supporto per portale di Azure e CLI non è ancora disponibile. Per scoprire di più, vedi:
 
  - [Panoramica delle intestazioni HTTP di riscrittura](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
  - [Configurare la riscrittura dell'intestazione HTTP](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-the-http-header-rewrite-rule-configuration)
@@ -268,7 +268,7 @@ Il gateway applicazione supporta sia HTTP che HTTPS per il routing delle richies
 
 Questa impostazione combinata con HTTPS nel listener supporta [SSL end-to-end](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Ciò consente di trasmettere in modo sicuro dati sensibili crittografati al back-end. Ogni server back-end nel pool back-end in cui è abilitato SSL end-to-end deve essere configurato con un certificato per consentire la comunicazione protetta.
 
-### <a name="port"></a>Port
+### <a name="port"></a>Porta
 
 Questa impostazione specifica la porta in cui i server back-end ascoltano il traffico dal gateway applicazione. È possibile configurare porte comprese tra 1 e 65535.
 

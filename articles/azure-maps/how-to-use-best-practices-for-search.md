@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 25615ae8bc9bc8cadbe973f3a1859c2d43b067a9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: de9e484e43c87375c2fdf9b34dd2efce3bb8aa8c
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915569"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429172"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Procedure consigliate per l'uso di mappe di Azure servizio di ricerca
 
@@ -50,25 +50,25 @@ Per altre informazioni sulle funzionalità di geocodifica di Azure Maps per paes
 
    Per la polarizzazione geografica dei risultati nell'area pertinente per l'utente, è necessario aggiungere sempre il massimo possibile input della posizione dettagliata. Per limitare i risultati della ricerca, è consigliabile aggiungere i tipi di input seguenti:
 
-   1. Impostare il `countrySet` parametro, ad esempio "US, fr". Il comportamento di ricerca predefinito prevede la ricerca nell'intero mondo, restituendo potenzialmente risultati non necessari. Se la query non include `countrySet` il parametro, è possibile che la ricerca restituisca risultati non accurati. Ad esempio, la ricerca di una città denominata **Bellevue** restituirà risultati da Stati Uniti e Francia, dal momento che sono presenti città denominate **Bellevue** in Francia e negli Stati Uniti.
+   1. Impostare il parametro `countrySet`, ad esempio "US, FR". Il comportamento di ricerca predefinito prevede la ricerca nell'intero mondo, restituendo potenzialmente risultati non necessari. Se la query non include il parametro `countrySet`, è possibile che la ricerca restituisca risultati non accurati. Ad esempio, la ricerca di una città denominata **Bellevue** restituirà risultati da Stati Uniti e Francia, dal momento che sono presenti città denominate **Bellevue** in Francia e negli Stati Uniti.
 
-   2. È possibile usare i `btmRight` parametri `topleft` e per impostare il rettangolo di delimitazione per limitare la ricerca a un'area specifica sulla mappa.
+   2. È possibile utilizzare i parametri `btmRight` e `topleft` per impostare il riquadro per limitare la ricerca a un'area specifica della mappa.
 
-   3. Per influenzare l'area di pertinenza per i risultati, è possibile definire i `lat`parametri `lon` della coordinata e e impostare il raggio dell'area di `radius` ricerca usando il parametro.
+   3. Per influenzare l'area di pertinenza per i risultati, è possibile definire i parametri della coordinata `lat`and `lon` e impostare il raggio dell'area di ricerca usando il parametro `radius`.
 
 
    **Parametri di ricerca fuzzy**
 
-   1. `minFuzzyLevel` E`maxFuzzyLevel`, consentono di restituire corrispondenze rilevanti anche quando i parametri di query non corrispondono esattamente alle informazioni desiderate. La maggior parte delle query `minFuzzyLevel=1` di `maxFuzzyLevel=2` ricerca viene impostata automaticamente su e per ottenere prestazioni e ridurre i risultati anomali. Si prenda ad esempio un termine di ricerca "restrant", che viene abbinato a "Restaurant" quando `maxFuzzyLevel` è impostato su 2. È possibile eseguire l'override dei livelli fuzzy predefiniti in base alle esigenze della richiesta. 
+   1. I `minFuzzyLevel` e `maxFuzzyLevel`, consentono di restituire corrispondenze rilevanti anche quando i parametri di query non corrispondono esattamente alle informazioni desiderate. Per impostazione predefinita, la maggior parte delle query di ricerca viene `minFuzzyLevel=1` e `maxFuzzyLevel=2` per ottenere prestazioni e ridurre i risultati insoliti. Si prenda ad esempio un termine di ricerca "restrant", che viene abbinato a "Restaurant" quando il `maxFuzzyLevel` è impostato su 2. È possibile eseguire l'override dei livelli fuzzy predefiniti in base alle esigenze della richiesta. 
 
-   2. È inoltre possibile specificare il set esatto di tipi di risultato da restituire utilizzando il `idxSet` parametro. A questo scopo è possibile inviare un elenco delimitato da virgole di indici, l'ordine degli elementi non è rilevante. Gli indici supportati sono i seguenti:
+   2. È inoltre possibile specificare il set esatto di tipi di risultato da restituire utilizzando il parametro `idxSet`. A questo scopo è possibile inviare un elenco delimitato da virgole di indici, l'ordine degli elementi non è rilevante. Gli indici supportati sono i seguenti:
 
-       * `Addr` - **Intervalli di indirizzi**: Per alcune strade sono presenti punti di indirizzo interpolati dall'inizio e dalla fine della strada; questi punti sono rappresentati come intervalli di indirizzi.
-       * `Geo` - **Aree geografiche**: Aree in una mappa che rappresentano la divisione amministrativa di una terra, ovvero paese, stato, città.
-       * `PAD` - **Indirizzo punto**:  Punta a una mappa in cui è possibile trovare un indirizzo specifico con il nome e il numero della strada in un indice, ad esempio Soquel DR 2501. Si tratta del livello più elevato di accuratezza disponibile per gli indirizzi.  
-       * `POI` - **Punti di interesse**: Punta a una mappa che vale la pena di prestare attenzione e potrebbe essere interessante.  [Ottenere l'indirizzo di ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) non restituisce i pois.  
-       * `Str` - **Strade**: Rappresentazione delle strade sulla mappa.
-       * `XStr` - **Strade/intersezioni**:  Rappresentazione di giunzioni; luoghi in cui due strade si intersecano.
+       * `Addr` @ no__t-1**intervalli di indirizzi**: per alcune strade sono presenti punti di indirizzo interpolati dall'inizio e dalla fine della strada; questi punti sono rappresentati come intervalli di indirizzi.
+       * `Geo` @ no__t-1**geografie**: aree in una mappa che rappresentano la divisione amministrativa di una terra, ovvero paese, stato, città.
+       * `PAD` @ no__t-1**indirizzo punto**: punta su una mappa in cui è possibile trovare un indirizzo specifico con un nome e un numero via in un indice, ad esempio Soquel DR 2501. Si tratta del livello più elevato di accuratezza disponibile per gli indirizzi.  
+       * `POI` @ no__t-1**punti di interesse**: punta a una mappa che vale la pena di prestare attenzione e potrebbe essere interessante.  [Ottenere l'indirizzo di ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) non restituisce i pois.  
+       * `Str` @ no__t-1**Streets**: rappresentazione delle strade sulla mappa.
+       * `XStr` @ no__t-1**Cross Street/intersezione**: rappresentazione di giunzioni; luoghi in cui due strade si intersecano.
 
 
        **Esempi di utilizzo**:
@@ -128,14 +128,14 @@ https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscrip
 
 ### <a name="search-results-language"></a>Lingua dei risultati della ricerca
 
-Il `language` parametro consente di impostare in cui devono essere restituiti i risultati della ricerca nella lingua. Se la lingua non è impostata nella richiesta, il servizio di ricerca viene automaticamente impostato sul linguaggio più comune nel paese. Inoltre, quando i dati nella lingua specificata non sono disponibili, viene utilizzata la lingua predefinita. Vedere le [lingue supportate](https://docs.microsoft.com/azure/azure-maps/supported-languages) per un elenco delle lingue supportate rispetto ai servizi di Azure Maps per paese/area geografica.
+Il parametro `language` consente di impostare in cui devono essere restituiti i risultati della ricerca nella lingua. Se la lingua non è impostata nella richiesta, il servizio di ricerca viene automaticamente impostato sul linguaggio più comune nel paese. Inoltre, quando i dati nella lingua specificata non sono disponibili, viene utilizzata la lingua predefinita. Vedere le [lingue supportate](https://docs.microsoft.com/azure/azure-maps/supported-languages) per un elenco delle lingue supportate rispetto ai servizi di Azure Maps per paese/area geografica.
 
 
 ### <a name="predictive-mode-auto-suggest"></a>Modalità predittiva (suggerimento automatico)
 
-Per trovare più corrispondenze per le query `typeahead` parziali, il parametro deve essere impostato su' true '. La query verrà interpretata come input parziale e la ricerca entrerà in modalità predittiva. In caso contrario, il servizio presuppone che tutte le informazioni rilevanti siano state passate.
+Per trovare più corrispondenze per le query parziali, il parametro `typeahead` deve essere impostato su' true '. La query verrà interpretata come input parziale e la ricerca entrerà in modalità predittiva. In caso contrario, il servizio presuppone che tutte le informazioni rilevanti siano state passate.
 
-Nella query di esempio riportata di seguito è possibile osservare che viene eseguita una query sul servizio Address di ricerca per "Microso" con il `typeahead` parametro impostato su **true**. Se si osserva la risposta, è possibile notare che il servizio di ricerca ha interpretato la query come query parziale e la risposta contiene i risultati per la query suggerita automaticamente.
+Nella query di esempio riportata di seguito è possibile osservare che viene eseguita una query sul servizio Address di ricerca per "Microso" con il parametro `typeahead` impostato su **true**. Se si osserva la risposta, è possibile notare che il servizio di ricerca ha interpretato la query come query parziale e la risposta contiene i risultati per la query suggerita automaticamente.
 
 **Query di esempio:**
 
@@ -254,7 +254,7 @@ query=1st Avenue & E 111th St, New York
  deve essere codificato come:
 
 ```
-query"=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York
+query=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York
 ```
 
 
@@ -265,7 +265,7 @@ JavaScript/TypeScript:
 encodeURIComponent(query)
 ```
 
-C#/VB:
+C#VB
 ```csharp
 Uri.EscapeDataString(query)
 ```
@@ -297,7 +297,7 @@ Ruby
 CGI::escape(query) 
 ```
 
-Swift
+Swift:
 ```Swift
 query.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet()) 
 ```
@@ -311,7 +311,7 @@ url.QueryEscape(query)
 
 ## <a name="best-practices-for-poi-search"></a>Procedure consigliate per la ricerca nei punti di interesse
 
-La ricerca di punti di interesse (PDI) consente di richiedere i risultati dei punti di interesse in base al nome, ad esempio ricercare il nome per il business. È consigliabile usare il `countrySet` parametro per specificare i paesi in cui l'applicazione necessita di copertura, perché il comportamento predefinito consiste nel cercare l'intero mondo, restituendo potenzialmente risultati superflui e/o producendo tempi di ricerca più lunghi.
+La ricerca di punti di interesse (PDI) consente di richiedere i risultati dei punti di interesse in base al nome, ad esempio ricercare il nome per il business. È consigliabile usare il parametro `countrySet` per specificare i paesi in cui l'applicazione necessita di copertura, perché il comportamento predefinito è quello di eseguire ricerche nell'intero mondo, restituendo potenzialmente i risultati non necessari e/o producendo tempi di ricerca più lunghi.
 
 ### <a name="brand-search"></a>Ricerca del marchio
 
@@ -496,7 +496,7 @@ Per recuperare solo i risultati dei punti di interesse in una posizione specific
 
 ## <a name="understanding-the-responses"></a>Informazioni sulle risposte
 
-Si effettuerà una richiesta di ricerca di indirizzi al [servizio ricerca](https://docs.microsoft.com/rest/api/maps/search) di Azure Maps per un indirizzo a Seattle. Se si osserva attentamente l'URL della richiesta riportato di seguito, il `countrySet` parametro viene impostato su **US** per cercare l'indirizzo nel Stati Uniti di America.
+Si effettuerà una richiesta di ricerca di indirizzi al [servizio ricerca](https://docs.microsoft.com/rest/api/maps/search) di Azure Maps per un indirizzo a Seattle. Se si osserva attentamente l'URL della richiesta riportato di seguito, il parametro `countrySet` è stato impostato su **US** per cercare l'indirizzo nella Stati Uniti di America.
 
 **Query di esempio:**
 
@@ -504,7 +504,7 @@ Si effettuerà una richiesta di ricerca di indirizzi al [servizio ricerca](https
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400%20Broad%20Street%2C%20Seattle%2C%20WA&countrySet=US
 ```
 
-Si osservi inoltre la struttura della risposta riportata di seguito. I tipi di risultato degli oggetti risultato nella risposta sono diversi. Osservando con attenzione, sono disponibili tre diversi tipi di oggetti risultato, ovvero "indirizzo punto", "via" e "traversa". Si noti che la ricerca di indirizzi non restituisce i POIs. Il `Score` parametro per ogni oggetto Response indica il punteggio corrispondente relativo ai punteggi di altri oggetti nella stessa risposta. Per ulteriori informazioni sui parametri degli oggetti risposta, vedere [ottenere l'indirizzo di ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) .
+Si osservi inoltre la struttura della risposta riportata di seguito. I tipi di risultato degli oggetti risultato nella risposta sono diversi. Osservando con attenzione, sono disponibili tre diversi tipi di oggetti risultato, ovvero "indirizzo punto", "via" e "traversa". Si noti che la ricerca di indirizzi non restituisce i POIs. Il parametro `Score` per ogni oggetto Response indica il punteggio corrispondente relativo ai punteggi di altri oggetti nella stessa risposta. Per ulteriori informazioni sui parametri degli oggetti risposta, vedere [ottenere l'indirizzo di ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) .
 
 **Tipi di risultato supportati:**
 
@@ -512,11 +512,11 @@ Si osservi inoltre la struttura della risposta riportata di seguito. I tipi di r
 
 * **Intervallo di indirizzi:**  Per alcune strade sono presenti punti di indirizzo interpolati dall'inizio e dalla fine della strada; questi punti sono rappresentati come intervalli di indirizzi. 
 
-* **Geografia** Aree in una mappa che rappresentano la divisione amministrativa di una terra, ovvero paese, stato, città. 
+* **Geografia:** Aree in una mappa che rappresentano la divisione amministrativa di una terra, ovvero paese, stato, città. 
 
 * **PDI-(punti di interesse):** Punta a una mappa che vale la pena di prestare attenzione e potrebbe essere interessante.
 
-* **Strada** Rappresentazione delle strade sulla mappa. Gli indirizzi vengono risolti nella coordinata di Latitudine/Longitudine della strada che contiene l'indirizzo. Il numero civico può non essere elaborato. 
+* **Via:** Rappresentazione delle strade sulla mappa. Gli indirizzi vengono risolti nella coordinata di Latitudine/Longitudine della strada che contiene l'indirizzo. Il numero civico può non essere elaborato. 
 
 * **Tra le strade:** Intersezioni. Rappresentazioni di giunzioni; luoghi in cui due strade si intersecano.
 
@@ -684,7 +684,7 @@ Si osservi inoltre la struttura della risposta riportata di seguito. I tipi di r
 }
 ```
 
-### <a name="geometry"></a>Geometria
+### <a name="geometry"></a>Geometry
 
 Quando il tipo di risposta è **Geometry**, può includere l'ID Geometry restituito nell'oggetto **DataSources** in "Geometry" e "ID". [Get Polygon Service](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) consente, ad esempio, di richiedere i dati geometrici in formato GeoJSON, ad esempio una struttura City o Airport per un set di entità. È possibile usare questi dati limite per la [geoschermatura](https://docs.microsoft.com/azure/azure-maps/tutorial-geofence) o per [la ricerca all'interno della geometria](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry).
 

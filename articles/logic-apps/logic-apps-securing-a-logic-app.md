@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: b1331865224d34f731dbd388cebdaec8b7c9fe7f
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: c7b6abb9874c8b6bb2469595b9ce53541656834f
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264656"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430134"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in app per la logica di Azure
 
@@ -30,7 +30,7 @@ Per controllare l'accesso e proteggere i dati in app per la logica di Azure, è 
 
 ## <a name="access-to-http-request-triggers"></a>Accesso ai trigger di richiesta HTTP
 
-Quando l'app per la logica usa un trigger HTTP basato su richiesta, ad esempio il trigger di [richiesta](../connectors/connectors-native-reqres.md) o [webhook](../connectors/connectors-native-webhook.md), è possibile limitare l'accesso in modo che solo i client autorizzati possano avviare l'app per la logica. Tutte le richieste ricevute da un'app per la logica vengono crittografate e protette con il protocollo Secure Sockets Layer (SSL). 
+Quando l'app per la logica usa un trigger HTTP basato su richiesta, ad esempio il trigger di [richiesta](../connectors/connectors-native-reqres.md) o [webhook](../connectors/connectors-native-webhook.md) , è possibile limitare l'accesso in modo che solo i client autorizzati possano avviare l'app per la logica. Tutte le richieste ricevute da un'app per la logica vengono crittografate e protette con il protocollo Secure Sockets Layer (SSL). 
 
 Ecco i modi in cui è possibile proteggere l'accesso a questo tipo di trigger:
 
@@ -48,7 +48,7 @@ Ogni endpoint di richiesta in un'app per la logica ha una [firma di accesso cond
 
 Ogni URL contiene un parametro di query `sp`, `sv` e `sig` come descritto in questa tabella:
 
-| Parametro di query | Descrizione |
+| Query parameter (Parametro di query) | Description |
 |-----------------|-------------|
 | `sp` | Specifica le autorizzazioni per i metodi HTTP consentiti da utilizzare. |
 | `sv` | Specifica la versione SAS da usare per la generazione della firma. |
@@ -173,9 +173,9 @@ Per aggiungere altri protocolli di autorizzazione all'app per la logica,consider
 
 È possibile consentire solo a utenti o gruppi specifici di eseguire operazioni specifiche, ad esempio la gestione, la modifica e la visualizzazione di app per la logica. Per controllare le autorizzazioni, usare il [controllo degli accessi in base al ruolo (RBAC) di Azure](../role-based-access-control/role-assignments-portal.md) per assegnare ruoli personalizzati o predefiniti ai membri nella sottoscrizione di Azure:
 
-* [Collaboratore per app per la logica](../role-based-access-control/built-in-roles.md#logic-app-contributor): Consente di gestire le app per la logica, ma non di modificarne l'accesso.
+* [Collaboratore app](../role-based-access-control/built-in-roles.md#logic-app-contributor)per la logica: consente di gestire le app per la logica, ma non di modificarne l'accesso.
 
-* [Operatore per app per la logica](../role-based-access-control/built-in-roles.md#logic-app-operator): Consente di leggere, abilitare e disabilitare le app per la logica, ma non di modificarle o aggiornarle.
+* [Operatore app](../role-based-access-control/built-in-roles.md#logic-app-operator)per la logica: consente di leggere, abilitare e disabilitare le app per la logica, ma non di modificarle o aggiornarle.
 
 Per impedire ad altri utenti di modificare o eliminare l'app per la logica, è possibile usare il [blocco di risorse di Azure](../azure-resource-manager/resource-group-lock-resources.md), che impedisce ad altri utenti di modificare o eliminare le risorse di produzione.
 
@@ -183,7 +183,7 @@ Per impedire ad altri utenti di modificare o eliminare l'app per la logica, è p
 
 ## <a name="access-to-run-history-data"></a>Accesso ai dati della cronologia di esecuzione
 
-Durante l'esecuzione di un' [app per la](../security/fundamentals/encryption-atrest.md)logica, tutti i dati vengono crittografati durante il transito con [Transport Layer Security (TLS)](https://azure.microsoft.com/updates/app-service-and-functions-hosted-apps-can-now-update-tls-versions/) e inattivi. Al termine dell'esecuzione dell'app per la logica, è possibile visualizzare la cronologia dell'esecuzione, inclusi i passaggi eseguiti con lo stato, la durata, gli input e gli output per ogni azione. Questo approfondimento fornisce informazioni dettagliate sulle modalità di esecuzione dell'app per la logica e su dove è possibile iniziare la risoluzione dei problemi che si verificano.
+Durante l'esecuzione di un' [app per la](../security/fundamentals/encryption-atrest.md)logica, tutti i dati vengono [crittografati durante il transito](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) con Transport Layer Security (TLS) e inattivi. Al termine dell'esecuzione dell'app per la logica, è possibile visualizzare la cronologia dell'esecuzione, inclusi i passaggi eseguiti con lo stato, la durata, gli input e gli output per ogni azione. Questo approfondimento fornisce informazioni dettagliate sulle modalità di esecuzione dell'app per la logica e su dove è possibile iniziare la risoluzione dei problemi che si verificano.
 
 Quando si accede alla cronologia di esecuzione dell'app per la logica, app per la logica autentica l'accesso e fornisce collegamenti agli input e agli output delle richieste e delle risposte nell'esecuzione dell'app per la logica. Tuttavia, per le azioni che gestiscono password, segreti, chiavi o altre informazioni riservate, si desidera impedire ad altri utenti di visualizzare e accedere a tali dati. Ad esempio, se l'app per la logica ottiene un segreto da [Azure Key Vault](../key-vault/key-vault-overview.md) da usare durante l'autenticazione di un'azione http, si vuole nascondere tale segreto dalla visualizzazione.
 
@@ -300,8 +300,8 @@ Molti trigger e azioni hanno impostazioni per nascondere gli input, gli output o
 
 Nel trigger o nella definizione di azione sottostante aggiungere o aggiornare la matrice `runtimeConfiguration.secureData.properties` con uno o entrambi i valori seguenti:
 
-* `"inputs"`: Protegge gli input nella cronologia di esecuzione.
-* `"outputs"`: Protegge gli output nella cronologia di esecuzione.
+* `"inputs"`: protegge gli input nella cronologia di esecuzione.
+* `"outputs"`: protegge gli output nella cronologia di esecuzione.
 
 Di seguito sono riportate alcune [considerazioni da considerare](#obfuscation-considerations) quando si usano queste impostazioni per proteggere questi dati.
 
@@ -437,7 +437,7 @@ Di seguito sono riportate altre informazioni su queste sezioni `parameters`:
 
 Questo modello di esempio con più definizioni di parametro protette che usano il tipo `securestring`:
 
-| Nome parametro | Descrizione |
+| Nome parametro | Description |
 |----------------|-------------|
 | `TemplatePasswordParam` | Parametro di modello che accetta una password che viene quindi passata al parametro `basicAuthPasswordParam` della definizione del flusso di lavoro. |
 | `TemplateUsernameParam` | Parametro di modello che accetta un nome utente che viene quindi passato al parametro `basicAuthUserNameParam` della definizione del flusso di lavoro. |

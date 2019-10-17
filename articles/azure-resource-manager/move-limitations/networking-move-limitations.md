@@ -4,14 +4,14 @@ description: Usare Azure Resource Manager per spostare le reti virtuali e altre 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 10/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6ad7f32704d8cb73999a6e3cf60cb2a238268242
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 14a7cb326a3017b1bdbcad21c8483eaaacd54674
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034553"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437814"
 ---
 # <a name="move-guidance-for-networking-resources"></a>Spostare le linee guida per le risorse di rete
 
@@ -21,7 +21,9 @@ Questo articolo descrive come spostare le reti virtuali e altre risorse di rete 
 
 Quando si esegue lo spostamento di una rete virtuale, è necessario spostare anche le relative risorse dipendenti. Per i gateway VPN, è necessario spostare gli indirizzi IP, i gateway di rete virtuale e tutte le risorse di connessione associata. I gateway di rete locali possono trovarsi in un gruppo di risorse diverso.
 
-Per spostare una macchina virtuale con una scheda di interfaccia di rete, è necessario spostare tutte le risorse dipendenti. Spostare la rete virtuale per la scheda di interfaccia di rete, tutte le altre schede di interfaccia di rete per la rete virtuale e i gateway VPN.
+Per spostare una macchina virtuale con una scheda di interfaccia di rete in una nuova sottoscrizione, è necessario spostare tutte le risorse dipendenti. Spostare la rete virtuale per la scheda di interfaccia di rete, tutte le altre schede di interfaccia di rete per la rete virtuale e i gateway VPN.
+
+Per ulteriori informazioni, vedere [scenario per lo spostamento tra sottoscrizioni](../resource-group-move-resources.md#scenario-for-move-across-subscriptions).
 
 ## <a name="peered-virtual-network"></a>Rete virtuale con peering
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 612d2e3a9a5a324f7d6d8e1b63b6b7e297047239
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 108d86e35422e1dc1d10aeb6b2c9488f5067232e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063847"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389678"
 ---
 # <a name="select-a-page-layout-in-azure-active-directory-b2c-using-custom-policies"></a>Selezionare un layout di pagina in Azure Active Directory B2C usando criteri personalizzati
 
@@ -68,6 +68,17 @@ Per configurare un layout di pagina, usare la tabella seguente per trovare i val
 
 I pacchetti del layout di pagina vengono aggiornati periodicamente per includere correzioni e miglioramenti negli elementi della pagina. Nel log delle modifiche seguente vengono specificate le modifiche introdotte in ogni versione.
 
+### <a name="120"></a>1.2.0 
+- Tutte le pagine
+  - Correzioni di accessibilità
+  - È ora possibile aggiungere l'attributo `data-preload="true"` nei tag HTML per controllare l'ordine di caricamento per CSS e JavaScript. Gli scenari includono:
+      - Usare il collegamento CSS per caricare il CSS contemporaneamente al codice HTML in modo che non venga "sfarfallio" tra il caricamento dei file
+      - Questo attributo consente di controllare l'ordine in cui i tag di script vengono recuperati ed eseguiti prima del caricamento della pagina
+  - Il campo posta elettronica è ora `type=email` e le tastiere mobili forniranno i suggerimenti corretti
+  - Supporto per la conversione di Chrome
+- Pagina unificata e autocertificata
+  - I campi nome utente/indirizzo di posta elettronica e password ora usano l'elemento HTML del modulo.  In questo modo Edge e IE verranno consentiti per salvare correttamente queste informazioni
+  
 ### <a name="110"></a>1.1.0
 
 - Pagina eccezione (globalexception)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 10/07/2019
-ms.openlocfilehash: 9db1b96cb495fd0de452091da79ab61f7ae59118
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 24b0deb60f1047228dc3ff6000d423e7cb6939ca
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030731"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387312"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione del flusso di dati
 
@@ -23,11 +23,11 @@ Quando si progettano e si testano i flussi di dati dall'esperienza utente di ADF
 
 Quando si progettano i flussi di dati di mapping, è possibile unit test ogni trasformazione facendo clic sulla scheda Anteprima dati nel pannello di configurazione. Una volta verificata la logica, testare il flusso di dati end-to-end come attività in una pipeline. Aggiungere un'attività Esegui flusso di dati e utilizzare il pulsante debug per testare le prestazioni del flusso di dati. Per aprire il piano di esecuzione e il profilo delle prestazioni del flusso di dati, fare clic sull'icona a forma di occhiali in "azioni" nella scheda output della pipeline.
 
-(media/data-flow/mon002.png "Monitoraggio flusso di dati") di ![monitoraggio flusso di dati]2
+![Monitoraggio flusso di dati](media/data-flow/mon002.png "Monitoraggio flusso di dati 2")
 
  È possibile utilizzare queste informazioni per stimare le prestazioni del flusso di dati in base a origini dati di dimensioni diverse. Per altre informazioni, vedere [monitoraggio dei flussi di dati del mapping](concepts-data-flow-monitoring.md).
 
-Monitoraggio flusso di dati ![monitoraggio flusso di dati](media/data-flow/mon003.png "3")
+![Monitoraggio dei flussi di dati](media/data-flow/mon003.png "Monitoraggio flusso di dati 3")
 
  Per le esecuzioni di debug della pipeline, per un cluster caldo è necessario circa un minuto di tempo di configurazione del cluster nei calcoli delle prestazioni complessivi. Se si sta inizializzando la Azure Integration Runtime predefinita, il tempo di rotazione potrebbe richiedere circa 5 minuti.
 
@@ -37,7 +37,7 @@ Un Integration Runtime con più core aumenta il numero di nodi negli ambienti di
 * Provare un cluster **ottimizzato** per il calcolo se si vuole che la velocità di elaborazione sia superiore alla frequenza di input
 * Se si desidera memorizzare nella cache più dati in memoria, provare un cluster con ottimizzazione per la **memoria** .
 
-![Nuovo]IR(media/data-flow/ir-new.png "nuovo") IR
+![Nuovo IR](media/data-flow/ir-new.png "Nuovo IR")
 
 Per ulteriori informazioni su come creare una Integration Runtime, vedere [Integration Runtime in Azure Data Factory](concepts-integration-runtime.md).
 
@@ -56,7 +56,7 @@ Per impostazione predefinita, l'attivazione del debug userà il runtime di integ
 1. Se è stata selezionata l'opzione **colonna**, selezionare la colonna partizione.
 1. Se è stata selezionata l'opzione **query**, immettere una query corrispondente allo schema di partizionamento della tabella di database. Questa query consente al motore di database di origine di sfruttare l'eliminazione della partizione. Non è necessario partizionare le tabelle del database di origine. Se l'origine non è già partizionata, ADF utilizzerà comunque il partizionamento dei dati nell'ambiente di trasformazione Spark in base alla chiave selezionata nella trasformazione origine.
 
-![](media/data-flow/sourcepart3.png "Parte di origine") della parte di origine
+![Parte di origine](media/data-flow/sourcepart3.png "Parte di origine")
 
 ### <a name="source-batch-size-input-and-isolation-level"></a>Dimensioni del batch di origine, input e livello di isolamento
 
@@ -66,7 +66,7 @@ In **Opzioni di origine** nella trasformazione origine le impostazioni seguenti 
 * L'impostazione di una query consente di filtrare le righe nell'origine prima che arrivino nel flusso di dati per l'elaborazione. Questo può rendere più veloce l'acquisizione iniziale dei dati. Se si usa una query, è possibile aggiungere hint di query facoltativi per il database SQL di Azure, ad esempio READ UNCOMMITTED.
 * Read uncommitted fornirà risultati più veloci per le query sulla trasformazione origine
 
-![Origine](media/data-flow/source4.png "Origine") dati
+![Origine](media/data-flow/source4.png "Source (Sorgente)")
 
 ### <a name="sink-batch-size"></a>Dimensioni batch sink
 
@@ -101,7 +101,7 @@ A ogni trasformazione è possibile impostare lo schema di partizionamento che si
 Quando si esegue il debug nell'anteprima dei dati e nel debug della pipeline, le dimensioni del limite e del campionamento per i set di dati di origine basati su file si applicano solo al numero di righe restituite, non al numero di righe lette. Questo può influire sulle prestazioni delle esecuzioni di debug e potrebbe causare l'esito negativo del flusso.
 * I cluster di debug sono piccoli cluster a nodo singolo per impostazione predefinita ed è consigliabile usare file di esempio di piccole dimensioni per il debug. Passare a impostazioni di debug e puntare a un piccolo subset di dati usando un file temporaneo.
 
-    Impostazioni ![debug impostazioni]di(media/data-flow/debugsettings3.png "debug")
+    ![Impostazioni di debug](media/data-flow/debugsettings3.png "Impostazioni di debug")
 
 ### <a name="file-naming-options"></a>Opzioni di denominazione dei file
 

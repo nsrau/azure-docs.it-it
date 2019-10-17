@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 56bb5a1ac3c4003eca6ebe8392fc5b97f36a3317
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 24d601dc2116b7daf315bb3c6f20c4dc0b6f6ce5
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311142"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72382049"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Elenco di controllo di prestazioni e scalabilità per l'archiviazione BLOB
 
@@ -25,7 +25,7 @@ Archiviazione di Azure offre obiettivi di scalabilità e prestazioni per capacit
 
 Questo articolo organizza procedure comprovate per le prestazioni in un elenco di controllo che è possibile seguire durante lo sviluppo dell'applicazione di archiviazione BLOB.
 
-| Operazione completata | Category | Considerazioni sulla progettazione |
+| Ecco fatto | Categoria | Considerazioni sulla progettazione |
 | --- | --- | --- |
 | &nbsp; |Obiettivi di scalabilità |[È possibile progettare l'applicazione in modo da usare non più del numero massimo di account di archiviazione?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Obiettivi di scalabilità |[Si evita l'avvicinamento della capacità e dei limiti delle transazioni?](#capacity-and-transaction-targets) |
@@ -35,9 +35,9 @@ Questo articolo organizza procedure comprovate per le prestazioni in un elenco d
 | &nbsp; |Rete |[I dispositivi lato client hanno una larghezza di banda sufficientemente elevata e bassa latenza per ottenere le prestazioni necessarie?](#throughput) |
 | &nbsp; |Rete |[I dispositivi lato client hanno un collegamento di rete di alta qualità?](#link-quality) |
 | &nbsp; |Rete |[L'applicazione client si trova nella stessa area dell'account di archiviazione?](#location) |
-| &nbsp; |Accesso client diretto |[Si usano le firme di accesso condiviso e la condivisione di risorse tra le origini (CORS) per abilitare l'accesso diretto ad archiviazione di Azure?](#sas-and-cors) |
-| &nbsp; |Memorizzazione nella cache |[L'applicazione memorizza nella cache i dati a cui si accede di frequente e modificati raramente?](#reading-data) |
-| &nbsp; |Memorizzazione nella cache |[L'applicazione invia in batch gli aggiornamenti memorizzando nella cache il client e quindi caricarli in set più grandi?](#uploading-data-in-batches) |
+| &nbsp; |Accesso diretto ai client |[Si usano le firme di accesso condiviso e la condivisione di risorse tra le origini (CORS) per abilitare l'accesso diretto ad archiviazione di Azure?](#sas-and-cors) |
+| &nbsp; |Caching |[L'applicazione memorizza nella cache i dati a cui si accede di frequente e modificati raramente?](#reading-data) |
+| &nbsp; |Caching |[L'applicazione invia in batch gli aggiornamenti memorizzando nella cache il client e quindi caricarli in set più grandi?](#uploading-data-in-batches) |
 | &nbsp; |Configurazione .NET |[Si usa .NET Core 2,1 o versione successiva per ottenere prestazioni ottimali?](#use-net-core) |
 | &nbsp; |Configurazione .NET |[Il client è stato configurato per usare un numero sufficiente di connessioni simultanee?](#increase-default-connection-limit) |
 | &nbsp; |Configurazione .NET |[Per le applicazioni .NET è stato configurato .NET per l'uso di un numero sufficiente di thread?](#increase-minimum-number-of-threads) |
@@ -66,7 +66,7 @@ Se si sta per raggiungere il numero massimo di account di archiviazione consenti
 
 - Si usano gli account di archiviazione per archiviare dischi non gestiti e aggiungere tali dischi alle macchine virtuali (VM)? Per questo scenario, Microsoft consiglia di usare Managed Disks. I dischi gestiti vengono ridimensionati automaticamente e senza la necessità di creare e gestire singoli account di archiviazione. Per altre informazioni, vedere [Introduzione a Managed Disks di Azure](../../virtual-machines/windows/managed-disks-overview.md)
 - Si sta usando un account di archiviazione per cliente per l'isolamento dei dati? Per questo scenario, Microsoft consiglia di usare un contenitore BLOB per ogni cliente, anziché un intero account di archiviazione. Archiviazione di Azure consente ora di assegnare ruoli di controllo degli accessi in base al ruolo (RBAC) per ogni contenitore. Per altre informazioni, vedere [concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC nel portale di Azure](../common/storage-auth-aad-rbac-portal.md).
-- Si usano più account di archiviazione per la partizione per aumentare il traffico in ingresso, in uscita, le operazioni di I/O al secondo (IOPS) o la capacità? In questo scenario, Microsoft consiglia di sfruttare i limiti più elevati per gli account di archiviazione standard, in modo da ridurre il numero di account di archiviazione necessari per il carico di lavoro, se possibile. Contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) per richiedere un aumento dei limiti per l'account di archiviazione. Per altre informazioni, vedere l' [annuncio di account di archiviazione con scalabilità più grandi](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
+- Si usano più account di archiviazione per la partizione per aumentare il traffico in ingresso, in uscita, le operazioni di I/O al secondo (IOPS) o la capacità? In questo scenario, Microsoft consiglia di sfruttare i limiti più elevati per gli account di archiviazione per ridurre il numero di account di archiviazione necessari per il carico di lavoro, se possibile. Contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) per richiedere un aumento dei limiti per l'account di archiviazione. Per altre informazioni, vedere l' [annuncio di account di archiviazione con scalabilità più grandi](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 ### <a name="capacity-and-transaction-targets"></a>Capacità e destinazioni delle transazioni
 
@@ -113,7 +113,7 @@ Alcune procedure consigliate consentono di ridurre la frequenza di queste operaz
 
     Se, ad esempio, si dispone di operazioni quotidiane che utilizzano un BLOB con un timestamp quale *AAAAMMGG*, tutto il traffico per tale operazione giornaliera viene indirizzato a un singolo BLOB, che viene servito da un singolo server di partizione. Valutare se i limiti per BLOB e i limiti per partizione soddisfino le proprie esigenze e provare a suddividere l'operazione in più BLOB, se necessario. Analogamente, se si archiviano i dati delle serie temporali nelle tabelle, tutto il traffico può essere indirizzato all'ultima parte dello spazio dei nomi Key. Se si usano ID numerici, anteporre un hash a tre cifre al prefisso dell'ID. Se si usano i timestamp, anteporre al timestamp il valore dei secondi, ad esempio *ssaaaammgg*. Se l'applicazione esegue regolarmente l'elenco e l'esecuzione di query sulle operazioni, scegliere una funzione di hashing che limiterà il numero di query. In alcuni casi, può essere sufficiente un prefisso casuale.
   
-- Per altre informazioni sullo schema di partizionamento usato in archiviazione di Azure, vedere [Azure storage: A Highly Available Cloud Storage Service with Strong Consistency](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf) (Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta).
+- Per altre informazioni sullo schema di partizionamento usato in archiviazione di Azure, vedere [archiviazione di Azure: un servizio di archiviazione cloud a disponibilità elevata con coerenza](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf)assoluta.
 
 ## <a name="networking"></a>Rete
 
@@ -131,7 +131,7 @@ Per la larghezza di banda il problema dipende spesso dalle capacità del client.
 
 Come per qualsiasi utilizzo di rete, tenere presente che le condizioni di rete che causano errori e perdita di pacchetti rallenteranno la velocità effettiva.  L'uso di WireShark o NetMon può contribuire a diagnosticare il problema.  
 
-### <a name="location"></a>Location
+### <a name="location"></a>Località
 
 In qualsiasi ambiente distribuito, il posizionamento del client accanto al server offre le prestazioni migliori. Per accedere all'archiviazione di Azure con la minor latenza possibile, è opportuno posizionare il client nella stessa area di Azure. Se, ad esempio, si dispone di un'app Web di Azure che usa archiviazione di Azure, individuarle entrambe all'interno di una singola area, ad esempio Stati Uniti occidentali o Asia sudorientale. La condivisione percorso risorse riduce la latenza e i costi, in quanto l'utilizzo della larghezza di banda all'interno di una singola area è gratuito.  
 
@@ -151,7 +151,7 @@ Si supponga, ad esempio, che un'applicazione Web in esecuzione in Azure faccia u
   
 Sia SAS che CORS consentono di evitare il carico superfluo nell'applicazione Web.  
 
-## <a name="caching"></a>Memorizzazione nella cache
+## <a name="caching"></a>Caching
 
 La memorizzazione nella cache svolge un ruolo importante per le prestazioni. Nelle sezioni seguenti vengono descritte le procedure consigliate per la memorizzazione nella cache.
 
@@ -194,7 +194,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 Per altri linguaggi di programmazione, vedere la documentazione per determinare come impostare il limite di connessione.  
 
-Per altre informazioni, vedere il post del blog [Servizi Web: connessioni simultanee](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Per ulteriori informazioni, vedere il post di Blog relativo ai [servizi Web: connessioni simultanee](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumentare il numero minimo di thread
 
@@ -286,6 +286,4 @@ I BLOB di pagine sono appropriati se l'applicazione deve eseguire scritture casu
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Obiettivi di scalabilità e prestazioni di Archiviazione di Azure per gli account di archiviazione](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [Elenco di controllo di prestazioni e scalabilità per l'archiviazione code](../queues/storage-performance-checklist.md)
-- [Elenco di controllo di prestazioni e scalabilità per l'archiviazione tabelle](../tables/storage-performance-checklist.md)
 - [Codici di stato e di errore](/rest/api/storageservices/Status-and-Error-Codes2)

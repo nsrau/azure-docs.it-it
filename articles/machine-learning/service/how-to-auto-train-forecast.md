@@ -10,19 +10,19 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 03c5d46221dc385a390e840381270c01c40bdc6d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: eb13e6d279ffd8efc0cdb5ce675b77aac5be9c18
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170394"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72436639"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione delle serie temporali
 
 Questo articolo illustra come eseguire il training di un modello di regressione delle previsioni di serie temporali usando Machine Learning automatizzato in Azure Machine Learning. La configurazione di un modello di previsione è simile alla configurazione di un modello di regressione standard usando Machine Learning automatizzato, ma sono disponibili alcune opzioni di configurazione e passaggi di pre-elaborazione per l'uso di dati di serie temporali. Gli esempi seguenti illustrano come:
 
 * Preparare i dati per la modellazione delle serie temporali
-* Configurare specifici parametri della serie temporale in un [`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) oggetto
+* Configurare specifici parametri della serie temporale in un oggetto [`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig)
 * Eseguire stime con dati di serie temporali
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
@@ -42,7 +42,7 @@ Le funzionalità estratte dai dati di training svolgono un ruolo fondamentale. I
 
 ## <a name="preparing-data"></a>Preparazione dei dati
 
-La differenza più importante tra un tipo di attività di regressione previsione e un tipo di attività di regressione all'interno di Machine Learning automatizzato consiste nell'includere una funzionalità nei dati che rappresenta una serie temporale valida. Una serie temporale regolare presenta una frequenza ben definita e coerente e presenta un valore in ogni punto di esempio in un intervallo di tempo continuo. Si consideri lo snapshot seguente `sample.csv`di un file.
+La differenza più importante tra un tipo di attività di regressione previsione e un tipo di attività di regressione all'interno di Machine Learning automatizzato consiste nell'includere una funzionalità nei dati che rappresenta una serie temporale valida. Una serie temporale regolare presenta una frequenza ben definita e coerente e presenta un valore in ogni punto di esempio in un intervallo di tempo continuo. Si consideri lo snapshot seguente di un file `sample.csv`.
 
     day_datetime,store,sales_quantity,week_of_year
     9/3/2018,A,2000,36
@@ -56,7 +56,7 @@ La differenza più importante tra un tipo di attività di regressione previsione
     9/7/2018,A,2450,36
     9/7/2018,B,650,36
 
-Questo set di dati è un semplice esempio di dati di vendita giornalieri per una società che dispone di due archivi diversi, a e B. Inoltre, esiste `week_of_year` una funzionalità per che consentirà al modello di rilevare la stagionalità settimanale. Il campo `day_datetime` rappresenta una serie temporale pulita con frequenza giornaliera e il campo `sales_quantity` è la colonna di destinazione per l'esecuzione delle stime. Leggere i dati in un frame di dati Pandas, quindi `to_datetime` usare la funzione per assicurarsi che la serie `datetime` temporale sia un tipo.
+Questo set di dati è un semplice esempio di dati di vendita giornalieri per una società che dispone di due archivi diversi, A e B. esiste inoltre una funzionalità per `week_of_year` che consentirà al modello di rilevare la stagionalità settimanale. Il campo `day_datetime` rappresenta una serie temporale pulita con frequenza giornaliera e il campo `sales_quantity` è la colonna di destinazione per l'esecuzione delle stime. Leggere i dati in un frame di dati Pandas, quindi usare la funzione `to_datetime` per assicurarsi che la serie temporale sia un tipo `datetime`.
 
 ```python
 import pandas as pd
@@ -64,14 +64,15 @@ data = pd.read_csv("sample.csv")
 data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-In questo caso i dati sono già ordinati in ordine crescente in base al `day_datetime`campo orario. Tuttavia, quando si configura un esperimento, verificare che la colonna di tempo desiderata venga ordinata in ordine crescente per compilare una serie temporale valida. Si supponga che i dati contengano 1.000 record e creino una suddivisione deterministica nei dati per creare set di dati di training e di test. Quindi separare il campo `sales_quantity` di destinazione per creare il training e i set di test.
+In questo caso i dati sono già ordinati in ordine crescente in base al campo dell'ora `day_datetime`. Tuttavia, quando si configura un esperimento, verificare che la colonna di tempo desiderata venga ordinata in ordine crescente per compilare una serie temporale valida. Si supponga che i dati contengano 1.000 record e creino una suddivisione deterministica nei dati per creare set di dati di training e di test. Identificare il nome della colonna Label e impostarlo su Label. In questo esempio l'etichetta sarà `sales_quantity`. Quindi separare il campo Label da `test_data` per formare il set `test_target`.
 
 ```python
-X_train = data.iloc[:950]
-X_test = data.iloc[-50:]
+train_data = data.iloc[:950]
+test_data = data.iloc[-50:]
 
-y_train = X_train.pop("sales_quantity").values
-y_test = X_test.pop("sales_quantity").values
+label =  "sales_quantity"
+ 
+test_labels = test_data.pop(label).values
 ```
 
 > [!NOTE]
@@ -88,9 +89,9 @@ Per le attività di previsione, Machine Learning automatizzato USA operazioni di
 * Creazione di funzionalità basate sul tempo per facilitare l'apprendimento di modelli stagionali
 * Codificare variabili categoriche in quantità numeriche
 
-L' `AutoMLConfig` oggetto definisce le impostazioni e i dati necessari per un'attività automatica di machine learning. Analogamente a un problema di regressione, si definiscono parametri di training standard come il tipo di attività, il numero di iterazioni, i dati di training e il numero di convalide incrociate. Per le attività di previsione, è necessario impostare parametri aggiuntivi che interessano l'esperimento. La tabella seguente illustra ogni parametro e il relativo utilizzo.
+L'oggetto `AutoMLConfig` definisce le impostazioni e i dati necessari per un'attività automatica di machine learning. Analogamente a un problema di regressione, si definiscono parametri di training standard come il tipo di attività, il numero di iterazioni, i dati di training e il numero di convalide incrociate. Per le attività di previsione, è necessario impostare parametri aggiuntivi che interessano l'esperimento. La tabella seguente illustra ogni parametro e il relativo utilizzo.
 
-| Param | Descrizione | Richiesto |
+| Param | Description | Obbligatoria |
 |-------|-------|-------|
 |`time_column_name`|Utilizzato per specificare la colonna DateTime nei dati di input utilizzati per compilare la serie temporale e dedurre la relativa frequenza.|✓|
 |`grain_column_names`|Nome/i che definisce i singoli gruppi di serie nei dati di input. Se la granularità non è definita, si presuppone che il set di dati sia una serie temporale.||
@@ -100,7 +101,7 @@ L' `AutoMLConfig` oggetto definisce le impostazioni e i dati necessari per un'at
 
 Per ulteriori informazioni, vedere la [documentazione di riferimento](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) .
 
-Creare le impostazioni della serie temporale come oggetto Dictionary. Impostare sul `time_column_name` `day_datetime` campo nel set di dati. Definire il `grain_column_names` parametro per assicurarsi che vengano creati **due gruppi di serie temporali distinti** per i dati, uno per i negozi a e B. Infine, impostare `max_horizon` su 50 per stimare l'intero set di test. Impostare una finestra di previsione su 10 periodi `target_rolling_window_size`con e specificare un singolo ritardo sui valori di destinazione per 2 punti avanti con il `target_lags` parametro.
+Creare le impostazioni della serie temporale come oggetto Dictionary. Impostare `time_column_name` sul campo `day_datetime` del set di dati. Definire il parametro `grain_column_names` per assicurarsi che vengano creati **due gruppi di serie temporali distinti** per i dati. uno per i negozi A e B. Infine, impostare la `max_horizon` su 50 per stimare l'intero set di test. Impostare una finestra di previsione su 10 punti con `target_rolling_window_size` e specificare un singolo ritardo sui valori di destinazione per 2 punti avanti con il parametro `target_lags`.
 
 ```python
 time_series_settings = {
@@ -113,16 +114,12 @@ time_series_settings = {
 }
 ```
 
-
-
 > [!NOTE]
 > I passaggi di pre-elaborazione di Machine Learning automatizzati (normalizzazione delle funzionalità, gestione dei dati mancanti, conversione di valori di testo nel formato numerico e così via) diventano parte del modello sottostante. Quando si usa il modello per le previsioni, gli stessi passaggi di pre-elaborazione applicati durante il training vengono automaticamente applicati ai dati di input.
 
-Definendo `grain_column_names` nel frammento di codice precedente, AutoML creerà due gruppi di serie temporali distinti, noti anche come più serie temporali. Se non è definito alcun oggetto Grain, AutoML presuppone che il set di dati sia una singola serie temporale. Per ulteriori informazioni sulle singole serie temporali, vedere [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
+Definendo il `grain_column_names` nel frammento di codice precedente, AutoML creerà due gruppi di serie temporali distinti, noti anche come più serie temporali. Se non è definito alcun oggetto Grain, AutoML presuppone che il set di dati sia una singola serie temporale. Per ulteriori informazioni sulle singole serie temporali, vedere [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
-
-
-A questo punto, `AutoMLConfig` creare un oggetto standard `forecasting` , specificando il tipo di attività e inviare l'esperimento. Al termine del modello, recuperare l'iterazione di esecuzione migliore.
+A questo punto, creare un oggetto standard `AutoMLConfig`, specificando il tipo di attività `forecasting` e inviare l'esperimento. Al termine del modello, recuperare l'iterazione di esecuzione migliore.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -133,8 +130,8 @@ import logging
 automl_config = AutoMLConfig(task='forecasting',
                              primary_metric='normalized_root_mean_squared_error',
                              iterations=10,
-                             X=X_train,
-                             y=y_train,
+                             training_data=train_data,
+                             label_column_name=label,
                              n_cross_validations=5,
                              enable_ensembling=False,
                              verbosity=logging.INFO,
@@ -172,41 +169,41 @@ fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
 Utilizzare l'iterazione del modello migliore per prevedere i valori per il set di dati di test.
 
 ```python
-y_predict = fitted_model.predict(X_test)
-y_actual = y_test.flatten()
+predict_labels = fitted_model.predict(test_data)
+actual_labels = test_labels.flatten()
 ```
 
-In alternativa, è possibile utilizzare la `forecast()` funzione `predict()`anziché, che consentirà le specifiche di quando le stime devono essere avviate. Nell'esempio seguente vengono innanzitutto sostituiti tutti i valori in `y_pred` con `NaN`. In questo caso, l'origine della previsione sarà alla fine dei dati di training, come in genere quando si usa `predict()`. Tuttavia, se si sostituisce solo la seconda metà di `y_pred` con `NaN`, la funzione lascia i valori numerici nella prima metà non modificati, ma prevede i `NaN` valori nella seconda metà. La funzione restituisce i valori previsti e le funzionalità allineate.
+In alternativa, è possibile utilizzare la funzione `forecast()` anziché `predict()`, che consentirà le specifiche di quando le stime devono essere avviate. Nell'esempio seguente vengono innanzitutto sostituiti tutti i valori in `y_pred` con `NaN`. In questo caso, l'origine della previsione sarà alla fine dei dati di training, come in genere quando si usa `predict()`. Tuttavia, se si sostituisce solo la seconda metà di `y_pred` con `NaN`, la funzione lascia i valori numerici nella prima metà non modificati, ma prevede i valori `NaN` nella seconda metà. La funzione restituisce i valori previsti e le funzionalità allineate.
 
-È anche possibile usare il `forecast_destination` parametro `forecast()` nella funzione per prevedere i valori fino a una data specificata.
+È anche possibile usare il parametro `forecast_destination` nella funzione `forecast()` per prevedere i valori fino a una data specificata.
 
 ```python
-y_query = y_test.copy().astype(np.float)
-y_query.fill(np.nan)
-y_fcst, X_trans = fitted_pipeline.forecast(
-    X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
+label_query = test_labels.copy().astype(np.float)
+label_query.fill(np.nan)
+label_fcst, data_trans = fitted_pipeline.forecast(
+    test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
-Calcolare valori RMSE (radice errore quadratico medio) tra i `y_test` valori effettivi e i valori previsti in. `y_pred`
+Calcolare valori RMSE (radice errore quadratico medio) tra i valori effettivi `actual_labels` e i valori previsti in `predict_labels`.
 
 ```python
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 
-rmse = sqrt(mean_squared_error(y_actual, y_predict))
+rmse = sqrt(mean_squared_error(actual_lables, predict_labels))
 rmse
 ```
 
-Ora che è stata determinata l'accuratezza del modello complessiva, il passaggio successivo più realistico consiste nell'usare il modello per prevedere valori futuri sconosciuti. È sufficiente fornire un set di dati nello stesso formato del set `X_test` di test ma con DateTime futuri e il set di stime risultante corrisponde ai valori previsti per ogni passaggio della serie temporale. Si supponga che gli ultimi record di serie temporali nel set di dati siano per 12/31/2018. Per prevedere la domanda del giorno successivo (o il numero di periodi in cui è necessario prevedere, < `max_horizon`=), creare un singolo record della serie temporale per ogni negozio per 01/01/2019.
+Ora che è stata determinata l'accuratezza del modello complessiva, il passaggio successivo più realistico consiste nell'usare il modello per prevedere valori futuri sconosciuti. È sufficiente fornire un set di dati nello stesso formato del set di test `test_data` ma con DateTime futuri e il set di stime risultante corrisponde ai valori previsti per ogni passaggio della serie temporale. Si supponga che gli ultimi record di serie temporali nel set di dati siano per 12/31/2018. Per prevedere la domanda del giorno successivo (o il numero di periodi in cui è necessario prevedere, < = `max_horizon`), creare un singolo record di serie temporali per ogni negozio per 01/01/2019.
 
     day_datetime,store,week_of_year
     01/01/2019,A,1
     01/01/2019,A,1
 
-Ripetere i passaggi necessari per caricare i dati futuri in un dataframe, quindi eseguire `best_run.predict(X_test)` per stimare i valori futuri.
+Ripetere i passaggi necessari per caricare i dati futuri in un dataframe, quindi eseguire `best_run.predict(test_data)` per stimare i valori futuri.
 
 > [!NOTE]
-> Non è possibile stimare i valori per il `max_horizon`numero di periodi maggiore di. È necessario rieseguire il training del modello con un orizzonte più ampio per stimare i valori futuri oltre l'orizzonte corrente.
+> Non è possibile stimare i valori per il numero di periodi maggiore di `max_horizon`. È necessario rieseguire il training del modello con un orizzonte più ampio per stimare i valori futuri oltre l'orizzonte corrente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 8f33e36568171ab7b37f536a3c7883b004cb71c0
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2b2b8fe383ff4ee3d4b23c2c6e555b44e0cc088c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68838029"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390077"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introduzione ad Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -44,21 +44,17 @@ Questo articolo illustra come distribuire processi Web come app console .NET Cor
 
 ## <a name="webjobs-nuget-packages"></a>Pacchetti NuGet di processi Web
 
-1. Installare l'ultima versione 3.x stabile dei pacchetti NuGet seguenti:
+1. Installare la versione stabile 3. x più recente del pacchetto NuGet `Microsoft.Azure.WebJobs.Extensions`, che include `Microsoft.Azure.WebJobs`.
 
-   * `Microsoft.Azure.WebJobs`
-   * `Microsoft.Azure.WebJobs.Extensions`
-
-     Ecco i comandi della **console di gestione pacchetti** per la versione 3.0.4:
+     Di seguito è riportato il comando di **Console di Gestione pacchetti** per la versione 3.0.2:
 
      ```powershell
-     Install-Package Microsoft.Azure.WebJobs -version 3.0.4
-     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.1
+     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.2
      ```
 
 ## <a name="create-the-host"></a>Creare l'host
 
-L'host è il contenitore Runtime per le funzioni che sono in attesa di trigger e chiamate di funzioni. Nei passaggi seguenti viene creato un host che [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost)implementa, che è l'host generico in ASP.NET Core.
+L'host è il contenitore Runtime per le funzioni che sono in attesa di trigger e chiamate di funzioni. Nei passaggi seguenti viene creato un host che implementa [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost), ovvero l'host generico in ASP.NET Core.
 
 1. In *Program.cs* aggiungere un'istruzione `using`:
 
@@ -84,22 +80,15 @@ L'host è il contenitore Runtime per le funzioni che sono in attesa di trigger e
     }
     ```
 
-In ASP.NET Core le configurazioni dell'host vengono impostate chiamando metodi sull'istanza [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder). Per altre informazioni, vedere [Host generico .NET](/aspnet/core/fundamentals/host/generic-host). Il metodo di estensione `ConfigureWebJobs` inizializza l'host WebJobs. In `ConfigureWebJobs`si inizializzano specifiche estensioni di processi Web e si impostano le proprietà di tali estensioni.  
+In ASP.NET Core le configurazioni dell'host vengono impostate chiamando metodi sull'istanza [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder). Per altre informazioni, vedere [Host generico .NET](/aspnet/core/fundamentals/host/generic-host). Il metodo di estensione `ConfigureWebJobs` inizializza l'host WebJobs. In `ConfigureWebJobs` si inizializzano le estensioni di processi Web specifiche e si impostano le proprietà di tali estensioni.  
 
 ## <a name="enable-console-logging"></a>Abilitare la registrazione nella console
 
 In questa sezione viene configurata la registrazione della console che usa il [Framework di registrazione ASP.NET Core](/aspnet/core/fundamentals/logging).
 
-1. Installare l'ultima versione stabile dei pacchetti NuGet seguenti.
+1. Installare la versione stabile più recente del pacchetto NuGet `Microsoft.Extensions.Logging.Console`, che include `Microsoft.Extensions.Logging`.
 
-   * `Microsoft.Extensions.Logging`: framework di registrazione.
-   * `Microsoft.Extensions.Logging.Console`: Il provider console, che invia i log alla console.
-
-   Di seguito sono riportati i comandi di **Console di Gestione pacchetti** per la versione 2.2.0:
-
-   ```powershell
-   Install-Package Microsoft.Extensions.Logging -version 2.2.0
-   ```
+   Di seguito è riportato il comando di **Console di Gestione pacchetti** per la versione 2.2.0:
 
    ```powershell
    Install-Package Microsoft.Extensions.Logging.Console -version 2.2.0
@@ -155,10 +144,10 @@ A partire dalla versione 3. x, è necessario installare in modo esplicito l'este
 
 1. Installare l'ultima versione stabile del pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) versione 3.x. 
 
-    Ecco il comando **console di gestione pacchetti** per la versione 3.0.3:
+    Ecco il comando **console di gestione pacchetti** per la versione 3.0.4:
 
     ```powershell
-    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.3
+    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.4
     ```
 
 2. Nel metodo di estensione `ConfigureWebJobs` chiamare il metodo `AddAzureStorage` sull'istanza [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) per inizializzare l'estensione di Archiviazione. A questo punto il metodo `ConfigureWebJobs` avrà un aspetto simile all'esempio seguente:
@@ -171,9 +160,9 @@ A partire dalla versione 3. x, è necessario installare in modo esplicito l'este
                     });
     ```
 
-## <a name="create-a-function"></a>Crea una funzione
+## <a name="create-a-function"></a>Creare una funzione
 
-1. Fare clic con il pulsante destro del mouse sul progetto, scegliere **Aggiungi** > **nuovo elemento**, scegliere **classe**, denominare il nuovo C# file di classe *Functions.cs*e selezionare **Aggiungi**.
+1. Fare clic con il pulsante destro del mouse sul progetto, scegliere **aggiungi** > **nuovo elemento...** , scegliere C# **classe**, assegnare al nuovo file di classe il nome *Functions.cs*e selezionare **Aggiungi**.
 
 1. In Functions.cs sostituire il modello generato con il codice seguente:
 
@@ -203,7 +192,7 @@ L'emulatore di archiviazione di Azure eseguito in locale non include tutte le fu
 
 1. Aprire **Esplora server** in Visual Studio e accedere ad Azure. Fare clic con il pulsante destro del mouse sul nodo **Azure** e quindi scegliere **Connessione alla sottoscrizione di Microsoft Azure**.
 
-   ![Accedi ad Azure](./media/webjobs-sdk-get-started/sign-in.png)
+   ![Accedere a Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
 1. Nel nodo **Azure** in **Esplora server** fare clic con il pulsante destro del mouse su **Archiviazione** e quindi scegliere **Crea account di archiviazione**.
 
@@ -213,7 +202,7 @@ L'emulatore di archiviazione di Azure eseguito in locale non include tutte le fu
 
 1. Scegliere la stessa **area** in cui è stata creata l'app del servizio app o un'area vicina all'utente.
 
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
    ![Creare l'account di archiviazione](./media/webjobs-sdk-get-started/create-storage-account.png)
 
@@ -229,9 +218,9 @@ L'emulatore di archiviazione di Azure eseguito in locale non include tutte le fu
 
 WebJobs SDK cerca la stringa di connessione di archiviazione nelle impostazioni applicazione in Azure. In caso di esecuzione in locale, questo valore viene cercato nel file di configurazione locale o nelle variabili di ambiente.
 
-1. Fare clic con il pulsante destro del mouse sul progetto, selezionare **Aggiungi** > **nuovo elemento**, scegliere **file di configurazione JSON JavaScript**, denominare il nuovo file *appSettings. JSON* e selezionare **Aggiungi**. 
+1. Fare clic con il pulsante destro del mouse sul progetto, selezionare **aggiungi** > **nuovo elemento**, scegliere **file di configurazione JSON JavaScript**, denominare il nuovo file *appSettings. JSON* e selezionare **Aggiungi**. 
 
-1. Nel nuovo file aggiungere un `AzureWebJobsStorage` campo, come nell'esempio seguente:
+1. Nel nuovo file aggiungere un campo `AzureWebJobsStorage`, come nell'esempio seguente:
 
     ```json
     {
@@ -338,13 +327,13 @@ In questa sezione si configura la registrazione in Application Insights prima de
 
 1. Nella casella **Stringhe di connessione** aggiungere la voce seguente.
 
-   |Name  |Stringa di connessione  |Tipo di database|
+   |name  |Stringa di connessione  |Tipo di database|
    |---------|---------|------|
    |AzureWebJobsStorage | {stringa di connessione di archiviazione copiata in precedenza}|Personalizzato|
 
 1. Se la casella **Impostazioni applicazione** non contiene una chiave di strumentazione di Application Insights, aggiungere quella copiata in precedenza. La presenza o meno della chiave di strumentazione dipende da come è stata creata l'app del servizio app.
 
-   |Name  |Valore  |
+   |name  |Value  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {instrumentation key} |
 
@@ -370,7 +359,7 @@ In questa sezione si configura la registrazione in Application Insights prima de
 Per poter sfruttare la registrazione di [Application Insights](../azure-monitor/app/app-insights-overview.md), aggiornare il codice di registrazione per eseguire le operazioni seguenti:
 
 * Aggiungere un provider di registrazione di Application Insights con i [filtri](webjobs-sdk-how-to.md#log-filtering) predefiniti. In caso di esecuzione in locale, tutte le informazioni e i log di livello superiore vengono inviati sia alla console che ad Application Insights.
-* Inserire l'oggetto [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) in un `using` blocco per assicurarsi che l'output del log venga scaricato quando l'host viene chiuso.
+* Inserire l'oggetto [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) in un blocco `using` per assicurarsi che l'output del log venga scaricato quando l'host viene chiuso.
 
 1. Installare l'ultima versione 3.x stabile del pacchetto NuGet per il provider di registrazione di Application Insights, `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
 

@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c19b874e79e70349437c5d44a6eb946aeeefb5
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7149b9d871c43af083774ffb799255e0d1144113
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835052"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429937"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Differenze tra MSAL.js e ADAL.js
 
@@ -65,7 +65,7 @@ Nella versione 2.0, l'uso dell'autorità `https://login.microsoftonline.com/comm
 
     È possibile richiedere gli ambiti per qualsiasi API di risorsa usando l'URI dell'API in questo formato: URIidapp/ambito, ad esempio: https:\//mytenant.onmicrosoft.com/myapi/api.read
 
-    Solo per l'API Microsoft Graph, un valore di ambito `user.read` è associato al formato https://graph.microsoft.com/User.Read e questi possono essere usati in modo intercambiabile.
+    Solo per l'API Graph MS, un valore di ambito `user.read` esegue il mapping a https: \//Graph. Microsoft. com/User. Read e può essere usato in modo intercambiabile.
 
     ```javascript
     var request = {
@@ -77,7 +77,7 @@ Nella versione 2.0, l'uso dell'autorità `https://login.microsoftonline.com/comm
 
 * Ambiti dinamici per il consenso incrementale.
 
-    Quando si creano applicazioni tramite la versione 1.0, è necessario registrare il set completo di autorizzazioni (ambiti statici) richiesto dall'applicazione per ottenere il consenso dell'utente al momento dell'accesso. Nella versione 2.0 è possibile usare il parametro di ambito per richiedere le autorizzazioni nel momento desiderato. Gli ambiti di questo tipo sono definiti dinamici. In questo modo l'utente può fornire il proprio consenso incrementale agli ambiti. Pertanto, se all'inizio si vuole semplicemente che l'utente acceda all'applicazione e non è necessario alcun tipo di accesso, è possibile impostare questo tipo di autorizzazione. Se, in un secondo momento, si vuole avere la possibilità di leggere il calendario dell'utente, è possibile richiedere l'ambito del calendario nei metodi di acquisizione dei token e ottenere il consenso dell'utente. Ad esempio:
+    Quando si creano applicazioni tramite la versione 1.0, è necessario registrare il set completo di autorizzazioni (ambiti statici) richiesto dall'applicazione per ottenere il consenso dell'utente al momento dell'accesso. Nella versione 2.0 è possibile usare il parametro di ambito per richiedere le autorizzazioni nel momento desiderato. Gli ambiti di questo tipo sono definiti dinamici. In questo modo l'utente può fornire il proprio consenso incrementale agli ambiti. Pertanto, se all'inizio si vuole semplicemente che l'utente acceda all'applicazione e non è necessario alcun tipo di accesso, è possibile impostare questo tipo di autorizzazione. Se, in un secondo momento, si vuole avere la possibilità di leggere il calendario dell'utente, è possibile richiedere l'ambito del calendario nei metodi di acquisizione dei token e ottenere il consenso dell'utente. ad esempio:
 
     ```javascript
     var request = {
@@ -89,7 +89,7 @@ Nella versione 2.0, l'uso dell'autorità `https://login.microsoftonline.com/comm
 
 * Ambiti per le API V1.0
 
-    Quando si recuperano i token per le API V1.0 usando MSAL.js, è possibile richiedere tutti gli ambiti statici registrati sull'API aggiungendo `.default` come ambito nell'URI ID app dell'API. Ad esempio:
+    Quando si recuperano i token per le API V1.0 usando MSAL.js, è possibile richiedere tutti gli ambiti statici registrati sull'API aggiungendo `.default` come ambito nell'URI ID app dell'API. ad esempio:
 
     ```javascript
     var request = {

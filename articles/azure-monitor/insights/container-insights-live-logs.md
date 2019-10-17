@@ -13,19 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 2eab6fa75e4adbbde7bcf20f18301a1e516235c2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: d947b44177e9aa5777d759286d982e974e378497
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035351"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389781"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Come visualizzare i log e gli eventi in tempo reale (anteprima)
 Il monitoraggio di Azure per i contenitori include una funzionalità, attualmente in anteprima, che fornisce una visualizzazione in tempo reale dei log del contenitore del servizio Kubernetes di Azure (stdout/stderr) ed eventi senza dover eseguire comandi kubectl. Quando si seleziona una delle opzioni, viene visualizzato un nuovo riquadro sotto la tabella dei dati sulle prestazioni nella visualizzazione **nodi**, **controller**e **contenitori** . Mostra la registrazione in tempo reale e gli eventi generati dal motore di contenitori per facilitare ulteriormente la risoluzione dei problemi in tempo reale.
 
 >[!NOTE]
->Per il corretto funzionamento di questa funzionalità, è necessario l'accesso come collaboratore alla risorsa cluster.
->
+>Questa funzionalità è disponibile in tutte le aree di Azure, tra cui Azure Cina. Attualmente non è disponibile in Azure per enti pubblici statunitensi.
+
+>[!NOTE]
+>Per il corretto funzionamento di questa funzionalità, è necessario l'accesso del **ruolo utente cluster del servizio Azure Kubernetes** alla risorsa cluster. [Altre informazioni sul ruolo utente cluster di Azure Kubernetes](https://docs.microsoft.com/en-us/azure/aks/control-kubeconfig-access#available-cluster-roles-permissions).
 
 I log attivi supportano tre diversi metodi per controllare l'accesso ai log:
 
@@ -66,14 +68,17 @@ Se è stata abilitata l'autorizzazione del controllo degli accessi in base al ru
          apiGroup: rbac.authorization.k8s.io
     ```
 
-2. Se si sta configurando per la prima volta, si applica l'associazione regola cluster eseguendo il comando seguente: `kubectl create -f LogReaderRBAC.yaml`. Se in precedenza è stato abilitato il supporto per l'anteprima dei log live prima di aver introdotto i registri eventi attivi, per aggiornare la `kubectl apply -f LogReaderRBAC.yaml`configurazione, eseguire il comando seguente:.
+2. Se si sta configurando per la prima volta, si applica l'associazione regola cluster eseguendo il comando seguente: `kubectl create -f LogReaderRBAC.yaml`. Se in precedenza è stato abilitato il supporto per l'anteprima dei log attivi prima di aver introdotto i registri eventi attivi, per aggiornare la configurazione, eseguire il comando seguente: `kubectl apply -f LogReaderRBAC.yaml`.
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Configurare il servizio Azure Kubernetes con Azure Active Directory
 
 Il servizio Azure Kubernetes può essere configurato in modo da usare Azure Active Directory (AD) per l'autenticazione utente. Se si sta configurando per la prima volta, vedere [integrare Azure Active Directory con il servizio Azure Kubernetes](../../aks/azure-ad-integration.md). Durante i passaggi per creare l' [applicazione client](../../aks/azure-ad-integration.md#create-the-client-application), specificare quanto segue:
 
--  **URI di reindirizzamento**: È necessario creare due tipi di applicazione **Web** . Il primo valore dell'URL di base `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` deve essere e il secondo valore dell'URL `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`di base deve essere.
+-  **URI di reindirizzamento**: è necessario creare due tipi di applicazione **Web** . Il primo valore dell'URL di base deve essere `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` e il secondo valore dell'URL di base deve essere `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
 - Dopo la registrazione dell'applicazione, nella pagina **Panoramica** selezionare **autenticazione** nel riquadro a sinistra. Nella pagina **autenticazione** , in **Impostazioni avanzate** , concedere in modo implicito **token di accesso** e **token ID** , quindi salvare le modifiche.
+
+>[!NOTE]
+>Se si usa questa funzionalità nell'area di Azure Cina, il primo valore dell'URL di base deve essere `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` e il secondo valore dell'URL di base deve essere `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
 
 >[!NOTE]
 >La configurazione dell'autenticazione con Azure Active Directory per l'accesso Single Sign-on può essere eseguita solo durante la distribuzione iniziale di un nuovo cluster AKS. Non è possibile configurare l'accesso Single Sign-On per un cluster del servizio Azure Kubernetes già distribuito.
@@ -91,10 +96,10 @@ I messaggi di log e di evento sono limitati in base al tipo di risorsa seleziona
 
 | Visualizza | Tipo di risorsa | Log o evento | Dati presentati |
 |------|---------------|--------------|----------------|
-| Nodi | Nodo | event | Quando gli eventi selezionati di un nodo non vengono filtrati e mostrano eventi Kubernetes a livello di cluster. Il titolo del riquadro Mostra il nome del cluster. |
-| Nodi | Pod | event | Quando un pod è selezionato, gli eventi vengono filtrati in base al relativo spazio dei nomi. Il titolo del riquadro Mostra lo spazio dei nomi del Pod. | 
-| Controller | Pod | event | Quando un pod è selezionato, gli eventi vengono filtrati in base al relativo spazio dei nomi. Il titolo del riquadro Mostra lo spazio dei nomi del Pod. |
-| Controller | Controller | event | Quando si seleziona un controller, gli eventi vengono filtrati in base al relativo spazio dei nomi. Il titolo del riquadro Mostra lo spazio dei nomi del controller. |
+| Nodi | Nodo | Event | Quando gli eventi selezionati di un nodo non vengono filtrati e mostrano eventi Kubernetes a livello di cluster. Il titolo del riquadro Mostra il nome del cluster. |
+| Nodi | Pod | Event | Quando un pod è selezionato, gli eventi vengono filtrati in base al relativo spazio dei nomi. Il titolo del riquadro Mostra lo spazio dei nomi del Pod. | 
+| Controller | Pod | Event | Quando un pod è selezionato, gli eventi vengono filtrati in base al relativo spazio dei nomi. Il titolo del riquadro Mostra lo spazio dei nomi del Pod. |
+| Controller | Controller | Event | Quando si seleziona un controller, gli eventi vengono filtrati in base al relativo spazio dei nomi. Il titolo del riquadro Mostra lo spazio dei nomi del controller. |
 | Nodi/controller/contenitori | Contenitore | Log | Il titolo del riquadro Mostra il nome del Pod con il quale viene raggruppato il contenitore. |
 
 Se il cluster del servizio Azure Kubernetes è configurato con il Single Sign-On di AAD, durante la sessione del browser viene chiesto di eseguire l'autenticazione per il primo utilizzo. Selezionare l'account e completare l'autenticazione con Azure.  
@@ -109,7 +114,7 @@ Nella barra di ricerca è possibile filtrare in base alla parola chiave per evid
 
 Quando si visualizzano gli eventi, è anche possibile limitare i risultati usando la pillola di **filtro** trovata a destra della barra di ricerca. A seconda della risorsa selezionata, la pillola elenca un pod, uno spazio dei nomi o un cluster da cui scegliere.  
 
-Per sospendere lo scorrimento automatico e controllare il comportamento del riquadro e consentire di scorrere manualmente i nuovi dati letti, fare clic sull'opzione di **scorrimento** . Per riabilitare lo scorrimento automatico, è sufficiente fare di nuovo clic sull'opzione **Scroll** . È anche possibile sospendere il recupero dei dati di log o degli eventi facendo clic sull'opzione Sospendi e, quando si è pronti per riprendere, è sufficiente fare clic su Riproduci.  
+Per sospendere lo scorrimento automatico e controllare il comportamento del riquadro e consentire di scorrere manualmente i nuovi dati letti, fare clic sull'opzione di **scorrimento** . Per riabilitare lo scorrimento automatico, è sufficiente fare di nuovo clic sull'opzione **Scroll** . È anche possibile sospendere il recupero dei dati di log o degli eventi facendo clic sull'opzione **Sospendi** e, quando si è pronti per riprendere, è sufficiente fare clic su **Riproduci**.  
 
 ![Visualizzazione dei log in tempo reale in pausa](./media/container-insights-live-logs/live-logs-pane-pause-01.png)
 

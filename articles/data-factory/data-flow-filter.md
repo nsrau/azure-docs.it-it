@@ -1,18 +1,18 @@
 ---
-title: Trasformazione Filtro per il flusso di dati di mapping di Azure Data Factory
-description: Trasformazione Filtro per il flusso di dati di mapping di Azure Data Factory
+title: Trasformazione filtro flusso di dati mapping Azure Data Factory
+description: Trasformazione filtro flusso di dati mapping Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: dd29753ff14d16081a46eebbc2ea02d94e5985f1
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 2afe079c346a15ec212664ce022ac5e2926b12d4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029352"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387817"
 ---
 # <a name="azure-data-factory-filter-transformation"></a>Trasformazione filtro data factory di Azure
 

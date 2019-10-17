@@ -1,20 +1,18 @@
 ---
 title: Eseguire Funzioni di Azure da un pacchetto | Microsoft Docs
 description: Far eseguire le funzioni dal runtime di Funzioni di Azure tramite il montaggio di un file di pacchetto di distribuzione che contiene i file di progetto dell'app per le funzioni.
-services: functions
-documentationcenter: na
 author: ggailey777
 manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: glenga
-ms.openlocfilehash: b6a2347ff79268cdaf54993952d59bd700b781bc
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 549768473460dcb97b66c3589d71c02039220605
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095953"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389955"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Eseguire Funzioni di Azure da un file di pacchetto
 
@@ -41,13 +39,13 @@ Per altre informazioni, vedere [questo annuncio](https://github.com/Azure/app-se
 
 Per abilitare l'esecuzione dell'app per le funzioni da un pacchetto, è sufficiente aggiungere un'impostazione `WEBSITE_RUN_FROM_PACKAGE` alle impostazioni dell'app per le funzioni. L'impostazione `WEBSITE_RUN_FROM_PACKAGE` deve avere almeno uno dei valori seguenti:
 
-| Value  | Descrizione  |
+| Value  | Description  |
 |---------|---------|
-| **`1`**  | Consigliato per le app per le funzioni in esecuzione in Windows. Esecuzione da un file di pacchetto nella cartella `d:\home\data\SitePackages` dell'app per le funzioni. Se non si [distribuisce con zip deploy](#integration-with-zip-deployment), questa opzione richiede che anche la cartella disponga di `packagename.txt`un file denominato. Questo file contiene solo il nome del file di pacchetto nella cartella, senza spazi vuoti. |
+| **`1`**  | Consigliato per le app per le funzioni in esecuzione in Windows. Esecuzione da un file di pacchetto nella cartella `d:\home\data\SitePackages` dell'app per le funzioni. Se non si [distribuisce con zip deploy](#integration-with-zip-deployment), questa opzione richiede che anche la cartella disponga di un file denominato `packagename.txt`. Questo file contiene solo il nome del file di pacchetto nella cartella, senza spazi vuoti. |
 |**`<url>`**  | Percorso di un file di pacchetto specifico da eseguire. Quando si usa l'archiviazione BLOB, è consigliabile usare un contenitore privato con una [firma di accesso condiviso (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) per abilitare il runtime di Funzioni per l'accesso al pacchetto. È possibile usare [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) per caricare i file di pacchetto nell'account di archiviazione BLOB.         |
 
 > [!CAUTION]
-> Quando si esegue un'app per le funzioni in Windows, l'opzione URL esterno produce prestazioni di avvio a freddo inferiori. Quando si distribuisce l'app per le funzioni in Windows `WEBSITE_RUN_FROM_PACKAGE` , `1` è necessario impostare su e pubblicare con la distribuzione zip.
+> Quando si esegue un'app per le funzioni in Windows, l'opzione URL esterno produce prestazioni di avvio a freddo inferiori. Quando si distribuisce l'app per le funzioni in Windows, è necessario impostare `WEBSITE_RUN_FROM_PACKAGE` su `1` e pubblicare con la distribuzione zip.
 
 Di seguito viene illustrata un'app per le funzioni configurata per l'esecuzione da un file con estensione zip ospitato in archiviazione BLOB di Azure:
 
@@ -58,18 +56,18 @@ Di seguito viene illustrata un'app per le funzioni configurata per l'esecuzione 
 
 ## <a name="integration-with-zip-deployment"></a>Integrazione con distribuzione di file ZIP
 
-La [distribuzione zip][Zip deployment for Azure Functions] è una funzionalità di app Azure servizio che consente di distribuire il progetto di app per `wwwroot` le funzioni nella directory. Il progetto viene impacchettato come un file di distribuzione di file ZIP. La stesse API possono essere usate per distribuire il pacchetto nella cartella `d:\home\data\SitePackages`. Con il valore `1` dell'impostazione dell'app `WEBSITE_RUN_FROM_PACKAGE`, le API di distribuzione di file ZIP copiano il pacchetto nella cartella `d:\home\data\SitePackages` invece di estrarre i file in `d:\home\site\wwwroot`. Questa operazione crea anche il file `packagename.txt`. L'app per le funzioni viene quindi eseguita dal pacchetto dopo il riavvio e `wwwroot` diventa di sola lettura. Per altre informazioni sulla distribuzione di file ZIP, vedere [Distribuzione di file ZIP nelle Funzioni di Azure](deployment-zip-push.md).
+La [distribuzione zip][Zip deployment for Azure Functions] è una funzionalità di app Azure servizio che consente di distribuire il progetto di app per le funzioni nella directory `wwwroot`. Il progetto viene impacchettato come un file di distribuzione di file ZIP. La stesse API possono essere usate per distribuire il pacchetto nella cartella `d:\home\data\SitePackages`. Con il valore `1` dell'impostazione dell'app `WEBSITE_RUN_FROM_PACKAGE`, le API di distribuzione di file ZIP copiano il pacchetto nella cartella `d:\home\data\SitePackages` invece di estrarre i file in `d:\home\site\wwwroot`. Questa operazione crea anche il file `packagename.txt`. Dopo un riavvio, il pacchetto viene montato in `wwwroot` come file System di sola lettura. Per altre informazioni sulla distribuzione di file ZIP, vedere [Distribuzione di file ZIP nelle Funzioni di Azure](deployment-zip-push.md).
 
 ## <a name="adding-the-website_run_from_package-setting"></a>Aggiungere l'impostazione WEBSITE_RUN_FROM_PACKAGE
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
-- L'esecuzione dal pacchetto `wwwroot` rende di sola lettura, pertanto verrà visualizzato un errore durante la scrittura di file in questa directory.
+- Esegui da pacchetto rende di sola lettura `wwwroot`, quindi viene visualizzato un errore durante la scrittura di file in questa directory.
 - I formati tar e gzip non sono supportati.
 - Questa funzionalità non è composta dalla cache locale.
-- Per migliorare le prestazioni di avvio a freddo, usare l'opzione Zip`WEBSITE_RUN_FROM_PACKAGE`locale (= 1).
+- Per migliorare le prestazioni di avvio a freddo, usare l'opzione zip locale (`WEBSITE_RUN_FROM_PACKAGE` = 1).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

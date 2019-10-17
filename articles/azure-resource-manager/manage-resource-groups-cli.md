@@ -1,6 +1,6 @@
 ---
 title: Gestire gruppi di Azure Resource Manager usando l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: Usare l'interfaccia della riga di comando di Azure per gestire i gruppi di Azure Resource Manager.
+description: Usare l'interfaccia della riga di comando di Azure per gestire i gruppi di risorse tramite Azure Resource Manager. Viene illustrato come creare, elencare ed eliminare gruppi di risorse.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 4fdd99b3e9efc108960217cddfc8a397eadf99b6
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: d6a6ea0425bc9dd08e7eedb520b4fa1334ad242f
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001578"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390434"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Gestire Azure Resource Manager gruppi di risorse usando l'interfaccia della riga di comando di Azure
 

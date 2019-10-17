@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: akjosh
-ms.openlocfilehash: 95b630342ac2b4bc9cf51f3aa3d8563c4962ce11
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 75f659f9559703cedccef0d8e726b5c8c5bb49be
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168946"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435836"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale di monitoraggio di Azure per Linux
 
@@ -61,7 +61,7 @@ La tabella seguente fornisce un mapping della versione dell'estensione della mac
 | 1.3.127.7 | [1.3.5-127](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent-201705-v1.3.5-127)|
 | 1.3.18.7 | [1.3.4-15](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent-201704-v1.3.4-15)|  
 
-### <a name="azure-security-center"></a>Centro sicurezza di Azure
+### <a name="azure-security-center"></a>Centro sicurezza Azure
 
 Il Centro sicurezza di Azure effettua automaticamente il provisioning dell'agente di Log Analytics e lo connette a un'area di lavoro Log Analytics predefinita creata dal Centro sicurezza di Azure nella sottoscrizione di Azure. Se si usa il Centro sicurezza di Azure, non completare i passaggi inclusi in questo documento. In caso contrario, si sovrascriverà l'area di lavoro configurata e si interromperà la connessione al Centro sicurezza di Azure.
 
@@ -103,7 +103,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione agente di L
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Attività | Valore/Esempio |
+| name | Valore/Esempio |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
@@ -113,7 +113,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione agente di L
 | workspaceKey (esempio) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 
-## <a name="template-deployment"></a>Distribuzione modello
+## <a name="template-deployment"></a>Distribuzione del modello
 
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli sono ideali quando si distribuiscono una o più macchine virtuali che richiedono la configurazione post-distribuzione, ad esempio l'onboarding nei log di monitoraggio di Azure. Un modello di Gestione risorse di esempio che include l'estensione della macchina virtuale Log Analytics Agent è reperibile nella [raccolta di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
@@ -171,7 +171,7 @@ Quando si posiziona l'estensione JSON nella radice del modello, il nome della ri
 
 ## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure
 
-L'interfaccia della riga di comando di Azure può essere usata per distribuire l'estensione macchina virtuale agente di Log Analytics in una macchina virtuale esistente. Sostituire *workspaceId* e *workspaceKey* con quelli dall'area di lavoro Log Analytics. 
+L'interfaccia della riga di comando di Azure può essere usata per distribuire l'estensione macchina virtuale agente di Log Analytics in una macchina virtuale esistente. Sostituire il valore *myWorkspaceKey* seguente con la chiave dell'area di lavoro e il valore *MYWORKSPACEID* con l'ID dell'area di lavoro. Questi valori sono disponibili nell'area di lavoro Log Analytics della portale di Azure in *Impostazioni avanzate*. 
 
 ```azurecli
 az vm extension set \
@@ -179,8 +179,8 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.10.1 --protected-settings '{"workspaceKey":"omskey"}' \
-  --settings '{"workspaceId":"omsid"}'
+  --version 1.10.1 --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
+  --settings '{"workspaceId":"myWorkspaceId"}'
 ```
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
@@ -201,7 +201,7 @@ L'output dell'esecuzione dell'estensione viene registrato nel file seguente:
 
 ### <a name="error-codes-and-their-meanings"></a>Codici di errore e relativi significati
 
-| Codice errore | Significato | Azione possibile |
+| Codice di errore | Significato | Azione possibile |
 | :---: | --- | --- |
 | 9 | Chiamata Enable anomala | [Aggiornare l'agente Linux di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) all'ultima versione disponibile. |
 | 10 | La macchina virtuale è già connessa a un'area di lavoro Log Analytics | Per connettere la macchina virtuale all'area di lavoro specificata nello schema dell'estensione, impostare stopOnMultipleConnections su false nelle impostazioni pubbliche o rimuovere questa proprietà. Questa macchina virtuale viene fatturata una volta per ogni area di lavoro a cui è connessa. |
@@ -216,4 +216,4 @@ Altre informazioni sulla risoluzione dei problemi sono disponibili nella [Guida 
 
 ### <a name="support"></a>Supporto
 
-Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).

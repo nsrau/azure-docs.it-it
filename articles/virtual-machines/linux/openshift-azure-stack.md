@@ -12,20 +12,20 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/23/2018
+ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: f9f1072954e01f718fd3d9f03430b6ed6666bb62
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 97529118d420813cf638f211bdd5559068802c95
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082585"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390657"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Distribuire OpenShift Container Platform in Azure Stack
 
 OpenShift può essere distribuito in Azure Stack. Esistono alcune differenze fondamentali tra Azure e Azure Stack perciò anche la distribuzione e le funzionalità saranno leggermente diverse.
 
-Attualmente, il Provider di servizi cloud di Azure non funziona in Azure Stack. Per questo motivo, non è possibile usare disk attach per l'archiviazione permanente in Azure Stack. In alternativa, è possibile configurare altre opzioni di archiviazione, ad esempio NFS, iSCSI, GlusterFS, e così via. Altrimenti, è possibile attivare nomi comuni e usare GlusterFS per l'archiviazione permanente. Se i CNS sono abilitati, tre nodi aggiuntivi verranno distribuiti con ulteriore spazio di archiviazione per l'utilizzo di GlusterFS.
+Attualmente, il Provider di servizi cloud di Azure non funziona in Azure Stack. Per questo motivo, non è possibile usare disk attach per l'archiviazione permanente in Azure Stack. È invece possibile configurare altre opzioni di archiviazione, ad esempio NFS, iSCSI, GlusterFS e così via. In alternativa, è possibile abilitare CNS e usare GlusterFS per l'archiviazione permanente. Se i CNS sono abilitati, tre nodi aggiuntivi verranno distribuiti con ulteriore spazio di archiviazione per l'utilizzo di GlusterFS.
 
 Esistono diversi metodi per distribuire OpenShift Container Platform o OKD in Azure Stack:
 
@@ -66,9 +66,9 @@ Tra le opzioni di personalizzazione comuni sono incluse, ad esempio:
 - Specifiche del cluster OpenShift - modificate usando il file hosts (deployOpenShift.sh)
 - Riferimento immagine RHEL (variabile in azuredeploy.json)
 
-Per i passaggi per distribuire tramite l'interfaccia della riga di comando di Azure, vedere la sezione appropriata [OpenShift Container Platform](./openshift-container-platform.md) o la sezione [OKD](./openshift-okd.md).
+Per i passaggi per distribuire tramite l'interfaccia della riga di comando di Azure, vedere la sezione appropriata [OpenShift Container Platform](./openshift-container-platform-3x.md) o la sezione [OKD](./openshift-okd.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Attività di post-distribuzione](./openshift-post-deployment.md)
-- [Risoluzione dei problemi relativi alla distribuzione di OpenShift in Azure](./openshift-troubleshooting.md)
+- [Attività di post-distribuzione](./openshift-container-platform-3x-post-deployment.md)
+- [Risoluzione dei problemi relativi alla distribuzione di OpenShift in Azure](./openshift-container-platform-3x-troubleshooting.md)

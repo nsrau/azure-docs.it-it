@@ -8,22 +8,25 @@ ms.date: 09/17/2019
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: 18333d3da0bb444ea236a4fbda4d6b72d7647053
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.custom: seo-javascript-october2019
+ms.openlocfilehash: 242ba7dbe4bfcc003899e95e76dc57d809dbc95a
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059048"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72427982"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Come usare l'archiviazione di Accodamento di Azure da Python
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
+Questo articolo illustra scenari comuni con il servizio di archiviazione di Accodamento di Azure. Gli scenari descritti includono inserimento, visualizzazione, recupero ed eliminazione dei messaggi in coda e creazione ed eliminazione di code.
+
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Panoramica
 
-In questa guida viene illustrato come eseguire scenari comuni del servizio di archiviazione di accodamento di Azure. Gli esempi sono scritti in Python e usano [Microsoft Azure Storage SDK per Python]. Gli scenari descritti includono inserimento, visualizzazione, recupero ed eliminazione dei messaggi in coda, nonché creazione ed eliminazione di code. Per ulteriori informazioni sulle code, vedere la sezione [passaggi successivi](#next-steps) .
+Gli esempi in questo articolo sono scritti in Python e usano il [Microsoft Azure Storage SDK per Python]. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#next-steps) .
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -48,13 +51,13 @@ Per metodi di installazione alternativi, vedere la pagina di [Azure Storage SDK 
 
 ## <a name="view-the-sample-application"></a>Visualizzare l'applicazione di esempio
 
-Per visualizzare ed eseguire un'applicazione di esempio che mostra come usare Python con Code di Azure, vedere [Azure Storage: Getting Started with Azure Queues in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started) (Archiviazione di Azure: introduzione a Code di Azure in Python). 
+Per visualizzare ed eseguire un'applicazione di esempio che illustra come usare Python con le code di Azure, vedere [archiviazione di Azure: introduzione con le code di Azure in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started). 
 
 Per eseguire questa applicazione di esempio, verificare di aver installato entrambi i pacchetti `azure-storage-queue` e `azure-storage-common`.
 
-## <a name="create-a-queue"></a>Crea una coda
+## <a name="create-a-queue"></a>Creare una coda
 
-L'oggetto [QueueService](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice) consente di utilizzare le code. Il codice seguente crea un `QueueService` oggetto. Aggiungere il codice seguente vicino all'inizio del file Python da cui si desidera accedere all'archiviazione di Azure a livello di codice:
+L'oggetto [QueueService](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice) consente di utilizzare le code. Il codice seguente crea un oggetto `QueueService`. Aggiungere il codice seguente vicino all'inizio del file Python da cui si desidera accedere all'archiviazione di Azure a livello di codice:
 
 ```python
 from azure.storage.queue import QueueService
@@ -86,7 +89,7 @@ queue_service.decode_function = QueueMessageFormat.binary_base64decode
 
 ## <a name="peek-at-the-next-message"></a>Visualizzare il messaggio successivo
 
-È possibile visualizzare il messaggio nella parte anteriore di una coda senza rimuoverlo dalla coda chiamando il metodo [peek_messages](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#peek-messages-queue-name--num-messages-none--timeout-none-) . Per impostazione predefinita `peek_messages` , Visualizza un singolo messaggio.
+È possibile visualizzare il messaggio nella parte anteriore di una coda senza rimuoverlo dalla coda chiamando il metodo [peek_messages](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#peek-messages-queue-name--num-messages-none--timeout-none-) . Per impostazione predefinita, `peek_messages` Visualizza un singolo messaggio.
 
 ```python
 messages = queue_service.peek_messages('taskqueue')
@@ -105,7 +108,7 @@ for message in messages:
     queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
 ```
 
-È possibile personalizzare il recupero di messaggi da una coda in due modi. Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene `get_messages` usato il metodo per ottenere 16 messaggi in una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo for. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti.
+È possibile personalizzare il recupero di messaggi da una coda in due modi. Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene usato il metodo `get_messages` per ottenere 16 messaggi in una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo for. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti.
 
 ```python
 messages = queue_service.get_messages(
@@ -128,7 +131,7 @@ for message in messages:
 
 ## <a name="get-the-queue-length"></a>Recuperare la lunghezza della coda
 
-È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo [get_queue_metadata](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-queue-metadata-queue-name--timeout-none-) chiede al servizio di Accodamento di restituire i metadati relativi alla coda `approximate_message_count`e. Il risultato è solo approssimativo, poiché è possibile aggiungere o rimuovere messaggi dopo la risposta del servizio di accodamento.
+È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo [get_queue_metadata](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-queue-metadata-queue-name--timeout-none-) chiede al servizio di Accodamento di restituire i metadati relativi alla coda e il `approximate_message_count`. Il risultato è solo approssimativo, poiché è possibile aggiungere o rimuovere messaggi dopo la risposta del servizio di accodamento.
 
 ```python
 metadata = queue_service.get_queue_metadata('taskqueue')

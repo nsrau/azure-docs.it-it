@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: baselden
 ms.reviewer: zhchia
 ms.collection: active-directory
-ms.openlocfilehash: 11fda31cd06db67e0a11a68a02da8b91a77e04e1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 119c46ac2d1d34d86a6bfb9f75384f262f89219b
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68729217"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429458"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Abilitare il provisioning utenti automatico per l'applicazione multi-tenant
 
@@ -56,7 +56,7 @@ Le applicazioni che richiedono un record utente sono presenti nell'applicazione 
 
 Azure AD offre diversi percorsi di integrazione per abilitare il provisioning utenti automatico per l'applicazione.
 
-* Il [servizio](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) di provisioning Azure ad gestisce il provisioning e il deprovisioning degli utenti da Azure ad all'applicazione (provisioning in uscita) e dall'applicazione ai Azure ad (provisioning in ingresso). Il servizio si connette al sistema per gli endpoint API di gestione degli utenti di gestione identità tra domini (SCIM) forniti dall'applicazione.
+* Il [servizio di provisioning Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) gestisce il provisioning e il deprovisioning degli utenti da Azure ad all'applicazione (provisioning in uscita) e dall'applicazione ai Azure ad (provisioning in ingresso). Il servizio si connette al sistema per gli endpoint API di gestione degli utenti di gestione identità tra domini (SCIM) forniti dall'applicazione.
 
 * Quando si usa il [Microsoft Graph](https://docs.microsoft.com/graph/), l'applicazione gestisce il provisioning in ingresso e in uscita di utenti e gruppi da Azure ad all'applicazione eseguendo una query sull'API Microsoft Graph.
 
@@ -67,8 +67,8 @@ Per determinare l'opzione di integrazione da usare per l'applicazione, fare rife
 | Funzionalità abilitate o migliorate tramite provisioning automatico| Servizio di provisioning di Azure AD (SCIM 2,0)| API Microsoft Graph (OData v 4.0)| JIT SAML |
 |---|---|---|---|
 | Gestione di utenti e gruppi in Azure AD| √| √| Solo utente |
-| Gestire utenti e gruppi sincronizzati da Active Directory locali| √*| √*| Solo utente * |
-| Accedere ai dati oltre gli utenti e i gruppi durante il provisioning dell'accesso ai dati di O365 (team, SharePoint, posta elettronica, calendario, documenti e così via)| X+| √| X |
+| Gestire utenti e gruppi sincronizzati da Active Directory locali| √| √| Solo utente * |
+| Accedere ai dati oltre gli utenti e i gruppi durante il provisioning dell'accesso ai dati di O365 (team, SharePoint, posta elettronica, calendario, documenti e così via)| X +| √| X |
 | Creare, leggere e aggiornare gli utenti in base alle regole di business| √| √| √ |
 | Elimina gli utenti in base alle regole di business| √| √| X |
 | Gestire il provisioning utenti automatico per tutte le applicazioni dal portale di Azure| √| X| √ |
@@ -76,20 +76,20 @@ Per determinare l'opzione di integrazione da usare per l'applicazione, fare rife
 | Supportare gli account Guest (B2B)| √| √| √ |
 | Supportare account non aziendali (B2C)| X| √| √ |
 
-<sup>*</sup>-Azure AD Connect installazione è necessaria per sincronizzare gli utenti da Active Directory ad Azure AD.  
-<sup>+</sup >: L'uso di SCIM per il provisioning non impedisce all'utente di integrare l'applicazione con MIcrosoft Graph per altri scopi.
+<sup>*</sup> : Azure ad Connect è necessario il programma di installazione per sincronizzare gli utenti da ad a Azure ad.  
+<sup>+</sup >: l'uso di SCIM per il provisioning non impedisce all'utente di integrare l'applicazione con Microsoft Graph per altri scopi.
 
-## <a name="azure-ad-provisioning-service"></a>Servizio di provisioning Azure AD
+## <a name="azure-ad-provisioning-service-scim"></a>Servizio di provisioning Azure AD (SCIM)
 
-Il servizio di provisioning Azure AD USA SCIM, un protocollo supportato da molti provider di identità (IDP). Si consiglia di usare il servizio di provisioning Azure AD se si vuole supportare gli IDP oltre al Azure AD, in quanto qualsiasi IdP conforme a SCIM può connettersi all'endpoint SCIM.
+Il servizio di provisioning Azure AD USA [scim](https://aka.ms/SCIMOverview), uno standard di settore per il provisioning supportato da molti provider di identità (IDP) e applicazioni (ad esempio Slack, g Suite, Dropbox). Si consiglia di usare il servizio di provisioning Azure AD se si vuole supportare gli IDP oltre al Azure AD, in quanto qualsiasi IdP conforme a SCIM può connettersi all'endpoint SCIM. Creazione di un semplice endpoint/User è possibile abilitare il provisioning senza dover gestire il motore di sincronizzazione. 
 
 Per ulteriori informazioni sul modo in cui gli utenti del servizio Azure AD provisioning SCIM, vedere: 
+
+* [Scopri di più sullo standard SCIM](https://aka.ms/SCIMOverview)
 
 * [Uso di System for Cross-Domain Identity Management (SCIM) per effettuare automaticamente il provisioning di utenti e gruppi da Azure Active Directory alle applicazioni](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
 * [Informazioni sull'implementazione di Azure AD SCIM](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
-
-* [Compilare un endpoint SCIM usando le librerie dell'interfaccia della riga di comando Microsoft](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph per il provisioning
 
@@ -106,16 +106,6 @@ Altre informazioni sull'uso di Microsoft Graph per il provisioning:
 * [Panoramica dell'autenticazione Microsoft Graph](https://docs.microsoft.com/graph/auth/)
 
 * [Introduzione a Microsoft Graph](https://developer.microsoft.com/graph/get-started)
-
-* [Usare l'API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api)
-
-* [Microsoft Graph Explorer](https://aka.ms/ge) 
-
-* [Informazioni di riferimento sulle autorizzazioni Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference)
-
-* [Procedure consigliate per l'utilizzo di Microsoft Graph](https://docs.microsoft.com/graph/best-practices-concept)
-
-* [Scenari completi per Microsoft Graph](https://developer.microsoft.com/graph/examples)
 
 ## <a name="using-saml-jit-for-provisioning"></a>Uso di SAML JIT per il provisioning
 

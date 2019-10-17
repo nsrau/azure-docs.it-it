@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: 07591517211d5334b9bf055d778f00b171e7056f
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 0bb3221c201e6dd4dd17cca8ef7e3ed3331de228
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263457"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72432653"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network"></a>Distribuire Azure Databricks nella rete virtuale
 
@@ -37,7 +37,7 @@ La distribuzione di Azure Databricks risorse alla rete virtuale consente anche d
 
 La rete virtuale in cui si distribuisce l'area di lavoro di Azure Databricks deve soddisfare i requisiti seguenti:
 
-### <a name="location"></a>Location
+### <a name="location"></a>Località
 
 La rete virtuale deve risiedere nella stessa località dell'area di lavoro Azure Databricks.
 
@@ -74,7 +74,7 @@ Questa sezione descrive come creare un'area di lavoro Azure Databricks nel porta
 
 1. Nella portale di Azure selezionare **+ Crea una risorsa > Analytics > Azure Databricks** per aprire la finestra di dialogo del servizio Azure Databricks.
 
-2. Attenersi alla procedura di configurazione descritta nel passaggio 2: Creare un'area di lavoro Azure Databricks nella guida Introduzione e selezionare l'area di lavoro Distribuisci Azure Databricks nell'opzione rete virtuale.
+2. Seguire i passaggi di configurazione descritti in passaggio 2: creare un'area di lavoro Azure Databricks nella guida Introduzione e selezionare l'area di lavoro Distribuisci Azure Databricks nell'opzione rete virtuale.
 
    ![Crea servizio Azure Databricks](./media/vnet-injection/create-databricks-service.png)
 
@@ -101,7 +101,7 @@ Quando si usa questo modello, non è necessario eseguire alcuna operazione di in
 
 ### <a name="network-security-groups"></a>Gruppi di sicurezza di rete
 
-Per creare gruppi di sicurezza di rete con le regole necessarie per una rete virtuale esistente, usare il [modello di gruppo di sicurezza di rete per databricks VNet Injection](https://azure.microsoft.com/resources/templates/101-databricks-nsg-for-vnet-injection).
+Per creare gruppi di sicurezza di rete con le regole necessarie per una rete virtuale esistente, usare il [modello di gruppo di sicurezza di rete per databricks VNet Injection](https://azure.microsoft.com/resources/templates/101-databricks-all-in-one-template-for-vnet-injection/).
 
 Quando si usa questo modello, non è necessario eseguire alcuna operazione di inserimento manuale nell'elenco elementi consentiti del traffico della subnet.
 
@@ -121,7 +121,7 @@ Se si usa questo modello senza usare anche il modello gruppi di sicurezza di ret
 
 Se non si usa il [portale di Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) o i [modelli di Azure Resource Manager](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) per creare i gruppi di sicurezza di rete, è necessario includere manualmente il traffico seguente nelle subnet.
 
-|Direction|Protocol|Source|Porta di origine|Destination|Porta di destinazione|
+|Direzione|Protocol|Source (Sorgente)|Porta di origine|Destinazione|Porta di destinazione|
 |---------|--------|------|-----------|-----------|----------------|
 |In ingresso|\*|VirtualNetwork|\*|\*|\*|
 |In ingresso|\*|IP NAT del piano di controllo|\*|\*|22|
@@ -133,9 +133,9 @@ Se non si usa il [portale di Azure](https://docs.azuredatabricks.net/administrat
 
 Traffico della subnet whitelist con i seguenti indirizzi IP. Per SQL (Metastore) e archiviazione (artefatto e archiviazione dei log), è necessario usare i [tag del servizio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)SQL e di archiviazione.
 
-|Area Azure Databricks|Service|IP pubblico|
+|Area Azure Databricks|Servizio|IP pubblico|
 |-----------------------|-------|---------|
-|East US|NAT del piano di controllo </br></br>WebApp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|Stati Uniti Orientali|NAT del piano di controllo </br></br>WebApp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |Stati Uniti orientali 2|NAT del piano di controllo </br></br>WebApp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |Stati Uniti centro-settentrionali|NAT del piano di controllo </br></br>WebApp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |Stati Uniti centrali|NAT del piano di controllo </br></br>WebApp|23.101.152.95/32 </br></br>40.70.58.221/32|
@@ -160,7 +160,7 @@ Traffico della subnet whitelist con i seguenti indirizzi IP. Per SQL (Metastore)
 |Giappone orientale|NAT del piano di controllo </br></br>WebApp|13.78.19.235/32 </br></br>52.246.160.72/32|
 |Giappone occidentale|NAT del piano di controllo </br></br>WebApp|13.78.19.235/32 </br></br>52.246.160.72/32|
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 ### <a name="workspace-launch-errors"></a>Errori di avvio dell'area di lavoro
 
@@ -170,21 +170,21 @@ Questo errore è causato da una configurazione di rete che non soddisfa i requis
 
 ### <a name="cluster-creation-errors"></a>Errori di creazione del cluster
 
-**Instances irraggiungibile: Le risorse non sono raggiungibili tramite SSH.**
+**Istanze non raggiungibili: le risorse non sono raggiungibili tramite SSH.**
 
 Possibili cause: il traffico dal piano di controllo ai thread di lavoro è bloccato. Correzione assicurando che le regole di sicurezza in ingresso soddisfino i requisiti. Se si esegue la distribuzione in una rete virtuale esistente connessa alla rete locale, verificare la configurazione usando le informazioni fornite in connessione dell'area di lavoro Azure Databricks alla rete locale.
 
-Errore di avvio **Unexpected: Si è verificato un errore imprevisto durante la configurazione del cluster. Riprovare e contattare Azure Databricks se il problema persiste. Messaggio di errore interno: Timeout durante l'inserimento del nodo.**
+**Errore di avvio imprevisto: si è verificato un errore imprevisto durante la configurazione del cluster. Riprovare e contattare Azure Databricks se il problema persiste. Messaggio di errore interno: timeout durante l'inserimento del nodo.**
 
 Possibili cause: il traffico da ruoli di lavoro ad endpoint di archiviazione di Azure è bloccato. Correzione assicurando che le regole di sicurezza in uscita soddisfino i requisiti. Se si usano server DNS personalizzati, controllare anche lo stato dei server DNS nella rete virtuale.
 
-Errore di avvio del provider **Cloud: Si è verificato un errore del provider di servizi cloud durante la configurazione del cluster. Per ulteriori informazioni, vedere la guida Azure Databricks. Codice errore di Azure: AuthorizationFailed/InvalidResourceReference.**
+**Errore di avvio del provider di servizi cloud: si è verificato un errore del provider di servizi cloud durante la configurazione del cluster. Per ulteriori informazioni, vedere la guida Azure Databricks. Codice di errore di Azure: AuthorizationFailed/InvalidResourceReference.**
 
 Possibili cause: la rete virtuale o le subnet non esistono più. Verificare che la rete virtuale e le subnet esistano.
 
-@no__t 0Cluster terminato. Motivo: Errore di avvio di Spark: Spark non è stato in grado di iniziare nel tempo. Questo problema può essere causato da un metastore Hive non funzionante, da configurazioni Spark non valide o da script di inizializzazione non funzionante. Per risolvere il problema, vedere i log del driver Spark e contattare databricks se il problema persiste. Messaggio di errore interno: Non è stato possibile avviare Spark: Impossibile avviare il driver nel tempo. **
+**Cluster terminato. Motivo: errore di avvio di Spark: non è stato possibile avviare Spark nel tempo. Questo problema può essere causato da un metastore Hive non funzionante, da configurazioni Spark non valide o da script di inizializzazione non funzionante. Per risolvere il problema, vedere i log del driver Spark e contattare databricks se il problema persiste. Messaggio di errore interno: non è stato possibile avviare Spark: il driver non è stato avviato nel tempo.**
 
-Possibili cause: Il contenitore non può comunicare con l'istanza di hosting o con l'account di archiviazione DBFS. Correzione mediante l'aggiunta di una route personalizzata alle subnet per l'account di archiviazione DBFS con l'hop successivo su Internet.
+Causa possibile: il contenitore non può comunicare con l'istanza di hosting o con l'account di archiviazione DBFS. Correzione mediante l'aggiunta di una route personalizzata alle subnet per l'account di archiviazione DBFS con l'hop successivo su Internet.
 
 ### <a name="notebook-command-errors"></a>Errori del comando del notebook
 

@@ -6,18 +6,26 @@ author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 07/29/2019
+ms.date: 10/16/2019
 ms.author: dapatil
-ms.openlocfilehash: acce72a5ddfaab56a7fcce92f0153bb06cb1ae71
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: bf32809f426f3bfcabd08ec3bd95e76202aa8f84
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620110"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433419"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Cronologia delle versioni di Azure Site Recovery Deployment Planner
 
 Questo articolo fornisce la cronologia di tutte le versioni di Azure Site Recovery Deployment Planner con le correzioni, le limitazioni note in ognuna e le date di rilascio.
+
+## <a name="version-251"></a>Versione 2,51
+
+**Data di rilascio: 22 agosto 2019**
+
+**Correzioni**
+
+- Correzione del problema relativo alle raccomandazioni sui costi con Deployment Planner versione 2,5
 
 ## <a name="version-25"></a>Versione 2,5
 
@@ -101,7 +109,7 @@ Questo articolo fornisce la cronologia di tutte le versioni di Azure Site Recove
 
 **Limitazioni note:**
 
-- Per il ripristino di emergenza da Hyper-V ad Azure, la macchina virtuale con nome `,`contenente i `[`caratteri seguenti: ``` ` ``` , `"`,, `]`e non è supportata. Se profilato, la generazione di report avrà esito negativo o avrà un risultato errato.
+- Per il ripristino di emergenza da Hyper-V ad Azure, la macchina virtuale con il nome contenente i caratteri come: `,`, `"`, `[`, `]` e ``` ` ``` non sono supportati. Se profilato, la generazione di report avrà esito negativo o avrà un risultato errato.
 - Per il ripristino di emergenza da VMware ad Azure, la macchina virtuale con nome contenente la virgola non è supportata. Se profilato, la generazione del report ha esito negativo o avrà un risultato errato.
 
 ## <a name="version-131"></a>Versione 1.3.1
@@ -115,7 +123,7 @@ Per altre informazioni, vedere il post di blog sul [supporto di dischi di grandi
 
 ## <a name="version-13"></a>Versione 1,3
 
-**Data di rilascio: 9 maggio, 2017**
+**Data di rilascio: 9 maggio 2017**
 
 **Correzioni**
 

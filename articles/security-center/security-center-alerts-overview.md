@@ -8,14 +8,14 @@ manager: rkarlin
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 08/25/2019
+ms.date: 10/16/2019
 ms.author: memildin
-ms.openlocfilehash: 3b4b02574c028822d25d841376b127a718243b2e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 69b81417e541bd6853e02065e8cee08e3e04b4a2
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202571"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433888"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Avvisi di sicurezza nel Centro sicurezza di Azure
 
@@ -47,34 +47,50 @@ Per rilevare le minacce reali e ridurre i falsi positivi, il Centro sicurezza ra
 
 Il Centro sicurezza si avvale di analisi della sicurezza avanzate, che vanno ben oltre gli approcci basati sulle firme. I progressi tecnologici in ambito Big Data e [Machine Learning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) vengono sfruttati per valutare gli eventi nell'intera l'infrastruttura cloud, rilevando minacce che sarebbe impossibile identificare con approcci manuali e stimando l'evoluzione degli attacchi. Queste analisi della sicurezza includono:
 
-* **Intelligence per le minacce integrata**: Cerca gli attori cattivi noti sfruttando l'Intelligence per le minacce globale da prodotti e servizi Microsoft, da Microsoft Digital Crimes Unit (UCD), Microsoft Security Response Center (MSRC) e feed esterni.
-* **Analisi del comportamento**: Vengono applicati schemi noti per individuare comportamenti dannosi.
-* **Rilevamento anomalie**: Usa la tecnica di profilatura statistica per creare una baseline cronologica. Genera avvisi sulle deviazioni dalle baseline stabilite che risultano conformi a un potenziale vettore di attacco .
+* **Intelligence per le minacce integrata**: cerca gli attori cattivi noti sfruttando l'Intelligence per le minacce globale da prodotti e servizi Microsoft, da Microsoft Digital Crimes Unit (UCD), Microsoft Security Response Center (MSRC) e feed esterni.
+* **Analisi del comportamento**: applica i criteri noti per individuare comportamenti dannosi.
+* **Rilevamento anomalie**: usa la tecnica di profilatura statistica per creare una baseline cronologica. Genera avvisi sulle deviazioni dalle baseline stabilite che risultano conformi a un potenziale vettore di attacco .
 
-Gli argomenti seguenti illustrano ogni analisi in modo più dettagliato.
+Le sezioni seguenti illustrano ogni analisi in modo più dettagliato.
 
 ### <a name="integrated-threat-intelligence"></a>Intelligence per le minacce integrata
 
-Microsoft vanta un'enorme quantità di dati di intelligence per le minacce globali. Il flusso di dati di telemetria proviene da più origini, ad esempio Azure, Office 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft Digital Crimes Unit (DCU) e Microsoft Security Response Center (MSRC). I ricercatori ricevono anche informazioni di intelligence per le minacce condivise tra i principali provider di servizi cloud e sottoscrivono i feed di terze parti di intelligence per le minacce. Il Centro sicurezza di Azure usa queste informazioni per avvisare gli utenti nel caso di minacce provenienti da attori dannosi noti.
+Microsoft vanta un'enorme quantità di dati di intelligence per le minacce globali. Il flusso di dati di telemetria proviene da più origini, ad esempio Azure, Office 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft Digital Crimes Unit (DCU) e Microsoft Security Response Center (MSRC). I ricercatori ricevono anche informazioni di intelligence per le minacce condivise tra i principali provider di servizi cloud e i feed di terze parti. Il Centro sicurezza di Azure usa queste informazioni per avvisare gli utenti nel caso di minacce provenienti da attori dannosi noti.
 
-### <a name="behavioral-analytics"></a>Analisi del comportamento
+### <a name="behavioral-analytics"></a>Analisi comportamentali
 
 L'analisi del comportamento è una tecnica che analizza e confronta i dati con una raccolta di modelli noti. Tuttavia, questi modelli non sono semplici firme. Sono determinati usando algoritmi di Machine Learning complessi applicati a set di dati di grandi dimensioni. Sono anche definiti tramite l'attento esame di comportamenti dannosi da parte di analisti esperti. Il Centro sicurezza di Azure può usare le analisi del comportamento per identificare le risorse compromesse in base all'analisi dei log delle macchine virtuali, dei dispositivi di rete virtuale, dell'infrastruttura, nonché dei dump di arresto anomalo del sistema e di altre origini.
 
-Esiste inoltre una correlazione con altri segnali per verificare la presenza di elementi a riprova di una campagna su larga scala. La correlazione consente di identificare gli eventi che risultano coerenti con gli indicatori di violazione stabiliti. 
+Inoltre, c'è la correlazione con altri segnali per verificare la presenza di evidenze di una campagna diffusa. La correlazione consente di identificare gli eventi che risultano coerenti con gli indicatori di violazione stabiliti. 
 
-### <a name="anomaly-detection"></a>Rilevamento anomalie
+### <a name="anomaly-detection"></a>Rilevazione delle anomalie
 
 Il Centro sicurezza di Azure usa inoltre il rilevamento anomalie per identificare le minacce. A differenza dell'analisi del comportamento, che dipende da modelli noti derivati da set di dati di grandi dimensioni, il rilevamento anomalie è più "personalizzato" e incentrato sulle baseline specifiche delle distribuzioni. Le tecniche di apprendimento automatico vengono applicate per determinare la normale attività per le distribuzioni dei clienti e quindi vengono generate regole per definire le condizioni degli outlier che possono rappresentare un evento di sicurezza.
+
+## <a name="how-are-alerts-classified"></a>In che modo vengono classificati gli avvisi?
+
+Il Centro sicurezza assegna una gravità agli avvisi, in modo da consentire la priorità dell'ordine in cui si partecipa a ogni avviso, in modo che quando una risorsa viene compromessa, è possibile accedervi immediatamente. Il livello di gravità è basato sul livello di attendibilità del Centro sicurezza nell'individuazione o sull'analisi utilizzata per emettere l'avviso, nonché sul livello di confidenza causato da un intento dannoso dietro l'attività che ha portato all'avviso.
+
+> [!NOTE]
+> La gravità degli avvisi viene visualizzata in modo diverso nel portale e nell'API REST. Le differenze sono indicate nell'elenco seguente.
+
+* **Elevato:** È molto probabile che la risorsa venga compromessa. È consigliabile controllarla immediatamente. Il Centro sicurezza ha una certezza elevata sia delle finalità dannose che delle conclusioni usate per inviare l'avviso, ad esempio un avviso che rileva l'esecuzione di uno strumento dannoso noto, come Mimikatz, uno strumento comune usato per il furto di credenziali.
+* **Media (bassa nell'API REST)** : si tratta probabilmente di un'attività sospetta che può indicare la compromissione di una risorsa.
+La fiducia del Centro sicurezza nell'analisi o nella conclusione è media e la certezza delle finalità dannose è da media a elevata. Si tratta in genere di rilevamenti basati sulle anomalie o su Machine Learning. Ad esempio, un tentativo di accesso da un percorso anomalo.
+* **Bassa (Informazioni nell'API REST)** : potrebbe trattarsi di un falso positivo o di un attacco bloccato.
+   * Il Centro sicurezza non è del tutto certo che l'intento sia dannoso e che l'attività possa essere inoffensiva. La cancellazione di un log, ad esempio, è un'azione che può verificarsi quando un utente malintenzionato cerca di nascondere le proprie tracce, ma in molti casi è un'operazione di routine eseguita dagli amministratori.
+   * Il Centro sicurezza non segnala in genere quando sono stati bloccati attacchi, a meno che non si tratti di un caso interessante che si consiglia di esaminare. 
+* **Informativo (invisibile nell'API REST)** : gli avvisi informativi verranno visualizzati solo quando si esegue il drill-down di un evento imprevisto relativo alla sicurezza oppure se si usa l'API REST con un ID avviso specifico. Un evento imprevisto è in genere costituito da più avvisi, alcuni dei quali sono di per sé semplicemente informativi, ma nel contesto degli altri avvisi potrebbero richiedere un'analisi più approfondita. 
+ 
 
 ## <a name="continuous-monitoring-and-assessments"></a>Monitoraggio e valutazioni continui
 
 Il Centro sicurezza di Azure è in grado di sfruttare la ricerca di sicurezza e i team di data science in Microsoft che monitorano costantemente le modifiche nel panorama delle minacce. Sono incluse le iniziative seguenti:
 
-* **Monitoraggio dell'intelligence per le minacce**: l'intelligence per le minacce include meccanismi, indicatori, implicazioni e consigli utili sulle minacce esistenti o emergenti. Queste informazioni sono condivise nella community sulla sicurezza e Microsoft monitora costantemente i feed di intelligence per le minacce da origini interne ed esterne.
+* **Monitoraggio dell'intelligence per le minacce**: questo tipo di intelligence include meccanismi, indicatori, implicazioni e consigli utili sulle minacce esistenti o emergenti. Queste informazioni sono condivise nella community sulla sicurezza e Microsoft monitora costantemente i feed di intelligence per le minacce da origini interne ed esterne.
 * **Condivisione dei segnali**: le informazioni dettagliate dai team della sicurezza nell'ampio portfolio di servizi, server e dispositivi endpoint client locali e cloud di Microsoft vengono condivise e analizzate.
-* **Specialisti della sicurezza Microsoft**: collaborazione continua con i team Microsoft che operano in ambiti di sicurezza specializzati, ad esempio analisi forense e rilevamento di attacchi Web.
-* **Ottimizzazione del rilevamento**: gli algoritmi vengono eseguiti su set di dati reali dei clienti e ricercatori che si occupano di sicurezza collaborano con i clienti per convalidare i risultati. Per perfezionare gli algoritmi di Machine Learning vengono usati veri e falsi positivi.
+* **Specialisti della sicurezza Microsoft**: in contatto costante con i team Microsoft che operano in ambiti di sicurezza specializzati, ad esempio analisi scientifiche e rilevamento di attacchi Web.
+* **Ottimizzazione del rilevamento**: gli algoritmi vengono eseguiti su set di dati reali del cliente e ricercatori dedicati alla sicurezza collaborano con i clienti per convalidare i risultati. Per perfezionare gli algoritmi di Machine Learning vengono usati veri e falsi positivi.
 
 Questi sforzi combinati convergono in rilevamenti nuovi e migliorati, da cui è possibile trarre vantaggio immediatamente, senza che sia richiesta alcuna azione.
 
@@ -99,7 +115,7 @@ Con gli eventi imprevisti, il Centro sicurezza offre un'unica visualizzazione di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sono stati illustrati i diversi tipi di avvisi disponibili nel centro sicurezza. Per altre informazioni, vedere:
+In questo articolo sono stati illustrati i diversi tipi di avvisi disponibili nel centro sicurezza. Per scoprire di più, vedi:
 
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 * [Domande frequenti sul Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-faq)

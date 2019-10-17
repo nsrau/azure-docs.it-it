@@ -3,15 +3,15 @@ title: Usare set di dati di grandi dimensioni
 description: Informazioni su come ottenere e controllare set di dati di grandi dimensioni durante l'utilizzo di Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/10/2019
+ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 0ecd0ea997520947b766912f834de2a0c2e64429
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: c78f2e37fa29fa1cdcb9acc6a4600688750b6d74
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274242"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387584"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilizzo di set di dati della risorsa di Azure di grandi dimensioni
 
@@ -29,11 +29,11 @@ Per impostazione predefinita, Resource Graph limita a **100** record i risultati
 È possibile eseguire l'override del limite predefinito tramite tutti i metodi di interazione con Resource Graph. Gli esempi seguenti mostrano come impostare il limite di dimensioni dei set di dati su _200_:
 
 ```azurecli-interactive
-az graph query -q "project name | order by name asc" --first 200 --output table
+az graph query -q "Resources | project name | order by name asc" --first 200 --output table
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project name | order by name asc" -First 200
+Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
 Nell'[API REST](/rest/api/azureresourcegraph/resources/resources) il controllo è **$top** e fa parte di **QueryRequestOptions**.
@@ -52,11 +52,11 @@ Un'altra opzione per l'elaborazione di set di dati di grandi dimensioni è il co
 Gli esempi seguenti mostrano come ignorare i primi _10_ record restituiti da una query facendo iniziare il set di risultati restituito dall'undicesimo record:
 
 ```azurecli-interactive
-az graph query -q "project name | order by name asc" --skip 10 --output table
+az graph query -q "Resources | project name | order by name asc" --skip 10 --output table
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project name | order by name asc" -Skip 10
+Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
 Nell'[API REST](/rest/api/azureresourcegraph/resources/resources) il controllo è **$skip** e fa parte di **QueryRequestOptions**.
@@ -71,11 +71,11 @@ Quando **resultTruncated** è **true**, la proprietà **$skipToken** è impostat
 Gli esempi seguenti illustrano come **ignorare** i primi record 3000 e restituire i **primi** 1000 record dopo che questi record sono stati IGNORAti con l'interfaccia della riga di comando di Azure e Azure PowerShell:
 
 ```azurecli-interactive
-az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+az graph query -q "Resources | project id, name | order by id asc" --first 1000 --skip 3000
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 1000 -Skip 3000
 ```
 
 > [!IMPORTANT]
@@ -156,14 +156,14 @@ Di seguito sono riportati alcuni esempi di impostazione di **ResultFormat** per 
 
 ```csharp
 var requestOptions = new QueryRequestOptions( resultFormat: ResultFormat.ObjectArray);
-var request = new QueryRequest(subscriptions, "limit 1", options: requestOptions);
+var request = new QueryRequest(subscriptions, "Resources | limit 1", options: requestOptions);
 ```
 
 ```python
 request_options = QueryRequestOptions(
     result_format=ResultFormat.object_array
 )
-request = QueryRequest(query="limit 1", subscriptions=subs_list, options=request_options)
+request = QueryRequest(query="Resources | limit 1", subscriptions=subs_list, options=request_options)
 response = client.resources(request)
 ```
 

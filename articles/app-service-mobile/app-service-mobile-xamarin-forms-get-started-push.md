@@ -14,20 +14,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 8ce307df954575b3204f7a4b3f46af1f4a9c3089
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: ce5750a5071ee0dfc257498f83f41b6d59c99a8b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027451"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388529"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Aggiungere notifiche push all'app Xamarin.Forms
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 > [!NOTE]
-> Visual Studio App Center supporta end-to-end e servizi integrati centrali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare i servizi di **compilazione**, **test** e **distribuzione** per configurare la pipeline di integrazione e recapito continua. Una volta distribuita l'app, gli sviluppatori possono monitorare lo stato e l'utilizzo dell'app usando i servizi di **analisi** e **diagnostica** e coinvolgere gli utenti che usano il servizio di **push** . Gli sviluppatori possono inoltre sfruttare l' **autenticazione** per autenticare gli utenti e il servizio **dati** per salvare in modo permanente e sincronizzare i dati delle app nel cloud.
-> Se si intende integrare servizi cloud nell'applicazione per dispositivi mobili, iscriversi con App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) oggi stesso.
+> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
+>
+> Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
 ## <a name="overview"></a>Panoramica
 
@@ -122,9 +123,9 @@ Dopo aver configurato il back-end con FCM, è possibile aggiungere componenti e 
     }
     ```
 
-    La classe `FirebaseRegistrationService` è responsabile della generazione di token di sicurezza che autorizzano l'accesso a FCM da parte dell'applicazione. Il metodo `OnTokenRefresh` viene richiamato quando l'applicazione riceve un token di registrazione da FCM. Il metodo recupera il token dal `FirebaseInstanceId.Instance.Token` proprietà, che viene aggiornato in modo asincrono da FCM. Il `OnTokenRefresh` viene richiamato raramente (metodo), perché il token viene aggiornato solo quando l'applicazione viene installata o disinstallata, quando l'utente elimina i dati dell'applicazione, l'applicazione Cancella l'ID dell'istanza o quando è stata la sicurezza del token compromessi. Inoltre, il servizio Instance ID di FCM richiederà che l'applicazione aggiornamento periodico del token, in genere ogni 6 mesi.
+    La classe `FirebaseRegistrationService` è responsabile della generazione di token di sicurezza che autorizzano l'accesso a FCM da parte dell'applicazione. Il metodo `OnTokenRefresh` viene richiamato quando l'applicazione riceve un token di registrazione da FCM. Il metodo recupera il token dalla proprietà `FirebaseInstanceId.Instance.Token`, che viene aggiornata in modo asincrono da FCM. Il metodo `OnTokenRefresh` viene richiamato raramente, perché il token viene aggiornato solo quando l'applicazione viene installata o disinstallata, l'utente elimina i dati dell'applicazione, l'applicazione cancella l'ID istanza o la sicurezza del token risulta compromessa. Inoltre, il servizio Instance ID di FCM richiederà all'applicazione l'aggiornamento periodico del token, in genere ogni 6 mesi.
 
-    Il `OnTokenRefresh` metodo richiama anche il `SendRegistrationTokenToAzureNotificationHub` (metodo), che consente di associare token di registrazione dell'utente con l'Hub di notifica di Azure.
+    Il metodo `OnTokenRefresh` richiama anche il metodo `SendRegistrationTokenToAzureNotificationHub`, che viene usato per associare il token di registrazione dell'utente all'Hub di notifica di Azure.
 
 #### <a name="registering-with-the-azure-notification-hub"></a>Registrazione con l'Hub di notifica di Azure
 
@@ -224,7 +225,7 @@ Dopo aver configurato il back-end con FCM, è possibile aggiungere componenti e 
     }
     ```
 
-    Il metodo `OnMessageReceived`, che viene richiamato quando un'applicazione riceve una notifica da FCM, estrae il contenuto del messaggio e chiama il metodo `SendNotification`. Questo metodo converte il contenuto del messaggio in una notifica locale che viene avviata durante l'applicazione è in esecuzione, visualizzata nell'area di notifica.
+    Il metodo `OnMessageReceived`, che viene richiamato quando un'applicazione riceve una notifica da FCM, estrae il contenuto del messaggio e chiama il metodo `SendNotification`. Questo metodo converte il contenuto del messaggio in una notifica locale, che viene avviata durante l'esecuzione dell'applicazione e visualizzata nell'area di notifica.
 
 È ora possibile testare le notifiche push nell'app in esecuzione su un dispositivo Android o nell'emulatore.
 
@@ -417,10 +418,10 @@ Altre informazioni sulle notifiche push:
 
 È possibile anche proseguire con una delle esercitazioni seguenti:
 
-* [Aggiungere l'autenticazione all'app](app-service-mobile-xamarin-forms-get-started-users.md)  
-  Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
-* [Abilitare la sincronizzazione offline per l'app per dispositivi mobili Xamarin.Forms](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
-  Informazioni su come aggiungere il supporto offline all'app usando il back-end di un'app per dispositivi mobili. Con la sincronizzazione offline è possibile interagire con un'app per dispositivi mobili &mdash;visualizzando, aggiungendo e modificando i dati&mdash; anche se non è disponibile una connessione di rete.
+* [Aggiungere l'autenticazione all'app Xamarin.Forms](app-service-mobile-xamarin-forms-get-started-users.md)  
+  : informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+* [Abilitare la sincronizzazione offline per l'app](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
+  Informazioni su come aggiungere il supporto offline all'app usando il back-end di un'app per dispositivi mobili. Con la sincronizzazione offline è possibile interagire con un'app per dispositivi mobili &mdash;visualizzando, aggiungendo e modificando i dati&mdash; anche quando non è disponibile una connessione di rete.
 
 <!-- Images. -->
 

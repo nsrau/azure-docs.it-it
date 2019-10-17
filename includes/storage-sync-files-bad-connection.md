@@ -1,19 +1,19 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 07/08/2018
-ms.author: wgries
+ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 359347e41264711a6ac0fa4d2dd0c3633590e917
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 07cae1cee9810646de5bf9610a29991376736373
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180220"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391684"
 ---
 Questo errore può verificarsi quando il servizio Sincronizzazione file di Azure non è accessibile dal server. È possibile risolvere questo errore eseguendo questa procedura:
 

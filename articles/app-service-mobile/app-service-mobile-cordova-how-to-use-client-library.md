@@ -14,19 +14,20 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 3cf18e6da56b25e453d52dc58020961f672da27d
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 25bff77da6c2bd89916fe40ebb153ff9631e62eb
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027441"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388797"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Come usare la libreria client Apache Cordova per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center supporta end-to-end e servizi integrati centrali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare i servizi di **compilazione**, **test** e **distribuzione** per configurare la pipeline di integrazione e recapito continua. Una volta distribuita l'app, gli sviluppatori possono monitorare lo stato e l'utilizzo dell'app usando i servizi di **analisi** e **diagnostica** e coinvolgere gli utenti che usano il servizio di **push** . Gli sviluppatori possono inoltre sfruttare l' **autenticazione** per autenticare gli utenti e il servizio **dati** per salvare in modo permanente e sincronizzare i dati delle app nel cloud.
-> Se si intende integrare servizi cloud nell'applicazione per dispositivi mobili, iscriversi con App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) oggi stesso.
+> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
+>
+> Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
 ## <a name="overview"></a>Panoramica
 Questa guida descrive come eseguire scenari comuni usando il più recente [plug-in Apache Cordova per le app per dispositivi mobili di Azure]. Se non si ha familiarità con le app per dispositivi mobili di Azure, completare prima di tutto l' [esercitazione introduttiva sulle app per dispositivi mobili di Azure] per creare un back-end e una tabella e per scaricare un progetto Apache Cordova predefinito. In questa guida si esaminerà il plug-in Apache Cordova.
@@ -77,7 +78,7 @@ Il plug-in Cordova di App per dispositivi mobili di Azure supporta le app Ionic 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
 ## <a name="auth"></a>Procedura: Autenticare gli utenti
-Il servizio app di Azure supporta l'autenticazione e l'autorizzazione degli utenti di app usando diversi provider di identità esterni, ad esempio Facebook, Google, account Microsoft e Twitter. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per ulteriori informazioni, vedere l'esercitazione [Introduzione all'autenticazione] .
+Il servizio app di Azure supporta l'autenticazione e l'autorizzazione degli utenti di app usando diversi provider di identità esterni, a esempio Facebook, Google, account Microsoft e Twitter. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per ulteriori informazioni, vedere l'esercitazione [Introduzione all'autenticazione in Servizi mobili] .
 
 Quando si usa l'autenticazione in un'app Apache Cordova, devono essere disponibili i plug-in Cordova seguenti:
 
@@ -88,7 +89,7 @@ Sono supportati due flussi di autenticazione, ovvero un flusso server e un fluss
 
 [!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>Procedura: Configurare il servizio app per dispositivi mobili per URL di reindirizzamento esterni.
+### <a name="configure-external-redirect-urls"></a>Procedura: Configurare il servizio App per dispositivi mobili per URL di reindirizzamento esterni.
 Molti tipi di applicazioni Apache Cordova usano una funzionalità di loopback per gestire i flussi dell’interfaccia utente di OAuth.  I flussi dell'interfaccia utente di OAuth sull'host locale causa problemi in quanto il servizio di autenticazione sa usare il servizio solo con le impostazioni predefinite.  Alcuni esempi di flussi dell'interfaccia utente di OAuth problematici sono:
 
 * L'emulatore Ripple.
@@ -98,7 +99,7 @@ Molti tipi di applicazioni Apache Cordova usano una funzionalità di loopback pe
 
 Per aggiungere le proprie impostazioni locali alla configurazione seguire questa procedura:
 
-1. Accedere al [portale di Azure]
+1. Accedere al [Azure portal]
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome dell'app per dispositivi mobili.
 3. Fare clic su **Strumenti**
 4. Fare clic su **Esplora risorse** nel menu OSSERVAZIONE, quindi fare clic su **Vai**.  Si apre una nuova finestra o una nuova scheda.
@@ -118,7 +119,7 @@ Per aggiungere le proprie impostazioni locali alla configurazione seguire questa
 A questo punto le impostazioni vengono salvate.  Non chiudere la finestra del browser finché non è terminato il salvataggio delle impostazioni.
 Aggiungere gli URL di loopback anche alle impostazioni CORS del servizio app:
 
-1. Accedere al [portale di Azure]
+1. Accedere al [Azure portal]
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome dell'app per dispositivi mobili.
 3. Il pannello Impostazioni si apre automaticamente.  In caso contrario fare clic su **Tutte le impostazioni**.
 4. Fare clic su **CORS** nel menu API.
@@ -175,9 +176,9 @@ Usare Notification Hubs SDK per inviare notifiche push dal server.  Non inviare 
 È possibile trovare informazioni dettagliate sulle API nella [documentazione sulle API](https://azure.github.io/azure-mobile-apps-js-client/).
 
 <!-- URLs. -->
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [esercitazione introduttiva sulle app per dispositivi mobili di Azure]: app-service-mobile-cordova-get-started.md
-[Introduzione all'autenticazione]: app-service-mobile-cordova-get-started-users.md
+[Introduzione all'autenticazione in Servizi mobili]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [plug-in Apache Cordova per le app per dispositivi mobili di Azure]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps

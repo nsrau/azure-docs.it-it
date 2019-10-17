@@ -1,6 +1,6 @@
 ---
-title: Risoluzione dei problemi e problemi noti di Azure Status Monitor V2 | Microsoft Docs
-description: Problemi noti di Status Monitor V2 e esempi di risoluzione dei problemi. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
+title: Risoluzione dei problemi dell'agente applicazione Azure Insights e problemi noti | Microsoft Docs
+description: Problemi noti relativi all'agente Application Insights e agli esempi di risoluzione dei problemi. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: c3e9bffaf3b533ef8fbe3e32c1dca671fb67c911
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ab1ce01c41679c6ff686ab37692d3b8e9167a4f8
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058301"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388210"
 ---
-# <a name="troubleshooting-status-monitor-v2"></a>Risoluzione dei problemi Status Monitor V2
+# <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Risoluzione dei problemi relativi a Application Insights Agent (denominato in precedenza Status Monitor v2)
 
 Quando si Abilita il monitoraggio, è possibile che si verifichino problemi che impediscono la raccolta dei dati.
 Questo articolo elenca tutti i problemi noti e fornisce esempi di risoluzione dei problemi.
@@ -31,9 +31,9 @@ Se si riscontra un problema non elencato qui, è possibile contattarci su [GitHu
 
 Se una di queste dll è presente nella directory bin, il monitoraggio potrebbe non riuscire:
 
-- Microsoft.ApplicationInsights.dll
-- Microsoft.AspNet.TelemetryCorrelation.dll
-- System.Diagnostics.DiagnosticSource.dll
+- Microsoft. ApplicationInsights. dll
+- Microsoft. AspNet. TelemetryCorrelation. dll
+- System. Diagnostics. DiagnosticSource. dll
 
 Alcune di queste dll sono incluse nei modelli di app predefinite di Visual Studio, anche se l'app non le USA.
 Per visualizzare il comportamento sintomatico, è possibile usare gli strumenti di risoluzione dei problemi:
@@ -88,20 +88,20 @@ Questo problema è stato monitorato [qui](https://github.com/microsoft/Applicati
 
     
     
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
     
 ### <a name="troubleshooting-powershell"></a>Risoluzione dei problemi relativi a PowerShell
 
 #### <a name="determine-which-modules-are-available"></a>Determinare quali moduli sono disponibili
-È possibile usare il `Get-Module -ListAvailable` comando per determinare quali moduli sono installati.
+È possibile usare il comando `Get-Module -ListAvailable` per determinare quali moduli sono installati.
 
 #### <a name="import-a-module-into-the-current-session"></a>Importa un modulo nella sessione corrente
-Se un modulo non è stato caricato in una sessione di PowerShell, è possibile caricarlo manualmente tramite `Import-Module <path to psd1>` il comando.
+Se un modulo non è stato caricato in una sessione di PowerShell, è possibile caricarlo manualmente usando il comando `Import-Module <path to psd1>`.
 
 
-### <a name="troubleshooting-the-status-monitor-v2-module"></a>Risoluzione dei problemi relativi al modulo Status Monitor V2
+### <a name="troubleshooting-the-application-insights-agent-module"></a>Risoluzione dei problemi del modulo agente Application Insights
 
-#### <a name="list-the-commands-available-in-the-status-monitor-v2-module"></a>Elenca i comandi disponibili nel modulo Status Monitor V2
+#### <a name="list-the-commands-available-in-the-application-insights-agent-module"></a>Elencare i comandi disponibili nel modulo Application Insights Agent
 Eseguire il comando `Get-Command -Module Az.ApplicationMonitor` per ottenere i comandi disponibili:
 
 ```
@@ -117,8 +117,8 @@ Cmdlet          Set-ApplicationInsightsMonitoringConfig            0.4.0      Az
 Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az.ApplicationMonitor
 ```
 
-#### <a name="determine-the-current-version-of-the-status-monitor-v2-module"></a>Determinare la versione corrente del modulo Status Monitor V2
-Eseguire il `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` comando per visualizzare le informazioni seguenti sul modulo:
+#### <a name="determine-the-current-version-of-the-application-insights-agent-module"></a>Determinare la versione corrente del modulo agente Application Insights
+Eseguire il comando `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` per visualizzare le informazioni seguenti sul modulo:
    - Versione del modulo PowerShell
    - Versione di Application Insights SDK
    - Percorsi dei file del modulo PowerShell
@@ -131,7 +131,7 @@ Per una descrizione dettagliata di come usare questo cmdlet, vedere le informazi
 È possibile esaminare i processi nel computer instrumentato per determinare se tutte le dll sono state caricate.
 Se il monitoraggio è funzionante, è necessario caricare almeno 12 dll.
 
-Usare il `Get-ApplicationInsightsMonitoringStatus -InspectProcess` comando per controllare le dll.
+Usare il comando `Get-ApplicationInsightsMonitoringStatus -InspectProcess` per controllare le dll.
 
 Per una descrizione dettagliata di come usare questo cmdlet, vedere le informazioni di [riferimento sulle API](status-monitor-v2-api-get-status.md) .
 
@@ -145,16 +145,16 @@ Per una descrizione dettagliata di come usare questo cmdlet, vedere le informazi
 3. Espandere **Opzioni avanzate**.
 4. Deselezionare le caselle di controllo seguenti:
     - **Zip**
-    - **Unisci**
+    - **Merge**
     - **Raccolta di simboli .NET**
-5. Impostare i **provider aggiuntivi**seguenti:`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
+5. Impostare i **provider aggiuntivi**seguenti: `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
-#### <a name="collecting-logs"></a>Raccolta dei log
+#### <a name="collecting-logs"></a>Raccolta di log
 
-1. In una console dei comandi con privilegi di amministratore eseguire `iisreset /stop` il comando per disattivare IIS e tutte le app Web.
+1. In una console dei comandi con privilegi di amministratore eseguire il comando `iisreset /stop` per disattivare IIS e tutte le app Web.
 2. In PerfView selezionare **Avvia raccolta**.
-3. In una console dei comandi con privilegi di amministratore eseguire `iisreset /start` il comando per avviare IIS.
+3. In una console dei comandi con privilegi di amministratore eseguire il comando `iisreset /start` per avviare IIS.
 4. Provare a passare all'app.
 5. Al termine del caricamento dell'app, tornare a PerfView e selezionare **Arresta raccolta**.
 

@@ -1,5 +1,5 @@
 ---
-title: Come usare le code del bus di servizio di Azure con Python | Microsoft Docs
+title: 'Esercitazione: usare le code del bus di servizio di Azure con Python'
 description: Informazioni su come usare le code del bus di servizio da Python.
 services: service-bus-messaging
 documentationcenter: python
@@ -14,21 +14,22 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 9bb53a8e68866e2ed346277171e2706f5907e8af
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.custom: seo-python-october2019
+ms.openlocfilehash: 69ae02ea7c0c04312dd4e64125c80384172c6528
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141919"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438107"
 ---
-# <a name="how-to-use-service-bus-queues-with-python"></a>Come usare le code del bus di servizio con Python
+# <a name="tutorial-use-azure-service-bus-queues-with-python"></a>Esercitazione: usare le code del bus di servizio di Azure con Python
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 In questa esercitazione si apprenderà come creare applicazioni Python per inviare e ricevere messaggi da una coda del bus di servizio. 
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) per gli abbonati MSDN o iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Seguire i passaggi nell'articolo [usare portale di Azure per creare una coda del bus di servizio](service-bus-quickstart-portal.md) .
     1. Leggere la breve **Panoramica** delle **Code**del bus di servizio. 
     2. Creare uno **spazio dei nomi**del bus di servizio. 
@@ -38,7 +39,7 @@ In questa esercitazione si apprenderà come creare applicazioni Python per invia
         > In questa esercitazione verrà creata una **coda** nello spazio dei nomi del bus di servizio usando Python. 
 1. Installare Python o il [pacchetto del bus di servizio di Azure per Python][Python Azure Service Bus package], vedere la Guida all'installazione di [Python](/azure/python/python-sdk-azure-install). Vedere la documentazione completa di Python SDK di Service Bus [qui](/python/api/overview/azure/servicebus?view=azure-python).
 
-## <a name="create-a-queue"></a>Crea una coda
+## <a name="create-a-queue"></a>Creare una coda
 L'oggetto **ServiceBusClient** consente di usare le code. Aggiungere il seguente codice all'inizio di ogni file Python da cui si desidera accedere al bus di servizio a livello di codice:
 
 ```python
@@ -67,7 +68,7 @@ sb_client.create_queue("taskqueue", max_size_in_megabytes=5120,
 Per altre informazioni, vedere la documentazione di Python per il [bus di servizio di Azure](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="send-messages-to-a-queue"></a>Inviare messaggi a una coda
-Per inviare un messaggio a una coda del bus di servizio, l'applicazione `send` chiama il metodo `ServiceBusClient` sull'oggetto.
+Per inviare un messaggio a una coda del bus di servizio, l'applicazione chiama il metodo `send` sull'oggetto `ServiceBusClient`.
 
 L'esempio seguente illustra come inviare un messaggio di prova alla coda denominata `taskqueue` usando `send_queue_message`:
 
@@ -83,12 +84,12 @@ msg = Message(b'Test Message')
 queue_client.send(msg)
 ```
 
-Le code del bus di servizio supportano messaggi di dimensioni fino a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e fino a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Le dimensioni massime dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non possono superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Questa dimensione della coda viene definita al momento della creazione, con un limite massimo di 5 GB. Per altre informazioni sulle quote, vedere [Quote del bus di servizio][Service Bus quotas].
+Le code del bus di servizio supportano messaggi di dimensioni massime pari a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e pari a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Le dimensioni massime dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non possono superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Questa dimensione della coda viene definita al momento della creazione, con un limite massimo di 5 GB. Per altre informazioni sulle quote, vedere [Quote del bus di servizio][Service Bus quotas].
 
 Per altre informazioni, vedere la documentazione di Python per il [bus di servizio di Azure](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="receive-messages-from-a-queue"></a>Ricevere messaggi da una coda
-I messaggi vengono ricevuti da una coda usando `get_receiver` il metodo `ServiceBusService` sull'oggetto:
+I messaggi vengono ricevuti da una coda usando il metodo `get_receiver` nell'oggetto `ServiceBusService`:
 
 ```python
 from azure.servicebus import QueueClient, Message
@@ -108,7 +109,7 @@ with queue_client.get_receiver() as queue_receiver:
 Per altre informazioni, vedere la documentazione di Python per il [bus di servizio di Azure](/python/api/overview/azure/servicebus?view=azure-python).
 
 
-I messaggi vengono eliminati dalla coda non appena vengono letti, quando il parametro `peek_lock` è impostato su **False**. È possibile leggere e bloccare il messaggio senza eliminarlo dalla coda impostando il parametro `peek_lock` su **True**.
+I messaggi vengono eliminati dalla coda non appena vengono letti, quando il parametro `peek_lock` è impostato su **False**. È possibile leggere (visualizzare) e bloccare il messaggio senza eliminarlo dalla coda impostando il parametro `peek_lock` su **True**.
 
 Il comportamento di lettura ed eliminazione del messaggio nell'ambito dell'operazione di ricezione costituisce il modello più semplice ed è adatto per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a utilizzare nuovamente i messaggi, il messaggio utilizzato prima dell'arresto anomalo risulterà perso.
 

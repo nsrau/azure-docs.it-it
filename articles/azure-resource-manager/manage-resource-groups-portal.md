@@ -1,6 +1,6 @@
 ---
 title: Gestire i gruppi di Azure Resource Manager usando il portale di Azure | Microsoft Docs
-description: Usare il portale di Azure per gestire i gruppi di Azure Resource Manager.
+description: Usare portale di Azure per gestire i gruppi di risorse tramite Azure Resource Manager. Viene illustrato come creare, elencare ed eliminare gruppi di risorse.
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: mumian
@@ -8,20 +8,20 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: bc3c1a05c64edea260bd177dd7eaefc003db5310
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 967ba72e6d270c3aa910d0b89207ed1878f994b0
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296298"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390442"
 ---
-# <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gestire i gruppi di risorse di Azure Resource Manager usando il portale di Azure
+# <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gestire i gruppi di risorse Azure Resource Manager usando il portale di Azure
 
-Informazioni su come usare il [portale di Azure](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) per gestire i gruppi di risorse di Azure. Per gestire le risorse di Azure, vedere [la gestione di Azure Resource Manager usando il portale di Azure](./manage-resources-portal.md).
+Informazioni su come usare la [portale di Azure](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) per gestire i gruppi di risorse di Azure. Per la gestione delle risorse di Azure, vedere [gestire le risorse di Azure usando il portale di Azure](./manage-resources-portal.md).
 
 Altri articoli sulla gestione dei gruppi di risorse:
 
-- [Gestire i gruppi di risorse di Azure utilizzando CLI di Azure](./manage-resources-cli.md)
+- [Gestire i gruppi di risorse di Azure usando l'interfaccia della riga di comando](./manage-resources-cli.md)
 - [Gestire i gruppi di risorse di Azure usando Azure PowerShell](./manage-resources-powershell.md)
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
@@ -32,27 +32,27 @@ Un gruppo di risorse è un contenitore con risorse correlate per una soluzione A
 
 Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica un percorso per il gruppo di risorse, si specifica il percorso di archiviazione dei metadati. Per motivi di conformità potrebbe essere necessario assicurarsi che i dati siano archiviati in una determinata area.
 
-Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica un percorso per il gruppo di risorse, si specifica in cui vengono archiviati i metadati.
+Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica una posizione per il gruppo di risorse, si specifica dove vengono archiviati tali metadati.
 
 ## <a name="create-resource-groups"></a>Creare gruppi di risorse
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **gruppi di risorse**
+2. Selezione **gruppi di risorse**
 
     ![aggiungere un gruppo di risorse](./media/manage-resource-groups-portal/manage-resource-groups-add-group.png)
 3. Selezionare **Aggiungi**.
 4. Immettere i valori seguenti:
 
-   - **Sottoscrizione** Selezionare la sottoscrizione di Azure. 
-   - **Gruppo di risorse**: Immettere il nome di un nuovo gruppo di risorse. 
-   - **Area**: Selezionare una località di Azure, ad esempio **Stati Uniti centrali**.
+   - **Sottoscrizione**: selezionare una sottoscrizione di Azure. 
+   - **Gruppo di risorse**: immettere un nuovo nome per il gruppo di risorse. 
+   - **Area**: selezionare una località di Azure, ad esempio **Stati Uniti centrali**.
 
-     ![Creare un gruppo di risorse](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
-5. Selezionare **Rivedi e crea**
-6. Selezionare **Create**. Bastano pochi secondi per creare un gruppo di risorse.
-7. Selezionare **Aggiorna** dal menu in alto per aggiornare l'elenco di gruppi di risorse e quindi selezionare il gruppo di risorse appena creato per aprirlo. Oppure selezionare **Notification**(l'icona a forma di campanello) dall'inizio, quindi selezionare **passare al gruppo di risorse** per aprire il gruppo di risorse appena creato
+     ![creare un gruppo di risorse](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
+5. Selezionare **Verifica + crea**
+6. Selezionare **Create** (Crea). La creazione di un gruppo di risorse richiede alcuni secondi.
+7. Selezionare **Aggiorna** dal menu superiore per aggiornare l'elenco dei gruppi di risorse e quindi selezionare il gruppo di risorse appena creato per aprirlo. In alternativa, selezionare **notifica**(icona a campana) nella parte superiore e quindi selezionare **Vai al gruppo di risorse** per aprire il gruppo di risorse appena creato
 
-    ![passare al gruppo di risorse](./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png)
+    ![Vai al gruppo di risorse](./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png)
 
 ## <a name="list-resource-groups"></a>Elencare i gruppi di risorse
 
@@ -61,51 +61,51 @@ Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica un p
 
     ![esplorare i gruppi di risorse](./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png)
 
-3. Per personalizzare le informazioni visualizzate per i gruppi di risorse, selezionare **Upravit sloupce**. Lo screenshot seguente mostra le colonne di aggiunta che è possibile aggiungere alla visualizzazione:
+3. Per personalizzare le informazioni visualizzate per i gruppi di risorse, selezionare **modifica colonne**. Lo screenshot seguente mostra le colonne di aggiunta che è possibile aggiungere alla visualizzazione:
 
-## <a name="open-resource-groups"></a>Gruppi di risorse Open
+## <a name="open-resource-groups"></a>Apri gruppi di risorse
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Gruppi di risorse**.
-3. Selezionare il gruppo di risorse che si desidera aprire.
+3. Selezionare il gruppo di risorse che si vuole aprire.
 
-## <a name="delete-resource-groups"></a>Eliminare gruppi di risorse
+## <a name="delete-resource-groups"></a>Elimina gruppi di risorse
 
-1. Aprire il gruppo di risorse che si desidera eliminare.  Visualizzare [aprire gruppi di risorse](#open-resource-groups).
+1. Aprire il gruppo di risorse che si vuole eliminare.  Vedere [aprire gruppi di risorse](#open-resource-groups).
 2. Selezionare **Elimina gruppo di risorse**.
 
-    ![eliminare il gruppo di risorse di azure](./media/manage-resource-groups-portal/delete-group.png)
+    ![Elimina gruppo di risorse di Azure](./media/manage-resource-groups-portal/delete-group.png)
 
-Per altre informazioni sulla modalità Azure Resource Manager Ordina l'eliminazione delle risorse, vedere [eliminazione del gruppo di risorse Azure Resource Manager](./resource-group-delete.md).
+Per altre informazioni su come Azure Resource Manager Ordina l'eliminazione delle risorse, vedere [Azure Resource Manager eliminazione del gruppo di risorse](./resource-group-delete.md).
 
-## <a name="deploy-resources-to-a-resource-group"></a>Distribuire risorse in un gruppo di risorse
+## <a name="deploy-resources-to-a-resource-group"></a>Distribuire le risorse in un gruppo di risorse
 
-Dopo aver creato un modello di Resource Manager, è possibile usare il portale di Azure per distribuire le risorse di Azure. Per creare un modello, vedere [Guida introduttiva: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](./resource-manager-quickstart-create-templates-use-the-portal.md). Per distribuire un modello usando il portale, vedere [distribuire le risorse con modelli di Resource Manager e portale di Azure](resource-group-template-deploy-portal.md).
+Dopo aver creato un modello di Gestione risorse, è possibile usare il portale di Azure per distribuire le risorse di Azure. Per la creazione di un modello, vedere [Guida introduttiva: creare e distribuire modelli di Azure Resource Manager usando il portale di Azure](./resource-manager-quickstart-create-templates-use-the-portal.md). Per la distribuzione di un modello tramite il portale, vedere [distribuire risorse con modelli e portale di Azure di gestione risorse](resource-group-template-deploy-portal.md).
 
-## <a name="move-to-another-resource-group-or-subscription"></a>Spostare in un gruppo di risorse o sottoscrizione
+## <a name="move-to-another-resource-group-or-subscription"></a>Passare a un altro gruppo di risorse o a una sottoscrizione
 
-È possibile spostare le risorse nel gruppo a un altro gruppo di risorse. Per altre informazioni, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](resource-group-move-resources.md).
+È possibile spostare le risorse del gruppo in un altro gruppo di risorse. Per altre informazioni, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](resource-group-move-resources.md).
 
-## <a name="lock-resource-groups"></a>Gruppi di risorse di blocco
+## <a name="lock-resource-groups"></a>Blocca gruppi di risorse
 
-Il blocco impedisce ad altri utenti nell'organizzazione modifichino o eliminino accidentalmente risorse critiche, come sottoscrizione di Azure, gruppo di risorse o risorsa. 
+Il blocco impedisce ad altri utenti dell'organizzazione di eliminare o modificare accidentalmente le risorse critiche, ad esempio la sottoscrizione di Azure, il gruppo di risorse o la risorsa. 
 
-1. Aprire il gruppo di risorse che si desidera eliminare.  Visualizzare [aprire gruppi di risorse](#open-resource-groups).
-2. Nel riquadro sinistro, selezionare **blocca**.
-3. Per aggiungere un blocco per il gruppo di risorse, selezionare **Add**.
-4. Immettere **il nome del blocco**, **tipo di blocco**, e **note**. I tipi di blocco includono **Read-only**, e **eliminare**.
+1. Aprire il gruppo di risorse che si vuole eliminare.  Vedere [aprire gruppi di risorse](#open-resource-groups).
+2. Nel riquadro sinistro selezionare **blocchi**.
+3. Per aggiungere un blocco al gruppo di risorse, selezionare **Aggiungi**.
+4. Immettere il **nome del blocco**, il tipo di **blocco**e le **Note**. I tipi di blocco sono di sola **lettura**ed **Elimina**.
 
-    ![gruppo di risorse di azure di blocco](./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png)
+    ![blocca il gruppo di risorse di Azure](./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png)
 
 Per altre informazioni, vedere [bloccare le risorse per impedire modifiche impreviste](./resource-group-lock-resources.md).
 
-## <a name="tag-resource-groups"></a>Gruppi di risorse di tag
+## <a name="tag-resource-groups"></a>Contrassegnare i gruppi di risorse
 
-È possibile applicare tag ai gruppi di risorse e alle risorse per organizzare logicamente gli asset. Per informazioni, vedere [usando i tag per organizzare le risorse di Azure](./resource-group-using-tags.md#portal).
+È possibile applicare tag ai gruppi di risorse e alle risorse per organizzare logicamente gli asset. Per informazioni, vedere [uso dei tag per organizzare le risorse di Azure](./resource-group-using-tags.md#portal).
 
-## <a name="export-resource-groups-to-templates"></a>Esportare i gruppi di risorse in modelli
+## <a name="export-resource-groups-to-templates"></a>Esportare gruppi di risorse nei modelli
 
-Per informazioni sull'esportazione di modelli, vedere [esportazione singola e a più risorse al modello - portale](export-template-portal.md).
+Per informazioni sull'esportazione di modelli, vedere [esportazione a più risorse e a modello-portale](export-template-portal.md).
 
 ## <a name="manage-access-to-resource-groups"></a>Gestire l'accesso ai gruppi di risorse
 
@@ -113,7 +113,7 @@ Per informazioni sull'esportazione di modelli, vedere [esportazione singola e a 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](./resource-group-overview.md).
-- Per altre informazioni sulla sintassi del modello di Resource Manager, vedere [comprendere la struttura e sintassi di modelli Azure Resource Manager](./resource-group-authoring-templates.md).
-- Per informazioni su come sviluppare modelli, vedere la [esercitazioni dettagliate](/azure/azure-resource-manager/).
-- Per visualizzare gli schemi del modello di Azure Resource Manager, vedere [riferimento a un modello](/azure/templates/).
+- Per informazioni Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](./resource-group-overview.md).
+- Per informazioni sulla sintassi del modello di Gestione risorse, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](./resource-group-authoring-templates.md).
+- Per informazioni su come sviluppare modelli, vedere le [esercitazioni dettagliate](/azure/azure-resource-manager/).
+- Per visualizzare gli schemi del modello di Azure Resource Manager, vedere informazioni di [riferimento sui modelli](/azure/templates/).

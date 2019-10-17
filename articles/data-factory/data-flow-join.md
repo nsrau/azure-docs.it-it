@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 48cf9d58c8acd85e545a5bcb5104d7069670e349
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: da6c3c90ebbeffcf468aad3809da097976d8ef0d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029329"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387230"
 ---
 # <a name="mapping-data-flow-join-transformation"></a>Mapping trasformazione join flusso di dati
 
@@ -20,7 +20,7 @@ ms.locfileid: "72029329"
 
 Usare Join per combinare dati appartenenti a due tabelle all'interno del flusso di dati. Fare clic sulla trasformazione che diventerà la relazione di sinistra e aggiungere la trasformazione Join dalla casella degli strumenti. All'interno della trasformazione Join, selezionare un altro flusso di dati dal proprio flusso di dati, che diverrà la relazione di destra.
 
-![Trasformazione Join](media/data-flow/join.png "Join")
+![Trasformazione join](media/data-flow/join.png "Join")
 
 ## <a name="join-types"></a>Tipi di join
 
@@ -54,9 +54,9 @@ La condizione del join di sinistra proviene dal flusso di dati connesso alla par
 
 ## <a name="join-performance-optimizations"></a>Ottimizzazione delle performance del join
 
-A differenza di Merge join in strumenti come SSIS, un join nel flusso di dati ADF non rappresenta un'operazione di merge obbligatoria. Di conseguenza, le chiavi di join non devono essere filtrate per prime. L'operazione di join viene eseguita in base all'operazione di join ottimale in Spark: Join Broadcast/lato mappa:
+A differenza di Merge join in strumenti come SSIS, un join nel flusso di dati ADF non rappresenta un'operazione di merge obbligatoria. Di conseguenza, le chiavi di join non devono essere filtrate per prime. L'operazione di join avverrà in base all'operazione di join ottimale in Spark: broadcast/join lato mappa:
 
-![Ottimizzare la trasformazione di join](media/data-flow/joinoptimize.png "Ottimizzazione di Join")
+![Ottimizzazione trasformazione join](media/data-flow/joinoptimize.png "Ottimizzazione del join")
 
 Se il set di dati può adattarsi alla memoria del nodo di lavoro, è possibile ottimizzare le prestazioni del join. È anche possibile specificare il partizionamento dei dati sull'operazione di join per creare set di dati che possono adattarsi meglio in memoria per ogni ruolo di lavoro.
 
@@ -66,7 +66,7 @@ Se il set di dati può adattarsi alla memoria del nodo di lavoro, è possibile o
 
 ![Self-join](media/data-flow/selfjoin.png "Self-join")
 
-Nel diagramma precedente, la trasformazione Select si trova nella parte superiore. Non si tratta di altro che creare un alias del flusso originale in "OrigSourceBatting". Nella trasformazione Join evidenziata sotto, è possibile vedere che viene usato un flusso alias Select come join di destra, consentendo di fare riferimento alla medesima chiave relativamente agli inner Join di destra e di sinistra.
+Nel diagramma precedente la trasformazione Selezione si trova nella parte superiore. Non si tratta di altro che creare un alias del flusso originale in "OrigSourceBatting". Nella trasformazione Join evidenziata sotto, è possibile vedere che viene usato un flusso alias Select come join di destra, consentendo di fare riferimento alla medesima chiave relativamente agli inner Join di destra e di sinistra.
 
 ## <a name="composite-and-custom-keys"></a>Chiavi composite e personalizzate
 

@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 575f23aef9534696566080257e61b2fa84de5d0f
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 1f13efeb5c2ebcb8b23dea6f9ae997039972f089
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013549"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428306"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
@@ -59,7 +59,7 @@ La prima volta che si esegue l'emulatore di archiviazione, l'ambiente di archivi
 Per impostazione predefinita, l'emulatore di archiviazione viene installato in `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
 
 > [!TIP]
-> È possibile usare [Microsoft Azure Storage Explorer](https://storageexplorer.com) per usare risorse dell'emulatore di archiviazione locale. Cercare "(Sviluppo)" in "Account di archiviazione" nell'albero delle risorse di Storage Explorer dopo aver installato e avviato l'emulatore di archiviazione.
+> È possibile usare [Microsoft Azure Storage Explorer](https://storageexplorer.com) per usare risorse dell'emulatore di archiviazione locale. Cercare "(porte predefinite dell'emulatore) (chiave)" in "Local & attached" nell'albero delle risorse Storage Explorer dopo aver installato e avviato l'emulatore di archiviazione.
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Inizializzare l'emulatore di archiviazione per l'uso di un database SQL diverso
@@ -179,9 +179,9 @@ A partire dalla versione 3.0, quando si avvia l'emulatore di archiviazione viene
 
 Per visualizzare l'elenco di opzioni, digitare `/help` al prompt dei comandi.
 
-| Opzione | Descrizione | Comando | Argomenti |
+| Opzione | Description | Comando | Argomenti |
 | --- | --- | --- | --- |
-| **Inizia** |Avvia l'emulatore di archiviazione. |`AzureStorageEmulator.exe start [-inprocess]` |*-Rielaborazione*: Avvia l'emulatore nel processo corrente anziché creare un nuovo processo. |
+| **Inizia** |Avvia l'emulatore di archiviazione. |`AzureStorageEmulator.exe start [-inprocess]` |*-Rielaborare*: avviare l'emulatore nel processo corrente anziché creare un nuovo processo. |
 | **Stop** |Interrompe l'emulatore di archiviazione. |`AzureStorageEmulator.exe stop` | |
 | **Status** |Stampa lo stato dell'emulatore di archiviazione. |`AzureStorageEmulator.exe status` | |
 | **Cancella** |Cancella i dati in tutti i servizi specificati nella riga di comando. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: cancella i dati BLOB. <br/>*queue*: cancella i dati della coda. <br/>*table*: cancella i dati delle tabelle. <br/>*all*: cancella tutti i dati in tutti i servizi. |
@@ -315,7 +315,7 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 
 ### <a name="version-31"></a>Versione 3.1
 
-* Il servizio di archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) è ora supportato nell'emulatore di archiviazione. Le `Get Blob Service Stats`API `Get Queue Service Stats`, e`Get Table Service Stats` sono supportate per l'account secondario e restituiscono sempre il valore dell'elemento di risposta LastSyncTime come ora corrente in base al database SQL sottostante. Per l'accesso a livello di codice al percorso secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3.2 o successiva. Per i dettagli, vedere il materiale di riferimento della libreria client di archiviazione di Microsoft Azure per .NET.
+* Il servizio di archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) è ora supportato nell'emulatore di archiviazione. Le API `Get Blob Service Stats`, `Get Queue Service Stats` e `Get Table Service Stats` sono supportate per l'account secondario e restituiscono sempre il valore dell'elemento di risposta LastSyncTime come ora corrente in base al database SQL sottostante. Per l'accesso a livello di codice al percorso secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3.2 o successiva. Per i dettagli, vedere il materiale di riferimento della libreria client di archiviazione di Microsoft Azure per .NET.
 
 ### <a name="version-30"></a>Versione 3.0
 

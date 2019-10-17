@@ -1,19 +1,19 @@
 ---
-title: Trasformazione Ricerca per il flusso di dati di mapping di Azure Data Factory
-description: Trasformazione Ricerca per il flusso di dati di mapping di Azure Data Factory
+title: Trasformazione ricerca flusso di dati mapping Azure Data Factory
+description: Trasformazione ricerca flusso di dati mapping Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: d762bddbe098e30cbf9e9c02da3c06073a358b12
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 25d8588f8e2c968dc2516938263aaa7d6ddcff13
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249241"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387864"
 ---
-# <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Trasformazione Ricerca per il flusso di dati di mapping di Azure Data Factory
+# <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Trasformazione ricerca flusso di dati mapping Azure Data Factory
 
 Usare la trasformazione Ricerca per aggiungere dati di riferimento da un'altra origine al flusso di dati. La trasformazione Ricerca richiede un'origine definita che punta alla tabella di riferimento e corrisponde ai campi chiave.
 
@@ -33,7 +33,7 @@ Dopo la trasformazione ricerca, è possibile utilizzare le trasformazioni succes
 
 In Data Factory i flussi di dati vengono eseguiti in ambienti Spark con scalabilità orizzontale. Se il set di dati può rientrare nello spazio di memoria del nodo di lavoro, è possibile ottimizzare le prestazioni di ricerca.
 
-![](media/data-flow/broadcast.png "Join") broadcast join broadcast
+![Join broadcast](media/data-flow/broadcast.png "Join broadcast")
 
 ### <a name="broadcast-join"></a>Join di trasmissione
 

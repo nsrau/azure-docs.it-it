@@ -1,6 +1,6 @@
 ---
 title: Autenticazione in Microsoft Identity Platform | Azure
-description: Informazioni sull'autenticazione in Microsoft Identity Platform, sul modello di app, sulle API, sul provisioning e sugli scenari di autenticazione più comuni supportati in Microsoft Identity Platform.
+description: Informazioni sulle nozioni di base sull'autenticazione nella piattaforma Microsoft Identity (v 2.0).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -13,141 +13,163 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2019
+ms.date: 10/15/2019
 ms.author: ryanwi
-ms.reviewer: saeeda, sureshja, hirsin
+ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76c5214fc26d299c6abb72ed6cd448728903e78f
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 2201b7701dae90b43a01a6fb45decd94e45bab74
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71272534"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429998"
 ---
-# <a name="what-is-authentication"></a>Informazioni sull'autenticazione
+# <a name="authentication-basics"></a>Nozioni di base sull'autenticazione
 
-Per *autenticazione* si intende la richiesta di credenziali legittime a una parte, che costituiscono la base per la creazione di un'entità di sicurezza da usare per il controllo delle identità e di accesso. In termini semplici, si tratta del processo di dimostrare la propria identità. In lingua inglese, il termine autenticazione viene talvolta abbreviato in AuthN.
+## <a name="what-is-authentication"></a>Informazioni sull'autenticazione
 
-Per *autorizzazione* si intende la concessione a un'entità di sicurezza autenticata dell'autorizzazione a eseguire determinate operazioni. L'autorizzazione specifica a quali dati l'utente può accedere e le operazioni che può eseguirvi. In lingua inglese, il termine autorizzazione viene talvolta abbreviato in AuthZ.
+Questo articolo descrive molti dei concetti di autenticazione che è necessario comprendere per creare app Web protette, API Web o app che chiamano API Web protette.
 
-Microsoft Identity Platform semplifica l'autenticazione per gli sviluppatori di applicazioni offrendo le identità come servizio con il supporto per protocolli standard del settore, come OAuth 2.0 e OpenID Connect, nonché librerie open source per diverse piattaforme che consentono di iniziare rapidamente a creare codice.
+L' **autenticazione** è il processo di dimostrazione dell'utente. In lingua inglese, il termine autenticazione viene talvolta abbreviato in AuthN.
 
-Nel modello di programmazione di Microsoft Identity Platform esistono due casi d'uso principali:
+L' **autorizzazione** è l'atto di concedere a un'entità autenticata l'autorizzazione per eseguire un'operazione. Specifica i dati a cui si è autorizzati ad accedere e le operazioni che è possibile eseguire con tali dati. In lingua inglese, il termine autorizzazione viene talvolta abbreviato in AuthZ.
 
-* Durante un flusso di concessione di autorizzazione OAuth 2.0: quando il proprietario delle risorse concede l'autorizzazione all'applicazione client che può così accedere alle risorse del proprietario.
-* Durante l'accesso alle risorse da parte del client: l'implementazione viene eseguita dal server di risorse, usando i valori di attestazione presenti nel token di accesso come base per le decisioni relative al controllo di accesso.
+Anziché creare app che gestiscono le proprie informazioni relative al nome utente e alla password, che comporta un carico amministrativo elevato quando si hanno più app ed è necessario aggiungere o rimuovere utenti tra di essi, le app possono delegare tale responsabilità a una centralizzata provider di identità.
 
-## <a name="authentication-basics-in-microsoft-identity-platform"></a>Concetti di autenticazione in Microsoft Identity Platform
+Azure Active Directory (Azure AD) è un provider di identificazione centralizzato nel cloud. Delegare l'autenticazione e l'autorizzazione al servizio IT consente scenari come i criteri di accesso condizionale che richiedono che un utente si trovi in una posizione specifica, l'uso dell'autenticazione a più fattori, nonché l'abilitazione di un utente per l'accesso una sola volta e quindi automaticamente accesso a tutte le app Web che condividono la stessa directory centralizzata. Questa funzionalità è denominata Single Sign-on (SSO).
 
-Si consideri lo scenario più semplice in cui è necessaria l'identità, ovvero quello in cui un utente deve eseguire l'autenticazione a un'applicazione Web in un Web browser. Il diagramma seguente illustra questo scenario:
+Un provider di identità centralizzato è ancora più importante per le app che hanno utenti dislocati in tutto il mondo che non devono necessariamente accedere dalla rete aziendale. Azure AD autentica gli utenti e fornisce i token di accesso. Un token di accesso è un token di sicurezza emesso da un server di autorizzazione. Contiene informazioni sull'utente e sull'app per cui è previsto il token, che può essere usato per accedere alle API Web e ad altre risorse protette.
 
-![Panoramica dell'accesso all'applicazione Web](./media/authentication-scenarios/auth-basics-microsoft-identity-platform.svg)
+La piattaforma di identità Microsoft semplifica l'autenticazione per gli sviluppatori di applicazioni fornendo identità come servizio, con il supporto per protocolli standard del settore come OAuth 2,0 e OpenID Connect, nonché librerie open source per diverse piattaforme che consentono di iniziare rapidamente a scrivere codice. Consente agli sviluppatori di creare applicazioni che supportano l'accesso per tutte le identità Microsoft e il recupero di token per chiamare Microsoft Graph, altre API Microsoft o API create dagli sviluppatori. Per ulteriori informazioni, vedere [Evolution of Microsoft Identity Platform](about-microsoft-identity-platform.md).
 
-Di seguito vengono indicate le informazioni sui diversi componenti presenti nel diagramma:
+## <a name="tenants"></a>Tenant
 
-* Microsoft Identity Platform è il provider di identità. Il provider di identità si occupa della verifica dell'identità degli utenti e delle applicazioni presenti in una directory aziendale e rilascia i token di sicurezza se l'autenticazione di tali utenti e applicazioni ha esito positivo.
-* Un'applicazione che intende affidare l'autenticazione a Microsoft Identity Platform deve essere registrata in Azure Active Directory (Azure AD). che registra e identifica in modo univoco l'app nella directory.
-* Gli sviluppatori possono usare le librerie di autenticazione open source di Microsoft Identity Platform per semplificare l'autenticazione gestendo direttamente i dettagli del protocollo. Per altre informazioni, vedere [Librerie di autenticazione 2.0](reference-v2-libraries.md) e [Librerie di autenticazione 1.0](active-directory-authentication-libraries.md) di Microsoft Identity Platform.
-* Dopo l'autenticazione di un utente, l'applicazione deve convalidare il token di sicurezza dell'utente per verificare che l'autenticazione abbia avuto esito positivo. È possibile trovare guide introduttive, esercitazioni ed esempi di codice in un'ampia gamma di linguaggi e framework che illustrano le operazioni che l'applicazione deve eseguire.
-  * Per compilare in modo rapido un'app e aggiungere funzionalità, ad esempio il recupero e l'aggiornamento dei token, l'accesso di un utente, la visualizzazione di alcune informazioni utente e altro ancora, vedere la sezione **Guide introduttive** della documentazione.
-  * Per ottenere procedure dettagliate basate su scenari specifici per attività di sviluppo relative all'autenticazione primarie, ad esempio il recupero di token di accesso e il relativo uso in chiamate all'API Microsoft Graph e ad altre API, l'implementazione dell'accesso con Microsoft tramite un'app basata su Web browser tradizionale tramite OpenID Connect e altro ancora, vedere la sezione **Esercitazioni** della documentazione.
-  * Per scaricare esempi di codice, vedere [GitHub](https://github.com/Azure-Samples?q=active-directory).
-* Il flusso di richieste e risposte per il processo di autenticazione dipende dal protocollo di autenticazione usato, ad esempio OAuth 2.0, OpenID Connect, WS-Federation o SAML 2.0. Per ulteriori informazioni sui protocolli, vedere la sezione **concetti > protocollo di autenticazione** della documentazione.
+Un provider di identità cloud offre molte organizzazioni. Per evitare che gli utenti di organizzazioni diverse si separano, Azure AD viene partizionato in tenant, con un tenant per ogni organizzazione.
 
-Nello scenario di esempio precedente è possibile classificare le app in base ai due ruoli seguenti:
+I tenant tengono traccia degli utenti e delle app associate. La piattaforma di identità Microsoft supporta anche gli utenti che hanno accesso con account Microsoft personali.
 
-* App che devono accedere in modo sicuro alle risorse
-* App che rivestono il ruolo della risorsa stessa
+Azure AD fornisce anche Azure Active Directory B2C in modo che le organizzazioni possano accedere agli utenti, in genere clienti, usando identità social come un account Google. Per ulteriori informazioni, vedere [Azure Active Directory B2C documentazione](https://docs.microsoft.com/azure/active-directory-b2c) .
 
-### <a name="how-each-flow-emits-tokens-and-codes"></a>Modo in cui ogni flusso emette token e codici
+### <a name="security-tokens"></a>Token di sicurezza
 
-A seconda del modo in cui viene compilato il client, può usare uno o più dei flussi di autenticazione supportati dalla piattaforma di identità Microsoft.  Questi flussi possono produrre un'ampia gamma di token (token ID, token di aggiornamento, token di accesso) e codici di autorizzazione e richiedono token diversi per consentirne il funzionamento. Questo grafico prosegue con una panoramica:
+I token di sicurezza contengono informazioni su utenti e app. Azure AD USA token basati su JSon (token JWT) che contengono attestazioni. Un'attestazione fornisce asserzioni relative a un'entità a un'altra. Le applicazioni possono utilizzare attestazioni per diverse attività, ad esempio:
 
-|Flusso | Richiede | id_token | token di accesso | token di aggiornamento | codice di autorizzazione | 
-|-----|----------|----------|--------------|---------------|--------------------|
-|[Flusso del codice di autorizzazione](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
-|[Flusso implicito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
-|[Flusso OIDC ibrido](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
-|[Riscatto token di aggiornamento](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | token di aggiornamento | x | x | x| |
-|[Flusso on-behalf-of](v2-oauth2-on-behalf-of-flow.md) | token di accesso| x| x| x| |
-|[Flusso del codice del dispositivo](v2-oauth2-device-code.md) | | x| x| x| |
-|[Credenziali del client](v2-oauth2-client-creds-grant-flow.md) | | | x (solo app)| | |
+* Convalida del token
+* Identificazione del tenant di directory dell'oggetto
+* Visualizzazione delle informazioni utente
+* Determinazione dell'autorizzazione del soggetto
 
-**Note**:
+Un'attestazione è costituita da coppie chiave-valore che forniscono informazioni come:
 
-I token emessi tramite la modalità implicita hanno una limitazione di lunghezza perché vengono passati di nuovo al browser tramite l'URL, `response_mode` dove `query` è `fragment`o.  Alcuni browser hanno un limite per le dimensioni dell'URL che possono essere inseriti nella barra del browser e hanno esito negativo quando è troppo lungo.  Pertanto, questi token non dispongono `groups` di attestazioni o. `wids` 
+- Server del token di sicurezza che ha generato il token.
+- Data di generazione del token.
+- oggetto, ad esempio l'utente (eccetto daemons).
+- destinatari, ovvero l'app per cui è stato generato il token.
+- l'app (il client) che ha richiesto il token. Nel caso di app Web, questo potrebbe essere lo stesso dei destinatari.
 
+Per informazioni più dettagliate sulle attestazioni, vedere token di [accesso](access-tokens.md) e [token ID](id-tokens.md).
 
-Ora che è disponibile una panoramica dei concetti di base, continuare a leggere per comprendere il modello dell'app e l'API di identità, le modalità di funzionamento del provisioning in Microsoft Identity Platform e i collegamenti a informazioni dettagliate sugli scenari comuni supportati da Microsoft Identity Platform.
+È l'app per cui è stato generato il token, l'app Web che ha eseguito l'accesso all'utente o l'API Web chiamata per convalidare il token. Il token è firmato dal server del token di sicurezza (STS) con una chiave privata. Il servizio token di stato pubblica la chiave pubblica corrispondente. Per convalidare un token, l'app verifica la firma usando la chiave pubblica STS per verificare che la firma sia stata creata usando la chiave privata.
 
-## <a name="application-model"></a>Modello di applicazione
+I token sono validi solo per un periodo di tempo limitato. In genere il servizio token di protezione fornisce una coppia di token: un token di accesso per accedere all'applicazione o alla risorsa protetta e un token di aggiornamento usato per aggiornare il token di accesso quando il token di accesso è prossimo alla scadenza. 
 
-Microsoft Identity Platform rappresenta le applicazioni basate su un modello specifico progettato per soddisfare due funzioni principali indicate di seguito:
+I token di accesso vengono passati a un'API Web come bearer token nell'intestazione `Authenticate`. Un'app può fornire un token di aggiornamento al servizio token di accesso e, se l'accesso dell'utente all'app non è stato revocato, otterrà un nuovo token di accesso e un nuovo token di aggiornamento. Questo è il modo in cui viene gestito lo scenario di un utente che lascia l'organizzazione. Quando il servizio token di accesso riceve il token di aggiornamento, non emette un altro token di accesso valido se l'utente non è più autorizzato.
 
-* **Identificare l'app in base ai protocolli di autenticazione supportati**. Questa operazione richiede l'enumerazione di tutti gli identificatori, URL, segreti e informazioni correlate necessarie al momento dell'autenticazione. A questo punto, Microsoft Identity Platform:
+### <a name="applications"></a>applicazioni
 
-    * Contiene tutti i dati necessari per supportare l'autenticazione in fase di esecuzione.
-    * Contiene tutti i dati per decidere quali risorse potrebbero essere necessarie a un'app per eseguire l'accesso e per stabilire se una determinata richiesta deve essere soddisfatta e in quali circostanze.
-    * Offre l'infrastruttura per l'implementazione del provisioning dell'app nel tenant per gli sviluppatori di app e in un altro tenant di Azure AD.
+Le applicazioni possono accedere agli utenti stessi o delegare l'accesso a un provider di identità. Per informazioni sugli scenari di accesso supportati da Azure AD, vedere [flussi di autenticazione e scenari di app](authentication-flows-app-scenarios.md) .
 
-* **Gestire il consenso dell'utente durante la fase di richiesta di token e semplificare il provisioning dinamico delle app tra tenant**. In questo caso, Microsoft Identity Platform:
+Affinché un provider di identità sappia che un utente ha accesso a una determinata app, sia l'utente che l'applicazione devono essere registrati con il provider di identità. Quando si registra l'applicazione con Azure AD, viene offerta una configurazione di identità per l'applicazione che consente l'integrazione con Azure AD. La registrazione dell'app consente anche di:
 
-    * Consente a utenti e amministratori di concedere o negare dinamicamente il consenso all'app di accedere alle risorse per loro conto.
-    * Consente agli amministratori di decidere quali app sono autorizzati a eseguire e quali utenti possono usare app specifiche, nonché la modalità di accesso alle risorse di directory.
+- personalizzare la personalizzazione dell'applicazione nella finestra di dialogo di accesso. Questo è importante perché si tratta della prima esperienza che un utente avrà con l'app.
+- decidere se si desidera consentire agli utenti di accedere solo se appartengono all'organizzazione. Si tratta di un'applicazione single-tenant. In alternativa, consentire agli utenti di accedere usando un account aziendale o dell'Istituto di istruzione. Si tratta di un'applicazione multi-tenant. È anche possibile consentire account Microsoft personali o un account di social networking da collegato, Google e così via.
+- autorizzazioni dell'ambito della richiesta. È ad esempio possibile richiedere l'ambito "User. Read", che concede l'autorizzazione per leggere il profilo dell'utente che ha eseguito l'accesso.
+- definire gli ambiti che definiscono l'accesso all'API Web. In genere, quando un'app vuole accedere all'API, sarà necessario richiedere le autorizzazioni agli ambiti definiti.
+- condividere un segreto con Azure AD che dimostra l'identità dell'app per Azure AD.  Questo è rilevante nel caso in cui l'app sia un'applicazione client riservata. Un'applicazione client riservata è un'applicazione in grado di conservare le credenziali in modo sicuro. Per archiviare le credenziali è necessario un server back-end attendibile.
 
-In Microsoft Identity Platform un'**oggetto applicazione** descrive un'applicazione come un'entità astratta. Gli sviluppatori lavorano con le applicazioni. In fase di distribuzione Microsoft Identity Platform usa un oggetto applicazione specificato come un progetto per creare un'**entità servizio**, che rappresenta un'istanza concreta di un'applicazione in un tenant oppure in una directory. L'entità servizio definisce ciò che l'app può effettivamente eseguire in una directory di destinazione specifica, chi può usarla, a quali risorse può accedere e così via. Microsoft Identity Platform crea un'entità servizio da un oggetto applicazione tramite il **consenso**.
+Una volta eseguita la registrazione, all'applicazione verrà assegnato un GUID condiviso dall'app con Azure AD quando richiede token. Se l'app è un'applicazione client riservata, condividerà anche il segreto o la chiave pubblica, a seconda che siano stati usati i certificati o i segreti.
 
-Il diagramma seguente illustra un flusso di provisioning di Microsoft Identity Platform semplificato basato su consenso.  Sono presenti due tenant (A e B), in cui il tenant A è proprietario dell'applicazione e il tenant B crea un'istanza dell'applicazione tramite un'entità servizio.  
+### <a name="application-model"></a>Modello di applicazione
+
+La piattaforma Microsoft Identity rappresenta le applicazioni che utilizzano un modello che soddisfa due funzioni principali:
+
+**Identificare l'app mediante i protocolli di autenticazione supportati e fornire tutti gli identificatori, gli URL, i segreti e le informazioni correlate necessarie per l'autenticazione.**
+Piattaforma di identità Microsoft:
+
+* Include tutti i dati necessari per supportare l'autenticazione in fase di esecuzione.
+* Include tutti i dati per la decisione delle risorse a cui un'app potrebbe dover accedere e in quali circostanze deve essere soddisfatta una determinata richiesta.
+* Fornisce l'infrastruttura per implementare il provisioning delle app nel tenant dello sviluppatore di app e in qualsiasi altro tenant Azure AD.
+
+**Gestisci il consenso dell'utente durante il tempo di richiesta del token e semplifica il provisioning dinamico delle app tra i tenant** Il consenso è il processo di un proprietario di risorse che concede l'autorizzazione a un'applicazione client per accedere alle risorse protette, in autorizzazioni specifiche, per conto del proprietario della risorsa. Piattaforma di identità Microsoft:
+
+* Consente a utenti e amministratori di concedere o negare dinamicamente il consenso all'app di accedere alle risorse per loro conto.
+* Consente agli amministratori di decidere quali app sono autorizzati a eseguire e quali utenti possono usare app specifiche, nonché la modalità di accesso alle risorse di directory.
+
+Nella piattaforma di identità Microsoft, un **oggetto applicazione** descrive un'applicazione come entità astratta. In fase di distribuzione, la piattaforma Microsoft Identity usa l'oggetto applicazione come progetto per creare un' **entità servizio**, che rappresenta un'istanza concreta di un'applicazione all'interno di una directory o di un tenant. L'entità servizio definisce le operazioni che l'app può effettivamente eseguire in una directory di destinazione specifica, chi può usarla, a quali risorse ha accesso e così via. La piattaforma Microsoft Identity crea un'entità servizio da un oggetto applicazione tramite il **consenso**.
+
+Il diagramma seguente illustra un flusso di provisioning di Microsoft Identity Platform semplificato basato su consenso. Mostra due tenant (A e B). Il tenant A è proprietario dell'applicazione. Il tenant B sta creando un'istanza dell'applicazione tramite un'entità servizio.  
 
 ![Flusso di provisioning semplificato basato su consenso](./media/authentication-scenarios/simplified-provisioning-flow-consent-driven.svg)
 
 In questo flusso di provisioning:
 
 1. Un utente del tenant B prova ad accedere con l'app, l'endpoint di autorizzazione richiede un token per l'applicazione.
-1. Le credenziali dell'utente vengono acquisite e verificate per l'autenticazione
-1. All'utente viene richiesto di specificare il consenso per l'app per ottenere l'accesso al tenant B
-1. Microsoft Identity Platform usa l'oggetto applicazione del tenant A come un progetto per creare un'entità servizio nel tenant B
-1. L'utente riceve il token richiesto
+1. Le credenziali utente vengono acquisite e verificate per l'autenticazione.
+1. All'utente viene richiesto di fornire il consenso affinché l'app ottenga l'accesso al tenant B.
+1. La piattaforma Microsoft Identity usa l'oggetto applicazione nel tenant A come progetto per la creazione di un'entità servizio nel tenant B.
+1. L'utente riceve il token richiesto.
 
-È possibile ripetere questo processo ogni volta che si desidera per altri tenant (C, D e così via). Il tenant A mantiene il progetto per l'app (oggetto applicazione). Gli utenti e amministratori di tutti gli altri tenant in cui all'app viene dato il consenso mantengono il controllo su ciò che l'applicazione può eseguire tramite l'oggetto entità servizio corrispondente in ogni tenant. Per altre informazioni, vedere [Oggetti applicazione e oggetti entità servizio in Microsoft Identity Platform](app-objects-and-service-principals.md).
+È possibile ripetere questo processo per tenant aggiuntivi. Il tenant A mantiene il progetto per l'app (oggetto applicazione). Gli utenti e gli amministratori di tutti gli altri tenant in cui l'app dispone del consenso continuano a controllare ciò che l'applicazione può eseguire tramite l'oggetto entità servizio corrispondente in ogni tenant. Per altre informazioni, vedere [Oggetti applicazione e oggetti entità servizio in Microsoft Identity Platform](app-objects-and-service-principals.md).
 
-## <a name="claims-in-microsoft-identity-platform-security-tokens"></a>Attestazioni nei token di sicurezza di Microsoft Identity Platform
+## <a name="web-app-sign-in-flow-with-azure-ad"></a>Flusso di accesso all'app Web con Azure AD
 
-I token di sicurezza (token di accesso e ID) emessi da Microsoft Identity Platform contengono attestazioni o asserzioni di informazioni sull'oggetto autenticato. Le applicazioni possono usare le attestazioni per varie attività, tra cui:
+Quando un utente accede al browser a un'app Web, si verifica quanto segue:
 
-* Convalidare il token
-* Identificare il tenant di directory dell'oggetto
-* Visualizzare le informazioni utente
-* Determinare l'autorizzazione dell'oggetto
+- L'app Web determina se l'utente è autenticato.
+- Se l'utente non è autenticato, l'app Web delega a Azure AD per l'accesso dell'utente. Tale accesso sarà conforme ai criteri dell'organizzazione, che possono significare richiedere all'utente di immettere le proprie credenziali, usando l'autenticazione a più fattori o non usando una password, ad esempio usando Windows Hello.
+- All'utente viene richiesto di fornire il consenso per l'accesso necessario all'app client. Questo è il motivo per cui le app client devono essere registrate con Azure AD, in modo che Azure AD possibile recapitare i token che rappresentano l'accesso che l'utente ha acconsentito.
 
-Le attestazioni presenti in un determinato token di sicurezza dipendono dal tipo di token, dal tipo di credenziali usate per autenticare l'utente e dalla configurazione dell'applicazione.
+Quando l'utente è stato autenticato correttamente:
 
-La tabella seguente fornisce una breve descrizione dei tipi di attestazione generati da Microsoft Identity Platform. Per informazioni più dettagliate, vedere i [token di accesso](access-tokens.md) e i [token ID](id-tokens.md) emessi da Microsoft Identity Platform.
+- Azure AD invia un token all'app Web.
+- Un cookie viene salvato, associato al dominio Azure AD, che contiene l'identità dell'utente nel file jar del browser. Al successivo uso del browser da parte di un'app per passare all'endpoint di autorizzazione Azure AD, il browser presenta il cookie in modo che l'utente non debba eseguire di nuovo l'accesso. Questo è anche il modo in cui si raggiunge SSO. Il cookie viene generato da Azure AD e può essere compreso solo da Azure AD.
+- Il token viene quindi convalidato dall'app Web. Se la convalida ha esito positivo, l'app Web Visualizza la pagina protetta e salva un cookie di sessione nel file jar dei cookie del browser. Quando l'utente passa a un'altra pagina, l'app Web sa che l'utente è autenticato in base al cookie di sessione.
 
-| Attestazione | Descrizione |
-| --- | --- |
-| ID applicazione | Identifica l'applicazione che usa il token. |
-| Destinatari | Identifica la risorsa di destinazione del token. |
-| Riferimento alla classe contesto di autenticazione applicazione | Indica la modalità di autenticazione del client (client pubblico e client riservato). |
-| Istante di autenticazione | Registra la data e l'ora in cui è avvenuta l'autenticazione. |
-| Metodo di autenticazione | Indica la modalità di autenticazione dell'oggetto del token (password, certificato e così via). |
-| Nome | Fornisce il nome dell'utente come è impostato in Azure AD. |
-| Gruppi | Contiene gli ID oggetto dei gruppi di Azure AD di cui l'utente è membro. |
-| Provider di identità | Registra il provider di identità che ha autenticato l'oggetto del token. |
-| Issued At | Registra l'ora in cui il token è stato emesso. Spesso usata per l'aggiornamento del token. |
-| Rilasciato da | Identifica il servizio token di sicurezza che ha emesso il token, nonché il tenant di Azure AD. |
-| Cognome | Fornisce il cognome dell'utente come è impostato in Azure AD. |
-| Attività | Fornisce un valore leggibile che identifica l'oggetto del token. |
-| ID oggetto | Contiene un identificatore univoco e non modificabile dell'oggetto in Azure AD. |
-| Ruoli | Contiene i nomi descrittivi dei ruoli applicazione di Azure AD concessi all'utente. |
-| `Scope` | Indica le autorizzazioni concesse all'applicazione client. |
-| Subject | Indica l'entità su cui il token rilascia informazioni. |
-| ID tenant | Contiene un identificatore univoco e non modificabile del tenant di directory che ha emesso il token. |
-| Durata del token | Definisce l'intervallo di tempo entro il quale un token è valido. |
-| Nome dell'entità utente | Contiene il nome dell'entità utente dell'oggetto. |
-| Versione | Contiene il numero di versione del token. |
+Il diagramma di sequenza seguente riepiloga questa interazione:
+
+![processo di autenticazione dell'app Web](media/authentication-scenarios/web-app-how-it-appears-to-be.png)
+
+### <a name="how-a-web-app-determines-if-the-user-is-authenticated"></a>Modo in cui un'app Web determina se l'utente è autenticato
+
+Gli sviluppatori di app Web possono indicare se tutte o solo determinate pagine richiedono l'autenticazione. Ad esempio, in ASP.NET/ASP.NET Core questa operazione viene eseguita aggiungendo l'attributo `[Authorize]` alle azioni del controller. 
+
+Questo attributo fa in modo che ASP.NET verifichi la presenza di un cookie di sessione contenente l'identità dell'utente. Se non è presente un cookie, ASP.NET reindirizza l'autenticazione al provider di identità specificato. Se il provider di identità è Azure AD, l'app Web reindirizza l'autenticazione a https://login.microsoftonline.com, che visualizza una finestra di dialogo di accesso.
+
+### <a name="how-a-web-app-delegates-sign-in-to-azure-ad-and-obtains-a-token"></a>Delega dell'accesso a un'app Web per Azure AD e ottenere un token
+
+L'autenticazione utente avviene tramite il browser. Il protocollo OpenID utilizza messaggi di protocollo HTTP standard.
+- L'app Web invia un HTTP 202 (Reindirizzamento) al browser per usare Azure AD.
+- Quando l'utente viene autenticato, Azure AD invia il token all'app Web usando un reindirizzamento tramite il browser.
+- Il reindirizzamento viene fornito dall'app Web sotto forma di URI di reindirizzamento. Questo URI di reindirizzamento viene registrato con l'oggetto applicazione Azure AD. Possono essere presenti diversi URI di reindirizzamento perché l'applicazione può essere distribuita in diversi URL. Quindi, anche l'app Web dovrà specificare l'URi di Reindirizzamento da usare.
+- Azure AD verifica che l'URI di reindirizzamento inviato dall'app Web sia uno degli URI di reindirizzamento registrati per l'app.
+
+## <a name="generalization-to-desktop-and-mobile-apps"></a>Generalizzazione per app desktop e per dispositivi mobili
+
+Il flusso descritto in precedenza si applica, con lievi differenze, alle applicazioni desktop e per dispositivi mobili.
+
+Le applicazioni desktop e per dispositivi mobili possono utilizzare un controllo Web incorporato o un browser di sistema per l'autenticazione. Il diagramma seguente illustra il modo in cui un'app desktop o per dispositivi mobili USA Microsoft Authentication Library (MSAL) per acquisire i token di accesso e chiamare le API Web.
+
+![App desktop come sembra](media/authentication-scenarios/web-app-how-it-appears-to-be.png)
+
+MSAL usa un browser per ottenere i token e, come per le app Web, delega l'autenticazione ai Azure AD.
+
+Poiché Azure AD Salva lo stesso cookie di identità nel browser come per le app Web, se l'app nativa o per dispositivi mobili usa il browser di sistema, riceverà immediatamente SSO con l'app Web corrispondente.
+
+Per impostazione predefinita, MSAL usa il browser di sistema ad eccezione di .NET Framework applicazioni desktop in cui viene usato un controllo incorporato per offrire un'esperienza utente più integrata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sui [tipi di applicazioni supportati in Microsoft Identity Platform](app-types.md)
+Per acquisire familiarità con i termini comuni, vedere il [Glossario per sviluppatori Microsoft Identity Platform](developer-glossary.md) .
+Vedere [flussi di autenticazione e scenari di app](authentication-flows-app-scenarios.md) per altre informazioni su altri scenari per l'autenticazione degli utenti supportati dalla piattaforma di identità Microsoft.
+Per informazioni sulle librerie Microsoft che consentono di sviluppare applicazioni che interagiscono con account Microsoft, Azure AD account e Azure AD B2C utenti in un unico modello di programmazione semplificato, vedere [librerie MSAL](msal-overview.md) .

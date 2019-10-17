@@ -4,18 +4,18 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: f0de7aedc3883978582da1950e95aaabac9a1695
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: b8d4c2691af8429e7b3a6c1916d12f1af609e744
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272984"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391678"
 ---
 Nella tabella seguente sono elencati i limiti associati ai diversi livelli di servizio S1, S2, S3 e F1. Per informazioni sul costo di ogni *unità* in ogni livello, vedere [prezzi di hub Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-| Resource | S1 Standard | S2 Standard | S3 Standard | F1 Gratuito |
+| Gruppi | S1 Standard | S2 Standard | S3 Standard | F1 Gratuito |
 | --- | --- | --- | --- | --- |
-| Messaggi al giorno |400,000 |6\.000.000 |300.000.000 |8\.000 |
+| Messaggi al giorno |400.000 |6\.000.000 |300.000.000 |8\.000 |
 | Unità massime |200 |200 |10 |1 |
 
 > [!NOTE]
@@ -25,7 +25,7 @@ Nella tabella seguente sono elencati i limiti associati ai diversi livelli di se
 
 La tabella seguente elenca i limiti che si applicano alle risorse dell'hub Internet.
 
-| Resource | Limite |
+| Gruppi | Limite |
 | --- | --- |
 | Numero massimo hub IoT a pagamento per ogni sottoscrizione di Azure |50 |
 | Numero massimo hub IoT gratuiti per ogni sottoscrizione di Azure |1 |
@@ -56,7 +56,7 @@ La tabella seguente elenca i limiti che si applicano alle risorse dell'hub Inter
 > Se sono necessari più di 50 Hub di Internet delle cose a pagamento in una sottoscrizione di Azure, contattare supporto tecnico Microsoft.
 
 > [!NOTE]
-> Il numero massimo di dispositivi che è attualmente possibile connettere a un singolo hub IoT è 1.000.000. Per aumentare questo limite, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
+> Attualmente, il numero totale di dispositivi e moduli che possono essere registrati per un singolo hub Internet è limitato a 1 milione. Per aumentare questo limite, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
 
 L'hub Internet delle cose limita le richieste quando vengono superate le quote seguenti.
 

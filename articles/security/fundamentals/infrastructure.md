@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 3da9fef8c7de248f30100f94724cd5dcdb7db8e3
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a17d98d49d2c653e2498a663829d26e8a171fd74
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727066"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433503"
 ---
 # <a name="azure-infrastructure-security"></a>Sicurezza dell'infrastruttura di Azure
 Microsoft Azure è in esecuzione in data center gestiti da Microsoft. Tali data center, distribuiti geograficamente, sono conformi agli standard di settore, ad esempio ISO/IEC 27001:2013 e NIST SP 800-53, per la sicurezza e l'affidabilità. I data center vengono gestiti, monitorati e amministrati da operatori Microsoft. Tali operatori vantano anni di esperienza nella fornitura dei maggiori servizi online nel mondo, con continuità 24 ore su 24, 7 giorni su 7.
@@ -45,12 +45,12 @@ Questa serie di articoli contiene informazioni sulle operazioni eseguite da Micr
 
 Si è sempre responsabili di quanto segue, indipendentemente dal tipo di distribuzione:
 
-- Data
+- Dati
 - Endpoint
 - Account
 - gestione degli accessi
 
-Verificare di aver compreso la divisione delle responsabilità tra il cliente e Microsoft in una distribuzione SaaS, PaaS e IaaS. Per altri dettagli, vedere [Responsabilità condivise per il cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf).
+Verificare di aver compreso la divisione delle responsabilità tra il cliente e Microsoft in una distribuzione SaaS, PaaS e IaaS. Per altri dettagli, vedere [Responsabilità condivise per il cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225237/1/Shared%20Responsibilities%20for%20Cloud%20Computing%20(2017-04-03).pdf).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'infrastruttura di Azure, vedere:

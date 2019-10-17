@@ -1,5 +1,5 @@
 ---
-title: Eseguire il push di notifiche localizzate ai dispositivi iOS con Hub di notifica di Azure | Microsoft Docs
+title: Inviare notifiche push localizzate a iOS usando hub di notifica di Azure | Microsoft Docs
 description: Imparare a usare le notifiche push localizzate per i dispositivi iOS tramite Hub di notifica di Azure.
 services: notification-hubs
 documentationcenter: ios
@@ -16,20 +16,20 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 8eb4cf5e12c16c3c164ecce41a84a9cd32fd85ee
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: a8614156be5d516d16aff698b604cf0e661d7311
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211885"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72385648"
 ---
-# <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Esercitazione: Eseguire il push di notifiche localizzate ai dispositivi iOS con Hub di notifica di Azure
+# <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>Esercitazione: inviare notifiche push localizzate a iOS usando hub di notifica di Azure
 
 > [!div class="op_single_selector"]
 > * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
-In questa esercitazione viene illustrato come usare la funzionalità relativa ai [modelli](notification-hubs-templates-cross-platform-push-messages.md) di Hub di notifica di Azure per trasmettere notifiche relative alle ultime notizie localizzate in base alla lingua e al dispositivo. In questa esercitazione verrà usata l'app di iOS creata in [Utilizzo di Hub di notifica per inviare le ultime notizie]. Al termine, è possibile registrarsi per le categorie a cui si è interessati, specificare una lingua in cui ricevere le notifiche e ricevere solo le notifiche push per le categorie selezionate in tale lingua.
+In questa esercitazione viene illustrato come usare la funzionalità relativa ai [modelli](notification-hubs-templates-cross-platform-push-messages.md) di Hub di notifica di Azure per trasmettere notifiche relative alle ultime notizie localizzate in base alla lingua e al dispositivo. In questa esercitazione verrà usata l'app di iOS creata in [Uso di Hub di notifica per inviare le ultime notizie]. Al termine, è possibile registrarsi per le categorie a cui si è interessati, specificare una lingua in cui ricevere le notifiche e ricevere solo le notifiche push per le categorie selezionate in tale lingua.
 
 Lo scenario è composto da due parti:
 
@@ -46,7 +46,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 
 ## <a name="overview"></a>Panoramica
 
-In [Utilizzo di Hub di notifica per inviare le ultime notizie] è stata creata un'app che usa i **tag** per sottoscrivere le notifiche per diverse categorie di notizie. Molte app, tuttavia, sono destinate a più mercati ed è necessario localizzarle. Questo significa che il contenuto delle notifiche stesse deve essere localizzato e inviato al set di dispositivi corretto. In questa esercitazione viene usata la funzionalità relativa ai **modelli** di Hub di notifica per inviare facilmente notifiche relative alle ultime notizie localizzate.
+In [Uso di Hub di notifica per inviare le ultime notizie] è stata creata un'app che usa i **tag** per sottoscrivere le notifiche per diverse categorie di notizie. Molte app, tuttavia, sono destinate a più mercati ed è necessario localizzarle. Questo significa che il contenuto delle notifiche stesse deve essere localizzato e inviato al set di dispositivi corretto. In questa esercitazione viene usata la funzionalità relativa ai **modelli** di Hub di notifica per inviare facilmente notifiche relative alle ultime notizie localizzate.
 
 > [!NOTE]
 > Un possibile modo per inviare notifiche localizzate consiste nel creare più versioni di ogni tag. Per supportare l'inglese, il francese e il mandarino, ad esempio, sono necessari tre tag diversi per le ultime notizie internazionali: "world_en", "world_fr" e "world_ch". È quindi necessario inviare una versione localizzata delle ultime notizie internazionali a ogni tag. In questo argomento verranno usati i modelli per evitare la proliferazione di tag e la necessità di inviare più messaggi.
@@ -80,9 +80,9 @@ Per altre informazioni sui modelli, vedere l'articolo [Modelli](notification-hub
 
 ## <a name="update-the-app-user-interface"></a>Aggiornare l'interfaccia utente dell'app
 
-In questa sezione l'app Breaking News creata nell'argomento [Utilizzo di Hub di notifica per inviare le ultime notizie] viene modificata in modo da inviare notizie localizzate mediante modelli.
+In questa sezione l'app Breaking News creata nell'argomento [Uso di Hub di notifica per inviare le ultime notizie] viene modificata in modo da inviare notizie localizzate mediante modelli.
 
-In `MainStoryboard_iPhone.storyboard` aggiungere un controllo segmentato con le tre lingue: Inglese, francese e mandarino.
+Nel `MainStoryboard_iPhone.storyboard` aggiungere un controllo segmentato con le tre lingue seguenti: inglese, francese e mandarino.
 
 ![Creazione di storyboard dell'interfaccia utente iOS][13]
 
@@ -92,7 +92,7 @@ Assicurarsi quindi di aggiungere un elemento IBOutlet in ViewController.h come i
 
 ## <a name="build-the-ios-app"></a>Compilare l'app iOS
 
-1. In aggiungere il `retrieveLocale` metodo e modificare i metodi di archiviazione e sottoscrizione come illustrato nel codice seguente: `Notification.h`
+1. Nel `Notification.h` aggiungere il metodo `retrieveLocale` e modificare i metodi di archiviazione e sottoscrizione come illustrato nel codice seguente:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
@@ -274,7 +274,7 @@ In questa esercitazione le notifiche localizzate sono state inviate ai dispositi
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: https://msdn.microsoft.com/library/jj927168.aspx
-[Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
+[Uso di Hub di notifica per inviare le ultime notizie]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs: ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Notify users with Notification Hubs: Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md

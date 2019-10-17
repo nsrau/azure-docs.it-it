@@ -14,20 +14,21 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 8fe8485926e2c10b7fe58836196132f2881699a4
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7a7e64b32a084075fe96cbd4ab7a0d28fc0f8e19
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025725"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388858"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Aggiungere notifiche push all'app Apache Cordova
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 > [!NOTE]
-> Visual Studio App Center supporta end-to-end e servizi integrati centrali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare i servizi di **compilazione**, **test** e **distribuzione** per configurare la pipeline di integrazione e recapito continua. Una volta distribuita l'app, gli sviluppatori possono monitorare lo stato e l'utilizzo dell'app usando i servizi di **analisi** e **diagnostica** e coinvolgere gli utenti che usano il servizio di **push** . Gli sviluppatori possono inoltre sfruttare l' **autenticazione** per autenticare gli utenti e il servizio **dati** per salvare in modo permanente e sincronizzare i dati delle app nel cloud.
-> Se si intende integrare servizi cloud nell'applicazione per dispositivi mobili, iscriversi con App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) oggi stesso.
+> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
+>
+> Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
 ## <a name="overview"></a>Panoramica
 
@@ -42,7 +43,7 @@ Per questa esercitazione si presuppone che sia disponibile un'applicazione Apach
 Per completare questa esercitazione, sono necessari:
 
 * Un PC con [Visual Studio Community 2015][2] o versione successiva
-* [Strumenti di Visual Studio per Apache Cordova][4]
+* [Visual Studio Tools per Apache Cordova][4]
 * Un [account Azure attivo][3]
 * Progetto di [avvio rapido Apache Cordova][5] completato
 * Android Un [account Google][6] con un indirizzo di posta elettronica verificato
@@ -105,7 +106,7 @@ Il plug-in di push è stato installato.
 
 #### <a name="install-the-device-plugin"></a>Installare il plug-in del dispositivo
 
-Seguire la stessa procedura utilizzata per installare il plug-in di push. Aggiungere il plug-in del dispositivo dall'elenco di plug-in di base. Per trovarlo, selezionare **Plug-in** > **Base**. Questo plug-in è necessario per ottenere il nome della piattaforma.
+Seguire la stessa procedura utilizzata per installare il plug-in di push. Aggiungere il plug-in del dispositivo dall'elenco di plug-in di base. (Per trovarlo, selezionare **plugins** > **Core**). Questo plug-in è necessario per ottenere il nome della piattaforma.
 
 #### <a name="register-your-device-when-the-application-starts"></a>Registrare il dispositivo all'avvio dell'applicazione 
 
@@ -244,7 +245,7 @@ Le librerie attualmente necessarie sono elencate nella [documentazione relativa 
 
 A questo punto è possibile testare le notifiche push. È possibile eseguire il test dallo stesso dispositivo oppure da un altro dispositivo, purché il back-end sia lo stesso. Testare l'app Cordova sulla piattaforma Android in uno dei modi seguenti:
 
-* *In un dispositivo fisico:*  collegare il dispositivo Android al computer di sviluppo con un cavo USB.  Invece di selezionare **Emulatore Android di Google**, selezionare **Dispositivo**. Visual Studio distribuisce l'applicazione nel dispositivo e quindi la esegue. Sarà quindi possibile interagire con l'applicazione dal dispositivo.
+* *In un dispositivo fisico:* collegare il dispositivo Android al computer di sviluppo con un cavo USB.  Invece di selezionare **Emulatore Android di Google**, selezionare **Dispositivo**. Visual Studio distribuisce l'applicazione nel dispositivo e quindi la esegue. Sarà quindi possibile interagire con l'applicazione dal dispositivo.
 
   Le applicazioni di condivisione dello schermo, ad esempio [Mobizen][20] , possono essere utili per lo sviluppo di applicazioni Android. Mobizen proietta lo schermo Android su un Web browser sul PC.
 

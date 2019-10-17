@@ -14,19 +14,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 674d5f783f43011ba154b668cea4ec41f6a945f5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 800d86750f091404ee7f940d7cf8f6631e3fbbeb
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025274"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388689"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Aggiungere l'autenticazione all'app iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center supporta end-to-end e servizi integrati centrali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare i servizi di **compilazione**, **test** e **distribuzione** per configurare la pipeline di integrazione e recapito continua. Una volta distribuita l'app, gli sviluppatori possono monitorare lo stato e l'utilizzo dell'app usando i servizi di **analisi** e **diagnostica** e coinvolgere gli utenti che usano il servizio di **push** . Gli sviluppatori possono inoltre sfruttare l' **autenticazione** per autenticare gli utenti e il servizio **dati** per salvare in modo permanente e sincronizzare i dati delle app nel cloud.
-> Se si intende integrare servizi cloud nell'applicazione per dispositivi mobili, iscriversi con App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) oggi stesso.
+> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
+>
+> Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
 Questa esercitazione illustra come aggiungere l'autenticazione al progetto di [avvio rapido di iOS] tramite un provider di identità supportato. Questa esercitazione è basata sull'esercitazione relativa all' [avvio rapido di iOS] , che deve essere completata per prima.
 
@@ -37,7 +38,7 @@ Questa esercitazione illustra come aggiungere l'autenticazione al progetto di [a
 
 L'autenticazione sicura richiede la definizione di un nuovo schema URL per l'app.  In questo modo il sistema di autenticazione reindirizza all'app al termine del processo di autenticazione.  In questa esercitazione si usa lo schema URL _appname_.  È tuttavia possibile usare QUALSIASI schema URL.  Lo schema deve essere univoco per l'applicazione per dispositivi mobili.  Per abilitare il reindirizzamento sul lato server:
 
-1. Nel [portale di Azure] selezionare il servizio app.
+1. Nel [Azure portal] selezionare il servizio app.
 
 2. Fare clic sull'opzione di menu **Autenticazione/Autorizzazione**.
 
@@ -49,7 +50,7 @@ L'autenticazione sicura richiede la definizione di un nuovo schema URL per l'app
 
 6. Fare clic su **OK**.
 
-7. Fare clic su **Salva**.
+7. Fare clic su **Salva**
 
 ## <a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -221,7 +222,7 @@ L'autenticazione del servizio app usa la comunicazione tra app di Apple.  Per al
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
 [2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 [avvio rapido di iOS]: app-service-mobile-ios-get-started.md
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 9842f57c7d8d49aa9d1b3d17f82f3519ecead98c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 01e6d9dff0ea2c2b60d8e2ab42e39e36d998be83
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088597"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390588"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Creare una raccolta di immagini condivise con Azure PowerShell 
 
@@ -32,18 +32,18 @@ La raccolta è una risorsa di primo livello che offre un completo controllo degl
 
 La funzionalità di raccolta di immagini condivise presenta più tipi di risorse. Verranno usate o compilate le seguenti contenute in questo articolo:
 
-| Risorsa | DESCRIZIONE|
+| Gruppi | Description|
 |----------|------------|
 | **Immagine gestita** | Si tratta di un'immagine di base che può essere usata da sola o per creare una **versione dell'immagine** in una raccolta di immagini. Le immagini gestite vengono create da macchine virtuali generalizzate. Un'immagine gestita è un tipo speciale di disco rigido virtuale che può essere usato per creare più macchine virtuali e può ora essere sfruttato per creare versioni di immagini condivise. |
 | **Raccolta di immagini** | Come in Azure Marketplace, una **raccolta di immagini** è un repository per la gestione e la condivisione delle immagini, ma è possibile controllare chi ha accesso. |
 | **Definizione delle immagini** | Le immagini vengono definite all'interno di una raccolta e forniscono informazioni sull'immagine e sui requisiti per il suo uso interno. Questa include il fatto che l'immagine è per Windows o Linux, le note sulla versione e i requisiti minimi e massimi di memoria. Si tratta della definizione di un tipo di immagine. |
 | **Versione dell'immagine** | La **versione dell'immagine** è ciò che si usa per creare una macchina virtuale quando si usa una raccolta. È possibile avere più versioni di un'immagine in base alle necessità del proprio ambiente. Come un'immagine gestita, quando si usa una **versione dell'immagine** per creare una macchina virtuale, la versione dell'immagine viene usata per creare nuovi dischi per la macchina virtuale. Le versioni delle immagini possono essere usate più volte. |
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+Ogni 20 macchine virtuali create simultaneamente, si consiglia di conservarne una. Se, ad esempio, si creano VM 120 contemporaneamente usando la stessa immagine in un'area, si consiglia di tenere almeno sei repliche dell'immagine. Per ulteriori informazioni, vedere [ridimensionamento](/azure/virtual-machines/windows/shared-image-galleries#scaling).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per completare l'esempio in questo articolo, è necessario disporre di un'immagine gestita esistente. Per crearne una, se necessario, è possibile seguire questa [Esercitazione: Creare un'immagine personalizzata di una macchina virtuale di Azure con Azure PowerShell](tutorial-custom-images.md). Se l'immagine gestita contiene un disco dati, le dimensioni del disco dati non possono superare 1 TB.
+Per completare l'esempio in questo articolo, è necessario disporre di un'immagine gestita esistente. È possibile seguire [l'esercitazione: creare un'immagine personalizzata di una macchina virtuale di Azure con Azure PowerShell](tutorial-custom-images.md) per crearne una se necessario. Se l'immagine gestita contiene un disco dati, le dimensioni del disco dati non possono superare 1 TB.
 
 Quando si esegue l'esercitazione, sostituire i nomi del gruppo di risorse e delle macchine virtuali dove necessario.
 
@@ -54,7 +54,7 @@ Quando si esegue l'esercitazione, sostituire i nomi del gruppo di risorse e dell
 
 Dopo aver completato la versione dell'immagine, è possibile creare una o più nuove macchine virtuali. Utilizzando il cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) . 
 
-Questo esempio crea una macchina virtuale denominata *myVMfromImage*in *myResourceGroup* nel Data Center *degli Stati Uniti centro* -meridionali.
+Questo esempio crea una macchina virtuale denominata *myVMfromImage*in *myResourceGroup* nel Data Center *degli Stati Uniti centro-meridionali* .
 
 
 ```azurepowershell-interactive
@@ -104,7 +104,7 @@ Il [Generatore di immagini di Azure (anteprima)](image-builder-overview.md) cons
 - [Creare una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Creare una definizione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Creare una versione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Creare una macchina virtuale da una versione dell'immagine](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Creare una macchina virtuale dalla versione dell'immagine](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
 Per altre informazioni sulle raccolte di immagini condivise, vedere [Panoramica](shared-image-galleries.md). Se si verificano problemi, vedere [Risoluzione dei problemi delle raccolte di immagini condivise](troubleshooting-shared-images.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Gestire le risorse di Azure usando Azure PowerShell | Microsoft Docs
-description: Usare Azure PowerShell e la gestione delle risorse di Azure per gestire le risorse.
+description: Usare Azure PowerShell e Azure Resource Manager per gestire le risorse. Viene illustrato come distribuire ed eliminare risorse.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: f61fcf7833021f23485992c7445f91d9a7b9ee45
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: aa215555fdd39e9d756d5fc925282b1eaffc9ebf
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001511"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390357"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Gestire le risorse di Azure usando Azure PowerShell
 
@@ -49,7 +49,7 @@ $ctx = $storageAccount.Context
 
 ### <a name="deploy-a-template"></a>Distribuire un modello
 
-Lo script seguente crea la distribuzione di un modello di avvio rapido per creare un account di archiviazione. Per altre informazioni, vedere [Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
+Lo script seguente crea la distribuzione di un modello di avvio rapido per creare un account di archiviazione. Per altre informazioni, vedere [Guida introduttiva: creare modelli di Azure Resource Manager usando Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -68,7 +68,7 @@ Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Re
 
 In genere si distribuiscono tutte le risorse del modello in un unico gruppo di risorse, ma in alcuni scenari può essere preferibile distribuire insieme un set di risorse, inserendole tuttavia in gruppi di sottoscrizioni e risorse diversi. Per altre informazioni, vedere [distribuire risorse di Azure a più sottoscrizioni o gruppi di risorse](./resource-manager-cross-resource-group-deployment.md).
 
-## <a name="delete-resources"></a>Elimina le risorse
+## <a name="delete-resources"></a>Eliminare le risorse
 
 Lo script seguente mostra come eliminare un account di archiviazione.
 

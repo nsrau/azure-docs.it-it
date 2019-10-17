@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8027a1290b4b771c17a1e748c06f3b86fa0bf95
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4e8543f1f6ef2cdf1695340b07dcbc51365a01a5
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244600"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438149"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
 
@@ -34,13 +34,13 @@ Questo articolo offre una panoramica delle estensioni macchina virtuale, i prere
 
 Sono disponibili numerose estensioni della macchina virtuale di Azure, ognuna con uno specifico caso d'uso. Di seguito sono riportati alcuni esempi:
 
-- Applicare le configurazioni dello stato desiderato tramite PowerShell a una macchina virtuale usando l'estensione DSC per Windows. Per altre informazioni, vedere l'argomento relativo all'[Estensione DSC (Desired State Configuration) di Azure](dsc-overview.md).
+- Applicare le configurazioni dello stato desiderato tramite PowerShell a una macchina virtuale usando l'estensione DSC per Windows. Per altre informazioni, vedere l'argomento relativo all'[Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure](dsc-overview.md).
 - Configurare il monitoraggio di una macchina virtuale con l'estensione della macchina virtuale Log Analytics Agent. Per altre informazioni, vedere [connettere le VM di Azure ai log di monitoraggio di Azure](../../log-analytics/log-analytics-azure-vm-extension.md).
 - Configurare una macchina virtuale di Azure usando Chef. Per altre informazioni, vedere l'argomento [Automazione della distribuzione delle macchine virtuali di Azure con Chef](../windows/chef-automation.md).
 - Configurare il monitoraggio dell'infrastruttura di Azure con l'estensione Datadog. Per altre informazioni, vedere il [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
-Oltre alle estensioni specifiche del processo, è disponibile un'estensione Script personalizzato per le macchine virtuali Linux e Windows. L'estensione Script personalizzato per Windows consente l'esecuzione di qualsiasi script PowerShell in una macchina virtuale. Gli script personalizzati sono utili per la progettazione di distribuzioni di Azure che richiedono una configurazione in aggiunta a quella offerta dagli strumenti nativi di Azure. Per altre informazioni, vedere [Estensione Script personalizzato per macchine virtuali Windows](custom-script-windows.md).
+Oltre alle estensioni specifiche del processo, è disponibile un'estensione dello script personalizzata per le macchine virtuali Linux e Windows. L'estensione Script personalizzato per Windows consente l'esecuzione di qualsiasi script PowerShell in una macchina virtuale. Gli script personalizzati sono utili per la progettazione di distribuzioni di Azure che richiedono una configurazione in aggiunta a quella offerta dagli strumenti nativi di Azure. Per altre informazioni, vedere [Estensione Script personalizzato per macchine virtuali Windows](custom-script-windows.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -50,7 +50,7 @@ Per gestire l'estensione nella macchina virtuale, è necessario aver installato 
 
 L'agente di macchine virtuali di Azure gestisce le interazioni tra una macchina virtuale di Azure e il controller di infrastruttura di Azure. L'agente di macchine virtuali è responsabile di molti aspetti funzionali della distribuzione e della gestione delle macchine virtuali di Azure, tra cui l'esecuzione delle estensioni macchina virtuale. L'agente di macchine virtuali di Azure è preinstallato nelle immagini di Azure Marketplace e può essere installato manualmente nei sistemi operativi supportati. L'agente di macchine virtuali di Azure per Windows è noto come agente guest di Windows.
 
-Per informazioni sui sistemi operativi supportati e per le istruzioni di installazione, vedere [Agente delle macchine virtuali di Azure](agent-windows.md).
+Per informazioni sui sistemi operativi supportati e per le istruzioni di installazione, vedere l'[agente VM di Azure](agent-windows.md).
 
 #### <a name="supported-agent-versions"></a>Versioni supportate dell'agente
 
@@ -65,7 +65,7 @@ Alcune estensioni non sono supportate in tutti i sistemi operativi e possono gen
 
 #### <a name="network-access"></a>Accesso alla rete
 
-I pacchetti di estensioni vengono scaricati dal repository delle estensioni di Archiviazione di Azure, mentre i caricamenti dello stato delle estensioni vengono pubblicati in Archiviazione di Azure. Se si usa la versione [supportata](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) degli agenti, non è necessario consentire l'accesso ad archiviazione di Azure nell'area della macchina virtuale, in quanto può usare l'agente per reindirizzare la comunicazione al controller di infrastruttura di Azure per le comunicazioni degli agenti (la funzionalità HostGAPlugin tramite il canale privilegiato su IP privato 168.63.129.16). Se è in uso una versione non supportata dell'agente, è necessario consentire l'accesso in uscita ad Archiviazione di Azure in tale area dalla macchina virtuale.
+I pacchetti di estensioni vengono scaricati dal repository delle estensioni di Archiviazione di Azure, mentre i caricamenti dello stato delle estensioni vengono pubblicati in Archiviazione di Azure. Se si usa la versione [supportata](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) degli agenti, non è necessario consentire l'accesso ad archiviazione di Azure nell'area della macchina virtuale, in quanto può usare l'agente per reindirizzare la comunicazione al controller di infrastruttura di Azure per le comunicazioni degli agenti (la funzionalità HostGAPlugin tramite il canale privilegiato su IP privato [168.63.129.16](https://docs.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16)). Se è in uso una versione non supportata dell'agente, è necessario consentire l'accesso in uscita ad Archiviazione di Azure in tale area dalla macchina virtuale.
 
 > [!IMPORTANT]
 > Se è stato bloccato l'accesso a *168.63.129.16* tramite il firewall Guest o con un proxy, le estensioni hanno esito negativo indipendentemente dalla precedente. Sono necessarie le porte 80, 443 e 32526.
@@ -148,7 +148,7 @@ L'esempio seguente illustra l'installazione dell'estensione Microsoft Antimalwar
 
 ![Installare un'estensione antimalware](./media/features-windows/installantimalwareextension.png)
 
-### <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
+### <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
 
 Le estensioni della macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Quando si distribuisce un'estensione con un modello, è possibile creare distribuzioni di Azure completamente configurate. Ad esempio, il codice JSON seguente proviene da un modello di Resource Manager che consente di distribuire un set di macchine virtuali con bilanciamento del carico e un database SQL di Azure, quindi installa un'applicazione .NET Core in ogni macchina virtuale. L'estensione della macchina virtuale gestisce l'installazione del software.
 
@@ -188,7 +188,7 @@ Per altre informazioni sulla creazione di modelli di Resource Manager, vedere [C
 
 ## <a name="secure-vm-extension-data"></a>Proteggere i dati dell'estensione della macchina virtuale
 
-Quando si esegue un'estensione macchina virtuale, potrebbe essere necessario includere informazioni riservate, ad esempio credenziali, nomi degli account di archiviazione e chiavi di accesso degli account di archiviazione. Molte estensioni macchina virtuale includono una configurazione protetta, che consente di crittografare dati e di decrittografarli solo all'interno della macchina virtuale di destinazione. Ogni estensione dispone di uno schema di configurazione protetta specifico, descritto in dettaglio nella documentazione specifica dell'estensione.
+Quando si esegue un'estensione macchina virtuale, potrebbe essere necessario includere informazioni riservate, ad esempio credenziali, nomi degli account di archiviazione e chiavi di accesso dell'account di archiviazione. Molte estensioni macchina virtuale includono una configurazione protetta, che consente di crittografare dati e di decrittografarli solo all'interno della macchina virtuale di destinazione. Ogni estensione dispone di uno schema di configurazione protetta specifico, descritto in dettaglio nella documentazione specifica dell'estensione.
 
 L'esempio seguente illustra un'istanza dell'estensione Script personalizzato per Windows. Il comando da eseguire include un set di credenziali. In questo esempio il comando da eseguire non è crittografato:
 
@@ -262,7 +262,7 @@ Quando è disponibile un aggiornamento, viene installato nella macchina virtuale
 - Estensioni
 - Contenitore della diagnostica di avvio
 - Segreti del sistema operativo guest
-- Dimensioni macchina virtuale
+- Dimensioni VM
 - Profilo di rete
 
 I server di pubblicazione rendono disponibili gli aggiornamenti nelle varie aree geografiche in momenti diversi, quindi è possibile che le macchine virtuali in aree diverse eseguano versioni diverse.
@@ -318,7 +318,7 @@ Per ottenere le più recenti versioni secondarie delle correzioni di bug, si con
  $vm.Extensions
 ```
 
-L'output di esempio seguente mostra che *autoUpgradeMinorVersion* è impostato su *true*:
+L'output di esempio seguente illustra che *autoUpgradeMinorVersion* è impostato su *true*:
 
 ```powershell
 ForceUpdateTag              :
@@ -409,7 +409,7 @@ In alcuni casi potrebbe essere necessario ripetere l'esecuzione della macchina v
 Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
 ```
 
-È anche possibile rimuovere un'estensione nel portale di Azure come indicato di seguito:
+È inoltre possibile rimuovere un'estensione nel portale di Azure come indicato di seguito:
 
 1. Selezionare una macchina virtuale.
 2. Scegliere **Estensioni**.
@@ -417,13 +417,13 @@ Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "
 4. Scegliere **Disinstalla**.
 
 ## <a name="common-vm-extensions-reference"></a>Riferimento alle estensioni della macchina virtuale comuni
-| Nome estensione | Descrizione | Altre informazioni |
+| Nome estensione | Description | Altre informazioni |
 | --- | --- | --- |
-| Estensione Script personalizzato per Windows |Eseguire script su una macchina virtuale di Azure. |[Estensione script personalizzata per Windows](custom-script-windows.md) |
+| Estensione Script personalizzato per Windows |Eseguire gli script in una macchina virtuale di Azure |[Estensione script personalizzata per Windows](custom-script-windows.md) |
 | Estensione DSC per Windows |Estensione PowerShell DSC (Desired State Configuration) |[Estensione DSC per Windows](dsc-overview.md) |
 | Estensione di Diagnostica di Azure |Gestisce Diagnostica di Azure. |[Estensione di Diagnostica di Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Estensione dell'accesso alla VM di Azure |Gestire gli utenti e le credenziali |[Estensione dell'accesso alle macchine virtuali per Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle estensioni macchina virtuale, vedere [Azure virtual machine extensions and features overview](overview.md) (Panoramica delle funzionalità e delle estensioni macchina virtuale di Azure).
+Per altre informazioni sulle estensioni delle macchine virtuali, vedere [Panoramica sulle funzionalità ed estensioni macchine virtuali di Azure](overview.md).

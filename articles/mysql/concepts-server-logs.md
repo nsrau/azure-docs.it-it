@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 4d801ada8fd8a8b35c71601d3ca274f26afb24f6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 90f3e80c92cd4409a77d4661462ae027c535eaf7
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262286"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434293"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Log di query lente nel database di Azure per MySQL
 Nel Database di Azure per MySQL, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi.
@@ -38,7 +38,10 @@ Altri parametri che è possibile modificare includono:
 - **long_query_time**: se una query richiede più tempo del valore di long_query_time (in secondi), la query viene registrata. Il valore predefinito è 10 secondi.
 - **log_slow_admin_statements**: se è ON include le istruzioni a livello amministrativo come ALTER_TABLE e ANALYZE_TABLE nelle istruzioni scritte in slow_query_log.
 - **log_queries_not_using_indexes**: determina se le query che non usano gli indici vengono registrate in slow_query_log
-- **log_throttle_queries_not_using_indexes**: Questo parametro limita il numero di query non di indice che possono essere scritte nel log di query lente. Questo parametro ha effetto quando log_queries_not_using_indexes è impostato su ON.
+- **log_throttle_queries_not_using_indexes**: questo parametro limita il numero di query non di indice che possono essere scritte nel log di query lente. Questo parametro ha effetto quando log_queries_not_using_indexes è impostato su ON.
+
+> [!Note]
+> Per `sql_text`, il log verrà troncato se supera i 2048 caratteri.
 
 Per una descrizione completa dei parametri per il log di query lente, vedere la [documentazione sul log di query lente](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) per MySQL.
 
@@ -54,7 +57,7 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 |---|---|
 | `TenantId` | ID del tenant. |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated`UTC | Timestamp in cui il log è stato registrato in formato UTC. |
+| `TimeGenerated` [UTC] | Timestamp in cui il log è stato registrato in formato UTC. |
 | `Type` | Tipo di log. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID per la sottoscrizione a cui appartiene il server. |
 | `ResourceGroup` | Nome del gruppo di risorse a cui appartiene il server. |
@@ -65,10 +68,10 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Nome del server |
-| `start_time_t`UTC | Ora di inizio della query |
-| `query_time_s` | Tempo totale di esecuzione della query |
-| `lock_time_s` | Tempo totale in cui la query è rimasta bloccata |
-| `user_host_s` | Nome utente |
+| `start_time_t` [UTC] | Ora di inizio della query |
+| `query_time_s` | Tempo totale in secondi impiegato per l'esecuzione della query |
+| `lock_time_s` | Tempo totale in secondi per cui la query è stata bloccata |
+| `user_host_s` | Username |
 | `rows_sent_s` | Numero di righe inviate |
 | `rows_examined_s` | Numero di righe esaminate |
 | `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
@@ -78,5 +81,5 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 | `thread_id_s` | ID thread |
 | `\_ResourceId` | URI della risorsa |
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 - [Come configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure](howto-configure-server-logs-in-cli.md).

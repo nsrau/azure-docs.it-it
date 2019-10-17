@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: c062a75516a1b865c1ff6c35f00d4fbf7c4881c6
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 27d968aa5202fbeb38be9a2416514d2185c1d8b9
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029379"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72436749"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Espressioni di trasformazione dei dati nel flusso di dati di mapping 
 
@@ -71,14 +71,15 @@ La funzione CumeDist calcola la posizione di un valore rispetto a tutti i valori
 ___
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-Ottiene la data corrente quando viene avviata l'esecuzione del processo. È possibile passare un fuso orario facoltativo nel formato 'GMT', 'PST', 'UTC', 'America/Cayman'. Il fuso orario locale viene usato come valore predefinito. Vedere SimpleDateFormat di Java per i formati disponibili. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``currentDate() == toDate('2250-12-31') -> false``
-* ``currentDate('PST')  == toDate('2250-12-31') -> false``
-* ``currentDate('America/New_York')  == toDate('2250-12-31') -> false``
-___
-### <code>currentTimestamp</code>
-<code><b>currentTimestamp() => timestamp</b></code><br/><br/>
+Ottiene la data corrente quando viene avviata l'esecuzione del processo. È possibile passare un fuso orario facoltativo nel formato 'GMT', 'PST', 'UTC', 'America/Cayman'. Il fuso orario locale viene usato come valore predefinito. Vedere SimpleDateFormat di Java per i formati disponibili. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``currentDate() == toDate('2250-12-31') -> false`` @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5<br/><br/>
 Ottiene il timestamp corrente quando l'esecuzione del processo inizia con il fuso orario locale * ``currentTimestamp() == toTimestamp('2250-12-31 12:12:12') -> false`` @ no__t-1 @ no__t-2<br/><br/>
-Ottiene il timestamp corrente come ora UTC. Se si vuole che l'ora corrente venga interpretata in un fuso orario diverso dal fuso orario del cluster, è possibile passare un fuso orario facoltativo nel formato ' GMT ',' PST ',' UTC ',' America/Cayman '. Il valore predefinito è il fuso orario corrente. Vedere SimpleDateFormat di Java per i formati disponibili. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.htmlTo converte l'ora UTC in un fuso orario diverso usare fromUTC () * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false`` @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5<br/><br/>
+Ottiene il timestamp corrente come ora UTC. Se si vuole che l'ora corrente venga interpretata in un fuso orario diverso dal fuso orario del cluster, è possibile passare un fuso orario facoltativo nel formato ' GMT ',' PST ',' UTC ',' America/Cayman '. Il valore predefinito è il fuso orario corrente. Vedere SimpleDateFormat di Java per i formati disponibili. Usare [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) per convertire l'ora UTC in un fuso orario diverso usando fromUTC ().
+* ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``
+* ``currentUTC() != toTimestamp('2050-12-12 19:18:12') -> true``
+* ``fromUTC(currentUTC(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
+___
+### <code>dayOfMonth</code>
+<code><b>dayOfMonth(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 Ottiene il giorno del mese in base a una data * ``dayOfMonth(toDate('2018-06-08')) -> 8`` @ no__t-1 @ no__t-2<br/><br/>
 Ottiene il giorno della settimana in base a una data specificata. 1-domenica, 2-lunedì..., 7-sabato * ``dayOfWeek(toDate('2018-06-08')) -> 6`` @ no__t-1 @ no__t-2<br/><br/>
 Ottiene il giorno dell'anno in base a una data * ``dayOfYear(toDate('2016-04-09')) -> 100`` @ no__t-1 @ no__t-2<br/><br/>
@@ -179,7 +180,7 @@ ___
 ### <code>multiply</code>
 <code><b>multiply(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
 Moltiplica coppie di numeri. Uguale all'operatore * * ``multiply(20, 10) -> 200`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>
-La funzione NTile divide le righe per ogni partizione di finestra in `n` bucket compresi tra 1 e un valore massimo `n`. I valori dei bucket si differenzieranno per un massimo di 1. Se il numero di righe nella partizione non può essere diviso equamente in base al numero di bucket, i valori rimanenti verranno distribuiti uno per bucket, a partire dal primo bucket. La funzione NTile è utile per il calcolo di tertiles, quartili, decili e altre statistiche di riepilogo comuni. La funzione calcola due variabili durante l'inizializzazione: Alla dimensione di un bucket regolare verrà aggiunta una riga aggiuntiva. Entrambe le variabili si basano sulle dimensioni della partizione corrente. Durante il processo di calcolo, la funzione tiene traccia del numero di righe corrente, del numero di bucket corrente e del numero di righe in corrispondenza del quale il bucket cambierà (bucketThreshold). Quando il numero di righe corrente raggiunge la soglia del bucket, il valore del bucket viene incrementato di uno e la soglia viene aumentata in base alla dimensione del bucket (più un valore aggiuntivo, in caso di riempimento del bucket corrente).
+La funzione NTile divide le righe per ogni partizione di finestra in `n` bucket compresi tra 1 e un valore massimo `n`. I valori dei bucket si differenzieranno per un massimo di 1. Se il numero di righe nella partizione non può essere diviso equamente in base al numero di bucket, i valori rimanenti verranno distribuiti uno per bucket, a partire dal primo bucket. La funzione NTile è utile per il calcolo di tertiles, quartili, decili e altre statistiche di riepilogo comuni. La funzione calcola due variabili durante l'inizializzazione: alla dimensione di un bucket regolare verrà aggiunta una riga aggiuntiva. Entrambe le variabili si basano sulle dimensioni della partizione corrente. Durante il processo di calcolo, la funzione tiene traccia del numero di righe corrente, del numero di bucket corrente e del numero di righe in corrispondenza del quale il bucket cambierà (bucketThreshold). Quando il numero di righe corrente raggiunge la soglia del bucket, il valore del bucket viene incrementato di uno e la soglia viene aumentata in base alla dimensione del bucket (più un valore aggiuntivo, in caso di riempimento del bucket corrente).
 * ``nTile()``
 * ``nTile(numOfBuckets)``
 ___

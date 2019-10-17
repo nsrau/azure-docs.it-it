@@ -1,6 +1,6 @@
 ---
-title: Panoramica di Azure Status Monitor V2 | Microsoft Docs
-description: Panoramica di Status Monitor V2. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
+title: Panoramica dell'agente di applicazione Azure Insights | Microsoft Docs
+description: Panoramica dell'agente di Application Insights. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,23 +12,28 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: tilee
-ms.openlocfilehash: 7f045a95bcc9d5a61b26036e14e050a597347d1a
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 294b0d2d91650f33f0b92179a069a8c7cd845525
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286438"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389828"
 ---
-# <a name="status-monitor-v2"></a>Status Monitor v2
+# <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Distribuire l'agente di Application Insights di monitoraggio di Azure per i server locali
 
-Status Monitor V2 è un modulo di PowerShell pubblicato nel [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
+> [!IMPORTANT]
+> Queste linee guida sono consigliate per le distribuzioni di Application Insights Agent locali e non di Azure. Ecco l'approccio consigliato per le [distribuzioni di macchine virtuali di Azure e set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+
+Application Insights Agent (denominato in precedenza Status Monitor v2) è un modulo di PowerShell pubblicato nella [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 Sostituisce [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now).
-Il modulo fornisce strumentazione senza codice per app Web .NET ospitate con IIS.
 I dati di telemetria vengono inviati all'portale di Azure, in cui è possibile [monitorare](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) l'app.
+
+> [!NOTE]
+> Il modulo supporta attualmente solo la strumentazione senza codice delle app Web .NET ospitate con IIS. Usare un SDK per instrumentare applicazioni ASP.NET Core, Java e node. js.
 
 ## <a name="powershell-gallery"></a>PowerShell Gallery
 
-Status Monitor V2 si trova qui: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+Application Insights Agent è disponibile qui: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
 
 ![PowerShell Gallery](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
@@ -47,16 +52,16 @@ Status Monitor V2 si trova qui: https://www.powershellgallery.com/packages/Az.Ap
 - [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
 - [Start-ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
-- [Risoluzione dei problemi](status-monitor-v2-troubleshoot.md)
+## <a name="troubleshooting"></a>risoluzione dei problemi
+- [risoluzione dei problemi](status-monitor-v2-troubleshoot.md)
 - [Problemi noti](status-monitor-v2-troubleshoot.md#known-issues)
 
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>FAQ
 
-- Status Monitor V2 supporta le installazioni proxy?
+- Application Insights agente supporta le installazioni proxy?
 
-  *Sì*. Sono disponibili diversi modi per scaricare Status Monitor V2. Se il computer dispone di accesso a Internet, è possibile eseguire l'onboarding nel PowerShell Gallery usando i parametri `-Proxy`.
+  *Sì*. Sono disponibili diversi modi per scaricare Application Insights Agent. Se il computer dispone di accesso a Internet, è possibile eseguire l'onboarding nel PowerShell Gallery usando i parametri `-Proxy`.
 È anche possibile scaricare manualmente il modulo e installarlo nel computer o usarlo direttamente.
 Ognuna di queste opzioni è descritta nelle [istruzioni dettagliate](status-monitor-v2-detailed-instructions.md).
 

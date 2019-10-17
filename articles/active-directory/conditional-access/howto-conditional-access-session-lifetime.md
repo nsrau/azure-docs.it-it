@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05c93c9fe2b34ae3b87c44608cc5c5c8947ecc73
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 356f2eac06365b90052cab214d9d1ac318710730
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499844"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389662"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurare la gestione delle sessioni di autenticazione con l'accesso condizionale
 
@@ -37,7 +37,7 @@ Frequenza di accesso consente di definire il periodo di tempo prima che un utent
 
 La configurazione predefinita di Azure Active Directory (Azure AD) per la frequenza di accesso dell'utente è una finestra in sequenza di 90 giorni. La richiesta di credenziali da parte degli utenti è spesso un'operazione sensata, ma può essere riattiva: gli utenti che hanno eseguito il training per immettere le proprie credenziali senza pensare possono fornirli involontariamente a una richiesta di credenziali dannose.
 
-Potrebbe sembrare allarmante non chiedere a un utente di eseguire di nuovo l'accesso per 90 giorni, in realtà qualsiasi violazione dei criteri IT revoca la sessione. Alcuni esempi includono (senza limitazioni) una modifica della password, un dispositivo incompliant o la disabilitazione dell'account. È anche possibile revocare in modo esplicito le [sessioni degli utenti usando PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Il Azure AD configurazione predefinita è "non richiedere agli utenti di fornire le proprie credenziali se il comportamento di sicurezza delle sessioni non è cambiato".
+Potrebbe sembrare allarmante non chiedere a un utente di eseguire l'accesso, in realtà qualsiasi violazione dei criteri IT revoca la sessione. Alcuni esempi includono (senza limitazioni) una modifica della password, un dispositivo incompliant o la disabilitazione dell'account. È anche possibile revocare in modo esplicito le [sessioni degli utenti usando PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Il Azure AD configurazione predefinita è "non richiedere agli utenti di fornire le proprie credenziali se il comportamento di sicurezza delle sessioni non è cambiato".
 
 L'impostazione della frequenza di accesso funziona con le app che hanno implementato i protocolli OAUTH2 o OIDC in base agli standard. La maggior parte delle app Microsoft native per Windows, Mac e mobile è conforme all'impostazione.
 
@@ -45,17 +45,17 @@ L'impostazione della frequenza di accesso funziona con le app che hanno implemen
 
 Una sessione del browser persistente consente agli utenti di rimanere connessi dopo la chiusura e la riapertura della finestra del browser.
 
-Il Azure AD predefinito per la persistenza della sessione del browser consente agli utenti dei dispositivi personali di scegliere se mantenere la sessione in modo permanente visualizzando un "rimanere connesso?" messaggio di richiesta dopo l'autenticazione riuscita. Se la persistenza del browser è configurata in ad FS usando [le indicazioni fornite nell'articolo ad FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
-)impostazioni di Single Sign-on, si conformeranno a tale criterio e si renderà persistente anche la sessione di Azure ad. È anche possibile specificare se gli utenti nel tenant visualizzano il "rimanere connessi?" richiedere modificando l'impostazione appropriata nel riquadro branding dell'azienda in portale di Azure seguendo le istruzioni riportate nell'articolo [personalizzare la pagina di accesso Azure ad](../fundamentals/customize-branding.md).
+Il Azure AD predefinito per la persistenza della sessione del browser consente agli utenti dei dispositivi personali di scegliere se mantenere la sessione in modo permanente visualizzando un "rimanere connesso?" messaggio di richiesta dopo l'autenticazione riuscita. Se la persistenza del browser è configurata in AD FS usando le indicazioni fornite nell'articolo [ad FS impostazioni di Single Sign-on](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+), si conformeranno a tale criterio e si renderà persistente anche la sessione di Azure ad. È anche possibile specificare se gli utenti nel tenant visualizzano il "rimanere connessi?" richiedere modificando l'impostazione appropriata nel riquadro branding dell'azienda in portale di Azure seguendo le istruzioni riportate nell'articolo [personalizzare la pagina di accesso Azure ad](../fundamentals/customize-branding.md).
 
 ## <a name="configuring-authentication-session-controls"></a>Configurazione di controlli della sessione di autenticazione
 
 L'accesso condizionale è una funzionalità di Azure AD Premium e richiede una licenza Premium. Per altre informazioni sull'accesso condizionale, vedere [che cos'è l'accesso condizionale in Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> Se si usa la funzionalità di [durata dei token](../develop/active-directory-configurable-token-lifetimes.md) configurabile attualmente disponibile in anteprima pubblica, si noti che non è supportata la creazione di due criteri diversi per la stessa combinazione di utenti o app: uno con questa funzionalità e un altro con un token configurabile funzionalità Lifetime. Microsoft prevede di ritirare la funzionalità di durata dei token configurabile il 1 ° novembre e sostituirla con la funzionalità di gestione della sessione di autenticazione dell'accesso condizionale.  
+> Se si usa la funzionalità di [durata dei token configurabile](../develop/active-directory-configurable-token-lifetimes.md) attualmente disponibile in anteprima pubblica, si noti che non è supportata la creazione di due criteri diversi per la stessa combinazione di utenti o app: uno con questa funzionalità e un altro con un token configurabile funzionalità Lifetime. Microsoft prevede di ritirare la funzionalità di durata dei token configurabile il 1 ° novembre e sostituirla con la funzionalità di gestione della sessione di autenticazione dell'accesso condizionale.  
 
-### <a name="policy-1-sign-in-frequency-control"></a>Criterio 1: Controllo della frequenza di accesso
+### <a name="policy-1-sign-in-frequency-control"></a>Criteri 1: controllo della frequenza di accesso
 
 1. Crea nuovo criterio
 1. Scegliere tutte le condizioni necessarie per l'ambiente del cliente, incluse le app cloud di destinazione.
@@ -63,7 +63,7 @@ L'accesso condizionale è una funzionalità di Azure AD Premium e richiede una l
    > [!NOTE]
    > È consigliabile impostare la frequenza di richiesta di autenticazione uguale per le app chiave Microsoft Office come Exchange Online e SharePoint Online per ottimizzare l'esperienza utente.
 
-1. Passare alla**sessione** **controlli** > di accesso e fare clic su **frequenza di** accesso
+1. Passare a **controlli di accesso** > **sessione** e fare clic su **frequenza** di accesso
 1. Immettere il valore richiesto di giorni e ore nella prima casella di testo
 1. Selezionare un valore di **ore** o **giorni** dall'elenco a discesa
 1. Salvare i criteri
@@ -74,7 +74,7 @@ In Azure AD i dispositivi Windows registrati, l'accesso al dispositivo viene con
 
 Se è stata configurata una frequenza di accesso diversa per diverse app Web in esecuzione nella stessa sessione del browser, i criteri più severi verranno applicati a entrambe le app perché tutte le app in esecuzione nella stessa sessione del browser condividono un solo token di sessione.
 
-### <a name="policy-2-persistent-browser-session"></a>Criterio 2: Sessione del browser persistente
+### <a name="policy-2-persistent-browser-session"></a>Criterio 2: sessione del browser persistente
 
 1. Crea nuovo criterio
 1. Scegliere tutte le condizioni necessarie.
@@ -82,7 +82,7 @@ Se è stata configurata una frequenza di accesso diversa per diverse app Web in 
    > [!NOTE]
    > Si noti che questo controllo richiede di scegliere "tutte le app Cloud" come condizione. La persistenza della sessione del browser è controllata dal token della sessione di autenticazione. Tutte le schede in una sessione del browser condividono un solo token di sessione e pertanto devono condividere lo stato di persistenza.
 
-1. Passare alla**sessione** **controlli** > di accesso e fare clic su **sessione del browser permanente**
+1. Passare a **controlli di accesso** > **sessione** e fare clic su **sessione del browser persistente**
 1. Selezionare un valore dall'elenco a discesa
 1. Salva i criteri
 

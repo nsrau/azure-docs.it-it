@@ -14,25 +14,26 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 410571320e5ffae9cf94c5035079e5b202190863
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 8a22de6b3e518bb3c9392d7fd64411969b32f33f
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027360"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388724"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Come usare la libreria client JavaScript per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center supporta end-to-end e servizi integrati centrali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare i servizi di **compilazione**, **test** e **distribuzione** per configurare la pipeline di integrazione e recapito continua. Una volta distribuita l'app, gli sviluppatori possono monitorare lo stato e l'utilizzo dell'app usando i servizi di **analisi** e **diagnostica** e coinvolgere gli utenti che usano il servizio di **push** . Gli sviluppatori possono inoltre sfruttare l' **autenticazione** per autenticare gli utenti e il servizio **dati** per salvare in modo permanente e sincronizzare i dati delle app nel cloud.
-> Se si intende integrare servizi cloud nell'applicazione per dispositivi mobili, iscriversi con App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) oggi stesso.
+> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
+>
+> Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
 ## <a name="overview"></a>Panoramica
-Questa guida descrive come eseguire scenari comuni usando il più recente [JavaScript SDK per le app per dispositivi mobili di Azure]. Se si ha familiarità con le app per dispositivi mobili di Azure, prima è necessario completare l' [Avvio rapido alle app per dispositivi mobili di Azure] per creare un back-end e una tabella. In questa Guida, l'attenzione è posta sull'uso di un back-end mobile nelle applicazioni Web HTML/JavaScript.
+Questa guida descrive come eseguire scenari comuni usando il più recente [JavaScript SDK per le app per dispositivi mobili di Azure]. Se si ha familiarità con le app per dispositivi mobili di Azure, prima è necessario completare l' [esercitazione introduttiva sulle app per dispositivi mobili di Azure] per creare un back-end e una tabella. In questa Guida, l'attenzione è posta sull'uso di un back-end mobile nelle applicazioni Web HTML/JavaScript.
 
 ## <a name="supported-platforms"></a>Piattaforme supportate
-Il supporto browser è limitato alle versioni correnti e più recenti dei browser principali:  Google Chrome, Microsoft Edge, Microsoft Internet Explorer e Mozilla Firefox.  L'SDK dovrebbe funzionare con qualsiasi browser abbastanza aggiornato.
+Il supporto del browser è limitato alle versioni correnti e aggiornate dei browser principali: Google Chrome, Microsoft Edge, Microsoft Internet Explorer e Mozilla Firefox.  L'SDK dovrebbe funzionare con qualsiasi browser abbastanza aggiornato.
 
 Il pacchetto viene distribuito come Universal JavaScript Module, in modo da supportare i formati globali, AMD e CommonJS.
 
@@ -45,7 +46,7 @@ L'installazione di JavaScript SDK per le app per dispositivi mobili di Azure pu�
 npm install azure-mobile-apps-client --save
 ```
 
-La libreria può anche essere utilizzata come modulo ES2015, all'interno di ambienti CommonJS come ad esempio Browserify e Webpack, e come libreria AMD.  Esempio:
+La libreria può anche essere utilizzata come modulo ES2015, all'interno di ambienti CommonJS come ad esempio Browserify e Webpack, e come libreria AMD.  ad esempio:
 
 ```javascript
 // For ECMAScript 5.1 CommonJS
@@ -63,13 +64,13 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
 ## <a name="auth"></a>Procedura: Autenticare gli utenti
-Il servizio app di Azure supporta l'autenticazione e l'autorizzazione degli utenti di app usando diversi provider di identità esterni, ad esempio Facebook, Google, account Microsoft e Twitter. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per ulteriori informazioni, vedere l'esercitazione [Introduzione all'autenticazione] .
+Il servizio app di Azure supporta l'autenticazione e l'autorizzazione degli utenti di app usando diversi provider di identità esterni, a esempio Facebook, Google, account Microsoft e Twitter. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per ulteriori informazioni, vedere l'esercitazione [Introduzione all'autenticazione in Servizi mobili] .
 
 Sono supportati due flussi di autenticazione, ovvero un flusso server e un flusso client.  Il flusso server è il processo di autenticazione più semplice, poiché si basa sull'interfaccia di autenticazione Web del provider. Il flusso client assicura una maggiore integrazione con funzionalità specifiche del dispositivo, ad esempio Single-Sign-On, poiché si basa su SDK specifici del provider.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>Procedura: Configurare il servizio app per dispositivi mobili per URL di reindirizzamento esterni.
+### <a name="configure-external-redirect-urls"></a>Procedura: Configurare il servizio App per dispositivi mobili per URL di reindirizzamento esterni.
 Molti tipi di applicazioni JavaScript usano una funzionalità di loopback per gestire i flussi dell'interfaccia utente di OAuth.  Queste funzionalità includono:
 
 * Esecuzione del servizio in locale
@@ -78,7 +79,7 @@ Molti tipi di applicazioni JavaScript usano una funzionalità di loopback per ge
 
 L'esecuzione in locale può causare problemi perché, per impostazione predefinita, l'autenticazione del servizio app viene configurata solo per consentire l'accesso dal back-end dell'app per dispositivi mobili. Usare i passaggi seguenti per modificare le impostazioni del servizio app per abilitare l'autenticazione quando si esegue il server in locale:
 
-1. Accedere al [portale di Azure]
+1. Accedere al [Azure portal]
 2. Passare al back-end dell'app per dispositivi mobili.
 3. Selezionare **Esplora risorse** nel menu **STRUMENTI DI SVILUPPO**.
 4. Fare clic su **Vai** per aprire Esplora risorse per il back-end dell'app per dispositivi mobili in una nuova scheda o finestra.
@@ -96,7 +97,7 @@ L'esecuzione in locale può causare problemi perché, per impostazione predefini
 
 È necessario anche aggiungere gli stessi URL di loopback alle impostazioni dell'elenco elementi consentiti CORS:
 
-1. Ritornare al [portale di Azure].
+1. Ritornare al [Azure portal].
 2. Passare al back-end dell'app per dispositivi mobili.
 3. Fare clic su **CORS** nel menu dell'**API**.
 4. Immettere ogni URL nella casella di testo vuota **Origini consentite** .  Viene creata una nuova casella di testo.
@@ -105,10 +106,10 @@ L'esecuzione in locale può causare problemi perché, per impostazione predefini
 Dopo l'aggiornamento del backend, sarà possibile usare i nuovi URL di loopback nell'app.
 
 <!-- URLs. -->
-[Avvio rapido alle app per dispositivi mobili di Azure]: app-service-mobile-cordova-get-started.md
-[Introduzione all'autenticazione]: app-service-mobile-cordova-get-started-users.md
+[esercitazione introduttiva sulle app per dispositivi mobili di Azure]: app-service-mobile-cordova-get-started.md
+[Introduzione all'autenticazione in Servizi mobili]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
-[Portale di Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [JavaScript SDK per le app per dispositivi mobili di Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

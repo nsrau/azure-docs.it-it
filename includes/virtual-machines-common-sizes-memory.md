@@ -1,23 +1,23 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 08/08/2019
-ms.author: azcspmt;jonbeck;cynthn
+ms.author: azcspmt;jonbeck;cynthn;joelpell
 ms.custom: include file
-ms.openlocfilehash: 4d0e7bc7f491e328f5e9fce291d415452c49c745
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 55f82344956af7d6096fce7dbc3d7023589daa69
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71830109"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428028"
 ---
 Le dimensioni delle macchine virtuali con ottimizzazione per la memoria offrono un rapporto memoria-CPU elevato, ideale per server di database relazionali, cache di medie e grandi dimensioni e analisi in memoria. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, oltre che sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per ogni dimensione di questo raggruppamento.
 
-* La serie Ev3 include il processore E5-2673 v4 a 2,3 GHz (Broadwell) in una configurazione con hyperthreading, assicurando una proposta di valore ottimizzata per la maggior parte dei carichi di lavoro per uso generico e garantendo l'allineamento della serie Ev3 alle macchine virtuali per uso generico della maggior parte degli altri cloud.  La memoria è stata estesa (da 7 GiB/vCPU a 8 GiB/vCPU) mentre i limiti di rete e dei dischi sono stati modificati in base al core per consentire l'allineamento con il passaggio all'hyperthreading.  La serie Ev3 rappresenta un passo avanti rispetto alle dimensioni delle macchine virtuali con memoria elevata delle famiglie D/Dv2.
+* La serie EV3 include i processori Intel® Xeon® 8171M 2,1 GHz (Skylake) o Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) in una configurazione con Hyper-Threading, fornendo una proposta di valore migliore per la maggior parte dei carichi di lavoro per uso generico e portando i EV3 in allineamento con le VM per utilizzo generico della maggior parte degli altri cloud.  La memoria è stata estesa (da 7 GiB/vCPU a 8 GiB/vCPU) mentre i limiti di rete e dei dischi sono stati modificati in base al core per consentire l'allineamento con il passaggio all'hyperthreading.  La serie Ev3 rappresenta un passo avanti rispetto alle dimensioni delle macchine virtuali con memoria elevata delle famiglie D/Dv2.
 
 * Le dimensioni di anteprima delle serie Eav3 e Easv3 usano il processore AMD 2.35 GHz EPYC<sup>TM</sup> 7452 in una configurazione multithread con un massimo di 256 MB di cache, aumentando le opzioni per l'esecuzione della maggior parte dei carichi di lavoro con ottimizzazione per la memoria.  La serie Eav3 e la serie Easv3 hanno le stesse configurazioni di memoria e disco della serie EV3 & Esv3.
 
@@ -25,24 +25,24 @@ Le dimensioni delle macchine virtuali con ottimizzazione per la memoria offrono 
 
 * La serie M offre un numero elevato di vCPU (fino a 128 vCPU) e una grande quantità di memoria (fino a 3,8 TiB). È ideale anche per database di dimensioni molto grandi o altre applicazioni che traggono vantaggio da conteggi vCPU elevati e grandi quantità di memoria.
 
-* Le controparti serie dv2, G e DSv2/GS sono ideali per le applicazioni che richiedono un vCPU più veloce, prestazioni di archiviazione temporanee migliori o richieste di memoria più elevate. Offrono una potente combinazione per molte applicazioni di livello aziendale.
+* Le controparti serie dv2, G e DSv2/GS sono ideali per le applicazioni che richiedono un vCPU più veloce, prestazioni di archiviazione temporanee migliori o richieste di memoria più elevate. Offrono una potente combinazione ideale per numerose applicazioni di livello aziendale.
 
-* Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. Si basa sui processori Intel Xeon® E5-2673 V3 2,4 GHz (Haswell) o E5-2673 v4 2,3 GHz (Broadwell) di ultima generazione a 2,4 GHz e con la tecnologia Intel Turbo Boost 2,0, può arrivare fino a 3,1 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
+* Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La serie dv2 è più veloce del 35% rispetto alla serie D. Viene eseguito sui processori Intel® Xeon® 8171M 2,1 GHz (Skylake) o Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) o Intel® Xeon® E5-2673 V3 2,4 GHz (Haswell) e con la tecnologia Intel Turbo Boost 2,0. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
 
-* Calcolo di Azure offre dimensioni delle macchine virtuali con piano Isolato per uno specifico tipo di hardware e dedicate a un singolo cliente.  Queste dimensioni delle macchine virtuali sono particolarmente adatte ai carichi di lavoro che richiedono un elevato livello di isolamento dagli altri clienti, per i carichi di lavoro con aspetti come i requisiti normativi e di conformità.  I clienti possono anche scegliere di suddividere ulteriormente le risorse di tali macchine virtuali con piano Isolato usando il [supporto di Azure per le macchine virtuali annidate](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).  Per le opzioni di VM con piano Isolato vedere le tabelle delle famiglie di macchine virtuali di seguito.
+* Calcolo di Azure offre dimensioni di macchine virtuali con piano Isolato per uno specifico tipo di hardware e dedicate a un singolo cliente.  Queste dimensioni di macchine virtuali sono particolarmente adatte ai carichi di lavoro che richiedono un elevato livello di isolamento dagli altri clienti, per i carichi di lavoro che prevedono requisiti normativi e di conformità.  I clienti possono anche scegliere di suddividere ulteriormente le risorse di tali macchine virtuali con piano Isolato usando il [supporto di Azure per le macchine virtuali annidate](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).  Per le opzioni di VM con piano Isolato vedere le tabelle delle famiglie di macchine virtuali di seguito.
 
 ## <a name="esv3-series"></a>Serie Esv3
 
 ACU: 160-190 <sup>1</sup>
 
-Archiviazione Premium:  Supportato
+Archiviazione Premium: supportata
 
-Caching archiviazione Premium:  Supportato
+Caching archiviazione Premium: supportato
 
-Le istanze della serie ESv3 sono basate sul processore Intel Xeon® E5-2673 v4 (Broadwell) a 2,3 GHz e con la tecnologia Intel Turbo Boost 2.0 possono arrivare fino a 3,5 GHz e usare Archiviazione Premium. Le istanze della serie Ev3 sono ideali per applicazioni aziendali a uso intensivo di memoria.
+Le istanze della serie ESv3 includono i processori Intel® Xeon® 8171M 2,1 GHz (Skylake) o Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) e possono raggiungere 3,5 GHz con la tecnologia Intel Turbo Boost 2,0 e usare archiviazione Premium. Le istanze Ev3 sono ideali per applicazioni aziendali a uso intensivo di memoria.
 
 
-| Size             | CPU virtuale | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensioni             | vCPU | Memoria: GiB | GiB di archiviazione temporanea (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
 | Standard_E2s_v3 | 2      | 16          | 32             | 4              | 4000/32 (50)                                                       | 3200/48                                | 2 / 1000                                   |
 | Standard_E4s_v3&nbsp;<sup>2</sup> | 4      | 32          | 64             | 8              | 8000/64 (100)                                                      | 6400/96                                | 2 / 2000                                   |
@@ -50,7 +50,7 @@ Le istanze della serie ESv3 sono basate sul processore Intel Xeon® E5-2673 v4 (
 | Standard_E16s_v3&nbsp;<sup>2</sup> | 16     | 128         | 256            | 32             | 32000/256 (400)                                                    | 25600/384                              | 8 / 8000                                       |
 | Standard_E20s_v3                   | 20     | 160         | 320            | 32             | 40000/320 (400)                                                    | 32000/480                              | 8 / 10000                                       |
 | Standard_E32s_v3&nbsp;<sup>2</sup> | 32     | 256         | 512            | 32             | 64000/512 (800)                                                    | 51200/768                              | 8 / 16000                             |
-| Standard_E48s_v3&nbsp;<sup>2</sup> | 48     | 384         | 768            | 32             | 96000/768 (1200)                                                   | 76800/1152                             | 8 / 24000                             |
+| Standard_E48s_v3 @ no__t-0<sup>2</sup> | 48     | 384         | 768            | 32             | 96000/768 (1200)                                                   | 76800/1152                             | 8 / 24000                             |
 | Standard_E64s_v3&nbsp;<sup>2</sup> | 64     | 432         | 864            | 32             | 128000/1024 (1600)                                                   | 80000/1200                             | 8 / 30000                             |
 | Standard_E64is_v3&nbsp;<sup>3</sup> | 64     | 432         | 864            | 32             | 128000/1024 (1600)                                                   | 80000/1200                             | 8 / 30000                             |
 
@@ -63,15 +63,15 @@ Le istanze della serie ESv3 sono basate sul processore Intel Xeon® E5-2673 v4 (
 
 ## <a name="easv3-series-preview"></a>Serie Easv3 (anteprima)
 
-Archiviazione Premium: Supportato
+Archiviazione Premium: supportata
 
-Caching archiviazione Premium: Supportato
+Caching archiviazione Premium: supportato
 
 Le dimensioni della serie Easv3 sono basate sul processore 2.35 GHz AMD EPYC<sup>TM</sup> 7452 che può ottenere un Fmax incrementato di 3.35 GHz e usare archiviazione Premium. Le dimensioni della serie Easv3 sono ideali per applicazioni aziendali a uso intensivo di memoria.
 
 [Fare clic qui per iscriversi all'anteprima](http://aka.ms/azureamdpreview).
 
-| Size | CPU virtuale | Memoria: GiB | Archiviazione temporanea (SSD): GiB |
+| Dimensioni | vCPU | Memoria: GiB | Archiviazione temporanea (SSD): GiB |
 |---|---|---|---|
 | Standard_E2as_v3  | 2  | 16  | 32  |
 | Standard_E4as_v3  | 4  | 32  | 64  |
@@ -85,16 +85,16 @@ Le dimensioni della serie Easv3 sono basate sul processore 2.35 GHz AMD EPYC<sup
 
 ACU: 160 - 190 <sup>1</sup>
 
-Archiviazione Premium:  Non supportata
+Archiviazione Premium: non supportata
 
-Caching archiviazione Premium:  Non supportata
+Caching archiviazione Premium: non supportato
 
-Le istanze della serie Ev3 sono basate sul processore Intel Xeon® E5-2673 v4 (Broadwell) a 2,3 GHz e con la tecnologia Intel Turbo Boost 2.0 possono arrivare fino a 3,5 GHz. Le istanze della serie Ev3 sono ideali per applicazioni aziendali a uso intensivo di memoria.
+Le istanze della serie EV3 includono i processori Intel® Xeon® 8171M 2,1 GHz (Skylake) o Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) e possono raggiungere 3,5 GHz con la tecnologia Intel Turbo Boost 2,0. Le istanze Ev3 sono ideali per applicazioni aziendali a uso intensivo di memoria.
 
 L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtuali. Per usare dischi di archiviazione Premium, usare le dimensioni ESv3. I prezzi e i contatori di fatturazione per le dimensioni ESv3 sono uguali a quelli della serie Ev3. 
 
 
-| Size            | CPU virtuale | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Larghezza di banda della rete/scheda NIC max |
+| Dimensioni            | vCPU | Memoria: GiB | GiB di archiviazione temporanea (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Larghezza di banda della rete/scheda NIC max |
 |-----------------|-----------|-------------|----------------|----------------|----------------------------------------------------------|------------------------------|
 | Standard_E2_v3  | 2         | 16          | 50             | 4              | 3000/46/23                                               | 2 / 1000                 |
 | Standard_E4_v3  | 4         | 32          | 100            | 8              | 6000/93/46                                               | 2 / 2000                 |
@@ -114,15 +114,15 @@ L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtu
 
 ## <a name="eav3-series-preview"></a>Serie Eav3 (anteprima)
 
-Archiviazione Premium: Non supportata
+Archiviazione Premium: non supportata
 
-Caching archiviazione Premium: Non supportata
+Caching archiviazione Premium: non supportato
 
 Le dimensioni della serie Eav3 sono basate sul processore 2.35 GHz AMD EPYC<sup>TM</sup> 7452 che può ottenere un Fmax incrementato di 3.35 GHz e usare archiviazione Premium. Le dimensioni della serie Eav3 sono ideali per applicazioni aziendali a uso intensivo di memoria. L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtuali. Per usare i dischi di archiviazione Premium, usare le dimensioni della serie Easv3. I prezzi e i contatori di fatturazione per le dimensioni Easv3 sono uguali a quelli della serie Eav3.
 
 [Fare clic qui per iscriversi all'anteprima](http://aka.ms/azureamdpreview).
 
-| Size             | CPU virtuale | Memoria: GiB | Archiviazione temporanea (SSD): GiB |
+| Dimensioni             | vCPU | Memoria: GiB | Archiviazione temporanea (SSD): GiB |
 |------------------|------|-------------|-------------------------|
 | Standard_E2a_v3  | 2    | 16          | 50                      |
 | Standard_E4a_v3  | 4    | 32          | 100                     |
@@ -134,22 +134,22 @@ Le dimensioni della serie Eav3 sono basate sul processore 2.35 GHz AMD EPYC<sup>
 
 ## <a name="mv2-series"></a>Serie Mv2
 
-Archiviazione Premium: Supportato
+Archiviazione Premium: supportata
 
-Caching archiviazione Premium: Supportato
+Caching archiviazione Premium: supportato
 
-Acceleratore di scrittura: [Supportato](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Acceleratore di scrittura: [supportato](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
 La serie Mv2 offre una velocità effettiva elevata, una bassa latenza, un'archiviazione NVMe locale con mapping diretto in esecuzione su un processore Intel® Xeon® Platinum a 2,5 GHz a Hyper-Threading con una frequenza di base di tutti i core di 2,5 GHz e una frequenza massima turbo di 3,8 GHz. Tutte le dimensioni delle macchine virtuali della serie Mv2 possono usare dischi permanenti standard e Premium. Le istanze della serie Mv2 sono dimensioni di VM con ottimizzazione per la memoria che offrono prestazioni di calcolo ineguagliabili per supportare database e carichi di lavoro in memoria di grandi dimensioni, con un rapporto elevato tra memoria e CPU, ideale per server di database relazionali, cache di grandi dimensioni e in memoria analisi. 
 
-|Size | CPU virtuale | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+|Dimensioni | vCPU | Memoria: GiB | GiB di archiviazione temporanea (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | Standard_M208ms_v2<sup>1, 2</sup> | 208 | 5700 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8 / 16000 |
 | Standard_M208s_v2<sup>1, 2</sup> | 208 | 2850 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8 / 16000 |
 
 Funzionalità della VM della serie Mv2 Intel® tecnologia Hyper-Threading  
 
-<sup>1</sup> queste macchine virtuali di grandi dimensioni richiedono uno di questi sistemi operativi guest supportati: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15.
+<sup>1</sup> queste macchine virtuali di grandi dimensioni richiedono uno di questi sistemi operativi guest supportati: windows server 2016, windows server 2019, SLES 12 SP4, SLES 15.
 
 <sup>2</sup> le macchine virtuali della serie Mv2 sono solo di generazione 2. Se si usa Linux, vedere la sezione seguente per informazioni su come trovare e selezionare un'immagine SUSE Linux.
 
@@ -164,16 +164,16 @@ Per selezionare un'immagine SUSE Linux appropriata nel portale di Azure:
     * SUSE Linux Enterprise Server (SLES) per SAP
     * SUSE Linux Enterprise Server (SLES) per SAP (BYOS)
     
-1. Le immagini SUSE compatibili con la serie Mv2 hanno come prefisso il nome `GEN2:`. Per le macchine virtuali della serie Mv2 sono disponibili le immagini SUSE seguenti:
+1. Le immagini SUSE compatibili con la serie Mv2 sono precedute dal nome `GEN2:`. Per le macchine virtuali della serie Mv2 sono disponibili le immagini SUSE seguenti:
 
-    * GEN2 SUSE Linux Enterprise Server (SLES) 12 SP4 per le applicazioni SAP
-    * GEN2 SUSE Linux Enterprise Server (SLES) 15 per le applicazioni SAP
-    * GEN2 SUSE Linux Enterprise Server (SLES) 12 SP4 per le applicazioni SAP (BYOS)
-    * GEN2 SUSE Linux Enterprise Server (SLES) 15 per le applicazioni SAP (BYOS)
+    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 per le applicazioni SAP
+    * GEN2: SUSE Linux Enterprise Server (SLES) 15 per le applicazioni SAP
+    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 per le applicazioni SAP (BYOS)
+    * GEN2: SUSE Linux Enterprise Server (SLES) 15 per le applicazioni SAP (BYOS)
 
 #### <a name="select-a-suse-image-via-azure-cli"></a>Selezionare un'immagine SUSE tramite l'interfaccia della riga di comando
 
-Per visualizzare un elenco delle immagini SLES per SAP attualmente disponibili per le macchine virtuali della serie Mv2, usare il [`az vm image list`](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list) comando seguente:
+Per visualizzare un elenco delle immagini SLES per SAP attualmente disponibili per le macchine virtuali della serie Mv2, usare il comando [`az vm image list`](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list) seguente:
 
 ```azurecli
 az vm image list --output table --publisher SUSE --sku gen2 --all
@@ -196,18 +196,18 @@ SLES-SAP-BYOS  SUSE       gen2-15      SUSE:SLES-SAP-BYOS:gen2-15:2019.05.13    
 
 ACU: 160-180 <sup>1</sup>
 
-Archiviazione Premium:  Supportato
+Archiviazione Premium: supportata
 
-Caching archiviazione Premium:  Supportato
+Caching archiviazione Premium: supportato
 
 Le dimensioni della serie M sono basate su Intel (R) Xeon (R) CPU E7-8890 V3 a 2.50 GHz   
 
-Acceleratore di scrittura:  [Supportato](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Acceleratore di scrittura: [supportato](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-| Size            | CPU virtuale | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensioni            | vCPU | Memoria: GiB | GiB di archiviazione temporanea (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | Standard_M8ms&nbsp;<sup>3</sup>    | 8  | 218,75 | 256  | 8  | 10000/100 (793)  | 5000/125 | 4 / 2000 |
-| Standard_M16ms&nbsp;<sup>3</sup>   | 16 | 437,5  | 512  | 16 | 20000 / 200 (1587) | 10000/250 | 8 / 4000 |
+| Standard_M16ms&nbsp;<sup>3</sup>   | 16 | 437,5  | 512  | 16 | 20000/200 (1587) | 10000/250 | 8 / 4000 |
 | Standard_M32ts | 32 | 192    | 1024 | 32 | 40000/400 (3174) | 20000/500 | 8 / 8000 |
 | Standard_M32ls | 32 | 256    | 1024 | 32 | 40000/400 (3174) | 20000/500 | 8 / 8000 |
 | Standard_M32ms&nbsp;<sup>3</sup>   | 32 | 875    | 1024 | 32 | 40000/400 (3174) | 20000/500 | 8 / 8000 |
@@ -225,7 +225,7 @@ Acceleratore di scrittura:  [Supportato](https://docs.microsoft.com/azure/virtua
 
 <sup>1</sup> Le macchine virtuali serie M integrano la tecnologia Intel® Hyper-Threading
 
-<sup>2</sup> Data la presenza di più di 64 vCPU, è necessario uno dei sistemi operativi guest supportati seguenti: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 e Red Hat Enterprise Linux, CentOS 7.3 o Oracle Linux 7.3 con LIS 4.2.1.
+<sup>2</sup> Data la presenza di più di 64 vCPU, è necessario uno dei seguenti sistemi operativi guest supportati: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 e Red Hat Enterprise Linux, CentOS 7.3 o Oracle Linux 7.3 con LIS 4.2.1.
 
 <sup>3</sup> Disponibili dimensioni core vincolate.
 
@@ -237,13 +237,13 @@ Acceleratore di scrittura:  [Supportato](https://docs.microsoft.com/azure/virtua
 
 ACU: 210 - 250 <sup>1</sup>
 
-Archiviazione Premium:  Supportato
+Archiviazione Premium: supportata
 
-Caching archiviazione Premium:  Supportato
+Caching archiviazione Premium: supportato
 
-Le dimensioni della serie DSv2 sono basate sulla CPU Intel (R) Xeon (R) E5-2673 V3 @ 2.40 GHz
+Le dimensioni della serie DSv2 vengono eseguite su Intel® Xeon® 8171M 2,1 GHz (Skylake) o Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) o Intel® Xeon® E5-2673 V3 2,4 GHz (Haswell).
 
-| Size | CPU virtuale | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensioni | vCPU | Memoria: GiB | GiB di archiviazione temporanea (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11_v2&nbsp;<sup>3</sup> |2 |14 |28 |8 |8000/64 (72) |6400/96 |2 / 1500 |
 | Standard_DS12_v2&nbsp;<sup>3</sup> |4 |28 |56 |16 |16000/128 (144) |12800/192 |4 / 3000 |
@@ -262,13 +262,13 @@ Le dimensioni della serie DSv2 sono basate sulla CPU Intel (R) Xeon (R) E5-2673 
 
 ACU: 210 - 250
 
-Archiviazione Premium:  Non supportata
+Archiviazione Premium: non supportata
 
-Caching archiviazione Premium:  Non supportata
+Caching archiviazione Premium: non supportato
 
-Le dimensioni della serie DSv2 sono basate sulla CPU Intel (R) Xeon (R) E5-2673 V3 @ 2.40 GHz
+Le dimensioni della serie DSv2 vengono eseguite su Intel® Xeon® 8171M 2,1 GHz (Skylake) o Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) o Intel® Xeon® E5-2673 V3 2,4 GHz (Haswell).
 
-| Size              | CPU virtuale | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: Input/output al secondo | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensioni              | vCPU | Memoria: GiB | GiB di archiviazione temporanea (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11_v2   | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8/8 x 500                         | 2 / 1500                     |
 | Standard_D12_v2   | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16/16 x 500                         | 4 / 3000                     |

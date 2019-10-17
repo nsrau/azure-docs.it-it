@@ -1,17 +1,17 @@
 ---
-title: Trasformazione Selezione per il flusso di dati di mapping di Azure Data Factory
-description: Trasformazione Selezione per il flusso di dati di mapping di Azure Data Factory
+title: Trasformazione Selezione flusso di dati mapping di Azure Data Factory
+description: Trasformazione Selezione flusso di dati mapping di Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 289f98fdc2f39449cdeede9ee46fb39847ae2cb5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 6ef9712dd2fd6b8d53fd4ad2c3e07e1d6c8f1aec
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029276"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387207"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Trasformazione Selezione flusso di dati mapping
 
@@ -27,14 +27,14 @@ Nel diagramma precedente la trasformazione Selezione si trova nella parte superi
 
 È possibile usare la trasformazione Selezione anche come modo per deselezionare le colonne dal flusso di dati. Ad esempio, se nel sink sono definite 6 colonne, ma se ne vogliono selezionare solo 3 specifiche per la trasformazione e per poi inserirle nel flusso per il sink, è possibile selezionare solo quelle 3 tramite la trasformazione Selezione.
 
-![Trasformazione Selezione](media/data-flow/newselect1.png "Selezionare un alias")
+![Selezione trasformazione](media/data-flow/newselect1.png "Seleziona alias")
 
 ## <a name="options"></a>Opzioni
 * L'impostazione predefinita per "Select" (Selezione) prevede l'inclusione di tutte le colonne in ingresso mantenendo i nomi originali. È possibile definire un alias per il flusso impostando il nome della trasformazione Selezione.
 * Per impostare un alias per singole colonne, deselezionare "Select All" (Seleziona tutto) e usare il mapping delle colonne nella parte inferiore.
 * Scegliere Ignora duplicati per eliminare le colonne duplicate dai metadati di input o di output.
 
-![Ignora]duplicati(media/data-flow/select-skip-dup.png "Ignora") duplicati
+![Ignora duplicati](media/data-flow/select-skip-dup.png "Ignora duplicati")
 
 * Quando si sceglie di ignorare i duplicati, i risultati saranno visibili nella scheda controlla. ADF manterrà la prima occorrenza della colonna e si noterà che ogni occorrenza successiva della stessa colonna è stata rimossa dal flusso.
 
@@ -44,7 +44,7 @@ Nel diagramma precedente la trasformazione Selezione si trova nella parte superi
 ## <a name="mapping"></a>Mapping
 Per impostazione predefinita, la trasformazione Select eseguirà automaticamente il mapping di tutte le colonne, che passeranno tutte le colonne in ingresso allo stesso nome nell'output. Il nome del flusso di output impostato in Seleziona impostazioni definirà un nuovo nome di alias per il flusso. Se si mantiene il set di selezione per la mappa automatica, è possibile usare l'alias dell'intero flusso con tutte le colonne uguali.
 
-![Selezione](media/data-flow/rule2.png "mapping basato su regole di") trasformazione
+![Selezionare le regole di trasformazione](media/data-flow/rule2.png "Mapping basato su regole")
 
 Se si desidera assegnare alias, rimuovere, rinominare o riordinare le colonne, è necessario innanzitutto disattivare "mappa automatica". Per impostazione predefinita, viene visualizzata una regola predefinita immessa per il nome "tutte le colonne di input". È possibile lasciare invariata questa regola se si intende consentire sempre il mapping di tutte le colonne in ingresso allo stesso nome nell'output.
 

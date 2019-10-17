@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 930e482ab85113ac802932929fdbea358ee26035
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 880b31702cf1c0a92ab7ee536cd88e8e6957f6f8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619599"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430861"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Eseguire il backup di macchine virtuali del carico di lavoro nel cloud privato CloudSimple usando Veeam B & R
 
@@ -54,7 +54,7 @@ Per gli ambienti con meno di 30 TB per il backup, CloudSimple consiglia la confi
 
 * Server di backup Veeam e server proxy installati nella stessa macchina virtuale nel cloud privato.
 * Un repository di backup primario basato su Linux in Azure configurato come destinazione per i processi di backup.
-* `azcopy`usato per copiare i dati dal repository di backup primario a un contenitore BLOB di Azure che viene replicato in un'altra area.
+* `azcopy` usato per copiare i dati dal repository di backup primario a un contenitore BLOB di Azure che viene replicato in un'altra area.
 
 ![Scenari di distribuzione di base](media/veeam-basicdeployment.png)
 
@@ -65,7 +65,7 @@ Per gli ambienti con oltre 30 TB per il backup, CloudSimple consiglia la configu
 * Un server proxy per nodo nel cluster rete VSAN, come consigliato da Veeam.
 * Archivio di backup primario basato su Windows nel cloud privato per memorizzare nella cache cinque giorni di dati per ripristini rapidi.
 * Archivio di backup Linux in Azure come destinazione per i processi di copia di backup per un periodo di conservazione più lungo. Questo repository deve essere configurato come archivio di backup con scalabilità orizzontale.
-* `azcopy`usato per copiare i dati dal repository di backup primario a un contenitore BLOB di Azure che viene replicato in un'altra area.
+* `azcopy` usato per copiare i dati dal repository di backup primario a un contenitore BLOB di Azure che viene replicato in un'altra area.
 
 ![Scenari di distribuzione di base](media/veeam-advanceddeployment.png)
 
@@ -88,15 +88,15 @@ Le sezioni seguenti descrivono come installare e configurare una soluzione di ba
 
 Il processo di distribuzione è costituito dai passaggi seguenti:
 
-1. [interfaccia utente di vCenter: Configurare i servizi di infrastruttura nel cloud privato](#vcenter-ui-set-up-infrastructure-services-in-your-private-cloud)
-2. [Portale di CloudSimple: Configurare la rete cloud privata per Veeam](#cloudsimple-private-cloud-set-up-private-cloud-networking-for-veeam)
-3. [Portale di CloudSimple: Escalation dei privilegi](#cloudsimple-private-cloud-escalate-privileges-for-cloudowner)
-4. [Portale di Azure: Connettere la rete virtuale al cloud privato](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
-5. [Portale di Azure: Creare un repository di backup in Azure](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
-6. [Portale di Azure: Configurare l'archiviazione BLOB di Azure per la conservazione dei dati a lungo termine](#configure-azure-blob-storage-for-long-term-data-retention)
-7. [interfaccia utente di vCenter del cloud privato: Installare Veeam B & R](#vcenter-console-of-private-cloud-install-veeam-br)
-8. [Console Veeam: Configurare Veeam Backup & software di ripristino](#veeam-console-install-veeam-backup-and-recovery-software)
-9. [Portale di CloudSimple: Configurare i privilegi di accesso Veeam e decalation](#cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges)
+1. [interfaccia utente di vCenter: configurare i servizi di infrastruttura nel cloud privato](#vcenter-ui-set-up-infrastructure-services-in-your-private-cloud)
+2. [Portale di CloudSimple: configurare la rete cloud privata per Veeam](#cloudsimple-private-cloud-set-up-private-cloud-networking-for-veeam)
+3. [Portale di CloudSimple: escalation dei privilegi](#cloudsimple-private-cloud-escalate-privileges-for-cloudowner)
+4. [Portale di Azure: connettere la rete virtuale al cloud privato](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
+5. [Portale di Azure: creare un repository di backup in Azure](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
+6. [Portale di Azure: configurare l'archivio BLOB di Azure per la conservazione dei dati a lungo termine](#configure-azure-blob-storage-for-long-term-data-retention)
+7. [interfaccia utente di vCenter del cloud privato: installare Veeam B & R](#vcenter-console-of-private-cloud-install-veeam-br)
+8. [Console Veeam: configurare il backup Veeam & software di ripristino](#veeam-console-install-veeam-backup-and-recovery-software)
+9. [Portale di CloudSimple: configurare i privilegi di accesso Veeam e decalation](#cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges)
 
 ### <a name="before-you-begin"></a>Prima di iniziare
 
@@ -115,7 +115,7 @@ Durante la fase di implementazione sono necessari gli elementi seguenti:
 * CIDR della subnet da assegnare alla rete di backup
 * Media installabile Veeam 9,5 U3 (ISO) caricato nell'archivio dati rete VSAN del cloud privato
 
-### <a name="vcenter-ui-set-up-infrastructure-services-in-your-private-cloud"></a>interfaccia utente di vCenter: Configurare i servizi di infrastruttura nel cloud privato
+### <a name="vcenter-ui-set-up-infrastructure-services-in-your-private-cloud"></a>interfaccia utente di vCenter: configurare i servizi di infrastruttura nel cloud privato
 
 Configurare i servizi di infrastruttura nel cloud privato per semplificare la gestione dei carichi di lavoro e degli strumenti.
 
@@ -126,7 +126,7 @@ Configurare i servizi di infrastruttura nel cloud privato per semplificare la ge
   * Si desidera utilizzare Azure AD.
 * Per fornire servizi di ricerca di indirizzi IP, gestione indirizzi IP e risoluzione dei nomi per i carichi di lavoro nel cloud privato, configurare un server DHCP e DNS come descritto in [configurare le applicazioni e i carichi di lavoro DNS e DHCP nel cloud privato CloudSimple](dns-dhcp-setup.md).
 
-### <a name="cloudsimple-private-cloud-set-up-private-cloud-networking-for-veeam"></a>Cloud privato CloudSimple: Configurare la rete cloud privata per Veeam
+### <a name="cloudsimple-private-cloud-set-up-private-cloud-networking-for-veeam"></a>Cloud privato CloudSimple: configurare la rete cloud privata per Veeam
 
 Accedere al portale di CloudSimple per configurare la rete cloud privata per la soluzione Veeam.
 
@@ -136,7 +136,7 @@ Creare regole del firewall tra la subnet di gestione e la rete di backup per con
 
 Nella tabella seguente viene fornito un elenco di porte.
 
-| Icona | Descrizione | Icona | Descrizione |
+| Icona | Description | Icona | Description |
 | ------------ | ------------- | ------------ | ------------- |
 | Server di backup  | vCenter  | HTTPS/TCP  | 443 |
 | Server di backup <br> *Obbligatorio per la distribuzione di Veeam Backup & componenti di replica* | Proxy di backup  | TCP/UDP  | 135, da 137 a 139 e 445 |
@@ -155,22 +155,22 @@ Per impostazione predefinita, CloudSimple fornisce un collegamento 1 Gbps Expres
 
 Per continuare l'installazione, sono necessari la chiave di autorizzazione e l'URI del circuito peer e l'accesso alla sottoscrizione di Azure.  Queste informazioni sono disponibili nella pagina connessione della rete virtuale nel portale di CloudSimple. Per istruzioni, vedere [ottenere informazioni sul peering per la rete virtuale di Azure per la connessione CloudSimple](virtual-network-connection.md). Se si verificano problemi durante il recupero delle informazioni, [contattare il supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-### <a name="cloudsimple-private-cloud-escalate-privileges-for-cloudowner"></a>Cloud privato CloudSimple: Escalation dei privilegi per cloudowner
+### <a name="cloudsimple-private-cloud-escalate-privileges-for-cloudowner"></a>Cloud privato CloudSimple: escalation dei privilegi per cloudowner
 
-L'utente ' cloudowner ' predefinito non dispone di privilegi sufficienti nel cloud privato vCenter per installare VEEAM, quindi è necessario eseguire l'escalation dei privilegi vCenter dell'utente. Per ulteriori informazioni, vedere [privilegi](escalate-private-cloud-privileges.md)di escalation.
+L'utente ' cloudowner ' predefinito non dispone di privilegi sufficienti nel cloud privato vCenter per installare VEEAM, quindi è necessario eseguire l'escalation dei privilegi vCenter dell'utente. Per ulteriori informazioni, vedere [privilegi di escalation](escalate-private-cloud-privileges.md).
 
-### <a name="azure-portal-connect-your-virtual-network-to-the-private-cloud"></a>Portale di Azure: Connettere la rete virtuale al cloud privato
+### <a name="azure-portal-connect-your-virtual-network-to-the-private-cloud"></a>Portale di Azure: connettere la rete virtuale al cloud privato
 
 Connettere la rete virtuale al cloud privato seguendo le istruzioni riportate in [connessione alla rete virtuale di Azure con ExpressRoute](azure-expressroute-connection.md).
 
-### <a name="azure-portal-create-a-backup-repository-vm"></a>Portale di Azure: Creare una VM del repository di backup
+### <a name="azure-portal-create-a-backup-repository-vm"></a>Portale di Azure: creare una VM del repository di backup
 
 1. Creare una VM D2 v3 standard con (2 vCPU e 8 GB di memoria).
 2. Selezionare l'immagine basata su CentOS 7,4.
 3. Configurare un gruppo di sicurezza di rete (NSG) per la macchina virtuale. Verificare che la macchina virtuale non disponga di un indirizzo IP pubblico e che non sia raggiungibile dalla rete Internet pubblica.
 4. Creare un account utente basato su nome utente e password per la nuova macchina virtuale. Per istruzioni, vedere [creare una macchina virtuale Linux nel portale di Azure](../virtual-machines/linux/quick-create-portal.md).
 5. Creare da 512 GiB standard HDD e collegarlo alla VM del repository.  Per istruzioni, vedere [come aggiungere un disco dati gestito a una macchina virtuale Windows nel portale di Azure](../virtual-machines/windows/attach-managed-disk-portal.md).
-6. [Creare un volume XFS sul disco gestito](https://www.digitalocean.com/docs/volumes/how-to/format-and-mount). Accedere alla macchina virtuale usando le credenziali indicate in precedenza. Eseguire lo script seguente per creare un volume logico, aggiungervi il disco, creare una partizione del file system XFS e montare la partizione nel percorso/BACKUP1.
+6. [Creare un volume XFS sul disco gestito](https://www.digitalocean.com/docs/volumes/how-to/). Accedere alla macchina virtuale usando le credenziali indicate in precedenza. Eseguire lo script seguente per creare un volume logico, aggiungervi il disco, creare una [partizione](https://www.digitalocean.com/docs/volumes/how-to/partition/) del file system XFS e [montare](https://www.digitalocean.com/docs/volumes/how-to/mount/) la partizione nel percorso/BACKUP1.
 
     Script di esempio:
 
@@ -196,7 +196,7 @@ Connettere la rete virtuale al cloud privato seguendo le istruzioni riportate in
 
 1. Creare un account di archiviazione per utilizzo generico (GPv2) di tipo standard e un contenitore BLOB come descritto nel Introduzione video Microsoft [con archiviazione di Azure](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage).
 2. Creare un contenitore di archiviazione di Azure, come descritto in creare un riferimento al [contenitore](https://docs.microsoft.com/rest/api/storageservices/create-container) .
-2. Scaricare l' `azcopy` utilità da riga di comando per Linux da Microsoft. È possibile usare i comandi seguenti nella shell bash in CentOS 7,5.
+2. Scaricare l'utilità da riga di comando `azcopy` per Linux da Microsoft. È possibile usare i comandi seguenti nella shell bash in CentOS 7,5.
 
     ```
     wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinux64
@@ -206,9 +206,9 @@ Connettere la rete virtuale al cloud privato seguendo le istruzioni riportate in
     sudo yum -y install icu
     ```
 
-3. Usare il `azcopy` comando per copiare i file di backup da e verso il contenitore BLOB.  Per i comandi dettagliati, vedere [trasferire dati con AzCopy in Linux](../storage/common/storage-use-azcopy-linux.md) .
+3. Usare il comando `azcopy` per copiare i file di backup da e verso il contenitore BLOB.  Per i comandi dettagliati, vedere [trasferire dati con AzCopy in Linux](../storage/common/storage-use-azcopy-linux.md) .
 
-### <a name="vcenter-console-of-private-cloud-install-veeam-br"></a>Console vCenter del cloud privato: Installare Veeam B & R
+### <a name="vcenter-console-of-private-cloud-install-veeam-br"></a>Console vCenter del cloud privato: installare Veeam B & R
 
 Accedere a vCenter dal cloud privato per creare un account del servizio Veeam, installare Veeam B & R 9,5 e configurare Veeam con l'account del servizio.
 
@@ -224,11 +224,11 @@ Accedere a vCenter dal cloud privato per creare un account del servizio Veeam, i
 7. Utilizzando una sessione RDP per il computer Windows 2012 R2 (la destinazione per l'installazione di Veeam), [installare Veeam B & R 9.5 U3](https://helpcenter.veeam.com/docs/backup/vsphere/install_vbr.html?ver=95) in una VM Windows 2012 R2.
 8. Trovare l'indirizzo IP interno della VM Veeam Backup Server e configurare l'indirizzo IP in modo che sia statico nel server DHCP. I passaggi esatti necessari per eseguire questa operazione dipendono dal server DHCP. Ad esempio, l'articolo NETGATE <a href="https://www.netgate.com/docs/pfsense/dhcp/dhcp-server.html" target="_blank">mapping DHCP statici</a> spiega come configurare un server DHCP usando un router pfSense.
 
-### <a name="veeam-console-install-veeam-backup-and-recovery-software"></a>Console Veeam: Installare il software di backup e ripristino Veeam
+### <a name="veeam-console-install-veeam-backup-and-recovery-software"></a>Console Veeam: installare il software di backup e ripristino Veeam
 
 Utilizzando la console Veeam, configurare il software di backup e ripristino Veeam. Per informazioni dettagliate, vedere [Veeam Backup & Replication V9-Installation and Deployment](https://www.youtube.com/watch?v=b4BqC_WXARk).
 
-1. Aggiungere VMware vSphere come ambiente server gestito. Quando richiesto, specificare le credenziali dell'account del servizio Veeam creato all'inizio della [console vCenter del cloud privato: Installare Veeam B & R](#vcenter-console-of-private-cloud-install-veeam-br).
+1. Aggiungere VMware vSphere come ambiente server gestito. Quando richiesto, specificare le credenziali dell'account del servizio Veeam creato all'inizio della [console vCenter del cloud privato: installare Veeam B & R](#vcenter-console-of-private-cloud-install-veeam-br).
 
     * Usare le impostazioni predefinite per il controllo di carico e le impostazioni avanzate predefinite.
     * Impostare il percorso del server di montaggio come server di backup.
@@ -253,12 +253,12 @@ Utilizzando la console Veeam, configurare il software di backup e ripristino Vee
     * Per configurare i processi di copia di backup, seguire le istruzioni riportate nel video [creazione di un processo di copia di backup](https://www.youtube.com/watch?v=LvEHV0_WDWI&t=2s).
     * Abilitare la crittografia dei file di backup in **Impostazioni avanzate > archiviazione**.
 
-### <a name="cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges"></a>Portale di CloudSimple: Configurare i privilegi di accesso Veeam e decalation
+### <a name="cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges"></a>Portale di CloudSimple: configurare i privilegi di accesso Veeam e decalation
 Creare un indirizzo IP pubblico per il server di backup e ripristino Veeam. Per istruzioni, vedere [allocare indirizzi IP pubblici](public-ips.md).
 
 Creare una regola del firewall usando per consentire al server di backup Veeam di creare una connessione in uscita al sito web Veeam per scaricare gli aggiornamenti/patch sulla porta TCP 80. Per istruzioni, vedere [configurare le regole e le tabelle del firewall](firewall.md).
 
-Per annullare l'escalation dei privilegi, vedere decrescenza dei [privilegi](escalate-private-cloud-privileges.md#de-escalate-privileges).
+Per annullare l'escalation dei privilegi, vedere [decrescenza dei privilegi](escalate-private-cloud-privileges.md#de-escalate-privileges).
 
 ## <a name="references"></a>Riferimenti
 

@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d27b3613acb2980ff4116825197d018f9c183baa
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 31fdd85fdcc40b38738d33e2c0c13797db7b1d42
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266858"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390556"
 ---
 ## <a name="benefits"></a>Vantaggi 
 
@@ -83,6 +83,8 @@ Una volta eseguito il provisioning di un host dedicato, Azure lo assegna al serv
 
 Per ulteriori informazioni, vedere la pagina relativa alle [quote vCPU per le macchine virtuali](/azure/virtual-machines/windows/quotas).
 
+La versione di valutazione gratuita e gli abbonamenti MSDN non hanno una quota per gli host dedicati di Azure.
+
 ## <a name="pricing"></a>Prezzi
 
 Gli utenti vengono addebitati in base all'host dedicato, indipendentemente dal numero di macchine virtuali distribuite. Nell'istruzione mensile viene visualizzato un nuovo tipo di risorsa fatturabile degli host. Le macchine virtuali in un host dedicato verranno comunque visualizzate nell'istruzione, ma con un prezzo pari a 0.
@@ -97,11 +99,11 @@ Per altre informazioni, vedere [prezzi di host dedicati di Azure](https://aka.ms
 
 Uno SKU viene definito per un host e rappresenta la serie di dimensioni e il tipo di VM. È possibile combinare più macchine virtuali di dimensioni diverse all'interno di un singolo host, purché siano delle stesse serie di dimensioni. Il tipo è la generazione hardware attualmente disponibile nell'area.
 
-Diversi `types` per la stessa serie di VM proverranno da diversi fornitori di CPU e con diverse generazioni di CPU e numero di core.
+Diverse `types` per la stessa serie di VM proverranno da diversi fornitori di CPU e hanno diverse generazioni di CPU e numero di core.
 
 Per altre informazioni, vedere la pagina relativa ai [prezzi](https://aka.ms/ADHPricing) per gli host.
 
-Durante l'anteprima, si supporterà il SKU\types host seguente:  DSv3_Type1 e ESv3_Type1
+Durante l'anteprima, si supporterà il seguente SKU\types host: DSv3_Type1 e ESv3_Type1
 
  
 ## <a name="host-life-cycle"></a>Ciclo di vita dell'host
@@ -109,10 +111,10 @@ Durante l'anteprima, si supporterà il SKU\types host seguente:  DSv3_Type1 e ES
 
 Azure monitora e gestisce lo stato di integrità degli host. Quando si esegue una query sull'host, verranno restituiti gli Stati seguenti:
 
-| Stato di integrità   | Descrizione       |
+| Stato di integrità   | Description       |
 |----------|----------------|
 | Host disponibile     | Nessun problema noto con l'host.   |
 | Host sottoposto a indagine  | Si sono verificati problemi con l'host che si sta cercando. Si tratta di uno stato di transizione necessario per consentire ad Azure di provare e identificare l'ambito e la causa radice del problema identificato. Le macchine virtuali in esecuzione nell'host potrebbero essere interessate. |
-| Deallocazione in sospeso host   | Azure non può ripristinare lo stato integro dell'host e richiedere la ridistribuzione delle macchine virtuali da questo host. Se `autoReplaceOnFailure` è abilitato, le macchine virtuali vengono *risanate* in hardware integro. In caso contrario, è possibile che la macchina virtuale sia in esecuzione in un host che sta per avere esito negativo.|
+| Deallocazione in sospeso host   | Azure non può ripristinare lo stato integro dell'host e richiedere la ridistribuzione delle macchine virtuali da questo host. Se `autoReplaceOnFailure` è abilitato, le macchine virtuali vengono *riparate* in hardware integro. In caso contrario, è possibile che la macchina virtuale sia in esecuzione in un host che sta per avere esito negativo.|
 | Host deallocato  | Tutte le macchine virtuali sono state rimosse dall'host. Non vengono più addebitati costi per questo host perché l'hardware è stato escluso dalla rotazione.   |
 

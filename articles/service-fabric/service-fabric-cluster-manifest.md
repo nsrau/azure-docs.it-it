@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: ae7fbef864634e47866de13384871a98b8ce4675
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca04539049766e1f053d74b3a8536f154c3fd830
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209710"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383577"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Impostazioni di configurazione per un cluster autonomo in Windows
 Questo articolo descrive le impostazioni di configurazione di un cluster autonomo di Azure Service Fabric definibili nel file *ClusterConfig.json*. Questo file verrà usato per specificare informazioni sui nodi del cluster, le configurazioni di sicurezza, nonché la topologia di rete in termini di domini di errore e di aggiornamento.  Dopo la modifica o l'aggiunta di impostazioni di configurazione, è possibile [creare un cluster autonomo](service-fabric-cluster-creation-for-windows-server.md) oppure [aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -110,7 +110,7 @@ La variabile metadata descrive la diagnostica del cluster e può essere impostat
 }
 ```
 
-### <a name="security"></a>Security
+### <a name="security"></a>Sicurezza
 La sezione security è necessaria per la protezione di un cluster di Service Fabric autonomo. Il frammento seguente mostra una parte di questa sezione:
 
 ```json
@@ -122,7 +122,7 @@ La sezione security è necessaria per la protezione di un cluster di Service Fab
 }
 ```
 
-La variabile metadata descrive il cluster protetto e può essere impostata in base alla configurazione in uso. ClusterCredentialType e ServerCredentialType determinano il tipo di protezione implementata dal cluster e dai nodi. Può essere impostati su *X509* per una protezione basata su certificato o *Windows* per la sicurezza basata su Active Directory. Il resto della sezione security sarà basato sul tipo di protezione. Leggere l'articolo sulla [sicurezza basata su certificati in un cluster autonomo](service-fabric-windows-cluster-x509-security.md) o sulla [sicurezza di Windows in un cluster autonomo](service-fabric-windows-cluster-windows-security.md) per informazioni su come compilare il resto della sezione security.
+La variabile metadata descrive il cluster protetto e può essere impostata in base alla configurazione in uso. ClusterCredentialType e ServerCredentialType determinano il tipo di protezione implementata dal cluster e dai nodi. Possono essere impostate su *X509* per una sicurezza basata su certificato o su *Windows* per la sicurezza basata su Active Directory. Il resto della sezione security sarà basato sul tipo di protezione. Leggere l'articolo sulla [sicurezza basata su certificati in un cluster autonomo](service-fabric-windows-cluster-x509-security.md) o sulla [sicurezza di Windows in un cluster autonomo](service-fabric-windows-cluster-windows-security.md) per informazioni su come compilare il resto della sezione security.
 
 ### <a name="node-types"></a>Tipi di nodi
 La sezione nodeTypes descrive il tipo di nodi del cluster. Per ogni cluster deve essere specificato almeno un tipo di nodo, come illustrato nel frammento riportato di seguito: 
@@ -202,6 +202,7 @@ Per configurare le funzioni aggiuntive, l'impostazione di apiVersion deve essere
     ]
 }
 ```
+Tutte le funzionalità del componente aggiuntivo disponibili possono essere visualizzate nella Guida di [riferimento all'API REST di Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures).
 
 ### <a name="container-support"></a>Supporto dei contenitori
 Per abilitare il supporto dei contenitori sia per i contenitori di Windows Server che per i contenitori di Hyper-V per i cluster autonomi, deve essere attivata la funzionalità aggiuntiva DnsService.

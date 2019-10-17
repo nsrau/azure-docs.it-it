@@ -10,16 +10,19 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 08/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: ea324d616928b0d517c00dc9cab3e282f1e3415e
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e7d69e2258036318b736f245f9e3aec3cf5f54de
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67876430"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389934"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentare app Web in fase di esecuzione con Application Insights connessione senza codice
+
+> [!IMPORTANT]
+> Non è più consigliabile usare Status Monitor. È stata sostituita dall'agente Application Insights di monitoraggio di Azure (in precedenza denominato Status Monitor v2). Vedere la documentazione per le distribuzioni di [server locali](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) o per le [distribuzioni di macchine virtuali di Azure e set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
 
 È possibile instrumentare un'app Web attiva con Azure Application Insights senza dover modificare o ridistribuire il codice. È necessaria una sottoscrizione di [Microsoft Azure](https://azure.com) .
 
@@ -35,7 +38,7 @@ Status Monitor viene usato per instrumentare un'applicazione .NET ospitata in II
 
 È possibile scegliere di applicare Application Insights alle applicazioni Web .NET in due modi:
 
-* **Fase di compilazione:** [Aggiungere il Application Insights SDK][greenbrown] al codice dell'app Web.
+* **Tempo di compilazione:** [aggiungere il Application Insights SDK][greenbrown] al codice dell'app Web.
 * **Fase di esecuzione:** instrumentare l'app Web sul server, come descritto di seguito, senza ricompilare e ridistribuire il codice.
 
 > [!NOTE]
@@ -43,16 +46,16 @@ Status Monitor viene usato per instrumentare un'applicazione .NET ospitata in II
 
 Ecco un riepilogo di ciò che offrono i singoli modi:
 
-|  | Fase di compilazione | Tempo di esecuzione |
+|  | Fase di compilazione | Fase di esecuzione |
 | --- | --- | --- |
-| Richieste ed eccezioni |Yes |Sì |
-| [Eccezioni più dettagliate](../../azure-monitor/app/asp-net-exceptions.md) | |Sì |
+| Richieste ed eccezioni |SÌ |SÌ |
+| [Eccezioni più dettagliate](../../azure-monitor/app/asp-net-exceptions.md) | |SÌ |
 | [Diagnostica delle dipendenze](../../azure-monitor/app/asp-net-dependencies.md) |In .NET 4.6 e versioni successive, ma meno dettagli |Sì, dettagli completi: codici risultato, testo del comando SQL, verbo HTTP|
-| [Contatori delle prestazioni di sistema](../../azure-monitor/app/performance-counters.md) |Yes |Sì |
-| [API per la telemetria personalizzata][api] |Sì |No |
-| [Integrazione log di traccia](../../azure-monitor/app/asp-net-trace-logs.md) |Sì |No |
-| [Visualizzazione pagina e dati utente](../../azure-monitor/app/javascript.md) |Sì |No |
-| Ricompilazione del codice necessaria |Sì | No |
+| [Contatori delle prestazioni di sistema](../../azure-monitor/app/performance-counters.md) |SÌ |SÌ |
+| [API per la telemetria personalizzata][api] |SÌ |No |
+| [Integrazione log di traccia](../../azure-monitor/app/asp-net-trace-logs.md) |SÌ |No |
+| [Visualizzazione pagina e dati utente](../../azure-monitor/app/javascript.md) |SÌ |No |
+| Ricompilazione del codice necessaria |SÌ | No |
 
 
 
@@ -150,7 +153,7 @@ Microsoft sta verificando [qui](https://github.com/Microsoft/ApplicationInsights
 * Per output di log dettagliati, modificare il file config: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` e aggiungere `<add key="TraceLevel" value="All" />` ad `appsettings`.
 Quindi riavviare il monitoraggio stato.
 
-* Poiché Status Monitor è un'applicazione .NET, è anche possibile abilitare la [traccia .NET aggiungendo la diagnostica appropriata al file di configurazione](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). In alcuni scenari, ad esempio, può essere utile vedere cosa avviene a livello di rete configurando la [traccia di rete](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
+* Poiché Status Monitor è un'applicazione .NET, è anche possibile abilitare la [traccia .NET aggiungendo la diagnostica appropriata al file di configurazione](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). In alcuni scenari, ad esempio, può essere utile vedere cosa avviene a livello di rete [configurando la traccia di rete](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
 
 ### <a name="insufficient-permissions"></a>Autorizzazioni insufficienti
   
@@ -244,7 +247,7 @@ Individuare le applicazioni sottoposte a monitoraggio:
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
 * `-Name`: nome di un'app Web in IIS.
-* `-InstrumentationKey` (facoltativo): consente di modificare la risorsa a cui vengono inviati i dati di telemetria dell'app.
+* `-InstrumentationKey` (facoltativo). Usare questo per modificare la risorsa a cui vengono inviati i dati di telemetria dell'app.
 * Questo cmdlet:
   * Aggiorna l'app denominata alla versione dell'SDK scaricata più di recente nel computer. Funziona solo se `SdkState==EnabledAfterDeployment`.
   * Se si specifica una chiave di strumentazione, l'app denominata viene riconfigurata per l'invio di dati di telemetria alla risorsa con tale chiave. Funziona se `SdkState != Disabled`.
@@ -304,7 +307,7 @@ Per le applicazioni già instrumentate in fase di compilazione:
  * Chiamate alle dipendenze (.NET 4.5) e valori restituiti nelle chiamate alle dipendenze (.NET 4.6)
  * Valori di analisi dello stack delle eccezioni
 
-[Altre informazioni](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Ulteriori informazioni](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>Video
 
@@ -327,7 +330,7 @@ Visualizzare i dati di telemetria:
 Aggiungere altri dati di telemetria:
 
 * [Creare test Web][availability] per assicurarsi che il sito rimanga attivo.
-* Aggiungere i dati di telemetria del [client Web][usage] per visualizzare le eccezioni dal codice della pagina Web e consentire di inserire le chiamate di traccia.
+* Aggiungere i dati di [telemetria del client Web][usage] per visualizzare le eccezioni dal codice della pagina Web e consentire di inserire le chiamate di traccia.
 * [Aggiungere Application Insights SDK al codice in][greenbrown] modo che sia possibile inserire chiamate di traccia e log
 
 <!--Link references-->

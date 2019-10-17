@@ -1,5 +1,5 @@
 ---
-title: Eseguire il push di notifiche a utenti specifici con Hub di notifica di Azure | Microsoft Docs
+title: Inviare notifiche push a utenti specifici usando hub di notifica di Azure | Microsoft Docs
 description: Informazioni su come eseguire il push di notifiche a utenti specifici con Hub di notifica di Azure.
 documentationcenter: ios
 author: sethm
@@ -16,18 +16,18 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 85461f72d4385805e2aa13691a574a2161036ca5
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 48135ea614bbab4ca6649a83895ae5f632918c61
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212227"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387468"
 ---
-# <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Esercitazione: Eseguire il push di notifiche a utenti specifici con Hub di notifica di Azure
+# <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Esercitazione: inviare notifiche push a utenti specifici usando hub di notifica di Azure
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-In questa esercitazione viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un utente specifico dell'app su un dispositivo specifico. Per autenticare i client e generare le notifiche viene usato un back-end di API Web ASP.NET, come illustrato nell'argomento [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) (Registrazione dal back-end dell'app).
+Questa esercitazione spiega come usare gli hub di notifica di Azure per inviare notifiche push agli utenti di una determinata app installata su dispositivi specifici. Per autenticare i client e generare le notifiche viene usato un back-end di API Web ASP.NET, come illustrato nell'argomento [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) (Registrazione dal back-end dell'app).
 
 In questa esercitazione vengono completati i passaggi seguenti:
 
@@ -60,7 +60,7 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
 
    * **Nome utente**: oggetto UITextField con testo segnaposto, *Enter Username*, immediatamente sotto l'etichetta per l'invio dei risultati e limitato dai margini sinistro e destro.
    * **Password**: oggetto UITextField con testo segnaposto, *Enter Password*, immediatamente sotto il campo di testo del nome utente e limitato dai margini sinistro e destro. Selezionare l'opzione **Secure Text Entry** in Attribute Inspector sotto *Return Key*.
-   * **Accesso**: oggetto UIButton con etichetta immediatamente sotto il campo di testo della password. Deselezionare l'opzione **Abilitato** in Attributes Inspector sotto *Control-Content*
+   * **Accesso**: oggetto UIButton con etichetta immediatamente sotto il campo di testo della password; deselezionare l'opzione **Abilitato** in Attributes Inspector sotto *Control-Content*.
    * **WNS**: etichetta e opzione per consentire l'invio della notifica al servizio di notifica Windows se è stato configurato nell'hub. Vedere l'esercitazione [Introduzione a Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
    * **GCM**: etichetta e opzione per consentire l'invio della notifica a Google Cloud Messaging se è stato configurato nell'hub. Vedere l'esercitazione [Introduzione ad Android](notification-hubs-android-push-notification-google-gcm-get-started.md) .
    * **APNS**: etichetta e opzione per consentire l'invio della notifica al servizio di notifica della piattaforma di Apple.

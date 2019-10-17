@@ -5,28 +5,40 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/08/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfcd46f06035e356f6528a79b749350627541121
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.openlocfilehash: 89b52f356b112cff51105ed44c79788ee4542c6e
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303532"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430507"
 ---
-# <a name="what-is-passwordless"></a>Informazioni sull'accesso senza password
+# <a name="passwordless-authentication-options"></a>Opzioni di autenticazione con password
 
 Multi-factor authentication è un ottimo modo per proteggere l'organizzazione, ma gli utenti si sentono frustrati con il livello aggiuntivo oltre a dover ricordare le password. I metodi di autenticazione senza password sono più convenienti perché la password viene rimossa e sostituita da un elemento che si ha più o da un elemento che si conosce.
 
 |   | Un elemento | Un elemento o una conoscenza |
 | --- | --- | --- |
-| Accesso senza password | Telefono o chiave di sicurezza | Biometrico o PIN |
+| Accesso senza password | Dispositivo Windows 10, telefono o chiave di sicurezza | Biometrico o PIN |
 
-Ogni organizzazione ha esigenze diverse per quanto riguarda l'autenticazione. Microsoft offre attualmente Windows Hello per i PC Windows. Si aggiungono l'app Microsoft Authenticator e le chiavi di sicurezza FIDO2 alla famiglia di password.
+Ogni organizzazione ha esigenze diverse per quanto riguarda l'autenticazione. Microsoft offre tre opzioni di autenticazione con password:
+
+- Windows Hello for Business 
+- App Microsoft Authenticator 
+- Chiavi di sicurezza FIDO2
+
+![Autenticazione: sicurezza e convenienza](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
+
+## <a name="windows-hello-for-business"></a>Windows Hello for Business 
+
+Windows Hello for business è ideale per gli Information Worker che dispongono di un proprio PC Windows designato. La biometria e il PIN sono direttamente collegati al PC dell'utente, che impedisce l'accesso da parte di utenti diversi dal proprietario. Con l'integrazione con l'infrastruttura a chiave pubblica e il supporto integrato per Single Sign-On (SSO), Windows Hello for business offre un metodo semplice e pratico per accedere facilmente alle risorse aziendali in locale e nel cloud.
+
+La [Guida alla pianificazione](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) di Windows Hello for business può essere usata per prendere decisioni sul tipo di distribuzione di Windows Hello for business e sulle opzioni che è necessario prendere in considerazione.
 
 ## <a name="microsoft-authenticator-app"></a>App Microsoft Authenticator
 
@@ -44,7 +56,7 @@ Per la versione di anteprima pubblica, i dipendenti possono usare chiavi di sicu
 
 ![Accedere a Microsoft Edge con una chiave di sicurezza](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
-Sebbene esistano molte chiavi FIDO2 certificate dall'alleanza di FIDO, Microsoft richiede che alcune estensioni facoltative della specifica FIDO2 CTAP siano implementate dal fornitore per garantire la massima sicurezza e la migliore esperienza.
+Sebbene esistano molte chiavi FIDO2 certificate dall'alleanza di FIDO, Microsoft richiede l'implementazione da parte del fornitore di alcune estensioni facoltative della specifica del protocollo client-to-Authenticator (CTAP) di FIDO2 per garantire la massima sicurezza e la migliore esperienza.
 
 Una chiave di sicurezza **deve** implementare le seguenti funzionalità ed estensioni dal protocollo CTAP di FIDO2 per essere compatibile con Microsoft:
 
@@ -75,8 +87,8 @@ Le chiavi di sicurezza di FIDO2 sono un'ottima opzione per le aziende che hanno 
 - Gli amministratori possono fare riferimento a tutti gli utenti o selezionare utenti/gruppi nel tenant per ogni metodo
 - Gli utenti finali possono registrare e gestire questi metodi di autenticazione con password nel portale per gli account
 - Gli utenti finali possono accedere con questi metodi di autenticazione senza password
-   - App Microsoft Authenticator: Funzionerà negli scenari in cui viene usata l'autenticazione Azure AD, inclusi tutti i browser, durante l'installazione di Windows 10 fuori programma (OOBE) e con app per dispositivi mobili integrate in qualsiasi sistema operativo.
-   - Chiavi di sicurezza: Funzionerà sulla schermata di blocco per Windows 10 versione 1809 o successiva e il Web in browser supportati come Microsoft Edge.
+   - Microsoft Authenticator app: funzionerà in scenari in cui viene usata l'autenticazione Azure AD, inclusi tutti i browser, durante l'installazione di Windows 10 fuori programma (OOBE) e con app per dispositivi mobili integrate in qualsiasi sistema operativo.
+   - Chiavi di sicurezza: funzionerà sulla schermata di blocco per Windows 10 versione 1809 o successiva e il Web in browser supportati come Microsoft Edge.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

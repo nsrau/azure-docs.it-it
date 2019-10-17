@@ -1,6 +1,6 @@
 ---
-title: Azure Status Monitor V2-introduzione | Microsoft Docs
-description: Guida introduttiva per Status Monitor V2. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
+title: Agente di applicazione Azure Insights-Guida introduttiva | Microsoft Docs
+description: Guida introduttiva per Application Insights Agent. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: d9c354edac3cbd3faccaa261654e56f858befdf6
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: f1911d8187b186f301bea771963f922ee3574fd6
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058245"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388222"
 ---
-# <a name="get-started-with-status-monitor-v2"></a>Introduzione a Status Monitor v2
+# <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Introduzione a monitoraggio di Azure Application Insights Agent per i server locali
 
 Questo articolo contiene i comandi di avvio rapido che dovrebbero funzionare per la maggior parte degli ambienti.
 Le istruzioni dipendono dalla PowerShell Gallery per la distribuzione degli aggiornamenti.
-Questi comandi supportano il parametro `-Proxy` di PowerShell.
+Questi comandi supportano il parametro PowerShell `-Proxy`.
 
 Per una spiegazione di questi comandi, istruzioni di personalizzazione e informazioni sulla risoluzione dei problemi, vedere le [istruzioni dettagliate](status-monitor-v2-detailed-instructions.md).
 
@@ -31,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="download-and-install-via-powershell-gallery"></a>Scaricare e installare tramite PowerShell Gallery
 
-### <a name="install-prerequisites"></a>Installazione dei prerequisiti
+### <a name="install-prerequisites"></a>Installare i componenti prerequisiti
 Eseguire PowerShell come amministratore.
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
@@ -41,14 +41,14 @@ Install-Module -Name PowerShellGet -Force
 ``` 
 Chiudere PowerShell.
 
-### <a name="install-status-monitor-v2"></a>Installare Status Monitor V2
+### <a name="install-application-insights-agent"></a>Installare Application Insights Agent
 Eseguire PowerShell come amministratore.
 ```powershell   
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
 ``` 
 
-### <a name="enable-monitoring"></a>Abilita monitoraggio
+### <a name="enable-monitoring"></a>Abilitare il monitoraggio
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -59,7 +59,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 ### <a name="download-the-module"></a>Scaricare il modulo
 Scaricare manualmente la versione più recente del modulo dal [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 
-### <a name="unzip-and-install-status-monitor-v2"></a>Decomprimere e installare Status Monitor V2
+### <a name="unzip-and-install-application-insights-agent"></a>Decomprimere e installare Application Insights Agent
 ```powershell
 $pathToNupkg = "C:\Users\t\Desktop\Az.ApplicationMonitor.0.3.0-alpha.nupkg"
 $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
@@ -67,7 +67,7 @@ $pathToNupkg | rename-item -newname $pathToZip
 $pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\Az.ApplicationMonitor"
 Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ```
-### <a name="enable-monitoring"></a>Abilita monitoraggio
+### <a name="enable-monitoring"></a>Abilitare il monitoraggio
 ```powershell
 Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
@@ -86,10 +86,10 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
  Aggiungere altri dati di telemetria:
 
 - [Creare test Web](monitor-web-app-availability.md) per assicurarsi che il sito rimanga attivo.
-- Aggiungere i dati di telemetria del [client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e per abilitare le chiamate di traccia.
+- Aggiungere i dati di [telemetria del client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e per abilitare le chiamate di traccia.
 - [Aggiungere il Application Insights SDK al codice per](../../azure-monitor/app/asp-net.md) poter inserire le chiamate di traccia e log.
 
-Eseguire altre operazioni con Status Monitor V2:
+Eseguire altre operazioni con Application Insights Agent:
 
 - Esaminare le [istruzioni dettagliate](status-monitor-v2-detailed-instructions.md) per una spiegazione dei comandi disponibili qui.
-- Usare la guida per la [risoluzione dei problemi](status-monitor-v2-troubleshoot.md) Status Monitor V2.
+- Usare la guida per [risolvere i problemi relativi](status-monitor-v2-troubleshoot.md) a Application Insights Agent.

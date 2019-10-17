@@ -13,18 +13,19 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: b67e0eaabe63707455eaa6cd4b235ec828dddff3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 991f3c8939c0f9e270423ff30282b02f110eb39e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025455"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388924"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Come usare Azure Mobile Apps SDK per Android
 
 > [!NOTE]
-> Visual Studio App Center supporta end-to-end e servizi integrati centrali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare i servizi di **compilazione**, **test** e **distribuzione** per configurare la pipeline di integrazione e recapito continua. Una volta distribuita l'app, gli sviluppatori possono monitorare lo stato e l'utilizzo dell'app usando i servizi di **analisi** e **diagnostica** e coinvolgere gli utenti che usano il servizio di **push** . Gli sviluppatori possono inoltre sfruttare l' **autenticazione** per autenticare gli utenti e il servizio **dati** per salvare in modo permanente e sincronizzare i dati delle app nel cloud.
-> Se si intende integrare servizi cloud nell'applicazione per dispositivi mobili, iscriversi con App Center [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) oggi stesso.
+> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
+>
+> Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
 Questa guida illustra come usare Android SDK del client per le App per dispositivi mobili di Azure per implementare scenari comuni, ad esempio:
 
@@ -112,7 +113,7 @@ MobileServiceClient mClient = new MobileServiceClient(
 
 Per il client è anche necessario l'accesso all'attività o al contesto (il parametro `this` nell'esempio).  La costruzione MobileServiceClient deve avvenire nel metodo `onCreate()` dell'attività a cui si fa riferimento nel file `AndroidManifest.xml`.
 
-Come procedura consigliata, è opportuno astrarre le comunicazioni del server nella relativa classe (modello singleton).  In questo caso, è consigliabile passare l'attività nel costruttore per configurare il servizio in modo appropriato.  Esempio:
+Come procedura consigliata, è opportuno astrarre le comunicazioni del server nella relativa classe (modello singleton).  In questo caso, è consigliabile passare l'attività nel costruttore per configurare il servizio in modo appropriato.  ad esempio:
 
 ```java
 package com.example.appname.services;
@@ -201,7 +202,7 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Per informazioni su come creare altre tabelle nel back-end dell'App per dispositivi mobili, vedere [Procedura: Definire un controller di tabella @ no__t-0 (back-end .NET) o [definire tabelle con uno schema dinamico][16] (back-end node. js).
+Per informazioni su come creare altre tabelle nel back-end di app per dispositivi mobili, vedere [procedura: definire un controller di tabella][15] (back-end .NET) o [definire tabelle con uno schema dinamico][16] (back-end node. js).
 
 Una tabella del back-end di App per dispositivi mobili di Azure definisce cinque campi speciali, quattro dei quali disponibili per i client:
 
@@ -211,7 +212,7 @@ Una tabella del back-end di App per dispositivi mobili di Azure definisce cinque
 * `byte[] version`: rappresentata in genere come stringa, anche la versione viene impostata dal server.
 * `boolean deleted`: indica che il record è stato eliminato, ma non ancora definitivamente.  Non usare `deleted` come proprietà nella classe.
 
-Il campo `id` è obbligatorio.  I campi `updatedAt` e `version` vengono usati per la sincronizzazione offline, rispettivamente per la sincronizzazione incrementale e per la risoluzione dei conflitti.  Il campo `createdAt` è un campo di riferimento e non viene usato dal client.  I nomi sono nomi delle proprietà usati per la trasmissione in rete e non sono modificabili.  Tuttavia, è possibile creare un mapping tra l'oggetto e i nomi "in transito" usando la libreria [Gson][3] .  Esempio:
+Il campo `id` è obbligatorio.  I campi `updatedAt` e `version` vengono usati per la sincronizzazione offline, rispettivamente per la sincronizzazione incrementale e per la risoluzione dei conflitti.  Il campo `createdAt` è un campo di riferimento e non viene usato dal client.  I nomi sono nomi delle proprietà usati per la trasmissione in rete e non sono modificabili.  Tuttavia, è possibile creare un mapping tra l'oggetto e i nomi "in transito" usando la libreria [Gson][3] .  ad esempio:
 
 ```java
 package com.example.zumoappname;
@@ -328,7 +329,7 @@ List<ToDoItem> result = mToDoTable
     .get();
 ```
 
-**mToDoTable** è il riferimento alla tabella di Servizi mobili creata in precedenza.
+**mToDoTable** è il riferimento alla tabella del servizio mobile creata in precedenza.
 
 Definire un filtro con la chiamata al metodo **where** sul riferimento alla tabella. Il metodo **where** è seguito da un metodo **field**, seguito a sua volta da un metodo che specifica il predicato logico. I possibili metodi di predicato includono **eq** (uguale a), **ne** (non uguale a), **gt** (maggiore di), **ge** (maggiore o uguale a), **lt** (minore di), **le** (minore o uguale a). Questi metodi consentono di confrontare campi numerici e campi stringa con valori specifici,
 
@@ -460,7 +461,7 @@ Una richiesta per tutti i record con questo metodo crea un minimo di due richies
 
 ### <a name="chaining"></a>Procedura: Concatenare metodi di query
 
-I metodi usati per eseguire query su tabelle di back-end possono essere concatenati. Il concatenamento dei metodi di query consente di selezionare colonne specifiche di righe filtrate ordinate e sottoposte a paging. È possibile creare filtri logici complessi.  Ogni metodo di query restituisce un oggetto Query. Per terminare la serie di metodi ed eseguire effettivamente la query, chiamare il metodo **execute** . Esempio:
+I metodi usati per eseguire query su tabelle di back-end possono essere concatenati. Il concatenamento dei metodi di query consente di selezionare colonne specifiche di righe filtrate ordinate e sottoposte a paging. È possibile creare filtri logici complessi.  Ogni metodo di query restituisce un oggetto Query. Per terminare la serie di metodi ed eseguire effettivamente la query, chiamare il metodo **execute** . ad esempio:
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -530,7 +531,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 }
 ```
 
-Eseguire l'override del metodo **getView** dell'adattatore. Esempio:
+Eseguire l'override del metodo **getView** dell'adattatore. ad esempio:
 
 ```java
     @Override
@@ -635,7 +636,7 @@ ToDoItem entity = mToDoTable
 
 L'entità restituita corrisponde ai dati inseriti nella tabella del back-end, inclusi l'ID e gli eventuali altri valori, ad esempio i campi `createdAt`, `updatedAt` e `version`, impostati sul back-end.
 
-Le tabelle di App per dispositivi mobili richiedono una colonna chiave primaria denominata **id**. Questa colonna deve essere una stringa. Il valore predefinito della colonna ID è un GUID.  È possibile specificare altri valori univoci, come gli indirizzi di posta elettronica o i nomi utente. Se non si fornisce un valore ID di stringa per un record inserito, il back-end genera un nuovo GUID.
+Le tabelle delle app per dispositivi mobili richiedono una colonna chiave primaria denominata **ID**. Questa colonna deve essere una stringa. Il valore predefinito della colonna ID è un GUID.  È possibile specificare altri valori univoci, come gli indirizzi di posta elettronica o i nomi utente. Se non si fornisce un valore ID di stringa per un record inserito, il back-end genera un nuovo GUID.
 
 I valori ID di stringa offrono i vantaggi seguenti:
 
@@ -684,7 +685,7 @@ ToDoItem result = mToDoTable
     .get();
 ```
 
-## <a name="untyped"></a>Procedura: usare dati non tipizzati
+## <a name="untyped"></a>Procedura: Usare dati non tipizzati
 
 Il modello di programmazione non tipizzato offre un controllo accurato della serializzazione JSON.  È consigliabile usarlo in alcuni scenari comuni. Un esempio di utilizzo è una tabella di back-end che contiene un numero elevato di colonne ed è necessario fare riferimento solo ad alcune di esse.  Il modello tipizzato richiede la definizione di tutte le colonne definite nel back-end di App per dispositivi mobili nella classe dati.  La maggior parte delle chiamate API per l'accesso ai dati è simile alle chiamate della programmazione tipizzata. La principale differenza consiste nel fatto che nel modello non tipizzato i metodi vengono chiamati sull'oggetto **MobileServiceJsonTable**, anziché su **MobileServiceTable**.
 
@@ -904,7 +905,7 @@ Nel client viene chiamato il metodo **invokeApi** , che invia una richiesta POST
 
 Le esercitazioni descrivono già in dettaglio come aggiungere queste funzionalità.
 
-Servizio app di Azure supporta l'[autenticazione degli utenti di app](app-service-mobile-android-get-started-users.md) usando diversi provider di identità esterni: Facebook, Google, account Microsoft, Twitter e Azure Active Directory. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione nel backend.
+Il servizio app supporta l'[autenticazione degli utenti di app](app-service-mobile-android-get-started-users.md) con diversi provider di identità esterni: Facebook, Google, account Microsoft, Twitter e Azure Active Directory. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione nel backend.
 
 Sono supportati due flussi di autenticazione, ovvero un flusso **server** e un flusso **client**. Il flusso server è il processo di autenticazione più semplice, poiché si basa sull'interfaccia Web del provider di identità.  Non sono necessari SDK aggiuntivi per implementare l'autenticazione del flusso server. L'autenticazione del flusso server non fornisce un'integrazione completa con il dispositivo mobile ed è consigliata solo per dimostrare scenari concettuali.
 
@@ -917,9 +918,9 @@ Per abilitare l'autenticazione nell'app, è necessario eseguire quattro passaggi
 * Limitare le autorizzazioni per la tabella solo agli utenti autenticati nel back-end del servizio app.
 * Aggiungere codice di autenticazione all'app.
 
-È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. Per modificare le richieste, è anche possibile usare il SID di un utente autenticato.  Per altre informazioni, vedere [Introduzione all'autenticazione] e la documentazione sulle procedure dell'SDK del server.
+È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. Per modificare le richieste, è anche possibile usare il SID di un utente autenticato.  Per altre informazioni, vedere [Introduzione all'autenticazione in Servizi mobili] e la documentazione sulle procedure dell'SDK del server.
 
-### <a name="caching"></a>Autenticazione: Flusso server
+### <a name="caching"></a>Autenticazione: flusso server
 
 Il codice seguente avvia la procedura di accesso del flusso server con il provider Google.  È necessaria una configurazione aggiuntiva a causa dei requisiti di sicurezza per il provider Google:
 
@@ -1000,7 +1001,7 @@ dependencies {
 }
 ```
 
-È possibile ottenere l'ID dell'utente connesso da un oggetto **MobileServiceUser** usando il metodo **getUserId**. Per un esempio di come usare Futures per chiamare le API di accesso asincrone, vedere [Introduzione all'autenticazione].
+È possibile ottenere l'ID dell'utente connesso da un oggetto **MobileServiceUser** usando il metodo **getUserId**. Per un esempio di come usare Futures per chiamare le API di accesso asincrone, vedere [Introduzione all'autenticazione in Servizi mobili].
 
 > [!WARNING]
 > Lo schema URL indicato rispetta la distinzione tra maiuscole e minuscole.  Assicurarsi che tutte le occorrenze di `{url_scheme_of_you_app}` rispettino questa distinzione.
@@ -1304,7 +1305,7 @@ Questo codice deve essere eseguito prima di creare un riferimento al client per 
 [ASCII control codes C0 and C1]: https://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: https://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.com
-[Introduzione all'autenticazione]: app-service-mobile-android-get-started-users.md
+[Introduzione all'autenticazione in Servizi mobili]: app-service-mobile-android-get-started-users.md
 [1]: https://static.javadoc.io/com.google.code.gson/gson/2.8.5/com/google/gson/JsonObject.html
 [2]: https://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
 [3]: https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5

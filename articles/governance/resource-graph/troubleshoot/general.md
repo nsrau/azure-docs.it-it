@@ -3,15 +3,15 @@ title: Risoluzione dei problemi comuni
 description: Informazioni su come risolvere i problemi relativi all'esecuzione di query sulle risorse di Azure con Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/21/2019
+ms.date: 10/18/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
-ms.openlocfilehash: abf6d22f2010db9bff97c7a93354c1cf8e1e1644
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 030fe26a0aa8fc4ed855fb7744e576366f4fd2e2
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976618"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389695"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Risolvere gli errori usando il grafico delle risorse di Azure
 
@@ -23,7 +23,7 @@ La maggior parte degli errori è il risultato di un problema durante l'esecuzion
 
 ## <a name="general-errors"></a>Errori generali
 
-### <a name="toomanysubscription"></a>Scenario: Troppe sottoscrizioni
+### <a name="toomanysubscription"></a>Scenario: troppe sottoscrizioni
 
 #### <a name="issue"></a>Problema
 
@@ -39,7 +39,7 @@ Il numero di richieste batch per la query con un subset di sottoscrizioni rimane
 
 ```azurepowershell-interactive
 # Replace this query with your own
-$query = 'project type'
+$query = 'Resources | project type'
 
 # Fetch the full array of subscription IDs
 $subscriptions = Get-AzSubscription
@@ -60,7 +60,7 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 $response
 ```
 
-### <a name="rest-contenttype"></a>Scenario: Intestazione REST del tipo di contenuto non supportata
+### <a name="rest-contenttype"></a>Scenario: intestazione REST del tipo di contenuto non supportata
 
 #### <a name="issue"></a>Problema
 
@@ -73,7 +73,8 @@ L'API REST di Azure Resource Graph supporta solo un `Content-Type` di **Applicat
 #### <a name="resolution"></a>Risoluzione
 
 Verificare che lo strumento o l'agente usato per eseguire query nel grafico risorse di Azure disponga dell'intestazione API REST `Content-Type` configurato per **Application/JSON**.
-### <a name="rest-403"></a>Scenario: Nessuna autorizzazione di lettura per tutte le sottoscrizioni nell'elenco
+
+### <a name="rest-403"></a>Scenario: nessuna autorizzazione di lettura per tutte le sottoscrizioni nell'elenco
 
 #### <a name="issue"></a>Problema
 
@@ -93,4 +94,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 - Ottieni risposte dagli esperti di Azure tramite i [Forum di Azure](https://azure.microsoft.com/support/forums/).
 - Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), l'account Microsoft Azure ufficiale per il miglioramento dell'esperienza dei clienti che mette in contatto la community di Azure con le risorse corrette: risposte, supporto ed esperti.
-- Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.
+- Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Richiedi supporto**.

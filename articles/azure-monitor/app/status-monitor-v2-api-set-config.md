@@ -1,6 +1,6 @@
 ---
-title: 'Informazioni di riferimento sulle API di Azure Status Monitor V2: Imposta configurazione | Microsoft Docs'
-description: Riferimento all'API Status Monitor V2. Set-ApplicationInsightsMonitoringConfig. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
+title: "Informazioni di riferimento sull'API dell'agente applicazione Azure Insights: set config | Microsoft Docs"
+description: Informazioni di riferimento sull'API dell'agente Application Insights. Set-ApplicationInsightsMonitoringConfig. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 6d93be5b01be63a75041b939f6b8deb9106c4262
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 2ab941b5587a8836f1e472fbce3966b12bfa1e11
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200440"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388246"
 ---
-# <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig"></a>API Status Monitor V2: Set-ApplicationInsightsMonitoringConfig
+# <a name="application-insights-agent-api-set-applicationinsightsmonitoringconfig"></a>API dell'agente di Application Insights: set-ApplicationInsightsMonitoringConfig
 
 Questo documento descrive un cmdlet che fa parte del modulo di [PowerShell AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
-## <a name="description"></a>Descrizione
+## <a name="description"></a>Description
 
 Imposta il file di configurazione senza eseguire una reinstallazione completa.
 Riavviare IIS per rendere effettive le modifiche.
@@ -32,7 +32,7 @@ Riavviare IIS per rendere effettive le modifiche.
 > Questo cmdlet richiede una sessione di PowerShell con autorizzazioni di amministratore.
 
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 ### <a name="example-with-a-single-instrumentation-key"></a>Esempio con una singola chiave di strumentazione
 In questo esempio, a tutte le app nel computer corrente verrà assegnata una sola chiave di strumentazione.
@@ -42,12 +42,12 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ```
 
 ### <a name="example-with-an-instrumentation-key-map"></a>Esempio con una mappa delle chiavi di strumentazione
-Esempio:
-- `MachineFilter`corrisponde al computer corrente usando il `'.*'` carattere jolly.
-- `AppFilter='WebAppExclude'`fornisce una `null` chiave di strumentazione. L'app specificata non verrà instrumentata.
-- `AppFilter='WebAppOne'`assegna all'app specificata una chiave di strumentazione univoca.
-- `AppFilter='WebAppTwo'`assegna all'app specificata una chiave di strumentazione univoca.
-- Infine, `AppFilter` usa anche il `'.*'` carattere jolly per trovare la corrispondenza con tutte le app Web che non corrispondono alle regole precedenti e assegnare una chiave di strumentazione predefinita.
+In questo esempio:
+- `MachineFilter` corrisponde al computer corrente usando il carattere jolly `'.*'`.
+- `AppFilter='WebAppExclude'` fornisce una chiave di strumentazione `null`. L'app specificata non verrà instrumentata.
+- `AppFilter='WebAppOne'` assegna all'app specificata una chiave di strumentazione univoca.
+- `AppFilter='WebAppTwo'` assegna all'app specificata una chiave di strumentazione univoca.
+- Infine, `AppFilter` USA anche il carattere jolly `'.*'` per trovare la corrispondenza con tutte le app Web che non corrispondono alle regole precedenti e assegnare una chiave di strumentazione predefinita.
 - Gli spazi vengono aggiunti per migliorare la leggibilità.
 
 ```powershell
@@ -60,19 +60,19 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ```
 
 
-## <a name="parameters"></a>Parametri
+## <a name="parameters"></a>parameters
 
 ### <a name="-instrumentationkey"></a>-InstrumentationKey
 **Obbligatorio.** Usare questo parametro per fornire una singola chiave di strumentazione da usare per tutte le app nel computer di destinazione.
 
 ### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
 **Obbligatorio.** Usare questo parametro per specificare più chiavi di strumentazione e un mapping delle chiavi di strumentazione usate da ogni app.
-È possibile creare un singolo script di installazione per diversi computer impostando `MachineFilter`.
+È possibile creare un singolo script di installazione per più computer impostando `MachineFilter`.
 
 > [!IMPORTANT]
 > Le app corrisponderanno alle regole nell'ordine in cui vengono fornite le regole. Pertanto, è necessario specificare prima le regole più specifiche e le regole più generiche.
 
-#### <a name="schema"></a>Schema
+#### <a name="schema"></a>SCHEMA
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
 - **MachineFilter** è un'espressione C# regolare obbligatoria del nome del computer o della macchina virtuale.
@@ -129,10 +129,10 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
  
  Aggiungere altri dati di telemetria:
  - [Creare test Web](monitor-web-app-availability.md) per assicurarsi che il sito rimanga attivo.
-- Aggiungere i dati di telemetria del [client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e per abilitare le chiamate di traccia.
+- Aggiungere i dati di [telemetria del client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e per abilitare le chiamate di traccia.
 - [Aggiungere il Application Insights SDK al codice per](../../azure-monitor/app/asp-net.md) poter inserire le chiamate di traccia e log
  
- Eseguire altre operazioni con Status Monitor V2:
- - Usare la guida per la [risoluzione dei problemi](status-monitor-v2-troubleshoot.md) Status Monitor V2.
+ Eseguire altre operazioni con Application Insights Agent:
+ - Usare la guida per [risolvere i problemi relativi](status-monitor-v2-troubleshoot.md) a Application Insights Agent.
  - [Ottenere la configurazione](status-monitor-v2-api-get-config.md) per verificare che le impostazioni siano state registrate correttamente.
  - [Ottenere lo stato](status-monitor-v2-api-get-status.md) per controllare il monitoraggio.

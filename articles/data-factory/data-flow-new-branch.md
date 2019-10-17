@@ -1,28 +1,28 @@
 ---
-title: Trasformazione Nuovo ramo per il flusso di dati di mapping di Azure Data Factory
-description: Trasformazione Nuovo ramo per il flusso di dati di mapping di Azure Data Factory
+title: Trasformazione nuovo ramo flusso di dati mapping di Azure Data Factory
+description: Trasformazione nuovo ramo flusso di dati mapping di Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 3f443396627a4bbaba2a3eeb0a3ac05cc1597c85
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: de8cb74d788e3ca7599f226e4204c4b09112e70c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029281"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387212"
 ---
-# <a name="azure-data-factory-mapping-data-flow-new-branch-transformation"></a>Trasformazione Nuovo ramo per il flusso di dati di mapping di Azure Data Factory
+# <a name="azure-data-factory-mapping-data-flow-new-branch-transformation"></a>Trasformazione nuovo ramo flusso di dati mapping di Azure Data Factory
 
 
 
-![Opzioni della trasformazione Nuovo ramo](media/data-flow/menu.png "menu")
+![Opzioni ramo](media/data-flow/menu.png "menu")
 
 Con la creazione di un ramo, il flusso di dati corrente viene replicato in un altro flusso. Usare la trasformazione Nuovo ramo per eseguire più set di operazioni e trasformazioni sullo stesso flusso di dati.
 
-Esempio: Il flusso di dati include una trasformazione Origine con un set selezionato di colonne e conversioni di tipi di dati. È quindi possibile posizionare una colonna derivata subito dopo tale origine. Nell'elenco Derived Column (Colonna derivata) viene creato un nuovo campo che combina nome e cognome per creare un nuovo campo "Nome completo".
+Esempio: il flusso di dati dispone di una trasformazione di origine con un set selezionato di colonne e conversioni di tipi di dati. È quindi possibile posizionare una colonna derivata subito dopo tale origine. Nell'elenco Derived Column (Colonna derivata) viene creato un nuovo campo che combina nome e cognome per creare un nuovo campo "Nome completo".
 
 È possibile intervenire sul nuovo flusso con un set di trasformazioni e un sink su una riga, quindi usare la trasformazione Nuovo ramo per creare una copia del flusso in cui è possibile trasformare gli stessi dati con un set diverso di trasformazioni. Trasformando i dati copiati in un ramo separato, è possibile successivamente effettuare il sink di tali dati in un percorso distinto.
 

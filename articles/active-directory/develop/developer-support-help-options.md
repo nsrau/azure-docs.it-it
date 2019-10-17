@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa14e88eeb8ab43f998a32aaa0c14220acab03a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a160f78f69ed559c576147e9758c837d5ae9b77e
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235328"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429974"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opzioni di supporto tecnico e assistenza per gli sviluppatori
 
@@ -51,7 +51,7 @@ Dove *{Your Search Terms}* corrisponde alle parole chiave di ricerca.
 
 ## <a name="use-the-development-support-tools"></a>Usare gli strumenti di supporto Microsoft per lo sviluppo
 
-| Strumento  | Descrizione  |
+| Strumento  | Description  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Incollare un ID o un token di accesso per decodificare i nomi e i valori di un'attestazione. |
 | [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Strumento che consente di effettuare richieste e visualizzare le risposte con l'API Microsoft Graph. |
@@ -62,7 +62,7 @@ Stack Overflow è il canale da scegliere per le domande correlate allo sviluppo.
 
 Se non si trova una risposta alla domanda tramite la ricerca, inviare una nuova domanda a Stack Overflow. Per porre domande alla community in modo che possa identificarle e rispondere più rapidamente, usare uno dei tag seguenti:
 
-|Componente/area  | `Tags` |
+|Componente/area  | Tag |
 |---------|---------|
 | Libreria ADAL | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | Libreria MSAL     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |
@@ -81,10 +81,10 @@ I post di Stack Overflow seguenti contengono suggerimenti su come porre domande 
 
 In caso di bug o di problema relativo alle librerie Microsoft, segnalare il problema nei repository di GitHub. Le librerie sono open source, quindi gli utenti possono anche inviare anche una richiesta pull.
 
-Per un elenco di librerie e i repository di GitHub, vedere gli argomenti seguenti:
+Per un elenco di librerie e dei rispettivi repository GitHub, vedere gli argomenti seguenti:
 
 * Librerie [ADAL](active-directory-authentication-libraries.md) e repository di GitHub
-* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [msal. js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL. Android](https://github.com/AzureAD/microsoft-authentication-library-for-android), e [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) librerie e i repository di GitHub
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL. js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL. ](https://github.com/AzureAD/microsoft-authentication-library-for-android)Librerie _c di Android e [MSAL. obj](https://github.com/AzureAD/microsoft-authentication-library-for-objc) e repository GitHub
 
 ## <a name="open-a-support-request"></a>Aprire una richiesta di supporto
 
@@ -95,9 +95,3 @@ Se è necessario rivolgersi a qualcuno, è consigliabile aprire una richiesta di
 * Se l'utente non è un cliente Azure, è anche possibile aprire una richiesta di supporto con Microsoft tramite [il supporto commerciale](https://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial).
 
 Per ottenere supporto o porre domande, è anche possibile provare un [agente virtuale](https://support.microsoft.com/contactus/?ws=support).
-
-### <a name="free-chat-support-for-a-limited-time"></a>Supporto tecnico via chat disponibile gratuitamente per un periodo di tempo limitato
-
-È anche possibile usare il supporto via chat, gratuito per i partner Microsoft per un periodo di tempo limitato. Se la società non è partner Microsoft, è possibile registrarla gratuitamente e ottenere altri vantaggi visitando [questa pagina](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx).
-
-Dopo la registrazione della società, è possibile avviare la richiesta di chat [qui](https://aka.ms/devchat).

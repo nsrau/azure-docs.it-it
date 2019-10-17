@@ -3,15 +3,15 @@ title: Istruzioni per le richieste con limitazioni
 description: Informazioni su come creare query migliori per evitare la limitazione delle richieste al grafico delle risorse di Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 06/19/2019
+ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 85d68beb27ab27a2ada9acbf9482d35dec438c06
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 1bbfd2a64de0b42da19d0a978874d564f1755c59
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980278"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387622"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Linee guida per le richieste limitate in Azure Resource Graph
 
@@ -30,8 +30,8 @@ Il grafico risorse di Azure alloca il numero di quota per ogni utente in base a 
 
 In ogni risposta alla query, Azure Resource Graph aggiunge due intestazioni di limitazione:
 
-- `x-ms-user-quota-remaining` (int): quota di risorse rimanenti per l'utente. Questo valore è associato al conteggio delle query.
-- `x-ms-user-quota-resets-after` (hh:mm:ss): Durata dell'intervallo di tempo fino a quando non viene reimpostato il consumo della quota
+- `x-ms-user-quota-remaining` (int): quota di risorse rimanente per l'utente. Questo valore è associato al conteggio delle query.
+- `x-ms-user-quota-resets-after` (HH: mm: SS): durata dell'intervallo di tempo fino a quando non viene reimpostato il consumo della quota di un utente.
 
 Per illustrare il funzionamento delle intestazioni, viene ora esaminata una risposta di query con l'intestazione e i valori di `x-ms-user-quota-remaining: 10` e `x-ms-user-quota-resets-after: 00:00:03`.
 
@@ -55,7 +55,7 @@ L'invio in batch di query in base alla sottoscrizione, al gruppo di risorse o a 
   {
       var userQueryRequest = new QueryRequest(
           subscriptions: new[] { subscriptionId },
-          query: "project name, type");
+          query: "Resoures | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -78,7 +78,7 @@ L'invio in batch di query in base alla sottoscrizione, al gruppo di risorse o a 
       var currSubscriptionBatch = subscriptionIds.Skip(i * batchSize).Take(batchSize).ToList();
       var userQueryRequest = new QueryRequest(
           subscriptions: currSubscriptionBatch,
-          query: "project name, type");
+          query: "Resources | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -102,7 +102,7 @@ L'invio in batch di query in base alla sottoscrizione, al gruppo di risorse o a 
           resourceIds.Skip(i * batchSize).Take(batchSize).Select(id => string.Format("'{0}'", id)));
       var userQueryRequest = new QueryRequest(
           subscriptions: subscriptionList,
-          query: $"where id in~ ({resourceIds}) | project name, type");
+          query: $"Resources | where id in~ ({resourceIds}) | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -184,7 +184,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 }
 ```
 
-## <a name="pagination"></a>Paginazione
+## <a name="pagination"></a>Impaginazione
 
 Poiché il grafico risorse di Azure restituisce al massimo 1000 voci in una singola risposta di query, potrebbe essere necessario [impaginare](./work-with-data.md#paging-results) le query per ottenere il set di dati completo che si sta cercando. Tuttavia, alcuni client di Azure Resource Graph gestiscono l'impaginazione in modo diverso rispetto ad altri.
 
@@ -196,7 +196,7 @@ Poiché il grafico risorse di Azure restituisce al massimo 1000 voci in una sing
   var results = new List<object>();
   var queryRequest = new QueryRequest(
       subscriptions: new[] { mySubscriptionId },
-      query: "project id, name, type | top 5000");
+      query: "Resources | project id, name, type | top 5000");
   var azureOperationResponse = await this.resourceGraphClient
       .ResourcesWithHttpMessagesAsync(queryRequest, header)
       .ConfigureAwait(false);
@@ -218,11 +218,11 @@ Poiché il grafico risorse di Azure restituisce al massimo 1000 voci in una sing
   Quando si usa l'interfaccia della riga di comando di Azure o Azure PowerShell, le query in Azure Resource Graph vengono impaginate automaticamente per recuperare al massimo 5000 voci. I risultati della query restituiscono un elenco combinato di voci da tutte le chiamate impaginate. In questo caso, a seconda del numero di voci nel risultato della query, una singola query impaginata può utilizzare più di una quota di query. Nell'esempio seguente, ad esempio, una singola esecuzione della query può utilizzare fino a cinque quote di query:
 
   ```azurecli-interactive
-  az graph query -q 'project id, name, type' -top 5000
+  az graph query -q 'Resources | project id, name, type' -top 5000
   ```
 
   ```azurepowershell-interactive
-  Search-AzGraph -Query 'project id, name, type' -Top 5000
+  Search-AzGraph -Query 'Resources | project id, name, type' -Top 5000
   ```
 
 ## <a name="still-get-throttled"></a>È ancora stato limitato?

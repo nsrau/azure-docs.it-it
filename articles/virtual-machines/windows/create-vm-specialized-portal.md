@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: ab5af0e5971b91f45cbb12b4d0583caafa5ad504
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d79cefa9adec403ebbb5105351d2909eac9d02a4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079650"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390494"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Creare una macchina virtuale da un disco rigido virtuale usando il portale di Azure
 
@@ -34,6 +34,7 @@ Esistono diversi modi per creare una macchina virtuale in Azure:
 
 Non usare un disco specializzato se si vogliono creare più macchine virtuali. Per distribuzioni di maggiori dimensioni, [creare invece un'immagine](capture-image-resource.md) e quindi [usare tale immagine per creare più macchine virtuali](create-vm-generalized-managed.md).
 
+È consigliabile limitare il numero di distribuzioni simultanee a 20 VM da un singolo snapshot o VHD. 
 
 ## <a name="copy-a-disk"></a>Copiare un disco
 
@@ -74,6 +75,7 @@ Dopo aver creato il disco rigido virtuale gestito da usare, è possibile creare 
 10. Nella pagina **Guest config** (Configurazione guest) aggiungere le estensioni necessarie.
 11. Al termine, selezionare **Rivedi e crea**. 
 12. Se la configurazione della macchina virtuale supera la convalida, selezionare **Crea** per avviare la distribuzione.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

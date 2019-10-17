@@ -1,6 +1,6 @@
 ---
-title: 'Informazioni di riferimento sulle API di Azure Status Monitor V2: Ottenere lo stato | Microsoft Docs'
-description: Riferimento all'API Status Monitor V2. Get-ApplicationInsightsMonitoringStatus. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Questa funzionalità può essere usata con app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
+title: "Informazioni di riferimento sull'API dell'agente applicazione Azure Insights: ottenere lo stato | Microsoft Docs"
+description: Informazioni di riferimento sull'API dell'agente Application Insights. Get-ApplicationInsightsMonitoringStatus. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Questa funzionalità può essere usata con app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: c3982e7eb78c1113c73a8e7e9d7b00ad403ac486
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 6e103e1856e338669224540a991c4b9ea6b10d6d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058264"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389863"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus"></a>API Status Monitor V2: Get-ApplicationInsightsMonitoringStatus
+# <a name="application-insights-agent-api-get-applicationinsightsmonitoringstatus"></a>API dell'agente di Application Insights: Get-ApplicationInsightsMonitoringStatus
 
 Questo articolo descrive un cmdlet che fa parte del modulo di [PowerShell AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
-## <a name="description"></a>Descrizione
+## <a name="description"></a>Description
 
 Questo cmdlet fornisce informazioni sulla risoluzione dei problemi relativi a Status Monitor.
 Usare questo cmdlet per esaminare lo stato del monitoraggio, la versione del modulo di PowerShell e per esaminare il processo in esecuzione.
@@ -32,9 +32,9 @@ Questo cmdlet consente di segnalare le informazioni sulla versione e le informaz
 > [!IMPORTANT] 
 > Questo cmdlet richiede una sessione di PowerShell con autorizzazioni di amministratore.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
-### <a name="example-application-status"></a>Esempio: Stato dell'applicazione
+### <a name="example-application-status"></a>Esempio: stato dell'applicazione
 
 Eseguire il comando `Get-ApplicationInsightsMonitoringStatus` per visualizzare lo stato di monitoraggio dei siti Web.
 
@@ -80,7 +80,7 @@ In questo esempio:
 - **DemoWebApp333** è stato instrumentato manualmente con Application Insights SDK. Status Monitor ha rilevato l'SDK e non monitorerà il sito.
 
 
-### <a name="example-powershell-module-information"></a>Esempio: Informazioni sul modulo di PowerShell
+### <a name="example-powershell-module-information"></a>Esempio: informazioni sui moduli di PowerShell
 
 Eseguire il comando `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` per visualizzare le informazioni sul modulo corrente:
 
@@ -134,7 +134,7 @@ ApplicationInsightsSdkPath (Exists: True)
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.dll
 ```
 
-### <a name="example-runtime-status"></a>Esempio: Stato runtime
+### <a name="example-runtime-status"></a>Esempio: stato di runtime
 
 È possibile esaminare il processo nel computer instrumentato per verificare se tutte le dll sono state caricate. Se il monitoraggio è funzionante, è necessario caricare almeno 12 dll.
 
@@ -172,7 +172,7 @@ listdlls64.exe -accepteula w3wp
 0x000000000ad60000  0x108000  C:\Windows\TEMP\2.4.0.0.Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll
 ```
 
-## <a name="parameters"></a>Parametri
+## <a name="parameters"></a>parameters
 
 ### <a name="no-parameters"></a>(Nessun parametro)
 
@@ -192,7 +192,7 @@ Verranno inoltre scaricati gli strumenti esterni per determinare se le DLL neces
 
 
 Se il processo ha esito negativo per qualsiasi motivo, è possibile eseguire questi comandi manualmente:
-- iisreset.exe /status
+- iisreset. exe/status
 - [handle64. exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp | findstr/I "InstrumentationEngine AI. ApplicationInsights
 - [listdlls64. exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr/I "InstrumentationEngine AI ApplicationInsights"
 
@@ -204,5 +204,5 @@ Se il processo ha esito negativo per qualsiasi motivo, è possibile eseguire que
 
 ## <a name="next-steps"></a>Passaggi successivi
 
- Eseguire altre operazioni con Status Monitor V2:
- - Usare la guida per la [risoluzione dei problemi](status-monitor-v2-troubleshoot.md) Status Monitor V2.
+ Eseguire altre operazioni con Application Insights Agent:
+ - Usare la guida per [risolvere i problemi relativi](status-monitor-v2-troubleshoot.md) a Application Insights Agent.

@@ -10,17 +10,64 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/7/2019
+ms.date: 10/15/2019
 ms.author: raiye
-ms.openlocfilehash: 736cb30942646788ee6f365f67244d27f1aa0316
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: b4150858986f204723dc258b23daf22de5d39842
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035174"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430158"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti sono sempre disponibili per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## <a name="october-2019-guest-os"></a>Sistema operativo guest di ottobre 2019
+
+>[!NOTE]
+>Il sistema operativo guest di ottobre è in corso di implementazione nelle macchine virtuali del servizio Cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Le seguenti patch sono incluse nel sistema operativo guest di ottobre. L'elenco è soggetto a variazioni.
+
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+|  Rel 19-10   |  [4520003]  |  Windows Security   |  2,91  |  8 ottobre 2019  |
+|  Rel 19-10   |  [4519985]  |  Windows Security   |  3,78  |  8 ottobre 2019  |
+|  Rel 19-10   |  [4519990]  |  Windows Security   |  4,71  |  8 ottobre 2019  |
+|  Rel 19-10   |  [4519998]  |  Aggiornamento cumulativo più recente   |  5,36  |  8 ottobre 2019  |
+|  Rel 19-10   |  [4519338]  |  Aggiornamento cumulativo più recente   |  6,12  |  8 ottobre 2019  |
+|  Rel 19-10   |  [4519974]  |  Internet Explorer   |  2,91, 3,78, 4,71  |  8 ottobre 2019  |
+|  Rel 19-10   |  [4516065]  |  Non-sicurezza   |  2,91  |  10 settembre 2019  |
+|  Rel 19-10   |  [4516655]  |  SSU   |  2,91  |  10 settembre 2019  |
+|  Rel 19-10   |  [4516055]  |  Non-sicurezza   |  3,78  |  10 settembre 2019  |
+|  Rel 19-10   |  [4512939]  |  SSU   |  3,78  |  10 settembre 2019  |
+|  Rel 19-10   |  [4514370]  |  .NET Framework 3,5   |  3,78  |  10 settembre 2019  |
+|  Rel 19-10   |  [4514368]  |  4\.5.2 di .NET Framework   |  3,78  |  10 settembre 2019  |
+|  Rel 19-10   |  [4516067]  |  Non sicurezza   |  4,71  |  10 settembre 2019  |
+|  Rel 19-10   |  [4512938]  |  SSU   |  4,71  |  10 settembre 2019  |
+|  Rel 19-10   |  [4514371]  |  .NET Framework 3,5   |  4,71  |  10 settembre 2019  |
+|  Rel 19-10   |  [4514367]  |  4\.5.2 di .NET Framework   |  4,71  |  10 settembre 2019  |
+|  Rel 19-10   |  [4512574]  |  SSU   |  5,36  |  10 settembre 2019  |
+|  Rel 19-10   |  [4512577]  |  SSU   |  6,12  |  10 settembre 2019  |
+
+[4520003]: https://support.microsoft.com/kb/4520003
+[4519985]: https://support.microsoft.com/kb/4519985
+[4519990]: https://support.microsoft.com/kb/4519990
+[4519998]: https://support.microsoft.com/kb/4519998
+[4519338]: https://support.microsoft.com/kb/4519338
+[4519974]: https://support.microsoft.com/kb/4519974
+[4516065]: https://support.microsoft.com/kb/4516065
+[4516655]: https://support.microsoft.com/kb/4516655
+[4516055]: https://support.microsoft.com/kb/4516055
+[4512939]: https://support.microsoft.com/kb/4512939
+[4514370]: https://support.microsoft.com/kb/4514370
+[4514368]: https://support.microsoft.com/kb/4514368
+[4516067]: https://support.microsoft.com/kb/4516067
+[4512938]: https://support.microsoft.com/kb/4512938
+[4514371]: https://support.microsoft.com/kb/4514371
+[4514367]: https://support.microsoft.com/kb/4514367
+[4512574]: https://support.microsoft.com/kb/4512574
+[4512577]: https://support.microsoft.com/kb/4512577
+
+
 
 ## <a name="september-2019-guest-os"></a>Sistema operativo guest di settembre 2019
 
@@ -176,7 +223,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 |  Rel 19-06   |  [4503269]  |  Windows Security   |  2.87  |  11 giugno 2019  |
 |  Rel 19-06   |  [4494174]  |  Aggiornamento microcodice   |  6.8  |  11 giugno 2019  |
 |  Rel 19-06   |  [4494175]  |  Aggiornamento microcodice   |  5,32  |  3 giugno 2019  |
-|  Rel 19-06   |  [4503308]  |  Lampeggiante   |  3.74, 4.67, 5.32, 6.8  |  11 giugno 2019  |
+|  Rel 19-06   |  [4503308]  |  Lampeggiante   |  3,74, 4,67, 5,32, 6,8  |  11 giugno 2019  |
 |  Rel 19-06   |  [4503259]  |  Internet Explorer   |  2,87, 3,74, 4,67  |  13 giugno, 2019  |
 |  N/D  |  [4499164]  |  Maggio '19 non-sicurezza  |  2.87  |  14 maggio 2019  |
 |  N/D  |  [4495606]  |  Maggio '19 .NET 3,5 senza sicurezza  |  2.87  |  14 maggio 2019  |
@@ -823,7 +870,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | Rel 17-05 | [4019472] |Miglioramenti alla qualità del sistema operativo WS 2016 |5.7 | 9 maggio 2017 |
 | Rel 17-05 | [4019263] |Solo sicurezza di Windows |2.62 | 9 maggio 2017 |
 | Rel 17-05 | [4019213] |Solo sicurezza di Windows |4.42 | 9 maggio 2017 |
-| Rel 17-05 | [4019214] |Solo sicurezza di Windows |versione 3.49 | 9 maggio 2017 |
+| Rel 17-05 | [4019214] |Solo sicurezza di Windows |3.49 | 9 maggio 2017 |
 | Rel 17-05 | [4018271] |Aggiornamento cumulativo della sicurezza per Internet Explorer |3.49 | 9 maggio 2017 |
 | Rel 17-05 | [4010323] |Avviso su SHA1 |2.62, 4.42, 5.7 | 9 maggio 2017 |
 | Rel 17-05 | [4022344] |Advisory Microsoft sulla sicurezza |5.7 | 9 maggio 2017 |
@@ -833,12 +880,12 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [4014565] |Rollup .NET del mese di aprile non correlato alla sicurezza |2.62 | 11 aprile 2017 |
 | N/D | [4014559] |Rollup .NET del mese di aprile non correlato alla sicurezza |2.62 | 11 aprile 2017 |
 | N/D | [4015549] |Rollup del mese di aprile non correlato alla sicurezza |2.62 | 11 aprile 2017 |
-| N/D | [4019990] |Aggiornamento di D3DCompiler - Requisito per .NET 4.7 |versione 3.49 | 9 maggio 2017 |
-| N/D | [4014563] |Rollup .NET del mese di aprile non correlato alla sicurezza |versione 3.49 | 11 aprile 2017 |
-| N/D | [4014557] |Rollup .NET del mese di aprile non correlato alla sicurezza |versione 3.49 | 11 aprile 2017 |
-| N/D | [4014545] |Rollup .NET del mese di aprile non correlato alla sicurezza |versione 3.49 | 11 aprile 2017 |
-| N/D | [4014548] |Rollup .NET del mese di aprile non correlato alla sicurezza |versione 3.49 | 11 aprile 2017 |
-| N/D | [4015551] |Rollup del mese di aprile non correlato alla sicurezza |versione 3.49 | 11 aprile 2017 |
+| N/D | [4019990] |Aggiornamento di D3DCompiler - Requisito per .NET 4.7 |3.49 | 9 maggio 2017 |
+| N/D | [4014563] |Rollup .NET del mese di aprile non correlato alla sicurezza |3.49 | 11 aprile 2017 |
+| N/D | [4014557] |Rollup .NET del mese di aprile non correlato alla sicurezza |3.49 | 11 aprile 2017 |
+| N/D | [4014545] |Rollup .NET del mese di aprile non correlato alla sicurezza |3.49 | 11 aprile 2017 |
+| N/D | [4014548] |Rollup .NET del mese di aprile non correlato alla sicurezza |3.49 | 11 aprile 2017 |
+| N/D | [4015551] |Rollup del mese di aprile non correlato alla sicurezza |3.49 | 11 aprile 2017 |
 | N/D | [3173424] |Aggiornamento dello stack di manutenzione  |4.42 | 12 luglio 2016 |
 | N/D | [4014555] |Rollup .NET del mese di aprile non correlato alla sicurezza  |4.42 | 11 aprile 2017 |
 | N/D | [4014567] |Rollup .NET del mese di aprile non correlato alla sicurezza |4.42 | 11 aprile 2017 |
@@ -873,11 +920,11 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | Rel 17-03 |  [4012213] |Unico aggiornamento di qualità della sicurezza del mese di marzo 2017 per Windows 8.1 e Windows Server 2012 R2 |4.40 |14 marzo 2017 |
 | Rel 17-03 |  [4012214] |Unico aggiornamento di qualità della sicurezza del mese di marzo 2017 per Windows Server 2012|3.47 |14 marzo 2017 |
 | Rel 17-03 |  [4012204] |Aggiornamento della sicurezza per Internet Explorer |2.60, 3.47, 4.40, 5.5 |14 marzo 2017 |
-| N/D |  [4012864] |Modifiche dell'ora legale in Windows per il Cipro del Nord, la Mongolia e la regione russa di Saratov |2.60, 3.47, 4.40 |14 marzo 2017 |
+| N/D |  [4012864] |Modifiche dell'ora legale in Windows per Cipro, la Mongolia e la regione russa di Saratov |2.60, 3.47, 4.40 |14 marzo 2017 |
 | N/D |  [3212646] |Rollup di qualità mensile per la sicurezza di gennaio 2017 per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.60 |14 marzo 2017 |
 | N/D |  [3205409] |Rollup di qualità mensile per la sicurezza di dicembre 2016 per Windows Server 2012 |3.47 |14 marzo 2017 |
 | N/D |  [3205401] |Rollup di qualità mensile per la sicurezza di dicembre 2016 per Windows 8.1 e Windows Server 2012 R2 |4.40 |14 marzo 2017 |
-| N/D |  [3211320] |Aggiornamento stack di manutenzione per Windows 10 versione 1607 e Windows Server 2016: 24 gennaio 2017 |5.5 |14 marzo 2017 |
+| N/D |  [3211320] |Aggiornamento stack di manutenzione per Windows 10 versione 1607 e Windows Server 2016 - 24 ottobre 2017 |5.5 |14 marzo 2017 |
 
 ## <a name="january-2017-guest-os"></a>Sistema operativo guest di gennaio 2017
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -918,13 +965,13 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3192321] |La Turchia termina l'osservanza dell'ora legale |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
 | N/D |[3185330] |Rollup di qualità mensile per la sicurezza di ottobre 2016 per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.57 |8 novembre 2016 |
 | N/D |[3192403] |Anteprima del rollup di qualità mensile di ottobre 2016 per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.57 |8 novembre 2016 |
-| N/D |[3177467] |Aggiornamento stack di manutenzione per Windows 7 SP1 e Windows Server 2008 R2 SP1: 20 settembre 2016 |2.57 |8 novembre 2016 |
+| N/D |[3177467] |Aggiornamento stack di manutenzione per Windows 7 SP1 e Windows Server 2008 R2 SP1 - 20 settembre 2016 |2.57 |8 novembre 2016 |
 | N/D |[3185332] |Rollup di qualità mensile per la sicurezza di ottobre 2016 per Windows Server 2012 |3.45 |8 novembre 2016 |
 | N/D |[3192406] |Anteprima del rollup di qualità mensile di ottobre 2016 per Windows Server 2012 |3.45 |8 novembre 2016 |
 | N/D |[3185331] |Rollup di qualità mensile per la sicurezza di ottobre 2016 mensile per Windows 8.1 e Windows Server 2012 R2 |4.38 |8 novembre 2016 |
 | N/D |[3192404] |Anteprima del rollup di qualità mensile di ottobre 2016 per Windows 8.1 e Windows Server 2012 R2 |4.38 |8 novembre 2016 |
-| N/D |[3199986] |Aggiornamento stack di manutenzione per Windows 10 versione 1607: 27 ottobre 2016 |5.3 |8 novembre 2016 |
-| N/D |[3197954] |Aggiornamento cumulativo per Windows 10 versione 1607 e Windows Server 2016: 27 ottobre 2016 |5.3 |8 novembre 2016 |
+| N/D |[3199986] |Aggiornamento stack di manutenzione per Windows 10 versione 1607 - 27 ottobre 2016 |5.3 |8 novembre 2016 |
+| N/D |[3197954] |Aggiornamento cumulativo per Windows 10 versione 1607 e Windows Server 2016 - 27 ottobre 2016 |5.3 |8 novembre 2016 |
 
 ## <a name="october-2016-guest-os"></a>Sistema operativo guest di ottobre 2016
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |

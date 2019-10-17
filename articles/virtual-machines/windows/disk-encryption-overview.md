@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e38a58d076f6a8b7b2b07e468c61835ed06f55a4
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 05db717f5d3adc2429431503f588f2cc7f79aef6
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255616"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435743"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Crittografia dischi di Azure per macchine virtuali Windows 
 
@@ -32,14 +32,14 @@ Se si usa il [Centro sicurezza di Azure](../../security-center/index.yml), l'ute
 
 ### <a name="supported-vm-sizes"></a>Dimensioni delle macchine virtuali supportate
 
-Le macchine virtuali Windows sono disponibili in un [intervallo di dimensioni](sizes-general.md). Crittografia dischi di Azure non è disponibile nelle [VM Basic, serie A](/pricing/details/virtual-machines/series/)o nelle macchine virtuali con meno di 2 GB di memoria.
+Le macchine virtuali Windows sono disponibili in un [intervallo di dimensioni](sizes-general.md). Crittografia dischi di Azure non è disponibile nelle [VM Basic, serie A](https://azure.microsoft.com/pricing/details/virtual-machines/series/)o nelle macchine virtuali con meno di 2 GB di memoria.
 
 Crittografia dischi di Azure è disponibile anche per le macchine virtuali con archiviazione Premium.
 
 ### <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
 - Client Windows: Windows 8 e versioni successive.
-- Server Windows: Windows Server 2008 R2 e versioni successive.  
+- Windows Server: Windows Server 2008 R2 e versioni successive.  
  
 > [!NOTE]
 > Windows Server 2008 R2 richiede l'installazione di .NET Framework 4,5 per la crittografia. installarlo da Windows Update con l'aggiornamento facoltativo Microsoft .NET Framework 4.5.2 per sistemi basati su Windows Server 2008 R2 x64 ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
@@ -59,7 +59,7 @@ Per abilitare crittografia dischi di Azure, le macchine virtuali devono soddisfa
 
 Crittografia dischi di Azure usa la protezione con chiave esterna BitLocker per le macchine virtuali Windows. Per le macchine virtuali aggiunte a un dominio, non eseguire il push di criteri di gruppo che applichino protezioni TPM. Per informazioni sui Criteri di gruppo per consentire BitLocker senza un TPM compatibile, vedere [BitLocker Group Policy Reference](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1) (Informazioni di riferimento sui Criteri di gruppo BitLocker).
 
-I criteri di BitLocker nelle macchine virtuali aggiunte a un dominio con criteri di gruppo personalizzati devono includere l'impostazione seguente: [Configurare l'archiviazione utente delle informazioni di ripristino di BitLocker: > consentire la chiave di ripristino a 256 bit](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Crittografia dischi di Azure avrà esito negativo quando le impostazioni di Criteri di gruppo personalizzate per BitLocker sono incompatibili. Sulle macchine sprovviste delle corrette impostazioni di criteri, applicare i nuovi criteri, forzare l'aggiornamento dei criteri (gpupdate.exe /force) e, dopodiché, potrebbe essere necessario riavviare.
+I criteri di BitLocker nelle macchine virtuali appartenenti a un dominio con criteri di gruppo personalizzati devono includere l'impostazione seguente: [Configura archiviazione utente delle informazioni di ripristino di BitLocker-> Consenti chiave di ripristino a 256 bit](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Crittografia dischi di Azure avrà esito negativo quando le impostazioni di Criteri di gruppo personalizzate per BitLocker sono incompatibili. Sulle macchine sprovviste delle corrette impostazioni di criteri, applicare i nuovi criteri, forzare l'aggiornamento dei criteri (gpupdate.exe /force) e, dopodiché, potrebbe essere necessario riavviare.
 
 Crittografia dischi di Azure non riuscirà se i criteri di gruppo a livello di dominio bloccano l'algoritmo AES-CBC, usato da BitLocker.
 
@@ -78,7 +78,7 @@ La tabella seguente definisce alcuni dei termini comuni usati nella documentazio
 | Interfaccia della riga di comando di Azure | [L'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) è ottimizzata per la gestione e l'amministrazione delle risorse di Azure dalla riga di comando.|
 | BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) è una tecnologia di crittografia del volume di Windows riconosciuta nel settore, usata per abilitare la crittografia dei dischi nelle macchine virtuali Windows. |
 | Chiave di crittografia della chiave (KEK) | Chiave asimmetrica (RSA 2048) che è possibile usare per proteggere o eseguire il wrapping del segreto. È possibile fornire una chiave protetta tramite modulo di protezione hardware o una chiave protetta tramite software. Per altre informazioni, vedere la documentazione di [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) e [creazione e configurazione di un insieme di credenziali delle chiavi per crittografia dischi di Azure](disk-encryption-key-vault.md). |
-| Cmdlet PowerShell | Per altre informazioni, vedere [Cmdlet di Azure PowerShell](/powershell/azure/overview). |
+| Cmdlet di PowerShell | Per altre informazioni, vedere [Cmdlet di Azure PowerShell](/powershell/azure/overview). |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

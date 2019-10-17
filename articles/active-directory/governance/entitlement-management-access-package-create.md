@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 09/24/2019
+ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a99aa766ed4e6cacbe22933db226b2037d3e736d
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 10a278fdd194b841cbb8620999fe79c3affb4e0b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170002"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389249"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Creare un nuovo pacchetto di accesso in Azure AD gestione dei diritti (anteprima)
 
@@ -36,15 +36,31 @@ Un pacchetto di accesso consente di eseguire una singola installazione di risors
 
 Tutti i pacchetti di accesso devono essere inseriti in un contenitore denominato catalogo. Un catalogo consente di definire le risorse che è possibile aggiungere al pacchetto di accesso. Se non si specifica un catalogo, il pacchetto di accesso verrà inserito nel catalogo generale. Attualmente non è possibile spostare un pacchetto di accesso esistente in un catalogo diverso.
 
-Tutti i pacchetti di accesso devono avere almeno un criterio. I criteri specificano chi può richiedere il pacchetto di accesso e anche le impostazioni di approvazione e scadenza. Quando si crea un nuovo pacchetto di accesso, è possibile creare un criterio iniziale per gli utenti nella directory, per gli utenti non inclusi nella directory, solo per le assegnazioni dirette all'amministratore oppure è possibile scegliere di creare il criterio in un secondo momento.
+Se si è una gestione pacchetti di Access, non è possibile aggiungere risorse di cui si è proprietari a un catalogo. Si è limitati all'uso delle risorse disponibili nel catalogo. Se è necessario aggiungere risorse a un catalogo, è possibile richiedere il proprietario del catalogo.
 
-Il diagramma seguente illustra il processo di alto livello per la creazione di un nuovo pacchetto di accesso.
+Tutti i pacchetti di accesso devono avere almeno un criterio. I criteri specificano chi può richiedere il pacchetto di accesso e anche le impostazioni di approvazione e ciclo di vita. Quando si crea un nuovo pacchetto di accesso, è possibile creare un criterio iniziale per gli utenti nella directory, per gli utenti non inclusi nella directory, solo per le assegnazioni dirette all'amministratore oppure è possibile scegliere di creare il criterio in un secondo momento.
 
-![Creazione di un processo di pacchetto di accesso](./media/entitlement-management-access-package-create/access-package-process.png)
+![Creare un pacchetto di accesso](./media/entitlement-management-access-package-create/access-package-create.png)
+
+Ecco i passaggi di alto livello per creare un nuovo pacchetto di accesso.
+
+1. In governance delle identità avviare il processo per creare un nuovo pacchetto di accesso.
+
+1. Selezionare il catalogo in cui si vuole creare il pacchetto di accesso.
+
+1. Aggiungere le risorse dal catalogo al pacchetto di accesso.
+
+1. Assegnare i ruoli delle risorse per ogni risorsa.
+
+1. Specificare gli utenti che possono richiedere l'accesso.
+
+1. Specificare le impostazioni di approvazione.
+
+1. Specificare le impostazioni del ciclo di vita.
 
 ## <a name="start-new-access-package"></a>Avvia nuovo pacchetto di accesso
 
-**Ruolo prerequisito:** Amministratore globale, amministratore utente o proprietario del catalogo
+**Ruolo prerequisiti:** Amministratore globale, Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -64,20 +80,19 @@ Nella scheda **nozioni di base** assegnare un nome al pacchetto di accesso e spe
 
 1. Nell'elenco a discesa **Catalogo** selezionare il catalogo in cui si vuole creare il pacchetto di accesso. Ad esempio, si potrebbe avere un proprietario del catalogo che gestisce tutte le risorse di marketing che possono essere richieste. In questo caso, è possibile selezionare il catalogo marketing.
 
-    Vengono visualizzati solo i cataloghi per i quali si dispone dell'autorizzazione per creare pacchetti di accesso in. Per creare un pacchetto di accesso in un catalogo esistente, è necessario essere almeno un amministratore globale, un amministratore utente, un proprietario del catalogo nel catalogo oppure accedere a gestione pacchetti in tale catalogo.
+    Vengono visualizzati solo i cataloghi per i quali si dispone dell'autorizzazione per creare pacchetti di accesso in. Per creare un pacchetto di accesso in un catalogo esistente, è necessario essere un amministratore globale o un amministratore utente oppure è necessario essere un proprietario del catalogo o accedere a gestione pacchetti in tale catalogo.
 
     ![Accedere a Package-nozioni di base](./media/entitlement-management-access-package-create/basics.png)
 
-    Se si è un amministratore globale o un amministratore utente e si desidera creare il pacchetto di accesso in un nuovo catalogo non elencato, fare clic su **Crea nuovo**. Immettere il nome del catalogo e la descrizione, quindi fare clic su **Crea**.
+    Se si è un amministratore globale, un amministratore utente o un creatore del catalogo e si desidera creare il pacchetto di accesso in un nuovo catalogo non elencato, fare clic su **Crea nuovo catalogo**. Immettere il nome del catalogo e la descrizione, quindi fare clic su **Crea**.
 
     Il pacchetto di accesso che si sta creando e le eventuali risorse incluse verranno aggiunte al nuovo catalogo. È anche possibile aggiungere altri proprietari del catalogo in un secondo momento.
 
-
-1. Fare clic su **Avanti**.
+1. Fare clic su **Next** (Avanti).
 
 ## <a name="resource-roles"></a>Ruoli delle risorse
 
-Nella scheda **ruoli risorsa** selezionare le risorse da includere nel pacchetto di accesso.  Gli utenti che richiedono e ricevono il pacchetto di accesso riceveranno tutti i ruoli delle risorse nel pacchetto di accesso.
+Nella scheda **ruoli risorsa** selezionare le risorse da includere nel pacchetto di accesso. Gli utenti che richiedono e ricevono il pacchetto di accesso riceveranno tutti i ruoli delle risorse nel pacchetto di accesso.
 
 1. Fare clic sul tipo di risorsa che si desidera aggiungere (**gruppi e team**, **applicazioni**o **siti di SharePoint**).
 
@@ -95,21 +110,19 @@ Nella scheda **ruoli risorsa** selezionare le risorse da includere nel pacchetto
 
     ![Accedere al pacchetto: selezione del ruolo delle risorse](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
-1. Fare clic su **Avanti**.
+1. Fare clic su **Next** (Avanti).
 
-## <a name="policy"></a>Criteri
+## <a name="requests"></a>Richieste
 
-Nella scheda **criteri** si crea il primo criterio per specificare gli utenti che possono richiedere il pacchetto di accesso e anche le impostazioni di approvazione e scadenza. Successivamente, è possibile creare più criteri per consentire a gruppi aggiuntivi di utenti di richiedere il pacchetto di accesso con le proprie impostazioni di approvazione e scadenza. È anche possibile scegliere di creare il criterio in un secondo momento.
+Nella scheda **richieste** creare il primo criterio per specificare gli utenti che possono richiedere il pacchetto di accesso e anche le impostazioni di approvazione. Successivamente, è possibile creare altri criteri di richiesta per consentire a gruppi aggiuntivi di utenti di richiedere il pacchetto di accesso con le proprie impostazioni di approvazione.
 
-1. Impostare l'interruttore **Crea primo criterio** su **ora** o **versione successiva**.
+![Scheda Access Package-requests](./media/entitlement-management-access-package-create/requests.png)
 
-    ![Criteri di accesso ai pacchetti](./media/entitlement-management-access-package-create/policy.png)
+Eseguire i passaggi in una delle sezioni seguenti.
 
-1. Se si seleziona in **seguito**, passare alla sezione [Review + create](#review--create) per creare il pacchetto di accesso.
+[!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
 
-1. Se si seleziona **ora**, eseguire i passaggi in una delle sezioni seguenti dei criteri.
-
-[!INCLUDE [Entitlement management policy](../../../includes/active-directory-entitlement-management-policy.md)]
+[!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
 ## <a name="review--create"></a>Rivedi e crea
 
@@ -125,4 +138,5 @@ Nella scheda **Verifica e crea** è possibile esaminare le impostazioni e verifi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Modificare e gestire un pacchetto di accesso esistente](entitlement-management-access-package-edit.md)
+- [Condividi il collegamento per richiedere un pacchetto di accesso](entitlement-management-access-package-settings.md)
+- [Modificare i ruoli delle risorse per un pacchetto di accesso](entitlement-management-access-package-resources.md)

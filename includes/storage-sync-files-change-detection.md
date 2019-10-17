@@ -1,15 +1,15 @@
 ---
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: tamram
-ms.openlocfilehash: 59adee2f1d6a99a0a984b9b63c7201266b6381d4
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.author: rogarana
+ms.openlocfilehash: 55456a6be938411d3c08a0eaa8fdbfb0844e7129
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69984543"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391683"
 ---
 Le modifiche apportate alla condivisione file di Azure tramite il portale di Azure o SMB non vengono rilevate e replicate immediatamente come le modifiche all'endpoint server. File di Azure non ha ancora funzioni di notifica o di inserimento nel journal per le modifiche. Non è quindi possibile avviare automaticamente una sessione di sincronizzazione quando i file vengono modificati. In Windows Server Sincronizzazione file di Azure usa [l'inserimento nel journal del numero di sequenza di aggiornamento (USN) di Windows](https://msdn.microsoft.com/library/windows/desktop/aa363798.aspx) per avviare automaticamente una sessione di sincronizzazione quando i file vengono modificati.
 

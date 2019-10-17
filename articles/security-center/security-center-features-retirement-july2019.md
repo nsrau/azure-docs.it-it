@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 6e7263dfa0faf0bf2fd7e8b7d6e050ca6bc95e2a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: c4fe185f5d203b1b0eba306c80cded14ad82bc98
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202201"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438624"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Ritiro delle funzionalità del Centro sicurezza (luglio 2019)
 
@@ -47,13 +47,13 @@ Il Centro sicurezza USA Microsoft Monitoring Agent per raccogliere diverse confi
 
 Il dashboard degli eventi è stato ritirato quando è stata selezionata un'area di lavoro:
 
-![Dashboard Eventi][2]
+![Dashboard eventi][2]
 
 ### <a name="events-dashboard---the-new-experience"></a>Dashboard eventi: nuova esperienza
 
 Si consiglia di usare le funzionalità native di Azure Log Analytics per visualizzare gli eventi rilevanti nelle aree di lavoro.
 
-Se sono stati creati eventi rilevanti personalizzati nel centro sicurezza, saranno accessibili. In log Analytics passare a **selezionare l'area di lavoro** > **ricerche salvate**. I dati non verranno persi o modificati. Gli eventi rilevanti nativi sono disponibili anche nella stessa schermata in Log Analytics.
+Se sono stati creati eventi rilevanti personalizzati nel centro sicurezza, saranno accessibili. In Log Analytics passare a **Seleziona area di lavoro** > **ricerche salvate**. I dati non verranno persi o modificati. Gli eventi rilevanti nativi sono disponibili anche nella stessa schermata in Log Analytics.
 
 ![Ricerche salvate nell'area di lavoro][3]
 
@@ -115,7 +115,7 @@ I dati esistenti rimangono disponibili nella soluzione Log Analytics sicurezza e
 
 ### <a name="security-events-map---the-new-experience"></a>Mappa degli eventi di sicurezza: nuova esperienza
 
-Si consiglia di usare la funzionalità mappa avvisi integrata nel centro sicurezza: **Mappa avvisi di sicurezza (anteprima)** . Questa funzionalità offre un'esperienza ottimizzata e funziona in tutte le sottoscrizioni e le aree di lavoro associate. Offre una visualizzazione di alto livello nell'ambiente e non si concentra su un'unica area di lavoro.
+Si consiglia di usare la funzionalità mappa avvisi integrata nel centro sicurezza: **mappa avvisi di sicurezza (anteprima)** . Questa funzionalità offre un'esperienza ottimizzata e funziona in tutte le sottoscrizioni e le aree di lavoro associate. Offre una visualizzazione di alto livello nell'ambiente e non si concentra su un'unica area di lavoro.
 
 ## Regole di avviso personalizzate (anteprima)<a name="menu_customalerts"></a>
 
@@ -169,9 +169,9 @@ Se si hanno soluzioni connesse esistenti, si consiglia di passare ad Azure Senti
 
 Il Centro sicurezza di Azure monitora le configurazioni di sicurezza applicando un set di [più di 150 regole consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) per la protezione avanzata del sistema operativo. Queste regole riguardano firewall, controllo, criteri password e altro ancora. Se in un computer viene trovata una configurazione vulnerabile, il Centro sicurezza genera una raccomandazione di sicurezza. La [schermata Modifica configurazione sicurezza](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) consente ai clienti di personalizzare la configurazione di sicurezza del sistema operativo predefinita nel centro sicurezza.
 
-Questa funzionalità di anteprima è stata ritirata. Per ripristinare i valori predefiniti delle configurazioni di sicurezza dopo la data di ritiro, eseguire questa operazione tramite l'API o PowerShell usando le [istruzioni seguenti](https://aka.ms/ascresetsecurityconfigurations)
+Questa funzionalità di anteprima è stata ritirata. Per ripristinare i valori predefiniti delle configurazioni di sicurezza dopo la data di ritiro, eseguire questa operazione tramite l'API o PowerShell usando le [istruzioni seguenti](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization)
 
-![Modifica le configurazioni di sicurezza][17]
+![Modificare le configurazioni di sicurezza][17]
 
 ### <a name="edit-security-configurations---the-new-experience"></a>Modificare le configurazioni di sicurezza: nuova esperienza
 

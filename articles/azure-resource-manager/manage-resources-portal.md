@@ -1,6 +1,6 @@
 ---
 title: Gestire le risorse di Azure usando il portale di Azure | Microsoft Docs
-description: Usare il portale di Azure e Azure Resource Manager per gestire le risorse.
+description: Usare il portale di Azure e Azure Resource Manager per gestire le risorse. Viene illustrato come distribuire ed eliminare risorse.
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: mumian
@@ -8,52 +8,52 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: a4ff94a98514041290518e72e1b13c76722b9d4f
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c52d54ca02436f7224346a65048244a5ec8d104c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205593"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390404"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Gestire le risorse di Azure usando il portale di Azure
 
-Informazioni su come usare il [portale di Azure](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) per gestire le risorse di Azure. Per la gestione dei gruppi di risorse, vedere [gruppi di risorse di Azure di gestire tramite il portale di Azure](./manage-resource-groups-portal.md).
+Informazioni su come usare la [portale di Azure](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) per gestire le risorse di Azure. Per la gestione dei gruppi di risorse, vedere [gestire i gruppi di risorse di Azure usando il portale di Azure](./manage-resource-groups-portal.md).
 
 Altri articoli sulla gestione delle risorse:
 
-- [Gestire le risorse di Azure utilizzando CLI di Azure](./manage-resources-cli.md)
+- [Gestire le risorse di Azure usando l'interfaccia della riga di comando](./manage-resources-cli.md)
 - [Gestire le risorse di Azure usando Azure PowerShell](./manage-resources-powershell.md)
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="deploy-resources-to-a-resource-group"></a>Distribuire risorse in un gruppo di risorse
+## <a name="deploy-resources-to-a-resource-group"></a>Distribuire le risorse in un gruppo di risorse
 
-Dopo aver creato un modello di Resource Manager, è possibile usare il portale di Azure per distribuire le risorse di Azure. Per creare un modello, vedere [Guida introduttiva: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](./resource-manager-quickstart-create-templates-use-the-portal.md). Per distribuire un modello usando il portale, vedere [distribuire le risorse con modelli di Resource Manager e portale di Azure](resource-group-template-deploy-portal.md).
+Dopo aver creato un modello di Gestione risorse, è possibile usare il portale di Azure per distribuire le risorse di Azure. Per la creazione di un modello, vedere [Guida introduttiva: creare e distribuire modelli di Azure Resource Manager usando il portale di Azure](./resource-manager-quickstart-create-templates-use-the-portal.md). Per la distribuzione di un modello tramite il portale, vedere [distribuire risorse con modelli e portale di Azure di gestione risorse](resource-group-template-deploy-portal.md).
 
-## <a name="open-resources"></a>Risorse aperte
+## <a name="open-resources"></a>Apri risorse
 
-Le risorse di Azure sono ordinate per servizi di Azure e da gruppi di risorse. Le procedure seguenti viene illustrato come aprire un account di archiviazione denominato **mystorage0207**. La macchina virtuale si trova in un gruppo di risorse denominato **mystorage0207rg**.
+Le risorse di Azure sono organizzate in base ai servizi di Azure e ai gruppi di risorse. Le procedure seguenti illustrano come aprire un account di archiviazione denominato **mystorage0207**. La macchina virtuale risiede in un gruppo di risorse denominato **mystorage0207rg**.
 
-Per aprire una risorsa dal tipo di servizio:
-
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nel riquadro sinistro, selezionare il servizio di Azure. In questo caso **gli account di archiviazione**.  Se il servizio indicato non è visualizzato, selezionare **tutti i servizi**e quindi selezionare il tipo di servizio.
-
-    ![aprire risorse di azure nel portale](./media/manage-resources-portal/manage-azure-resources-portal-open-service.png)
-
-3. Selezionare la risorsa che si desidera aprire.
-
-    ![aprire risorse di azure nel portale](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
-
-    Un account di archiviazione è simile a:
-
-    ![aprire risorse di azure nel portale](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
-
-Per aprire un gruppo di risorse da risorse:
+Per aprire una risorsa in base al tipo di servizio:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nel riquadro sinistro, selezionare **gruppi di risorse** per elencare le risorse all'interno del gruppo.
-3. Selezionare la risorsa che si desidera aprire. 
+2. Nel riquadro sinistro selezionare il servizio di Azure. In questo caso, gli **account di archiviazione**.  Se il servizio non è elencato, selezionare **tutti i servizi**e quindi selezionare il tipo di servizio.
+
+    ![Aprire la risorsa di Azure nel portale](./media/manage-resources-portal/manage-azure-resources-portal-open-service.png)
+
+3. Selezionare la risorsa che si vuole aprire.
+
+    ![Aprire la risorsa di Azure nel portale](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
+
+    Un account di archiviazione ha un aspetto simile al seguente:
+
+    ![Aprire la risorsa di Azure nel portale](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
+
+Per aprire una risorsa in base al gruppo di risorse:
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Nel riquadro sinistro selezionare gruppi di **risorse** per elencare la risorsa all'interno del gruppo.
+3. Selezionare la risorsa che si vuole aprire. 
 
 ## <a name="manage-resources"></a>Gestire risorse
 
@@ -61,37 +61,37 @@ Quando si visualizza una risorsa nel portale, si vedono le opzioni per la gestio
 
 ![gestire le risorse di Azure](./media/manage-resources-portal/manage-azure-resources-portal-manage-resource.png)
 
-Lo screenshot Mostra le opzioni di gestione per una macchina virtuale di Azure. È possibile eseguire operazioni come avvio, il riavvio e arresto di una macchina virtuale.
+Lo screenshot mostra le opzioni di gestione per una macchina virtuale di Azure. È possibile eseguire operazioni quali l'avvio, il riavvio e l'arresto di una macchina virtuale.
 
 ## <a name="delete-resources"></a>Eliminare le risorse
 
-1. Aprire la risorsa nel portale. Per istruzioni, vedere [aprire risorse](#open-resources).
+1. Aprire la risorsa nel portale. Per la procedura, vedere [aprire risorse](#open-resources).
 2. Selezionare **Elimina**. Lo screenshot seguente mostra le opzioni di gestione per una macchina virtuale.
 
-    ![eliminare risorse di azure](./media/manage-resources-portal/manage-azure-resources-portal-delete-resource.png)
-3. Digitare il nome della risorsa per confermare l'eliminazione e quindi selezionare **Elimina**.
+    ![Elimina risorsa di Azure](./media/manage-resources-portal/manage-azure-resources-portal-delete-resource.png)
+3. Digitare il nome della risorsa per confermare l'eliminazione, quindi selezionare **Elimina**.
 
-Per altre informazioni sulla modalità Azure Resource Manager Ordina l'eliminazione delle risorse, vedere [eliminazione del gruppo di risorse Azure Resource Manager](./resource-group-delete.md).
+Per altre informazioni su come Azure Resource Manager Ordina l'eliminazione delle risorse, vedere [Azure Resource Manager eliminazione del gruppo di risorse](./resource-group-delete.md).
 
 ## <a name="move-resources"></a>Spostare le risorse
 
-1. Aprire la risorsa nel portale. Per istruzioni, vedere [aprire risorse](#open-resources).
+1. Aprire la risorsa nel portale. Per la procedura, vedere [aprire risorse](#open-resources).
 2. Selezionare **Sposta**. Lo screenshot seguente mostra le opzioni di gestione per un account di archiviazione.
 
-    ![spostare risorse di azure](./media/manage-resources-portal/manage-azure-resources-portal-move-resource.png)
-3. Selezionare **spostare in un altro gruppo di risorse** oppure **Moeve a un'altra sottoscrizione** in base alle esigenze.
+    ![spostare una risorsa di Azure](./media/manage-resources-portal/manage-azure-resources-portal-move-resource.png)
+3. Selezionare **Sposta in un altro gruppo di risorse** o **Sposta in un'altra sottoscrizione** a seconda delle esigenze.
 
 Per altre informazioni, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](resource-group-move-resources.md).
 
 ## <a name="lock-resources"></a>Bloccare le risorse
 
-Il blocco impedisce ad altri utenti nell'organizzazione modifichino o eliminino accidentalmente risorse critiche, come sottoscrizione di Azure, gruppo di risorse o risorsa. 
+Il blocco impedisce ad altri utenti dell'organizzazione di eliminare o modificare accidentalmente le risorse critiche, ad esempio la sottoscrizione di Azure, il gruppo di risorse o la risorsa. 
 
-1. Aprire la risorsa nel portale. Per istruzioni, vedere [aprire risorse](#open-resources).
-2. Selezionare **blocca**. Lo screenshot seguente mostra le opzioni di gestione per un account di archiviazione.
+1. Aprire la risorsa nel portale. Per la procedura, vedere [aprire risorse](#open-resources).
+2. Selezionare **blocchi**. Lo screenshot seguente mostra le opzioni di gestione per un account di archiviazione.
 
-    ![risorsa di blocco di azure](./media/manage-resources-portal/manage-azure-resources-portal-lock-resource.png)
-3. Selezionare **Add**e quindi specificare le proprietà di blocco.
+    ![blocca risorsa di Azure](./media/manage-resources-portal/manage-azure-resources-portal-lock-resource.png)
+3. Selezionare **Aggiungi**e quindi specificare le proprietà del blocco.
 
 Per altre informazioni, vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md).
 
@@ -99,21 +99,21 @@ Per altre informazioni, vedere [Bloccare le risorse con Gestione risorse di Azur
 
 L'assegnazione di tag consente di organizzare logicamente il gruppo di risorse e le risorse. 
 
-1. Aprire la risorsa nel portale. Per istruzioni, vedere [aprire risorse](#open-resources).
+1. Aprire la risorsa nel portale. Per la procedura, vedere [aprire risorse](#open-resources).
 2. Selezionare **Tag**. Lo screenshot seguente mostra le opzioni di gestione per un account di archiviazione.
 
-    ![risorse di azure di tag](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
-3. Specificare le proprietà di tag e quindi selezionare **salvare**.
+    ![contrassegnare la risorsa di Azure](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
+3. Specificare le proprietà dei tag e quindi selezionare **Salva**.
 
-Per informazioni, vedere [usando i tag per organizzare le risorse di Azure](./resource-group-using-tags.md#portal).
+Per informazioni, vedere [uso dei tag per organizzare le risorse di Azure](./resource-group-using-tags.md#portal).
 
 ## <a name="monitor-resources"></a>Monitorare le risorse
 
-Quando si apre una risorsa, il portale Visualizza grafici e tabelle per il monitoraggio di quel tipo di risorsa predefiniti. Lo screenshot seguente mostra i grafici per una macchina virtuale:
+Quando si apre una risorsa, il portale Visualizza grafici e tabelle predefiniti per il monitoraggio di tale tipo di risorsa. La schermata seguente mostra i grafici per una macchina virtuale:
 
-![risorse di monitoraggio di azure](./media/manage-resources-portal/manage-azure-resources-portal-monitor-resource.png)
+![monitorare le risorse di Azure](./media/manage-resources-portal/manage-azure-resources-portal-monitor-resource.png)
 
-È possibile selezionare l'icona della puntina in alto a destra dei grafici per aggiungere il grafico al dashboard. Per informazioni sull'uso dei dashboard, vedere [Creating and sharing dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md)(Creazione e condivisione di dashboard nel portale di Azure).
+È possibile selezionare l'icona Aggiungi nell'angolo superiore destro dei grafici per aggiungere il grafico al dashboard. Per informazioni sull'uso dei dashboard, vedere [Creating and sharing dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md)(Creazione e condivisione di dashboard nel portale di Azure).
 
 ## <a name="manage-access-to-resources"></a>Gestire l'accesso alle risorse
 
@@ -121,7 +121,7 @@ Quando si apre una risorsa, il portale Visualizza grafici e tabelle per il monit
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](./resource-group-overview.md).
-- Per altre informazioni sulla sintassi del modello di Resource Manager, vedere [comprendere la struttura e sintassi di modelli Azure Resource Manager](./resource-group-authoring-templates.md).
-- Per informazioni su come sviluppare modelli, vedere la [esercitazioni dettagliate](/azure/azure-resource-manager/).
-- Per visualizzare gli schemi del modello di Azure Resource Manager, vedere [riferimento a un modello](/azure/templates/).
+- Per informazioni Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](./resource-group-overview.md).
+- Per informazioni sulla sintassi del modello di Gestione risorse, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](./resource-group-authoring-templates.md).
+- Per informazioni su come sviluppare modelli, vedere le [esercitazioni dettagliate](/azure/azure-resource-manager/).
+- Per visualizzare gli schemi del modello di Azure Resource Manager, vedere informazioni di [riferimento sui modelli](/azure/templates/).
