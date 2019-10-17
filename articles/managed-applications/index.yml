@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Documentazione delle applicazioni gestite di Azure
 metadata:
-  title: Documentazione delle applicazioni gestite di Azure - Esercitazioni e informazioni di riferimento sulle API
+  title: Documentazione delle applicazioni gestite di Azure
   description: Usare le applicazioni gestite di Azure per pubblicare soluzioni cloud con gestione semplificata per i consumer.
   services: managed-applications
   author: tfitzmac

@@ -150,8 +150,14 @@
     - name: Automatizzazione dell'infrastruttura
       href: ../virtual-machines/windows/infrastructure-automation.md
       maintainContext: true
-    - name: Sicurezza e criteri
-      href: ../virtual-machines/windows/security-policy.md
+    - name: Security
+      items:
+        - name: Sicurezza e criteri
+          href: ../virtual-machines/windows/security-policy.md
+        - name: Azure Disk Encryption
+          href: disk-encryption-overview.md
+        - name: Criteri di sicurezza integrati
+          href: virtual-machine-scale-sets-security-controls.md
       maintainContext: true
     - name: Monitoraggio
       href: ../virtual-machines/windows/monitor.md
@@ -163,8 +169,6 @@
           maintainContext: true
     - name: Domande frequenti sui set di scalabilità
       href: virtual-machine-scale-sets-faq.md
-    - name: Criteri di sicurezza integrati
-      href: virtual-machine-scale-sets-security-controls.md
 - name: Procedure
   items:
     - name: Pianificare e progettare
@@ -212,12 +216,15 @@
         - name: Crittografare i dischi nei set di scalabilità
           items:
             - name: Usare PowerShell
-              href: virtual-machine-scale-sets-encrypt-disks-ps.md
+              href: disk-encryption-powershell.md
             - name: Utilizzare l’interfaccia della riga di comando di Azure
-              href: virtual-machine-scale-sets-encrypt-disks-cli.md
+              href: disk-encryption-cli.md
+            - name: Usare i modelli di Gestione risorse di Azure
+              href: disk-encryption-azure-resource-manager.md
             - name: Sequenziazione delle estensioni
-              href: ../security/azure-security-disk-encryption-extension-sequencing.md
-              maintainContext: true
+              href: disk-encryption-extension-sequencing.md
+            - name: Key Vault per Crittografia dischi di Azure
+              href: disk-encryption-key-vault.md
         - name: Usare set di scalabilità di grandi dimensioni
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Convertire un modello di set di scalabilità per l'uso di dischi gestiti
