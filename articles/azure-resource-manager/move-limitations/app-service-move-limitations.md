@@ -1,21 +1,21 @@
 ---
-title: Spostare le risorse servizio App di Azure alla nuova sottoscrizione o gruppo di risorse
-description: Usare Azure Resource Manager per spostare le risorse del servizio App in un nuovo gruppo di risorse o sottoscrizione.
+title: Spostare le risorse del servizio app Azure
+description: Usare Azure Resource Manager per spostare le risorse del servizio app in un nuovo gruppo di risorse o una nuova sottoscrizione.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: c1a09ff4c29a2fedfea2c165a95c042985b3c83a
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 04ddf644c58434531dde708ee3b6432b1fce8f91
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723571"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533537"
 ---
-# <a name="move-guidance-for-app-service-resources"></a>Spostare linee guida per le risorse del servizio App
+# <a name="move-guidance-for-app-service-resources"></a>Spostare le linee guida per le risorse del servizio app
 
-I passaggi per spostare le risorse del servizio App sono diversi in base se si spostano le risorse all'interno di una sottoscrizione o in una nuova sottoscrizione.
+I passaggi per spostare le risorse del servizio app variano a seconda che si stiano spostando le risorse all'interno di una sottoscrizione o a una nuova sottoscrizione.
 
 ## <a name="move-in-same-subscription"></a>Sposta nella stessa sottoscrizione
 
@@ -27,45 +27,45 @@ Se si desidera spostare il certificato SSL con l'app Web, attenersi alla procedu
 2. Spostare l'app Web.
 3. Caricare il certificato di terze parti nell'app Web spostata.
 
-## <a name="move-across-subscriptions"></a>Spostamento tra sottoscrizioni
+## <a name="move-across-subscriptions"></a>Sposta tra sottoscrizioni
 
 Quando si sposta un'app Web _tra sottoscrizioni_, si applicano le limitazioni seguenti:
 
 - Il gruppo di risorse di destinazione non deve contenere risorse del servizio app esistenti. Le risorse del servizio app includono:
     - App Web
-    - Piani di servizio app
+    - Piani del servizio app
     - Certificati SSL importati o caricati
-    - Ambienti del servizio app
+    - Ambienti di servizio app
 - Tutte le risorse del servizio app nel gruppo di risorse devono essere spostate insieme.
-- Le risorse del servizio app possono essere spostate solo dal gruppo di risorse in cui sono state originariamente create. Se una risorsa del servizio App non è più nel relativo gruppo di risorse originale, spostarlo di nuovo al gruppo di risorse originale. Quindi, spostare le risorse tra sottoscrizioni.
+- Le risorse del servizio app possono essere spostate solo dal gruppo di risorse in cui sono state originariamente create. Se una risorsa del servizio app non si trova più nel gruppo di risorse originale, spostarla di nuovo nel gruppo di risorse originale. Spostare quindi la risorsa tra le sottoscrizioni.
 
-Se non si ricorda il gruppo di risorse originale, è possibile trovarlo tramite diagnostica. Per l'app web, selezionare **diagnosticare e risolvere i problemi**. Quindi, selezionare **configurazione e gestione**.
+Se non si ricorda il gruppo di risorse originale, è possibile trovarlo tramite la diagnostica. Per l'app Web, selezionare **diagnostica e Risolvi i problemi**. Selezionare quindi **configurazione e gestione**.
 
-![Selezionare la diagnostica](./media/app-service-move-limitations/select-diagnostics.png)
+![Seleziona diagnostica](./media/app-service-move-limitations/select-diagnostics.png)
 
-Selezionare **opzioni di migrazione**.
+Selezionare **Opzioni di migrazione**.
 
 ![Selezionare le opzioni di migrazione](./media/app-service-move-limitations/select-migration.png)
 
-Selezionare l'opzione per procedure consigliate per spostare l'app web.
+Selezionare l'opzione per la procedura consigliata per spostare l'app Web.
 
-![Selezionare passaggi consigliati](./media/app-service-move-limitations/recommended-steps.png)
+![Selezionare i passaggi consigliati](./media/app-service-move-limitations/recommended-steps.png)
 
-Noterete che le azioni consigliate da intraprendere prima di spostare le risorse. Le informazioni includono il gruppo di risorse originale per l'app web.
+Verranno visualizzate le azioni consigliate da eseguire prima di trasferire le risorse. Le informazioni includono il gruppo di risorse originale per l'app Web.
 
-![Consigli](./media/app-service-move-limitations/recommendations.png)
+![Raccomandazioni](./media/app-service-move-limitations/recommendations.png)
 
-## <a name="move-app-service-certificate"></a>Spostare il certificato di servizio App
+## <a name="move-app-service-certificate"></a>Sposta certificato del servizio app
 
 È possibile spostare il certificato del servizio app in un nuovo gruppo di risorse oppure in una nuova sottoscrizione. Se il certificato del servizio app è associato a un'app Web, è necessario eseguire alcuni passaggi prima di spostare le risorse in una nuova sottoscrizione. Eliminare l'associazione SSL e il certificato privato dall'app Web prima di spostare le risorse. Il certificato del servizio app non deve essere eliminato, è sufficiente eliminare solo il certificato privato nell'app Web.
 
 ## <a name="move-support"></a>Supporto per l'operazione di spostamento
 
-Per determinare quali risorse del servizio App possono essere spostate, vedere spostare lo stato di supporto per:
+Per determinare quali risorse del servizio app possono essere spostate, vedere spostare lo stato di supporto per:
 
-- [Microsoft.AppService](../move-support-resources.md#microsoftappservice)
-- [Microsoft.CertificateRegistration](../move-support-resources.md#microsoftcertificateregistration)
-- [Microsoft.DomainRegistration](../move-support-resources.md#microsoftdomainregistration)
+- [Microsoft. AppService](../move-support-resources.md#microsoftappservice)
+- [Microsoft. CertificateRegistration](../move-support-resources.md#microsoftcertificateregistration)
+- [Microsoft. DomainRegistration](../move-support-resources.md#microsoftdomainregistration)
 - [Microsoft.Web](../move-support-resources.md#microsoftweb)
 
 ## <a name="next-steps"></a>Passaggi successivi
