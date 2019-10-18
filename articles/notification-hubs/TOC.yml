@@ -37,6 +37,8 @@
               href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
     - name: iOS
       items:
+        - name: Aggiornamenti di Hub di notifica per iOS 13
+          href: push-notification-updates-ios-13.md
         - name: Inviare notifiche push ad app iOS
           items:
             - name: Objective-C

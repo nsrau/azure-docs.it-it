@@ -1,80 +1,97 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentazione di Batch
+### YamlMime:Landing
+title: Documentazione di Azure Batch
+summary: Azure Batch consente di eseguire in modo efficiente applicazioni su vasta scala nel cloud. È possibile pianificare le attività a elevato utilizzo di calcolo e adattare dinamicamente le risorse alla soluzione senza gestire l'infrastruttura.
 metadata:
-  title: Documentazione di Batch - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-  description: 'Usare Batch per eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala nel cloud. Definire le risorse di calcolo di Azure per eseguire le applicazioni in parallelo o in scala, senza necessità di configurare o gestire manualmente l''infrastruttura. Pianificare attività a elevato utilizzo di calcolo e aggiungere o rimuovere dinamicamente le risorse in base a requisiti specifici. Informazioni su come usare Azure Batch con le guide rapide, le esercitazioni e gli esempi.'
+  title: Documentazione di Azure Batch
+  description: Azure Batch consente di eseguire in modo efficiente applicazioni su vasta scala nel cloud. È possibile pianificare le attività a elevato utilizzo di calcolo e adattare dinamicamente le risorse alla soluzione senza gestire l'infrastruttura.
   services: batch
-  author: georgewallace
-  manager: gwallace
   ms.service: batch
   ms.topic: landing-page
-  ms.date: 11/30/2017
-  ms.author: gwallace
-abstract:
-  description: 'Usare Batch per eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala nel cloud. Definire le risorse di calcolo di Azure per eseguire le applicazioni in parallelo o in scala, senza necessità di configurare o gestire manualmente l''infrastruttura. Pianificare attività a elevato utilizzo di calcolo e aggiungere o rimuovere dinamicamente le risorse in base a requisiti specifici. Informazioni su come usare Azure Batch con le guide rapide, le esercitazioni e gli esempi.'
-sections:
-  - title: Guide introduttive di 5 minuti
-    items:
-      - type: paragraph
-        text: Informazioni su come eseguire il primo processo di Batch in Azure.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Interfaccia della riga di comando di Azure
-            href: quick-create-cli
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Portale di Azure
-            href: quick-create-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_NET.svg'
-            text: .NET
-            href: quick-run-dotnet
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_python.svg'
-            text: Python
-            href: quick-run-python
-  - title: Esercitazioni dettagliate
-    items:
-      - type: paragraph
-        text: Informazioni su come eseguire carichi di lavoro a elevato utilizzo di calcolo in Batch.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-parallel-dotnet">Elaborazione in parallelo dei file con .NET SDK</a>
-          - html: <a href="tutorial-parallel-python">Elaborazione in parallelo dei file con Python SDK</a>
-          - html: <a href="tutorial-rendering-cli">Rendering di scene con Arnold</a>
-          - html: <a href="tutorial-r-doazureparallel">Simulazione R in parallelo</a>
-  - title: Esempi
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="cli-samples">Interfaccia della riga di comando di Azure</a>
-  - title: Video di formazione gratuiti su PluralSight
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: 'Microsoft Azure Batch, introduzione'
-            href: 'https://app.pluralsight.com/library/courses/microsoft-azure-batch-getting-started/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/microsoft-azure-batch-getting-started/table-of-contents'
-  - title: riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Riga di comando
-            html: <p><a href="/cli/azure/batch">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/az.batch">Azure PowerShell</a></p>
-          - title: Lingue
-            html: <p><a href="/dotnet/api/overview/azure/batch">.NET</a></p><p><a href="/java/api/overview/azure/batch">Java</a></p><p><a href="/javascript/api/overview/azure/batch">Node.js</a></p><p><a href="/python/api/overview/azure/batch">Python</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/batchservice">API REST per il servizio Batch</a></p><p><a href="/rest/api/batchmanagement/">API REST di gestione per Batch</a></p>
+  author: laurenhughes
+  ms.author: lahugh
+  ms.date: 09/23/2019
+  ms.openlocfilehash: d7bc942451968e4c1f87aa6ea6a64cd8ce5c03ae
+  ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 10/17/2019
+  ms.locfileid: "72527981"
+landingContent:
+- title: Informazioni su Azure Batch
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni su Azure Batch
+      url: batch-technical-overview.md
+  - linkListType: learn
+    links:
+    - text: Video di formazione gratuiti su Pluralsight
+      url: https://app.pluralsight.com/library/courses/microsoft-azure-batch-getting-started/table-of-contents
+- title: Attività iniziali
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Interfaccia della riga di comando di Azure
+      url: quick-create-cli.md
+    - text: Portale di Azure
+      url: quick-create-portal.md
+    - text: API .NET
+      url: quick-run-dotnet.md
+    - text: API Python
+      url: quick-run-python.md
+  - linkListType: concept
+    links:
+    - text: Funzionalità per sviluppatori
+      url: batch-api-basics.md
+- title: Guide dettagliate
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Elaborazione in parallelo dei file - .NET
+      url: tutorial-parallel-dotnet.md
+    - text: Elaborazione in parallelo dei file - Python
+      url: tutorial-parallel-python.md
+    - text: OCR con Batch e Funzioni
+      url: tutorial-batch-functions.md
+    - text: Rendering di scene con Arnold
+      url: tutorial-rendering-cli.md
+    - text: Rendering con Batch Explorer
+      url: tutorial-rendering-batchexplorer-blender.md
+    - text: Simulazione R in parallelo
+      url: tutorial-r-doazureparallel.md
+- title: Impostare e gestire le risorse
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Creare un account Batch
+      url: batch-account-create-portal.md
+    - text: Creare e gestire i pool
+      url: batch-custom-images.md
+    - text: Eseguire attività simultaneamente
+      url: batch-parallel-node-tasks.md
+    - text: Uso di pacchetti dell'applicazione
+      url: batch-application-packages.md
+  - linkListType: concept
+    links:
+    - text: Dimensioni delle macchine virtuali supportate
+      url: batch-pool-vm-sizes.md
+    - text: Quote e limiti
+      url: batch-quota-limit.md
+- title: Informazioni di riferimento sulle API
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Interfaccia della riga di comando di Azure
+      url: https://docs.microsoft.com/cli/azure/batch?view=azure-cli-latest
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.batch/?view=azps-2.6.0
+    - text: .NET
+      url: https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet
+    - text: Java
+      url: https://docs.microsoft.com/java/api/overview/azure/batch?view=azure-java-stable
+    - text: Node.js
+      url: https://docs.microsoft.com/javascript/api/overview/azure/batch?view=azure-node-latest
+    - text: Python
+      url: https://docs.microsoft.com/python/api/overview/azure/batch?view=azure-python
+    - text: REST
+      url: https://docs.microsoft.com/rest/api/batchservice/
