@@ -1,5 +1,5 @@
 ---
-title: Valutazione offline - Personalizza esperienze
+title: Usare il metodo di valutazione offline-personalizzatore
 titleSuffix: Azure Cognitive Services
 description: Creare un ciclo di feedback in questa guida di avvio rapido in C# con il servizio Personalizza esperienze.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 5e9e745d73623e03e2530e1712a50e6670ee7ed3
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: f382c07dea75cb534632061c986dd8044c4aafa9
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662857"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515577"
 ---
 # <a name="offline-evaluation"></a>Valutazione offline
 
@@ -98,5 +98,5 @@ Le valutazioni offline possono fornire informazioni sul livello di incisività d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Configurare](how-to-settings.md)
-le[valutazioni Esegui offline](how-to-offline-evaluation.md) di personalizzazione informazioni sul [funzionamento della personalizzazione](how-personalizer-works.md)
+[Configurare la personalizzazione](how-to-settings.md) 
+[eseguire valutazioni offline](how-to-offline-evaluation.md) informazioni sul [funzionamento della personalizzazione](how-personalizer-works.md)

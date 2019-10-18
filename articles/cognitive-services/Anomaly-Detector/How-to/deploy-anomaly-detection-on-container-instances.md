@@ -1,5 +1,5 @@
 ---
-title: Eseguire istanze di contenitore di Azure
+title: Esegui il contenitore del rilevamento anomalie nelle istanze di contenitore di Azure
 titleSuffix: Azure Cognitive Services
 description: Distribuire il contenitore di rilevatori di anomalie in un'istanza di contenitore di Azure e testarlo in un Web browser.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: cdcf701c6356303c84d3f79ee4230271f64ace78
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 52d2e3ed59a7ad71177f34909e37ce885d603297
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854239"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515279"
 ---
 # <a name="deploy-an-anomaly-detector-container-to-azure-container-instances"></a>Distribuire un contenitore di rilevatori di anomalie in istanze di contenitore di Azure
 
@@ -25,7 +25,7 @@ Informazioni su come distribuire il contenitore [Rilevamento anomalie](../anomal
 
 ## <a name="request-access-to-the-private-container-registry"></a>Richiedere l'accesso al registro contenitori privato
 
-È necessario prima completare e inviare il [modulo di richiesta del contenitore](https://aka.ms/adcontainer) del rilevatore di anomalie per richiedere l'accesso al contenitore.
+È necessario prima completare e inviare il [modulo di richiesta del contenitore del rilevatore di anomalie](https://aka.ms/adcontainer) per richiedere l'accesso al contenitore.
 
 [!INCLUDE [Request access](../../../../includes/cognitive-services-containers-request-access-only.md)]
 

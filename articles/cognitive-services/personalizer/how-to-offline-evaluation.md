@@ -1,5 +1,5 @@
 ---
-title: Valutazione offline-personalizzatore
+title: Come eseguire la valutazione offline-personalizzatore
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come analizzare il ciclo di apprendimento con una valutazione offline
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: diberry
-ms.openlocfilehash: a157b36ad2b4f5a7f2e50a9609d8acd621efd5a8
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: bd57880b11f56b13b4225652071593d29dcc6280
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884459"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515219"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analizzare il ciclo di apprendimento con una valutazione offline
 
@@ -35,7 +35,7 @@ Altre informazioni sulle [valutazioni offline](concepts-offline-evaluation.md).
 
 1. Nella [portale di Azure](https://azure.microsoft.com/free/)individuare la risorsa di personalizzazione.
 1. Nella portale di Azure passare alla sezione **valutazioni** e selezionare **Crea valutazione**.
-    ![Nella portale di Azure passare alla sezione * * evaluations * * e selezionare * * Crea Evaluation * *.](./media/offline-evaluation/create-new-offline-evaluation.png)
+    ![In il portale di Azure, passare alla sezione * * valutazioni * * e selezionare * * Crea valutazione * *. ](./media/offline-evaluation/create-new-offline-evaluation.png)
 1. Selezionare le impostazioni seguenti:
 
     * Nome della valutazione
@@ -54,11 +54,11 @@ Al termine, è possibile selezionare la valutazione dall'elenco di valutazioni.
 
 I confronti dei criteri di apprendimento includono:
 
-* **Criteri online**: i criteri di apprendimento correnti usati in Personalizza esperienze
-* **Baseline**: valore predefinito dell'applicazione (come determinato dalla prima azione inviata nelle chiamate di classificazione)
-* **Criteri casuali**: un comportamento di classificazione immaginario che restituisce sempre una scelta casuale di azioni da quelle fornite.
-* **Criteri personalizzati**: ulteriori criteri di apprendimento caricati all'avvio della valutazione.
-* **Criteri ottimizzati**: se la valutazione è stata avviata con l'opzione di individuare un criterio ottimizzato, anch'esso verrà confrontato e sarà possibile scaricarlo o renderlo il criterio di apprendimento online, sostituendo quello corrente.
+* **Criteri online**: i criteri di apprendimento correnti usati per la personalizzazione
+* **Baseline**: il valore predefinito dell'applicazione (come determinato dalla prima azione inviata in Rank Calls),
+* **Criteri casuali**: un comportamento di rango immaginario che restituisce sempre una scelta casuale di azioni da quelle fornite.
+* **Criteri personalizzati**: i criteri di apprendimento aggiuntivi sono stati caricati all'avvio della valutazione.
+* **Criteri ottimizzati**: se la valutazione è stata avviata con l'opzione per individuare un criterio ottimizzato, verrà confrontato anche e sarà possibile scaricarlo o impostarlo come criterio di apprendimento online, sostituendo quello corrente.
 
 ![Grafico dei risultati delle impostazioni di valutazione offline](./media/offline-evaluation/evaluation-results.png)
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7e79d3119f5d2d0fe1894de0ab9535dd988706f8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: e1e89612ee48aaf5ee9bda51f954add426bf6720
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935209"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516790"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Passaggi per eseguire la migrazione alla risorsa di creazione di Azure
 
@@ -91,7 +91,7 @@ Il processo di migrazione è disponibile se si è il proprietario di qualsiasi a
 
     Non è necessario essere a conoscenza della chiave della risorsa di creazione per continuare a modificare le app nel portale LUIS. Se si prevede di modificare le app a livello di codice, sono necessari i valori delle chiavi di creazione. Questi valori vengono visualizzati nella pagina **gestisci > risorse di Azure** nel portale Luis e sono disponibili anche nella portale di Azure nella pagina **chiavi** della risorsa.  
 
-1. Prima di accedere alle app, selezionare la sottoscrizione e la risorsa di authoring LUIS per visualizzare le app che possono essere create.
+1. Prima di accedere alle app, selezionare la sottoscrizione e la risorsa di authoring LUIS per visualizzare le app che è possibile creare.
 
     ![Selezionare sottoscrizione e la risorsa di authoring LUIS per visualizzare le app che possono essere create.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
 
@@ -110,7 +110,7 @@ Informazioni [su come aggiungere collaboratori](luis-how-to-collaborate.md).
 
 ## <a name="troubleshooting-errors-with-the-migration-process"></a>Risoluzione degli errori con il processo di migrazione
 
-Se durante il processo `MissingSubscriptionRegistration` di migrazione viene visualizzato un errore nel portale Luis con una barra di notifica rossa, creare una risorsa di servizio cognitivo nell' [portale di Azure](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) o nell'interfaccia della riga di comando di [Azure](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Altre informazioni sulle [cause di questo errore](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause).
+Se durante il processo di migrazione viene visualizzato un errore di `MissingSubscriptionRegistration` nel portale LUIS con una barra di notifica rossa, creare una risorsa di servizio cognitive nell' [portale di Azure](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) o nell'interfaccia della riga di comando di [Azure](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Altre informazioni sulle [cause di questo errore](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

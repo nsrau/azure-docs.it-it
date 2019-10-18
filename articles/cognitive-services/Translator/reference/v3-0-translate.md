@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/01/2019
+ms.date: 10/16/2019
 ms.author: swmachan
-ms.openlocfilehash: bc03e10e40e90845c8e1a3dd064c4f50fafeac00
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 24f27dfde34413d1ac98f795eddc07103d3cbf3c
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299818"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515253"
 ---
 # <a name="translator-text-api-30-translate"></a>API Traduzione testuale 3.0: Translate
 
@@ -34,8 +34,8 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
-  <th width="20%">Parametro di query</th>
-  <th>Descrizione</th>
+  <th width="20%">Query parameter (Parametro di query)</th>
+  <th>Description</th>
   <tr>
     <td>api-version</td>
     <td><em>Parametro obbligatorio</em>.<br/>Versione dell'API richiesta dal client. Il valore deve essere <code>3.0</code>.</td>
@@ -94,15 +94,15 @@ I parametri della richiesta inviati a una stringa di query sono:
 Le intestazioni della richiesta includono:
 
 <table width="100%">
-  <th width="20%">Headers</th>
-  <th>Descrizione</th>
+  <th width="20%">headers</th>
+  <th>Description</th>
   <tr>
     <td>Intestazione/e di autenticazione</td>
     <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Specifica il tipo di contenuto del payload. I valori possibili sono:<code>application/json</code>.</td>
+    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Specifica il tipo di contenuto del payload.<br/> Il valore accettato è <code>application/json; charset=UTF-8</code>.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
@@ -161,7 +161,7 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
 
       * `srcSentLen`: matrice di interi che rappresenta le lunghezze delle frasi nel testo di input. La lunghezza della matrice è il numero di frasi e i valori sono la lunghezza di ogni frase.
 
-      * `transSentLen`:  matrice di interi che rappresenta le lunghezze delle frasi nel testo tradotto. La lunghezza della matrice è il numero di frasi e i valori sono la lunghezza di ogni frase.
+      * `transSentLen`: matrice di interi che rappresenta le lunghezze delle frasi nel testo tradotto. La lunghezza della matrice è il numero di frasi e i valori sono la lunghezza di ogni frase.
 
     I delimitatori di frase vengono inclusi solo quando il parametro della richiesta `includeSentenceLength` è `true`.
 
@@ -172,8 +172,8 @@ Nella sezione [Esempi](#examples) è disponibile un esempio di risposte JSON.
 ## <a name="response-headers"></a>Intestazioni della risposta
 
 <table width="100%">
-  <th width="20%">Headers</th>
-  <th>Descrizione</th>
+  <th width="20%">headers</th>
+  <th>Description</th>
     <tr>
     <td>X-RequestId</td>
     <td>Valore generato dal servizio per identificare la richiesta. Viene usato per la risoluzione dei problemi.</td>
@@ -190,7 +190,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 <table width="100%">
   <th width="20%">Codice di stato</th>
-  <th>Descrizione</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
     <td>Completamento della procedura.</td>
@@ -217,24 +217,24 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>500</td>
-    <td>Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta <code>X-RequestId</code> e identificatore del client dall'intestazione della richiesta <code>X-ClientTraceId</code>.</td>
+    <td>Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della risposta <code>X-RequestId</code> e identificatore del client dall'intestazione della richiesta <code>X-ClientTraceId</code>.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta <code>X-RequestId</code> e identificatore del client dall'intestazione della richiesta <code>X-ClientTraceId</code>.</td>
+    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della risposta <code>X-RequestId</code> e identificatore del client dall'intestazione della richiesta <code>X-ClientTraceId</code>.</td>
   </tr>
 </table> 
 
 Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore più comuni sono reperibili nella [pagina di riferimento API Traduzione testuale V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 ### <a name="translate-a-single-input"></a>Tradurre un singolo input
 
 Questo esempio mostra come tradurre una singola frase dall'inglese al cinese semplificato.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 Il corpo della risposta è:
@@ -256,7 +256,7 @@ La matrice `translations` include un elemento, che fornisce la traduzione della 
 Questo esempio mostra come tradurre una singola frase dall'inglese al cinese semplificato. La richiesta non specifica la lingua di input. Viene usato invece il rilevamento automatico della lingua di origine.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 Il corpo della risposta è:
@@ -278,7 +278,7 @@ La risposta è simile a quella dell'esempio precedente. Poiché è stato richies
 È possibile estendere l'esempio precedente aggiungendo la traslitterazione. La richiesta seguente richiede una traduzione in cinese scritta in caratteri dell'alfabeto latino.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 Il corpo della risposta è:
@@ -305,7 +305,7 @@ Il risultato della traduzione include ora una proprietà `transliteration`, che 
 La traduzione di più stringhe contemporaneamente equivale semplicemente a specificare una matrice di stringhe nel corpo della richiesta.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
 
 Il corpo della risposta è:
@@ -330,7 +330,7 @@ Il corpo della risposta è:
 Questo esempio mostra come tradurre lo stesso input in diverse lingue in una sola richiesta.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 Il corpo della risposta è:
@@ -357,16 +357,16 @@ Se si vuole evitare la presenza di contenuto volgare nella traduzione, indipende
   <th>Azione</th>
   <tr>
     <td><code>NoAction</code></td>
-    <td>Comportamento predefinito. Il contenuto volgare passerà dall'origine alla destinazione.<br/><br/>
+    <td>Questo è il comportamento predefinito. Il contenuto volgare passerà dall'origine alla destinazione.<br/><br/>
     <strong>Origine di esempio (giapponese)</strong>: 彼はジャッカスです。<br/>
-    <strong>Traduzione di esempio (italiano)</strong>: È un cretino.
+    <strong>Traduzione di esempio (italiano)</strong>: è un cretino.
     </td>
   </tr>
   <tr>
     <td><code>Deleted</code></td>
     <td>Le parole volgari verranno rimosse dall'output senza sostituzione.<br/><br/>
     <strong>Origine di esempio (giapponese)</strong>: 彼はジャッカスです。<br/>
-    <strong>Traduzione di esempio (italiano)</strong>: È un.
+    <strong>Traduzione di esempio (italiano)</strong>: è un.
     </td>
   </tr>
   <tr>
@@ -374,17 +374,17 @@ Se si vuole evitare la presenza di contenuto volgare nella traduzione, indipende
     <td>Le parole volgari vengono sostituite da un indicatore nell'output. L'indicatore dipende dal parametro <code>ProfanityMarker</code>.<br/><br/>
 Per <code>ProfanityMarker=Asterisk</code>, le parole volgari vengono sostituite con <code>***</code>:<br/>
     <strong>Origine di esempio (giapponese)</strong>: 彼はジャッカスです。<br/>
-    <strong>Traduzione di esempio (italiano)</strong>: È un \*\*\*.<br/><br/>
+    <strong>Traduzione di esempio (italiano)</strong>: è un \*\*\*.<br/><br/>
 Per <code>ProfanityMarker=Tag</code>, le parole volgari sono racchiuse tra i tag XML &lt;profanity&gt; e &lt;/profanity&gt;:<br/>
     <strong>Origine di esempio (giapponese)</strong>: 彼はジャッカスです。<br/>
-    <strong>Traduzione di esempio (italiano)</strong>: È un &lt;profanity&gt;cretino&lt;/profanity&gt;.
+    <strong>Traduzione di esempio (italiano)</strong>: è un &lt;profanity&gt;cretino&lt;/profanity&gt;.
   </tr>
 </table> 
 
-Esempio:
+ad esempio:
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
 Viene restituito:
 
@@ -401,7 +401,7 @@ Viene restituito:
 Eseguire il confronto con:
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
 
 L'ultima richiesta restituisce:
@@ -428,7 +428,7 @@ L'ultima richiesta restituisce:
 Di seguito è riportata una richiesta di esempio.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
 ```
 
 La risposta è:
@@ -448,7 +448,7 @@ La risposta è:
 Per ricevere informazioni sull'allineamento, specificare `includeAlignment=true` nella stringa di query.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The answer lies in machine translation.'}]"
 ```
 
 La risposta è:
@@ -484,7 +484,7 @@ Prendere nota delle restrizioni seguenti:
 Per ricevere informazioni sulla lunghezza della frase nel testo di origine e nel testo tradotto, specificare `includeSentenceLength=true` nella stringa di query.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"
 ```
 
 La risposta è:
@@ -516,7 +516,7 @@ Il markup da specificare usa la sintassi seguente.
 Si consideri ad esempio la frase inglese "The word wordomatic is a dictionary entry". Per mantenere la parola _wordomatic_ nella traduzione, inviare la richiesta:
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
 ```
 
 Il risultato è:

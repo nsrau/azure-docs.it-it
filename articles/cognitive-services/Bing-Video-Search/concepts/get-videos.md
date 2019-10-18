@@ -1,5 +1,5 @@
 ---
-title: Invio di richieste di ricerca all'API Ricerca video Bing
+title: Cerca i video usando il API Ricerca video Bing
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come inviare query di ricerca all'API Ricerca video Bing.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: b565ad8be1d8529d3650ec36fe7c4d61f6c5dc8f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e3314efe0ea0367eb852fd17aadece17026ff4bb
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879097"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512410"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Cercare video con l'API Ricerca video Bing
 
@@ -144,7 +144,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Espansione della query
 
-Se Bing può espandere la query per circoscrivere la ricerca originale, significa che l'oggetto [Video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene il campo `queryExpansions`. Ad esempio, se la query fosse *Pulizia dei margini*, le query espanse potrebbero essere: **Strumenti** di pulizia dei margini, pulizia dei margini **dal suolo**, **computer** di pulizia dei margini e pulizia dei margini **facile**.
+Se Bing può espandere la query per circoscrivere la ricerca originale, significa che l'oggetto [Video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene il campo `queryExpansions`. Ad esempio, se la query fosse *Pulizia dei margini*, le query espanse potrebbero essere: **Strumenti** di pulizia dei margini, pulizia dei margini **dal suolo**, **Computer** di pulizia dei margini e pulizia dei margini **facile**.
 
 Il seguente esempio mostra le query espanse per *Pulizia dei margini*.
 

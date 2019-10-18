@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 41d12013ec7eaa4e2aae59e1b366cc511a41f749
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.custom: seodec18, seo-javascript-october2019
+ms.openlocfilehash: eb4478a435fbfc899055a60e13b318be771652f7
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535102"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527656"
 ---
 # <a name="try-speech-services-for-free"></a>Provare gratuitamente i servizi di riconoscimento vocale
 
@@ -36,15 +36,15 @@ Per iscriversi a una versione di prova gratuita di 30 giorni:
 
 1. Selezionare la scheda **API di riconoscimento vocale**.
 
-   ![Scheda Servizi di riconoscimento vocale](media/index/try-speech-api-free-trial1.png)
+   ![Scheda servizi vocali Speech API](media/index/cognitive-services-speech-api-tab.png)
 
 1. In **servizi vocali**selezionare **Ottieni chiave API**.
 
-   ![Chiave API](media/index/try-speech-api-free-trial2.png)
+   ![Speech API-ottenere la chiave API](media/index/speech-api-get-api-key.png)
 
 1. Accettare le condizioni e selezionare le impostazioni locali dal menu a discesa.
 
-   ![Accettare le condizioni](media/index/try-speech-api-free-trial3.png)
+   ![Speech API-accetto le condizioni](media/index/speech-api-agree-to-terms.png)
 
 1. Accedere tramite il proprio account Microsoft, Facebook, LinkedIn o GitHub.
 
@@ -73,17 +73,17 @@ Per aggiungere una risorsa del servizio di riconoscimento vocale (gratuita o a p
 
 1. Selezionare **Crea una risorsa** in alto a sinistra sul portale.
 
-    ![Crea una risorsa](media/index/try-speech-api-create-speech1.png)
+    ![Speech API creare una risorsa](media/index/speech-api-create-resource.png)
 
 1. Nella finestra **Nuova**, cercare **Voce**.
 
 1. Nei risultati della ricerca, selezionare **Voce**.
 
-    ![Selezionare Voce](media/index/try-speech-api-create-speech2.png)
+    ![Speech API-Seleziona voce](media/index/speech-api-select-speech.png)
 
 1. Sotto **Voce**, selezionare il pulsante **Crea**.
 
-    ![Selezionare il pulsante Crea](media/index/try-speech-api-create-speech3.png)
+    ![Pulsante Speech API-crea](media/index/speech-api-create-button.png)
 
 1. Sotto **Crea**, immettere:
 
@@ -95,11 +95,11 @@ Per aggiungere una risorsa del servizio di riconoscimento vocale (gratuita o a p
    * Per un rapido accesso alla sottoscrizione in futuro, selezionare la casella di controllo **Aggiungi al dashboard**.
    * Selezionare **Crea.**
 
-     ![Selezionare il pulsante Crea](media/index/try-speech-api-create-speech4.png)
+     ![Speech API-selezionare Crea](media/index/speech-api-select-create.png)
 
      È necessario qualche secondo per creare e distribuire la nuova risorsa di Riproduzione vocale. Selezionare **Avvio rapido** per visualizzare le informazioni sulla nuova risorsa.
 
-     ![Pannello di avvio rapido](media/index/try-speech-api-create-speech5.png)
+     ![Speech API distribuire la risorsa](media/index/speech-api-deploy-resource.png)
 
 1. In **Guida introduttiva**selezionare il collegamento **chiavi** nel passaggio 1 per visualizzare le chiavi di sottoscrizione. Ogni sottoscrizione dispone di due chiavi, entrambi utilizzabili nell'applicazione. Selezionare pulsante accanto a ogni chiave per copiarla negli Appunti e incollarla quindi nel codice.
 
@@ -123,5 +123,5 @@ Le chiavi create per un'area sono valide solo in quell'area. Se si prova a usarl
 Completare una delle guide introduttive di 10 minuti o vedere gli esempi di SDK:
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Riconoscere i contenuti vocali in C#](quickstart-csharp-dotnet-windows.md)
+> [Guida introduttiva: Riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)
 > [Esempi di Speech SDK](speech-sdk.md#get-the-samples)

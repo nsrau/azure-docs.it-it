@@ -49,16 +49,6 @@
             - name: Informazioni su Crittografia dischi di Azure
               displayName: 'BitLocker, bek'
               href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview'
-            - name: Guide introduttive
-              items:
-                - name: Crittografare una VM Linux con l'interfaccia della riga di comando di Azure
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-linux-cli-quickstart'
-                - name: Crittografare una VM Linux con Azure PowerShell
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-linux-powershell-quickstart'
-                - name: Crittografare una VM Windows con l'interfaccia della riga di comando di Azure
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-windows-cli-quickstart'
-                - name: Crittografare una VM Windows con Azure PowerShell
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-windows-powershell-quickstart'
             - name: Azure Disk Encryption
               items:
                 - name: Prerequisiti per la crittografia del disco
@@ -151,8 +141,6 @@
           href: network-best-practices.md
         - name: Protezione DDoS
           href: ddos-best-practices.md
-        - name: Sicurezza dei limiti
-          href: network-best-practices.md
 - name: Applicazione
   items:
     - name: PaaS
@@ -185,9 +173,6 @@
   items:
     - name: Controllo e registrazione
       items:
-        - name: Gestione della sicurezza
-          displayName: 'vulnerability, incident, virus,'
-          href: 'https://docs.microsoft.com/azure/security-center/security-center-intro?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
         - name: Sicurezza della gestione remota
           href: management.md
         - name: Integrazione dei log di Azure
@@ -199,9 +184,6 @@
             - name: Integrare i log di controllo di Azure AD
               displayName: active directory
               href: azure-log-integration-ad.md
-            - name: Integrare gli avvisi del Centro sicurezza
-              displayName: splunk
-              href: 'https://docs.microsoft.com/azure/security-center/security-center-export-data-to-siem?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
             - name: Integrare i log di Key Vault
               displayName: keyvault
               href: azure-log-integration-keyvault-eventhub.md
