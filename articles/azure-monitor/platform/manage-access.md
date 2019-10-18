@@ -1,6 +1,6 @@
 ---
 title: Gestire le aree di lavoro di Log Analytics in Monitoraggio di Azure | Microsoft Docs
-description: È possibile gestire l'accesso ai dati archiviati in un'area di lavoro di Log Analytics in monitoraggio di Azure usando le autorizzazioni a livello di risorsa, area di lavoro o tabella. Questo articolo illustra come completare queste procedure.
+description: È possibile gestire l'accesso ai dati archiviati in un'area di lavoro di Log Analytics in monitoraggio di Azure usando le autorizzazioni a livello di risorsa, area di lavoro o tabella. Questo articolo illustra come completare l'operazione.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 010f7bb2f19eed757da3f62011b69e1f09ddadf0
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2f9c50053fca73aeee0ed9a286b4c286486bac86
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329418"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532320"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gestire l'accesso ai dati e alle aree di lavoro di log in monitoraggio di Azure
 
@@ -148,7 +148,7 @@ Il ruolo di lettore di Log Analytics include le azioni di Azure seguenti:
 
 I membri del ruolo *Collaboratore di Log Analytics* possono eseguire queste operazioni:
 
-* Leggi tutti i dati di monitoraggio che il lettore Log Analytics può
+* Include tutti i privilegi del *ruolo lettore log Analytics*, consentendo all'utente di leggere tutti i dati di monitoraggio
 * Creare e configurare gli account di automazione
 * Consente di aggiungere e rimuovere soluzioni di gestione
 
@@ -187,7 +187,7 @@ Usare questi ruoli per concedere agli utenti l'accesso ad ambiti diversi:
 * Gruppo di risorse: accesso a tutte le aree di lavoro nel gruppo di risorse
 * Risorsa: accesso alla sola area di lavoro specificata
 
-È necessario eseguire assegnazioni a livello di risorsa (area di lavoro) per garantire un controllo di accesso accurato.  Usare i [ruoli personalizzati](../../role-based-access-control/custom-roles.md) per creare ruoli con le autorizzazioni specifiche necessarie.
+È consigliabile eseguire assegnazioni a livello di risorsa (area di lavoro) per garantire un controllo di accesso accurato. Usare i [ruoli personalizzati](../../role-based-access-control/custom-roles.md) per creare ruoli con le autorizzazioni specifiche necessarie.
 
 ### <a name="resource-permissions"></a>Autorizzazioni per le risorse
 
@@ -198,7 +198,7 @@ Quando gli utenti eseguono query sui log da un'area di lavoro usando l'accesso a
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Esempi:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Possibilità di visualizzare tutti i dati di log per la risorsa.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Possibilità di configurare l'impostazione di diagnostica per consentire l'impostazione dei log per questa risorsa. |
 
-l'autorizzazione `/read` viene in genere concessa da un ruolo che include le autorizzazioni _\*/Read o_ _\*_ , ad esempio i ruoli [Reader](../../role-based-access-control/built-in-roles.md#reader) e [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) predefiniti. Si noti che i ruoli personalizzati che includono azioni specifiche o ruoli predefiniti dedicati potrebbero non includere questa autorizzazione.
+l'autorizzazione `/read` viene in genere concessa da un ruolo che include le autorizzazioni _\*/Read o_ _\*_ , ad esempio i ruoli [Reader](../../role-based-access-control/built-in-roles.md#reader) e [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) predefiniti. I ruoli personalizzati che includono azioni specifiche o ruoli predefiniti dedicati potrebbero non includere questa autorizzazione.
 
 Per creare un controllo di accesso diverso per diverse tabelle, vedere [definizione del controllo degli accessi per tabella](#table-level-rbac) .
 
@@ -224,7 +224,7 @@ Per creare un controllo di accesso diverso per diverse tabelle, vedere [definizi
 
     * Concedere agli utenti le seguenti autorizzazioni per le risorse: `Microsoft.Insights/logs/*/read`.
 
-    * Aggiungere la seguente non azione per impedire agli utenti di leggere il tipo SecurityEvent: `Microsoft.Insights/logs/SecurityEvent/read`. La non azione deve trovarsi nello stesso ruolo personalizzato dell'azione che fornisce l'autorizzazione di lettura (`Microsoft.Insights/logs/*/read`). Se l'utente inerente l'azione di lettura da un altro ruolo assegnato a questa risorsa o alla sottoscrizione o al gruppo di risorse, sarà in grado di leggere tutti i tipi di log. Questo vale anche se ereditano `*/read` che esistono, ad esempio, con il ruolo lettore o collaboratore.
+    * Aggiungere la seguente non azione per impedire agli utenti di leggere il tipo SecurityEvent: `Microsoft.Insights/logs/SecurityEvent/read`. La non azione deve trovarsi nello stesso ruolo personalizzato dell'azione che fornisce l'autorizzazione di lettura (`Microsoft.Insights/logs/*/read`). Se l'utente inerente l'azione di lettura da un altro ruolo assegnato a questa risorsa o alla sottoscrizione o al gruppo di risorse, sarà in grado di leggere tutti i tipi di log. Questo vale anche se ereditano `*/read`, che esistono, ad esempio, con il ruolo lettore o collaboratore.
 
 4. Per concedere a un utente l'accesso ai dati di log dalle risorse e leggere tutti i Azure AD accesso e leggere Gestione aggiornamenti i dati di log della soluzione dall'area di lavoro, seguire questa procedura:
 
@@ -293,7 +293,7 @@ Per creare un ruolo con accesso solo a _SecurityBaseline_ e nessuna altra tabell
 * Se a un utente viene concesso l'accesso per tabella ma non altre autorizzazioni, potranno accedere ai dati di log dall'API ma non dal portale di Azure. Per fornire l'accesso dalla portale di Azure, utilizzare Log Analytics Reader come ruolo di base.
 * Gli amministratori della sottoscrizione avranno accesso a tutti i tipi di dati indipendentemente dalle altre impostazioni di autorizzazione.
 * I proprietari dell'area di lavoro vengono trattati come qualsiasi altro utente per il controllo di accesso per tabella.
-* Per ridurre il numero di assegnazioni, è necessario assegnare i ruoli ai gruppi di sicurezza anziché ai singoli utenti. Ciò consentirà inoltre di utilizzare gli strumenti di gestione dei gruppi esistenti per configurare e verificare l'accesso.
+* È consigliabile assegnare i ruoli ai gruppi di sicurezza anziché ai singoli utenti per ridurre il numero di assegnazioni. Ciò consentirà inoltre di utilizzare gli strumenti di gestione dei gruppi esistenti per configurare e verificare l'accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

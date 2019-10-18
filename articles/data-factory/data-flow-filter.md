@@ -1,37 +1,58 @@
 ---
-title: Trasformazione filtro flusso di dati mapping Azure Data Factory
-description: Trasformazione filtro flusso di dati mapping Azure Data Factory
+title: Trasformazione filtro nel flusso di dati del mapping Azure Data Factory | Microsoft Docs
+description: Filtrare le righe utilizzando la trasformazione filtro nel flusso di dati del mapping Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/03/2019
-ms.openlocfilehash: 2afe079c346a15ec212664ce022ac5e2926b12d4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 10/16/2019
+ms.openlocfilehash: a4dd53f37a8a963d05a3ad9c49769528e945f6a1
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387817"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527395"
 ---
-# <a name="azure-data-factory-filter-transformation"></a>Trasformazione filtro data factory di Azure
+# <a name="filter-transformation-in-mapping-data-flow"></a>Trasformazione filtro nel flusso di dati di mapping
 
+Le trasformazioni di filtro consentono di filtrare le righe in base a una condizione. Il flusso di output include tutte le righe che corrispondono alla condizione di filtro. La trasformazione filtro è simile a una clausola WHERE in SQL.
 
+## <a name="configuration"></a>Configurazione
 
-La trasformazione Filtro consente di filtrare le righe. Creare un'espressione che definisce la condizione di filtro. Fare clic nella casella di testo per avviare il generatore di espressioni. Nel generatore di espressioni creare un'espressione di filtro per controllare le righe del flusso di dati corrente che possono passare (tramite filtro) alla trasformazione successiva. Si pensi alla trasformazione filtro come clausola WHERE di un'istruzione SQL.
+Utilizzare il generatore di espressioni del flusso di dati per immettere un'espressione per la condizione di filtro. Per aprire il generatore di espressioni, fare clic sulla casella blu. La condizione di filtro deve essere di tipo booleano. Per ulteriori informazioni su come creare un'espressione, vedere la documentazione del [Generatore di espressioni](concepts-data-flow-expression-builder.md) .
 
-## <a name="filter-on-loan_status-column"></a>Filtra sulla colonna loan_status:
+![Filtra trasformazione](media/data-flow/filter1.png "Filtra trasformazione")
+
+## <a name="data-flow-script"></a>Script del flusso di dati
+
+### <a name="syntax"></a>Sintassi
 
 ```
-in([‘Default’, ‘Charged Off’, ‘Fully Paid’], loan_status).
+<incomingStream>
+    filter(
+        <conditionalExpression>
+    ) ~> <filterTransformationName>
 ```
 
-Filtrare in base alla colonna year nella demo Movies:
+### <a name="example"></a>Esempio
+
+Nell'esempio seguente viene illustrata una trasformazione Suddivisione condizionale denominata `FilterBefore1960` che accetta `CleanData` flusso in ingresso. La condizione di filtro è l'espressione `year <= 1960`.
+
+In Data Factory UX questa trasformazione è simile all'immagine seguente:
+
+![Filtra trasformazione](media/data-flow/filter1.png "Filtra trasformazione")
+
+Lo script del flusso di dati per questa trasformazione si trova nel frammento di codice seguente:
 
 ```
-year > 1980
+CleanData
+    filter(
+        year <= 1960
+    ) ~> FilterBefore1960
+
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Provare una trasformazione filtro colonne, la [trasformazione selezione](data-flow-select.md)
+Filtrare le colonne con la [trasformazione Select](data-flow-select.md)

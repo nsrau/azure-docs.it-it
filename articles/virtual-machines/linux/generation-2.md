@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 10/16/2019
 ms.author: lahugh
-ms.openlocfilehash: 3c6a054229ab7a16fb48dff5ec2e8681c3c5345e
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
-ms.translationtype: MT
+ms.openlocfilehash: 6f787760c1224172982e0818d8592ce0d36b5e2c
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299505"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527282"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Supporto per le macchine virtuali di seconda generazione (anteprima) in Azure
 
@@ -51,6 +51,10 @@ Le macchine virtuali di prima generazione sono supportate da tutte le dimensioni
 * [Serie ND](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nd-series)
 * [Serie NVv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
 
+
+>[!NOTE]
+>L'uso delle immagini di VM di seconda generazione per la serie Mv2 è disponibile a livello generale, perché la serie Mv2 funziona solo con le immagini di macchina virtuale di seconda generazione. Le immagini di macchina virtuale di prima generazione non funzionano con la serie Mv2. 
+
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Immagini di macchine virtuali di seconda generazione in Azure Marketplace
 
 Le macchine virtuali di seconda generazione supportano le seguenti immagini del Marketplace:
@@ -62,7 +66,7 @@ Le macchine virtuali di seconda generazione supportano le seguenti immagini del 
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 
-## <a name="on-premises-vs-azure-generation-2-vms"></a>Confronto tra locale e VM di generazione 2 di Azure
+## <a name="on-premises-vs-azure-generation-2-vms"></a>Macchine virtuali in locale e Azure di seconda generazione
 
 Azure attualmente non supporta alcune delle funzionalità supportate da Hyper-V in locale per le macchine virtuali di seconda generazione.
 
@@ -82,11 +86,11 @@ Azure attualmente non supporta alcune delle funzionalità supportate da Hyper-V 
 |---------|--------------|--------------|
 | Avvio             | PCAT         | UEFI |
 | Controller del disco | IDE          | SCSI |
-| Dimensioni delle macchine virtuali         | Tutte le dimensioni delle macchine virtuali | Solo le macchine virtuali che supportano archiviazione Premium |
+| Dimensioni delle VM         | Tutte le dimensioni delle macchine virtuali | Solo le macchine virtuali che supportano archiviazione Premium |
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Funzionalità di generazione 1 e generazione 2
 
-| Capacità | Prima generazione | Generazione 2 |
+| Funzionalità | Prima generazione | Generazione 2 |
 |------------|--------------|--------------|
 | Disco del sistema operativo > 2 TB                    | :x:                | :heavy_check_mark: |
 | Sistema operativo disco/immagine/scambio personalizzato         | :heavy_check_mark: | :heavy_check_mark: |
@@ -140,7 +144,7 @@ Per un elenco aggiornato delle immagini del Marketplace supportate, vedere la se
 
 È possibile creare una macchina virtuale di seconda generazione da un'immagine gestita o da un disco gestito nello stesso modo in cui si crea una macchina virtuale di prima generazione.
 
-### <a name="virtual-machine-scale-sets"></a>set di scalabilità di macchine virtuali
+### <a name="virtual-machine-scale-sets"></a>Set di scalabilità di macchine virtuali
 
 È anche possibile creare macchine virtuali di seconda generazione usando i set di scalabilità di macchine virtuali. Nell'interfaccia della riga di comando di Azure usare i set di scalabilità di Azure per creare VM di seconda generazione.
 
@@ -152,7 +156,7 @@ Per un elenco aggiornato delle immagini del Marketplace supportate, vedere la se
 * **Esiste una differenza di prezzo tra le macchine virtuali di prima e di seconda generazione?**  
     No.
 
-* @no__t 0I hanno un file con estensione VHD della macchina virtuale di seconda generazione locale. È possibile usare il file con estensione VHD per creare una macchina virtuale di seconda generazione in Azure? **
+* **Si dispone di un file con estensione VHD della macchina virtuale locale di seconda generazione. È possibile usare il file con estensione VHD per creare una macchina virtuale di seconda generazione in Azure?**
   Sì, è possibile importare il file con estensione VHD di generazione 2 in Azure e usarlo per creare una macchina virtuale di seconda generazione. Per eseguire questa operazione, attenersi alla procedura seguente:
     1. Caricare il file VHD in un account di archiviazione nella stessa area in cui si vuole creare la macchina virtuale.
     1. Creare un disco gestito dal file con estensione vhd. Impostare la proprietà di generazione Hyper-V su V2. I comandi di PowerShell seguenti impostano la proprietà di generazione Hyper-V durante la creazione del disco gestito.

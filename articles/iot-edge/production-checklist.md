@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 599b5b075f32294f9e68c776c4a7744283e9c269
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: d227a0b43a641ae8f5333a62d4c55f4bbb6c781c
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244033"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529017"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparare la distribuzione della soluzione IoT Edge alla produzione
 
@@ -93,7 +93,7 @@ Se l'agente di IoT Edge è stato configurato nel dispositivo IoT Edge per usare 
 
 I moduli Hub IoT Edge e agente usano l'archiviazione locale per mantenere lo stato e abilitare la messaggistica tra i moduli, i dispositivi e il cloud. Per migliorare l'affidabilità e le prestazioni, configurare i moduli di sistema per l'uso dell'archiviazione nel file System host.
 
-Per altre informazioni, vedere [archiviazione host per i moduli di sistema](offline-capabilities.md#host-storage-for-system-modules).
+Per altre informazioni, vedere [archiviazione host per i moduli di sistema](how-to-access-host-storage-from-module.md).
 
 ### <a name="reduce-memory-space-used-by-iot-edge-hub"></a>Ridurre lo spazio di memoria usato dall'hub IoT Edge
 
@@ -207,7 +207,7 @@ Quando si esegue il test di una distribuzione di IoT Edge, è generalmente possi
 
 Per impostazione predefinita, il motore di contenitori di Moby non imposta limiti per le dimensioni del log del contenitore. Nel corso del tempo questo può compromettere il riempimento del dispositivo con i log e l'esaurimento dello spazio su disco. Per evitare questo problema, prendere in considerazione le opzioni seguenti:
 
-**Option: Imposta i limiti globali che si applicano a tutti i moduli contenitore @ no__t-0
+**Opzione: impostare i limiti globali che si applicano a tutti i moduli contenitore**
 
 È possibile limitare le dimensioni di tutti i file di log del contenitore nelle opzioni di log del motore di contenitori. Nell'esempio seguente il driver di log viene impostato su `json-file` (scelta consigliata) con limiti per le dimensioni e il numero di file:
 
@@ -221,18 +221,18 @@ Per impostazione predefinita, il motore di contenitori di Moby non imposta limit
 }
 ```
 
-Aggiungere o accodare queste informazioni a un file denominato `daemon.json` e posizionarlo nella posizione corretta per la piattaforma del dispositivo.
+Aggiungere (o accodare) queste informazioni a un file denominato `daemon.json` e posizionarlo nella posizione corretta per la piattaforma del dispositivo.
 
-| Piattaforma | Location |
+| Piattaforma | Località |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
 
 Per rendere effettive le modifiche, è necessario riavviare il motore del contenitore.
 
-**Option: Modificare le impostazioni del log per ogni modulo contenitore @ no__t-0
+**Opzione: regolare le impostazioni del log per ogni modulo contenitore**
 
-Questa operazione può essere eseguita nella **createOptions** di ogni modulo. Esempio:
+Questa operazione può essere eseguita nella **createOptions** di ogni modulo. ad esempio:
 
 ```yml
 "createOptions": {
@@ -250,7 +250,7 @@ Questa operazione può essere eseguita nella **createOptions** di ogni modulo. E
 
 **Opzioni aggiuntive nei sistemi Linux**
 
-* Configurare il motore di contenitori per inviare i log al [journal](https://docs.docker.com/config/containers/logging/journald/) `systemd` impostando `journald` come driver di registrazione predefinito. 
+* Configurare il motore di contenitori per inviare i log a `systemd` [Journal](https://docs.docker.com/config/containers/logging/journald/) impostando `journald` come driver di registrazione predefinito. 
 
 * Rimuovere periodicamente i log precedenti dal dispositivo installando uno strumento logrotate. Usare la specifica del file seguente: 
 

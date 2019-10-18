@@ -1,5 +1,5 @@
 ---
-title: 'Backup di Azure: Monitorare backup di Azure con monitoraggio di Azure'
+title: 'Backup di Azure: monitoraggio di backup di Azure con monitoraggio di Azure'
 description: Monitorare i carichi di lavoro di backup di Azure e creare avvisi personalizzati con monitoraggio di Azure.
 ms.reviewer: pullabhk
 author: dcurwin
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: ba2288ecebbeda97b3cd9c24ae930be6af193ab8
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 2d460688392ae017c0d87ce60fa980701e5d47d3
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177725"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528201"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorare su larga scala tramite monitoraggio di Azure
 
@@ -29,15 +29,15 @@ Backup di Azure offre [funzionalità di monitoraggio e avviso predefinite](backu
 ## <a name="using-log-analytics-workspace"></a>Uso di Log Analytics area di lavoro
 
 > [!NOTE]
-> I dati dei backup delle macchine virtuali di Azure, dell'agente di backup di Azure, di System Center Data Protection Manager, dei backup SQL in macchine virtuali di Azure e dei backup di condivisione File di Azure vengono pompati nell'area di lavoro Log Analytics tramite le impostazioni di diagnostica. 
+> I dati dei backup delle macchine virtuali di Azure, dell'agente di backup di Azure, di System Center Data Protection Manager, dei backup SQL in macchine virtuali di Azure e dei backup di condivisione File di Azure vengono pompati nell'area di lavoro Log Analytics tramite le impostazioni di diagnostica.
 
-Per monitorare/creare report su larga scala, è necessario disporre delle funzionalità di due servizi di Azure. *Le impostazioni di diagnostica* inviano dati da più risorse Azure Resource Manager a un'altra risorsa. *Log Analytics* genera avvisi personalizzati in cui è possibile usare i gruppi di azioni per definire altri canali di notifica. 
+Per monitorare/creare report su larga scala, è necessario disporre delle funzionalità di due servizi di Azure. *Le impostazioni di diagnostica* inviano dati da più risorse Azure Resource Manager a un'altra risorsa. *Log Analytics* genera avvisi personalizzati in cui è possibile usare i gruppi di azioni per definire altri canali di notifica.
 
 Le sezioni seguenti illustrano in dettaglio come usare Log Analytics per monitorare backup di Azure su larga scala.
 
 ### <a name="configure-diagnostic-settings"></a>Configurare le impostazioni di diagnostica
 
-Azure Resource Manager risorse, ad esempio l'insieme di credenziali di servizi di ripristino, registrare le informazioni sulle operazioni pianificate e le operazioni attivate dall'utente come dati di diagnostica. 
+Azure Resource Manager risorse, ad esempio l'insieme di credenziali di servizi di ripristino, registrare le informazioni sulle operazioni pianificate e le operazioni attivate dall'utente come dati di diagnostica.
 
 Nella sezione monitoraggio selezionare impostazioni di **diagnostica** e specificare la destinazione per i dati di diagnostica dell'insieme di credenziali di servizi di ripristino.
 
@@ -59,28 +59,28 @@ Quando i dati si trova all'interno dell'area di lavoro Log Analytics, [distribui
 
 Dopo la distribuzione del modello, la soluzione per il monitoraggio e la creazione di report in backup di Azure verrà visualizzata nell'area di riepilogo dell'area di lavoro. Per passare al riepilogo, seguire uno dei percorsi seguenti:
 
-- **Monitoraggio di Azure**: Nella sezione **Insights** selezionare **altro** e quindi scegliere l'area di lavoro pertinente.
-- **Aree di lavoro log Analytics**: Selezionare l'area di lavoro pertinente e quindi in **generale**selezionare **Riepilogo area di lavoro**.
+- **Monitoraggio di Azure**: nella sezione **Insights** Selezionare **altro** e quindi scegliere l'area di lavoro pertinente.
+- **Aree**di lavoro log Analytics: selezionare l'area di lavoro pertinente e quindi in **generale**Selezionare **Riepilogo area**di lavoro.
 
 ![I riquadri di monitoraggio e report Log Analytics](media/backup-azure-monitoring-laworkspace/la-azurebackup-overview-dashboard.png)
 
 Quando si seleziona uno dei riquadri panoramica, è possibile visualizzare altre informazioni. Ecco alcuni dei report che verranno visualizzati:
 
-* Processi di backup non log
+- Processi di backup non log
 
    ![Log Analytics grafici per i processi di backup](media/backup-azure-monitoring-laworkspace/la-azurebackup-backupjobsnonlog.png)
 
-* Avvisi dal backup delle risorse di Azure
+- Avvisi dal backup delle risorse di Azure
 
    ![Grafico Log Analytics per i processi di ripristino](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertsazure.png)
 
 Analogamente, facendo clic sugli altri riquadri, sarà possibile visualizzare i report su processi di ripristino, archiviazione cloud, elementi di backup, avvisi da risorse locali backup e processi di backup del log.
- 
+
 Questi grafici sono forniti con il modello. Se necessario, è possibile modificare i grafici o aggiungere altri grafici.
 
 ### <a name="create-alerts-by-using-log-analytics"></a>Creazione di avvisi tramite Log Analytics
 
-In monitoraggio di Azure è possibile creare avvisi personalizzati in un'area di lavoro Log Analytics. Nell'area di lavoro si usano i *gruppi di azioni di Azure* per selezionare il meccanismo di notifica preferito. 
+In monitoraggio di Azure è possibile creare avvisi personalizzati in un'area di lavoro Log Analytics. Nell'area di lavoro si usano i *gruppi di azioni di Azure* per selezionare il meccanismo di notifica preferito.
 
 > [!IMPORTANT]
 > Per informazioni sul costo della creazione di questa query, vedere [prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
@@ -115,7 +115,7 @@ Per altre informazioni, vedere [creare, visualizzare e gestire gli avvisi del lo
 
 I grafici predefiniti forniscono query kusto per gli scenari di base in cui è possibile compilare avvisi. È anche possibile modificare le query per ottenere i dati per i quali si desidera ricevere avvisi. Incollare le query kusto di esempio seguenti nella pagina **log** , quindi creare avvisi per le query:
 
-* Tutti i processi di backup riusciti
+- Tutti i processi di backup riusciti
 
     ````Kusto
     AzureDiagnostics
@@ -124,8 +124,8 @@ I grafici predefiniti forniscono query kusto per gli scenari di base in cui è p
     | where OperationName == "Job" and JobOperation_s == "Backup"
     | where JobStatus_s == "Completed"
     ````
-    
-* Tutti i processi di backup non riusciti
+
+- Tutti i processi di backup non riusciti
 
     ````Kusto
     AzureDiagnostics
@@ -134,8 +134,8 @@ I grafici predefiniti forniscono query kusto per gli scenari di base in cui è p
     | where OperationName == "Job" and JobOperation_s == "Backup"
     | where JobStatus_s == "Failed"
     ````
-    
-* Tutti i processi di backup delle VM di Azure riusciti
+
+- Tutti i processi di backup delle VM di Azure riusciti
 
     ````Kusto
     AzureDiagnostics
@@ -158,7 +158,7 @@ I grafici predefiniti forniscono query kusto per gli scenari di base in cui è p
     | project-away Resource
     ````
 
-* Tutti i processi di backup del log SQL riusciti
+- Tutti i processi di backup del log SQL riusciti
 
     ````Kusto
     AzureDiagnostics
@@ -181,7 +181,7 @@ I grafici predefiniti forniscono query kusto per gli scenari di base in cui è p
     | project-away Resource
     ````
 
-* Tutti i processi dell'agente di backup di Azure riusciti
+- Tutti i processi dell'agente di backup di Azure riusciti
 
     ````Kusto
     AzureDiagnostics
@@ -223,7 +223,7 @@ I dati di diagnostica dell'insieme di credenziali vengono pompati nell'area di l
 È anche possibile usare i log attività per ricevere notifiche per eventi come il backup riuscito. Per iniziare, seguire questa procedura:
 
 1. Accedere al portale di Azure.
-1. Aprire l'insieme di credenziali dei servizi di ripristino pertinente. 
+1. Aprire l'insieme di credenziali dei servizi di ripristino pertinente.
 1. Nelle proprietà dell'insieme di credenziali aprire la sezione **log attività** .
 
 Per identificare il registro appropriato e creare un avviso:
@@ -233,7 +233,7 @@ Per identificare il registro appropriato e creare un avviso:
    ![Filtro per trovare i log attività per i backup di macchine virtuali di Azure](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
 1. Selezionare il nome dell'operazione per visualizzare i dettagli pertinenti.
-1. Selezionare **nuova regola di avviso** per aprire la pagina **Crea regola** . 
+1. Selezionare **nuova regola di avviso** per aprire la pagina **Crea regola** .
 1. Per creare un avviso, seguire la procedura descritta in [creare, visualizzare e gestire gli avvisi del log attività tramite monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
    ![Nuova regola di avviso](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
@@ -246,9 +246,9 @@ Qui la risorsa è l'insieme di credenziali dei servizi di ripristino. Ripetere g
 
 Sebbene sia possibile ottenere le notifiche tramite i log attività, è consigliabile usare Log Analytics anziché i log attività per il monitoraggio su larga scala. Ecco perché:
 
-- **Scenari limitati**: Le notifiche tramite i log attività si applicano solo ai backup di macchine virtuali di Azure. Le notifiche devono essere impostate per ogni insieme di credenziali di servizi di ripristino.
-- **Adattamento**per la definizione: L'attività di backup pianificata non rientra nella definizione più recente dei log attività. Viene invece allineato con i [log di diagnostica](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-resource-logs-in-a-workspace). Questo allineamento provoca effetti imprevisti quando vengono modificati i dati che passano attraverso il canale del log attività.
-- **Problemi con il canale del log attività**: Negli insiemi di credenziali dei servizi di ripristino i log attività che vengono pompati da backup di Azure seguono un nuovo modello. Sfortunatamente, questa modifica influiscono sulla generazione dei log attività in Azure per enti pubblici, Azure Germania e Azure Cina 21Vianet. Se gli utenti di questi servizi cloud creano o configurano avvisi dai log attività in monitoraggio di Azure, gli avvisi non vengono attivati. Inoltre, in tutte le aree pubbliche di Azure, se un utente [raccoglie i log attività di servizi di ripristino in un'area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), questi log non vengono visualizzati.
+- **Scenari limitati**: le notifiche tramite i log attività si applicano solo ai backup di macchine virtuali di Azure. Le notifiche devono essere impostate per ogni insieme di credenziali di servizi di ripristino.
+- **Adattamento**per la definizione: l'attività di backup pianificata non rientra nella definizione più recente dei log attività. Viene invece allineato con i [log delle risorse](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-resource-logs-in-a-workspace). Questo allineamento provoca effetti imprevisti quando vengono modificati i dati che passano attraverso il canale del log attività.
+- **Problemi con il canale del log attività**: negli insiemi di credenziali dei servizi di ripristino i log attività che vengono pompati da backup di Azure seguono un nuovo modello. Sfortunatamente, questa modifica influiscono sulla generazione dei log attività in Azure per enti pubblici, Azure Germania e Azure Cina 21Vianet. Se gli utenti di questi servizi cloud creano o configurano avvisi dai log attività in monitoraggio di Azure, gli avvisi non vengono attivati. Inoltre, in tutte le aree pubbliche di Azure, se un utente [raccoglie i log attività di servizi di ripristino in un'area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), questi log non vengono visualizzati.
 
 Usare un'area di lavoro Log Analytics per il monitoraggio e l'invio di avvisi su larga scala per tutti i carichi di lavoro protetti da backup di Azure.
 

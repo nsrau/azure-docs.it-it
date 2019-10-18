@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 39f04005776f3b451ad7c64c76f9aa5d8c4a7768
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: HT
+ms.openlocfilehash: b281344084cb558ab490e9e3c24774311ede7866
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330097"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529424"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurare SQL Server istanza del cluster di failover con una condivisione file Premium in macchine virtuali di Azure
 
@@ -45,7 +45,7 @@ Inoltre, è necessario avere una conoscenza generale delle tecnologie seguenti:
 - [Gruppi di risorse di Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> A questo punto, SQL Server istanze del cluster di failover in macchine virtuali di Azure sono supportate solo con la modalità di gestione [semplice](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) dell' [estensione dell'agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Disinstallare l'estensione completa dalle macchine virtuali che fanno parte del cluster di failover e quindi registrarle con il provider di risorse VM SQL in modalità `lightweight`. L'estensione completa supporta funzionalità quali il backup automatizzato, l'applicazione di patch e la gestione avanzata del portale. Queste funzionalità non funzioneranno per le macchine virtuali SQL dopo che l'agente è stato reinstallato in modalità di gestione leggera.
+> A questo punto, SQL Server istanze del cluster di failover in macchine virtuali di Azure sono supportate solo con la modalità di gestione [semplice](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) dell' [estensione dell'agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Per passare dalla modalità di estensione completa a quella Lightweight, eliminare la risorsa "macchina virtuale SQL" per le macchine virtuali correspinding e quindi registrarle con il provider di risorse VM SQL in modalità `lightweight`. Quando si elimina la risorsa "macchina virtuale SQL" utilizzando portale di Azure assicurarsi di deselezionare la macchina virtuale effettiva. L'estensione completa supporta funzionalità quali il backup automatizzato, l'applicazione di patch e la gestione avanzata del portale. Queste funzionalità non funzioneranno per le macchine virtuali SQL dopo che l'agente è stato reinstallato in modalità di gestione leggera.
 
 ### <a name="workload-consideration"></a>Considerazione del carico di lavoro
 
@@ -344,8 +344,7 @@ Per creare il servizio di bilanciamento del carico:
    Vedere l'immagine seguente:
 
    ![Creare il servizio di bilanciamento del carico](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
-
-   ![Creare il servizio di bilanciamento del carico](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
+   
 
 ### <a name="configure-the-load-balancer-backend-pool"></a>Configurare il pool back-end del servizio di bilanciamento del carico
 

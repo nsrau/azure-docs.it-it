@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/04/2019
-ms.openlocfilehash: ad43af0f6f9bd8d5d78cef78b26345436169c0fd
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 10/16/2019
+ms.openlocfilehash: 97725099e82c5edb05447d97b47f352c440bd8e8
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034139"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529288"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connettere HDInsight alla rete locale
 
@@ -45,8 +45,8 @@ Nel diagramma seguente le linee verdi sono richieste di risorse che terminano ne
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
-* Se si usa PowerShell, sarà necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/overview).
-* Se si vuole usare l'interfaccia della riga di comando di Azure e non è ancora stata installata, vedere [installare l'interfaccia della](https://docs.microsoft.com/cli/azure/install-azure-cli)riga di comando di Azure.
+* Se si usa PowerShell, è necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/overview).
+* Se si vuole usare l'interfaccia della riga di comando di Azure e non è ancora stata installata, vedere [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="create-virtual-network-configuration"></a>Crea configurazione rete virtuale
 
@@ -65,7 +65,7 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
   
-2. Dal menu a sinistra passare a **+ Crea una risorsa** > **calcolo** > **Ubuntu server 18,04 LTS**.
+2. Dal menu a sinistra passare a **+ Crea una risorsa**  > **calcolo**  > **Ubuntu server 18,04 LTS**.
 
     ![Creare una macchina virtuale Ubuntu](./media/connect-on-premises-network/create-ubuntu-virtual-machine.png)
 
@@ -73,15 +73,15 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
   
     | Campo | Value |
     | --- | --- |
-    |Sottoscrizione |Selezionare la sottoscrizione appropriata.|
+    |Sottoscrizione |selezionare la sottoscrizione appropriata.|
     |Gruppo di risorse |Selezionare il gruppo di risorse che contiene la rete virtuale creata in precedenza.|
-    |Nome della macchina virtuale | Immettere un nome descrittivo che identifica la macchina virtuale. In questo esempio viene usato **DNSProxy**.|
-    |Region | Selezionare la stessa area della rete virtuale creata in precedenza.  Non tutte le dimensioni di macchina virtuale sono disponibili in tutte le aree.  |
+    |Nome macchina virtuale | Immettere un nome descrittivo che identifica la macchina virtuale. In questo esempio viene usato **DNSProxy**.|
+    |Area geografica | Selezionare la stessa area della rete virtuale creata in precedenza.  Non tutte le dimensioni di macchina virtuale sono disponibili in tutte le aree.  |
     |Opzioni di disponibilità |  Selezionare il livello di disponibilità desiderato.  Azure offre una gamma di opzioni per la gestione della disponibilità e della resilienza delle applicazioni.  Progettando una soluzione per l'uso di macchine virtuali replicate in zone di disponibilità o set di disponibilità è possibile proteggere le app e i dati da eventuali interruzioni del data center ed eventi di manutenzione. Im questo esempio viene usata l'opzione **La ridondanza dell'infrastruttura non è richiesta**. |
     |Image | Uscire da **Ubuntu Server 18,04 LTS**. |
-    |Tipo di autenticazione | __Password__ o __Chiave pubblica SSH__: metodo di autenticazione per l'account SSH. Si consiglia di usare le chiavi pubbliche, che sono più sicure. In questo esempio viene utilizzata la **password**.  Per altre informazioni, vedere il documento [Creare e usare chiavi SSH per VM Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
+    |Tipo di autenticazione | __Password__ o __chiave pubblica SSH__: il metodo di autenticazione per l'account SSH. Si consiglia di usare le chiavi pubbliche, perché sono più sicure. In questo esempio viene utilizzata la **password**.  Per altre informazioni, vedere il documento [Creare e usare chiavi SSH per VM Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
     |Nome utente |Immettere il nome utente dell'amministratore della macchina virtuale.  In questo esempio viene usato **sshuser**.|
-    |Password o chiave pubblica SSH | Il campo disponibile è determinato dall'opzione selezionata per **Tipo di autenticazione**.  Immettere il valore appropriato.|
+    |Password o chiave SSH pubblica | Il campo disponibile è determinato dall'opzione selezionata per **Tipo di autenticazione**.  Immettere il valore appropriato.|
     |Porte in ingresso pubbliche|Selezionare **Consenti porte selezionate**. Selezionare quindi **SSH (22)** nell'elenco a discesa **selezionare le porte in ingresso** .|
 
     ![Configurazione di base della macchina virtuale](./media/connect-on-premises-network/virtual-machine-basics.png)
@@ -94,7 +94,7 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
     | --- | --- |
     |Rete virtuale | Selezionare la rete virtuale creata in precedenza.|
     |Subnet | Selezionare la subnet predefinita per la rete virtuale creata in precedenza. __Non__ selezionare la subnet usata dal gateway VPN.|
-    |IP pubblico | Usare il valore popolato automaticamente.  |
+    |IP pubblico | Usare il valore inserito automaticamente.  |
 
     ![Impostazioni della rete virtuale HDInsight](./media/connect-on-premises-network/virtual-network-settings.png)
 
@@ -103,7 +103,8 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
 5. Nella scheda **Rivedi e crea** selezionare **Crea** per creare la macchina virtuale.
 
 ### <a name="review-ip-addresses"></a>Verificare gli indirizzi IP
-Dopo aver creato la macchina virtuale, si riceverà una notifica contenente il messaggio **La distribuzione è riuscita** e un pulsante **Vai alla risorsa**.  Selezionare **Vai alla risorsa** per accedere alla nuova macchina virtuale.  Nella visualizzazione predefinita della nuova macchina virtuale seguire questa procedura per identificare gli indirizzi IP associati:
+
+Una volta creata la macchina virtuale, si riceverà una notifica di **distribuzione riuscita** con un pulsante **Vai a risorsa** .  Selezionare **Vai alla risorsa** per accedere alla nuova macchina virtuale.  Nella visualizzazione predefinita della nuova macchina virtuale seguire questa procedura per identificare gli indirizzi IP associati:
 
 1. In **Impostazioni** selezionare **Proprietà**.
 
@@ -126,7 +127,7 @@ Dopo aver creato la macchina virtuale, si riceverà una notifica contenente il m
     sudo apt-get install bind9 -y
     ```
 
-3. Per configurare binding per l'invio di richieste di risoluzione dei nomi al server DNS locale, usare il testo seguente come contenuto del `/etc/bind/named.conf.options` file:
+3. Per configurare binding per l'invio di richieste di risoluzione dei nomi al server DNS locale, usare il testo seguente come contenuto del file `/etc/bind/named.conf.options`:
 
         acl goodclients {
             10.0.0.0/16; # Replace with the IP address range of the virtual network
@@ -231,13 +232,13 @@ Dopo aver creato la macchina virtuale, si riceverà una notifica contenente il m
 
 Per configurare la rete virtuale per usare il server DNS personalizzato invece del resolver ricorsivo di Azure, seguire questa procedura nel [portale di Azure](https://portal.azure.com):
 
-1. Dal menu a sinistra passare a **tutti i servizi** > **rete** > **reti virtuali**.
+1. Dal menu a sinistra passare a **tutti i servizi**  > **rete**  > **reti virtuali**.
 
 2. Selezionare la rete virtuale dall'elenco, che aprirà la visualizzazione predefinita per la rete virtuale.  
 
 3. Nella visualizzazione predefinita, in **Impostazioni**, selezionare **Server DNS**.  
 
-4. Selezionare __Personalizzato__ e in **INDIRIZZO IP PRIVATO** immettere il valore del server DNS personalizzato.   
+4. Selezionare __Personalizzato__ e in **INDIRIZZO IP PRIVATO** immettere il valore del server DNS personalizzato.
 
 5. Selezionare __Salva__.  <br />  
 
@@ -279,8 +280,8 @@ Questo esempio usa il server DNS locale in 196.168.0.4 per risolvere il nome del
 
 2. Per gli indirizzi IP identificati nel passaggio 1, consentire il traffico in ingresso da tali indirizzi.
 
-   * Se si usano i __gruppi di sicurezza di rete__: consentire il traffico __in ingresso__ sulla porta __443__ per gli indirizzi IP.
-   * Se si usano le __route definite dall'utente__: impostare il tipo __Hop successivo__ della route su __Internet__ per gli indirizzi IP.
+   * Se si usa __NSG__: consente il traffico in __ingresso__ sulla porta __443__ per gli indirizzi IP.
+   * Se si usa __UdR__: impostare il tipo di __hop successivo__ della route su __Internet__ per gli indirizzi IP.
 
 Per un esempio di utilizzo di Azure PowerShell o dell'interfaccia della riga di comando di Azure per creare gruppi NSG, vedere il documento [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](hdinsight-create-virtual-network.md#hdinsight-nsg).
 
@@ -297,7 +298,7 @@ Seguire i passaggi riportati in [Creare un cluster HDInsight tramite il portale 
 
 ## <a name="connecting-to-hdinsight"></a>Connessione a HDInsight
 
-La maggior parte della documentazione in HDInsight presuppone che sia disponibile l'accesso al cluster tramite Internet. ad esempio che sia possibile connettersi al cluster all'indirizzo `https://CLUSTERNAME.azurehdinsight.net`. Questo indirizzo usa il gateway pubblico, che non è disponibile se sono stati usati gruppi di sicurezza di rete o route definite dall'utente per limitare l'accesso da Internet.
+La maggior parte delle documentazione in HDInsight presuppone che sia disponibile l'accesso al cluster tramite internet. ad esempio che sia possibile connettersi al cluster all'indirizzo `https://CLUSTERNAME.azurehdinsight.net`. Questo indirizzo USA il gateway pubblico, che non è disponibile se è stato usato gruppi o UdR per limitare l'accesso da Internet.
 
 Parte della documentazione fa riferimento a `headnodehost` anche per la connessione al cluster da una sessione SSH. Questo indirizzo è disponibile solo dai nodi all'interno di un cluster e non è utilizzabile nei client connessi tramite la rete virtuale.
 
@@ -328,7 +329,7 @@ Per connettersi direttamente a HDInsight attraverso la rete virtuale, seguire qu
 2. Per determinare la porta su cui un servizio è disponibile, vedere il documento [Porte usate dai servizi Apache Hadoop su HDInsight](./hdinsight-hadoop-port-settings-for-services.md).
 
     > [!IMPORTANT]  
-    > Alcuni servizi ospitati nei nodi head sono attivi solo in un nodo alla volta. Se si prova ad accedere a un servizio in un nodo head e si verifica un errore, passare all'altro nodo head.
+    > Alcuni servizi ospitati nei nodi head sono attivi solo in un nodo per volta. Se si prova ad accedere a un servizio in un nodo head e si verifica un errore, passare all'altro nodo head.
     >
     > Apache Ambari, ad esempio, è attivo solo in un nodo head per volta. Se si prova ad accedere ad Ambari in un nodo head e viene restituito un errore 404, significa che è in esecuzione nell'altro nodo head.
 
@@ -336,7 +337,7 @@ Per connettersi direttamente a HDInsight attraverso la rete virtuale, seguire qu
 
 * Per altre informazioni sull'uso di HDInsight in una rete virtuale, vedere [pianificare una distribuzione di rete virtuale per i cluster Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md).
 
-* Per altre informazioni sulle reti virtuali di Azure, vedere la [panoramica sulle reti virtuali di Azure](../virtual-network/virtual-networks-overview.md).
+* Per altre informazioni sulle reti virtuali di Azure, vedere [Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
 
 * Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 

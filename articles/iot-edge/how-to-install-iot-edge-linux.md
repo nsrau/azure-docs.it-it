@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: e08999798c72545f9fa1d1b5d362e23450ce16f5
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 9bc4d60eab0dac80d1b2b524f32bc506a66dee18
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695334"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516675"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installare il runtime di Azure IoT Edge nei sistemi Linux basati su Debian
 
@@ -27,7 +27,7 @@ Questo articolo elenca i passaggi per installare il runtime di Azure IoT Edge in
 >Il supporto per i dispositivi ARM64 è in versione di [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> I pacchetti disponibili nei repository di software Linux sono soggetti alle condizioni di licenza indicate in ogni pacchetto (/usr/share/doc/*nome-pacchetto*). Prima di usare il pacchetto, leggere le condizioni di licenza. L'installazione e l'uso del pacchetto costituiscono accettazione di tali condizioni. Se non si accettano le condizioni di licenza, non usare il pacchetto.
+> I pacchetti nei repository di software Linux sono soggetti alle condizioni di licenza indicate in ogni pacchetto (/usr/share/doc/*nome-pacchetto*). Prima di usare il pacchetto, leggere le condizioni di licenza. L'installazione e l'uso del pacchetto costituiscono accettazione di tali condizioni. Se non si accettano le condizioni di licenza, non usare il pacchetto.
 
 ## <a name="install-the-latest-runtime-version"></a>Installare la versione più recente del runtime
 
@@ -159,13 +159,13 @@ Una volta completata l'installazione di IoT Edge, l'output richiederà di aggior
 
 ## <a name="configure-the-security-daemon"></a>Configurare il daemon di sicurezza
 
-Configurare il runtime di IoT Edge per collegare il dispositivo fisico con un'identità del dispositivo esistente in un hub IoT di Azure.
+Configurare il runtime IoT Edge per collegare il dispositivo fisico con un'identità del dispositivo esistente in un hub IoT di Azure.
 
 Il daemon può essere configurato usando il file di configurazione in `/etc/iotedge/config.yaml`. Il file è protetto da scrittura per impostazione predefinita e possono essere necessarie autorizzazioni elevate per modificarlo.
 
 È possibile effettuare il provisioning di un singolo dispositivo IoT Edge manualmente usando una stringa di connessione dispositivo fornita dall'hub IoT. In alternativa, è possibile usare il servizio di provisioning di dispositivi per effettuare il provisioning di dispositivi automaticamente. Ciò è utile quando si dispone di molti dispositivi di cui effettuare il provisioning. A seconda del provisioning, scegliere lo script di installazione appropriato.
 
-### <a name="option-1-manual-provisioning"></a>Opzione 1: provisioning manuale
+### <a name="option-1-manual-provisioning"></a>Opzione 1: Provisioning manuale
 
 Per eseguire manualmente il provisioning di un dispositivo, è necessario fornire una [stringa di connessione del dispositivo](how-to-register-device-portal.md) che è possibile creare tramite la registrazione di un nuovo dispositivo nell'hub IoT.
 
@@ -175,7 +175,7 @@ Aprire il file di configurazione.
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Trovare le configurazioni del provisioning del file e rimuovere il commento dalla sezione di configurazione del provisioning **manuale** . Aggiornare il valore di **device_connection_string** con la stringa di connessione del dispositivo IoT Edge. Assicurarsi che tutte le altre sezioni di provisioning siano impostate come commento.
+Trovare le configurazioni del provisioning del file e rimuovere il commento dalla sezione di **configurazione del provisioning manuale** . Aggiornare il valore di **device_connection_string** con la stringa di connessione del dispositivo IoT Edge. Assicurarsi che tutte le altre sezioni di provisioning siano impostate come commento.
 
    ```yaml
    # Manual provisioning configuration
@@ -204,7 +204,7 @@ Dopo aver immesso le informazioni di provisioning nel file di configurazione, ri
 sudo systemctl restart iotedge
 ```
 
-### <a name="option-2-automatic-provisioning"></a>Opzione 2: provisioning automatico
+### <a name="option-2-automatic-provisioning"></a>Opzione 2: Provisioning automatico
 
 Per eseguire il provisioning automatico di un dispositivo, [configurare il servizio Device Provisioning e recuperare l'ID di registrazione del dispositivo](how-to-auto-provision-simulated-device-linux.md). Esistono diversi meccanismi di attestazione supportati da IoT Edge quando si usa il provisioning automatico, ma anche i requisiti hardware influiscano sulle scelte effettuate. I dispositivi Raspberry Pi, ad esempio, non sono dotati di un chip Trusted Platform Module (TPM) per impostazione predefinita.
 
@@ -248,19 +248,25 @@ sudo systemctl restart iotedge
 
 Se è stata usata la **configurazione manuale** nella sezione precedente, il runtime IoT Edge deve essere correttamente sottoposto a provisioning e in esecuzione nel dispositivo. Se è stata usata la **configurazione automatica**, è necessario completare alcuni passaggi aggiuntivi in modo che il runtime possa registrare il dispositivo con l'hub IoT per conto dell'utente. Per i passaggi successivi, vedere [creare ed effettuare il provisioning di un TPM simulato IOT Edge dispositivo in una macchina virtuale Linux](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
 
-È possibile verificare lo stato del daemon IoT Edge con il comando seguente:
+È possibile controllare lo stato del daemon IoT Edge:
 
 ```bash
 systemctl status iotedge
 ```
 
-Esaminare i log del daemon con il comando seguente:
+Esaminare i log del daemon:
 
 ```bash
 journalctl -u iotedge --no-pager --no-full
 ```
 
-Elencare infine i moduli in esecuzione con il comando seguente:
+Eseguire un controllo automatizzato per la configurazione e gli errori di rete più comuni: 
+
+```bash
+sudo iotedge check
+```
+
+E, elencare i moduli in esecuzione:
 
 ```bash
 sudo iotedge list

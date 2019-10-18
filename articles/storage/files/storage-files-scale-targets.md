@@ -4,15 +4,15 @@ description: Informazioni sugli obiettivi di scalabilità e prestazioni di File 
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 5/5/2019
+ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ed4aa832c4ec7ccda760d535aa920be8d5c4e2e3
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 766dacb69a3f1857197684f552d05a1376e94509
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699633"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514874"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Obiettivi di scalabilità e prestazioni per File di Azure
 
@@ -35,11 +35,11 @@ La risorsa padre per una condivisione file di Azure è un account di archiviazio
 
 Esistono tre categorie di limitazioni da considerare per File di Azure: account di archiviazione, condivisioni e file.
 
-Ad esempio:  Con le condivisioni file Premium, una singola condivisione può raggiungere 100.000 IOPS e un singolo file può essere scalato fino a 5.000 IOPS. Quindi, se si dispone di tre file in una condivisione, il numero massimo di IOPS che è possibile ottenere da tale condivisione è 15.000.
+Ad esempio: con le condivisioni file Premium, una singola condivisione può raggiungere 100.000 IOPS e un singolo file può essere scalato fino a 5.000 IOPS. Quindi, se si dispone di tre file in una condivisione, il numero massimo di IOPS che è possibile ottenere da tale condivisione è 15.000.
 
 ### <a name="standard-storage-account-limits"></a>Limiti dell'account di archiviazione standard
 
-Per questi limiti, vedere la sezione obiettivi di scalabilità dell' [account di archiviazione di Azure](#azure-storage-account-scale-targets) .
+Per questi limiti, vedere la sezione [obiettivi di scalabilità dell'account di archiviazione di Azure](#azure-storage-account-scale-targets) .
 
 ### <a name="premium-filestorage-account-limits"></a>Limiti dell'account filestorage Premium
 
@@ -51,8 +51,8 @@ Per questi limiti, vedere la sezione obiettivi di scalabilità dell' [account di
 ### <a name="file-share-and-file-scale-targets"></a>Destinazioni di condivisione file e scala file
 
 > [!NOTE]
-> Le condivisioni file standard più grandi di 5 TiB sono in anteprima e presentano alcune limitazioni.
-> Per un elenco delle limitazioni e per l'onboarding nell'anteprima di queste dimensioni di condivisione file più grandi, vedere la sezione relativa alle [condivisioni file standard](storage-files-planning.md#standard-file-shares) della Guida alla pianificazione.
+> Le condivisioni file standard di dimensioni maggiori di 5 TiB presentano alcune limitazioni e limitazioni a livello di area.
+> Per un elenco di limitazioni, informazioni internazionali e istruzioni per abilitare le dimensioni di condivisione file più grandi, vedere la sezione [onboarding file](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) shares della Guida alla pianificazione.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -66,7 +66,7 @@ Sincronizzazione file di Azure è stato progettato per supportare un utilizzo se
 
 ### <a name="azure-file-sync-performance-metrics"></a>Metriche delle prestazioni di Sincronizzazione file di Azure
 
-Poiché l'agente Sincronizzazione file di Azure viene eseguito su un computer Windows Server che si connette alle condivisioni file di Azure, le prestazioni di sincronizzazione effettive dipendono da una serie di fattori dell'infrastruttura: Windows Server e la configurazione dei dischi sottostanti, larghezza di banda di rete tra il server e l'archiviazione di Azure, dimensioni del file, dimensione totale di set di dati e l'attività nel set di dati. Poiché Sincronizzazione file di Azure opera a livello di file, le caratteristiche in termini di prestazioni di una soluzione basata su Sincronizzazione file di Azure possono essere misurate meglio in base al numero di oggetti (file e directory) elaborati al secondo.
+Poiché l'agente di Sincronizzazione file di Azure viene eseguito in un computer Windows Server che si connette alle condivisioni file di Azure, le effettive prestazioni di sincronizzazione dipendono da diversi fattori nell'infrastruttura: Windows Server e configurazione dei dischi sottostante, larghezza di banda tra il server e l'archiviazione di Azure, dimensioni dei file, dimensioni totali del set di dati e attività nel set di dati. Poiché Sincronizzazione file di Azure opera a livello di file, le caratteristiche in termini di prestazioni di una soluzione basata su Sincronizzazione file di Azure possono essere misurate meglio in base al numero di oggetti (file e directory) elaborati al secondo.
 
 Per Sincronizzazione file di Azure, le prestazioni sono critiche in due fasi:
 
@@ -111,7 +111,7 @@ Come indicazione generale per la distribuzione, è necessario tenere presenti al
 - La velocità effettiva degli oggetti cambia all'incirca in misura proporzionale al numero di gruppi di sincronizzazione nel server. La suddivisione dei dati in più gruppi di sincronizzazione in un server produce una maggiore velocità effettiva, che è limitata anche dal server e dalla rete.
 - La velocità effettiva degli oggetti è inversamente proporzionale alla velocità effettiva in MiB al secondo. Per i file più piccoli, si riscontrerà una velocità effettiva maggiore per quanto riguarda il numero di oggetti elaborati al secondo, ma con una minore velocità effettiva in MiB al secondo. Al contrario, per i file di dimensioni maggiori, si otterrà un numero minore di oggetti elaborati al secondo, ma con una maggiore velocità effettiva in MiB al secondo. La velocità effettiva in MiB al secondo è limitata dagli obiettivi di scalabilità di File di Azure.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md)
 - [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)

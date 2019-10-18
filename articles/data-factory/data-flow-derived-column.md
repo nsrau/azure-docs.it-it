@@ -1,17 +1,17 @@
 ---
-title: Trasformazione colonna derivata nel flusso di dati di mapping-Azure Data Factory | Microsoft Docs
+title: Trasformazione colonna derivata nel flusso di dati del mapping Azure Data Factory | Microsoft Docs
 description: Informazioni su come trasformare i dati su larga scala in Azure Data Factory con la trasformazione colonna derivata flusso di dati mapping.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 5a4ee90717d46fe593d9e10083b349e069216dac
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 60451fa6152590ed0fde51be436c867f39906acf
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72436759"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514808"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>Trasformazione colonna derivata nel flusso di dati di mapping
 
@@ -46,7 +46,9 @@ Per aggiungere altre colonne derivate, passare il mouse su una colonna derivata 
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente è una colonna derivata denominata `CleanData` che accetta un flusso in ingresso `MoviesYear` e crea due colonne derivate. La prima colonna derivata sostituisce la colonna `Rating` con il valore della classificazione come tipo Integer. La seconda colonna derivata è un modello che corrisponde a ogni colonna il cui nome inizia con "Movies". Per ogni colonna corrispondente, viene creata una colonna `movie` uguale al valore della colonna corrispondente con prefisso ' movie_'. In Data Factory UX questa trasformazione è simile all'immagine seguente:
+L'esempio seguente è una colonna derivata denominata `CleanData` che accetta un flusso in ingresso `MoviesYear` e crea due colonne derivate. La prima colonna derivata sostituisce la colonna `Rating` con il valore della classificazione come tipo Integer. La seconda colonna derivata è un modello che corrisponde a ogni colonna il cui nome inizia con "Movies". Per ogni colonna corrispondente, viene creata una colonna `movie` uguale al valore della colonna corrispondente con prefisso ' movie_'. 
+
+In Data Factory UX questa trasformazione è simile all'immagine seguente:
 
 ![Esempio di derivazione](media/data-flow/derive-script1.png "Esempio di derivazione")
 

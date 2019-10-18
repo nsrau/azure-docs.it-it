@@ -1,21 +1,21 @@
 ---
-title: Spostare le risorse di distribuzione classica di Azure alla nuova sottoscrizione o gruppo di risorse
-description: Usare Azure Resource Manager per spostare le risorse di distribuzione classica in un nuovo gruppo di risorse o sottoscrizione.
+title: Spostare le risorse di distribuzione classica di Azure
+description: Usare Azure Resource Manager per spostare le risorse di distribuzione classica in un nuovo gruppo di risorse o una nuova sottoscrizione.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4770f957b6b9eea75b50776a7491b1ca479e50e2
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 783fcdca7637f3f67cf146bb827760cb4cdd7cbe
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723506"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533492"
 ---
-# <a name="move-guidance-for-classic-deployment-model-resources"></a>Spostare linee guida per risorse del modello di distribuzione classica
+# <a name="move-guidance-for-classic-deployment-model-resources"></a>Spostare le linee guida per le risorse del modello di distribuzione classica
 
-I passaggi per spostare le risorse distribuite tramite il modello classico variano a seconda se si spostano le risorse all'interno di una sottoscrizione o in una nuova sottoscrizione.
+I passaggi per spostare le risorse distribuite con il modello classico variano a seconda che si stiano spostando le risorse all'interno di una sottoscrizione o a una nuova sottoscrizione.
 
 ## <a name="move-in-the-same-subscription"></a>Sposta nella stessa sottoscrizione
 
@@ -28,9 +28,9 @@ Quando si spostano risorse da un gruppo di risorse a un altro gruppo di risorse 
 * È possibile spostare un solo account di archiviazione (classico) alla volta.
 * Un account di archiviazione (classico) non può essere spostato nella stessa operazione di spostamento che include una macchina virtuale o un servizio cloud.
 
-Per spostare le risorse classiche in un nuovo gruppo di risorse nella stessa sottoscrizione, usare il [operazioni di spostamento standard](../resource-group-move-resources.md) tramite il portale, Azure PowerShell, CLI Azure o l'API REST. Usare le stesse operazioni eseguite per lo spostamento di risorse di Resource Manager.
+Per spostare le risorse classiche in un nuovo gruppo di risorse all'interno della stessa sottoscrizione, usare le [operazioni di spostamento standard](../resource-group-move-resources.md) tramite il portale, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Usare le stesse operazioni eseguite per lo spostamento di risorse di Resource Manager.
 
-## <a name="move-across-subscriptions"></a>Spostamento tra sottoscrizioni
+## <a name="move-across-subscriptions"></a>Sposta tra sottoscrizioni
 
 Quando si spostano risorse in una nuova sottoscrizione, sono valide le restrizioni seguenti:
 
@@ -38,7 +38,7 @@ Quando si spostano risorse in una nuova sottoscrizione, sono valide le restrizio
 * La sottoscrizione di destinazione non deve contenere nessuna delle altre risorse classiche.
 * Lo spostamento può essere richiesto solo tramite un'API REST separata per gli spostamenti di risorse classiche. I comandi di spostamento standard di Resource Manager non funzionano quando si spostano risorse classiche a una nuova sottoscrizione.
 
-Per spostare le risorse classiche in una nuova sottoscrizione, usare le operazioni REST specifiche per le risorse classiche. Per usare REST, effettuare quanto segue:
+Per spostare le risorse classiche in una nuova sottoscrizione, usare le operazioni REST specifiche per le risorse classiche. Per usare REST, seguire questa procedura:
 
 1. Controllare se la sottoscrizione di origine può partecipare a un'operazione di spostamento tra sottoscrizioni. Usare l'operazione seguente:
 
@@ -99,6 +99,6 @@ Questa operazione potrebbe richiedere alcuni minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se hai problemi durante lo spostamento di risorse classiche, contatta [supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Se si riscontrano problemi durante lo trasferimento delle risorse classiche, contattare il [supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 Per i comandi sullo spostamento di risorse, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../resource-group-move-resources.md).

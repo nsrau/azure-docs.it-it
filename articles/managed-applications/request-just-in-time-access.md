@@ -1,17 +1,17 @@
 ---
-title: Abilitare e richiedere l'accesso just-in-time per le applicazioni gestite di Azure
+title: Richiedere l'accesso just-in-Time-applicazioni gestite di Azure
 description: Descrive in che modo gli editori delle applicazioni gestite di Azure richiedono l'accesso JIT a un'applicazione gestita.
 author: MSEvanhi
 ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
-ms.openlocfilehash: 0d595d4c96e9f87f1c8eece5d47bf4c8cdd58d7c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: fdd1dcf5ab6b58a91534a465a8c92c10de0d2097
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574994"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528960"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Abilitare e richiedere l'accesso just-in-time per le applicazioni gestite di Azure
 
@@ -81,7 +81,7 @@ Quando si definisce l'offerta nel Marketplace, assicurarsi di abilitare l'access
 
 È stato aggiunto un passaggio di configurazione JIT all'interfaccia utente e l'accesso JIT è stato abilitato nell'offerta del Marketplace. Quando i consumer distribuiscono l'applicazione gestita, possono [attivare l'accesso JIT per la relativa istanza](approve-just-in-time-access.md#enable-during-deployment).
 
-## <a name="request-access"></a>Richiedi l'accesso
+## <a name="request-access"></a>Richiedere l'accesso
 
 Quando è necessario accedere alle risorse gestite del consumer, si invia una richiesta per un ruolo, un'ora e una durata specifici. Il consumer deve quindi approvare la richiesta.
 
@@ -101,11 +101,11 @@ Per inviare una richiesta di accesso JIT:
 
    ![Notifica](./media/request-just-in-time-access/in-progress.png)
 
-   A questo punto, è necessario attendere che il consumer approvi [la richiesta](approve-just-in-time-access.md#approve-requests).
+   A questo punto, è necessario attendere che il consumer [approvi la richiesta](approve-just-in-time-access.md#approve-requests).
 
 1. Per visualizzare lo stato di tutte le richieste JIT per un'applicazione gestita, selezionare **accesso JIT** e **cronologia delle richieste**.
 
-   ![Visualizzare lo stato](./media/request-just-in-time-access/view-status.png)
+   ![Visualizza lo stato](./media/request-just-in-time-access/view-status.png)
 
 ## <a name="known-issues"></a>Problemi noti
 

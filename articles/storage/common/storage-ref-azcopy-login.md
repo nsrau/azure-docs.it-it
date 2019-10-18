@@ -4,18 +4,18 @@ description: Questo articolo contiene informazioni di riferimento per il comando
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 2938d85becbea738acc21fc7b15991301eef759f
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 058506110a8ac4b11f272406a854f72062a1c90d
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195724"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514714"
 ---
-# <a name="azcopy-login"></a>accesso azcopy
+# <a name="azcopy-login"></a>azcopy login
 
 Accede a Azure Active Directory per accedere alle risorse di archiviazione di Azure.
 
@@ -36,7 +36,7 @@ Per ulteriori informazioni, fare riferimento agli esempi.
 azcopy login [flags]
 ```
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 Accedere in modo interattivo con l'ID tenant di AAD predefinito impostato su comune:
 
@@ -50,25 +50,25 @@ Accedere in modo interattivo con un ID tenant specificato:
 azcopy login --tenant-id "[TenantID]"
 ```
 
-Accedere usando l'identità assegnata dal sistema di una macchina virtuale:
+Accedere usando l'identità assegnata dal sistema di una macchina virtuale (VM):
 
 ```azcopy
 azcopy login --identity
 ```
 
-Accedere usando l'identità assegnata dall'utente di una macchina virtuale con un ID client dell'identità del servizio:
+Accedere usando l'identità assegnata dall'utente di una macchina virtuale e un ID client dell'identità del servizio:
 
 ```azcopy
 azcopy login --identity --identity-client-id "[ServiceIdentityClientID]"
 ```
 
-Accedere usando l'identità assegnata dall'utente di una macchina virtuale con un ID oggetto dell'identità del servizio:
+Accedere usando l'identità assegnata dall'utente di una macchina virtuale e un ID oggetto dell'identità del servizio:
 
 ```azcopy
 azcopy login --identity --identity-object-id "[ServiceIdentityObjectID]"
 ```
 
-Accedere usando l'identità assegnata dall'utente di una macchina virtuale con un ID risorsa dell'identità del servizio:
+Accedere usando l'identità assegnata dall'utente di una macchina virtuale e un ID risorsa dell'identità del servizio:
 
 ```azcopy
 azcopy login --identity --identity-resource-id "/subscriptions/<subscriptionId>/resourcegroups/myRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID"
@@ -92,7 +92,7 @@ Assicurarsi di considerare/Path/to/My/CERT come percorso di un file PEM o PKCS12
 
 ## <a name="options"></a>Opzioni
 
-|Opzione|DESCRIZIONE|
+|Opzione|Description|
 |--|--|
 |--Application-ID stringa|ID applicazione dell'identità assegnata dall'utente. Obbligatorio per l'autenticazione dell'entità servizio.|
 |--certificate-percorso stringa|Percorso del certificato per l'autenticazione del nome SPN. Obbligatorio per l'autenticazione dell'entità servizio basata su certificato.|
@@ -106,11 +106,11 @@ Assicurarsi di considerare/Path/to/My/CERT come percorso di un file PEM o PKCS12
 
 ## <a name="options-inherited-from-parent-commands"></a>Opzioni ereditate dai comandi padre
 
-|Opzione|Descrizione|
+|Opzione|Description|
 |---|---|
 |--Cap-Mbps UInt32|Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
 |--output-tipo stringa|Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text".|
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [azcopy](storage-ref-azcopy.md)

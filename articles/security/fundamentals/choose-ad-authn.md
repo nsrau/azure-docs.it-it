@@ -9,18 +9,14 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 22a5a2e157c0b2095673e75e7a3bc9ccb80f8ffd
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4de4da63abea1c4f6ab006ffd65a58ea0e34c015
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "69997811"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529403"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Scegliere il metodo di autenticazione appropriato per la soluzione ibrida di gestione delle identità di Azure AD 
-
-Questo articolo è il primo di una serie di articoli finalizzati ad aiutare le organizzazioni a implementare una soluzione ibrida completa di gestione delle identità di Azure Active Directory (Azure AD). Questa soluzione è stata presentata come [Hybrid Identity Digital Transformation Framework](https://aka.ms/aadframework). e include i risultati di business e gli obiettivi su cui le organizzazioni devono concentrarsi per implementare una soluzione ibrida di gestione delle identità affidabile e sicura. 
-
-Il primo risultato aziendale del framework illustra in dettaglio i requisiti necessari alle organizzazioni per proteggere il processo di autenticazione quando gli utenti accedono alle applicazioni cloud. Il primo obiettivo aziendale del risultato di business protetto tramite autenticazione è la possibilità per gli utenti di accedere ad app cloud usando nomi utente e password locali. Questo processo di accesso e autenticazione rende possibile tutto il cloud.
 
 La scelta del metodo di autenticazione corretto rappresenta la priorità assoluta per le organizzazioni che desiderano spostare le proprie applicazioni nel cloud. È bene non prendere questa decisione con leggerezza, per i motivi seguenti:
 
@@ -86,7 +82,7 @@ Dettagli relativi alle domande nell'albero delle decisioni:
 
 ## <a name="detailed-considerations"></a>Considerazioni dettagliate
 
-### <a name="cloud-authentication-password-hash-synchronization"></a>Autenticazione cloud: Sincronizzazione dell'hash delle password
+### <a name="cloud-authentication-password-hash-synchronization"></a>Autenticazione cloud: sincronizzazione dell'hash delle password
 
 * **Lavoro richiesto**. La sincronizzazione dell'hash delle password richiede il minimo sforzo a livello di distribuzione, manutenzione e infrastruttura.  Questo livello di sforzo è valido per le organizzazioni che hanno bisogno solo di consentire ai propri utenti di accedere a Office 365, alle app SaaS e ad altre risorse basate su Azure AD. Quando abilitata, la sincronizzazione dell'hash delle password rientra nel processo del servizio di sincronizzazione di Azure AD Connect e viene eseguita ogni due minuti.
 
@@ -108,7 +104,7 @@ Dettagli relativi alle domande nell'albero delle decisioni:
 
 Per la procedura di implementazione, vedere [Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
-### <a name="cloud-authentication-pass-through-authentication"></a>Autenticazione cloud: Autenticazione pass-through  
+### <a name="cloud-authentication-pass-through-authentication"></a>Autenticazione cloud: autenticazione pass-through  
 
 * **Lavoro richiesto**. Per l'autenticazione pass-through sono necessari uno o più agenti leggeri (se ne consigliano tre) installati sui server esistenti. Questi agenti devono avere accesso ad Active Directory Domain Services locale, inclusi i controller di dominio AD locali. Richiedono inoltre l'accesso in uscita a Internet e l'accesso ai controller di dominio. Per questo motivo la distribuzione degli agenti in una rete perimetrale non è supportata. 
 
@@ -176,12 +172,12 @@ I diagrammi seguenti definiscono i componenti dell'architettura generale necessa
 
 |Considerazioni|Sincronizzazione dell'hash delle password + Seamless SSO|Autenticazione pass-through + Seamless SSO|Federazione con ADFS|
 |:-----|:-----|:-----|:-----|
-|Dove si verifica l'autenticazione?|Nel cloud|Nel cloud dopo la verifica della password di protezione con l'agente di autenticazione locale|Locale|
-|Quali sono i requisiti del server locale oltre il sistema di provisioning Azure AD Connect?|Nessuna|Un server per ogni agente di autenticazione aggiuntivo|Due o più server AD FS<br><br>Due o più server WAP nella rete perimetrale|
-|Quali sono i requisiti di rete e Internet locali oltre al sistema di provisioning?|Nessuna|[Accesso a Internet in uscita](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) dai server in cui sono in esecuzione gli agenti di autenticazione|[Accesso Internet in ingresso](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) ai server WAP nelle reti perimetrali<br><br>Accesso di rete in ingresso ai server AD FS dai server WAP nelle reti perimetrali<br><br>Bilanciamento del carico di rete|
-|Esiste un requisito per il certificato SSL?|No|No|Yes|
-|Esiste una soluzione di monitoraggio dello stato?|Facoltativo|Stato agente fornito dall'[interfaccia di amministrazione di Azure Active Directory](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
-|Gli utenti ottengono l'accesso Single Sign-On alle risorse cloud dai dispositivi aggiunti al dominio all'interno della rete aziendale?|Sì, con l'[accesso Single Sign-On facile](../../active-directory/hybrid/how-to-connect-sso.md)|Sì, con l'[accesso Single Sign-On facile](../../active-directory/hybrid/how-to-connect-sso.md)|Yes|
+|Dove si verifica l'autenticazione?|Nel cloud|Nel cloud dopo la verifica della password di protezione con l'agente di autenticazione locale|Ambiente locale|
+|Quali sono i requisiti del server locale oltre il sistema di provisioning Azure AD Connect?|Nessuno|Un server per ogni agente di autenticazione aggiuntivo|Due o più server AD FS<br><br>Due o più server WAP nella rete perimetrale|
+|Quali sono i requisiti di rete e Internet locali oltre al sistema di provisioning?|Nessuno|[Accesso a Internet in uscita](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) dai server in cui sono in esecuzione gli agenti di autenticazione|[Accesso Internet in ingresso](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) ai server WAP nelle reti perimetrali<br><br>Accesso di rete in ingresso ai server AD FS dai server WAP nelle reti perimetrali<br><br>Bilanciamento del carico di rete|
+|Esiste un requisito per il certificato SSL?|No|No|SÌ|
+|Esiste una soluzione di monitoraggio dello stato?|Non obbligatorio|Stato agente fornito dall'[interfaccia di amministrazione di Azure Active Directory](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
+|Gli utenti ottengono l'accesso Single Sign-On alle risorse cloud dai dispositivi aggiunti al dominio all'interno della rete aziendale?|Sì, con l'[accesso Single Sign-On facile](../../active-directory/hybrid/how-to-connect-sso.md)|Sì, con l'[accesso Single Sign-On facile](../../active-directory/hybrid/how-to-connect-sso.md)|SÌ|
 |Quali tipi di accesso sono supportati?|UserPrincipalName + Password<br><br>Autenticazione integrata di Windows con [Seamless SSO](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID di accesso alternativo](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + Password<br><br>Autenticazione integrata di Windows con [Seamless SSO](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID di accesso alternativo](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + Password<br><br>sAMAccountName + Password<br><br>Autenticazione integrata di Windows<br><br>[Autenticazione con certificato e smart card](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID di accesso alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Windows Hello for Business è supportato?|[Modello di attendibilità chiavi](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[Modello di attendibilità chiavi](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Richiede il livello di funzionalità del dominio di Windows Server 2016*|[Modello di attendibilità chiavi](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modello di attendibilità certificati](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Quali sono le opzioni di autenticazione a più fattori?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controlli personalizzati con accesso condizionale *](../../active-directory/conditional-access/controls.md)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controlli personalizzati con accesso condizionale *](../../active-directory/conditional-access/controls.md)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Server di Azure MFA](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[MFA di terze parti](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Controlli personalizzati con accesso condizionale *](../../active-directory/conditional-access/controls.md)|
@@ -194,7 +190,7 @@ I diagrammi seguenti definiscono i componenti dell'architettura generale necessa
 > [!NOTE] 
 > I controlli personalizzati in Azure AD accesso condizionale non supportano attualmente la registrazione del dispositivo.
 
-## <a name="recommendations"></a>Consigli
+## <a name="recommendations"></a>Raccomandazioni
 Il sistema di gestione delle identità garantisce che gli utenti abbiano accesso alle app cloud e line-of-business trasferite e rese disponibili nel cloud. Per mantenere produttivi gli utenti autorizzati e tenere i malintenzionati alla larga dai dati sensibili dell'organizzazione, l'autenticazione controlla l'accesso alle app.
 
 Usare o abilitare la sincronizzazione dell'hash delle password indipendentemente dal metodo di autenticazione scelto, per i motivi seguenti:

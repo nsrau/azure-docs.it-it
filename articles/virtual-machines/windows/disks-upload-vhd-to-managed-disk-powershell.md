@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 88b5cacf432e467c893dac6fc5839c468b2eafbd
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: d193dcd0c0539c2daa7220d915fdc3e02c8ea798
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828665"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512432"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Caricare un disco rigido virtuale in Azure usando Azure PowerShell
 
@@ -27,7 +27,7 @@ Attualmente, il caricamento diretto è supportato per HDD standard, unità SSD s
 
 - Scaricare la versione più recente [di AzCopy V10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installare Azure PowerShell modulo](/powershell/azure/install-Az-ps).
-- Se si intende caricare un disco rigido virtuale da-PEM: Un VHD [preparato per Azure](prepare-for-upload-vhd-image.md), archiviato localmente.
+- Se si intende caricare un disco rigido virtuale da un disco rigido virtuale che [è stato preparato per Azure](prepare-for-upload-vhd-image.md), archiviato localmente.
 - In alternativa, un disco gestito in Azure, se si intende eseguire un'azione di copia.
 
 ## <a name="create-an-empty-managed-disk"></a>Creare un disco gestito vuoto
@@ -39,7 +39,7 @@ Questo tipo di disco gestito ha due stati univoci:
 - ReadToUpload, il che significa che il disco è pronto per ricevere un caricamento, ma non è stata generata alcuna [firma di accesso sicuro](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS).
 - ActiveUpload, il che significa che il disco è pronto per ricevere un caricamento e che la firma di accesso condiviso è stata generata.
 
-In uno di questi Stati, il disco gestito verrà fatturato in base ai [prezzi standard di HDD](https://azure.microsoft.com/pricing/details/managed-disks/), indipendentemente dal tipo effettivo di disco. Ad esempio, un P10 verrà fatturato come S10. Questo valore sarà true fino `revoke-access` a quando non viene chiamato sul disco gestito, operazione necessaria per il fissaggio del disco a una macchina virtuale.
+In uno di questi Stati, il disco gestito verrà fatturato in base ai [prezzi standard di HDD](https://azure.microsoft.com/pricing/details/managed-disks/), indipendentemente dal tipo effettivo di disco. Ad esempio, un P10 verrà fatturato come S10. Questo valore sarà true fino a quando non viene chiamato `revoke-access` sul disco gestito, che è necessario per il fissaggio del disco a una macchina virtuale.
 
 Prima di creare un HDD standard vuoto per il caricamento, saranno necessarie le dimensioni del file in byte del disco rigido virtuale che si vuole caricare. Il codice di esempio otterrà questa operazione, ma è possibile usare: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`. Questo valore viene usato quando si specifica il parametro **-UploadSizeInBytes** .
 
@@ -77,7 +77,7 @@ Questo caricamento ha la stessa velocità effettiva del [disco rigido standard](
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
 ```
 
-Se la firma di accesso condiviso scade durante il caricamento e non è `revoke-access` ancora stata chiamata, è possibile ottenere una nuova firma di accesso condiviso `grant-access`per continuare il caricamento usando, di nuovo.
+Se la firma di accesso condiviso scade durante il caricamento e non è ancora stato chiamato `revoke-access`, è possibile ottenere una nuova firma di accesso condiviso per continuare il caricamento usando `grant-access`.
 
 Una volta completato il caricamento e non è più necessario scrivere altri dati sul disco, revocare la firma di accesso condiviso. La revoca della firma di accesso condiviso modificherà lo stato del disco gestito e consentirà di aggiungere il disco a una macchina virtuale.
 
@@ -128,4 +128,4 @@ Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName
 
 Ora che è stato caricato correttamente un disco rigido virtuale in un disco gestito, è possibile collegarlo a una macchina virtuale e iniziare a usarlo.
 
-Per informazioni su come aggiungere un disco a una macchina virtuale, vedere l'articolo sull'argomento: [Associare un disco dati a una macchina virtuale Windows con PowerShell](attach-disk-ps.md).
+Per informazioni su come associare un disco dati a una macchina virtuale, vedere l'articolo sull'oggetto: [associare un disco dati a una macchina virtuale Windows con PowerShell](attach-disk-ps.md). Per usare il disco come disco del sistema operativo, vedere [creare una macchina virtuale Windows da un disco specializzato](create-vm-specialized.md#create-the-new-vm).

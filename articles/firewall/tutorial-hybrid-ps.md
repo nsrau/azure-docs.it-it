@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 5/3/2019
+ms.date: 10/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: a9987808feb895276f3f9e62fe66c1b353b52e72
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ecc46f9ce4ec953d481bf8110326630053938524
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073068"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533331"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Distribuire e configurare Firewall di Azure in una rete ibrida con Azure PowerShell
 
@@ -43,7 +43,7 @@ In questo articolo viene spiegato come:
 > * Creare le macchine virtuali
 > * Testare il firewall
 
-Se invece si vuole usare portale di Azure per completare questa esercitazione, vedere [esercitazione: Distribuire e configurare il firewall di Azure in una rete ibrida usando](tutorial-hybrid-portal.md)il portale di Azure.
+Se invece si vuole usare portale di Azure per completare questa esercitazione, vedere [esercitazione: distribuire e configurare il firewall di Azure in una rete ibrida usando il portale di Azure](tutorial-hybrid-portal.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -62,9 +62,9 @@ Per il corretto funzionamento di questo scenario devono essere soddisfatti tre r
 Vedere la sezione [creare le route](#create-the-routes) in questo articolo per vedere come vengono create queste route.
 
 >[!NOTE]
->Connettività diretta al Firewall di Azure. Se AzureFirewallSubnet apprende una route predefinita alla rete locale tramite BGP è necessario sostituirla con una route UDR 0.0.0.0/0 con il valore **NextHopType** impostato come **Internet** per mantenere connettività diretta a Internet. Per impostazione predefinita, Firewall di Azure non supporta il tunneling forzato a una rete locale.
+>Connettività diretta al Firewall di Azure. Se AzureFirewallSubnet apprende una route predefinita alla rete locale tramite BGP è necessario sostituirla con una route UDR 0.0.0.0/0 con il valore **NextHopType** impostato come **Internet** per mantenere connettività diretta a Internet.
 >
->Tuttavia, se la configurazione richiede il tunneling forzato a una rete locale, Microsoft effettuerà assistenza caso per caso. Contattare il supporto tecnico per poter esaminare il caso. Se accettato, la sottoscrizione verrà inserita nell'elenco elementi consentiti e si assicurerà che venga mantenuta la connettività Internet del firewall necessaria.
+>Firewall di Azure non supporta al momento il tunneling forzato. Se la configurazione richiede il tunneling forzato in una rete locale ed è possibile determinare i prefissi IP di destinazione per le destinazioni Internet, è possibile configurare questi intervalli con la rete locale come hop successivo tramite una route definita dall'utente in AzureFirewallSubnet. In alternativa, per definire queste route, è possibile usare BGP.
 
 >[!NOTE]
 >Il traffico tra reti virtuali direttamente con peering viene instradato direttamente anche se una route definita dall'utente punta al firewall di Azure come gateway predefinito. Per inviare il traffico da subnet a subnet al firewall in questo scenario, una route definita dall'utente deve contenere il prefisso di rete subnet di destinazione in modo esplicito su entrambe le subnet.
@@ -497,4 +497,4 @@ A questo punto rieseguire i test, che dovrebbero avere tutti esito negativo. Chi
 
 È possibile ora monitorare i log di Firewall di Azure.
 
-[Esercitazione: monitorare i log del Firewall di Azure](./tutorial-diagnostics.md)
+[Esercitazione: Monitorare i log di Firewall di Azure](./tutorial-diagnostics.md)

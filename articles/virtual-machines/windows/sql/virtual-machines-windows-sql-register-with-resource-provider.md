@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b0a7221107f05ff2239bd77cc18e7ffedc18efc1
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: a0e5076f6ecb102b239a94b986830235eb720125
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023589"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512370"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrare una macchina virtuale SQL Server in Azure con il provider di risorse VM SQL
 
@@ -27,16 +27,16 @@ Questo articolo descrive come registrare il SQL Server macchina virtuale (VM) in
 
 La distribuzione di un'immagine SQL Server VM di Azure Marketplace tramite il portale di Azure registra automaticamente la macchina virtuale SQL Server con il provider di risorse. Se si sceglie di installare autonomamente SQL Server in una macchina virtuale di Azure anziché scegliere un'immagine da Azure Marketplace o se si esegue il provisioning di una macchina virtuale di Azure da un disco rigido virtuale personalizzato con SQL Server, è necessario registrare la VM SQL Server con il provider di risorse per :
 
-- **Semplificare la gestione delle licenze**: Secondo le condizioni del prodotto Microsoft, i clienti devono comunicare a Microsoft quando usano il [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/). La registrazione con il provider di risorse VM SQL semplifica la gestione delle licenze SQL Server e consente di identificare rapidamente SQL Server VM usando le Vantaggio Azure Hybrid nel [portale](virtual-machines-windows-sql-manage-portal.md) o AZ CLI: 
+- **Semplificare la gestione delle licenze**: in base alle condizioni del prodotto Microsoft, i clienti devono comunicare a Microsoft quando usano la [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/). La registrazione con il provider di risorse VM SQL semplifica la gestione delle licenze SQL Server e consente di identificare rapidamente SQL Server VM usando le Vantaggio Azure Hybrid nel [portale](virtual-machines-windows-sql-manage-portal.md) o AZ CLI: 
 
    ```azurecli-interactive
    $vms = az sql vm list | ConvertFrom-Json
    $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
    ```
 
-- **Vantaggi delle funzionalità**: La registrazione della macchina virtuale di SQL Server con il provider di risorse Sblocca l'applicazione [automatica di patch](virtual-machines-windows-sql-automated-patching.md), il [backup automatizzato](virtual-machines-windows-sql-automated-backup-v2.md)e le funzionalità di monitoraggio e gestibilità. Sblocca inoltre la flessibilità di [licenze](virtual-machines-windows-sql-ahb.md) ed [edizioni](virtual-machines-windows-sql-change-edition.md) . In precedenza, queste funzionalità erano disponibili solo per SQL Server immagini di VM di Azure Marketplace.
+- **Vantaggi della funzionalità**: la registrazione della macchina virtuale di SQL Server con il provider di risorse Sblocca l'applicazione [automatica di patch](virtual-machines-windows-sql-automated-patching.md), il [backup automatizzato](virtual-machines-windows-sql-automated-backup-v2.md)e le funzionalità di monitoraggio e gestibilità. Sblocca inoltre la flessibilità di [licenze](virtual-machines-windows-sql-ahb.md) ed [edizioni](virtual-machines-windows-sql-change-edition.md) . In precedenza, queste funzionalità erano disponibili solo per SQL Server immagini di VM di Azure Marketplace.
 
-- **Gestione gratuita**:  La registrazione con il provider di risorse VM SQL e tutte le modalità di gestione sono completamente gratuite. Non sono previsti costi aggiuntivi per il provider di risorse o con modalità di gestione mutevoli. 
+- **Gestione gratuita**: la registrazione con il provider di risorse VM SQL e tutte le modalità di gestione sono completamente gratuite. Non sono previsti costi aggiuntivi per il provider di risorse o con modalità di gestione mutevoli. 
 
 Per usare il provider di risorse VM SQL, è necessario registrare anche il provider di risorse VM SQL con la sottoscrizione. A tale scopo, è possibile usare l'portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell. 
 
@@ -122,8 +122,8 @@ La tabella seguente illustra in dettaglio i valori accettabili per i parametri f
 
 | Parametro | Valori accettabili                                 |
 | :------------------| :--------------------------------------- |
-| **sqlLicenseType** | `AHUB` o `PAYG`                    |
-| **sqlImageOffer**  | `SQL2008-WS2008` o `SQL2008R2-WS2008`|
+| **sqlLicenseType** | `AHUB` oppure `PAYG`                    |
+| **sqlImageOffer**  | `SQL2008-WS2008` oppure `SQL2008R2-WS2008`|
 | &nbsp;             | &nbsp;                                   |
 
 
@@ -164,7 +164,7 @@ Per registrare l'istanza di SQL Server 2008 o 2008 R2 nell'istanza di Windows Se
 
 ### <a name="command-line"></a>Riga di comando
 
-Verificare lo stato di registrazione della macchina virtuale SQL Server corrente usando AZ CLI o PowerShell. `ProvisioningState` mostrerà `Succeeded` se la registrazione ha avuto esito positivo. 
+Verificare lo stato di registrazione della macchina virtuale SQL Server corrente usando AZ CLI o PowerShell. `ProvisioningState` visualizzerà `Succeeded` se la registrazione ha avuto esito positivo. 
 
 # <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
 
@@ -203,7 +203,7 @@ Sono disponibili tre modalità di gestibilità gratuite per la SQL Server estens
      $sqlvm.Properties.sqlManagement
   ```
 
-SQL Server le macchine virtuali con l'estensione IaaS *Lightweight* installata possono aggiornare la modalità a _full_ usando il portale di Azure. SQL Server le macchine virtuali in modalità _senza agente_ possono eseguire l'aggiornamento alla _versione completa_ dopo l'aggiornamento del sistema operativo a Windows 2008 R2 e versioni successive. Non è possibile effettuare il downgrade. a tale scopo, sarà necessario disinstallare completamente l'estensione IaaS di SQL e installarla nuovamente. 
+SQL Server le macchine virtuali con l'estensione IaaS *Lightweight* installata possono aggiornare la modalità a _full_ usando il portale di Azure. SQL Server le macchine virtuali in modalità _senza agente_ possono eseguire l'aggiornamento alla _versione completa_ dopo l'aggiornamento del sistema operativo a Windows 2008 R2 e versioni successive. Non è possibile effettuare il downgrade. a tale scopo, sarà necessario eliminare la risorsa del provider di risorse VM SQL usando il portale di Azure e registrarsi nuovamente con il provider di risorse VM SQL. 
 
 Per aggiornare la modalità agente a Full: 
 
@@ -281,7 +281,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
 ---
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 - Il provider di risorse VM SQL supporta solo SQL Server macchine virtuali distribuite tramite Azure Resource Manager. SQL Server macchine virtuali distribuite con il modello classico non sono supportate. 
 - Il provider di risorse VM SQL supporta solo SQL Server macchine virtuali distribuite nel cloud pubblico. Le distribuzioni nel cloud privato o per enti pubblici non sono supportate. 
@@ -353,7 +353,7 @@ Sì. L'aggiornamento della modalità di gestibilità da Lightweight a Full è su
 
 No. Il downgrade del SQL Server modalità di gestione dell'estensione IaaS non è supportato. Non è possibile effettuare il downgrade della modalità di gestibilità dalla modalità completa alla modalità lightweight o senza agente e non è possibile effettuare il downgrade dalla modalità Lightweight alla modalità senza agente. 
 
-Per modificare la modalità di gestibilità dalla gestione completa, rimuovere l'SQL Server estensione IaaS. Quindi, eliminare la risorsa Microsoft. SqlVirtualMachine e registrare di nuovo la macchina virtuale di SQL Server con il provider di risorse della macchina virtuale SQL.
+Per modificare la modalità di gestibilità dalla gestione completa, eliminare la risorsa Microsoft. SqlVirtualMachine e registrare di nuovo la macchina virtuale di SQL Server con il provider di risorse della macchina virtuale SQL.
 
 **È possibile eseguire la registrazione con il provider di risorse VM SQL dalla portale di Azure?**
 
@@ -376,7 +376,7 @@ Sì. SQL Server istanze del cluster di failover in una macchina virtuale di Azur
 Sì. Non sono previste restrizioni per la registrazione di un'istanza di SQL Server in una macchina virtuale di Azure con il provider di risorse VM SQL se si partecipa a una configurazione del gruppo di disponibilità Always On.
 
 **Qual è il costo per la registrazione con il provider di risorse VM SQL o con l'aggiornamento alla modalità di gestibilità completa?**
-No. Non sono previste tariffe associate alla registrazione con il provider di risorse VM SQL o con una delle tre modalità di gestibilità. La gestione della macchina virtuale SQL Server con il provider di risorse è completamente gratuita. 
+None. Non sono previste tariffe associate alla registrazione con il provider di risorse VM SQL o con una delle tre modalità di gestibilità. La gestione della macchina virtuale SQL Server con il provider di risorse è completamente gratuita. 
 
 **Qual è l'effetto sulle prestazioni dell'utilizzo delle diverse modalità di gestibilità?**
 Non vi è alcun effetto quando si utilizzano le modalità *noagent* e la gestibilità *leggera* . Quando si usa la modalità di gestibilità *completa* di due servizi installati nel sistema operativo, l'effetto è minimo. Questi possono essere monitorati tramite Gestione attività. 

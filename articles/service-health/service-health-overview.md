@@ -7,14 +7,14 @@ services: service-health
 ms.service: service-health
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: a6f6288aebe599db794a7f15fc733563d26c66cc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3e3c83b7233ad4da263dec31c6012209ebaca0fe
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067104"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515860"
 ---
-# <a name="service-health-overview"></a>Panoramica dell'integrità del servizio
+# <a name="service-health-overview"></a>Panoramica sull'integrità del servizio
 
 L’Integrità del servizio offre un dashboard personalizzabile che registra l'integrità dei servizi di Azure nelle regioni in cui si usano. In questo dashboard è possibile rilevare gli eventi attivi, come i problemi del servizio in corso, le manutenzioni pianificate o gli avvisi di integrità pertinenti. Quando gli eventi diventano inattivi, vengono posizionati nella cronologia di integrità fino a 90 giorni. Infine, è possibile utilizzare il dashboard di integrità dei servizi per creare e gestire gli avvisi di integrità che notificano in modo proattivo quando i problemi del servizio ne compromettono le prestazioni.
 
@@ -27,7 +27,7 @@ Integrità dei servizi registra tre tipi di eventi di integrità che possono inf
 3. **Avvisi sull'integrità**: modifiche apportate ai servizi di Azure che richiedono attenzione, ad esempio quando le funzionalità di Azure sono deprecate o si supera una quota di utilizzo.
 
 > [!NOTE]
-> Per visualizzare gli eventi di integrità dei servizi, gli utenti devono avere il ruolo con autorizzazioni di lettura per una sottoscrizione.
+> Per visualizzare gli eventi di integrità del servizio, è necessario che agli utenti venga [concesso il ruolo lettore](../role-based-access-control/role-assignments-portal.md) per una sottoscrizione.
 
 ## <a name="get-started-with-service-health"></a>Introduzione a Integrità dei servizi
 
@@ -71,4 +71,4 @@ L’Integrità del servizio si integra con il Monitoraggio di Azure per l'invio 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Impostare gli avvisi per ricevere notifiche sui problemi di integrità. Per altre informazioni, vedere [procedure consigliate per la configurazione di avvisi sull'integrità del servizio Azure](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s). 
+Impostare gli avvisi per ricevere notifiche sui problemi di integrità. Per altre informazioni, vedere [procedure consigliate per la configurazione degli avvisi di integrità dei servizi di Azure](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s). 

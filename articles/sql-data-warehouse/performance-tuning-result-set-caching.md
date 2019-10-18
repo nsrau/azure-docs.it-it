@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.openlocfilehash: 2fa3da028e6e897921786889579c6de9a048c3e8
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
-ms.translationtype: MT
+ms.openlocfilehash: f6323501fc0078677c4c0e2cd0e43a15583df29b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392644"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513991"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ottimizzazione delle prestazioni con memorizzazione nella cache dei set di risultati  
 Quando è abilitata la memorizzazione nella cache del set di risultati, Azure SQL Data Warehouse memorizza automaticamente nella cache i risultati delle query nel database utente per l'utilizzo ripetitivo.  In questo modo, le esecuzioni di query successive ottengono risultati direttamente dalla cache permanente, quindi il ricalcolo non è necessario.   La memorizzazione nella cache del set di risultati migliora le prestazioni delle query e riduce l'utilizzo delle risorse di calcolo.  Inoltre, le query che utilizzano i set di risultati memorizzati nella cache non utilizzano slot di concorrenza e pertanto non vengono conteggiati rispetto ai limiti di concorrenza esistenti. Per la sicurezza, gli utenti possono accedere solo ai risultati memorizzati nella cache se hanno le stesse autorizzazioni di accesso ai dati degli utenti che creano i risultati memorizzati nella cache.  
@@ -37,6 +37,8 @@ Una volta attivata la memorizzazione nella cache del set di risultati per un dat
 - Query che restituiscono dati con dimensioni di riga maggiori di 64KB
 
 Le query con set di risultati di grandi dimensioni (ad esempio, > 1 milione righe) potrebbero rallentare le prestazioni durante la prima esecuzione durante la creazione della cache dei risultati.
+
+La sicurezza a livello di riga non è supportata dalla memorizzazione nella cache del set di risultati.  
 
 ## <a name="when-cached-results-are-used"></a>Quando vengono usati i risultati memorizzati nella cache
 

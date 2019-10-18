@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6a8eaca029767e1d6bce4bc8ce22ce5523be26d8
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 0096334e06051b9ff474543384febb37bdf1c8e2
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186584"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533709"
 ---
 # <a name="how-to-monitor-azure-search-indexer-status-and-results"></a>Come monitorare lo stato e i risultati dell'indicizzatore di ricerca di Azure
 
@@ -27,7 +27,7 @@ Il monitoraggio dell'indicizzatore è utile quando si desidera:
 * Esaminare i risultati dell'esecuzione dell'indicizzatore in corso o in precedenza.
 * Identificare gli errori dell'indicizzatore di primo livello ed errori o avvisi relativi a singoli documenti indicizzati.
 
-## <a name="find-indexer-status-and-history-details"></a>Trova lo stato dell'indicizzatore e i dettagli della cronologia
+## <a name="get-status-and-history"></a>Ottenere lo stato e la cronologia
 
 È possibile accedere alle informazioni di monitoraggio dell'indicizzatore in diversi modi, tra cui:
 
@@ -45,7 +45,7 @@ Gli indicizzatori che elaborano volumi elevati di dati possono richiedere molto 
 
 <a name="portal"></a>
 
-## <a name="monitor-indexers-in-the-portal"></a>Monitorare gli indicizzatori nel portale
+## <a name="monitor-using-the-portal"></a>Monitorare tramite il portale
 
 È possibile visualizzare lo stato corrente di tutti gli indicizzatori nell'elenco **indicizzatori** della pagina di panoramica del servizio di ricerca.
 
@@ -53,7 +53,7 @@ Gli indicizzatori che elaborano volumi elevati di dati possono richiedere molto 
 
 Quando un indicizzatore è in esecuzione, lo stato nell'elenco viene visualizzato **in corso**e il valore **docs succeeded** indica il numero di documenti elaborati fino a questo momento. Potrebbero essere necessari alcuni minuti prima che il portale aggiorni i valori di stato e i conteggi dei documenti dell'indicizzatore.
 
-Un indicizzatore la cui esecuzione più recente ha avutoesito positivo indica l'esito positivo. Un'esecuzione dell'indicizzatore può avere esito positivo anche se i singoli documenti contengono errori, se il numero di errori è inferiore all'impostazione **massima degli elementi non riusciti** dell'indicizzatore.
+Un indicizzatore la cui esecuzione più recente ha avuto esito positivo indica l' **esito**positivo. Un'esecuzione dell'indicizzatore può avere esito positivo anche se i singoli documenti contengono errori, se il numero di errori è inferiore all'impostazione **massima degli elementi non riusciti** dell'indicizzatore.
 
 Se l'esecuzione più recente è terminata con un errore, lo stato viene visualizzato come **non riuscito**. Lo stato **Reset** indica che lo stato di rilevamento delle modifiche dell'indicizzatore è stato reimpostato.
 
@@ -61,7 +61,7 @@ Fare clic su un indicizzatore nell'elenco per visualizzare altri dettagli sulle 
 
    ![Riepilogo e cronologia di esecuzione dell'indicizzatore](media/search-monitor-indexers/indexer-summary.png "Riepilogo e cronologia di esecuzione dell'indicizzatore")
 
-Nel grafico di **Riepilogo** dell'indicizzatore viene visualizzato un grafico del numero di documenti elaborati nelle esecuzioni più recenti.
+Nel grafico di **Riepilogo dell'indicizzatore** viene visualizzato un grafico del numero di documenti elaborati nelle esecuzioni più recenti.
 
 L'elenco **Dettagli esecuzione** Mostra fino a 50 dei risultati dell'esecuzione più recenti.
 
@@ -79,7 +79,7 @@ Per ulteriori informazioni sull'analisi degli errori e degli avvisi dell'indiciz
 
 <a name="restapi"></a>
 
-## <a name="monitor-indexers-using-the-rest-api"></a>Monitorare gli indicizzatori con l'API REST
+## <a name="monitor-using-rest-apis"></a>Monitorare con le API REST
 
 È possibile recuperare lo stato e la cronologia di esecuzione di un indicizzatore usando il [comando Get Indexer status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
 
@@ -120,13 +120,13 @@ Si noti che sono presenti due valori di stato diversi. Lo stato di primo livello
 
 Ogni esecuzione dell'indicizzatore ha anche il proprio stato che indica se l'esecuzione specifica è in corso (**in esecuzione**) o è già stata completata con uno stato di **esito positivo**, **transientFailure**o **persistentFailure** . 
 
-Quando un indicizzatore viene reimpostato per aggiornare lo stato di rilevamento delle modifiche, viene aggiunta una voce della cronologia di esecuzione separata con uno stato di reimpostazione.
+Quando un indicizzatore viene reimpostato per aggiornare lo stato di rilevamento delle modifiche, viene aggiunta una voce della cronologia di esecuzione separata con uno stato di **reimpostazione** .
 
 Per ulteriori informazioni sui codici di stato e sui dati di monitoraggio dell'indicizzatore, vedere [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
 
 <a name="dotnetsdk"></a>
 
-## <a name="monitor-indexers-using-the-net-sdk"></a>Monitorare gli indicizzatori con .NET SDK
+## <a name="monitor-using-the-net-sdk"></a>Monitorare con .NET SDK
 
 È possibile definire la pianificazione per un indicizzatore usando Azure search .NET SDK. A tale scopo, includere la proprietà **Schedule** durante la creazione o l'aggiornamento di un indicizzatore.
 
@@ -177,10 +177,10 @@ Si noti che sono presenti due valori di stato diversi. Lo stato di primo livello
 
 Ogni esecuzione dell'indicizzatore ha anche il proprio stato per determinare se l'esecuzione specifica è in corso (**in esecuzione**) o se è già stata completata con uno stato di **esito positivo** o **TransientError** . 
 
-Quando un indicizzatore viene reimpostato per aggiornare lo stato di rilevamento delle modifiche, viene aggiunta una voce di cronologia separata con uno stato di reimpostazione.
+Quando un indicizzatore viene reimpostato per aggiornare lo stato di rilevamento delle modifiche, viene aggiunta una voce di cronologia separata con uno stato di **reimpostazione** .
 
 Per altre informazioni sui codici di stato e le informazioni di monitoraggio dell'indicizzatore, vedere [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) nell'API REST.
 
-È possibile recuperare informazioni dettagliate sugli errori o gli avvisi specifici del documento enumerando gli `IndexerExecutionResult.Errors` elenchi `IndexerExecutionResult.Warnings`e.
+È possibile recuperare informazioni dettagliate sugli errori o gli avvisi specifici del documento enumerando gli elenchi `IndexerExecutionResult.Errors` e `IndexerExecutionResult.Warnings`.
 
 Per ulteriori informazioni sulle classi .NET SDK utilizzate per monitorare gli indicizzatori, vedere [IndexerExecutionInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) e [IndexerExecutionResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).

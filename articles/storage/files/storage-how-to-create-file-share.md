@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 000dacb7530b52784a68663d295fde9784d50e29
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 3b30df7410f56c203eb600089cce130a8de23d1b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013570"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514614"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Creare una condivisione file in File di Azure
 Per creare condivisioni file di Azure, è possibile usare il  [portale di Azure](https://portal.azure.com/), i cmdlet di PowerShell per Archiviazione di Azure, le librerie client di Archiviazione di Azure o l'API REST di Archiviazione di Azure. In questa esercitazione si apprenderà:
@@ -23,6 +23,9 @@ Per creare condivisioni file di Azure, è possibile usare il  [portale di Azure
 ## <a name="prerequisites"></a>Prerequisiti
 Per creare una condivisione file di Azure, è possibile usare un account di archiviazione già esistente oppure [creare un nuovo account di archiviazione di Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Per creare una condivisione file di Azure con PowerShell, saranno necessari la chiave dell'account e il nome dell'account di archiviazione. È necessaria una chiave dell'account di archiviazione se si prevede di usare Powershell o l'interfaccia della riga di comando.
 
+> [!NOTE]
+> Per creare condivisioni file di dimensioni maggiori di 5 TiB, vedere l'articolo [abilitare condivisioni file di grandi dimensioni](storage-files-how-to-create-large-file-share.md).
+
 ## <a name="create-a-file-share-through-the-azure-portal"></a>Creare una condivisione file tramite il portale di Azure
 1. **Passare al pannello Account di archiviazione nel portale di Azure**:    
     ![Pannello Account di archiviazione](./media/storage-how-to-create-file-share/create-file-share-portal1.png)
@@ -30,14 +33,14 @@ Per creare una condivisione file di Azure, è possibile usare un account di arch
 2. **Fare clic sul pulsante Aggiungi condivisione file**:    
     ![Fare clic sul pulsante Aggiungi condivisione file](./media/storage-how-to-create-file-share/create-file-share-portal2.png)
 
-3. **Specificare il nome e la quota. Il valore massimo corrente per la quota è 5 TB**:    
+3. **Specificare il nome e la quota**:    
     ![Specificare un nome e una quota desiderata per la nuova condivisione file](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
-4. **Visualizzare la nuova condivisione file**:  ![Visualizzare la nuova condivisione file](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
+4. **Visualizzare la nuova condivisione file**: ![Visualizzare la nuova condivisione file](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
 
-5. **Caricare un file**:  ![Caricare un file](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
+5. **Caricare un file**: ![Caricare un file](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
 
-6. **Esplorare la condivisione file e gestire le directory e i file**:  ![Esplorare la condivisione file](./media/storage-how-to-create-file-share/create-file-share-portal6.png)
+6. **Esplorare la condivisione file e gestire le directory e i file**: ![Esplorare la condivisione file](./media/storage-how-to-create-file-share/create-file-share-portal6.png)
 
 
 ## <a name="create-file-share-through-powershell"></a>Creare la condivisione file tramite PowerShell
@@ -90,8 +93,8 @@ Per prepararsi all'uso di PowerShell, scaricare e installare i cmdlet di Azure P
 * [Connettersi e montare una condivisione file: Linux](../storage-how-to-use-files-linux.md)
 * [Connettersi e montare una condivisione file: macOS](storage-how-to-use-files-mac.md)
 
-Per altre informazioni su File di Azure, vedere i collegamenti seguenti.
+Vedere questi collegamenti per altre informazioni su File di Azure.
 
-* [Domande frequenti](../storage-files-faq.md)
+* [DOMANDE FREQUENTI](../storage-files-faq.md)
 * [Risoluzione dei problemi in Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 * [Risoluzione dei problemi in Linux](storage-troubleshoot-linux-file-connection-problems.md)   

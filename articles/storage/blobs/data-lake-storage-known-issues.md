@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 300da59aa1a16bb2c4cfeaf8035cbe882ae83358
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f635360c5a6da19d60f3992878a8950b03c5f748
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300253"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513874"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -32,9 +32,9 @@ Le API di archiviazione BLOB sono disabilitate per evitare problemi di operativi
 
 Se uno di questi usa API BLOB e si vuole usarli per lavorare con tutto il contenuto dell'account, sono disponibili due opzioni.
 
-* **Opzione 1**: Non abilitare uno spazio dei nomi gerarchico nell'account di archiviazione BLOB fino a quando [l'accesso a più protocolli su data Lake storage](data-lake-storage-multi-protocol-access.md) è disponibile a livello generale e le API blob diventano completamente interoperabili con Azure Data Lake API Gen2. [L'accesso a più protocolli su data Lake storage](data-lake-storage-multi-protocol-access.md) è attualmente disponibile in anteprima pubblica.  L'uso di un account di archiviazione **senza** uno spazio dei nomi gerarchico significa che non si avrà accesso a data Lake storage Gen2 funzionalità specifiche, ad esempio elenchi di controllo di accesso di directory e contenitori.
+* **Opzione 1**: non abilitare uno spazio dei nomi gerarchico nell'account di archiviazione BLOB finché non è disponibile a [livello generale l'accesso a più protocolli su data Lake storage](data-lake-storage-multi-protocol-access.md) e le API blob diventano completamente interoperabili con Azure Data Lake API Gen2. [L'accesso a più protocolli su data Lake storage](data-lake-storage-multi-protocol-access.md) è attualmente disponibile in anteprima pubblica.  L'uso di un account di archiviazione **senza** uno spazio dei nomi gerarchico significa che non si avrà accesso a data Lake storage Gen2 funzionalità specifiche, ad esempio elenchi di controllo di accesso di directory e contenitori.
 
-* **Opzione 2**: Abilitare gli spazi dei nomi gerarchici. Con l'anteprima pubblica dell' [accesso a più protocolli su data Lake storage](data-lake-storage-multi-protocol-access.md), gli strumenti e le applicazioni che chiamano le API blob, nonché le funzionalità di archiviazione BLOB, ad esempio i log di diagnostica, possono usare gli account che hanno uno spazio dei nomi gerarchico. Assicurarsi di consultare questo articolo per i problemi noti e le limitazioni.
+* **Opzione 2**: abilitare gli spazi dei nomi gerarchici. Con l'anteprima pubblica dell' [accesso a più protocolli su data Lake storage](data-lake-storage-multi-protocol-access.md), gli strumenti e le applicazioni che chiamano le API blob, nonché le funzionalità di archiviazione BLOB, ad esempio i log di diagnostica, possono usare gli account che hanno uno spazio dei nomi gerarchico. Assicurarsi di consultare questo articolo per i problemi noti e le limitazioni.
 
 ### <a name="what-to-do-if-you-used-blob-apis-to-load-data-before-blob-apis-were-disabled"></a>Cosa fare se le API BLOB sono state usate per caricare i dati prima della disabilitazione delle API BLOB
 
@@ -95,17 +95,18 @@ La tabella seguente elenca tutte le altre funzionalità e gli strumenti non anco
 | **Criteri di gestione del ciclo di vita dell'archiviazione BLOB di Azure** | Supportato dall'accesso con più [protocolli su data Lake storage](data-lake-storage-multi-protocol-access.md) Preview. I livelli di accesso cool e Archive sono supportati solo dalla versione di anteprima. L'eliminazione degli snapshot BLOB non è ancora supportata. |
 | **Rete per la distribuzione di contenuti (CDN) di Azure** | Non ancora supportato|
 | **Ricerca di Azure** |Supportato dall'accesso con più [protocolli su data Lake storage](data-lake-storage-multi-protocol-access.md) Preview.|
-| **Azure Storage Explorer** | Supporto specifico della versione <br><br>Usare solo la versione `1.6.0` o successiva. <br>La versione `1.6.0` è disponibile come [download gratuito](https://azure.microsoft.com/features/storage-explorer/).|
+| **Azure Storage Explorer** | Supporto specifico della versione <br><br>Utilizzare solo la versione `1.6.0` o successiva. <br>La versione `1.6.0` è disponibile come [download gratuito](https://azure.microsoft.com/features/storage-explorer/).|
 | **ACL del contenitore BLOB** |Non ancora supportato|
 | **Blobfuse** |Non ancora supportato|
 | **Domini personalizzati** |Non ancora supportato|
 | **Esplora file System** | Supporto limitato |
-| **Registrazione diagnostica** |I log di diagnostica sono supportati dall' [accesso a più protocolli in data Lake storage](data-lake-storage-multi-protocol-access.md) anteprima. <br><br>L'abilitazione dei log nell'portale di Azure non è attualmente supportata. Di seguito è riportato un esempio di come abilitare i log usando PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>` (Indici per tabelle con ottimizzazione per la memoria). <br><br>Assicurarsi di specificare `Blob` come valore del parametro `-ServiceType`, come illustrato in questo esempio. <br><br>Attualmente non è possibile usare Azure Storage Explorer per la visualizzazione dei log di diagnostica. Per visualizzare i log, usare AzCopy o gli SDK.
+| **Registrazione diagnostica** |I log di diagnostica sono supportati dall' [accesso a più protocolli in data Lake storage](data-lake-storage-multi-protocol-access.md) anteprima. <br><br>L'abilitazione dei log nell'portale di Azure non è attualmente supportata. Di seguito è riportato un esempio di come abilitare i log usando PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Assicurarsi di specificare `Blob` come valore del parametro `-ServiceType`, come illustrato in questo esempio. <br><br>Attualmente non è possibile usare Azure Storage Explorer per la visualizzazione dei log di diagnostica. Per visualizzare i log, usare AzCopy o gli SDK.
 | **Archiviazione non modificabile** |Non ancora supportato <br><br>L'archiviazione non modificabile offre la possibilità di archiviare i dati in un [worm (scrivere una sola volta, leggere molti)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) stato.|
 | **Livelli a livello di oggetto** |I livelli di accesso sporadico e archivio sono supportati dall' [accesso a più protocolli in data Lake storage](data-lake-storage-multi-protocol-access.md) anteprima. <br><br> Tutti gli altri livelli di accesso non sono ancora supportati.|
 | **Supporto di PowerShell e CLI** | Funzionalità limitate <br><br>Sono supportate le operazioni di gestione, ad esempio la creazione di un account. Le operazioni del piano dati, ad esempio il caricamento e il download di file, sono in anteprima pubblica come parte dell'accesso a più [protocolli su data Lake storage](data-lake-storage-multi-protocol-access.md). L'utilizzo delle directory e l'impostazione degli elenchi di controllo di accesso (ACL) non sono ancora supportati. |
 | **Siti web statici** |Non ancora supportato <br><br>In particolare, la possibilità di gestire i file nei [siti web statici](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
-| **Applicazioni di terze parti** | Supporto limitato <br><br>Le applicazioni di terze parti che usano le API REST per lavorare continueranno a funzionare se vengono usate con Data Lake Storage Gen2. <br>Le applicazioni che chiamano API blob probabilmente funzioneranno con l'anteprima pubblica dell' [accesso a più protocolli su data Lake storage](data-lake-storage-multi-protocol-access.md). 
-| **Funzionalità di controllo delle versioni** |Non ancora supportato <br><br>Sono inclusi gli [snapshot](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) e l' [eliminazione](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)temporanea.|
+| **Applicazioni di terze parti** | Supporto limitato <br><br>Le applicazioni di terze parti che usano le API REST per lavorare continueranno a funzionare se vengono usate con Data Lake Storage Gen2. <br>Le applicazioni che chiamano API blob probabilmente funzioneranno con l'anteprima pubblica dell' [accesso a più protocolli su data Lake storage](data-lake-storage-multi-protocol-access.md). |
+|**eliminazione temporanea** |Non ancora supportato|
+| **Funzionalità di controllo delle versioni** |Non ancora supportato <br><br>Sono incluse l' [eliminazione](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)temporanea e altre funzionalità di controllo delle versioni, ad esempio gli [snapshot](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob).|
 
 

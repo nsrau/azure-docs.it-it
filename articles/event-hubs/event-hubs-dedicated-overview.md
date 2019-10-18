@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ebc6dd672fd180e22cc1edf5c9978e0985427e50
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: f67be1d31125b21048deca4d9cafcc76f4ffc3b1
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991865"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516756"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Panoramica di Hub eventi dedicato
 
@@ -50,17 +50,17 @@ In volumi in ingresso elevati (> 100 TUs), un cluster costi significativamente i
 
 L'offerta Hub eventi Dedicato viene fatturata a un prezzo mensile fisso, con un minimo di 4 ore di utilizzo. Il livello dedicato offre tutte le funzionalità del piano standard, ma con capacità e limiti di scalabilità aziendale per i clienti con carichi di lavoro complessi. 
 
-| Funzionalità | Standard | Dedicato |
+| Funzionalità | Standard | Dedicata |
 | --- |:---:|:---:|
 | Larghezza di banda | 20 TUs (fino a 40 TUs) | 20 CUs |
 | Spazi dei nomi |  1 | 50 per CU |
 | Hub eventi |  10 per spazio dei nomi | 1000 per spazio dei nomi |
 | Eventi in ingresso | Pagamento per ogni milione di eventi | Incluso |
-| Dimensioni del messaggio | 1 milione byte | 1 milione byte |
-| Partizioni | 40 per spazio dei nomi | 2000 per CU |
-| Gruppi di consumer | 20 per hub eventi | Nessun limite per CU, 1000 per hub eventi |
+| Dimensione messaggi | 1 milione byte | 1 milione byte |
+| Partitions | 32 per hub eventi | 1024 per hub eventi |
+| Gruppi consumer | 20 per hub eventi | Nessun limite per CU, 1000 per hub eventi |
 | Connessioni negoziate | 1\.000 incluso, 5.000 max | 100 K inclusi e Max |
-| Conservazione messaggi | 7 giorni, 84 GB inclusi per TU | 90 giorni, 10 TB inclusi per CU |
+| Conservazione di messaggi | 7 giorni, 84 GB inclusi per TU | 90 giorni, 10 TB inclusi per CU |
 | Acquisizione | Pagamento per ogni ora | Incluso |
 
 ## <a name="how-to-onboard"></a>Modalità di esecuzione dell'onboarding

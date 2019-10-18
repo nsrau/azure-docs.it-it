@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 046c2308d5cef2df7e12b6185fc24b8df4f821dc
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 293d0de024ad815b4755d48833b7058c29ebcd5a
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326962"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513281"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Obiettivi di scalabilità e prestazioni per archiviazione di Azure per gli account di archiviazione
 
@@ -46,8 +46,8 @@ Per altre informazioni sugli obiettivi di scalabilità e prestazioni per File di
 > [!IMPORTANT]
 > I limiti dell'account di archiviazione sono validi per tutte le condivisioni. La scalabilità fino al valore massimo per gli account di archiviazione è ottenibile solo se è presente una sola condivisione per ogni account di archiviazione.
 >
-> Le condivisioni file standard più grandi di 5 TiB sono in anteprima e presentano alcune limitazioni.
-> Per un elenco delle limitazioni e per l'onboarding nell'anteprima di queste dimensioni di condivisione file più grandi, vedere la sezione relativa alle [condivisioni file standard](../files/storage-files-planning.md#standard-file-shares) della Guida alla pianificazione del file di Azure.
+> Le condivisioni file standard di dimensioni maggiori di 5 TiB presentano alcune limitazioni e limitazioni a livello di area.
+> Per un elenco di limitazioni, informazioni internazionali e istruzioni per abilitare le dimensioni di condivisione file più grandi, vedere la sezione [onboarding file Shares (livello standard)](../files/storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) della Guida alla pianificazione del file di Azure.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -55,7 +55,7 @@ Per altre informazioni sugli obiettivi di scalabilità e prestazioni per File di
 
 Esistono tre categorie di limitazioni da considerare per i file Premium: gli account di archiviazione, le condivisioni e i file.
 
-Ad esempio:  Una singola condivisione può raggiungere 100.000 IOPS e un singolo file può essere scalato fino a 5.000 IOPS. Se, ad esempio, si dispone di tre file in una condivisione, il numero massimo di IOPs che è possibile ottenere da tale condivisione è 15.000.
+Ad esempio, una singola condivisione può raggiungere 100.000 IOPS e un singolo file può essere scalato fino a 5.000 IOPS. Se, ad esempio, si dispone di tre file in una condivisione, il numero massimo di IOPs che è possibile ottenere da tale condivisione è 15.000.
 
 #### <a name="premium-file-share-limits"></a>Limiti di condivisione file Premium
 
@@ -75,7 +75,7 @@ Sincronizzazione file di Azure è stato progettato per supportare un utilizzo se
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Dettagli prezzi di archiviazione](https://azure.microsoft.com/pricing/details/storage/)
 - [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../../azure-subscription-service-limits.md)

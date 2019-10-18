@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: b9b4a33e5aee92a4e8caa7a1128538cb2f1a8a7e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
-ms.translationtype: MT
+ms.openlocfilehash: 65ad9e1f5ef62ab2dd9f37a13d3c18871c30e603
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933111"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515497"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Informazioni sull'integrità delle macchine virtuali di Azure
 
@@ -36,7 +36,7 @@ Per informazioni sulla configurazione di Monitoraggio di Azure per le macchine v
 
 Questa sezione descrive i criteri di integrità predefiniti per monitorare le VM Windows e Linux di Azure. Tutti i criteri di integrità sono preconfigurati per l'invio di un avviso quando rilevano una condizione di tipo non integro.
 
-| Nome monitoraggio | Frequenza (min) | Lookback durata (min) | Operator | Soglia | Avviso per stato | severity | Categoria carico di lavoro | 
+| Nome monitoraggio | Frequenza (min) | Lookback durata (min) | Operator | Soglia | Avviso per stato | Severity | Categoria carico di lavoro | 
 |--------------|-----------|----------|----------|-----------|----------------|----------|-------------------|
 | Disco logico online | 5 | 15 | <> | 1 (true) | Critico | Sev1 | Linux | 
 | Spazio disponibile su disco logico | 5 | 15 | < | 200 MB (avviso)<br> 100 MB (critico) | Avviso | Sev1<br> Sev2 | Linux | 
@@ -44,9 +44,9 @@ Questa sezione descrive i criteri di integrità predefiniti per monitorare le VM
 | % spazio disponibile su disco logico | 5 | 15 | < | 5% | Critico | Sev1 | Linux | 
 | Stato scheda di rete | 5 | 15 | <> | 1 (true) | Avviso | Sev2 | Linux | 
 | Memoria disponibile in megabyte del sistema operativo | 5 | 10 | < | 2,5 MB | Critico | Sev1 | Linux | 
-| Media disco Disk sec/Read | 5 | 25 | > | 0,05 s | Critico | Sev1 | Linux | 
-| Media disco Disk sec/Transfer | 5 | 25 | > | 0,05 s | Critico | Sev1 | Linux | 
-| Media disco Disk sec/Write | 5 | 25 | > | 0,05 s | Critico | Sev1 | Linux | 
+| Media letture disco/sec | 5 | 25 | > | 0,05 s | Critico | Sev1 | Linux | 
+| Media sec/trasferimento disco | 5 | 25 | > | 0,05 s | Critico | Sev1 | Linux | 
+| Media scritture disco/sec | 5 | 25 | > | 0,05 s | Critico | Sev1 | Linux | 
 | Stato del disco | 5 | 25 | <> | 1 (true) | Critico | Sev1 | Linux | 
 | Percentuale tempo processore totale sistema operativo | 5 | 10 | >= | 95% | Critico | Sev1 | Linux | 
 | Percentuale di utilizzo di CPU totale | 5 | 10 | >= | 95% | Critico | Sev1 | Windows | 
@@ -105,9 +105,9 @@ Selezionando lo stato accanto al componente si apre l'esperienza di diagnostica 
 
 La tabella seguente descrive gli stati di integrità definiti per una macchina virtuale:
 
-|Icona |Stato del sistema |Significato |
+|Icona |Stato di integrità |Significato |
 |-----|-------------|---------------|
-| |Integra |La macchina virtuale rientra nelle condizioni di integrità definite. Questo stato indica che non sono stati rilevati problemi e che la macchina virtuale funziona normalmente. Con un monitoraggio rollup padre viene eseguito il rollup dello stato e viene riflesso lo stato migliore o peggiore del case figlio.|
+| |Integro |La macchina virtuale rientra nelle condizioni di integrità definite. Questo stato indica che non sono stati rilevati problemi e che la macchina virtuale funziona normalmente. Con un monitoraggio rollup padre viene eseguito il rollup dello stato e viene riflesso lo stato migliore o peggiore del case figlio.|
 | |Critico |Lo stato non rientra nella condizione di integrità definita, a indicare che sono stati rilevati uno o più problemi critici. È necessario risolvere questi problemi per ripristinare le funzionalità normali. Con un monitor di rollup padre, lo stato di integrità viene rollup e riflette lo stato migliore o peggiore del case figlio.|
 | |Avviso |Lo stato è compreso tra due soglie per la condizione di integrità definita, dove uno indica uno stato di avviso e l'altro indica uno stato critico (è possibile configurare tre soglie di stato di integrità) o quando un problema non critico può causare problemi critici se irrisolti. Con un monitoraggio rollup padre, se uno o più elementi figlio sono in uno stato di avviso, l'elemento padre rifletterà uno stato di avviso. Se un elemento figlio si trova in uno stato critico e un altro figlio in uno stato di avviso, il rollup padre visualizzerà lo stato di integrità critico.|
 | |Sconosciuto |Non è possibile calcolare lo stato per diversi motivi. Nella sezione seguente vengono forniti dettagli aggiuntivi e possibili soluzioni. |
@@ -117,7 +117,7 @@ Uno stato di integrità sconosciuto può essere causato dai seguenti problemi:
 - L'agente è stato riconfigurato e non segnala più l'area di lavoro specificata quando è stato abilitato Monitoraggio di Azure per le macchine virtuali. Per configurare l'agente per la segnalazione all'area di lavoro, vedere l' [aggiunta o la rimozione di un'area di lavoro](../platform/agent-manage.md#adding-or-removing-a-workspace).
 - La macchina virtuale è stata eliminata.
 - L'area di lavoro associata a Monitoraggio di Azure per le macchine virtuali è stata eliminata. È possibile ripristinare l'area di lavoro se si dispone di vantaggi del supporto Premier. Passare a [Premier](https://premier.microsoft.com/) e aprire una richiesta di supporto.
-- Le dipendenze della soluzione sono state eliminate. Per abilitare nuovamente le soluzioni ServiceMap e InfrastructureInsights nell'area di lavoro Log Analytics, reinstallare queste soluzioni usando il [modello di Azure Resource Manager](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions). In alternativa, usare l'opzione Configura area di lavoro disponibile nella scheda attività iniziali.
+- Le dipendenze della soluzione sono state eliminate. Per abilitare nuovamente le soluzioni ServiceMap e InfrastructureInsights nell'area di lavoro Log Analytics, reinstallare la soluzione ServiceMap usando il [modello di Azure Resource Manager](vminsights-enable-at-scale-powershell.md#install-the-servicemap-solution). Per reinstallare la soluzione InfastructureInsights, inviare un messaggio di posta elettronica vminsights@microsoft.com. 
 - La macchina virtuale è stata arrestata.
 - Il servizio VM di Azure non è disponibile oppure è in corso l'esecuzione della manutenzione.
 - È stato raggiunto il [limite di conservazione o i dati giornalieri](../platform/manage-cost-storage.md) dell'area di lavoro.
@@ -214,7 +214,7 @@ Tutti i criteri di integrità definiti per un componente, ad esempio disco logic
 
 Inoltre, la categoria criteri può essere visualizzata accanto alla colonna **criteri di integrità** . Se i criteri non corrispondono alla categoria selezionata, nella colonna **criteri di integrità** verrà visualizzato un messaggio che informa che **non sono disponibili criteri di integrità per la categoria selezionata** .
 
-Lo stato di un criterio di integrità è definito da uno dei quattro tipi seguenti: **Critico**, **avviso**, **integro**e **sconosciuto**. Le prime tre sono configurabili, vale a dire che è possibile modificare i valori di soglia dei monitoraggi direttamente nel riquadro configurazione **criteri di integrità** . È anche possibile usare l' [operazione di monitoraggio aggiornamento](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update)API REST di monitoraggio di Azure. **Unknown** non è configurabile ed è riservato a scenari specifici.
+Lo stato di un criterio di integrità è definito da uno dei quattro tipi: **critico**, **avviso**, **integro**e **sconosciuto**. Le prime tre sono configurabili, vale a dire che è possibile modificare i valori di soglia dei monitoraggi direttamente nel riquadro configurazione **criteri di integrità** . È anche possibile usare l' [operazione di monitoraggio aggiornamento](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update)API REST di monitoraggio di Azure. **Unknown** non è configurabile ed è riservato a scenari specifici.
 
 La pagina **diagnostica dell'integrità** include tre sezioni principali:
 
@@ -282,7 +282,7 @@ Le tre colonne sono correlate tra loro. Quando si seleziona un'istanza nella col
 
 Se ad esempio si seleziona *disco-1 d:* nell'elenco in modello di **componente**, **criteri di integrità** filtra su *disco-1D:* e **modifiche stato** Mostra la modifica dello stato in base alla disponibilità del *disco-1 d:* .
 
-Per visualizzare uno stato di integrità aggiornato, è possibile aggiornare la pagina di diagnostica dell'integrità selezionando il collegamento **Aggiorna** . Se lo stato di integrità del criterio di integrità viene aggiornato in base all'intervallo di polling predefinito, questa attività consente di evitare l'attesa e riflette lo stato di integrità più recente. Lo **stato dei criteri di integrità** è un filtro che consente di definire l'ambito dei risultati in base allo stato di integrità selezionato: Integro, avviso, critico, sconosciuto e tutti. L'ora dell' **Ultimo aggiornamento** nell'angolo superiore destro rappresenta l'ora dell'ultimo aggiornamento della pagina di diagnostica dell'integrità.
+Per visualizzare uno stato di integrità aggiornato, è possibile aggiornare la pagina di diagnostica dell'integrità selezionando il collegamento **Aggiorna** . Se lo stato di integrità del criterio di integrità viene aggiornato in base all'intervallo di polling predefinito, questa attività consente di evitare l'attesa e riflette lo stato di integrità più recente. Lo **stato dei criteri di integrità** è un filtro che consente di definire l'ambito dei risultati in base allo stato di integrità selezionato: integro, avviso, critico, sconosciuto e tutti. L'ora dell' **Ultimo aggiornamento** nell'angolo superiore destro rappresenta l'ora dell'ultimo aggiornamento della pagina di diagnostica dell'integrità.
 
 ## <a name="alerts"></a>Avvisi
 
@@ -302,15 +302,15 @@ Gli avvisi di altri tipi di risorse o servizi non devono essere inclusi in quest
 
 È possibile filtrare questa visualizzazione selezionando i valori nei menu a discesa nella parte superiore della pagina.
 
-|Colonna |DESCRIZIONE |
+|Colonna |Description |
 |-------|------------|
 |Sottoscrizione |Selezionare una sottoscrizione di Azure. Sono inclusi nella visualizzazione solo gli avvisi della sottoscrizione selezionata. |
 |Gruppo di risorse |Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
 |Tipo di risorsa |Selezionare uno o più tipi di risorsa. Per impostazione predefinita, in questa visualizzazione sono selezionati e inclusi solo gli avvisi della **Macchina virtuale** di destinazione. Questa colonna risulta disponibile solo dopo che è stato specificato un gruppo di risorse. |
-|Risorsa |Selezionare una risorsa. Nella visualizzazione vengono inclusi solo gli avvisi con tale risorsa definita come destinazione. Questa colonna è disponibile solo dopo che è stato specificato un tipo di risorsa. |
-|severity |Selezionare una gravità degli avvisi oppure **Tutti** per includere gli avvisi di tutti i livelli di gravità. |
+|Gruppi |Selezionare una risorsa. Nella visualizzazione vengono inclusi solo gli avvisi con tale risorsa definita come destinazione. Questa colonna è disponibile solo dopo che è stato specificato un tipo di risorsa. |
+|Severity |Selezionare una gravità degli avvisi oppure **Tutti** per includere gli avvisi di tutti i livelli di gravità. |
 |Condizione del monitoraggio |Selezionare una condizione di monitoraggio per filtrare gli avvisi se sono stati generati o risolti dal sistema se la condizione non è più attiva. In alternativa, selezionare **tutti** per includere gli avvisi di tutte le condizioni. |
-|Stato avviso |Selezionare uno stato di avviso, **nuovo**, **riconoscimento**, **chiuso**o **tutti** per includere gli avvisi di tutti gli Stati. |
+|Stato dell'avviso |Selezionare uno stato di avviso, **nuovo**, **riconoscimento**, **chiuso**o **tutti** per includere gli avvisi di tutti gli Stati. |
 |Servizio di monitoraggio |Selezionare un servizio oppure **Tutti** per includere tutti i servizi. Per questa funzionalità sono supportati solo gli avvisi di VM Insights.|
 |Intervallo di tempo| Nella visualizzazione vengono inclusi solo gli avvisi attivati nell'intervallo di tempo selezionato. I valori supportati sono l'ultima ora, le ultime 24 ore, gli ultimi 7 giorni e gli ultimi 30 giorni. |
 
@@ -441,4 +441,5 @@ Monitoraggio di Azure per le macchine virtuali Health supporta SMS e notifiche t
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per identificare le limitazioni e le prestazioni complessive della macchina virtuale, vedere [visualizzare le prestazioni delle macchine virtuali di Azure](vminsights-performance.md).
+
 - Per informazioni sulle dipendenze dell'applicazione individuate, vedere [visualizzare monitoraggio di Azure per le macchine virtuali mappa](vminsights-maps.md).

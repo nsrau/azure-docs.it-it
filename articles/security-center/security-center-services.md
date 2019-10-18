@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: b6de3a520150a95316371c4454fd2537f2beab5d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: HT
+ms.openlocfilehash: 275598aa50c252512348f4a04543e1beaf538626
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331151"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529476"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Funzionalità supportate disponibili nel centro sicurezza di Azure
 
@@ -96,14 +96,14 @@ Le risorse PaaS seguenti sono supportate dal centro sicurezza di Azure:
 |MySQL*|✔| ✔|
 |CosmosDB|X| ✔|
 |Archiviazione BLOB|✔| ✔|
-|Account di archiviazione|✔| ND|
+|Account di archiviazione|✔| X|
 |Servizio app|✔| ✔|
 |Funzione|✔| X|
 |Servizio cloud|✔| X|
-|VNet|✔| ND|
-|Subnet|✔| ND|
-|NIC|✔| ND|
-|NSG|✔| ND|
+|VNet|✔| X|
+|Subnet|✔| X|
+|NIC|✔| X|
+|NSG|✔| X|
 |Sottoscrizione|✔ * *| ✔|
 |Account Batch|✔| X|
 |Account di Service Fabric|✔| X|
@@ -114,14 +114,14 @@ Le risorse PaaS seguenti sono supportate dal centro sicurezza di Azure:
 |Analisi dei flussi|✔| X|
 |Spazio dei nomi dell'hub eventi|✔| X|
 |App per la logica|✔| X|
-|Redis|✔| ND|
+|Redis|✔| X|
 |Analisi Data Lake|✔| X|
 |Archivio Data Lake|✔| X|
 |Key Vault|✔| X|
 
 \* Queste funzionalità sono attualmente supportate in anteprima pubblica.
 
-\* @ no__t-1 Azure Active Directory (Azure AD) consigli sono disponibili solo per le sottoscrizioni standard.
+\* consigli di \* Azure Active Directory (Azure AD) sono disponibili solo per le sottoscrizioni standard.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

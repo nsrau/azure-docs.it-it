@@ -1,34 +1,64 @@
 ---
-title: Trasformazione Suddivisione condizionale flusso di dati mapping Azure Data Factory
-description: Trasformazione Suddivisione condizionale per il flusso di dati di Azure Data Factory
+title: Trasformazione Suddivisione condizionale nel flusso di dati del mapping Azure Data Factory | Microsoft Docs
+description: Suddividere i dati in flussi diversi usando la trasformazione Suddivisione condizionale nel flusso di dati del mapping Azure Data Factory
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/03/2019
-ms.openlocfilehash: d06b5b86737d0940930a3ccea3b6d65be0a802f9
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 10/16/2019
+ms.openlocfilehash: 2d794714f27340e8886843988b6c075dd8d3366e
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387900"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527432"
 ---
-# <a name="mapping-data-flow-conditional-split-transformation"></a>Trasformazione Suddivisione condizionale flusso di dati mapping
+# <a name="conditional-split-transformation-in-mapping-data-flow"></a>Trasformazione Suddivisione condizionale nel flusso di dati di mapping
 
+La trasformazione Suddivisione condizionale instrada le righe di dati a flussi diversi in base alle condizioni di corrispondenza. La trasformazione Suddivisione condizionale è simile a una struttura decisionale CASE in un linguaggio di programmazione. La trasformazione valuta le espressioni e, in base ai risultati, indirizza la riga di dati al flusso specificato.
 
+## <a name="configuration"></a>Configurazione
 
-![casella degli strumenti Suddivisione condizionale](media/data-flow/conditionalsplit2.png "casella degli strumenti Suddivisione condizionale")
+L'impostazione **Split on** determina se la riga di dati fluisce sul primo flusso corrispondente o su ogni flusso a cui corrisponde.
 
-La trasformazione Suddivisione condizionale può indirizzare le righe di dati a flussi diversi a seconda del contenuto dei dati. L'implementazione della trasformazione Suddivisione condizionale è simile a una struttura decisionale CASE in un linguaggio di programmazione. La trasformazione valuta le espressioni e, in base ai risultati, indirizza la riga di dati al flusso specificato. Questa trasformazione prevede inoltre un output predefinito, in modo che se una riga non corrisponde ad alcuna espressione venga indirizzata all'output predefinito.
+Utilizzare il generatore di espressioni del flusso di dati per immettere un'espressione per la condizione di divisione. Per aggiungere una nuova condizione, fare clic sull'icona a forma di segno più in una riga esistente. È possibile aggiungere un flusso predefinito anche per le righe che non soddisfano alcuna condizione.
 
 ![Suddivisione condizionale](media/data-flow/conditionalsplit1.png "opzioni di Suddivisione condizionale")
 
-## <a name="multiple-paths"></a>Percorsi multipli
+## <a name="data-flow-script"></a>Script del flusso di dati
 
-Per aggiungere altre condizioni, selezionare "Add Stream" (Aggiungi flusso) nel riquadro di configurazione in basso e fare clic nella casella di testo del generatore di espressioni per creare l'espressione.
+### <a name="syntax"></a>Sintassi
 
-![Suddivisione condizionale multifunzione](media/data-flow/conditionalsplit3.png "Suddivisione condizionale multifunzione")
+```
+<incomingStream>
+    split(
+        <conditionalExpression1>
+        <conditionalExpression2>
+        ...
+        disjoint: {true | false}
+    ) ~> <splitTx>@(stream1, stream2, ..., <defaultStream>)
+```
+
+### <a name="example"></a>Esempio
+
+Nell'esempio seguente viene illustrata una trasformazione Suddivisione condizionale denominata `SplitByYear` che accetta `CleanData` flusso in ingresso. Questa trasformazione presenta due condizioni di divisione `year < 1960` e `year > 1980`. `disjoint` è false perché i dati passano alla prima condizione corrispondente. Ogni riga che corrisponde alla prima condizione passa al flusso di output `moviesBefore1960`. Tutte le righe rimanenti corrispondenti alla seconda condizione passano al flusso di output `moviesAFter1980`. Tutte le altre righe passano attraverso il flusso predefinito `AllOtherMovies`.
+
+In Data Factory UX questa trasformazione è simile all'immagine seguente:
+
+![Suddivisione condizionale](media/data-flow/conditionalsplit1.png "opzioni di Suddivisione condizionale")
+
+Lo script del flusso di dati per questa trasformazione si trova nel frammento di codice seguente:
+
+```
+CleanData
+    split(
+        year < 1960,
+        year > 1980,
+        disjoint: false
+    ) ~> SplitByYear@(moviesBefore1960, moviesAfter1980, AllOtherMovies)
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Trasformazioni comuni del flusso di dati utilizzate con Suddivisione condizionale: trasformazione [join](data-flow-join.md), [trasformazione Ricerca](data-flow-lookup.md), [selezione trasformazione](data-flow-select.md)
+Le trasformazioni comuni del flusso di dati utilizzate con Suddivisione condizionale sono la trasformazione [join](data-flow-join.md), la [trasformazione Ricerca](data-flow-lookup.md)e la [trasformazione selezione](data-flow-select.md)

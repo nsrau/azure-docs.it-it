@@ -13,24 +13,21 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08708c23f9c8f4c4a8fc9f2f0aa5cd20d8333a42
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 9d384ea4749e2d0bc7edf8df7ac0508566f2f76b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146349"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72517100"
 ---
 # <a name="bulk-remove-group-members-preview-in-azure-active-directory"></a>Rimuovere in blocco i membri del gruppo (anteprima) in Azure Active Directory
 
 Utilizzando il portale di Azure Active Directory (Azure AD), è possibile rimuovere un numero elevato di membri da un gruppo utilizzando un file con valori delimitati da virgole (CSV) per rimuovere in blocco i membri del gruppo.
 
-> [!NOTE]
-> Azure AD operazioni bulk sono una funzionalità di anteprima pubblica di Azure AD e sono disponibili con qualsiasi piano di licenza Azure AD a pagamento. Per ulteriori informazioni sui termini di utilizzo dell'anteprima, vedere [condizioni supplementari per l'utilizzo di Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="to-bulk-remove-group-members"></a>Per rimuovere in blocco i membri del gruppo
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account amministratore dell'organizzazione. I proprietari del gruppo possono anche rimuovere in blocco i membri dei gruppi di cui sono proprietari.
-1. In Azure ad selezionare **gruppi** > **tutti i gruppi**.
+1. In Azure AD selezionare **gruppi**  > **tutti i gruppi**.
 1. Aprire il gruppo da cui si stanno rimuovendo i membri e quindi selezionare **membri**.
 1. Nella pagina **membri** selezionare **Rimuovi membri**.
 1. Nella pagina **rimozione in blocco dei membri del gruppo (anteprima)** selezionare **download** per ottenere il modello di file CSV con le proprietà obbligatorie del membro del gruppo.
@@ -41,7 +38,7 @@ Utilizzando il portale di Azure Active Directory (Azure AD), è possibile rimuov
 
    ![Il file CSV contiene i nomi e gli ID dei membri da rimuovere](./media/groups-bulk-remove-members/csv-file.png)
 
-1. Nella pagina **Rimuovi in blocco i membri del gruppo (anteprima)** , in **caricare il file CSV**, selezionare il file. Quando si seleziona il file, viene avviata la convalida del file con estensione CSV.
+1. Nella pagina **Rimuovi in blocco i membri del gruppo (anteprima)** , in **caricare il file CSV**, selezionare il file. Quando si seleziona il file, viene avviata la convalida del file CSV.
 1. Quando il contenuto del file viene convalidato, la pagina di importazione bulk Visualizza il **file caricato correttamente**. Se sono presenti errori, è necessario correggerli prima di poter inviare il processo.
 1. Quando il file supera la convalida, selezionare **Submit (Invia** ) per avviare l'operazione bulk di Azure che rimuove i membri del gruppo dal gruppo.
 1. Al termine dell'operazione di rimozione, verrà visualizzata una notifica relativa all'esito positivo dell'operazione bulk.

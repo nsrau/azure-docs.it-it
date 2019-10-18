@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: f72067637f9db84a432562ea5502861355426469
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: d30c4532c43c5df568cf32a1025b796b3be9ee8e
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186581"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533615"
 ---
 # <a name="how-to-schedule-indexers-for-azure-search"></a>Come pianificare gli indicizzatori per ricerca di Azure
 Un indicizzatore viene in genere eseguito una volta, subito dopo la creazione. È possibile eseguirlo di nuovo su richiesta tramite il portale, l'API REST o .NET SDK. È anche possibile configurare un indicizzatore per l'esecuzione periodica in base a una pianificazione.
@@ -48,7 +48,7 @@ Ecco un esempio per rendere il discorso più concreto. Si supponga di configurar
 
 <a name="portal"></a>
 
-## <a name="define-a-schedule-in-the-portal"></a>Definire una pianificazione nel portale
+## <a name="schedule-in-the-portal"></a>Pianificare nel portale
 
 La procedura guidata Importa dati nel portale consente di definire la pianificazione per un indicizzatore al momento della creazione. L'impostazione predefinita della pianificazione è ogni **ora**, ovvero l'indicizzatore viene eseguito una volta dopo la creazione e viene eseguito di nuovo ogni ora in seguito.
 
@@ -64,7 +64,7 @@ Dopo aver creato un indicizzatore, è possibile modificare le impostazioni di pi
 
 <a name="restApi"></a>
 
-## <a name="define-a-schedule-using-the-rest-api"></a>Definire una pianificazione tramite l'API REST
+## <a name="schedule-using-rest-apis"></a>Pianificare usando le API REST
 
 È possibile definire la pianificazione per un indicizzatore usando l'API REST. A tale scopo, includere la proprietà **Schedule** durante la creazione o l'aggiornamento dell'indicizzatore. Nell'esempio seguente viene illustrata una richiesta PUT per aggiornare un indicizzatore esistente:
 
@@ -82,11 +82,11 @@ Dopo aver creato un indicizzatore, è possibile modificare le impostazioni di pi
 
 Il **StartTime** facoltativo indica quando devono iniziare le esecuzioni pianificate. Se viene omesso, verrà usata l'ora UTC corrente. Questa volta può essere nel passato, nel qual caso la prima esecuzione è pianificata come se l'indicizzatore venisse eseguito in modo continuativo rispetto al **StartTime**originale.
 
-È anche possibile eseguire un indicizzatore su richiesta in qualsiasi momento usando la chiamata a Esegui indicizzatore. Per altre informazioni sull'esecuzione degli indicizzatori e sull'impostazione delle pianificazioni degli indicizzatori, vedere [eseguire](https://docs.microsoft.com/rest/api/searchservice/run-indexer)l'indicizzatore, [ottenere](https://docs.microsoft.com/rest/api/searchservice/get-indexer)un indicizzatore e [aggiornare](https://docs.microsoft.com/rest/api/searchservice/update-indexer) l'indicizzatore nelle informazioni di riferimento sull'API REST.
+È anche possibile eseguire un indicizzatore su richiesta in qualsiasi momento usando la chiamata a Esegui indicizzatore. Per altre informazioni sull'esecuzione degli indicizzatori e sull'impostazione delle pianificazioni degli indicizzatori, vedere [eseguire l'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/run-indexer), [ottenere un indicizzatore](https://docs.microsoft.com/rest/api/searchservice/get-indexer)e [aggiornare l'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/update-indexer) nelle informazioni di riferimento sull'API REST.
 
 <a name="dotNetSdk"></a>
 
-## <a name="define-a-schedule-using-the-net-sdk"></a>Definire una pianificazione con .NET SDK
+## <a name="schedule-using-the-net-sdk"></a>Pianificare l'uso di .NET SDK
 
 È possibile definire la pianificazione per un indicizzatore usando Azure search .NET SDK. A tale scopo, includere la proprietà **Schedule** durante la creazione o l'aggiornamento di un indicizzatore.
 

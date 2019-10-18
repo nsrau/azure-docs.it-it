@@ -7,118 +7,121 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: c67f21a6ed8a7697977bb7737f0e46348efb2530
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
-ms.translationtype: HT
+ms.openlocfilehash: 0466b08e551a5fa9da37afe2e5ad175ef28c804e
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71266653"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529562"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Risolvere i problemi relativi alle prestazioni di Apache HBase in Azure HDInsight
 
-Questo documento descrive le varie linee guida per l'ottimizzazione delle prestazioni di Apache HBase e suggerimenti per ottenere prestazioni ottimali in Azure HDInsight. Molti di questi suggerimenti dipendono dal carico di lavoro specifico e dal modello di lettura/scrittura/analisi. Verificare accuratamente le modifiche apportate alla configurazione prima di applicare in un ambiente di produzione.
+Questo articolo descrive diverse linee guida e suggerimenti per l'ottimizzazione delle prestazioni di Apache HBase per ottenere prestazioni ottimali in Azure HDInsight. Molti di questi suggerimenti dipendono dal carico di lavoro specifico e dal modello di lettura/scrittura/analisi. Prima di applicare le modifiche alla configurazione in un ambiente di produzione, testarle accuratamente.
 
-## <a name="hdinsight-hbase-performance-insights"></a>Informazioni dettagliate sulle prestazioni di HDInsight HBase
+## <a name="hbase-performance-insights"></a>Informazioni dettagliate sulle prestazioni di HBase
 
-Il primo collo di bottiglia nella maggior parte dei carichi di lavoro HBase è il log write-ahead (WAL). Influire gravemente sulle prestazioni di scrittura. HDInsight HBase ha un modello di calcolo di archiviazione separato, ovvero i dati vengono archiviati in remoto in archiviazione di Azure, ma i server di area sono ospitati nelle VM. Fino a poco tempo fa, anche il log write-ahead è stato scritto in archiviazione di Azure, in modo da amplificare questo collo di bottiglia nel caso di HDInsight. La funzionalità di scrittura [accelerata](./apache-hbase-accelerated-writes.md) è progettata per risolvere questo problema, scrivendo il log write-ahead in dischi gestiti di unità SSD Premium di Azure. In questo modo, le prestazioni di scrittura sono molto numerose e contribuiscono a molti problemi riscontrati da alcuni dei carichi di lavoro a elevato utilizzo di scrittura.
+Il primo collo di bottiglia nella maggior parte dei carichi di lavoro HBase è il log write-ahead (WAL). Influire gravemente sulle prestazioni di scrittura. HDInsight HBase ha un modello di calcolo di archiviazione separato. I dati vengono archiviati in remoto in archiviazione di Azure, anche se le macchine virtuali ospitano i server di area. Fino a poco tempo fa, WAL è stato scritto anche in archiviazione di Azure. In HDInsight questo comportamento ha amplificato questo collo di bottiglia. La funzionalità di [scrittura accelerata](./apache-hbase-accelerated-writes.md) è progettata per risolvere questo problema. Scrive il WAL in Azure SSD Premium Managed Disks. Si tratta di un vantaggio estremamente vantaggioso per le prestazioni di scrittura e contribuisce a molti problemi affrontati da alcuni dei carichi di lavoro a elevato utilizzo di scrittura.
 
-Usare l'[account di archiviazione BLOB in blocchi Premium](https://azure.microsoft.com/blog/azure-premium-block-blob-storage-is-now-generally-available/) come risorsa di archiviazione remota per ottenere un miglioramento significativo nelle operazioni di lettura. Questa opzione è disponibile solo se è abilitata la funzionalità WAL.
+Per ottenere un miglioramento significativo nelle operazioni di lettura, usare l' [account di archiviazione BLOB in blocchi Premium](https://azure.microsoft.com/blog/azure-premium-block-blob-storage-is-now-generally-available/) come archiviazione remota. Questa opzione è disponibile solo se la funzionalità WAL è abilitata.
 
 ## <a name="compaction"></a>Compattazione
 
-La compattazione è un altro potenziale collo di bottiglia, fondamentalmente concordato nella community.  Per impostazione predefinita, la compattazione principale è disabilitata nei cluster HBase di HDInsight. Ciò è dovuto al fatto che si tratta di un processo che richiede un utilizzo intensivo di risorse, che consente ai clienti la massima flessibilità di pianificazione in base alle caratteristiche del carico di lavoro, ovvero durante gli orari di minore attività. Dato che la risorsa di archiviazione è remota (supportata da archiviazione di Azure) anziché HDFS locale, che è comune nella maggior parte delle istanze locali, la località dei dati non è un problema, ovvero uno degli obiettivi principali della compattazione principale.
+La compattazione è un altro potenziale collo di bottiglia che è fondamentalmente concordato nella community. Per impostazione predefinita, la compattazione principale è disabilitata nei cluster HBase di HDInsight. La compattazione è disabilitata perché, anche se si tratta di un processo a elevato utilizzo di risorse, i clienti hanno la massima flessibilità per pianificarla in base ai carichi di lavoro. Ad esempio, potrebbero pianificarlo durante le fasce orarie di minore traffico. Inoltre, la località dei dati non è un problema perché l'archiviazione è remota (supportata da archiviazione di Azure) anziché a una Hadoop Distributed File System locale (HDFS).
 
-Il presupposto è che il cliente si occupi di pianificare la compattazione principale in base alla loro convenienza. Se la manutenzione non viene eseguita, la compattazione influirà in modo significativo sulle prestazioni di lettura a lungo termine.
+I clienti devono pianificare una compattazione principale con praticità. Se questa operazione non viene eseguita, la compattazione influirà negativamente sulle prestazioni di lettura a lungo termine.
 
-Per le operazioni di analisi in particolare, le latenze medie molto più elevate di 100 MS dovrebbero essere motivo di preoccupazione. Controllare se la compattazione principale è stata pianificata in modo accurato.
+Per le operazioni di analisi, le latenze medie che sono molto più elevate di 100 millisecondi dovrebbero essere motivo di preoccupazione. Controllare se la compattazione principale è stata pianificata in modo accurato.
 
-## <a name="know-your-apache-phoenix-workload"></a>Informazioni sul carico di lavoro Apache Phoenix
+## <a name="apache-phoenix-workload"></a>Carico di lavoro Apache Phoenix
 
 La risposta alle domande seguenti consentirà di comprendere meglio il carico di lavoro Apache Phoenix:
 
 * Tutte le "letture" si traducono in analisi?
     * In tal caso, quali sono le caratteristiche di queste analisi?
     * È stato ottimizzato lo schema della tabella Phoenix per queste analisi, inclusa l'indicizzazione appropriata?
-* È stata usata l'istruzione `EXPLAIN` per comprendere i piani di query generati da "Reads".
+* È stata usata l'istruzione `EXPLAIN` per comprendere i piani di query generati da "Reads"?
 * Le Scritture "Upsert-Select"?
-    * In tal caso, eseguiranno anche analisi. La latenza prevista per le analisi è dell'ordine di 100 ms in media, anziché di 10 ms per il punto in HBase.  
+    * In tal caso, eseguiranno anche analisi. Latenza prevista per le analisi medie circa 100 millisecondi, rispetto a 10 millisecondi per il punto di HBase.  
 
 ## <a name="test-methodology-and-metrics-monitoring"></a>Metodologia di test e monitoraggio delle metriche
 
-Se si usano i benchmark come YCSB, JMeter o Pherf per testare e ottimizzare le prestazioni, verificare quanto segue:
+Se si usano i benchmark come Yahoo! Benchmark per il cloud, JMeter o Pherf per testare e ottimizzare le prestazioni, assicurarsi che:
 
-1. I computer client non diventano un collo di bottiglia (controllare l'utilizzo della CPU nei computer client).
+- I computer client non diventano un collo di bottiglia. A tale scopo, controllare l'utilizzo della CPU nei computer client.
 
-1. Le configurazioni lato client, ad esempio il numero di thread e così via, vengono ottimizzate in modo appropriato per saturare la larghezza di banda dei client.
+- Le configurazioni lato client, ad esempio il numero di thread, sono ottimizzate in modo appropriato per saturare la larghezza di banda dei client.
 
-1. I risultati dei test vengono registrati in modo accurato e sistematico.
+- I risultati dei test vengono registrati in modo accurato e sistematico.
 
-Se le query hanno improvvisamente iniziato a peggiorare molto peggio, verificare la presenza di potenziali bug nel codice dell'applicazione, generando improvvisamente grandi quantità di dati non validi, aumentando naturalmente le latenze di lettura?
+Se le query hanno improvvisamente iniziato a peggiorare molto peggio, verificare la presenza di potenziali bug nel codice dell'applicazione. Si sta generando improvvisamente grandi quantità di dati non validi? In tal caso, è possibile aumentare le latenze di lettura.
 
 ## <a name="migration-issues"></a>Problemi di migrazione
 
-Se si esegue la migrazione ad Azure HDInsight, assicurarsi che la migrazione venga eseguita in modo sistematico e accurato, preferibilmente tramite l'automazione. Evitare la migrazione manuale. Verificare quanto segue:
+Se si sta eseguendo la migrazione ad Azure HDInsight, assicurarsi che la migrazione venga eseguita in modo sistematico e accurato, preferibilmente tramite l'automazione. Evitare la migrazione manuale. Assicurarsi che:
 
-1. Gli attributi della tabella, ad esempio la compressione, i filtri Bloom e così via, devono essere migrati in modo accurato.
+- Gli attributi della tabella vengono migrati in modo accurato. Gli attributi possono includere come compressione, filtri Bloom e così via.
 
-1. Per le tabelle Phoenix, le impostazioni di salting devono essere mappate in modo appropriato alle nuove dimensioni del cluster. È consigliabile, ad esempio, che il numero di bucket di tipo Salt sia multiplo del numero di nodi del ruolo di lavoro nel cluster, il multiplo specifico è un fattore della quantità di spot a caldo osservato.  
+- Le impostazioni di salting nelle tabelle Phoenix vengono mappate in modo appropriato alle nuove dimensioni del cluster. Il numero di bucket di tipo Salt, ad esempio, deve essere un multiplo del numero di nodi del ruolo di lavoro nel cluster. Ed è necessario usare un multiplo che rappresenta un fattore della quantità di spot a caldo.
 
-## <a name="server-side-config-tunings"></a>Ottimizzazioni della configurazione lato server
+## <a name="server-side-configuration-tunings"></a>Ottimizzazioni della configurazione lato server
 
-In HDInsight HBase, HFiles vengono archiviati nell'archiviazione remota. in questo modo, in caso di mancato riscontro nella cache, il costo delle letture sarà sicuramente superiore rispetto ai sistemi locali, che hanno dati supportati da HDFS locali grazie alla latenza di rete. Per la maggior parte degli scenari, l'uso intelligente delle cache HBase (cache a blocchi e cache di bucket) è progettato per aggirare questo problema. Tuttavia, esistono casi occasionali in cui questo potrebbe costituire un problema per i clienti. L'uso di un account BLOB in blocchi Premium è stato utile. Tuttavia, il BLOB di WASB (driver di archiviazione di Microsoft Azure) si basa su determinate proprietà, ad esempio `fs.azure.read.request.size` per recuperare i dati in blocchi in base a ciò che determina la modalità di lettura (sequenziale e casuale). si potrebbero continuare a vedere istanze di latenze più elevate con letture. Sono stati rilevati esperimenti empirici che consentono di impostare le dimensioni del blocco della richiesta di lettura (`fs.azure.read.request.size`) su 512 KB e di abbinare le dimensioni del blocco delle tabelle HBase in modo che corrispondano ai risultati migliori in pratica.
+In HDInsight HBase, HFiles vengono archiviati nella risorsa di archiviazione remota. Quando si verifica un mancato riscontro nella cache, il costo delle letture è superiore rispetto ai sistemi locali perché i dati nei sistemi locali sono supportati da HDFS locali. Per la maggior parte degli scenari, l'uso intelligente delle cache HBase (cache a blocchi e cache di bucket) è progettato per aggirare questo problema. Nei casi in cui il problema non viene aggirato, l'uso di un account BLOB in blocchi Premium può aiutare a risolvere questo problema. Il driver di Windows BLOB del servizio di archiviazione di Azure si basa su determinate proprietà, ad esempio `fs.azure.read.request.size` per recuperare i dati in blocchi in base a ciò che determina la modalità di lettura (sequenziale e casuale), in modo che sia possibile continuare a essere istanze di latenze più elevate con letture. Attraverso esperimenti empirici è stato rilevato che l'impostazione delle dimensioni del blocco della richiesta di lettura (`fs.azure.read.request.size`) su 512 KB e la corrispondenza delle dimensioni del blocco delle tabelle HBase con le stesse dimensioni produce il risultato migliore in pratica.
 
-HDInsight HBase, per la maggior parte dei cluster di nodi di dimensioni maggiori, fornisce `bucketcache` come file nell'unità SSD locale collegata alla VM, che esegue il `regionservers`. In alcuni casi, l'utilizzo di off cache heap può dare un certo miglioramento. Questa operazione prevede la limitazione dell'utilizzo della memoria disponibile e di dimensioni potenzialmente inferiori rispetto alla cache basata su file, pertanto questo potrebbe non essere sempre la scelta migliore.
+Per la maggior parte dei cluster di nodi di grandi dimensioni, HDInsight HBase fornisce `bucketcache` come file in una SSD Premium locale collegata alla macchina virtuale, che esegue `regionservers`. In alternativa, l'utilizzo della cache fuori heap potrebbe offrire un miglioramento. Questa soluzione alternativa prevede la limitazione dell'utilizzo della memoria disponibile e potenzialmente inferiore rispetto alla cache basata su file, quindi potrebbe non essere sempre la scelta migliore.
 
-Alcuni degli altri parametri specifici che sono stati ottimizzati sembravano avere contribuito a variare i gradi con una logica come la seguente:
+Di seguito sono riportati alcuni degli altri parametri specifici che sono stati ottimizzati e che sembrano essere utili per variare i gradi:
 
-1. Aumento delle dimensioni di @no__t 0 da 128 MB predefiniti a 256 MB. questa impostazione è generalmente consigliata per uno scenario di scrittura intensivo.
+- Aumentare le dimensioni del `memstore` dall'impostazione predefinita 128 MB a 256 MB. Questa impostazione è in genere consigliata per scenari di scrittura intensivi.
 
-1. Aumento del numero di thread dedicati per la compattazione, dal valore predefinito da 1 a 4. Questa impostazione è pertinente se si osservano compattazioni secondarie frequenti.
+- Aumentare il numero di thread dedicati per la compattazione, dall'impostazione predefinita da **1** a **4**. Questa impostazione è pertinente se si osservano compattazioni secondarie frequenti.
 
-1. Evitare il blocco dello scaricamento `memstore` a causa del limite del negozio. `Hbase.hstore.blockingStoreFiles` può essere aumentato a 100 per fornire questo buffer.
+- Evitare il blocco dello scaricamento `memstore` a causa del limite del negozio. Per fornire questo buffer, aumentare l'impostazione del `Hbase.hstore.blockingStoreFiles` su **100**.
 
-1. Per il controllo degli Scaricamenti, le impostazioni predefinite possono essere risolte come indicato di seguito:
+- Per controllare gli scaricamenti, usare le impostazioni seguenti:
 
-    1. `Hbase.regionserver.maxlogs` può essere aumentato a 140 da 32 (evitando gli scaricamenti a causa dei limiti di WAL).
+    - `Hbase.regionserver.maxlogs`: **140** (evita gli scaricamenti a causa dei limiti di Wal)
 
-    1. `Hbase.regionserver.global.memstore.lowerLimit` = 0,55.
+    - `Hbase.regionserver.global.memstore.lowerLimit`: **0,55**
 
-    1. `Hbase.regionserver.global.memstore.upperLimit` = 0,60.
+    - `Hbase.regionserver.global.memstore.upperLimit`: **0,60**
 
-1. Configurazioni specifiche di Phoenix per l'ottimizzazione del pool di thread:
+- Configurazioni specifiche di Phoenix per l'ottimizzazione del pool di thread:
 
-    1. `Phoenix.query.queuesize` può essere aumentato a 10000.
+    - `Phoenix.query.queuesize`: **10000**
 
-    1. `Phoenix.query.threadpoolsize` può essere aumentato a 512.
+    - `Phoenix.query.threadpoolsize`: **512**
 
-1. Altre configurazioni specifiche di Phoenix:
+- Altre configurazioni specifiche di Phoenix:
 
-    1. `Phoenix.rpc.index.handler.count` può essere impostato su 50 se sono presenti grandi o numerose ricerche nell'indice.
+    - `Phoenix.rpc.index.handler.count`: **50** (se sono presenti numerose ricerche nell'indice)
 
-    1. `Phoenix.stats.updateFrequency`: il valore predefinito di 15 minuti può essere aumentato a 1 ora.
+    - `Phoenix.stats.updateFrequency`: **1 ora**
 
-    1. `Phoenix.coprocessor.maxmetadatacachetimetolivems`: può essere aumentato a 1 ora da 30 minuti.
+    - `Phoenix.coprocessor.maxmetadatacachetimetolivems`: **1 ora**
 
-    1. `Phoenix.coprocessor.maxmetadatacachesize`: può essere incrementato a 50 MB da 20 MB.
+    - `Phoenix.coprocessor.maxmetadatacachesize`: **50 MB**
 
-1. Timeout RPC: timeout RPC HBase, timeout scanner client HBase e timeout query Phoenix possono essere aumentati fino a 3 minuti. È importante notare che il parametro `hbase.client.scanner.caching` è impostato su un valore che corrisponde a End Server e client end. In caso contrario, questa impostazione genera errori correlati a `OutOfOrderScannerException` al termine del client. Questa impostazione deve essere impostata su un valore basso per le analisi di grandi dimensioni. Questo valore viene impostato su 100.
+- Timeout RPC: **3 minuti**
+
+   - I timeout RPC includono il timeout RPC HBase, il timeout dello scanner client HBase e il timeout delle query Phoenix. 
+   - Verificare che il parametro `hbase.client.scanner.caching` sia impostato sullo stesso valore sia sul lato server sia sul lato client. Se non sono uguali, questa impostazione genera errori di fine client correlati a `OutOfOrderScannerException`. Questa impostazione deve essere impostata su un valore basso per le analisi di grandi dimensioni. Questo valore viene impostato su **100**.
 
 ## <a name="other-considerations"></a>Altre considerazioni
 
-Altri parametri da considerare per l'ottimizzazione:
+Di seguito sono riportati i parametri aggiuntivi da considerare per l'ottimizzazione:
 
-1. `Hbase.rs.cacheblocksonwrite`: questa impostazione è impostata su true per impostazione predefinita in HDI.
+- `Hbase.rs.cacheblocksonwrite`: per impostazione predefinita, in HDI questa impostazione è impostata su **true**.
 
-1. Impostazioni che consentono di rinviare la compattazione secondaria per un momento successivo.
+- Impostazioni che consentono di rinviare la compattazione secondaria per un momento successivo.
 
-1. Impostazioni sperimentali, ad esempio la regolazione delle percentuali delle code riservate per le richieste di lettura e scrittura.
+- Impostazioni sperimentali, ad esempio la modifica delle percentuali delle code riservate per le richieste di lettura e scrittura.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
+Se il problema persiste, visitare uno dei canali seguenti per ottenere ulteriore supporto:
 
 - Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
 
-- Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account Microsoft Azure ufficiale per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse appropriate: risposte, supporto ed esperti.
+- Connettersi con [@AzureSupport](https://twitter.com/azuresupport). Si tratta dell'account Microsoft Azure ufficiale per migliorare l'esperienza dei clienti. Connette la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
 
-- Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+- Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La sottoscrizione Microsoft Azure include l'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

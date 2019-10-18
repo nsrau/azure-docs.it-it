@@ -16,12 +16,12 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 394137a1b7901a3272e36f6a6d74944b87f30082
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 76337c471a4032f879bee8382b2d958f6600671e
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056496"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527076"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>App daemon che chiama API Web-configurazione del codice
 
@@ -31,11 +31,11 @@ Informazioni su come configurare il codice per l'applicazione daemon che chiama 
 
 Le librerie Microsoft che supportano le app daemon sono:
 
-  Libreria MSAL | Descrizione
+  Libreria MSAL | Description
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Le piattaforme supportate per compilare un'applicazione daemon sono .NET Framework e le piattaforme .NET Core (non UWP, Novell. iOS e Novell. Android perché queste piattaforme vengono usate per compilare applicazioni client pubbliche)
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Sviluppo in corso-anteprima pubblica
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | Sviluppo in corso-anteprima pubblica
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL. Python | Sviluppo in corso-anteprima pubblica
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL. Java | Sviluppo in corso-anteprima pubblica
 
 ## <a name="configuration-of-the-authority"></a>Configurazione dell'autorità
 
@@ -103,7 +103,7 @@ Quando si compila un client riservato con certificati, sarà simile a questo est
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Di seguito è illustrata la classe utilizzata negli esempi di msal4j dev per configurare gli esempi: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
+Di seguito è illustrata la classe usata negli esempi di msal4j dev per configurare gli esempi: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
 
 ```Java
 public class TestData {
@@ -126,14 +126,14 @@ Per creare un'istanza dell'applicazione MSAL, è necessario:
 - aggiungere, fare riferimento o importare il pacchetto MSAL (a seconda del linguaggio)
 - La costruzione è diversa a seconda che si utilizzino i segreti o i certificati client (o, come scenario avanzato, le asserzioni firmate)
 
-L'applicazione daemon verrà visualizzata da un`IConfidentialClientApplication`
+L'applicazione daemon verrà presentata da un `IConfidentialClientApplication`
 
 #### <a name="reference-the-package"></a>Fare riferimento al pacchetto
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 Aggiungere il pacchetto NuGet [Microsoft. IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) all'applicazione.
-In MSAL.NET, l'applicazione client riservata è rappresentata dall' `IConfidentialClientApplication` interfaccia.
+In MSAL.NET, l'applicazione client riservata è rappresentata dall'interfaccia `IConfidentialClientApplication`.
 Usa spazio dei nomi MSAL.NET nel codice sorgente
 
 ```CSharp
@@ -243,7 +243,7 @@ ConfidentialClientApplication app = ConfidentialClientApplication.builder(
         .build();
 ```
 
-oppure
+Oppure
 
 ```Java
 PrivateKey key = getPrivateKey(); /* RSA private key to sign the assertion */
@@ -269,7 +269,7 @@ MSAL.NET dispone di due metodi per fornire asserzioni firmate all'app client ris
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-Quando si usa `WithClientAssertion`, è necessario specificare un JWT con segno. Questo scenario avanzato è dettagliato in [asserzioni client](msal-net-client-assertions.md)
+Quando si usa `WithClientAssertion`, è necessario fornire un JWT con segno. Questo scenario avanzato è dettagliato in [asserzioni client](msal-net-client-assertions.md)
 
 ```CSharp
 string signedClientAssertion = ComputeAssertion();
@@ -278,7 +278,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-Quando si usa `WithClientClaims`, MSAL.NET calcolerà se stessa un'asserzione firmata contenente le attestazioni previste da Azure ad più le attestazioni client aggiuntive che si vuole inviare.
+Quando si usa `WithClientClaims`, MSAL.NET calcolerà se stessa un'asserzione firmata contenente le attestazioni previste da Azure AD più attestazioni client aggiuntive da inviare.
 Ecco un frammento di codice per eseguire questa operazione:
 
 ```CSharp
@@ -295,7 +295,7 @@ Per informazioni dettagliate, vedere [asserzioni client](msal-net-client-asserti
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-In MSAL Python è possibile fornire attestazioni client usando le attestazioni che verranno firmate da `ConfidentialClientApplication`questa chiave privata.
+In MSAL Python è possibile fornire attestazioni client usando le attestazioni che verranno firmate dalla chiave privata della `ConfidentialClientApplication`.
 
 ```Python
 config = json.load(open(sys.argv[1]))
@@ -321,5 +321,19 @@ msal4j è in anteprima pubblica. Asserzioni firmate non ancora supportate
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+
 > [!div class="nextstepaction"]
-> [App daemon-acquisizione di token per l'app](./scenario-daemon-acquire-token.md)
+> [App daemon-acquisizione di token per l'app](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=dotnet)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [App daemon-acquisizione di token per l'app](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=python)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [App daemon-acquisizione di token per l'app](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=java)
+
+---

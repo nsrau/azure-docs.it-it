@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: f5694e18d5743118e2b6e73708dd3acb17151198
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 68fe50c75fc25106a0f47af8bf6cfc0db562fbe5
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874932"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529110"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Larghezza di banda della rete di macchine virtuali
 
@@ -39,10 +39,10 @@ Le macchine virtuali di Azure devono avere almeno un'interfaccia collegata, ma p
 La velocità effettiva in uscita prevista e il numero di interfacce di rete supportati da ogni dimensione di VM sono descritti in dettaglio nelle informazioni sulle dimensioni delle VM [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure. Selezionare un tipo, ad esempio utilizzo generico, quindi selezionare una serie di dimensioni nella pagina risultante, ad esempio la serie Dv2. Ciascuna serie dispone di una tabella con specifiche di rete nell'ultima colonna, denominata **Schede di interfaccia di rete max/prestazioni rete previste (Mbps)** . 
 
 Il limite di velocità effettiva si applica alla macchina virtuale. La velocità effettiva è influenzata dai fattori seguenti:
-- **Numero di interfacce di rete**: Il limite di larghezza di banda è cumulativo di tutto il traffico in uscita dalla macchina virtuale.
-- **Rete accelerata**: Sebbene la funzionalità possa essere utile per raggiungere il limite pubblicato, non modifica il limite.
-- **Destinazione del traffico**: Tutte le destinazioni vengono conteggiate verso il limite in uscita.
-- **Protocollo**: Tutto il traffico in uscita su tutti i protocolli viene conteggiato fino al limite.
+- **Numero di interfacce di rete**: il limite di larghezza di banda è cumulativo per tutto il traffico in uscita dalla macchina virtuale.
+- **Accelerazione di rete**: anche se la funzione può essere utile per ottenere il limite pubblicato, non modifica il limite.
+- **Destinazione del traffico**: tutte le destinazioni contano per il limite in uscita.
+- **Protocollo**: tutto il traffico in uscita su tutti i protocolli conta per il limite.
 
 ## <a name="network-flow-limits"></a>Limiti dei flussi di rete
 
@@ -60,11 +60,11 @@ Attualmente, lo stack di rete di Azure supporta 250K totali dei flussi di rete c
 |---|---|---|
 |<b>Prestazioni ottimali</b>|100K flussi |Flussi 250K|
 |<b>Prestazioni ridotte</b>|Oltre 100.000 flussi|Sopra i flussi 250K|
-|<b>Limite di flusso</b>|1M flussi|1M flussi|
+|<b>Limite di flusso</b>|Flussi 500.000|Flussi 500.000|
 
 Le metriche sono disponibili in [monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) per tenere traccia del numero di flussi di rete e della velocità di creazione del flusso nelle istanze della macchina virtuale o vmss.
 
-![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+![Azure-monitor-Flow-Metrics. png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 
 La definizione della connessione e i tassi di terminazione possono anche influire sulle prestazioni di rete durante la creazione e la terminazione della connessione CPU con routine di elaborazione pacchetti. È consigliabile eseguire il benchmark dei carichi di lavoro in base ai modelli di traffico previsti e scalare i carichi di lavoro in modo appropriato per soddisfare le esigenze di prestazioni. 
 

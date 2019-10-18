@@ -1,21 +1,21 @@
 ---
-title: Funzioni del modello di Azure Resource Manager - matrici e oggetti | Microsoft Docs
+title: Funzioni di modello di Azure Resource Manager-matrici e oggetti
 description: Descrive le funzioni da usare in un modello di Azure Resource Manager per l'uso di matrici e oggetti.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: cd4a74a9e9e9bb1c91a0a7a103a1cfb861fa7770
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 3366a1be88043c792de8efa3b0d0ab735e558e2a
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194421"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528494"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funzioni di matrice e oggetto per i modelli di Azure Resource Manager
 
-Resource Manager offre diverse funzioni per l'uso di matrici e oggetti.
+Resource Manager include numerose funzioni per gestire gli array e gli oggetti.
 
 * [array](#array)
 * [coalesce](#coalesce)
@@ -46,11 +46,11 @@ Per ottenere una matrice di valori stringa delimitata da un valore, vedere [spli
 
 Converte il valore in matrice.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Yes |int, string, array, o object |Valore da convertire in matrice. |
+| convertToArray |SÌ |numero intero, stringa, matrice o oggetto |Valore da convertire in matrice. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -97,9 +97,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | intOutput | Array | [1] |
 | stringOutput | Array | ["efgh"] |
@@ -124,12 +124,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Restituisce il primo valore non null dai parametri. Stringhe vuote, matrici vuote e oggetti vuoti sono non null.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |int, string, array, o object |Il primo valore da controllare per verificare se è null. |
-| argomenti aggiuntivi |No |int, string, array, o object |Valori aggiuntivi da controllare per verificare se sono null. |
+| arg1 |SÌ |numero intero, stringa, matrice o oggetto |Il primo valore da controllare per verificare se è null. |
+| argomenti aggiuntivi |No |numero intero, stringa, matrice o oggetto |Valori aggiuntivi da controllare per verificare se sono null. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -183,15 +183,15 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| stringOutput | String | default |
+| stringOutput | Stringa | default |
 | intOutput | Int | 1 |
-| objectOutput | Object | {"first": "default"} |
+| objectOutput | Oggetto | {"first": "default"} |
 | arrayOutput | Array | [1] |
-| emptyOutput | Bool | True |
+| emptyOutput | Booleano | Vero |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -212,12 +212,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Combina più matrici e restituisce la matrice concatenata oppure combina più valori di stringa e restituisce la stringa concatenata. 
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |array o string |La prima matrice o stringa per la concatenazione. |
-| Argomenti aggiuntivi |No |array o string |Matrici o stringhe aggiuntive in ordine sequenziale per la concatenazione. |
+| arg1 |SÌ |stringa o matrice |La prima matrice o stringa per la concatenazione. |
+| Argomenti aggiuntivi |No |stringa o matrice |Matrici o stringhe aggiuntive in ordine sequenziale per la concatenazione. |
 
 Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri.
 
@@ -261,9 +261,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -301,11 +301,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | Stringa | prefix-5yj4yjf5mbg72 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -321,21 +321,21 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="contains" />
 
-## <a name="contains"></a>contiene
+## <a name="contains"></a>contains
 `contains(container, itemToFind)`
 
 Verifica se una matrice contiene un valore, se un oggetto contiene una chiave o se una stringa contiene una sottostringa. Il confronto fra stringhe fa distinzione tra maiuscole e minuscole. Tuttavia, quando si testa se un oggetto contiene una chiave, il confronto non fa distinzione tra maiuscole e minuscole.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| Contenitore |Sì |matrice, oggetto o stringa |Valore che contiene il valore da trovare. |
-| itemToFind |Sì |stringa o numero intero |Valore da trovare. |
+| Contenitore |SÌ |matrice, oggetto o stringa |Valore che contiene il valore da trovare. |
+| itemToFind |SÌ |Stringa o numero intero |Valore da trovare. |
 
 ### <a name="return-value"></a>Valore restituito
 
-**True** se l'elemento viene individuato; in caso contrario, restituisce **False**.
+Restituisce **True** se l'elemento è stato trovato, in caso contrario restituisce **False**.
 
 ### <a name="example"></a>Esempio
 
@@ -390,16 +390,16 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| stringTrue | Booleano | True |
-| stringFalse | Bool | False |
-| objectTrue | Bool | True |
-| objectFalse | Bool | False |
-| arrayTrue | Bool | True |
-| arrayFalse | Bool | False |
+| stringTrue | Booleano | Vero |
+| stringFalse | Booleano | Falso |
+| objectTrue | Booleano | Vero |
+| objectFalse | Booleano | Falso |
+| arrayTrue | Booleano | Vero |
+| arrayFalse | Booleano | Falso |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -420,12 +420,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Crea una matrice dai parametri.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |String, Integer, Array, o Object |Primo valore della matrice. |
-| Argomenti aggiuntivi |No |String, Integer, Array, o Object |Altri valori della matrice. |
+| arg1 |SÌ |Stringa, numero intero, matrice o oggetto |Primo valore della matrice. |
+| Argomenti aggiuntivi |No |Stringa, numero intero, matrice o oggetto |Altri valori della matrice. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -472,9 +472,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | stringArray | Array | ["a", "b", "c"] |
 | intArray | Array | [1, 2, 3] |
@@ -495,21 +495,21 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="empty" />
 
-## <a name="empty"></a>vuoto
+## <a name="empty"></a>empty
 
 `empty(itemToTest)`
 
 Determina se una matrice, un oggetto o una stringa sono vuoti.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Sì |matrice, oggetto o stringa |Valore da controllare per verificare se è vuoto. |
+| itemToTest |SÌ |matrice, oggetto o stringa |Valore da controllare per verificare se è vuoto. |
 
 ### <a name="return-value"></a>Valore restituito
 
-**True** se il valore è vuoto; in caso contrario, restituisce **False**.
+Restituisce **True** se il valore è vuoto; in caso contrario, restituisce **False**.
 
 ### <a name="example"></a>Esempio
 
@@ -552,13 +552,13 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| arrayEmpty | Bool | True |
-| objectEmpty | Bool | True |
-| stringEmpty | Bool | True |
+| arrayEmpty | Booleano | Vero |
+| objectEmpty | Booleano | Vero |
+| stringEmpty | Booleano | Vero |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -579,11 +579,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Restituisce il primo elemento della matrice o il primo carattere della stringa.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |array o string |Valore per recuperare il primo elemento o carattere. |
+| arg1 |SÌ |stringa o matrice |Valore per recuperare il primo elemento o carattere. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -618,12 +618,12 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | String | one |
-| stringOutput | String | O |
+| arrayOutput | Stringa | uno |
+| stringOutput | Stringa | O |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -644,13 +644,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Restituisce una matrice o un oggetto singoli con gli elementi comuni dei parametri.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |array o object |Primo valore da usare per cercare elementi comuni. |
-| arg2 |Yes |array o object |Secondo valore da usare per cercare elementi comuni. |
-| Argomenti aggiuntivi |No |array o object |Valori aggiuntivi da usare per cercare elementi comuni. |
+| arg1 |SÌ |matrice o oggetto |Primo valore da usare per cercare elementi comuni. |
+| arg2 |SÌ |matrice o oggetto |Secondo valore da usare per cercare elementi comuni. |
+| Argomenti aggiuntivi |No |matrice o oggetto |Valori aggiuntivi da usare per cercare elementi comuni. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -697,11 +697,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | Object | {"one": "a", "three": "c"} |
+| objectOutput | Oggetto | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
@@ -721,18 +721,18 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Restituisce un oggetto JSON.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |string |Valore da convertire in JSON. |
+| arg1 |SÌ |string |Valore da convertire in JSON. |
 
 
 ### <a name="return-value"></a>Valore restituito
 
 Oggetto JSON dalla stringa specificata o un oggetto vuoto quando viene specificato **null**.
 
-### <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
 
 Se è necessario includere un valore del parametro o una variabile nell'oggetto JSON, usare la funzione [concat](resource-group-template-functions-string.md#concat) per creare la stringa che viene passata alla funzione.
 
@@ -769,13 +769,13 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| jsonOutput | Object | {"a": "b"} |
-| nullOutput | Boolean | True |
-| paramOutput | Object | {"a": "valore demo"}
+| jsonOutput | Oggetto | {"a": "b"} |
+| nullOutput | boolean | Vero |
+| paramOutput | Oggetto | {"a": "valore demo"}
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -796,11 +796,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Restituisce l'ultimo elemento della matrice o l'ultimo carattere della stringa.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |array o string |Valore per recuperare l'ultimo elemento o carattere. |
+| arg1 |SÌ |stringa o matrice |Valore per recuperare l'ultimo elemento o carattere. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -835,12 +835,12 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | String | three |
-| stringOutput | String | e |
+| arrayOutput | Stringa | tre |
+| stringOutput | Stringa | e |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -861,11 +861,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Restituisce il numero di elementi in una matrice, i caratteri di una stringa o le proprietà a livello di radice in un oggetto.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |Array, String o Object |Matrice da usare per ottenere il numero di elementi, la stringa da usare per ottenere il numero di caratteri o l'oggetto da usare per ottenere il numero di proprietà a livello di radice. |
+| arg1 |SÌ |Array, String o Object |Matrice da usare per ottenere il numero di elementi, la stringa da usare per ottenere il numero di caratteri o l'oggetto da usare per ottenere il numero di proprietà a livello di radice. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -923,9 +923,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -961,11 +961,11 @@ Per altre informazioni sull'uso di questa funzione con una matrice, vedere [Crea
 
 Restituisce il valore massimo da una matrice di numeri interi o da un elenco di numeri interi delimitato da virgole.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore massimo. |
+| arg1 |SÌ |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore massimo. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -999,9 +999,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -1025,11 +1025,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Restituisce il valore minimo di una matrice di numeri interi o di un elenco di numeri interi delimitato da virgole.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore minimo. |
+| arg1 |SÌ |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore minimo. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1063,9 +1063,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -1089,12 +1089,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Crea una matrice di numeri interi da un numero intero iniziale, contenente un dato numero di elementi.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| startingInteger |Yes |int |Primo numero intero nella matrice. |
-| numberofElements |Sì |int |Numero di valori interi della matrice. |
+| startingInteger |SÌ |int |Primo numero intero nella matrice. |
+| numberofElements |SÌ |int |Numero di valori interi della matrice. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1128,9 +1128,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | rangeOutput | Array | [5, 6, 7] |
 
@@ -1148,17 +1148,17 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="skip" />
 
-## <a name="skip"></a>ignora
+## <a name="skip"></a>skip
 `skip(originalValue, numberToSkip)`
 
 Restituisce una matrice con tutti gli elementi dopo il numero specificato nella matrice stessa o una stringa con tutti i caratteri dopo il numero specificato nella stringa stessa.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sì |array o string |Stringa o matrice da usare per i valori da ignorare. |
-| numberToSkip |Sì |int |Numero di elementi o caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi o i caratteri nel valore. Se il valore è maggiore della lunghezza della stringa o della matrice, viene restituita una stringa o una matrice vuota. |
+| originalValue |SÌ |stringa o matrice |Stringa o matrice da usare per i valori da ignorare. |
+| numberToSkip |SÌ |int |Numero di elementi o caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi o i caratteri nel valore. Se il valore è maggiore della lunghezza della stringa o della matrice, viene restituita una stringa o una matrice vuota. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1208,12 +1208,12 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
-| stringOutput | String | two three |
+| stringOutput | Stringa | two three |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -1234,12 +1234,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Restituisce una matrice con il numero specificato di elementi dall'inizio della matrice, o una stringa con il numero specificato di caratteri dall'inizio della stringa.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sì |array o string |Stringa o matrice da cui prendere gli elementi. |
-| numberToTake |Sì |int |Numero di elementi o caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa o un matrice vuota. Se il valore è maggiore della lunghezza della stringa o matrice specificata, vengono restituiti tutti gli elementi nella stringa o nella matrice. |
+| originalValue |SÌ |stringa o matrice |Stringa o matrice da cui prendere gli elementi. |
+| numberToTake |SÌ |int |Numero di elementi o caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa o un matrice vuota. Se il valore è maggiore della lunghezza della stringa o matrice specificata, vengono restituiti tutti gli elementi nella stringa o nella matrice. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1289,12 +1289,12 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
-| stringOutput | String | sì |
+| stringOutput | Stringa | in |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -1315,13 +1315,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Restituisce una matrice o un oggetto singoli con tutti gli elementi dei parametri. Valori e chiavi duplicati sono inclusi una sola volta.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |array o object |Primo valore da usare per l'aggiunta di elementi. |
-| arg2 |Yes |array o object |Secondo valore da usare per l'aggiunta di elementi. |
-| argomenti aggiuntivi |No |array o object |Valori aggiuntivi da usare per l'aggiunta di elementi. |
+| arg1 |SÌ |matrice o oggetto |Primo valore da usare per l'aggiunta di elementi. |
+| arg2 |SÌ |matrice o oggetto |Secondo valore da usare per l'aggiunta di elementi. |
+| Argomenti aggiuntivi |No |matrice o oggetto |Valori aggiuntivi da usare per l'aggiunta di elementi. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1368,11 +1368,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
+| objectOutput | Oggetto | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:

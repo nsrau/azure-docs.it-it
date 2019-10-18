@@ -1,6 +1,6 @@
 ---
-title: Crea report interattivi con cartelle di lavoro di monitoraggio di Azure | Microsoft Docs
-description: Semplificare report complessi con cartelle di lavoro a con parametri predefiniti e personalizzati per monitoraggio di Azure per le macchine virtuali.
+title: Creare report interattivi con le cartelle di lavoro di monitoraggio di Azure | Microsoft Docs
+description: Semplifica la creazione di report complessi con cartelle di lavoro predefinite e personalizzate con parametri per Monitoraggio di Azure per le macchine virtuali.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -11,45 +11,45 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 9e1427ce8cd83b49f4b9b39fa82eff1e8a32cd10
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61387159"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515423"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Creare report interattivi con cartelle di lavoro di Monitoraggio di Azure
 
-Le cartelle di lavoro combinano testo [registrare query](../log-query/query-language.md), metriche e i parametri in report interattivi avanzati. Le cartelle di lavoro possono essere modificate da tutti gli altri membri del team che possono accedere alla stessa risorsa di Azure.
+Le cartelle di lavoro combinano testo, [query di log](../log-query/query-language.md), metriche e parametri in report interattivi avanzati. Le cartelle di lavoro possono essere modificate da tutti gli altri membri del team che possono accedere alla stessa risorsa di Azure.
 
-Le cartelle di lavoro sono utili per scenari, ad esempio:
+Le cartelle di lavoro sono utili per scenari come:
 
-* Esplorazione dell'utilizzo della macchina virtuale quando non si conoscono in anticipo le metriche di interesse: Utilizzo della CPU, spazio su disco, memoria, le dipendenze dalla rete e così via. A differenza di altri strumenti di analisi dell'utilizzo, le cartelle di lavoro consentono di combinare più tipi di visualizzazioni e analisi, risultando ideali per questo tipo di esplorazione in formato libero.
-* Descrizione al proprio team delle prestazioni di una VM con provisioning di recente, mostrando le metriche dei principali contatori e altri eventi del log.
-* Condivisione dei risultati di un esperimento di ridimensionamento della macchina virtuale con altri membri del team. È possibile descrivere gli obiettivi dell'esperimento usando testo e quindi mostrano come usare ogni query analitica e metriche usate per valutare l'esperimento con callout chiari per se ogni metrica è di sopra o sotto-destinazione.
-* Segnalazione dell'utilizzo della macchina virtuale, la combinazione dei dati, spiegazione del testo e una descrizione dei passaggi successivi per impedire interruzioni in futuro l'impatto di un'interruzione del servizio.
+* Esplorazione dell'utilizzo della macchina virtuale quando non si conoscono in anticipo le metriche di interesse: utilizzo della CPU, spazio su disco, memoria, dipendenze di rete e così via. A differenza di altri strumenti di analisi dell'utilizzo, le cartelle di lavoro consentono di combinare più tipi di visualizzazioni e analisi, rendendoli eccezionali per questo tipo di esplorazione in formato libero.
+* Come spiegare al team l'esecuzione di una macchina virtuale di cui è stato effettuato il provisioning di recente, mostrando le metriche per i contatori chiave e altri eventi del registro.
+* Condivisione dei risultati di un esperimento di ridimensionamento della macchina virtuale con altri membri del team. È possibile illustrare gli obiettivi dell'esperimento con il testo, quindi mostrare ogni metrica di utilizzo e le query di analisi usate per valutare l'esperimento, oltre a deselezionare le chiamate per determinare se ogni metrica era superiore o inferiore alla destinazione.
+* Segnalazione dell'effetto di un'interruzione sull'utilizzo della VM, combinazione di dati, spiegazione del testo e descrizione dei passaggi successivi per evitare interruzioni in futuro.
 
-Monitoraggio di Azure per le macchine virtuali include diverse cartelle di lavoro per iniziare a usare e la tabella seguente contiene un riepilogo.
+Monitoraggio di Azure per le macchine virtuali include diverse cartelle di lavoro per iniziare e la tabella seguente le riepiloga.
 
-| Cartella di lavoro | Descrizione | `Scope` |
+| Cartella di lavoro | Description | Scope |
 |----------|-------------|-------|
-| Prestazioni | Fornisce una versione personalizzabile dei nostri Top N elenco e visualizzazione di grafici in una singola cartella di lavoro che si basa su tutti i contatori delle prestazioni di Analitica di Log abilitati.| Su larga scala |
-| Contatori delle prestazioni | Visualizzazione grafico Top N tra un ampio set di contatori delle prestazioni. | Su larga scala |
-| connessioni | Le connessioni forniscono un'analisi approfondita delle connessioni in ingresso e in uscita dalle macchine virtuali monitorate. | Su larga scala |
-| Porte attive | Fornisce un elenco dei processi che sono associate alle porte su macchine virtuali monitorate e delle attività nell'intervallo di tempo scelto. | Su larga scala |
-| Open Ports (Porte aperte) | Fornisce il numero di porte apre nelle macchine virtuali monitorate e i dettagli su tali porte. | Su larga scala |
-| Connessioni non riuscite | Visualizzare il numero di connessioni non riuscite nelle macchine virtuali monitorate, la tendenza di errore, e se la percentuale di errori aumenta nel tempo. | Su larga scala |
-| Security and Audit | Un'analisi del traffico TCP/IP che segnala le connessioni generale, le connessioni dannose, in cui l'endpoint IP si trovano a livello globale.  Per abilitare tutte le funzionalità, è necessario abilitare il rilevamento di sicurezza. | Su larga scala |
-| Traffico TCP | Un report con la pertinenza per le macchine virtuali monitorate e la relativa rete totale, inviato e ricevuto il traffico in una griglia, visualizzata come una linea di tendenza. | Su larga scala |
-| Confronto traffico | Questo cartelle di lavoro consente di confrontare le tendenze del traffico di rete per un singolo computer o un gruppo di computer. | Su larga scala |
-| Prestazioni | Fornisce una versione personalizzabile della visualizzazione prestazioni che si basa su tutti i contatori delle prestazioni di Analitica di Log abilitati. | Macchina virtuale singola | 
-| connessioni | Le connessioni forniscono un'analisi approfondita delle connessioni in ingresso e in uscita dalla macchina virtuale. | Macchina virtuale singola |
+| Performance | Fornisce una versione personalizzabile della visualizzazione Top N list e Charts in una singola cartella di lavoro che utilizza tutti i contatori delle prestazioni Log Analytics abilitati.| Su larga scala |
+| Contatori delle prestazioni | Visualizzazione del grafico Top N in un'ampia gamma di contatori delle prestazioni. | Su larga scala |
+| connessioni | Connessioni fornisce una visualizzazione approfondita delle connessioni in ingresso e in uscita dalle macchine virtuali monitorate. | Su larga scala |
+| Porte attive | Fornisce un elenco dei processi associati alle porte nelle VM monitorate e le relative attività nell'intervallo di tempo scelto. | Su larga scala |
+| Open Ports (Porte aperte) | Fornisce il numero di porte aperte sulle VM monitorate e i dettagli sulle porte aperte. | Su larga scala |
+| Connessioni non riuscite | Visualizzare il numero di connessioni non riuscite nelle VM monitorate, la tendenza dell'errore e se la percentuale di errori aumenta nel tempo. | Su larga scala |
+| Security and Audit | Un'analisi del traffico TCP/IP che segnala le connessioni globali, le connessioni dannose, in cui gli endpoint IP si trovano a livello globale.  Per abilitare tutte le funzionalità, è necessario abilitare il rilevamento della sicurezza. | Su larga scala |
+| Traffico TCP | Un report classificato per le macchine virtuali monitorate e il traffico di rete inviato, ricevuto e totale in una griglia e visualizzato come linea di tendenza. | Su larga scala |
+| Confronto traffico | Questa cartella di lavoro consente di confrontare le tendenze del traffico di rete per un singolo computer o un gruppo di computer. | Su larga scala |
+| Performance | Fornisce una versione personalizzabile della vista prestazioni che sfrutta tutti i contatori delle prestazioni Log Analytics abilitati. | Macchina virtuale singola | 
+| connessioni | Connections (connessioni) fornisce una visualizzazione approfondita delle connessioni in ingresso e in uscita dalla macchina virtuale. | Macchina virtuale singola |
  
 ## <a name="starting-with-a-template-or-saved-workbook"></a>Iniziare da un modello o da una cartella di lavoro salvata
 
-Una cartella di lavoro è composta di sezioni costituite da grafici, tabelle, testo e controlli di input modificabili in modo indipendente gli uni dagli altri. Per comprendere meglio le cartelle di lavoro, aprire un modello e descrive la creazione di una cartella di lavoro personalizzato. 
+Una cartella di lavoro è composta di sezioni costituite da grafici, tabelle, testo e controlli di input modificabili in modo indipendente gli uni dagli altri. Per comprendere meglio le cartelle di lavoro, è possibile iniziare aprendo un modello e illustrando la creazione di una cartella di lavoro personalizzata. 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -59,27 +59,27 @@ Una cartella di lavoro è composta di sezioni costituite da grafici, tabelle, te
 
 4. Nella sezione **Monitoraggio** della pagina della macchina virtuale selezionare **Insights (anteprima)** .
 
-5. Nella pagina informazioni dettagliate della macchina virtuale, selezionare **prestazioni** oppure **Maps** scheda e quindi selezionare **cartelle di lavoro di visualizzazione** dal collegamento nella pagina. 
+5. Nella pagina VM Insights selezionare scheda **prestazioni** o **mappe** , quindi selezionare **Visualizza cartelle di lavoro** dal collegamento nella pagina. 
 
     ![Screenshot di spostamento nelle cartelle di lavoro](media/vminsights-workbooks/workbook-option-01.png)
 
-6. Nell'elenco a discesa, selezionare **Vai alla raccolta** dalla parte inferiore dell'elenco.
+6. Nell'elenco a discesa selezionare **Vai a raccolta** nella parte inferiore dell'elenco.
 
-    ![Screenshot dell'elenco di riepilogo a discesa della cartella di lavoro](media/vminsights-workbooks/workbook-dropdown-gallery-01.png)
+    ![Screenshot dell'elenco a discesa cartella di lavoro](media/vminsights-workbooks/workbook-dropdown-gallery-01.png)
 
-    Avvia la raccolta di cartella di lavoro con un numero di cartelle di lavoro predefiniti che consentono di iniziare.
+    Viene avviata la raccolta di cartelle di lavoro con una serie di cartelle di lavoro predefinite che consentono di iniziare.
 
 7. Si inizierà con il **Modello predefinito**, che si trova sotto l'intestazione **Avvio rapido**.
 
     ![Screenshot della raccolta di cartelle di lavoro](media/vminsights-workbooks/workbook-gallery-01.png)
 
-## <a name="editing-workbook-sections"></a>Modifica delle sezioni della cartella di lavoro
+## <a name="editing-workbook-sections"></a>Modifica di sezioni di cartelle di lavoro
 
-Le cartelle di lavoro presentano due modalità: **modalità di modifica** e **modalità di lettura**. Quando la cartella di lavoro modello predefinito prima di tutto viene avviata, viene aperta **modalità di modifica**. Mostra tutto il contenuto della cartella di lavoro, inclusi eventuali passaggi e i parametri che sono altrimenti sarebbe nascosto. La **modalità di lettura** presenta una visualizzazione semplificata sotto forma di report. Modalità di lettura consente sottraggono la complessità che si è verificato un errore nella creazione di un report mantenendo al contempo i meccanismi sottostanti solo pochi clic del mouse quando necessario per la modifica.
+Le cartelle di lavoro presentano due modalità: **modalità di modifica** e **modalità di lettura**. Quando la cartella di lavoro del modello predefinita viene avviata per la prima volta, viene aperta in **modalità di modifica**. Mostra tutto il contenuto della cartella di lavoro, inclusi tutti i passaggi e i parametri altrimenti nascosti. La **modalità di lettura** presenta una visualizzazione semplificata sotto forma di report. La modalità di lettura consente di astrarre la complessità della creazione di un report, mantenendo al tempo stesso la meccanica sottostante solo pochi clic quando necessario per la modifica.
 
-![Monitoraggio di Azure per la sezione delle cartelle di lavoro di macchine virtuali i controlli di modifica](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
+![Controlli di modifica della sezione cartelle di lavoro Monitoraggio di Azure per le macchine virtuali](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 
-1. Dopo aver modificato una sezione, fare clic su **modifica completata** nell'angolo inferiore sinistro della sezione.
+1. Al termine della modifica di una sezione, fare clic su **modifica eseguita** nell'angolo inferiore sinistro della sezione.
 
 2. Per creare un duplicato di una sezione, fare clic sull'icona **Clona questa sezione**. La creazione di sezioni duplicate è un ottimo modo per eseguire l'iterazione in una query senza perdere le iterazioni precedenti.
 
@@ -101,43 +101,43 @@ Per aggiungere una sezione di query alla cartella di lavoro, usare il pulsante *
 
 Le sezioni di query, estremamente flessibili, possono essere usate per rispondere a domande quali:
 
-* Come è stato l'utilizzo della CPU durante il periodo di tempo stesso un aumento del traffico di rete?
-* Qual è la tendenza nello spazio disponibile su disco nell'ultimo mese?
-* Quanti errori di connessione di rete VM esperienza nelle ultime due settimane? 
+* In che modo l'utilizzo della CPU si è verificato durante lo stesso periodo di tempo di un aumento del traffico di rete?
+* Qual è la tendenza dello spazio su disco disponibile nell'ultimo mese?
+* Quanti errori di connessione di rete sono stati rilevati nella macchina virtuale nelle ultime due settimane? 
 
-Inoltre non sono solo limitati per l'esecuzione di query dal contesto della macchina virtuale viene avviata la cartella di lavoro da. È possibile eseguire query tra più macchine virtuali, nonché le aree di lavoro di Log Analitica, purché si disponga dell'autorizzazione di accesso a tali risorse.
+Non è inoltre possibile eseguire query solo dal contesto della macchina virtuale dalla quale è stata avviata la cartella di lavoro. È possibile eseguire query su più macchine virtuali, nonché Log Analytics aree di lavoro, purché si disponga delle autorizzazioni di accesso a tali risorse.
 
-Per includere dati da altre aree di lavoro di Log Analitica o da una specifica app Application Insights usando il **dell'area di lavoro** identificatore. Per altre informazioni sulle query tra risorse, vedere la [linee guida ufficiali](../log-query/cross-workspace-query.md).
+Per includere dati da altre aree di lavoro Log Analytics o da un'app Application Insights specifica usando l'identificatore dell' **area di lavoro** . Per altre informazioni sulle query tra risorse, vedere la [Guida ufficiale](../log-query/cross-workspace-query.md).
 
 ### <a name="advanced-analytic-query-settings"></a>Impostazioni avanzate per le query di analisi
 
-Ogni sezione ha le proprie impostazioni avanzate, che sono accessibili tramite le impostazioni ![controlli di modifica delle sezioni delle cartelle](media/vminsights-workbooks/006-settings.png) icona che si trova a destra del **aggiungere parametri** pulsante.
+In ogni sezione sono disponibili impostazioni avanzate, accessibili tramite le impostazioni ![Workbooks sezione controlli di modifica ](media/vminsights-workbooks/006-settings.png) icona a destra del pulsante **Aggiungi parametri** .
 
-![Monitoraggio di Azure per la sezione delle cartelle di lavoro di macchine virtuali i controlli di modifica](media/vminsights-workbooks/007-settings-expanded.png)
+![Controlli di modifica della sezione cartelle di lavoro Monitoraggio di Azure per le macchine virtuali](media/vminsights-workbooks/007-settings-expanded.png)
 
 |         |          |
 | ---------------- |:-----|
-| **Imposta larghezza personalizzata per l'elemento**    | L'elemento è una dimensione arbitraria, pertanto è possibile inserire molti elementi in una singola riga consente di organizzare meglio le tabelle e grafici nel report interattivi avanzati.  |
-| **Imposta la visibilità condizionata per questo elemento** | Consente di nascondere i passaggi in base a un parametro quando in modalità di lettura. |
-| **Quando è selezionato un elemento del grafico, esporta un parametro**| Consentire una riga selezionata nella griglia o nel grafico per fare in modo i passaggi successivi modificare i valori o diverranno visibili.  |
-| **Mostra query quando non viene modificata** | Visualizza la query sopra il grafico o la tabella anche se in modalità di lettura.
-| **Mostra il pulsante Apri in Analisi quando non è attiva la modalità di modifica** | Aggiunge l'icona di Analitica blu nell'angolo a destra del grafico per consentire l'accesso con un clic.|
+| **Imposta larghezza personalizzata per l'elemento**    | Rende una dimensione arbitraria di un elemento, in modo da poter adattare molti elementi a una singola riga consentendo di organizzare meglio i grafici e le tabelle in report interattivi avanzati.  |
+| **Imposta la visibilità condizionata per questo elemento** | Specificare per nascondere i passaggi in base a un parametro in modalità lettura. |
+| **Quando è selezionato un elemento del grafico, esporta un parametro**| Consenti a una riga selezionata della griglia o del grafico di fare in modo che i passaggi successivi modifichino i valori o diventino visibili.  |
+| **Mostra query quando non viene modificata** | Consente di visualizzare la query sopra il grafico o la tabella anche in modalità lettura.
+| **Mostra il pulsante Apri in Analisi quando non è attiva la modalità di modifica** | Aggiunge l'icona di analisi blu all'angolo destro del grafico per consentire l'accesso con un solo clic.|
 
 La maggior parte di queste impostazioni è piuttosto intuitiva, ma per comprendere **Quando è selezionato un elemento del grafico, esporta un parametro** è consigliabile esaminare una cartella di lavoro che usa questa funzionalità.
 
-Una delle cartelle di lavoro predefiniti - **il traffico TCP**, vengono fornite informazioni sulle metriche di connessione da una macchina virtuale.
+Una delle cartelle di lavoro predefinite, ovvero il **traffico TCP**, fornisce informazioni sulle metriche di connessione da una macchina virtuale.
 
-La prima sezione della cartella di lavoro si basa sui dati di query di log. La seconda sezione è inoltre basata sui dati di query di log, ma selezionando una riga della prima tabella verrà aggiornata in modo interattivo il contenuto dei grafici:
+La prima sezione della cartella di lavoro è basata sui dati della query di log. La seconda sezione è basata anche sui dati della query di log, ma la selezione di una riga nella prima tabella aggiornerà in modo interattivo il contenuto dei grafici:
 
-![Monitoraggio di Azure per la sezione delle cartelle di lavoro di macchine virtuali i controlli di modifica](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
+![Controlli di modifica della sezione cartelle di lavoro Monitoraggio di Azure per le macchine virtuali](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
 
-Il comportamento è possibile tramite l'uso del **quando viene selezionato un elemento, esportare un parametro** le impostazioni avanzate, che vengono abilitate in query di log della tabella.
+Il comportamento è possibile tramite l'utilizzo di **quando si seleziona un elemento, l'esportazione** delle impostazioni avanzate di un parametro, abilitate nella query di log della tabella.
 
-![Monitoraggio di Azure per la sezione delle cartelle di lavoro di macchine virtuali i controlli di modifica](media/vminsights-workbooks/009-settings-export.png)
+![Controlli di modifica della sezione cartelle di lavoro Monitoraggio di Azure per le macchine virtuali](media/vminsights-workbooks/009-settings-export.png)
 
-La seconda query di log Usa quindi i valori esportati quando è selezionata una riga per creare un set di valori che vengono quindi usate per l'intestazione della sezione e grafici. Se è selezionata alcuna riga, nasconde l'intestazione della sezione e grafici. 
+La seconda query di log utilizza quindi i valori esportati quando viene selezionata una riga per creare un set di valori che vengono quindi utilizzati dall'intestazione e dai grafici della sezione. Se non è selezionata alcuna riga, l'intestazione e i grafici della sezione vengono nascosti. 
 
-Ad esempio, il parametro nascosto nella seconda sezione Usa il riferimento seguente dalla riga selezionata nella griglia:
+Ad esempio, il parametro hidden nella seconda sezione usa il riferimento seguente dalla riga selezionata nella griglia:
 
 ```
 VMConnection
@@ -148,56 +148,56 @@ VMConnection
 
 ## <a name="adding-metrics-sections"></a>Aggiunta di sezioni di metriche
 
-Le sezioni di metriche consentono l'accesso completo ai dati delle metriche di Monitoraggio di Azure perché sia possibile incorporarli nei report interattivi. In Monitoraggio di Azure per le macchine virtuali, le cartelle di lavoro predefiniti in genere non contengono dati di query analitiche anziché dati relativi alle metriche.  È possibile scegliere di creare le cartelle di lavoro con dati relativi alle metriche, consentendo di sfruttare il meglio di entrambe le funzionalità in un'unica posizione. È anche possibile eseguire il pull di dati delle metriche dalle risorse di una qualsiasi delle sottoscrizioni a cui è possibile accedere.
+Le sezioni di metriche consentono l'accesso completo ai dati delle metriche di Monitoraggio di Azure perché sia possibile incorporarli nei report interattivi. In Monitoraggio di Azure per le macchine virtuali le cartelle di lavoro predefinite contengono in genere dati di query analitici anziché dati di metrica.  È possibile scegliere di creare cartelle di lavoro con dati di metrica, consentendo di sfruttare al meglio tutte le funzionalità disponibili in un'unica posizione. È anche possibile eseguire il pull di dati delle metriche dalle risorse di una qualsiasi delle sottoscrizioni a cui è possibile accedere.
 
-Di seguito è riportato un esempio di dati della macchina virtuale in corso il pull in una cartella di lavoro per fornire una visualizzazione griglia di prestazioni della CPU:
+Di seguito è riportato un esempio di dati della macchina virtuale di cui è stato eseguito il pull in una cartella di lavoro per fornire una visualizzazione griglia delle prestazioni della CPU:
 
-![Monitoraggio di Azure per la sezione delle cartelle di lavoro di macchine virtuali i controlli di modifica](media/vminsights-workbooks/010-metrics-grid.png)
+![Controlli di modifica della sezione cartelle di lavoro Monitoraggio di Azure per le macchine virtuali](media/vminsights-workbooks/010-metrics-grid.png)
 
 ## <a name="adding-parameter-sections"></a>Aggiunta di sezioni di parametri
 
 I parametri di una cartella di lavoro consentono di modificare i valori nella cartella senza dover modificare manualmente le sezioni di query o di testo. In questo modo non è necessario comprendere il linguaggio delle query di analisi sottostante e il numero dei destinatari possibili dei report basati sulle cartelle di lavoro viene notevolmente ampliato.
 
-Nelle sezioni di query, di testo o di altri parametri, al posto del valore di un parametro si trova il nome del parametro stesso tra parentesi graffe, ad esempio ``{parameterName}``. I nomi dei parametri sono limitati a regole simili come identificatori JavaScript, i caratteri alfabetici o caratteri di sottolineatura, seguiti da caratteri alfanumerici o caratteri di sottolineatura. Ad esempio, il nome **a1** è consentito, ma **1a** non lo è.
+Nelle sezioni di query, di testo o di altri parametri, al posto del valore di un parametro si trova il nome del parametro stesso tra parentesi graffe, ad esempio ``{parameterName}``. I nomi dei parametri sono limitati a regole simili come identificatori JavaScript, caratteri alfabetici o caratteri di sottolineatura, seguiti da caratteri alfanumerici o caratteri di sottolineatura. Ad esempio, il nome **a1** è consentito, ma **1a** non lo è.
 
-I parametri sono lineari. Iniziano dalla parte superiore della cartella di lavoro e continuano verso il basso attraverso i passaggi successivi.  I parametri dichiarati più avanti in una cartella di lavoro è possono sostituire i parametri che sono stati dichiarati in precedenza. In questo modo anche i parametri che utilizzano le query per accedere ai valori dei parametri definiti in precedenza. Anche all'interno del passaggio di un parametro, i parametri sono lineari, da sinistra a destra. I parametri a destra possono dipendere da un parametro dichiarato in precedenza nello stesso passaggio.
+I parametri sono lineari. Iniziano dalla parte superiore della cartella di lavoro e continuano verso il basso attraverso i passaggi successivi.  I parametri dichiarati in una cartella di lavoro possono eseguire l'override dei parametri dichiarati in precedenza. Consente inoltre ai parametri che usano le query di accedere ai valori dei parametri definiti in precedenza. Anche all'interno del passaggio di un parametro, i parametri sono lineari, da sinistra a destra. I parametri a destra possono dipendere da un parametro dichiarato in precedenza nello stesso passaggio.
  
-Esistono quattro diversi tipi di parametri, che sono attualmente supportati:
+Sono disponibili quattro tipi diversi di parametri, attualmente supportati:
 
 |                  |      |
 | ---------------- |:-----|
-| **Text**    | Consente all'utente di modificare una casella di testo e, facoltativamente, è possibile fornire una query per inserire il valore predefinito. |
-| **Elenco a discesa** | Consente all'utente di scegliere da un set di valori. |
-| **Selezione dell'intervallo di tempo**| Consente all'utente di scegliere da un set predefinito di valori di intervallo di tempo o selezionare da un intervallo di tempo personalizzato.|
+| **Text**    | Consente all'utente di modificare una casella di testo ed è possibile specificare facoltativamente una query per inserire il valore predefinito. |
+| **Elenco a discesa** | Consente all'utente di scegliere un set di valori. |
+| **Selezione dell'intervallo di tempo**| Consente all'utente di scegliere tra un set predefinito di valori di intervallo di tempo o di scegliere un intervallo di tempo personalizzato.|
 | **Selezione risorse** | Consente all'utente di scegliere tra le risorse selezionate per la cartella di lavoro.|
 
 ### <a name="using-a-text-parameter"></a>Uso di un parametro di testo
 
-Il valore di un utente digita nella casella di testo viene sostituito direttamente nella query, senza eseguire l'escape o virgolette. Se il valore necessario è una stringa, all'interno della query il parametro deve essere racchiuso tra virgolette (ad esempio **'{parametro}'** ).
+Il valore che un utente digita nella casella di testo viene sostituito direttamente nella query, senza escape o virgolette. Se il valore necessario è una stringa, all'interno della query il parametro deve essere racchiuso tra virgolette (ad esempio **'{parametro}'** ).
 
-Il parametro di testo consente un valore in una casella di testo per essere utilizzati ovunque. in un nome di tabella, di colonna o di funzione, in un operatore e così via.  Il tipo di parametro di testo ha un'impostazione **ottenere il valore predefinito dalla query analitica**, che consente all'autore della cartella di lavoro di usare una query per popolare il valore predefinito per tale casella di testo.
+Il parametro text consente di usare il valore in una casella di testo in qualsiasi punto. Può essere un nome di tabella, un nome di colonna, un nome di funzione, un operatore e così via.  Il tipo di parametro text dispone di un'impostazione **Get default value from Analytics query**, che consente all'autore della cartella di lavoro di utilizzare una query per popolare il valore predefinito per tale casella di testo.
 
-Quando si usa il valore predefinito da una query di log, solo il primo valore della prima riga (riga 0 e una colonna 0) viene utilizzato come valore predefinito. È pertanto consigliabile fare in modo che la query restituisca una sola riga e una sola colonna. Eventuali altri dati restituiti dalla query vengono ignorati. 
+Quando si usa il valore predefinito da una query di log, come valore predefinito viene usato solo il primo valore della prima riga (riga 0, colonna 0). È pertanto consigliabile fare in modo che la query restituisca una sola riga e una sola colonna. Eventuali altri dati restituiti dalla query vengono ignorati. 
 
 Qualsiasi valore venga restituito dalla query viene inserito direttamente, senza escape o virgolette. Se la query non restituisce alcuna riga, il risultato del parametro corrisponde a una stringa vuota (se il parametro non è obbligatorio) oppure non è definito (se il parametro è obbligatorio).
 
-### <a name="using-a-drop-down"></a>Usando un elenco a discesa
+### <a name="using-a-drop-down"></a>Uso di un elenco a discesa
 
-Il tipo di parametro di elenco a discesa consente di creare un controllo elenco a discesa, che consente la selezione di uno o più valori.
+Il tipo di parametro DropDown consente di creare un controllo a discesa, consentendo la selezione di uno o più valori.
 
-L'elenco a discesa viene popolato da una query di log o JSON. Se la query restituisce una colonna, i valori in tale colonna sono sia il valore e l'etichetta nel controllo elenco a discesa. Se la query restituisce due colonne, la prima colonna è il valore e la seconda colonna è l'etichetta visualizzata nell'elenco a discesa. Se la query restituisce tre colonne, la terza colonna consente di indicare la selezione predefinita in tale elenco a discesa. Questa colonna può essere di qualsiasi tipo, ma i più semplici da usare sono i tipi numerico e booleano, con 0 corrispondente a falso e 1 a vero.
+L'elenco a discesa viene popolato da una query di log o da JSON. Se la query restituisce una colonna, i valori della colonna sono sia il valore che l'etichetta nel controllo a discesa. Se la query restituisce due colonne, la prima colonna è il valore e la seconda colonna è l'etichetta visualizzata nell'elenco a discesa. Se la query restituisce tre colonne, la terza colonna viene utilizzata per indicare la selezione predefinita nell'elenco a discesa. Questa colonna può essere di qualsiasi tipo, ma i più semplici da usare sono i tipi numerico e booleano, con 0 corrispondente a falso e 1 a vero.
 
-Se la colonna è di tipo stringa, una stringa Null o vuota è considerata falsa e qualsiasi altro valore è considerato vero. Per elenchi a discesa di selezione singola, viene utilizzato il primo valore con un valore true come selezione predefinita.  Per elenchi a discesa di selezione più, tutti i valori con un valore true vengono utilizzati come il set predefinito selezionato. Gli elementi nell'elenco a discesa vengono visualizzati in qualsiasi ordine dalla query vengono restituite righe. 
+Se la colonna è di tipo stringa, una stringa Null o vuota è considerata falsa e qualsiasi altro valore è considerato vero. Per gli elenchi a discesa a selezione singola, il primo valore con un valore true viene usato come selezione predefinita.  Per gli elenchi a discesa a selezione multipla, tutti i valori con un valore true vengono usati come set selezionato predefinito. Gli elementi nell'elenco a discesa vengono visualizzati nell'ordine in cui la query ha restituito le righe. 
 
-Esaminiamo i parametri presenti nel report panoramica delle connessioni. Fare clic sul simbolo di modifica accanto a **direzione**.
+Esaminiamo i parametri presenti nel report Panoramica connessioni. Fare clic sul simbolo di modifica accanto a **direzione**.
 
-![Monitoraggio di Azure per la sezione delle cartelle di lavoro di macchine virtuali i controlli di modifica](media/vminsights-workbooks/011-workbook-using-dropdown.png)
+![Controlli di modifica della sezione cartelle di lavoro Monitoraggio di Azure per le macchine virtuali](media/vminsights-workbooks/011-workbook-using-dropdown.png)
 
-Verrà avviata il **Modifica parametro** voce di menu.
+Verrà avviata la voce di menu **modifica parametro** .
 
-![Monitoraggio di Azure per la sezione delle cartelle di lavoro di macchine virtuali i controlli di modifica](media/vminsights-workbooks/012-workbook-edit-parameter.png)
+![Controlli di modifica della sezione cartelle di lavoro Monitoraggio di Azure per le macchine virtuali](media/vminsights-workbooks/012-workbook-edit-parameter.png)
 
-Il codice JSON consente di generare una tabella arbitraria inserita contenuto. Il codice JSON seguente, ad esempio, genera due valori nell'elenco a discesa:
+JSON consente di generare una tabella arbitraria popolata con contenuto. Ad esempio, il codice JSON seguente genera due valori nell'elenco a discesa:
 
 ```
 [
@@ -206,7 +206,7 @@ Il codice JSON consente di generare una tabella arbitraria inserita contenuto. I
 ]
 ```
 
-Un esempio più applicabile utilizza un elenco a discesa per selezionare da un set di contatori delle prestazioni in base al nome:
+Un esempio più applicabile consiste nell'utilizzare un elenco a discesa per selezionare un set di contatori delle prestazioni in base al nome:
 
 ```
 Perf
@@ -217,9 +217,9 @@ Perf
 
 La query visualizzerà i risultati indicati di seguito:
 
-![Elenco a discesa del contatore delle prestazioni](media/vminsights-workbooks/013-workbook-edit-parameter-perf-counters.png)
+![Elenco a discesa contatore prestazioni](media/vminsights-workbooks/013-workbook-edit-parameter-perf-counters.png)
 
-Elenchi a discesa sono estremamente potenti strumenti per la personalizzazione e creazione di report interattivi.
+Gli elenchi a discesa sono strumenti incredibilmente potenti per la personalizzazione e la creazione di report interattivi.
 
 ### <a name="time-range-parameters"></a>Parametri dell'intervallo di tempo
 
@@ -229,13 +229,13 @@ I tipi di parametro intervallo di tempo predefiniti offrono 15 intervalli predef
 
 ### <a name="resource-picker"></a>Selezione risorse
 
-Il tipo di parametro selezione risorse offre la possibilità di definire l'ambito del report su tipi di risorse specifici. Un esempio di una cartella di lavoro predefinito che sfrutta il tipo di selezione della risorsa è il **prestazioni** della cartella di lavoro.
+Il tipo di parametro selezione risorse offre la possibilità di definire l'ambito del report su tipi di risorse specifici. Un esempio di una cartella di lavoro predefinita che utilizza il tipo di selezione risorse è la cartella di lavoro **prestazioni** .
 
-![Elenco a discesa di aree di lavoro](media/vminsights-workbooks/014-workbook-edit-parameter-workspaces.png)
+![Elenco a discesa aree di lavoro](media/vminsights-workbooks/014-workbook-edit-parameter-workspaces.png)
 
 ## <a name="saving-and-sharing-workbooks-with-your-team"></a>Salvataggio e condivisione delle cartelle di lavoro con il team
 
-Le cartelle di lavoro vengono salvate all'interno di un'area di lavoro di Log Analitica o di una risorsa di macchina virtuale, a seconda della modalità di accesso alla raccolta di cartelle di lavoro. La cartella di lavoro può essere salvato nel **report personali** privato o nella sezione la **report condivisi** sezione accessibile a tutti gli utenti con accesso alla risorsa. Per visualizzare tutte le cartelle di lavoro della risorsa, fare clic sul pulsante **Apri** nella barra delle azioni.
+Le cartelle di lavoro vengono salvate in un'area di lavoro Log Analytics o in una risorsa di macchina virtuale, a seconda della modalità di accesso alla raccolta di cartelle di lavoro. La cartella di lavoro può essere salvata nella sezione **report personali** riservata all'utente o nella sezione **report condivisi** accessibile a tutti gli utenti che dispongono dell'accesso alla risorsa. Per visualizzare tutte le cartelle di lavoro della risorsa, fare clic sul pulsante **Apri** nella barra delle azioni.
 
 Per condividere una cartella di lavoro che è attualmente in **Report personali**:
 
@@ -252,4 +252,7 @@ Per aggiungere un collegamento in una cartella di lavoro in un dashboard di Azur
 3. Fare clic su **Aggiungi al dashboard**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni su come usare la funzionalità di integrità, vedere [Visualizza stato della macchina virtuale di Azure](vminsights-health.md), o per visualizzare le dipendenze individuate dell'applicazione, vedere [visualizzazione Monitoraggio di Azure per la mappa VMs](vminsights-maps.md). 
+
+- Per identificare le limitazioni e le prestazioni complessive della macchina virtuale, vedere [visualizzare le prestazioni delle macchine virtuali di Azure](vminsights-performance.md).
+
+- Per informazioni sulle dipendenze dell'applicazione individuate, vedere [visualizzare monitoraggio di Azure per le macchine virtuali mappa](vminsights-maps.md).

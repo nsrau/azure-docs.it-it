@@ -1,17 +1,17 @@
 ---
-title: Creare gruppi di risorse e risorse nel modello di Azure Resource Manager della sottoscrizione
+title: Distribuire il livello di sottoscrizione-modello di Azure Resource Manager
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 913014a9b7e24345cd21979ba20ea1a1a938d022
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: d8b1be1d79ae0426d73c45408dd3c4f4f4660afb
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001611"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532185"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creare gruppi di risorse e risorse a livello di sottoscrizione
 
@@ -153,7 +153,7 @@ Per creare più gruppi di risorse usare l'[elemento copy](resource-group-create-
 }
 ```
 
-Per informazioni sull'iterazione delle risorse, vedere [Distribuire più istanze di una risorsa o di una proprietà nei modelli di Azure Resource Manager](./resource-group-create-multiple.md), ed [Esercitazione: Creare più istanze di risorse con modelli di Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
+Per informazioni sull'iterazione delle risorse, vedere [distribuire più istanze di una risorsa o di una proprietà in Azure Resource Manager Templates](./resource-group-create-multiple.md)ed [esercitazione: creare più istanze di risorse con i modelli di gestione risorse](./resource-manager-tutorial-create-multiple-instances.md).
 
 ## <a name="resource-group-and-resources"></a>Gruppo di risorse e risorse
 
@@ -224,9 +224,9 @@ L'esempio seguente crea un gruppo di risorse e distribuisce un account di archiv
 }
 ```
 
-## <a name="create-policies"></a>Crea criteri
+## <a name="create-policies"></a>Creare criteri
 
-### <a name="assign-policy"></a>Assegna criteri
+### <a name="assign-policy"></a>Assegnare un criterio
 
 L'esempio seguente assegna una definizione di criteri esistente alla sottoscrizione. Se i criteri accettano parametri, specificarli come oggetto. Se non accettano parametri, usare l'oggetto vuoto predefinito.
 

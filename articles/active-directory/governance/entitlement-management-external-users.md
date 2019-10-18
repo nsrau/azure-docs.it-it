@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcf4a0272e21a1fba3cf9adbd9158492e4318578
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 419970985b9531ffab348491730aaf6c00e143b1
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72452991"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527108"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management-preview"></a>Governare l'accesso per gli utenti esterni in Azure AD gestione dei diritti (anteprima)
 
@@ -90,12 +90,15 @@ Nel diagramma e nei passaggi seguenti viene fornita una panoramica del modo in c
 
 1. Dopo che un utente esterno ha perso l'ultima assegnazione a tutti i pacchetti di accesso, se si desidera impedire l'accesso a questa directory, impostare il **blocco dell'utente esterno dall'accesso a questa directory** su **Sì**.
 
-1. Quando un utente esterno perde l'ultima assegnazione a tutti i pacchetti di accesso, se si desidera rimuovere l'account utente guest nella directory, impostare **Rimuovi utente esterno** su **Sì**.
+    > [!NOTE]
+    > Se a un utente viene impedito l'accesso a questa directory, l'utente non sarà in grado di ririchiedere il pacchetto di accesso o di richiedere ulteriore accesso in questa directory. Non configurare il blocco dell'accesso se successivamente dovranno richiedere l'accesso ad altri pacchetti di accesso.
+
+1. Quando un utente esterno perde l'ultima assegnazione a tutti i pacchetti di accesso, se si desidera rimuovere l'account utente guest in questa directory, impostare **Rimuovi utente esterno** su **Sì**.
 
     > [!NOTE]
-    > La gestione dei diritti rimuove solo gli account che sono stati invitati tramite la gestione dei diritti. Si noti inoltre che un utente verrà bloccato dall'accesso e rimosso dalla directory anche se tale utente è stato aggiunto alle risorse nella directory che non erano in grado di accedere alle assegnazioni dei pacchetti. Se il Guest è presente nella directory prima di ricevere le assegnazioni dei pacchetti di accesso, rimarrà. Tuttavia, se il Guest è stato invitato attraverso un'assegnazione del pacchetto di accesso e dopo essere stato invitato è stato assegnato anche a un sito di OneDrive for business o SharePoint Online, questi verranno comunque rimossi.
+    > La gestione dei diritti rimuove solo gli account che sono stati invitati tramite la gestione dei diritti. Si noti inoltre che a un utente verrà impedito l'accesso e la rimozione da questa directory anche se tale utente è stato aggiunto alle risorse di questa directory che non erano in grado di accedere alle assegnazioni dei pacchetti. Se il Guest era presente in questa directory prima di ricevere le assegnazioni dei pacchetti di accesso, rimarranno. Tuttavia, se il Guest è stato invitato attraverso un'assegnazione del pacchetto di accesso e dopo essere stato invitato è stato assegnato anche a un sito di OneDrive for business o SharePoint Online, questi verranno comunque rimossi.
 
-1. Se si desidera rimuovere l'account utente guest nella directory, è possibile impostare il numero di giorni prima della rimozione. Se si desidera rimuovere l'account utente Guest non appena si perde l'ultima assegnazione a tutti i pacchetti di accesso, impostare il **numero di giorni prima di rimuovere l'utente esterno da questa directory** a **0**.
+1. Se si desidera rimuovere l'account utente guest in questa directory, è possibile impostare il numero di giorni prima della rimozione. Se si desidera rimuovere l'account utente Guest non appena si perde l'ultima assegnazione a tutti i pacchetti di accesso, impostare il **numero di giorni prima di rimuovere l'utente esterno da questa directory** a **0**.
 
 1. Fare clic su **Salva**
 
@@ -113,6 +116,6 @@ Quando si crea un [nuovo catalogo](entitlement-management-catalog-create.md), è
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Per gli utenti che non si trovino nella directory](entitlement-management-access-package-create.md#for-users-not-in-your-directory)
+- [Per gli utenti che non si trovino nella directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
 - [Creare e gestire un catalogo di risorse](entitlement-management-catalog-create.md)
 - [Delega e ruoli](entitlement-management-delegate.md)

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9671ddcf98ae97c0a3df49cce008faf403f5dcd2
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 5adcf252fed4ac94ae4261886b24eb087424bdbe
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981101"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533141"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per backup di Azure
 
@@ -35,7 +35,7 @@ La tabella seguente descrive le funzionalità degli insiemi di credenziali di se
 **Insiemi di credenziali nella sottoscrizione** | Fino a 500 insiemi di credenziali di Servizi di ripristino in una sottoscrizione singola.
 **Computer in un insieme di credenziali** | Fino a 1.000 VM di Azure in un unico insieme di credenziali.<br/><br/> In un singolo insieme di credenziali possono essere registrati fino a 50 server MABS.
 **Origini dati nell'archivio dell'insieme di credenziali** | Massimo 54.400 GB. Non esistono limiti per i backup delle macchine virtuali di Azure.
-**Backup in un insieme di credenziali** | **Macchine virtuali di Azure:** Una volta al giorno.<br/><br/>**Computer protetti da DPM/MAB:** Due volte al giorno.<br/><br/> **Computer sottoposti a backup direttamente usando l'agente MARS:** Tre volte al giorno.
+**Backup in un insieme di credenziali** | **Macchine virtuali di Azure:** Una volta al giorno.<br/><br/>**Computer protetti da DPM/MAB:** Due volte al giorno.<br/><br/> **Computer sottoposti a backup direttamente usando l'agente Mars:** Tre volte al giorno.
 **Backup tra insiemi di credenziali** | Il backup avviene all'interno di un'area.<br/><br/> È necessario un insieme di credenziali in ogni area di Azure che contiene macchine virtuali di cui si vuole eseguire il backup. Non è possibile eseguire il backup in un'altra area.
 **Sposta insiemi di credenziali** | È possibile [spostare](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) gli insiemi di credenziali tra le sottoscrizioni o tra gruppi di risorse nella stessa sottoscrizione.
 **Spostamento dei dati tra insiemi di credenziali** | Lo stato di trasferimento dei dati di backup tra insiemi di credenziali non è supportato.
@@ -45,7 +45,7 @@ La tabella seguente descrive le funzionalità degli insiemi di credenziali di se
 
 Ecco cosa è supportato se si vuole eseguire il backup dei computer locali:
 
-**Computer** | **Elementi di cui è stato eseguito il backup** | **Location** | **Funzionalità**
+**Computer** | **Elementi di cui è stato eseguito il backup** | **Località** | **Funzionalità**
 --- | --- | --- | ---
 **Backup diretto di computer Windows con l'agente MARS** | File, cartelle, stato del sistema | Eseguire il backup nell'insieme di credenziali di servizi di ripristino. | Backup tre volte al giorno<br/><br/> Nessun backup compatibile con l'app<br/><br/> Ripristino di file, cartelle, volumi
 **Backup diretto di computer Linux con l'agente MARS** | Backup non supportato
@@ -59,13 +59,13 @@ Ecco cosa è supportato se si vuole eseguire il backup dei computer locali:
 **Limite** | **Dettagli**
 --- | ---
 **Dischi dati delle macchine virtuali di Azure** | Limite di 16
-**Dimensioni del disco dati della macchina virtuale di Azure** | Supporta il backup di macchine virtuali con ogni dimensione di disco fino a 30 TB e un massimo di 256 TB combinati per tutti i dischi in una macchina virtuale.
+**Dimensioni del disco dati della macchina virtuale di Azure** | Le dimensioni del disco singolo possono essere fino a 32 TB e un massimo di 256 TB combinati per tutti i dischi in una macchina virtuale.
 
 ### <a name="azure-vm-backup-options"></a>Opzioni di backup delle VM di Azure
 
 Ecco cosa è supportato se si vuole eseguire il backup di macchine virtuali di Azure:
 
-**Computer** | **Elementi di cui è stato eseguito il backup** | **Location** | **Funzionalità**
+**Computer** | **Elementi di cui è stato eseguito il backup** | **Località** | **Funzionalità**
 --- | --- | --- | ---
 **Backup di macchine virtuali di Azure tramite l'estensione VM** | Intera macchina virtuale | Eseguire il backup nell'insieme di credenziali. | Estensione installata quando si abilita il backup per una macchina virtuale.<br/><br/> Eseguire il backup una volta al giorno.<br/><br/> Backup compatibile con le app per macchine virtuali Windows; backup coerente con i file per le macchine virtuali Linux. È possibile configurare la coerenza delle app per i computer Linux usando script personalizzati.<br/><br/> Ripristinare una macchina virtuale o un disco.<br/><br/> Non è possibile eseguire il backup di una macchina virtuale di Azure in un percorso locale.
 **Backup di macchine virtuali di Azure con l'agente MARS** | File, cartelle, stato del sistema | Eseguire il backup nell'insieme di credenziali. | Eseguire il backup tre volte al giorno.<br/><br/> Se si vuole eseguire il backup di file o cartelle specifici anziché dell'intera VM, l'agente MARS può essere eseguito insieme all'estensione della macchina virtuale.
@@ -116,10 +116,10 @@ Backup di Azure supporta la crittografia per i dati in transito e inattivi.
 
 **Computer** | **In movimento** | **Inattivi**
 --- | --- | ---
-**Computer Windows locali senza DPM/MAB** | ![Yes][green] | ![Yes][green]
-**Macchine virtuali di Azure** | ![Yes][green] | ![Yes][green]
-**Computer Windows locali o macchine virtuali di Azure con DPM** | ![Yes][green] | ![Yes][green]
-**Computer Windows locali o macchine virtuali di Azure con MAB** | ![Yes][green] | ![Yes][green]
+**Computer Windows locali senza DPM/MAB** | ![SÌ][green] | ![SÌ][green]
+**Macchine virtuali di Azure** | ![SÌ][green] | ![SÌ][green]
+**Computer Windows locali o macchine virtuali di Azure con DPM** | ![SÌ][green] | ![SÌ][green]
+**Computer Windows locali o macchine virtuali di Azure con MAB** | ![SÌ][green] | ![SÌ][green]
 
 ## <a name="compression-support"></a>Supporto della compressione
 
@@ -130,18 +130,18 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 
 **Computer** | **Compressione in MABS/DPM (TCP)** | **Comprimi nell'insieme di credenziali (HTTPS)**
 --- | --- | ---
-**Backup diretto di computer Windows locali** | NA | ![Yes][green]
-**Backup di macchine virtuali di Azure con l'estensione VM** | NA | NA
-**Eseguire il backup in computer locali o Azure usando MAB/DPM** | ![Yes][green] | ![Yes][green]
+**Backup diretto di computer Windows locali** | ND | ![SÌ][green]
+**Backup di macchine virtuali di Azure con l'estensione VM** | ND | ND
+**Eseguire il backup in computer locali o Azure usando MAB/DPM** | ![SÌ][green] | ![SÌ][green]
 
 ## <a name="retention-limits"></a>Limiti di conservazione
 
 **Impostazione** | **Limiti**
 --- | ---
 **Numero massimo di punti di ripristino per istanza protetta (computer o carico di lavoro)** | 9\.999
-**Tempo di scadenza massimo per un punto di ripristino** | Nessun limite
+**Tempo di scadenza massimo per un punto di ripristino** | Senza limiti
 **Frequenza massima di backup per DPM/MAB** | Ogni 15 minuti per SQL Server<br/><br/> Una volta all'ora per altri carichi di lavoro
-**Frequenza massima di backup nell'insieme di credenziali** | **Computer Windows locali o macchine virtuali di Azure che eseguono MARS:** Tre al giorno<br/><br/> **DPM/MAB:** due volte al giorno<br/><br/> **Backup delle macchine virtuali di Azure:** Uno al giorno
+**Frequenza massima di backup nell'insieme di credenziali** | **Computer Windows locali o macchine virtuali di Azure che eseguono Mars:** Tre al giorno<br/><br/> **DPM/MAB:** Due al giorno<br/><br/> **Backup delle macchine virtuali di Azure:** Uno al giorno
 **Conservazione del punto di ripristino** | Giornaliera, settimanale, mensile, annuale
 **Periodo di conservazione massimo** | Dipende dalla frequenza dei backup
 **Punti di ripristino nel disco DPM/MAB** | 64 per i file server; 448 per i server applicazioni <br/><br/>Punti di ripristino su nastro illimitati per DPM locale

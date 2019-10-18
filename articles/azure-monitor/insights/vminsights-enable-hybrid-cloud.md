@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: b06fe477f551977b1357f3b1b185cb340a948052
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
-ms.translationtype: MT
+ms.openlocfilehash: f4c483c36dc7a19e3e16dcaabab10af03cdfe17e
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905492"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515508"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Abilitare Monitoraggio di Azure per le macchine virtuali (anteprima) per un ambiente ibrido
 
@@ -55,12 +55,12 @@ Dependency Agent può essere installato manualmente nei computer Windows eseguen
 
 La tabella seguente illustra i parametri supportati dal programma di installazione per l'agente dalla riga di comando.
 
-| Parametro | Descrizione |
+| Parametro | Description |
 |:--|:--|
 | /? | Restituisce un elenco delle opzioni della riga di comando. |
 | /S | Esegue un'installazione invisibile all'utente, senza interazione da parte dell'utente. |
 
-Ad esempio, per eseguire il programma di installazione con `/?` il parametro, immettere **installdependencyagent-Windows. exe/?** .
+Ad esempio, per eseguire il programma di installazione con il parametro `/?`, immettere **installdependencyagent-Windows. exe/?** .
 
 Per impostazione predefinita, i file di Dependency Agent per Windows si trovano in *C:\Programmi\Microsoft Dependency Agent*. Se non è possibile avviare l'agente di dipendenza dopo aver completato l'installazione, controllare i registri per informazioni dettagliate sull'errore. La directory dei log è *%Programfiles%\Microsoft Dependency Agent\logs*.
 
@@ -72,15 +72,15 @@ Dependency Agent viene installato nei server Linux con *InstallDependencyAgent-L
 > Per installare o configurare l'agente è necessario l'accesso alla radice.
 >
 
-| Parametro | DESCRIZIONE |
+| Parametro | Description |
 |:--|:--|
 | -help | Ottenere un elenco delle opzioni della riga di comando. |
 | -s | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
 | --check | Controllare le autorizzazioni e il sistema operativo senza installare l'agente. |
 
-Ad esempio, per eseguire il programma di installazione con `-help` il parametro, immettere **installdependencyagent-linux64. bin-Help**.
+Ad esempio, per eseguire il programma di installazione con il parametro `-help`, immettere **installdependencyagent-linux64. bin-Help**.
 
-Installare Linux Dependency Agent come root eseguendo il comando `sh InstallDependencyAgent-Linux64.bin`.
+Installare Linux Dependency Agent come utente root eseguendo il comando `sh InstallDependencyAgent-Linux64.bin`.
 
 Se Dependency Agent non si avvia, controllare i log per vedere le informazioni dettagliate sull'errore. Per gli agenti Linux la directory di log è */var/opt/microsoft/dependency-agent/log*.
 
@@ -206,24 +206,6 @@ Per usare l'interfaccia della riga di comando di Azure, è prima necessario inst
                             "product": "[Concat('OMSGallery/', 'ServiceMap')]",
                             "promotionCode": ""
                         }
-                    },
-                    {
-                        "apiVersion": "2015-11-01-preview",
-                        "location": "[parameters('WorkspaceLocation')]",
-                        "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                        "type": "Microsoft.OperationsManagement/solutions",
-                        "dependsOn": [
-                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        ],
-                        "properties": {
-                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        },
-                        "plan": {
-                            "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                            "publisher": "Microsoft",
-                            "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
-                            "promotionCode": ""
-                        }
                     }
                 ]
             }
@@ -248,7 +230,7 @@ Per usare l'interfaccia della riga di comando di Azure, è prima necessario inst
     ```
    Dopo avere abilitato il monitoraggio, possono essere necessari circa 10 minuti prima di poter visualizzare lo stato di integrità e le metriche per il computer ibrido.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 ### <a name="vm-doesnt-appear-on-the-map"></a>La macchina virtuale non viene visualizzata nella mappa
 
@@ -260,7 +242,7 @@ Se l'installazione dell'agente di dipendenza ha avuto esito positivo, ma il comp
 
     **Linux**: cercare il processo in esecuzione "microsoft-dependency-agent".
 
-2. Il piano tariffario [gratuito di log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? Il piano gratuito consente fino a cinque computer univoci. Eventuali computer successivi non verranno visualizzati sulla mappa, anche se i cinque precedenti non inviano più dati.
+2. Il piano [tariffario gratuito di log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? Il piano gratuito consente fino a cinque computer univoci. Eventuali computer successivi non verranno visualizzati sulla mappa, anche se i cinque precedenti non inviano più dati.
 
 3. Il computer invia i dati di log e delle prestazioni ai log di monitoraggio di Azure? Eseguire la query seguente per il computer: 
 
@@ -281,7 +263,6 @@ Controllare il file C:\Programmi\Microsoft Dependency Agent\logs\wrapper.log per
 
 Ora che il monitoraggio è abilitato per le macchine virtuali, queste informazioni sono disponibili per l'analisi con Monitoraggio di Azure per le macchine virtuali.
  
-- Per informazioni su come usare la funzionalità di integrità, vedere [visualizzare monitoraggio di Azure per le macchine virtuali integrità](vminsights-health.md).
 - Per visualizzare le dipendenze delle applicazioni individuate, vedere [Visualizzare la mappa di Monitoraggio di Azure per le macchine virtuali](vminsights-maps.md).
+
 - Per identificare i colli di bottiglia e l'utilizzo complessivo delle prestazioni della VM, vedere [visualizzare le prestazioni delle VM di Azure](vminsights-performance.md).
-- Per visualizzare le dipendenze delle applicazioni individuate, vedere [Visualizzare la mappa di Monitoraggio di Azure per le macchine virtuali](vminsights-maps.md).

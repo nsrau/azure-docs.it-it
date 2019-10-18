@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: b-juche
-ms.openlocfilehash: 09a1e48d2eb9ab9b117cb1b1161d5137607400ad
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 290fc279a7d2ff2369758c170b3fb64635ee01af
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212095"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532281"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>SDK e strumenti dell'interfaccia della riga di comando di Azure NetApp Files
 
@@ -42,7 +42,7 @@ La tabella seguente elenca gli SDK supportati.  Per informazioni dettagliate sug
 
 La tabella seguente elenca gli strumenti dell'interfaccia della riga di comando supportati e i relativi riferimenti ai comandi.   
 
-|    Tool    |    Riferimento ai comandi    |
+|    Strumento    |    Riferimento ai comandi    |
 |------------------|--------------------------------------------|
 |    Interfaccia della riga di comando di Azure  |    [AZ netappfiles](https://docs.microsoft.com/cli/azure/netappfiles?view=azure-cli-latest)    |
 |    PowerShell   |    [Azure PowerShell per Azure NetApp Files](https://docs.microsoft.com/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
@@ -53,7 +53,7 @@ La tabella seguente elenca gli esempi di codice per il riferimento.
 
 |    Lingua/strumento    |    Documentazione di esempio di codice    |
 |------------------|--------------------------------------------|
-|    .NET   |    [Esempio di Azure NetApp Files SDK per. NETCore](https://docs.microsoft.com/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-netcore/)    |    
+|    .NET   |    [Esempio di Azure NetApp Files SDK per. NETCore](https://docs.microsoft.com/en-us/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-net-core/) |    
 |    Python    |    [Esempio di Azure NetApp Files SDK per Python](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |
 
 ## <a name="next-steps"></a>Passaggi successivi   

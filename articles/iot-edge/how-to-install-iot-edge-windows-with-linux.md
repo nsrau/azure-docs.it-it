@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: 9e9028d0c9aeff19dc221b81defa5e2057927fa6
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3cf30b53f950ff18dd6dcde332b7e97e332133aa
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034203"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516561"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Usare IoT Edge in Windows per eseguire i contenitori Linux
 
@@ -53,12 +53,12 @@ Uno script di PowerShell scarica e installa il daemon di sicurezza di Azure IoT 
 
 Quando si installa il runtime di IoT Edge per la prima volta in un dispositivo, è necessario effettuare il provisioning del dispositivo con un'identità da un hub IoT. È possibile eseguire manualmente il provisioning di un singolo dispositivo IoT Edge usando una stringa di connessione del dispositivo fornita dall'hub. In alternativa, è possibile usare il servizio Device Provisioning per effettuare automaticamente il provisioning dei dispositivi. Ciò è utile quando si dispone di molti dispositivi da configurare. 
 
-Per altre informazioni sui diversi parametri e opzioni di installazione, vedere l'articolo [installare il runtime di Azure IOT Edge in Windows](how-to-install-iot-edge-windows.md). Dopo aver installato e configurato desktop Docker per i contenitori Linux, la differenza di installazione principale è la dichiarazione di Linux con il parametro **-containeros** . Ad esempio: 
+Per altre informazioni sui diversi parametri e opzioni di installazione, vedere l'articolo [installare il runtime di Azure IOT Edge in Windows](how-to-install-iot-edge-windows.md). Dopo aver installato e configurato desktop Docker per i contenitori Linux, la differenza di installazione principale è la dichiarazione di Linux con il parametro **-containeros** . ad esempio: 
 
 1. Se non è già stato fatto, registrare un nuovo dispositivo IoT Edge e recuperare la stringa di connessione del dispositivo. Copiare la stringa di connessione da usare più avanti in questa sezione. Per completare questo passaggio, è possibile usare gli strumenti seguenti:
 
-   * [Portale di Azure](how-to-register-device-portal.md)
-   * [Interfaccia della riga di comando di Azure](how-to-register-device-cli.md)
+   * [Azure portal](how-to-register-device-portal.md)
+   * [interfaccia della riga di comando di Azure](how-to-register-device-cli.md)
    * [Visual Studio Code](how-to-register-device-vscode.md)
 
 2. Eseguire PowerShell come amministratore.
@@ -88,24 +88,29 @@ Per altre informazioni sui diversi parametri e opzioni di installazione, vedere 
 
 6. Quando richiesto, specificare la stringa di connessione del dispositivo recuperata nel passaggio 1. La stringa di connessione del dispositivo associa il dispositivo fisico a un ID dispositivo nell'hub. 
 
-   La stringa di connessione del dispositivo ha il formato seguente e non deve includere le virgolette:`HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
+   La stringa di connessione del dispositivo ha il formato seguente e non deve includere virgolette: `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
 ## <a name="verify-successful-installation"></a>Verificare l'esito positivo dell'installazione
 
-Verificare lo stato del servizio IoT Edge. Deve essere indicato come in esecuzione.  
+Verificare lo stato del servizio IoT Edge: 
 
 ```powershell
 Get-Service iotedge
 ```
 
-Esaminare i log del servizio generati negli ultimi cinque minuti. 
+Esaminare i log dei servizi degli ultimi 5 minuti: 
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Elencare i moduli in esecuzione. Dopo una nuova installazione, l'unico modulo che dovrebbe essere in esecuzione è **edgeAgent**. Dopo aver [distribuito i moduli IOT Edge](how-to-deploy-modules-portal.md) per la prima volta, l'altro modulo di sistema, **edgeHub**, si avvierà anche sul dispositivo. 
+Eseguire un controllo automatizzato per la configurazione e gli errori di rete più comuni: 
 
+```powershell
+iotedge check
+```
+
+Elencare i moduli in esecuzione. Dopo una nuova installazione, l'unico modulo che dovrebbe essere in esecuzione è **edgeAgent**. Dopo aver [distribuito i moduli IOT Edge](how-to-deploy-modules-portal.md) per la prima volta, l'altro modulo di sistema, **edgeHub**, si avvierà anche sul dispositivo. 
 
 ```powershell
 iotedge list

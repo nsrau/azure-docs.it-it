@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 513cf477e8c2899da17ee8e9bdfdb9ad2bedd159
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: c1b507398a2edd839b610a7c52892e23a88481a0
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828083"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516603"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installare il runtime di Azure IoT Edge in Windows
 
@@ -28,7 +28,7 @@ Questo articolo elenca i passaggi per installare il runtime di Azure IoT Edge ne
 > [!NOTE]
 > Un problema noto del sistema operativo Windows impedisce alla transizione di sospendere e ibernare gli Stati di alimentazione quando vengono eseguiti IoT Edge moduli (contenitori di Windows nano server con isolamento del processo). Questo problema influisca sulla durata della batteria sul dispositivo.
 >
-> Come soluzione alternativa, usare il comando `Stop-Service iotedge` per arrestare i moduli IOT Edge in esecuzione prima di usare questi stati di alimentazione. 
+> Come soluzione alternativa, usare il comando `Stop-Service iotedge` per arrestare i moduli IoT Edge in esecuzione prima di usare questi stati di alimentazione. 
 
 Una configurazione con contenitori Linux su sistemi Windows non è una configurazione di produzione consigliata o supportata per Azure IoT Edge. È tuttavia possibile usarla a scopo di sviluppo e test. Per altre informazioni, vedere [usare IOT Edge in Windows per eseguire i contenitori Linux](how-to-install-iot-edge-windows-with-linux.md).
 
@@ -68,7 +68,7 @@ Quando si installa il runtime di IoT Edge per la prima volta in un dispositivo, 
 
 Le sezioni seguenti descrivono i casi d'uso comuni e i parametri per lo script di installazione di IoT Edge in un nuovo dispositivo. 
 
-### <a name="option-1-install-and-manually-provision"></a>Opzione 1: Effettuare il provisioning e l'installazione manualmente
+### <a name="option-1-install-and-manually-provision"></a>Opzione 1: eseguire l'installazione e ed eseguire l'installazione ed effettuare manualmente il provisioning
 
 In questa prima opzione è possibile specificare una **stringa di connessione del dispositivo** generata dall'hub Internet per eseguire il provisioning del dispositivo. 
 
@@ -76,8 +76,8 @@ In questo esempio viene illustrata un'installazione manuale con i contenitori di
 
 1. Se non è già stato fatto, registrare un nuovo dispositivo IoT Edge e recuperare la **stringa di connessione del dispositivo**. Copiare la stringa di connessione da usare più avanti in questa sezione. Per completare questo passaggio, è possibile usare gli strumenti seguenti:
 
-   * [Portale di Azure](how-to-register-device-portal.md)
-   * [Interfaccia della riga di comando di Azure](how-to-register-device-cli.md)
+   * [Azure portal](how-to-register-device-portal.md)
+   * [interfaccia della riga di comando di Azure](how-to-register-device-cli.md)
    * [Visual Studio Code](how-to-register-device-vscode.md)
 
 2. Eseguire PowerShell come amministratore.
@@ -107,7 +107,7 @@ In questo esempio viene illustrata un'installazione manuale con i contenitori di
 
 6. Quando richiesto, specificare la stringa di connessione del dispositivo recuperata nel passaggio 1. La stringa di connessione del dispositivo associa il dispositivo fisico a un ID dispositivo nell'hub. 
 
-   La stringa di connessione del dispositivo ha il formato seguente e non deve includere le virgolette:`HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
+   La stringa di connessione del dispositivo ha il formato seguente e non deve includere virgolette: `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
 7. Usare la procedura descritta in verificare che l'installazione sia stata [eseguita correttamente](#verify-successful-installation) per verificare lo stato del IOT Edge nel dispositivo. 
 
@@ -119,7 +119,7 @@ Quando si installa e si effettua il provisioning di un dispositivo manualmente, 
 
 Per ulteriori informazioni su queste opzioni di installazione, passare a informazioni su [tutti i parametri di installazione](#all-installation-parameters).
 
-### <a name="option-2-install-and-automatically-provision"></a>Opzione 2: Installare ed effettuare automaticamente il provisioning
+### <a name="option-2-install-and-automatically-provision"></a>Opzione 2: installare ed effettuare automaticamente il provisioning
 
 In questa seconda opzione viene effettuato il provisioning del dispositivo con il servizio Device Provisioning in hub IoT. Fornire l' **ID ambito** da un'istanza del servizio Device provisioning insieme a qualsiasi altra informazione specifica per il [meccanismo di attestazione](../iot-dps/concepts-security.md#attestation-mechanism)preferito:
 
@@ -145,7 +145,7 @@ Durante l'installazione vengono scaricati due file:
 
 Per i file di installazione IoT Edge più recenti insieme alle versioni precedenti, vedere [Azure IOT Edge versioni](https://github.com/Azure/azure-iotedge/releases).
 
-Per eseguire l'installazione con componenti offline, `-OfflineInstallationPath` usare il parametro come parte del comando deploy-IoTEdge e fornire il percorso assoluto alla directory di file. Ad esempio,
+Per eseguire l'installazione con componenti offline, usare il parametro `-OfflineInstallationPath` come parte del comando deploy-IoTEdge e fornire il percorso assoluto alla directory di file. Ad esempio,
 
 ```powershell
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
@@ -166,6 +166,12 @@ Esaminare i log del servizio generati negli ultimi cinque minuti. Se è stata ap
 
 ```powershell
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+```
+
+Eseguire un controllo automatizzato per la configurazione e gli errori di rete più comuni.
+
+```powershell
+iotedge check
 ```
 
 Elencare i moduli in esecuzione. Dopo una nuova installazione, l'unico modulo che dovrebbe essere in esecuzione è **edgeAgent**. Dopo aver [distribuito i moduli IOT Edge](how-to-deploy-modules-portal.md) per la prima volta, l'altro modulo di sistema, **edgeHub**, si avvierà anche sul dispositivo. 
@@ -198,7 +204,7 @@ L'URI del motore è elencato nell'output dello script di installazione, oppure �
 
 ![URI moby_runtime in config. YAML](./media/how-to-install-iot-edge-windows/moby-runtime-uri.png)
 
-Per altre informazioni sui comandi che è possibile usare per interagire con i contenitori e le immagini in esecuzione nel dispositivo, vedere [interfacce della riga di comando](https://docs.docker.com/engine/reference/commandline/docker/)di Docker.
+Per altre informazioni sui comandi che è possibile usare per interagire con i contenitori e le immagini in esecuzione nel dispositivo, vedere [interfacce della riga di comando di Docker](https://docs.docker.com/engine/reference/commandline/docker/).
 
 ## <a name="update-an-existing-installation"></a>Aggiornare un'installazione esistente
 
@@ -221,7 +227,7 @@ Quando si aggiorna IoT Edge, è possibile usare parametri aggiuntivi per modific
 
 Non è possibile dichiarare un'immagine del contenitore di IoT Edge Agent con parametri di script perché tali informazioni sono già impostate nel file di configurazione dell'installazione precedente. Se si vuole modificare l'immagine del contenitore dell'agente, eseguire questa operazione nel file config.yaml. 
 
-Per ulteriori informazioni su queste opzioni di aggiornamento, utilizzare il `Get-Help Update-IoTEdge -full` comando o fare riferimento a [tutti i parametri di installazione](#all-installation-parameters).
+Per ulteriori informazioni su queste opzioni di aggiornamento, utilizzare il comando `Get-Help Update-IoTEdge -full` o fare riferimento a [tutti i parametri di installazione](#all-installation-parameters).
 
 ## <a name="uninstall-iot-edge"></a>Disinstallare IoT Edge
 
@@ -250,7 +256,7 @@ Il comando deploy-IoTEdge Scarica e distribuisce il daemon di sicurezza IoT Edge
 | **Proxy** | URL proxy | Includere questo parametro se il dispositivo deve passare attraverso un server proxy per accedere a Internet. Per altre informazioni, vedere [Configurare un dispositivo IoT Edge per comunicare tramite un server proxy](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Percorso directory | Se questo parametro è incluso, il programma di installazione controllerà la directory elencata per i file MSI IoT Edge CAB e VC runtime necessari per l'installazione. Tutti i file non trovati nella directory vengono scaricati. Se entrambi i file si trovano nella directory, è possibile installare IoT Edge senza una connessione Internet. È anche possibile usare questo parametro per usare una versione specifica. |
 | **InvokeWebRequestParameters** | Tabella hash dei parametri e dei valori | Durante l'installazione vengono effettuate più richieste Web. Usare questo campo per impostare i parametri per queste richieste Web. Questo parametro è utile per configurare le credenziali per i server proxy. Per altre informazioni, vedere [Configurare un dispositivo IoT Edge per comunicare tramite un server proxy](how-to-configure-proxy-support.md). |
-| **RestartIfNeeded** | nessuno | Questo flag consente allo script di distribuzione di riavviare il computer senza chiedere conferma, se necessario. |
+| **RestartIfNeeded** | None | Questo flag consente allo script di distribuzione di riavviare il computer senza chiedere conferma, se necessario. |
 
 ### <a name="initialize-iotedge"></a>Initialize-IoTEdge
 
@@ -258,8 +264,8 @@ Il comando Initialize-IoTEdge configura IoT Edge con la stringa di connessione d
 
 | Parametro | Valori accettati | Commenti |
 | --------- | --------------- | -------- |
-| **Manuale** | Nessuna | **Parametro opzionale**. Se non viene specificato alcun tipo di provisioning, Manual è il valore predefinito.<br><br>Dichiara che si fornirà una stringa di connessione del dispositivo per effettuare il provisioning del dispositivo manualmente. |
-| **Dps** | Nessuna | **Parametro opzionale**. Se non viene specificato alcun tipo di provisioning, Manual è il valore predefinito.<br><br>Dichiara che si forniranno un ID ambito del servizio Device Provisioning (DPS) e l'ID registrazione del dispositivo per effettuare il provisioning tramite DPS.  |
+| **Manuale** | Nessuno | **Parametro opzionale**. Se non viene specificato alcun tipo di provisioning, Manual è il valore predefinito.<br><br>Dichiara che si fornirà una stringa di connessione del dispositivo per effettuare il provisioning del dispositivo manualmente. |
+| **Dps** | Nessuno | **Parametro opzionale**. Se non viene specificato alcun tipo di provisioning, Manual è il valore predefinito.<br><br>Dichiara che si forniranno un ID ambito del servizio Device Provisioning (DPS) e l'ID registrazione del dispositivo per effettuare il provisioning tramite DPS.  |
 | **DeviceConnectionString** | Una stringa di connessione da un dispositivo IoT Edge registrato in un hub IoT, tra virgolette singole | **Obbligatorio** per l'installazione manuale. Se non si specifica una stringa di connessione nei parametri di script, ne verrà richiesta una durante l'installazione. |
 | **ScopeId** | Un ID ambito da un'istanza del servizio Device Provisioning associata all'hub IoT. | **Obbligatorio** per l'installazione di DPS. Se non si specifica un ID ambito nei parametri di script, ne verrà richiesto uno durante l'installazione. |
 | **RegistrationId** | Un ID registrazione generato dal dispositivo | **Obbligatorio** per l'installazione di DPS se si usa il TPM o l'attestazione della chiave simmetrica. |
@@ -278,14 +284,14 @@ Il comando Initialize-IoTEdge configura IoT Edge con la stringa di connessione d
 | **Proxy** | URL proxy | Includere questo parametro se il dispositivo deve passare attraverso un server proxy per accedere a Internet. Per altre informazioni, vedere [Configurare un dispositivo IoT Edge per comunicare tramite un server proxy](how-to-configure-proxy-support.md). |
 | **InvokeWebRequestParameters** | Tabella hash dei parametri e dei valori | Durante l'installazione vengono effettuate più richieste Web. Usare questo campo per impostare i parametri per queste richieste Web. Questo parametro è utile per configurare le credenziali per i server proxy. Per altre informazioni, vedere [Configurare un dispositivo IoT Edge per comunicare tramite un server proxy](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Percorso directory | Se questo parametro è incluso, il programma di installazione controllerà la directory elencata per i file MSI IoT Edge CAB e VC runtime necessari per l'installazione. Tutti i file non trovati nella directory vengono scaricati. Se entrambi i file si trovano nella directory, è possibile installare IoT Edge senza una connessione Internet. È anche possibile usare questo parametro per usare una versione specifica. |
-| **RestartIfNeeded** | nessuno | Questo flag consente allo script di distribuzione di riavviare il computer senza chiedere conferma, se necessario. |
+| **RestartIfNeeded** | None | Questo flag consente allo script di distribuzione di riavviare il computer senza chiedere conferma, se necessario. |
 
 ### <a name="uninstall-iotedge"></a>Uninstall-IoTEdge
 
 | Parametro | Valori accettati | Commenti |
 | --------- | --------------- | -------- |
-| **Forzare** | nessuno | Questo flag forza la disinstallazione nel caso in cui il tentativo precedente di disinstallazione non abbia avuto esito positivo. 
-| **RestartIfNeeded** | nessuno | Questo flag consente allo script di disinstallazione di riavviare il computer senza chiedere conferma, se necessario. |
+| **Forzare** | None | Questo flag forza la disinstallazione nel caso in cui il tentativo precedente di disinstallazione non abbia avuto esito positivo. 
+| **RestartIfNeeded** | None | Questo flag consente allo script di disinstallazione di riavviare il computer senza chiedere conferma, se necessario. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

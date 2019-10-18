@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee7bbff8ab501a1159030a8ee9c57f1c5a64ea22
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: b69eda59c9c8032510df036d3aa0d160105fbc16
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286539"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533184"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi Azure Machine Learning
 
@@ -37,13 +37,13 @@ Potrebbe essere necessario eseguire un esperimento contenente solo il set di dat
  
 Prima della correzione, è possibile connettere il set di dati a qualsiasi modulo di trasformazione dati (selezionare le colonne nel set di dati, modificare i metadati, suddividere i dati e così via) ed eseguire l'esperimento. Sarà quindi possibile visualizzare il set di dati. 
 
-Nell'immagine seguente viene illustrato come: ![visulize-data @ no__t-1
+Nell'immagine seguente viene illustrato come: ![visulize-data ](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>Problemi di installazione dell'SDK
 
 **Messaggio di errore: Impossibile installare "PyYAML"**
 
-Azure Machine Learning SDK per Python: PyYAML è un progetto installato da Distutils. Non è pertanto possibile stabilire in modo accurato quali file appartengono a esso in caso di disinstallazione parziale. Per continuare a installare l'SDK, ignorando l'errore, usare:
+Azure Machine Learning SDK per Python: PyYAML è un progetto Distutils installato. Non è pertanto possibile stabilire in modo accurato quali file appartengono a esso in caso di disinstallazione parziale. Per continuare a installare l'SDK, ignorando l'errore, usare:
 
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
@@ -111,7 +111,7 @@ Il widget Azure Machine Learning SDK non è supportato in un notebook di databri
 displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
 ```
 
-### <a name="import-error-no-module-named-pandascoreindexes"></a>Errore di importazione: Nessun modulo denominato ' Pandas. Core. Indexes '
+### <a name="import-error-no-module-named-pandascoreindexes"></a>Errore di importazione: nessun modulo denominato ' Pandas. Core. Indexes '
 
 Se questo errore viene visualizzato quando si usa Machine Learning automatico:
 
@@ -128,9 +128,9 @@ Se questi passaggi non risolvono il problema, provare a riavviare il cluster.
 
 ### <a name="failtosendfeather"></a>FailToSendFeather
 
-Se viene visualizzato un errore `FailToSendFeather` durante la lettura dei dati in Azure Databricks cluster, fare riferimento alle soluzioni seguenti:
+Se viene visualizzato un errore di `FailToSendFeather` durante la lettura dei dati in Azure Databricks cluster, fare riferimento alle soluzioni seguenti:
 
-* Aggiornare il pacchetto `azureml-sdk[automl_databricks]` alla versione più recente.
+* Aggiornare `azureml-sdk[automl]` pacchetto alla versione più recente.
 * Aggiungere `azure-dataprep` versione 1.1.8 o successiva.
 * Aggiungere `pyarrow` versione 0,11 o successiva.
 
@@ -211,14 +211,14 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-Se non sono più disponibili il certificato SSL e la chiave privata oppure si usa un certificato generato da Azure Machine Learning, è possibile recuperare i file prima di scollegare il cluster connettendosi al cluster con `kubectl` e recuperando il segreto `azuremlfessl`.
+Se non sono più disponibili il certificato SSL e la chiave privata oppure si usa un certificato generato da Azure Machine Learning, è possibile recuperare i file prima di scollegare il cluster connettendosi al cluster usando `kubectl` e recuperando il segreto `azuremlfessl`.
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes archivia i segreti nel formato con codifica base 64. Prima di fornire le `attach_config.enable_ssl`, è 64 necessario decodificare i componenti `cert.pem` e `key.pem` dei segreti. 
+>Kubernetes archivia i segreti nel formato con codifica base 64. Prima di fornire le `attach_config.enable_ssl`, è necessario decodificare in base 64 i componenti di `cert.pem` e `key.pem` dei segreti. 
 
 ## <a name="recommendations-for-error-fix"></a>Suggerimenti per la correzione degli errori
 In base all'osservazione generale, di seguito sono riportate le raccomandazioni di Azure ML per correggere alcuni degli errori comuni in Azure ML.
@@ -226,7 +226,7 @@ In base all'osservazione generale, di seguito sono riportate le raccomandazioni 
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors (nessun modulo denominato)
 Se si esegue ModuleErrors durante l'invio di esperimenti in Azure ML, significa che lo script di training prevede l'installazione di un pacchetto, ma non viene aggiunto. Una volta fornito il nome del pacchetto, Azure ML installerà il pacchetto nell'ambiente usato per la formazione. 
 
-Se si usano gli [estimatori](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) per inviare esperimenti, è possibile specificare un nome di pacchetto tramite il parametro `pip_packages` o `conda_packages` nello strumento di stima basato su da quale origine si vuole installare il pacchetto. È anche possibile specificare un file yml con tutte le dipendenze usando `conda_dependencies_file`or elencare tutti i requisiti PIP in un file txt usando @no__t parametro-1.
+Se si usano gli [estimatori](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) per inviare esperimenti, è possibile specificare un nome di pacchetto tramite `pip_packages` o `conda_packages` parametro nello strumento di stima basato su da quale origine si vuole installare il pacchetto. È anche possibile specificare un file yml con tutte le dipendenze usando `conda_dependencies_file`or elencare tutti i requisiti PIP in un file txt usando `pip_requirements_file` parametro.
 
 Azure ML fornisce anche estimatori specifici del Framework per Tensorflow, PyTorch, Chainer e SKLearn. Con questi estimatori si assicurerà che le dipendenze del Framework siano installate per conto dell'utente nell'ambiente utilizzato per il training. È possibile specificare dipendenze aggiuntive, come descritto in precedenza. 
  

@@ -1,5 +1,5 @@
 ---
-title: Fornire configurazioni post-distribuzione tramite le estensioni - Azure | Microsoft Docs
+title: Configurazione post-distribuzione di Azure con le estensioni
 description: Informazioni su come usare le estensioni dei modelli di Azure Resource Manager per fornire configurazioni post-distribuzione.
 services: azure-resource-manager
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2018
 ms.author: jgao
-ms.openlocfilehash: eb46966c3a28b3fa4c2b23668109b7c5d23a609b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ccac91553d43a98bdef20abe451e7abec139dbaf
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60390869"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533739"
 ---
 # <a name="provide-post-deployment-configurations-by-using-extensions"></a>Fornire configurazioni post-distribuzione tramite le estensioni
 
@@ -37,8 +37,8 @@ Per scoprire tutte le estensioni disponibili, selezionare la [documentazione di 
 
 Per informazioni su come usare queste estensioni, vedere:
 
-- [Esercitazione: Distribuire estensioni di macchina virtuale con modelli di Azure Resource Manager](./resource-manager-tutorial-deploy-vm-extensions.md)
-- [Esercitazione: Importare file BACPAC di SQL con modelli di Azure Resource Manager](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)
+- [Esercitazione: distribuire le estensioni delle macchine virtuali con modelli di Azure Resource Manager](./resource-manager-tutorial-deploy-vm-extensions.md).
+- [Esercitazione: importare file BACPAC SQL con modelli di Azure Resource Manager](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
