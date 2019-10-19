@@ -170,6 +170,7 @@
       items:
         - name: Progetto di VS con pipeline
           href: vs-resource-groups-project-devops-pipelines.md
+          displayName: DevOps
     - name: Esportare il modello
       href: export-template-portal.md
     - name: Spostamento
