@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 10/17/2019
 ms.author: panosper
-ms.openlocfilehash: bde68a70ac047433e86b7e06bc5f4a56bdd28595
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1f934bc5627331cc92ad3f497f1f7e4e0e5526cd
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028504"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595331"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
 Se in questo documento non sono presenti risposte alle domande di proprio interesse, vedere le [altre opzioni di supporto](support.md).
 
-## <a name="general"></a>Generale
+## <a name="general"></a>Informazioni di carattere generale
 
 **D: Qual è la differenza tra un modello di base e un modello di riconoscimento vocale personalizzato?**
 
@@ -29,27 +29,27 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 **D: Da dove è necessario iniziare per usare un modello di base?**
 
-**R**: È prima necessario ottenere una [chiave di sottoscrizione](get-started.md). Per effettuare chiamate REST ai modelli di base predistribuiti, vedere le [API REST](rest-apis.md). Se si desidera usare WebSocket, [scaricare l'SDK](speech-sdk.md).
+**R**: Prima di tutto è necessario ottenere una [chiave di sottoscrizione](get-started.md). Per effettuare chiamate REST ai modelli di base predistribuiti, vedere le [API REST](rest-apis.md). Se si desidera usare WebSocket, [scaricare l'SDK](speech-sdk.md).
 
-**D: È sempre necessario creare un modello conversione voce/testo personalizzato?**
+**: È sempre necessario compilare un modello conversione voce/testo personalizzato?**
 
 **R**: No. Se l'applicazione usa un linguaggio quotidiano generico, non è necessario personalizzare un modello. Se l'applicazione viene usata in un ambiente in cui il rumore di fondo è scarso o addirittura assente, non è necessario personalizzare un modello.
 
 È possibile distribuire modelli di base e personalizzati nel portale e quindi sottoporli a test di accuratezza. Questa funzionalità può essere usata per misurare l'accuratezza di un modello di base rispetto a un modello personalizzato.
 
-**D: Com'è possibile sapere quando l'elaborazione del set di dati o del modello è completa?**
+**D: Come è possibile sapere quando l'elaborazione del set di dati o del modello è completa?**
 
 **R**: Attualmente l'unica indicazione è lo stato del modello o del set di dati nella tabella. Quando l'elaborazione è completa, lo stato è **Succeded** (Operazione completata).
 
 **D: È possibile creare più modelli?**
 
-**R**: Non sono previsti limiti al numero di modelli che è possibile avere nella propria raccolta.
+**R**: Non sono previsti limiti al numero di modelli che si può avere nella propria raccolta.
 
-**D: In caso di errore, come è possibile annullare l'importazione dei dati o la creazione del modello in corso?**
+**D: ho realizzato un errore. Ricerca per categorie annullare l'importazione dei dati o la creazione del modello in corso?**
 
 **R**: Al momento non è possibile eseguire il rollback di un processo di adattamento di un modello acustico o linguistico. I modelli e i dati importati possono essere eliminati quando sono in uno stato terminale.
 
-**D: Qual è la differenza tra il modello di ricerca e dettatura e il modello colloquiale?**
+**D: Qual è la differenza tra i modelli Search and Dictation (Ricerca e dettatura) e Conversational (Colloquiale)?**
 
 **R**: Sono disponibili più modelli di base tra cui scegliere nel Servizio di riconoscimento vocale. Il modello Conversational (Colloquiale) è utile per il riconoscimento vocale di una conversazione. Questo modello è ideale per la trascrizione delle chiamate telefoniche. Il modello Search and Dictation (Ricerca e dettatura) è ideale per le app con attivazione vocale. Il modello Universal (Universale) è un nuovo modello che mira a risolvere entrambi questi scenari. Il modello universale è attualmente a un livello di qualità pari o superiore rispetto al modello colloquiale nella maggior parte delle impostazioni locali.
 
@@ -71,36 +71,58 @@ Se è stato adattato e distribuito un modello con baseline V1.0, tale distribuzi
 
 Se è necessaria una scala più elevata, contattare il [supporto vocale](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) .
 
-**D: è possibile scaricare il modello ed eseguirlo in locale?**
+Per aumentare la concorrenza per un modello personalizzato, sono necessarie le informazioni seguenti:
 
-**R**: non è possibile scaricare i modelli ed eseguirli in locale.
+- Area in cui viene distribuito il modello.
+- ID dell'endpoint del modello distribuito.
+
+Per aumentare la concorrenza per i modelli di base, sono necessarie le informazioni seguenti:
+
+- Area del servizio
+
+e uno
+
+- un token di accesso per l'utente subrscription (vedere [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
+
+Oppure
+
+- ID risorsa per la sottoscrizione:
+  - Passare a https://portal.azure.com,
+  - Selezionare `Cognitive Services` nella casella di ricerca.
+  - dai servizi visualizzati selezionare il servizio di riconoscimento vocale per il quale si desidera aumentare la concorrenza,
+  - visualizzare le proprietà del servizio.
+  - Copiare il `Resource ID` completo.
+
+**D: È possibile scaricare il modello ed eseguirlo in locale?**
+
+**R**: Non è possibile scaricare i modelli ed eseguirli in locale.
 
 **D: Le richieste vengono registrate?**
 
 **R**: È possibile scegliere di disattivare la traccia quando si crea la distribuzione. Così facendo audio e trascrizioni non verranno registrati. In caso contrario, le richieste vengono in genere registrate nel servizio di archiviazione sicura in Azure.
 
-**D: le richieste sono limitate?**
+**D: Le richieste sono limitate?**
 
-**R**: L'API REST limita le richieste a 25 ogni 5 secondi. Informazioni dettagliate sono disponibili nelle pagine relative al [Riconoscimento vocale](speech-to-text.md).
+**R**: l'API REST limita le richieste a 25 ogni 5 secondi. Informazioni dettagliate sono disponibili nelle pagine relative al [Riconoscimento vocale](speech-to-text.md).
 
-**D: Come viene addebitato l'audio a doppio canale?**
+**D: come viene addebitato l'audio a doppio canale?**
 
-**R**: Se si invia ogni canale separatamente (ogni canale nel proprio file), l'addebito verrà addebitato in base alla durata di ogni file. Se si invia un singolo file con ogni canale multiplexato insieme, verrà addebitato il costo della durata del singolo file.
+**R**: se si invia ogni canale separatamente (ogni canale nel relativo file), l'addebito verrà addebitato in base alla durata di ogni file. Se si invia un singolo file con ogni canale multiplexato insieme, verrà addebitato il costo della durata del singolo file.
 
 > [!IMPORTANT]
 > In caso di altri problemi di privacy che impediscono l'uso del Servizio di riconoscimento vocale personalizzato, contattare uno dei canali di supporto.
 
 ## <a name="importing-data"></a>Importazione di dati
 
-**D: Qual è il limite della dimensione di un set di dati e perché esiste tale limite?**
+**D: Qual è il limite di dimensione per un set di dati e perché esiste tale limite?**
 
-**R**: Il limite attuale per un set di dati è 2 GB. Tale limite è dovuto ai vincoli di dimensione dei file per il caricamento HTTP. 
+**R**: Il limite attuale per un set di dati è 2 GB. Tale limite è dovuto ai vincoli di dimensione dei file per il caricamento HTTP.
 
-**D: È possibile comprimere i file di testo per caricare file di dimensioni maggiori?** 
+**D**: È possibile comprimere i file di testo per poter caricare file più grandi? 
 
 **R**: No. Attualmente sono ammessi solo file di testo non compressi.
 
-**D: Il report sui dati segnala che alcune espressioni hanno avuto esito negativo. Qual è il problema?**
+**D: il rapporto dati indica che sono presenti espressioni non riuscite. Qual è il problema?**
 
 **R**: Se non viene caricato il 100% delle espressioni di un file, non è un problema. Se la grande maggioranza, ad esempio più del 95%, delle espressioni in un set di dati acustico o linguistico viene importata correttamente, il set di dati può essere utilizzabile. È tuttavia consigliabile cercare di comprendere il motivo dell'esito negativo delle espressioni e risolvere i problemi. I problemi più comuni, ad esempio gli errori di formattazione, sono facili da risolvere. 
 
@@ -114,13 +136,13 @@ Se è necessaria una scala più elevata, contattare il [supporto vocale](mailto:
 
 **R**: Raccogliere dati più vicini possibile allo scenario e al caso d'uso dell'applicazione. La raccolta dei dati deve corrispondere all'applicazione e agli utenti di destinazione in termini di dispositivo o dispositivi, ambienti e tipi di parlanti. In genere, è consigliabile raccogliere dati dalla più ampia varietà di parlanti possibile. 
 
-**D: Come si devono raccogliere i dati acustici?**
+**D: Come si deve raccogliere i dati acustici?**
 
 **R**: È possibile creare un'applicazione di raccolta dati autonoma o usare un software di registrazione audio standard. È anche possibile creare una versione dell'applicazione in grado di registrare e quindi usare i dati audio. 
 
 **D: È necessario trascrivere personalmente i dati di adattamento?**
 
-**R**:  Sì. È possibile farlo personalmente o usando un servizio di trascrizione professionale. Alcuni utenti preferiscono usare sistemi di trascrizione professionali, mentre altri usano il crowdsourcing o eseguono le trascrizioni autonomamente.
+**R:** Sì. È possibile farlo personalmente o usando un servizio di trascrizione professionale. Alcuni utenti preferiscono usare sistemi di trascrizione professionali, mentre altri usano il crowdsourcing o eseguono le trascrizioni autonomamente.
 
 ## <a name="accuracy-testing"></a>Test di accuratezza
 
@@ -132,23 +154,23 @@ Se è necessaria una scala più elevata, contattare il [supporto vocale](mailto:
 
 **R**: Sì, è sufficiente selezionare il modello acustico personalizzato nel menu a discesa durante la configurazione del test offline.
 
-**D: Che cos'è la percentuale di parole errate e come viene calcolata?**
+**D: Che cos'è la frequenza degli errori di parola (WER) e come viene calcolata?**
 
-**R**: La percentuale di parole errate è la metrica di valutazione per il riconoscimento vocale. Viene calcolata come numero totale di errori, inclusi inserimenti, eliminazioni e sostituzioni, diviso per il numero totale di parole nella trascrizione di riferimento. Per altre informazioni, vedere [frequenza degli errori di parola](https://en.wikipedia.org/wiki/Word_error_rate).
+**R**: La frequenza degli errori di parola (WER) è la metrica di valutazione per il riconoscimento vocale. Viene calcolata come numero totale di errori, inclusi inserimenti, eliminazioni e sostituzioni, diviso per il numero totale di parole nella trascrizione di riferimento. Per altre informazioni, vedere [frequenza degli errori di parola](https://en.wikipedia.org/wiki/Word_error_rate).
 
-**D: Come è possibile determinare se i risultati di un test di accuratezza sono positivi?**
+**D: Come si determina se i risultati di un test di accuratezza sono positivi?**
 
 **R**: I risultati mostrano un confronto tra il modello di base e quello personalizzato. Perché la personalizzazione sia proficua, è necessario che sia più efficiente del modello di base.
 
-**D: Come è possibile rilevare la percentuale di parole errate nei modelli di base per verificare se c'è stato un miglioramento?** 
+**D: Come si determina la frequenza degli errori di parola di un modello di base in modo da rendersi conto se c'è stato un miglioramento?** 
 
 **R**: I risultati dei test offline mostrano l'accuratezza di base del modello personalizzato e il miglioramento rispetto al modello di base.
 
 ## <a name="creating-a-language-model"></a>Creazione di un modello linguistico
 
-**D: Quanti dati di testo è necessario caricare?**
+**D**: Quanti dati di testo è necessario caricare?
 
-**R**: Dipende da quanto il vocabolario e le frasi usate nell'applicazione differiscono dai modelli linguistici iniziali. Per tutte le parole nuove è utile specificare il maggior numero possibile di esempi di utilizzo. Per le frasi frequenti usate nell'applicazione è utile anche includere frasi nei dati linguistici perché indicano al sistema di rimanere in ascolto anche di questi termini. È frequente che nel set di dati linguistici siano presenti almeno 100 espressioni, di solito ce ne sono almeno diverse centinaia o più. Se inoltre si prevede che alcuni tipi di query siano più comuni di altri, è possibile inserire nel set di dati varie copie delle query più comuni.
+**R**: Dipende da quanto il vocabolario e le frasi utilizzate nell'applicazione differiscono dai modelli linguistici iniziali. Per tutte le parole nuove è utile specificare il maggior numero possibile di esempi di utilizzo. Per le frasi frequenti usate nell'applicazione è utile anche includere frasi nei dati linguistici perché indicano al sistema di rimanere in ascolto anche di questi termini. È frequente che nel set di dati linguistici siano presenti almeno 100 espressioni, di solito ce ne sono almeno diverse centinaia o più. Se inoltre si prevede che alcuni tipi di query siano più comuni di altri, è possibile inserire nel set di dati varie copie delle query più comuni.
 
 **D: È possibile caricare semplicemente un elenco di parole?**
 
@@ -156,5 +178,5 @@ Se è necessaria una scala più elevata, contattare il [supporto vocale](mailto:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Risoluzione dei problemi](troubleshooting.md)
+* [risoluzione dei problemi](troubleshooting.md)
 * [Note sulla versione](releasenotes.md)

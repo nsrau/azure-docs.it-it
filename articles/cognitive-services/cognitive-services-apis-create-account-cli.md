@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: d50b0858ac7c4c0e5e0263bd157e044d0fec4489
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 8ca994b0b4abb27eef284eedf5a76571fe19699d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972677"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595310"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Creare una risorsa di servizi cognitivi usando l'interfaccia della riga di comando di Azure
 
@@ -72,25 +72,32 @@ az group create \
 
 ### <a name="choose-a-cognitive-service-and-pricing-tier"></a>Scegliere un servizio cognitivo e un piano tariffario
 
-Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio che si vuole usare, oltre al [piano tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/) (o SKU) desiderato. Questa e altre informazioni vengono usate come parametri durante la creazione della risorsa.
+Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio che si vuole usare, oltre al piano [tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/) (o SKU) desiderato. Questa e altre informazioni vengono usate come parametri durante la creazione della risorsa.
+
+### <a name="multi-service"></a>Multi-servizio
+
+| Servizio                    | Tipo                      |
+|----------------------------|---------------------------|
+| Più servizi. Per ulteriori informazioni, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/) .            | `CognitiveServices`     |
+
 
 > [!NOTE]
-> Molti servizi cognitivi hanno un livello gratuito che è possibile usare per provare il servizio. Per usare il livello gratuito, usare `F0` come SKU per la risorsa.
+> Molti dei servizi cognitivi di seguito hanno un livello gratuito che è possibile usare per provare il servizio. Per usare il livello gratuito, usare `F0` come SKU per la risorsa.
 
-### <a name="vision"></a>Visione
+### <a name="vision"></a>Visione artificiale
 
-| Service                    | Kind                      |
+| Servizio                    | Tipo                      |
 |----------------------------|---------------------------|
 | Visione artificiale            | `ComputerVision`          |
 | Visione personalizzata-stima | `CustomVision.Prediction` |
 | Training di Visione personalizzata   | `CustomVision.Training`   |
-| API Viso                   | `Face`                    |
+| Face API                   | `Face`                    |
 | Riconoscimento modulo            | `FormRecognizer`          |
 | Riconoscimento input penna             | `InkRecognizer`           |
 
-### <a name="search"></a>Cerca
+### <a name="search"></a>Ricerca
 
-| Service            | Kind                  |
+| Servizio            | Tipo                  |
 |--------------------|-----------------------|
 | Suggerimenti automatici Bing   | `Bing.Autosuggest.v7` |
 | Ricerca personalizzata Bing | `Bing.CustomSearch`   |
@@ -98,16 +105,16 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 | Ricerca Bing        | `Bing.Search.v7`      |
 | Controllo ortografico Bing   | `Bing.SpellCheck.v7`  |
 
-### <a name="speech"></a>Riconoscimento vocale
+### <a name="speech"></a>Voce
 
-| Service            | Kind                 |
+| Servizio            | Tipo                 |
 |--------------------|----------------------|
 | Servizi Voce    | `SpeechServices`     |
 | Riconoscimento vocale | `SpeakerRecognition` |
 
 ### <a name="language"></a>Linguaggio
 
-| Service            | Kind                |
+| Servizio            | Tipo                |
 |--------------------|---------------------|
 | Informazioni sui moduli | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
@@ -117,7 +124,7 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 
 ### <a name="decision"></a>Decisione
 
-| Service           | Kind               |
+| Servizio           | Tipo               |
 |-------------------|--------------------|
 | Rilevamento anomalie  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |
@@ -133,7 +140,7 @@ az cognitiveservices account list-kinds
 
 Per creare e sottoscrivere una nuova risorsa di servizi cognitivi, usare il comando [AZ cognitiveservices account create](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create) . Questo comando aggiunge una nuova risorsa fatturabile al gruppo di risorse creato in precedenza. Quando si crea la nuova risorsa, è necessario conoscerne il "tipo" di servizio che si vuole usare, oltre al piano tariffario (o SKU) e a una località di Azure:
 
-È possibile creare una risorsa F0 (gratuita) per il rilevatore di anomalie, denominato `anomaly-detector-resource` con il comando seguente.
+È possibile creare una risorsa F0 (gratuita) per il rilevatore di anomalie, denominata `anomaly-detector-resource` con il comando seguente.
 
 ```azurecli-interactive
 az cognitiveservices account create \
@@ -191,7 +198,7 @@ Per rimuovere il gruppo di risorse e le risorse associate, usare il comando AZ G
 az group delete --name storage-resource-group
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Autenticare le richieste a Servizi cognitivi di Azure](authentication.md)
 * [Che cosa sono i servizi cognitivi di Azure?](Welcome.md)
