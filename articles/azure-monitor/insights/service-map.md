@@ -1,28 +1,22 @@
 ---
 title: Uso del Mapping dei servizi in Azure | Microsoft Docs
-description: Service Map è una soluzione di Azure che rileva automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione tra i servizi. Questo articolo fornisce informazioni dettagliate su come distribuire Mapping dei servizi nell'ambiente e su come usarlo in svariati scenari.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
+description: Service Map è una soluzione di Azure che rileva automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione tra i servizi. Questo articolo fornisce informazioni dettagliate su come distribuire l'elenco dei servizi nell'ambiente e su come usarlo in svariati scenari.
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 98bf38a6c293f6d339413b5395bb32d74bcb30c0
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 07/24/2019
+ms.openlocfilehash: 00bb58c88b7dc535bf76e1a96e9748a2c366b338
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905708"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554008"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 
-Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Con Mapping dei servizi puoi visualizzare i server nel modo in cui pensi a essi, ovvero come sistemi interconnessi che forniscono servizi essenziali. Il Mapping dei servizi visualizza le connessioni fra i server, i processi, la latenza di connessione in ingresso e in uscita e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
+Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue il mapping della comunicazione fra i servizi. Con Mapping dei servizi puoi visualizzare i server nel modo in cui pensi a essi, ovvero come sistemi interconnessi che forniscono servizi essenziali. Il Mapping dei servizi visualizza le connessioni fra i server, i processi, la latenza di connessione in ingresso e in uscita e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
 
 Questo articolo fornisce i dettagli sull'onboarding e su come usare Mapping dei servizi. Per informazioni sulla configurazione dei prerequisiti per questa soluzione, vedere [Enable the monitoraggio di Azure per le macchine virtuali Overview](vminsights-enable-overview.md#prerequisites). Per riepilogare, sono necessari gli elementi seguenti:
 
@@ -35,7 +29,7 @@ Questo articolo fornisce i dettagli sull'onboarding e su come usare Mapping dei 
 >[!NOTE]
 >Se il Mapping dei servizi è già stato distribuito, è possibile visualizzare il mapping anche in Monitoraggio di Azure per le macchine virtuali, che include le funzionalità aggiuntive per monitorare le prestazioni e l'integrità delle VM. Per altre informazioni, vedere [Descrizione di Monitoraggio di Azure per le macchine virtuali](../../azure-monitor/insights/vminsights-overview.md). Per informazioni sulle differenze tra la soluzione Mapping dei servizi e la funzionalità della mappa Monitoraggio di Azure per le macchine virtuali, vedere le [domande frequenti](vminsights-faq.md#how-is-azure-monitor-for-vms-map-feature-different-from-service-map)riportate di seguito.
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
+## <a name="sign-in-to-azure"></a>Accedere a Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
@@ -46,7 +40,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 È possibile accedere a Mapping dei servizi nel portale di Azure dall'area di lavoro Log Analytics e selezionare l'opzione **Soluzioni** dal riquadro sinistro.<br><br> ![Selezionare l'opzione Soluzioni nell'area di lavoro](./media/service-map/select-solution-from-workspace.png).<br> Dall'elenco delle soluzioni, selezionare **ServiceMap(workspaceName)** e nella pagina della panoramica della soluzione Mapping dei servizi, fare clic sul riquadro di riepilogo di Mapping dei servizi.<br><br> ![Riquadro di riepilogo di Mapping dei servizi](./media/service-map/service-map-summary-tile.png).
 
-## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casi d'uso: Riconoscimento delle dipendenze nei processi IT
+## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casi di utilizzo: Riconoscimento delle dipendenze nei processi IT
 
 ### <a name="discovery"></a>Individuazione
 
@@ -60,7 +54,7 @@ Mapping dei servizi consente di eliminare i tentativi di isolamento del problema
 
 L'uso di Mapping dei servizi consente di pianificare in modo efficace, accelerare e convalidare le migrazioni di Azure, garantendo che non venga tralasciato nulla e non si verifichino interruzioni impreviste. È possibile individuare tutti i sistemi interdipendenti di cui è necessario eseguire la migrazione insieme, valutare la configurazione e la capacità del sistema e determinare se un sistema in esecuzione è ancora utile agli utenti oppure è un candidato alla rimozione delle autorizzazioni anziché alla migrazione. Dopo aver eseguito lo spostamento, è possibile verificare il caricamento e l'identità dei client per assicurarsi che i sistemi di test e i clienti siano connessi. Se ci sono problemi nella pianificazione delle subnet e nelle definizioni dei firewall, le connessioni non riuscite nelle mappe di Mapping dei servizi indicano i sistemi che necessitano di connettività.
 
-### <a name="business-continuity"></a>Continuità aziendale
+### <a name="business-continuity"></a>Business continuity
 
 Se si usa Azure Site Recovery e si necessita di aiuto per definire la sequenza di ripristino dell'ambiente delle applicazioni, Mapping dei servizi visualizza automaticamente le dipendenze reciproche tra i sistemi, consentendo di verificare l'affidabilità del proprio piano di ripristino. Scegliendo un server o un gruppo critico e visualizzandone i client è possibile identificare i sistemi front-end che devono essere ripristinati soltanto dopo aver ripristinato e reso disponibile il server critico. Al contrario, osservando le dipendenze back-end di un server critico è possibile identificare i sistemi che devono essere ripristinati prima di ripristinare il sistema critico.
 
@@ -161,7 +155,7 @@ Fare clic sui puntini di sospensione accanto al nome del gruppo nell'elenco del 
 
 Alcuni processi svolgono ruoli particolari nei computer: server Web, server applicazioni, database e così via. Mapping dei servizi annota le caselle relative a processi e computer con icone di ruolo, per consentire di identificare rapidamente il ruolo di un processo o un server.
 
-| Icona del ruolo | DESCRIZIONE |
+| Icona del ruolo | Description |
 |:--|:--|
 | ![Server Web](media/service-map/role-web-server.png) | Server Web |
 | ![Server app](media/service-map/role-application-server.png) | Server applicazioni |
@@ -333,7 +327,7 @@ I record in queste tabelle vengono generati dai dati segnalati da Dependency Age
 
 Per gestire i costi e la complessità, i record di connessione non rappresentano singole connessioni di rete fisiche. Più connessioni di rete fisiche vengono raggruppate in una connessione logica, che viene quindi riflessa nella rispettiva tabella.  Ciò significa che i record nella tabella *VMConnection* rappresentano un raggruppamento logico e non le singole connessioni fisiche osservate. Le connessioni di rete fisiche che condividono lo stesso valore per gli attributi seguenti durante uno specifico intervallo di un minuto vengono aggregate in un singolo record logico in *VMConnection*. 
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 |:--|:--|
 | `Direction` |Direzione della connessione. Il valore è *inbound* o *outbound* |
 | `Machine` |FQDN del computer |
@@ -345,7 +339,7 @@ Per gestire i costi e la complessità, i record di connessione non rappresentano
 
 Per rendere conto dell'impatto del raggruppamento, nelle proprietà del record seguenti vengono fornite informazioni sul numero di connessioni fisiche raggruppate:
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 |:--|:--|
 | `LinksEstablished` |Numero di connessioni di rete fisiche che sono state stabilite durante l'intervallo di tempo di creazione del report |
 | `LinksTerminated` |Numero di connessioni di rete fisiche che sono state terminate durante l'intervallo di tempo di creazione del report |
@@ -356,7 +350,7 @@ Per rendere conto dell'impatto del raggruppamento, nelle proprietà del record s
 
 Oltre alle metriche relative al numero di connessioni, nelle proprietà del record seguenti vengono fornite anche informazioni sul volume dei dati inviati e ricevuti in una determinata connessione logica o porta di rete:
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 |:--|:--|
 | `BytesSent` |Numero totale di byte che sono stati inviati durante l'intervallo di tempo di creazione del report |
 | `BytesReceived` |Numero totale di byte che sono stati ricevuti durante l'intervallo di tempo di creazione del report |
@@ -384,7 +378,7 @@ Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incl
 
 *VMConnection* include anche informazioni di georilevazione per l'estremità remota di ogni record di connessione nelle proprietà del record seguenti: 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--|:--|
 | `RemoteCountry` |Nome del paese/area geografica che ospita RemoteIp.  Ad esempio, *Stati Uniti* |
 | `RemoteLatitude` |Latitudine della georilevazione.  Ad esempio, *47.68* |
@@ -394,7 +388,7 @@ Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incl
 
 Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un set di indirizzi IP con attività dannosa nota. Se la proprietà RemoteIp viene identificata come dannosa, le proprietà del record seguenti (vuote quando l'indirizzo IP non è considerato dannoso) vengono popolate:
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 |:--|:--|
 | `MaliciousIp` |Indirizzo RemoteIp |
 | `IndicatorThreadType` |L'indicatore di minaccia rilevato è uno dei valori seguenti, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
@@ -412,7 +406,7 @@ Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un s
 
 I record che contengono il tipo *ServiceMapComputer_CL* includono dati di inventario relativi ai server con agenti del modello dei servizi. Questi record includono le proprietà elencate nella tabella seguente:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--|:--|
 | `Type` | *ServiceMapComputer_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -438,7 +432,7 @@ I record che contengono il tipo *ServiceMapComputer_CL* includono dati di invent
 
 I record con tipo *ServiceMapProcess_CL* includono dati di inventario relativi ai processi con connessione TCP eseguiti sui server con agenti del modello dei servizi. Questi record includono le proprietà elencate nella tabella seguente:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--|:--|
 | `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -551,7 +545,7 @@ Tutti i dati relativi a server, processi e dipendenze in Mapping dei servizi son
 
 ## <a name="diagnostic-and-usage-data"></a>Dati di diagnostica e di utilizzo
 
-Microsoft raccoglie automaticamente i dati di utilizzo e prestazioni tramite l'uso del servizio Mapping dei servizi da parte dell'utente. Microsoft usa questi dati per offrire e migliorare la qualità, la sicurezza e l'integrità del servizio Mapping dei servizi. Per offrire capacità di risoluzione dei problemi accurate ed efficienti, i dati includono informazioni sulla configurazione del software, come il sistema operativo e la versione, l'indirizzo IP, il nome DNS e il nome della workstation. Microsoft non raccoglie nomi, indirizzi o altre informazioni di contatto.
+Microsoft raccoglie automaticamente i dati di utilizzo e prestazioni tramite l'uso del servizio relativo all'elenco dei servizi da parte dell'utente. Microsoft usa questi dati per offrire e migliorare la qualità, la sicurezza e l'integrità del servizio Mapping dei servizi. Per offrire capacità di risoluzione dei problemi accurate ed efficienti, i dati includono informazioni sulla configurazione del software, come il sistema operativo e la versione, l'indirizzo IP, il nome DNS e il nome della workstation. Microsoft non raccoglie nomi, indirizzi o altre informazioni di contatto.
 
 Per altre informazioni sulla raccolta e sull'uso dei dati , vedere l'[Informativa sulla privacy Servizi online Microsoft ](https://go.microsoft.com/fwlink/?LinkId=512132).
 
@@ -559,7 +553,7 @@ Per altre informazioni sulla raccolta e sull'uso dei dati , vedere l'[Informativ
 
 Altre informazioni sulle [ricerche nei log](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics per recuperare i dati raccolti da Mapping dei servizi.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se si verificano problemi di installazione o esecuzione di Mapping dei servizi, questa sezione può essere d'aiuto. Se si non riesce a risolvere il problema, contattare il supporto tecnico Microsoft.
 
@@ -578,9 +572,9 @@ Potrebbe essere utile installare prima le [librerie di runtime più recenti](htt
 
 La tabella seguente elenca i codici e le risoluzioni consigliate.
 
-| Codice | DESCRIZIONE | Risoluzione |
+| Codice | Description | Risoluzione |
 |:--|:--|:--|
-| 0x17 | Il programma di installazione della libreria richiede un aggiornamento di Windows che non è stato installato. | Cercare nel log del programma di installazione della libreria più recente.<br><br>Se un riferimento a `Windows8.1-KB2999226-x64.msu` è seguito da una riga `Error 0x80240017: Failed to execute MSU package,` , non si dispone dei prerequisiti per l'installazione di KB2999226. Seguire le istruzioni riportate nella sezione prerequisiti dell'articolo [runtime di Universal C in Windows](https://support.microsoft.com/kb/2999226) . Potrebbe essere necessario eseguire Windows Update e riavviare più volte per installare i prerequisiti.<br><br>Eseguire nuovamente il programma di installazione di Microsoft Dependency Agent. |
+| 0x17 | Il programma di installazione della libreria richiede un aggiornamento di Windows che non è stato installato. | Cercare nel log del programma di installazione della libreria più recente.<br><br>Se un riferimento a `Windows8.1-KB2999226-x64.msu` è seguito da una riga `Error 0x80240017: Failed to execute MSU package,` non si dispone dei prerequisiti per l'installazione di KB2999226. Seguire le istruzioni riportate nella sezione prerequisiti dell'articolo [runtime di Universal C in Windows](https://support.microsoft.com/kb/2999226) . Potrebbe essere necessario eseguire Windows Update e riavviare più volte per installare i prerequisiti.<br><br>Eseguire nuovamente il programma di installazione di Microsoft Dependency Agent. |
 
 ### <a name="post-installation-issues"></a>Problemi successivi all'installazione
 
@@ -588,8 +582,8 @@ La tabella seguente elenca i codici e le risoluzioni consigliate.
 
 Se l'installazione dell'agente di dipendenza ha avuto esito positivo, ma il computer non è visibile nella soluzione Mapping dei servizi:
 * Dependency Agent è stato installato correttamente? È possibile verificarlo controllando se il servizio è installato ed è in esecuzione.<br><br>
-**Windows**: Cercare il servizio denominato **Microsoft Dependency Agent**.
-**Linux**: Cercare il processo in esecuzione **Microsoft-Dependency-Agent**.
+**Windows**: cercare il servizio denominato **Microsoft Dependency Agent**.
+**Linux**: cercare il processo in esecuzione **Microsoft-Dependency-Agent**.
 
 * Il [livello gratuito log Analytics](https://azure.microsoft.com/pricing/details/monitor/)? Il piano gratuito consente fino a cinque macchine Mapping dei servizi univoche. Eventuali computer successivi non verranno visualizzati in Mapping dei servizi, anche se i cinque precedenti non inviano più dati.
 
@@ -599,14 +593,14 @@ Se l'installazione dell'agente di dipendenza ha avuto esito positivo, ma il comp
     Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
-I risultati mostrano eventi diversi? I dati sono aggiornati? In tal caso, l'agente di Log Analytics funziona correttamente e comunica con l'area di lavoro. In caso contrario, controllare l'agente nel computer: [Risoluzione dei problemi dell'agente di Log Analytics per Windows](../platform/agent-windows-troubleshoot.md) o [Risoluzione dei problemi dell'agente di Log Analytics per Linux](../platform/agent-linux-troubleshoot.md).
+I risultati mostrano eventi diversi? I dati sono aggiornati? In tal caso, l'agente di Log Analytics funziona correttamente e comunica con l'area di lavoro. In caso contrario, controllare l'agente nel computer: [log Analytics Agent per la risoluzione dei problemi di Windows](../platform/agent-windows-troubleshoot.md) o la [risoluzione dei problemi di log Analytics Agent per Linux](../platform/agent-linux-troubleshoot.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Il server viene visualizzato in Mapping dei servizi, ma non dispone di alcun processo
 
 Se il computer viene visualizzato in Mapping dei servizi, ma non contiene dati di processo o di connessione, questo indica che Dependency Agent è stato installato e in esecuzione, ma il driver del kernel non è stato caricato. 
 
-Controllare (Windows) o `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` Le ultime righe del file dovrebbero indicare il motivo per cui il kernel non è stato caricato. Ad esempio, il kernel potrebbe non essere supportato in Linux se è stato aggiornato.
+Controllare la `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) o `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). Le ultime righe del file dovrebbero indicare il motivo per cui il kernel non è stato caricato. Ad esempio, il kernel potrebbe non essere supportato in Linux se è stato aggiornato.
 
-## <a name="feedback"></a>Commenti e suggerimenti
+## <a name="feedback"></a>Commenti
 
-Per inviare commenti su Mapping dei servizi e sulla relativa documentazione,  Visitare la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.
+Per inviare commenti sull'elenco dei servizi e sulla relativa documentazione,  Visitare la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.

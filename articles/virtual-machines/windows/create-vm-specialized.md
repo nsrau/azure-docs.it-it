@@ -2,7 +2,6 @@
 title: Creare una macchina virtuale Windows da un disco rigido virtuale specializzato in Azure | Microsoft Docs
 description: Creare una nuova macchina virtuale Windows collegando un disco gestito specializzato come disco del sistema operativo usando il modello di distribuzione Resource Manager.
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
 manager: gwallace
 editor: ''
@@ -12,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 6adeae69a4ef9e6f2d77588f8071498fd25beb3e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: be773779b25a32a5904012ae31950b18c33341dc
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390599"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553423"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Creare una macchina virtuale Windows da un disco specializzato usando PowerShell
 
@@ -63,100 +62,15 @@ Usare il disco rigido virtuale così com'è per creare una nuova macchina virtua
   * Verificare che la macchina virtuale sia configurata per ottenere l'indirizzo IP e le impostazioni DNS da DHCP. In questo modo il server ottiene un indirizzo IP all'interno della rete virtuale all'avvio. 
 
 
-### <a name="get-the-storage-account"></a>Ottenere l'account di archiviazione
-Per archiviare il disco rigido virtuale caricato, sarà necessario un account di archiviazione di Azure. È possibile usare un account di archiviazione esistente o crearne uno nuovo. 
+### <a name="upload-the-vhd"></a>Caricare il disco rigido virtuale
 
-Mostra gli account di archiviazione disponibili.
-
-```powershell
-Get-AzStorageAccount
-```
-
-Per usare un account di archiviazione esistente, passare alla sezione [Caricare il disco rigido virtuale](#upload-the-vhd-to-your-storage-account).
-
-Creare un account di archiviazione.
-
-1. Sarà necessario il nome del gruppo di risorse in cui verrà creato l'account di archiviazione. Usare Get-AzResourceGroup per visualizzare tutti i gruppi di risorse presenti nella sottoscrizione.
-   
-    ```powershell
-    Get-AzResourceGroup
-    ```
-
-    Creare un gruppo di risorse denominato *myResourceGroup* nell'area *Stati Uniti occidentali*.
-
-    ```powershell
-    New-AzResourceGroup `
-       -Name myResourceGroup `
-       -Location "West US"
-    ```
-
-2. Creare un account di archiviazione denominato *mystorageaccount* nel nuovo gruppo di risorse con il cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount).
-   
-    ```powershell
-    New-AzStorageAccount `
-       -ResourceGroupName myResourceGroup `
-       -Name mystorageaccount `
-       -Location "West US" `
-       -SkuName "Standard_LRS" `
-       -Kind "Storage"
-    ```
-
-### <a name="upload-the-vhd-to-your-storage-account"></a>Caricare il disco rigido virtuale nell'account di archiviazione 
-Usare il cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) per caricare il disco rigido virtuale in un contenitore nell'account di archiviazione. In questo esempio il file *myVHD.vhd* viene caricato da "C:\Users\Public\Documents\Virtual hard disks\" in un account di archiviazione denominato *mystorageaccount* nel gruppo di risorse *myResourceGroup*. Il file viene archiviato nel contenitore denominato *mycontainer* e il nuovo nome del file sarà *myUploadedVHD.vhd*.
-
-```powershell
-$resourceGroupName = "myResourceGroup"
-$urlOfUploadedVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzVhd -ResourceGroupName $resourceGroupName `
-   -Destination $urlOfUploadedVhd `
-   -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
-```
-
-
-Se i comandi hanno esito positivo, si otterrà una risposta simile alla seguente:
-
-```powershell
-MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
-MD5 hash calculation is completed.
-Elapsed time for the operation: 00:03:35
-Creating new page blob of size 53687091712...
-Elapsed time for upload: 01:12:49
-
-LocalFilePath           DestinationUri
--------------           --------------
-C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
-```
-
-L'esecuzione del comando potrebbe richiedere del tempo, a seconda della connessione di rete e delle dimensioni del file VHD.
-
-### <a name="create-a-managed-disk-from-the-vhd"></a>Creare un disco gestito dal disco rigido virtuale
-
-Creare un disco gestito dal disco rigido virtuale specializzato nell'account di archiviazione usando [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). Questo esempio usa *myOSDisk1* per il nome del disco, inserisce il disco nella risorsa di archiviazione *Standard_LRS* e usa  *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* come URI per il disco rigido virtuale di origine.
-
-Creare un nuovo gruppo di risorse per la nuova VM.
-
-```powershell
-$destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzResourceGroup -Location $location `
-   -Name $destinationResourceGroup
-```
-
-Creare il nuovo disco del sistema operativo dal disco rigido virtuale caricato. 
-
-```powershell
-$sourceUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
-$osDiskName = 'myOsDisk'
-$osDisk = New-AzDisk -DiskName $osDiskName -Disk `
-    (New-AzDiskConfig -AccountType Standard_LRS  `
-    -Location $location -CreateOption Import `
-    -SourceUri $sourceUri) `
-    -ResourceGroupName $destinationResourceGroup
-```
+È ora possibile caricare un disco rigido virtuale direttamente in un disco gestito. Per istruzioni, vedere [caricare un disco rigido virtuale in Azure usando Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
 ## <a name="option-3-copy-an-existing-azure-vm"></a>Opzione 3: Copiare una macchina virtuale di Azure esistente
 
 È possibile creare una copia di una macchina virtuale che usa dischi gestiti acquisendo uno snapshot della macchina virtuale e quindi usando tale snapshot per creare un nuovo disco gestito e una nuova macchina virtuale.
 
+Se si vuole copiare una macchina virtuale esistente in un'altra area, potrebbe essere necessario usare azcopy per [creare una copia di un disco in un'altra area](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>Acquisire uno snapshot del disco del sistema operativo
 

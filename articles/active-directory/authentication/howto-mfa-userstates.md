@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 10/15/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0c941ec5010b6f9c35e81fdbcacd2093724eb21
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 3ee1d282506b537ed29592ca9008c88a53220d7d
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162344"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554842"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Come richiedere la verifica in due passaggi per un utente
 
@@ -34,18 +34,18 @@ Abilitato dai criteri di accesso condizionale: si tratta del mezzo più flessibi
 Abilitato da Azure AD Identity Protection: questo metodo usa i criteri di rischio di Azure AD Identity Protection per richiedere la verifica in due passaggi basata solo sul rischio di accesso per tutte le applicazioni cloud. Questo metodo richiede una licenza di Azure Active Directory P2. Per altre informazioni su questo metodo, vedere [Azure Active Directory Identity Protection](../identity-protection/howto-sign-in-risk-policy.md)
 
 > [!Note]
-> Altre informazioni sulle licenze e i prezzi sono disponibili nelle pagine relative ai prezzi di [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/
+> Altre informazioni sulle licenze e i prezzi sono reperibili nelle pagine relative ai prezzi di [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/
 ) e [Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
 
 ## <a name="enable-azure-mfa-by-changing-user-state"></a>Abilitare Azure MFA modificando lo stato utente
 
 Gli account utente in modalità Multi-Factor Authentication di Azure presentano i seguenti tre stati distinti:
 
-| Stato | DESCRIZIONE | App interessate non basate su browser | App interessate basate su browser | Autenticazione moderna interessata |
+| Status | Description | App interessate non basate su browser | App interessate basate su browser | Autenticazione moderna interessata |
 |:---:|:---:|:---:|:--:|:--:|
-| Disabilitata |Stato predefinito per un nuovo utente non registrato in Azure MFA. |No |No |No |
-| Enabled |L'utente è stato iscritto ad Azure MFA, ma non ha eseguito la registrazione. Viene richiesto di eseguire la registrazione al successivo accesso. |No.  Continuano a funzionare fino al completamento della registrazione. | Sì. Dopo la scadenza della sessione, è necessaria la registrazione ad Azure MFA.| Sì. Dopo la scadenza dei token di accesso, è necessaria la registrazione ad Azure MFA. |
-| Applicato |L'utente è stato iscritto e ha completato il processo di registrazione per Azure MFA. |Sì. Le app richiedono password per le app. |Sì. Azure MFA è necessario all'accesso. | Sì. Azure MFA è necessario all'accesso. |
+| Disabled |Stato predefinito per un nuovo utente non registrato in Azure MFA. |No |No |No |
+| Attivato |L'utente è stato iscritto ad Azure MFA, ma non ha eseguito la registrazione. Viene richiesto di eseguire la registrazione al successivo accesso. |No.  Continuano a funzionare fino al completamento della registrazione. | Sì. Dopo la scadenza della sessione, è necessaria la registrazione ad Azure MFA.| Sì. Dopo la scadenza dei token di accesso, è necessaria la registrazione ad Azure MFA. |
+| Enforced |L'utente è stato iscritto e ha completato il processo di registrazione per Azure MFA. |Sì. Le app richiedono password per le app. |Sì. Azure MFA è necessario all'accesso. | Sì. Azure MFA è necessario all'accesso. |
 
 Lo stato dell'utente indica se un amministratore ha eseguito la relativa iscrizione in Azure MFA e se l'utente ha completato il processo di registrazione.
 
@@ -66,10 +66,10 @@ Per accedere alla pagina in cui è possibile visualizzare e gestire gli stati ut
 
 1. Usare la procedura precedente per visualizzare la pagina **utenti** di Azure Multi-Factor Authentication.
 2. Trovare l'utente che si vuole abilitare per Azure MFA. Potrebbe essere necessario modificare la visualizzazione nella parte superiore.
-   ![Selezionare l'utente per cui modificare lo stato dalla scheda utenti](./media/howto-mfa-userstates/enable1.png)
+   ![Select all'utente di modificare lo stato di dalla scheda utenti ](./media/howto-mfa-userstates/enable1.png)
 3. Selezionare la casella accanto al nome.
 4. A destra, sotto **Azioni rapide** scegliere **Abilita** o **Disabilita**.
-   ![Per abilitare l'utente selezionato, fare clic su Abilita nel menu passaggi rapidi](./media/howto-mfa-userstates/user1.png)
+   ![Enable utente selezionato facendo clic su Abilita nel menu passaggi rapidi ](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
    > Gli utenti *abilitati* diventano automaticamente *applicati* quando si registrano ad Azure MFA. Non modificare manualmente lo stato di un utente su *Applicato*.
@@ -82,9 +82,9 @@ Per accedere alla pagina in cui è possibile visualizzare e gestire gli stati ut
 
 Per modificare lo stato dell'utente usando [Azure AD PowerShell](/powershell/azure/overview), modificare `$st.State`. Esistono tre possibili stati:
 
-* Enabled
-* Applicato
-* Disabilitata  
+* Attivato
+* Enforced
+* Disabled  
 
 Un utente non può essere spostato direttamente sullo stato *Applicato*. Se si esegue questa operazione, le app non basate su browser smettono di funzionare poiché l'utente non ha effettuato la registrazione ad Azure MFA e non ha ottenuto una [password delle app](howto-mfa-mfasettings.md#app-passwords).
 
@@ -170,31 +170,8 @@ function Set-MfaState {
     }
 }
 
-# Wrapper to disable MFA with the option to keep the MFA methods (to avoid having to proof-up again later)
-function Disable-Mfa {
-
-    [CmdletBinding()]
-    param(
-        [Parameter(ValueFromPipeline=$True)]
-        $User,
-        [switch] $KeepMethods
-    )
-
-    Process {
-
-        Write-Verbose ("Disabling MFA for user '{0}'" -f $User.UserPrincipalName)
-        $User | Set-MfaState -State Disabled
-
-        if ($KeepMethods) {
-            # Restore the MFA methods which got cleared when disabling MFA
-            Set-MsolUser -ObjectId $User.ObjectId `
-                         -StrongAuthenticationMethods $User.StrongAuthenticationMethods
-        }
-    }
-}
-
-# Disable MFA for all users, keeping their MFA methods intact
-Get-MsolUser -All | Disable-MFA -KeepMethods
+# Disable MFA for all users
+Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

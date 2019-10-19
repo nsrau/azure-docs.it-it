@@ -1,19 +1,18 @@
 ---
 title: Avvisi del log attività nel Monitoraggio di Azure
 description: Ricevere una notifica tramite SMS, webhook, posta elettronica e altro quando si verificano determinati eventi nel log attività.
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 09/17/2018
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: b24f24edf2a3a0df8cb8ef9687f205a4a8868537
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 09/17/2018
+ms.openlocfilehash: d3cb075d5ec0607453ca21f2574df7def02a4453
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71675224"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553718"
 ---
 # <a name="alerts-on-activity-log"></a>Avvisi sul log attività 
 
@@ -43,7 +42,7 @@ Gli avvisi del log attività hanno alcune opzioni comuni:
     - Livello di sottoscrizione: ad esempio, tutte le macchine virtuali in una sottoscrizione oppure tutte le risorse in una sottoscrizione
 - **Gruppo di risorse**: per impostazione predefinita, la regola di avviso viene salvata nello stesso gruppo di risorse di quello di destinazione definito nell'ambito. L'utente può anche definire il gruppo di risorse in cui deve essere archiviata la regola di avviso.
 - **Tipo di risorsa**: spazio dei nomi definito da Resource Manager per la destinazione dell'avviso.
-- **Nome operazione**: Nome dell' [operazione di Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) utilizzato per il controllo degli accessi in base al ruolo. Non è possibile usare le operazioni non registrate con Azure Resource Manager in una regola di avviso del log attività.
+- **Nome dell'operazione**: il nome dell' [operazione Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) usato per il controllo degli accessi in base al ruolo. Non è possibile usare le operazioni non registrate con Azure Resource Manager in una regola di avviso del log attività.
 - **Livello**: il livello di gravità dell'evento (dettagliato, informativo, avvertenza, errore o critico).
 - **Stato**: lo stato dell'evento, in genere Avviato, Non riuscito o Riuscito.
 - **Evento avviato da**: noto anche come "chiamante". L'indirizzo di posta elettronica o un identificatore di Azure Active Directory dell'utente che ha eseguito l'operazione.
@@ -51,7 +50,7 @@ Gli avvisi del log attività hanno alcune opzioni comuni:
 > [!NOTE]
 > In una sottoscrizione possono essere create fino a 100 regole di avviso per l'attività dell'ambito per: una sola risorsa, tutte le risorse nel gruppo di risorse oppure a livello dell'intera sottoscrizione.
 
-Quando un avviso del log di attività viene attivato, usa un gruppo di azione per generare azioni o notifiche. Un gruppo di azione è un set riutilizzabile di ricevitori di notifica, ad esempio gli indirizzi di posta elettronica, gli URL webhook o i numeri di telefono di SMS. Più avvisi possono fare riferimento ai ricevitori per centralizzare e raggruppare i canali di notifica. Quando si definisce l'avviso del log di attività, sono disponibili due opzioni. È possibile:
+Quando un avviso del log di attività viene attivato, usa un gruppo di azione per generare azioni o notifiche. Un gruppo di azione è un set riutilizzabile di ricevitori di notifica, ad esempio gli indirizzi di posta elettronica, gli URL webhook o i numeri di telefono di SMS. Più avvisi possono fare riferimento ai ricevitori per centralizzare e raggruppare i canali di notifica. Quando si definisce l'avviso del log di attività, sono disponibili due opzioni. Puoi:
 
 * Usare un gruppo di azione esistente nell'avviso del log attività.
 * Creare un nuovo gruppo di azione.

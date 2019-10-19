@@ -7,16 +7,16 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: fa638a00e0d35e1d48bc3205ce2a77e7faf5d22e
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 0ab81d3c1d4c68827cf1569bf4a22c3311fe355d
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718390"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555816"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Schema di eventi di Griglia di eventi di Azure per l'archiviazione BLOB
 
-Questo articolo illustra le proprietà e lo schema per gli eventi di archiviazione BLOB. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
+Questo articolo illustra le proprietà e lo schema per gli eventi di archiviazione BLOB. Per un'introduzione agli schemi di eventi, vedere [schema di eventi di griglia di eventi di Azure](event-schema.md).
 
 Per un elenco di esercitazioni e script di esempio, vedere l'[origine eventi di archiviazione](event-sources.md#storage).
 
@@ -24,32 +24,29 @@ Per un elenco di esercitazioni e script di esempio, vedere l'[origine eventi di 
 
 Questi eventi vengono attivati quando un client crea, sostituisce o Elimina un BLOB chiamando API REST BLOB.
 
- |Nome evento |Descrizione|
+ |Nome evento |Description|
  |----------|-----------|
- |**Microsoft.Storage.BlobCreated** |Attivato quando si crea o si sostituisce un BLOB. <br>In particolare, questo evento viene generato quando i client usano le operazioni `PutBlob`, `PutBlockList` o `CopyBlob` disponibili nell'API REST di BLOB.   |
- |**Microsoft.Storage.BlobDeleted** |Attivato quando viene eliminato un BLOB. <br>In particolare, questo evento viene generato quando i client chiamano l'operazione `DeleteBlob` disponibile nell'API REST BLOB. |
+ |**Microsoft. storage. BlobCreated** |Attivato quando si crea o si sostituisce un BLOB. <br>In particolare, questo evento viene generato quando i client usano le operazioni `PutBlob`, `PutBlockList` o `CopyBlob` disponibili nell'API REST BLOB.   |
+ |**Microsoft. storage. BlobDeleted** |Attivato quando viene eliminato un BLOB. <br>In particolare, questo evento viene generato quando i client chiamano l'operazione `DeleteBlob` disponibile nell'API REST BLOB. |
 
 > [!NOTE]
-> Per assicurarsi che l'evento **Microsoft. storage. BlobCreated** venga attivato solo quando viene eseguito il commit completo di un BLOB in blocchi, filtrare l'evento per le chiamate all'API REST `CopyBlob`, `PutBlob` e `PutBlockList`. Queste chiamate API attivano l'evento **Microsoft. storage. BlobCreated** solo dopo che è stato eseguito il commit completo dei dati in un BLOB in blocchi. Per informazioni su come creare un filtro, vedere [filtrare gli eventi per griglia di eventi](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+> Per assicurarsi che l'evento **Microsoft. storage. BlobCreated** venga attivato solo quando viene eseguito il commit completo di un BLOB in blocchi, filtrare l'evento per le chiamate all'API REST di `CopyBlob`, `PutBlob` e `PutBlockList`. Queste chiamate API attivano l'evento **Microsoft. storage. BlobCreated** solo dopo che è stato eseguito il commit completo dei dati in un BLOB in blocchi. Per informazioni su come creare un filtro, vedere [filtrare gli eventi per griglia di eventi](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
 ## <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Elenco degli eventi per Azure Data Lake Storage le API REST di generazione 2
 
 Questi eventi vengono attivati se si Abilita uno spazio dei nomi gerarchico nell'account di archiviazione e i client chiamano Azure Data Lake Storage Gen2 API REST.
 
-> [!NOTE]
-> Questi eventi sono disponibili in anteprima pubblica e sono disponibili solo nelle aree **Stati Uniti occidentali 2** e **Stati Uniti centro-occidentali** .
-
- |Nome evento|Descrizione|
- |----------|-----------|
- |**Microsoft.Storage.BlobCreated** | Attivato quando si crea o si sostituisce un BLOB. <br>In particolare, questo evento viene generato quando i client usano le operazioni `CreateFile` e `FlushWithClose` disponibili nell'API REST Azure Data Lake Storage Gen2. |
- |**Microsoft.Storage.BlobDeleted** |Attivato quando viene eliminato un BLOB. <br>In particolare, questo evento viene attivato anche quando i client chiamano l'operazione `DeleteFile` disponibile nell'API REST di Azure Data Lake Storage Gen2. |
- |**Microsoft.Storage.BlobRenamed**|Attivato quando un BLOB viene rinominato. <br>In particolare, questo evento viene generato quando i client usano l'operazione `RenameFile` disponibile nell'API REST di Azure Data Lake Storage Gen2.|
- |**Microsoft.Storage.DirectoryCreated**|Attivato quando viene creata una directory. <br>In particolare, questo evento viene generato quando i client usano l'operazione `CreateDirectory` disponibile nell'API REST di Azure Data Lake Storage Gen2.|
- |**Microsoft.Storage.DirectoryRenamed**|Attivato quando una directory viene rinominata. <br>In particolare, questo evento viene generato quando i client usano l'operazione `RenameDirectory` disponibile nell'API REST di Azure Data Lake Storage Gen2.|
- |**Microsoft.Storage.DirectoryDeleted**|Attivato quando una directory viene eliminata. <br>In particolare, questo evento viene generato quando i client usano l'operazione `DeleteDirectory` disponibile nell'API REST di Azure Data Lake Storage Gen2.|
+|Nome evento|Description|
+|----------|-----------|
+|**Microsoft. storage. BlobCreated** | Attivato quando si crea o si sostituisce un BLOB. <br>In particolare, questo evento viene generato quando i client usano le operazioni `CreateFile` e `FlushWithClose` disponibili nell'API REST Azure Data Lake Storage Gen2. |
+|**Microsoft. storage. BlobDeleted** |Attivato quando viene eliminato un BLOB. <br>In particolare, questo evento viene attivato anche quando i client chiamano l'operazione `DeleteFile` disponibile nell'API REST di Azure Data Lake Storage Gen2. |
+|**Microsoft. storage. BlobRenamed**|Attivato quando un BLOB viene rinominato. <br>In particolare, questo evento viene generato quando i client usano l'operazione `RenameFile` disponibile nell'API REST di Azure Data Lake Storage Gen2.|
+|**Microsoft. storage. DirectoryCreated**|Attivato quando viene creata una directory. <br>In particolare, questo evento viene generato quando i client usano l'operazione `CreateDirectory` disponibile nell'API REST di Azure Data Lake Storage Gen2.|
+|**Microsoft. storage. DirectoryRenamed**|Attivato quando una directory viene rinominata. <br>In particolare, questo evento viene generato quando i client usano l'operazione `RenameDirectory` disponibile nell'API REST di Azure Data Lake Storage Gen2.|
+|**Microsoft. storage. DirectoryDeleted**|Attivato quando una directory viene eliminata. <br>In particolare, questo evento viene generato quando i client usano l'operazione `DeleteDirectory` disponibile nell'API REST di Azure Data Lake Storage Gen2.|
 
 > [!NOTE]
-> Per assicurarsi che l'evento **Microsoft. storage. BlobCreated** venga attivato solo quando viene eseguito il commit completo di un BLOB in blocchi, filtrare l'evento per la chiamata all'API REST `FlushWithClose`. Questa chiamata API attiva l'evento **Microsoft. storage. BlobCreated** solo dopo che è stato eseguito il commit completo dei dati in un BLOB in blocchi. Per informazioni su come creare un filtro, vedere [filtrare gli eventi per griglia di eventi](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+> Per assicurarsi che l'evento **Microsoft. storage. BlobCreated** venga attivato solo quando viene eseguito il commit completo di un BLOB in blocchi, filtrare l'evento per la chiamata all'API REST di `FlushWithClose`. Questa chiamata API attiva l'evento **Microsoft. storage. BlobCreated** solo dopo che è stato eseguito il commit completo dei dati in un BLOB in blocchi. Per informazioni su come creare un filtro, vedere [filtrare gli eventi per griglia di eventi](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
 <a id="example-event" />
 
@@ -91,11 +88,11 @@ Questa sezione contiene un esempio dell'aspetto dei dati per ogni evento di arch
 
 Se per l'account di archiviazione BLOB è presente uno spazio dei nomi gerarchico, i dati sono simili a quelli dell'esempio precedente, fatta eccezione per le modifiche seguenti:
 
-* Il tasto `dataVersion` è impostato sul valore `2`.
+* La chiave di `dataVersion` è impostata sul valore `2`.
 
-* Il tasto `data.api` è impostato sulla stringa `CreateFile` o `FlushWithClose`.
+* La chiave di `data.api` è impostata sulla stringa `CreateFile` o `FlushWithClose`.
 
-* Il tasto `contentOffset` è incluso nel set di dati.
+* La chiave di `contentOffset` è inclusa nel set di dati.
 
 > [!NOTE]
 > Se le applicazioni usano l'operazione `PutBlockList` per caricare un nuovo BLOB nell'account, i dati non conterranno tali modifiche.
@@ -156,11 +153,11 @@ Se per l'account di archiviazione BLOB è presente uno spazio dei nomi gerarchic
 
 Se per l'account di archiviazione BLOB è presente uno spazio dei nomi gerarchico, i dati sono simili a quelli dell'esempio precedente, fatta eccezione per le modifiche seguenti:
 
-* Il tasto `dataVersion` è impostato sul valore `2`.
+* La chiave di `dataVersion` è impostata sul valore `2`.
 
-* Il tasto `data.api` è impostato sulla stringa `DeleteFile`.
+* La chiave di `data.api` è impostata sulla stringa `DeleteFile`.
 
-* La chiave `url` contiene il percorso `dfs.core.windows.net`.
+* La chiave di `url` contiene il percorso `dfs.core.windows.net`.
 
 > [!NOTE]
 > Se le applicazioni usano l'operazione `DeleteBlob` per eliminare un BLOB dall'account, i dati non conterranno tali modifiche.
@@ -292,20 +289,20 @@ Se per l'account di archiviazione BLOB è presente uno spazio dei nomi gerarchic
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
-| topic | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 | subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
 | eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
 | eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | id | string | Identificatore univoco dell'evento. |
-| dati | object | Dati relativi all'evento di archiviazione BLOB. |
+| data | object | Dati relativi all'evento di archiviazione BLOB. |
 | dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
 | metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
 | api | string | L'operazione che ha attivato l'evento. |
 | clientRequestId | string | ID richiesta fornito dal client per l'operazione dell'API di archiviazione. Questo ID può essere usato per la correlazione ai log di diagnostica di archiviazione di Azure usando il campo "client-Request-ID" nei log e può essere specificato nelle richieste client usando l'intestazione "x-MS-client-Request-ID". Vedere [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |
@@ -314,11 +311,11 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | contentType | string | Il tipo di contenuto specificato per il BLOB. |
 | contentLength | integer | La dimensione del BLOB in byte. |
 | blobType | string | Il tipo di BLOB. I valori validi sono "BlockBlob" o "PageBlob". |
-| contentOffset | number | Offset in byte di un'operazione di scrittura eseguita nel punto in cui l'applicazione che ha generato l'evento ha completato la scrittura nel file. <br>Viene visualizzato solo per gli eventi generati negli account di archiviazione BLOB con uno spazio dei nomi gerarchico.|
+| contentOffset | d'acquisto | Offset in byte di un'operazione di scrittura eseguita nel punto in cui l'applicazione che ha generato l'evento ha completato la scrittura nel file. <br>Viene visualizzato solo per gli eventi generati negli account di archiviazione BLOB con uno spazio dei nomi gerarchico.|
 | destinationUrl |string | URL del file che presenterà al termine dell'operazione. Se, ad esempio, un file viene rinominato, la proprietà `destinationUrl` contiene l'URL del nuovo nome file. <br>Viene visualizzato solo per gli eventi generati negli account di archiviazione BLOB con uno spazio dei nomi gerarchico.|
 | sourceUrl |string | URL del file esistente prima dell'operazione. Se, ad esempio, un file viene rinominato, il `sourceUrl` contiene l'URL del nome file originale prima dell'operazione di ridenominazione. <br>Viene visualizzato solo per gli eventi generati negli account di archiviazione BLOB con uno spazio dei nomi gerarchico. |
-| url | string | Percorso del BLOB. <br>Se il client usa un'API REST BLOB, l'URL ha questa struttura: *@no__t -1storage-account-name\>.blob.core.windows.net/\<container-Name @ no__t-4 @ no__t-5 @ no__t-6file-Name @ no__t-7*. <br>Se il client usa un'API REST di Data Lake Storage, l'URL ha questa struttura: *@no__t -1storage-account-name\>.dfs.core.windows.net/\<File-System-Name @ no__t-4 @ no__t-5 @ no__t-6file-Name @ no__t-7*. |
-| recursive | string | `True` per eseguire l'operazione su tutte le directory figlio; in caso contrario `False`. <br>Viene visualizzato solo per gli eventi generati negli account di archiviazione BLOB con uno spazio dei nomi gerarchico. |
+| url | string | Percorso del BLOB. <br>Se il client usa un'API REST BLOB, l'URL ha questa struttura: *\<storage-account-name \>. blob.core.windows.net/\<container-name \> / \<file-name \>* . <br>Se il client usa un'API REST di Data Lake Storage, l'URL ha questa struttura: *\<storage-account-name \>. dfs.core.windows.net/\<file-System-name \> / \<file-name \>* . |
+| ricorsiva | string | `True` per eseguire l'operazione su tutte le directory figlio; in caso contrario `False`. <br>Viene visualizzato solo per gli eventi generati negli account di archiviazione BLOB con uno spazio dei nomi gerarchico. |
 | sequencer | string | Valore stringa opaca che rappresenta la sequenza logica di eventi per qualsiasi nome di BLOB specifico.  Gli utenti possono usare il confronto tra stringhe standard per comprendere la sequenza relativa di due eventi sullo stesso nome di BLOB. |
 | storageDiagnostics | object | Dati di diagnostica occasionalmente inclusi dal servizio Archiviazione di Azure. Quando è presente, questa proprietà deve essere ignorata dai consumer di eventi. |
 

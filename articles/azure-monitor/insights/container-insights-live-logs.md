@@ -1,24 +1,18 @@
 ---
 title: Visualizzare i log di Monitoraggio di Azure per i contenitori in tempo reale | Microsoft Docs
 description: Questo articolo descrive la visualizzazione in tempo reale dei log del contenitore (stdout/stderr) ed eventi senza usare kubectl con monitoraggio di Azure per i contenitori.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: d947b44177e9aa5777d759286d982e974e378497
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 07/12/2019
+ms.openlocfilehash: 25cfe10ec192f874d050bca22ce1b85c2d1afbb4
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389781"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554095"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Come visualizzare i log e gli eventi in tempo reale (anteprima)
 Il monitoraggio di Azure per i contenitori include una funzionalità, attualmente in anteprima, che fornisce una visualizzazione in tempo reale dei log del contenitore del servizio Kubernetes di Azure (stdout/stderr) ed eventi senza dover eseguire comandi kubectl. Quando si seleziona una delle opzioni, viene visualizzato un nuovo riquadro sotto la tabella dei dati sulle prestazioni nella visualizzazione **nodi**, **controller**e **contenitori** . Mostra la registrazione in tempo reale e gli eventi generati dal motore di contenitori per facilitare ulteriormente la risoluzione dei problemi in tempo reale.

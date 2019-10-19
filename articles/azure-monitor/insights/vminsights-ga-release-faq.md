@@ -1,21 +1,18 @@
 ---
 title: Domande frequenti su Monitoraggio di Azure per le macchine virtuali (GA) | Microsoft Docs
 description: Monitoraggio di Azure per le macchine virtuali è una soluzione di Azure che combina il monitoraggio dell'integrità e delle prestazioni del sistema operativo delle macchine virtuali di Azure, nonché l'individuazione automatica dei componenti e delle dipendenze delle applicazioni con altre risorse e mappa la comunicazione tra questi elementi. Questo articolo risponde alle domande più comuni sulla versione GA.
-services: azure-monitor
-author: mgoedtel
-manager: carmonm
-editor: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 10/07/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: cb21d3bed1efc8f6ee7e16a0976ce46d03404983
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.date: 10/07/2019
+ms.openlocfilehash: 523fb2d3a3b148afc9219e666c2fbe7fa40d58ad
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275965"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553792"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Monitoraggio di Azure per le macchine virtuali domande frequenti disponibili a livello generale (GA)
 
@@ -25,7 +22,7 @@ Recentemente abbiamo annunciato nel Blog di [Azure Update](https://azure.microso
 
 Si sta rilasciando una nuova versione di Monitoraggio di Azure per le macchine virtuali a novembre. I clienti che abilitano i monitoraggi di Azure per le macchine virtuali dopo questa versione ricevono automaticamente la nuova versione, ma viene richiesto di aggiornare i clienti esistenti che usano già Monitoraggio di Azure per le macchine virtuali.  Queste domande frequenti e la documentazione offrono indicazioni per eseguire un aggiornamento in blocco se si dispone di distribuzioni di grandi dimensioni in più aree di lavoro.
 
-Con questo aggiornamento, i set di dati delle prestazioni Monitoraggio di Azure per le macchine virtuali vengono ora archiviati nella stessa tabella `InsightsMetrics` di [monitoraggio di Azure per i contenitori](container-insights-overview.md)e semplificano l'esecuzione di query sui due set di dati. Inoltre, è possibile archiviare set di dati più diversi che non è stato possibile archiviare nella tabella usata in precedenza.  Le visualizzazioni delle prestazioni verranno aggiornate anche per l'uso della nuova tabella.
+Con questo aggiornamento, i set di dati delle prestazioni Monitoraggio di Azure per le macchine virtuali vengono ora archiviati nella stessa tabella `InsightsMetrics` di [monitoraggio di Azure per i contenitori](container-insights-overview.md)e semplificano la query dei due set di dati. Inoltre, è possibile archiviare set di dati più diversi che non è stato possibile archiviare nella tabella usata in precedenza.  Le visualizzazioni delle prestazioni verranno aggiornate anche per l'uso della nuova tabella.
 
 Viene spostato in nuovi tipi di dati per i set di dati di connessione. I dati attualmente archiviati in `ServiceMapComputer_CL` e `ServiceMapProcess_CL`, che utilizzano tabelle di log personalizzate, verranno spostati in tipi di dati dedicati denominati `VMComputer` e `VMProcess`.  Passando ai tipi di dati dedicati, è possibile assegnare queste priorità per l'inserimento dei dati e lo schema della tabella verrà standardizzato in tutti i clienti.
 
@@ -39,7 +36,7 @@ Il processo corrente di utilizzo dei contatori delle prestazioni nell'area di la
 
 ## <a name="what-should-i-do-about-the-performance-counters-on-my-workspace-if-i-install-the-vminsights-solution"></a>Cosa devo fare per i contatori delle prestazioni nell'area di lavoro se si installa la soluzione VMInsights?
 
-Il metodo corrente di abilitazione di Monitoraggio di Azure per le macchine virtuali usa i contatori delle prestazioni nell'area di lavoro. Il nuovo metodo archivia questi dati in una nuova tabella, denominata `InsightsMetrics`.
+Il metodo corrente di abilitazione di Monitoraggio di Azure per le macchine virtuali usa i contatori delle prestazioni nell'area di lavoro. Il nuovo metodo archivia questi dati in una nuova tabella denominata `InsightsMetrics`.
 
 Una volta aggiornata l'interfaccia utente per l'uso dei dati in InsightsMetrics, la documentazione verrà aggiornata e l'annuncio verrà comunicato tramite più canali, inclusa la visualizzazione di un banner nella portale di Azure. A questo punto, è possibile scegliere di disabilitare questi [contatori delle prestazioni](vminsights-enable-overview.md#performance-counters-enabled) nell'area di lavoro se non si vuole più usarli. 
 
@@ -50,7 +47,7 @@ Se si decide di mantenere i contatori delle prestazioni abilitati, verranno adde
 
 ## <a name="how-will-this-change-affect-my-alert-rules"></a>In che modo questa modifica influirà sulle regole di avviso?
 
-Se sono stati creati [avvisi del log](../platform/alerts-unified-log.md) che eseguono una query sulla tabella `Perf` che fa riferimento a contatori delle prestazioni abilitati nell'area di lavoro, è necessario aggiornare queste regole per fare riferimento alla tabella `InsightsMetrics`. Queste linee guida si applicano anche a tutte le regole di ricerca dei log con `ServiceMapComputer_CL` e `ServiceMapProcess_CL`, perché tali set di dati vengono spostati nelle tabelle `VMComputer` e `VMProcess`.
+Se sono stati creati [avvisi del log](../platform/alerts-unified-log.md) che eseguono una query sulla tabella `Perf` destinata ai contatori delle prestazioni abilitati nell'area di lavoro, è necessario aggiornare queste regole per fare riferimento alla tabella `InsightsMetrics`. Queste linee guida si applicano anche a tutte le regole di ricerca nei log che usano `ServiceMapComputer_CL` e `ServiceMapProcess_CL`, perché tali set di dati vengono spostati nelle tabelle `VMComputer` e `VMProcess`.
 
 Le domande frequenti e la documentazione per includere le regole di avviso di ricerca log di esempio per i set di dati raccolti vengono aggiornate.
 

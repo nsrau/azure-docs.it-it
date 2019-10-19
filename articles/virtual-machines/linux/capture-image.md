@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 328748b9dd81834b9c69f81bc0bda60c9ad12cb0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0767031ff6eee59de6cf447464328f66c50ef71a
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879964"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552803"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Come creare un'immagine di una macchina virtuale o un disco rigido virtuale
 
@@ -31,8 +31,6 @@ Per creare più copie di una macchina virtuale da usare in Azure, acquisire un'i
 Per creare una copia della macchina virtuale Linux esistente per il backup o il debug o per caricare un disco rigido virtuale Linux specializzato da una macchina virtuale locale, vedere [Caricare e creare una VM Linux da un'immagine disco personalizzata](upload-vhd.md).  
 
 È possibile usare il servizio **Generatore di immagini VM di Azure (anteprima pubblica)** per creare un'immagine personalizzata, non è necessario apprendere alcun strumento o configurare pipeline di compilazione, fornire semplicemente una configurazione di immagine e il generatore di immagini creerà l'immagine. Per altre informazioni, vedere [Introduzione con generatore di immagini di VM di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
-
-Additonally, usare **Packer** per creare la configurazione personalizzata. Per altre informazioni, vedere [Come usare Packer per creare immagini di macchine virtuali di Linux in Azure](build-image-with-packer.md).
 
 Prima di poter creare un'immagine, è necessario:
 
@@ -98,7 +96,7 @@ Usare l'interfaccia della riga di comando di Azure per contrassegnare la macchin
    
 Questo comando restituisce JSON che descrive l'immagine della macchina virtuale. Salvare questo output per riferimento successivo.
 
-## <a name="step-3-create-a-vm-from-the-captured-image"></a>Passaggio 3: Creare una macchina virtuale dall'immagine acquisita
+## <a name="step-3-create-a-vm-from-the-captured-image"></a>Passaggio 3: Distribuire una VM dall'immagine acquisita
 Creare una macchina virtuale usando l'immagine creata con [az vm create](/cli/azure/vm). Nell'esempio seguente viene creata una macchina virtuale denominata *myVMDeployed* dall'immagine denominata *myImage*.
 
 ```azurecli

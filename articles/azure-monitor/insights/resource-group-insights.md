@@ -1,22 +1,19 @@
 ---
 title: Informazioni dettagliate sul gruppo di risorse di Monitoraggio di Azure | Microsoft Docs
 description: Informazioni sull'integrità e le prestazioni delle applicazioni e dei servizi distribuiti a livello di gruppo di risorse con Monitoraggio di Azure
-services: azure-monitor
-author: NumberByColors
-manager: carmonm
 ms.service: azure-monitor
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.subservice: ''
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.author: daviste
-ms.openlocfilehash: d5c07e0d4aca8bda42ea9f78a1475ea7bb5861f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fba94a5e723bfbc2719b3b4cf5cd130eda382276
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119422"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553982"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorare i gruppi di risorse con Monitoraggio di Azure (anteprima)
 

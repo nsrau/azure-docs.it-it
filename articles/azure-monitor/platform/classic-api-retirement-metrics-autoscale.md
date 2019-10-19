@@ -1,18 +1,18 @@
 ---
 title: Ritiro da parte di Monitoraggio di Azure di API di modelli di distribuzione classici per metriche e scalabilità automatica
 description: Ritiro delle API classiche di metrica e scalabilità automatica, chiamate anche Azure Service Management (ASM) o modello di distribuzione RDFE
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.date: 11/19/2018
+author: rboucher
 ms.author: robb
-ms.openlocfilehash: ce54b63aa7831ed40a8592d536c43fc83fdc5567
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/19/2018
+ms.openlocfilehash: 7a93419ee84e6a50ce07cefa941a8df9f85b7b6e
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60709984"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552205"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Ritiro da parte di Monitoraggio di Azure di API di modelli di distribuzione classici per metriche e scalabilità automatica
 
@@ -61,7 +61,7 @@ La migrazione alle nuove API consente di usare funzionalità basate su Resource 
 - supporto per le dimensioni
 - granularità coerente delle metriche di 1 minuto in tutti i servizi 
 - migliore esecuzione di query
-- conservazione dei dati superiore (93 giorni di metriche invece di 30 giorni) 
+- conservazione dei dati più elevata (93 giorni di metriche rispetto a 30 giorni) 
 
 In generale, come per tutti gli altri servizi di Azure, le API di Monitoraggio di Azure basate su Gestione risorse garantiscono prestazioni, scalabilità e affidabilità migliori. 
 
@@ -75,9 +75,9 @@ Non ci sarà un impatto diretto sui servizi di Azure o sui carichi di lavoro.
 
 Tutte le chiamate alle API classiche disponibili in precedenza avranno esito negativo e si riceveranno messaggi di errore simili al seguente:
 
-Per la scalabilità automatica: *Questa API è deprecata. Usare il portale di Azure, il SDK di Monitoraggio di Azure, PowerShell, l’interfaccia della riga di comando o i modelli di Gestione risorse per gestire le impostazioni di scalabilità automatica*.  
+Per la scalabilità automatica: *questa API è stata deprecata. Usare i modelli portale di Azure, Azure monitor SDK, PowerShell, CLI o Gestione risorse per gestire le impostazioni di scalabilità*automatica.  
 
-Per le metriche: *Questa API è deprecata. Usare il portale di Azure, il SDK di Monitoraggio di Azure, PowerShell o l’interfaccia della riga di comando per eseguire query per le metriche*.
+Per le metriche: *questa API è stata deprecata. Usare la portale di Azure, Azure monitor SDK, PowerShell e l'interfaccia della riga di comando per eseguire query per le metriche*.
 
 ## <a name="email-notifications"></a>Notifiche tramite posta elettronica
 

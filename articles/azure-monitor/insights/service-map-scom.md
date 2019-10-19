@@ -1,24 +1,18 @@
 ---
 title: Integrazione di Monitoraggio di Azure per le macchine virtuali con System Center Operations Manager | Microsoft Docs
 description: Monitoraggio di Azure per le macchine virtuali individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue il mapping delle comunicazioni tra i servizi. Questo articolo illustra l'uso della funzionalità mappa per creare automaticamente diagrammi applicazioni distribuite in Operations Manager.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: b16505eb2c12819532b8675472cf0e6f4177f7bf
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.date: 07/12/2019
+ms.openlocfilehash: 3523756e89506e90407090db105fdced5853d9d9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489711"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553971"
 ---
 # <a name="system-center-operations-manager-integration-with-azure-monitor-for-vms-map-feature"></a>Integrazione di System Center Operations Manager con la funzionalità mappa Monitoraggio di Azure per le macchine virtuali
 
@@ -78,7 +72,7 @@ Per configurare l'integrazione della mappa Monitoraggio di Azure per le macchine
 
      ![Gruppo di configurazione di Operations Manager](media/service-map-scom/scom-config-group.png)
 
-6. Facoltativo: Selezionare il pool di risorse tutti i server di gestione per comunicare con Log Analytics, quindi fare clic su **Aggiungi area di lavoro**.
+6. Facoltativo: selezionare il pool di risorse tutti i server di gestione per comunicare con Log Analytics, quindi fare clic su **Aggiungi area di lavoro**.
 
     ![Pool di risorse di configurazione di Operations Manager](media/service-map-scom/scom-config-pool.png)
 
@@ -94,20 +88,20 @@ Una volta connessa l'area di lavoro Log Analytics, nel riquadro **monitoraggio**
 
 La cartella Mapping dei servizi ha quattro nodi:
 
-* **Avvisi attivi**: Elenca tutti gli avvisi attivi relativi alla comunicazione tra Operations Manager e monitoraggio di Azure.  
+* **Avvisi attivi**: elenca tutti gli avvisi attivi relativi alla comunicazione tra Operations Manager e monitoraggio di Azure.  
 
   >[!NOTE]
   >Questi avvisi non sono Log Analytics gli avvisi sincronizzati con Operations Manager, vengono generati nel gruppo di gestione basato sui flussi di lavoro definiti nella Management Pack di Mapping dei servizi.
 
-* **Server**: Elenca i server monitorati configurati per la sincronizzazione da Monitoraggio di Azure per le macchine virtuali funzionalità mappa.
+* **Server**: elenca i server monitorati configurati per la sincronizzazione da monitoraggio di Azure per le macchine virtuali funzionalità mappa.
 
     ![Riquadro Monitoraggio server di Operations Manager](media/service-map-scom/scom-monitoring-servers.png)
 
-* **Machine Group Dependency Views** (Visualizzazioni dipendenze gruppi di computer): Elenca tutti i gruppi di computer sincronizzati dalla funzionalità mappa. È possibile fare clic su un gruppo per visualizzarne il diagramma applicazioni distribuite.
+* **Viste dipendenza gruppo di computer**: elenca tutti i gruppi di computer sincronizzati dalla funzionalità mappa. È possibile fare clic su un gruppo per visualizzarne il diagramma applicazioni distribuite.
 
     ![Diagramma applicazioni distribuite di Operations Manager](media/service-map-scom/scom-group-dad.png)
 
-* **Server Dependency Views** (Visualizzazioni dipendenze server): Elenca tutti i server sincronizzati dalla funzionalità mappa. È possibile fare clic su un server per visualizzarne il diagramma applicazioni distribuite.
+* **Viste dipendenze server**: elenca tutti i server sincronizzati dalla funzionalità mappa. È possibile fare clic su un server per visualizzarne il diagramma applicazioni distribuite.
 
     ![Diagramma applicazioni distribuite di Operations Manager](media/service-map-scom/scom-dad.png)
 
@@ -129,9 +123,9 @@ Una regola, *Microsoft. SystemCenter. ServiceMapImport. Rule*, recupera periodic
 ![Finestra delle proprietà di override di Operations Manager](media/service-map-scom/scom-overrides.png)
 
 * **Enabled**: abilita/disabilita gli aggiornamenti automatici.
-* **IntervalMinutes**: Specifica l'intervallo di tempo tra gli aggiornamenti. L'intervallo predefinito è un'ora. Se si desidera sincronizzare le mappe con maggiore frequenza, è possibile modificare il valore.
-* **TimeoutSeconds**: Specifica l'intervallo di tempo prima del timeout della richiesta.
-* **TimeWindowMinutes**: Specifica l'intervallo di tempo per l'esecuzione di query sui dati. Il valore predefinito è 60 minuti, ovvero l'intervallo massimo consentito.
+* **IntervalMinutes**: specifica l'intervallo di tempo tra gli aggiornamenti. L'intervallo predefinito è un'ora. Se si desidera sincronizzare le mappe con maggiore frequenza, è possibile modificare il valore.
+* **TimeoutSeconds**: specifica l'intervallo di tempo prima del timeout della richiesta.
+* **TimeWindowMinutes**: specifica l'intervallo di tempo per l'esecuzione di query sui dati. Il valore predefinito è 60 minuti, ovvero l'intervallo massimo consentito.
 
 ## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
 
@@ -149,5 +143,5 @@ Per la documentazione ufficiale di Azure sulla creazione di un'entità servizio,
 * [Create a service principal by using Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli) (Creare un'entità servizio usando Azure CLI)
 * [Create a service principal by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) (Creare un'entità servizio usando il portale di Azure)
 
-### <a name="feedback"></a>Commenti e suggerimenti
+### <a name="feedback"></a>Commenti
 Ci sono commenti e suggerimenti per l'integrazione con Monitoraggio di Azure per le macchine virtuali funzionalità mappa o questa documentazione? Vedere la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.

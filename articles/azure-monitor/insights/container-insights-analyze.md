@@ -1,24 +1,18 @@
 ---
 title: Monitorare le prestazioni del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori | Microsoft Docs
 description: Questo articolo descrive come è possibile visualizzare e analizzare i dati di log e prestazioni con Monitoraggio di Azure per contenitori.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/17/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 945dc6c35eacab99db28172703e1aebed10bd58a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.date: 09/17/2019
+ms.openlocfilehash: a65951a90767acce5570244af8a9250845e12def
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067078"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554236"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Conoscere le prestazioni del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori
 Con monitoraggio di Azure per i contenitori, è possibile usare i grafici delle prestazioni e lo stato di integrità per monitorare il carico di lavoro dei cluster di Azure Kubernetes Service (AKS) da due prospettive. È possibile monitorare direttamente da un cluster AKS oppure è possibile monitorare tutti i cluster AKS in una sottoscrizione da monitoraggio di Azure. La visualizzazione di istanze di contenitore di Azure è anche possibile quando si monitora un cluster AKS specifico.
@@ -56,34 +50,34 @@ Nella scheda **cluster monitorati** viene illustrato quanto segue:
 
 Gli stati di integrità inclusi sono: 
 
-* **Integro**: Non vengono rilevati problemi per la macchina virtuale e funziona come richiesto. 
-* **Critica**: Sono stati rilevati uno o più problemi critici che devono essere risolti per ripristinare lo stato operativo normale come previsto.
-* **Avviso**: Sono stati rilevati uno o più problemi che devono essere risolti o che la condizione di integrità potrebbe diventare critica.
-* **Sconosciuto**: Se il servizio non è riuscito a creare una connessione con il nodo o il Pod, lo stato diventa uno stato sconosciuto.
-* **Non trovato**: L'area di lavoro, il gruppo di risorse o la sottoscrizione che contiene l'area di lavoro per questa soluzione è stata eliminata.
-* **Non autorizzato**: L'utente non ha le autorizzazioni necessarie per leggere i dati nell'area di lavoro.
-* **Errore**: Si è verificato un errore durante il tentativo di leggere i dati dall'area di lavoro.
-* **Configurazione non configurata correttamente**: Il monitoraggio di Azure per i contenitori non è stato configurato correttamente nell'area di lavoro specificata.
-* **Nessun dato**: I dati non sono stati segnalati all'area di lavoro per gli ultimi 30 minuti.
+* **Integro**: non vengono rilevati problemi per la macchina virtuale e funziona come richiesto. 
+* **Critico**: sono stati rilevati uno o più problemi critici che devono essere risolti per ripristinare lo stato operativo normale come previsto.
+* **Avviso**: sono stati rilevati uno o più problemi che devono essere risolti o che la condizione di integrità potrebbe diventare critica.
+* **Sconosciuto**: se il servizio non è riuscito a creare una connessione con il nodo o il Pod, lo stato diventa uno stato sconosciuto.
+* **Non trovato**: l'area di lavoro, il gruppo di risorse o la sottoscrizione che contiene l'area di lavoro per questa soluzione è stata eliminata.
+* Non **autorizzato**: l'utente non ha le autorizzazioni necessarie per leggere i dati nell'area di lavoro.
+* **Errore**: si è verificato un errore durante il tentativo di leggere i dati dall'area di lavoro.
+* **Configurazione**non corretta: il monitoraggio di Azure per i contenitori non è stato configurato correttamente nell'area di lavoro specificata.
+* **Nessun dato**: i dati non sono stati segnalati all'area di lavoro per gli ultimi 30 minuti.
 
 Lo stato di integrità calcola lo stato complessivo del cluster come il *peggiore dei* tre stati con un'eccezione. Se uno dei tre stati è sconosciuto, lo stato complessivo del cluster indica **Unknown**. 
 
 Nella tabella seguente viene fornita una suddivisione del calcolo che controlla gli Stati di integrità per un cluster monitorato nella visualizzazione multicluster.
 
-| |Stato |Disponibilità |  
+| |Status |Disponibilità |  
 |-------|-------|-----------------|  
 |**Pod utente**| | |  
-| |Integra |100% |  
+| |Integro |100% |  
 | |Avviso |90 - 99% |  
 | |Critico |<90% |  
 | |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |  
 |**Pod di sistema**| | |  
-| |Integra |100% |
+| |Integro |100% |
 | |Avviso |N/D |
 | |Critico |<100% |
 | |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
 |**Node** | | |
-| |Integra |>85% |
+| |Integro |>85% |
 | |Avviso |60 - 84% |
 | |Critico |<60% |
 | |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
@@ -94,21 +88,21 @@ Dall'elenco dei cluster è possibile eseguire il drill-down nella pagina del **c
 
 L'accesso a monitoraggio di Azure per i contenitori è disponibile direttamente da un cluster AKS selezionando **Insights** nel riquadro sinistro. Le informazioni sul cluster AKS sono organizzate in quattro prospettive:
 
-- Cluster
+- HDInsight
 - Nodi 
 - Controller 
 - Contenitori
 
-Viene visualizzata la pagina predefinita quando si seleziona il**cluster** **Insights** > . I grafici delle prestazioni a quattro linee visualizzano le metriche delle prestazioni chiave del cluster. 
+Viene visualizzata la pagina predefinita quando si seleziona **insights**  > **cluster**. I grafici delle prestazioni a quattro linee visualizzano le metriche delle prestazioni chiave del cluster. 
 
 ![Grafici delle prestazioni di esempio nella scheda Cluster](./media/container-insights-analyze/containers-cluster-perfview.png)
 
 I grafici delle prestazioni mostrano quattro metriche delle prestazioni:
 
-- **Utilizzo&nbsp;CPUnodo%** : una prospettiva aggregata dell'uso della CPU per l'intero cluster. Per filtrare i risultati per l'intervallo di tempo, selezionare **AVG**, **min**, **cinquantesimo**, **90**, **95**o **Max** nel selettore percentile sopra il grafico. I filtri possono essere usati singolarmente o combinati. 
-- **% utilizzo memoria nodo&nbsp;%** : una prospettiva aggregata dell'uso della memoria per l'intero cluster. Per filtrare i risultati per l'intervallo di tempo, selezionare **AVG**, **min**, **cinquantesimo**, **90**, **95**o **Max** nel selettore percentile sopra il grafico. I filtri possono essere usati singolarmente o combinati. 
-- **Numero di nodi**: il numero e lo stato dei nodi in Kubernetes. Gli Stati dei nodi del cluster rappresentati sono totale, pronto e non pronto. Possono essere filtrate singolarmente o combinate nel selettore sopra il grafico. 
-- **Numero di Pod attivi**: il numero e lo stato dei pod in Kubernetes. Gli Stati dei Pod rappresentati sono totale, in sospeso, in esecuzione, sconosciuto, completato o non riuscito. Possono essere filtrate singolarmente o combinate nel selettore sopra il grafico. 
+- **Utilizzo CPU nodo &nbsp; %** : una prospettiva aggregata di utilizzo della CPU per l'intero cluster. Per filtrare i risultati per l'intervallo di tempo, selezionare **AVG**, **min**, **cinquantesimo**, **90**, **95**o **Max** nel selettore percentile sopra il grafico. I filtri possono essere usati singolarmente o combinati. 
+- **Node memory utilization&nbsp;%** (% uso memoria nodo): una prospettiva aggregata dell'uso della memoria per l'intero cluster. Per filtrare i risultati per l'intervallo di tempo, selezionare **AVG**, **min**, **cinquantesimo**, **90**, **95**o **Max** nel selettore percentile sopra il grafico. I filtri possono essere usati singolarmente o combinati. 
+- **Node count** (Numero di nodi): il numero e lo stato dei nodi in Kubernetes. Gli Stati dei nodi del cluster rappresentati sono totale, pronto e non pronto. Possono essere filtrate singolarmente o combinate nel selettore sopra il grafico. 
+- **Numero di Pod attivi**: numero di Pod e stato da Kubernetes. Gli Stati dei Pod rappresentati sono totale, in sospeso, in esecuzione, sconosciuto, completato o non riuscito. Possono essere filtrate singolarmente o combinate nel selettore sopra il grafico. 
 
 Usare i tasti freccia sinistra e destra per scorrere ogni punto dati nel grafico. Usare i tasti freccia su e giù per scorrere le righe percentile. Selezionare l'icona Aggiungi nell'angolo in alto a destra di uno dei grafici per aggiungere il grafico selezionato all'ultimo dashboard di Azure visualizzato. Dal dashboard è possibile ridimensionare e riposizionare il grafico. Selezionando il grafico dal dashboard viene reindirizzato a monitoraggio di Azure per i contenitori e viene caricato l'ambito e la visualizzazione corretti.
 
@@ -118,9 +112,9 @@ Il monitoraggio di Azure per i contenitori supporta anche [Esplora metriche](../
 
 In Esplora metriche è possibile visualizzare le metriche di utilizzo dei nodi e dei Pod aggregati da monitoraggio di Azure per i contenitori. La tabella seguente riepiloga i dettagli che consentono di comprendere come usare i grafici delle metriche per visualizzare le metriche dei contenitori.
 
-|Spazio dei nomi | Metrica | Descrizione | 
+|Spazio dei nomi | Metrica | Description | 
 |----------|--------|-------------|
-| insights.container/nodes | |
+| Insights. contenitore/nodi | |
 | | cpuUsageMillicores | Misurazione aggregata dell'utilizzo della CPU nel cluster. Si tratta di un core CPU suddiviso in unità 1000 (Milli = 1000). Usato per determinare l'utilizzo dei core in un contenitore in cui molte applicazioni potrebbero usare un core.| 
 | | cpuUsagePercentage | Utilizzo medio della CPU aggregato misurato in percentuale nel cluster.|
 | | memoryRssBytes | Memoria RSS del contenitore utilizzata in byte.| 
@@ -129,7 +123,7 @@ In Esplora metriche è possibile visualizzare le metriche di utilizzo dei nodi e
 | | memoryWorkingSetPercentage | Contenitore working set memoria utilizzata nella percentuale. | 
 | | nodesCount | Numero di nodi di Kubernetes.|
 | Insights. container/Pod | |
-| | PodCount | Numero di pod da Kubernetes.|
+| | podCount | Numero di pod da Kubernetes.|
 
 È possibile [suddividere](../platform/metrics-charts.md#apply-splitting-to-a-chart) una metrica per visualizzarla in base alla dimensione e visualizzare il modo in cui i diversi segmenti si confrontano tra loro. Per un nodo è possibile segmentare il grafico in base alla dimensione *host* . Da un pod è possibile segmentarlo per le dimensioni seguenti:
 
@@ -140,7 +134,7 @@ In Esplora metriche è possibile visualizzare le metriche di utilizzo dei nodi e
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>Analizzare nodi, controller e integrità del contenitore
 
-Quando si passa alle schede **nodi**, **controller**e **contenitori** , viene visualizzato automaticamente un riquadro proprietà sul lato destro della pagina. Mostra le proprietà dell'elemento selezionato, che include le etichette definite per organizzare gli oggetti Kubernetes. Quando si seleziona un nodo Linux, la sezione **capacità disco locale** Mostra anche lo spazio su disco disponibile e la percentuale usata per ogni disco presentato al nodo. Selezionare il **>>** collegamento nel riquadro per visualizzare o nascondere il riquadro.
+Quando si passa alle schede **nodi**, **controller**e **contenitori** , viene visualizzato automaticamente un riquadro proprietà sul lato destro della pagina. Mostra le proprietà dell'elemento selezionato, che include le etichette definite per organizzare gli oggetti Kubernetes. Quando si seleziona un nodo Linux, la sezione **capacità disco locale** Mostra anche lo spazio su disco disponibile e la percentuale usata per ogni disco presentato al nodo. Selezionare il collegamento **>>** nel riquadro per visualizzare o nascondere il riquadro.
 
 ![Riquadri delle proprietà delle prospettive Kubernetes di esempio](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
@@ -194,16 +188,16 @@ Queste informazioni consentono di identificare rapidamente se si dispone di un g
 
 Le informazioni presentate quando si visualizza la scheda **nodi** sono descritte nella tabella seguente.
 
-| Colonna | Descrizione | 
+| Colonna | Description | 
 |--------|-------------|
-| NOME | Nome dell'host. |
-| Stato | Visualizzazione Kubernetes dello stato del nodo. |
-| Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%,&nbsp;90%,&nbsp;95%, max&nbsp;%  | Percentuale media dei nodi in base al percentile durante l'intervallo di tempo selezionato. |
+| name | Nome dell'host. |
+| Status | Visualizzazione Kubernetes dello stato del nodo. |
+| Min &nbsp;%, media &nbsp;%, cinquantesimo &nbsp;%, 90 &nbsp;%, 95 ° &nbsp;%, Max &nbsp; %  | Percentuale media dei nodi in base al percentile durante l'intervallo di tempo selezionato. |
 | Min, AVG, cinquantesimo, 90, 95, max | Valore effettivo del nodo medio basato sul percentile durante la durata selezionata. Il valore medio viene misurato in base al limite di CPU/memoria impostato per un nodo. Per i pod e i contenitori, è il valore medio segnalato dall'host. |
 | Contenitori | Numero di contenitori. |
-| Tempo di attività | Rappresenta il tempo dall'avvio o dal riavvio di un nodo. |
+| Uptime | Rappresenta il tempo dall'avvio o dal riavvio di un nodo. |
 | Controller | Solo per i contenitori e i pod. Indica il controller in cui risiede. Non tutti i pod sono presenti in un controller. È quindi possibile che per alcuni sia visualizzato **N/A** per indicare che non sono disponibili. | 
-| Tendenza min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%,&nbsp;90%,&nbsp;95%, max&nbsp;% | Grafico a barre della tendenza che presenta il valore percentuale medio delle metriche di percentile del controller. |
+| Tendenza min &nbsp;%, media &nbsp;%, cinquantesimo &nbsp;%, 90 &nbsp;%, 95 &nbsp;%, Max &nbsp; % | Grafico a barre della tendenza che presenta il valore percentuale medio delle metriche di percentile del controller. |
 
 Nel selettore selezionare **Controller**.
 
@@ -211,7 +205,7 @@ Nel selettore selezionare **Controller**.
 
 Qui è possibile visualizzare lo stato delle prestazioni dei controller e delle istanze di contenitore i controller dei nodi virtuali o i pod dei nodi virtuali non connessi a un controller.
 
-![\<Visualizzazione delle prestazioni di Name > Controllers](./media/container-insights-analyze/containers-controllers-view.png)
+![visualizzazione prestazioni \<Name controller >](./media/container-insights-analyze/containers-controllers-view.png)
 
 La gerarchia di righe inizia con un controller. Quando si espande un controller, è possibile visualizzare uno o più POD. Espandendo un pod, nell'ultima riga viene mostrato il contenitore raggruppato nel pod. Da un controller espanso è possibile eseguire il drill-down sul nodo su cui è in esecuzione per visualizzare i dati sulle prestazioni filtrati per tale nodo. Le istanze di contenitore Pod non connesse a un controller sono elencate per ultime nell'elenco.
 
@@ -223,21 +217,21 @@ Selezionare il valore nella colonna **nodo** per il controller specifico.
 
 Le informazioni visualizzate quando si visualizzano i controller sono descritte nella tabella seguente.
 
-| Colonna | Descrizione | 
+| Colonna | Description | 
 |--------|-------------|
-| Name | Nome del controller.|
-| Stato | Stato di rollup dei contenitori al termine dell'esecuzione con lo stato, ad esempio *OK*, *terminato*, *non riuscito*, *arrestato*o *sospeso*. Se il contenitore è in esecuzione, ma lo stato non è stato visualizzato correttamente o non è stato prelevato dall'agente e non ha risposto per più di 30 minuti, lo stato è *sconosciuto*. Nella tabella seguente sono disponibili ulteriori dettagli sull'icona di stato.|
-| Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%,&nbsp;90%,&nbsp;95%, max&nbsp;%| Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
+| name | Nome del controller.|
+| Status | Stato di rollup dei contenitori al termine dell'esecuzione con lo stato, ad esempio *OK*, *terminato*, *non riuscito*, *arrestato*o *sospeso*. Se il contenitore è in esecuzione, ma lo stato non è stato visualizzato correttamente o non è stato prelevato dall'agente e non ha risposto per più di 30 minuti, lo stato è *sconosciuto*. Nella tabella seguente sono disponibili ulteriori dettagli sull'icona di stato.|
+| Min &nbsp;%, media &nbsp;%, cinquantesimo &nbsp;%, 90 &nbsp;%, 95 ° &nbsp;%, Max &nbsp; %| Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max  | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
 | Contenitori | Numero totale di contenitori per il controller o il pod. |
 | Riavvii | Rollup del numero di riavvii dai contenitori. |
-| Tempo di attività | Rappresenta il tempo dall'avvio di un contenitore. |
+| Uptime | Rappresenta il tempo dall'avvio di un contenitore. |
 | Nodo | Solo per i contenitori e i pod. Indica il controller in cui risiede. | 
-| Tendenza min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%,&nbsp;90%,&nbsp;95%, max&nbsp;% | Grafico a barre della tendenza che presenta il valore percentile medio del controller. |
+| Tendenza min &nbsp;%, media &nbsp;%, cinquantesimo &nbsp;%, 90 &nbsp;%, 95 &nbsp;%, Max &nbsp; % | Grafico a barre della tendenza che presenta il valore percentile medio del controller. |
 
 Le icone nel campo stato indicano lo stato online dei contenitori.
  
-| Icona | Stato | 
+| Icona | Status | 
 |--------|-------------|
 | ![Icona di stato In esecuzione (Pronto)](./media/container-insights-analyze/containers-ready-icon.png) | In esecuzione (Pronto)|
 | ![Icona dello stato in attesa o sospesa](./media/container-insights-analyze/containers-waiting-icon.png) | In attesa o In pausa|
@@ -252,7 +246,7 @@ Nel selettore selezionare **Contenitori**.
 
 Qui è possibile visualizzare l'integrità delle prestazioni dei contenitori di Istanze di Azure Container e del servizio Azure Kubernetes. 
 
-![\<Nome > Vista prestazioni contenitori](./media/container-insights-analyze/containers-containers-view.png)
+![visualizzazione prestazioni \<Name > contenitori](./media/container-insights-analyze/containers-containers-view.png)
 
 Da un contenitore è possibile eseguire il drill-down in un pod o nodo per visualizzare i dati sulle prestazioni filtrati per l'oggetto. Selezionare il valore nella colonna **Pod** o **nodo** per il contenitore specifico.
 
@@ -260,21 +254,21 @@ Da un contenitore è possibile eseguire il drill-down in un pod o nodo per visua
 
 Le informazioni visualizzate quando si visualizzano i contenitori sono descritte nella tabella seguente.
 
-| Colonna | Descrizione | 
+| Colonna | Description | 
 |--------|-------------|
-| Name | Nome del controller.|
-| Stato | Stato dei contenitori, se presente. La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
-| Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%,&nbsp;90%,&nbsp;95%, max&nbsp;% | Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
+| name | Nome del controller.|
+| Status | Stato dei contenitori, se presente. La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
+| Min &nbsp;%, media &nbsp;%, cinquantesimo &nbsp;%, 90 &nbsp;%, 95 ° &nbsp;%, Max &nbsp; % | Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
 | Pod | Contenitore in cui è presente il pod.| 
 | Nodo |  Nodo in cui è presente il contenitore. | 
 | Riavvii | Rappresenta il tempo dall'avvio di un contenitore. |
-| Tempo di attività | Rappresenta il tempo dall'avvio o dal riavvio di un contenitore. |
-| Tendenza min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%,&nbsp;90%,&nbsp;95%, max&nbsp;% | Grafico a barre della tendenza che presenta il valore percentuale medio delle metriche di percentile del contenitore. |
+| Uptime | Rappresenta il tempo dall'avvio o dal riavvio di un contenitore. |
+| Tendenza min &nbsp;%, media &nbsp;%, cinquantesimo &nbsp;%, 90 &nbsp;%, 95 &nbsp;%, Max &nbsp; % | Grafico a barre della tendenza che presenta il valore percentuale medio delle metriche di percentile del contenitore. |
 
 Le icone nel campo stato indicano lo stato online dei Pod, come descritto nella tabella seguente.
  
-| Icona | Stato |  
+| Icona | Status |  
 |--------|-------------|  
 | ![Icona di stato In esecuzione (Pronto)](./media/container-insights-analyze/containers-ready-icon.png) | In esecuzione (Pronto)|  
 | ![Icona dello stato in attesa o sospesa](./media/container-insights-analyze/containers-waiting-icon.png) | In attesa o In pausa|  
@@ -282,29 +276,29 @@ Le icone nel campo stato indicano lo stato online dei Pod, come descritto nella 
 | ![Icona di stato Terminato](./media/container-insights-analyze/containers-terminated-icon.png) | Arresto completato o arresto non riuscito|  
 | ![Icona di stato Non riuscito](./media/container-insights-analyze/containers-failed-icon.png) | Stato Non riuscito |  
 
-## <a name="workbooks"></a>Cartelle di lavoro
+## <a name="workbooks"></a>Workbooks
 
 Le cartelle di lavoro combinano testo, [query di log](../log-query/query-language.md), [metriche](../platform/data-platform-metrics.md)e parametri in report interattivi avanzati. Le cartelle di lavoro possono essere modificate da tutti gli altri membri del team che possono accedere alla stessa risorsa di Azure.
 
 Il monitoraggio di Azure per i contenitori include quattro cartelle di lavoro per iniziare:
 
-- **Capacità disco**: Presenta i grafici di utilizzo interattivo del disco per ogni disco presentato al nodo all'interno di un contenitore dalle prospettive seguenti:
+- **Capacità disco**: presenta i grafici di utilizzo del disco interattivo per ogni disco presentato al nodo in un contenitore dalle prospettive seguenti:
 
     - Percentuale di utilizzo del disco per tutti i dischi.
     - Liberare spazio su disco per tutti i dischi.
     - Griglia che mostra il disco di ogni nodo, la percentuale di spazio utilizzato, la tendenza della percentuale di spazio utilizzato, lo spazio libero su disco (GiB) e la tendenza dello spazio libero su disco (GiB). Quando si seleziona una riga nella tabella, la percentuale di spazio utilizzato e lo spazio libero su disco (GiB) viene visualizzata sotto la riga. 
 
-- **Io disco**: Presenta i grafici di utilizzo interattivo dei dischi per ogni disco presentato al nodo all'interno di un contenitore dalle prospettive seguenti:
+- **Io disco**: Visualizza i grafici di utilizzo interattivo dei dischi per ogni disco presentato al nodo all'interno di un contenitore dalle prospettive seguenti:
 
     - Operazioni di I/O su disco riepilogate in tutti i dischi per byte letti/sec, scritture byte/sec, tendenze di lettura e scrittura byte/sec.
     - Otto grafici delle prestazioni mostrano indicatori di prestazioni chiave che consentono di misurare e identificare I colli di bottiglia di I/O del disco.
 
-- **Kubelet**: Include due griglie che mostrano le statistiche operative del nodo chiave:
+- **Kubelet**: include due griglie che mostrano le statistiche operative del nodo chiave:
 
     - Panoramica per griglia del nodo riepiloga le operazioni totali, errori totali e operazioni riuscite per percentuale e tendenza per ogni nodo.
     - Panoramica per tipo di operazione riepiloga per ogni operazione l'operazione totale, gli errori totali e le operazioni riuscite per percentuale e tendenza.
 
-- **Network** (Rete): Visualizza grafici interattivi di utilizzo della rete per ogni scheda di rete del nodo e una griglia presenta gli indicatori di prestazioni chiave che consentono di misurare le prestazioni delle schede di rete.
+- **Rete**: presenta grafici interattivi di utilizzo della rete per ogni scheda di rete del nodo e una griglia presenta gli indicatori di prestazioni chiave per misurare le prestazioni delle schede di rete.
 
 Per accedere a queste cartelle di lavoro, selezionarle nell'elenco a discesa **Visualizza cartelle di lavoro** .
 

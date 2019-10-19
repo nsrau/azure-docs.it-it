@@ -1,24 +1,18 @@
 ---
 title: Targeting delle soluzioni di monitoraggio in Monitoraggio di Azure | Microsoft Docs
 description: Il targeting delle soluzioni di monitoraggio consente di limitare le soluzioni di monitoraggio a un set specifico di agenti.  Questo articolo descrive come creare una configurazione di ambito e applicarla a una soluzione.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 4082847e1871fc03713471b0c043dddb80f91b0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 04/27/2017
+ms.openlocfilehash: 04b47cb6079d9213c1a20425f62286f1b2aa778b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110345"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555304"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Targeting delle soluzioni di monitoraggio in Monitoraggio di Azure (Anteprima)
 Quando viene aggiunta una soluzione di monitoraggio alla sottoscrizione, la soluzione viene automaticamente distribuita per impostazione predefinita a tutti gli agenti di Windows e Linux connessi all'area di lavoro Log Analytics.  Si consiglia di gestire i costi e limitare la quantità di dati raccolti per una soluzione limitandola a un determinato set di agenti.  Questo articolo descrive come usare il **targeting della soluzione**, una funzionalità che consente di applicare un ambito alle soluzioni.
@@ -29,13 +23,13 @@ Quando viene aggiunta una soluzione di monitoraggio alla sottoscrizione, la solu
 Definire l'ambito di una soluzione è una procedura di tre passaggi, come descritto nelle sezioni seguenti. 
 
 
-### <a name="1-create-a-computer-group"></a>1. Creare un gruppo di computer
+### <a name="1-create-a-computer-group"></a>1. creare un gruppo di computer
 Specificare i computer da includere in un ambito creando un [gruppo di computer](../platform/computer-groups.md) in Monitoraggio di Azure.  Il gruppo di computer si può basare su una query di log o può essere importato da altre origini, ad esempio gruppi di Active Directory o WSUS. Come [descritto di seguito](#solutions-and-agents-that-cant-be-targeted), solo i computer direttamente collegati a Monitoraggio di Azure verranno inclusi nell'ambito.
 
 Dopo avere creato il gruppo di computer nell'area di lavoro è necessario includerlo in una configurazione di ambito che può essere applicata a una o più soluzioni.
  
  
-### <a name="2-create-a-scope-configuration"></a>2. Creare una configurazione ambito
+### <a name="2-create-a-scope-configuration"></a>2. creare una configurazione dell'ambito
  Una **configurazione ambito** include uno o più gruppi di computer e può essere applicata a una o più soluzioni. 
  
  Creare una configurazione ambito con la seguente procedura.  
@@ -49,7 +43,7 @@ Dopo avere creato il gruppo di computer nell'area di lavoro è necessario includ
  6. Fare clic su **OK** per creare la configurazione ambito. 
 
 
-### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Applicare la configurazione ambito a una soluzione.
+### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. applicare la configurazione dell'ambito a una soluzione.
 Dopo aver creato una configurazione ambito, è possibile applicarla a una o più soluzioni.  Si noti che è possibile usare una sola configurazione ambito con più soluzioni e che ogni soluzione può usare solo una configurazione ambito.
 
 Applicare una configurazione ambito con la seguente procedura.  

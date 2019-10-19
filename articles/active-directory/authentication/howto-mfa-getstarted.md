@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 10/15/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62ea1761cef48ab7808a352789963ab55129d2f8
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 7504d14d522a440572aa25491270c0afc73325a9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162378"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554396"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud
 
@@ -52,7 +52,7 @@ Azure Multifactor Authentication viene distribuito applicando criteri con access
 
 * Tutti gli utenti, un utente specifico, un membro di un gruppo o un ruolo assegnato
 * Applicazione cloud specifica a cui si accede
-* Piattaforma del dispositivo
+* Piattaforma del dispositivo.
 * Stato del dispositivo
 * Percorso di rete o indirizzo IP geografico
 * Applicazioni client
@@ -80,13 +80,13 @@ Alcuni dei rilevamenti dei rischi rilevati da Azure Active Directory Identity Pr
 
 ## <a name="define-network-locations"></a>Definire i percorsi di rete
 
-È consigliabile che le organizzazioni usino l'accesso condizionale per definire la propria rete usando [località](../conditional-access/location-condition.md#named-locations)denominate. Se l'organizzazione USA Identity Protection, è consigliabile usare criteri basati sul rischio anziché percorsi denominati.
+È consigliabile che le organizzazioni usino l'accesso condizionale per definire la propria rete usando [località denominate](../conditional-access/location-condition.md#named-locations). Se l'organizzazione USA Identity Protection, è consigliabile usare criteri basati sul rischio anziché percorsi denominati.
 
 ### <a name="configuring-a-named-location"></a>Configurazione di un percorso denominato
 
 1. Aprire **Azure Active Directory** nella portale di Azure
 2. Fare clic su **accesso condizionale**
-3. Fare clic su **località** denominate
+3. Fare clic su **località denominate**
 4. Fare clic su **nuova posizione**
 5. Nel campo **nome** specificare un nome significativo
 6. Consente di indicare se si sta definendo il percorso usando gli intervalli IP o i paesi/aree geografiche
@@ -102,7 +102,7 @@ Alcuni dei rilevamenti dei rischi rilevati da Azure Active Directory Identity Pr
 
 Gli amministratori possono scegliere i [metodi di autenticazione](../authentication/concept-authentication-methods.md) che desiderano rendere disponibili per gli utenti. È importante consentire più di un singolo metodo di autenticazione in modo che gli utenti dispongano di un metodo di backup disponibile nel caso in cui il metodo principale non sia disponibile. Per consentire agli amministratori di abilitare, sono disponibili i metodi seguenti:
 
-### <a name="notification-through-mobile-app"></a>Notifica tramite l'app per dispositivi mobili
+### <a name="notification-through-mobile-app"></a>Notifica tramite app per dispositivi mobili
 
 Viene inviata una notifica push all'app Microsoft Authenticator nel dispositivo mobile. L'utente Visualizza la notifica e seleziona **approva** per completare la verifica. Le notifiche push tramite un'app per dispositivi mobili offrono l'opzione meno intrusiva per gli utenti. Sono anche l'opzione più affidabile e sicura perché usano una connessione dati invece della telefonia.
 
@@ -115,7 +115,7 @@ Un'app per dispositivi mobili come l'app Microsoft Authenticator genera un nuovo
 
 ### <a name="call-to-phone"></a>Chiamata al telefono
 
-Viene effettuata una chiamata vocale automatizzata all'utente. L'utente risponde alla chiamata e preme **#** il tastierino telefonico per approvare l'autenticazione. La chiamata al telefono è un ottimo metodo di backup per il codice di notifica o di verifica da un'app per dispositivi mobili.
+Viene effettuata una chiamata vocale automatizzata all'utente. L'utente risponde alla chiamata e preme **#** sul tastierino telefonico per approvare l'autenticazione. La chiamata al telefono è un ottimo metodo di backup per il codice di notifica o di verifica da un'app per dispositivi mobili.
 
 ### <a name="text-message-to-phone"></a>SMS al telefono
 
@@ -176,32 +176,6 @@ Se gli utenti sono stati abilitati con l'abilitazione per l'utente e l'applicazi
 Eseguire questo PowerShell in una finestra ISE o salvarlo come. File PS1 da eseguire localmente.
 
 ```PowerShell
-# Disable MFA for all users, keeping their MFA methods intact
-Get-MsolUser -All | Disable-MFA -KeepMethods
-
-# Wrapper to disable MFA with the option to keep the MFA methods (to avoid having to proof-up again later)
-function Disable-MFA {
-
-    [CmdletBinding()]
-    param(
-        [Parameter(ValueFromPipeline=$True)]
-        $User,
-        [switch] $KeepMethods
-    )
-
-    Process {
-
-        Write-Verbose ("Disabling MFA for user '{0}'" -f $User.UserPrincipalName)
-        $User | Set-MfaState -State Disabled
-
-        if ($KeepMethods) {
-            # Restore the MFA methods which got cleared when disabling MFA
-            Set-MsolUser -ObjectId $User.ObjectId `
-                         -StrongAuthenticationMethods $User.StrongAuthenticationMethods
-        }
-    }
-}
-
 # Sets the MFA requirement state
 function Set-MfaState {
 
@@ -231,6 +205,8 @@ function Set-MfaState {
     }
 }
 
+# Disable MFA for all users
+Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 ## <a name="plan-conditional-access-policies"></a>Pianificare i criteri di accesso condizionale
@@ -242,7 +218,7 @@ Per pianificare la strategia di criteri di accesso condizionale, che determina q
 ### <a name="create-conditional-access-policy"></a>Creare criteri di accesso condizionale
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account amministratore globale.
-1. Passare ad **Azure Active Directory**, **Accesso condizionale**.
+1. Passare ad **Azure Active Directory** , **Accesso condizionale**.
 1. Selezionare **Nuovi criteri**.
 1. Immettere un nome significativo per i criteri.
 1. In **Utenti e gruppi**:
@@ -297,7 +273,7 @@ Se è già stata distribuita un'istanza NPS e in uso, fare riferimento a [integr
 
 #### <a name="prepare-nps-for-users-that-arent-enrolled-for-mfa"></a>Preparare NPS per utenti che non sono registrati per l'autenticazione a più fattori
 
-Scegliere cosa accade quando gli utenti che non sono registrati con l'autenticazione a più fattori tentano di eseguire l'autenticazione. Usare l'impostazione `REQUIRE_USER_MATCH` del registro di sistema nel `HKLM\Software\Microsoft\AzureMFA` percorso del registro di sistema per controllare il comportamento della funzionalità. Questa impostazione ha un'unica opzione di configurazione.
+Scegliere cosa accade quando gli utenti che non sono registrati con l'autenticazione a più fattori tentano di eseguire l'autenticazione. Usare l'impostazione del registro di sistema `REQUIRE_USER_MATCH` nel percorso del registro di sistema `HKLM\Software\Microsoft\AzureMFA` per controllare il comportamento della funzionalità. Questa impostazione ha un'unica opzione di configurazione.
 
 | Chiave | Value | Predefinito |
 | --- | --- | --- |
@@ -339,7 +315,7 @@ In ogni server AD FS, nel computer locale archivio personale, sarà presente un 
 
 Se il periodo di validità dei certificati è prossimo alla scadenza, [generare e verificare un nuovo certificato multi-factor authentication in ogni server ad FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
-Le linee guida seguenti illustrano come gestire i certificati di autenticazione a più fattori di Azure nei server AD FS. Quando si configura ad FS con l'autenticazione a più fattori di Azure, `New-AdfsAzureMfaTenantCertificate` i certificati generati tramite il cmdlet di PowerShell sono validi per 2 anni. Rinnovare e installare i certificati rinnovati prima della scadenza per le rotture di ovoidale nel servizio multi-factor authentication.
+Le linee guida seguenti illustrano come gestire i certificati di autenticazione a più fattori di Azure nei server AD FS. Quando si configura AD FS con l'autenticazione a più fattori di Azure, i certificati generati tramite il cmdlet `New-AdfsAzureMfaTenantCertificate` PowerShell sono validi per 2 anni. Rinnovare e installare i certificati rinnovati prima della scadenza per le rotture di ovoidale nel servizio multi-factor authentication.
 
 ## <a name="implement-your-plan"></a>Implementare il piano
 
@@ -351,17 +327,17 @@ Ora che è stata pianificata la soluzione, è possibile implementare attenendosi
    1. Distribuire [NPS](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) per qualsiasi autenticazione RADIUS
    1. Assicurarsi che gli utenti abbiano eseguito l'aggiornamento alle versioni supportate di Microsoft Office con l'autenticazione moderna abilitata
 1. Configura [metodi di autenticazione](#choose-verification-options) scelti
-1. Definire i [percorsi di rete](../conditional-access/location-condition.md#named-locations) denominati
+1. Definire i [percorsi di rete denominati](../conditional-access/location-condition.md#named-locations)
 1. Selezionare i gruppi per iniziare a implementare l'autenticazione a più fattori.
 1. Configurare i [criteri di accesso condizionale](#create-conditional-access-policy)
 1. Configurare i criteri di registrazione di autenticazione a più fattori
    1. [Multi-factor authentication e SSPR](howto-registration-mfa-sspr-combined.md)
    1. Con [Identity Protection](../identity-protection/howto-mfa-policy.md)
-1. Inviare le comunicazioni utente e chiedere agli utenti di registrarsi all'indirizzo[https://aka.ms/mfasetup](https://aka.ms/mfasetup)
+1. Inviare le comunicazioni utente e chiedere agli utenti di registrarsi all' [https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [Tenere traccia degli utenti registrati](#identify-non-registered-users)
 
 > [!TIP]
-> Gli utenti del cloud per enti pubblici possono iscriversi all'indirizzo[https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
+> Gli utenti del cloud per enti pubblici possono registrarsi all' [https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
 
 ## <a name="manage-your-solution"></a>Gestire la soluzione
 
@@ -369,7 +345,7 @@ Report per l'autenticazione a più fattori di Azure
 
 Azure Multi-Factor Authentication fornisce report tramite i portale di Azure:
 
-| Report | Location | Descrizione |
+| Documentazione | Località | Description |
 | --- | --- | --- |
 | Avvisi di illecito e utilizzo | Azure AD > Accessi | Fornisce informazioni su utilizzo complessivo, riepilogo utenti e dettagli utente; nonché una cronologia degli avvisi di illecito inviati durante l'intervallo di date specificato. |
 

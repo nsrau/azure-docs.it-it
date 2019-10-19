@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/16/2019
 ms.author: lahugh
-ms.openlocfilehash: 6f787760c1224172982e0818d8592ce0d36b5e2c
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
-ms.translationtype: HT
+ms.openlocfilehash: 3d4585e032d92049a4f087cd510bdef963025250
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527282"
+ms.locfileid: "72550142"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Supporto per le macchine virtuali di seconda generazione (anteprima) in Azure
 
@@ -52,8 +52,8 @@ Le macchine virtuali di prima generazione sono supportate da tutte le dimensioni
 * [Serie NVv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
 
 
->[!NOTE]
->L'uso delle immagini di VM di seconda generazione per la serie Mv2 è disponibile a livello generale, perché la serie Mv2 funziona solo con le immagini di macchina virtuale di seconda generazione. Le immagini di macchina virtuale di prima generazione non funzionano con la serie Mv2. 
+> [!NOTE]
+> L'uso delle immagini di VM di seconda generazione per le macchine virtuali della serie Mv2 è disponibile a livello generale perché la serie Mv2 funziona solo con le immagini di macchina virtuale di seconda generazione. Le immagini di macchina virtuale di prima generazione non sono supportate nelle macchine virtuali della serie Mv2. 
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Immagini di macchine virtuali di seconda generazione in Azure Marketplace
 

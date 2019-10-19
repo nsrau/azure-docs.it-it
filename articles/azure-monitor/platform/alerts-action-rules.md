@@ -1,19 +1,18 @@
 ---
 title: Regole di azione per gli avvisi di monitoraggio di Azure
 description: Informazioni sulle regole di azione in monitoraggio di Azure e su come configurarle e gestirle.
-author: anantr
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 04/25/2019
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 19f17aff4f915f8a16ccf9d69b12a845d9493e96
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 04/25/2019
+ms.openlocfilehash: a858388a11cfdf36bacb1e5840f00fc6ef097867
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299294"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555695"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
 
@@ -55,7 +54,7 @@ A questo punto verrà visualizzata la pagina flusso per la creazione di regole d
 
 ![Nuovo flusso di creazione della regola azione](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>`Scope`
+### <a name="scope"></a>Scope
 
 Scegliere prima di tutto l'ambito (sottoscrizione di Azure, gruppo di risorse o risorsa di destinazione). È anche possibile selezionare una combinazione di ambiti all'interno di una singola sottoscrizione.
 
@@ -67,13 +66,13 @@ Scegliere prima di tutto l'ambito (sottoscrizione di Azure, gruppo di risorse o 
 
 I filtri disponibili sono: 
 
-* **Gravità**: Opzione per selezionare uno o più livelli di gravità degli avvisi. **Gravità = Sev1** significa che la regola di azione è applicabile per tutti gli avvisi impostati su Sev1.
-* **Servizio monitoraggio**: Filtro basato sul servizio di monitoraggio di origine. Questo filtro è anche Select multiplo. Ad esempio, **Monitor Service = "Application Insights"** indica che la regola di azione è applicabile per tutti gli avvisi basati su Application Insights.
-* **Tipo di risorsa**:  Filtro basato su un tipo di risorsa specifico. Questo filtro è anche Select multiplo. Ad esempio, **Resource Type = "Virtual Machines"** significa che la regola di azione è applicabile a tutte le macchine virtuali.
-* **ID regola di avviso**: Opzione per filtrare le regole di avviso specifiche utilizzando l'ID Gestione risorse della regola di avviso.
-* **Condizione di monitoraggio**:  Filtro per le istanze di avviso con **attivato** o **risolto** come condizione di monitoraggio.
-* **Descrizione**: Una corrispondenza Regex (Regular Expression) che definisce una corrispondenza di stringa rispetto alla descrizione, definita come parte della regola di avviso. Ad esempio, la **Descrizione contiene ' prod '** corrispondente a tutti gli avvisi che contengono la stringa "prod" nelle descrizioni.
-* **Contesto avviso (payload)** : Corrispondenza Regex che definisce una corrispondenza di stringa con i campi del contesto dell'avviso del payload di un avviso. Ad esempio, il **contesto dell'avviso (payload) contiene "computer-01"** corrisponde a tutti gli avvisi i cui payload contengono la stringa "computer-01".
+* **Gravità**: l'opzione per selezionare uno o più livelli di gravità degli avvisi. **Gravità = Sev1** significa che la regola di azione è applicabile per tutti gli avvisi impostati su Sev1.
+* **Servizio**monitoraggio: un filtro basato sul servizio di monitoraggio di origine. Questo filtro è anche Select multiplo. Ad esempio, **Monitor Service = "Application Insights"** indica che la regola di azione è applicabile per tutti gli avvisi basati su Application Insights.
+* **Tipo di risorsa**: un filtro basato su un tipo di risorsa specifico. Questo filtro è anche Select multiplo. Ad esempio, **Resource Type = "Virtual Machines"** significa che la regola di azione è applicabile a tutte le macchine virtuali.
+* **ID regola di avviso**: opzione per filtrare le regole di avviso specifiche usando l'ID gestione risorse della regola di avviso.
+* **Condizione di monitoraggio**: filtro per le istanze di avviso con **attivato** o **risolto** come condizione di monitoraggio.
+* **Descrizione**: corrispondenza Regex (Regular Expression) che definisce una corrispondenza di stringa rispetto alla descrizione, definita come parte della regola di avviso. Ad esempio, la **Descrizione contiene ' prod '** corrispondente a tutti gli avvisi che contengono la stringa "prod" nelle descrizioni.
+* **Contesto avviso (payload)** : una corrispondenza Regex che definisce una corrispondenza di stringa con i campi di contesto degli avvisi del payload di un avviso. Ad esempio, il **contesto dell'avviso (payload) contiene "computer-01"** corrisponde a tutti gli avvisi i cui payload contengono la stringa "computer-01".
 
 Questi filtri vengono applicati insieme tra loro. Se ad esempio si imposta il **tipo di risorsa ' = macchine virtuali** e **gravità' = Sev0**, è stato applicato un filtro per tutti gli avvisi **Sev0** solo nelle VM. 
 
@@ -86,9 +85,9 @@ Configurare quindi la regola di azione per il supporto dell'eliminazione avvisi 
 #### <a name="suppression"></a>Soppressione
 
 Se si seleziona l' **eliminazione**, configurare la durata per l'eliminazione di azioni e notifiche. Scegliere una delle opzioni seguenti:
-* **Da adesso (sempre)** : Disattiva tutte le notifiche a tempo indefinito.
-* **All'ora pianificata**: Disattiva le notifiche entro una durata limitata.
-* **Con una ricorrenza**: Consente di disattivare le notifiche in base a una pianificazione ricorrente giornaliera, settimanale o mensile.
+* **Da Now (always)** : Disattiva tutte le notifiche a tempo indefinito.
+* **All'ora pianificata**: disattiva le notifiche entro una durata limitata.
+* **Con una ricorrenza**: disattiva le notifiche in base a una pianificazione ricorrente giornaliera, settimanale o mensile.
 
 ![Eliminazione regola azione](media/alerts-action-rules/action-rules-new-rule-creation-flow-suppression.png)
 
@@ -104,13 +103,13 @@ Se si seleziona **gruppo di azioni** nell'interruttore, aggiungere un gruppo di 
 ### <a name="action-rule-details"></a>Dettagli regola azione
 
 Infine, configurare i dettagli seguenti per la regola di azione:
-* NOME
+* name
 * Gruppo di risorse in cui viene salvato
-* Descrizione 
+* Description 
 
 ## <a name="example-scenarios"></a>Scenari di esempio
 
-### <a name="scenario-1-suppression-of-alerts-based-on-severity"></a>Scenario 1: Eliminazione di avvisi in base alla gravità
+### <a name="scenario-1-suppression-of-alerts-based-on-severity"></a>Scenario 1: eliminazione di avvisi in base alla gravità
 
 Contoso vuole escludere le notifiche per tutti gli avvisi Sev4 su tutte le macchine virtuali nella sottoscrizione **ContosoSub** ogni fine settimana.
 
@@ -121,7 +120,7 @@ Contoso vuole escludere le notifiche per tutti gli avvisi Sev4 su tutte le macch
     * Tipo di risorsa = **macchine virtuali**
 * Eliminazione con ricorrenza impostata su settimanale, **sabato** e **domenica** controllati
 
-### <a name="scenario-2-suppression-of-alerts-based-on-alert-context-payload"></a>Scenario 2: Eliminazione di avvisi in base al contesto dell'avviso (payload)
+### <a name="scenario-2-suppression-of-alerts-based-on-alert-context-payload"></a>Scenario 2: eliminazione di avvisi in base al contesto dell'avviso (payload)
 
 Contoso desidera disattivare le notifiche per tutti gli avvisi del log generati per **computer-01** in **ContosoSub** per un periodo di tempo indefinito durante la manutenzione.
 
@@ -132,7 +131,7 @@ Contoso desidera disattivare le notifiche per tutti gli avvisi del log generati 
     * Il contesto dell'avviso (payload) contiene **computer-01**
 * Eliminazione impostata su **da ora (sempre)**
 
-### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Scenario 3: Gruppo di azione definito in un gruppo di risorse
+### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Scenario 3: gruppo di azioni definito in un gruppo di risorse
 
 Contoso ha definito [un avviso di metrica a livello di sottoscrizione](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Ma desidera definire le azioni che vengono attivate in modo specifico per gli avvisi generati dal gruppo di risorse **ContosoRG**.
 
@@ -162,16 +161,16 @@ Per usare al meglio gli avvisi del log con le regole di azione, creare gli avvis
 
 ![Regole di azione e avvisi del log (numero di risultati)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>FAQ
 
 ### <a name="while-im-configuring-an-action-rule-id-like-to-see-all-the-possible-overlapping-action-rules-so-that-i-avoid-duplicate-notifications-is-it-possible-to-do-that"></a>Durante la configurazione di una regola di azione, desidero visualizzare tutte le possibili regole di azione sovrapposte, in modo da evitare notifiche duplicate. È possibile eseguire questa operazione?
 
 Dopo aver definito un ambito durante la configurazione di una regola di azione, è possibile visualizzare un elenco di regole di azione sovrapposte allo stesso ambito (se presente). Questa sovrapposizione può essere una delle seguenti opzioni:
 
-* Corrispondenza esatta: Ad esempio, la regola di azione che si sta definendo e la regola azione sovrapposta si trovano nella stessa sottoscrizione.
-* Un subset: Ad esempio, la regola di azione che si sta definendo si trova in una sottoscrizione e la regola azione sovrapposta si trova in un gruppo di risorse all'interno della sottoscrizione.
-* Un superset: Ad esempio, la regola di azione che si sta definendo si trova in un gruppo di risorse e la regola azione sovrapposta si trova nella sottoscrizione che contiene il gruppo di risorse.
-* Un'intersezione: La regola di azione che si sta definendo, ad esempio, si trova in **VM1** e **VM2**e la regola azione sovrapposta si trova in **VM2** e **VM3**.
+* Una corrispondenza esatta: ad esempio, la regola di azione che si sta definendo e la regola azione sovrapposta si trovano nella stessa sottoscrizione.
+* Un subset: ad esempio, la regola di azione che si sta definendo si trova in una sottoscrizione e la regola azione sovrapposta si trova in un gruppo di risorse all'interno della sottoscrizione.
+* Un superset: ad esempio, la regola di azione che si sta definendo si trova in un gruppo di risorse e la regola di azione sovrapposta si trova nella sottoscrizione che contiene il gruppo di risorse.
+* Un'intersezione: ad esempio, la regola di azione che si sta definendo si trova in **VM1** e **VM2**e la regola di azione sovrapposta si trova in **VM2** e **VM3**.
 
 ![Regole di azione sovrapposte](media/alerts-action-rules/action-rules-overlapping.png)
 
@@ -179,10 +178,10 @@ Dopo aver definito un ambito durante la configurazione di una regola di azione, 
 
 Dopo aver definito la risorsa di destinazione per la regola di avviso, è possibile visualizzare l'elenco delle regole di azione che agiscono sullo stesso ambito, se presente, selezionando **Visualizza azioni configurate** nella sezione **azioni** . Questo elenco viene popolato in base agli scenari seguenti per l'ambito:
 
-* Corrispondenza esatta: Ad esempio, la regola di avviso che si sta definendo e la regola di azione si trovano nella stessa sottoscrizione.
-* Un subset: Ad esempio, la regola di avviso che si sta definendo si trova in una sottoscrizione e la regola di azione si trova in un gruppo di risorse all'interno della sottoscrizione.
-* Un superset: Ad esempio, la regola di avviso che si sta definendo si trova in un gruppo di risorse e la regola di azione si trova nella sottoscrizione che contiene il gruppo di risorse.
-* Un'intersezione: La regola di avviso che si sta definendo, ad esempio, si trova in **VM1** e **VM2**e la regola di azione si trova in **VM2** e **VM3**.
+* Una corrispondenza esatta: ad esempio, la regola di avviso che si sta definendo e la regola di azione si trovano nella stessa sottoscrizione.
+* Un subset: ad esempio, la regola di avviso che si sta definendo si trova in una sottoscrizione e la regola di azione si trova in un gruppo di risorse all'interno della sottoscrizione.
+* Un superset: ad esempio, la regola di avviso che si sta definendo si trova in un gruppo di risorse e la regola di azione si trova nella sottoscrizione che contiene il gruppo di risorse.
+* Un'intersezione: ad esempio, la regola di avviso che si sta definendo si trova in **VM1** e **VM2**e la regola di azione si trova in **VM2** e **VM3**.
     
 ![Regole di azione sovrapposte](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)
 

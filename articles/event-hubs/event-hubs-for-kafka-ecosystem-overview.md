@@ -3,19 +3,19 @@ title: Usare Hub eventi dall'app Apache Kafka - Hub eventi di Azure | Microsoft 
 description: Questo articolo fornisce informazioni sul supporto di Apache Kafka in Hub eventi di Azure.
 services: event-hubs
 documentationcenter: .net
-author: shvija
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.author: bahariri
-ms.openlocfilehash: 8bf381e7c66e06bbaa140ed865f0f7c9b4f001af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: shvija
+ms.openlocfilehash: d3271d6e8cb7d423e1dccd235b244688e7ab5683
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821707"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555781"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Usare Hub eventi di Azure da applicazioni Apache Kafka
 Hub eventi fornisce un endpoint Kafka che può essere usato dalle applicazioni Kafka esistenti come alternativa all'esecuzione del proprio cluster Kafka. Hub eventi supporta il [protocollo Apache Kafka 1.0 e versioni successive](https://kafka.apache.org/documentation/) e funziona con le applicazioni Kafka esistenti, tra cui MirrorMaker.  
@@ -55,7 +55,7 @@ Hub eventi per la funzionalità di Kafka consente di scrivere con un protocollo 
 Di seguito è riportato l'elenco delle funzionalità di Kafka che non sono ancora supportate:
 
 *   Producer idempotente
-*   Transaction
+*   Transazione
 *   Compressione
 *   Conservazione basata sulle dimensioni
 *   Compattazione dei log

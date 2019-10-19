@@ -1,27 +1,26 @@
 ---
 title: Definizioni dello schema di avviso comuni per monitoraggio di Azure
 description: Informazioni sulle definizioni dello schema di avviso comuni per monitoraggio di Azure
-author: anantr
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 03/14/2019
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 9e2c3849cca392539b96f47d8d7c32815851cf78
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 03/14/2019
+ms.openlocfilehash: d1d822a5e7dadffd6be841e51ac407995adba2ea
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702876"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552562"
 ---
 # <a name="common-alert-schema-definitions"></a>Definizioni dello schema di avviso comune
 
 Questo articolo descrive le [definizioni dello schema di avviso comuni](https://aka.ms/commonAlertSchemaDocs) per monitoraggio di Azure, incluse quelle per webhook, app per la logica di Azure, funzioni di Azure e manuali operativi di automazione di Azure. 
 
 Tutte le istanze di avviso descrivono la risorsa interessata e la relativa origine. Queste istanze sono descritte nello schema comune nelle sezioni seguenti:
-* **Elementi**di base: Set di campi standardizzati, comune in tutti i tipi di avviso, che descrivono la risorsa in cui si trova l'avviso, insieme a metadati di avviso comuni aggiuntivi, ad esempio gravità o descrizione. 
-* **Contesto avviso**: Set di campi che descrive la motivo dell'avviso, con campi che variano in base al tipo di avviso. Un avviso di metrica, ad esempio, include campi come il nome della metrica e il valore della metrica nel contesto dell'avviso, mentre un avviso del log attività contiene informazioni sull'evento che ha generato l'avviso. 
+* **Essentials**: un set di campi standardizzati, comune in tutti i tipi di avviso, che descrivono la risorsa in cui si trova l'avviso, insieme a metadati di avviso comuni aggiuntivi, ad esempio gravità o descrizione. 
+* **Contesto**dell'avviso: un set di campi che descrive la relativa origine, con campi che variano in base al tipo di avviso. Un avviso di metrica, ad esempio, include campi come il nome della metrica e il valore della metrica nel contesto dell'avviso, mentre un avviso del log attività contiene informazioni sull'evento che ha generato l'avviso. 
 
 **Payload degli avvisi di esempio**
 ```json
@@ -74,12 +73,12 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa origi
 
 ## <a name="essentials"></a>Essentials
 
-| Campo | Descrizione|
+| Campo | Description|
 |:---|:---|
 | alertId | GUID che identifica in modo univoco l'istanza di avviso. |
 | alertRule | Nome della regola di avviso che ha generato l'istanza di avviso. |
-| severity | Gravità dell'avviso. Valori possibili: Sev0, Sev1, Sev2, Sev3 o Sev4. |
-| signalType | Identifica il segnale su cui è stata definita la regola di avviso. Valori possibili: Metrica, log o log attività. |
+| Severity | Gravità dell'avviso. Valori possibili: Sev0, Sev1, Sev2, Sev3 o Sev4. |
+| signalType | Identifica il segnale su cui è stata definita la regola di avviso. Valori possibili: metrica, log o log attività. |
 | monitorCondition | Quando viene generato un avviso, la condizione di monitoraggio dell'avviso è impostata su **attivato**. Quando la condizione sottostante che ha causato l'attivazione dell'avviso viene cancellata, la condizione di monitoraggio è impostata su **risolto**.   |
 | monitoringService | Il servizio di monitoraggio o la soluzione che ha generato l'avviso. I campi per il contesto dell'avviso sono determinati dal servizio di monitoraggio. |
 | alertTargetIds | Elenco degli ID Azure Resource Manager interessati da un avviso. Per un avviso di log definito in un'area di lavoro Log Analytics o in un'istanza di Application Insights, è la rispettiva area di lavoro o applicazione. |
@@ -88,7 +87,7 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa origi
 | resolvedDateTime | Data e ora in cui la condizione di monitoraggio per l'istanza di avviso è impostata su **risolto** in formato UTC. Attualmente applicabile solo per gli avvisi della metrica.|
 | description | Descrizione, come definito nella regola di avviso. |
 |essentialsVersion| Il numero di versione per la sezione Essentials.|
-|alertContextVersion | Numero di versione per la `alertContext` sezione. |
+|alertContextVersion | Numero di versione per la sezione `alertContext`. |
 
 **Valori di esempio**
 ```json
@@ -152,7 +151,7 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa origi
 ### <a name="log-alerts"></a>Avvisi relativi ai log
 
 > [!NOTE]
-> Per gli avvisi del log in cui è definito un payload JSON personalizzato, l'abilitazione dello schema comune ripristina lo schema del payload a quello descritto di seguito. Gli avvisi con lo schema comune abilitato hanno un limite di dimensione superiore di 256 KB per avviso. I risultati della ricerca non sono incorporati nel payload degli avvisi del log se causano il superamento di questa soglia da parte della dimensione dell'avviso. È possibile determinare questo problema selezionando il `IncludedSearchResults`flag. Quando non sono inclusi i risultati della ricerca, è consigliabile usare la query di ricerca insieme all' [API log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> Per gli avvisi del log in cui è definito un payload JSON personalizzato, l'abilitazione dello schema comune ripristina lo schema del payload a quello descritto di seguito. Gli avvisi con lo schema comune abilitato hanno un limite di dimensione superiore di 256 KB per avviso. I risultati della ricerca non sono incorporati nel payload degli avvisi del log se causano il superamento di questa soglia da parte della dimensione dell'avviso. È possibile determinare questo problema selezionando il flag `IncludedSearchResults`. Quando non sono inclusi i risultati della ricerca, è consigliabile usare la query di ricerca insieme all' [API log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -284,7 +283,7 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa origi
 }
 ```
 
-### <a name="activity-log-alerts"></a>Avvisi del log attività
+### <a name="activity-log-alerts"></a>Avvisi dei log attività
 
 #### <a name="monitoringservice--activity-log---administrative"></a>`monitoringService` = `Activity Log - Administrative`
 

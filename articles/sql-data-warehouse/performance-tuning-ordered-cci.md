@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 0aecb2309743ffecc2fb68435192224c6c690aee
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
-ms.translationtype: MT
+ms.openlocfilehash: 0acdf1496151df57d4097ce5bc71d782dc465873
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035118"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554542"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Ottimizzazione delle prestazioni con indice columnstore cluster ordinato  
 
@@ -119,16 +119,20 @@ Di seguito è riportato un esempio di una distribuzione della tabella CCI ordina
 ## <a name="create-ordered-cci-on-large-tables"></a>Creare CCI ordinati in tabelle di grandi dimensioni
 La creazione di una CCI ordinata è un'operazione offline.  Per le tabelle senza partizioni, i dati non saranno accessibili agli utenti fino al completamento del processo di creazione di CCI ordinato.   Per le tabelle partizionate, poiché il motore crea la partizione CCI ordinata per partizione, gli utenti possono comunque accedere ai dati nelle partizioni in cui la creazione di CCI ordinata non è in corso.   È possibile utilizzare questa opzione per ridurre al minimo il tempo di inattività durante la creazione di CCI ordinata su tabelle di grandi dimensioni: 
 
-1.  Creare partizioni nella tabella di grandi dimensioni di destinazione (denominata tabella A).
-2.  Creare una tabella CCI ordinata vuota (denominata Table B) con la stessa tabella e lo stesso schema di partizione della tabella A.
+1.  Creare partizioni nella tabella di grandi dimensioni di destinazione (denominata Table_A).
+2.  Creare una tabella CCI ordinata vuota (denominata Table_B) con lo stesso schema di tabella e partizione della tabella A.
 3.  Passare una partizione dalla tabella A alla tabella B.
-4.  Eseguire ALTER INDEX < Ordered_CCI_Index > RICOMPILA partizione = < Partition_ID > nella tabella B per ricompilare la partizione commutata.  
-5.  Ripetere i passaggi 3 e 4 per ogni partizione nella tabella A.
-6.  Una volta passate tutte le partizioni dalla tabella A alla tabella B e ricompilate, eliminare la tabella A e rinominare la tabella B nella tabella A. 
+4.  Eseguire ALTER INDEX < Ordered_CCI_Index > in < Table_B > REBUILD PARTITION = < Partition_ID > nella tabella B per ricompilare la partizione commutata.  
+5.  Ripetere i passaggi 3 e 4 per ogni partizione in Table_A.
+6.  Una volta passate tutte le partizioni da Table_A a Table_B e ricompilate, eliminare Table_A e rinominare Table_B in Table_A. 
 
-## <a name="examples"></a>Esempi
+>[!NOTE]
+>Durante l'anteprima dell'indice columnstore cluster ordinato (CCI) in Azure SQL Data Warehouse, è possibile che vengano generati dati duplicati se la CCI ordinata viene creata o ricompilata tramite Crea indice COLUMNStore CLUSTER in una tabella partizionata. Non si verifica alcuna perdita di dati. Una correzione per questo problema sarà presto disponibile. Per una soluzione alternativa, gli utenti possono creare CCI ordinati in una tabella partizionata usando il comando CTAS
 
-**A. Per verificare la presenza di colonne e ordinali ordinati:**
+
+## <a name="examples"></a>esempi
+
+**A. per verificare la presenza di colonne ordinate e ordinali ordinali:**
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
 FROM sys.index_columns i 
@@ -136,7 +140,7 @@ JOIN sys.columns c ON i.object_id = c.object_id AND c.column_id = i.column_id
 WHERE column_store_order_ordinal <>0
 ```
 
-**B. Per modificare il numero ordinale di colonna, aggiungere o rimuovere colonne dall'elenco degli ordini oppure per passare da CCI a ordered CCI:**
+**B. per modificare il numero ordinale di colonna, aggiungere o rimuovere colonne dall'elenco degli ordini oppure per passare da CCI a ordered CCI:**
 ```sql
 CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales
 ORDER (ProductKey, SalesAmount)

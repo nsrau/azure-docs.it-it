@@ -1,24 +1,18 @@
 ---
 title: Panoramica di Monitoraggio di Azure per contenitori | Microsoft Docs
 description: Questo articolo descrive Monitoraggio di Azure per contenitori, che consente di monitorare la soluzione relativa alle informazioni dettagliate sui contenitori del servizio Azure Kubernetes, e il valore che offre attraverso il monitoraggio dell'integrità dei cluster del servizio Azure Kubernetes e di Istanze di Container in Azure.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/02/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: e1fca1532352c4955f478df70f818ee3151053c1
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.date: 08/02/2019
+ms.openlocfilehash: 8a6a9862679508971edd23b2d4220446c2692d72
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742215"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555388"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Panoramica di Monitoraggio di Azure per contenitori
 

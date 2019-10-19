@@ -1,24 +1,18 @@
 ---
 title: Come eseguire query sui log da monitoraggio di Azure per i contenitori | Microsoft Docs
 description: Il monitoraggio di Azure per i contenitori raccoglie le metriche e i dati di log e in questo articolo vengono descritti i record e sono incluse le query di esempio.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: ae8dd4cccb6795faa02e6705404644f6ccc24864
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 07/12/2019
+ms.openlocfilehash: c3a034776b32db57f70ddee960c1cd5fc96b170b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948057"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555417"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Come eseguire query sui log da monitoraggio di Azure per i contenitori
 
@@ -62,7 +56,7 @@ Il contenitore registra l'output che viene inviato all'area di lavoro sono STDOU
 
 Spesso è utile creare una query a partire da qualche esempio e quindi modificarla in base ai propri requisiti. Per creare query più avanzate, è possibile provare a usare le query di esempio seguenti:
 
-| Query | Descrizione | 
+| Query | Description | 
 |-------|-------------|
 | ContainerInventory<br> &#124; project Computer, Name, Image, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; render table | Elencare tutte le informazioni sul ciclo di vita di un contenitore| 
 | KubeEvents_CL<br> &#124; where not(isempty(Namespace_s))<br> &#124; sort by TimeGenerated desc<br> &#124; render table | Eventi di Kubernetes|

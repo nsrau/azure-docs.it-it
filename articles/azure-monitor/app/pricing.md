@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 10/03/2019
 ms.author: dalek
-ms.openlocfilehash: 55ff134bfa76634250b7495120432d7310b07c06
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 4674dede5912dc1dc64bd0e092e28461f30bebcd
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72431883"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554231"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -170,7 +170,7 @@ Per modificare il periodo di conservazione, dalla risorsa Application Insights p
 
 ![Regolazione del limite del volume dei dati di telemetria giornaliero](./media/pricing/pricing-005.png)
 
-Il periodo di conservazione può anche essere [impostato a livello usando PowerShell](powershell.md) usando il parametro `retentionInDays`. Inoltre, se si imposta la conservazione dei dati su 30 giorni, è possibile attivare un'eliminazione immediata dei dati meno recenti utilizzando il parametro `immediatePurgeDataOn30Days`, che può essere utile per gli scenari correlati alla conformità. Questa funzionalità di ripulitura viene esposta solo tramite Azure Resource Manager e deve essere usata con estrema attenzione. 
+Il periodo di conservazione può anche essere [impostato a livello usando PowerShell](powershell.md#set-the-data-retention) usando il parametro `retentionInDays`. Inoltre, se si imposta la conservazione dei dati su 30 giorni, è possibile attivare un'eliminazione immediata dei dati meno recenti utilizzando il parametro `immediatePurgeDataOn30Days`, che può essere utile per gli scenari correlati alla conformità. Questa funzionalità di ripulitura viene esposta solo tramite Azure Resource Manager e deve essere usata con estrema attenzione. 
 
 Quando la fatturazione ha inizio per un periodo di conservazione più lungo entro il 2019 dicembre, i dati conservati per più di 90 giorni verranno fatturati con la stessa tariffa attualmente addebitata per la conservazione dei dati di Azure Log Analytics. Per altre informazioni, vedere la [pagina dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/). Rimanere sempre aggiornati sullo stato di conservazione [delle variabili votando questo suggerimento](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 

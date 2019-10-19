@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2fcace82eed81b85571ba88243a3de991ae01aa0
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: ce91d53bec3c74a8a55d46fd53bc3cf0ccd7e28a
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180115"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550629"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
-Quando si crea un'app per le funzioni in Azure, è necessario scegliere un piano di hosting per l'app. Sono disponibili tre piani di hosting per funzioni di Azure: Piano a [consumo](#consumption-plan), [piano Premium](#premium-plan)e [piano di servizio app](#app-service-plan).
+Quando si crea un'app per le funzioni in Azure, è necessario scegliere un piano di hosting per l'app. Sono disponibili tre piani di hosting per funzioni di Azure: [piano a consumo](#consumption-plan), [piano Premium](#premium-plan)e [piano di servizio app](#app-service-plan).
 
 Il piano di hosting scelto determina i comportamenti seguenti:
 
@@ -47,8 +47,8 @@ La tabella seguente indica il livello di supporto corrente per i tre piani di ho
 
 | | Piano a consumo | Piano Premium | Piano dedicato |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | GA | anteprima | GA |
-| Linux | GA | anteprima | GA |
+| Windows | Disponibilità a livello generale | anteprima | Disponibilità a livello generale |
+| Linux | Disponibilità a livello generale | anteprima | Disponibilità a livello generale |
 
 ## <a name="consumption-plan"></a>Piano a consumo
 
@@ -78,11 +78,12 @@ Quando si usa il piano Premium, le istanze dell'host di funzioni di Azure vengon
 
 Informazioni su come è possibile configurare queste opzioni sono disponibili nel documento del [piano Premium di funzioni di Azure](functions-premium-plan.md).
 
-Anziché eseguire la fatturazione per esecuzione e la memoria utilizzata, la fatturazione per il piano Premium si basa sul numero di secondi core, sul tempo di esecuzione e sulla memoria usata nelle istanze necessarie e riservate.  Almeno un'istanza deve essere sempre calda. Ciò significa che esiste un costo mensile fisso per ogni piano attivo, indipendentemente dal numero di esecuzioni.
+Invece di eseguire la fatturazione per esecuzione e la memoria utilizzata, la fatturazione per il piano Premium si basa sul numero di secondi di base e sulla memoria usata nelle istanze necessarie e pre-surriscaldate. È necessario che almeno un'istanza sia sempre calda per ogni piano. Ciò significa che esiste un costo mensile minimo per piano attivo, indipendentemente dal numero di esecuzioni. Tenere presente che tutte le app per le funzioni in un piano Premium condividono istanze predefinite e attive.
 
 Si consideri il piano Premium di funzioni di Azure nelle situazioni seguenti:
 
 * Le app per le funzioni vengono eseguite in modo continuo o quasi continuo.
+* Si dispone di un numero elevato di esecuzioni di piccole dimensioni e si dispone di una fattura di esecuzione elevata, ma di una fattura con un minimo di GB nel piano a consumo.
 * Sono necessarie più opzioni di CPU o memoria rispetto a quelle fornite dal piano a consumo.
 * Il codice deve essere eseguito più a lungo del [tempo di esecuzione massimo consentito](#timeout) nel piano a consumo.
 * Sono necessarie funzionalità disponibili solo in un piano Premium, ad esempio connettività VNET/VPN.

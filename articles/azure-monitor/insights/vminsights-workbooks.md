@@ -1,24 +1,18 @@
 ---
 title: Creare report interattivi con le cartelle di lavoro di monitoraggio di Azure | Microsoft Docs
 description: Semplifica la creazione di report complessi con cartelle di lavoro predefinite e personalizzate con parametri per Monitoraggio di Azure per le macchine virtuali.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/15/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 9e1427ce8cd83b49f4b9b39fa82eff1e8a32cd10
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
-ms.translationtype: HT
+ms.date: 10/15/2019
+ms.openlocfilehash: 47e2e5d80241ac093d136b45c853d94a9dd43cbe
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515423"
+ms.locfileid: "72553723"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Creare report interattivi con cartelle di lavoro di Monitoraggio di Azure
 

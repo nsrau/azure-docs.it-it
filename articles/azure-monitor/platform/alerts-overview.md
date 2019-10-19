@@ -1,19 +1,18 @@
 ---
 title: Panoramica degli avvisi e del monitoraggio delle notifiche in Azure
 description: Panoramica degli avvisi in Azure. Avvisi, avvisi classici e l'interfaccia degli avvisi.
-author: rboucher
-services: monitoring
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 01/28/2018
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: eab6e7e0fb834447a55b67dfc9a17c470e9e3361
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 01/28/2018
+ms.openlocfilehash: e79d9be6b893184bd615fbc569893e53a2c72861
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091765"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555599"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -37,27 +36,27 @@ Le regole di avviso sono separate dagli avvisi e dalle azioni eseguite quando vi
 
 Di seguito sono riportati gli attributi chiave di una regola di avviso:
 
-**Risorsa di destinazione**: Definisce l'ambito e i segnali disponibili per gli avvisi. La destinazione può essere una qualsiasi risorsa di Azure. Esempi di destinazione: una macchina virtuale, un account di archiviazione, un set di scalabilità di macchine virtuali, un'area di lavoro Log Analytics o una risorsa di Application Insights. Per alcune risorse, ad esempio le macchine virtuali, è possibile specificare più risorse come destinazione della regola di avviso.
+**Risorsa di destinazione**: definisce l'ambito e i segnali disponibili per gli avvisi. La destinazione può essere una qualsiasi risorsa di Azure. Esempi di destinazione: una macchina virtuale, un account di archiviazione, un set di scalabilità di macchine virtuali, un'area di lavoro Log Analytics o una risorsa di Application Insights. Per alcune risorse, ad esempio le macchine virtuali, è possibile specificare più risorse come destinazione della regola di avviso.
 
-**Segnale**: Generato dalla risorsa di destinazione. I segnali possono essere dei tipi seguenti: metrica, log attività, Application Insights e log.
+**Signal**: emesso dalla risorsa di destinazione. I segnali possono essere dei tipi seguenti: metrica, log attività, Application Insights e log.
 
-**Criteri**: Combinazione di segnale e logica applicata a una risorsa di destinazione. Esempi: 
+**Criteri**: una combinazione di segnale e logica applicata a una risorsa di destinazione. Esempi: 
    - Percentuale CPU > 70%
    - Tempo di risposta del server > 4 ms 
    - Numero di risultati di una query di log > 100
 
-**Nome avviso**: Nome specifico per la regola di avviso configurata dall'utente.
+**Nome avviso**: un nome specifico per la regola di avviso configurata dall'utente.
 
-**Descrizione avviso**: Descrizione della regola di avviso configurata dall'utente.
+**Avviso Descrizione**: una descrizione per la regola di avviso configurata dall'utente.
 
-**Gravità**: Gravità dell'avviso dopo che sono stati soddisfatti i criteri specificati nella regola di avviso. La gravità è compresa tra 0 e 4.
+**Gravità**: la gravità dell'avviso dopo che sono stati soddisfatti i criteri specificati nella regola di avviso. La gravità è compresa tra 0 e 4.
    - Gravità 0 = critico
    - Gravità 1 = errore
    - Gravità 2 = avviso
    - Gravità 3 = Informativa
    - SEV 4 = verbose 
 
-**Azione**: Azione specifica eseguita quando viene attivato l'avviso. Per altre informazioni, vedere [Gruppi di azioni](../../azure-monitor/platform/action-groups.md).
+**Azione**: azione specifica eseguita quando viene attivato l'avviso. Per altre informazioni, vedere [Gruppi di azioni](../../azure-monitor/platform/action-groups.md).
 
 ## <a name="what-you-can-alert-on"></a>Oggetto degli avvisi
 
@@ -80,9 +79,9 @@ Nelle versioni precedenti, per le metriche di Monitoraggio di Azure, Application
 
 Sono supportati i tipi di avviso seguenti.
 
-| Stato | Descrizione |
+| Statale | Description |
 |:---|:---|
-| Nuovo | Il problema è stato appena rilevato e non è ancora stato esaminato. |
+| Novità | Il problema è stato appena rilevato e non è ancora stato esaminato. |
 | Confermato | Un amministratore ha esaminato l'avviso e ha iniziato a lavorare a esso. |
 | Chiuso | Il problema è stato risolto. Dopo che un avviso è stato chiuso, è possibile riaprirlo modificandone lo stato. |
 
@@ -107,7 +106,7 @@ Non Mostra o tiene traccia degli avvisi classici. È possibile modificare le sot
 
 È possibile filtrare questa visualizzazione selezionando i valori nei menu a discesa nella parte superiore della pagina.
 
-| Colonna | Descrizione |
+| Colonna | Description |
 |:---|:---|
 | Sottoscrizione | Selezionare le sottoscrizioni di Azure per cui si desidera visualizzare gli avvisi. Facoltativamente, è possibile scegliere di selezionare tutte le sottoscrizioni. Nella vista sono inclusi solo gli avvisi a cui si ha accesso nelle sottoscrizioni selezionate. |
 | Gruppo di risorse | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
@@ -115,14 +114,14 @@ Non Mostra o tiene traccia degli avvisi classici. È possibile modificare le sot
 
 Selezionare i valori seguenti nella parte superiore della pagina degli avvisi per aprire un'altra pagina:
 
-| Value | Descrizione |
+| Value | Description |
 |:---|:---|
 | Totale avvisi | Numero totale di avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire la visualizzazione Tutti gli avvisi senza filtri. |
 | Gruppi intelligenti | Numero totale di gruppi intelligenti creati dagli avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire l'elenco dei gruppi intelligenti nella visualizzazione Tutti gli avvisi.
 | Totale regole di avviso | Numero totale di regole di avviso nella sottoscrizione o nel gruppo di risorse selezionato. Selezionare questo valore per aprire la visualizzazione Regole, filtrata in base alla sottoscrizione e al gruppo di risorse selezionati.
 
 
-## <a name="manage-alert-rules"></a>Gestisci regole di avviso
+## <a name="manage-alert-rules"></a>Gestire le regole di avviso
 Per visualizzare la pagina **regole** , selezionare **Gestisci regole di avviso**. La pagina regole è un'unica posizione per la gestione di tutte le regole di avviso tra le sottoscrizioni di Azure. Include l'elenco di tutte le regole di avviso che può essere ordinato in base alle risorse di destinazione, ai gruppi di risorse, al nome della regola o allo stato. Da questa pagina è inoltre possibile modificare, abilitare o disabilitare le regole di avviso.  
 
  ![Screenshot della pagina delle regole](./media/alerts-overview/alerts-preview-rules.png)
@@ -150,15 +149,15 @@ Per visualizzare la pagina **tutti gli avvisi** , selezionare **Total Alerts**. 
 
 È possibile filtrare la visualizzazione selezionando i valori seguenti nei menu a discesa nella parte superiore della pagina:
 
-| Colonna | DESCRIZIONE |
+| Colonna | Description |
 |:---|:---|
 | Sottoscrizione | Selezionare le sottoscrizioni di Azure per cui si desidera visualizzare gli avvisi. Facoltativamente, è possibile scegliere di selezionare tutte le sottoscrizioni. Nella vista sono inclusi solo gli avvisi a cui si ha accesso nelle sottoscrizioni selezionate. |
 | Gruppo di risorse | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
 | Tipo di risorsa | Selezionare uno o più tipi di risorsa. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni del tipo selezionato. Questa colonna risulta disponibile solo dopo che è stato specificato un gruppo di risorse. |
-| Risorsa | Selezionare una risorsa. Nella visualizzazione vengono inclusi solo gli avvisi con tale risorsa definita come destinazione. Questa colonna risulta disponibile solo dopo che è stato specificato un tipo di risorsa. |
-| severity | Selezionare un livello di gravità degli avvisi oppure **Tutti** per includere gli avvisi di tutti i livelli di gravità. |
+| Gruppi | Selezionare una risorsa. Nella visualizzazione vengono inclusi solo gli avvisi con tale risorsa definita come destinazione. Questa colonna risulta disponibile solo dopo che è stato specificato un tipo di risorsa. |
+| Severity | Selezionare un livello di gravità degli avvisi oppure **Tutti** per includere gli avvisi di tutti i livelli di gravità. |
 | Condizione del monitoraggio | Selezionare una condizione di monitoraggio oppure selezionare **tutto** per includere gli avvisi di tutte le condizioni. |
-| Stato avviso | Selezionare uno stato di avviso o selezionare **tutti** per includere gli avvisi di tutti gli Stati. |
+| Stato dell'avviso | Selezionare uno stato di avviso o selezionare **tutti** per includere gli avvisi di tutti gli Stati. |
 | Servizio di monitoraggio | Selezionare un servizio oppure **Tutti** per includere tutti i servizi. Sono inclusi solo gli avvisi creati da regole che usano tale servizio come destinazione. |
 | Intervallo di tempo | Nella vista sono inclusi solo gli avvisi generati nell'intervallo di tempo selezionato. I valori supportati sono l'ultima ora, le ultime 24 ore, gli ultimi 7 giorni e gli ultimi 30 giorni. |
 
@@ -171,15 +170,15 @@ Quando si seleziona un avviso, in questa pagina vengono forniti i dettagli dell'
 
 Nella pagina Dettagli avviso sono incluse le seguenti sezioni:
 
-| `Section` | Descrizione |
+| Sezione | Description |
 |:---|:---|
-| Riepilogo | Mostra le proprietà e altre informazioni significative sull'avviso. |
+| Summary | Mostra le proprietà e altre informazioni significative sull'avviso. |
 | Cronologia | Elenca tutte le azioni eseguite dall'avviso e tutte le modifiche apportate all'avviso. Questa opzione è attualmente limitata alle modifiche di stato. |
 | Diagnostica | Informazioni sul gruppo intelligente in cui è incluso l'avviso. *Conteggio avvisi* si riferisce al numero di avvisi inclusi nel gruppo intelligente. Include altri avvisi nello stesso gruppo intelligente creati negli ultimi 30 giorni, indipendentemente dal filtro temporale nella pagina dell'elenco degli avvisi. Selezionare un avviso per visualizzarne i dettagli. |
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Controllo degli accessi in base al ruolo (RBAC) per le istanze di avviso
 
-Il consumo e la gestione delle istanze di avviso richiedono che l'utente disponga dei ruoli RBAC predefiniti di [monitoraggio collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) o [lettore monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Questi ruoli sono supportati in qualsiasi ambito Azure Resource Manager, dal livello di sottoscrizione alle assegnazioni granulari a livello di risorsa. Se, ad esempio, un utente dispone solo dell'accesso di monitoraggio collaboratore per la macchina `ContosoVM1`virtuale, tale utente potrà utilizzare e gestire solo gli avvisi generati in. `ContosoVM1`
+Il consumo e la gestione delle istanze di avviso richiedono che l'utente disponga dei ruoli RBAC predefiniti di [monitoraggio collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) o [lettore monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Questi ruoli sono supportati in qualsiasi ambito Azure Resource Manager, dal livello di sottoscrizione alle assegnazioni granulari a livello di risorsa. Se, ad esempio, un utente dispone solo dell'accesso collaboratore al monitoraggio per la `ContosoVM1` della macchina virtuale, tale utente potrà utilizzare e gestire solo gli avvisi generati su `ContosoVM1`.
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Gestire le istanze di avviso a livello di codice
 

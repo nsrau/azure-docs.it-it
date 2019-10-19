@@ -1,35 +1,34 @@
 ---
 title: Risoluzione dei problemi dell'estensione Diagnostica di Azure
 description: Risoluzione dei problemi per l'uso di Diagnostica di Azure nelle macchine virtuali di Azure, in Service Fabric o in Servizi cloud.
-services: azure-monitor
-author: rboucher
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-ms.date: 05/08/2019
+author: rboucher
 ms.author: robb
-ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.date: 05/08/2019
+ms.openlocfilehash: 63ddb329e37ea3da589e7d2eeaebabb42aa2b467
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "65471791"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555512"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Risoluzione dei problemi di Diagnostica di Azure
 Questo articolo contiene informazioni sulla risoluzione dei problemi relativi all'uso di Diagnostica di Azure. Per altre informazioni su Diagnostica di Azure, vedere la [panoramica di Diagnostica di Azure](diagnostics-extension-overview.md).
 
 ## <a name="logical-components"></a>Componenti logici
-**Utilità di avvio plug-in di diagnostica (DiagnosticsPluginLauncher.exe)** : Avvia l'estensione Diagnostica di Azure. Svolge la funzione di processo del punto di ingresso.
+**Utilità di avvio del plug-in di diagnostica (DiagnosticsPluginLauncher.exe)** : avvia l'estensione Diagnostica di Azure. Svolge la funzione di processo del punto di ingresso.
 
-**Plug-in di diagnostica (DiagnosticsPlugin.exe)** : configura e avvia l'agente di monitoraggio e ne gestisce il ciclo di vita. È il principale processo avviato dall'utilità di avvio.
+**Plug-in di Diagnostica (DiagnosticsPlugin.exe)** : configura e avvia l'agente di monitoraggio e ne gestisce il ciclo di vita. È il principale processo avviato dall'utilità di avvio.
 
-**Agente di monitoraggio (processi MonAgent\*.exe)** : Monitora, raccoglie e trasferisce i dati di diagnostica.  
+**Agente di monitoraggio (processi MonAgent\*.exe)** : monitora, raccoglie e trasferisce i dati di diagnostica.  
 
 ## <a name="logartifact-paths"></a>Percorsi di log ed elementi
 Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nel resto del documento verrà fatto riferimento a queste informazioni.
 
 ### <a name="azure-cloud-services"></a>Servizi cloud di Azure
-| Elemento | `Path` |
+| Elemento | path |
 | --- | --- |
 | **File di configurazione di Diagnostica di Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versione>\Config.txt |
 | **File di log** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versione>\ |
@@ -40,7 +39,7 @@ Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nel re
 | **File di log MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Macchine virtuali
-| Elemento | `Path` |
+| Elemento | path |
 | --- | --- |
 | **File di configurazione di Diagnostica di Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<versione>\RuntimeSettings |
 | **File di log** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -124,7 +123,7 @@ La configurazione di Diagnostica contiene istruzioni per la raccolta di un deter
 #### <a name="is-the-host-generating-data"></a>L'host genera dati?
 - **Contatori delle prestazioni**: aprire perfmon e controllare il contatore.
 
-- **Log di traccia**:  accedere in remoto alla VM e aggiungere TextWriterTraceListener al file di configurazione dell'app.  Vedere https://msdn.microsoft.com/library/sk36c28t.aspx per configurare il listener di testo.  Verificare che l'elemento `<trace>` includa `<trace autoflush="true">`.<br />
+- **Log di traccia**: accedere in remoto alla VM e aggiungere TextWriterTraceListener al file di configurazione dell'app.  Vedere https://msdn.microsoft.com/library/sk36c28t.aspx per configurare il listener di testo.  Verificare che l'elemento `<trace>` includa `<trace autoflush="true">`.<br />
 Se non risulta che i log di traccia vengano generati, consultare la sezione Altre informazioni sui log di traccia mancanti.
 
 - **Tracce ETW**: accedere in remoto alla VM e installare PerfView.  In PerfView eseguire **File** > **User Command** > **Listen etwprovder1** > **etwprovider2** (File > Comando utente -> Ascolto etwprovder1 > etwprovider2) e così via. Nel **comando di ascolto** viene fatta distinzione tra maiuscole e minuscole e nell'elenco separato da virgole dei provider ETW non possono essere presenti spazi. Se l'esecuzione del comando ha esito negativo, è possibile selezionare il pulsante **Log** in basso a destra nello strumento Perfview per visualizzare i tentativi di esecuzione e i risultati.  Se l'input è corretto, verrà aperta una nuova finestra. Dopo pochi secondi inizieranno a essere visualizzate le tracce ETW.
@@ -207,7 +206,7 @@ Di seguito è fornito un esempio:
 ```
 Questo codice genera quattro tabelle:
 
-| event | Nome tabella |
+| Event | Nome tabella |
 | --- | --- |
 | provider="prov1" &lt;Event id=v1" /&gt; |WADEvent+MD5(“prov1”)+”1” |
 | provider="prov1" &lt;Event id="2" eventDestination="dest1" /&gt; |WADdest1 |
@@ -230,12 +229,12 @@ Per il ruolo del servizio cloud, se si seleziona la configurazione dal disco, ai
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Codici di uscita del plug-in di Diagnostica di Azure
 Il plug-in restituisce i seguenti codici di uscita:
 
-| Codice di uscita | Descrizione |
+| Codice di uscita | Description |
 | --- | --- |
-| 0 |Riuscite. |
+| 0 |Completamento della procedura. |
 | -1 |Errore generico. |
 | -2 |Impossibile caricare il file rcf.<p>Questo errore interno dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente in modo non corretto sulla VM. |
-| -3 |Impossibile caricare il file di configurazione di Diagnostica.<p><p>Soluzione: Questo errore si verifica quando un file di configurazione non supera la convalida dello schema. La soluzione consiste nel fornire un file di configurazione conforme allo schema. |
+| -3 |Impossibile caricare il file di configurazione di Diagnostica.<p><p>Soluzione: questo errore si verifica quando un file di configurazione non ha superato la convalida dello schema. La soluzione consiste nel fornire un file di configurazione conforme allo schema. |
 | -4 |La directory delle risorse locali è già usata da un'altra istanza dell'agente di monitoraggio di Diagnostica.<p><p>Soluzione: specificare un valore diverso per **LocalResourceDirectory**. |
 | -6 |L'utilità di avvio del plug-in dell'agente guest ha tentato di avviare Diagnostica con una riga di comando non valida.<p><p>Questo errore interno dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente in modo non corretto sulla VM. |
 | -10 |Il plug-in di Diagnostica ha generato un'eccezione non gestita. |
@@ -250,7 +249,7 @@ Il plug-in restituisce i seguenti codici di uscita:
 | -108 |Impossibile convertire il file di configurazione di Diagnostica nel file di configurazione dell'agente di monitoraggio.<p><p>Questo errore interno dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente con un file di configurazione non valido. |
 | -110 |Errore di configurazione generale di Diagnostica.<p><p>Questo errore interno dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente con un file di configurazione non valido. |
 | -111 |Impossibile avviare l'agente di monitoraggio.<p><p>Soluzione: verificare che siano disponibili risorse di sistema sufficienti. |
-| -112 |Errore generale |
+| -112 |Errore generale: |
 
 ### <a name="local-log-extraction"></a>Estrazione dei log locali
 L'agente di monitoraggio raccoglie log ed elementi come file `.tsf`. Il file con estensione `.tsf` non è leggibile ma può essere convertito in `.csv` come illustrato di seguito:
@@ -268,9 +267,9 @@ Un nuovo file denominato `<relevantLogFile>.csv` verrà creato nello stesso perc
 >[!NOTE]
 > Le informazioni seguenti si applicano prevalentemente a Servizi cloud di Azure, a meno che non si sia configurato DiagnosticsMonitorTraceListener in un'applicazione eseguita nella VM IaaS.
 
-- Verificare che in web.config o app.config sia configurato **DiagnosticMonitorTraceListener**.  Nei progetti di servizi cloud è configurato per impostazione predefinita, ma viene impostato come commento da alcuni clienti e in questo caso le istruzioni di traccia non verranno raccolte da Diagnostica.
+- Verificare che **DiagnosticMonitorTraceListener** sia configurato in Web. config o app. config.  Questa configurazione viene configurata per impostazione predefinita nei progetti di servizio cloud. ma viene impostato come commento da alcuni clienti e in questo caso le istruzioni di traccia non verranno raccolte da Diagnostica.
 
-- Se i log non vengono scritti dal metodo **OnStart** o **Run**, verificare che in app.config sia presente **DiagnosticMonitorTraceListener**.  Per impostazione predefinita si trova in web.config, ma ciò si applica solo al codice eseguito in w3wp.exe. Per acquisire le tracce in esecuzione in WaIISHost.exe è necessario che sia presente in app.config.
+- Se i log non vengono scritti dal metodo **OnStart** o **Run** , assicurarsi che **DiagnosticMonitorTraceListener** sia in app. config.  Per impostazione predefinita, si trova nel file Web. config, ma questo vale solo per il codice in esecuzione in w3wp. exe. Per acquisire le tracce in esecuzione in WaIISHost.exe è necessario che sia presente in app.config.
 
 - Verificare di usare **Diagnostics.Trace.TraceXXX** anziché **Diagnostics.Debug.WriteXXX**. Le istruzioni di debug vengono rimosse da una build di versione.
 
@@ -290,13 +289,13 @@ Questa situazione si manifesta in genere con un codice di uscita **255** durante
 System.IO.FileLoadException: Could not load file or assembly 'System.Threading.Tasks, Version=1.5.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies
 ```
 
-**Soluzione:** installare .NET 4.5 o versione successiva nel computer.
+**Prevenzione:** installare .NET 4.5 o versione successiva nel computer.
 
-**2. I dati dei contatori delle prestazioni sono disponibili nella risorsa di archiviazione ma non vengono visualizzati nel portale**
+**2. i dati dei contatori delle prestazioni sono disponibili nella risorsa di archiviazione ma non vengono visualizzati nel portale**
 
 Nell'esperienza del portale per le macchine virtuali vengono visualizzati per impostazione predefinita determinati contatori delle prestazioni. Se i contatori non vengono visualizzati e si è certi che i dati vengano generati perché sono disponibili nella risorsa di archiviazione, controllare quanto segue:
 
-- Se i dati nella risorsa di archiviazione contengono i nomi dei contatori in lingua inglese. Se i nomi dei contatori non sono in inglese, il grafico delle metriche del portale non riesce a riconoscerli. **Mitigazione**: modificare la lingua del computer impostando l'inglese per gli account di sistema. A tale scopo, selezionare **Pannello di controllo** > **Area geografica** > **Opzioni di amministrazione** > **Copia impostazioni**. Deselezionare quindi **Schermata iniziale e account di sistema** affinché la lingua personalizzata non venga applicata all'account di sistema.
+- Se i dati nella risorsa di archiviazione contengono i nomi dei contatori in lingua inglese. Se i nomi dei contatori non sono in inglese, il grafico delle metriche del portale non riesce a riconoscerli. **Prevenzione**: modificare la lingua del computer impostando l'inglese per gli account di sistema. A tale scopo, selezionare **Pannello di controllo** > **Area geografica** > **Opzioni di amministrazione** > **Copia impostazioni**. Deselezionare quindi **Schermata iniziale e account di sistema** affinché la lingua personalizzata non venga applicata all'account di sistema.
 
-- Se si usano caratteri jolly (\*) nei nomi dei contatori delle prestazioni, il portale non può correlare il contatore configurato e il contatore raccolto quando i contatori delle prestazioni vengono inviato al sink di archiviazione di Azure. **Mitigazione**: per assicurarsi che sia possibile usare i caratteri jolly e fare in modo che il portale espanda (\*), indirizzare i contatori di prestazioni al sink di ["Monitoraggio di Azure"](diagnostics-extension-schema.md#diagnostics-extension-111).
+- Se si usano caratteri jolly (\*) nei nomi dei contatori delle prestazioni, il portale non può correlare il contatore configurato e il contatore raccolto quando i contatori delle prestazioni vengono inviato al sink di archiviazione di Azure. **Mitigazione**: per assicurarsi che è possibile usare i caratteri jolly e fare in modo che il portale espanda (\*), indirizzare i contatori di prestazioni al sink di ["Monitoraggio di Azure"](diagnostics-extension-schema.md#diagnostics-extension-111).
 

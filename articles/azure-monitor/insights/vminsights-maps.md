@@ -1,24 +1,18 @@
 ---
 title: Come visualizzare le dipendenze delle app con Monitoraggio di Azure per le macchine virtuali (anteprima) | Microsoft Docs
 description: Map è una funzionalità di Monitoraggio di Azure per le macchine virtuali. Individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue il mapping delle comunicazioni tra i servizi. Questo articolo fornisce informazioni dettagliate su come usare la funzionalità map in diversi scenari.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/15/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 456ed0a48db015d3c95827942a576e6916095131
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
-ms.translationtype: HT
+ms.date: 10/15/2019
+ms.openlocfilehash: f886ce4ed1b9396cf90bf98626e0cfd2424b2eac
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515473"
+ms.locfileid: "72553790"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Utilizzare la funzionalità di mapping di Monitoraggio di Azure per le macchine virtuali (anteprima) per comprendere i componenti dell'applicazione
 In Monitoraggio di Azure per le macchine virtuali, è possibile visualizzare i componenti dell'applicazione individuati in macchine virtuali Windows e Linux in esecuzione in Azure o nell'ambiente in uso. È possibile osservare le macchine virtuali in due modi. Visualizzare una mappa direttamente da una macchina virtuale o visualizzare una mappa da monitoraggio di Azure per visualizzare i componenti tra gruppi di macchine virtuali. Questo articolo consente di comprendere questi due metodi di visualizzazione e come usare la funzionalità mappa. 

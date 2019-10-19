@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 75b2c08ab02ef41ee4d196d8f81c633aeb46a14e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 7d46773ce45cb3ef8b70d3c6074b9f1c771e9e24
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390063"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554630"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -76,8 +76,8 @@ Windows Server 2008 con SP2 o versioni successive (64 bit/32 bit) |  Supportato 
 Windows 10, Windows 8.1, Windows 8 | Supportato.
 Windows 7 con SP1 64 bit | Supportato dall' [aggiornamento cumulativo 36](https://support.microsoft.com/help/4503156) (versione 9,22 del servizio Mobility) in poi. </br></br> Dalla versione 9.30. x. x (versione prevista a partire dal 2019 novembre) dell'agente del servizio Mobility, è necessario [aggiornare lo stack di manutenzione (SSU)](https://support.microsoft.com/help/4490628) e l' [aggiornamento SHA-2](https://support.microsoft.com/help/4474419) installato nei computer Windows 7 SP1.  SHA-1 non è supportato dal 2019 settembre e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto. Altre informazioni sull' [aggiornamento e sui requisiti di SHA-2](https://aka.ms/SHA-2KB).
 Linux | È supportato solo il sistema a 64 bit. il sistema a 32 bit non è supportato.<br/><br/>Ogni server Linux deve avere [componenti di linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) installati. È necessario avviare il server in Azure dopo il failover o il failover di test. Se i componenti LIS risultano mancanti, assicurarsi di installare i [componenti](https://www.microsoft.com/download/details.aspx?id=55106) prima di abilitare la replica per l'avvio dei computer in Azure. <br/><br/> Site Recovery orchestra il failover per l'esecuzione di server Linux in Azure. Tuttavia i fornitori di Linux potrebbero limitare il supporto solo alle versioni di distribuzione che non hanno raggiunto la fine del ciclo di vita.<br/><br/> Nelle distribuzioni di Linux sono supportati solo i kernel di scorta che fanno parte di una versione/aggiornamento secondaria della distribuzione.<br/><br/> L'aggiornamento di computer protetti tra versioni di distribuzione principali di Linux non è supportato. Per eseguire l'aggiornamento, disabilitare la replica, aggiornare il sistema operativo e quindi abilitare nuovamente la replica.<br/><br/> [Scopri di più](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sul supporto per Linux e tecnologia open source in Azure.
-Linux Red Hat Enterprise | da 5,2 a 5.11 @ no__t-0<br/> da 6,1 a 6.10 @ no__t-0<br/> da 7,0 a 7,6<br/> <br/> I server che eseguono Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 non dispongono di [componenti di Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) pre-installati. Assicurarsi di installare i [componenti](https://www.microsoft.com/download/details.aspx?id=55106) prima di abilitare la replica per l'avvio dei computer in Azure.
-Linux: CentOS | da 5,2 a 5.11 @ no__t-0<br/> da 6,1 a 6.10 @ no__t-0<br/> da 7,0 a 7,6<br/> <br/> I server in cui è in esecuzione CentOS 5.2-5.11 & 6.1-6.10 non dispongono di [componenti di Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) pre-installati. Assicurarsi di installare i [componenti](https://www.microsoft.com/download/details.aspx?id=55106) prima di abilitare la replica per l'avvio dei computer in Azure.
+Linux Red Hat Enterprise | da 5,2 a 5,11 </b><br/> da 6,1 a 6,10 </b><br/> da 7,0 a 7,7<br/> <br/> I server che eseguono Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 non dispongono di [componenti di Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) pre-installati. Assicurarsi di installare i [componenti](https://www.microsoft.com/download/details.aspx?id=55106) prima di abilitare la replica per l'avvio dei computer in Azure.
+Linux: CentOS | da 5,2 a 5,11 </b><br/> da 6,1 a 6,10 </b><br/> da 7,0 a 7,7<br/> <br/> I server in cui è in esecuzione CentOS 5.2-5.11 & 6.1-6.10 non dispongono di [componenti di Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) pre-installati. Assicurarsi di installare i [componenti](https://www.microsoft.com/download/details.aspx?id=55106) prima di abilitare la replica per l'avvio dei computer in Azure.
 Ubuntu | Server Ubuntu 14,04 LTS [(rivedere le versioni del kernel supportate)](#ubuntu-kernel-versions)<br/><br/>Server Ubuntu 16,04 LTS [(rivedere le versioni del kernel supportate)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 [(rivedere le versioni del kernel supportate)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(rivedere le versioni del kernel supportate)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> L'aggiornamento dei computer replicati da SUSE Linux Enterprise Server 11 SP3 a SP4 non è supportato. Per eseguire l'aggiornamento, disabilitare la replica e riabilitarla dopo l'aggiornamento.

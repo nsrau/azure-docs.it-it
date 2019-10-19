@@ -1,21 +1,18 @@
 ---
 title: Domande frequenti su Monitoraggio di Azure per le macchine virtuali (anteprima) | Microsoft Docs
 description: Monitoraggio di Azure per le macchine virtuali è una soluzione di Azure che combina il monitoraggio dell'integrità e delle prestazioni del sistema operativo delle macchine virtuali di Azure, nonché l'individuazione automatica dei componenti e delle dipendenze delle applicazioni con altre risorse e mappa la comunicazione tra questi elementi. Questo articolo fornisce le risposte alle domande frequenti.
-services: azure-monitor
-author: mgoedtel
-manager: carmonm
-editor: tysonn
 ms.service: azure-monitor
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 420ba9d74532095c2d028fef8f549d532e5dfa05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/09/2018
+ms.openlocfilehash: 675277a33a5613507297f1c77ee9cef3215b22a2
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522216"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555205"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure per le macchine virtuali (anteprima)
 Le Domande frequenti Microsoft sono un elenco di domande frequenti su Monitoraggio di Azure per le macchine virtuali. Per altre domande sulla soluzione, visitare il [forum di discussione](https://feedback.azure.com/forums/34192--general-feedback) e inviare le proprie domande. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
@@ -25,18 +22,18 @@ Se le macchine virtuali sono già connesse a un'area di lavoro Log Analytics, è
 
 Quando si esegue l'onboarding, si configurano i contatori delle prestazioni per l'area di lavoro in modo che tutte le macchine virtuali che inviano dati all'area di lavoro inizino a raccogliere queste informazioni per la visualizzazione e l'analisi in Monitoraggio di Azure per le macchine virtuali.  Di conseguenza, verranno visualizzati i dati sulle prestazioni di tutte le macchine virtuali connesse all'area di lavoro selezionata.  Le funzionalità di integrità e mappa sono abilitate solo per le macchine virtuali specificate per l'onboarding.
 
-Per altre informazioni su quali le prestazioni sono abilitati i contatori, fare riferimento a nostro [abilitare Panoramica](vminsights-enable-overview.md#performance-counters-enabled) articolo.
+Per altre informazioni sui contatori delle prestazioni abilitati, vedere l'articolo relativo all' [Abilitazione della panoramica](vminsights-enable-overview.md#performance-counters-enabled) .
 
 ## <a name="can-i-onboard-to-a-new-workspace"></a>È possibile eseguire l'onboarding in una nuova area di lavoro? 
 Se le macchine virtuali non attualmente connesse a un'area di lavoro Log Analytics esistente, è necessario crearne una nuova per archiviare i dati. La creazione di una nuova area di lavoro predefinita avviene automaticamente nel caso in cui si configuri una singola macchina virtuale di Azure per Monitoraggio di Azure per le macchine virtuali tramite il portale di Azure.
 
-Se si sceglie di usare il metodo basato su script, questi passaggi vengono descritti nel [abilitare monitoraggio di Azure per le macchine virtuali (anteprima) tramite Azure PowerShell o Resource Manager il modello](vminsights-enable-at-scale-powershell.md) articolo. 
+Se si sceglie di usare il metodo basato su script, questi passaggi vengono descritti nell'articolo [abilitare monitoraggio di Azure per le macchine virtuali (anteprima) con Azure PowerShell o gestione risorse modello](vminsights-enable-at-scale-powershell.md) . 
 
 ## <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>Cosa occorre fare se la macchina virtuale invia già informazioni a un'area di lavoro esistente?
 Se già si raccolgono dati dalle macchine virtuali, è possibile che sia già stato configurato l'invio di dati a un'area di lavoro Log Analytics esistente.  Se quest'area di lavoro è in una delle aree supportate, è possibile abilitare Monitoraggio di Azure per le macchine virtuali per tale area di lavoro preesistente.  Se l'area di lavoro già in uso non si trova in una delle aree supportate, non è attualmente possibile eseguire l'onboarding per Monitoraggio di Azure per le macchine virtuali.  Microsoft sta lavorando attivamente per supportare altre aree.
 
 >[!NOTE]
->Microsoft configura i contatori delle prestazioni per l'area di lavoro con effetto su tutte le macchine virtuali che inviano informazioni all'area di lavoro, anche se non si è scelto di eseguirne l'onboarding per Monitoraggio di Azure per le macchine virtuali. Per altre informazioni sulla configurazione dei contatori delle prestazioni per l'area di lavoro, vedere la [documentazione](../../azure-monitor/platform/data-sources-performance-counters.md). Per informazioni sui contatori configurato per monitoraggio di Azure per le macchine virtuali, consultare il [abilitare il monitoraggio di Azure per le macchine virtuali](vminsights-enable-overview.md#performance-counters-enabled) articolo.  
+>Microsoft configura i contatori delle prestazioni per l'area di lavoro con effetto su tutte le macchine virtuali che inviano informazioni all'area di lavoro, anche se non si è scelto di eseguirne l'onboarding per Monitoraggio di Azure per le macchine virtuali. Per altre informazioni sulla configurazione dei contatori delle prestazioni per l'area di lavoro, vedere la [documentazione](../../azure-monitor/platform/data-sources-performance-counters.md). Per informazioni sui contatori configurati per Monitoraggio di Azure per le macchine virtuali, vedere l'articolo relativo all' [Abilitazione di monitoraggio di Azure per le macchine virtuali](vminsights-enable-overview.md#performance-counters-enabled) .  
 
 ## <a name="why-did-my-vm-fail-to-onboard"></a>Perché la macchina virtuale non è riuscita a eseguire l'onboarding?
 Quando si esegue l'onboarding di una macchina virtuale di Azure dal portale di Azure, si verificano i passaggi seguenti:
@@ -100,7 +97,7 @@ La funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali si b
 * Le macchine virtuali monitorate sono ora incluse nel nodo del gruppo client e il grafico ad anello mostra la proporzione tra le macchine virtuali monitorate e non monitorate presenti nel gruppo.  Può anche essere utilizzato per filtrare l'elenco delle macchine quando il gruppo viene espanso.
 * Le macchine virtuali monitorate sono ora incluse nei nodi del gruppo di porte server e il grafico ad anello mostra la proporzione tra le macchine monitorate e non monitorate presenti nel gruppo.  Può anche essere utilizzato per filtrare l'elenco delle macchine quando il gruppo viene espanso.
 * Lo stile della mappa è stato aggiornato per maggiore coerenza con la mappa delle app di Application Insights.
-* I pannelli lato sono stati aggiornati e non è il set completo di integrazione che erano supportate in mapping dei servizi - gestione degli aggiornamenti, rilevamento delle modifiche, sicurezza e Service Desk. 
+* I pannelli laterali sono stati aggiornati e non hanno il set completo di integrazione supportato in Mapping dei servizi-Gestione aggiornamenti, Rilevamento modifiche, sicurezza e service desk. 
 * L'opzione per la scelta dei gruppi e delle macchine di cui eseguire il mapping è stata aggiornata e ora supporta sottoscrizioni, gruppi di risorse, set di scalabilità delle macchine virtuali di Azure e servizi cloud.
 * Non è possibile creare nuovi gruppi di macchine di Mapping dei servizi nella funzionalità Monitoraggio di Azure per le macchine virtuali.  
 
@@ -126,11 +123,11 @@ Anche se sono stati apportati miglioramenti alla mappa per gestire le configuraz
 
 La pagina di panoramica di una VM di Azure mostra i grafici basati sulla misurazione dell'attività dell'host nella VM guest.  Per il grafico di rete nella panoramica della VM di Azure, viene visualizzato solo il traffico che verrà fatturato  e non è incluso il traffico tra reti virtuali.  I dati e i grafici visualizzati per Monitoraggio di Azure per le macchine virtuali si basano sui dati ottenuti dalla VM guest e il grafico di rete mostra tutto il traffico TCP/IP in ingresso e in uscita verso tale VM, incluso quello tra reti virtuali.
 
-## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>Come viene misurato il tempo di risposta per i dati archiviati in VMConnection e visualizzato nel Pannello di connessione e le cartelle di lavoro?
+## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>Come viene misurato il tempo di risposta per i dati archiviati in VMConnection e visualizzati nel pannello di connessione e nelle cartelle di lavoro?
 
-Tempo di risposta è un'approssimazione. Poiché non abbiamo instrumentare il codice dell'applicazione, non realmente conosciamo quando inizia una richiesta e all'arrivo della risposta. In alternativa è osservare dati inviati su una connessione e quindi i dati restituiti in tale connessione. Agente tiene traccia di queste Invia e riceve e tenta di associarle: una sequenza delle trasmissioni, seguita da una sequenza di riceve viene interpretato come una coppia richiesta-risposta. L'intervallo tra queste operazioni è il tempo di risposta. Includerà la latenza di rete e il tempo di elaborazione server.
+Il tempo di risposta è un'approssimazione. Poiché non viene instrumentato il codice dell'applicazione, non si è in grado di stabilire l'inizio di una richiesta e l'arrivo della risposta. Al contrario, osserviamo i dati inviati in una connessione e quindi i dati che tornano a tale connessione. L'agente tiene traccia di questi invii e riceve e tenta di associarli: una sequenza di invii, seguita da una sequenza di ricevute viene interpretata come una coppia richiesta-risposta. L'intervallo tra queste operazioni è il tempo di risposta. Include la latenza di rete e il tempo di elaborazione del server.
 
-Questa approssimazione funziona bene per i protocolli basati su richiesta/risposta: una singola richiesta viene trasmessa nella connessione e un'unica risposta arriva. Questo è il caso per HTTP (S) (senza l'utilizzo di pipeline), ma non soddisfatta per altri protocolli.
+Questa approssimazione funziona bene per i protocolli basati su richiesta/risposta: una singola richiesta viene inviata alla connessione e viene ricevuta una singola risposta. Questo è il caso per HTTP (S) (senza pipelining), ma non è soddisfatto per altri protocolli.
 
 ## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Sono previste limitazioni se è in vigore il piano tariffario Gratuito di Log Analytics?
 Se Monitoraggio di Azure è stato configurato con un'area di lavoro Log Analytics che usa il piano tariffario *Gratuito*, la funzionalità della mappa Monitoraggio di Azure per le macchine virtuali supporterà solo cinque computer connessi all'area di lavoro. Se si hanno cinque macchine virtuali connesse a un'area di lavoro gratuita, si disconnette una delle macchine virtuali e in un secondo momento si connette una nuova macchina virtuale, la nuova macchina virtuale non viene monitorata e riflessa nella pagina della mappa.  
@@ -138,4 +135,4 @@ Se Monitoraggio di Azure è stato configurato con un'area di lavoro Log Analytic
 In questo caso, verrà visualizzata l'opzione **Prova adesso** quando si apre la macchina virtuale e si seleziona **Insights (preview)** (Insights - Anteprima) nel riquadro a sinistra, anche dopo che è già stato installato nella macchina virtuale.  Non vengono tuttavia visualizzate le normali opzioni come avverrebbe normalmente se non fosse stato eseguito l'onboarding di questa macchina virtuale in Monitoraggio di Azure per le macchine virtuali. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Revisione [abilitare il monitoraggio di Azure per le macchine virtuali](vminsights-enable-overview.md) sui requisiti e i metodi per abilitare il monitoraggio delle macchine virtuali.
+Esaminare [enable monitoraggio di Azure per le macchine virtuali](vminsights-enable-overview.md) per comprendere i requisiti e i metodi per abilitare il monitoraggio delle macchine virtuali.

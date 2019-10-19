@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 8ba50e5b55e31c6542e81879068bf231918ce1b0
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 1ec241e261a7710b7a5b92d88f147ce8d148602b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244889"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554034"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitoraggio delle risorse di Azure con monitoraggio di Azure
 Quando le applicazioni e i processi aziendali critici si basano sulle risorse di Azure, è opportuno monitorarle per la disponibilità, le prestazioni e il funzionamento. Questo articolo descrive i dati di monitoraggio generati dalle risorse di Azure e come è possibile usare le funzionalità di monitoraggio di Azure per analizzare e generare avvisi su questi dati.
@@ -30,7 +30,7 @@ Non appena si crea una risorsa di Azure, monitoraggio di Azure viene abilitato e
 
 
 ## <a name="costs-associated-with-monitoring"></a>Costi associati al monitoraggio
-Non sono previsti costi per l'analisi dei dati di monitoraggio raccolti per impostazione predefinita. Sono inclusi gli elementi seguenti:
+Non sono previsti costi per l'analisi dei dati di monitoraggio raccolti per impostazione predefinita. Sono inclusi i componenti seguenti:
 
 - Raccolta delle metriche della piattaforma e relativa analisi con Esplora metriche.
 - Raccolta del log attività e relativa analisi nella portale di Azure.
@@ -92,7 +92,7 @@ Analizzare le singole metriche e correlare più metriche per identificare le cor
 - Per le nozioni di base sull'uso di Esplora metriche, vedere [Introduzione ad Azure Esplora metriche](../platform/metrics-getting-started.md) .
 - Vedere [funzionalità avanzate di Azure Esplora metriche](../platform/metrics-charts.md) per le funzionalità avanzate di Esplora metriche, ad esempio l'uso di più metriche e l'applicazione di filtri e suddivisione.
 
-![metrics](media/monitor-azure-resource/metrics.png)
+![Metriche](media/monitor-azure-resource/metrics.png)
 
 
 ## <a name="analyzing-logs"></a>Analisi dei log
@@ -140,7 +140,7 @@ Se una risorsa ha un'analisi disponibile, è possibile accedervi da **informazio
 
 - Vedere la documentazione di monitoraggio per ogni servizio per determinare se sono disponibili informazioni dettagliate o soluzioni.
 
-![Informazioni dettagliate](media/monitor-azure-resource/insights.png)
+![Informazioni approfondite](media/monitor-azure-resource/insights.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

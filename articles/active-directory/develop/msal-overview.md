@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a53de919960902fcc89a53293f31a07baa88cf32
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: bec22381d1961c47ce257666177b5faf918cea56
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268561"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554419"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Panoramica di Microsoft Authentication Library (MSAL)
 Microsoft Authentication Library (MSAL) consente agli sviluppatori di acquisire [token](developer-glossary.md#security-token) dall'endpoint di Microsoft Identity Platform per accedere ad API Web protette. Queste API Web possono essere Microsoft Graph, altre API Microsoft, API Web di terze parti o un'API Web propria. MSAL è disponibile per .NET, JavaScript, Android e iOS, che supportano molte architetture e piattaforme applicative diverse.
@@ -52,11 +52,11 @@ Con MSAL è possibile acquisire un token da diversi tipi di applicazioni: applic
 
 ## <a name="languages-and-frameworks"></a>Linguaggi e framework
 
-| Libreria | Piattaforme e framework supportati|
+| Library | Piattaforme e framework supportati|
 | --- | --- | 
 | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework, .NET Core, Xamarin Android, Xamarin iOS, piattaforma UWP (Universal Windows Platform)|
 | [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| Framework JavaScript/TypeScript come AngularJS, Ember.js o Durandal.js|
-| [MSAL per Android (anteprima)](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
+| [MSAL per Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | [MSAL per iOS e macOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS e macOS|
 | [Anteprima di MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Java|
 

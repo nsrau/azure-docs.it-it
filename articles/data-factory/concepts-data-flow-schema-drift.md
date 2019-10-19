@@ -7,16 +7,14 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 1d6560613294584c77f002e2380065d64ea143f7
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 8c2764535515d0aeb1eb65a1621148fa58317cac
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387959"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553689"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Spostamento dello schema nel flusso di dati del mapping
-
-
 
 La deriva dello schema è il caso in cui le origini spesso cambiano i metadati. I campi, le colonne e i tipi possono essere aggiunti, rimossi o modificati in tempo reale. Senza gestire la deriva dello schema, il flusso di dati diventa vulnerabile alle modifiche dell'origine dati upstream. I modelli ETL tipici hanno esito negativo quando le colonne e i campi in arrivo cambiano perché tendono a essere associati a questi nomi di origine.
 
@@ -31,6 +29,8 @@ Azure Data Factory supporta in modo nativo schemi flessibili che passano dall'es
 Nel flusso di dati è necessario prendere una decisione dal punto di vista dell'architettura riguardo a se accettare la deviazione dello schema in tutto il flusso. In questo modo, è possibile proteggersi da modifiche dello schema rispetto alle origini. Tuttavia, si perderanno le prime associazioni delle colonne e dei tipi nel flusso di dati. Azure Data Factory considera i flussi di derivazione dello schema come flussi di associazione tardiva. Pertanto, quando si compilano le trasformazioni, i nomi delle colonne non saranno disponibili nelle viste dello schema in tutto il flusso.
 
 ## <a name="schema-drift-in-source"></a>Spostamento dello schema nell'origine
+
+Le colonne che entrano nel flusso di dati dalla definizione di origine sono definite come "spostate" quando non sono presenti nella proiezione di origine. È possibile visualizzare la proiezione di origine dalla scheda proiezione nella trasformazione origine. Quando si seleziona un set di dati per l'origine, ADF prenderà automaticamente lo schema dal set di dati e creerà un progetto da tale definizione dello schema del set di dati.
 
 In una trasformazione origine la deriva dello schema è definita come la lettura di colonne che non sono definite nello schema del set di dati. Per abilitare la deriva dello schema, selezionare **Consenti Drift schema** nella trasformazione origine.
 

@@ -1,33 +1,27 @@
 ---
-title: Abilitare il monitoraggio di Azure per le macchine virtuali (anteprima) per la valutazione | Microsoft Docs
-description: Informazioni su come valutare monitoraggio di Azure per le macchine virtuali in una singola macchina virtuale di Azure o in un set di scalabilità di macchine virtuali.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
+title: Abilita Monitoraggio di Azure per le macchine virtuali (anteprima) per la valutazione | Microsoft Docs
+description: Informazioni su come valutare Monitoraggio di Azure per le macchine virtuali in una singola macchina virtuale di Azure o in un set di scalabilità di macchine virtuali.
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: ec909bcd16f923bbd7036f6a69df2bbb07e561b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/09/2019
+ms.openlocfilehash: 1182f48d2d05c90cc90b1832f9305001dd2d1211
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122471"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553813"
 ---
-# <a name="enable-azure-monitor-for-vms-preview-for-evaluation"></a>Abilitare il monitoraggio di Azure per le macchine virtuali (anteprima) per la valutazione
+# <a name="enable-azure-monitor-for-vms-preview-for-evaluation"></a>Abilita Monitoraggio di Azure per le macchine virtuali (anteprima) per la valutazione
 
-È possibile valutare di monitoraggio di Azure per le macchine virtuali (anteprima) in un numero ridotto di macchine virtuali di Azure (VM) o in un unico scalabilità della macchina virtuale o una macchina virtuale impostata. Il modo più semplice e più diretto per attivare il monitoraggio sia dal portale di Azure. L'obiettivo consiste nel monitorare le macchine virtuali e individuare eventuali problemi di prestazioni o disponibilità. 
+È possibile valutare Monitoraggio di Azure per le macchine virtuali (anteprima) in un numero ridotto di macchine virtuali (VM) di Azure o in una singola macchina virtuale o set di scalabilità di macchine virtuali. Il modo più semplice e diretto per abilitare il monitoraggio è dalla portale di Azure. L'obiettivo consiste nel monitorare le macchine virtuali e individuare eventuali problemi di prestazioni o disponibilità. 
 
-Prima di iniziare, rivedere le [prerequisiti](vminsights-enable-overview.md) e assicurarsi che la sottoscrizione e tutte le risorse soddisfino i requisiti.  
+Prima di iniziare, esaminare i [prerequisiti](vminsights-enable-overview.md) e verificare che la sottoscrizione e le risorse soddisfino i requisiti.  
 
 ## <a name="enable-monitoring-for-a-single-azure-vm"></a>Abilitare il monitoraggio per una singola macchina virtuale di Azure
-Per abilitare il monitoraggio della VM di Azure:
+Per abilitare il monitoraggio della macchina virtuale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -43,16 +37,16 @@ Per abilitare il monitoraggio della VM di Azure:
 
 1. Se nella pagina **Azure Monitor Insights Onboarding** (Onboarding di Insights per Monitoraggio di Azure) è già presente un'area di lavoro Log Analytics nella stessa sottoscrizione, selezionarla nell'elenco a discesa.  
 
-    Nell'elenco vengono preselezionate le area di lavoro predefinita e la posizione in cui la macchina virtuale viene distribuita nella sottoscrizione. 
+    Nell'elenco sono preselezionati l'area di lavoro predefinita e la località in cui è distribuita la macchina virtuale nella sottoscrizione. 
 
     >[!NOTE]
-    >Per creare una nuova area di lavoro di Log Analitica per archiviare i dati di monitoraggio dalla macchina virtuale, vedere [creare un'area di lavoro di Log Analitica](../../azure-monitor/learn/quick-create-workspace.md). L'area di lavoro di Log Analitica deve appartenere a uno dei [aree supportate](vminsights-enable-overview.md#log-analytics).
+    >Per creare una nuova area di lavoro Log Analytics per archiviare i dati di monitoraggio della macchina virtuale, vedere [Creare un'area di lavoro Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). L'area di lavoro Log Analytics deve risiedere in una delle [aree supportate](vminsights-enable-overview.md#log-analytics).
 
 Dopo aver abilitato il monitoraggio, potrebbe essere necessario attendere circa 10 minuti prima di poter visualizzare le metriche di integrità per la macchina virtuale.
 
 ![Abilitare Monitoraggio di Azure per le macchine virtuali - Monitoraggio dell'elaborazione della distribuzione](./media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
 
-## <a name="enable-monitoring-for-a-single-virtual-machine-scale-set"></a>Abilitare il monitoraggio per un set di scalabilità di macchina virtuale singola
+## <a name="enable-monitoring-for-a-single-virtual-machine-scale-set"></a>Abilitare il monitoraggio per un singolo set di scalabilità di macchine virtuali
 
 Per abilitare il monitoraggio del set di scalabilità di macchine virtuali di Azure:
 
@@ -60,30 +54,30 @@ Per abilitare il monitoraggio del set di scalabilità di macchine virtuali di Az
 
 2. Selezionare **set di scalabilità di macchine virtuali**.
 
-3. Nell'elenco, selezionare un set di scalabilità di macchine virtuali.
+3. Nell'elenco selezionare un set di scalabilità di macchine virtuali.
 
-4. Nella macchina virtuale di set di scalabilità di pagina, nelle **Monitoring** sezione, selezionare **Insights (anteprima)** .
+4. Nella sezione **monitoraggio** della pagina del set di scalabilità di macchine virtuali selezionare **Insights (anteprima)** .
 
-5. Nel **Insights (anteprima)** pagina, se si desidera utilizzare un'area di lavoro di Log Analitica esistente, selezionarlo nell'elenco a discesa.
+5. Nella pagina **Insights (anteprima)** , se si vuole usare un'area di lavoro log Analytics esistente, selezionarla nell'elenco a discesa.
 
-    Nell'elenco vengono preselezionate le area di lavoro predefinita e la posizione che la VM viene distribuita nella sottoscrizione. 
+    L'elenco preseleziona l'area di lavoro predefinita e la posizione in cui è distribuita la macchina virtuale nella sottoscrizione. 
 
-    ![Abilitare il monitoraggio di Azure per le macchine virtuali per un set di scalabilità di macchine virtuali](./media/vminsights-enable-single-vm/enable-vminsights-vmss-portal-01.png)
+    ![Abilitare Monitoraggio di Azure per le macchine virtuali per un set di scalabilità di macchine virtuali](./media/vminsights-enable-single-vm/enable-vminsights-vmss-portal-01.png)
 
     >[!NOTE]
-    >Per creare una nuova area di lavoro di Log Analitica per archiviare i dati di monitoraggio da set di scalabilità di macchine virtuali, vedere [creare un'area di lavoro di Log Analitica](../learn/quick-create-workspace.md). L'area di lavoro di Log Analitica deve appartenere a uno dei [aree supportate](vminsights-enable-overview.md#log-analytics).
+    >Per creare una nuova area di lavoro di Log Analytics per archiviare i dati di monitoraggio dal set di scalabilità di macchine virtuali, vedere [creare un'area di lavoro di log Analytics](../learn/quick-create-workspace.md). L'area di lavoro Log Analytics deve risiedere in una delle [aree supportate](vminsights-enable-overview.md#log-analytics).
 
 Dopo aver abilitato il monitoraggio, potrebbe essere necessario attendere circa 10 minuti prima di poter visualizzare i dati di monitoraggio per il set di scalabilità.
 
 >[!NOTE]
->Se si usa un modello di aggiornamento manuale per il set di scalabilità, aggiornare le istanze per completare l'installazione. È possibile avviare gli aggiornamenti dal **istanze** pagina il **impostazioni** sezione.
+>Se si usa un modello di aggiornamento manuale per il set di scalabilità, aggiornare le istanze per completare la configurazione. È possibile avviare gli aggiornamenti dalla pagina **istanze** , nella sezione **Impostazioni** .
 
 ![Abilitare Monitoraggio di Azure per le macchine virtuali - Monitoraggio dell'elaborazione della distribuzione](./media/vminsights-enable-single-vm/onboard-vminsights-vmss-portal-status-01.png)
 
-Ora che è stato abilitato il monitoraggio per il set di scalabilità della macchina virtuale o una macchina virtuale, le informazioni di monitoraggio sono disponibile per l'analisi in Monitoraggio di Azure per le macchine virtuali. 
+Ora che è stato abilitato il monitoraggio per la VM o il set di scalabilità di macchine virtuali, le informazioni di monitoraggio sono disponibili per l'analisi in Monitoraggio di Azure per le macchine virtuali. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni su come usare la funzionalità di integrità, vedere [comprendere l'integrità delle macchine virtuali Azure Monitor](vminsights-health.md). 
-* Per visualizzare le dipendenze individuate dell'applicazione, vedere [usare monitoraggio di Azure per la mappa VMs](vminsights-maps.md). 
-* Per identificare i colli di bottiglia, l'utilizzo complessivo e le prestazioni della VM, vedere [prestazioni delle VM di Azure Visualizza](vminsights-performance.md).
+* Per informazioni su come usare la funzionalità di integrità, vedere informazioni [sull'integrità delle macchine virtuali di monitoraggio di Azure](vminsights-health.md). 
+* Per visualizzare le dipendenze dell'applicazione individuate, vedere [usare monitoraggio di Azure per le macchine virtuali mappa](vminsights-maps.md). 
+* Per identificare colli di bottiglia, utilizzo complessivo e prestazioni della VM, vedere visualizzare le [prestazioni delle VM di Azure](vminsights-performance.md).

@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.openlocfilehash: f6323501fc0078677c4c0e2cd0e43a15583df29b
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
-ms.translationtype: HT
+ms.openlocfilehash: 3e6af57840cf60516aba994a6b5728bfb7b35f09
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513991"
+ms.locfileid: "72553532"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ottimizzazione delle prestazioni con memorizzazione nella cache dei set di risultati  
 Quando è abilitata la memorizzazione nella cache del set di risultati, Azure SQL Data Warehouse memorizza automaticamente nella cache i risultati delle query nel database utente per l'utilizzo ripetitivo.  In questo modo, le esecuzioni di query successive ottengono risultati direttamente dalla cache permanente, quindi il ricalcolo non è necessario.   La memorizzazione nella cache del set di risultati migliora le prestazioni delle query e riduce l'utilizzo delle risorse di calcolo.  Inoltre, le query che utilizzano i set di risultati memorizzati nella cache non utilizzano slot di concorrenza e pertanto non vengono conteggiati rispetto ai limiti di concorrenza esistenti. Per la sicurezza, gli utenti possono accedere solo ai risultati memorizzati nella cache se hanno le stesse autorizzazioni di accesso ai dati degli utenti che creano i risultati memorizzati nella cache.  
@@ -34,11 +34,10 @@ Quando è abilitata la memorizzazione nella cache del set di risultati, Azure SQ
 Una volta attivata la memorizzazione nella cache del set di risultati per un database, i risultati vengono memorizzati nella cache per tutte le query finché la cache non è piena, ad eccezione di queste query:
 - Query che usano funzioni non deterministiche come DateTime. Now ()
 - Query che usano funzioni definite dall'utente
+- Query che utilizzano tabelle con sicurezza a livello di riga o a livello di colonna abilitata
 - Query che restituiscono dati con dimensioni di riga maggiori di 64KB
 
 Le query con set di risultati di grandi dimensioni (ad esempio, > 1 milione righe) potrebbero rallentare le prestazioni durante la prima esecuzione durante la creazione della cache dei risultati.
-
-La sicurezza a livello di riga non è supportata dalla memorizzazione nella cache del set di risultati.  
 
 ## <a name="when-cached-results-are-used"></a>Quando vengono usati i risultati memorizzati nella cache
 

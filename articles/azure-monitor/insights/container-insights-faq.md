@@ -1,21 +1,18 @@
 ---
 title: Domande frequenti su Monitoraggio di Azure per i contenitori | Microsoft Docs
 description: Monitoraggio di Azure per i contenitori è una soluzione che consente di monitorare l'integrità dei cluster del servizio Azure Container e di Istanze di Container in Azure. Questo articolo fornisce le risposte alle domande frequenti.
-services: azure-monitor
-author: mgoedtel
-manager: carmonm
-editor: tysonn
 ms.service: azure-monitor
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 08/14/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: f8d763f8bb228a0d4d83a3776f818d59939b942d
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.date: 08/14/2019
+ms.openlocfilehash: bda64dd555f1970b70878d827f6be1dab3f1e2d5
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559071"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555424"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure per i contenitori
 
@@ -75,7 +72,7 @@ Per informazioni dettagliate sul problema, vedere il [collegamento di GitHub](ht
 
 ## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Ricerca per categorie risolvere gli errori Azure AD quando si abilitano I log Live? 
 
-Può essere visualizzato l'errore seguente: **L'URL di risposta specificato nella richiesta non corrisponde agli URL di risposta configurati per l'applicazione:' <\>ID applicazione '** . La soluzione per risolverla è disponibile nell'articolo come visualizzare i log dei contenitori in [tempo reale con monitoraggio di Azure per i contenitori](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
+È possibile che venga visualizzato l'errore seguente: **l'URL di risposta specificato nella richiesta non corrisponde agli URL di risposta configurati per l'applicazione:' < ID applicazione \>'** . La soluzione per risolverla è disponibile nell'articolo come visualizzare i log dei contenitori in [tempo reale con monitoraggio di Azure per i contenitori](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
 
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Perché non è possibile aggiornare il cluster dopo l'onboarding?
 
@@ -84,7 +81,7 @@ Se dopo l'abilitazione di monitoraggio di Azure per i contenitori per un cluster
 ## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Quali porte e domini è necessario aprire/inserire nell'elenco elementi consentiti per l'agente?
 - *. ods.opinsights.azure.com 443
 - *. oms.opinsights.azure.com 443
-- *.blob.core.windows.net      443
+- *. blob.core.windows.net 443
 - dc.services.visualstudio.com 443
 - *. microsoftonline.com 443
 - *. monitoring.azure.com 443

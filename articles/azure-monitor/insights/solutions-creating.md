@@ -1,31 +1,25 @@
 ---
 title: Creare una soluzione di gestione in Azure | Microsoft Docs
 description: Le soluzioni di gestione includono scenari di gestione in pacchetto in Azure che i clienti possono aggiungere alla propria area di lavoro Log Analytics.  In questo articolo vengono fornite informazioni dettagliate su come creare soluzioni di gestione da usare nel proprio ambiente o da rendere disponibili per i propri clienti.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
+ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef1af4d3d27bc098341a4de716e293557baa946a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 97472a65af6eb2c5c2da93d93f38450cc021f680
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595818"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555299"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Progettare e creare una soluzione di gestione in Azure (anteprima)
 > [!NOTE]
 > Questa è una documentazione preliminare per la creazione di soluzioni di gestione in Azure attualmente disponibili in versione di anteprima. Qualsiasi schema descritto di seguito è soggetto a modifiche.
 
-Le [soluzioni di gestione]( solutions.md) includono scenari di gestione in pacchetto che i clienti possono aggiungere alla propria area di lavoro di Log Analytics.  Questo articolo presenta un processo di base per progettare e compilare una soluzione di gestione adatta ai requisiti più comuni.  Se non si ha familiarità con la creazione di soluzioni di gestione, è possibile usare questo processo come punto di partenza e quindi usare i concetti per soluzioni più complesse come l'evolversi delle esigenze.
+Le [soluzioni di gestione]( solutions.md) includono scenari di gestione in pacchetto che i clienti possono aggiungere alla propria area di lavoro Log Analytics.  Questo articolo presenta un processo di base per progettare e compilare una soluzione di gestione adatta ai requisiti più comuni.  Se non si ha familiarità con la creazione di soluzioni di gestione, è possibile usare questo processo come punto di partenza e quindi usare i concetti per soluzioni più complesse come l'evolversi delle esigenze.
 
 ## <a name="what-is-a-management-solution"></a>Che cos'è una soluzione di gestione?
 
@@ -34,7 +28,7 @@ Le soluzioni di gestione contengono risorse Azure che interagiscono per raggiung
 La strategia di base consiste nell'avviare la soluzione di gestione compilando i singoli componenti nell'ambiente Azure.  Dopo che la funzionalità opera correttamente, è possibile avviare la creazione del pacchetto in un [file di soluzione di gestione]( solutions-solution-file.md). 
 
 
-## <a name="design-your-solution"></a>Progettare la soluzione
+## <a name="design-your-solution"></a>Progetta la tua soluzione
 Nel diagramma seguente è illustrato il modello più comune per una soluzione di gestione.  I diversi componenti in questo modello vengono descritti di seguito.
 
 ![Panoramica della soluzione di gestione](media/solutions-creating/solution-overview.png)

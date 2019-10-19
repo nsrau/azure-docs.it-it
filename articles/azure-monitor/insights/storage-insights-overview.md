@@ -1,24 +1,18 @@
 ---
 title: Monitorare i servizi di archiviazione di Azure con monitoraggio di Azure per l'archiviazione (anteprima) | Microsoft Docs
 description: Questo articolo descrive il monitoraggio di Azure per la funzionalità di archiviazione che offre agli amministratori dell'archiviazione una rapida comprensione dei problemi di prestazioni e utilizzo con gli account di archiviazione di Azure.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/15/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 1ab49d17ebf10a1ae0277768ddbd1878195d835d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.date: 08/15/2019
+ms.openlocfilehash: e5738b9f7cca03898d3bb5c593004bb316aa0b23
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212773"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553889"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Monitoraggio del servizio di archiviazione con monitoraggio di Azure per l'archiviazione (anteprima)
 
@@ -195,7 +189,7 @@ In questo esempio, si sta lavorando con la cartella di lavoro di capacità dell'
 
 4. Verrà rimossa la colonna della **sequenza temporale della capacità utilizzata** per l'account, quindi selezionare **Impostazioni colonna** nella griglia metriche.
 
-    ![Modifica impostazioni di colonna](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
+    ![Modificare le impostazioni delle colonne](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
 
 5. Nel riquadro **Modifica impostazioni colonna** selezionare sotto la sezione **colonne** **Microsoft. storage/Storageaccounts-Capacity-capacità utilizzata Timeline $ | L'account usa la sequenza temporale della capacità $** e, sotto il **renderer della colonna** dell'elenco a discesa, selezionare **Hidden**. 
 
@@ -233,7 +227,7 @@ In questo esempio si usa la cartella di lavoro di capacità dell'account di arch
 
 7. Selezionare **Salva con nome** dalla barra dei comandi per salvare una copia della cartella di lavoro con le personalizzazioni, quindi fare clic su **modifica eseguita** per tornare alla modalità di lettura.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Questa sezione illustra la diagnosi e la risoluzione dei problemi comuni che possono verificarsi quando si usa monitoraggio di Azure per l'archiviazione (anteprima). Usare l'elenco che segue per individuare le informazioni pertinenti a un problema specifico.
 

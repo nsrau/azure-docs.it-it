@@ -1,27 +1,21 @@
 ---
 title: Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali (anteprima) | Microsoft Docs
-description: Monitoraggio di Azure per le macchine virtuali soluzione raccoglie le metriche e i dati di log e questo articolo descrive i record e includono le query di esempio.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
+description: Monitoraggio di Azure per le macchine virtuali soluzione raccoglie le metriche e i dati di log in e in questo articolo vengono descritti i record e sono incluse le query di esempio.
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/10/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 23ce57add0d55ba5901e2f5fcf82b3279d349cdc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 04/10/2019
+ms.openlocfilehash: 7363f1ec11974dab3e0c0149c18ac4f0bf1c86ee
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472586"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555200"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali (anteprima)
-Monitoraggio di Azure per le macchine virtuali consente prestazioni e metriche relative alla connessione, computer e i dati di inventario di processo e le informazioni sullo stato di integrità e lo inoltra all'area di lavoro di Log Analitica in Monitoraggio di Azure.  Questi dati sono disponibili per [query](../../azure-monitor/log-query/log-query-overview.md) in Monitoraggio di Azure. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
+Monitoraggio di Azure per le macchine virtuali raccoglie le metriche delle prestazioni e della connessione, i dati di inventario del computer e del processo e le informazioni sullo stato di integrità e le invia all'area di lavoro Log Analytics in monitoraggio di Azure.  Questi dati sono disponibili per le [query](../../azure-monitor/log-query/log-query-overview.md) in monitoraggio di Azure. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
 
 ## <a name="map-records"></a>Record della mappa
 Ogni ora viene generato un record per ogni computer e processo univoco, in aggiunta ai record generati all'avvio di un processo o computer o quando ne viene eseguito l'onboarding nella funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali. I record hanno le proprietà descritte nelle tabelle seguenti. I campi e i valori negli eventi ServiceMapComputer_CL eseguono il mapping ai campi della risorsa del computer nell'API ServiceMap di Azure Resource Manager. I campi e i valori negli eventi ServiceMapProcess_CL eseguono il mapping ai campi della risorsa del computer nell'API ServiceMap di Azure Resource Manager. Il campo ResourceName_s coincide con il campo del nome nella risorsa di Resource Manager corrispondente. 
@@ -33,28 +27,28 @@ Sono disponibili proprietà generate internamente che è possibile usare per ide
 
 Poiché possono essere presenti vari record per un determinato processo o computer in un intervallo di tempo specificato, le query possono restituire più di un record per lo stesso computer o processo. Per includere solo il record più recente, aggiungere "| dedup ResourceId" alla query.
 
-### <a name="connections-and-ports"></a>Porte e le connessioni
-La funzionalità metriche di connessione introduce due nuove tabelle in Azure Monitor log - VMConnection e VMBoundPort. Queste tabelle forniscono informazioni sulle connessioni per un computer (in ingresso e in uscita), nonché il server di porte open/attivo su di essi. ConnectionMetrics vengono inoltre esposte tramite le API che forniscono i mezzi per ottenere una metrica specifica durante un intervallo di tempo. Le connessioni TCP risultante dalla *accettazione* sono in ingresso, mentre quelli creati da un socket di ascolto *connessione* a un determinato IP e porta sono in uscita. La direzione di una connessione è rappresentata dalla proprietà Direction, che può essere impostata su **inbound** o **outbound**. 
+### <a name="connections-and-ports"></a>Connessioni e porte
+La funzionalità Metrica di connessione introduce due nuove tabelle nei log di monitoraggio di Azure: VMConnection e VMBoundPort. In queste tabelle vengono fornite informazioni sulle connessioni per un computer (in ingresso e in uscita), nonché sulle porte del server aperte/attive. ConnectionMetrics vengono anche esposte tramite le API che forniscono i mezzi per ottenere una metrica specifica durante un intervallo di tempo. Le connessioni TCP derivanti dall' *accettazione* su un socket di ascolto sono in ingresso, mentre quelle create tramite la *connessione* a un determinato IP e a una porta sono in uscita. La direzione di una connessione è rappresentata dalla proprietà Direction, che può essere impostata su **inbound** o **outbound**. 
 
-I record in queste tabelle sono generati dai dati segnalati da Dependency Agent. Ogni record rappresenta un'osservazione in un intervallo di tempo di 1 minuto. La proprietà TimeGenerated indica l'inizio dell'intervallo di tempo. Ogni record contiene informazioni per identificare l'entità corrispondente, ovvero la connessione o la porta, oltre che le metriche associate a tale entità. Attualmente, viene segnalata solo l'attività di rete che si verifica tramite TCP su IPv4. 
+I record in queste tabelle vengono generati dai dati segnalati dal Dependency Agent. Ogni record rappresenta un'osservazione in un intervallo di tempo di 1 minuto. La proprietà TimeGenerated indica l'inizio dell'intervallo di tempo. Ogni record contiene informazioni per identificare l'entità corrispondente, ovvero la connessione o la porta, oltre che le metriche associate a tale entità. Attualmente, viene segnalata solo l'attività di rete che si verifica tramite TCP su IPv4. 
 
-#### <a name="common-fields-and-conventions"></a>I campi e le convenzioni comuni 
-I campi e le convenzioni seguenti si applicano sia VMConnection VMBoundPort: 
+#### <a name="common-fields-and-conventions"></a>Campi e convenzioni comuni 
+I campi e le convenzioni seguenti si applicano sia a VMConnection che a VMBoundPort: 
 
-- Computer: Nome di dominio completo del report di computer 
-- Valore di AgentID: L'identificatore univoco per un computer con l'agente di Log Analitica  
-- Computer: Nome della risorsa di Azure Resource Manager per la macchina esposta da ServiceMap. È nel formato *milioni-{GUID}* , dove *GUID* è lo stesso GUID come valore di AgentID  
-- Processo: Nome della risorsa di Azure Resource Manager per il processo esposto da ServiceMap. È nel formato *p: {stringa esadecimale}* . Processo è univoco all'interno di un ambito di computer e per generare un ID univoco del processo tra più computer, combina i campi di computer e processo. 
-- ProcessName: Nome dell'eseguibile del processo di creazione di report.
-- Tutti gli indirizzi IP sono stringhe in formato canonico IPv4, ad esempio *13.107.3.160* 
+- Computer: nome di dominio completo del computer per la creazione di report 
+- AgentID: identificatore univoco per un computer con l'agente di Log Analytics  
+- Computer: nome della risorsa Azure Resource Manager per il computer esposto da ServiceMap. Il formato è *m-{GUID}* , dove *GUID* è lo stesso GUID di AgentID  
+- Process: nome della risorsa Azure Resource Manager per il processo esposto da ServiceMap. Il formato è *p-{Hex stringa}* . Il processo è univoco all'interno di un ambito del computer e genera un ID di processo univoco tra i computer, combina i campi del computer e del processo. 
+- ProcessName: nome eseguibile del processo di creazione di report.
+- Tutti gli indirizzi IP sono stringhe nel formato canonico IPv4, ad esempio *13.107.3.160* 
 
 Per gestire i costi e la complessità, i record di connessione non rappresentano singole connessioni di rete fisiche. Più connessioni di rete fisiche vengono raggruppate in una connessione logica, che viene quindi riflessa nella rispettiva tabella.  Ciò significa che i record nella tabella *VMConnection* rappresentano un raggruppamento logico e non le singole connessioni fisiche osservate. Le connessioni di rete fisiche che condividono lo stesso valore per gli attributi seguenti durante uno specifico intervallo di un minuto vengono aggregate in un singolo record logico in *VMConnection*. 
 
 | Proprietà | Description |
 |:--|:--|
-|Direction |Direzione della connessione. Il valore è *inbound* o *outbound* |
+|Direzione |Direzione della connessione. Il valore è *inbound* o *outbound* |
 |Machine |FQDN del computer |
-|Process |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
+|Processo |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
 |SourceIp |Indirizzo IP dell'origine |
 |DestinationIp |Indirizzo IP della destinazione |
 |DestinationPort |Numero di porta della destinazione |
@@ -77,7 +71,7 @@ Oltre alle metriche relative al numero di connessioni, nelle proprietà del reco
 |:--|:--|
 |BytesSent |Numero totale di byte che sono stati inviati durante l'intervallo di tempo di creazione del report |
 |BytesReceived |Numero totale di byte che sono stati ricevuti durante l'intervallo di tempo di creazione del report |
-|Responses |Numero totale di risposte osservate durante l'intervallo di tempo di creazione del report. 
+|Risposte |Numero totale di risposte osservate durante l'intervallo di tempo di creazione del report. 
 |ResponseTimeMax |Tempo di risposta più lungo (millisecondi) osservato durante l'intervallo di tempo di creazione del report. In assenza di valore, la proprietà è vuota.|
 |ResponseTimeMin |Tempo di risposta più breve (millisecondi) osservato durante l'intervallo di tempo di creazione del report. In assenza di valore, la proprietà è vuota.|
 |ResponseTimeSum |Somma di tutti i tempi di risposta (millisecondi) osservati durante l'intervallo di tempo di creazione del report. In assenza di valore, la proprietà è vuota.|
@@ -91,7 +85,7 @@ Ecco alcuni punti importanti da considerare:
 1. Se un processo accetta le connessioni sullo stesso indirizzo IP ma su più interfacce di rete, verrà segnalato un record distinto per ogni interfaccia. 
 2. I record con IP con caratteri jolly non contengono attività. Sono inclusi per rappresentare il fatto che una porta nel computer è aperta per il traffico in ingresso.
 3. Per ridurre il livello di dettaglio e il volume di dati, i record con IP con caratteri jolly vengono omessi quando è presente un record corrispondente (per processo, porta e protocollo uguali) con un indirizzo IP specifico. Quando un record di IP con caratteri jolly viene omesso, la proprietà IsWildcardBind del record con l'indirizzo IP specifico viene impostata su "True" per indicare che la porta è esposta in ogni interfaccia del computer che esegue la segnalazione.
-4. Le porte che sono associate solo su una specifica interfaccia avere IsWildcardBind impostata su *False*.
+4. Le porte associate solo a un'interfaccia specifica hanno IsWildcardBind impostato su *false*.
 
 #### <a name="naming-and-classification"></a>Denominazione e classificazione
 Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incluso nella proprietà RemoteIp. Per le connessioni in ingresso, RemoteIp corrisponde a SourceIp, mentre per le connessioni in uscita corrisponde a DestinationIp. La proprietà RemoteDnsCanonicalNames rappresenta i nomi canonici DNS segnalati dal computer per RemoteIp. Le proprietà RemoteDnsQuestions e RemoteClassification sono riservate per l'uso futuro. 
@@ -114,7 +108,7 @@ Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un s
 |IndicatorThreadType |L'indicatore di minaccia rilevato è uno dei valori seguenti, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
 |Description |Descrizione della minaccia osservata. |
 |TLPLevel |Il livello del protocollo di segnalazione del traffico è uno dei valori definiti: *Bianco*, *Verde*, *Ambra*, *Rosso*. |
-|Confidence |I valori sono *0 - 100*. |
+|Attendibilità |I valori sono *0 - 100*. |
 |Severity |I valori sono *0-5*, dove *5* è il più grave e *0* non è grave. Il valore predefinito è *3*.  |
 |FirstReportedDateTime |La prima volta che il provider ha segnalato l'indicatore. |
 |LastReportedDateTime |L'ultima volta in cui l'indicatore è stato visualizzato da Interflow. |
@@ -123,21 +117,21 @@ Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un s
 |AdditionalInformation |Offre informazioni aggiuntive, se disponibili, sulla minaccia osservata. |
 
 ### <a name="ports"></a>Porte 
-Porte in un computer che attivamente accettano il traffico in ingresso o potenzialmente può accettare il traffico, ma sono inattive durante l'intervallo di tempo di creazione di report, vengono scritte nella tabella VMBoundPort.  
+Le porte in un computer che accettano attivamente il traffico in ingresso o che potenzialmente accettano il traffico, ma sono inattive durante l'intervallo di tempo per la creazione di report, vengono scritte nella tabella VMBoundPort.  
 
-Ogni record presente nel VMBoundPort è identificato dai campi seguenti: 
+Ogni record in VMBoundPort è identificato dai campi seguenti: 
 
 | Proprietà | Description |
 |:--|:--|
-|Process | Identità del processo (o gruppi di processi) a cui è associata con la porta.|
-|Ip | Porte indirizzo IP (indirizzo IP con caratteri jolly, è possibile *0.0.0.0*) |
-|Port |Il numero di porta |
-|Protocol | Il protocollo.  Esempio *tcp* oppure *udp* (solo *tcp* è attualmente supportata).|
+|Processo | Identità del processo o dei gruppi di processi a cui è associata la porta.|
+|IP | Indirizzo IP porta (può essere un IP con caratteri jolly, *0.0.0.0*) |
+|Porta |Numero di porta |
+|Protocol | Protocollo.  Ad esempio *TCP* o *UDP* (attualmente è supportato solo *TCP* ).|
  
-L'identità una porta è derivata da cinque campi sopra elencati e viene archiviata nella proprietà ID porta. Questa proprietà è utilizzabile per trovare rapidamente i record per una porta specifica nel tempo. 
+Identità. una porta deriva dai cinque campi precedenti ed è archiviata nella proprietà ID porta. Questa proprietà può essere usata per trovare rapidamente i record per una porta specifica nel tempo. 
 
 #### <a name="metrics"></a>Metriche 
-Porta record includono le metriche che rappresentano le connessioni associate. Attualmente, vengono segnalate le metriche seguenti (i dettagli per ogni metrica sono descritti nella sezione precedente): 
+I record di porta includono le metriche che rappresentano le connessioni associate. Attualmente vengono segnalate le metriche seguenti (i dettagli per ogni metrica sono descritti nella sezione precedente): 
 
 - BytesSent e BytesReceived 
 - LinksEstablished, LinksTerminated, LinksLive 
@@ -147,10 +141,10 @@ Ecco alcuni punti importanti da considerare:
 
 - Se un processo accetta le connessioni sullo stesso indirizzo IP ma su più interfacce di rete, verrà segnalato un record distinto per ogni interfaccia.  
 - I record con IP con caratteri jolly non contengono attività. Sono inclusi per rappresentare il fatto che una porta nel computer è aperta per il traffico in ingresso. 
-- Per ridurre il livello di dettaglio e il volume di dati, i record con IP con caratteri jolly vengono omessi quando è presente un record corrispondente (per processo, porta e protocollo uguali) con un indirizzo IP specifico. Quando un record IP con caratteri jolly viene omesso, il *IsWildcardBind* per il record con l'indirizzo IP specifico, verrà impostata su *True*.  Ciò indica che la porta viene esposto attraverso ogni interfaccia del computer di creazione di report. 
-- Le porte che sono associate solo su una specifica interfaccia avere IsWildcardBind impostata su *False*. 
+- Per ridurre il livello di dettaglio e il volume di dati, i record con IP con caratteri jolly vengono omessi quando è presente un record corrispondente (per processo, porta e protocollo uguali) con un indirizzo IP specifico. Quando un record IP con caratteri jolly viene omesso, la proprietà *IsWildcardBind* per il record con l'indirizzo IP specifico verrà impostata su *true*.  Indica che la porta è esposta su ogni interfaccia del computer di report. 
+- Le porte associate solo a un'interfaccia specifica hanno IsWildcardBind impostato su *false*. 
 
-### <a name="servicemapcomputercl-records"></a>Record ServiceMapComputer_CL
+### <a name="servicemapcomputer_cl-records"></a>Record ServiceMapComputer_CL
 I record di tipo *ServiceMapComputer_CL* includono dati di inventario per i server con Dependency Agent. Questi record includono le proprietà elencate nella tabella seguente:
 
 | Proprietà | Description |
@@ -175,7 +169,7 @@ I record di tipo *ServiceMapComputer_CL* includono dati di inventario per i serv
 | VirtualMachineName_s | Nome della macchina virtuale |
 | BootTime_t | Tempo di avvio |
 
-### <a name="servicemapprocesscl-type-records"></a>Record con tipo ServiceMapProcess_CL
+### <a name="servicemapprocess_cl-type-records"></a>Record con tipo ServiceMapProcess_CL
 I record di tipo *ServiceMapProcess_CL* includono dati di inventario per i processi connessi tramite TCP nei server con Dependency Agent. Questi record includono le proprietà elencate nella tabella seguente:
 
 | Proprietà | Description |
@@ -282,7 +276,7 @@ VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" 
 VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart`
 ```
 
-### <a name="bound-ports"></a>Le porte con binding
+### <a name="bound-ports"></a>Porte con binding
 ```kusto
 VMBoundPort
 | where TimeGenerated >= ago(24hr)
@@ -290,7 +284,7 @@ VMBoundPort
 | distinct Port, ProcessName
 ```
 
-### <a name="number-of-open-ports-across-machines"></a>Numero di aprire le porte tra più computer
+### <a name="number-of-open-ports-across-machines"></a>Numero di porte aperte tra computer
 ```kusto
 VMBoundPort
 | where Ip != "127.0.0.1"
@@ -299,7 +293,7 @@ VMBoundPort
 | order by OpenPorts desc
 ```
 
-### <a name="score-processes-in-your-workspace-by-the-number-of-ports-they-have-open"></a>Assegnare punteggi di processi nell'area di lavoro per il numero di porte che hanno open
+### <a name="score-processes-in-your-workspace-by-the-number-of-ports-they-have-open"></a>Assegnare punteggi ai processi nell'area di lavoro per il numero di porte aperte
 ```kusto
 VMBoundPort
 | where Ip != "127.0.0.1"
@@ -308,8 +302,8 @@ VMBoundPort
 | order by OpenPorts desc
 ```
 
-### <a name="aggregate-behavior-for-each-port"></a>Comportamento di aggregazione per ogni porta
-Questa query è quindi utilizzabile per assegnare un punteggio porte dall'attività, ad esempio, le porte con il maggior traffico in ingresso/uscita, le porte con la maggior parte delle connessioni
+### <a name="aggregate-behavior-for-each-port"></a>Comportamento aggregato per ogni porta
+Questa query può quindi essere usata per assegnare un punteggio alle porte in base alle attività, ad esempio le porte con la maggior parte del traffico in ingresso/uscita, le porte con la maggior parte delle connessioni
 ```kusto
 // 
 VMBoundPort
@@ -362,5 +356,5 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Se si ha familiarità con la scrittura di query di log in Monitoraggio di Azure, consultare [come usare Log Analitica](../../azure-monitor/log-query/get-started-portal.md) nel portale di Azure per scrivere le query di log.
+* Se non si ha familiarità con la scrittura di query di log in monitoraggio di Azure, vedere [come usare log Analytics](../../azure-monitor/log-query/get-started-portal.md) nel portale di Azure per scrivere query di log.
 * Leggere le informazioni su come [scrivere query di ricerca](../../azure-monitor/log-query/search-queries.md).

@@ -1,24 +1,18 @@
 ---
 title: Come arrestare il monitoraggio del cluster del servizio Azure Kubernetes | Microsoft Docs
 description: Questo articolo descrive come interrompere il monitoraggio del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/19/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 376259686d1668d62cc79f340e2161ef11be5e12
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.date: 08/19/2019
+ms.openlocfilehash: 508bfa9cf7bff0084e7f0644ee5e053e683cb9cf
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624377"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554108"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Come arrestare il monitoraggio del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori
 

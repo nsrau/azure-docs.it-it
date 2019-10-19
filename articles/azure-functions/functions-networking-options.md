@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: ca7985ee302b35f8e7b39c46c229c7b0b263ffce
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 967988d802a1b3d33ff50f578650e44794015583
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170650"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550854"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di funzioni di Azure
 
@@ -33,11 +33,11 @@ I modelli di hosting hanno diversi livelli di isolamento della rete disponibili.
 
 |                |[Piano a consumo](functions-scale.md#consumption-plan)|[Piano Premium (anteprima)](functions-scale.md#premium-plan)|[Piano di servizio app](functions-scale.md#app-service-plan)|[Ambiente del servizio app](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
-|[Restrizioni IP in ingresso & accesso al sito privato](#inbound-ip-restrictions)|✅ Sì|✅ Sì|✅ Sì|✅ Sì|
-|[Integrazione della rete virtuale](#virtual-network-integration)|❌No|✅ Sì (regione)|✅ Sì (Regional e gateway)|✅ Sì|
-|[Trigger della rete virtuale (non HTTP)](#virtual-network-triggers-non-http)|❌No| ❌No|✅ Sì|✅ Sì|
-|[Connessioni ibride](#hybrid-connections)|❌No|❌No|✅ Sì|✅ Sì|
-|[Restrizioni IP in uscita](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅ Sì|
+|[Restrizioni IP in ingresso & accesso al sito privato](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
+|[Integrazione della rete virtuale](#virtual-network-integration)|❌No|✅Yes (regione)|✅Yes (Regional e gateway)|✅Yes|
+|[Trigger della rete virtuale (non HTTP)](#virtual-network-triggers-non-http)|❌No| ❌No|✅Yes|✅Yes|
+|[connessioni ibride](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
+|[Restrizioni IP in uscita](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Yes|
 
 
 ## <a name="inbound-ip-restrictions"></a>Restrizioni degli indirizzi IP in ingresso
@@ -52,7 +52,7 @@ Per altre informazioni, vedere [restrizioni di accesso statico del servizio app 
 ## <a name="private-site-access"></a>Accesso al sito privato
 
 L'accesso al sito privato si riferisce a rendere l'app accessibile solo da una rete privata, ad esempio dall'interno di una rete virtuale di Azure. 
-* L'accesso al sito privato è disponibile nel piano [Premium](./functions-premium-plan.md), [utilizzo](functions-scale.md#consumption-plan) e [servizio app](functions-scale.md#app-service-plan) quando sono configurati gli **endpoint di servizio** . 
+* L'accesso al sito privato è disponibile nel piano [Premium](./functions-premium-plan.md), [consumo], (Functions-scale. MD # consumo-piano) e nel [piano di servizio app](functions-scale.md#app-service-plan) quando sono configurati gli **endpoint di servizio** . 
     * Gli endpoint di servizio possono essere configurati in base alle singole app in funzionalità della piattaforma > rete > configurare le restrizioni di accesso > Aggiungi regola. È ora possibile selezionare le reti virtuali come "tipo" di una regola.
     * Per altre informazioni, vedere [endpoint del servizio rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md)
         * Tenere presente che con gli endpoint di servizio, la funzione ha ancora l'accesso in uscita completo a Internet, anche con l'integrazione della rete virtuale configurata.
@@ -87,13 +87,13 @@ Indipendentemente dalla versione usata, l'integrazione di VNet consente all'app 
 La funzionalità Integrazione rete virtuale:
 
 * Richiede un piano di servizio app standard, Premium o PremiumV2
-* Supporta TCP e UDP
-* Funziona con le app del servizio app e con le app per le funzioni
+* supporta TCP e UDP
+* funziona con le app del servizio app e con le app per le funzioni
 
 Alcune operazioni non sono supportate da Integrazione rete virtuale:
 
 * Montaggio di un'unità
-* integrazione di AD 
+* Integrazione di AD 
 * NetBios
 
 L'integrazione della rete virtuale in funzioni usa l'infrastruttura condivisa con le app Web del servizio app. Per ulteriori informazioni sui due tipi di integrazione della rete virtuale, vedere:
@@ -102,12 +102,20 @@ L'integrazione della rete virtuale in funzioni usa l'infrastruttura condivisa co
 
 Per altre informazioni sull'uso dell'integrazione della rete virtuale, vedere [integrare un'app per le funzioni con una rete virtuale di Azure](functions-create-vnet.md).
 
-### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Limitazione dell'account di archiviazione a una rete virtuale
+## <a name="connecting-to-service-endpoint-secured-resources"></a>Connessione alle risorse protette dell'endpoint di servizio
 
 > [!note] 
-> Temporaneamente, potrebbero essere necessarie fino a 12 ore perché l'account di archiviazione diventi disponibile per l'app per le funzioni una volta configurate le restrizioni di accesso per tale account di archiviazione. Durante questo periodo, l'applicazione sarà completamente offline.
+> Temporaneamente, potrebbero essere necessarie fino a 12 ore affinché i nuovi endpoint di servizio diventino disponibili per l'app per le funzioni una volta configurate le restrizioni di accesso per la risorsa downstream. Durante questo periodo, la risorsa non sarà completamente disponibile per l'app.
 
-Per garantire un livello di sicurezza più elevato, è possibile limitare l'account di archiviazione dell'applicazione a una rete virtuale. Per accedere all'account di archiviazione, è quindi necessario integrare il sito con tale rete virtuale. Questa configurazione è supportata in tutti i piani che supportano l'integrazione della rete virtuale.
+Per garantire un livello di sicurezza più elevato, è possibile limitare un numero di servizi di Azure a una rete virtuale usando gli endpoint di servizio. Per accedere alla risorsa, è quindi necessario integrare l'app per le funzioni con tale rete virtuale. Questa configurazione è supportata in tutti i piani che supportano l'integrazione della rete virtuale.
+
+[Per altre informazioni sugli endpoint del servizio rete virtuale, vedere qui.](../virtual-network/virtual-network-service-endpoints-overview.md)
+
+### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Limitazione dell'account di archiviazione a una rete virtuale
+Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, di Accodamento e tabelle. Attualmente non è possibile utilizzare restrizioni della rete virtuale per questo account. Se si configura un endpoint del servizio di rete virtuale nell'account di archiviazione usato per l'app per le funzioni, l'app verrà interrotta.
+
+[Per altre informazioni sui requisiti dell'account di archiviazione, vedere qui.](./functions-create-function-app-portal.md#storage-account-requirements
+) 
 
 ## <a name="virtual-network-triggers-non-http"></a>Trigger della rete virtuale (non HTTP)
 

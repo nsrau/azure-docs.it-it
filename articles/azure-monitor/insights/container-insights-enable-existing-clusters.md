@@ -1,24 +1,18 @@
 ---
 title: Monitorare un cluster Azure Kubernetes Service (AKS) distribuito | Microsoft Docs
 description: Informazioni su come abilitare il monitoraggio di un cluster Azure Kubernetes Service (AKS) con monitoraggio di Azure per i contenitori già distribuiti nella sottoscrizione.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/12/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 0153d39e1307458baa920d8e9107c8931242014e
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 09/12/2019
+ms.openlocfilehash: e9837aaf538648fe24a762f83a2e855f432df2a5
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996258"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555470"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Abilitare il monitoraggio del cluster di Azure Kubernetes Service (AKS) già distribuito
 
@@ -29,7 +23,7 @@ Questo articolo descrive come configurare monitoraggio di Azure per i contenitor
 * Interfaccia della riga di comando di Azure
 * Terraform
 * [Da monitoraggio di Azure](#enable-from-azure-monitor-in-the-portal) o [direttamente dal cluster AKS](#enable-directly-from-aks-cluster-in-the-portal) nel portale di Azure 
-* Con il [modello di Azure Resource Manager fornito](#enable-using-an-azure-resource-manager-template) tramite il cmdlet `New-AzResourceGroupDeployment` Azure PowerShell o con l'interfaccia della riga di comando di Azure. 
+* Con il [modello di Azure Resource Manager fornito](#enable-using-an-azure-resource-manager-template) usando il cmdlet Azure PowerShell `New-AzResourceGroupDeployment` o con l'interfaccia della riga di comando di Azure. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -51,7 +45,7 @@ provisioningState       : Succeeded
 
 ### <a name="integrate-with-an-existing-workspace"></a>Eseguire l'integrazione con un'area di lavoro esistente
 
-Se si preferisce eseguire l'integrazione con un'area di lavoro esistente, attenersi alla procedura seguente per identificare prima di tutto l'ID risorsa completo dell'area `--workspace-resource-id` di lavoro di log Analytics necessaria per il parametro, quindi eseguire il comando per abilitare il componente aggiuntivo di monitoraggio rispetto a area di lavoro specificata.  
+Se si preferisce eseguire l'integrazione con un'area di lavoro esistente, attenersi alla procedura seguente per identificare prima di tutto l'ID risorsa completo dell'area di lavoro Log Analytics necessaria per il parametro `--workspace-resource-id`, quindi eseguire il comando per abilitare il componente aggiuntivo di monitoraggio sul area di lavoro specificata.  
 
 1. Elencare tutte le sottoscrizioni a cui si ha accesso usando il comando seguente:
 
@@ -83,7 +77,7 @@ Se si preferisce eseguire l'integrazione con un'area di lavoro esistente, attene
 
     Nell'output trovare il nome dell'area di lavoro, quindi copiare l'ID risorsa completo dell'area di lavoro Log Analytics sotto l' **ID**campo.
  
-4. Eseguire il comando seguente per abilitare il componente aggiuntivo di monitoraggio, sostituendo il valore per `--workspace-resource-id` il parametro. Il valore della stringa deve essere racchiuso tra virgolette doppie:
+4. Eseguire il comando seguente per abilitare il componente aggiuntivo di monitoraggio, sostituendo il valore per il parametro `--workspace-resource-id`. Il valore della stringa deve essere racchiuso tra virgolette doppie:
 
     ```azurecli
     az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id  “/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>”
@@ -114,7 +108,7 @@ Se si preferisce eseguire l'integrazione con un'area di lavoro esistente, attene
 
 Per abilitare il monitoraggio del cluster servizio Azure Kubernetes nel portale di Azure da Monitoraggio di Azure, seguire questa procedura:
 
-1. Nel portale di Azure selezionare **Monitoraggio**. 
+1. Nel portale di Azure selezionare **Monitor**. 
 
 2. Selezionare **Contenitori** dall'elenco.
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: 726d04cdfbc21c21a52945f11d3b5097978c5d1d
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d9d135136efea72017399b5888bc6591582ffe67
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168826"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553569"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Supporto della distribuzione Docker Compose in Azure Service Fabric (anteprima)
 
 Docker usa il file [docker-compose.yml](https://docs.docker.com/compose) per la definizione di applicazioni multi-contenitore. Per consentire ai clienti che hanno familiarità con Docker di orchestrare facilmente le applicazioni contenitore presenti in Azure Service Fabric, nella piattaforma è stato incluso il supporto nativo per la distribuzione Docker Compose, disponibile in anteprima. Service Fabric può accettare la versione 3 (o successiva) dei file `docker-compose.yml`. 
 
-Poiché questo supporto è disponibile in anteprima, è supportato solo un subset delle direttive Compose. Non sono supportati, ad esempio, gli aggiornamenti dell'applicazione. Tuttavia, è sempre possibile rimuovere e distribuire le applicazioni invece di aggiornarle.
+Poiché questo supporto è disponibile in anteprima, è supportato solo un subset delle direttive Compose.
 
 Per usare questa versione di anteprima, creare il cluster con la versione 5.7 o versione successiva del runtime di Service Fabric tramite il portale di Azure con l'SDK corrispondente. 
 

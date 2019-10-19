@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 10/17/2019
 ms.author: mbullwin
-ms.openlocfilehash: 7ac5d933406af10307ba3312a8f609bfde2413fc
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
-ms.translationtype: HT
+ms.openlocfilehash: 5cfe09c3c38ffd6e68d45ddc90862b69b305a824
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514397"
+ms.locfileid: "72555479"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gestire Application Insights risorse con PowerShell
 
@@ -259,6 +259,66 @@ Per impostare la conservazione dei dati su 365 giorni utilizzando il modello pre
                -TemplateFile .\template1.json `
                -retentionInDays 365 `
                -appName myApp
+```
+
+Lo script seguente può essere usato anche per modificare la conservazione. Copiare questo script per salvare come `Set-ApplicationInsightsRetention.ps1`.
+
+```PS
+Param(
+    [Parameter(Mandatory = $True)]
+    [string]$SubscriptionId,
+
+    [Parameter(Mandatory = $True)]
+    [string]$ResourceGroupName,
+
+    [Parameter(Mandatory = $True)]
+    [string]$Name,
+
+    [Parameter(Mandatory = $True)]
+    [string]$RetentionInDays
+)
+$ErrorActionPreference = 'Stop'
+if (-not (Get-Module Az.Accounts)) {
+    Import-Module Az.Accounts
+}
+$azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
+if (-not $azProfile.Accounts.Count) {
+    Write-Error "Ensure you have logged in before calling this function."    
+}
+$currentAzureContext = Get-AzContext
+$profileClient = New-Object Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient($azProfile)
+$token = $profileClient.AcquireAccessToken($currentAzureContext.Tenant.TenantId)
+$UserToken = $token.AccessToken
+$RequestUri = "https://management.azure.com/subscriptions/$($SubscriptionId)/resourceGroups/$($ResourceGroupName)/providers/Microsoft.Insights/components/$($Name)?api-version=2015-05-01"
+$Headers = @{
+    "Authorization"         = "Bearer $UserToken"
+    "x-ms-client-tenant-id" = $currentAzureContext.Tenant.TenantId
+}
+## Get Component object via ARM
+$GetResponse = Invoke-RestMethod -Method "GET" -Uri $RequestUri -Headers $Headers 
+
+## Update RetentionInDays property
+if($($GetResponse.properties | Get-Member "RetentionInDays"))
+{
+    $GetResponse.properties.RetentionInDays = $RetentionInDays
+}
+else
+{
+    $GetResponse.properties | Add-Member -Type NoteProperty -Name "RetentionInDays" -Value $RetentionInDays
+}
+## Upsert Component object via ARM
+$PutResponse = Invoke-RestMethod -Method "PUT" -Uri "$($RequestUri)" -Headers $Headers -Body $($GetResponse | ConvertTo-Json) -ContentType "application/json"
+$PutResponse
+```
+
+Questo script può quindi essere usato come:
+
+```PS
+Set-ApplicationInsightsRetention `
+        [-SubscriptionId] <String> `
+        [-ResourceGroupName] <String> `
+        [-Name] <String> `
+        [-RetentionInDays <Int>]
 ```
 
 ## <a name="set-the-daily-cap"></a>Imposta il limite giornaliero

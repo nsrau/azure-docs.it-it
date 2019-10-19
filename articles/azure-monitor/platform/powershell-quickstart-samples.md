@@ -1,19 +1,18 @@
 ---
 title: Esempi di avvio rapido con PowerShell per Monitoraggio di Azure
 description: Usare PowerShell per accedere alle funzionalità di Monitoraggio di Azure, ad esempio scalabilità automatica, avvisi, webhook e ricerca nei log attività.
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 2/14/2018
-ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: 886eb8578e004eba3b6fabc1deb42db0fb7fac70
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 2/14/2018
+ms.openlocfilehash: d1aa4b4e2d72f10ca73616bc7e69b0d02f13a501
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350251"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72551846"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Esempi di avvio rapido con PowerShell per Monitoraggio di Azure
 Questo articolo illustra comandi di PowerShell di esempio per accedere rapidamente alle funzionalità di Monitoraggio di Azure.
@@ -152,15 +151,15 @@ La tabella seguente descrive i parametri e valori usati per creare un avviso tra
 
 | parametro | value |
 | --- | --- |
-| Attività |simpletestdiskwrite |
-| Posizione di questa regola di avviso |East US |
-| GruppoRisorse |montest |
+| name |simpletestdiskwrite |
+| Posizione di questa regola di avviso |Stati Uniti Orientali |
+| ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| MetricName dell'avviso creato |\PhysicalDisk(_Total)\Disk Writes/sec. See the`Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
-| Operatore |GreaterThan |
+| MetricName dell'avviso creato |\PhysicalDisk(_Total)\Disk Writes/sec. Vedere il cmdlet `Get-MetricDefinitions` per il recupero dei nomi esatti delle metriche |
+| operator |GreaterThan |
 | Valore soglia (conteggio al secondo per questa metrica) |1 |
 | WindowSize (formato hh:mm:ss) |00:05:00 |
-| aggregatore (statistica della metrica che usa il numero medio, in questo caso) |Average |
+| aggregatore (statistica della metrica che usa il numero medio, in questo caso) |Media |
 | indirizzi di posta elettronica personalizzati (matrice di stringhe) |'foo@example.com','bar@example.com' |
 | invio di messaggi di posta elettronica a proprietari, collaboratori e lettori |-SendToServiceOwners |
 
@@ -229,7 +228,7 @@ Ecco i passaggi da seguire:
 
 1. Creare le regole.
 2. Creare i profili eseguendo il mapping delle regole create in precedenza.
-3. Facoltativo: Creare notifiche per la scalabilità automatica configurando le proprietà di webhook e di posta elettronica.
+3. Facoltativo: creare notifiche per la scalabilità automatica configurando le proprietà di webhook e posta elettronica.
 4. Creare un'impostazione di scalabilità automatica con un nome per la risorsa di destinazione associando profili e notifiche creati nei passaggi precedenti.
 
 Gli esempi seguenti illustrano come creare un'impostazione di scalabilità automatica per un set di scalabilità di macchine virtuali per un sistema operativo Windows in base alla metrica di utilizzo della CPU.

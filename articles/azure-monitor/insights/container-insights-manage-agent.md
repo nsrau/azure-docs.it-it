@@ -1,30 +1,24 @@
 ---
 title: Come gestire l'agente di Monitoraggio di Azure per i contenitori | Microsoft Docs
 description: Questo articolo descrive la gestione delle attività di manutenzione più comuni con l'agente di Log Analytics con contenitori usato da Monitoraggio di Azure per i contenitori.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/06/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: e1d47be159d4721aed4b055a51acf675688b855e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/06/2018
+ms.openlocfilehash: bfedd7989e71bcb8cf58cef7ad7122749350ae26
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65071789"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554046"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Come gestire l'agente di Monitoraggio di Azure per i contenitori
 Monitoraggio di Azure per i contenitori usa una versione con contenitori dell'agente di Log Analytics per Linux. Dopo la distribuzione iniziale, esistono attività di routine o facoltative che può essere necessario eseguire durante il ciclo di vita dell'agente. Questo articolo contiene informazioni dettagliate su come aggiornare l'agente manualmente e disabilitare la raccolta di variabili di ambiente da un contenitore specifico. 
 
 ## <a name="how-to-upgrade-the-azure-monitor-for-containers-agent"></a>Come eseguire l'aggiornamento dell'agente di Monitoraggio di Azure per i contenitori
-Monitoraggio di Azure per i contenitori usa una versione con contenitori dell'agente di Log Analytics per Linux. Quando viene rilasciata una nuova versione dell'agente, l'agente viene aggiornato automaticamente nei cluster Kubernetes gestiti ospitati nel servizio Azure Kubernetes (AKS).  
+Monitoraggio di Azure per i contenitori usa una versione con contenitori dell'agente di Log Analytics per Linux. Quando viene rilasciata una nuova versione dell'agente, l'agente viene aggiornato automaticamente nei cluster Kubernetes gestiti ospitati nel servizio Azure Kubernetes.  
 
 Se l'aggiornamento dell'agente non riesce, questo articolo descrive il processo per aggiornare manualmente l'agente. Per seguire le versioni rilasciate, consultare gli [annunci relativi alla versione dell'agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).   
 
@@ -35,7 +29,7 @@ Il processo per aggiornare l'agente è costituito da due semplici passaggi. Il p
 >Mentre si esegue questa attività di manutenzione, i nodi del cluster non inoltrano i dati raccolti e le viste Prestazioni non mostreranno i dati tra la rimozione dell'agente e l'installazione della nuova versione. 
 >
 
-Per installare la nuova versione dell'agente, seguire i passaggi descritti nel [abilitare il monitoraggio con Azure CLI](container-insights-enable-new-cluster.md#enable-using-azure-cli)per completare questo processo.  
+Per installare la nuova versione dell'agente, seguire i passaggi descritti nell' [Abilitazione del monitoraggio mediante l'interfaccia](container-insights-enable-new-cluster.md#enable-using-azure-cli)della riga di comando di Azure per completare questo processo.  
 
 Dopo aver riabilitato il monitoraggio, possono essere necessari circa 15 minuti prima di poter visualizzare le metriche di integrità aggiornate per il cluster. Per verificare che l'aggiornamento dell'agente sia stato completato, eseguire il comando: `kubectl logs omsagent-484hw --namespace=kube-system`
 

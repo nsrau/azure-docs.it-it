@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: be3ccfd0c562763d0968398ddb042dc5f07dbdcf
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6382a39e67805eb9bddb356a7b76205a82f3f7c2
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101568"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553460"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Caricare un disco rigido virtuale generalizzato e usarlo per creare nuove macchine virtuali in Azure
 
@@ -56,67 +56,14 @@ Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da 
 6. Al termine, Sysprep arresta la macchina virtuale. Non riavviare la VM.
 
 
-## <a name="get-a-storage-account"></a>Ottenere un account di archiviazione
-
-Per archiviare l'immagine della macchina virtuale caricata, è necessario un account di archiviazione. È possibile usare un account di archiviazione esistente o crearne uno nuovo. 
-
-Se il disco rigido virtuale verrà usato per creare un disco gestito per una macchina virtuale, la posizione dell'account di archiviazione deve corrispondere al percorso in cui verrà creata la macchina virtuale.
-
-Per visualizzare gli account di archiviazione disponibili, digitare:
-
-```azurepowershell
-Get-AzStorageAccount | Format-Table
-```
-
 ## <a name="upload-the-vhd-to-your-storage-account"></a>Caricare il disco rigido virtuale nell'account di archiviazione
 
-Usare il cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) per caricare il disco rigido virtuale in un contenitore nell'account di archiviazione. In questo esempio, il file *myVHD.vhd* viene caricato da *C:\Users\Public\Documents\Virtual hard disks\\* in un account di archiviazione denominato *mystorageaccount* nel gruppo di risorse *myResourceGroup*. Il file viene inserito nel contenitore denominato *mycontainer* e il nuovo nome del file sarà *myUploadedVHD.vhd*.
-
-```powershell
-$rgName = "myResourceGroup"
-$urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
-    -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
-```
-
-
-Se l'operazione riesce, si ottiene una risposta simile alla seguente:
-
-```powershell
-MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
-MD5 hash calculation is completed.
-Elapsed time for the operation: 00:03:35
-Creating new page blob of size 53687091712...
-Elapsed time for upload: 01:12:49
-
-LocalFilePath           DestinationUri
--------------           --------------
-C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
-```
-
-L'esecuzione del comando potrebbe richiedere del tempo, a seconda della connessione di rete e delle dimensioni del file VHD.
-
-### <a name="other-options-for-uploading-a-vhd"></a>Altre opzioni per il caricamento di un disco rigido virtuale
- 
-È anche possibile caricare un disco rigido virtuale nell'account di archiviazione tramite uno dei seguenti modi:
-
-- [AzCopy](https://aka.ms/downloadazcopy)
-- [API Copy Blob di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-- [Caricamento di BLOB in Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
-- [Materiale di riferimento dell'API REST del servizio di importazione/esportazione dell'archiviazione](https://msdn.microsoft.com/library/dn529096.aspx)
--   È consigliabile usare il servizio di importazione/esportazione se il tempo di caricamento stimato è maggiore di sette giorni. È possibile usare [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) per stimare il tempo in base alla dimensione dei dati e all'unità di trasferimento. 
-    Il servizio Importazione/esportazione può essere usato per eseguire la copia in un account di archiviazione standard. È possibile eseguire la copia dall'archiviazione standard all'account di archiviazione Premium usando uno strumento come AzCopy.
-
-> [!IMPORTANT]
-> Se per il caricamento del disco rigido virtuale in Azure si usa AzCopy, verificare di aver impostato [ **/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs#upload-a-file) prima di eseguire lo script di caricamento. Se la destinazione è un BLOB e questa opzione non è specificata, per impostazione predefinita AzCopy crea un BLOB in blocchi.
-> 
-> 
-
+È ora possibile caricare un disco rigido virtuale direttamente in un disco gestito. Per istruzioni, vedere [caricare un disco rigido virtuale in Azure usando Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
 
 ## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>Creare un'immagine gestita dal disco rigido virtuale caricato 
 
-Creare un'immagine gestita dal disco rigido virtuale del sistema operativo generalizzato. Sostituire i valori seguenti con le informazioni personali.
+Creare un'immagine gestita dal disco gestito generalizzato del sistema operativo. Sostituire i valori seguenti con le informazioni personali.
 
 
 Per prima cosa, impostare alcuni parametri:

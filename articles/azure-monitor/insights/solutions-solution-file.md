@@ -1,25 +1,19 @@
 ---
 title: Creazione di un file per soluzioni di gestione in Azure | Microsoft Docs
 description: Le soluzioni di gestione offrono scenari di gestione in pacchetto che i clienti possono aggiungere al proprio ambiente di Azure.  In questo articolo vengono fornite informazioni dettagliate su come creare soluzioni di gestione da usare nel proprio ambiente o da rendere disponibili per i propri clienti.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
+ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 47ee691186da7f915ca8fcf87415784ab12ef1e0
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595775"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553853"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Creazione di un file per soluzioni di gestione in Azure (anteprima)
 > [!NOTE]
@@ -50,7 +44,7 @@ La struttura di base di un file di una soluzione di gestione corrisponde a quell
        "outputs": {  }
     }
 
-## <a name="parameters"></a>Parametri
+## <a name="parameters"></a>parameters
 I [parametri](../../azure-resource-manager/resource-group-authoring-templates.md#parameters) sono valori richiesti all'utente al momento dell'installazione della soluzione di gestione.  Ci sono parametri standard comuni a tutte le soluzioni ed è possibile aggiungere altri parametri in base a quanto necessario per la soluzione specifica.  Il modo in cui gli utenti forniranno i valori dei parametri quando installano la soluzione dipende dal parametro specifico e dalla modalità di installazione della soluzione.
 
 Quando un utente [installa la soluzione di gestione](solutions.md#install-a-monitoring-solution) tramite Azure Marketplace o i modelli di avvio rapido di Azure, viene chiesto di selezionare un'[area di lavoro Log Analytics e un account di Automazione](solutions.md#log-analytics-workspace-and-automation-account).  Questi elementi vengono usati per popolare i valori di ognuno dei parametri standard.  All'utente non viene chiesto di fornire direttamente i valori per i parametri standard, ma viene chiesto di fornire i valori per eventuali parametri aggiuntivi.
@@ -68,7 +62,7 @@ Di seguito è illustrato un parametro di esempio.
 
 La tabella seguente descrive gli attributi di un parametro.
 
-| Attributo | DESCRIZIONE |
+| Attributo | Description |
 |:--- |:--- |
 | type |Tipo di dati per il parametro. Il controllo di input visualizzato per l'utente dipende dal tipo di dati.<br><br>bool - Casella di riepilogo a discesa<br>string - Casella di testo<br>int - Casella di testo<br>securestring - Campo della password<br> |
 | category |Categoria facoltativa per il parametro.  I parametri della stessa categoria vengono raggruppati insieme. |
@@ -83,7 +77,7 @@ La tabella seguente elenca i parametri standard per tutte le soluzioni di gestio
 >
 >
 
-| Parametro | Type | DESCRIZIONE |
+| Parametro | Type | Description |
 |:--- |:--- |:--- |
 | accountName |string |Nome dell'account di Automazione di Azure. |
 | pricingTier |string |Piano tariffario dell'area di lavoro Log Analytics e dell'account di Automazione di Azure. |
@@ -131,7 +125,7 @@ Di seguito viene mostrata la struttura dei parametri standard, che è possibile 
 
 Per fare riferimento ai valori di parametro negli altri elementi della soluzione si usa la sintassi **parameters('nome parametro')** .  Per accedere, ad esempio, al nome dell'area di lavoro, usare **parameters('workspaceName')**
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>Variabili
 Le [variabili](../../azure-resource-manager/resource-group-authoring-templates.md#variables) sono valori che verranno usati nella parte rimanente della soluzione di gestione.  Questi valori non sono esposti all'utente che esegue l'installazione della soluzione.  La loro funzione è quella di offrire all'autore un'unica posizione in cui gestire i valori che possono essere usati più volte all'interno della soluzione. È consigliabile inserire eventuali valori specifici della soluzione in variabili anziché impostarli come hardcoded nell'elemento **resources**.  In questo modo, il codice risulta più leggibile ed è possibile modificare facilmente questi valori nelle versioni successive.
 
 Di seguito è riportato un esempio di elemento **variables** con i parametri tipici usati nelle soluzioni.
@@ -160,11 +154,11 @@ Per fare riferimento ai valori di variabile all'interno della soluzione si usa l
 
 In questo caso, per fare riferimento ai valori di variabile all'interno della soluzione è possibile usare la sintassi **variables('nome variabile').proprietà**.  Per accedere, ad esempio, alla variabile SolutionName, è necessario usare **variables('Solution').Name**.
 
-## <a name="resources"></a>Risorse
+## <a name="resources"></a>resources
 Le [risorse](../../azure-resource-manager/resource-group-authoring-templates.md#resources) definiscono i vari tipi di risorse che la soluzione di gestione installerà e configurerà.  Si tratta della parte più estesa e complessa del modello.  È possibile ottenere informazioni sulla struttura e una descrizione completa degli elementi di risorsa in [Creazione di modelli di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md#resources).  In altri articoli di questa documentazione sono descritti i tipi di risorse definiti più comunemente. 
 
 
-### <a name="dependencies"></a>Dependencies
+### <a name="dependencies"></a>Dipendenze
 L'elemento **dependsOn** specifica una [dipendenza](../../azure-resource-manager/resource-group-define-dependencies.md) da un'altra risorsa.  Quando si installa la soluzione, una risorsa viene creata solo dopo che sono state create tutte le relative dipendenze.  La soluzione potrebbe ad esempio [avviare un runbook](solutions-resources-automation.md#runbooks) quando viene installata usando una [risorsa processo](solutions-resources-automation.md#automation-jobs).  La risorsa processo dipenderà dalla risorsa runbook, per assicurarsi che il runbook venga creato prima del processo.
 
 ### <a name="log-analytics-workspace-and-automation-account"></a>area di lavoro Log Analytics e account di Automazione
@@ -205,24 +199,24 @@ Per ogni soluzione è necessario specificare una risorsa nell'elemento **resourc
 
 
 
-### <a name="dependencies"></a>Dependencies
+### <a name="dependencies"></a>Dipendenze
 La risorsa soluzione deve avere una [dipendenza](../../azure-resource-manager/resource-group-define-dependencies.md) da ogni altra risorsa nella soluzione, perché ogni risorsa deve esistere affinché la soluzione possa essere creata.  A tale scopo, aggiungere una voce per ogni risorsa nell'elemento **dependsOn**.
 
-### <a name="properties"></a>Properties
+### <a name="properties"></a>properties
 La risorsa della soluzione ha le proprietà descritte nella tabella seguente.  Sono incluse le risorse cui viene fatto riferimento dalla soluzione e incluse nella soluzione che definisce come viene gestita la risorsa dopo l'installazione della soluzione.  Ogni risorsa nella soluzione deve essere presente nella proprietà **referencedResources** o **containedResources**.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
-| workspaceResourceId |ID dell'area di lavoro di Log Analitica nel formato  *\<ID gruppo di risorse > /providers/Microsoft.OperationalInsights/workspaces/\<nome area di lavoro\>* . |
+| workspaceResourceId |ID dell'area di lavoro Log Analytics nel formato *\<Resource ID gruppo >/providers/Microsoft.OperationalInsights/workspaces/\<Workspace nome \>* . |
 | referencedResources |Elenco delle risorse nella soluzione che non devono essere rimosse quando la soluzione viene rimossa. |
 | containedResources |Elenco delle risorse nella soluzione che devono essere rimosse quando la soluzione viene rimossa. |
 
 L'esempio precedente si riferisce a una soluzione con un runbook, una pianificazione e una vista.  Poiché sono presenti *riferimenti* ad essi nell'elemento **properties**, la pianificazione e il runbook non vengono rimossi quando la soluzione viene rimossa.  La vista che è invece *contenuta* viene rimossa quando la soluzione viene rimossa.
 
-### <a name="plan"></a>Pianificazione
+### <a name="plan"></a>Piano
 L'entità **plan** della risorsa soluzione ha le proprietà descritte nella tabella seguente.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
 | name |Nome della soluzione. |
 | version |Versione della soluzione determinata dall'autore. |

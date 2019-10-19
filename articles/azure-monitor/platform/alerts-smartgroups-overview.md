@@ -1,19 +1,18 @@
 ---
 title: Gruppi intelligenti
 description: I gruppi intelligenti sono aggregazioni di avvisi che consentono di ridurre la frequenza degli avvisi
-author: anantr
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 05/15/2018
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 08657163eb170b8d3185ce15bd724f1f55bbe2bd
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 05/15/2018
+ms.openlocfilehash: 83ea68ad92a6c78ccf56483e1f0c2cbcbcd7d22a
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702864"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552357"
 ---
 # <a name="smart-groups"></a>Gruppi intelligenti
 Un problema comune insito nella gestione degli avvisi è estrarre le informazioni per capirne l'effettiva importanza. I gruppi intelligenti sono destinati a essere la soluzione a questo problema.  
@@ -29,9 +28,9 @@ Lo stato del gruppo intelligente è un concetto simile allo stato degli avvisi, 
 
 Sono supportati i seguenti stati di gruppo intelligente.
 
-| State | Descrizione |
+| Statale | Description |
 |:---|:---|
-| Nuovo | Il problema è appena stato rilevato e non è ancora stato esaminato. |
+| Novità | Il problema è appena stato rilevato e non è ancora stato esaminato. |
 | Confermato | Un amministratore ha esaminato il gruppo intelligente e ha iniziato a lavorare su di esso. |
 | Chiuso | Il problema è stato risolto. Dopo che un gruppo intelligente è stato chiuso, è possibile riaprirlo modificandone lo stato. |
 
@@ -49,7 +48,7 @@ La pagina dei dettagli del gruppo intelligente viene visualizzata quando si sele
 
 La pagina dei dettagli del gruppo intelligente include le sezioni seguenti.
 
-| `Section` | Descrizione |
+| Sezione | Description |
 |:---|:---|
 | Avvisi | Elenca i singoli avvisi inclusi nel gruppo intelligente. Selezionare un avviso per aprire la pagina dei dettagli corrispondente. |
 | Cronologia | Elenca tutte le azioni eseguite dal gruppo intelligente e le modifiche apportate a quest'ultimo. Questa opzione è attualmente limitata alle modifiche di stato e a quelle di appartenenza degli avvisi. |

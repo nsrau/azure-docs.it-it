@@ -1,24 +1,19 @@
 ---
 title: Ricerche salvate nelle soluzioni di gestione | Microsoft Docs
 description: Le soluzioni di gestione includono in genere ricerche salvate in Log Analytics per l'analisi dei dati raccolti dalla soluzione. Potranno anche definire avvisi per la notifica all'utente o per eseguire automaticamente un'azione in risposta a un problema critico. Questo articolo descrive come definire Log Analytics le ricerche salvate in un modello di Gestione risorse in modo che possano essere incluse nelle soluzioni di gestione.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/29/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
+ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5372ac8b31db91aaac018b203ee8868fa313fd8
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: ce4f3dcbc28668f786c706e7029061e541a76ce9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772995"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553916"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Aggiunta di avvisi e di ricerche salvate di Log Analytics alla soluzione di gestione (anteprima)
 
@@ -76,7 +71,7 @@ Le risorse [ricerca salvata di Log Analytics](../../azure-monitor/log-query/log-
 
 Le singole proprietà di una ricerca salvata sono descritte nella tabella seguente.
 
-| Proprietà | descrizione |
+| Proprietà | Description |
 |:--- |:--- |
 | category | Categoria della ricerca salvata.  Tutte le ricerche salvate nella stessa soluzione condivideranno in genere una singola categoria in modo da essere raggruppate nella console. |
 | displayname | Nome da visualizzare per la ricerca salvata nel portale. |
@@ -117,11 +112,11 @@ Una ricerca salvata può avere una o più pianificazioni, ognuna delle quali rap
     }
 Le proprietà delle risorse pianificazione sono descritte nella tabella seguente.
 
-| Nome dell'elemento | Obbligatorio | descrizione |
+| Nome dell'elemento | Obbligatoria | Description |
 |:--|:--|:--|
-| enabled       | Yes | Specifica se l'avviso viene abilitato al momento della creazione. |
-| interval      | Yes | Frequenza, in minuti, con cui viene eseguita la query. |
-| queryTimeSpan | Yes | Periodo di tempo, in minuti, per cui verranno valutati i risultati. |
+| enabled       | SÌ | Specifica se l'avviso viene abilitato al momento della creazione. |
+| interval      | SÌ | Frequenza, in minuti, con cui viene eseguita la query. |
+| queryTimeSpan | SÌ | Periodo di tempo, in minuti, per cui verranno valutati i risultati. |
 
 La risorsa pianificazione dipenderà dalla ricerca salvata, che verrà quindi creata prima della pianificazione.
 > [!NOTE]
@@ -169,35 +164,35 @@ Le azioni di avviso hanno la struttura seguente. Nella struttura sono inclusi pa
 
 Le proprietà delle risorse azione di avviso sono descritte nella tabella seguente.
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | Description |
 |:--|:--|:--|
-| `type` | Sì | Tipo di azione.  Per le azioni di avviso, il tipo è **Alert**. |
-| `name` | Sì | Nome visualizzato per l'avviso.  È il nome visualizzato nella console per la regola di avviso. |
+| `type` | SÌ | Tipo di azione.  Per le azioni di avviso, il tipo è **Alert**. |
+| `name` | SÌ | Nome visualizzato per l'avviso.  È il nome visualizzato nella console per la regola di avviso. |
 | `description` | No | Descrizione facoltativa dell'avviso. |
-| `severity` | Sì | Gravità del record di avviso tra i valori seguenti:<br><br> **critical**<br>**warning**<br>**informational**
+| `severity` | SÌ | Gravità del record di avviso tra i valori seguenti:<br><br> **critical**<br>**warning**<br>**informational**
 
 #### <a name="threshold"></a>Soglia
 Questa sezione è obbligatoria e definisce le proprietà della soglia dell'avviso.
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | Description |
 |:--|:--|:--|
-| `Operator` | Sì | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
-| `Value` | Sì | Valore per il confronto dei risultati. |
+| `Operator` | SÌ | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
+| `Value` | SÌ | Valore per il confronto dei risultati. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Questa sezione è facoltativa. Includere la sezione per un avviso di misurazione delle metriche.
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | Description |
 |:--|:--|:--|
-| `TriggerCondition` | Sì | Specifica se la soglia riguarda il numero totale di violazioni o le violazioni consecutive, con i valori seguenti:<br><br>**Total<br>Consecutive** |
-| `Operator` | Sì | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
-| `Value` | Yes | Numero di volte in cui i criteri devono essere soddisfatti per attivare l'avviso. |
+| `TriggerCondition` | SÌ | Specifica se la soglia riguarda il numero totale di violazioni o le violazioni consecutive, con i valori seguenti:<br><br>**Total<br>Consecutive** |
+| `Operator` | SÌ | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
+| `Value` | SÌ | Numero di volte in cui i criteri devono essere soddisfatti per attivare l'avviso. |
 
 
 #### <a name="throttling"></a>Limitazione
 Questa sezione è facoltativa. Includere la sezione se si vogliono eliminare gli avvisi generati dalla stessa regola per un determinato intervallo di tempo dopo la creazione di un avviso.
 
-| Nome dell'elemento | Obbligatorio | descrizione |
+| Nome dell'elemento | Obbligatoria | Description |
 |:--|:--|:--|
 | DurationInMinutes | Sì, se è incluso l'elemento Throttling | Numero di minuti in cui verranno eliminati gli avvisi dopo che ne è stato creato uno dalla stessa regola di avviso. |
 
@@ -206,9 +201,9 @@ Tutti gli avvisi in Azure usano un gruppo di azioni come meccanismo predefinito 
 
 Per gli utenti che hanno esteso gli avvisi in Azure, per una pianificazione devono ora essere passati i dettagli del gruppo di azioni insieme alla soglia per poter creare un avviso. I dettagli di posta elettronica, gli URL di webhook, i dettagli relativi all'automazione runbook e altre azioni devono essere definiti all'interno di un gruppo di azioni prima di creare un avviso. È possibile creare un [gruppo di azioni da Monitoraggio di Azure](../../azure-monitor/platform/action-groups.md) nel portale o usare il [modello Gruppo di azioni - Risorsa](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-| Nome dell'elemento | Obbligatorio | descrizione |
+| Nome dell'elemento | Obbligatoria | Description |
 |:--|:--|:--|
-| AzNsNotification | Yes | ID risorsa del gruppo di azioni di Azure da associare a un avviso per l'esecuzione di azioni necessarie quando viene soddisfatto il criterio di avviso. |
+| AzNsNotification | SÌ | ID risorsa del gruppo di azioni di Azure da associare a un avviso per l'esecuzione di azioni necessarie quando viene soddisfatto il criterio di avviso. |
 | CustomEmailSubject | No | Riga dell'oggetto personalizzata del messaggio inviato a tutti gli indirizzi specificati nel gruppo di azioni associato. |
 | CustomWebhookPayload | No | Payload personalizzato da inviare a tutti gli endpoint webhook definiti nel gruppo di azioni associato. Il formato dipende da ciò che è previsto dal webhook e deve essere un oggetto JSON serializzato valido. |
 

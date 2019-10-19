@@ -1,24 +1,18 @@
 ---
 title: Come risolvere i problemi di Monitoraggio di Azure per contenitori | Microsoft Docs
 description: Questo articolo illustra come individuare e risolvere i problemi con Monitoraggio di Azure per contenitori.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/27/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: b6c245142eea12bcec5ed642ec9bd91a58e10eb0
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.date: 03/27/2018
+ms.openlocfilehash: ec75f607f707405d6a5bea98deb784f4306c04f1
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813759"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555360"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Risoluzione dei problemi di Monitoraggio di Azure per contenitori
 
@@ -80,7 +74,7 @@ Se monitoraggio di Azure per i contenitori è stato abilitato e configurato corr
 
 4. Controllare i log dell'agente. Quando l'agente incluso in un contenitore viene distribuito, effettua un rapido controllo eseguendo i comandi OMI e quindi mostra la versione dell'agente e il provider. 
 
-5. Per verificare che l'agente sia stato distribuito correttamente, eseguire il comando:`kubectl logs omsagent-484hw --namespace=kube-system`
+5. Per verificare che l'agente sia stato distribuito correttamente, eseguire il comando: `kubectl logs omsagent-484hw --namespace=kube-system`
 
     Lo stato dovrebbe essere simile all'esempio seguente:
 
@@ -113,7 +107,7 @@ La tabella seguente riepiloga gli errori noti che è possibile si verifichino du
 | ---- | --- |  
 | Messaggio di errore `No data for selected filters`  | L'individuazione del flusso di dati di monitoraggio per i nuovi cluster potrebbe richiedere alcuni minuti. Consentire la visualizzazione dei dati per il cluster per almeno 10-15 minuti. |   
 | Messaggio di errore `Error retrieving data` | Durante l'installazione del servizio Kubenetes di Azure per il monitoraggio dell'integrità e delle prestazioni, viene stabilita una connessione tra il cluster e l'area di lavoro Azure Log Analytics. Un'area di lavoro Log Analytics viene usata per archiviare tutti i dati di monitoraggio per il cluster. Questo errore può verificarsi quando l'area di lavoro Log Analytics è stata eliminata. Controllare se l'area di lavoro è stata eliminata e, in tal caso, è necessario abilitare di nuovo il monitoraggio del cluster con monitoraggio di Azure per i contenitori e specificare un'area di lavoro esistente o crearne una nuova. Per abilitare nuovamente, è necessario [disabilitare](container-insights-optout.md) il monitoraggio per il cluster e [abilitare](container-insights-enable-new-cluster.md) di nuovo monitoraggio di Azure per i contenitori. |  
-| `Error retrieving data` dopo l'aggiunta di Monitoraggio di Azure per contenitori tramite l'interfaccia della riga di comando servizio Azure Kubernetes | Quando si Abilita il `az aks cli`monitoraggio usando, monitoraggio di Azure per i contenitori potrebbe non essere distribuito correttamente. Controllare se la soluzione è stata distribuita. A tale scopo, passare all'area di lavoro Log Analytics e verificare se la soluzione è disponibile selezionando **Soluzioni** dal riquadro sul lato sinistro. Per risolvere questo problema, è necessario ridistribuire la soluzione seguendo le istruzioni per la [distribuzione di Monitoraggio di Azure per i contenitori](container-insights-onboard.md) |  
+| `Error retrieving data` dopo l'aggiunta di Monitoraggio di Azure per contenitori tramite l'interfaccia della riga di comando servizio Azure Kubernetes | Quando si Abilita il monitoraggio con `az aks cli`, monitoraggio di Azure per i contenitori potrebbe non essere distribuito correttamente. Controllare se la soluzione è stata distribuita. A tale scopo, passare all'area di lavoro Log Analytics e verificare se la soluzione è disponibile selezionando **Soluzioni** dal riquadro sul lato sinistro. Per risolvere questo problema, è necessario ridistribuire la soluzione seguendo le istruzioni per la [distribuzione di Monitoraggio di Azure per i contenitori](container-insights-onboard.md) |  
 
 Per eseguire la diagnosi del problema, è disponibile uno script di risoluzione dei problemi [qui](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  
 

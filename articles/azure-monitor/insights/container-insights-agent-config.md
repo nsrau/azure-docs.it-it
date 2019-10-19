@@ -1,24 +1,18 @@
 ---
 title: Configurare monitoraggio di Azure per la raccolta dati degli agenti di contenitori | Microsoft Docs
 description: Questo articolo descrive come configurare l'agente di monitoraggio di Azure per i contenitori per controllare la raccolta di log delle variabili di ambiente e stdout/stderr.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/08/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: dfa823955cccba4ac7ec6859894a4562f0810d76
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.date: 10/08/2019
+ms.openlocfilehash: 2b72252c5c85679c1c65fa2dcf9c5acc6c54003c
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248762"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554212"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurare la raccolta dei dati dell'agente per il monitoraggio di Azure per i contenitori
 
@@ -41,15 +35,15 @@ Viene fornito un file ConfigMap modello che consente di modificarlo facilmente c
 
 Di seguito sono riportate le impostazioni che possono essere configurate per controllare la raccolta dei dati.
 
-|Chiave |Tipo di dati |Value |Descrizione |
+|Chiave |Tipo di dati |Value |Description |
 |----|----------|------|------------|
 |`schema-version` |Stringa (maiuscole/minuscole) |v1 |Si tratta della versione dello schema utilizzata dall'agente durante l'analisi di questo ConfigMap. La versione dello schema attualmente supportata è V1. La modifica di questo valore non è supportata e verrà rifiutata quando ConfigMap viene valutato.|
-|`config-version` |string | | Supporta la possibilità di tenere traccia della versione del file di configurazione nel sistema/repository del controllo del codice sorgente. I caratteri massimi consentiti sono 10 e tutti gli altri caratteri vengono troncati. |
-|`[log_collection_settings.stdout] enabled =` |Boolean | true o false | Controlla se è abilitata la raccolta di log del contenitore stdout. Se è impostato su `true` e non è stato escluso alcuno spazio dei nomi per la raccolta di log stdout (impostazione `log_collection_settings.stdout.exclude_namespaces` riportata di seguito), i log stdout verranno raccolti da tutti i contenitori in tutti i pod/nodi del cluster. Se non è specificato in ConfigMaps, il valore predefinito è `enabled = true`. |
-|`[log_collection_settings.stdout] exclude_namespaces =`|string | Matrice con valori delimitati da virgole |Matrice di spazi dei nomi Kubernetes per cui non verranno raccolti i log stdout. Questa impostazione è valida solo se `log_collection_settings.stdout.enabled` è impostata su `true`. Se non è specificato in ConfigMap, il valore predefinito è `exclude_namespaces = ["kube-system"]`.|
-|`[log_collection_settings.stderr] enabled =` |Boolean | true o false |Questo controlla se è abilitata la raccolta di log del contenitore stderr. Se è impostato su `true` e non è stato escluso alcuno spazio dei nomi per la raccolta di log stdout (impostazione `log_collection_settings.stderr.exclude_namespaces`), i log stderr verranno raccolti da tutti i contenitori in tutti i pod/nodi del cluster. Se non è specificato in ConfigMaps, il valore predefinito è `enabled = true`. |
-|`[log_collection_settings.stderr] exclude_namespaces =` |string |Matrice con valori delimitati da virgole |Matrice di spazi dei nomi Kubernetes per cui non verranno raccolti i log stderr. Questa impostazione è valida solo se `log_collection_settings.stdout.enabled` è impostata su `true`. Se non è specificato in ConfigMap, il valore predefinito è `exclude_namespaces = ["kube-system"]`. |
-| `[log_collection_settings.env_var] enabled =` |Boolean | true o false | Questa impostazione controlla la raccolta delle variabili di ambiente in tutti i pod/nodi del cluster e il valore predefinito è `enabled = true` quando non è specificato in ConfigMaps. Se la raccolta di variabili di ambiente è abilitata a livello globale, è possibile disabilitarla per un contenitore specifico impostando la variabile di ambiente `AZMON_COLLECT_ENV` su **false** con un'impostazione Dockerfile o nel [file di configurazione per il Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) sotto il  **ENV:** sezione. Se la raccolta di variabili di ambiente è disabilitata a livello globale, non è possibile abilitare la raccolta per un contenitore specifico, ovvero l'unico override che può essere applicato a livello di contenitore è disabilitare la raccolta quando è già abilitata a livello globale. |
+|`config-version` |Stringa | | Supporta la possibilità di tenere traccia della versione del file di configurazione nel sistema/repository del controllo del codice sorgente. I caratteri massimi consentiti sono 10 e tutti gli altri caratteri vengono troncati. |
+|`[log_collection_settings.stdout] enabled =` |boolean | true o false | Controlla se è abilitata la raccolta di log del contenitore stdout. Se è impostato su `true` e non è stato escluso alcuno spazio dei nomi per la raccolta di log stdout (`log_collection_settings.stdout.exclude_namespaces` impostazione riportata di seguito), i log stdout verranno raccolti da tutti i contenitori in tutti i pod/nodi del cluster. Se non è specificato in ConfigMaps, il valore predefinito è `enabled = true`. |
+|`[log_collection_settings.stdout] exclude_namespaces =`|Stringa | Matrice con valori delimitati da virgole |Matrice di spazi dei nomi Kubernetes per cui non verranno raccolti i log stdout. Questa impostazione è valida solo se `log_collection_settings.stdout.enabled` è impostata su `true`. Se non è specificato in ConfigMap, il valore predefinito è `exclude_namespaces = ["kube-system"]`.|
+|`[log_collection_settings.stderr] enabled =` |boolean | true o false |Questo controlla se è abilitata la raccolta di log del contenitore stderr. Se è impostato su `true` e non è stato escluso alcuno spazio dei nomi per la raccolta di log stdout (impostazione `log_collection_settings.stderr.exclude_namespaces`), i log stderr verranno raccolti da tutti i contenitori in tutti i pod/nodi del cluster. Se non è specificato in ConfigMaps, il valore predefinito è `enabled = true`. |
+|`[log_collection_settings.stderr] exclude_namespaces =` |Stringa |Matrice con valori delimitati da virgole |Matrice di spazi dei nomi Kubernetes per cui non verranno raccolti i log stderr. Questa impostazione è valida solo se `log_collection_settings.stdout.enabled` è impostata su `true`. Se non è specificato in ConfigMap, il valore predefinito è `exclude_namespaces = ["kube-system"]`. |
+| `[log_collection_settings.env_var] enabled =` |boolean | true o false | Questa impostazione controlla la raccolta delle variabili di ambiente in tutti i pod/nodi del cluster e il valore predefinito è `enabled = true` quando non è specificato in ConfigMaps. Se la raccolta di variabili di ambiente è abilitata a livello globale, è possibile disabilitarla per un contenitore specifico impostando la variabile di ambiente `AZMON_COLLECT_ENV` su **false** con un'impostazione Dockerfile o nel [file di configurazione per il Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) sotto il  **ENV:** sezione. Se la raccolta di variabili di ambiente è disabilitata a livello globale, non è possibile abilitare la raccolta per un contenitore specifico, ovvero l'unico override che può essere applicato a livello di contenitore è disabilitare la raccolta quando è già abilitata a livello globale. |
 
 ### <a name="prometheus-scraping-settings"></a>Impostazioni di scraping Prometeo
 
@@ -62,7 +56,7 @@ Il frammento attivo delle metriche da Prometheus viene eseguito da una delle due
 * URL HTTP a livello di cluster e individuare destinazioni dagli endpoint elencati di un servizio, servizi K8S come Kube-DNS e Kube-state-Metrics e annotazioni Pod specifiche di un'applicazione. Le metriche raccolte in questo contesto verranno definite nella sezione ConfigMap *[Prometheus data_collection_settings. cluster]* .
 * URL HTTP a livello di nodo e individua destinazioni dagli endpoint elencati di un servizio. Le metriche raccolte in questo contesto verranno definite nella sezione ConfigMap *[Prometheus_data_collection_settings. Node]* .
 
-| Endpoint | `Scope` | Esempio |
+| Endpoint | Scope | Esempio |
 |----------|-------|---------|
 | Annotazione Pod | A livello di cluster | annotazioni <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Servizio Kubernetes | A livello di cluster | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
@@ -70,19 +64,19 @@ Il frammento attivo delle metriche da Prometheus viene eseguito da una delle due
 
 Quando si specifica un URL, monitoraggio di Azure per i contenitori esegue solo il frammento dell'endpoint. Quando si specifica il servizio Kubernetes, il nome del servizio viene risolto con il server DNS del cluster per ottenere l'indirizzo IP e quindi il servizio risolto viene frammentato.
 
-|`Scope` | Chiave | Tipo di dati | Value | Descrizione |
+|Scope | Chiave | Tipo di dati | Value | Description |
 |------|-----|-----------|-------|-------------|
 | A livello di cluster | | | | Specificare uno dei tre metodi seguenti per rimuovere gli endpoint per le metriche. |
-| | `urls` | string | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
-| | `kubernetes_services` | string | Matrice con valori delimitati da virgole | Una matrice di servizi Kubernetes per rimuovere le metriche da Kube-state-Metrics. Ad esempio, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Boolean | true o false | Se è impostato su `true` nelle impostazioni a livello di cluster, monitoraggio di Azure per l'agente contenitori eliminerà i pod Kubernetes nell'intero cluster per le annotazioni Prometheus seguenti:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | Boolean | true o false | Consente di rimuovere il pod. `monitor_kubernetes_pods` deve essere impostato su `true`. |
-| | `prometheus.io/scheme` | string | http o https | Il valore predefinito è la rottamazione su HTTP. Se necessario, impostare su `https`. | 
-| | `prometheus.io/path` | string | Matrice con valori delimitati da virgole | Percorso della risorsa HTTP da cui recuperare le metriche. Se il percorso delle metriche non è `/metrics`, definirlo con questa annotazione. |
-| | `prometheus.io/port` | string | 9102 | Specificare una porta da cui deframmentare. Se la porta non è impostata, il valore predefinito è 9102. |
-| A livello di nodo | `urls` | string | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
-| A livello di nodo o a livello di cluster | `interval` | string | 60 s | Il valore predefinito per l'intervallo di raccolta è di un minuto (60 secondi). È possibile modificare la raccolta per *[prometheus_data_collection_settings. Node]* e/o *[prometheus_data_collection_settings. cluster]* in unità di tempo quali s, m, h. |
-| A livello di nodo o a livello di cluster | `fieldpass`<br> `fielddrop`| string | Matrice con valori delimitati da virgole | È possibile specificare determinate metriche da raccogliere o meno dall'endpoint impostando l'elenco Consenti (`fieldpass`) e non consentito (`fielddrop`). È necessario impostare prima l'elenco Consenti. |
+| | `urls` | Stringa | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
+| | `kubernetes_services` | Stringa | Matrice con valori delimitati da virgole | Una matrice di servizi Kubernetes per rimuovere le metriche da Kube-state-Metrics. Ad esempio, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `monitor_kubernetes_pods` | boolean | true o false | Se è impostato su `true` nelle impostazioni a livello di cluster, monitoraggio di Azure per l'agente dei contenitori eliminerà i pod Kubernetes nell'intero cluster per le annotazioni Prometeo seguenti:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `prometheus.io/scrape` | boolean | true o false | Consente di rimuovere il pod. `monitor_kubernetes_pods` deve essere impostato su `true`. |
+| | `prometheus.io/scheme` | Stringa | http o https | Il valore predefinito è la rottamazione su HTTP. Se necessario, impostare su `https`. | 
+| | `prometheus.io/path` | Stringa | Matrice con valori delimitati da virgole | Percorso della risorsa HTTP da cui recuperare le metriche. Se il percorso delle metriche non è `/metrics`, definirlo con questa annotazione. |
+| | `prometheus.io/port` | Stringa | 9102 | Specificare una porta da cui deframmentare. Se la porta non è impostata, il valore predefinito è 9102. |
+| A livello di nodo | `urls` | Stringa | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
+| A livello di nodo o a livello di cluster | `interval` | Stringa | 60 s | Il valore predefinito per l'intervallo di raccolta è di un minuto (60 secondi). È possibile modificare la raccolta per *[prometheus_data_collection_settings. Node]* e/o *[prometheus_data_collection_settings. cluster]* in unità di tempo quali s, m, h. |
+| A livello di nodo o a livello di cluster | `fieldpass`<br> `fielddrop`| Stringa | Matrice con valori delimitati da virgole | È possibile specificare determinate metriche da raccogliere o meno dall'endpoint impostando l'elenco Consenti (`fieldpass`) e non consentito (`fielddrop`). È necessario impostare prima l'elenco Consenti. |
 
 ConfigMaps è un elenco globale e può essere applicato un solo ConfigMap all'agente. Non è possibile avere un altro ConfigMaps che esegue la sovradecisione delle raccolte.
 
@@ -96,7 +90,7 @@ Per configurare e distribuire il file di configurazione ConfigMap nel cluster, s
 
     - Per escludere spazi dei nomi specifici per la raccolta di log di stdout, configurare la chiave o il valore usando l'esempio seguente: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
     
-    - Per disabilitare la raccolta delle variabili di ambiente per un contenitore specifico, impostare la chiave/valore `[log_collection_settings.env_var] enabled = true` per abilitare la raccolta di variabili a livello globale, quindi seguire i passaggi [qui](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) per completare la configurazione per il contenitore specifico.
+    - Per disabilitare la raccolta delle variabili di ambiente per un contenitore specifico, impostare la `[log_collection_settings.env_var] enabled = true` chiave/valore per abilitare la raccolta di variabili a livello globale, quindi seguire i passaggi [qui](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) per completare la configurazione per il contenitore specifico.
     
     - Per disabilitare la raccolta di log stderr a livello di cluster, configurare la chiave o il valore usando l'esempio seguente: `[log_collection_settings.stderr] enabled = false`.
     
@@ -173,7 +167,7 @@ Per verificare che la configurazione sia stata applicata correttamente, usare il
 config::unsupported/missing config schema version - 'v21' , using defaults
 ```
 
-Gli errori relativi all'applicazione delle modifiche di configurazione per Prometheus sono disponibili anche per la revisione.  Dai log da un pod agente usando lo stesso comando `kubectl logs` o dai log attivi. I log attivi mostrano errori simili ai seguenti:
+Gli errori relativi all'applicazione delle modifiche di configurazione per Prometheus sono disponibili anche per la revisione.  Dai log da un pod di Agent usando lo stesso comando `kubectl logs` o dai log attivi. I log attivi mostrano errori simili ai seguenti:
 
 ```
 2019-07-08T18:55:00Z E! [inputs.prometheus]: Error in plugin: error making HTTP request to http://invalidurl:1010/metrics: Get http://invalidurl:1010/metrics: dial tcp: lookup invalidurl on 10.0.0.10:53: no such host

@@ -1,20 +1,18 @@
 ---
 title: Trasmettere dati di Diagnostica di Azure usando Hub eventi
 description: Configurazione di Diagnostica di Azure con Hub eventi end-to-end, tra cui indicazioni per scenari comuni.
-services: azure-monitor
-author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 07/13/2017
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: c5fc2199de8623dd3a9f2bc5faf23c7c40d67d75
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 07/13/2017
+ms.openlocfilehash: 2b24618e4d7c12366db5e72226c6f94924d4d3a5
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "64922813"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555537"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Trasmettere i dati di Diagnostica di Azure nel percorso critico tramite Hub eventi
 Diagnostica di Azure fornisce metodi flessibili per raccogliere le metriche e i log delle macchine virtuali (VM) di servizi cloud e trasferire i risultati in Archiviazione di Azure. A partire da marzo 2016 (SDK 2.9), è possibile eseguire inviare la diagnostica a origini dati completamente personalizzate e trasferire i dati del percorso critico in pochi secondi tramite [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/).
@@ -45,7 +43,7 @@ La ricezione di dati di Diagnostica di Azure in Hub eventi è supportata in Serv
 * Provisioning dello spazio dei nomi dell'Hub eventi eseguito in base all'articolo [Introduzione all'Hub eventi](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Collegare Diagnostica di Azure al sink dell'Hub eventi
-Per impostazione predefinita, Diagnostica di Azure invia sempre log e metriche a un account di archiviazione di Azure. Un'applicazione può anche inviare dati agli Hub eventi aggiungendo una nuova sezione **Sinks** nell'elemento **PublicConfig** / **WadCfg** del file *.wadcfgx*. In Visual Studio, il FILE *wadcfgx* file viene archiviato nel percorso seguente: **Progetto servizio cloud** > **Ruoli** >  **(NomeRuolo)**  > **file diagnostics.wadcfgx**.
+Per impostazione predefinita, Diagnostica di Azure invia sempre log e metriche a un account di archiviazione di Azure. Un'applicazione può anche inviare dati agli Hub eventi aggiungendo una nuova sezione **Sinks** nell'elemento **PublicConfig** / **WadCfg** del file *.wadcfgx*. In Visual Studio il file *.wadcfgx* viene archiviato nel percorso di destinazione seguente: **Progetto servizio cloud** > **Ruoli** >  **(NomeRuolo)**  > **file diagnostics.wadcfgx**.
 
 ```xml
 <SinksConfig>

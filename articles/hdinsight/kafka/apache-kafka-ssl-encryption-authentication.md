@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 19a817124afb9afcee25b5f2bff73b8a17e16519
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: d555c51838f3595367e931341a3cf6161857faef
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72431269"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554592"
 ---
 # <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configurare la crittografia e l'autenticazione Secure Sockets Layer (SSL) per Apache Kafka in Azure HDInsight
 
@@ -49,7 +49,7 @@ Il riepilogo del processo di installazione di Service Broker è il seguente:
 Usare le istruzioni dettagliate seguenti per completare la configurazione di Service Broker:
 
 > [!Important]
-> Nei frammenti di codice seguenti wnX è un'abbreviazione per uno dei tre nodi di lavoro e deve essere sostituito con `wn0`, `wn1` o `wn2` in base alle esigenze. `WorkerNode0_Name` e `HeadNode0_Name` devono essere sostituiti con i nomi dei rispettivi computer, ad esempio `wn0-abcxyz` o `hn0-abcxyz`.
+> Nei frammenti di codice seguenti wnX è un'abbreviazione per uno dei tre nodi di lavoro e deve essere sostituito con `wn0`, `wn1` o `wn2` in base alle esigenze. è necessario sostituire `WorkerNode0_Name` e `HeadNode0_Name` con i nomi dei rispettivi computer, ad esempio `wn0-abcxyz` o `hn0-abcxyz`.
 
 1. Eseguire la configurazione iniziale sul nodo Head 0, che per HDInsight riempirà il ruolo dell'autorità di certificazione (CA).
 
@@ -76,6 +76,12 @@ Usare le istruzioni dettagliate seguenti per completare la configurazione di Ser
     keytool -genkey -keystore kafka.server.keystore.jks -validity 365 -storepass "MyServerPassword123" -keypass "MyServerPassword123" -dname "CN=FQDN_WORKER_NODE" -storetype pkcs12
     keytool -keystore kafka.server.keystore.jks -certreq -file cert-file -storepass "MyServerPassword123" -keypass "MyServerPassword123"
     scp cert-file sshuser@HeadNode0_Name:~/ssl/wnX-cert-sign-request
+    ```
+
+1. Nel computer della CA eseguire il comando seguente per creare i file CA-CERT e CA-Key:
+
+    ```bash
+    openssl req -new -newkey rsa:4096 -days 365 -x509 -subj "/CN=Kafka-Security-CA" -keyout ca-key -out ca-cert -nodes
     ```
 
 1. Passare al computer della CA e firmare tutte le richieste di firma del certificato ricevute:
@@ -128,30 +134,18 @@ Per completare la configurazione, seguire questa procedura:
 
     ![Modifica delle proprietà di configurazione SSL di Kafka in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 
-1. Eseguire i comandi seguenti per aggiungere le proprietà di configurazione al file Kafka `server.properties` per annunciare gli indirizzi IP anziché il nome di dominio completo (FQDN).
+1. In **Advanced Kafka-ENV** aggiungere le righe seguenti alla fine della proprietà del **modello Kafka-ENV** .
 
-    ```bash
-    IP_ADDRESS=$(hostname -i)
-    echo advertised.listeners=$IP_ADDRESS
-    sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092,SSL://$IP_ADDRESS:9093" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.keystore.location=/home/sshuser/ssl/kafka.server.keystore.jks" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.keystore.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.key.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.truststore.location=/home/sshuser/ssl/kafka.server.truststore.jks" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.truststore.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    ```
-
-1. Per verificare che le modifiche precedenti siano state apportate correttamente, è possibile controllare facoltativamente che le righe seguenti siano presenti nel file Kafka `server.properties`.
-
-    ```bash
-    advertised.listeners=PLAINTEXT://10.0.0.11:9092,SSL://10.0.0.11:9093
+    ```config
+    # Needed to configure IP address advertising
     ssl.keystore.location=/home/sshuser/ssl/kafka.server.keystore.jks
     ssl.keystore.password=MyServerPassword123
     ssl.key.password=MyServerPassword123
     ssl.truststore.location=/home/sshuser/ssl/kafka.server.truststore.jks
     ssl.truststore.password=MyServerPassword123
     ```
+
+    ![Modifica della proprietà del modello Kafka-ENV in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png)
 
 1. Riavviare tutti i broker Kafka.
 1. Avviare il client di amministrazione con le opzioni Producer e consumer per verificare che i producer e i consumer stiano lavorando sulla porta 9093.

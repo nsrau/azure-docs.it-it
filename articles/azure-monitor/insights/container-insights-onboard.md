@@ -1,24 +1,18 @@
 ---
 title: Come abilitare monitoraggio di Azure per i contenitori | Microsoft Docs
 description: Questo articolo descrive come abilitare e configurare monitoraggio di Azure per i contenitori, in modo da comprendere il modo in cui il contenitore sta eseguendo e quali sono stati identificati i problemi relativi alle prestazioni.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 48e84517fba1caee771f6985b4c502227cae9e72
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 07/12/2019
+ms.openlocfilehash: 44cdc2d6b93ac9a62f96875ca6c679fbb97d85a9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389795"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555393"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Come abilitare monitoraggio di Azure per i contenitori
 

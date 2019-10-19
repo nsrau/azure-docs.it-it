@@ -1,24 +1,18 @@
 ---
 title: Creare avvisi relativi alle prestazioni usando monitoraggio di Azure per i contenitori | Microsoft Docs
 description: Questo articolo descrive come usare monitoraggio di Azure per i contenitori per creare avvisi personalizzati in base alle query di log per l'utilizzo della memoria e della CPU.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/26/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 2b1ee0e56b5a133e65a25b5d9af645f351d039c0
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.date: 04/26/2019
+ms.openlocfilehash: c71893ec9eae844fb213114f6a3805815ff5894f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722687"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555440"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Come configurare gli avvisi per i problemi di prestazioni in monitoraggio di Azure per i contenitori
 Monitoraggio di Azure per i contenitori monitora le prestazioni dei carichi di lavoro del contenitore distribuiti nelle istanze di contenitore di Azure o nei cluster Kubernetes gestiti ospitati nel servizio Azure Kubernetes (AKS).
@@ -27,7 +21,7 @@ Questo articolo descrive come abilitare gli avvisi per le situazioni seguenti:
 
 - Quando l'utilizzo della CPU o della memoria nei nodi del cluster supera una soglia
 - Quando l'utilizzo della CPU o della memoria in qualsiasi contenitore all'interno di un controller supera una soglia rispetto a un limite impostato sulla risorsa corrispondente
-- Conteggi del nodo dello stato nobattistrada
+- Conteggi del nodo dello stato *Nobattistrada*
 - Conteggi di *fasi Pod* *non riusciti*, *in sospeso*, *sconosciuti*, *in esecuzione*o completati
 - Quando lo spazio libero su disco nei nodi del cluster supera una soglia 
 
@@ -108,7 +102,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->Nelle query seguenti vengono usati i valori \<segnaposto your-cluster-Name \<> e il nome-controller-name > per rappresentare il cluster e il controller. Sostituirli con valori specifici dell'ambiente quando si configurano gli avvisi.
+>Nelle query seguenti vengono usati i valori segnaposto \<your-cluster-Name > e \<your-controller-name > per rappresentare il cluster e il controller. Sostituirli con valori specifici dell'ambiente quando si configurano gli avvisi.
 
 La query seguente calcola l'utilizzo medio della CPU di tutti i contenitori in un controller come media di utilizzo della CPU di ogni istanza del contenitore in un controller ogni minuto. La misurazione è una percentuale del limite configurato per un contenitore.
 
@@ -190,7 +184,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-La query seguente restituisce tutti i nodi e i conteggi con lo stato *Ready* enobattistraday.
+La query seguente restituisce tutti i nodi e i conteggi con lo stato *Ready* e *nobattistraday*.
 
 ```kusto
 let endDateTime = now();
@@ -217,7 +211,7 @@ KubeNodeInventory
             NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
 | order by ClusterName asc, Computer asc, TimeGenerated desc
 ```
-La query seguente restituisce i conteggi delle fasi pod in base a tutte le fasi: *Failed*, *Pending*, *Unknown*, *Running*o succeeded.  
+La query seguente restituisce i conteggi delle fasi pod in base a tutte le fasi: *failed*, *Pending*, *Unknown*, *Running*o *succeeded*.  
 
 ```kusto
 let endDateTime = now();
@@ -256,7 +250,7 @@ let endDateTime = now();
 >[!NOTE]
 >Per eseguire un avviso su determinate fasi di Pod, ad esempio *in sospeso*, *non riuscite*o *sconosciute*, modificare l'ultima riga della query. Ad esempio, per segnalare l'uso di *FailedCount* : <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
-La query seguente restituisce i dischi dei nodi del cluster che superano il 90% di spazio libero utilizzato. Per ottenere l'ID del cluster, eseguire prima la query seguente e copiare il valore dalla `ClusterId` proprietà:
+La query seguente restituisce i dischi dei nodi del cluster che superano il 90% di spazio libero utilizzato. Per ottenere l'ID del cluster, eseguire prima la query seguente e copiare il valore dalla proprietà `ClusterId`:
 
 ```kusto
 InsightsMetrics
@@ -295,7 +289,7 @@ Seguire questa procedura per creare un avviso del log in monitoraggio di Azure u
 3. Nella scheda **cluster monitorati** selezionare un cluster dall'elenco.
 4. Nel riquadro sul lato sinistro sotto **monitoraggio**selezionare **log** per aprire la pagina log di monitoraggio di Azure. Usare questa pagina per scrivere ed eseguire query Log Analytics di Azure.
 5. Nella pagina **logs** selezionare **+ nuova regola di avviso**.
-6. Nella sezione **condizione** selezionare il **ogni volta che la ricerca log personalizzata è \<una logica non definita >** condizione predefinita del registro personalizzato. Il tipo di segnale di **Ricerca log personalizzato** viene selezionato automaticamente perché si sta creando una regola di avviso direttamente dalla pagina log di monitoraggio di Azure.  
+6. Nella sezione **condizione** selezionare il **ogni volta che la ricerca log personalizzata è \<logic non definita >** condizione predefinita del registro personalizzato. Il tipo di segnale di **Ricerca log personalizzato** viene selezionato automaticamente perché si sta creando una regola di avviso direttamente dalla pagina log di monitoraggio di Azure.  
 7. Incollare una delle [query](#resource-utilization-log-search-queries) fornite in precedenza nel campo della **query di ricerca** .
 8. Configurare l'avviso come segue:
 
@@ -305,7 +299,7 @@ Seguire questa procedura per creare un avviso del log in monitoraggio di Azure u
     1. Per configurare un avviso per l'utilizzo della CPU o della memoria del contenitore, in **Aggregate on**selezionare **containerName**. Per configurare l'avviso per nodo cluster su disco basso, selezionare **ClusterId**.
     1. Nella sezione **valutato in base** a impostare il valore del **periodo** su **60 minuti**. La regola viene eseguita ogni 5 minuti e restituisce i record creati nell'ultima ora dall'ora corrente. Impostazione del periodo di tempo su un'ampia finestra account per la potenziale latenza dei dati. Garantisce inoltre che la query restituisca dati per evitare un falso negativo in cui l'avviso non viene mai attivato.
 
-9. Selezionare **per completare** la regola di avviso.
+9. Selezionare **fine** per completare la regola di avviso.
 10. Immettere un nome nel campo **Nome regola di avviso** . Specificare una **Descrizione** che fornisca dettagli sull'avviso. E selezionare un livello di gravità appropriato dalle opzioni fornite.
 11. Per attivare immediatamente la regola di avviso, accettare il valore predefinito per **Abilita regola al momento della creazione**.
 12. Selezionare un **gruppo di azioni** esistente o creare un nuovo gruppo. Questo passaggio garantisce che vengano eseguite le stesse azioni ogni volta che viene attivato un avviso. Configurare in base alle modalità di gestione degli eventi imprevisti da parte del team operativo IT o DevOps.
