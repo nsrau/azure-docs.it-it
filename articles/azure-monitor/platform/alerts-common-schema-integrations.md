@@ -1,19 +1,18 @@
 ---
 title: Come integrare lo schema di avviso comune con le app per la logica
 description: Informazioni su come creare un'app per la logica che sfrutta lo schema di avviso comune per gestire tutti gli avvisi.
-author: ananthradhakrishnan
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 05/27/2019
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 569b97ecc24306741c3323ce5bc526f88645c1dd
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: ananthradhakrishnan
+ms.author: robb
+ms.date: 05/27/2019
+ms.openlocfilehash: 50a6067d271ad824f17df1ece36c3dd919c7b55b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702959"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555660"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Come integrare lo schema di avviso comune con le app per la logica
 
@@ -35,7 +34,7 @@ In questo articolo si presuppone che il lettore abbia familiarità con
 
 1. Seguire i [passaggi descritti per creare l'app per la logica](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups-logic-app). 
 
-1.  Selezionare il trigger: **Alla ricezione di una richiesta HTTP**.
+1.  Selezionare il trigger **Alla ricezione di una richiesta HTTP**.
 
     ![Trigger dell'app per la logica](media/action-groups-logic-app/logic-app-triggers.png "Trigger dell'app per la logica")
 
@@ -115,7 +114,7 @@ In questo articolo si presuppone che il lettore abbia familiarità con
 
 1. Selezionare **+** **Nuovo passaggio** e quindi selezionare **Aggiungi un'azione**.
 
-    ![Aggiungere un'azione](media/action-groups-logic-app/add-action.png "Aggiungere un'azione")
+    ![Aggiungi un'azione](media/action-groups-logic-app/add-action.png "Aggiungere un'azione")
 
 1. In questa fase è possibile aggiungere un'ampia gamma di connettori (Microsoft teams, Slack, Salesforce e così via) in base ai requisiti aziendali specifici. È possibile usare il campo "Essential Fields". 
 
@@ -123,7 +122,7 @@ In questo articolo si presuppone che il lettore abbia familiarità con
     
     In alternativa, è possibile creare la logica condizionale basata sul tipo di avviso utilizzando l'opzione ' Expression '.
 
-    ![Espressione app] per la logica (media/alerts-common-schema-integrations/logic-app-expressions.png "Espressione app") per la logica
+    ![Espressione app per la logica](media/alerts-common-schema-integrations/logic-app-expressions.png "Espressione app per la logica")
     
      Il [campo ' monitoringService '](alerts-common-schema-definitions.md#alert-context) consente di identificare in modo univoco il tipo di avviso, in base al quale è possibile creare la logica condizionale.
 
