@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurare Atlassian cloud per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: configurare Atlassian cloud per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Atlassian cloud.
 services: active-directory
 documentationcenter: ''
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 0c3173841de25a30b84870332c7334a81773e84d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "68561597"
 ---
-# <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Esercitazione: Configurare il cloud Atlassian per il provisioning utenti automatico
+# <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Esercitazione: configurare Atlassian cloud per il provisioning utenti automatico
 
 Questa esercitazione descrive i passaggi da eseguire in Atlassian cloud e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in Atlassian cloud.
 
@@ -82,7 +82,7 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Atlassian cloud in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare l'accesso Single Sign-on basato su SAML per Atlassian cloud, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di Atlassian cloud](atlassian-cloud-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per Atlassian cloud, seguendo le istruzioni fornite nell' [esercitazione Single Sign-on sul cloud di Atlassian](atlassian-cloud-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 ### <a name="to-configure-automatic-user-provisioning-for-atlassian-cloud-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Atlassian cloud in Azure AD:
 
@@ -110,7 +110,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 6. Passare a [Atlassian Organization Manager](https://admin.atlassian.com) **> provisioning utenti** e fare clic su **Crea un token**. Copiare rispettivamente **l'URL di base della directory** e il token di **portabilità** nei campi **URL tenant** e **token segreto** .
 
-    ![Provisioning cloud Atlassian Atlassian ![](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png)](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png)
+    ![Atlassian il provisioning cloud ](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![Atlassian il provisioning del cloud ](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png)
 
     ![Provisioning cloud Atlassian](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
 
@@ -122,7 +122,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Provisioning cloud Atlassian](./media/atlassian-cloud-provisioning-tutorial/notification.png)
 
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**
 
 10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory Users to Atlassian cloud**.
 
@@ -142,7 +142,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 14. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Per abilitare il servizio di provisioning Azure AD per Atlassian cloud, impostare **stato** del provisioning **su** attivato nella sezione **Impostazioni** .
+15. Per abilitare il servizio di provisioning Azure AD per Atlassian cloud, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
     ![Provisioning cloud Atlassian](./media/atlassian-cloud-provisioning-tutorial/provisioning-on.png)
 
@@ -162,7 +162,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 * Atlassian cloud consente il provisioning degli utenti solo da [domini verificati](https://confluence.atlassian.com/cloud/organization-administration-938859734.html).
 * Atlassian cloud non supporta oggi i rinomi di gruppo. Ciò significa che tutte le modifiche apportate al displayName di un gruppo in Azure AD non verranno aggiornate e riflesse in Atlassian cloud.
-* Il valore dell'attributo utente della **posta** in Azure ad viene popolato solo se l'utente dispone di una cassetta postale di Microsoft Exchange. Se l'utente non dispone di un attributo, è consigliabile eseguire il mapping di un attributo desiderato diverso all'attributo emails in Atlassian cloud.
+* Il valore dell'attributo utente della **posta** in Azure ad viene popolato solo se l'utente dispone di una cassetta postale di Microsoft Exchange. Se l'utente non dispone di un attributo, è consigliabile eseguire il mapping di un attributo desiderato diverso all'attributo **emails** in Atlassian cloud.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

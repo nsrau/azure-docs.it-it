@@ -5,89 +5,58 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 10/17/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 59de768e75a88d7cfa5b68fa306d0e83f1aa0ba3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: c75a13a20c1dbb222db69145e24838deb111fb66
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671334"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595221"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con .NET (anteprima)
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Questo articolo illustra come usare le credenziali Azure Active Directory (Azure AD) per creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con la [libreria client di archiviazione di Azure per .NET](https://www.nuget.org/packages/Azure.Storage.Blobs).
+Questo articolo illustra come usare le credenziali Azure Active Directory (Azure AD) per creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con la libreria client di archiviazione di Azure per .NET.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
+## <a name="authenticate-with-the-azure-identity-library-preview"></a>Eseguire l'autenticazione con la libreria di identità di Azure (anteprima)
+
+La libreria client di identità di Azure per .NET (anteprima) autentica un'entità di sicurezza. Quando il codice è in esecuzione in Azure, l'entità di sicurezza è un'identità gestita per le risorse di Azure.
+
+Quando il codice è in esecuzione nell'ambiente di sviluppo, l'autenticazione può essere gestita automaticamente oppure è possibile che sia necessario un account di accesso del browser, a seconda degli strumenti che si stanno usando. Microsoft Visual Studio supporta Single Sign-On (SSO), in modo che l'account utente Active Azure AD venga usato automaticamente per l'autenticazione. Per ulteriori informazioni su SSO, vedere [Single Sign-on to Applications](../../active-directory/manage-apps/what-is-single-sign-on.md).
+
+Altri strumenti di sviluppo potrebbero richiedere l'accesso tramite un Web browser. È anche possibile usare un'entità servizio per l'autenticazione dall'ambiente di sviluppo. Per altre informazioni, vedere [creare un'identità per l'app Azure nel portale](../../active-directory/develop/howto-create-service-principal-portal.md).
+
+Dopo l'autenticazione, la libreria client Azure Identity riceve una credenziale token. Questa credenziale del token viene quindi incapsulata nell'oggetto client del servizio creato per eseguire operazioni in archiviazione di Azure. Questa operazione viene gestita automaticamente dalla libreria ottenendo le credenziali del token appropriate.
+
+Per altre informazioni sulla libreria client di Azure Identity, vedere [libreria client di identità di Azure per .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
+
+## <a name="assign-rbac-roles-for-access-to-data"></a>Assegnare i ruoli RBAC per l'accesso ai dati
+
+Quando un Azure AD entità di sicurezza tenta di accedere ai dati BLOB, l'entità di sicurezza deve avere le autorizzazioni per la risorsa. Se l'entità di sicurezza è un'identità gestita in Azure o un account utente Azure AD che esegue il codice nell'ambiente di sviluppo, all'entità di sicurezza deve essere assegnato un ruolo RBAC che concede l'accesso ai dati BLOB in archiviazione di Azure. Per informazioni sull'assegnazione di autorizzazioni tramite RBAC, vedere la sezione assegnare i **ruoli RBAC per i diritti di accesso** in [autorizzare l'accesso a BLOB e code di Azure con Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+
 ## <a name="install-the-preview-packages"></a>Installare i pacchetti di anteprima
 
-Gli esempi in questo articolo usano la versione di anteprima più recente della libreria client di archiviazione di Azure per l'archiviazione BLOB. Per installare il pacchetto di anteprima, eseguire il comando seguente dalla console di gestione pacchetti NuGet:
+Gli esempi in questo articolo usano la versione di anteprima più recente della [libreria client di archiviazione di Azure per l'archiviazione BLOB](https://www.nuget.org/packages/Azure.Storage.Blobs). Per installare il pacchetto di anteprima, eseguire il comando seguente dalla console di gestione pacchetti NuGet:
 
-```
+```powershell
 Install-Package Azure.Storage.Blobs -IncludePrerelease
 ```
 
-Gli esempi in questo articolo usano anche la versione di anteprima più recente della [libreria client di identità di Azure per .NET](https://www.nuget.org/packages/Azure.Identity/) per l'autenticazione con le credenziali Azure ad. La libreria client Azure Identity autentica un'entità di sicurezza. L'entità di sicurezza autenticata può quindi creare la firma di accesso condiviso della delega utente. Per altre informazioni sulla libreria client di Azure Identity, vedere [libreria client di identità di Azure per .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
+Gli esempi in questo articolo usano anche la versione di anteprima più recente della [libreria client di identità di Azure per .NET](https://www.nuget.org/packages/Azure.Identity/) per l'autenticazione con le credenziali Azure ad. Per installare il pacchetto di anteprima, eseguire il comando seguente dalla console di gestione pacchetti NuGet:
 
-```
+```powershell
 Install-Package Azure.Identity -IncludePrerelease
 ```
 
-## <a name="create-a-service-principal"></a>Creare un'entità servizio
-
-Per eseguire l'autenticazione con Azure AD le credenziali tramite la libreria client di identità di Azure, usare un'entità servizio o un'identità gestita come entità di sicurezza, a seconda della posizione in cui è in esecuzione il codice. Se il codice è in esecuzione in un ambiente di sviluppo, usare un'entità servizio a scopo di test. Se il codice è in esecuzione in Azure, usare un'identità gestita. Questo articolo presuppone che si stia eseguendo codice dall'ambiente di sviluppo e che venga illustrato come usare un'entità servizio per creare la firma di accesso condiviso della delega utente.
-
-Per creare un'entità servizio con l'interfaccia della riga di comando di Azure e assegnare un ruolo RBAC, chiamare il comando [AZ ad SP create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) . Fornire un ruolo di accesso ai dati di archiviazione di Azure da assegnare alla nuova entità servizio. Il ruolo deve includere l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** . Per altre informazioni sui ruoli predefiniti forniti per archiviazione di Azure, vedere [ruoli predefiniti per le risorse di Azure](../../role-based-access-control/built-in-roles.md).
-
-Fornire inoltre l'ambito per l'assegnazione di ruolo. L'entità servizio creerà la chiave di delega utente, ovvero un'operazione eseguita a livello dell'account di archiviazione, in modo che l'assegnazione di ruolo debba avere come ambito il livello dell'account di archiviazione, il gruppo di risorse o la sottoscrizione. Per ulteriori informazioni sulle autorizzazioni RBAC per la creazione di una firma di accesso condiviso di delega utente, vedere la sezione **assegnare autorizzazioni con RBAC** in creare una firma di accesso condiviso [utente (API REST)](/rest/api/storageservices/create-user-delegation-sas).
-
-Se non si dispone di autorizzazioni sufficienti per assegnare un ruolo all'entità servizio, potrebbe essere necessario richiedere al proprietario o all'amministratore dell'account di eseguire l'assegnazione di ruolo.
-
-L'esempio seguente usa l'interfaccia della riga di comando di Azure per creare una nuova entità servizio e assegnare il ruolo di **lettore dati BLOB di archiviazione** con l'ambito dell'account
-
-```azurecli-interactive
-az ad sp create-for-rbac \
-    --name <service-principal> \
-    --role "Storage Blob Data Reader" \
-    --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
-```
-
-Il comando `az ad sp create-for-rbac` restituisce un elenco di proprietà dell'entità servizio in formato JSON. Copiare questi valori in modo che sia possibile usarli per creare le variabili di ambiente necessarie nel passaggio successivo.
-
-```json
-{
-    "appId": "generated-app-ID",
-    "displayName": "service-principal-name",
-    "name": "http://service-principal-uri",
-    "password": "generated-password",
-    "tenant": "tenant-ID"
-}
-```
-
-> [!IMPORTANT]
-> Le assegnazioni di ruolo RBAC potrebbero richiedere alcuni minuti per la propagazione.
-
-## <a name="set-environment-variables"></a>Impostare le variabili di ambiente
-
-La libreria client di identità di Azure legge i valori da tre variabili di ambiente in fase di esecuzione per autenticare l'entità servizio. Nella tabella seguente viene descritto il valore da impostare per ogni variabile di ambiente.
-
-|Variabile di ambiente|Value
-|-|-
-|`AZURE_CLIENT_ID`|ID app per l'entità servizio
-|`AZURE_TENANT_ID`|ID tenant Azure AD dell'entità servizio
-|`AZURE_CLIENT_SECRET`|Password generata per l'entità servizio
-
-> [!IMPORTANT]
-> Dopo aver impostato le variabili di ambiente, chiudere e riaprire la finestra della console. Se si usa Visual Studio o un altro ambiente di sviluppo, potrebbe essere necessario riavviare l'ambiente di sviluppo per poter registrare le nuove variabili di ambiente.
-
 ## <a name="add-using-directives"></a>Aggiungere le direttive using
 
-Aggiungere le seguenti direttive `using` al codice per usare le versioni di anteprima delle librerie di identità di Azure e client di archiviazione di Azure.
+Aggiungere le seguenti direttive di `using` al codice per usare le versioni di anteprima delle librerie di identità di Azure e client di archiviazione di Azure.
 
 ```csharp
 using System;
@@ -100,11 +69,11 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 ```
 
-## <a name="authenticate-the-service-principal"></a>Autenticare l'entità servizio
+## <a name="get-an-authenticated-token-credential"></a>Ottenere le credenziali di un token autenticato
 
-Per autenticare l'entità servizio, creare un'istanza della classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) . Il costruttore `DefaultAzureCredential` legge le variabili di ambiente create in precedenza.
+Per ottenere una credenziale token che il codice può usare per autorizzare le richieste ad archiviazione di Azure, creare un'istanza della classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) .
 
-Il frammento di codice seguente mostra come ottenere le credenziali autenticate e usarle per creare un client del servizio per l'archiviazione BLOB
+Il frammento di codice seguente mostra come ottenere le credenziali del token autenticato e usarle per creare un client del servizio per l'archiviazione BLOB:
 
 ```csharp
 string blobEndpoint = string.Format("https://{0}.blob.core.windows.net", accountName);
@@ -165,7 +134,7 @@ UriBuilder fullUri = new UriBuilder()
 };
 ```
 
-## <a name="example-get-a-user-delegation-sas"></a>Esempio: Ottenere una firma di accesso condiviso di delega utente
+## <a name="example-get-a-user-delegation-sas"></a>Esempio: ottenere una firma di accesso condiviso di delega utente
 
 Il metodo di esempio seguente mostra il codice completo per l'autenticazione dell'entità di sicurezza e la creazione della firma di accesso condiviso della delega utente:
 
@@ -221,7 +190,7 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
 }
 ```
 
-## <a name="example-read-a-blob-with-a-user-delegation-sas"></a>Esempio: Leggere un BLOB con una firma di accesso condiviso dell'utente
+## <a name="example-read-a-blob-with-a-user-delegation-sas"></a>Esempio: lettura di un BLOB con una firma di accesso condiviso dell'utente
 
 Nell'esempio seguente viene verificata la firma di accesso condiviso della delega utente creata nell'esempio precedente da un'applicazione client simulata. Se la firma di accesso condiviso è valida, l'applicazione client è in grado di leggere il contenuto del BLOB. Se la firma di accesso condiviso non è valida, ad esempio se è scaduta, archiviazione di Azure restituisce il codice di errore 403 (accesso negato).
 
@@ -273,7 +242,7 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Operazione di ottenimento della chiave di delega utente](/rest/api/storageservices/get-user-delegation-key)
 - [Creare una firma di accesso condiviso per la delega utente (API REST)](/rest/api/storageservices/create-user-delegation-sas)

@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/28/2019
 ms.author: rambala
 ms.openlocfilehash: 4984b30daf6170873cad9472bfed2d879af57efe
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "67466656"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Progettazione per la disponibilità elevata con ExpressRoute
@@ -87,9 +87,9 @@ In questo articolo è stato illustrato come progettare per la disponibilità ele
 Per considerazioni sulla progettazione per la creazione di connettività di rete con ridondanza geografica a backbone Microsoft che possa resistere a errori irreversibili, che influiscano su un'intera area, vedere [progettazione per il ripristino di emergenza con peering privato ExpressRoute][DR].
 
 <!--Image References-->
-[1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png  "Modalità consigliata per la connessione tramite ExpressRoute"
-[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png  "Connettività Last Mile non ottimale"
-[3]: ./media/designing-for-high-availability-with-expressroute/nat-options.png  "Opzioni NAT"
+[1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png "metodo consigliato per la connessione tramite ExpressRoute"
+[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png "connettività Last Mile non ottimale"
+[3]: ./media/designing-for-high-availability-with-expressroute/nat-options.png "opzioni NAT"
 
 
 <!--Link References-->

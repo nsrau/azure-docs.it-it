@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 09/06/2018
 ms.author: atsenthi
 ms.openlocfilehash: 123795730e8468591bb02fa7c756ad48222dff82
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "68600012"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creare un cluster di Service Fabric in Azure tramite il portale di Azure
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Portale di Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Azure portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -38,7 +38,7 @@ Questo articolo contiene una guida dettagliata che illustra i passaggi per la co
 > 
 > 
 
-## <a name="cluster-security"></a>Sicurezza del cluster 
+## <a name="cluster-security"></a>Sicurezza dei cluster 
 I certificati vengono usati in Service Fabric per fornire l'autenticazione e la crittografia e proteggere i vari aspetti di un cluster e delle sue applicazioni. Per altre informazioni sull'uso dei certificati in Service Fabric, vedere [Scenari di sicurezza di un cluster di Service Fabric][service-fabric-cluster-security].
 
 Se è la prima volta che si sta creando un cluster dell'infrastruttura di servizio o si sta distribuendo un cluster per dei carichi di lavoro di prova, è possibile passare alla sezione successiva (**Crea cluster nel portale di Azure**) e ottenere dal sistema i certificati necessari per i cluster che eseguono carichi di lavoro di prova. Se si configura un cluster per i carichi di lavoro di produzione, continuare la lettura.
@@ -46,7 +46,7 @@ Se è la prima volta che si sta creando un cluster dell'infrastruttura di serviz
 #### <a name="cluster-and-server-certificate-required"></a>Cluster e certificato del server (obbligatorio)
 Questo certificato è richiesto per proteggere un cluster e impedirne accessi non autorizzati. Il certificato fornisce protezione del cluster in due modi:
 
-* **Autenticazione del cluster:** Autentica la comunicazione da nodo a nodo per la federazione di cluster. Solo i nodi che possono dimostrare la propria identità con il certificato possono essere aggiunti al cluster.
+* **Autenticazione del cluster:** autentica la comunicazione da nodo a nodo per la federazione di cluster. Solo i nodi che possono dimostrare la propria identità con il certificato possono essere aggiunti al cluster.
 * **Autenticazione del server:** autentica gli endpoint di gestione del cluster in un client di gestione, in modo che il client di gestione sappia con certezza di comunicare con il cluster reale. Questo certificato fornisce anche SSL per l'API di gestione HTTPS e per Service Fabric Explorer tramite HTTPS.
 
 A tale scopo, il certificato deve soddisfare i requisiti seguenti:
@@ -89,7 +89,7 @@ Passare al pannello **Cluster di Service Fabric** e fare clic su **Crea**.
 
 Il pannello **Crea cluster di Service Fabric** include i quattro passaggi descritti di seguito:
 
-### <a name="1-basics"></a>1. Generale
+### <a name="1-basics"></a>1. Nozioni di base
 ![Screenshot della creazione di un nuovo gruppo di risorse.][CreateRG]
 
 Nel pannello Informazioni di base è necessario fornire i dettagli di base per il cluster.
@@ -105,7 +105,7 @@ Nel pannello Informazioni di base è necessario fornire i dettagli di base per i
    > 
 5. Selezionare l'**area** in cui creare il cluster. Se si prevede di usare un certificato esistente già caricato in un insieme di credenziali delle chiavi, è necessario usare la stessa area che corrisponde all'insieme di credenziali delle chiavi. 
 
-### <a name="2-cluster-configuration"></a>2. Configurazione del cluster
+### <a name="2-cluster-configuration"></a>2. configurazione del cluster
 ![Creare un tipo di nodo][CreateNodeType]
 
 Configurare i nodi del cluster. poiché definiscono le dimensioni delle VM, il numero di VM e le relative proprietà. Il cluster può avere più di un tipo di nodo, ma il tipo di nodo primario, ovvero il primo che si definisce nel portale, deve essere costituito da almeno cinque macchine virtuali, poiché in questo tipo di nodo si trovano i servizi di sistema di Service Fabric. Non è necessario configurare le **proprietà relative alla posizione**, perché una proprietà relativa alla posizione predefinita "NodeTypeName" viene aggiunta automaticamente.
@@ -129,7 +129,7 @@ Configurare i nodi del cluster. poiché definiscono le dimensioni delle VM, il n
 > Microsoft supporta solo i cluster che eseguono versioni supportate di Service Fabric. Selezionando la modalità **Manual** (Manuali), l'utente si assume la responsabilità di aggiornare il cluster a una versione supportata.
 > 
 
-### <a name="3-security"></a>3. Security
+### <a name="3-security"></a>3. sicurezza
 ![Screenshot delle configurazioni di sicurezza in portale di Azure.][BasicSecurityConfigs]
 
 Per facilitare l'impostazione di un cluster di test sicuro per l'utente, Microsoft ha fornito l'opzione **Basic**. Se si ha già un certificato caricato nell'[insieme di credenziali delle chiavi](/azure/key-vault/) e tale insieme è abilitato per la distribuzione, usare l'opzione **Personalizzata**.
@@ -184,9 +184,9 @@ Selezionare la casella **Configura impostazioni avanzate** per l'immissione dei 
 
 Per completare la creazione del cluster fare clic su **Crea**. È possibile, facoltativamente, scaricare il modello.
 
-![Riepilogo]
+![Summary]
 
-È possibile visualizzare lo stato di avanzamento del processo di creazione nell'area delle notifiche: fare clic sull'icona a forma di campana accanto alla barra di stato nell'angolo superiore destro della schermata. Se durante la creazione del cluster si è fatto clic su **Aggiungi alla Schermata iniziale** durante la creazione del cluster, la voce **Distribuzione di Cluster di Service Fabric** viene aggiunta alla **schermata iniziale**. Questo processo richiede tempo. 
+È possibile visualizzare lo stato di avanzamento del processo di creazione nell'area delle notifiche: Fare clic sull'icona "campanello" accanto alla barra di stato nella parte superiore destra della schermata. Se è stato fatto clic su **Aggiungi a schermata iniziale** durante la creazione del cluster, viene visualizzata la **distribuzione di Service Fabric cluster** aggiunto alla lavagna **iniziale** . Questo processo richiede tempo. 
 
 Per eseguire operazioni di gestione nel cluster tramite Powershell o Interfaccia della riga di comando, è necessario connettersi al cluster, per ottenere altre informazioni leggere [Connessione al cluster](service-fabric-connect-to-secure-cluster.md).
 

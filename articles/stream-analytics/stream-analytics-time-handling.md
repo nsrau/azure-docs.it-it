@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: c8517d4754d10b61f7ee4c8075830860e1d22864
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 10d300638f95fe275a23dfbc239f8f961f46b127
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172986"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598026"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Informazioni sulla gestione del tempo in Analisi di flusso di Azure
 
@@ -22,11 +22,11 @@ Questo articolo illustra come prendere decisioni di progettazione per risolvere 
 
 Per strutturare meglio la discussione, è opportuno definire alcuni concetti di base:
 
-- **Ora dell'evento**: l'ora in cui si è verificato l'evento originale. Ad esempio, quando un'automobile in corsa su un'autostrada si avvicina a un casello.
+- **Ora dell'evento**: ora in cui si è verificato l'evento originale. Ad esempio, quando un'automobile in corsa su un'autostrada si avvicina a un casello.
 
-- **Ora di elaborazione**: l'ora in cui l'evento raggiunge il sistema di elaborazione e viene osservato. Ad esempio, quando il sensore di un casello avvista l'automobile e il sistema impiega alcuni istanti ad elaborare i dati.
+- **Tempo di elaborazione**: ora in cui l'evento raggiunge il sistema di elaborazione e si osserva. Ad esempio, quando il sensore di un casello avvista l'automobile e il sistema impiega alcuni istanti ad elaborare i dati.
 
-- **Limite**: Indicatore dell'ora dell'evento che indica gli eventi punto che sono stati inseriti nel processore di flusso. I limiti consentono al sistema di indicare chiaramente lo stato di inserimento degli eventi. Per la natura stessa dei flussi, i dati degli eventi in ingresso non si arrestano mai, quindi i limiti indicano l'avanzamento fino a un determinato punto del flusso.
+- **Watermark**: indicatore dell'ora dell'evento che indica fino a quali eventi punto sono stati inseriti nel processore di streaming. I limiti consentono al sistema di indicare chiaramente lo stato di inserimento degli eventi. Per la natura stessa dei flussi, i dati degli eventi in ingresso non si arrestano mai, quindi i limiti indicano l'avanzamento fino a un determinato punto del flusso.
 
    Il concetto di limite è importante. I limiti consentono ad Analisi di flusso di Azure di determinare quando il sistema è in grado di produrre risultati completi, corretti e ripetibili che non è necessario ritirare. L'elaborazione può essere eseguita in un modo che garantisce prevedibilità e ripetibilità. Ad esempio, se è necessario ripetere un conteggio per una qualche condizione di gestione degli errori, i limiti sono punti di inizio e fine sicuri.
 
@@ -128,7 +128,7 @@ I processi di Analisi di flusso offrono diverse opzioni di **Ordinamento eventi*
 
 È possibile osservare diversi effetti delle tolleranze di ordinamento temporale degli eventi tramite le [metriche dei processi di Analisi di flusso](stream-analytics-monitoring.md). Le metriche seguenti sono rilevanti:
 
-|Metrica  | Descrizione  |
+|Metrica  | Description  |
 |---------|---------|
 | **Eventi non in ordine** | Indica il numero di eventi ricevuti non in ordine, che sono stati eliminati o a cui è stato assegnato un timestamp modificato. Questa metrica è interessata direttamente dalla configurazione dell'impostazione **Eventi non in ordine** nella pagina **Ordinamento eventi** del processo nel portale di Azure. |
 | **Ultimi eventi di input** | Indica il numero di eventi arrivati in ritardo dall'origine. Questa metrica include gli eventi che sono stati eliminati o di cui è stato modificato il timestamp. È interessata direttamente dalla configurazione dell'impostazione **Eventi pervenuti in ritardo** nella pagina **Ordinamento eventi** del processo nel portale di Azure. |
@@ -171,7 +171,7 @@ Le immagini seguenti illustrano lo stato di avanzamento dei limiti in diverse ci
 
 Questa tabella contiene i dati di esempio riportati nei grafici seguenti. Si noti che l'ora dell'evento e l'ora di arrivo cambiano: a volte coincidono, altre volte no.
 
-| Ora dell'evento | Ora di arrivo | DeviceId |
+| Ora dell'evento | Ora di arrivo | deviceId |
 | --- | --- | --- |
 | 12:07 | 12:07 | device1
 | 12:08 | 12:08 | device2
@@ -208,7 +208,7 @@ In questa illustrazione vengono usate le tolleranze seguenti:
 
    4. Quando viene elaborato il sesto evento (device3), l'ora di arrivo (12:17) e l'ora dell'evento (12:12) sono sotto il livello limite. L'ora dell'evento viene regolata sul livello limite (12:17).
 
-   5. Quando viene elaborato il nono evento (device3), l'ora di arrivo (12:27) è di 6 minuti successiva all'ora dell'evento (12:21). Viene applicato il criterio di arrivo in ritardo. L'ora dell'evento viene modificata (12:22) e, poiché il nuovo valore è sopra il limite (12:21), non vengono applicate ulteriori modifiche.
+   5. Quando viene elaborato il dodicesimo evento (3), l'ora di arrivo (12:27) è 6 minuti prima dell'ora dell'evento (12:21). Viene applicato il criterio di arrivo in ritardo. L'ora dell'evento viene modificata (12:22) e, poiché il nuovo valore è sopra il limite (12:21), non vengono applicate ulteriori modifiche.
 
 2. Seconda illustrazione dell'avanzamento del limite senza un criterio di arrivo in anticipo:
 

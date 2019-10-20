@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: d68934174c3bbb53bba4eb786ac79ab94725151b
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.date: 10/17/2019
+ms.openlocfilehash: ab543ee8e379b89aaa9a1133bb75387ed9904002
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166222"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598390"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Monitorare le prestazioni del database di Azure per MariaDB con Query Store
 
@@ -71,6 +71,9 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 ## <a name="finding-wait-queries"></a>Ricerca di query in relazione all'attesa
 
+> [!NOTE]
+> Le statistiche di attesa non devono essere abilitate durante le ore di picco del carico di lavoro o essere attivate per un periodo illimitato per carichi di lavoro sensibili <br>Per i carichi di lavoro in esecuzione con utilizzo elevato della CPU o su server configurati con Vcore inferiori, prestare attenzione quando si abilitano le statistiche di attesa. Non deve essere attivato per un periodo illimitato. 
+
 I tipi di eventi di attesa combinano diversi eventi di attesa in bucket in base alla somiglianza. Query Store indica il tipo di evento di attesa, il nome dello specifico evento di attesa e la query in questione. La possibilità di correlare queste informazioni sulle attese alle statistiche di runtime delle query consente di comprendere in modo più approfondito ciò che contribuisce alle caratteristiche di prestazioni delle query.
 
 Di seguito sono riportati alcuni esempi di come è possibile ottenere informazioni dettagliate sul carico di lavoro usando le statistiche di attesa in Query Store:
@@ -89,7 +92,7 @@ Per la configurazione dei parametri di Query Store sono disponibili le opzioni s
 
 | **Parametro** | **Descrizione** | **Default** | **Range** |
 |---|---|---|---|
-| query_store_capture_mode | Attivare o disattivare la funzionalità archivio query in base al valore. Nota: Se performance_schema è disattivato, l'attivazione di query_store_capture_mode attiverà performance_schema e un subset di strumenti dello schema di prestazioni necessari per questa funzionalità. | ALL | NESSUNO, TUTTI |
+| query_store_capture_mode | Attivare o disattivare la funzionalità archivio query in base al valore. Nota: se performance_schema è disattivato, l'attivazione di query_store_capture_mode attiverà performance_schema e un subset di strumenti dello schema di prestazioni necessari per questa funzionalità. | ALL | NESSUNO, TUTTI |
 | query_store_capture_interval | Intervallo di acquisizione di query Store in minuti. Consente di specificare l'intervallo in cui vengono aggregate le metriche della query | 15 | 5 - 60 |
 | query_store_capture_utility_queries | Attivazione o disattivazione per acquisire tutte le query di utilità in esecuzione nel sistema. | NO | SÌ, NO |
 | query_store_retention_period_in_days | Intervallo di tempo in giorni per la conservazione dei dati nell'archivio query. | 7 | 1-30 |
@@ -112,58 +115,58 @@ Visualizzare e gestire Query Store usando le viste e le funzioni seguenti. Tutti
 
 Le query vengono normalizzate esaminandone la struttura dopo la rimozione di valori letterali e costanti. Due query identiche tranne per i valori letterali avranno lo stesso hash.
 
-### <a name="mysqlquery_store"></a>mysql.query_store
+### <a name="mysqlquery_store"></a>MySQL. query_store
 
 Questa vista restituisce tutti i dati in Query Store. Contiene una riga per ogni specifico ID database, ID utente e ID query.
 
-| **Name** | **Tipo di dati** | **IS_NULLABLE** | **Descrizione** |
+| **Nome** | **Tipo di dati** | **IS_NULLABLE** | **Descrizione** |
 |---|---|---|---|
-| `schema_name`| varchar(64) | NO | Nome dello schema |
-| `query_id`| bigint(20) | NO| ID univoco generato per la query specifica. se la stessa query viene eseguita in uno schema diverso, verrà generato un nuovo ID |
+| `schema_name`| varchar (64) | NO | Nome dello schema |
+| `query_id`| bigint (20) | NO| ID univoco generato per la query specifica. se la stessa query viene eseguita in uno schema diverso, verrà generato un nuovo ID |
 | `timestamp_id` | timestamp| NO| Timestamp in cui viene eseguita la query. Questa operazione si basa sulla configurazione di query_store_interval|
 | `query_digest_text`| longtext| NO| Testo della query normalizzata dopo la rimozione di tutti i valori letterali|
 | `query_sample_text` | longtext| NO| Primo aspetto della query effettiva con valori letterali|
 | `query_digest_truncated` | bit| SÌ| Indica se il testo della query è stato troncato. Il valore sarà Yes se la query è più lunga di 1 KB|
-| `execution_count` | bigint(20)| NO| Il numero di volte in cui la query è stata eseguita per questo ID timestamp/durante il periodo di intervallo configurato|
-| `warning_count` | bigint(20)| NO| Numero di avvisi generati dalla query durante l'esecuzione interna|
-| `error_count` | bigint(20)| NO| Numero di errori generati dalla query durante l'intervallo|
+| `execution_count` | bigint (20)| NO| Il numero di volte in cui la query è stata eseguita per questo ID timestamp/durante il periodo di intervallo configurato|
+| `warning_count` | bigint (20)| NO| Numero di avvisi generati dalla query durante l'esecuzione interna|
+| `error_count` | bigint (20)| NO| Numero di errori generati dalla query durante l'intervallo|
 | `sum_timer_wait` | Double| SÌ| Tempo di esecuzione totale della query durante l'intervallo|
 | `avg_timer_wait` | Double| SÌ| Tempo medio di esecuzione per la query durante l'intervallo|
 | `min_timer_wait` | Double| SÌ| Tempo di esecuzione minimo per la query|
 | `max_timer_wait` | Double| SÌ| Tempo massimo di esecuzione|
-| `sum_lock_time` | bigint(20)| NO| Quantità totale di tempo impiegato per tutti i blocchi per l'esecuzione di questa query durante questo intervallo di tempo|
-| `sum_rows_affected` | bigint(20)| NO| Numero di righe interessate|
-| `sum_rows_sent` | bigint(20)| NO| Numero di righe inviate al client|
-| `sum_rows_examined` | bigint(20)| NO| Numero di righe esaminate|
-| `sum_select_full_join` | bigint(20)| NO| Numero di join completi|
-| `sum_select_scan` | bigint(20)| NO| Numero di scansioni selezionate |
-| `sum_sort_rows` | bigint(20)| NO| Numero di righe ordinate|
-| `sum_no_index_used` | bigint(20)| NO| Numero di volte in cui la query non ha utilizzato indici|
-| `sum_no_good_index_used` | bigint(20)| NO| Numero di volte in cui il motore di esecuzione delle query non ha utilizzato indici validi|
-| `sum_created_tmp_tables` | bigint(20)| NO| Numero totale di tabelle temporanee create|
-| `sum_created_tmp_disk_tables` | bigint(20)| NO| Numero totale di tabelle temporanee create nel disco (genera I/O)|
+| `sum_lock_time` | bigint (20)| NO| Quantità totale di tempo impiegato per tutti i blocchi per l'esecuzione di questa query durante questo intervallo di tempo|
+| `sum_rows_affected` | bigint (20)| NO| Numero di righe interessate|
+| `sum_rows_sent` | bigint (20)| NO| Numero di righe inviate al client|
+| `sum_rows_examined` | bigint (20)| NO| Numero di righe esaminate|
+| `sum_select_full_join` | bigint (20)| NO| Numero di join completi|
+| `sum_select_scan` | bigint (20)| NO| Numero di scansioni selezionate |
+| `sum_sort_rows` | bigint (20)| NO| Numero di righe ordinate|
+| `sum_no_index_used` | bigint (20)| NO| Numero di volte in cui la query non ha utilizzato indici|
+| `sum_no_good_index_used` | bigint (20)| NO| Numero di volte in cui il motore di esecuzione delle query non ha utilizzato indici validi|
+| `sum_created_tmp_tables` | bigint (20)| NO| Numero totale di tabelle temporanee create|
+| `sum_created_tmp_disk_tables` | bigint (20)| NO| Numero totale di tabelle temporanee create nel disco (genera I/O)|
 | `first_seen` | timestamp| NO| Prima occorrenza (UTC) della query durante la finestra di aggregazione|
 | `last_seen` | timestamp| NO| Ultima occorrenza (UTC) della query durante la finestra di aggregazione|
 
-### <a name="mysqlquery_store_wait_stats"></a>mysql.query_store_wait_stats
+### <a name="mysqlquery_store_wait_stats"></a>MySQL. query_store_wait_stats
 
 Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene una riga per ogni specifico ID database, ID utente, ID query ed evento.
 
-| **Name**| **Tipo di dati** | **IS_NULLABLE** | **Descrizione** |
+| **Nome**| **Tipo di dati** | **IS_NULLABLE** | **Descrizione** |
 |---|---|---|---|
 | `interval_start` | timestamp | NO| Inizio intervallo (incremento di 15 minuti)|
 | `interval_end` | timestamp | NO| Fine intervallo (incremento di 15 minuti)|
-| `query_id` | bigint(20) | NO| ID univoco generato nella query normalizzata (da query Store)|
+| `query_id` | bigint (20) | NO| ID univoco generato nella query normalizzata (da query Store)|
 | `query_digest_id` | varchar (32) | NO| Testo della query normalizzata dopo la rimozione di tutti i valori letterali (da query Store) |
 | `query_digest_text` | longtext | NO| Primo aspetto della query effettiva con valori letterali (da query Store) |
 | `event_type` | varchar (32) | NO| Categoria dell'evento Wait |
-| `event_name` | varchar(128) | NO| Nome dell'evento Wait |
-| `count_star` | bigint(20) | NO| Numero di eventi di attesa campionati durante l'intervallo per la query |
+| `event_name` | varchar (128) | NO| Nome dell'evento Wait |
+| `count_star` | bigint (20) | NO| Numero di eventi di attesa campionati durante l'intervallo per la query |
 | `sum_timer_wait_ms` | Double | NO| Tempo totale di attesa (in millisecondi) di questa query durante l'intervallo |
 
 ### <a name="functions"></a>Funzioni
 
-| **Name**| **Descrizione** |
+| **Nome**| **Descrizione** |
 |---|---|
 | `mysql.az_purge_querystore_data(TIMESTAMP)` | Elimina tutti i dati dell'archivio query prima del timestamp specificato |
 | `mysql.az_procedure_purge_querystore_event(TIMESTAMP)` | Elimina tutti i dati degli eventi di attesa prima del timestamp specificato |
@@ -171,7 +174,7 @@ Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene 
 
 ## <a name="limitations-and-known-issues"></a>Limitazioni e problemi noti
 
-- Se un server MariaDB dispone del parametro `default_transaction_read_only` in, Query Store Impossibile acquisire i dati.
+- Se un server MariaDB dispone del parametro `default_transaction_read_only` on, Query Store non può acquisire dati.
 - Query Store funzionalità può essere interrotta se rileva query Unicode lunghe (\> = 6000 byte).
 - Il periodo di memorizzazione per le statistiche di attesa è di 24 ore.
 - Per le statistiche di attesa viene usato Sample ti Capture a frazione di eventi. La frequenza può essere modificata utilizzando il parametro `query_store_wait_sampling_frequency`.

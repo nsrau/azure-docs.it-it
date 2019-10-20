@@ -14,10 +14,10 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 901067e198616dba390e0e1162ec26a0b11768f1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "68383131"
 ---
 # <a name="access-and-use-apps-on-the-my-apps-portal"></a>Accedere e usare le app nel portale app personali
@@ -43,7 +43,7 @@ ms.locfileid: "68383131"
 
 ## <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>Scaricare e installare l'estensione per l'accesso sicuro alle app personali
 
-Scaricare e installare l'estensione per l'accesso sicuro alle app personali, se richiesto. Questa estensione consente di avviare tutte le app cloud dell'organizzazione che richiedono l'uso di un processo Single Sign-on. Se l'organizzazione ha già configurato l'accesso Single Sign-on, l'estensione viene installata automaticamente ed è possibile ignorare questa sezione.
+Scaricare e installare l'estensione per l'accesso sicuro alle app personali, se richiesto. Questa estensione consente di avviare tutte le app cloud dell'organizzazione che richiedono l'uso di un processo di Single Sign-On. Se l'organizzazione è già stata configurata per l'Single Sign-On, l'estensione viene installata automaticamente ed è possibile ignorare questa sezione.
 
 Questa estensione consente di:
 
@@ -70,9 +70,9 @@ Viene aggiunta un'icona a destra della barra degli **indirizzi** , che consente 
 #### <a name="to-change-your-my-apps-portal-using-the-extension"></a>Per modificare il portale delle app personali usando l'estensione
 È possibile scegliere il numero di app da visualizzare nella sezione **usato di recente** e decidere se consentire il reindirizzamento degli URL interni dell'organizzazione.
 
-1. ![Selezionare l'icona](media/my-apps-portal/my-apps-portal-extension-icon.png) dell'estensione **My App Secure Sign-in Extension (nuovo app personali** ) a destra della barra degli **indirizzi** e quindi selezionare **Sign in (accedi) per**iniziare.
+1. Selezionare l'icona dell'estensione per l' **accesso sicuro alle app personali** ![Extension icona ](media/my-apps-portal/my-apps-portal-extension-icon.png) a destra della barra degli **indirizzi** e quindi selezionare **Accedi per**iniziare.
 
-2. Fare clic con il  pulsante destro ![del mouse](media/my-apps-portal/my-apps-portal-extension-settings-icon.png)sull'icona delle impostazioni icona Impostazioni, quindi scegliere **Impostazioni**.
+2. Fare clic con il pulsante destro del mouse sull'icona **delle impostazioni** ![Settings icona ](media/my-apps-portal/my-apps-portal-extension-settings-icon.png), quindi scegliere **Impostazioni**.
 
 3. Nella casella **Impostazioni** selezionare il numero di app recenti da visualizzare nel portale e se consentire agli URL interni dell'organizzazione di essere reindirizzati in modo da poterli usare in remoto.
 
@@ -88,7 +88,7 @@ Se si dispone dell'autorizzazione per accedere e usare le app basate sul cloud d
 
 1. Accedere all'account aziendale o dell'istituto di istruzione.
 
-2. Aprire il Web browser e passare a https://myapps.microsoft.com oppure usare il collegamento fornito dall'organizzazione. Ad esempio, è possibile che si venga indirizzati a una pagina personalizzata dell'organizzazione, https://myapps.microsoft.com/contoso.com ad esempio.
+2. Aprire il Web browser e passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione. Ad esempio, si potrebbe essere indirizzati a una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
 
     Viene visualizzata la pagina **app** , che Mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 
@@ -102,7 +102,7 @@ Consente di visualizzare e usare le app dell'organizzazione da una Intune Manage
 
 1. Nel dispositivo mobile scaricare e installare l'app Intune Managed Browser dall' [App Store di Apple](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) e la [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
-2. Aprire l'app Intune Managed browser, passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione. Ad esempio, è possibile che si venga indirizzati a una pagina personalizzata dell'organizzazione, https://myapps.microsoft.com/contoso.com ad esempio.
+2. Aprire l'app Intune Managed Browser, passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione. Ad esempio, si potrebbe essere indirizzati a una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
 
     Viene visualizzata la pagina **app** , che Mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 
@@ -116,7 +116,7 @@ Visualizzare e usare il portale **app personali** da un dispositivo iPhone o iPa
 
 1. Sul dispositivo mobile, avviare un'app Web browser, ad esempio Safari.
 
-2. Passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione. Ad esempio, è possibile che si venga indirizzati a una pagina personalizzata dell'organizzazione, https://myapps.microsoft.com/contoso.com ad esempio.
+2. Passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione. Ad esempio, si potrebbe essere indirizzati a una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
 
     Viene visualizzata la pagina **app** , che Mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 
@@ -130,7 +130,7 @@ Visualizzare e usare il portale **app personali** in un dispositivo Android.
 
 1. Sul dispositivo mobile, avviare un'app Web browser, ad esempio Google Chrome.
 
-2. Passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione. Ad esempio, è possibile che si venga indirizzati a una pagina personalizzata dell'organizzazione, https://myapps.microsoft.com/contoso.com ad esempio.
+2. Passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione. Ad esempio, si potrebbe essere indirizzati a una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
 
     Viene visualizzata la pagina **app** , che Mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 

@@ -15,66 +15,39 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 6443cb727573645792a4e6c929b80c3406d72025
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 41e0bdc1f04c9491ebe939f46b59ae4eb2bc7ab6
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261813"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592448"
 ---
-# <a name="service-bus-diagnostic-logs"></a>Log di diagnostica del bus di servizio
+# <a name="enable-diagnostic-logs-for-service-bus"></a>Abilitare i log di diagnostica per il bus di servizio
 
-È possibile visualizzare due tipi di log per il bus di servizio di Azure:
-* **[Log attività](../azure-monitor/platform/activity-logs-overview.md)** . Questi log contengono informazioni sulle operazioni eseguite in un processo. I log sono sempre attivati.
-* **[Log di diagnostica](../azure-monitor/platform/resource-logs-overview.md)** . È possibile configurare i log di diagnostica per informazioni più complete su tutto ciò che accade in un processo. I log di diagnostica coprono le attività che si verificano dal momento della creazione del processo fino alla sua eliminazione, inclusi gli aggiornamenti e le attività che si verificano durante l'esecuzione del processo.
+Quando si inizia a usare lo spazio dei nomi del bus di servizio di Azure, potrebbe essere necessario monitorare come e quando lo spazio dei nomi viene creato, eliminato o accessibile. Questo articolo fornisce una panoramica di tutti i log operativi/di diagnostica disponibili.
 
-## <a name="turn-on-diagnostic-logs"></a>Attivare i log di diagnostica
-
-I log di diagnostica sono disabilitati per impostazione predefinita. Per abilitare i log di diagnostica, eseguire la procedura seguente:
-
-1.  Nel [portale di Azure](https://portal.azure.com) in **Monitoraggio + Gestione** fare clic su **Log di diagnostica**.
-
-    ![navigazione al pannello dei log di diagnostica](./media/service-bus-diagnostic-logs/image1.png)
-
-2. Fare clic sulla risorsa da monitorare.  
-
-3.  Fare clic su **Attiva diagnostica**.
-
-    ![attivazione dei log di diagnostica](./media/service-bus-diagnostic-logs/image2.png)
-
-4.  Per **Stato** fare clic su **Attivato**.
-
-    ![modifica dello stato dei log di diagnostica](./media/service-bus-diagnostic-logs/image3.png)
-
-5.  Impostare la destinazione dell'archivio desiderata; ad esempio, un account di archiviazione, un hub eventi o i log di monitoraggio di Azure.
-
-6.  Salvare le nuove impostazioni di diagnostica.
-
-Le nuove impostazioni diventano effettive in circa 10 minuti. Trascorso questo tempo, i log vengono visualizzati nella destinazione di archiviazione configurata, all'interno del pannello **Log di diagnostica**.
-
-Per altre informazioni sulla configurazione della diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/platform/resource-logs-overview.md).
-
-## <a name="diagnostic-logs-schema"></a>Schema dei log di diagnostica
-
-Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON). Ogni voce presenta campi stringa che usano il formato descritto nella sezione seguente.
+Il bus di servizio di Azure supporta attualmente log attività/operativi che acquisiscono **le operazioni di gestione** eseguite nello spazio dei nomi del bus di servizio di Azure. In particolare, questi log acquisiscono il tipo di operazione, tra cui la creazione delle code, le risorse usate e lo stato dell'operazione.
 
 ## <a name="operational-logs-schema"></a>Schema di log operativi
 
-I log nella categoria **OperationalLogs** acquisiscono i dati relativi al funzionamento del bus di servizio. In particolare, questi log acquisiscono il tipo di operazione, tra cui la creazione delle code, le risorse usate e lo stato dell'operazione.
+Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON) nelle due posizioni seguenti.
+
+- **AzureActivity** : consente di visualizzare i log delle operazioni/azioni eseguite sullo spazio dei nomi nel portale o tramite le distribuzioni Azure Resource Manager modello.
+- **AzureDiagnostics** : Visualizza i log delle operazioni/azioni eseguite sullo spazio dei nomi usando l'API o i client di gestione nell'SDK del linguaggio.
 
 Le stringhe JSON dei log operativi includono gli elementi elencati nella seguente tabella:
 
-Attività | Descrizione
-------- | -------
-ActivityId | ID interno, usato a scopo di rilevamento
-EventName | Nome operazione           
-resourceId | ID della risorsa Azure Resource Manager
-ID della sottoscrizione | ID sottoscrizione
-EventTimeString | Durata dell'operazione
-EventProperties | Proprietà dell'operazione
-Stato | Stato dell'operazione
-Caller | Chiamante dell'operazione (Portale di Azure o client di gestione)
-category | OperationalLogs
+| name | Description |
+| ------- | ------- |
+| ActivityId | ID interno, usato per identificare l'attività specificata |
+| EventName | Nome operazione |
+| ResourceId | ID della risorsa Azure Resource Manager |
+| SubscriptionId | ID sottoscrizione |
+| EventTimeString | Durata dell'operazione |
+| EventProperties | Proprietà dell'operazione |
+| Status | Stato dell'operazione |
+| Chiamante | Chiamante dell'operazione (Portale di Azure o client di gestione) |
+| Categoria | OperationalLogs |
 
 Di seguito è riportato un esempio di stringa JSON di log operativo:
 
@@ -91,6 +64,54 @@ Di seguito è riportato un esempio di stringa JSON di log operativo:
   "category": "OperationalLogs"
 }
 ```
+
+## <a name="what-eventsoperations-are-captured-in-operational-logs"></a>Quali eventi/operazioni vengono acquisiti nei log operativi?
+
+I log operazioni acquisiscono tutte le operazioni di gestione eseguite nello spazio dei nomi del bus di servizio di Azure. Le operazioni sui dati non vengono acquisite a causa del volume elevato di operazioni dati eseguite nel bus di servizio di Azure.
+
+> [!NOTE]
+> Per tenere traccia delle operazioni sui dati, è consigliabile usare la traccia lato client.
+
+Le operazioni di gestione seguenti vengono acquisite nei log operativi. 
+
+| Scope | Operazione|
+|-------| -------- |
+| Spazio dei nomi | <ul> <li> Creare lo spazio dei nomi</li> <li> Aggiorna spazio dei nomi </li> <li> Elimina spazio dei nomi </li>  </ul> | 
+| Coda | <ul> <li> Crea coda</li> <li> Aggiorna coda</li> <li> Eliminazione code </li> </ul> | 
+| Argomento | <ul> <li> Crea argomento </li> <li> Aggiorna argomento </li> <li> Elimina argomento </li> </ul> |
+| Sottoscrizione | <ul> <li> Creare la sottoscrizione </li> <li> Aggiorna sottoscrizione </li> <li> Elimina sottoscrizione </li> </ul> |
+
+> [!NOTE]
+> Attualmente, le operazioni di **lettura** non vengono registrate nei log operativi.
+
+## <a name="how-to-enable-operational-logs"></a>Come si abilitano i log operativi?
+
+Per impostazione predefinita, i log operativi sono disabilitati. Per abilitare i log di diagnostica, eseguire la procedura seguente:
+
+1. Nella [portale di Azure](https://portal.azure.com)passare allo spazio dei nomi del bus di servizio di Azure e in **monitoraggio**fare clic su **impostazioni di diagnostica**.
+
+   ![navigazione al pannello dei log di diagnostica](./media/service-bus-diagnostic-logs/image1.png)
+
+2. Fare clic su **Aggiungi impostazione di diagnostica** per configurare le impostazioni di diagnostica.  
+
+   ![attivazione dei log di diagnostica](./media/service-bus-diagnostic-logs/image2.png)
+
+3. Configurare le impostazioni di diagnostica
+   1. Digitare un **nome** per identificare le impostazioni di diagnostica.
+   2. Selezionare una destinazione per la diagnostica.
+      - Se si seleziona **account di archiviazione**, è necessario configurare l'account di archiviazione in cui verrà archiviata la diagnostica.
+      - Se si seleziona **Hub eventi**, è necessario configurare l'hub eventi appropriato in cui verranno trasmesse le impostazioni di diagnostica.
+      - Se si seleziona **log Analytics**, è necessario specificare l'istanza di log Analytics la diagnostica verrà inviata.
+    3. Controllare **OperationalLogs**.
+
+       ![modifica dello stato dei log di diagnostica](./media/service-bus-diagnostic-logs/image3.png)
+
+4. Fare clic su **Salva**
+
+
+Le nuove impostazioni diventano effettive in circa 10 minuti. Trascorso questo tempo, i log vengono visualizzati nella destinazione di archiviazione configurata, all'interno del pannello **Log di diagnostica**.
+
+Per altre informazioni sulla configurazione della diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

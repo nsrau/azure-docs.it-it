@@ -9,18 +9,18 @@ ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: caf72d4af390956391fdab133cf0897abbee4633
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: aed61e5cf32ed0148e8b9eee6edf44daa03acd17
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673148"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598098"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autorizzare l'accesso a BLOB e code di Azure usando Azure Active Directory
 
 Archiviazione di Azure supporta l'uso di Azure Active Directory (AD) per autorizzare le richieste all'archiviazione BLOB e di Accodamento. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD per restituire un token OAuth 2,0. Il token può essere usato per autorizzare una richiesta di accesso a una risorsa nell'archivio BLOB o di Accodamento.
 
-L'autorizzazione di utenti o applicazioni tramite un token OAuth 2,0 restituito da Azure AD offre sicurezza e facilità d'uso superiori rispetto alle firme di accesso condiviso (SAS). Con Azure AD, non è necessario archiviare la chiave di accesso dell'account con il codice e rischiare potenziali vulnerabilità della sicurezza. Mentre con le applicazioni è possibile continuare a usare l'autorizzazione con chiave condivisa, l'uso di Azure AD consente di evitare la necessità di archiviare la chiave di accesso dell'account con il codice. È anche possibile continuare a usare le firme di accesso condiviso per concedere accesso specifico alle risorse dell'account di archiviazione, ma Azure AD offre funzionalità simili senza la necessità di gestire i token di firma di accesso condiviso o di occuparsi della revoca di una di firma di accesso condiviso compromessa. Microsoft consiglia di usare Azure AD autorizzazione con le applicazioni di archiviazione di Azure, quando possibile.
+L'autorizzazione di utenti o applicazioni tramite un token OAuth 2,0 restituito da Azure AD offre sicurezza e facilità d'uso superiori rispetto alle firme di accesso condiviso (SAS). Con Azure AD, non è necessario archiviare la chiave di accesso dell'account con il codice e rischiare potenziali vulnerabilità della sicurezza. Mentre con le applicazioni è possibile continuare a usare l'autorizzazione con chiave condivisa, l'uso di Azure AD consente di evitare la necessità di archiviare la chiave di accesso dell'account con il codice. È anche possibile continuare a usare le firme di accesso condiviso (SAS) per concedere accesso specifico alle risorse dell'account di archiviazione, ma Azure AD offre funzionalità simili senza la necessità di gestire i token SAS o di occuparsi della revoca di una SAS compromessa. Microsoft consiglia di usare Azure AD autorizzazione con le applicazioni di archiviazione di Azure, quando possibile.
 
 L'autorizzazione con Azure AD è disponibile per tutti gli account di archiviazione BLOB e per utilizzo generico in tutte le aree pubbliche e nei cloud nazionali. Solo gli account di archiviazione creati con il modello di distribuzione Azure Resource Manager supportano Azure AD autorizzazione. L'autorizzazione con Azure AD non è supportata per l'archiviazione tabelle di Azure.
 
@@ -34,7 +34,7 @@ Il passaggio di autorizzazione richiede che uno o più ruoli RBAC siano assegnat
 
 Le applicazioni native e le applicazioni Web che effettuano richieste al BLOB di Azure o a Servizio di accodamento possono anche autorizzare l'accesso con Azure AD. Per informazioni su come richiedere un token di accesso e usarlo per autorizzare le richieste di dati BLOB o di Accodamento, vedere [autorizzare l'accesso ad archiviazione di Azure con Azure ad da un'applicazione di archiviazione di Azure](storage-auth-aad-app.md).
 
-## <a name="assigning-rbac-roles-for-access-rights"></a>Assegnazione di ruoli RBAC per i diritti di accesso
+## <a name="assign-rbac-roles-for-access-rights"></a>Assegnare i ruoli RBAC per i diritti di accesso
 
 Azure Active Directory (Azure AD) autorizza diritti di accesso a risorse protette tramite il [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md). Archiviazione di Azure definisce un set di ruoli RBAC predefiniti che comprende i set comuni di autorizzazioni utilizzate per accedere ai dati BLOB e di Accodamento. È anche possibile definire ruoli personalizzati per l'accesso ai dati BLOB e di Accodamento.
 

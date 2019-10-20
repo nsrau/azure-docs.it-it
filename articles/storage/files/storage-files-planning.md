@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fa3e3c6d89657d328182da667c153f14f70bbd7e
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6361814a30cc7d1bc9703dae8ddb14d955c1582d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514654"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598035"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -219,13 +219,13 @@ Le condivisioni file standard sono disponibili in tutte le aree fino a 5 TiB. In
 |Stati Uniti occidentali *        |LRS     |
 |Stati Uniti occidentali 2      |CON RIDONDANZA LOCALE, ZRS|
 
-\* supportato per i nuovi account, non tutti gli account esistenti hanno completato il processo di aggiornamento.
+\* supportato per i nuovi account, non tutti gli account esistenti hanno completato il processo di aggiornamento. È possibile verificare se gli account di archiviazione esistenti hanno completato il processo di aggiornamento tentando di [abilitare condivisioni file di grandi dimensioni](storage-files-how-to-create-large-file-share.md).
 
 Per aiutarci a classificare in ordine di priorità nuove aree e funzionalità, compila questo [sondaggio](https://aka.ms/azurefilesatscalesurvey).
 
 ### <a name="enable-and-create-larger-file-shares"></a>Abilitare e creare condivisioni file di dimensioni maggiori
 
-Per iniziare a usare condivisioni file di dimensioni maggiori, vedere l'articolo [abilitare condivisioni file di grandi dimensioni](storage-files-how-to-create-large-file-share.md).
+Per iniziare a usare condivisioni file di dimensioni maggiori, vedere l'articolo [come abilitare e creare condivisioni di file di grandi dimensioni](storage-files-how-to-create-large-file-share.md).
 
 ## <a name="data-growth-pattern"></a>Modello di crescita dei dati
 

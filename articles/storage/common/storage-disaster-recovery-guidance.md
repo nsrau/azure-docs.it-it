@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 4a621f8976efe395014c073a6bd7c5d09d19d915
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3717199d2fa342fff5996d97bc5cdaf6da6e9880
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671070"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595194"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Ripristino di emergenza e failover dell'account di archiviazione (anteprima) in Archiviazione di Azure
 
@@ -47,16 +47,16 @@ Le altre opzioni di ridondanza di Archiviazione di Azure includono l'archiviazio
 
 È importante progettare l'applicazione per la disponibilità elevata fin dall'inizio. Per indicazioni sulla progettazione dell'applicazione e sulla pianificazione del ripristino di emergenza, vedere queste risorse di Azure:
 
-* [Progettazione di applicazioni resilienti per Azure](https://docs.microsoft.com/azure/architecture/resiliency/): panoramica dei concetti chiave relativi all'architettura delle applicazioni a disponibilità elevata in Azure.
+* [Progettazione di applicazioni resilienti per Azure](https://docs.microsoft.com/azure/architecture/resiliency/): Panoramica dei concetti chiave per l'architettura di applicazioni a disponibilità elevata in Azure.
 * [Elenco di controllo della disponibilità](https://docs.microsoft.com/azure/architecture/checklist/availability): elenco di controllo per verificare che l'applicazione implementi le procedure di progettazione consigliate per la disponibilità elevata.
-* [Progettazione di applicazioni a disponibilità elevata con RA-GRS](storage-designing-ha-apps-with-ragrs.md): indicazioni di progettazione per la compilazione di applicazioni che sfruttano l'archiviazione con ridondanza geografica e accesso in lettura.
-* [Esercitazione: Compilare un'applicazione a disponibilità elevata con l'archivio BLOB](../blobs/storage-create-geo-redundant-storage.md): esercitazione che illustra come compilare un'applicazione a disponibilità elevata che passa automaticamente da un endpoint all'altro mentre vengono simulati errori e ripristini. 
+* [Progettazione di applicazioni a disponibilità elevata con RA-GRS](storage-designing-ha-apps-with-ragrs.md): linee guida di progettazione per la creazione di applicazioni per sfruttare i vantaggi di RA-GRS.
+* [Esercitazione: creare un'applicazione a disponibilità elevata con archiviazione BLOB](../blobs/storage-create-geo-redundant-storage.md): un'esercitazione che illustra come creare un'applicazione a disponibilità elevata che passa automaticamente tra gli endpoint come errori e i recuperi vengono simulati. 
 
 Tenere anche presenti queste procedure consigliate per mantenere la disponibilità elevata per i dati di Archiviazione di Azure:
 
-* **Dischi:** usare [Backup di Azure](https://azure.microsoft.com/services/backup/) per eseguire il backup dei dischi delle macchine virtuali usati dalle macchine virtuali di Azure. Valutare anche l'opportunità di usare [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) per proteggere le macchine virtuali in caso di emergenza a livello di area.
-* **BLOB in blocchi:** attivare l'[eliminazione temporanea](../blobs/storage-blob-soft-delete.md) per proteggere da eliminazioni e sovrascritture a livello di oggetto o copiare i BLOB in blocchi in un altro account di archiviazione in un'area diversa usando [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) o la [libreria di spostamento dei dati di Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
-* **File:** usare [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](storage-powershell-guide-full.md) per copiare i file in un altro account di archiviazione in un'area diversa.
+* **Dischi:** Usare [backup di Azure](https://azure.microsoft.com/services/backup/) per eseguire il backup dei dischi di VM usati dalle macchine virtuali di Azure. Valutare anche l'opportunità di usare [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) per proteggere le macchine virtuali in caso di emergenza a livello di area.
+* **BLOB in blocchi:** Attivare l' [eliminazione](../blobs/storage-blob-soft-delete.md) temporanea per proteggersi da eliminazioni a livello di oggetto e sovrascritture oppure copiare BLOB in blocchi in un altro account di archiviazione in un'area diversa usando [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md)o la [libreria di spostamento dei dati di Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+* **File:** Usare [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](storage-powershell-guide-full.md) per copiare i file in un altro account di archiviazione in un'area diversa.
 * **Tabelle:** usare [AzCopy](storage-use-azcopy.md) per esportare i dati delle tabelle in un altro account di archiviazione in un'area diversa.
 
 ## <a name="track-outages"></a>Tenere traccia delle interruzioni
@@ -119,8 +119,14 @@ Per evitare la perdita di una grande quantità di dati, controllare il valore de
 
 Il failover dell'account è disponibile in anteprima per tutti i clienti che usano GRS o RA-GRS con distribuzioni Azure Resource Manager. Sono supportati i tipi di account di archiviazione per utilizzo generico v1, utilizzo generico v2 e BLOB. Il failover dell'account è attualmente disponibile nelle aree seguenti:
 
-- Stati Uniti occidentali 2
+- Asia orientale
+- Asia sudorientale
+- Australia orientale
+- Australia sud-orientale
+- Stati Uniti centrali
+- Stati Uniti orientali 2
 - Stati Uniti centro-occidentali
+- Stati Uniti occidentali 2
 
 La versione di anteprima è destinata solo all'uso in ambienti non di produzione. I contratti di servizio (SLA) di produzione non sono al momento disponibili.
 
@@ -139,7 +145,7 @@ Potrebbero essere necessari 1-2 giorni per ricevere l'approvazione per l'antepri
 Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
-### <a name="additional-considerations"></a>Considerazioni aggiuntive 
+### <a name="additional-considerations"></a>Considerazione aggiuntive 
 
 Leggere le considerazioni aggiuntive esposte in questa sezione per comprendere come le applicazioni e i servizi potrebbero essere interessati quando si forza un failover durante il periodo di anteprima.
 
@@ -170,7 +176,7 @@ Le funzionalità o i servizi seguenti non sono supportati per il failover dell'a
 - Sincronizzazione file di Azure non supporta il failover dell'account di archiviazione. È consigliabile non effettuare il failover degli account di archiviazione contenenti condivisioni file di Azure che vengono usate come endpoint cloud in Sincronizzazione file di Azure. Il failover causerebbe l'arresto della sincronizzazione e potrebbe causare inoltre una perdita di dati imprevista nel caso di file appena disposti su livelli.  
 - Non è possibile effettuare il failover di un account di archiviazione contenente BLOB archiviati. Mantenere i BLOB archiviati in un account di archiviazione separato di cui non si intende effettuare il failover.
 - Non è possibile effettuare il failover di un account di archiviazione contenente BLOB in blocchi Premium. Gli account di archiviazione che supportano i BLOB in blocchi Premium non supportano attualmente la ridondanza geografica.
-- Al termine del failover, le funzionalità seguenti smetteranno di funzionare se originariamente abilitate: [Sottoscrizioni di eventi](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [criteri del ciclo](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)di vita, [analisi archiviazione registrazione](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
+- Al termine del failover, le funzionalità seguenti smetteranno di funzionare se originariamente abilitate: [sottoscrizioni di eventi](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [criteri del ciclo](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)di vita, [analisi archiviazione registrazione](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copia dei dati come alternativa al failover
 
@@ -180,8 +186,8 @@ Se l'account di archiviazione è configurato per l'archiviazione con ridondanza 
 
 In casi estremi, in cui un'area va persa a causa di una grave emergenza, Microsoft potrebbe avviare un failover a livello di area. In tal caso, non è necessaria alcuna azione da parte dell'utente. Si avrà di nuovo accesso in scrittura all'account di archiviazione solo dopo il completamento del failover gestito da Microsoft. Le applicazioni possono eseguire operazioni di lettura dall'area secondaria se l'account di archiviazione è configurato per l'archiviazione con ridondanza geografica e accesso in lettura. 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Avviare il failover di un account (anteprima)](storage-initiate-account-failover.md)
 * [Progettazione di applicazioni a disponibilità elevata con RA-GRS](storage-designing-ha-apps-with-ragrs.md)
-* [Esercitazione: Compilare un'applicazione a disponibilità elevata con l'archivio BLOB](../blobs/storage-create-geo-redundant-storage.md) 
+* [Esercitazione: creare un'applicazione a disponibilità elevata con archiviazione BLOB](../blobs/storage-create-geo-redundant-storage.md) 

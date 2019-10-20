@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 1fff9c076349d98d7a72c4bf69edb0a2795ac88f
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 75b8ea5e8dcaed533eac424bb8df1d1862889490
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937367"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592369"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -22,15 +22,15 @@ Endpoint privato di Azure è un'interfaccia di rete che si connette privatamente
  Un endpoint privato specifica le proprietà seguenti: 
 
 
-|Proprietà  |DESCRIZIONE |
+|Proprietà  |Description |
 |---------|---------|
-|Attività    |    Nome univoco all'interno del gruppo di risorse.      |
+|name    |    Nome univoco all'interno del gruppo di risorse.      |
 |Subnet    |  Subnet per la distribuzione e l'allocazione di indirizzi IP privati da una rete virtuale. Per i requisiti della subnet, vedere la sezione limitazioni di questo articolo.         |
 |Risorsa collegamento privato    |   La risorsa di collegamento privato per la connessione usando l'ID risorsa o l'alias, dall'elenco dei tipi disponibili. Verrà generato un identificatore di rete univoco per tutto il traffico inviato a questa risorsa.       |
 |Sottorisorsa di destinazione   |      Sottorisorsa da connettere. Ogni tipo di risorsa di collegamento privato ha opzioni diverse da selezionare in base alla preferenza.    |
 |Metodo di approvazione della connessione    |  Automatico o manuale. In base alle autorizzazioni di controllo degli accessi in base al ruolo (RBAC), l'endpoint privato può essere approvato automaticamente. Se si tenta di connettersi a una risorsa di collegamento privato senza RBAC, usare il metodo Manual per consentire al proprietario della risorsa di approvare la connessione.        |
 |Messaggio di richiesta     |  È possibile specificare un messaggio affinché le connessioni richieste vengano approvate manualmente. Questo messaggio può essere usato per identificare una richiesta specifica.        |
-|Stato della connessione   |   Proprietà di sola lettura che specifica se l'endpoint privato è attivo. Per inviare il traffico è possibile usare solo endpoint privati in uno stato approvato. Stati aggiuntivi disponibili: <br>-**Approvato**: La connessione è stata approvata automaticamente o manualmente ed è pronta per essere usata.</br><br>-**In sospeso**: La connessione è stata creata manualmente ed è in attesa di approvazione da parte del proprietario della risorsa di collegamento privato.</br><br>-**Rifiutato**: La connessione è stata rifiutata dal proprietario della risorsa di collegamento privato.</br><br>-**Disconnesso**: La connessione è stata rimossa dal proprietario della risorsa di collegamento privato. L'endpoint privato diventa informativo e deve essere eliminato per la pulizia. </br>|
+|Stato della connessione   |   Proprietà di sola lettura che specifica se l'endpoint privato è attivo. Per inviare il traffico è possibile usare solo endpoint privati in uno stato approvato. Stati aggiuntivi disponibili: <br>-**approvata**: la connessione è stata approvata automaticamente o manualmente ed è pronta per essere usata.</br><br>-**in sospeso**: la connessione è stata creata manualmente ed è in attesa di approvazione da parte del proprietario della risorsa di collegamento privato.</br><br>-**rifiutato**: la connessione è stata rifiutata dal proprietario della risorsa di collegamento privato.</br><br>-**disconnesso**: la connessione è stata rimossa dal proprietario della risorsa di collegamento privato. L'endpoint privato diventa informativo e deve essere eliminato per la pulizia. </br>|
 
 Ecco alcuni dettagli chiave sugli endpoint privati: 
 - L'endpoint privato consente la connettività tra i consumer dalla stessa VNet, reti virtuali con peering di area, reti virtuali con peering globale e locale usando [VPN](https://azure.microsoft.com/services/vpn-gateway/) o [Express Route](https://azure.microsoft.com/services/expressroute/) e servizi basati su collegamento privato.
@@ -52,7 +52,7 @@ Una risorsa di collegamento privato è la destinazione di un endpoint privato sp
  
 |Nome della risorsa di collegamento privato  |Tipo di risorsa   |Le sottorisorse  |
 |---------|---------|---------|
-|**Servizio di collegamento privato** (Servizio personalizzato)   |  Microsoft. Network/privateLinkServices       | vuoto |
+|**Servizio di collegamento privato** (servizio personalizzato)   |  Microsoft. Network/privateLinkServices       | empty |
 |**Database SQL di Azure** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
 |**Azure SQL Data Warehouse** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
 |**Archiviazione di Azure**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)<BR> Tabella (tabella, table_secondary)<BR> Coda (coda, queue_secondary)<BR> File (file, file_secondary)<BR> Web (Web, web_secondary)        |
@@ -119,13 +119,13 @@ Le applicazioni non devono modificare l'URL di connessione. Quando si tenta di r
 La tabella seguente include un elenco di limitazioni note quando si usano gli endpoint privati: 
 
 
-|Limitazione |Descrizione |Attenuazione  |
+|Limitazione |Description |Mitigazione  |
 |---------|---------|---------|
-|Le regole del gruppo di sicurezza di rete (NSG) non si applicano all'endpoint privato    |NSG non è supportato in endpoint privati. Mentre le subnet contenenti l'endpoint privato possono avere NSG associate, le regole non saranno valide per il traffico elaborato dall'endpoint privato. Per distribuire endpoint privati in una subnet, è necessario che l' [applicazione di criteri di rete sia disabilitata](disable-private-endpoint-network-policy.md) . NSG viene ancora applicato ad altri carichi di lavoro ospitati nella stessa subnet.   | Controllare il traffico usando le regole NSG per il traffico in uscita nei client di origine.        |
+|Le regole del gruppo di sicurezza di rete (NSG) e le route definite dall'utente non si applicano all'endpoint privato    |NSG non è supportato in endpoint privati. Mentre le subnet contenenti l'endpoint privato possono avere NSG associate, le regole non saranno valide per il traffico elaborato dall'endpoint privato. Per distribuire endpoint privati in una subnet, è necessario che l' [applicazione di criteri di rete sia disabilitata](disable-private-endpoint-network-policy.md) . NSG viene ancora applicato ad altri carichi di lavoro ospitati nella stessa subnet. Le route in qualsiasi subnet client utilizzeranno un prefisso/32. la modifica del comportamento di routing predefinito richiede un UDR simile  | Controllare il traffico usando le regole NSG per il traffico in uscita nei client di origine. Distribuire le singole route con prefisso/32 per eseguire l'override delle route di endpoint privato        |
 |Non è possibile creare endpoint privati nelle subnet abilitate per l'endpoint di servizio o i carichi di lavoro specializzati    |Non è possibile distribuire gli endpoint privati nelle subnet abilitate per gli endpoint di servizio o le subnet delegate a carichi di lavoro specializzati|  Creare una subnet separata per distribuire gli endpoint privati.        |
 |è possibile eseguire il mapping dell'endpoint privato solo a un servizio di collegamento privato (di proprietà del cliente) nella stessa area    |   La connessione a un servizio di collegamento privato (propria) da un'area diversa non è supportata       |  Durante la fase di anteprima, è necessario distribuire il servizio di collegamento privato nella stessa area.        |
 |  La rete virtuale con peering con endpoint privati non è supportata   |   Quando ci si connette a endpoint privati in una rete virtuale con peering senza altri carichi di lavoro non è supportato       | Distribuire una singola VM nella rete virtuale con peering per abilitare la connettività |
-|Carichi di lavoro specializzati non possono accedere agli endpoint privati    |   I servizi seguenti distribuiti nella rete virtuale non possono accedere a una risorsa di collegamento privato tramite endpoint privati:<br>Piano di servizio app</br>Istanza di contenitore di Azure</br>Azure NetApp Files</br>Modulo di protezione hardware dedicato di Azure<br>       |   Nessuna attenuazione durante l'anteprima.       |
+|Carichi di lavoro specializzati non possono accedere agli endpoint privati    |   I servizi seguenti distribuiti nella rete virtuale non possono accedere a una risorsa di collegamento privato tramite endpoint privati:<br>Piano di servizio app</br>Istanza di contenitore di Azure</br>Azure NetApp Files</br>HSM dedicato di Azure<br>       |   Nessuna attenuazione durante l'anteprima.       |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
