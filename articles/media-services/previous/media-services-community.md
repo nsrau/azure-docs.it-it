@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8070d0cc302e0c0745216cdd40c9cbbf34e2bf58
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: c4798fa9140f277d5383d2830eefb9bcc8d7c984
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69016639"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598320"
 ---
 # <a name="azure-media-services-community"></a>Community di Servizi multimediali di Azure  
 
@@ -54,9 +54,9 @@ Il team monitora anche le domande contrassegnate su Stack Overflow con "azure-me
 
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
-## <a name="contact-the-team"></a>Contattare il team
+## <a name="need-help"></a>Opzioni per
 
-L'indirizzo di posta elettronica principale per il supporto di Servizi multimediali di Azure è: **amshelp@microsoft.com** .
+È possibile aprire un ticket di supporto passando alla [nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

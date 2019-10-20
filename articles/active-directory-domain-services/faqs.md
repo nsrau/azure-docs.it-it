@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 64e1095466f9494ccd8aa052a739729542920784
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 4add98ae092359c6f070bfc93b69257894f44e48
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305047"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596425"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Domande frequenti (FAQ)
 
@@ -29,7 +29,7 @@ In questa pagina vengono fornite le risposte alle domande frequenti su Azure Act
 * [È possibile abilitare Azure AD Domain Services in una rete virtuale Azure Resource Manager?](#can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network)
 * [È possibile eseguire la migrazione del dominio gestito esistente da una rete virtuale classica a una rete virtuale Gestione risorse?](#can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network)
 * [È possibile abilitare Azure AD Domain Services in una sottoscrizione di Azure CSP (Cloud Solution Provider)?](#can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription)
-* [È possibile abilitare Azure AD Domain Services in una directory di Azure AD federata? Gli hash delle password non vengono sincronizzati in Azure AD. È possibile abilitare Azure AD Domain Services per questa directory?](#can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory)
+* [È possibile abilitare Azure AD Domain Services in una directory di Azure AD federata? Non sincronizzare gli hash delle password con Azure AD. È possibile abilitare Azure AD Domain Services per questa directory?](#can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory)
 * [È possibile rendere Azure AD Domain Services disponibili in più reti virtuali all'interno della sottoscrizione?](#can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription)
 * [È possibile abilitare Azure AD Domain Services usando PowerShell?](#can-i-enable-azure-ad-domain-services-using-powershell)
 * [È possibile abilitare Azure AD Domain Services usando un modello di Gestione risorse?](#can-i-enable-azure-ad-domain-services-using-a-resource-manager-template)
@@ -47,7 +47,7 @@ Le reti virtuali classiche non sono supportate per le nuove distribuzioni. I dom
 Sì. Azure AD Domain Services può essere abilitato in una rete virtuale di Azure Resource Manager. Le reti virtuali di Azure classiche non sono più supportate quando si crea un nuovo dominio gestito.
 
 ### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>È possibile eseguire la migrazione del dominio gestito esistente da una rete virtuale classica a una rete virtuale Gestione risorse?
-Attualmente non è possibile. È in corso un lavoro di progettazione per eseguire la migrazione di domini gestiti esistenti da una rete virtuale classica a una rete virtuale Gestione risorse.
+Sì, questa funzionalità è in anteprima. Per ulteriori informazioni, vedere [migrare Azure AD Domain Services dal modello di rete virtuale classica a Gestione risorse (anteprima)] [migrate-from-Classic-vnet.md]
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>È possibile abilitare Azure Active Directory Domain Services in una sottoscrizione di Azure CSP (Cloud Solution Provider)?
 Sì. Per altre informazioni, vedere [How to enable Azure ad Domain Services in Azure CSP subscriptions](csp.md).
@@ -71,7 +71,7 @@ No. Il dominio fornito da Servizi di dominio Azure Active Directory è un domini
 No. Gli utenti guest invitati a una directory di Azure AD tramite la procedura di invito [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) vengono sincronizzati nel dominio gestito di Azure AD Domain Services. Tuttavia, le password per questi utenti non vengono archiviate nella directory Azure AD. Pertanto, Azure AD Domain Services non è in grado di sincronizzare gli hash NTLM e Kerberos per questi utenti nel dominio gestito. Tali utenti non possono accedere o aggiungere computer al dominio gestito.
 
 ### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>È possibile spostare un dominio gestito Azure AD Domain Services esistente in una sottoscrizione, un gruppo di risorse, un'area o una rete virtuale diversi?
-No. Dopo aver creato un Azure AD Domain Services dominio gestito, non è possibile spostare l'istanza di in un gruppo di risorse, una rete virtuale, una sottoscrizione e così via. Quando si distribuisce l'istanza di Azure Active Directory Domain Services, prestare attenzione a selezionare la sottoscrizione, il gruppo di risorse, l'area e la rete virtuale più appropriati.
+No. Dopo aver creato un Azure AD Domain Services dominio gestito, non è possibile spostare l'istanza di in un gruppo di risorse, una rete virtuale, una sottoscrizione e così via. Quando si distribuisce l'istanza di Azure AD DS, prestare attenzione a selezionare la sottoscrizione, il gruppo di risorse, l'area e la rete virtuale più appropriati.
 
 ## <a name="administration-and-operations"></a>Amministrazione e operazioni
 
@@ -139,7 +139,7 @@ No. Azure AD Domain Services è un servizio di Azure con pagamento in base al co
 ### <a name="what-azure-regions-is-the-service-available-in"></a>In quale aree di Azure è disponibile il servizio?
 Per l'elenco delle aree di Azure in cui è disponibile Azure Active Directory Domain Services, vedere i [servizi di Azure per area](https://azure.microsoft.com/regions/#services/).
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Per soluzioni relative ai problemi comuni di configurazione o amministrazione di Azure AD Domain Services, vedere la [Guida alla risoluzione dei problemi](troubleshoot.md).
 

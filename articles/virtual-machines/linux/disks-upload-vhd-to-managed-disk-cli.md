@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: d16e37849ce8ba043fdb1fddb13df2abe8732cda
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: dfcf9ea61a1f0fb5fd2d3b613c2449480753b3a1
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71717181"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595104"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Caricare un VHD in Azure usando l'interfaccia della riga di comando di Azure
 
@@ -29,7 +29,7 @@ Attualmente, il caricamento diretto è supportato per HDD standard, unità SSD s
 - Scaricare la versione più recente [di AzCopy V10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
 - Un file VHD, archiviato localmente
-- Se si intende caricare un disco rigido virtuale da-PEM: Un VHD [preparato per Azure](../windows/prepare-for-upload-vhd-image.md), archiviato localmente.
+- Se si intende caricare un disco rigido virtuale da un disco rigido virtuale che [è stato preparato per Azure](../windows/prepare-for-upload-vhd-image.md), archiviato localmente.
 - In alternativa, un disco gestito in Azure, se si intende eseguire un'azione di copia.
 
 ## <a name="create-an-empty-managed-disk"></a>Creare un disco gestito vuoto
@@ -41,7 +41,7 @@ Questo tipo di disco gestito ha due stati univoci:
 - ReadToUpload, il che significa che il disco è pronto per ricevere un caricamento, ma non è stata generata alcuna [firma di accesso sicuro](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS).
 - ActiveUpload, il che significa che il disco è pronto per ricevere un caricamento e che la firma di accesso condiviso è stata generata.
 
-In uno di questi Stati, il disco gestito verrà fatturato in base ai [prezzi standard di HDD](https://azure.microsoft.com/pricing/details/managed-disks/), indipendentemente dal tipo effettivo di disco. Ad esempio, un P10 verrà fatturato come S10. Questo valore sarà true fino `revoke-access` a quando non viene chiamato sul disco gestito, operazione necessaria per il fissaggio del disco a una macchina virtuale.
+In uno di questi Stati, il disco gestito verrà fatturato in base ai [prezzi standard di HDD](https://azure.microsoft.com/pricing/details/managed-disks/), indipendentemente dal tipo effettivo di disco. Ad esempio, un P10 verrà fatturato come S10. Questo valore sarà true fino a quando non viene chiamato `revoke-access` sul disco gestito, che è necessario per il fissaggio del disco a una macchina virtuale.
 
 Prima di poter creare un HDD standard vuoto per il caricamento, è necessario avere le dimensioni del file VHD da caricare, in byte. Per ottenere questo valore, è possibile usare `wc -c <yourFileName>.vhd` o `ls -al <yourFileName>.vhd`. Questo valore viene usato quando si specifica il parametro **--upload-size-bytes** .
 
@@ -81,7 +81,7 @@ Questo caricamento ha la stessa velocità effettiva del [disco rigido standard](
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 ```
 
-Se la firma di accesso condiviso scade durante il caricamento e non `revoke-access` è ancora stata chiamata, è possibile ottenere una nuova firma di accesso `grant-access`condiviso per continuare il caricamento usando, di nuovo.
+Se la firma di accesso condiviso scade durante il caricamento e non si è ancora chiamato `revoke-access`, è possibile ottenere una nuova firma di accesso condiviso per continuare il caricamento usando `grant-access`, di nuovo.
 
 Una volta completato il caricamento e non è più necessario scrivere altri dati sul disco, revocare la firma di accesso condiviso. La revoca della firma di accesso condiviso modificherà lo stato del disco gestito e consentirà di aggiungere il disco a una macchina virtuale.
 
@@ -109,11 +109,11 @@ targetLocale = <yourTargetLocationHere>
 
 sourceDiskSizeBytes= $(az disk show -g $sourceRG -n $sourceDiskName --query '[uniqueId]' -o tsv)
 
-az disk create -n $targetRG -n $targetDiskName -l $targetLocale --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
+az disk create -g $targetRG -n $targetDiskName -l $targetLocale --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
 
 targetSASURI = $(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
 
-sourceSASURI=$(az disk grant-access -n <sourceDiskNameHere> -g $sourceRG --duration-in-seconds 86400 --query [acessSas] -o tsv)
+sourceSASURI=$(az disk grant-access -n $sourceDiskName -g $sourceRG --duration-in-seconds 86400 --query [accessSas] -o tsv)
 
 .\azcopy copy $sourceSASURI $targetSASURI --blob-type PageBlob
 
@@ -126,4 +126,4 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 
 Ora che è stato caricato correttamente un disco rigido virtuale in un disco gestito, è possibile collegarlo a una macchina virtuale e iniziare a usarlo.
 
-Per informazioni su come aggiungere un disco a una macchina virtuale, vedere l'articolo sull'argomento: [Aggiungere un disco a una VM Linux](add-disk.md).
+Per informazioni su come aggiungere un disco a una macchina virtuale, vedere l'articolo sull'argomento: [aggiungere un disco a una VM Linux](add-disk.md).

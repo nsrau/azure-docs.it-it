@@ -3,19 +3,18 @@ layout: HubPage
 hide_bc: false
 title: Documentazione di Application insights per il monitoraggio di Azure - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
 description: Application Insights di Monitoraggio di Azure fornisce funzionalità avanzate per il monitoraggio delle prestazioni delle applicazioni a livello di codice.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
 ms.service: application-insights
-ms.topic: landing-page
-ms.date: 01/15/2019
+ms.subservice: ''
+ms.topic: hub-page
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 6f35bf82e1c3275772bc9f5ccdcaceed024bd7d9
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.date: 01/15/2019
+ms.openlocfilehash: 254cd4e67c0c64ba9b21133e957ae2cacfefe7a7
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967780"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596811"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -110,7 +109,7 @@ ms.locfileid: "68967780"
                                                             <a href="./app/proactive-arm-config.md">Gestire il rilevamento intelligente con i modelli</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3>Riferimenti</h3>
+                                                        <h3>Riferimento</h3>
                                                         <p>
                                                             <a href="./app/auto-collect-dependencies.md">Raccolta automatica delle dipendenze</a><br>
                                                             <a href="./app/correlation.md">Correlazione di dati di telemetria</a><br>

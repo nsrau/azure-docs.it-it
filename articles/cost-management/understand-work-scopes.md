@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 10/17/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 664307b64d5a2869130df9ab123119d869f36e21
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1f02cf3abaae7d67ba3d204dc9419d9fbfa4a86d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374477"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597088"
 ---
 # <a name="understand-and-work-with-scopes"></a>Informazioni e utilizzo degli ambiti
 
@@ -132,6 +132,7 @@ Gli account di fatturazione del contratto cliente Microsoft hanno gli ambiti seg
 
 Diversamente dagli ambiti di fatturazione EA, gli account di fatturazione del contratto cliente _sono_ associati a una singola directory e non possono avere sottoscrizioni tra più directory Azure ad.
 
+Gli ambiti di fatturazione del contratto del cliente non si applicano ai partner. I ruoli e le autorizzazioni del partner sono documentati in [assegnare ruoli e autorizzazioni agli utenti](/partner-center/permissions-overview).
 
 Gli ambiti di fatturazione del contratto del cliente supportano i ruoli seguenti:
 
@@ -159,11 +160,25 @@ Al termine dell'integrazione di AWS, vedere [Setup and Configure AWS Integration
 
 ## <a name="cloud-solution-provider-csp-scopes"></a>Ambiti del provider di soluzioni cloud (CSP)
 
-I partner Cloud Solution Provider (CSP) non sono attualmente supportati nella gestione dei costi. È invece possibile usare il [centro](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview)per i partner.
+Gli ambiti seguenti sono supportati per i CSP con i clienti di un contratto di servizio Microsoft:
+
+- **Account di fatturazione** : rappresenta un contratto del cliente per più prodotti e servizi Microsoft. Gli account di fatturazione del contratto clienti non sono funzionalmente identici alle registrazioni EA. Le registrazioni EA sono strettamente allineate ai profili di fatturazione.
+
+    Tipo di risorsa: `Microsoft.Billing/billingAccounts (accountType = Organization)`
+
+- **Profilo di fatturazione** : definisce le sottoscrizioni incluse in una fattura. I profili di fatturazione sono l'equivalente funzionale di una registrazione EA, poiché si tratta dell'ambito in cui vengono generate le fatture. Analogamente, gli acquisti che non sono basati sull'utilizzo (ad esempio Marketplace e prenotazioni) sono disponibili solo in questo ambito.
+
+    Tipo di risorsa: `Microsoft.Billing/billingAccounts/billingProfiles`
+
+- **Cliente** : rappresenta un gruppo di sottoscrizioni associate a un cliente specifico che è stato caricato in un contratto per i clienti Microsoft da un partner.
+
+Solo gli utenti con ruoli di *amministratore globale* e *amministratore* globale possono gestire e visualizzare i costi per gli account di fatturazione, i profili di fatturazione e i clienti direttamente nel tenant di Azure del partner. Per altre informazioni sui ruoli del centro per i partner, vedere [assegnare utenti ruoli e autorizzazioni](/partner-center/permissions-overview).
+
+Gestione costi di Azure supporta solo i clienti del partner CSP se i clienti dispongono di un contratto per i clienti Microsoft. Per i clienti supportati da CSP che non sono ancora in un contratto per i clienti Microsoft, vedere il centro per i [partner](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
 
 ## <a name="switch-between-scopes-in-cost-management"></a>Passare da un ambito all'altra in gestione costi
 
-Tutte le viste di gestione dei costi nel portale di Azure includono una pillola di selezione dell' **ambito** nella parte superiore sinistra della visualizzazione. Usarlo per modificare rapidamente l'ambito. Fare clic sulla pillola **ambito** per aprire la selezione ambito. Mostra gli account di fatturazione, il gruppo di gestione radice e tutte le sottoscrizioni non annidate nel gruppo di gestione radice. Per selezionare un ambito, fare clic sullo sfondo per evidenziarlo, quindi fare clic su **Seleziona** nella parte inferiore. Per eseguire il drill-in degli ambiti annidati, ad esempio i gruppi di risorse in una sottoscrizione, fare clic sul collegamento nome ambito. Per selezionare l'ambito padre a qualsiasi livello annidato, fare clic su **Seleziona questo &lt;scope @ no__t-2** nella parte superiore della selezione ambito.
+Tutte le viste di gestione dei costi nel portale di Azure includono una pillola di selezione dell' **ambito** nella parte superiore sinistra della visualizzazione. Usarlo per modificare rapidamente l'ambito. Fare clic sulla pillola **ambito** per aprire la selezione ambito. Mostra gli account di fatturazione, il gruppo di gestione radice e tutte le sottoscrizioni non annidate nel gruppo di gestione radice. Per selezionare un ambito, fare clic sullo sfondo per evidenziarlo, quindi fare clic su **Seleziona** nella parte inferiore. Per eseguire il drill-in degli ambiti annidati, ad esempio i gruppi di risorse in una sottoscrizione, fare clic sul collegamento nome ambito. Per selezionare l'ambito padre a qualsiasi livello annidato, fare clic su **Seleziona questa &lt;scope &gt;** nella parte superiore della selezione ambito.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Identificare l'ID risorsa per un ambito
 

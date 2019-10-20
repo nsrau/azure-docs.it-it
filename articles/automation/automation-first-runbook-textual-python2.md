@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 65cd59933fa31d870a507cbe80b454934c9008d0
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 626f446c18acf1f07f458fb1b4238f182546e479
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265093"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596937"
 ---
 # <a name="my-first-python-runbook"></a>Il primo runbook Python
 
@@ -37,7 +37,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 - [Account di Automazione](automation-offering-get-started.md) che conterrà il runbook ed eseguirà l'autenticazione con le risorse di Azure. Questo account deve avere l'autorizzazione per avviare e arrestare la macchina virtuale.
 - Macchina virtuale di Azure. La macchina virtuale viene arrestata e avviata, quindi non deve essere una macchina virtuale di produzione.
 
-## <a name="create-a-new-runbook"></a>Crea un nuovo runbook
+## <a name="create-a-new-runbook"></a>Creare un nuovo runbook
 
 Si inizia creando un runbook semplice che restituisce il testo *Hello World*.
 
@@ -205,6 +205,30 @@ Immettere il nome del gruppo di risorse come valore per il primo parametro e il 
 ![Immettere i valori dei parametri](media/automation-first-runbook-textual-python/runbook-python-params.png)
 
 Fare clic su **OK** per avviare il runbook. Il runbook viene eseguito e avvia la macchina virtuale specificata.
+
+## <a name="error-handling-in-python"></a>Gestione degli errori in Python
+
+È anche possibile usare le convenzioni seguenti per recuperare flussi diversi dalla manuali operativi di Python, inclusi i flussi di **avviso**, di **errore**e di **debug** .
+
+```python
+print("Hello World output") 
+print("ERROR: - Hello world error")
+print("WARNING: - Hello world warning")
+print("DEBUG: - Hello world debug")
+print("VERBOSE: - Hello world verbose")
+```
+
+Nell'esempio seguente viene illustrata questa convenzione utilizzata in un blocco `try...except`.
+
+```python
+try:
+    raise Exception('one', 'two')
+except Exception as detail:
+    print 'ERROR: Handling run-time error:', detail
+```
+
+> [!NOTE]
+> **sys. stderr** non è supportato in automazione di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

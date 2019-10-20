@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: dfd304b0c15b325208daba104bb79863fcd3f53f
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 79bdfc84310686b2648e12d73d783de049e9d2fa
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527438"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596504"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>Trasformazione EXISTS nel flusso di dati di mapping
 
@@ -20,11 +20,10 @@ La trasformazione EXISTS è una trasformazione filtro di riga che controlla se i
 
 ## <a name="configuration"></a>Configurazione
 
-Scegliere il flusso di dati che si sta controllando di esistere nell'elenco a discesa **flusso destro** .
-
-Specificare se si desidera che i dati esistano o non esistano nell'impostazione del **tipo exist** .
-
-Consente di scegliere le colonne chiave da confrontare con le condizioni esistenti. Per impostazione predefinita, il flusso di dati cerca l'uguaglianza tra una colonna in ogni flusso. Per eseguire il confronto tramite un valore di calcolo, passare il puntatore del mouse sull'elenco a discesa della colonna e selezionare **colonna calcolata**.
+1. Scegliere il flusso di dati che si sta controllando di esistere nell'elenco a discesa **flusso destro** .
+1. Specificare se si desidera che i dati esistano o non esistano nell'impostazione del **tipo exist** .
+1. Specificare se si desidera un' **espressione personalizzata**.
+1. Consente di scegliere le colonne chiave da confrontare con le condizioni esistenti. Per impostazione predefinita, il flusso di dati cerca l'uguaglianza tra una colonna in ogni flusso. Per eseguire il confronto tramite un valore calcolato, passare il puntatore del mouse sull'elenco a discesa della colonna e selezionare **colonna calcolata**.
 
 ![Impostazioni exists](media/data-flow/exists.png "esistente 1")
 

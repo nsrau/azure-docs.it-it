@@ -13,14 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/18/2019
 ms.author: b-juche
-ms.openlocfilehash: f417d83a67f2f3afa33a83a56a72d0d82c64ab0d
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 62e67d4965444df0e731b4387808ed3b89e4673a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850014"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597202"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Risolvere i problemi del provider di risorse di Azure NetApp Files 
 
@@ -30,12 +30,12 @@ Questo articolo descrive gli errori comuni del provider di risorse Azure NetApp 
 
 ***BareMetalTenantId non può essere modificato.***  
 
-Questo errore si verifica quando si tenta di aggiornare o applicare patch a un `BaremetalTenantId` volume e la proprietà ha un valore modificato.
+Questo errore si verifica quando si tenta di aggiornare o applicare patch a un volume e la proprietà `BaremetalTenantId` ha un valore modificato.
 
 * Causa:   
-Si sta provando ad aggiornare un volume e la `BaremetalTenantId` proprietà ha un valore diverso dal valore archiviato in Azure.
+Si sta tentando di aggiornare un volume e la proprietà `BaremetalTenantId` ha un valore diverso dal valore archiviato in Azure.
 * Soluzione:   
-Non includere `BaremetalTenantId` nella richiesta patch e Update (put). In alternativa, verificare che `BaremetalTenantId` sia uguale nella richiesta.
+Non includere `BaremetalTenantId` nella richiesta patch e Update (put). In alternativa, assicurarsi che `BaremetalTenantId` sia uguale nella richiesta.
 
 ***ServiceLevel non può essere modificato.***  
 
@@ -50,19 +50,19 @@ Creare un altro pool di capacità, quindi creare nuovamente i volumi nel nuovo p
 
 ***Non è possibile modificare PoolId***  
 
-Questo errore si verifica quando si tenta di aggiornare o applicare patch a un pool di `PoolId` capacità con una proprietà modificata.
+Questo errore si verifica quando si tenta di aggiornare o applicare patch a un pool di capacità con una proprietà `PoolId` modificata.
 
 * Causa:   
-Si sta tentando di aggiornare una proprietà `PoolId` del pool di capacità. La `PoolId` proprietà è una proprietà di sola lettura e non può essere modificata.
+Si sta tentando di aggiornare un pool di capacità `PoolId` proprietà. La proprietà `PoolId` è una proprietà di sola lettura e non può essere modificata.
 * Soluzione:   
-Non includere `PoolId` nella richiesta patch e Update (put).  In alternativa, verificare che `PoolId` sia uguale nella richiesta.
+Non includere `PoolId` nella richiesta patch e Update (put).  In alternativa, assicurarsi che `PoolId` sia uguale nella richiesta.
 
 ***CreationToken non può essere modificato.***
 
-Questo errore si verifica quando si tenta di modificare il percorso del`CreationToken`file () dopo che il volume è stato creato. Il percorso del`CreationToken`file () deve essere impostato al momento della creazione del volume e non può essere modificato in un secondo momento.
+Questo errore si verifica quando si tenta di modificare il percorso del file (`CreationToken`) dopo che il volume è stato creato. Il percorso del file (`CreationToken`) deve essere impostato al momento della creazione del volume e non può essere modificato in un secondo momento.
 
 * Causa:   
-Si sta tentando di modificare il percorso del`CreationToken`file () dopo che è stato creato il volume, che non è un'operazione supportata. 
+Si sta tentando di modificare il percorso del file (`CreationToken`) dopo che è stato creato il volume, che non è un'operazione supportata. 
 * Soluzione:   
 Se la modifica del percorso del file non è necessaria, provare a rimuovere il parametro dalla richiesta per ignorare il messaggio di errore.
 * Soluzione alternativa:   
@@ -70,7 +70,7 @@ Se è necessario modificare il percorso del file (`CreationToken`), è possibile
 
 ***La lunghezza di CreationToken deve essere di almeno 16 caratteri.***
 
-Questo errore si verifica quando il percorso del`CreationToken`file () non soddisfa il requisito di lunghezza. La lunghezza del percorso del file deve contenere almeno un carattere.
+Questo errore si verifica quando il percorso del file (`CreationToken`) non soddisfa il requisito di lunghezza. La lunghezza del percorso del file deve contenere almeno un carattere.
 
 * Causa:   
 Il percorso del file è vuoto.  Quando si crea un volume usando l'API, è necessario un token di creazione. Se si usa il portale di Azure, il percorso del file viene generato automaticamente.
@@ -84,7 +84,7 @@ Questo errore si verifica quando si tenta di modificare il nome di dominio in Ac
 * Causa:   
 Si sta tentando di aggiornare la proprietà del nome di dominio.
 * Soluzione:    
-No. Non è possibile modificare il nome di dominio.
+None. Non è possibile modificare il nome di dominio.
 * Soluzione alternativa:   
 Eliminare tutti i volumi usando la configurazione Active Directory. Eliminare quindi la configurazione di Active Directory e ricreare i volumi.
 
@@ -101,14 +101,14 @@ Utilizzare un indice diverso per la regola che si sta tentando di impostare.
 
 ***Errore {Action} {resourceTypeName}***
 
-Questo errore viene visualizzato quando la gestione degli errori non riesce a gestire l'errore durante l'esecuzione di un'azione su una risorsa.   Include il testo "Error". `getting` `creating` `updating`Può essere qualsiasi di (,, o`deleting`). `{action}`  `netAppAccount` È`capacityPool`(ad esempio, ,,ecosìvia).`volume` `{resourceTypeName}` `resourceTypeName`
+Questo errore viene visualizzato quando la gestione degli errori non riesce a gestire l'errore durante l'esecuzione di un'azione su una risorsa.   Include il testo "Error". Il `{action}` può essere qualsiasi (`getting`, `creating`, `updating` o `deleting`).  Il `{resourceTypeName}` è il `resourceTypeName`, ad esempio `netAppAccount`, `capacityPool`, `volume` e così via.
 
 * Causa:   
 Questo errore è un'eccezione non gestita in cui la cause non è nota.
 * Soluzione:   
 Contattare il supporto tecnico di Azure per segnalare il motivo dettagliato nei log.
 * Soluzione alternativa:   
-No.
+None.
 
 ***Il nome del percorso del file può contenere solo lettere, numeri e trattini (""-"").***
 
@@ -123,19 +123,19 @@ Rimuovere i caratteri che non sono lettere alfabetiche, numeri o trattini ("-") 
 
 ***FileSystemId non può essere modificato.***
 
-Questo errore si verifica quando si tenta di `FileSystemId`modificare.  La `FileSystemdId` modifica non è un'operazione supportata. 
+Questo errore si verifica quando si tenta di modificare `FileSystemId`.  La modifica di `FileSystemdId` non è un'operazione supportata. 
 
 * Causa:   
-L'ID del file system viene impostato al momento della creazione del volume. `FileSystemId`non può essere modificato successivamente.
+L'ID del file system viene impostato al momento della creazione del volume. non è possibile modificare il `FileSystemId` successivamente.
 * Soluzione:   
-Non includere `FileSystemId` in una richiesta patch e Update (put).  In alternativa, verificare che `FileSystemId` sia uguale nella richiesta.
+Non includere `FileSystemId` in una richiesta patch e Update (put).  In alternativa, assicurarsi che `FileSystemId` sia uguale nella richiesta.
 
 ***ActiveDirectory con ID:' {String}' non esiste.***
 
-La `{string}` parte è il valore immesso `ActiveDirectoryId` nella proprietà per la connessione Active Directory.
+Il `{string}` parte è il valore immesso nella proprietà `ActiveDirectoryId` per la connessione Active Directory.
 
 * Causa:   
-Quando è stato creato un account con la configurazione di Active Directory, è stato immesso `ActiveDirectoryId` un valore per che dovrebbe essere vuoto.
+Quando è stato creato un account con la configurazione di Active Directory, è stato immesso un valore per `ActiveDirectoryId` che dovrebbe essere vuoto.
 * Soluzione:   
 Non includere `ActiveDirectoryId` nella richiesta di creazione (put).
 
@@ -144,22 +144,22 @@ Non includere `ActiveDirectoryId` nella richiesta di creazione (put).
 La versione dell'API non è stata inviata o contiene un valore non valido.
 
 * Causa:   
-Il valore nel parametro `api-version` della query contiene un valore non valido.
+Il valore nel parametro di query `api-version` contiene un valore non valido.
 * Soluzione:   
 Usare il valore corretto della versione dell'API.  Il provider di risorse supporta molte versioni dell'API. Il valore è nel formato aaaa-mm-gg.
 
-***È stato ricevuto un valore ' {value}' non {1}valido per.***
+***È stato ricevuto un valore non valido ' {value}' per {1}.***
 
-Questo messaggio indica un errore nei campi per `RuleIndex`, `AllowedClients`, `UnixReadOnly`, `UnixReadWrite`, `Nfsv3`e `Nfsv4`.
+Questo messaggio indica un errore nei campi relativi a `RuleIndex`, `AllowedClients`, `UnixReadOnly`, `UnixReadWrite`, `Nfsv3` e `Nfsv4`.
 
 * Causa:   
-La richiesta di convalida di input non è riuscita per almeno uno dei campi seguenti `RuleIndex`: `AllowedClients` `UnixReadOnly`,, `UnixReadWrite`, `Nfsv`, 3 e `Nfsv4`.
+La richiesta di convalida dell'input non è riuscita per almeno uno dei seguenti campi: `RuleIndex`, `AllowedClients`, `UnixReadOnly`, `UnixReadWrite`, `Nfsv`3 e `Nfsv4`.
 * Soluzione:   
-Assicurarsi di impostare tutti i parametri obbligatori e non in conflitto nella riga di comando. Ad esempio, non è possibile impostare contemporaneamente `UnixReadOnly` i `UnixReadWrite` parametri e.
+Assicurarsi di impostare tutti i parametri obbligatori e non in conflitto nella riga di comando. Ad esempio, non è possibile impostare contemporaneamente i parametri `UnixReadOnly` e `UnixReadWrite`.
 * Soluzione alternativa:   
 Vedere la soluzione sopra.
 
-***L'intervallo {0} IP {1} per la {2} VLAN è già in uso***
+***L'intervallo IP {0} {1} per {2} VLAN è già in uso***
 
 Questo errore si verifica perché i record interni degli intervalli IP usati presentano un conflitto con l'indirizzo IP appena assegnato.
 
@@ -183,9 +183,9 @@ Assicurarsi di impostare tutte le proprietà obbligatorie e non in conflitto nel
 Questo errore si verifica quando un utente tenta di aggiornare o applicare patch alla proprietà MountTargets del volume.
 
 * Causa:   
-Si sta tentando di aggiornare la `MountTargets` proprietà volume. La modifica di questa proprietà non è supportata.
+Si sta tentando di aggiornare la proprietà volume `MountTargets`. La modifica di questa proprietà non è supportata.
 * Soluzione:   
-Non includere `MountTargets` in una richiesta patch e Update (put).  In alternativa, verificare che `MountTargets` sia uguale nella richiesta.
+Non includere `MountTargets` in una richiesta patch e Update (put).  In alternativa, assicurarsi che `MountTargets` sia uguale nella richiesta.
 
 ***Nome già in uso.***
 
@@ -250,9 +250,9 @@ L'API sottostante non risponde, causando un errore interno. Questo errore è pro
 * Soluzione:   
 Il problema è probabile che sia temporaneo. La richiesta deve avere esito positivo in un secondo momento.
 * Soluzione alternativa:   
-No. L'API sottostante è essenziale per la gestione dei volumi.
+None. L'API sottostante è essenziale per la gestione dei volumi.
 
-***Non è stato trovato alcun ID risultato{0}operazione per ''.***
+***Non è stato trovato alcun ID risultato operazione per ' {0}'.***
 
 Questo errore indica che un errore interno impedisce il completamento dell'operazione.
 
@@ -294,7 +294,7 @@ Si sta tentando di creare (non aggiornare) un'Active Directory, ma ne esiste gi�
 * Soluzione:   
 Se la configurazione del Active Directory non è in uso, è possibile eliminare prima la configurazione esistente, quindi ripetere l'operazione di creazione.
 * Soluzione alternativa:   
-No. È consentita una sola Active Directory.
+None. È consentita una sola Active Directory.
 
 ***L'operazione ' {Operation}' non è supportata.***
 
@@ -310,9 +310,9 @@ Verificare che l'operazione sia stata immessa correttamente e che sia disponibil
 Questo errore si verifica quando si tenta di modificare la proprietà OwnerId del volume. La modifica di OwnerId non è un'operazione supportata. 
 
 * Causa:   
-La `OwnerId` proprietà viene impostata quando viene creato il volume. La proprietà non può essere modificata successivamente.
+Quando viene creato il volume, viene impostata la proprietà `OwnerId`. La proprietà non può essere modificata successivamente.
 * Soluzione:   
-Non includere `OwnerId` in una richiesta patch e Update (put). In alternativa, verificare che `OwnerId` sia uguale nella richiesta.
+Non includere `OwnerId` in una richiesta patch e Update (put). In alternativa, assicurarsi che `OwnerId` sia uguale nella richiesta.
 
 ***Pool padre non trovato***
 
@@ -331,11 +331,11 @@ Questo errore si verifica quando si tenta di modificare la destinazione di monta
 La destinazione di montaggio viene definita al momento della creazione e non può essere modificata successivamente.
 Gli snapshot non contengono proprietà che possono essere modificate.
 * Soluzione:   
-No. Tali risorse non dispongono di proprietà che possono essere modificate.
+None. Tali risorse non dispongono di proprietà che possono essere modificate.
 
 ***Dimensioni del pool troppo piccole per la dimensione totale del volume.***
 
-Questo errore si verifica quando si aggiornano le dimensioni del pool di capacità e le dimensioni sono inferiori al `usedBytes` valore totale di tutti i volumi nel pool di capacità.  Questo errore può verificarsi anche quando si crea un nuovo volume o si ridimensiona un volume esistente e la nuova dimensione del volume supera lo spazio disponibile nel pool di capacità.
+Questo errore si verifica quando si aggiornano le dimensioni del pool di capacità e le dimensioni sono inferiori al valore `usedBytes` totale di tutti i volumi nel pool di capacità.  Questo errore può verificarsi anche quando si crea un nuovo volume o si ridimensiona un volume esistente e la nuova dimensione del volume supera lo spazio disponibile nel pool di capacità.
 
 * Causa:   
 Si sta tentando di aggiornare il pool di capacità a una dimensione inferiore rispetto a usedBytes in tutti i volumi del pool di capacità.  In alternativa, si sta provando a creare un volume maggiore dello spazio disponibile nel pool di capacità.  In alternativa, si sta provando a ridimensionare un volume e la nuova dimensione supera lo spazio disponibile nel pool di capacità.
@@ -344,7 +344,7 @@ Impostare le dimensioni del pool di capacità su un valore più grande oppure cr
 * Soluzione alternativa:   
 Rimuovere un numero sufficiente di volumi in modo che le dimensioni del pool di capacità possano essere aggiornate a queste dimensioni.
 
-***Proprietà: Il percorso per lo snapshot deve essere uguale a quello del volume***
+***La proprietà: il percorso per lo snapshot deve essere uguale a quello del volume***
 
 Questo errore si verifica quando si crea uno snapshot con una posizione diversa dal volume proprietario dello snapshot.
 
@@ -360,36 +360,36 @@ Questo errore si verifica quando si crea una risorsa e si compila la proprietà 
 * Causa:   
 Valore non valido nella proprietà Name quando si crea una risorsa.
 * Soluzione:   
-Lasciare vuota la proprietà Name o consentirne l'utilizzo dello stesso valore della proprietà Name (tra l'ultima barra rovesciata "/" e il punto interrogativo "? `resourceId`") in.
+Lasciare vuota la proprietà Name o consentirne l'utilizzo dello stesso valore della proprietà Name (tra l'ultima barra rovesciata "/" e il punto interrogativo "?") in `resourceId`.
 
 ***Il tipo di protocollo {value} non è noto***
 
-Questo errore si verifica quando si crea un volume con un tipo di protocollo sconosciuto.  I valori validi sono "NFSv3" e "CIFS".
+Questo errore si verifica quando si crea un volume con un tipo di protocollo sconosciuto.  I valori validi sono "NFSv3", "NFSv4" e "CIFS".
 
 * Causa:   
-Si sta tentando di impostare un valore non valido nella `protocolType` proprietà volume.
+Si sta tentando di impostare un valore non valido nella proprietà volume `protocolType`.
 * Soluzione:   
 Impostare una stringa valida in `protocolType`.
 * Soluzione alternativa:   
-Impostato `protocolType` su null.
+Impostare `protocolType` come null.
 
 ***Non è possibile modificare i tipi di protocollo***
 
-Questo errore si verifica quando si tenta di aggiornare o `ProtocolType` applicare una patch per un volume.  La modifica di ProtocolType non è un'operazione supportata.
+Questo errore si verifica quando si tenta di aggiornare o applicare una patch `ProtocolType` per un volume.  La modifica di ProtocolType non è un'operazione supportata.
 
 * Causa:   
-La `ProtocolType` proprietà viene impostata quando viene creato il volume.  Non può essere aggiornata.
+Quando viene creato il volume, viene impostata la proprietà `ProtocolType`.  Non può essere aggiornata.
 * Soluzione:   
-No.
+None.
 * Soluzione alternativa:   
 Creare un altro volume con i nuovi tipi di protocollo.
 
 ***La creazione della risorsa di tipo {resourceType} supera la quota delle risorse {quota} di tipo {resourceType} per {parentResourceType}. Il numero corrente di risorse è {currentCount}. eliminare alcune risorse di questo tipo prima di crearne uno nuovo.***
 
-Questo errore si verifica quando si tenta di creare una risorsa (`NetAppAccount` `Volume`, `CapacityPool`, o `Snapshot`), ma la quota ha raggiunto il limite.
+Questo errore si verifica quando si tenta di creare una risorsa (`NetAppAccount`, `CapacityPool`, `Volume` o `Snapshot`), ma la quota ha raggiunto il limite.
 
 * Causa:   
-Si sta provando a creare una risorsa, ma è stato raggiunto il limite di quota ( `NetAppAccounts` ad esempio per `CapacityPools` sottoscrizione `NetAppAccount`o per).
+Si sta provando a creare una risorsa, ma è stato raggiunto il limite di quota, ad esempio `NetAppAccounts` per sottoscrizione o `CapacityPools` per `NetAppAccount`.
 * Soluzione:   
 Aumentare il limite di quota.
 * Soluzione alternativa:   
@@ -435,36 +435,36 @@ La lunghezza del nome del server SMB supera i 10 caratteri.
 * Soluzione:   
 Usare un nome di server più breve. La lunghezza massima è di 10 caratteri.
 * Soluzione alternativa:   
-No.  Vedere la soluzione sopra. 
+None.  Vedere la soluzione sopra. 
 
 ***SubnetId non può essere modificato.***
 
-Questo errore si verifica quando si tenta di modificare `subnetId` il dopo che il volume è stato creato.  `SubnetId`è necessario impostare quando il volume viene creato e non può essere modificato in un secondo momento.
+Questo errore si verifica quando si tenta di modificare il `subnetId` dopo che il volume è stato creato.  `SubnetId` necessario impostare quando il volume viene creato e non può essere modificato in un secondo momento.
 
 * Causa:   
-Si sta provando a modificare il `subnetId` dopo che il volume è stato creato, che non è un'operazione supportata. 
+Si sta tentando di modificare il `subnetId` dopo che il volume è stato creato, che non è un'operazione supportata. 
 * Soluzione:   
-Se la `subnetId` modifica di non è necessaria, provare a rimuovere il parametro dalla richiesta per ignorare il messaggio di errore.
+Se la modifica del `subnetId` non è necessaria, provare a rimuovere il parametro dalla richiesta per ignorare il messaggio di errore.
 * Soluzione alternativa:   
-Se è necessario modificare `subnetId`, è possibile creare un nuovo volume con un nuovo `subnetId`, quindi eseguire la migrazione dei dati nel nuovo volume.
+Se è necessario modificare il `subnetId`, è possibile creare un nuovo volume con una nuova `subnetId` e quindi eseguire la migrazione dei dati nel nuovo volume.
 
 ***Il formato di SubnetId non è valido.***
 
-Questo errore si verifica quando si tenta di creare un nuovo volume, `subnetId` ma non è `resourceId` un oggetto per una subnet.
+Questo errore si verifica quando si tenta di creare un nuovo volume, ma il `subnetId` non è un `resourceId` per una subnet.
 
 * Causa:   
-Questo errore si verifica quando si tenta di creare un nuovo volume, ma `subnetId` non è un `resourceId` oggetto per una subnet. 
+Questo errore si verifica quando si tenta di creare un nuovo volume, ma il `subnetId` non è un `resourceId` per una subnet. 
 * Soluzione:   
-Controllare il valore `subnetId` di per verificare che contenga un oggetto `resourceId` per la subnet utilizzata.
+Verificare il valore della `subnetId` per assicurarsi che contenga un `resourceId` per la subnet utilizzata.
 * Soluzione alternativa:   
-No. Vedere la soluzione sopra. 
+None. Vedere la soluzione sopra. 
 
 ***La subnet deve avere una delega ' Microsoft. NetApp/volumes '.***
 
-Questo errore si verifica quando si crea un volume e la subnet selezionata non è delegata `Microsoft.NetApp/volumes`a.
+Questo errore si verifica quando si crea un volume e la subnet selezionata non è delegata a `Microsoft.NetApp/volumes`.
 
 * Causa:   
-Si è tentato di creare un volume ed è stata selezionata una subnet non delegata `Microsoft.NetApp/volumes`.
+Si è tentato di creare un volume ed è stata selezionata una subnet non delegata a `Microsoft.NetApp/volumes`.
 * Soluzione:   
 Selezionare un'altra subnet delegata a `Microsoft.NetApp/volumes`.
 * Soluzione alternativa:   
@@ -490,7 +490,7 @@ L'API sottostante sta inviando un errore sconosciuto. Questo errore è probabile
 * Soluzione:   
 È probabile che il problema sia temporaneo e che la richiesta abbia esito positivo in un secondo momento. Se il problema persiste, creare un ticket di supporto per esaminare il problema.
 * Soluzione alternativa:   
-No. L'API sottostante è essenziale per la gestione dei volumi.
+None. L'API sottostante è essenziale per la gestione dei volumi.
 
 ***Valore ricevuto per una proprietà sconosciuta ' {propertyName}'.***
 
@@ -510,7 +510,7 @@ Ridurre il numero di proprietà definite nella richiesta per eliminare la propri
 * Causa:   
 La risorsa che si sta tentando di aggiornare non supporta l'operazione di aggiornamento. È possibile modificare le proprietà solo dei volumi.
 * Soluzione:   
-No. La risorsa che si sta tentando di aggiornare non supporta l'operazione di aggiornamento. Pertanto, non può essere modificato.
+None. La risorsa che si sta tentando di aggiornare non supporta l'operazione di aggiornamento. Pertanto, non può essere modificato.
 * Soluzione alternativa:   
 Per un volume, creare una nuova risorsa con l'aggiornamento sul posto ed eseguire la migrazione dei dati.
 
@@ -567,7 +567,7 @@ Il volume non esiste o la creazione non è riuscita.
 * Soluzione:   
 Verificare che sia in corso la modifica del volume corretto e che la creazione del volume abbia avuto esito positivo. In alternativa, verificare che il volume per il quale si sta creando uno snapshot esista.
 * Soluzione alternativa:   
-No.  Vedere la soluzione sopra. 
+None.  Vedere la soluzione sopra. 
 
 ***Il token di creazione specificato esiste già***
 

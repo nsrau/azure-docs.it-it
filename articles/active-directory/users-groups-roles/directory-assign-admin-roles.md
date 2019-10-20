@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 10/18/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f6e1ab2c2b02ab4279e95840135bdc87710cd66
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: 56e5fb986431ec47a34b81491bc61b4c38a24e31
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551650"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592882"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -224,12 +224,14 @@ Gli utenti con questo ruolo possono leggere le impostazioni e le informazioni am
 > [!NOTE]
 > Il ruolo di lettore globale presenta alcune limitazioni in questo momento:
 >
->* Interfaccia di amministrazione di SharePoint: il centro di amministrazione di SharePoint non supporta il ruolo di lettore globale. ' SharePoint ' non verrà visualizzato nel riquadro sinistro in centri di amministrazione in Microsoft 365 interfaccia di [Amministrazione](https://admin.microsoft.com/Adminportal/Home#/homepage)e si otterrà l'accesso negato quando si tenta di passare a *https://{Azure ad nome organizzazione}-admin.SharePoint.com*.
+>* Interfaccia di amministrazione di SharePoint: il centro di amministrazione di SharePoint non supporta il ruolo di lettore globale. ' SharePoint ' non verrà visualizzato nel riquadro sinistro in centri di amministrazione in Microsoft 365 interfaccia di [Amministrazione](https://admin.microsoft.com/Adminportal/Home#/homepage).
+>* Interfaccia di [amministrazione di OneDrive](https://admin.onedrive.com/) : l'interfaccia di amministrazione di OneDrive non supporta il ruolo di lettore globale.
 >* [Azure ad portale](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) -lettore globale non è in grado di leggere la modalità di provisioning di un'app aziendale.
 >* Interfaccia di [amministrazione di M365](https://admin.microsoft.com/Adminportal/Home#/homepage) : Impossibile leggere le richieste dell'archivio clienti. Non è possibile trovare la scheda **richieste di archivio archivi clienti** in **supporto** nel riquadro sinistro dell'interfaccia di amministrazione di M365.
 >* [Centro sicurezza M365](https://security.microsoft.com/homepage) : il lettore globale non è in grado di leggere le etichette di riservatezza e conservazione. Non sono disponibili le **etichette di riservatezza**, le **etichette di conservazione**e le schede di **analisi etichette** nel riquadro sinistro del Centro sicurezza M365.
 >* Interfaccia di [amministrazione dei team](https://admin.teams.microsoft.com) : il lettore globale non è in grado di leggere il ciclo **di vita**dei **Team**, i **report di analisi &** , la **gestione dei dispositivi Phone**
 >* [Privileged Access Management (PAM)](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) non supporta il ruolo di lettore globale.
+>* [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) -Global Reader è supportato solo per la [creazione di report centrali](https://docs.microsoft.com/azure/information-protection/reports-aip) e quando il tenant non si trova nella [piattaforma di etichettatura unificata](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
 > Queste funzionalità sono attualmente in fase di sviluppo.
 >

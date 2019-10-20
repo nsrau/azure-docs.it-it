@@ -8,80 +8,91 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
-ms.openlocfilehash: a5717d8ee44e4d2e086a6e7bc1b7c3d0deb614c8
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 77655f08350419f0d102c9927b3e09b87edba341
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827535"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592863"
 ---
 # <a name="preview---use-managed-identities-in-azure-kubernetes-service"></a>Anteprima: usare identità gestite in Azure Kubernetes Service
 
-Attualmente, gli utenti devono fornire un'entità servizio o AKS ne crea uno per conto dell'utente, in modo che il cluster AKS (in particolare il provider di servizi cloud Kubernetes) crei risorse aggiuntive, ad esempio i servizi di bilanciamento del carico e i dischi gestiti in Azure. Le entità servizio vengono in genere create con una data di scadenza. I cluster raggiungeranno infine uno stato in cui l'entità servizio dovrà essere rinnovata in caso contrario, il cluster non funzionerà. La gestione delle entità servizio aggiunge complessità. Le identità gestite sono essenzialmente un wrapper per le entità servizio e semplificano la gestione. Per altre informazioni, vedere l'articolo [identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) .
+Attualmente, un cluster Azure Kubernetes Service (AKS) (in particolare, il provider di cloud Kubernetes) richiede un' *entità servizio* per creare risorse aggiuntive, ad esempio servizi di bilanciamento del carico e Managed disks in Azure. È necessario fornire un'entità servizio o AKS crearne uno per conto dell'utente. Le entità servizio in genere hanno una data di scadenza. I cluster raggiungono infine uno stato in cui è necessario rinnovare l'entità servizio per far funzionare il cluster. La gestione delle entità servizio aggiunge complessità.
 
-AKS crea due identità gestite una a un'identità gestita assegnata dal sistema e l'altra identità assegnata dall'utente. Un'identità gestita assegnata dal sistema viene usata dal provider di servizi cloud kubernetes per creare risorse di Azure per conto dell'utente. Il ciclo di vita di questa identità gestita assegnata dal sistema è associato a quello del cluster e viene eliminato quando il cluster viene eliminato. AKS crea anche un'identità gestita assegnata dall'utente usata nel cluster per autorizzare AKS ad accedere a ACRs, kubelet per ottenere i metadati da Azure e così via.
+Le *identità gestite* sono essenzialmente un wrapper per le entità servizio e semplificano la gestione. Per altre informazioni, vedere informazioni sulle [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-In questo periodo di anteprima, è ancora necessaria un'entità servizio. Verrà usato per l'autorizzazione dei componenti aggiuntivi, ad esempio il monitoraggio, il nodo virtuale, i criteri di Azure e il routing dell'applicazione http. È in corso il lavoro per rimuovere la dipendenza dell'addons sul nome SPN e, successivamente, il requisito SPN in AKS verrà rimosso completamente.
+AKS crea due identità gestite:
+
+- **Identità gestita assegnata dal sistema**: identità usata dal provider di servizi cloud Kubernetes per creare risorse di Azure per conto dell'utente. Il ciclo di vita dell'identità assegnata dal sistema è associato a quello del cluster. L'identità viene eliminata quando il cluster viene eliminato.
+- **Identità gestita assegnata dall'utente**: identità usata per l'autorizzazione nel cluster. Ad esempio, l'identità assegnata dall'utente viene usata per autorizzare AKS a usare i record di controllo di accesso (ACRs) o per autorizzare il kubelet a ottenere i metadati da Azure.
+
+In questo periodo di anteprima, è ancora necessaria un'entità servizio. Viene usato per l'autorizzazione dei componenti aggiuntivi, ad esempio il monitoraggio, i nodi virtuali, i criteri di Azure e il routing dell'applicazione HTTP. Il lavoro è in corso per rimuovere la dipendenza dei componenti aggiuntivi sul nome dell'entità servizio (SPN). Infine, il requisito di un nome SPN in AKS verrà rimosso completamente.
 
 > [!IMPORTANT]
-> Le funzionalità di anteprima di AKS sono il consenso esplicito self-service. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, vedere gli articoli di supporto seguenti:
+> Le funzionalità di anteprima del servizio contenitore di servizi sono disponibili in base al consenso esplicito. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, vedere gli articoli di supporto seguenti:
 >
-> * [Criteri di supporto AKS](support-policies.md)
-> * [Domande frequenti relative al supporto tecnico Azure](faq.md)
+> - [Criteri di supporto AKS](support-policies.md)
+> - [Domande frequenti relative al supporto tecnico Azure](faq.md)
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-È necessario disporre di quanto segue:
+È necessario che siano installate le risorse seguenti:
 
-* È necessaria anche l'interfaccia della riga di comando di Azure versione 2.0.70 o successiva e l'estensione AKS-Preview 0.4.14
+- INTERFACCIA della riga di comando di Azure, versione 2.0.70 o successiva
+- Estensione 0.4.14 AKS-Preview
 
-## <a name="install-latest-aks-cli-preview-extension"></a>Installare la versione di anteprima dell'interfaccia della riga di comando AKS
-
-È necessaria l'estensione **0.4.14 di AKS-Preview** o successiva.
+Per installare l'estensione AKS-Preview 0.4.14 o versione successiva, usare i seguenti comandi dell'interfaccia della riga di comando di Azure:
 
 ```azurecli
-az extension update --name aks-preview 
+az extension update --name aks-preview
 az extension list
 ```
 
 > [!CAUTION]
-> Quando si registra una funzionalità in una sottoscrizione, attualmente non è possibile annullare la registrazione di tale funzionalità. Dopo aver abilitato alcune funzionalità di anteprima, è possibile usare i valori predefiniti per tutti i cluster AKS, quindi creati nella sottoscrizione. Non abilitare le funzionalità di anteprima nelle sottoscrizioni di produzione. Usare una sottoscrizione separata per testare le funzionalità di anteprima e raccogliere commenti e suggerimenti.
+> Al termine della registrazione di una funzionalità in una sottoscrizione, non è possibile annullare la registrazione di tale funzionalità. Quando si abilitano alcune funzionalità di anteprima, è possibile usare i valori predefiniti per tutti i cluster AKS creati successivamente nella sottoscrizione. Non abilitare le funzionalità di anteprima nelle sottoscrizioni di produzione. Usare invece una sottoscrizione separata per testare le funzionalità di anteprima e raccogliere commenti e suggerimenti.
 
 ```azurecli-interactive
 az feature register --name MSIPreview --namespace Microsoft.ContainerService
 ```
 
-Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato *registrato*. È possibile controllare lo stato della registrazione usando il comando [AZ feature list] [AZ-feature-list]:
+Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato come **registrato**. È possibile controllare lo stato della registrazione usando il comando [AZ feature list](https://docs.microsoft.com/en-us/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MSIPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando lo stato è registrato, aggiornare la registrazione del provider di risorse *Microsoft. servizio contenitore* usando il comando [AZ provider Register] [AZ-provider-Register]:
+Quando lo stato viene visualizzato come registrato, aggiornare la registrazione del provider di risorse `Microsoft.ContainerService` usando il comando [AZ provider Register](https://docs.microsoft.com/en-us/cli/azure/provider?view=azure-cli-latest#az-provider-register) :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## <a name="create-an-aks-cluster-with-managed-identity"></a>Creare un cluster AKS con identità gestita
+## <a name="create-an-aks-cluster-with-managed-identities"></a>Creare un cluster AKS con identità gestite
 
-È ora possibile creare un cluster AKS con identità gestite usando il comando CLI seguente
+È ora possibile creare un cluster AKS con identità gestite usando i comandi dell'interfaccia della riga di comando seguenti.
+
+Creare prima di tutto un gruppo di risorse di Azure:
+
 ```azurecli-interactive
 # Create an Azure resource group
 az group create --name myResourceGroup --location westus2
 ```
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
+Quindi, creare un cluster AKS:
+
 ```azurecli-interactive
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-managed-identity
 ```
 
-## <a name="get-credentials-to-access-the-cluster"></a>Ottenere le credenziali per accedere al cluster
+Ottenere infine le credenziali per accedere al cluster:
+
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 ```
-Una volta creato il cluster in pochi minuti, è possibile distribuire i carichi di lavoro dell'applicazione e interagire con esso così come sono stati i cluster AKS basati su entità servizio. 
+
+Il cluster verrà creato in pochi minuti. È quindi possibile distribuire i carichi di lavoro dell'applicazione nel nuovo cluster e interagire con esso esattamente come è stato fatto con i cluster AKS basati su entità servizio.
 
 > [!IMPORTANT]
-> * I cluster AKS con identità gestite possono essere abilitati solo durante la creazione del cluster
-> * Non è possibile aggiornare o aggiornare i cluster AKS esistenti per abilitare le identità gestite
+>
+> - I cluster AKS con identità gestite possono essere abilitati solo durante la creazione del cluster.
+> - Non è possibile aggiornare o aggiornare i cluster AKS esistenti per abilitare le identità gestite.

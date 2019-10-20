@@ -1,6 +1,6 @@
 ---
-title: Configurare i criteri di esportazione per un volume NFS usando file di Azure NetApp | Microsoft Docs
-description: Viene descritto come configurare criteri di esportazione per controllare l'accesso a un volume NFS usando file di Azure NetApp
+title: Configurare i criteri di esportazione per un volume NFS usando Azure NetApp Files | Microsoft Docs
+description: Viene descritto come configurare i criteri di esportazione per controllare l'accesso a un volume NFS utilizzando Azure NetApp Files
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 10/18/2019
 ms.author: b-juche
-ms.openlocfilehash: 8cda5921a1aec86d28beabbd9cea5b07a203a0e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d73ac199df03f4d789db0634be1e926afc77e623
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61086177"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597541"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Configurare i criteri di esportazione per un volume NFS
 
-È facoltativamente possibile configurare i criteri di esportazione per controllare l'accesso a un volume di Azure NetApp Files. Criteri di esportazione sono il supporto solo per i volumi NFS. 
+È facoltativamente possibile configurare i criteri di esportazione per controllare l'accesso a un volume di Azure NetApp Files. Azure NetApp Files i criteri di esportazione supportano solo i volumi NFS.  Sono supportati sia NFSv3 che NFSv4. 
 
-## <a name="steps"></a>Passaggi 
+## <a name="steps"></a>Procedure 
 
 1.  Fare clic sul pannello **Create Export Policy** (Crea criteri di esportazione) dal pannello Manage Volume (Gestisci volume). 
 
@@ -44,10 +44,6 @@ ms.locfileid: "61086177"
         * Nessun accesso 
         * Lettura e scrittura
         * Sola lettura
-
-    * **Protocols**  (Protocolli)  
-        Specificare il protocollo da usare per i criteri di esportazione.   
-        Criteri di esportazione file NetApp di Azure supportano attualmente solo NFSv3.
 
     ![Criteri di esportazione](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 

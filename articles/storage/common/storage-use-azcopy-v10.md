@@ -4,15 +4,15 @@ description: AzCopy è un'utilità da riga di comando che è possibile usare per
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: f4523b2aa580d0fd237c15e23b06b44593cbf055
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: d26535d18233533d1d72c02ad997008cba536fce
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274636"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595157"
 ---
 # <a name="get-started-with-azcopy"></a>Introduzione ad AzCopy
 
@@ -68,13 +68,13 @@ Per informazioni su un comando specifico, è sufficiente includere il nome del c
 
 Usare questa tabella come guida:
 
-| Tipo di archiviazione | Metodo di autorizzazione attualmente supportato |
+| Tipo di risorse di archiviazione | Metodo di autorizzazione attualmente supportato |
 |--|--|
 |**Archiviazione BLOB** | Firma di accesso condiviso Azure AD & |
 |**Archiviazione BLOB (spazio dei nomi gerarchica)** | Firma di accesso condiviso Azure AD & |
 |**Archiviazione file** | Solo SAS |
 
-### <a name="option-1-use-azure-active-directory"></a>Opzione 1: Usare Azure Active Directory
+### <a name="option-1-use-azure-active-directory"></a>Opzione 1: usare Azure Active Directory
 
 Con Azure Active Directory è possibile fornire le credenziali una sola volta anziché dover aggiungere un token SAS a ogni comando.  
 
@@ -140,7 +140,7 @@ Prima di eseguire uno script, è necessario eseguire l'accesso in modo interatti
 
 È possibile accedere all'account usando un segreto client o usando la password di un certificato associato alla registrazione dell'app dell'entità servizio.
 
-Per ulteriori informazioni sulla creazione di un'entità servizio, vedere [How per: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Per altre informazioni sulla creazione di un'entità servizio, vedere [procedura: usare il portale per creare un'applicazione Azure ad e un'entità servizio che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
 Per ulteriori informazioni sulle entità servizio in generale, vedere [oggetti applicazione e oggetti entità servizio in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
 
@@ -240,7 +240,7 @@ azcopy login --identity --identity-resource-id "<resource-id>"
 
 Sostituire il segnaposto `<resource-id>` con l'ID risorsa dell'identità gestita assegnata dall'utente.
 
-### <a name="option-2-use-a-sas-token"></a>Opzione 2: Usare un token di firma di accesso condiviso
+### <a name="option-2-use-a-sas-token"></a>Opzione 2: usare un token di firma di accesso condiviso
 
 È possibile aggiungere un token di firma di accesso condiviso a ogni URL di origine o di destinazione usato nei comandi di AzCopy.
 
@@ -282,7 +282,7 @@ Per ottenere il collegamento, eseguire il comando seguente:
 | **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
 
 > [!NOTE]
-> Per Linux, `--strip-components=1` nel comando `tar` rimuove la cartella di primo livello che contiene il nome della versione, estrae invece il file binario direttamente nella cartella corrente. Questo consente di aggiornare lo script con una nuova versione di `azcopy` aggiornando solo l'URL `wget`.
+> Per Linux, `--strip-components=1` nel comando `tar` rimuove la cartella di primo livello che contiene il nome della versione, estrae invece il file binario direttamente nella cartella corrente. Questo consente di aggiornare lo script con una nuova versione di `azcopy` aggiornando solo l'URL del `wget`.
 
 L'URL viene visualizzato nell'output di questo comando. Lo script può quindi scaricare AzCopy usando tale URL.
 
@@ -293,13 +293,13 @@ L'URL viene visualizzato nell'output di questo comando. Lo script può quindi sc
 
 ### <a name="escape-special-characters-in-sas-tokens"></a>Escape di caratteri speciali nei token SAS
 
-Nei file batch con estensione `.cmd`, sarà necessario eseguire l'escape dei caratteri `%` visualizzati nei token SAS. È possibile eseguire questa operazione aggiungendo un carattere di addizione `%` accanto ai caratteri `%` esistenti nella stringa del token SAS.
+Nei file batch con estensione `.cmd` sarà necessario eseguire l'escape dei caratteri `%` visualizzati nei token SAS. È possibile eseguire questa operazione aggiungendo un carattere di aggiunta `%` accanto ai caratteri `%` esistenti nella stringa del token SAS.
 
 ## <a name="use-azcopy-in-storage-explorer"></a>Usare AzCopy in Storage Explorer
 
 Se si vogliono sfruttare i vantaggi delle prestazioni di AzCopy, ma si preferisce usare Storage Explorer anziché la riga di comando per interagire con i file, quindi abilitare AzCopy in Storage Explorer.
 
-In Storage Explorer scegliere **anteprima**->**usare AzCopy per il caricamento e il download di BLOB migliorati**.
+In Storage Explorer scegliere **anteprima** ->**usare AzCopy per il caricamento e il download di BLOB migliorati**.
 
 ![Abilitare AzCopy come motore di trasferimento in Azure Storage Explorer](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
 
@@ -316,7 +316,7 @@ Se è necessario usare la versione precedente di AzCopy (AzCopy v 8.1), vedere u
 
 - [AzCopy in Windows (V8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
 
-- [AzCopy on Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+- [AzCopy in Linux (V8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi relativi a AzCopy
 

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: b8d3a26d015c129a04e54ba9633aa5d1ccfcacf8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f241ac3e1369e32a1f2a4b9ac80492094105ff8c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "69016117"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598339"
 ---
 # <a name="azure-media-services-community"></a>Community di Servizi multimediali di Azure  
 
@@ -32,7 +32,7 @@ Questa pagina della community di servizi multimediali di Azure illustra i divers
 
 ### <a name="twitter"></a>Twitter
 
-È possibile usare l' [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) handle di Twitter per contattarci o seguire gli aggiornamenti su Twitter. Usare l' [@AzureSupport](https://twitter.com/azuresupport) handle di Twitter per richiedere supporto su Twitter.  
+È possibile usare il [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) handle Twitter per contattarci o seguire gli aggiornamenti su Twitter. Usare il [@AzureSupport](https://twitter.com/azuresupport) handle Twitter per richiedere supporto su Twitter.  
 
 ### <a name="online-forums"></a>Forum online
 
@@ -45,10 +45,6 @@ Attualmente MSDN è il forum principale della community del team di Servizi mult
 Il team monitora anche le domande contrassegnate su Stack Overflow con "azure-media-services".
 
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
-
-## <a name="contact-the-team"></a>Contattare il team
-
-La posta elettronica di supporto principale di servizi multimediali di Azure è: **amshelp\@Microsoft.com**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

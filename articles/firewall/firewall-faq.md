@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 10/19/2019
 ms.author: victorh
-ms.openlocfilehash: cb5b8bbb322dc401c7a8b057418d392120ef68e3
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: f64e9717a1e6391c15ee5207c7566114f2bf9f8f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130216"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596775"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -23,7 +23,7 @@ Firewall di Azure è un servizio di sicurezza di rete gestito basato sul cloud c
 ## <a name="what-capabilities-are-supported-in-azure-firewall"></a>Quali funzionalità sono supportate nel Firewall di Azure?
 
 * Firewall con stato come servizio
-* Disponibilità elevata e scalabilità cloud senza limiti
+* Disponibilità elevata predefinita con scalabilità cloud senza limitazioni
 * Filtro dei nomi di dominio completi
 * Tag FQDN
 * Regole di filtro per il traffico di rete
@@ -48,9 +48,9 @@ Firewall di Azure supporta regole e raccolte di regole. Una raccolta di regole �
 
 Sono disponibili tre tipi di raccolte di regole:
 
-* *Regole di applicazione*: Configurare nomi di dominio completi (FQDN) a cui è possibile accedere da una subnet.
-* *Regole di rete*: Configurare le regole che contengono indirizzi di origine, protocolli, porte di destinazione e indirizzi di destinazione.
-* *Regole NAT*: Configurare le regole di DNAT per consentire le connessioni in ingresso.
+* *Regole dell'applicazione*: configurare nomi di dominio completi (FQDN) a cui è possibile accedere da una subnet.
+* *Regole di rete*: configurare regole che contengono indirizzi di origine, protocolli, porte di destinazione e indirizzi di destinazione.
+* *Regole NAT*: configurare le regole di DNAT per consentire le connessioni in ingresso.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Firewall di Azure supporta il filtraggio del traffico in ingresso?
 
@@ -88,7 +88,7 @@ Vedere [prezzi di Azure firewall](https://azure.microsoft.com/pricing/details/az
 
 È possibile usare i metodi di *deallocazione* e *allocazione* di Azure PowerShell.
 
-Esempio:
+ad esempio:
 
 ```azurepowershell
 # Stop an existing firewall
@@ -131,7 +131,7 @@ Il firewall di Azure non SNAT quando l'indirizzo IP di destinazione è un interv
 
 Il tunneling forzato non è attualmente supportato. Connettività diretta al Firewall di Azure. Se AzureFirewallSubnet apprende una route predefinita alla rete locale tramite BGP è necessario sostituirla con una route UDR 0.0.0.0/0 con il valore **NextHopType** impostato come **Internet** per mantenere connettività diretta a Internet.
 
-Se la configurazione richiede il tunneling forzato in una rete locale ed è possibile determinare i prefissi IP di destinazione per le destinazioni Internet, è possibile configurare questi intervalli con la rete locale come hop successivo tramite una route definita dall'utente nel AzureFirewallSubnet. In alternativa, è possibile usare BGP per definire queste route.
+Se la configurazione richiede il tunneling forzato in una rete locale ed è possibile determinare i prefissi IP di destinazione per le destinazioni Internet, è possibile configurare questi intervalli con la rete locale come hop successivo tramite una route definita dall'utente in AzureFirewallSubnet. In alternativa, per definire queste route, è possibile usare BGP.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Vi sono restrizioni relative al gruppo di risorse del firewall?
 
@@ -145,7 +145,7 @@ No. Le regole NAT aggiungono in modo implicito una regola di rete corrispondente
 
 Se si configura * **. contoso.com**, consente *anyvalue*. contoso.com, ma non contoso.com (il vertice del dominio). Se si vuole consentire l'apice del dominio, è necessario configurarlo in modo esplicito come FQDN di destinazione.
 
-## <a name="what-does-provisioning-state-failed-mean"></a>Cosa si *intende per lo stato di provisioning: La* media non è riuscita?
+## <a name="what-does-provisioning-state-failed-mean"></a>Cosa significa *lo stato di provisioning: errore* ?
 
 Ogni volta che viene applicata una modifica alla configurazione, il firewall di Azure tenta di aggiornare tutte le istanze back-end sottostanti. In rari casi, una di queste istanze back-end potrebbe non riuscire ad aggiornarsi con la nuova configurazione e il processo di aggiornamento si interrompe con uno stato di provisioning non riuscito. Il firewall di Azure è ancora operativo, ma la configurazione applicata potrebbe trovarsi in uno stato incoerente, in cui alcune istanze hanno la configurazione precedente, in cui altre hanno il set di regole aggiornato. In tal caso, provare ad aggiornare la configurazione ancora una volta fino a quando l'operazione ha esito positivo e il firewall si trova in uno stato di provisioning *riuscito* .
 
@@ -163,6 +163,14 @@ Il firewall di Azure deve effettuare il provisioning di più istanze di macchine
 ## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>È necessario modificare la dimensione della subnet del firewall con la scalabilità del servizio?
 
 No. Il firewall di Azure non necessita di una subnet maggiore di/26.
+
+## <a name="how-can-i-increase-my-firewall-throughput"></a>Come è possibile aumentare la velocità effettiva del firewall?
+
+La capacità di velocità effettiva iniziale del firewall di Azure è 2,5-3 Gbps. Attualmente, la scalabilità orizzontale si basa solo sull'utilizzo della CPU. In alcuni casi, un firewall con regole di rete non viene ridimensionato per aumentare la velocità effettiva, perché le regole di rete non influiscono significativamente sull'utilizzo della CPU. Se è necessaria una velocità effettiva superiore per il firewall, contattare il supporto tecnico per aumentare la capacità di velocità effettiva iniziale del firewall.
+
+## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Quanto tempo è necessario per la scalabilità orizzontale del firewall di Azure?
+
+Attualmente sono necessari da cinque a sette minuti per la scalabilità orizzontale del firewall di Azure. Se sono presenti picchi che richiedono una scalabilità automatica più veloce, contattare il supporto tecnico per aumentare la capacità di velocità effettiva iniziale del firewall.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Il firewall di Azure consente l'accesso alle Active Directory per impostazione predefinita?
 

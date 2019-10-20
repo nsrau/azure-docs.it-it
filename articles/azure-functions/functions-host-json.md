@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: b714559c6c009139da97c7d90425011fb3130ef8
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 9eb68bb4accafa708d738ea40210980358f60f24
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263321"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596867"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x  
 
@@ -69,7 +69,7 @@ I file di esempio *host.json* seguenti hanno tutte le possibili opzioni specific
         "applicationInsights": {
             "samplingSettings": {
               "isEnabled": true,
-              "maxTelemetryItemsPerSecond" : 5
+              "maxTelemetryItemsPerSecond" : 20
             }
         }
     },
@@ -104,7 +104,7 @@ Controlla le [funzionalità di campionamento in Application Insights](./function
     "applicationInsights": {
         "samplingSettings": {
           "isEnabled": true,
-          "maxTelemetryItemsPerSecond" : 5
+          "maxTelemetryItemsPerSecond" : 20
         }
     }
 }
@@ -113,10 +113,10 @@ Controlla le [funzionalità di campionamento in Application Insights](./function
 > [!NOTE]
 > Il campionamento di log potrebbe non consentire di visualizzare alcune esecuzioni nel pannello monitoraggio di Application Insights.
 
-|Proprietà  |Predefinito | Descrizione |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |isEnabled|true|Abilita o disabilita il campionamento.| 
-|maxTelemetryItemsPerSecond|5|La soglia oltre la quale viene avviato il campionamento.| 
+|maxTelemetryItemsPerSecond|20|La soglia oltre la quale viene avviato il campionamento.| 
 |EnableLiveMetrics |true|Abilita la raccolta di metriche attive.|
 |EnableDependencyTracking|true|Abilita il rilevamento delle dipendenze.|
 |EnablePerformanceCountersCollection|true|Abilita la raccolta dei contatori delle prestazioni Kudu.|
@@ -152,7 +152,7 @@ Un elenco di funzioni eseguite dall'host di processo. Una matrice vuota indica l
 Indica la durata del timeout per tutte le funzioni. Segue il formato stringa TimeSpan. In un piano di consumo serverless l'intervallo valido va da 1 secondo a 10 minuti e il valore predefinito è 5 minuti.  
 In un piano dedicato (servizio app) non esiste alcun limite globale e il valore predefinito dipende dalla versione runtime: 
 + Versione 1. x: il valore predefinito è *null*, che indica nessun timeout.   
-+ Versione 2. x: il valore predefinito è 30 minuti. Il valore `-1` indica l'esecuzione non vincolata.
++ Versione 2. x: il valore predefinito è 30 minuti. Il valore `-1` indica un'esecuzione non vincolata.
 
 ```json
 {
@@ -176,13 +176,13 @@ Impostazioni di configurazione per il [monitoraggio integrità host](https://git
 }
 ```
 
-|Proprietà  |Predefinito | Descrizione |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |enabled|true|Indica se la funzionalità è abilitata. | 
 |healthCheckInterval|10 secondi|Intervallo di tempo tra i controlli dell'integrità periodici in background. | 
 |healthCheckWindow|2 minuti|Finestra temporale scorrevole usata in combinazione con l'impostazione `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Numero massimo di volte in cui il controllo dell'integrità può non riuscire prima che venga avviato un riciclo host.| 
-|counterThreshold|0.80|Soglia a partire dalla quale un contatore delle prestazioni verrà considerato non integro.| 
+|counterThreshold|0,80|Soglia a partire dalla quale un contatore delle prestazioni verrà considerato non integro.| 
 
 ## <a name="http"></a>http
 
@@ -224,12 +224,12 @@ Controlla i comportamenti di registrazione dell'app per le funzioni, tra cui App
 }
 ```
 
-|Proprietà  |Predefinito | Descrizione |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definisce il livello di registrazione dei file abilitato.  Le opzioni sono `never`, `always`, `debugOnly`. |
-|logLevel|n/d|Oggetto che definisce il filtro delle categorie di log per le funzioni nell'app. La versione 2.x segue il layout di ASP.NET Core per il filtro delle categorie di log. Ciò consente di filtrare la registrazione per funzioni specifiche. Per altre informazioni, vedere [Filtro dei log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) nella documentazione di ASP.NET Core. |
-|console|n/d| Impostazione di registrazione nella [console](#console). |
-|applicationInsights|n/d| Impostazione di [ApplicationInsights](#applicationinsights). |
+|logLevel|N/D|Oggetto che definisce il filtro delle categorie di log per le funzioni nell'app. La versione 2.x segue il layout di ASP.NET Core per il filtro delle categorie di log. Ciò consente di filtrare la registrazione per funzioni specifiche. Per altre informazioni, vedere [Filtro dei log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) nella documentazione di ASP.NET Core. |
+|console|N/D| Impostazione di registrazione nella [console](#console). |
+|applicationInsights|N/D| Impostazione di [ApplicationInsights](#applicationinsights). |
 
 ## <a name="console"></a>console
 
@@ -247,7 +247,7 @@ Questa impostazione è un elemento figlio di [logging](#logging). Controlla la r
 }
 ```
 
-|Proprietà  |Predefinito | Descrizione |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |isEnabled|false|Abilita o disabilita la registrazione nella console.| 
 
@@ -279,13 +279,13 @@ Impostazioni di configurazione per il comportamento di blocco Singleton. Per ult
 }
 ```
 
-|Proprietà  |Predefinito | Descrizione |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Il periodo per cui vengono eseguiti blocchi a livello di funzione. I blocchi si rinnovano automaticamente.| 
 |listenerLockPeriod|00:01:00|Il periodo per cui vengono acquisiti blocchi di listener.| 
 |listenerLockRecoveryPollingInterval|00:01:00|L'intervallo di tempo utilizzato per il ripristino di blocco listener se non è stato possibile acquisire un blocco di listener all'avvio.| 
 |lockAcquisitionTimeout|00:01:00|La quantità massima di tempo per cui il runtime tenterà di acquisire un blocco.| 
-|lockAcquisitionPollingInterval|n/d|L'intervallo tra i tentativi di acquisizione di un blocco.| 
+|lockAcquisitionPollingInterval|N/D|L'intervallo tra i tentativi di acquisizione di un blocco.| 
 
 ## <a name="version"></a>version
 

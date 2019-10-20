@@ -3,19 +3,18 @@ layout: HubPage
 hide_bc: false
 title: Documentazione di Monitoraggio di Azure di dati di log | Microsoft Docs
 description: Monitoraggio di Azure può raccogliere diverse origini come i dati di log e archiviarli per la correlazione e l'analisi tramite il linguaggio di query.
-services: azure-monitor
-author: mgoedtel
-manager: carmonm
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: hub-page
-ms.date: 01/29/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: ced88f973ff26f7c8990c1c80bf8532949ef9ae8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/29/2019
+ms.openlocfilehash: 407e18008c947f95204ea073db31b5f2279a5a4c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60640107"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597332"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -97,7 +96,7 @@ ms.locfileid: "60640107"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                    <h3>Monitoraggio</h3>
+                                                    <h3>Monitorare</h3>
                                                         <p>
                                                             <a href="/azure/azure-monitor/platform/data-collection">Metriche e log</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-ingestion-time">Tempo di inserimento dati di log</a><br/>
@@ -133,7 +132,7 @@ ms.locfileid: "60640107"
                                                                     </div>
                                                                 </div>
                                                     <div class="cardText">
-                                                        <h3>Analizzare i dati</h3>
+                                                        <h3>Analizza i dati</h3>
                                                         <p>
                                                             <a href="/azure/azure-monitor/log-query/get-started-queries">Introduzione alle query</a><br/>
                                                             <a href="/azure/azure-monitor/log-query/search-queries">Informazioni sulle query di log</a><br/>
@@ -142,7 +141,7 @@ ms.locfileid: "60640107"
                                                             <a href="/azure/azure-monitor/log-query/cross-workspace-query">Query in più risorse</a><br/>
                                                         </p>
                                                         <br>
-                                                        <h3>Risposta agli eventi imprevisti</h3>
+                                                        <h3>Risposta agli avvenimenti</h3>
                                                         <p>
                                                             <a href="/azure/azure-monitor/platform/alerts-overview">Panoramica avvisi</a><br/>
                                                             <a href="/azure/azure-monitor/platform/autoscale-overview">Autoscale</a><br/>

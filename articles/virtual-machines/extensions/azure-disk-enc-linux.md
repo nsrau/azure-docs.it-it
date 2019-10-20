@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: 6a81f105f9632a7ca7e2bf7188e358274020c78f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1801ca8bd59153de81ef680253da229e2bd4a338
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084776"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597861"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Crittografia dischi di Azure per Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -28,21 +28,16 @@ Crittografia dischi di Azure sfrutta il sottosistema di dm-crypt di Linux per fo
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per un elenco completo dei prerequisiti, vedere [Prerequisiti di Crittografia dischi di Azure](
-../../security/azure-security-disk-encryption-prerequisites.md).
+Per un elenco completo dei prerequisiti, vedere [crittografia dischi di Azure per macchine virtuali Linux](../linux/disk-encryption-overview.md), in particolare le sezioni seguenti:
 
-### <a name="operating-system"></a>Sistema operativo
-
-Crittografia dischi di Azure è attualmente supportata nelle distribuzioni e versioni selezionate.  Vedere i [sistemi operativi supportati da crittografia dischi di Azure: Linux](../../security/azure-security-disk-encryption-prerequisites.md#linux) per l'elenco delle distribuzioni Linux supportate.
-
-### <a name="internet-connectivity"></a>Connettività Internet
-
-Crittografia dischi di Azure per Linux richiede una connessione Internet per accedere a Active Directory, Key Vault, Archiviazione e agli endpoint di gestione pacchetti.  Per altre informazioni, vedere [Prerequisiti Crittografia di Crittografia dischi di Azure](../../security/azure-security-disk-encryption-prerequisites.md).
+- [Crittografia dischi di Azure per macchine virtuali Linux](../linux/disk-encryption-overview.md#supported-vms-and-operating-systems)
+- [Requisiti aggiuntivi per le macchine virtuali](../linux/disk-encryption-overview.md#additional-vm-requirements)
+- [Requisiti di rete](../linux/disk-encryption-overview.md#networking-requirements)
 
 ## <a name="extension-schemata"></a>Estensione schemi
 
 Sono disponibili due schemi per crittografia dischi di Azure: v 1.1, uno schema più recente e consigliato che non usa le proprietà Azure Active Directory (AAD) e v 0.1, uno schema precedente che richiede proprietà di AAD. È necessario usare la versione dello schema corrispondente all'estensione in uso: Schema v 1.1 per l'estensione AzureDiskEncryptionForLinux versione 1,1, schema v 0.1 per la versione dell'estensione AzureDiskEncryptionForLinux 0,1.
-### <a name="schema-v11-no-aad-recommended"></a>Schema v 1.1: Nessun AAD (scelta consigliata)
+### <a name="schema-v11-no-aad-recommended"></a>Schema v 1.1: nessun AAD (consigliato)
 
 Lo schema v 1.1 è consigliato e non richiede proprietà Azure Active Directory.
 
@@ -72,7 +67,7 @@ Lo schema v 1.1 è consigliato e non richiede proprietà Azure Active Directory.
 
 ### <a name="schema-v01-with-aad"></a>Schema v 0.1: con AAD 
 
-Lo schema 0,1 richiede `aadClientID` `aadClientSecret` e o `AADClientCertificate`.
+Lo schema 0,1 richiede `aadClientID` e `aadClientSecret` o `AADClientCertificate`.
 
 Utilizzo di `aadClientSecret`:
 
@@ -137,15 +132,15 @@ Utilizzo di `AADClientCertificate`:
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| NOME | Valore/Esempio | Tipo di dati |
+| name | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 0,1, 1,1 | int |
-| (schema 0.1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (schema 0.1) AADClientSecret | password | string |
-| (schema 0.1) AADClientCertificate | thumbprint | string |
+| (schema 0,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
+| (schema 0,1) AADClientSecret | password | string |
+| (schema 0,1) AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dizionario JSON |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
 | KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | string |
@@ -153,7 +148,7 @@ Utilizzo di `AADClientCertificate`:
 | opzionale KeyVaultURL | url | string |
 | Passphrase | password | string | 
 | SequenceVersion | uniqueidentifier | string |
-| VolumeType | OS, Data, All | string |
+| VolumeType | Sistema operativo, dati, tutti | string |
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
@@ -171,7 +166,7 @@ Per la risoluzione di problemi, consultare la [guida alla risoluzione dei proble
 
 ### <a name="support"></a>Supporto
 
-Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/community/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/community/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

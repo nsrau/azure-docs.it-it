@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: f65e3c4f9582fcc5c28412d44e513fa6bcb9e870
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 303682a9d7b3c3fe8ba6c8dd6fe2a44741bcafce
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262336"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597298"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Creare un'impostazione di diagnostica in Azure usando un modello di Gestione risorse
 I [log della piattaforma](platform-logs-overview.md) in Azure forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Questo articolo fornisce informazioni dettagliate sull'uso di un [modello di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) per configurare le impostazioni di diagnostica per raccogliere i log della piattaforma in destinazioni diverse. In questo modo è possibile iniziare a raccogliere automaticamente i log della piattaforma quando viene creata una risorsa.
@@ -22,7 +22,7 @@ I [log della piattaforma](platform-logs-overview.md) in Azure forniscono informa
 ## <a name="resource-manager-template"></a>Modello di Resource Manager
 Esistono due sezioni del modello di Gestione risorse che è necessario modificare per creare le impostazioni di diagnostica. Queste sezioni sono descritte nelle sezioni riportate di seguito.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 A seconda delle [destinazioni](diagnostic-settings.md#destinations) per l'impostazione di diagnostica, aggiungere i parametri al BLOB dei parametri per il nome dell'account di archiviazione, l'ID della regola di autorizzazione dell'hub eventi e l'ID dell'area di lavoro log Analytics.
    
 ```json
@@ -53,13 +53,13 @@ A seconda delle [destinazioni](diagnostic-settings.md#destinations) per l'impost
 "workspaceId":{
   "type": "string",
   "metadata": {
-    "description": "Azure Resource ID of the Log Analytics workspace for the Log Analytics workspace to which logs will be sent."
+    "description": "Azure Resource ID of the Log Analytics workspace to which logs will be sent."
   }
 }
 ```
 
-### <a name="resources"></a>Risorse
-Nella matrice delle risorse della risorsa per cui si vuole creare l'impostazione di diagnostica aggiungere una risorsa di tipo `[resource namespace]/providers/diagnosticSettings`. La sezione properties segue il formato descritto in [impostazioni di diagnostica-crea o aggiorna](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Aggiungere la `metrics` proprietà per raccogliere le metriche delle risorse nelle stesse destinazioni se la [risorsa supporta le metriche](metrics-supported.md).
+### <a name="resources"></a>resources
+Nella matrice delle risorse della risorsa per cui si vuole creare l'impostazione di diagnostica aggiungere una risorsa di tipo `[resource namespace]/providers/diagnosticSettings`. La sezione properties segue il formato descritto in [impostazioni di diagnostica-crea o aggiorna](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Aggiungere la proprietà `metrics` per raccogliere le metriche delle risorse nelle stesse destinazioni se la [risorsa supporta le metriche](metrics-supported.md).
    
 ```json
 "resources": [

@@ -16,12 +16,12 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9eacb574f20abeb63a9d0ab8caf534eb7abb9784
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: a7a67e98d87850e2fc90df3ce7ba15e5e60da517
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056353"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596742"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>App daemon che chiama le API Web: chiama un'API Web dall'app
 
@@ -68,9 +68,23 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="calling-several-apis"></a>Chiamata di diverse API
 
-Per le app daemon, le API Web chiamate devono essere pre-approvate. Non ci sarà alcun consenso incrementale con le app daemon (non c'è alcuna interazione con l'utente). L'amministratore del tenant deve pre-concedere il consenso dell'applicazione e di tutte le autorizzazioni dell'API. Per chiamare diverse API, è necessario acquisire un token per ogni risorsa, ogni volta che si chiama `AcquireTokenForClient`. MSAL utilizzerà la cache del token dell'applicazione per evitare chiamate al servizio non necessarie.
+Per le app daemon, le API Web chiamate devono essere pre-approvate. Non ci sarà alcun consenso incrementale con le app daemon (non c'è alcuna interazione con l'utente). L'amministratore del tenant deve pre-concedere il consenso dell'applicazione e di tutte le autorizzazioni dell'API. Se si vogliono chiamare diverse API, è necessario acquisire un token per ogni risorsa, ogni volta che si chiama `AcquireTokenForClient`. MSAL utilizzerà la cache del token dell'applicazione per evitare chiamate al servizio non necessarie.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+
 > [!div class="nextstepaction"]
-> [App daemon-sposta in produzione](./scenario-daemon-production.md)
+> [App daemon-sposta in produzione](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=dotnet)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [App daemon-sposta in produzione](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=python)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [App daemon-sposta in produzione](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=java)
+
+---

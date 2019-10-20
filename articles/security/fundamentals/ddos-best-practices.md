@@ -1,9 +1,9 @@
 ---
-title: Procedure consigliate per Protezione DDoS di Azure e architetture di riferimento | Microsoft Docs
+title: Protezione DDoS di Azure-progettazione di soluzioni resilienti | Microsoft Docs
 description: Informazioni sull'uso dei dati di registrazione per ottenere informazioni approfondite sull'applicazione.
 services: security
 author: barclayn
-manager: barbkess
+manager: RKarlin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -12,58 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
+ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: a5b4451a6d03cec8e100ed67c0ed9333e8a221de
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: ac36a4c59dbec8bf27850de1565e86b78643148a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727479"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595414"
 ---
-# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Protezione DDoS di Azure: procedure consigliate e architetture di riferimento
+# <a name="azure-ddos-protection---designing-resilient-solutions"></a>Protezione DDoS di Azure-progettazione di soluzioni resilienti
 
 Questo articolo è destinato ai responsabili IT e al personale di sicurezza. Presuppone che si abbia familiarità con Azure, la rete e la sicurezza.
-
-La progettazione per la resilienza agli attacchi Distributed Denial of Service (DDoS) richiede pianificazione e progettazione per un'ampia gamma di modalità di errore. Questo articolo illustra le procedure consigliate per la progettazione di applicazioni in Azure per garantire la resilienza contro gli attacchi DDoS.
-
-## <a name="types-of-attacks"></a>Tipi di attacchi
-
-Il DDoS è un tipo di attacco che tenta di esaurire le risorse dell'applicazione. L'obiettivo è compromettere la disponibilità e la capacità dell'applicazione di gestire richieste legittime. Gli attacchi stanno diventando più sofisticati e di dimensioni e impatto maggiori. Gli attacchi DDoS possono avere come obiettivo qualsiasi endpoint che è raggiungibile pubblicamente tramite Internet.
-
-Azure offre una protezione continua contro gli attacchi DDoS. Questa protezione è integrata nella piattaforma di Azure per impostazione predefinita e senza costi aggiuntivi. 
+Il DDoS è un tipo di attacco che tenta di esaurire le risorse dell'applicazione. L'obiettivo è compromettere la disponibilità e la capacità dell'applicazione di gestire richieste legittime. Gli attacchi stanno diventando più sofisticati e di dimensioni e impatto maggiori. Gli attacchi DDoS possono avere come obiettivo qualsiasi endpoint che è raggiungibile pubblicamente tramite Internet. La progettazione per la resilienza agli attacchi Distributed Denial of Service (DDoS) richiede pianificazione e progettazione per un'ampia gamma di modalità di errore. Azure offre una protezione continua contro gli attacchi DDoS. Questa protezione è integrata nella piattaforma di Azure per impostazione predefinita e senza costi aggiuntivi.
 
 Oltre alla protezione DDoS di base della piattaforma, [Protezione DDoS di Azure Standard](https://azure.microsoft.com/services/ddos-protection/) offre funzionalità avanzate di mitigazione DDoS contro gli attacchi di rete e viene ottimizzata automaticamente per proteggere le specifiche risorse di Azure. La protezione è semplice da abilitare durante la creazione di nuove reti virtuali. Può essere abilitata anche dopo la creazione e non richiede alcuna modifica delle applicazioni o delle risorse.
 
 ![Ruolo di Protezione DDoS di Azure nella protezione dei clienti e di una rete virtuale da un utente malintenzionato.](./media/ddos-best-practices/image1.png)
 
-Gli attacchi DDoS possono essere classificati in tre categorie: volumetrici, di protocollo e di risorse.
-
-### <a name="volumetric-attacks"></a>Attacchi volumetrici
-
-Gli attacchi volumetrici sono i tipi più comuni di attacco DDoS. Gli attacchi volumetrici assalti basati sulla forza bruta destinati ai livelli di trasporto e di rete. Cercano di esaurire risorse come i collegamenti di rete. 
-
-Questi attacchi usano spesso più sistemi infetti per inondare i livelli di rete con traffico apparentemente legittimo. Usano protocolli a livello di rete come Internet Control Message Protocol (ICMP), User Datagram Protocol (UDP) e Transmission Control Protocol (TCP).
-
-Gli attacchi DDoS più comunemente usati a livello di rete sono TCP SYN flood, ICMP echo, UDP flooding, DNS, e NTP amplification. Questo tipo di attacco può essere utilizzato non solo per interrompere il servizio, ma anche come copertura per intrusioni di rete più nefaste e indirizzate. Un esempio di attacco volumetrico recente è l'[exploit Memcache](https://www.wired.com/story/github-ddos-memcached/) che ha colpito GitHub. Questo attacco ha avuto come destinatario la porta UDP 11211 e ha generato 1,35 Tb/s del volume di attacco.
-
-### <a name="protocol-attacks"></a>Attacchi di protocollo
-
-Protocolli dell'applicazione destinataria degli attacchi di protocollo. Provano a usare tutte le risorse disponibili nei dispositivi dell'infrastruttura, ad esempio i firewall, i server applicazioni e i servizi di bilanciamento del carico. Gli attacchi di protocollo usano pacchetti che sono in formato non corretto o che contengono anomalie di protocollo. Questi attacchi operano inviando numeri elevati di richieste aperte, i server e altri dispositivi di comunicazione rispondono e attendono una risposta del pacchetto. La destinazione prova a rispondere alle richieste provocando infine l'arresto anomalo del sistema.
-
-L'esempio più comune di attacco DDoS basato sul protocollo è il TCP SYN Flood. In questo tipo di attacco, una successione di richieste TCP SYN tenta di sovraccaricare una destinazione. L'obiettivo è di non avere alcuna risposta dalla destinazione. L'interruzione Dyn 2016, oltre ad essere un attacco a livello di applicazione, è consistita in inondazioni TCP SYN che colpivano la porta 53 dei server DNS Dyn.
-
-### <a name="resource-attacks"></a>Attacchi alle risorse
-
-Gli attacchi alle risorse hanno come destinazione il livello dell'applicazione. Attivano processi di back-end nel tentativo di sovraccaricare un sistema. Gli attacchi alle risorse abusano del traffico che sembra normale, ma che porta query ad utilizzo elevato di CPU al server. Il volume di traffico necessario ad esaurire le risorse è inferiore a quello di altri tipi di attacchi. Il traffico in un attacco alle risorse non è distinguibile dal traffico legittimo, rendendolo difficile da rilevare. Gli attacchi alle risorse più comuni sono su HTTP/HTTPS e sui servizi DNS.
-
-## <a name="shared-responsibility-in-the-cloud"></a>Responsabilità condivisa nel cloud
-
-È necessaria una strategia di difesa approfondita per contrastare le crescenti tipologie e i diversi gradi di sofisticazione degli attacchi. La sicurezza è una responsabilità condivisa tra il cliente e Microsoft. Microsoft la definisce un [modello di responsabilità condivisa](https://azure.microsoft.com/blog/microsoft-incident-response-and-shared-responsibility-for-cloud-computing/). La figura seguente mostra la divisione di responsabilità:
-
-![Responsabilità del cliente e di Azure](./media/ddos-best-practices/image2.png)
-
-I clienti di Azure traggono vantaggio dall'analisi delle procedure consigliate di Microsoft e dalla creazione di applicazioni distribuite a livello globale progettate e testate per errori.
 
 ## <a name="fundamental-best-practices"></a>Procedure consigliate fondamentali
 
@@ -76,11 +42,11 @@ Garantire la sicurezza durante l'intero ciclo di vita di un'applicazione, dalla 
 Per proteggere un servizio in esecuzione in Microsoft Azure, i clienti devono avere una buona conoscenza dell'architettura delle applicazioni e concentrarsi sui [cinque punti chiave della qualità del software](/azure/architecture/guide/pillars).
 I clienti devono conoscere i volumi di traffico tipici, il modello di connettività tra l'applicazione e le altre applicazioni e gli endpoint di servizio esposti a Internet pubblico.
 
-Garantire che un'applicazione sia abbastanza resiliente da riuscire a gestire un attacco Denial of Service destinato all'applicazione stessa è di fondamentale importanza. Sicurezza e privacy sono integrate direttamente nella piattaforma di Azure, a partire dal processo  [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). SDL si rivolge alla sicurezza in ogni fase di sviluppo e assicura che Azure sia continuamente aggiornato per renderlo ancora più sicuro.
+Garantire che un'applicazione sia abbastanza resiliente da riuscire a gestire un attacco Denial of Service destinato all'applicazione stessa è di fondamentale importanza. Sicurezza e privacy sono integrate direttamente nella piattaforma di Azure, a partire dal processo  [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). Il Security Development Lifecycle gestisce la sicurezza in ogni fase di sviluppo e garantisce che Azure venga costantemente aggiornato per renderlo ancora più sicuro.
 
 ### <a name="design-for-scalability"></a>Progettazione per la scalabilità
 
-La scalabilità è la capacità di un sistema di gestire carichi elevati. È necessario progettare le applicazioni con [scalabilità orizzontale](/azure/architecture/guide/design-principles/scale-out) per soddisfare la richiesta di un carico amplificato, in particolare in caso di attacco DDoS. Se l'applicazione dipende da una singola istanza di un servizio, crea un singolo punto di errore. Il provisioning di più istanze rende il sistema più resiliente e scalabile.
+La scalabilità è la capacità di un sistema di gestire carichi elevati. Progettare le applicazioni per la [scalabilità orizzontale](/azure/architecture/guide/design-principles/scale-out) per soddisfare la richiesta di un carico amplificato, in particolare in caso di attacco DDoS. Se l'applicazione dipende da una singola istanza di un servizio, crea un singolo punto di errore. Il provisioning di più istanze rende il sistema più resiliente e scalabile.
 
 Per [Servizio app di Azure](/azure/app-service/app-service-value-prop-what-is) selezionare un [piano di servizio app](/azure/app-service/overview-hosting-plans) che offra più istanze. Per Servizi cloud di Azure, configurare ognuno dei ruoli in modo da usare [più istanze](/azure/cloud-services/cloud-services-choose-me). Per [Macchine virtuali di Microsoft Azure](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) verificare che l'architettura VM includa più macchine virtuali e che ogni macchina virtuale sia inclusa in un [set di disponibilità](/azure/virtual-machines/virtual-machines-windows-manage-availability). Si consiglia di usare [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) per le funzionalità di scalabilità automatica.
 
@@ -97,7 +63,7 @@ Le risorse locali dei clienti che vengono spesso attaccate insieme alle risorse 
 
 ## <a name="azure-offerings-for-ddos-protection"></a>Offerte di Azure per la protezione DDoS
 
-Azure prevede due offerte di servizio contro gli attacchi DDoS per la protezione della rete (livello 3 e 4): Protezione DDoS Basic e Protezione DDoS Standard. 
+In Azure sono disponibili due offerte di servizio DDoS che forniscono protezione dagli attacchi alla rete (Livello 3 e 4): Protezione DDoS Basic e Protezione DDoS Standard. 
 
 ### <a name="ddos-protection-basic"></a>Protezione DDoS Basic
 
@@ -107,7 +73,7 @@ La protezione di base viene integrata in Azure per impostazione predefinita senz
 
 Protezione DDoS Basic di Azure è costituita da componenti hardware e software. Un piano di controllo del software decide quando, dove, e che tipo di traffico debba essere deviato tramite dispositivi hardware che analizzano e rimuovono il traffico dell'attacco. Un piano di controllo software prende questa decisione in base a *criteri* di Protezione DDoS per tutta l'infrastruttura. Questi criteri sono staticamente definiti e universalmente applicati a tutti i clienti di Azure.
 
-Ad esempio, i criteri di Protezione DDoS specificano a quale volume di traffico debba essere *attivata* la protezione, ovvero quando instradare il traffico del tenant attraverso appliance di esecuzione dello scrubbing. I criteri specificano quindi in che modo le appliance di esecuzione dello scrubbing debbano *mitigare* l'attacco.
+Ad esempio, i criteri di Protezione DDoS specificano a quale volume di traffico debba essere *attivata* la protezione, (Ovvero, il traffico del tenant deve essere instradato tramite appliance di pulitura). Il criterio specifica quindi il modo in cui le appliance di pulitura devono *attenuare* l'attacco.
 
 Il servizio Protezione DDoS di Azure Basic è destinato alla protezione dell'infrastruttura e della piattaforma di Azure. Mitiga il traffico quando supera una velocità talmente significativa da poter influire negativamente su più clienti in un ambiente multi-tenant. Non fornisce avvisi o i criteri personalizzati per ogni cliente.
 
@@ -115,7 +81,7 @@ Il servizio Protezione DDoS di Azure Basic è destinato alla protezione dell'inf
 
 La protezione Standard offre funzioni di mitigazione DDoS avanzate. Viene ottimizzata automaticamente per proteggere le specifiche risorse di Azure in una rete virtuale. La protezione è semplice da abilitare in qualsiasi rete virtuale nuova o esistente e non richiede alcuna modifica di applicazioni o risorse. Presenta diversi vantaggi rispetto al servizio Basic, compresa la registrazione, gli avvisi e i dati di telemetria. Le sezioni seguenti descrivono le caratteristiche principali del servizio Protezione DDoS di Azure Standard.
 
-#### <a name="adaptive-real-time-tuning"></a>Ottimizzazione adattiva in tempo reale
+#### <a name="adaptive-real-time-tuning"></a>Ottimizzazione in tempo reale adattiva
 
 Il servizio Protezione DDoS di Azure Basic aiuta a proteggere i clienti e a prevenire gli impatti su altri clienti. Se ad esempio viene eseguito il provisioning di un servizio per un volume tipico di traffico legittimo in entrata minore della *frequenza trigger* dei criteri di Protezione DDoS per l'intera infrastruttura, potrebbe passare inosservato un attacco DDoS alle risorse di quel cliente. Più in generale, la natura complessa degli attacchi recenti (ad esempio DDoS multi-vettore), nonché i comportamenti specifici dell'applicazione dei tenant, richiedono criteri di protezione personalizzati per ogni cliente. Il servizio realizza questa personalizzazione in due modi:
 
@@ -161,7 +127,7 @@ La pianificazione e la preparazione sono essenziali per comprendere come un sist
 
 Se è disponibile Protezione DDoS Standard, assicurarsi che sia attivato nella rete virtuale degli endpoint con connessione Internet. La configurazione degli avvisi DDoS consente di monitorare costantemente eventuali attacchi all'infrastruttura. 
 
-È necessario monitorare le applicazioni in modo indipendente e comprendere il comportamento normale di un'applicazione. Prepararsi ad agire se l'applicazione non si comporta come previsto durante un attacco DDoS.
+Monitorare le applicazioni in modo indipendente. comprendere il comportamento normale di un'applicazione. Prepararsi ad agire se l'applicazione non si comporta come previsto durante un attacco DDoS.
 
 #### <a name="testing-through-simulations"></a>Test tramite simulazioni
 
@@ -183,7 +149,7 @@ La sicurezza informatica richiede una costante innovazione nella difesa. Protezi
 
 Un attacco DDoS che prende di mira le risorse di Azure richiede solitamente un intervento minimo dal punto di vista dell'utente. L'integrazione della mitigazione DDoS nella strategia di risposta agli eventi imprevisti contribuisce comunque a ridurre al minimo l'impatto sulla continuità aziendale.
 
-### <a name="microsoft-threat-intelligence"></a>Intelligence sulle minacce Microsoft
+### <a name="microsoft-threat-intelligence"></a>Intelligence per le minacce di Microsoft
 
 Microsoft ha a disposizione un'ampia rete di intelligence per le minacce. Questa rete usa le conoscenze collettive di una comunità di sicurezza estesa che supporta Microsoft Online Services, i partner Microsoft e le relazioni all'interno della comunità della sicurezza Internet. 
 
@@ -193,7 +159,8 @@ La Microsoft Digital Crimes Unit (DCU) mette inoltre in atto strategie offensive
 
 ### <a name="risk-evaluation-of-your-azure-resources"></a>Valutazione del rischio delle risorse di Azure.
 
-È imperativo comprendere la portata del rischio di un attacco DDoS su base continuativa. Porsi periodicamente le domande seguenti: 
+È imperativo comprendere la portata del rischio di un attacco DDoS su base continuativa. Porsi periodicamente le domande seguenti:
+
 - Quali nuove risorse di Azure pubblicamente disponibili hanno bisogno di protezione?
 
 - È presente un singolo punto di guasto nel servizio? 
@@ -226,7 +193,7 @@ Protezione DDoS di Azure Standard identifica e mitiga gli attacchi DDoS senza al
 
 - Un attore ha minacciato di lanciare un attacco DDoS contro le risorse.
 
-- Se è necessario inserire nell'elenco elementi consentiti un intervallo IP o IP da protezione DDoS di Azure standard. Uno scenario comune consiste nell'inserire l'indirizzo IP nell'elenco elementi consentiti se il traffico viene indirizzato da un cloud esterno WAF ad Azure. 
+- Se è necessario consentire l'elenco di un IP o un intervallo IP da protezione DDoS di Azure standard. Uno scenario comune consiste nel consentire l'IP dell'elenco se il traffico viene instradato da un cloud esterno WAF ad Azure. 
 
 Per gli attacchi che hanno un impatto aziendale critico, creare un [ticket di supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) di gravità A.
 
@@ -301,8 +268,8 @@ Per altre informazioni su questa architettura di riferimento, vedere la document
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Pagina del prodotto di Protezione DDoS di Azure](https://azure.microsoft.com/services/ddos-protection/)
+* [Responsabilità condivisa nel cloud](shared-responsibility.md)
 
-* [Blog di Protezione DDoS di Azure](https://aka.ms/ddosblog)
+* [Pagina del prodotto di Protezione DDoS di Azure](https://azure.microsoft.com/services/ddos-protection/)
 
 * [Documentazione di Protezione DDoS di Azure ](/azure/virtual-network/ddos-protection-overview)

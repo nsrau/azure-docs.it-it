@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
-ms.openlocfilehash: c77d1d1a66d3ee92f5ad3f2016d2160831fa3ad9
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9b44db3e8ffc02d211f7f97404f0cdd8d319fe03
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299305"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597498"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Connettersi a origini dati da Azure Databricks
 
@@ -31,11 +31,11 @@ L'elenco seguente include le origini dati in Azure che è possibile usare con Az
 - [Database SQL di Azure](https://docs.azuredatabricks.net/spark/latest/data-sources/sql-databases.html)
 
     Questo collegamento fornisce l'API del frame di dati per la connessione ai database SQL mediante JDBC, oltre a informazioni su come controllare il parallelismo di letture tramite l'interfaccia JDBC. In questo argomento vengono forniti esempi dettagliati mediante l'API Scala, con Python abbreviato ed esempi di Spark SQL alla fine.
-- [Azure Data Lake Store](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)
+- [Archiviazione di Azure Data Lake](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)
 
-    Questo collegamento fornisce esempi su come usare l'entità servizio di Azure Active Directory per l'autenticazione con Data Lake Store. Vengono anche fornite istruzioni su come accedere ai dati in Data Lake Store da Azure Databricks.
+    Questo collegamento fornisce esempi su come usare l'entità servizio Azure Active Directory per l'autenticazione con Azure Data Lake Storage. Vengono inoltre fornite istruzioni su come accedere ai dati in Azure Data Lake Storage da Azure Databricks.
 
-- [Archiviazione BLOB di Azure](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html)
+- [Archivio BLOB di Azure](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html)
 
     Questo collegamento fornisce esempi su come accedere direttamente ad Archiviazione BLOB di Azure da Azure Databricks tramite la chiave di accesso o la firma di accesso condiviso per un contenitore specificato. Il collegamento contiene anche informazioni su come accedere ad Archiviazione BLOB di Azure da Azure Databricks usando l'API RDD.
 

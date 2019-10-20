@@ -4,14 +4,14 @@ description: Viene descritto come configurare l'integrazione continua in Azure P
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 10/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: ae896fa0820fbd25ed3f2d29c89fbcd56e7fd6f5
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 9306ff8787a4e2b873cb11458a4cf9a10589bf6b
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982451"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597508"
 ---
 # <a name="integrate-resource-manager-templates-with-azure-pipelines"></a>Integrare modelli di Gestione risorse con Azure Pipelines
 
@@ -71,7 +71,7 @@ steps:
   inputs:
     azureSubscription: 'demo-deploy-sp'
     ScriptPath: 'AzureResourceGroupDemo/Deploy-AzureResourceGroup.ps1'
-    ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus' 
+    ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus'
     azurePowerShellVersion: LatestVersion
 ```
 
@@ -133,13 +133,13 @@ Ora che si è appreso come creare l'attività, procedere con la procedura per mo
 
 1. Quando si seleziona **Salva**, la pipeline di compilazione viene eseguita automaticamente. Tornare al riepilogo per la pipeline di compilazione e controllare lo stato.
 
-   ![Visualizza risultati](./media/vs-resource-groups-project-devops-pipelines/view-results.png)
+   ![Visualizzare i risultati](./media/vs-resource-groups-project-devops-pipelines/view-results.png)
 
 È possibile selezionare la pipeline attualmente in esecuzione per visualizzare i dettagli relativi alle attività. Al termine, vengono visualizzati i risultati per ogni passaggio.
 
 ## <a name="copy-and-deploy-tasks"></a>Copiare e distribuire attività
 
-In questa sezione viene illustrato come configurare la distribuzione continua utilizzando due attività per organizzare gli elementi e distribuire il modello. 
+In questa sezione viene illustrato come configurare la distribuzione continua utilizzando due attività per organizzare gli elementi e distribuire il modello.
 
 Il seguente YAML mostra l' [attività copia file di Azure](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops):
 
@@ -157,7 +157,7 @@ Il seguente YAML mostra l' [attività copia file di Azure](/azure/devops/pipelin
     sasTokenTimeOutInMinutes: '240'
 ```
 
-Esistono diverse parti di questa attività da rivedere per l'ambiente in uso. `SourcePath` Indica la posizione degli elementi relativi al file della pipeline. In questo esempio, i file sono presenti in una cartella `AzureResourceGroup1` denominata che è il nome del progetto.
+Esistono diverse parti di questa attività da rivedere per l'ambiente in uso. Il `SourcePath` indica il percorso degli elementi relativi al file della pipeline. In questo esempio, i file sono presenti in una cartella denominata `AzureResourceGroup1` che era il nome del progetto.
 
 ```yaml
 SourcePath: '<path-to-artifacts>'
@@ -176,35 +176,45 @@ storage: '<your-storage-account-name>'
 ContainerName: '<container-name>'
 ```
 
-Il seguente YAML mostra l' [attività di distribuzione del gruppo di risorse di Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops):
+Il YAML seguente mostra l' [attività di distribuzione del modello di Azure Resource Manager](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md):
 
 ```yaml
 - task: AzureResourceGroupDeployment@2
   displayName: 'Deploy template'
   inputs:
-    azureSubscription: 'demo-deploy-sp'
+    deploymentScope: 'Resource Group'
+    ConnectedServiceName: 'demo-deploy-sp'
+    subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+    action: 'Create Or Update Resource Group'
     resourceGroupName: 'demogroup'
-    location: 'centralus'
+    location: 'Central US'
     templateLocation: 'URL of the file'
     csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
     csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
     overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    deploymentMode: 'Incremental'
 ```
 
-Esistono diverse parti di questa attività da rivedere per l'ambiente in uso. Per `azureSubscription`, specificare il nome della connessione al servizio creata.
+Esistono diverse parti di questa attività da rivedere per l'ambiente in uso.
 
-```yaml
-azureSubscription: '<your-connection-name>'
-```
+- `deploymentScope`: selezionare l'ambito di distribuzione dalle opzioni: `Management Group`, `Subscription` e `Resource Group`. Usare il **gruppo di risorse** in questa procedura dettagliata. Per ulteriori informazioni sugli ambiti, vedere [ambiti di distribuzione](./resource-group-template-deploy-rest.md#deployment-scope).
 
-Per `resourceGroupName` e`location`, specificare il nome e il percorso del gruppo di risorse in cui si vuole eseguire la distribuzione. L'attività crea il gruppo di risorse, se non esiste.
+- `ConnectedServiceName`: specificare il nome della connessione al servizio creata.
 
-```yaml
-resourceGroupName: '<resource-group-name>'
-location: '<location>'
-```
+    ```yaml
+    ConnectedServiceName: '<your-connection-name>'
+    ```
 
-L'attività di distribuzione è collegata a un `WebSite.json` modello denominato e a un file di parametri denominato website. Parameters. JSON. Usare i nomi dei file di modello e di parametri.
+- `subscriptionName`: specificare l'ID sottoscrizione di destinazione. Questa proprietà si applica solo all'ambito di distribuzione del gruppo di risorse e alla distribuzione della sottoscrizione.
+
+- `resourceGroupName` e `location`: specificare il nome e il percorso del gruppo di risorse in cui si vuole eseguire la distribuzione. L'attività crea il gruppo di risorse, se non esiste.
+
+    ```yaml
+    resourceGroupName: '<resource-group-name>'
+    location: '<location>'
+    ```
+
+L'attività di distribuzione è collegata a un modello denominato `WebSite.json` e a un file di parametri denominato WebSite. Parameters. JSON. Usare i nomi dei file di modello e di parametri.
 
 Ora che si è appreso come creare le attività, procedere con la procedura per modificare la pipeline.
 
@@ -226,16 +236,20 @@ Ora che si è appreso come creare le attività, procedere con la procedura per m
        outputStorageUri: 'artifactsLocation'
        outputStorageContainerSasToken: 'artifactsLocationSasToken'
        sasTokenTimeOutInMinutes: '240'
-   - task: AzureResourceGroupDeployment@2
-     displayName: 'Deploy template'
-     inputs:
-       azureSubscription: 'demo-deploy-sp'
-       resourceGroupName: demogroup
-       location: 'centralus'
-       templateLocation: 'URL of the file'
-       csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-       csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
-       overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    - task: AzureResourceGroupDeployment@2
+      displayName: 'Deploy template'
+      inputs:
+        deploymentScope: 'Resource Group'
+        ConnectedServiceName: 'demo-deploy-sp'
+        subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: 'demogroup'
+        location: 'Central US'
+        templateLocation: 'URL of the file'
+        csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
+        csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
+        overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+        deploymentMode: 'Incremental'
    ```
 
 1. Selezionare **Salva**.
@@ -244,10 +258,10 @@ Ora che si è appreso come creare le attività, procedere con la procedura per m
 
 1. Quando si seleziona **Salva**, la pipeline di compilazione viene eseguita automaticamente. Tornare al riepilogo per la pipeline di compilazione e controllare lo stato.
 
-   ![Visualizza risultati](./media/vs-resource-groups-project-devops-pipelines/view-results.png)
+   ![Visualizzare i risultati](./media/vs-resource-groups-project-devops-pipelines/view-results.png)
 
 È possibile selezionare la pipeline attualmente in esecuzione per visualizzare i dettagli relativi alle attività. Al termine, vengono visualizzati i risultati per ogni passaggio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per istruzioni dettagliate sull'uso di Azure Pipelines con i modelli di gestione risorse, vedere [esercitazione: Integrazione continua dei modelli di Azure Resource Manager con](resource-manager-tutorial-use-azure-pipelines.md)Azure Pipelines.
+Per istruzioni dettagliate sull'uso di Azure Pipelines con i modelli di Gestione risorse, vedere [esercitazione: integrazione continua dei modelli di Azure Resource Manager con Azure Pipelines](resource-manager-tutorial-use-azure-pipelines.md).

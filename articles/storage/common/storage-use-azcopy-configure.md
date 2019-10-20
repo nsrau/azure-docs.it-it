@@ -4,16 +4,16 @@ description: Configurare, ottimizzare e risolvere i problemi relativi a AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 42d2dae148b83687ff06d4ed321a881bcb9e7ae0
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 2b3fcba755c9ddb28e37400c5cba790ed0df41b9
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273933"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595138"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi relativi a AzCopy
 
@@ -58,11 +58,11 @@ Usare il comando seguente per eseguire un test di benchmark delle prestazioni.
 
 Questo comando esegue un benchmark delle prestazioni caricando i dati di test in una destinazione specificata. I dati di test vengono generati in memoria, caricati nella destinazione, quindi eliminati dalla destinazione dopo il completamento del test. È possibile specificare il numero di file da generare e le dimensioni che si desidera utilizzare con i parametri facoltativi del comando.
 
-Per visualizzare le indicazioni dettagliate della Guida per questo comando, digitare `azcopy bench -h`, quindi premere il tasto INVIO.
+Per visualizzare informazioni dettagliate della Guida per questo comando, digitare `azcopy bench -h` e premere INVIO.
 
 ### <a name="optimize-throughput"></a>Ottimizzare la velocità effettiva
 
-È possibile utilizzare il flag `cap-mbps` per inserire un limite massimo sulla velocità di dati della velocità effettiva. Ad esempio, il comando seguente consente di riportare la velocità effettiva a `10` megabit (MB) al secondo.
+È possibile usare il flag di `cap-mbps` per posizionare un limite massimo sulla velocità di elaborazione dei dati. Ad esempio, il comando seguente consente di riportare la velocità effettiva a `10` megabit (MB) al secondo.
 
 ```azcopy
 azcopy cap-mbps 10
@@ -78,7 +78,7 @@ Se il computer dispone di meno di 5 CPU, il valore di questa variabile viene imp
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **MacOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 
-Utilizzare `azcopy env` per verificare il valore corrente della variabile. Se il valore è vuoto, è possibile leggere quale valore viene usato osservando l'inizio di un file di log AzCopy. Il valore selezionato e il motivo per cui è stato selezionato vengono segnalati.
+Utilizzare il `azcopy env` per verificare il valore corrente della variabile. Se il valore è vuoto, è possibile leggere quale valore viene usato osservando l'inizio di un file di log AzCopy. Il valore selezionato e il motivo per cui è stato selezionato vengono segnalati.
 
 Prima di impostare questa variabile, è consigliabile eseguire un test di benchmark. Il processo di test di benchmark segnalerà il valore della concorrenza consigliata. In alternativa, se le condizioni della rete e i payload variano, impostare questa variabile sulla parola `AUTO` anziché su un numero specifico. In questo modo AzCopy eseguirà sempre lo stesso processo di ottimizzazione automatica utilizzato nei test di benchmark.
 
@@ -97,16 +97,16 @@ Esprimere questo valore in gigabyte (GB).
 
 AzCopy crea file di log e di piano per ogni processo. È possibile usare i log per analizzare e risolvere eventuali problemi potenziali. 
 
-I log conterranno lo stato di errore (`UPLOADFAILED`, `COPYFAILED` e `DOWNLOADFAILED`), il percorso completo e il motivo dell'errore.
+I log conterranno lo stato dell'errore (`UPLOADFAILED`, `COPYFAILED` e `DOWNLOADFAILED`), il percorso completo e il motivo dell'errore.
 
-Per impostazione predefinita, i file di log e di piano si trovano nella directory `%USERPROFILE$\.azcopy` in Windows o `$HOME$\.azcopy` in Mac e Linux, ma è possibile modificare tale percorso se lo si desidera.
+Per impostazione predefinita, i file di log e di piano si trovano nella directory `%USERPROFILE$\.azcopy` in Windows o `$HOME$\.azcopy` directory su Mac e Linux, ma è possibile modificare tale percorso se lo si desidera.
 
 > [!IMPORTANT]
 > Quando si invia una richiesta di supporto tecnico Microsoft (o si risolvono i problemi relativi a terze parti), condividere la versione redatta del comando che si desidera eseguire. Ciò garantisce che la firma di accesso condiviso non venga accidentalmente condivisa con nessuno. È possibile trovare la versione con modifiche all'inizio del file di log.
 
 ### <a name="review-the-logs-for-errors"></a>Esaminare i log degli errori
 
-Il comando seguente otterrà tutti gli errori con lo stato `UPLOADFAILED` dal registro `04dc9ca9-158f-7945-5933-564021086c79`:
+Il comando seguente otterrà tutti gli errori con `UPLOADFAILED` stato dal registro `04dc9ca9-158f-7945-5933-564021086c79`:
 
 **Windows (PowerShell)**
 
@@ -151,7 +151,7 @@ Quando si riprende un processo, AzCopy esamina il file del piano di processo. Il
 
 ## <a name="change-the-location-of-the-plan-and-log-files"></a>Modificare il percorso del piano e dei file di log
 
-Per impostazione predefinita, i file di piano e di log si trovano nella directory `%USERPROFILE$\.azcopy` in Windows o nella directory `$HOME$\.azcopy` in Mac e Linux. È possibile modificare questo percorso.
+Per impostazione predefinita, i file di piano e di log si trovano nella directory `%USERPROFILE$\.azcopy` in Windows o nella directory `$HOME$\.azcopy` su Mac e Linux. È possibile modificare questo percorso.
 
 ### <a name="change-the-location-of-plan-files"></a>Modificare il percorso dei file del piano
 
@@ -163,7 +163,7 @@ Usare uno di questi comandi.
 | **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
 | **MacOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
 
-Utilizzare `azcopy env` per verificare il valore corrente della variabile. Se il valore è vuoto, i file del piano vengono scritti nel percorso predefinito.
+Utilizzare il `azcopy env` per verificare il valore corrente della variabile. Se il valore è vuoto, i file del piano vengono scritti nel percorso predefinito.
 
 ### <a name="change-the-location-of-log-files"></a>Modificare il percorso dei file di log
 
@@ -175,7 +175,7 @@ Usare uno di questi comandi.
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
 | **MacOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 
-Utilizzare `azcopy env` per verificare il valore corrente della variabile. Se il valore è vuoto, i log vengono scritti nel percorso predefinito.
+Utilizzare il `azcopy env` per verificare il valore corrente della variabile. Se il valore è vuoto, i log vengono scritti nel percorso predefinito.
 
 ## <a name="change-the-default-log-level"></a>Modificare il livello predefinito del log
 

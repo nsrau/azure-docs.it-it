@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad2f56388b49692d799202d06ed3dc0123f272e5
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: ad7bdfd3abc4d3b4b672f5471ea826d4cef0f3fc
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294369"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596878"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Ottimizzare le prestazioni e l'affidabilità delle funzioni di Azure
 
-Questo articolo fornisce indicazioni per migliorare le prestazioni e l'affidabilità delle app per le funzioni [senza server](https://azure.microsoft.com/solutions/serverless/). 
+Questo articolo fornisce indicazioni per migliorare le prestazioni e l'affidabilità delle app per le funzioni [senza server](https://azure.microsoft.com/solutions/serverless/).  
 
 ## <a name="general-best-practices"></a>Procedure consigliate generali
 
@@ -60,7 +60,7 @@ Si supponga che la funzione possa rilevare un'eccezione in qualsiasi momento. Pr
 1. Query per 10.000 righe in un database.
 2. Creare un messaggio in coda per ognuna delle righe da elaborare ulteriormente in un secondo tempo.
  
-In base alla complessità del sistema, è possibile che i servizi downstream coinvolti non funzionino correttamente, che si verifichino interruzioni della rete, che vengano raggiunti i limiti di quota e così via. Tutti questi elementi possono influire sulla funzione in qualsiasi momento. È necessario progettare le funzioni in modo che siano preparate.
+A seconda della complessità del sistema, è possibile che si verifichino problemi di funzionamento dei servizi downstream, interruzioni della rete o limiti di quota raggiunti e così via. Tutti questi possono influire sulla funzione in qualsiasi momento. È necessario progettare le funzioni in modo che siano preparate.
 
 Come reagisce il codice in caso di errore dopo l'inserimento di 5.000 di tali elementi in una coda per l'elaborazione? Tenere traccia degli elementi in un set già completato. In caso contrario, è possibile inserirli di nuovo la volta successiva. Ciò può influire in modo negativo sul flusso di lavoro. 
 

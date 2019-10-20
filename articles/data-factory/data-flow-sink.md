@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 5fc9262dd53f390dbc43646626cc324d8655f1de
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 124b52d920ef36b373eef895187727499068f3eb
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387786"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596538"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Trasformazione sink per un flusso di dati
 
@@ -61,6 +61,10 @@ Quando si disattiva il mapping automatico, sarà possibile aggiungere il mapping
 Quando si sceglie il mapping basato su regole, si indica ad ADF di valutare l'espressione corrispondente in modo che corrisponda alle regole dei criteri in ingresso e di definire i nomi dei campi in uscita. È possibile aggiungere qualsiasi combinazione di mapping di campi e basati su regole. I nomi dei campi vengono quindi generati in fase di esecuzione da ADF in base ai metadati in ingresso provenienti dall'origine. È possibile visualizzare i nomi dei campi generati durante il debug e utilizzando il riquadro di anteprima dei dati.
 
 Per informazioni dettagliate sui criteri di ricerca, fare riferimento alla [documentazione del modello di colonna](concepts-data-flow-column-pattern.md).
+
+È anche possibile immettere modelli di espressione regolare quando si usa la corrispondenza basata su regole espandendo la riga e immettendo un'espressione regolare accanto a "nome corrisponde:".
+
+![Mapping Regex](media/data-flow/scdt1g4.png "Mapping Regex")
 
 ## <a name="file-name-options"></a>Opzioni di nomi di file
 

@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 0acdf1496151df57d4097ce5bc71d782dc465873
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: 37d8f17e825daa3a1c160509b1a38f8c70256d1c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554542"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595376"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Ottimizzazione delle prestazioni con indice columnstore cluster ordinato  
 
@@ -125,10 +125,6 @@ La creazione di una CCI ordinata è un'operazione offline.  Per le tabelle senza
 4.  Eseguire ALTER INDEX < Ordered_CCI_Index > in < Table_B > REBUILD PARTITION = < Partition_ID > nella tabella B per ricompilare la partizione commutata.  
 5.  Ripetere i passaggi 3 e 4 per ogni partizione in Table_A.
 6.  Una volta passate tutte le partizioni da Table_A a Table_B e ricompilate, eliminare Table_A e rinominare Table_B in Table_A. 
-
->[!NOTE]
->Durante l'anteprima dell'indice columnstore cluster ordinato (CCI) in Azure SQL Data Warehouse, è possibile che vengano generati dati duplicati se la CCI ordinata viene creata o ricompilata tramite Crea indice COLUMNStore CLUSTER in una tabella partizionata. Non si verifica alcuna perdita di dati. Una correzione per questo problema sarà presto disponibile. Per una soluzione alternativa, gli utenti possono creare CCI ordinati in una tabella partizionata usando il comando CTAS
-
 
 ## <a name="examples"></a>esempi
 

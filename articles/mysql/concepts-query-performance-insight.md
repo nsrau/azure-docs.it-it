@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: f6c74582760d77ae4318739c74f77d0bcd0501fe
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.date: 10/17/2019
+ms.openlocfilehash: b7395a8ab71e860c2e584339dcd581077a4f4020
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950354"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595477"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Informazioni dettagliate prestazioni query nel database di Azure per MySQL
 
@@ -24,7 +24,7 @@ Informazioni dettagliate prestazioni query consente di identificare rapidamente 
 
 ## <a name="common-scenarios"></a>Scenari comuni
 
-### <a name="long-running-queries"></a>Query a esecuzione prolungata
+### <a name="long-running-queries"></a>Query con esecuzione prolungata
 
 - Identificazione delle query con il tempo di esecuzione più lungo nelle ultime X ore
 - Identificazione delle prime N query in attesa delle risorse
@@ -34,7 +34,7 @@ Informazioni dettagliate prestazioni query consente di identificare rapidamente 
 - Informazioni sulla natura delle attese per una query
 - Informazioni sulle tendenze per le attese di risorse e su dove esiste la contesa di risorse
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>autorizzazioni
 
 Autorizzazioni **Proprietario** oppure **Collaboratore** necessarie per visualizzare il testo delle query in Informazioni dettagliate prestazioni query. **Lettore** può visualizzare i grafici e tabelle ma non il testo della query.
 
@@ -48,9 +48,9 @@ La visualizzazione [Informazioni dettagliate prestazioni query](concepts-query-p
 
 Nella pagina del portale del database di Azure per il server MySQL selezionare **informazioni dettagliate prestazioni query** nella sezione **prestazioni intelligenti** della barra dei menu.
 
-### <a name="long-running-queries"></a>Query a esecuzione prolungata
+### <a name="long-running-queries"></a>Query con esecuzione prolungata
 
-La scheda **query con esecuzione** prolungata Mostra le prime 5 query per durata media per esecuzione, aggregate in intervalli di 15 minuti. È possibile visualizzare altre query selezionando l'elenco a discesa **numero di query** . I colori del grafico possono cambiare per un ID di query specifico quando si esegue questa operazione.
+La scheda **query con esecuzione prolungata** Mostra le prime 5 query per durata media per esecuzione, aggregate in intervalli di 15 minuti. È possibile visualizzare altre query selezionando l'elenco a discesa **numero di query** . I colori del grafico possono cambiare per un ID di query specifico quando si esegue questa operazione.
 
 È possibile fare clic e trascinare nel grafico per limitare l'elenco a un intervallo di tempo specifico. In alternativa, usare le icone zoom avanti e indietro per visualizzare rispettivamente un periodo di tempo più piccolo o più grande.
 
@@ -59,7 +59,7 @@ La scheda **query con esecuzione** prolungata Mostra le prime 5 query per durata
 ### <a name="wait-statistics"></a>Statistiche attesa
 
 > [!NOTE]
-> Le statistiche di attesa sono destinate alla risoluzione dei problemi di prestazioni delle query. È consigliabile attivarla solo a scopo di risoluzione dei problemi.
+> Le statistiche di attesa sono destinate alla risoluzione dei problemi di prestazioni delle query. È consigliabile attivarla solo a scopo di risoluzione dei problemi. <br>Se viene visualizzato il messaggio di errore nel portale di Azure "*problema riscontrato per ' Microsoft. DBforMySQL '; non è possibile soddisfare la richiesta. Se il problema persiste o è imprevisto, contattare il supporto tecnico con queste informazioni ".* durante la visualizzazione delle statistiche di attesa, usare un periodo di tempo inferiore.
 
 Le statistiche di attesa forniscono una visualizzazione degli eventi di attesa che si verificano durante l'esecuzione di una query specifica. Per altre informazioni sui tipi di evento Wait, vedere la [documentazione del motore MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 

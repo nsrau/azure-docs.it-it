@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 5d69e29c83bcbe433b800d6877ba1c7440eceedc
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e92471bd467557f3ac8eb0404d672355ccab8449
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387978"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597103"
 ---
 # <a name="monitor-data-flows"></a>Monitorare i flussi di dati
 
@@ -47,6 +47,11 @@ Quando il flusso di dati viene eseguito in Spark, Azure Data Factory determina i
   * Calcolato: si usa la colonna per l'elaborazione condizionale o all'interno di un'espressione nel flusso di dati, ma non viene visualizzata nel sink
   * Derivato: la colonna è una nuova colonna generata nel flusso, ovvero non è presente nell'origine
   * Con mapping: la colonna è stata originata dall'origine ed è stata mappata a un campo sink
+  * Stato del flusso di dati: lo stato corrente dell'esecuzione
+  * Tempo di avvio del cluster: periodo di tempo per l'acquisizione dell'ambiente di calcolo Spark JIT per l'esecuzione del flusso di dati
+  * Numero di trasformazioni: il numero di passaggi di trasformazione eseguiti nel flusso
+  
+![Monitoraggio del flusso di dati ACIT](media/data-flow/monitornew.png "Monitoraggio del flusso di dati nuovo")  
   
 ## <a name="monitor-icons"></a>Icona di monitoraggio
 

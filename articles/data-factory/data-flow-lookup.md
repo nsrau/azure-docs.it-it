@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: 25d8588f8e2c968dc2516938263aaa7d6ddcff13
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 01a1dba18e21a38695146560bbf85cf1a042ba02
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387864"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596612"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Trasformazione ricerca flusso di dati mapping Azure Data Factory
 
@@ -29,6 +29,20 @@ La trasformazione Ricerca esegue l'equivalente di un left outer join. Quindi, ve
 
 Dopo la trasformazione ricerca, è possibile utilizzare le trasformazioni successive per esaminare i risultati di ogni riga delle corrispondenze utilizzando la funzione Expression `isMatch()` per effettuare ulteriori scelte nella logica a seconda che la ricerca abbia restituito o meno una corrispondenza di riga.
 
+![Modello di ricerca](media/data-flow/lookup111.png "Modello di ricerca")
+
+Dopo aver utilizzato la trasformazione ricerca, è possibile aggiungere una suddivisione della trasformazione Suddivisione condizionale sulla funzione ```isMatch()```. Nell'esempio precedente, le righe corrispondenti passano attraverso il flusso superiore e le righe non corrispondenti passano attraverso il flusso di ```NoMatch```.
+
+## <a name="first-or-last-value"></a>Primo o ultimo valore
+
+Quando si dispone di più corrispondenze dalla ricerca, è possibile ridurre le più righe corrispondenti selezionando la prima o l'ultima corrispondenza. A tale scopo, è possibile utilizzare una trasformazione aggregazione dopo la ricerca.
+
+In questo caso, viene usata una trasformazione aggregazione denominata ```PickFirst``` per selezionare il primo valore dalle corrispondenze di ricerca.
+
+![Aggregazione ricerca](media/data-flow/lookup333.png "Aggregazione ricerca")
+
+![Ricerca prima](media/data-flow/lookup444.png "Ricerca prima")
+
 ## <a name="optimizations"></a>Ottimizzazioni
 
 In Data Factory i flussi di dati vengono eseguiti in ambienti Spark con scalabilità orizzontale. Se il set di dati può rientrare nello spazio di memoria del nodo di lavoro, è possibile ottimizzare le prestazioni di ricerca.
@@ -45,4 +59,5 @@ Selezionare Left e/o right broadcast join per richiedere ad ADF di effettuare il
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Le trasformazioni [join](data-flow-join.md) e [Exists](data-flow-exists.md) eseguono attività simili nei flussi di dati del mapping di ADF. Esaminare le trasformazioni seguenti.
+* Le trasformazioni [join](data-flow-join.md) e [Exists](data-flow-exists.md) eseguono attività simili nei flussi di dati del mapping di ADF. Esaminare le trasformazioni seguenti.
+* Usare una [Suddivisione condizionale](data-flow-conditional-split.md) con ```isMatch()``` per suddividere le righe in valori corrispondenti e non corrispondenti

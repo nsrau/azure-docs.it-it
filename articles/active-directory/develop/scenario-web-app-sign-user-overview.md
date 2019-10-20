@@ -15,14 +15,14 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f9b6d4ce4048b31f17b50184f90aed4d2a8ba81
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 68d47d4233aec62ec5f1955e52025b0d55221af8
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086564"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596709"
 ---
-# <a name="scenario-web-app-that-signs-in-users"></a>Scenario: App Web che offre l'accesso agli utenti
+# <a name="scenario-web-app-that-signs-in-users"></a>Scenario: app Web che accede agli utenti
 
 Scopri tutto quello che ti serve per creare un'app Web che esegue l'accesso agli utenti con la piattaforma di identità Microsoft.
 
@@ -30,35 +30,35 @@ Scopri tutto quello che ti serve per creare un'app Web che esegue l'accesso agli
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 Se si vuole creare le prime app Web portabili (ASP.NET Core) che eseguono l'accesso agli utenti, seguire questa Guida introduttiva:
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: ASP.NET Core app Web per l'accesso degli utenti](quickstart-v2-aspnet-core-webapp.md)
+> [Guida introduttiva: ASP.NET Core app Web che esegue l'accesso agli utenti](quickstart-v2-aspnet-core-webapp.md)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
 per informazioni su come aggiungere l'accesso a un'applicazione Web ASP.NET legacy, provare l'esercitazione seguente:
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: App Web ASP.NET che esegue l'accesso agli utenti](quickstart-v2-aspnet-webapp.md)
+> [Guida introduttiva: app Web ASP.NET che esegue l'accesso agli utenti](quickstart-v2-aspnet-webapp.md)
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
 Se si è uno sviluppatore Java, provare la Guida introduttiva seguente:
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web Java](quickstart-v2-java-webapp.md)
+> [Guida introduttiva: aggiungere l'accesso con Microsoft a un'app Web Java](quickstart-v2-java-webapp.md)
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
 Se si sviluppa con Python, provare:
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web Python](quickstart-v2-python-webapp.md)
+> [Guida introduttiva: aggiungere l'accesso con Microsoft a un'app Web Python](quickstart-v2-python-webapp.md)
 
 ---
 
@@ -81,5 +81,24 @@ Come seconda fase è anche possibile consentire all'applicazione di chiamare le 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+
 > [!div class="nextstepaction"]
-> [Registrazione delle app](scenario-web-app-sign-user-app-registration.md)
+> [Registrazione delle app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnetcore?tabs=aspnetcore)
+
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+> [!div class="nextstepaction"]
+> [Registrazione delle app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnet)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [Registrazione delle app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=java)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [Registrazione delle app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=python)
+
+---

@@ -16,12 +16,12 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef28520edd8500be0da52996e6484a0407fb03c8
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 605614265d033647bfcf22bb99d45c89f275298b
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056433"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596389"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>App daemon che chiama le API Web-Acquisisci un token
 
@@ -29,7 +29,7 @@ Una volta creata l'applicazione client riservata, è possibile acquisire un toke
 
 ## <a name="scopes-to-request"></a>Ambiti da richiedere
 
-L'ambito da richiedere per un flusso di credenziali client è il nome della risorsa seguita da `/.default`. Questa notazione indica Azure AD di utilizzare le **autorizzazioni a livello di applicazione** dichiarate in modo statico durante la registrazione dell'applicazione. Inoltre, come illustrato in precedenza, queste autorizzazioni API devono essere concesse da un amministratore tenant
+L'ambito da richiedere per un flusso di credenziali client è il nome della risorsa seguito da `/.default`. Questa notazione indica Azure AD di utilizzare le **autorizzazioni a livello di applicazione** dichiarate in modo statico durante la registrazione dell'applicazione. Inoltre, come illustrato in precedenza, queste autorizzazioni API devono essere concesse da un amministratore tenant
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -62,11 +62,11 @@ L'ambito usato per le credenziali client deve essere sempre resourceId + "/.defa
 
 > [!IMPORTANT]
 > Per MSAL che richiede un token di accesso per una risorsa che accetta un token di accesso v 1.0, Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutti gli elementi prima dell'ultima barra e usandola come identificatore di risorsa.
-> Se, ad esempio, Azure SQL **https://database.windows.net** () la risorsa prevede un pubblico che termina con una barra (per Azure SQL `https://database.windows.net/`:), è necessario richiedere un ambito di `https://database.windows.net//.default` (si noti la barra doppia). Vedere anche [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)problema di MSAL.NET: La barra finale dell'URL della risorsa viene omessa, causando un errore di autenticazione SQL.
+> Se, ad esempio, come Azure SQL ( **https://database.windows.net** ) la risorsa prevede un pubblico che termina con una barra (per Azure SQL: `https://database.windows.net/` ), è necessario richiedere un ambito di `https://database.windows.net//.default` (si noti la barra doppia). Vedere anche problema MSAL.NET [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): la barra finale dell'URL della risorsa viene omessa, causando un errore di autenticazione SQL.
 
 ## <a name="acquiretokenforclient-api"></a>API AcquireTokenForClient
 
-Per acquisire un token per l'app, usare `AcquireTokenForClient` o l'equivalente a seconda delle piattaforme.
+Per acquisire un token per l'app, si userà `AcquireTokenForClient` o l'equivalente a seconda delle piattaforme.
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -179,17 +179,17 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-Per ulteriori informazioni, vedere la documentazione del protocollo: [Microsoft Identity Platform e il flusso di credenziali client OAuth 2,0](v2-oauth2-client-creds-grant-flow.md).
+Per altre informazioni, vedere la documentazione del protocollo: [Microsoft Identity Platform e il flusso di credenziali client OAuth 2,0](v2-oauth2-client-creds-grant-flow.md).
 
 ## <a name="application-token-cache"></a>Cache del token dell'applicazione
 
-In MSAL.NET, `AcquireTokenForClient` usa la **cache del token dell'applicazione** (tutti gli altri metodi AcquireTokenXX usano la cache dei token utente `AcquireTokenSilent` ) `AcquireTokenForClient` non chiamare `AcquireTokenSilent` prima di chiamare As usa la cache dei token **utente** . `AcquireTokenForClient`Controlla la cache del token **dell'applicazione** e la Aggiorna.
+In MSAL.NET `AcquireTokenForClient` utilizza la **cache del token dell'applicazione** (tutti gli altri metodi AcquireTokenXX utilizzano la cache dei token utente) non chiamare `AcquireTokenSilent` prima di chiamare `AcquireTokenForClient` come `AcquireTokenSilent` utilizza la cache dei token **utente** . `AcquireTokenForClient` controlla la cache del token **dell'applicazione** e la Aggiorna.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>Si è usato l'ambito Resource/. default?
 
-Se viene restituito un messaggio di errore che informa che è stato utilizzato un ambito non valido, probabilmente non `resource/.default` è stato utilizzato l'ambito.
+Se viene restituito un messaggio di errore che informa che è stato utilizzato un ambito non valido, è probabile che non sia stato utilizzato l'ambito `resource/.default`.
 
 ### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>Si è omesso di fornire il consenso dell'amministratore? Le app daemon ti servono!
 
@@ -212,5 +212,19 @@ Content: {
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+
 > [!div class="nextstepaction"]
-> [App daemon: chiamata di un'API Web](scenario-daemon-call-api.md)
+> [App daemon: chiamata di un'API Web](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=dotnet)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [App daemon: chiamata di un'API Web](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=python)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [App daemon: chiamata di un'API Web](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=java)
+
+---

@@ -1,6 +1,6 @@
 ---
 title: Profilo utente e ID da usare con Azure Notebooks
-description: Come creare e gestire il profilo utente e l'ID utente con Azure Notebooks.
+description: Come creare e gestire il profilo utente e l'ID utente con Azure Notebooks, che diventa parte dell'URL dei notebook condivisi.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 1fddefeb2a54ae775a9016799ffff1963eab247e
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 3985e3d5fbe6e24014694665557f13bcc9a35a25
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970158"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598201"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Profilo e ID utente per i Azure Notebooks
 
@@ -27,11 +27,11 @@ Nello spazio potente e collaborativo di Azure Notebooks, il profilo utente prese
 
 L'ID utente è parte della URL usata per condividere i progetti e i notebook. L'elenco seguente descrive i diversi modelli di URL:
 
-- `https://notebooks.azure.com/<user_id>`: Pagina del profilo.
-- `https://notebooks.azure.com/<user_id>/projects`: Progetti. Vengono visualizzati tutti i progetti; gli altri utenti vedono solo i progetti pubblici.
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>`: File di progetto.
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: Cloni di un progetto specifico.
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: L'anteprima HTML di un notebook o di un file specifico.
+- `https://notebooks.azure.com/<user_id>`: pagina del profilo.
+- `https://notebooks.azure.com/<user_id>/projects`: i progetti. Vengono visualizzati tutti i progetti; gli altri utenti vedono solo i progetti pubblici.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>`: file di progetto.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: cloni di un progetto specifico.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: anteprima HTML di un file o di un notebook specifico.
 
 ## <a name="your-user-id"></a>ID utente
 
@@ -56,14 +56,14 @@ Il profilo è composto da informazioni visualizzabili pubblicamente nella URL, `
 
 Per modificare il profilo, usare il comando **Modifica le informazioni del profilo** nella pagina del profilo. Le sezioni del profilo sono le seguenti:
 
-| `Section` | Contenuto |
+| Sezione | Contenuti |
 | --- | --- |
 | Foto profilo | Un'immagine che viene visualizzata nella pagina del profilo. |
 | Informazioni account | Il nome visualizzato, l'ID utente e l'account di posta elettronica pubblico. In questo caso l'account di posta elettronica fornisce agli altri utenti un mezzo di contatto e può essere diverso dall'[account](azure-notebooks-user-account.md) usato per accedere ad Azure Notebooks stesso. |
 | Informazioni del profilo | Percorso, azienda, posizione, sito Web e una breve descrizione personale. |
 | Profili social | Di GItHub, Twitter e Facebook, se li si vuole condividere. |
-| Impostazioni sulla privacy | Fornisce due comandi:<ul><li>**Esporta il profilo**: crea e scarica un file *.zip* che contiene tutte le informazioni che Azure Notebooks salva nel profilo, tra cui la foto, le informazioni del profilo e i log di protezione.</li><li>**Elimina l'account**: Elimina definitivamente tutte le informazioni personali archiviate in Azure Notebooks.</li></ul> |
-| Abilitare le funzionalità del sito | Consente di controllare gli aspetti del comportamento di Azure Notebooks:<ul><li>**Front-end unificato per Notebooks**: abilita l'avvio più veloce del notebook e una persistenza migliore.</li><li>**Esegui in JupyterLab per impostazione predefinita**: Per impostazione predefinita, Azure Notebooks fornisce un'interfaccia utente semplice adatta per la maggior parte degli utenti. JupyterLab fornisce un'interfaccia più completa ma più complessa per utenti esperti.</li><li>**Sito Web VNext**: consente il layout Web moderno mostrato in questa documentazione.</li></ul> |
+| Impostazioni sulla privacy | Fornisce due comandi:<ul><li>**Esporta il profilo**: crea e scarica un file *.zip* che contiene tutte le informazioni che Azure Notebooks salva nel profilo, tra cui la foto, le informazioni del profilo e i log di protezione.</li><li>**Elimina account**personale: Elimina definitivamente tutte le informazioni personali archiviate in Azure Notebooks.</li></ul> |
+| Abilitare le funzionalità del sito | Consente di controllare gli aspetti del comportamento di Azure Notebooks:<ul><li>**Front-end unificato per Notebooks**: abilita l'avvio più veloce del notebook e una persistenza migliore.</li><li>**Esegui in JupyterLab per**impostazione predefinita: per impostazione predefinita, Azure Notebooks fornisce una semplice interfaccia utente adatta alla maggior parte degli utenti. JupyterLab fornisce un'interfaccia più completa ma più complessa per utenti esperti.</li><li>**Sito Web VNext**: consente il layout Web moderno mostrato in questa documentazione.</li></ul> |
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

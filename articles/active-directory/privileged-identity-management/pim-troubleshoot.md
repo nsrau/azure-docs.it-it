@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 10/18/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b7fc3508f7f672e277577f92218ff1860b676cb
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: f54382d652c3fc59b8ff462d41ec8c0fbdbe8498
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72559476"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596700"
 ---
 # <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>Risolvere un problema con Privileged Identity Management
 
@@ -28,7 +28,7 @@ Si è riscontrato un problema con Privileged Identity Management (PIM) in Azure 
 
 ### <a name="problem"></a>Problema
 
-Si riceve un errore di autorizzazione quando si tenta di rendere un utente idoneo per un ruolo di amministratore di Azure AD e non è possibile accedere alle risorse di Azure in Privileged Identity Management. Non è possibile accedere alle risorse di Azure in Privileged Identity Management anche se si è un amministratore globale e il proprietario della sottoscrizione.
+Un proprietario attivo o un amministratore di accesso utente per una risorsa di Azure può visualizzare la risorsa all'interno Privileged Identity Management ma non può eseguire azioni come la creazione di un'assegnazione idonea o la visualizzazione di un elenco di assegnazioni di ruolo dalla risorsa pagina panoramica. Ognuna di queste azioni comporta un errore di autorizzazione.
 
 ### <a name="cause"></a>Causa
 

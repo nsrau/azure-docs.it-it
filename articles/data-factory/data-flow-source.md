@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: aef9eaebc2da12e322ab6eda97385aa9cf14998a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: c7d18ab6e9018511915e9b77ea02ac60b1277c12
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387754"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596488"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Trasformazione origine per il mapping del flusso di dati 
 
@@ -53,6 +53,8 @@ Dopo aver aggiunto un'origine, configurare tramite la scheda **impostazioni di o
 
 **Campionamento:** Abilitare il campionamento per limitare il numero di righe dall'origine. Usare questa impostazione quando si testano o si campionano i dati dall'origine a scopo di debug.
 
+**Righe su più righe:** Selezionare righe su più righe se il file di testo di origine contiene valori stringa che si estendono su più righe, ad esempio le nuove righe all'interno di un valore.
+
 Per convalidare che l'origine sia configurata correttamente, attivare la modalità di debug e recuperare un'anteprima dei dati. Per altre informazioni, vedere [modalità di debug](concepts-data-flow-debug-mode.md).
 
 > [!NOTE]
@@ -77,7 +79,7 @@ Esempi di caratteri jolly:
 
 * ```/data/sales/**/*.csv``` Ottiene tutti i file CSV in/data/Sales
 * ```/data/sales/20??/**``` Ottiene tutti i file nel ventesimo secolo
-* ```/data/sales/2004/*/12/[XY]1?.csv``` Ottiene tutti i file CSV in 2004 nel dicembre a partire da X o Y preceduto da un numero a due cifre
+* ```/data/sales/2004/*/12/[XY]1?.csv``` ottiene tutti i file CSV 2004 nel dicembre a partire da X o Y preceduto da un numero a due cifre
 
 **Percorso radice partizione:** Se nell'origine file sono presenti cartelle partizionate con un formato ```key=value``` (ad esempio, Year = 2019), è possibile assegnare il livello principale dell'albero delle cartelle della partizione a un nome di colonna nel flusso di dati del flusso di dati.
 

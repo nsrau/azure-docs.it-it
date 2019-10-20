@@ -9,22 +9,22 @@ ms.reviewer: jasonwhowell
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: d3601fd8c32c70cf828cd08fada71258ec8fa5d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d0ccfb00c4b45a2a29ccab74362a4296cdcd7cae
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812729"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595695"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Modificare le quote e i limiti in Azure Data Lake Analytics
 
-Informazioni su come modificare e aumentare la quota e i limiti negli account di Azure Data Lake Analytics. La conoscenza di questi limiti può aiutare a comprendere il comportamento del processo U-SQL. Tutti i limiti di quota sono flessibili, quindi è possibile aumentare i limiti massimi contattando il supporto di Azure.
+Informazioni su come modificare e aumentare la quota e i limiti negli account di Azure Data Lake Analytics. Conoscere questi limiti consentirà di comprendere il comportamento del processo U-SQL. Tutti i limiti di quota sono flessibili, quindi è possibile aumentare i limiti massimi contattando il supporto di Azure.
 
 ## <a name="azure-subscriptions-limits"></a>Limiti delle sottoscrizioni Azure
 
-**Numero massimo di account ADLA per sottoscrizione per area:**  5
+**Numero massimo di account di ADLA per sottoscrizione per area:** 5
 
-Se si tenta di creare un sesto account di ADLA, si ottiene un messaggio di errore che indica che è stato raggiunto il numero massimo di account di Data Lake Analytics consentiti (5) nell'area sotto il nome della sottoscrizione. 
+Se si tenta di creare un sesto account di ADLA, si ottiene un messaggio di errore che indica che è stato raggiunto il numero massimo di account di Data Lake Analytics consentiti (5) nell'area sotto il nome della sottoscrizione.
 
 Per superare questo limite, è possibile provare queste opzioni:
 * Scegliere un'altra area, se appropriato
@@ -32,16 +32,18 @@ Per superare questo limite, è possibile provare queste opzioni:
 
 ## <a name="default-adla-account-limits"></a>Limiti predefiniti degli account di ADLA
 
-**Numero massimo di Analitica di unità per ogni account:** 32
+**Numero massimo di unità di analisi (AUS) per account:** 250, valore predefinito 32
 
-Questo è il numero massimo di unità di analisi che si possono eseguire contemporaneamente nell'account. Se il numero totale di unità di analisi dei processi in esecuzione supera questo limite, i processi più recenti vengono accodati automaticamente. Ad esempio:
+Questo è il numero massimo di unità di analisi che si possono eseguire contemporaneamente nell'account. Se il numero totale di unità di analisi dei processi in esecuzione supera questo limite, i processi più recenti vengono accodati automaticamente. ad esempio:
 
 * Se si ha un solo processo in esecuzione con 32 unità di analisi, quando si invia un secondo processo, esso rimarrà in attesa nella coda finché il primo non viene completato.
 * Se si dispone di quattro processi in esecuzione e ognuno usa 8 unità di analisi, quando si invia un quinto processo che richiede 8 unità di analisi questo attende nella coda dei processi fino a quando non sono presenti 8 unità di analisi disponibili.
 
-**Numero massimo di Analitica di unità per ogni processo:** 32
+    ![Pagina limiti e quota Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/adjust-quota-limits.png)
 
-Questo è il numero massimo predefinito di unità di analisi che è possibile assegnare a ogni singolo processo nell'account. I processi assegnati oltre questo limite verranno rifiutati, a meno che l'utente che invia il processo non disponga di un criterio di calcolo impostato (limite di invio processi) che fornisce altre unità di analisi per ciascun processo. Il limite superiore di questo valore è il limite di unità di analisi per l'account.
+**Numero massimo di unità di analisi (AUS) per processo:** 250, valore predefinito 32
+
+Questo è il numero massimo di unità di estensione che è possibile assegnare a ogni singolo processo nell'account. I processi assegnati oltre questo limite verranno rifiutati, a meno che l'utente che invia il processo non disponga di un criterio di calcolo impostato (limite di invio processi) che fornisce altre unità di analisi per ciascun processo. Il limite superiore di questo valore è il limite di unità di analisi per l'account.
 
 **Numero massimo di processi simultanei di U-SQL per ogni account:** 20
 

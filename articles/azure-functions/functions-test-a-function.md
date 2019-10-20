@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: ff3d7d1272f9067f6bf9791c7964f8bf5f71945b
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 9155df315a5afb9a0fa7722c955333a47a73085a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709345"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596846"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie per il test del codice in Funzioni di Azure
 
@@ -110,11 +110,11 @@ namespace Functions.Tests
 
 La classe `ListLogger` implementa i membri seguenti come contrattato dall'interfaccia `ILogger`:
 
-- **BeginScope**: Gli ambiti aggiungono del contesto alla registrazione. In questo caso, il test punta solo all'istanza statica della classe `NullScope` per consentire il funzionamento del test.
+- **BeginScope**: gli ambiti aggiungono il contesto alla registrazione. In questo caso, il test punta solo all'istanza statica nella classe `NullScope` per consentire il funzionamento del test.
 
-- **IsEnabled**: È disponibile un valore predefinito di `false`.
+- **IsEnabled**: viene fornito un valore predefinito di `false`.
 
-- **Log**: Questo metodo usa la funzione fornita `formatter` per formattare il messaggio e quindi aggiunge il testo risultante nella raccolta `Logs`.
+- **Log**: questo metodo usa la funzione `formatter` fornita per formattare il messaggio e quindi aggiunge il testo risultante alla raccolta di `Logs`.
 
 La raccolta `Logs` è un'istanza di `List<string>` e viene inizializzata nel costruttore.
 
@@ -195,13 +195,13 @@ namespace Functions.Tests
 ```
 La classe `TestFactory` implementa i seguenti membri:
 
-- **Dati**: Questa proprietà restituisce una raccolta di dati di esempio [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable). Le coppie chiave-valore rappresentano valori che vengono passati in una stringa di query.
+- **Data**: questa proprietà restituisce una raccolta di dati di esempio [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) . Le coppie chiave-valore rappresentano valori che vengono passati in una stringa di query.
 
-- **CreateDictionary**: Questo metodo accetta una coppia chiave/valore come argomenti e restituisce un nuovo `Dictionary` usato per creare `QueryCollection` per rappresentare i valori della stringa di query.
+- **CreateDictionary**: questo metodo accetta una coppia chiave/valore come argomenti e restituisce un nuovo `Dictionary` usato per creare `QueryCollection` per rappresentare i valori della stringa di query.
 
-- **CreateHttpRequest**: Questo metodo crea una richiesta HTTP inizializzata con i parametri della stringa di query fornita.
+- **CreateHttpRequest**: questo metodo crea una richiesta http inizializzata con i parametri della stringa di query specificati.
 
-- **CreateLogger**: Basato sul tipo di logger, questo metodo restituisce una classe di logger usata per il test. `ListLogger` tiene traccia dei messaggi registrati disponibili per la valutazione nei test.
+- **CreateLogger**: in base al tipo di logger, questo metodo restituisce una classe logger utilizzata per il testing. `ListLogger` tiene traccia dei messaggi registrati disponibili per la valutazione nei test.
 
 In seguito, **fare doppio clic** sull'applicazione *Functions.Test* e selezionare **Aggiungi > Classe**, denominarla **FunctionsTests.cs** e immettere il codice seguente:
 
@@ -246,11 +246,11 @@ namespace Functions.Tests
 ```
 I membri implementati in questa classe sono:
 
-- **Http_trigger_should_return_known_string**: Questo test crea una richiesta con i valori della stringa della query di `name=Bill` a una funzione HTTP e controlla che venga restituita la risposta prevista.
+- **Http_trigger_should_return_known_string**: questo test crea una richiesta con i valori della stringa di query di `name=Bill` a una funzione http e verifica che venga restituita la risposta prevista.
 
-- **Http_trigger_should_return_string_from_member_data**: Questo test usa attributi xUnit per fornire dati di esempio alla funzione HTTP.
+- **Http_trigger_should_return_string_from_member_data**: questo test usa gli attributi xUnit per fornire dati di esempio alla funzione http.
 
-- **Timer_should_log_message**: Questo test crea un'istanza di `ListLogger` e la passa a una funzione timer. Una volta eseguita la funzione, il log viene controllato per verificare che sia presente il messaggio previsto.
+- **Timer_should_log_message**: questo test crea un'istanza di `ListLogger` e la passa a una funzione timer. Una volta eseguita la funzione, il log viene controllato per verificare che sia presente il messaggio previsto.
 
 Se si desidera accedere alle impostazioni dell'applicazione nei test, è possibile utilizzare [System. Environment. GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
 
@@ -363,7 +363,8 @@ Per eseguire il debug dei test, aggiungere la configurazione seguente per il fil
   "type": "node",
   "request": "launch",
   "name": "Jest Tests",
-  "program": "${workspaceRoot}\\node_modules\\jest\\bin\\jest.js",
+  "disableOptimisticBPs": true,
+  "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
   "args": [
       "-i"
   ],

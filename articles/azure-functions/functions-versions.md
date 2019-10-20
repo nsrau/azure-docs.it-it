@@ -1,49 +1,55 @@
 ---
 title: Panoramica delle versioni del runtime per Funzioni di Azure
 description: La soluzione Funzioni di Azure supporta più versioni del runtime. Informazioni sulle differenze tra le versioni e su come scegliere quella più adatta alle proprie esigenze.
-services: functions
-documentationcenter: ''
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/03/2018
+ms.date: 10/10/2019
 ms.author: glenga
-ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ca7006bb842cbe235d2e982e611613e1fd74ed9
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61036272"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597413"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Panoramica delle versioni del runtime per Funzioni di Azure
 
- Esistono due versioni principali del runtime di funzioni di Azure: versioni 1.x e 2.x. La versione corrente in cui vengono apportati le nuove funzionalità e i miglioramenti è la 2.x, anche se entrambe sono supportate per gli scenari di produzione.  Di seguito sono illustrate in dettaglio alcune delle differenze tra le due versioni e viene descritto come creare ogni versione e come eseguire l'aggiornamento dalla versione 1.x alla versione 2.x.
+Le versioni principali del runtime di funzioni di Azure sono correlate alla versione di .NET su cui si basa il Runtime. La tabella seguente indica la versione corrente del runtime, il livello di rilascio e la versione .NET correlata. 
 
-> [!NOTE]
-> Questo articolo si riferisce al servizio cloud di Funzioni di Azure. Per informazioni sul prodotto in anteprima che consente di eseguire Funzioni di Azure in locale, vedere [Panoramica sul runtime di Funzioni di Azure](functions-runtime-overview.md).
+| Versione del runtime | Livello di versione<sup>1</sup> | Versione di .NET | 
+| --------------- | ------------- | ------------ |
+| 3.x  | anteprima | .NET Core 3. x | 
+| 2.x | Disponibilità a livello generale | .NET Core 2.2 |
+| 1.x | GA<sup>2</sup> | .NET Framework 4,6<sup>3</sup> |
 
-## <a name="cross-platform-development"></a>Sviluppo multipiattaforma
+<sup>1</sup> Le versioni di GA sono supportate per gli scenari di produzione.   
+<sup>2</sup> La versione 1. x è in modalità di manutenzione. I miglioramenti sono disponibili solo nelle versioni successive.   
+<sup>3</sup> Supporta solo lo sviluppo nel portale di Azure o localmente nei computer Windows.
 
-Il runtime versione 2.x viene eseguito in .NET Core 2, che ne consente l'esecuzione in tutte le piattaforme supportate da .NET Core, tra cui macOS e Linux. L'esecuzione in .NET Core consente scenari di sviluppo e hosting multipiattaforma.
+>[!NOTE]  
+> La versione 3. x del runtime di funzioni è in anteprima e non è supportata per gli ambienti di produzione. Per ulteriori informazioni su come provare la versione 3. x, vedere [questo annuncio](https://dev.to/azure/develop-azure-functions-using-net-core-3-0-gcm).
 
-A confronto, il runtime versione 1.x supporta solo lo sviluppo e l'hosting nel portale di Azure o nei computer Windows.
+Questo articolo descrive in dettaglio alcune delle differenze tra le diverse versioni, come è possibile creare ogni versione e come modificare le versioni.
 
-## <a name="languages"></a>Languages
+## <a name="languages"></a>Linguaggi
 
-Il runtime versione 2.x usa un nuovo modello di estendibilità del linguaggio. Nella versione 2.x tutte le funzioni in un'app per le funzioni devono condividere lo stesso linguaggio. Il linguaggio delle funzioni in un'app per le funzioni viene scelto durante la creazione dell'app.
+A partire dalla versione 2. x, il runtime usa un modello di estendibilità del linguaggio e tutte le funzioni in un'app per le funzioni devono condividere la stessa lingua. Il linguaggio delle funzioni in un'app per le funzioni viene scelto quando si crea l'app e viene mantenuto nell'impostazione [funzioni \_WORKER \_RUNTIME](functions-app-settings.md#functions_worker_runtime) . 
 
-I linguaggi sperimentali di Funzioni di Azure 1.x non vengono aggiornati per usare il nuovo modello, quindi non sono supportati nella versione 2.x. Nella tabella seguente sono indicati i linguaggi di programmazione attualmente supportati in ogni versione del runtime.
+I linguaggi sperimentali 1. x di funzioni di Azure non possono usare il nuovo modello, quindi non sono supportati in 2. x. Nella tabella seguente sono indicati i linguaggi di programmazione attualmente supportati in ogni versione del runtime.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 Per altre informazioni, vedere [Linguaggi supportati](supported-languages.md).
 
-## <a name="creating-1x-apps"></a>Esecuzione nella versione 1.x
+## <a name="creating-1x-apps"></a>Esegui in una versione specifica
 
-Per impostazione predefinita, le app per le funzioni create nel portale di Azure sono impostato sulla versione 2.x. Laddove possibile, è consigliabile usare questa versione del runtime in cui vengono effettuati investimenti per nuove funzionalità. Se necessario, è comunque possibile eseguire un'app per le funzioni sulla versione 1.x del runtime. È possibile modificare la versione del runtime solo dopo aver creato l'app per le funzioni, ma prima di aggiungere qualsiasi funzione. Per informazioni su come aggiungere la versione del runtime 1.x, vedere [Visualizzare la versione corrente del runtime](set-runtime-version.md#view-and-update-the-current-runtime-version).
+Per impostazione predefinita, le app per le funzioni create nel portale di Azure e dall'interfaccia della riga di comando di Azure sono impostate sulla versione 2. x. Quando possibile, è consigliabile usare questa versione di Runtime. Se necessario, è comunque possibile eseguire un'app per le funzioni sulla versione 1.x del runtime. È possibile modificare la versione del runtime solo dopo aver creato l'app per le funzioni, ma prima di aggiungere qualsiasi funzione. Per informazioni su come aggiungere la versione del runtime 1.x, vedere [Visualizzare la versione corrente del runtime](set-runtime-version.md#view-and-update-the-current-runtime-version).
 
-## <a name="migrating-from-1x-to-2x"></a>Migrazione da 1.x a 2.x
+È anche possibile eseguire l'aggiornamento alla versione 3. x del runtime, disponibile in anteprima. Eseguire questa operazione se è necessario essere in grado di eseguire le funzioni in .NET Core 3. x. Per informazioni su come eseguire l'aggiornamento alla versione 3. x, vedere [visualizzare e aggiornare la versione corrente del runtime](set-runtime-version.md#view-and-update-the-current-runtime-version).
+
+## <a name="migrating-from-1x-to-later-versions"></a>Migrazione da 1. x a versioni successive
 
 È possibile scegliere di eseguire la migrazione di un'app esistente scritta per usare il runtime versione 1.x anziché la versione 2.x. La maggior parte delle modifiche da apportare sono correlate alle modifiche nel runtime del linguaggio, ad esempio modifiche delle API C# tra .NET Framework 4.7 e .NET Core 2. È anche necessario verificare che il codice e le librerie siano compatibili con il runtime del linguaggio scelto. Tenere infine presenti le modifiche apportate a trigger, binding e funzionalità evidenziate di seguito. Per ottenere risultati di migrazione ottimali, è opportuno creare una nuova app per le funzioni per la versione 2.x e trasferire il codice della funzione versione 1.x esistente alla nuova app.  
 
@@ -113,7 +119,7 @@ La versione del runtime di Funzioni usata dalle app pubblicate in Azure è deter
 
 ## <a name="bindings"></a>Associazioni
 
-La versione 2.x del runtime usa un nuovo [modello di estendibilità di binding](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) che offre questi vantaggi:
+A partire dalla versione 2. x, il runtime usa un nuovo [modello di estendibilità dell'associazione](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) che offre i vantaggi seguenti:
 
 * Supporto per le estensioni di associazione di terze parti.
 

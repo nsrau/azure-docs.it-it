@@ -1,22 +1,18 @@
 ---
 title: Gestione di Azure e Operations Management Suite (OMS) | Microsoft Docs
 description: Panoramica delle aree di gestione di applicazioni e risorse di Azure con collegamenti a contenuti sugli strumenti di gestione di Azure che in precedenza erano raggruppati sotto il nome di Operations Management Suite (OMS).
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/07/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 4096ee477dc1d40ff6b98b20dd384c6ffad17e5f
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 09/07/2018
+ms.openlocfilehash: 7f515c1c5d44058e14f02f7681bfbb7fd2787c6f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779263"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597358"
 ---
 # <a name="azure-management---monitoring"></a>Gestione di Azure - Monitoraggio
 
@@ -33,7 +29,7 @@ Il diagramma seguente illustra le diverse aree della gestione necessarie per ges
 
 Le sezioni seguenti descrivono brevemente le diverse aree di gestione e includono collegamenti a contenuti dettagliati sui servizi di Azure principali specifici per ogni area.
 
-## <a name="monitor"></a>Monitoraggio
+## <a name="monitor"></a>Monitorare
 Il monitoraggio comporta la raccolta e l'analisi dei dati per determinare le prestazioni, l'integrità e la disponibilità dell'applicazione aziendale e delle risorse da cui dipende. Una strategia efficace di monitoraggio consente di conoscere il funzionamento dettagliato dei diversi componenti dell'applicazione e di aumentare il tempo di attività grazie all'invio di notifiche proattive sulle problematiche critiche, per poterle risolvere prima che diventino problemi. Il monitoraggio in Azure è fornito principalmente da [Monitoraggio di Azure](../azure-monitor/overview.md) che offre archivi comuni per l'archiviazione dei dati di monitoraggio, più origini dati per la raccolta di dati dai diversi livelli che supportano l'applicazione e funzionalità per l'analisi e la risposta ai dati raccolti.
 
 ## <a name="configure"></a>Configurazione
@@ -42,11 +38,11 @@ Per configurazione si intendono la distribuzione e la configurazione iniziali di
 ## <a name="govern"></a>Governance
 La governance offre meccanismi e processi per mantenere il controllo delle applicazioni e delle risorse in Azure.  Include la pianificazione delle iniziative e la definizione delle priorità strategiche.  La governance in Azure viene implementata principalmente tramite due servizi.  [Criteri di Azure](../governance/policy/overview.md) consente di creare, assegnare e gestire definizioni di criteri che applicano diverse regole e azioni in relazione alle risorse, in modo che le risorse rimangano conformi ai contratti di servizio e agli standard dell'azienda. [Gestione costi di Azure](../cost-management/overview-cost-mgt.md) consente di tenere traccia dell'utilizzo del cloud e delle spese per le risorse di Azure e altri provider di servizi cloud, tra cui AWS e Google.
 
-## <a name="secure"></a>Proteggere
+## <a name="secure"></a>Sicurezza
 La gestione della sicurezza delle applicazioni, delle risorse e dei dati richiede una combinazione di valutazione delle minacce, raccolta e analisi dei dati sulla sicurezza e verifica della sicurezza della progettazione e della configurazione delle applicazioni e delle risorse.  Il monitoraggio della sicurezza e l'analisi delle minacce vengono forniti dal [Centro sicurezza di Azure](../security-center/security-center-intro.md) che include la gestione unificata della sicurezza e la protezione avanzata dalle minacce in carichi di lavoro cloud ibridi.  Per informazioni complete sulla sicurezza in Azure e indicazioni sulla configurazione sicura delle risorse di Azure, vedere anche [Introduzione alla sicurezza in Azure](../security/fundamentals/overview.md).
 
 
-## <a name="protect"></a>Proteggi
+## <a name="protect"></a>Protezione
 Per protezione si intende assicurare che le applicazioni e i dati siano sempre disponibili, anche in caso di interruzioni al di fuori del proprio controllo.  La protezione in Azure viene fornita da due servizi.  [Backup di Azure](../backup/backup-introduction-to-azure-backup.md) fornisce il backup e il ripristino dei dati, nel cloud o in locale.    [Azure Site Recovery](../site-recovery/site-recovery-overview.md) assicura la disponibilità elevata dell'applicazione offrendo la continuità aziendale e il ripristino immediato in caso di emergenza.
 
 ## <a name="migrate"></a>Migrazione 
