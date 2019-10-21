@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
 ms.openlocfilehash: fc0b447630b5e1ac360b1d84869cea02186672fc
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 10/17/2019
 ms.locfileid: "71036633"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>Incorporare Widget Video Indexer nelle applicazioni
 
-Questo articolo illustra come incorporare Video Indexer widget nelle applicazioni. Video Indexer supporta l'incorporamento di tre tipi di widget nell'applicazione: *Cognitive Insights*, *Player*e *Editor*. 
+Questo articolo illustra come incorporare Video Indexer widget nelle applicazioni. Video Indexer supporta l'incorporamento di tre tipi di widget nell'applicazione, ovvero *cognitive Insights*, *Player*e *Editor*. 
 
 A partire dalla versione 2, l'URL di base del widget include l'area dell'account specificato. Ad esempio, un account nell'area Stati Uniti occidentali genera: `https://wus2.videoindexer.ai/embed/insights/...`.
 
@@ -29,9 +29,9 @@ A partire dalla versione 2, l'URL di base del widget include l'area dell'account
 
 Un widget cognitive Insights include tutte le informazioni visive estratte dal processo di indicizzazione video. Il widget cognitive Insights supporta i parametri URL facoltativi seguenti.
 
-|NOME|Definizione|Descrizione|
+|name|Definizione|Description|
 |---|---|---|
-|`widgets`|Stringhe separate da virgola|Consente di controllare le informazioni dettagliate di cui si vuole eseguire il rendering. <br/> Esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` esegue il rendering solo delle informazioni dettagliate sull'interfaccia utente di marchi e persone.<br/>Le opzioni disponibili sono: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Si noti che `widgets` il parametro URL non è supportato nella versione 2.<br/>|
+|`widgets`|Stringhe separate da virgola|Consente di controllare le informazioni dettagliate di cui si vuole eseguire il rendering. <br/> Esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` esegue il rendering solo delle informazioni dettagliate sull'interfaccia utente per gli utenti e i marchi.<br/>Le opzioni disponibili sono: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Si noti che il parametro `widgets` URL non è supportato nella versione 2.<br/>|
 |`locale`|Un codice di lingua breve|Controlla il linguaggio Insights. Il valore predefinito è `en`. <br/> Esempio: `locale=de`.|
 |`tab`|Scheda selezionata predefinita|Controlla la scheda **Insights** di cui è stato eseguito il rendering per impostazione predefinita. <br/> Esempio: `tab=timeline` esegue il rendering delle informazioni dettagliate con la scheda **sequenza temporale** selezionata.|
 
@@ -39,7 +39,7 @@ Un widget cognitive Insights include tutte le informazioni visive estratte dal p
 
 È possibile usare il widget Player per eseguire lo streaming di video usando la velocità in bit adattiva. Il widget Player supporta i parametri URL facoltativi seguenti.
 
-|NOME|Definizione|Descrizione|
+|name|Definizione|Description|
 |---|---|---|
 |`t`|Secondi dall'inizio|Consente di avviare la riproduzione del lettore dal punto di tempo specificato.<br/> Esempio: `t=60`.|
 |`captions`|Codice lingua|Recupera la didascalia nella lingua specificata durante il caricamento del widget affinché sia disponibile nel menu **didascalie** .<br/> Esempio: `captions=en-US`.|
@@ -52,13 +52,13 @@ Un widget cognitive Insights include tutte le informazioni visive estratte dal p
 
 È possibile usare il widget editor per creare nuovi progetti e gestire le informazioni dettagliate di un video. Il widget editor supporta i parametri URL facoltativi seguenti.
 
-|NOME|Definizione|Descrizione|
+|name|Definizione|Description|
 |---|---|---|
-|`accessToken`<sup>*</sup>|String|Consente di accedere ai video che si trovano solo nell'account usato per incorporare il widget.<br> Il widget dell'Editor richiede `accessToken` il parametro.|
+|`accessToken`<sup>*</sup>|Stringa|Consente di accedere ai video che si trovano solo nell'account usato per incorporare il widget.<br> Il widget dell'Editor richiede il parametro `accessToken`.|
 |`language`|Codice lingua|Controlla la lingua del lettore. Il valore predefinito è `en-US`.<br/>Esempio: `language=de-DE`.|
 |`locale`|Un codice di lingua breve|Controlla il linguaggio Insights. Il valore predefinito è `en`.<br/>Esempio: `language=de`.|
 
-<sup>*</sup>Il proprietario deve prestare `accessToken` attenzione.
+<sup>*</sup> Il proprietario deve fornire `accessToken` con cautela.
 
 ## <a name="embedding-public-content"></a>Incorporamento di contenuto pubblico
 
@@ -76,7 +76,7 @@ Un widget cognitive Insights include tutte le informazioni visive estratte dal p
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
 > [!NOTE]
-> In caso di problemi di condivisione degli URL video, aggiungere `location` il parametro al collegamento. Il parametro deve essere impostato sulle [aree di Azure in cui video Indexer esiste](regions.md). Ad esempio: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+> In caso di problemi di condivisione degli URL video, aggiungere il parametro `location` al collegamento. Il parametro deve essere impostato sulle [aree di Azure in cui video Indexer esiste](regions.md). Ad esempio: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 ## <a name="embedding-private-content"></a>Incorporamento di contenuto privato
 
@@ -186,7 +186,7 @@ Se si usa un lettore video diverso da Azure Media Player, è necessario modifica
         </video>    
 
 2. Incorporare il widget Cognitive Insights.
-3. Implementare la comunicazione per il lettore facendo in modo che resti in ascolto dell'evento "message". Esempio:
+3. Implementare la comunicazione per il lettore facendo in modo che resti in ascolto dell'evento "message". ad esempio:
 
         <script>
     
@@ -235,7 +235,7 @@ Se ad esempio si vuole incorporare un widget che contiene solo utenti e informaz
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
 
-Si può anche personalizzare il titolo della finestra dell'iframe, fornendo il valore `&title=<YourTitle>` all'URL dell'iframe. Personalizza il titolo HTML \<> valore).
+Si può anche personalizzare il titolo della finestra dell'iframe, fornendo il valore `&title=<YourTitle>` all'URL dell'iframe. (Personalizza il valore HTML \<title >).
     
 Ad esempio, se si vuole dare alla finestra dell'iframe il titolo "MyInsights", l'URL avrà un aspetto simile al seguente:
 
@@ -247,19 +247,19 @@ Si noti che questa opzione è pertinente solo nei casi in cui è necessario apri
 
 Se si incorpora il lettore Video Indexer, è possibile sceglierne le dimensioni specificando le dimensioni dell'iframe.
 
-Ad esempio:
+ad esempio:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
 Per impostazione predefinita, Video Indexer Player dispone di didascalie chiuse generate automaticamente, basate sulla trascrizione del video. La trascrizione viene estratta dal video con la lingua di origine selezionata al momento del caricamento del video.
 
-Se si vuole incorporare con una lingua diversa, è possibile aggiungere `&captions=< Language | ”all” | “false” >` all'URL di incorporamento del lettore. Se si desiderano didascalie in tutte le didascalie delle lingue disponibili, utilizzare `all`il valore. Se si vuole che i sottotitoli siano visualizzati per impostazione predefinita, è possibile passare `&showCaptions=true`.
+Se si vuole incorporare con una lingua diversa, è possibile aggiungere `&captions=< Language | ”all” | “false” >` all'URL di incorporamento del lettore. Se si desiderano didascalie in tutte le didascalie delle lingue disponibili, utilizzare il valore `all`. Se si vuole che i sottotitoli siano visualizzati per impostazione predefinita, è possibile passare `&showCaptions=true`.
 
 L'URL di incorporamento sarà simile al seguente: 
 
 `https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian`
 
-Se si desidera disabilitare le didascalie, è possibile passare il `captions` valore del parametro `false`come.
+Se si desidera disabilitare le didascalie, è possibile passare il valore del parametro `captions` come `false`.
 
 #### <a name="autoplay"></a>AutoPlay
 Per impostazione predefinita, il lettore inizierà a riprodurre il video. è possibile scegliere di non passare `&autoplay=false` all'URL di incorporamento precedente.

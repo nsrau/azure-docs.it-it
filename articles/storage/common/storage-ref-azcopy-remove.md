@@ -4,20 +4,20 @@ description: Questo articolo contiene informazioni di riferimento per il comando
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 0cc366ab2cdad9c7258dca905d8f4a06472119fe
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: fc23afb9a407fc2e6689c5c8766cb4beba868269
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195906"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513433"
 ---
-# <a name="azcopy-remove"></a>azcopy rimuovere
+# <a name="azcopy-remove"></a>azcopy remove
 
-Elimina entità da BLOB del servizio di archiviazione di Azure, file e Azure Data Lake Storage Gen2.
+Eliminare i BLOB o i file da un account di archiviazione di Azure.
 
 ## <a name="synopsis"></a>Sinossi
 
@@ -25,7 +25,7 @@ Elimina entità da BLOB del servizio di archiviazione di Azure, file e Azure Dat
 azcopy remove [resourceURL] [flags]
 ```
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 Rimuovere un singolo BLOB con SAS:
 
@@ -57,13 +57,24 @@ Rimuovere un'intera directory virtuale, ma escludere determinati BLOB dall'ambit
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --exclude="foo*;*bar"
 ```
 
-Rimuovere un singolo file dal Data Lake Storage Gen2 (includere ed escludere non supportato):
+Rimuovere i BLOB e le directory virtuali specifici inserendo i percorsi relativi (non codificati in URL) in un file:
+
+```azcopy
+azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/parent/dir]" --recursive=true --list-of-files=/usr/bar/list.txt
+file content:
+  dir1/dir2
+  blob1
+  blob2
+
+```
+
+Rimuovere un singolo file da un account di archiviazione BLOB con uno spazio dei nomi gerarchico (inclusione/esclusione non supportata).
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/file]?[SAS]"
 ```
 
-Rimuovere una singola directory da Data Lake Storage Gen2 (Includi ed Escludi non supportati):
+Rimuovere una singola directory un account di archiviazione BLOB con uno spazio dei nomi gerarchico (includere/escludere non supportato):
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory]?[SAS]"
@@ -71,21 +82,29 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## <a name="options"></a>Opzioni
 
-|Opzione|Descrizione|
-|--|--|
-|--Escludi stringa|escludere i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: *. jpg;* . PDF; exactname|
-|-h, --help|Mostra il contenuto della Guida per il comando Rimuovi.|
-|--Includi stringa|Includere solo i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: *. jpg;* . PDF; exactname|
-|--stringa a livello di log|Definire il livello di dettaglio del log per il file di log. I livelli disponibili includono: INFO (tutte le richieste/risposte), avviso (risposte lente), errore (solo richieste non riuscite) e nessuno (nessun log di output). (impostazione predefinita "INFO")|
-|--ricorsivo|Esaminare in modo ricorsivo le sottodirectory durante la sincronizzazione tra le directory.|
+**--Exclude-percorso stringa**      Escludere questi percorsi durante la rimozione. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo. Ad esempio: fileFolder; MyFile/subDirName/file. pdf.
+
+**--Exclude-pattern** String esclude i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: *. jpg;* . PDF; exactname
+
+**-h,--** guida per la rimozione
+
+**--include-percorso** stringa include solo questi percorsi durante la rimozione. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo. Ad esempio: cartella fileFolder, cartella/subDirName/file. pdf
+
+**--include-pattern** String include solo i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: *. jpg;* . PDF; exactname
+
+**--List-of-files** String definisce il percorso di un file che contiene l'elenco di file e directory da eliminare. I percorsi relativi devono essere delimitati da interruzioni di riga e i percorsi non devono essere codificati in URL.
+
+**--** la stringa a livello di log definisce il livello di dettaglio del log per il file di log. I livelli disponibili includono: INFO (tutte le richieste/risposte), avviso (risposte lente), errore (solo richieste non riuscite) e nessuno (nessun log di output). (valore predefinito ' INFO ') (impostazione predefinita "INFO")
+
+**--ricorsivo**                Esaminare in modo ricorsivo le sottodirectory durante la sincronizzazione tra le directory.
 
 ## <a name="options-inherited-from-parent-commands"></a>Opzioni ereditate dai comandi padre
 
-|Opzione|Descrizione|
+|Opzione|Description|
 |---|---|
 |--Cap-Mbps UInt32|Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
 |--output-tipo stringa|Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text".|
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [azcopy](storage-ref-azcopy.md)

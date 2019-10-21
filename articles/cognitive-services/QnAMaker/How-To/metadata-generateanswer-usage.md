@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/12/2019
 ms.author: diberry
-ms.openlocfilehash: a63b6773a7546f8add0b2f2ab6280801e90bccca
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 8f00ffeff4eb353fa70aa7df60b14c97d4b8e724
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248628"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554866"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Ottenere una risposta con l'API e i metadati di GenerateAnswer
 
@@ -48,7 +48,7 @@ Dopo aver pubblicato la Knowledge base, dal portale di [QnA Maker](https://www.q
 Per ottenere i dettagli dell'endpoint:
 1. Accedere a [https://www.qnamaker.ai](https://www.qnamaker.ai).
 1. In **Knowledge**base selezionare **Visualizza codice** per la Knowledge base.
-    @no__t 0Screenshot delle Knowledge base @ no__t-1
+    ![Screenshot delle Knowledge base ](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Ottenere i dettagli dell'endpoint GenerateAnswer.
 
     ![Schermata dei dettagli dell'endpoint](../media/qnamaker-how-to-metadata-usage/view-code.png)
@@ -64,7 +64,7 @@ Per ottenere i dettagli dell'endpoint:
 La richiesta POST USA:
 
 * [Parametri URI](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters) obbligatori
-* [Proprietà di intestazione](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)obbligatoria, `Authorization`, per la sicurezza
+* [Proprietà dell'intestazione](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)obbligatoria, `Authorization`, per la sicurezza
 * [Proprietà del corpo](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)obbligatorie. 
 
 L'URL di GenerateAnswer ha il formato seguente: 
@@ -83,6 +83,7 @@ Un esempio di corpo JSON ha un aspetto simile al seguente:
     "top": 6,
     "isTest": true,
     "scoreThreshold": 30,
+    "rankerType": "" // values: QuestionOnly
     "strictFilters": [
     {
         "name": "category",
@@ -91,6 +92,8 @@ Un esempio di corpo JSON ha un aspetto simile al seguente:
     "userId": "sd53lsY="
 }
 ```
+
+Altre informazioni su [rankerType](../concepts/best-practices.md#choosing-ranker-type).
 
 Il codice JSON precedente ha richiesto solo le risposte al 30% o oltre il Punteggio di soglia. 
 
@@ -169,7 +172,7 @@ Il bot di supporto presenta [un esempio](https://github.com/microsoft/BotBuilder
 
 ## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>Usare i metadati per filtrare le risposte in base ai tag dei metadati personalizzati
 
-L'aggiunta di metadati consente di filtrare le risposte in base a questi tag dei metadati. Aggiungere la colonna metadati dal menu **Opzioni di visualizzazione** . Aggiungere metadati alla Knowledge base selezionando l'icona dei metadati **+** per aggiungere una coppia di metadati. Questa coppia è costituita da una chiave e un valore.
+L'aggiunta di metadati consente di filtrare le risposte in base a questi tag dei metadati. Aggiungere la colonna metadati dal menu **Opzioni di visualizzazione** . Aggiungere metadati alla Knowledge base selezionando l'icona di **+** dei metadati per aggiungere una coppia di metadati. Questa coppia è costituita da una chiave e un valore.
 
 ![Screenshot dell'aggiunta di metadati](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
@@ -244,7 +247,7 @@ Per impostazione predefinita, QnA Maker cerca le domande e le risposte. Se si de
 
 |Codice|Spiegazione|
 |:--|--|
-|2xx|Riuscito|
+|2xx|Success|
 |400|I parametri della richiesta non sono corretti, vale a dire che i parametri obbligatori mancano, non solo validi o sono troppo grandi|
 |400|Il corpo della richiesta non è corretto, vale a dire che la stringa JSON manca, non è valida o è troppo grande|
 |401|Chiave non valida|
@@ -254,7 +257,7 @@ Per impostazione predefinita, QnA Maker cerca le domande e le risposte. Se si de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-La pagina di **pubblicazione** fornisce anche le informazioni per generare una risposta con [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) e [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
+La pagina di **pubblicazione** fornisce anche le informazioni per generare una risposta con [postazione](../Quickstarts/get-answer-from-kb-using-postman.md) e [curl](../Quickstarts/get-answer-from-kb-using-curl.md). 
 
 > [!div class="nextstepaction"]
 > [Creazione di un bot della Knowledge base](../tutorials/integrate-qnamaker-luis.md)

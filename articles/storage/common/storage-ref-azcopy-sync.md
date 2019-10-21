@@ -4,18 +4,18 @@ description: Questo articolo contiene informazioni di riferimento per il comando
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: fb6c3b711a89ae7e4ef403a75927c4c6172523d0
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 8b4ab0e44f2432056c9c94061c59c99c89a6407d
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195763"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513411"
 ---
-# <a name="azcopy-sync"></a>sincronizzazione azcopy
+# <a name="azcopy-sync"></a>azcopy sync
 
 Replica il percorso di origine nel percorso di destinazione.
 
@@ -26,19 +26,18 @@ Per il confronto vengono usate le ore dell'Ultima modifica. Il file viene ignora
 Le coppie supportate sono:
 
 - BLOB di Azure locale < > (è possibile usare l'autenticazione SAS o OAuth)
+- < BLOB di Azure: BLOB di Azure > (l'origine deve includere una firma di accesso condiviso o è accessibile pubblicamente, è possibile usare l'autenticazione SAS o OAuth per la destinazione)
+- File < di Azure: > file di Azure (l'origine deve includere una firma di accesso condiviso o è accessibile pubblicamente; Usare l'autenticazione SAS per la destinazione
 
 Il comando di sincronizzazione differisce dal comando copy in diversi modi:
 
-  1. Il flag ricorsivo è on per impostazione predefinita.
-  2. L'origine e la destinazione non devono contenere modelli, ad esempio * o?.
-  3. I flag di inclusione ed esclusione possono essere un elenco di criteri che corrispondono ai nomi dei file. Per illustrazione, vedere la sezione di esempio.
-  4. Se nella destinazione sono presenti file o BLOB che non sono presenti nell'origine, all'utente verrà richiesto di eliminarli.
+1. Per impostazione predefinita, il flag ricorsivo è true e Sync copia tutte le sottodirectory. Sync copia solo i file di primo livello all'interno di una directory se il flag ricorsivo è false.
+2. Quando si esegue la sincronizzazione tra directory virtuali, aggiungere una barra finale al percorso (vedere gli esempi) se è presente un BLOB con lo stesso nome di una delle directory virtuali.
+3. Se il flag ' deleteDestination ' è impostato su true o prompt, Sync eliminerà i file e i BLOB nella destinazione che non sono presenti nell'origine.
 
-     Questa richiesta può essere silenziata usando i flag corrispondenti per rispondere automaticamente alla domanda di eliminazione.
+### <a name="advanced"></a>Funzionalità avanzate
 
-### <a name="advanced"></a>Avanzate
-
-AzCopy rileva automaticamente il tipo di contenuto dei file durante il caricamento dal disco locale, in base all'estensione o al contenuto del file (se non è specificata alcuna estensione).
+Se non si specifica un'estensione di file, AzCopy rileva automaticamente il tipo di contenuto dei file durante il caricamento dal disco locale, in base all'estensione o al contenuto del file (se non è specificata alcuna estensione).
 
 La tabella di ricerca incorporata è di dimensioni ridotte, ma in UNIX è aumentata dal file MIME. Types del sistema locale, se disponibile con uno o più dei nomi seguenti:
 
@@ -52,7 +51,7 @@ In Windows i tipi MIME vengono estratti dal registro di sistema.
 azcopy sync [flags]
 ```
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 Sincronizzare un singolo file:
 
@@ -72,7 +71,7 @@ Sincronizzare un'intera directory, incluse le relative sottodirectory (si noti c
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]"
 ```
 
-oppure
+Oppure
 
 ```azcopy
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --put-md5
@@ -96,30 +95,63 @@ Sincronizzare un'intera directory, escludendo alcuni file dall'ambito (ad esempi
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --exclude="foo*;*bar"
 ```
 
+Sincronizzare un singolo BLOB:
+
+```azcopy
+azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
+
+Sync a virtual directory:
+
+```azcopy
+azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=true
+```
+
+Sincronizzare una directory virtuale con lo stesso nome di un BLOB (aggiungere una barra finale al percorso per evitare ambiguità):
+
+```azcopy
+azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]/?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]/" --recursive=true
+```
+
+Sincronizzare una directory di file di Azure (stessa sintassi del BLOB):
+
+```azcopy
+azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]" "https://[account].file.core.windows.net/[share]/[path/to/dir]" --recursive=true
+```
+
 > [!NOTE]
 > Se i flag di inclusione/esclusione vengono utilizzati insieme, verranno esaminati solo i file che corrispondono ai modelli di inclusione, ma quelli corrispondenti ai modelli di esclusione verrebbero sempre ignorati.
 
 ## <a name="options"></a>Opzioni
 
-|Opzione|Descrizione|
-|--|--|
-|--block-size-MB float|Usare questa dimensione del blocco (specificata in MiB) durante il caricamento in archiviazione di Azure o il download da archiviazione di Azure. Il valore predefinito viene calcolato automaticamente in base alle dimensioni del file. Sono consentite frazioni decimali, ad esempio: 0,25).|
-|--Check-MD5 stringa|Specifica il modo in cui devono essere convalidati gli hash MD5 durante il download. Questa opzione è disponibile solo durante il download. I valori disponibili includono: NOCHECK, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (valore predefinito "FailIfDifferent").|
-|--Delete-stringa di destinazione|definisce se eliminare i file aggiuntivi dalla destinazione che non sono presenti nell'origine. Potrebbe essere impostato su true, false o prompt. Se viene impostata la richiesta, all'utente verrà inviata una domanda prima di pianificare i file e i BLOB per l'eliminazione. (valore predefinito "false").|
-|--Escludi stringa|Escludere i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: *. jpg;* . PDF; exactname.|
-|-h, --help|Mostra il contenuto della Guida per il comando di sincronizzazione.|
-|--Includi stringa|Includere solo i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: *. jpg;* . PDF; exactname.|
-|--stringa a livello di log|Definire il livello di dettaglio del log per il file di log, livelli disponibili: INFO (tutte le richieste/risposte), avviso (risposte lente), errore (solo richieste non riuscite) e nessuno (nessun log di output). (impostazione predefinita "INFO").|
-|--Put-MD5|Creare un hash MD5 di ogni file e salvare l'hash come proprietà Content-MD5 del BLOB o del file di destinazione. Per impostazione predefinita, l'hash non viene creato. Disponibile solo durante il caricamento.|
-|--ricorsivo|True per impostazione predefinita, esaminare le sottodirectory in modo ricorsivo durante la sincronizzazione tra le directory. (valore predefinito true).|
+**--block-size-MB** float usa questa dimensione del blocco (specificata in MIB) durante il caricamento in archiviazione di Azure o il download da archiviazione di Azure. Il valore predefinito viene calcolato automaticamente in base alle dimensioni del file. Sono consentite frazioni decimali, ad esempio: 0,25.
+
+**--Check-MD5** stringa specifica il modo in cui devono essere convalidati gli hash MD5 durante il download. Questa opzione è disponibile solo durante il download. I valori disponibili includono: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (valore predefinito ' FailIfDifferent '). (valore predefinito "FailIfDifferent")
+
+**--Delete-Destination** String definisce se eliminare i file aggiuntivi dalla destinazione che non sono presenti nell'origine. Potrebbe essere impostato su true, false o prompt. Se viene impostata la richiesta, all'utente verrà inviata una domanda prima di pianificare i file e i BLOB per l'eliminazione. (valore predefinito ' false '). (valore predefinito "false")
+
+**--Exclude-Attributes** String (solo Windows) escludere i file i cui attributi corrispondono all'elenco di attributi. Ad esempio: A; S R
+
+**--Exclude-pattern** String esclude i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: *. jpg;* . PDF; exactname
+
+**-h,--** Guida alla sincronizzazione
+
+**--include-gli attributi** stringa (solo Windows) includono solo i file i cui attributi corrispondono all'elenco di attributi. Ad esempio: A; S R
+
+**--include-pattern** String include solo i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: *. jpg;* . PDF; exactname
+
+**--** la stringa a livello di log definisce il livello di dettaglio del log per il file di log, i livelli disponibili: info (tutte le richieste e risposte), avviso (risposte lente), errore (solo richieste non riuscite) e nessuno (nessun log di output). (informazioni predefinite). (impostazione predefinita "INFO")
+
+**--put-MD5**                     Creare un hash MD5 di ogni file e salvare l'hash come proprietà Content-MD5 del BLOB o del file di destinazione. Per impostazione predefinita, l'hash non viene creato. Disponibile solo durante il caricamento.
+
+**--ricorsivo**                   True per impostazione predefinita, esaminare le sottodirectory in modo ricorsivo durante la sincronizzazione tra le directory. (valore predefinito true). (valore predefinito true)
 
 ## <a name="options-inherited-from-parent-commands"></a>Opzioni ereditate dai comandi padre
 
-|Opzione|DESCRIZIONE|
+|Opzione|Description|
 |---|---|
 |--Cap-Mbps UInt32|Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
 |--output-tipo stringa|Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text".|
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [azcopy](storage-ref-azcopy.md)
