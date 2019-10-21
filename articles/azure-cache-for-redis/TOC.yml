@@ -39,6 +39,8 @@
           href: cache-best-practices.md
         - name: Procedure consigliate nell'architettura di Azure per la memorizzazione nella cache
           href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
+    - name: Informazioni su failover e patch
+      href: cache-failover.md
 - name: Guide alle procedure
   items:
     - name: Pianificazione
