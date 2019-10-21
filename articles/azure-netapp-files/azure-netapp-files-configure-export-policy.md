@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: b-juche
-ms.openlocfilehash: d73ac199df03f4d789db0634be1e926afc77e623
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: d323bd0b9684cfe4930d8c779a6728fcfd3836fb
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597541"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674919"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Configurare i criteri di esportazione per un volume NFS
 
@@ -27,7 +27,7 @@ ms.locfileid: "72597541"
 
 ## <a name="steps"></a>Procedure 
 
-1.  Fare clic sul pannello **Create Export Policy** (Crea criteri di esportazione) dal pannello Manage Volume (Gestisci volume). 
+1.  Fare clic su **Esporta criterio** nel riquadro di spostamento Azure NetApp files. 
 
 2.  Specificare le informazioni nei campi seguenti creare una regola di criteri di esportazione:   
     *  **Index**  (Indice)  

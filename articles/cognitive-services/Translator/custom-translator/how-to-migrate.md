@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: cd821ad8fce813d269ace8fb4945cb796c2ae758
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 9c97eaef30a08123605ed4c01810745e312d6aa0
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595729"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675507"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Eseguire la migrazione dell'area di lavoro e dei progetti di Hub in Custom Translator
 
@@ -26,8 +26,8 @@ Durante la migrazione vengono eseguite queste operazioni:
 * Eventuali training di cui è stata eseguita la migrazione non nello stato distribuito verranno impostati nello stato di bozza sottoposta a migrazione. In questo stato, è possibile eseguire il training di un modello con la definizione migrata, ma verranno addebitati i costi di training standard.
 * In qualsiasi momento, il punteggio BLEU migrato dal training dell'hub è disponibile nella pagina TrainingDetails del modello sotto l'intestazione "Bleu score in MT Hub".
 
-> [!Note]
-> Per la riuscita della formazione, il traduttore personalizzato richiede almeno 10.000 frasi estratte univoche. Il convertitore personalizzato non può condurre un training con meno del [minimo suggerito](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
+> [!Note] 
+> Per la riuscita della formazione, il traduttore personalizzato richiede almeno 10.000 frasi estratte univoche. Il convertitore personalizzato non può condurre un training con meno del [minimo suggerito](sentence-alignment.md#suggested-minimum-number-of-sentences).
 
 ## <a name="find-custom-translator-workspace-id"></a>Trovare l'ID dell'area di lavoro del traduttore personalizzato
 
@@ -108,11 +108,11 @@ Nella pagina Migration History (Cronologia migrazione) vengono visualizzate le i
 
 2. Migrated On (Migrazione eseguita il): data e ora della migrazione
 
-3. Progetti: numero di progetti di cui è stata richiesta la migrazione rispetto al numero di progetti di cui è stata eseguita correttamente la migrazione.
+3. Projects (Progetti): numero di progetti di cui è stata richiesta la migrazione rispetto al numero di progetti di cui è stata eseguita la migrazione.
 
-4. Trainings (Training): numero di training di cui è stata richiesta la migrazione rispetto al numero di training di cui è stata eseguita correttamente la migrazione.
+4. Trainings (Training): numero di training di cui è stata richiesta la migrazione rispetto al numero di training di cui è stata eseguita la migrazione.
 
-5. Documents (Documenti): numero di documenti di cui è stata richiesta la migrazione rispetto al numero di documenti di cui è stata eseguita correttamente la migrazione.
+5. Documents (Documenti): numero di documenti di cui è stata richiesta la migrazione rispetto al numero di documenti di cui è stata eseguita la migrazione.
 
     ![Dettagli della cronologia della migrazione](media/how-to/how-to-migration-history-details.png)
 
@@ -122,7 +122,7 @@ Se si vuole un report di migrazione più dettagliato su progetti, training e doc
 * I sistemi con coppie di lingue non ancora disponibili nel convertitore personalizzato saranno disponibili solo per accedere ai dati o annullare la distribuzione tramite il convertitore personalizzato. Questi progetti verranno contrassegnati come "non disponibili" nella pagina dei progetti. Quando si abilitano nuove coppie di lingue con il convertitore personalizzato, i progetti diventeranno attivi per eseguire il training e la distribuzione. 
 * La migrazione di un progetto dall'hub al traduttore personalizzato non ha alcun impatto sui training o sui progetti dell'hub. I progetti o i documenti non vengono eliminati dall'hub durante una migrazione e la distribuzione dei modelli non viene annullata.
 * È possibile eseguire la migrazione una sola volta per ogni progetto. Se è necessario ripetere la migrazione di un progetto, è necessario contattare Microsoft.
-* Il convertitore personalizzato supporta le coppie di lingue NMT da e verso l'inglese. [Visualizzare l'elenco completo dei linguaggi supportati](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). L'hub non richiede modelli di base e quindi supporta diverse migliaia di lingue. È possibile eseguire la migrazione di una coppia di lingue non supportata, tuttavia verrà eseguita la migrazione solo dei documenti e delle definizioni dei progetti. Non sarà possibile eseguire il training del nuovo modello. Inoltre, questi documenti e progetti verranno visualizzati come non attivi per indicare che al momento non possono essere usati. Se viene aggiunto il supporto per questi progetti e/o documenti, essi diventano attivi e possono essere sottoposti a training.
+* Il convertitore personalizzato supporta le coppie di lingue NMT da e verso l'inglese. [Visualizzare l'elenco completo delle lingue supportate](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). L'hub non richiede modelli di base e quindi supporta diverse migliaia di lingue. È possibile eseguire la migrazione di una coppia di lingue non supportata, tuttavia verrà eseguita la migrazione solo dei documenti e delle definizioni dei progetti. Non sarà possibile eseguire il training del nuovo modello. Inoltre, questi documenti e progetti verranno visualizzati come non attivi per indicare che al momento non possono essere usati. Se viene aggiunto il supporto per questi progetti e/o documenti, essi diventano attivi e possono essere sottoposti a training.
 * Il traduttore personalizzato attualmente non supporta i dati di training in una sola lingua. Analogamente alle coppie di lingue non supportate, è possibile eseguire la migrazione di documenti in una sola lingua, che tuttavia vengono indicati come non attivi fino a quando non verrà introdotto il supporto per i dati in una sola lingua.
 * Il traduttore personalizzato richiede 10.000 frasi parallele per eseguire il training. Microsoft Hub permette di eseguire il training su un set di dati più piccolo. Se viene eseguita la migrazione di un training che non soddisfa questo requisito, il training non verrà eseguito.
 
@@ -133,15 +133,15 @@ Questa tabella mette a confronto le funzionalità di Microsoft Translator Hub co
 |   | Hub | Custom Translator |
 |:-----|:----:|:----:|
 |Stato delle funzionalità di personalizzazione   | Disponibilità generale  | Disponibilità generale |
-| Versione API per testo  | Versione 2    | V3  |
-| Personalizzazione SMT | Yes   | No |
-| Personalizzazione NMT | No    | Sì |
-| Personalizzazione dei nuovi servizi voce unificati | No    | Sì |
-| Nessuna traccia | Sì | Sì |
+| Versione API per testo  | V2    | V3  |
+| Personalizzazione SMT | SÌ   | No |
+| Personalizzazione NMT | No    | SÌ |
+| Personalizzazione dei nuovi servizi voce unificati | No    | SÌ |
+| Nessuna traccia | SÌ | SÌ |
 
 ## <a name="new-languages"></a>Nuove lingue
 
-Se si è una community o un'organizzazione che lavora alla creazione di un nuovo sistema di linguaggio per Microsoft Translator [custommt@microsoft.com](mailto:custommt@microsoft.com) , rivolgersi a per altre informazioni.
+Se si è una community o un'organizzazione che lavora per la creazione di un nuovo sistema di linguaggio per Microsoft Translator, contattare [custommt@microsoft.com](mailto:custommt@microsoft.com) per altre informazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 4fd73f528ac823a8e794a880f87dd5f8872e1251
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 97b954ee5e00c13211a3b2a2254b6d34bccb780c
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243270"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674950"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guida per sviluppatori Python per Funzioni di Azure
 
@@ -28,7 +28,7 @@ Per i progetti di esempio di funzione autonoma in Python, vedere gli [esempi di 
 
 ## <a name="programming-model"></a>Modello di programmazione
 
-Funzioni di Azure prevede che una funzione sia un metodo senza stato nello script Python che elabora l'input e genera l'output. Per impostazione predefinita, il runtime prevede che il metodo venga implementato come metodo globale denominato `main()` nel file `__init__.py`. È anche possibile [specificare un punto di ingresso alternativo](#alternate-entry-point).
+Funzioni di Azure prevede che una funzione sia un metodo senza stato nello script Python che elabora l'input e genera l'output. Per impostazione predefinita, il runtime prevede che il metodo venga implementato come metodo globale denominato `main()` nel file di `__init__.py`. È anche possibile [specificare un punto di ingresso alternativo](#alternate-entry-point).
 
 I dati dei trigger e delle associazioni vengono associati alla funzione tramite gli attributi del metodo usando la proprietà `name` definita nel file *Function. JSON* . Il file _Function. JSON_ seguente, ad esempio, descrive una semplice funzione attivata da una richiesta HTTP denominata `req`:
 
@@ -123,7 +123,7 @@ Quando si distribuisce un progetto di funzione nell'app per le funzioni in Azure
 
 ## <a name="triggers-and-inputs"></a>Trigger e input
 
-In Funzioni di Azure, gli input vengono suddivisi in due categorie, ovvero l'input del trigger e un input aggiuntivo. Sebbene siano diversi nel file `function.json`, l'utilizzo è identico nel codice Python.  Le stringhe di connessione o i segreti per i trigger e le origini di input eseguono il mapping ai valori nel file `local.settings.json` quando vengono eseguiti localmente e le impostazioni dell'applicazione durante l'esecuzione in Azure. 
+In Funzioni di Azure, gli input vengono suddivisi in due categorie, ovvero l'input del trigger e un input aggiuntivo. Sebbene siano diversi nel file `function.json`, l'utilizzo è identico nel codice Python.  Le stringhe di connessione o i segreti per i trigger e le origini di input eseguono il mapping ai valori nel file di `local.settings.json` durante l'esecuzione in locale e le impostazioni dell'applicazione durante l'esecuzione in Azure. 
 
 Ad esempio, nel codice seguente viene illustrata la differenza tra i due:
 
@@ -238,7 +238,7 @@ def main(req):
 
 Sono disponibili altri metodi di registrazione che consentono di scrivere nella console a livelli di traccia diversi:
 
-| Metodo                 | Descrizione                                |
+| Metodo                 | Description                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | Scrive un messaggio con livello critico nel logger radice.  |
 | **`error(_message_)`**   | Scrive un messaggio con livello errore nel logger radice.    |
@@ -250,7 +250,7 @@ Per altre informazioni sulla registrazione, vedere [monitorare funzioni di Azure
 
 ## <a name="http-trigger-and-bindings"></a>Trigger e associazioni HTTP
 
-Il trigger HTTP è definito nel file function. Jon. Il `name` dell'associazione deve corrispondere al parametro denominato nella funzione. Negli esempi precedenti viene usato un nome di binding `req`. Questo parametro è un oggetto [HttpRequest] e viene restituito un oggetto [HttpResponse] .
+Il trigger HTTP è definito nel file function. Jon. Il `name` dell'associazione deve corrispondere al parametro denominato nella funzione. Negli esempi precedenti viene usato un nome di associazione `req`. Questo parametro è un oggetto [HttpRequest] e viene restituito un oggetto [HttpResponse] .
 
 Dall'oggetto [HttpRequest] è possibile recuperare le intestazioni della richiesta, i parametri di query, i parametri di route e il corpo del messaggio. 
 
@@ -294,7 +294,7 @@ In queste situazioni, è possibile migliorare le prestazioni eseguendo in modo a
 
 ### <a name="async"></a>Async
 
-Si consiglia di utilizzare l'istruzione `async def` per fare in modo che la funzione venga eseguita come una coroutine asincrona.
+È consigliabile usare l'istruzione `async def` per eseguire la funzione come una coroutine asincrona.
 
 ```python
 # Runs with asyncio directly
@@ -303,7 +303,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-Quando la funzione `main()` è sincrona (senza il qualificatore `async`), la funzione viene eseguita automaticamente in un pool di thread `asyncio`.
+Quando la funzione `main()` è sincrona (senza il qualificatore `async`), la funzione viene eseguita automaticamente in un pool di thread di `asyncio`.
 
 ```python
 # Runs in an asyncio thread-pool
@@ -320,7 +320,7 @@ Per impostazione predefinita, ogni istanza host di funzioni ha un singolo proces
 
 Per ottenere il contesto di chiamata di una funzione durante l'esecuzione, includere l'argomento [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) nella firma. 
 
-Esempio:
+ad esempio:
 
 ```python
 import azure.functions
@@ -360,7 +360,7 @@ def main(req):
 
 ## <a name="environment-variables"></a>Variabili di ambiente
 
-Nelle funzioni, [le impostazioni dell'applicazione](functions-app-settings.md), ad esempio le stringhe di connessione del servizio, vengono esposte come variabili di ambiente durante l'esecuzione. È possibile accedere a queste impostazioni dichiarando `import os` e quindi utilizzando `setting = os.environ["setting-name"]`.
+Nelle funzioni, [le impostazioni dell'applicazione](functions-app-settings.md), ad esempio le stringhe di connessione del servizio, vengono esposte come variabili di ambiente durante l'esecuzione. È possibile accedere a queste impostazioni dichiarando `import os` e quindi usando, `setting = os.environ["setting-name"]`.
 
 Nell'esempio seguente viene ottenuta l' [impostazione dell'applicazione](functions-how-to-use-azure-function-app-settings.md#settings)con la chiave denominata `myAppSetting`:
 
@@ -398,22 +398,15 @@ pip install -r requirements.txt
 
 Quando si è pronti per la pubblicazione, assicurarsi che tutte le dipendenze siano elencate nel file *requirements. txt* che si trova nella radice della directory del progetto. Funzioni di Azure può [compilare in remoto](functions-deployment-technologies.md#remote-build) queste dipendenze.
 
-I file di progetto e le cartelle escluse dalla pubblicazione, inclusa la cartella dell'ambiente virtuale, sono elencati nel file con estensione funcignore.  
+I file di progetto e le cartelle escluse dalla pubblicazione, inclusa la cartella dell'ambiente virtuale, sono elencati nel file con estensione funcignore. 
 
-Per eseguire la distribuzione in Azure ed eseguire una compilazione remota, usare il comando seguente:
+Sia la [Azure Functions Core Tools](functions-run-local.md#v2) che l' [estensione di funzioni di Azure per vs code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) eseguiranno una compilazione remota per impostazione predefinita. Ad esempio, usare il comando seguente:
 
 ```bash
-func azure functionapp publish <app name> --build remote
+func azure functionapp publish <app name>
 ```
 
-Se non si usa la compilazione remota e si usa un pacchetto che richiede un compilatore e non supporta l'installazione di molte ruote compatibili con Linux da PyPI, la pubblicazione in Azure senza compilazione localmente avrà esito negativo con l'errore seguente:
-
-```
-There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
-The terminal process terminated with exit code: 1
-```
-
-Per compilare localmente e configurare i file binari necessari, [installare Docker](https://docs.docker.com/install/) nel computer locale ed eseguire il comando seguente per pubblicare usando il [Azure Functions Core Tools](functions-run-local.md#v2) (Func). Ricordare di sostituire `<app name>` con il nome dell'app per le funzioni in Azure. 
+Se si vuole compilare l'app localmente anziché in Azure, [installare Docker](https://docs.docker.com/install/) nel computer locale ed eseguire il comando seguente per pubblicare usando il [Azure Functions Core Tools](functions-run-local.md#v2) (Func). Ricordare di sostituire `<app name>` con il nome dell'app per le funzioni in Azure. 
 
 ```bash
 func azure functionapp publish <app name> --build-native-deps
@@ -425,7 +418,7 @@ Per compilare le dipendenze e pubblicare usando un sistema di recapito continuo 
 
 ## <a name="unit-testing"></a>Testing unità
 
-Le funzioni scritte in Python possono essere testate come altro codice Python usando Framework di test standard. Per la maggior parte delle associazioni, è possibile creare un oggetto di input fittizio creando un'istanza di una classe appropriata dal pacchetto `azure.functions`. Poiché il pacchetto [`azure.functions`](https://pypi.org/project/azure-functions/) non è immediatamente disponibile, assicurarsi di installarlo tramite il file `requirements.txt` come descritto nella sezione precedente relativa alla [versione di Python e alla gestione dei pacchetti](#python-version-and-package-management) .
+Le funzioni scritte in Python possono essere testate come altro codice Python usando Framework di test standard. Per la maggior parte delle associazioni, è possibile creare un oggetto di input fittizio creando un'istanza di una classe appropriata dal pacchetto di `azure.functions`. Poiché il pacchetto di [`azure.functions`](https://pypi.org/project/azure-functions/) non è immediatamente disponibile, assicurarsi di installarlo tramite il file di `requirements.txt`, come descritto nella sezione precedente relativa alla [versione di Python e alla gestione dei pacchetti](#python-version-and-package-management) .
 
 Ad esempio, di seguito è riportato un test fittizio di una funzione attivata tramite HTTP:
 

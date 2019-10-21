@@ -6,15 +6,15 @@ author: lenadroid
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 647cb0573922bb53232dbce3f3a7a2557553d47d
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: c4fca9b8f4c8a01124074396985b1ec3f1c896c6
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263887"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675155"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Esecuzione di processi Apache Spark in servizio Azure Kubernetes
 
@@ -43,10 +43,16 @@ Creare un gruppo di risorse per il cluster.
 az group create --name mySparkCluster --location eastus
 ```
 
-Creare il cluster servizio Azure Kubernetes con nodi di dimensioni `Standard_D3_v2`.
+Creare un'entità servizio per il cluster. Al termine della creazione, sarà necessario disporre dell'appId e della password dell'entità servizio per il comando successivo.
 
 ```azurecli
-az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2
+az ad sp create-for-rbac --name SparkSP
+```
+
+Creare il cluster AKS con nodi di dimensioni `Standard_D3_v2` e valori di appId e password passati come parametri di entità servizio e client-Secret.
+
+```azurecli
+az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
 ```
 
 Connettersi al cluster servizio Azure Kubernetes.
@@ -64,7 +70,7 @@ Prima di eseguire processi di Spark su un cluster servizio Azure Kubernetes, è 
 Clonare il repository del progetto Spark nel sistema di sviluppo.
 
 ```bash
-git clone -b branch-2.3 https://github.com/apache/spark
+git clone -b branch-2.4 https://github.com/apache/spark
 ```
 
 Passare alla directory del repository clonato e salvare il percorso dell'origine Spark in una variabile.
@@ -136,7 +142,7 @@ Eseguire i comandi seguenti per aggiungere un plug-in SBT, che consente di crear
 
 ```bash
 touch project/assembly.sbt
-echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.6")' >> project/assembly.sbt
+echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.10")' >> project/assembly.sbt
 ```
 
 Eseguire questi comandi per copiare il codice di esempio nel progetto appena creato e aggiungere tutte le dipendenze necessarie.
@@ -151,7 +157,7 @@ cat <<EOT >> build.sbt
 libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.3.0" % "provided"
 EOT
 
-sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11",/' build.sbt
+sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11"/' build.sbt
 sed -ie 's/name.*/name := "SparkPi",/' build.sbt
 ```
 
@@ -214,6 +220,13 @@ Tornare alla radice del repository Spark.
 cd $sparkdir
 ```
 
+Creare un account del servizio che disponga di autorizzazioni sufficienti per l'esecuzione di un processo.
+
+```bash
+kubectl create serviceaccount spark
+kubectl create clusterrolebinding spark-role --clusterrole=edit --serviceaccount=default:spark --namespace=default
+```
+
 Inviare il processo usando `spark-submit`.
 
 ```bash
@@ -223,6 +236,7 @@ Inviare il processo usando `spark-submit`.
   --name spark-pi \
   --class org.apache.spark.examples.SparkPi \
   --conf spark.executor.instances=3 \
+  --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
   --conf spark.kubernetes.container.image=$REGISTRY_NAME/spark:$REGISTRY_TAG \
   $jarUrl
 ```
@@ -313,7 +327,7 @@ Quando si esegue il processo, anziché indicare un URL JAR remoto, è possibile 
 ```
 
 > [!WARNING]
-> Dalla [documentazione][spark-docs]di Spark: "L'utilità di pianificazione Kubernetes è attualmente sperimentale. Nelle versioni future potrebbero essere apportate modifiche funzionali alla configurazione, alle immagini del contenitore e ai punti di ingresso.
+> Dalla [documentazione][spark-docs]di Spark: "l'utilità di pianificazione di Kubernetes è attualmente sperimentale. Nelle versioni future potrebbero essere apportate modifiche funzionali alla configurazione, alle immagini del contenitore e ai punti di ingresso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

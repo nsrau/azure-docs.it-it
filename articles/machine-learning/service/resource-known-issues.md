@@ -11,16 +11,22 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: b69eda59c9c8032510df036d3aa0d160105fbc16
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: a3ba28960327f1e0a56b1ac838b2cb90ab6ac72a
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533184"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675639"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi Azure Machine Learning
 
 Questo articolo consente di individuare e correggere gli errori o gli errori riscontrati quando si usa Azure Machine Learning.
+
+## <a name="upcoming-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>Imminente aggiornamento di SR-IOV a computer NCv3 in AmlCompute
+
+Il servizio di calcolo di Azure aggiornerà gli SKU di NCv3 a partire dal primo novembre per supportare tutte le implementazioni e le versioni MPI e i verbi RDMA per le macchine virtuali con InfiniBand. Questa operazione richiederà un breve tempo di inattività. [per altre informazioni sull'aggiornamento di SR-IOV, vedere](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
+
+In qualità di cliente dell'offerta di calcolo gestita di Azure Machine Learning (AmlCompute), non è necessario apportare alcuna modifica in questo momento. In base alla [pianificazione dell'aggiornamento](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) , è necessario pianificare una breve pausa nel training. Il servizio si assume la responsabilità di aggiornare le immagini di macchina virtuale nei nodi del cluster e aumentare automaticamente il cluster. Una volta completato l'aggiornamento, è possibile utilizzare tutti gli altri discibutions MPI, ad esempio OpenMPi con Pytorch, oltre a ottenere una larghezza di banda InfiniBand superiore, latenze più basse e prestazioni delle applicazioni distribuite migliori.
 
 ## <a name="visual-interface-issues"></a>Problemi relativi all'interfaccia visiva
 

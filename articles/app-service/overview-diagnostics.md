@@ -11,15 +11,15 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: c9d6bc8802b54e970fe863ed6a7283f01c947916
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5631b34fee64c6ad0917b95ec68fcd586717a1b0
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066846"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675182"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Panoramica della diagnostica del servizio app di Azure
 
@@ -92,21 +92,21 @@ Gli strumenti di diagnostica includono strumenti di diagnostica più avanzati ch
 
 ### <a name="proactive-cpu-monitoring"></a>Monitoraggio proattivo della CPU
 
-Il monitoraggio proattivo della CPU fornisce un metodo semplice e proattivo per eseguire un'azione quando l'app o il processo figlio per l'app utilizza risorse di CPU elevate. È possibile impostare regole di soglia CPU personalizzate per attenuare temporaneamente un problema di CPU elevato fino a quando non viene rilevata la causa reale del problema imprevisto.
+Il monitoraggio proattivo della CPU fornisce un metodo semplice e proattivo per eseguire un'azione quando l'app o il processo figlio per l'app utilizza risorse di CPU elevate. È possibile impostare regole di soglia CPU personalizzate per attenuare temporaneamente un problema di CPU elevato fino a quando non viene rilevata la causa reale del problema imprevisto. Per altre informazioni, vedere [mitigare i problemi di CPU prima che si verifichino](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html). Il monitoraggio proattivo della CPU fornisce un metodo semplice e proattivo per eseguire un'azione quando l'app o il processo figlio per l'app utilizza risorse di CPU elevate. È possibile impostare regole di soglia CPU personalizzate per attenuare temporaneamente un problema di CPU elevato fino a quando non viene rilevata la causa reale del problema imprevisto.
 
 ![Monitoraggio proattivo della CPU](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 
 ### <a name="auto-healing-and-proactive-auto-healing"></a>Riparazione automatica e correzione automatica proattiva
 
-La correzione automatica è un'azione di mitigazione che è possibile eseguire quando l'app presenta un comportamento imprevisto. È possibile impostare regole personalizzate in base al numero di richieste, alla richiesta lenta, al limite di memoria e al codice di stato HTTP per attivare le azioni di mitigazione. Utilizzare lo strumento per attenuare temporaneamente un comportamento imprevisto fino a individuare la causa radice.
+La correzione automatica è un'azione di mitigazione che è possibile eseguire quando l'app presenta un comportamento imprevisto. È possibile impostare regole personalizzate in base al numero di richieste, alla richiesta lenta, al limite di memoria e al codice di stato HTTP per attivare le azioni di mitigazione. Utilizzare lo strumento per attenuare temporaneamente un comportamento imprevisto fino a individuare la causa radice. Per altre informazioni, vedere [annunciare la nuova esperienza di correzione automatica nella diagnostica del servizio app](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
 
 ![riparazione automatica](./media/app-service-diagnostics/auto-healing-10.png)
 
-Come il monitoraggio proattivo della CPU, la correzione automatica proattiva è una soluzione chiave per attenuare il comportamento imprevisto dell'app. La correzione automatica proattiva riavvia l'app quando il servizio app determina che l'app è in uno stato irreversibile. Per altre informazioni, vedere [annunciare la nuova esperienza di correzione automatica nella diagnostica del servizio app](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
+Come il monitoraggio proattivo della CPU, la correzione automatica proattiva è una soluzione chiave per attenuare il comportamento imprevisto dell'app. La correzione automatica proattiva riavvia l'app quando il servizio app determina che l'app è in uno stato irreversibile. Per altre informazioni, vedere [Introduzione alla correzione automatica proattiva](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html).
 
 ## <a name="navigator-and-change-analysis-only-for-windows-app"></a>Strumento di navigazione e analisi delle modifiche (solo per app di Windows)
 
-In un team di grandi dimensioni con integrazione continua e in cui l'app presenta numerose dipendenze, può essere difficile individuare la modifica specifica che causa un comportamento non integro. Lo strumento di spostamento consente di ottenere visibilità sulla topologia dell'app eseguendo automaticamente il rendering di una mappa delle dipendenze dell'app e di tutte le risorse nella stessa sottoscrizione. Navigator consente di visualizzare un elenco consolidato delle modifiche apportate dall'app e delle relative dipendenze e di ridurle in base a una modifica che causa un comportamento non integro. È possibile accedervi tramite il navigatore affiancato della Home page e deve essere abilitato prima di usarlo per la prima volta. Per altre informazioni, vedere [ottenere visibilità sulle dipendenze dell'app con lo strumento di navigazione](https://azure.github.io/AppService/2019/08/06/Bring-visibility-to-your-app-and-its-dependencies-with-Navigator.html).
+In un team di grandi dimensioni con integrazione continua e in cui l'app presenta numerose dipendenze, può essere difficile individuare la modifica specifica che causa un comportamento non integro. Lo strumento di spostamento consente di ottenere visibilità sulla topologia dell'app eseguendo automaticamente il rendering di una mappa delle dipendenze dell'app e di tutte le risorse nella stessa sottoscrizione. Navigator consente di visualizzare un elenco consolidato delle modifiche apportate dall'app e delle relative dipendenze e di ridurle in base a una modifica che causa un comportamento non integro. È possibile accedervi tramite il **navigatore** affiancato della Home page e deve essere abilitato prima di usarlo per la prima volta. Per altre informazioni, vedere [ottenere visibilità sulle dipendenze dell'app con lo strumento di navigazione](https://azure.github.io/AppService/2019/08/06/Bring-visibility-to-your-app-and-its-dependencies-with-Navigator.html).
 
 ![Pagina predefinita dello strumento di navigazione](./media/app-service-diagnostics/navigator-default-page-11.png)
 

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: e9bc5c876da6bd2be1b22b389b819e51330b2e50
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: adbc21c3e963a98a8482de0c26bf5e257f43013e
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595466"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675446"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Abbinamento e allineamento di frasi in documenti paralleli
 
@@ -28,18 +28,23 @@ Custom Translator apprende le traduzioni delle frasi una frase alla volta. Legge
 
 Se si è certi di disporre di documenti paralleli, è possibile saltare il processo di allineamento delle frasi fornendo file di testo preallineati. È possibile estrarre tutte le frasi di entrambi i documenti in un file di testo, organizzato con una frase per riga, e caricarlo con l'estensione `.align`. L'estensione `.align` segnala a Custom Translator di saltare il processo di allineamento delle frasi.
 
-Per ottenere risultati ottimali, verificare che i file di testo contengano una frase per riga. La presenza di caratteri di nuova riga in una frase comprometterebbe l'allineamento.
+Per ottenere risultati ottimali, verificare che i file di testo contengano una frase per riga. Non sono presenti caratteri di nuova riga all'interno di una frase perché questa operazione causerà allineamenti scarsi.
 
-## <a name="suggested-minimum-number-of-extracted-and-aligned-sentences"></a>Numero minimo suggerito di frasi estratte e allineate
+## <a name="suggested-minimum-number-of-sentences"></a>Numero minimo suggerito di frasi
 
-La tabella seguente mostra il numero minimo di frasi estratte e frasi allineate necessarie in ogni set di dati affinché un training abbia esito positivo. Il numero minimo suggerito di frasi estratte è molto più elevato del numero minimo di frasi allineate, in quanto occorre tenere conto del fatto che il processo di allineamento delle frasi potrebbe non riuscire ad allineare correttamente tutte le frasi estratte.
+Per la riuscita della formazione, la tabella seguente mostra il numero minimo di frasi richieste in ogni tipo di documento. Questa limitazione è una rete di sicurezza per garantire che le frasi parallele contengano un vocabolario univoco sufficiente per eseguire correttamente il training di un modello di traduzione. La linea guida generale prevede che più frasi parallele nel dominio della qualità della traduzione umana debbano produrre modelli di qualità superiore.
 
-| Set di dati   | Numero minimo suggerito di frasi estratte | Numero minimo suggerito di frasi allineate | Numero massimo di frasi allineate |
-|------------|--------------------------------------------|------------------------------------------|--------------------------------|
-| Formazione   | 10,000                                     | 2\.000                                    | Nessun limite massimo                 |
-| Regolazione     | 2\.000                                      | 500                                      | 2\.500                          |
-| Test    | 2\.000                                      | 500                                      | 2\.500                          |
-| Dizionario | 0                                          | 0                                        | Nessun limite massimo                 |
+| Tipo di documento   | Numero minimo di frasi suggerito | Numero massimo di frasi |
+|------------|--------------------------------------------|--------------------------------|
+| Formazione   | 10,000                                     | Nessun limite massimo                 |
+| Ottimizzazione     | 5\.000                                      | 2\.500                          |
+| Test    | 5\.000                                      | 2\.500                          |
+| Dizionario | 0                                          | Nessun limite massimo                 |
+
+> [!NOTE]
+> - Il training non verrà avviato e avrà esito negativo se il numero minimo di 10.000 di frasi per il training non è stato soddisfatto. 
+> - L'ottimizzazione e il test sono facoltativi. Se non vengono forniti, il sistema eliminerà una percentuale appropriata dal training da usare per la convalida e il test. 
+> - È possibile eseguire il training su un modello utilizzando solo i dati del dizionario. Per informazioni, vedere informazioni sul [dizionario](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-dictionary).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

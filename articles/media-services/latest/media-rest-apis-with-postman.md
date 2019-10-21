@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2019
 ms.author: juliako
-ms.openlocfilehash: d25596884acdb356779eafa4348240239855ce37
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c402381534087f1e8cdab711bd1b2a34c78417f4
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308460"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675733"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurare Postman per le chiamate API REST di Servizi multimediali
 
@@ -32,7 +32,7 @@ Prima di iniziare lo sviluppo, vedere [sviluppo con le API di servizi multimedia
 - Ottenere le informazioni necessarie per [accedere alle API](access-api-cli-how-to.md)
 - Installare il client REST di [Postman](https://www.getpostman.com/) per eseguire le API REST mostrate in alcune delle esercitazioni REST di AMS. 
 
-    Si sta usando **Postman** ma si può usare qualsiasi strumento REST. Altre alternative possibili: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
+    Si sta usando **Postman** ma si può usare qualsiasi strumento REST. Tra le alternative vi sono: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
 
 > [!IMPORTANT]
 > Esaminare le [convenzioni di denominazione](media-services-apis-overview.md#naming-conventions).
@@ -47,11 +47,9 @@ Clonare un repository di GitHub che contiene i file di raccolta e ambiente Postm
 
 ## <a name="configure-postman"></a>Configurare Postman
 
-Questa sezione consente di configurare Postman.
-
 ### <a name="configure-the-environment"></a>Configurare l'ambiente 
 
-1. Aprire **Postman**.
+1. Aprire l'app **postazione** .
 2. A destra dello schermo, selezionare l'opzione **Manage environment** (Gestisci ambiente).
 
     ![Gestire l'ambiente](./media/develop-with-postman/postman-import-env.png)
@@ -80,9 +78,9 @@ Questa sezione consente di configurare Postman.
 
 Prima di iniziare la modifica delle risorse in servizi multimediali di Microsoft Azure v3 è necessario ottenere e impostare token di Azure AD per l'autenticazione dell'entità servizio.
 
-1. Nella finestra a sinistra di Postman selezionare "Step 1: Get AAD Auth token" (Passaggio 1: Ottenere un token di autenticazione AAD).
+1. Nella finestra di sinistra dell'app post, selezionare "passaggio 1: ottenere il token di autenticazione AAD".
 2. Selezionare quindi "Get Azure AD Token for Service Principal Authentication" (Ottieni token Azure AD per autenticazione basata su entità servizio).
-3. Fare clic su **Invia**.
+3. Premere **Invia**.
 
     Viene inviata l'operazione **POST** seguente.
 
@@ -94,7 +92,7 @@ Prima di iniziare la modifica delle risorse in servizi multimediali di Microsoft
 
     ![Ottenere il token AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Caricare file in un account di Servizi multimediali - REST](upload-files-rest-how-to.md)
 - [Creare filtri con Servizi multimediali - REST](filters-dynamic-manifest-rest-howto.md)
@@ -103,4 +101,4 @@ Prima di iniziare la modifica delle risorse in servizi multimediali di Microsoft
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Streaming di file con REST](stream-files-tutorial-with-rest.md).  
-- [Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - REST](stream-files-tutorial-with-rest.md)
+- [Esercitazione: codificare un file remoto in base all'URL e trasmettere il video REST](stream-files-tutorial-with-rest.md)

@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: f468b2afce1609de126859546a72544ba403424e
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 4d32a652219d48a2cc101259ea6b76fbfa910821
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838878"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674957"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologie di distribuzione in funzioni di Azure
 
@@ -37,7 +37,7 @@ Ogni piano ha comportamenti diversi. Non tutte le tecnologie di distribuzione so
 | Distribuzione zip |✔|✔|✔|✔|✔|✔|
 | Contenitore Docker | | | | |✔|✔|
 | Distribuzione Web |✔|✔|✔| | | |
-| Controllo codice sorgente |✔|✔|✔| |✔|✔|
+| Controllo del codice sorgente |✔|✔|✔| |✔|✔|
 | Git locale<sup>1</sup> |✔|✔|✔| |✔|✔|
 | Sincronizzazione cloud<sup>1</sup> |✔|✔|✔| |✔|✔|
 | FTP<sup>1</sup> |✔|✔|✔| |✔|✔|
@@ -63,27 +63,26 @@ Quando si modifica uno dei trigger, l'infrastruttura di funzioni deve essere in 
 Funzioni di Azure può eseguire automaticamente le compilazioni sul codice ricevuto dopo le distribuzioni zip. Queste compilazioni hanno un comportamento leggermente diverso a seconda che l'app sia in esecuzione in Windows o Linux. Le compilazioni remote non vengono eseguite quando un'app è stata impostata in precedenza per l'esecuzione in modalità di [esecuzione del pacchetto](run-functions-from-deployment-package.md) . Per informazioni su come usare la compilazione remota, passare a [zip deploy](#zip-deploy).
 
 > [!NOTE]
-> Se si verificano problemi con la compilazione remota, è possibile che l'app sia stata creata prima che la funzionalità venisse resa disponibile (1 agosto 2019). Provare a creare una nuova app per le funzioni.
+> Se si verificano problemi con la compilazione remota, è possibile che l'app sia stata creata prima che la funzionalità venisse resa disponibile (1 agosto 2019). Provare a creare una nuova app per le funzioni o a eseguire `az functionapp update -g <RESOURCE_GROUP_NAME> -n <APP_NAME>` per aggiornare l'app per le funzioni. Questo comando può richiedere due tentativi di esito positivo.
 
 #### <a name="remote-build-on-windows"></a>Compilazione remota in Windows
 
 Tutte le app per le funzioni in esecuzione in Windows hanno una piccola app di gestione, il sito SCM (o [Kudu](https://github.com/projectkudu/kudu)). Questo sito gestisce gran parte della logica di distribuzione e compilazione per funzioni di Azure.
 
-Quando un'app viene distribuita in Windows, vengono eseguiti comandi specifici della lingua, ad esempioC#`dotnet restore` () o `npm install` (JavaScript).
+Quando un'app viene distribuita in Windows, vengono eseguiti comandi specifici della lingua,C#ad esempio `dotnet restore` () o `npm install` (JavaScript).
 
-#### <a name="remote-build-on-linux-preview"></a>Compilazione remota su Linux (anteprima)
+#### <a name="remote-build-on-linux"></a>Compilazione remota in Linux
 
-Per abilitare la compilazione remota in Linux, è necessario impostare le [impostazioni dell'applicazione](functions-how-to-use-azure-function-app-settings.md#settings)seguenti:
+Per abilitare la compilazione remota in Linux, è necessario impostare le [impostazioni dell'applicazione](functions-how-to-use-azure-function-app-settings.md#settings) seguenti:
 
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-Quando le app vengono compilate in remoto in Linux, vengono [eseguite dal pacchetto di distribuzione](run-functions-from-deployment-package.md).
+Per impostazione predefinita, sia [Azure Functions Core Tools](functions-run-local.md) che l' [estensione di funzioni di Azure per Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) eseguono compilazioni remote durante la distribuzione in Linux. Per questo motivo, entrambi gli strumenti creano automaticamente queste impostazioni in Azure. 
 
-> [!NOTE]
-> La compilazione remota nel piano Linux dedicato (servizio app) è attualmente supportata solo per node. js e Python.
+Quando le app vengono compilate in remoto in Linux, vengono [eseguite dal pacchetto di distribuzione](run-functions-from-deployment-package.md). 
 
-##### <a name="consumption-preview-plan"></a>Piano di utilizzo (anteprima)
+##### <a name="consumption-plan"></a>Piano a consumo
 
 Le app per le funzioni di Linux in esecuzione nel piano a consumo non dispongono di un sito SCM/Kudu, che limita le opzioni di distribuzione. Tuttavia, le app per le funzioni in Linux in esecuzione nel piano a consumo supportano le compilazioni remote.
 
@@ -103,21 +102,13 @@ In funzioni di Azure sono disponibili i metodi di distribuzione seguenti.
 >
 >Se si usa l'archiviazione BLOB di Azure, usare un contenitore privato con una [firma di accesso condiviso (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) per concedere alle funzioni l'accesso al pacchetto. Ogni volta che l'applicazione viene riavviata, recupera una copia del contenuto. Il riferimento deve essere valido per la durata dell'applicazione.
 
->__Quando utilizzarlo:__ L'URL del pacchetto esterno è l'unico metodo di distribuzione supportato per funzioni di Azure in esecuzione in Linux nel piano a consumo, se l'utente non vuole che si verifichi una compilazione remota. Quando si aggiorna il file del pacchetto a cui fa riferimento un'app per le funzioni, è necessario [sincronizzare manualmente i trigger](#trigger-syncing) per indicare ad Azure che l'applicazione è stata modificata.
+>__Quando utilizzarlo:__ L'URL del pacchetto esterno è l'unico metodo di distribuzione supportato per funzioni di Azure in esecuzione in Linux nel piano a consumo, se l'utente non vuole che si verifichi una [compilazione remota](#remote-build) . Quando si aggiorna il file del pacchetto a cui fa riferimento un'app per le funzioni, è necessario [sincronizzare manualmente i trigger](#trigger-syncing) per indicare ad Azure che l'applicazione è stata modificata.
 
 ### <a name="zip-deploy"></a>Distribuzione zip
 
 Usare la distribuzione zip per eseguire il push di un file con estensione zip che contiene l'app per le funzioni in Azure. Facoltativamente, è possibile impostare l'avvio [dell'esecuzione dell'app dal pacchetto](run-functions-from-deployment-package.md)o specificare che si verifica una [compilazione remota](#remote-build) .
 
->__Come usarlo:__ Eseguire la distribuzione usando lo strumento client preferito: [Vs code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure)o l'interfaccia della riga di comando di [Azure](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). Per distribuire manualmente un file con estensione zip nell'app per le funzioni, seguire le istruzioni in [distribuire da un file zip o un URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
-
-Per eseguire una distribuzione zip con una [compilazione remota](#remote-build), usare il seguente comando [degli strumenti principali](functions-run-local.md) :
-
-```bash
-func azure functionapp publish <app name> --build remote
-```
-
-In alternativa, è possibile impostare VS Code per eseguire una compilazione remota durante la distribuzione aggiungendo il flag '' azureFunctions. scmDoBuildDuringDeployment '. Per informazioni su come aggiungere un flag a VS Code, leggere le istruzioni nel [wiki dell'estensione funzioni di Azure](https://github.com/microsoft/vscode-azurefunctions/wiki).
+>__Come usarlo:__ Eseguire la distribuzione usando lo strumento client preferito: [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), l' [Azure Functions Core Tools](functions-run-local.md)o l' [interfaccia](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure)della riga di comando di Azure. Per impostazione predefinita, questi strumenti usano la distribuzione zip ed [eseguono il pacchetto da](run-functions-from-deployment-package.md). Gli strumenti di base e l'estensione Visual Studio Code consentono entrambe le [compilazioni Remote](#remote-build) durante la distribuzione in Linux. Per distribuire manualmente un file con estensione zip nell'app per le funzioni, seguire le istruzioni in [distribuire da un file zip o un URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
 >Quando si esegue la distribuzione tramite zip deploy, è possibile impostare l'applicazione per l' [esecuzione dal pacchetto](run-functions-from-deployment-package.md). Per eseguire dal pacchetto, impostare il valore dell'impostazione dell'applicazione `WEBSITE_RUN_FROM_PACKAGE` su `1`. Si consiglia la distribuzione di zip. Produce tempi di caricamento più rapidi per le applicazioni ed è il valore predefinito per VS Code, Visual Studio e l'interfaccia della riga di comando di Azure. 
 
@@ -146,7 +137,7 @@ Distribuzione Web i pacchetti e distribuisce le applicazioni Windows in qualsias
 
 >__Quando utilizzarlo:__ Distribuzione Web è supportato e non ha problemi, ma il meccanismo preferito è la [distribuzione zip con l'esecuzione dal pacchetto abilitato](#zip-deploy). Per ulteriori informazioni, vedere la [Guida allo sviluppo di Visual Studio](functions-develop-vs.md#publish-to-azure).
 
-### <a name="source-control"></a>Controllo codice sorgente
+### <a name="source-control"></a>Controllo del codice sorgente
 
 Usare il controllo del codice sorgente per connettere l'app per le funzioni a un repository git. Un aggiornamento del codice in tale repository attiva la distribuzione. Per ulteriori informazioni, vedere il [wiki di Kudu](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments).
 
@@ -182,7 +173,7 @@ Usare la sincronizzazione cloud per sincronizzare il contenuto da Dropbox e OneD
 
 Nell'editor basato su portale è possibile modificare direttamente i file presenti nell'app per le funzioni (essenzialmente distribuendo ogni volta che si salvano le modifiche).
 
->__Come usarlo:__ Per poter modificare le funzioni nella portale di Azure, è necessario aver [creato le funzioni nel portale](functions-create-first-azure-function.md). Per mantenere un'unica origine di verità, l'utilizzo di qualsiasi altro metodo di distribuzione rende la funzione di sola lettura e impedisce la modifica continua del portale. Per tornare a uno stato in cui è possibile modificare i file nella portale di Azure, è possibile riattivare manualmente la modalità di modifica in `Read/Write` e rimuovere le impostazioni dell'applicazione relative alla distribuzione (ad esempio, `WEBSITE_RUN_FROM_PACKAGE`). 
+>__Come usarlo:__ Per poter modificare le funzioni nella portale di Azure, è necessario aver [creato le funzioni nel portale](functions-create-first-azure-function.md). Per mantenere un'unica origine di verità, l'utilizzo di qualsiasi altro metodo di distribuzione rende la funzione di sola lettura e impedisce la modifica continua del portale. Per tornare a uno stato in cui è possibile modificare i file nella portale di Azure, è possibile riattivare manualmente la modalità di modifica per `Read/Write` e rimuovere le impostazioni dell'applicazione relative alla distribuzione, ad esempio `WEBSITE_RUN_FROM_PACKAGE`. 
 
 >__Quando utilizzarlo:__ Il portale è un modo efficace per iniziare a usare funzioni di Azure. Per un lavoro di sviluppo più intenso, è consigliabile usare uno degli strumenti client seguenti:
 >
@@ -195,10 +186,10 @@ Nella tabella seguente sono illustrati i sistemi operativi e i linguaggi che sup
 | | Utilizzo di Windows | Windows Premium (anteprima) | Windows dedicato | Consumo Linux | Linux Premium (anteprima)| Linux dedicato |
 |-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
 | C# | | | | | |
-| Script C# |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
+| Script C# |✔|✔|✔| |✔<sup> \*</sup> |✔<sup> \*</sup>|
 | F# | | | | | | |
 | Java | | | | | | |
-| JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
+| JavaScript (Node.js) |✔|✔|✔| |✔<sup> \*</sup>|✔<sup> \*</sup>|
 | Python (anteprima) | | | | | | |
 | PowerShell (anteprima) |✔|✔|✔| | | |
 | TypeScript (node. js) | | | | | | |

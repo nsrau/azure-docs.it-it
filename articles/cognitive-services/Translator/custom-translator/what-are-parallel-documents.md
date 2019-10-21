@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: fb54df2e1eb89d30e62ae80355635356343994ee
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d7c38a44e3111a319e4146b3c9b71a22b0d31bfd
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595438"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675474"
 ---
 # <a name="what-are-parallel-documents"></a>Che cosa sono i documenti paralleli?
 
@@ -23,7 +23,7 @@ Non ha importanza quale lingua è contrassegnata come "di origine" e quale come 
 
 ## <a name="requirements"></a>Requisiti
 
-Per eseguire il training di un sistema, è necessario un minimo di 10.000 frasi parallele univoche. Come procedura consigliata, è possibile aggiungere continuamente contenuti paralleli e ripetere il training per migliorare la qualità del sistema di traduzione.
+Per eseguire il training di un sistema sono necessarie almeno 10.000 frasi parallele allineate univoche. Questa limitazione è una rete di sicurezza per garantire che le frasi parallele contengano un vocabolario univoco sufficiente per eseguire correttamente il training di un modello di traduzione. Come procedura consigliata, aggiungere continuamente altri contenuti paralleli e ripetere il training per migliorare la qualità del sistema di traduzione. Vedere allineamento delle [frasi](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment).
 
 Microsoft richiede che i documenti caricati in Custom Translator non violino i diritti di copyright o di proprietà intellettuale di terze parti. Per altre informazioni, vedere le [Condizioni per l'utilizzo](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Il caricamento di un documento tramite il portale non altera in alcun modo la proprietà intellettuale nel documento stesso.

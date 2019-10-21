@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: d26535d18233533d1d72c02ad997008cba536fce
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 37d8c483a1ef49a87205dcc848aae974f5b0e47e
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595157"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675855"
 ---
 # <a name="get-started-with-azcopy"></a>Introduzione ad AzCopy
 
@@ -294,6 +294,14 @@ L'URL viene visualizzato nell'output di questo comando. Lo script può quindi sc
 ### <a name="escape-special-characters-in-sas-tokens"></a>Escape di caratteri speciali nei token SAS
 
 Nei file batch con estensione `.cmd` sarà necessario eseguire l'escape dei caratteri `%` visualizzati nei token SAS. È possibile eseguire questa operazione aggiungendo un carattere di aggiunta `%` accanto ai caratteri `%` esistenti nella stringa del token SAS.
+
+### <a name="run-scripts-by-using-jenkins"></a>Eseguire script con Jenkins
+
+Se si prevede di usare [Jenkins](https://jenkins.io/) per eseguire gli script, assicurarsi di inserire il comando seguente all'inizio dello script.
+
+```
+/usr/bin/keyctl new_session
+```
 
 ## <a name="use-azcopy-in-storage-explorer"></a>Usare AzCopy in Storage Explorer
 

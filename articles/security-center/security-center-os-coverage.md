@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 1d13db922ae84e4032304a8865ba6fcdafa65748
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: bdb0322083f842922359f0c91da77f5df81613cb
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201627"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675803"
 ---
 # <a name="supported-platforms"></a>Piattaforme supportate 
 
@@ -41,15 +41,15 @@ Le sezioni seguenti elencano i sistemi operativi server supportati in cui è pos
 
 ### Sistemi operativi Windows Server<a name="os-windows"></a>
 
-* Windows Server 2019
-* Windows Server 2016
-* Windows Server 2012 R2
-* Windows Server 2012
-* Windows Server 2008 R2
-* Windows Server 2008
-
-> [!NOTE]
-> L'integrazione con Microsoft Defender ATP supporta solo Windows Server 2012 R2 e Windows Server 2016.
+[!div class="mx-tableFixed"]
+|Sistema operativo|Supportato dal centro sicurezza di Azure|Supporto per l'integrazione con Microsoft Defender ATP|
+|---|---|---|
+|Windows Server 2019|✔|X|
+|Windows Server 2016|✔|✔|
+|Windows Server 2012 R2|✔|✔|
+|Windows Server 2012|✔|✔|
+|Windows Server 2008 R2|✔|✔|
+|Windows Server 2008|✔|✔|
 
 Per ulteriori informazioni sulle funzionalità supportate per i sistemi operativi Windows, elencate in precedenza, vedere [funzionalità supportate di macchine virtuali/server](security-center-services.md##vm-server-features).
 
@@ -97,23 +97,23 @@ Le risorse PaaS di Azure seguenti sono supportate dal centro sicurezza di Azure:
 * Servizio app
 * Funzione
 * Servizio cloud
-* Rete virtuale
+* VNet
 * Subnet
-* Scheda di interfaccia di rete
-* Gruppo di sicurezza di rete
+* NIC
+* NSG
 * Account Batch
 * Account di Service Fabric
 * Account di Automazione
-* Servizio di bilanciamento del carico
-* Cerca
+* Load Balancer
+* Ricerca
 * Spazio dei nomi del bus di servizio
-* Analisi di flusso
+* Analisi dei flussi
 * Spazio dei nomi dell'hub eventi
 * App per la logica
 * Redis
-* Data Lake Analytics
-* Data Lake Store
-* Insieme di credenziali delle chiavi
+* Analisi Data Lake
+* Archivio Data Lake
+* Key Vault
 
 Per altre informazioni sulle funzionalità supportate per l'elenco precedente di risorse PaaS, vedere [funzionalità supportate di PaaS Services](security-center-services.md#paas-services).
 

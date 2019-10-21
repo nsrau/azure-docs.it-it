@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 45bc55141c9f338ae2f69cf4ccefae3d2492b239
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 28502c49c0eebce84ffd5aa376e7b20bd52213c0
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336942"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674975"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -111,14 +111,14 @@ La procedura seguente usa [APT](https://wiki.debian.org/Apt) per installare gli 
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
 
-1. Controllare il file `/etc/apt/sources.list.d/dotnetdev.list` per una delle stringhe di versione di Linux appropriate elencate di seguito:
+1. Controllare il file di `/etc/apt/sources.list.d/dotnetdev.list` per una delle stringhe di versione di Linux appropriate elencate di seguito:
 
     | Distribuzione Linux | Versione |
     | --------------- | ----------- |
     | Debian 10 | `buster` |
     | Debian 9 | `stretch` |
     | Debian 8 | `jessie` |
-    | Ubuntu 18.10    | `cosmic`    |
+    | Ubuntu 18,10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
@@ -175,7 +175,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` supporta le opzioni seguenti, che sono disponibili solo nella versione 2.x, se non specificato diversamente:
 
-| Opzione     | Descrizione                            |
+| Opzione     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | Inizializza un progetto di script C# (file con estensione csx). È necessario specificare `--csx` nei comandi successivi. |
 | **`--docker`** | Creare un Dockerfile per un contenitore usando un'immagine di base che è basata sulla classe `--worker-runtime` selezionata. Usare questa opzione quando si prevede di pubblicare in un contenitore Linux personalizzato. |
@@ -208,7 +208,7 @@ Quando non è impostata alcuna stringa di connessione di archiviazione valida pe
 
 Anche quando si usa l'emulatore di archiviazione per lo sviluppo, si può desiderare di eseguire il test con una connessione di archiviazione effettiva. Se si dispone che si è già [creato un account di archiviazione](../storage/common/storage-create-storage-account.md), è possibile ottenere una stringa di connessione di archiviazione valida in uno dei modi seguenti:
 
-+ Nel [portale di Azure]. Passare all'account di archiviazione, selezionare **Chiavi di accesso** in **Impostazioni**, quindi copiare uno dei valori della **Stringa di connessione**.
++ Nel [Azure portal]. Passare all'account di archiviazione, selezionare **Chiavi di accesso** in **Impostazioni**, quindi copiare uno dei valori della **Stringa di connessione**.
 
   ![Copiare la stringa di connessione dal portale di Azure](./media/functions-run-local/copy-storage-connection-portal.png)
 
@@ -267,7 +267,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 È anche possibile specificare queste opzioni nel comando usando gli argomenti seguenti:
 
-| Argomento     | Descrizione                            |
+| Argomento     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Versione 2.x) Genera gli stessi modelli script C# (con estensione csx) usati nella versione 1.x e nel portale. |
 | **`--language -l`**| Il linguaggio di programmazione del modello, come C#, F# o JavaScript. Questa opzione è necessaria nella versione 1.x. Nella versione 2.x non usare questa opzione o scegliere una lingua che corrisponda al runtime del ruolo di lavoro. |
@@ -323,19 +323,19 @@ func host start
 
 `func start` supporta le opzioni seguenti:
 
-| Opzione     | Descrizione                            |
+| Opzione     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Per il progetto corrente non viene creata una build prima dell'esecuzione. Solo per progetti dotnet. Il valore predefinito è false. Solo versione 2.x. |
-| **`--cert`** | Il percorso in un file con estensione pfx che contiene una chiave privata. Usato solo con `--useHttps`. Solo versione 2.x. |
+| **`--cert`** | Il percorso in un file con estensione pfx che contiene una chiave privata. Usati solo con `--useHttps`. Solo versione 2.x. |
 | **`--cors-credentials`** | Consente richieste autenticate da più origini, ad esempio cookie e l'intestazione di autenticazione. Solo versione 2.x. |
 | **`--cors`** | Un elenco delimitato dalla virgola di origini CORS, senza spazi. |
 | **`--language-worker`** | Argomenti per configurare il ruolo di lavoro del linguaggio. Solo versione 2.x. |
-| **`--nodeDebugPort -n`** | La porta per il debugger di nodo da usare. Valore predefinito: un valore di launch.json o 5858. Solo versione 1.x. |
+| **`--nodeDebugPort -n`** | La porta per il debugger di nodo da usare. Predefinito: un valore di launch.json o 5858. Solo versione 1.x. |
 | **`--password`** | La password o un file che contiene la password per un file con estensione pfx. Usati solo con `--cert`. Solo versione 2.x. |
 | **`--port -p`** | La porta locale su cui ascoltare. Valore predefinito: 7071. |
 | **`--pause-on-error`** | Sospendere per l'input aggiuntivo prima dell'uscita dal processo. Viene usato quando si avvia Core Tools da un ambiente di sviluppo integrato (IDE).|
 | **`--script-root --prefix`** | Viene usato per specificare il percorso della radice dell'app per le funzioni da eseguire o distribuire. Viene usato per progetti compilati che generano file di progetto in una sottocartella. Ad esempio, quando si crea un progetto di libreria di classi C#, i file host.json, local.settings.json e function.json vengono generati in una sottocartella *radice* con un percorso simile a `MyProject/bin/Debug/netstandard2.0`. In questo caso, impostare il prefisso come `--script-root MyProject/bin/Debug/netstandard2.0`. Questa è la radice dell'app per le funzioni durante l'esecuzione in Azure. |
-| **`--timeout -t`** | Il timeout per l'host di Funzioni da avviare, in secondi. Valore predefinito: 20 secondi.|
+| **`--timeout -t`** | Il timeout per l'host di Funzioni da avviare, in secondi. Impostazione predefinita: 20 secondi.|
 | **`--useHttps`** | Eseguire l'associazione a `https://localhost:{port}` anziché a `http://localhost:{port}`. Per impostazione predefinita, questa opzione crea un certificato attendibile nel computer in uso.|
 
 Quando viene avviato l'host di Funzioni, restituisce come output l'URL delle funzioni attivate da HTTP:
@@ -413,7 +413,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 `func run` supporta le opzioni seguenti:
 
-| Opzione     | Descrizione                            |
+| Opzione     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--content -c`** | Contenuto inline. |
 | **`--debug -d`** | Associare un debugger al processo host prima di eseguire la funzione.|
@@ -441,7 +441,7 @@ Per pubblicare il codice locale in un'app per le funzioni in Azure, usare il com
 func azure functionapp publish <FunctionAppName>
 ```
 
-Questo comando consente di pubblicare un'app per le funzioni esistente in Azure. Si riceverà un errore se si tenta di eseguire la pubblicazione in un `<FunctionAppName>` che non esiste nella sottoscrizione. Per informazioni su come creare un'app per le funzioni dal prompt dei comandi o dalla finestra del terminale usando l'interfaccia della riga di comando di Azure, vedere [Creare un'app per le funzioni per l'esecuzione senza server](./scripts/functions-cli-create-serverless.md). Per impostazione predefinita, questo comando distribuisce l'app per [l'esecuzione dal pacchetto di distribuzione](run-functions-from-deployment-package.md). Per disabilitare la modalità di distribuzione consigliata, utilizzare l'opzione `--nozip`.
+Questo comando consente di pubblicare un'app per le funzioni esistente in Azure. Se si tenta di eseguire la pubblicazione in un `<FunctionAppName>` che non esiste nella sottoscrizione, si riceverà un errore. Per informazioni su come creare un'app per le funzioni dal prompt dei comandi o dalla finestra del terminale usando l'interfaccia della riga di comando di Azure, vedere [Creare un'app per le funzioni per l'esecuzione senza server](./scripts/functions-cli-create-serverless.md). Per impostazione predefinita, questo comando usa la [compilazione remota](functions-deployment-technologies.md#remote-build) e distribuisce l'app per [l'esecuzione dal pacchetto di distribuzione](run-functions-from-deployment-package.md). Per disabilitare la modalità di distribuzione consigliata, utilizzare l'opzione `--nozip`.
 
 >[!IMPORTANT]
 > Quando si crea un'app per le funzioni nel portale di Azure, questa usa la versione 2.x del runtime di Funzioni per impostazione predefinita. Per far eseguire la versione 1.x del runtime all'app per le funzioni, osservare le istruzioni riportate in [Run on version 1.x](functions-versions.md#creating-1x-apps) (Esecuzione sulla versione 1.x).
@@ -449,20 +449,21 @@ Questo comando consente di pubblicare un'app per le funzioni esistente in Azure.
 
 Le seguenti opzioni di pubblicazione si applicano a entrambe le versioni, 1. x e 2. x:
 
-| Opzione     | Descrizione                            |
+| Opzione     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Pubblicare le impostazioni di local.settings.json in Azure, suggerendo di sovrascrivere eventuali impostazioni esistenti. Se si usa l'emulatore di archiviazione, modificare prima l'impostazione dell'app in una [connessione di archiviazione effettiva](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Eliminare il prompt per sovrascrivere le impostazioni dell'app quando si usa `--publish-local-settings -i`.|
 
 Le opzioni di pubblicazione seguenti sono supportate solo nella versione 2.x:
 
-| Opzione     | Descrizione                            |
+| Opzione     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  Pubblicare solo le impostazioni e ignorare il contenuto. Viene suggerito il valore predefinito. |
 |**`--list-ignored-files`** | Visualizza un elenco di file che vengono ignorati durante la pubblicazione basato sul file con estensione funcignore. |
 | **`--list-included-files`** | Visualizza un elenco di file che vengono pubblicati basato sul file con estensione .funcignore. |
 | **`--nozip`** | Disattiva la modalità `Run-From-Package` predefinita. |
 | **`--build-native-deps`** | Ignora la generazione della cartella .wheels durante la pubblicazione delle app per le funzioni di python. |
+| **`--build [-b]`** | Esegue un'azione di compilazione durante la distribuzione in un'app per le funzioni Linux. (accetta: Remote, local) |
 | **`--additional-packages`** | Elenco di pacchetti da installare durante la creazione di dipendenze native. Ad esempio: `python3-dev libevent-dev`. |
 | **`--force`** | Ignora la verifica preliminare alla pubblicazione in determinati scenari. |
 | **`--csx`** | Pubblica un progetto di script C# (file con estensione csx). |
@@ -479,7 +480,7 @@ func deploy
 
 Sono disponibili le opzioni di distribuzione del contenitore personalizzato seguenti:
 
-| Opzione     | Descrizione                            |
+| Opzione     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | Il nome di un registro Docker a cui l'utente corrente ha eseguito l'accesso. |
 | **`--platform`** | Piattaforma di hosting per le app per le funzioni. Le opzioni valide sono `kubernetes` |
@@ -517,8 +518,8 @@ Per registrare una richiesta per un bug o una funzionalità [aprire un problema 
 <!-- LINKS -->
 
 [Strumenti di base di Funzioni di Azure]: https://www.npmjs.com/package/azure-functions-core-tools
-[Portale di Azure]: https://portal.azure.com 
+[Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
-[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
+[AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage
 [Bundle di estensione]: functions-bindings-register.md#extension-bundles
