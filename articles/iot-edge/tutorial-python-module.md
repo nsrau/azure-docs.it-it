@@ -6,16 +6,16 @@ author: shizn
 manager: philmea
 ms.reviewer: kgremban
 ms.author: xshi
-ms.date: 03/24/2019
+ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2784d57f3f85094230b481dd9fedca191edb39d4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 99df85800c48585098a9df5bcc35d6b9ce9a8903
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001114"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331631"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare e distribuire un modulo Python per IoT Edge per dispositivi Linux
 
@@ -124,63 +124,67 @@ In ogni modello è incluso il codice di esempio, che accetta i dati del sensore 
 3. Aggiungere le variabili **TEMPERATURE_THRESHOLD** e **TWIN_CALLBACKS** nei contatori globali. La soglia della temperatura imposta il valore che la temperatura del computer misurata deve superare per inviare i dati all'hub IoT.
 
     ```python
+    # global counters
     TEMPERATURE_THRESHOLD = 25
     TWIN_CALLBACKS = 0
+    RECEIVED_MESSAGES = 0
     ```
 
-4. Sostituire la funzione **receive_message_callback** con il codice seguente:
+4. Sostituire la funzione **input1_listener** con il codice seguente:
 
     ```python
-    # receive_message_callback is invoked when an incoming message arrives on the specified 
-    # input queue (in the case of this sample, "input1").  Because this is a filter module, 
-    # we forward this message to the "output1" queue.
-    def receive_message_callback(message, hubManager):
-        global RECEIVE_CALLBACKS
-        global TEMPERATURE_THRESHOLD
-        message_buffer = message.get_bytearray()
-        size = len(message_buffer)
-        message_text = message_buffer[:size].decode('utf-8')
-        print ( "    Data: <<<%s>>> & Size=%d" % (message_text, size) )
-        map_properties = message.properties()
-        key_value_pair = map_properties.get_internals()
-        print ( "    Properties: %s" % key_value_pair )
-        RECEIVE_CALLBACKS += 1
-        print ( "    Total calls received: %d" % RECEIVE_CALLBACKS )
-        data = json.loads(message_text)
-        if "machine" in data and "temperature" in data["machine"] and data["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
-            map_properties.add("MessageType", "Alert")
-            print("Machine temperature %s exceeds threshold %s" % (data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
-        hubManager.forward_event_to_output("output1", message, 0)
-        return IoTHubMessageDispositionResult.ACCEPTED
+        # Define behavior for receiving an input message on input1
+        # Because this is a filter module, we forward this message to the "output1" queue.
+        async def input1_listener(module_client):
+            global RECEIVED_MESSAGES
+            global TEMPERATURE_THRESHOLD
+            while True:
+                try:
+                    input_message = await module_client.receive_message_on_input("input1")  # blocking call
+                    message = input_message.data
+                    size = len(message)
+                    message_text = message.decode('utf-8')
+                    print ( "    Data: <<<%s>>> & Size=%d" % (message_text, size) )
+                    custom_properties = input_message.custom_properties
+                    print ( "    Properties: %s" % custom_properties )
+                    RECEIVED_MESSAGES += 1
+                    print ( "    Total messages received: %d" % RECEIVED_MESSAGES )
+                    data = json.loads(message_text)
+                    if "machine" in data and "temperature" in data["machine"] and data["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
+                        custom_properties["MessageType"] = "Alert"
+                        print ( "Machine temperature %s exceeds threshold %s" % (data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
+                        await module_client.send_message_to_output(input_message, "output1")
+                except Exception as ex:
+                    print ( "Unexpected error in input1_listener: %s" % ex )
+        
+        # twin_patch_listener is invoked when the module twin's desired properties are updated.
+        async def twin_patch_listener(module_client):
+            global TWIN_CALLBACKS
+            global TEMPERATURE_THRESHOLD
+            while True:
+                try:
+                    data = await module_client.receive_twin_desired_properties_patch()  # blocking call
+                    print( "The data in the desired properties patch was: %s" % data)
+                    if "TemperatureThreshold" in data:
+                        TEMPERATURE_THRESHOLD = data["TemperatureThreshold"]
+                    TWIN_CALLBACKS += 1
+                    print ( "Total calls confirmed: %d\n" % TWIN_CALLBACKS )
+                except Exception as ex:
+                    print ( "Unexpected error in twin_patch_listener: %s" % ex )
     ```
 
-5. Aggiungere una nuova funzione denominata **module_twin_callback**. Questa funzione viene richiamata quando le proprietà desiderate vengono aggiornate.
+5. Aggiornare i **listener** per restare in ascolto anche di aggiornamenti dei dispositivi gemelli.
 
     ```python
-    # module_twin_callback is invoked when the module twin's desired properties are updated.
-    def module_twin_callback(update_state, payload, user_context):
-        global TWIN_CALLBACKS
-        global TEMPERATURE_THRESHOLD
-        print ( "\nTwin callback called with:\nupdateStatus = %s\npayload = %s\ncontext = %s" % (update_state, payload, user_context) )
-        data = json.loads(payload)
-        if "desired" in data and "TemperatureThreshold" in data["desired"]:
-            TEMPERATURE_THRESHOLD = data["desired"]["TemperatureThreshold"]
-        if "TemperatureThreshold" in data:
-            TEMPERATURE_THRESHOLD = data["TemperatureThreshold"]
-        TWIN_CALLBACKS += 1
-        print ( "Total calls confirmed: %d\n" % TWIN_CALLBACKS )
+        # Schedule task for C2D Listener
+        listeners = asyncio.gather(input1_listener(module_client), twin_patch_listener(module_client))
+
+        print ( "The sample is now waiting for messages. ")
     ```
 
-6. Nella classe **HubManager** aggiungere una nuova riga al metodo **__init__** per inizializzare la funzione **module_twin_callback** appena aggiunta:
+6. Salvare il file main.py.
 
-    ```python
-    # Sets the callback when a module twin's desired properties are updated.
-    self.client.set_module_twin_callback(module_twin_callback, self)
-    ```
-
-7. Salvare il file main.py.
-
-8. Nello strumento di esplorazione di VS Code aprire il file **deployment.template.json** nell'area di lavoro della soluzione IoT Edge. 
+7. Nello strumento di esplorazione di VS Code aprire il file **deployment.template.json** nell'area di lavoro della soluzione IoT Edge. 
 
 9. Aggiungere il modulo gemello **PythonModule** al manifesto della distribuzione. Inserire il contenuto JSON seguente alla fine della sezione **moduleContent** dopo il modulo gemello **$edgeHub**: 
 

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 10/10/2019
 ms.author: juliako
-ms.openlocfilehash: fca8dc31a0f909a1602819a2830d9bebbbda0c88
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9d89247740852b7bfc185fbcf864947efe30ef0f
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799325"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372337"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Guida introduttiva: Come iscriversi e caricare il primo video
 
@@ -28,6 +28,9 @@ Al momento della creazione di un account di Video Indexer, è possibile sceglier
 Per iniziare a eseguire attività di sviluppo con Video Indexer, visitare il sito Web di [Video Indexer](https://www.videoindexer.com) e iscriversi.
 
 ## <a name="upload-a-video-using-the-video-indexer-website"></a>Caricare un video usando il sito Web di Video Indexer
+
+> [!NOTE]
+> Il nome del video non può contenere più di 80 caratteri.
 
 1. Accedere al sito Web di [Video Indexer](https://www.videoindexer.ai/).
 2. Per caricare un video, premere il pulsante o il collegamento **Upload** (Carica).
@@ -44,7 +47,7 @@ Per iniziare a eseguire attività di sviluppo con Video Indexer, visitare il sit
 
 A questo punto si può usare il sito Web di [Video Indexer](video-indexer-use-apis.md) o il [portale per sviluppatori di Video Indexer](video-indexer-view-edit.md) per visualizzare le informazioni dettagliate del video. 
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Panoramica di Video Indexer](video-indexer-overview.md)
 

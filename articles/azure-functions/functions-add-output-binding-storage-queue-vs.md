@@ -8,18 +8,16 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 6ef6f4ae86f0f732164603bd8b38dc1bbef95dd9
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 383401c1486bcbebc39b64d5794f8bdc660d2778
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600148"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329614"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Connettere funzioni ad Archiviazione di Azure con Visual Studio
 
-La soluzione Funzioni di Azure consente di connettere le funzioni ai servizi di Azure e ad altre risorse senza la necessità di scrivere codice di integrazione personalizzato. Queste connessioni predefinite sono denominate *binding*. I binding consentono di usare i servizi di Azure e altre risorse come input e output per una funzione.
-
-L'esecuzione della funzione viene avviata da un singolo *trigger*. Un trigger è un tipo speciale di binding di input. Anche se una funzione include un solo trigger, può avere più binding di input e output. Per altre informazioni, vedere [Concetti su trigger e binding di Funzioni di Azure](functions-triggers-bindings.md).
+[!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
 Questo articolo illustra come usare Visual Studio per connettere la funzione creata nel [precedente argomento di avvio rapido] ad Archiviazione di Azure. Il binding di output che si aggiunge a questa funzione scrive i dati della richiesta HTTP in un messaggio della coda di Archiviazione code di Azure. 
 
@@ -31,7 +29,7 @@ Prima di iniziare questo articolo, è necessario:
 
  - Completare la [parte 1 dell'argomento di avvio rapido su Visual Studio][./functions-create-first-function-vs-code.md]. 
 
-- Accedere alla sottoscrizione di Azure da Visual Studio
+- Accedere alla sottoscrizione di Azure da Visual Studio.
 
 ## <a name="download-the-function-app-settings"></a>Scaricare le impostazioni dell'app per le funzioni
 

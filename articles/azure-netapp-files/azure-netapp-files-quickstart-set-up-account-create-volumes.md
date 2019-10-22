@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 9/11/2019
+ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: d7bc07ddce605838cf7aa966c6c94b85dad6b58c
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: d3035572e629bc11207cc473b51e3edb4f6a5a13
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212208"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302813"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Guida introduttiva: Configurare Azure NetApp Files e creare un volume NFS 
 
@@ -251,11 +251,16 @@ Questa procedura richiede il modulo Azure PowerShell Az 2.6.0 o versioni success
 
       ![Finestra Crea rete virtuale](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
-4. Fare clic su **Protocollo** e quindi selezionare **NFS** come tipo di protocollo per il volume.   
+4. Fare clic su **Protocollo** e quindi completare le azioni seguenti: 
+    * Selezionare **NFS** come tipo di protocollo per il volume.  
+    * Immettere **myfilepath1** come percorso del file che verrà usato per creare il percorso di esportazione per il volume.  
+    * Selezionare la versione di NFS (**NFSv3** o **NFSv4.1**) per il volume.  
+      Vedere le [considerazioni](azure-netapp-files-create-volumes.md#considerations) e le [procedure consigliate](azure-netapp-files-create-volumes.md#best-practice) per le versioni di NFS. 
+      
+> [!IMPORTANT] 
+> L'accesso alla funzionalità NFSv4.1 richiede l'inserimento nell'elenco di elementi consentiti.  Per ottenerlo, inviare una richiesta a <anffeedback@microsoft.com>. 
 
-    Immettere **myfilepath1** come percorso del file che verrà usato per creare il percorso di esportazione per il volume. 
-
-    ![Specificare il protocollo NFS per l'avvio rapido](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+  ![Specificare il protocollo NFS per l'avvio rapido](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. Fare clic su **Rivedi e crea**.
 

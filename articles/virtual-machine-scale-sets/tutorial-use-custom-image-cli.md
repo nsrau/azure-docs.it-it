@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: aafec48f86ee032b112e9bb1100f82fbb3b363ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6368a36eaa2e6832f22a13f20bc35d66c4425b4b
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66170494"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311573"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Esercitazione: Creare e usare un'immagine personalizzata per i set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Quando si crea un set di scalabilità, si specifica un'immagine da usare quando vengono distribuite le istanze di macchina virtuale. Per ridurre il numero di attività dopo la distribuzione delle istanze di macchina virtuale, è possibile usare un'immagine di VM personalizzata. Questa immagine di VM personalizzata include le installazioni o le configurazioni delle applicazioni necessarie. Le istanze di macchina virtuale create nel set di scalabilità usano l'immagine di VM personalizzata e sono pronte per gestire il traffico delle applicazioni. In questa esercitazione si apprenderà come:
@@ -98,6 +98,8 @@ az vm generalize --resource-group myResourceGroup --name myVM
 Potrebbero essere necessari alcuni minuti per deallocare e generalizzare la macchina virtuale.
 
 Creare ora un'immagine della macchina virtuale con [az image create](/cli//azure/image). Nell'esempio seguente viene creata un'immagine denominata *myImage* dalla VM:
+
+> [NOTA] Se la posizione del gruppo di risorse è diversa da quella della macchina virtuale, è possibile aggiungere il parametro `--location` ai comandi seguenti per specificare la posizione della VM di origine usata per creare l'immagine. 
 
 ```azurecli-interactive
 az image create \

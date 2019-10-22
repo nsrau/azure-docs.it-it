@@ -1,21 +1,21 @@
 ---
-title: Creare un membro della blockchain del servizio Azure Blockchain usando il portale di Azure
+title: Creare un membro del servizio Azure Blockchain con il portale di Azure
 description: Usare il servizio Azure Blockchain per creare un membro della blockchain.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 08/29/2019
+ms.date: 10/14/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 9f58379acd88fd93a00edc11b73b41dc3d6226a5
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: c87f9a044d6655b2062f2c2657d3b465699e0dd2
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241032"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329255"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Guida introduttiva: Creare un membro della blockchain del servizio Azure Blockchain usando il portale di Azure
 

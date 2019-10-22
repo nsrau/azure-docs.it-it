@@ -17,14 +17,14 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 57353999ff94aa8fd4499b511c86cd59d24d1f0a
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 4ccf62dd8a249c9ba23bbb4510164b35a58db917
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213373"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387408"
 ---
-# <a name="tutorial-push-localized-notifications-to-windows-apps-by-using-azure-notification-hubs"></a>Esercitazione: Effettuare il push di notifiche localizzate alle app Windows con Hub di notifica di Azure
+# <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche push localizzate alle app Windows con Hub di notifica di Azure
 
 > [!div class="op_single_selector"]
 > * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)

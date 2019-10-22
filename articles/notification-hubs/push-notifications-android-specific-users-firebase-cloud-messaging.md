@@ -1,5 +1,5 @@
 ---
-title: Effettuare il push di notifiche a utenti delle applicazioni Android con Hub di notifica di Azure | Microsoft Docs
+title: Inviare notifiche push a specifiche app Android con Hub di notifica di Azure | Microsoft Docs
 description: Informazioni su come eseguire il push di notifiche a utenti specifici con Hub di notifica di Azure.
 documentationcenter: android
 services: notification-hubs
@@ -17,14 +17,14 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: ff9666384d1747e311d3ab1c1dfc384baceba93a
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 5bd709236667dd43e623047ad995b0a7b981e9cb
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213357"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387414"
 ---
-# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>Esercitazione: Effettuare il push di notifiche a utenti specifici di applicazioni Android con Hub di notifica di Azure
+# <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche push a specifiche app Android con Hub di notifica di Azure
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 

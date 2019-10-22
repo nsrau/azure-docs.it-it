@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: a6fc9f1a5c32fc9ffa1e1e6ebe525b72030fe803
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 66a972e66c35cdd5b8dedceefbe3dbd008380da9
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155661"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327147"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funzionalità di Apache Cassandra supportate dall'API Cassandra di Azure Cosmos DB 
 
@@ -94,9 +94,9 @@ API Cassandra di Azure Cosmos DB supporta i tipi di funzioni CQL seguenti:
   
 
 
-## <a name="cassandra-query-language-limits"></a>Limiti di Cassandra Query Language
+## <a name="cassandra-api-limits"></a>Limiti dell'API Cassandra
 
-API Cassandra di Azure Cosmos DB non ha nessun limite sulle dimensioni dei dati archiviati in una tabella. Possono essere archiviati centinaia di terabyte o petabyte di dati, a patto che siano rispettati i limiti della chiave di partizione. Allo stesso modo ogni entità o riga equivalente è privo di eventuali limiti sul numero di colonne, tuttavia le dimensioni totali dell'entità non devono superare 2 MB.
+API Cassandra di Azure Cosmos DB non ha nessun limite sulle dimensioni dei dati archiviati in una tabella. Possono essere archiviati centinaia di terabyte o petabyte di dati, a patto che siano rispettati i limiti della chiave di partizione. Allo stesso modo ogni entità o riga equivalente non prevede limiti sul numero di colonne, tuttavia le dimensioni totali dell'entità non devono superare 2 MB. I dati per chiave di partizione non possono superare 10 GB, come per tutte le altre API.
 
 ## <a name="tools"></a>Strumenti 
 
@@ -130,7 +130,7 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 
 Azure Cosmos DB supporta i comandi di database seguenti per tutti gli account API Cassandra.
 
-* CREA KEYSPACE 
+* CREATE KEYSPACE (le impostazioni di replica per questo comando vengono ignorate)
 * CREA TABELLA 
 * MODIFICA TABELLA 
 * USA 
@@ -140,7 +140,7 @@ Azure Cosmos DB supporta i comandi di database seguenti per tutti gli account AP
 * BATCH - sono supportati solo i comandi registrati 
 * DELETE
 
-Quando eseguite tramite SDK compatibili con CQLV4, tutte le operazioni crud restituiranno informazioni aggiuntive errore, unità richiesta utilizzate, ID attività. I comandi di cancellazione e aggiornamento devono essere gestiti tenendo in considerazione la governance delle risorse, per evitare un uso eccessivo delle risorse fornite. 
+Se eseguite tramite SDK compatibili con CQLV4, tutte le operazioni CRUD restituiranno informazioni aggiuntive su errore e unità richiesta utilizzate. I comandi di eliminazione e aggiornamento devono essere gestiti tenendo in considerazione la governance delle risorse, per evitare l'uso delle unità elaborate di cui è stato effettuato il provisioning. 
 * Nota: se specificato, il valore di gc_grace_seconds deve essere zero.
 
 ```csharp
@@ -157,18 +157,32 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## <a name="consistency-mapping"></a>Mapping coerente 
 
-API Cassandra di Azure Cosmos DB consente di scegliere la coerenza per le operazioni di lettura.  Il mapping di coerenza è descritto in maniera dettagliata [qui [(https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping).
+API Cassandra di Azure Cosmos DB consente di scegliere la coerenza per le operazioni di lettura.  Il mapping di coerenza è descritto in maniera dettagliata [qui](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping).
 
 ## <a name="permission-and-role-management"></a>Gestione di ruoli e privilegi
 
-Azure Cosmos DB supporta il controllo degli accessi in base al ruolo per il provisioning, la rotazione delle chiavi, la visualizzazione delle metriche e le chiavi/password di lettura/scrittura e sola lettura ottenibili tramite il [portale di Azure](https://portal.azure.com). Azure Cosmos DB non supporta ancora utenti e ruoli per attività CRUD. 
+Azure Cosmos DB supporta il controllo degli accessi in base al ruolo per il provisioning, la rotazione delle chiavi, la visualizzazione delle metriche e le chiavi/password di lettura/scrittura e sola lettura ottenibili tramite il [portale di Azure](https://portal.azure.com). Azure Cosmos DB non supporta i ruoli per le attività CRUD.
 
-## <a name="planned-support"></a>Supporto pianificato 
-* Il nome dell'area nel comando Crea keyspace viene attualmente ignorato. La distribuzione dei dati viene implementata nella piattaforma Cosmos DB sottostante ed esposta tramite il portale o PowerShell per l'account. 
+## <a name="keyspace-and-table-options"></a>Opzioni di Keyspace e tabella
+
+Le opzioni del comando "Create Keyspace" relative a nome di area, classe, fattore di replica e data center vengono attualmente ignorate. Il sistema usa il metodo di replica della [distribuzione globale](https://docs.microsoft.com/en-us/azure/cosmos-db/global-dist-under-the-hood) sottostante di Azure Cosmos DB per aggiungere le aree. Se è necessaria la presenza di dati di più aree, è possibile abilitarla a livello di account con PowerShell, l'interfaccia della riga di comando o il portale. Per altre informazioni, vedere l'articolo su [come aggiungere aree](how-to-manage-database-account.md#addremove-regions-from-your-database-account). L'opzione durable_writes non può essere disabilitata perché Azure Cosmos DB assicura che ogni scrittura sia durevole. In ogni area Azure Cosmos DB replica i dati attraverso il set di repliche, che è composto da 4 repliche e la cui [configurazione](global-dist-under-the-hood.md) non può essere modificata.
+ 
+Tutte le opzioni vengono ignorate durante la creazione della tabella, ad eccezione di except gc_grace_seconds, che deve essere impostata su zero.
+Keyspace e tabella includono un'altra opzione, denominata "cosmosdb_provisioned_throughput", con un valore minimo di 400 UR/s. Le unità elaborate di Keyspace possono essere condivise tra più tabelle e sono utili per gli scenari in cui nessuna tabella utilizza quelle di cui è stato effettuato il provisioning. Il comando Alter Table consente di cambiare le unità elaborate con provisioning tra le aree. 
+
+```
+CREATE  KEYSPACE  sampleks WITH REPLICATION = {  'class' : 'SimpleStrategy'}   AND cosmosdb_provisioned_throughput=2000;  
+
+CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_provisioned_throughput=2000; 
+
+ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
+
+```
 
 
+## <a name="usage-of-cassandra-retry-connection-policy"></a>Utilizzo dei criteri di ripetizione delle connessioni di Cassandra
 
-
+Azure Cosmos DB è un sistema governato da risorse. Questo significa che è possibile eseguire un determinato numero di operazioni in un dato secondo in base alle unità richieste utilizzate dalle operazioni. Se un'applicazione supera tale limite in un dato secondo, la frequenza delle richieste viene limitata e verranno generate eccezioni. L'API Cassandra di Azure Cosmos DB converte queste eccezioni in errori di overload per il protocollo nativo Cassandra. Per assicurarsi che l'applicazione sia in grado di intercettare e ripetere le richieste in caso di limitazione della frequenza, sono disponibili le estensioni [Spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) e [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions). Sei si usano altri SDK per accedere all'API Cassandra in Azure Cosmos DB, creare un criterio per ripetere le connessioni in caso di tali eccezioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

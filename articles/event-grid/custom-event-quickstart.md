@@ -1,5 +1,5 @@
 ---
-title: Inviare eventi personalizzati con Griglia di eventi e l'interfaccia della riga di comando di Azure
+title: "Guida introduttiva: Inviare eventi personalizzati con Griglia di eventi e l'interfaccia della riga di comando di Azure"
 description: Usare Griglia di eventi di Azure e l'interfaccia della riga di comando di Azure per pubblicare un argomento personalizzato e sottoscrivere gli eventi per tale argomento. Gli eventi sono gestiti da un'applicazione Web.
 services: event-grid
 keywords: ''
@@ -8,21 +8,26 @@ ms.author: spelluru
 ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.custom: seodec18, seo-javascript-september2019
-ms.openlocfilehash: a6888179d4d465808dc28f7784db8d1d915e3f80
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.custom:
+- seodec18
+- seo-javascript-september2019
+- seo-python-october2019
+ms.openlocfilehash: fb57d69b4969bcbf66717a8ca29ede23f2ed8e43
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861097"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429109"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Guida introduttiva: Instradare eventi personalizzati all'endpoint Web con l'interfaccia della riga di comando di Azure e Griglia di eventi
 
-La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare un argomento personalizzato, sottoscrivere l'argomento e attivare l'evento per visualizzare il risultato. In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. Per maggiore semplicità, tuttavia, in questo articolo gli eventi vengono inviati a un'app Web che raccoglie e visualizza i messaggi.
+La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare un argomento personalizzato, sottoscrivere l'argomento e attivare l'evento per visualizzare il risultato.
+
+In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. Per maggiore semplicità, tuttavia, in questo articolo gli eventi vengono inviati a un'app Web che raccoglie e visualizza i messaggi.
 
 Al termine, i dati degli eventi saranno stati inviati all'app Web.
 
-![Visualizzare i risultati](./media/custom-event-quickstart/view-result.png)
+![Usare il visualizzatore Griglia di eventi di Azure per verificare che i dati degli eventi siano stati inviati](./media/custom-event-quickstart/azure-event-grid-viewer-displays-event-data.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -93,7 +98,7 @@ az eventgrid event-subscription create \
 
 Visualizzare nuovamente l'app Web e notare che all'app è stato inviato un evento di convalida della sottoscrizione. Selezionare l'icona a forma di occhio per espandere i dati dell'evento. Griglia di eventi invia l'evento di convalida in modo che l'endpoint possa verificare che voglia ricevere i dati dell'evento. L'app Web include il codice per convalidare la sottoscrizione.
 
-![Visualizzare l'evento della sottoscrizione](./media/custom-event-quickstart/view-subscription-event.png)
+![Visualizzare il codice di convalida della sottoscrizione nel visualizzatore Griglia di eventi di Azure](./media/custom-event-quickstart/view-subscription-validation-code-in-azure-event-grid-viewer.png)
 
 ## <a name="send-an-event-to-your-custom-topic"></a>Inviare un evento all'argomento personalizzato
 

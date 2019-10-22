@@ -1,6 +1,6 @@
 ---
 title: Esempio di script dell'interfaccia della riga di comando di Azure - Distribuire un'applicazione gestita | Microsoft Docs
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Distribuire una definizione di applicazione gestita
+description: Questo articolo include uno script di esempio dell'interfaccia della riga di comando di Azure che distribuisce una definizione di applicazione gestita di Azure alla sottoscrizione.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: f09d9dcb60370c2cc51f5652def92e5ad9c9b512
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18dbd46df3e5e1f7dc0368b2c007e0c15d76decc
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61226396"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330165"
 ---
 # <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Distribuire un'applicazione gestita per il catalogo di servizi con l'interfaccia della riga di comando di Azure
 

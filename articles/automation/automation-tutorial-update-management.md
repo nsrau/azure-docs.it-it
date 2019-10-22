@@ -1,5 +1,5 @@
 ---
-title: Gestire gli aggiornamenti e le patch per le macchine virtuali Windows di Azure
+title: Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure
 description: Questo articolo offre una panoramica dell'uso di Gestione aggiornamenti di Automazione di Azure per gestire gli aggiornamenti e le patch per le VM Windows di Azure.
 services: automation
 author: zjalexander
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: fbca620fca1aeb53acc9bd70561e783b49ff1a60
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a2d13833b60076caa371a7fa8a696ab5964a28e3
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822353"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376073"
 ---
-# <a name="manage-windows-updates-by-using-azure-automation"></a>Gestire gli aggiornamenti di Windows con Automazione di Azure
+# <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure
 
 È possibile usare la soluzione Gestione aggiornamenti per gestire gli aggiornamenti e le patch per le macchine virtuali. In questa esercitazione viene illustrato come valutare in modo rapido lo stato degli aggiornamenti disponibili, pianificare l'installazione degli aggiornamenti richiesti, esaminare i risultati della distribuzione e creare un avviso per verificare che gli aggiornamenti vengano applicati correttamente.
 
@@ -135,7 +135,7 @@ In **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti
 
 * **Sistema operativo**: selezionare il sistema operativo di destinazione per la distribuzione degli aggiornamenti.
 
-* **Gruppi da aggiornare (anteprima)**: Definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. Per altre informazioni, vedere [Gruppi dinamici](automation-update-management.md#using-dynamic-groups)
+* **Gruppi da aggiornare (anteprima)** : Definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. Per altre informazioni, vedere [Gruppi dinamici](automation-update-management-groups.md)
 
 * **Computer da aggiornare**: Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**. Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../azure-monitor/platform/computer-groups.md)
 
@@ -145,25 +145,40 @@ In **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti
 
    |OS  |Type  |
    |---------|---------|
-   | Windows     | Aggiornamenti critici</br>Aggiornamenti della sicurezza</br>Aggiornamenti cumulativi</br>Feature Pack</br>Service Pack</br>Aggiornamenti della definizione</br>Strumenti</br>Aggiornamenti        |
+   |Windows     | Aggiornamenti critici</br>Aggiornamenti della sicurezza</br>Aggiornamenti cumulativi</br>Feature Pack</br>Service Pack</br>Aggiornamenti della definizione</br>Strumenti</br>Aggiornamenti        |
    |Linux     | Aggiornamenti critici e della sicurezza</br>Altri aggiornamenti       |
 
-   Per una descrizione dei tipi di classificazione, vedere le [classificazioni degli aggiornamenti](automation-update-management.md#update-classifications).
+   Per una descrizione dei tipi di classificazione, vedere le [classificazioni degli aggiornamenti](automation-view-update-assessments.md#update-classifications).
 
-* **Includi/Escludi aggiornamenti**: apre la pagina **Includi/Escludi**. Gli aggiornamenti da includere o escludere si trovano in schede separate. Per altre informazioni sulla modalità di gestione dell'inclusione, vedere il [comportamento dell'inclusione](automation-update-management.md#inclusion-behavior)
+* **Includi/Escludi aggiornamenti**: apre la pagina **Includi/Escludi**. Gli aggiornamenti da includere o escludere si trovano in schede separate.
+
+> [!NOTE]
+> Tenere presente che le esclusioni eseguono l'override delle inclusioni. Se ad esempio si definisce una regola di esclusione `*`, non vengono installate patch o pacchetti perché vengono tutti esclusi. Le patch escluse vengono ancora visualizzate come mancanti dal computer. Per i computer Linux, se un pacchetto è incluso, ma ha un pacchetto dipendente che è stato escluso, il pacchetto non viene installato.
 
 * **Impostazioni di pianificazione**: apre il riquadro **Impostazioni di pianificazione**. L'ora di inizio predefinita è 30 minuti dopo il momento corrente. È possibile impostare l'ora di inizio su qualsiasi orario a partire da 10 minuti dal momento corrente.
 
    È anche possibile specificare se eseguire la distribuzione una sola volta o impostare una pianificazione ricorrente. In **Ricorrenza** selezionare **Una sola volta**. Mantenere l'impostazione predefinita di 1 giorno e selezionare **OK**. Viene configurata una pianificazione ricorrente.
 
 * **Pre-script e post-script**: selezionare gli script da eseguire prima e dopo la distribuzione. Per altre informazioni, vedere [Gestire i pre-script e i post-script](pre-post-scripts.md).
-* **Finestra di manutenzione (minuti)**: Lasciare il valore predefinito. È possibile impostare il periodo di tempo nel quale eseguire la distribuzione di aggiornamenti. Questa impostazione consente di garantire che le modifiche vengano eseguite negli intervalli di servizio definiti.
+
+* **Finestra di manutenzione (minuti)** : Lasciare il valore predefinito. Le finestre di manutenzione controllano la quantità di tempo consentito per l'installazione di aggiornamenti. Quando si specifica una finestra di manutenzione, tenere presenti i dettagli seguenti.
+
+  * Le finestre di manutenzione controllano la quantità di aggiornamenti che si tenta di installare.
+  * Gestione aggiornamenti non interrompe l'installazione di nuovi aggiornamenti se si avvicina la fine di una finestra di manutenzione.
+  * Gestione aggiornamenti non termina gli aggiornamenti in corso se viene superata la finestra di manutenzione.
+  * Se la finestra di manutenzione viene superata in Windows, il motivo è in genere dovuto all'aggiornamento di un service pack la cui installazione impiega molto tempo.
+
+  > [!NOTE]
+  > Informazioni non cruciali per un'attività Per evitare che gli aggiornamenti vengano applicati al di fuori di una finestra di manutenzione in Ubuntu, riconfigurare il pacchetto Unattended-Upgrade per disabilitare gli aggiornamenti automatici. Per informazioni sulla configurazione del pacchetto, vedere l'[argomento Aggiornamenti automatici nella Guida a Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 * **Opzioni di riavvio**: questa impostazione determina le modalità di gestione dei riavvii. Le opzioni disponibili sono:
   * Riavvia se necessario (opzione predefinita)
   * Riavvia sempre
   * Non riavviare mai
   * Riavvia solamente: gli aggiornamenti non verranno installati
+
+> [!NOTE]
+> Le chiavi del Registro di sistema elencate in [Chiavi del Registro di sistema usate per gestire il riavvio](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) possono causare un evento di riavvio se l'opzione **Reboot Control** (Controllo del riavvio) è impostata su **Non riavviare mai**.
 
 Al termine della configurazione della pianificazione, selezionare **Crea**.
 
@@ -172,7 +187,9 @@ Al termine della configurazione della pianificazione, selezionare **Crea**.
 Verrà nuovamente visualizzato il dashboard dello stato. Selezionare **Distribuzioni di aggiornamenti pianificate** per visualizzare la pianificazione della distribuzione creata.
 
 > [!NOTE]
-> Gestione aggiornamenti supporta la distribuzione degli aggiornamenti proprietari e il pre-download di patch. Ciò richiede modifiche dei sistemi sui quali sono applicate le patch. Vedere la sezione sul [supporto del pre-download di aggiornamenti proprietari](automation-update-management.md#firstparty-predownload) per vedere come configurare queste impostazioni nei propri sistemi.
+> Gestione aggiornamenti supporta la distribuzione degli aggiornamenti proprietari e il pre-download di patch. Ciò richiede modifiche dei sistemi sui quali sono applicate le patch. Vedere la sezione sul [supporto del pre-download di aggiornamenti proprietari](automation-configure-windows-update.md) per vedere come configurare queste impostazioni nei propri sistemi.
+
+Le **distribuzioni di aggiornamenti** possono essere create anche a livello di codice. Per informazioni su come creare una **distribuzione di aggiornamenti** con l'API REST, vedere [Configurazione degli aggiornamenti software - Creazione](/rest/api/automation/softwareupdateconfigurations/create). È anche disponibile un runbook di esempio che può essere usato per creare una **distribuzione di aggiornamenti** settimanale. Per altre informazioni su questo runbook, vedere [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1) (Creare una distribuzione di aggiornamenti settimanale per una o più macchine virtuali in un gruppo di risorse).
 
 ## <a name="view-results-of-an-update-deployment"></a>Visualizzare i risultati di una distribuzione di aggiornamenti
 

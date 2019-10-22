@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 82fbaa35d8d06cdb1999a76a36fb4a1dade017e9
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 1d0c6edf250e49fe966388253617181ed2b3dff1
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883880"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329647"
 ---
-# <a name="create-your-first-function-from-the-command-line"></a>Creare la prima funzione dalla riga di comando
+# <a name="quickstart-create-your-first-function-from-the-command-line-using-azure-cli"></a>Guida introduttiva: Creare la prima funzione dalla riga di comando con l'interfaccia della riga di comando di Azure
 
 Questa guida introduttiva illustra come creare la prima funzione dalla riga di comando o terminale. Si userà l'interfaccia della riga di comando di Azure per creare un'app per le funzioni, ovvero l'infrastruttura [senza server](https://azure.microsoft.com/solutions/serverless/) che ospita la funzione. Il progetto del codice della funzione viene generato da un modello tramite [Core Tools di Funzioni di Azure](functions-run-local.md), che viene usato anche per distribuire il progetto dell'app della funzione in Azure.
 
@@ -28,7 +28,7 @@ Prima di eseguire questo esempio, è necessario disporre di quanto segue:
 
 + Installare [Azure Functions Core Tools](./functions-run-local.md#v2) versione 2.6.666 o successive.
 
-+ Installare l'[interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). Questo articolo richiede l'interfaccia della riga di comando di Azure 2.0 o versioni successive. Eseguire `az --version` per trovare la versione in uso. È possibile usare anche [Azure Cloud Shell](https://shell.azure.com/bash).
++ Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Questo articolo richiede l'interfaccia della riga di comando di Azure 2.0 o versione successiva. Eseguire `az --version` per trovare la versione in uso. È possibile usare anche [Azure Cloud Shell](https://shell.azure.com/bash).
 
 + Una sottoscrizione di Azure attiva.
 

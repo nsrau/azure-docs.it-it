@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/25/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: b262a06bc3d80bd1f8105c6629bbc07e6ccd34eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c00c1ecf001162964b01a3e858534fa502b7484c
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077149"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285851"
 ---
 # <a name="what-is-azure-event-grid"></a>Informazioni su Griglia di eventi di Azure
 
@@ -22,7 +22,7 @@ Griglia di eventi di Azure consente di compilare facilmente applicazioni con arc
 
 È possibile usare i filtri per instradare eventi specifici a endpoint diversi, trasmetterli a più endpoint e verificare che gli eventi vengano recapitati in modo affidabile.
 
-Griglia di eventi di Azure viene distribuito per ottimizzare la disponibilità tramite la distribuzione nativa in più domini di errore in ogni area e nelle zone di disponibilità (nelle aree che le supportano). Al momento, Griglia di eventi di Azure è disponibile in tutte le aree pubbliche. Non è ancora disponibile nel cloud di Azure Germania, Azure Cina 21Vianet o Azure per enti pubblici.
+Griglia di eventi di Azure viene distribuito per ottimizzare la disponibilità tramite la distribuzione nativa in più domini di errore in ogni area e nelle zone di disponibilità (nelle aree che le supportano). Per un elenco delle aree supportate da Griglia di eventi, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
 Questo articolo offre una panoramica di Griglia di eventi di Azure. Per iniziare a usare Griglia di eventi, vedere [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) (Creare e instradare eventi personalizzati con Griglia di eventi di Azure). 
 

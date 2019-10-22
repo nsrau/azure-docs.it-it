@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: b889be6f881894b2666ed47304f6b61e7c776474
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 0b357a36afc44ceac8ed2c951e0f25901be9d93d
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073715"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264372"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Guida introduttiva: Eseguire il training di un modello di riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con cURL
 
@@ -26,7 +26,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Per completare questo argomento di avvio rapido è necessario disporre di quanto segue:
 - Accesso all'anteprima dell'API di riconoscimento modulo ad accesso limitato. Per avere accesso all'anteprima, completare e inviare il modulo di [richiesta di accesso al riconoscimento modulo](https://aka.ms/FormRecognizerRequestAccess).
 - [cURL](https://curl.haxx.se/windows/) installato.
-- Un set di almeno cinque moduli dello stesso tipo. Questi dati verranno usati per eseguire il training del modello. Per questa guida di avvio rapido, è possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451). Caricare i dati nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure.
+- Un set di almeno cinque moduli dello stesso tipo. Questi dati verranno usati per eseguire il training del modello. Per questa guida di avvio rapido, è possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451). Caricare i file di training nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure.
 
 ## <a name="create-a-form-recognizer-resource"></a>Creare una risorsa di riconoscimento modulo
 
@@ -95,7 +95,7 @@ A questo punto, si analizzerà un documento e si estrarranno le coppie chiave-va
 
 1. Sostituire `<Endpoint>` con l'endpoint ottenuto dalla chiave di sottoscrizione di riconoscimento modulo, disponibile nella scheda **Overview** (Panoramica) della risorsa di riconoscimento modulo.
 1. Sostituire `<modelID>` con l'ID modello ricevuto nella sezione precedente.
-1. Sostituire `<path to your form>` con il percorso del file del proprio modulo (ad esempio, C:\temp\file.pdf).
+1. Sostituire `<path to your form>` con il percorso del file del proprio modulo (ad esempio, C:\temp\file.pdf). Per questo argomento di avvio rapido, è possibile usare i file inclusi nella cartella **Test** del [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451).
 1. Sostituire `<file type>` con il tipo di file. Tipi supportati: `application/pdf`, `image/jpeg`, `image/png`.
 1. Sostituire `<subscription key>` con la chiave di sottoscrizione.
 

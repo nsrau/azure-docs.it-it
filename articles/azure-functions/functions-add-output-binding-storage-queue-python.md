@@ -1,26 +1,22 @@
 ---
 title: Aggiungere un binding della coda di archiviazione di Azure alla funzione Python
-description: Informazioni su come aggiungere un binding di output della coda di archiviazione di Azure alla funzione Python usando l'interfaccia della riga di comando di Azure e Functions Core Tools.
-services: functions
-keywords: ''
+description: Informazioni su come aggiungere un binding della coda di archiviazione di Azure alla funzione Python.
 author: ggailey777
 ms.author: glenga
-ms.date: 04/24/2019
+ms.date: 10/02/2019
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: mvc
-ms.devlang: python
-manager: jeconnoc
-ms.openlocfilehash: 92ee9b0a8a0906bca31d7dcb1730c3464d0d6cbc
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+manager: gwallace
+ms.openlocfilehash: 2307a296453247a5deee082aadb474f3641cce88
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71839187"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329741"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Aggiungere un binding della coda di archiviazione di Azure alla funzione Python
 
-La soluzione Funzioni di Azure consente di connettere i servizi di Azure e altre risorse alle funzioni senza la necessità di scrivere codice di integrazione personalizzato. Questi *binding*, che rappresentano sia input che output, vengono dichiarati all'interno della definizione di funzione. I dati dei binding vengono forniti alla funzione come parametri. Un *trigger* è un tipo speciale di binding di input. Anche se una funzione include un solo trigger, può avere più binding di input e output. Per altre informazioni, vedere [Concetti su trigger e binding di Funzioni di Azure](functions-triggers-bindings.md).
+[!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
 Questo articolo illustra come integrare la funzione creata nel [precedente articolo di avvio rapido](functions-create-first-function-python.md) con una coda di archiviazione di Azure. Il binding di output che si aggiunge a questa funzione scrive i dati di una richiesta HTTP in un messaggio della coda.
 
@@ -34,7 +30,7 @@ Prima di iniziare con questo articolo, completare i passaggi della [parte 1 dell
 
 ## <a name="download-the-function-app-settings"></a>Scaricare le impostazioni dell'app per le funzioni
 
-[!INCLUDE [functions-app-settings-download-local-cli](../../includes/functions-app-settings-download-local-cli.md)]
+[!INCLUDE [functions-app-settings-download-cli](../../includes/functions-app-settings-download-local-cli.md)]
 
 ## <a name="enable-extension-bundles"></a>Abilitare le aggregazioni di estensioni
 
@@ -63,7 +59,7 @@ func host start
 ```
 
 > [!NOTE]  
-> Nell'argomento di avvio rapido precedente è stato necessario abilitare i bundle di estensioni nel file host.json, quindi durante l'avvio è stata scaricata e configurata l'[estensione di binding di archiviazione](functions-bindings-storage-blob.md#packages---functions-2x), nonché altre estensioni di binding di Microsoft.
+> Poiché sono stati abilitati i bundle di estensioni nel file host.json, durante l'avvio è stata scaricata e configurata l'[estensione di binding di archiviazione](functions-bindings-storage-blob.md#packages---functions-2x), nonché altre estensioni di binding di Microsoft.
 
 Copiare l'URL della funzione `HttpTrigger` dall'output del runtime e incollarlo nella barra degli indirizzi del browser. Aggiungere la stringa di query `?name=<yourname>` a questo URL ed eseguire la richiesta. Nel browser dovrebbe essere visualizzata la stessa risposta dell'articolo precedente.
 
@@ -71,17 +67,17 @@ Questa volta il binding di output crea anche una coda denominata `outqueue` nell
 
 Quindi, usare l'interfaccia della riga di comando di Azure per visualizzare la nuova coda e verificare che è stato aggiunto un messaggio. È anche possibile visualizzare la coda usando [Microsoft Azure Storage Explorer][Azure Storage Explorer] oppure nel [portale di Azure](https://portal.azure.com).
 
-### <a name="set-the-storage-account-connection"></a>Impostare la connessione dell'account di archiviazione
-
 [!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
-
-### <a name="query-the-storage-queue"></a>Eseguire una query sulla coda di archiviazione
 
 [!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 
-Ora è il momento di ripubblicare l'app per le funzioni aggiornata in Azure.
+### <a name="redeploy-the-project"></a>Ridistribuire il progetto 
 
-[!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
+Per aggiornare l'app pubblicata, usare il comando [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) di Core Tools per distribuire il codice del progetto in Azure. In questo esempio sostituire `<APP_NAME>` con il nome dell'app.
+
+```command
+func azure functionapp publish <APP_NAME> --build remote
+```
 
 Anche in questo caso, è possibile usare cURL o un browser per testare la funzione distribuita. Come prima, aggiungere la stringa di query `&name=<yourname>` all'URL, come indicato in questo esempio:
 
@@ -89,7 +85,7 @@ Anche in questo caso, è possibile usare cURL o un browser per testare la funzio
 curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
 ```
 
-È possibile [esaminare il messaggio della coda di archiviazione](#query-the-storage-queue) per verificare che il binding di output genera anche in questo caso un nuovo messaggio nella coda.
+È possibile [esaminare di nuovo il messaggio della coda di archiviazione](#query-the-storage-queue) per verificare che il binding di output genera un nuovo messaggio nella coda, come previsto.
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 

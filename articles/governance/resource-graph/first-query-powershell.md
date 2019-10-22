@@ -1,17 +1,17 @@
 ---
-title: Eseguire la prima query con Azure PowerShell
+title: Eseguire la prima query con PowerShell
 description: Questo articolo illustra la procedura per abilitare il modulo di Resource Graph per Azure PowerShell ed eseguire la prima query.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 10/18/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: 95cf19d4a782f9e4c866d31fac0da74aebff5d2d
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: a7d65d975d43a63a38863721273debab46115045
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976778"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389716"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Guida introduttiva: Eseguire la prima query di Resource Graph usando Azure PowerShell
 
@@ -61,7 +61,7 @@ Ora che il modulo di Azure PowerShell è stato aggiunto all'ambiente scelto, è 
    # Login first with Connect-AzAccount if not using Cloud Shell
 
    # Run Azure Resource Graph query
-   Search-AzGraph -Query 'project name, type | limit 5'
+   Search-AzGraph -Query 'Resources | project name, type | limit 5'
    ```
 
    > [!NOTE]
@@ -71,7 +71,7 @@ Ora che il modulo di Azure PowerShell è stato aggiunto all'ambiente scelto, è 
 
    ```azurepowershell-interactive
    # Run Azure Resource Graph query with 'order by'
-   Search-AzGraph -Query 'project name, type | limit 5 | order by name asc'
+   Search-AzGraph -Query 'Resources | project name, type | limit 5 | order by name asc'
    ```
 
    > [!NOTE]
@@ -81,7 +81,7 @@ Ora che il modulo di Azure PowerShell è stato aggiunto all'ambiente scelto, è 
 
    ```azurepowershell-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`
-   Search-AzGraph -Query 'project name, type | order by name asc | limit 5'
+   Search-AzGraph -Query 'Resources | project name, type | order by name asc | limit 5'
    ```
 
 Quando la query finale viene eseguita più volte, presupponendo che non vengano apportate modifiche all'ambiente, i risultati restituiti saranno coerenti e, come previsto, ordinati in base alla proprietà **Name**, ma ancora limitati ai primi cinque risultati.

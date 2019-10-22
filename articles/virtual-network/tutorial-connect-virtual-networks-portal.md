@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: a83980c3d4d03f53a19918ed213c965e50baa406
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: bf7b9b288a32d9f6cc2c9e0d7dba4b074c4bf878
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720048"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515723"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Esercitazione: Connettere reti virtuali con il peering reti virtuali usando il portale di Azure
 
@@ -46,21 +46,18 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 1. Selezionare **+ Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
 2. Selezionare **Rete** e quindi **Rete virtuale**.
-3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi selezionare **Crea**:
+3. Nella pagina **Informazioni di base** immettere o selezionare le informazioni seguenti e accettare le impostazioni predefinite per le opzioni rimanenti:
 
     |Impostazione|Valore|
     |---|---|
-    |NOME|myVirtualNetwork1|
-    |Spazio degli indirizzi|10.0.0.0/16|
-    |Sottoscrizione| Selezionare la propria sottoscrizione.|
+    |Subscription| Selezionare la propria sottoscrizione.|
     |Gruppo di risorse| Selezionare **Crea nuovo** e immettere *myResourceGroup*.|
-    |Location| Selezionare **Stati Uniti orientali**.|
-    |Nome della subnet|Subnet1|
-    |Intervallo di indirizzi subnet|10.0.0.0/24|
-
-      ![Crea rete virtuale](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
-
-4. Ripetere i passaggi da 1 a 3, con le modifiche seguenti.
+    |Region| Selezionare **Stati Uniti orientali**.|
+    |NOME|myVirtualNetwork1|
+    ![Configurare le impostazioni di base della rete virtuale] (
+4. Nella pagina **Indirizzi IP** immettere 10.0.0.0/16 nel campo **Spazio indirizzi**. Fare clic sul pulsante **Aggiungi subnet** e immettere Subnet1 per **Nome subnet** e 10.0.0.0/24 per **Intervallo di indirizzi subnet**.
+   
+5. Ripetere i passaggi da 1 a 3, con le modifiche seguenti.
 
     |Impostazione|Valore|
     |---|---|
@@ -105,22 +102,26 @@ Creare una macchina virtuale in ogni rete virtuale per poter stabilire la comuni
 
     |Impostazione|Valore|
     |---|---|
+    |Resource group| Selezionare **Usa esistente** e quindi **myResourceGroup**.|
     |NOME|myVm1|
+    |Location| Selezionare **Stati Uniti orientali**.|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Gruppo di risorse| Selezionare **Usa esistente** e quindi **myResourceGroup**.|
-    |Località| Selezionare **Stati Uniti orientali**.|
-4. Selezionare le dimensioni della macchina virtuale in **Scegli una dimensione**.
-5. Selezionare i valori seguenti in **Impostazioni**, quindi scegliere **OK**:
+   
+4. Selezionare le dimensioni di macchina virtuale per l'opzione **Dimensioni**.
+5. Selezionare i valori seguenti in **Rete**:
 
     |Impostazione|Valore|
     |---|---|
-    |Rete virtuale| myVirtualNetwork1 - se non è già selezionato, selezionare **Rete virtuale**, quindi selezionare **myVirtualNetwork1** in **Scegli rete virtuale**.|
-    |Subnet| Subnet1 - se non è già selezionato, selezionare **Subnet**, quindi selezionare **Subnet1** in **Scegli subnet**.|
+    |Rete virtuale| myVirtualNetwork1 - se non è già selezionata, selezionare l'opzione **Rete virtuale**, quindi **myVirtualNetwork1**.|
+    |Subnet| Subnet1 - se non è già selezionata, selezionare l'opzione **Subnet**, quindi **Subnet1**.|
     
+
     ![Impostazioni della macchina virtuale](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
- 
-6. In **Crea** in **Riepilogo** selezionare **Crea** per avviare la distribuzione della macchina virtuale.
+   
+6. Selezionare **Rete**. Scegliere **Consenti porte selezionate** per l'opzione **Porte in ingresso pubbliche**. Scegliere **RDP** per l'opzione **Selezionare le porte in ingresso** al di sotto. 
+
+7. Selezionare il pulsante **Rivedi e crea** nell'angolo in basso a sinistra per avviare la distribuzione della VM.
 
 ### <a name="create-the-second-vm"></a>Creare la seconda VM
 

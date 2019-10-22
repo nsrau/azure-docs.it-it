@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b3210b97fe6fb0cd16499d5c33538c8e2babe612
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5e9b94f0c67b4b4630d554f4dde22502c90e777c
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173694"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376368"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Esercitazione: Creare un'applicazione con un servizio front-end API Java e un servizio back-end con stato in Azure Service Fabric
 
@@ -228,7 +228,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 ### <a name="add-the-httpcommunicationlistenerjava-file"></a>Aggiungere il file HTTPCommunicationListener.java
 
-Il listener di comunicazione HTTP funge da controller che configura il server HTTP ed espone le API che definiscono le azioni di voto. Fare clic con il pulsante destro del mouse sul pacchetto *statelessservice* nella cartella *VotingWeb/src/statelessservice* e quindi scegliere **New (Nuovo) > File**.  Assegnare il nome *HttpCommunicationListener.java* al file e selezionare **Finish** (Fine).
+Il listener di comunicazione HTTP funge da controller che configura il server HTTP ed espone le API che definiscono le azioni di voto. Fare clic con il pulsante destro del mouse sul pacchetto *statelessservice* nella cartella *VotingWeb/src/statelessservice* e quindi scegliere **New (Nuovo)**  > **File**.  Assegnare il nome *HttpCommunicationListener.java* al file e selezionare **Finish** (Fine).
 
 Sostituire il contenuto del file con il codice seguente e quindi salvare le modifiche.  Nella sezione Aggiornare il file HttpCommunicationListener.java, disponibile più avanti, questo file viene modificato per eseguire il rendering, leggere e scrivere i dati di voto dal servizio back-end.  Per il momento, il listener restituisce semplicemente il codice HTML statico per l'app Voting.
 

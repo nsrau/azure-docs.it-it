@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/26/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9f43b056275ba83630e711ff1a512cb73e84216a
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 8dc7bc36b3d4b172521b0fbbf9aa09cf4d1a9b29
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034634"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390126"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Guida introduttiva: Cercare immagini con l'API REST Ricerca immagini Bing e Python
 
@@ -67,12 +67,13 @@ Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.
     params  = {"q": search_term, "license": "public", "imageType": "photo"}
     ```
 
-2. Usare la libreria `requests` per chiamare l'API Ricerca immagini Bing. Aggiungere l'intestazione e i parametri alla richiesta e restituire la risposta come oggetto JSON. 
+2. Usare la libreria `requests` per chiamare l'API Ricerca immagini Bing. Aggiungere l'intestazione e i parametri alla richiesta e restituire la risposta come oggetto JSON. Ottenere gli URL di diverse immagini di anteprima dal campo `thumbnailUrl` della risposta.
 
     ```python
     response = requests.get(search_url, headers=headers, params=params)
     response.raise_for_status()
     search_results = response.json()
+    thumbnail_urls = [img["thumbnailUrl"] for img in search_results["value"][:16]]
     ```
 
 ## <a name="view-the-response"></a>Visualizzare la risposta
@@ -80,6 +81,8 @@ Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.
 1. Creare una nuova figura con quattro colonne e quattro righe usando la libreria matplotlib. 
 
 2. Eseguire l'iterazione tra le righe e le colonne della figura e usare il metodo `Image.open()` della libreria PIL per aggiungere un'anteprima dell'immagine in ogni spazio. 
+
+3. Usare `plt.show()` per disegnare la figura e visualizzare le immagini.
 
     ```python
     f, axes = plt.subplots(4, 4)
@@ -90,9 +93,9 @@ Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.
             image = Image.open(BytesIO(image_data.content))        
             axes[i][j].imshow(image)
             axes[i][j].axis("off")
+    plt.show()
     ```
 
-3. Usare `plt.show()` per disegnare la figura e visualizzare le immagini.
 
 ## <a name="example-json-response"></a>Risposta JSON di esempio
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/19/2019
 ms.author: yulili
-ms.openlocfilehash: 832525ae1441fca85f8df661b4a187c0be8d91dc
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c66e321618b46d52f791f95dab570e3721e806a9
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803698"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299218"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-java"></a>Guida introduttiva: Sintesi vocale con Speech SDK per Java
 
@@ -79,7 +79,7 @@ Se si esegue Windows (64 bit), assicurarsi di avere installato Microsoft Visual 
 ## <a name="build-and-run-the-app"></a>Compilare ed eseguire l'app
 
 Premere F11 o selezionare **Esegui** > **Debug**.
-Immettere un testo quando viene richiesto e si sentirà l'audio sintetizzato riprodotto dall'altoparlante predefinito.
+Immettere un testo quando richiesto e si sentirà l'audio sintetizzato riprodotto dall'altoparlante predefinito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

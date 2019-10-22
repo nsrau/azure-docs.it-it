@@ -1,5 +1,5 @@
 ---
-title: Eseguire la distribuzione nel servizio Azure Kubernetes usando Jenkins e il modello di distribuzione di tipo blu-verde
+title: Eseguire la distribuzione nel servizio Azure Kubernetes usando Jenkins e il modello di distribuzione blu/verde
 description: Di seguito viene spiegato come eseguire la distribuzione nel servizio Azure Kubernetes usando Jenkins e il modello di distribuzione di tipo blu-verde.
 ms.service: jenkins
 keywords: jenkins, azure, devops, kubernetes, k8s, servizio Azure Kubernetes, distribuzione di tipo blu-verde, recapito continuo, cd
@@ -7,13 +7,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/11/2018
-ms.openlocfilehash: 93f2ac284931ba664e0965e537e515c824e6f7a6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 10/09/2019
+ms.openlocfilehash: de9088333f69a22246fe5873d6e09ddb7ba3044a
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092294"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249399"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Eseguire la distribuzione nel servizio Azure Kubernetes usando Jenkins e il modello di distribuzione di tipo blu-verde
 
@@ -147,7 +147,7 @@ Per creare un cluster Kubernetes gestito con l'[interfaccia della riga di comand
     kubectl apply -f  test-endpoint-green.yml
     ```
 
-1. Aggiornare il nome DNS per l'endpoint pubblico e quelli di test. Quando si crea un cluster Kubernetes, si crea anche un [gruppo di risorse aggiuntive](https://github.com/Azure/AKS/issues/3) con il modello di denominazione **MC_&lt;nome-gruppo-risorsa>_&lt;nome-cluster-kubernetes>_&lt;posizione>**.
+1. Aggiornare il nome DNS per l'endpoint pubblico e quelli di test. Quando si crea un cluster Kubernetes, si crea anche un [gruppo di risorse aggiuntive](https://github.com/Azure/AKS/issues/3) con il modello di denominazione **MC_&lt;nome-gruppo-risorsa> _&lt;nome-cluster-kubernetes>_ &lt;posizione>** .
 
     Individuare l'indirizzo IP pubblico nel gruppo di risorse.
 
@@ -215,7 +215,7 @@ In questa sezione verrà illustrato come preparare il server Jenkins per eseguir
    
 1. Installare i plug-in Jenkins eseguendo la procedura seguente nel dashboard di Jenkins:
 
-    1. Selezionare **Manage Jenkins (Gestisci Jenkins) > Manage plugins (Gestisci plug-in) > Available (Disponibili)**.
+    1. Selezionare **Manage Jenkins (Gestisci Jenkins) > Manage plugins (Gestisci plug-in) > Available (Disponibili)** .
     1. Cercare e installare il plug-in del servizio Azure Container.
 
 1. Aggiungere le credenziali per gestire le risorse in Azure. Installare il plug-in per le **credenziali di Azure**, se non è già disponibile.

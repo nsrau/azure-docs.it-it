@@ -102,6 +102,8 @@
           href: sap-hana-high-availability-rhel.md
         - name: Risolvere i problemi relativi all'aumento del numero di istanze di SAP HANA e Pacemaker in SLES
           href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
+        - name: Scalabilità orizzontale di SAP HANA con nodo di standby con Azure NetApp Files in SLES
+          href: sap-hana-scale-out-standby-netapp-files-suse.md
     - name: Panoramica del backup di SAP HANA
       href: sap-hana-backup-guide.md
     - name: Backup a livello di file di SAP HANA

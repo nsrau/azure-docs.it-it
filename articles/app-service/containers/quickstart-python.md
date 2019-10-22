@@ -1,5 +1,5 @@
 ---
-title: Creare un'app Python in Linux - Servizio app di Azure | Microsoft Docs
+title: "Guida introduttiva: Creare un'app Python in Linux - Servizio app di Azure"
 description: Distribuire la prima app Hello World Python nel servizio app di Azure in Linux in pochi minuti.
 services: app-service\web
 documentationcenter: ''
@@ -13,20 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
+ms.custom: seo-python-october2019
 experimental: true
 experiment_id: 1e304dc9-5add-4b
-ms.openlocfilehash: 253e2e5015c2cb7a71386b88b4d86ac6bff6a0fe
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: e8ca84f233b3e6202a4647d15e07b36c2b8f1128
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242453"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433079"
 ---
-# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Creare un'app Python nel Servizio app di Azure in Linux
+# <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Guida introduttiva: Creare un'app Python nel Servizio app di Azure in Linux
 
-In questo argomento di avvio rapido si distribuirà una semplice app Python nel [servizio app in Linux](app-service-linux-intro.md), che fornisce un servizio di hosting web ad alta scalabilità e con funzioni di auto-correzione. Si userà inoltre l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) tramite Azure Cloud Shell, interattivo e basato sul browser, in modo da poter seguire la procedura con un computer Mac, Linux o Windows.
+In questo articolo si distribuisce una semplice app Python nel [Servizio app in Linux](app-service-linux-intro.md), un servizio di hosting web ad alta scalabilità e con applicazione automatica di patch. Si userà inoltre l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) tramite Azure Cloud Shell, interattivo e basato sul browser, in modo da poter seguire la procedura con un computer Mac, Linux o Windows.
 
-![App di esempio in esecuzione in Azure](media/quickstart-python/hello-world-in-browser.png)
+![Eseguire un'app Python di esempio nel Servizio app di Azure](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -71,7 +72,7 @@ Aprire un Web browser e passare all'app di esempio all'indirizzo `http://localho
 
 Nella pagina verrà visualizzato il messaggio **Hello World!** dell'app di esempio.
 
-![App di esempio in esecuzione in locale](media/quickstart-python/hello-world-in-browser.png)
+![Eseguire un'app Python di esempio in locale](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
 Nella finestra del terminale premere **CTRL+C** per uscire dal server Web.
 
@@ -154,7 +155,7 @@ http://<app-name>.azurewebsites.net
 
 Il codice di esempio Python è in esecuzione nel servizio app in Linux con un'immagine predefinita.
 
-![App di esempio in esecuzione in Azure](media/quickstart-python/hello-world-in-browser.png)
+![Eseguire un'app Python di esempio in Azure](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
 **Congratulazioni** La distribuzione della prima app Python nel Servizio app di Azure in Linux è stata completata.
 
@@ -162,7 +163,7 @@ Il codice di esempio Python è in esecuzione nel servizio app in Linux con un'im
 
 In Cloud Shell immettere `code application.py` per aprire l'editor di Cloud Shell.
 
-![Code application.py](media/quickstart-python/code-applicationpy.png)
+![Aprire application.py nell'editor di Cloud Shell](./media/quickstart-python/open-application-py-in-the-cloud-shell-editor.png)
 
  Apportare una piccola modifica al testo nella chiamata a `return`:
 
@@ -180,7 +181,7 @@ az webapp up -n <app-name> -l <location-name>
 
 Al termine della distribuzione, tornare alla finestra del browser aperta nel passaggio **Passare all'app** e aggiornare la pagina.
 
-![App di esempio aggiornata in esecuzione in Azure](media/quickstart-python/hello-azure-in-browser.png)
+![Eseguire un'app Python di esempio aggiornata in Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
 
 ## <a name="manage-your-new-azure-app"></a>Gestire la nuova app Azure
 
@@ -188,11 +189,11 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
 
 Nel menu a sinistra scegliere **Servizi app** e quindi selezionare il nome dell'app Azure.
 
-![Passaggio all'app di Azure nel portale](./media/quickstart-python/app-service-list.png)
+![Nel portale di Azure passare all'app Python in Servizi app](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
 
 Verrà visualizzata la pagina Panoramica dell'app. Qui è possibile eseguire attività di gestione di base come l'esplorazione, l'arresto, l'avvio, il riavvio e l'eliminazione dell'app.
 
-![Pagina del servizio app nel portale di Azure](media/quickstart-python/app-service-detail.png)
+![Gestire l'app Python nella pagina Panoramica del portale di Azure](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
 
 Il menu a sinistra fornisce varie pagine per la configurazione dell'app. 
 

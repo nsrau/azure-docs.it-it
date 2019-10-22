@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c872b10d7819fb95d614664ed32831f410349760
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 32bd0438afa63212222acb84c0194bbc1f4816ce
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122895"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286675"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C# per dispositivi Windows
 
@@ -36,7 +36,7 @@ Il modulo di IoT Edge creato in questa esercitazione filtra i dati relativi alla
 
 Questa esercitazione illustra come sviluppare un modulo in **C#** usando **Visual Studio 2019** e come distribuirlo in un **dispositivo Windows**. Se si sviluppano moduli per dispositivi Linux, vedere invece [Sviluppare un modulo IoT Edge in C# per dispositivi Linux](tutorial-csharp-module.md). 
 
-Usare la tabella seguente per informazioni sulle opzioni disponibili per lo sviluppo e la distribuzione di moduli C per dispositivi Windows: 
+Usare la tabella seguente per informazioni sulle opzioni disponibili per lo sviluppo e la distribuzione di moduli C# per dispositivi Windows: 
 
 | C# | Visual Studio Code | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |

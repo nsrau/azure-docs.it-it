@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/11/2019
+ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 964ecca015e440439885bbbd85cb720a3abd10a9
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: fe40eb27b07304aba48be4a47fb22168cb60434c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883506"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332241"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Esercitazione: Configurare un lab per le classi 
 Questa esercitazione descrive come configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.  
@@ -29,7 +29,8 @@ In questa esercitazione vengono completate le azioni seguenti:
 > [!div class="checklist"]
 > * Creare un lab per le classi
 > * Aggiungere utenti al lab
-> * Inviare un collegamento di registrazione agli studenti
+> * Impostare una pianificazione per il lab
+> * Inviare inviti agli studenti tramite posta elettronica
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per configurare un lab per le classi in un account del lab, è necessario essere un membro dei ruoli seguenti nell'account del lab: Proprietario, Autore di laboratori o Collaboratore. L'account usato per creare un account del lab viene aggiunto automaticamente al ruolo di Proprietario.
@@ -41,65 +42,60 @@ Un proprietario del lab può aggiungere altri utenti al ruolo **Autore di labora
 
 1. Accedere al [sito Web di Azure Lab Services](https://labs.azure.com). Internet Explorer 11 non è ancora supportato. 
 2. Selezionare **Accedi** e immettere le credenziali. Azure Lab Services supporta gli account aziendali e gli account Microsoft. 
-3. Nella finestra **New Lab** (Nuovo lab) eseguire queste operazioni: 
-    1. Specificare un **nome** per il lab. 
-    2. Specificare il **numero massimo di macchine virtuali** nel lab. È possibile aumentare o ridurre il numero di macchine virtuali dopo aver creato il lab o in un lab esistente. Per altre informazioni, vedere [Aggiornare il numero di VM in un lab](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
-    6. Selezionare **Salva**.
+3. Selezionare **New lab** (Nuovo lab). 
+    
+    ![Creare un lab per le classi](../media/tutorial-setup-classroom-lab/new-lab-button.png)
+4. Nella finestra **New Lab** (Nuovo lab) eseguire queste operazioni: 
+    1. Specificare un **nome** per il lab e selezionare **Avanti**.  
 
         ![Creare un lab per le classi](../media/tutorial-setup-classroom-lab/new-lab-window.png)
-4. Nella pagina **Select virtual machine specifications** (Seleziona le specifiche delle macchine virtuali) eseguire le operazioni seguenti:
-    1. Selezionare le **dimensioni** per le macchine virtuali create nel lab. Attualmente, sono consentite dimensioni **piccole**, **medie**, **medie (virtualizzazione)** , **grandi** e **GPU**.
-    3. Selezionare l'**immagine della macchina virtuale** da usare per creare macchine virtuali nel lab. Se si seleziona un'immagine di Linux, viene visualizzata un'opzione per abilitare la connessione Desktop remoto. Per informazioni, vedere [Abilitare Connessione desktop remoto per Linux](how-to-enable-remote-desktop-linux.md).
-    4. Selezionare **Avanti**.
 
-        ![Immettere le specifiche delle macchine virtuali](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
-5. Nella pagina **Set credentials** (Imposta le credenziali) specificare le credenziali predefinite per tutte le macchine virtuali del lab. 
-    1. Specificare il **nome dell'utente** per tutte le macchine virtuali del lab.
-    2. Specificare la **password** dell'utente. 
+        Se si seleziona un'immagine di Linux, viene visualizzata un'opzione per abilitare la connessione Desktop remoto. Per informazioni, vedere [Abilitare Connessione desktop remoto per Linux](how-to-enable-remote-desktop-linux.md).
+    2. Nella pagina **Virtual machine credentials** (Credenziali macchina virtuale) specificare le credenziali predefinite per tutte le VM del lab. Specificare il **nome** e la **password** per l'utente, quindi selezionare **Avanti**.  
+
+        ![Finestra New lab](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
 
         > [!IMPORTANT]
         > Prendere nota del nome utente e della password perché non verranno più visualizzati.
-    3. Selezionare **Create** (Crea). 
+    3. Nella pagina **Lab policies** (Criteri del lab) immettere il numero di ore allocate per ogni utente (**quota per ogni utente**) al di fuori del tempo pianificato per il lab e quindi selezionare **Fine**. 
 
-        ![Impostare le credenziali](../media/tutorial-setup-classroom-lab/set-credentials.png)
-6. Nella pagina **Configure template** (Configura modello) viene visualizzato lo stato del processo di creazione del lab. La creazione del modello nel lab richiede fino a 20 minuti. 
+        ![Quota per ogni utente](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+5. Dovrebbe essere visualizzata la schermata seguente, che mostra lo stato di creazione della VM modello. La creazione del modello nel lab richiede fino a 20 minuti. 
 
-    ![Configurare il modello](../media/tutorial-setup-classroom-lab/configure-template.png)
-7. Dopo aver completato la configurazione del modello verrà visualizzata la pagina seguente: 
+    ![Stato di creazione della VM modello](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
+8. Nella pagina **Template** (Modello) procedere come segue: Questi passaggi sono **facoltativi** per l'esercitazione.
 
-    ![Pagina di configurazione del modello al termine dell'operazione](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. Nella pagina **Configure template** (Configura modello) procedere come segue: Questi passaggi sono **facoltativi** per l'esercitazione.
     2. Connettersi alla macchina virtuale modello selezionando **Connect** (Connetti). Se si tratta di una macchina virtuale modello di Linux, scegliere se si vuole effettuare la connessione con SSH o RDP (se RDP è abilitato).
     1. Selezionare **Reset password** (Reimposta password) per reimpostare la password per la macchina virtuale. 
     1. Installare e configurare il software nella macchina virtuale modello. 
     1. **Arrestare** la VM.  
     1. Immettere una **descrizione** per il modello.
-9. Selezionare **Next** (Avanti) nella pagina del modello. 
-10. Nella pagina **Publish the template** (Pubblica il modello) eseguire le azioni seguenti. 
-    1. Per pubblicare il modello immediatamente, selezionare **Publish** (Pubblica).  
+10. Sulla barra degli strumenti della pagina **Template** (Modello) selezionare **Publish** (Pubblica). 
 
-        > [!WARNING]
-        > L'operazione di pubblicazione non può essere annullata. 
-    2. Per eseguire la pubblicazione in un secondo momento, selezionare **Save for later** (Salva per dopo). È possibile pubblicare la macchina virtuale modello al termine della procedura guidata. Per informazioni dettagliate su come configurare e pubblicare il modello al termine della procedura guidata, vedere la sezione [Pubblicare il modello](how-to-create-manage-template.md#publish-the-template-vm) nell'articolo [Gestire i lab per le classi in Azure Lab Services](how-to-manage-classroom-labs.md).
+    ![Pulsante per la pubblicazione del modello](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
 
-        ![Pubblicare il modello](../media/tutorial-setup-classroom-lab/publish-template.png)
-11. Viene visualizzato lo **stato di pubblicazione** del modello. Questo processo può richiedere fino a un'ora. 
+    > [!WARNING]
+    > L'operazione di pubblicazione non può essere annullata. 
+8. Nella pagina **Publish template** (Pubblica modello) immettere il numero di macchine virtuali da creare nel lab, quindi selezionare **Publish** (Pubblica). 
+
+    ![Pubblicazione del modello: numero di VM](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
+11. Nella pagina viene visualizzato lo **stato di pubblicazione** del modello. Questo processo può richiedere fino a un'ora. 
 
     ![Pubblicazione del modello - stato](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
-12. Al termine dell'operazione di pubblicazione del modello, viene visualizzata la pagina seguente. Selezionare **Operazione completata**.
-
-    ![Pubblicazione del modello - operazione completata](../media/tutorial-setup-classroom-lab/publish-success.png)
-1. Verrà visualizzato il **dashboard** del lab. 
-    
-    ![Dashboard del lab per le classi](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
-4. Per passare alla pagina **Macchine virtuali** selezionare Macchine virtuali nel menu a sinistra oppure il riquadro Macchine virtuali. Verificare che vengano visualizzate macchine virtuali con lo stato **Non assegnato**. Queste macchine virtuali non sono ancora assegnate agli studenti. Devono essere nello stato **Arrestato**. In questa pagina è possibile avviare la macchina virtuale di uno studente, connettersi alla macchina virtuale, arrestare la macchina virtuale ed eliminare la macchina virtuale. In questa pagina è possibile avviare le macchine virtuali o consentire agli studenti di avviarle. 
+4. Passare alla pagina **Pool di macchine virtuali** scegliendo Macchine virtuali dal menu sinistro oppure selezionando il riquadro Macchine virtuali. Verificare che vengano visualizzate macchine virtuali con lo stato **Non assegnato**. Queste macchine virtuali non sono ancora assegnate agli studenti. Devono essere nello stato **Arrestato**. In questa pagina è possibile avviare la macchina virtuale di uno studente, connettersi alla macchina virtuale, arrestare la macchina virtuale ed eliminare la macchina virtuale. In questa pagina è possibile avviare le macchine virtuali o consentire agli studenti di avviarle. 
 
     ![Macchine virtuali nello stato arrestato](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
+
+    In questa pagina vengono eseguite le attività seguenti, ma non completarle per questa esercitazione. Questi passaggi hanno uno scopo unicamente informativo: 
+    
+    1. Per cambiare la capacità del lab, ossia il numero di VM al suo interno, selezionare **Lab capacity** (Capacità del lab) sulla barra degli strumenti.
+    2. Per avviare tutte le VM contemporaneamente, selezionare **Start all** (Avvia tutte) sulla barra degli strumenti. 
+    3. Per avviare una specifica VM, selezionare la freccia in già in **Status** (Stato) e quindi selezionare **Start** (Avvia). Per avviare una VM, è anche possibile selezionarla nella prima colonna e quindi selezionare **Start** (Avvia) sulla barra degli strumenti.
 
 ## <a name="add-users-to-the-lab"></a>Aggiungere utenti al lab
 
 1. Selezionare **Utenti** nel menu a sinistra. Per impostazione predefinita, l'opzione **Limita l'accesso** è abilitata. Quando questa impostazione è attiva, un utente non può registrarsi al lab anche se ha il collegamento di registrazione, a meno che non sia presente nell'elenco degli utenti. Solo gli utenti nell'elenco possono registrarsi al lab utilizzando il collegamento di registrazione inviato. In questa procedura si aggiungono utenti all'elenco. In alternativa, è possibile disattivare **Limita l'accesso**, consentendo agli utenti di registrarsi al lab alla sola condizione di disporre del collegamento di registrazione. 
-2. Selezionare **Aggiungi utenti** sulla barra degli strumenti. 
+2. Selezionare **Aggiungi utenti** sulla barra degli strumenti e quindi **Add by email addresses** (Aggiungi per indirizzi di posta elettronica). 
 
     ![Pulsante Aggiungi utenti](../media/how-to-configure-student-usage/add-users-button.png)
 1. Nella pagina **Aggiungi utenti** immettere gli indirizzi di posta elettronica degli utenti in righe separate o in una singola riga, separati da punti e virgola. 
@@ -109,55 +105,42 @@ Un proprietario del lab può aggiungere altri utenti al ruolo **Autore di labora
 
     ![Elenco utenti](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="set-quotas-for-users"></a>Impostare quote per gli utenti
-È possibile impostare quote per utente usando la procedura seguente: 
-
-1. Selezionare **Users** (Utenti) nel menu a sinistra se la pagina non è già attiva. 
-2. Selezionare **Quota per user (Quota per utente): 10 hours** (10 ore) sulla barra degli strumenti. 
-3. Nella pagina **Quote per user** (Quota per utente) specificare il numero di ore da assegnare a ogni utente (studente): 
-    1. **Total number of lab hours per user** (Numero totale di ore lab per utente). Gli utenti possono usare le proprie macchine virtuali per il numero di ore specificato (indicato in questo campo), **in aggiunta all'orario pianificato**. Se si seleziona questa opzione, immettere il **numero di ore** nella casella di testo. 
-
-        ![Numero di ore per utente](../media/how-to-configure-student-usage/number-of-hours-per-user.png). 
-    1. **0 hours (schedule only)** (0 ore - solo pianificazione). Gli utenti possono usare le proprie macchine virtuali durante l'orario pianificato oppure quando il proprietario del lab attiva le macchine virtuali per loro.
-
-        ![Zero ore - solo orario pianificato](../media/how-to-configure-student-usage/zero-hours.png)
-    4. Selezionare **Salva**. 
-5. Nella barra degli strumenti verranno visualizzati ora i valori modificati: **Quota per user (Quota per utente): &lt;numero di ore&gt;** . 
-
-    ![Quota per user (Quota per utente)](../media/how-to-configure-student-usage/quota-per-user.png)
-
 ## <a name="set-a-schedule-for-the-lab"></a>Impostare una pianificazione per il lab
-Se è stata configurata per l'impostazione della quota l'opzione **0 hours (schedule only)** (0 ore, solo pianificazione), è necessario impostare una pianificazione per il lab. In questa esercitazione viene impostata una pianificazione settimanale ricorrente.
+Creare un evento pianificato per il lab in modo che le VM al suo interno vengano automaticamente avviate/arrestate in specifici orari. La quota utente specificata in precedenza corrisponde al tempo aggiuntivo assegnato a ogni utente al di fuori del tempo pianificato. 
 
-1. Passare alla pagina **Pianificazioni** e selezionare **Aggiungi pianificazione** sulla barra degli strumenti. 
+1. Passare alla pagina **Schedules** (Pianificazione) e selezionare **Add scheduled event** (Aggiungi evento pianificato) sulla barra degli strumenti. 
 
     ![Pulsante Aggiungi pianificazione nella pagina Pianificazioni](../media/how-to-create-schedules/add-schedule-button.png)
-2. Nella pagina **Aggiungi pianificazione** passare a **Settimanale** nella parte superiore. 
-3. In **Schedule days (required)** (Giorni pianificazione - obbligatori) selezionare i giorni in cui la pianificazione deve essere effettiva. Nell'esempio seguente sono selezionati i giorni compresi tra lunedì e venerdì. 
-4. Nel campo **Da** immettere la **data di inizio della pianificazione** o selezionare una data facendo clic sul pulsante del **calendario**. Questo campo è obbligatorio. 
-5. In **Schedule end date** (Data fine pianificazione) immettere o selezionare una data di fine in cui arrestare le macchine virtuali. 
-6. In **Ora di inizio** selezionare l'ora in cui le macchine virtuali devono essere avviate. L'ora di inizio è obbligatoria se non è impostata l'ora di arresto. Selezionare **Remove start event** (Rimuovi evento di avvio) per specificare solo l'ora di arresto. Se l'**ora di inizio** è disabilitata, selezionare **Add start event** (Aggiungi evento di avvio) accanto all'elenco a discesa per abilitarla. 
-7. In **Ora di arresto** selezionare l'ora in cui le macchine virtuali devono arrestate. L'ora di arresto è obbligatoria se non è impostata l'ora di inizio. Selezionare **Remove stop event** (Rimuovi evento di arresto) per specificare solo l'ora di arresto. Se l'**ora di arresto** è disabilitata, selezionare **Add stop event** (Aggiungi evento di arresto) accanto all'elenco a discesa per abilitarla.
-8. In **Time zone (required)** (Fuso orario - obbligatorio) selezionare il fuso orario per le ore di inizio e di arresto specificate.  
-9. In **Note** immettere la descrizione o le note per la pianificazione. 
-10. Selezionare **Salva**. 
+2. Verificare che per **Event type** (Tipo di evento) sia selezionata l'opzione **Standard**. Selezionare **Start only** (Solo avvio) per specificare solo l'ora di avvio per le VM. Selezionare **Stop only** (Solo arresto) per specificare solo l'ora di arresto per le VM. 
+7. Nella sezione **Repeat** (Ripeti) selezionare la pianificazione corrente. 
+
+    ![Pulsante Aggiungi pianificazione nella pagina Pianificazioni](../media/how-to-create-schedules/select-current-schedule.png)
+5. Nella finestra di dialogo **Repeat** (Ripeti) procedere come segue:
+    1. Verificare che il campo **Repeat** (Ripeti) sia impostato su **every week** (ogni settimana). 
+    3. Specificare la **data di inizio**.
+    4. Specificare l'**ora di avvio** in cui si vuole che vengano avviate le VM.
+    5. Specificare l'**ora di arresto** in cui devono essere arrestate le VM. 
+    6. Specificare il **fuso orario** per le ore di avvio e di arresto specificate. 
+    2. Selezionare i giorni in cui la pianificazione deve essere effettiva. Nell'esempio seguente sono selezionati i giorni compresi tra lunedì e giovedì. 
+    8. Selezionare **Salva**. 
+
+        ![Impostare la pianificazione ripetuta](../media/how-to-create-schedules/set-repeat-schedule.png)
+
+3. Ora nella pagina **Add scheduled event** (Aggiungi evento pianificato) immettere una descrizione per la pianificazione in **Notes (optional)** (Note - facoltativo). 
+4. Nella pagina **Add scheduled event** (Aggiungi evento pianificato) selezionare **Save** (Salva). 
 
     ![Pianificazione settimanale](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
-## <a name="send-an-email-with-the-registration-link"></a>Inviare un messaggio di posta elettronica con il collegamento per la registrazione
+## <a name="send-invitation-emails-to-students"></a>Inviare inviti agli studenti tramite posta elettronica
 
-1. Passare alla vista **Utenti** se non si è già nella pagina. 
-2. Selezionare utenti specifici o tutti gli utenti nell'elenco. Per selezionare utenti specifici, selezionare le caselle di controllo nella prima colonna dell'elenco. Per selezionare tutti gli utenti, selezionare la casella di controllo accanto al titolo della prima colonna (**Nome**) oppure tutte le caselle di controllo per tutti gli utenti nell'elenco. È possibile visualizzare lo **stato dell'invito** in questo elenco.  Nella figura seguente lo stato dell'invito per tutti gli studenti è impostato su **Invito non inviato**. 
+1. Passare alla visualizzazione **Users** (Utenti) se la pagina non è già aperta e selezionare **Invite all** (Invita tutti) sulla barra degli strumenti. 
 
-    ![Selezionare gli studenti](../media/tutorial-setup-classroom-lab/select-students.png)
-1. Selezionare l'**icona del messaggio di posta elettronica (busta)** in una delle righe oppure selezionare **Invia invito** sulla barra degli strumenti. È anche possibile passare il puntatore del mouse sul nome di uno studente nell'elenco e quindi selezionare l'icona del messaggio di posta elettronica. 
+    ![Selezionare gli studenti](../media/tutorial-setup-classroom-lab/invite-all-button.png)
+
+1. Nella pagina **Send invitation by email** (Invia invito per posta elettronica) immettere un messaggio facoltativo e quindi selezionare **Send** (Invia). Il messaggio di posta elettronica include automaticamente il collegamento per la registrazione. Per ottenere questo collegamento di registrazione, selezionare **... (puntini di sospensione)** sulla barra degli strumenti e quindi **Registration link** (Collegamento di registrazione). 
 
     ![Inviare un collegamento per la registrazione tramite posta elettronica](../media/tutorial-setup-classroom-lab/send-email.png)
-4. Nella pagina **Send registration link by email** (Invia collegamento registrazione per posta elettronica) seguire questa procedura: 
-    1. Digitare un **messaggio facoltativo** da inviare agli studenti. Il messaggio di posta elettronica include automaticamente il collegamento per la registrazione. 
-    2. Nella pagina **Send registration link by email** (Invia collegamento registrazione per posta elettronica) selezionare **Invia**. Lo stato dell'invito cambia in **Invio dell'invito** e quindi in **Invito inviato**. 
-        
-        ![Inviti inviati](../media/tutorial-setup-classroom-lab/invitations-sent.png)
+4. Lo stato dell'**invito** viene visualizzato nell'elenco **Users** (Utenti). Lo stato dovrebbe cambiare in **Sending** (Invio in corso) e quindi in **Sent on &lt;date&gt;** (Inviato in data). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questa esercitazione ha illustrato come creare un lab per le classi e come configurare il lab. Per informazioni su come uno studente può accedere a una VM nel lab usando il collegamento di registrazione, passare alla prossima esercitazione:

@@ -1,17 +1,17 @@
 ---
-title: Creare un criterio per le risorse non conformi con l'interfaccia della riga di comando di Azure
+title: Creare criteri per controllare le risorse con l'interfaccia della riga di comando di Azure
 description: Usare l'interfaccia della riga di comando di Azure per creare un'assegnazione di criteri di Azure per identificare le risorse non conformi nell'ambiente.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: azure-policy
-ms.openlocfilehash: 06b35bc9a0222247df5b4ab5c513df504cd45cac
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: a7e65e304039c266f92f8068b796323197058cc1
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980864"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255951"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Guida introduttiva: Creare un criterio per identificare le risorse non conformi con l'interfaccia della riga di comando di Azure
 

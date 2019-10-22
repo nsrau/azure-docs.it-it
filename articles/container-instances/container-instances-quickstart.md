@@ -1,5 +1,5 @@
 ---
-title: Avvio rapido - Distribuire un contenitore Docker in Istanze di Azure Container - Interfaccia della riga di comando
+title: 'Guida introduttiva: Distribuire un contenitore Docker in Istanze di Azure Container - Interfaccia della riga di comando di Azure'
 description: In questo argomento di avvio rapido viene usata l'interfaccia della riga di comando di Azure per distribuire rapidamente un'app Web che viene eseguita in un'istanza di contenitore di Azure isolata
 services: container-instances
 author: dlepow
@@ -8,13 +8,16 @@ ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: danlep
-ms.custom: seodec18, mvc
-ms.openlocfilehash: b344e5fefdef6cd25dcafc0577b9fbbd7f0e398d
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.custom:
+- seo-python-october2019
+- seodec18
+- mvc
+ms.openlocfilehash: 65c067792499017a7e00fdbb6199e591981683f8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050618"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429211"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Guida introduttiva: Distribuire un'istanza di contenitore in Azure con l'interfaccia della riga di comando di Azure
 
@@ -22,7 +25,7 @@ Il servizio Istanze di Azure Container consente di eseguire contenitori Docker s
 
 In questo argomento di avvio rapido viene usata l'interfaccia della riga di comando di Azure per distribuire un contenitore Docker isolato e renderne disponibile l'applicazione con un nome di dominio completo (FQDN). Pochi secondi dopo aver eseguito un singolo comando di distribuzione, è possibile passare all'applicazione in esecuzione nel contenitore:
 
-![App distribuita in Istanze di Azure Container visualizzata nel browser][aci-app-browser]
+![Visualizzare un'app distribuita in Istanze di Azure Container nel browser][aci-app-browser]
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito][azure-account] prima di iniziare.
 
@@ -69,7 +72,7 @@ aci-demo.eastus.azurecontainer.io  Succeeded
 
 Se il valore `ProvisioningState` del contenitore è **Operazione completata**, passare al relativo indirizzo FQDN nel browser. Se viene visualizzata una pagina Web simile all'immagine seguente, congratulazioni! È stata completata la distribuzione di un'applicazione in esecuzione in un contenitore Docker in Azure.
 
-![Screenshot del browser che mostra l'applicazione in esecuzione in un'istanza di contenitore di Azure][aci-app-browser]
+![Visualizzare un'app distribuita in Istanze di Azure Container nel browser][aci-app-browser]
 
 Se inizialmente l'applicazione non viene visualizzata, può essere necessario attendere alcuni secondi il completamento della propagazione DNS, quindi provare ad aggiornare il browser.
 
@@ -147,7 +150,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido è stata creata un'istanza di contenitore di Azure usando un'immagine Microsoft pubblica. Per provare a creare un'immagine del contenitore e a distribuirla da un registro contenitori di Azure privato, passare all'esercitazione su Istanze di Azure Container.
+In questo argomento di avvio rapido è stata creata un'istanza di contenitore di Azure usando un'immagine Microsoft pubblica. Per provare a creare un'immagine del contenitore e a distribuirla da un Registro Azure Container privato, passare all'esercitazione su Istanze di Azure Container.
 
 > [!div class="nextstepaction"]
 > [Esercitazione su Istanze di Azure Container](./container-instances-tutorial-prepare-app.md)
@@ -155,7 +158,7 @@ In questo argomento di avvio rapido è stata creata un'istanza di contenitore di
 Per provare le opzioni per l'esecuzione di contenitori in un sistema di orchestrazione in Azure, vedere le guide di avvio rapido per il [servizio Azure Kubernetes][container-service].
 
 <!-- IMAGES -->
-[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+[aci-app-browser]: ./media/container-instances-quickstart/view-an-application-running-in-an-azure-container-instance.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git

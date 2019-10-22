@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 10/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 5327b01fdc3d350c547a2992341102832c0486c4
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0ce44429c7222e4eaa0ef523dadf0fa08723e975
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71975243"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327890"
 ---
 # <a name="whats-new-in-qna-maker"></a>Novità di QnA Maker
 
@@ -24,6 +24,10 @@ Ecco cosa c'è di nuovo nel servizio. Le novità possono includere note sulla ve
 ## <a name="release-notes"></a>Note sulla versione 
 
 Novità di QnA Maker.
+
+### <a name="october-2019"></a>Ottobre 2019
+
+* [Impostazione esplicita della lingua](./how-to/language-knowledge-base.md#select-language-when-creating-first-knowledge-base) per tutte le knowledge base nel servizio QnA Maker. 
 
 ### <a name="september-2019"></a>Settembre 2019
 

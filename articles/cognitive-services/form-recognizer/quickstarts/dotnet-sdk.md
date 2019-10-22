@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: fc0964508f3031efd91db827524042bf0577ab5e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 74bb062713eac44310edcc8d1cdaed605e964681
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242505"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264447"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Guida introduttiva: Libreria client di Riconoscimento modulo per .NET
 
@@ -34,7 +34,7 @@ Usare la libreria client di Riconoscimento modulo per .NET per:
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/).
 * Accesso all'anteprima dell'API di riconoscimento modulo ad accesso limitato. Per avere accesso all'anteprima, completare e inviare il modulo di [richiesta di accesso al riconoscimento modulo](https://aka.ms/FormRecognizerRequestAccess).
-* Un BLOB di Archiviazione di Azure contenente un set di dati di training. Consultare [Compilare un training set per un modello personalizzato](../build-training-data-set.md) per suggerimenti e opzioni per la creazione di dati di training. Per questa guida di avvio rapido, è possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451).
+* Un BLOB di Archiviazione di Azure contenente un set di dati di training. Consultare [Compilare un training set per un modello personalizzato](../build-training-data-set.md) per suggerimenti e opzioni per la creazione di dati di training. Per questo argomento di avvio rapido, è possibile usare i file inclusi nella cartella **Train** del [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451).
 * Versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
 
 ## <a name="setting-up"></a>Configurazione
@@ -122,6 +122,7 @@ Prima di definire i metodi, aggiungere le definizioni delle variabili seguenti a
 
 * Il valore dell'endpoint del servizio è reperibile nella sezione **Panoramica** del portale di Azure. 
 * Per recuperare l'URL di firma di accesso condiviso per i dati di training, aprire Microsoft Azure Storage Explorer, fare clic con il pulsante destro del mouse sul contenitore e scegliere **Ottieni firma di accesso condiviso**. Assicurarsi che le autorizzazioni **Lettura** ed **Elenco** siano selezionate e fare clic su **Crea**. A questo punto, copiare il valore dalla sezione **URL**. Dovrebbe essere in questo formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* Se è necessario un modulo di esempio da analizzare, è possibile usare uno dei file includi nella cartella **Test** del [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451). Questa guida usa moduli PDF.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_variables)]
 

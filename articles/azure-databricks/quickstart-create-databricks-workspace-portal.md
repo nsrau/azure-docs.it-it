@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire un processo Spark in Azure Databricks mediante il portale di Azure'
+title: Eseguire un processo Spark in Azure Databricks mediante il portale di Azure
 description: Questa guida introduttiva illustra come usare il portale di Azure per creare un'area di lavoro di Azure Databricks e un cluster Apache Spark e per eseguire un processo Spark.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 3570325880b4c8d8eb311f00477262126a2b18ad
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 21a3e8541441e6139c1c84138870b3ffaf3cacc1
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932573"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515798"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Avvio rapido: Eseguire un processo Spark in Azure Databricks mediante il portale di Azure
 
@@ -54,12 +54,13 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
     |**Gruppo di risorse**     | Specificare se si vuole creare un nuovo gruppo di risorse o usarne uno esistente. Un gruppo di risorse è un contenitore con risorse correlate per una soluzione Azure. Per altre informazioni, vedere [Panoramica di Gestione risorse di Microsoft Azure](../azure-resource-manager/resource-group-overview.md). |
     |**Posizione**     | Selezionare **Stati Uniti occidentali 2**. Per le altre aree disponibili, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).        |
     |**Piano tariffario**     |  Scegliere tra **Standard**, **Premium** e **Versione di valutazione**. Per altre informazioni su questi piani tariffari, vedere la [pagina dei prezzi di Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Rete virtuale**     |  Scegliere di distribuire un'area di lavoro di Databricks nella rete virtuale. Per altre informazioni, vedere [Distribuire Azure Databricks nella rete virtuale di Azure (inserimento in rete virtuale)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).        |
 
-    Selezionare **Aggiungi al dashboard** e quindi fare clic su **Crea**.
+    Selezionare **Create** (Crea).
 
 4. La creazione dell'area di lavoro richiede alcuni minuti, durante i quali è possibile visualizzare lo stato della distribuzione in **Notifiche**.
 
-    ![Riquadro di distribuzione Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Riquadro di distribuzione Databricks")
+    ![Riquadro di distribuzione di Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Riquadro di distribuzione di Databricks")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Creare un cluster Spark in Databricks
 
@@ -74,12 +75,12 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
 
 3. Nella pagina **New cluster** (Nuovo cluster) specificare i valori per creare un cluster.
 
-    ![Creare il cluster Databricks Spark in Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Creare il cluster Databricks Spark in Azure")
+    ![Creare un cluster di Databricks Spark in Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Creare un cluster di Databricks Spark in Azure")
 
     Accettare tutti gli altri valori predefiniti tranne i seguenti:
 
    * Immettere un nome per il cluster.
-   * Per questo articolo creare un cluster con il runtime **5.2**.
+   * Per questo articolo, creare un cluster con il runtime **5.3**.
    * Assicurarsi di selezionare la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo \_\_ minuti di attività). Specificare una durata in minuti per terminare il cluster, se questo non viene usato.
     
      Selezionare **Crea cluster**. Quando il cluster è in esecuzione, è possibile collegare blocchi appunti al cluster ed eseguire processi Spark.
@@ -92,11 +93,11 @@ Eseguire le attività seguenti per creare un blocco appunti in Databricks, confi
 
 1. Nel riquadro sinistro selezionare **Azure Databricks**. In **Attività comuni** fare clic su **Nuovo blocco appunti**.
 
-    ![Creare un blocco appunti in Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Creare un blocco appunti in Databricks")
+    ![Creare un notebook in Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Creare un notebook in Databricks")
 
 2. Nella finestra di dialogo **Crea blocco appunti** immettere un nome, selezionare **Python** come linguaggio e selezionare il cluster Spark creato in precedenza.
 
-    ![Creare un blocco appunti in Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Creare un blocco appunti in Databricks")
+    ![Creare un notebook in Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Creare un notebook in Databricks")
 
     Selezionare **Create** (Crea).
 
@@ -144,7 +145,7 @@ Eseguire le attività seguenti per creare un blocco appunti in Databricks, confi
 
 8. In **Customize Plot** (Personalizza grafico) trascinare i valori come illustrato nello screenshot.
 
-    ![Personalizzare il grafico a torta](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Personalizzare il grafico a torta")
+    ![Personalizzare un grafico a torta](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Personalizzare un grafico a barre")
 
    * Impostare **Chiavi** su **source**.
    * Impostare **Valori** su **<\id>** .
@@ -157,7 +158,7 @@ Eseguire le attività seguenti per creare un blocco appunti in Databricks, confi
 
 Dopo aver finito l'articolo è possibile terminare il cluster. A questo scopo, nel riquadro sinistro dell'area di lavoro di Azure Databricks fare clic su **Clusters** (Cluster). Per il cluster che si vuole terminare, posizionare il cursore sui puntini di sospensione sotto la colonna **Actions** (Azioni) e fare clic sull'icona **Terminate** (Termina).
 
-![Arrestare un cluster Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Arrestare un cluster Databricks")
+![Arrestare un cluster di Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Arrestare un cluster di Databricks")
 
 Se non viene terminato manualmente, il cluster si arresterà automaticamente se è stata selezionata la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo \_\_ minuti di attività) durante la creazione del cluster. In tal caso, il cluster viene automaticamente arrestato se è rimasto inattivo per il tempo specificato.
 

@@ -1,17 +1,17 @@
 ---
-title: Creare un'assegnazione di criteri con un modello di Resource Manager
+title: Creare un'assegnazione con un modello di Resource Manager
 description: Questo articolo illustra come usare un modello di Resource Manager per creare un'assegnazione di criteri per identificare le risorse non conformi.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
-ms.openlocfilehash: 72d8fab39e8dd11cf46eb2977a9b9fe288ca2de1
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 842b29160e3abaea5edc4bfb4f2e1c345e3ffc85
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980810"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254811"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi tramite un modello di Resource Manager
 

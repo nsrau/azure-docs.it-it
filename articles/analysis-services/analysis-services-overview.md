@@ -2,18 +2,17 @@
 title: Informazioni su Azure Analysis Services | Microsoft Docs
 description: Ottenere un quadro generale di Analysis Services in Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 08/27/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1f3552fe574291bf696e3b4418924c7e005d713e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 4369f1ce7d6ef90e8489dbec5daa181406c0fecf
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259545"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512602"
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 
@@ -149,7 +148,7 @@ I modelli tabulari in Azure Analysis Services supportano un'ampia gamma di origi
 
 ## <a name="compatibility-level"></a>Livello di compatibilità
 
-Il termine livello di compatibilità fa riferimento a comportamenti specifici di ogni versione nel motore di Analysis Services. Azure Analysis Services supporta modelli tabulari con livelli di compatibilità 1200 e successivi. Per altre informazioni, vedere [Livello di compatibilità per i modelli tabulari di Analysis Services](analysis-services-compat-level.md).
+Il termine livello di compatibilità fa riferimento a comportamenti specifici di ogni versione nel motore di Analysis Services. Azure Analysis Services supporta modelli tabulari con livelli di compatibilità 1200 e successivi. Per altre informazioni, vedere [Livello di compatibilità per i modelli tabulari](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services).
 
 
 ## <a name="your-data-is-secure"></a>I dati sono protetti

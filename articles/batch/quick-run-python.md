@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva di Azure: Eseguire un processo Batch - Python'
+title: 'Guida introduttiva: Eseguire un processo batch di Azure - API Python'
 description: Eseguire rapidamente un processo e attività Batch con la libreria client Batch Python.
 services: batch
 author: laurenhughes
@@ -9,19 +9,23 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
-ms.custom: mvc
-ms.openlocfilehash: 77ccfc1a67fabca7fde47edac9094c6a68191f0f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.custom:
+- seo-python-october2019
+- mvc
+ms.openlocfilehash: 6c9690a74e8dff9978fa4e07883738d062238121
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090757"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437385"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Guida introduttiva: Eseguire il primo processo Batch con l'API Python
 
-Questa guida introduttiva esegue un processo Azure Batch da un'applicazione compilata con l'API Python di Azure Batch. L'applicazione carica più file di dati di input nell'archivio di Azure e quindi crea un *pool* di nodi di calcolo Batch (macchine virtuali). Crea quindi un *processo* di esempio che esegue *attività* per l'elaborazione di ogni file di input nel pool usando un comando di base. Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
+Questa guida introduttiva esegue un processo Azure Batch da un'applicazione compilata con l'API Python di Azure Batch.  Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
+
+L'applicazione carica più file di dati di input nell'archivio di Azure e quindi crea un *pool* di nodi di calcolo Batch (macchine virtuali). Crea quindi un *processo* di esempio che esegue *attività* per l'elaborazione di ogni file di input nel pool usando un comando di base.
  
-![Flusso di lavoro dell'app della guida introduttiva](./media/quick-run-python/sampleapp.png)
+![Panoramica del flusso di lavoro di Azure Batch](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 

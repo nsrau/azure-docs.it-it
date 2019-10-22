@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 monikerRange: vsts
-ms.openlocfilehash: 9fc276626d2a863f7f2e53cd7312ab8b3be513dd
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 11edeb35119e2c598fd83fd89c65ba4dc4679650
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815775"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256127"
 ---
 #  <a name="quickstart-create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-projects"></a>Guida introduttiva: Creare una pipeline CI/CD in Azure Pipelines per Node.js con Azure DevOps Projects
 
@@ -37,7 +37,7 @@ DevOps Projects crea una pipeline CI/CD in Azure Pipelines. È possibile creare 
 
 1. Nel riquadro a sinistra selezionare **Crea una risorsa** e quindi cercare **DevOps Projects**. 
 
-    ![Inizio della configurazione del recapito continuo](_img/azure-devops-project-nodejs/fullbrowser.png)
+    ![Creare una risorsa di configurazione per la distribuzione continua](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Selezionare un'applicazione di esempio e un servizio di Azure
 
@@ -60,7 +60,7 @@ DevOps Projects crea una pipeline CI/CD in Azure Pipelines. È possibile creare 
      
 3. Selezionare **Sfoglia** per visualizzare l'applicazione in esecuzione.
 
-    ![Visualizzazione dashboard](_img/azure-devops-project-nodejs/dashboardnopreview.png) 
+    ![Visualizzazione della pipeline CI/CD nel dashboard](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
     
 DevOps Projects ha configurato automaticamente un trigger di compilazione e di versione di integrazione continua.  A questo punto, si è pronti per collaborare con un team a un'app Node.js con un processo di CI/CD che distribuisce automaticamente il lavoro più recente nel sito Web.
 
