@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43986ce57b8d320beeae748d3b848cf9ef38744d
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 2803f8d659726ac95bcefa6191a816ed2b2dcb2d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718715"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375405"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Informazioni sugli addebiti per i servizi esterni di Azure
-I servizi esterni vengono pubblicati da fornitori di software di terze parti nel marketplace di Azure. Ad esempio, SendGrid è un servizio esterno che è possibile acquistare in Azure, ma che non viene pubblicato da Microsoft. Alcuni prodotti Microsoft vengono venduti anche tramite Azure Marketplace.
+I servizi esterni vengono pubblicati da fornitori di software di terze parti in Azure Marketplace. Ad esempio, SendGrid è un servizio esterno che è possibile acquistare in Azure, ma che non viene pubblicato da Microsoft. Alcuni prodotti Microsoft vengono venduti anche tramite Azure Marketplace.
 
 ## <a name="how-external-services-are-billed"></a>Modalità di fatturazione dei servizi esterni
 
-- Se si dispone di un [Contratto del cliente Microsoft](#check-access), i servizi di terze parti vengono fatturati con il resto dei servizi di Azure.
-- Se non si dispone di un Contratto del cliente Microsoft, i servizi esterni vengono fatturati separatamente dai servizi di Azure.
+- Se si dispone di un Contratto del cliente Microsoft o Contratto Microsoft Partner, i servizi di terze parti vengono fatturati con gli altri servizi di Azure. [Controllare il tipo di account di fatturazione ](#check-billing-account-type) per verificare se si ha accesso a un Contratto del cliente Microsoft o Contratto Microsoft Partner.
+- Se non si dispone di un Contratto del cliente Microsoft o Contratto Microsoft Partner, i servizi esterni vengono fatturati separatamente dai servizi di Azure.
 - Per ogni servizio esterno è previsto un modello di fatturazione diverso. Alcuni servizi vengono fatturati con pagamento in base al consumo, mentre altri prevedono addebiti mensili fissi.
 - Non è possibile usare i crediti gratuiti mensili per i servizi esterni. Se si usa una sottoscrizione di Azure che include [crediti gratuiti](https://azure.microsoft.com/pricing/spending-limits/), questi non possono essere applicati agli addebiti dei servizi esterni. Durante il provisioning di un nuovo servizio esterno o di una nuova risorsa, viene visualizzato un avviso:
 
@@ -48,11 +48,11 @@ You can view a list of the external services that are on each subscription withi
 
     ![View external services billing history](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png) -->
 
-## <a name="view-and-download-invoices"></a>Visualizzare e scaricare fatture
+## <a name="view-and-download-invoices-for-external-services"></a>Visualizzare e scaricare le fatture per i servizi esterni
 
-Se si dispone di un [Contratto del cliente Microsoft](#check-access), gli addebiti di terze parti si trovano nella stessa fattura degli addebiti di Azure. Informazioni su come [visualizzare e scaricare la fattura di Azure](billing-download-azure-invoice.md) dal portale di Azure per vedere gli addebiti di terze parti.
+Se si dispone di un Contratto del cliente Microsoft o Contratto Microsoft Partner, i servizi di terze parti vengono fatturati con gli altri servizi di Azure. [Controllare il tipo di account di fatturazione ](#check-billing-account-type) per verificare se si ha accesso a un Contratto del cliente Microsoft o Contratto Microsoft Partner. In caso affermativo, vedere [Visualizzare e scaricare le fatture nel portale di Azure](billing-download-azure-invoice.md) per vedere gli addebiti di terze parti.
 
-Se non si dispone di un Contratto del cliente Microsoft, si riceveranno fatture separate per gli addebiti di terze parti. È possibile visualizzare e scaricare le fatture di Azure Marketplace dal portale di Azure attenendosi alla procedura seguente:
+Se non si dispone di un Contratto del cliente Microsoft o Contratto Microsoft Partner, si riceveranno fatture separate per gli addebiti di terze parti. È possibile visualizzare e scaricare le fatture di Azure Marketplace dal portale di Azure attenendosi alla procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Cercare **Gestione dei costi e fatturazione**.
@@ -108,8 +108,8 @@ Se si desidera annullare l'ordine di servizio esterno, eliminare la risorsa nel 
     ![Eliminare una risorsa](./media/billing-understand-your-azure-marketplace-charges/delete-resource.PNG)
 1. Fare clic su **Elimina**.
 
-## <a name="check-access"></a>Verificare l'accesso
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+## <a name="check-billing-account-type"></a>Controllare il tipo di account di fatturazione
+[!INCLUDE [billing-check-account-type](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 

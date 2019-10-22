@@ -1,23 +1,19 @@
 ---
 title: Automatizzare i report personalizzati con i dati di Azure Application Insights
 description: Automatizzare i report personalizzati giornalieri/settimanali/mensili con i dati di Azure Application Insights
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: 3becf5ef579acdc52a51f9ad618e37460491c2ec
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 2b23374972a071421b59bedf0eb5b9358b37d7a9
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146754"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677618"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizzare i report personalizzati con i dati di Azure Application Insights
 
@@ -95,7 +91,7 @@ availabilityResults
 5. Selezionare il **_modello digest pianificato di Application Insights_** .
 
      > [!NOTE]
-     > Per impostazione predefinita, le app per le funzioni vengono create con la versione 2. x del runtime. È necessario fare [riferimento al runtime di funzioni di Azure versione](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1. x** per usare il modello di digest pianificato Application Insights.  ![schermata di runtime](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
+     > Per impostazione predefinita, le app per le funzioni vengono create con la versione 2. x del runtime. È necessario fare [riferimento al runtime di funzioni di Azure versione](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1. x** per usare il modello di digest pianificato Application Insights.  ![runtime screenshot ](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
 
 
 

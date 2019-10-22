@@ -1,23 +1,19 @@
 ---
 title: Correlazione di dati di Azure Application Insights Telemetry | Microsoft Docs
 description: Correlazione di dati di Application Insights Telemetry
-services: application-insights
-documentationcenter: .net
-author: lgayhardt
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.author: lagayhar
-ms.openlocfilehash: fe52fe51b347b232e03bad943906413b90c853c0
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: aa683e90a328e9525fa7d0a78981aa107818188a
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338179"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678180"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -51,11 +47,11 @@ Un'applicazione denominata Stock Prices mostra il prezzo di mercato di un'azione
 
 Nei risultati tutti gli elementi di telemetria condividono l'elemento `operation_Id` radice. Quando viene eseguita una chiamata Ajax dalla pagina, viene assegnato un nuovo ID univoco (`qJSXU`) alla telemetria delle dipendenze e l'ID di pageView viene usato come `operation_ParentId`. La richiesta server usa quindi l'ID Ajax come `operation_ParentId`.
 
-| itemType   | name                      | id           | operation_ParentId | operation_Id |
+| itemType   | name                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Pagina Stock                |              | STYz               | STYz         |
 | dipendenza | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
-| request    | GET /Home/Stock            | KqKwlrSt9PA = | qJSXU              | STYz         |
+| richiesta    | GET /Home/Stock            | KqKwlrSt9PA = | qJSXU              | STYz         |
 | dipendenza | GET /api/stock/value      | bBrf2L7mm2g = | KqKwlrSt9PA =       | STYz         |
 
 Quando la chiamata `GET /api/stock/value` viene effettuata a un servizio esterno, si vuole conoscere l'identità del relativo server per poter impostare correttamente il campo `dependency.target`. Quando il servizio esterno non supporta il monitoraggio, `target` è impostato sul nome host del servizio (ad esempio, `stock-prices-api.com`). Se tuttavia il servizio identifica se stesso restituendo un'intestazione HTTP predefinita, `target` contiene l'identità del servizio che consente ad Application Insights di creare una traccia distribuita eseguendo query sui dati di telemetria di quel servizio.
@@ -64,14 +60,14 @@ Quando la chiamata `GET /api/stock/value` viene effettuata a un servizio esterno
 
 È in corso la transizione a [W3C Trace-context](https://w3c.github.io/trace-context/) che definisce:
 
-- `traceparent`: contiene l'ID operazione globalmente univoco e un identificatore univoco della chiamata.
-- `tracestate`: contiene il contesto specifico del sistema di analisi.
+- `traceparent`: contiene l'ID operazione univoco globale e l'identificatore univoco della chiamata.
+- `tracestate`: contiene il contesto specifico del sistema di traccia.
 
 Le versioni più recenti di Application Insights SDK supportano il protocollo del contesto di traccia, ma potrebbe essere necessario acconsentire esplicitamente (la compatibilità con il protocollo di correlazione precedente supportata da ApplicationInsights SDK) verrà mantenuta.
 
 Il [protocollo http di correlazione aka Request-ID](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) si trova nel percorso di deprecazione. Questo protocollo definisce due intestazioni:
 
-- `Request-Id`: contiene l'ID globalmente univoco della chiamata.
+- `Request-Id`: contiene l'ID univoco globale della chiamata.
 - `Correlation-Context`: contiene la raccolta di coppie nome-valore delle proprietà della traccia distribuita.
 
 Application Insights definisce anche l' [estensione](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) per il protocollo http di correlazione. Usa le coppie nome-valore `Request-Context` per propagare la raccolta di proprietà usate dal chiamante o dal destinatario della chiamata. Application Insights SDK usa questa intestazione per impostare i campi `dependency.target` e `request.source`.
@@ -96,7 +92,7 @@ Questa funzionalità è disponibile nei pacchetti `Microsoft.ApplicationInsights
 
 - In `RequestTrackingTelemetryModule` aggiungere l'elemento `EnableW3CHeadersExtraction` con il valore impostato su `true`.
 - In `DependencyTrackingTelemetryModule` aggiungere l'elemento `EnableW3CHeadersInjection` con il valore impostato su `true`.
-- Aggiungere `W3COperationCorrelationTelemetryInitializer` sotto il `TelemetryInitializers` simile a 
+- Aggiungere `W3COperationCorrelationTelemetryInitializer` nel `TelemetryInitializers` simile a 
 
 ```xml
 <TelemetryInitializers>
@@ -172,7 +168,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="enable-w3c-distributed-tracing-support-for-web-apps"></a>Abilitare il supporto per la traccia distribuita W3C per le app Web
 
-Questa funzionalità è `Microsoft.ApplicationInsights.JavaScript`. È disabilitata per impostazione predefinita. Per abilitarla, usare la configurazione `distributedTracingMode`. AI_AND_W3C viene fornito per la compatibilità con le versioni precedenti di tutti i servizi Application Insights instrumentati:
+Questa funzionalità è `Microsoft.ApplicationInsights.JavaScript`. È disabilitata per impostazione predefinita. Per abilitarla, usare `distributedTracingMode` config. AI_AND_W3C viene fornito per la compatibilità con le versioni precedenti di tutti i servizi Application Insights instrumentati:
 
 - **Installazione di NPM (ignora se si usa l'installazione del frammento)**
 

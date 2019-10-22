@@ -4,16 +4,16 @@ description: Questo articolo illustra le attività comuni eseguite da un amminis
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 21e9d4af783ed5d9eb3ace1c8b5189163b89f8b0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f344436b1e1f1a97b981c1ead469d965b06a12ce
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035212"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329344"
 ---
 # <a name="azure-ea-portal-administration"></a>Amministrazione di Azure EA Portal
 
@@ -62,7 +62,7 @@ Quando si trasferisce un account aziendale in una nuova registrazione, tenere pr
 
 La data di validità del trasferimento può essere una data corrispondente o successiva alla data di inizio della registrazione in cui si vuole eseguire il trasferimento. La registrazione in cui si sta eseguendo il trasferimento è la _registrazione di destinazione_. Dopo il trasferimento dell'account, tutte le informazioni sull'utilizzo nell'account prima della data di trasferimento rimangono nella registrazione da cui si sta eseguendo il trasferimento. La registrazione da cui si sta eseguendo il trasferimento è la _registrazione di origine_.  L'utilizzo della registrazione di origine viene addebitato in base all'impegno monetario o come eccedenza. L'utilizzo che ha luogo dopo la data di trasferimento effettiva viene trasferito alla nuova registrazione e addebitato di conseguenza.
 
-È possibile retrodatare il trasferimento di un account fino alla data di inizio della registrazione di destinazione oppure fino alla data di inizio effettiva della registrazione di origine.
+È possibile retrodatare il trasferimento di una registrazione fino alla data di inizio della registrazione di destinazione. oppure fino alla data di inizio effettiva della registrazione di origine.
 
 ### <a name="monetary-commitment"></a>Impegno monetario
 
@@ -212,12 +212,11 @@ Se un utente non riceve una notifica, verificare che le impostazioni di notifica
 ![Esempio che mostra la casella Aggiunta di un contatto ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 
 ## <a name="azure-sponsorship-offer"></a>Offerta Azure Sponsorship
+
 L'offerta Azure Sponsorship è un account di Microsoft Azure sponsorizzato con limitazioni. È disponibile per invito tramite posta elettronica solo per un numero limitato di clienti selezionati da Microsoft. Gli utenti idonei all'offerta Microsoft Azure Sponsorship riceveranno tramite posta elettronica un invito per il proprio ID account.
+
 Per altre informazioni, vedere:
 
-- Panoramica dell'offerta Sponsorship: https://azure.microsoft.com/en-us/offers/ms-azr-0143p/
-- Portale del saldo dell'offerta Sponsorship: https://www.microsoftazuresponsorships.com/balance  
-- Domande frequenti esterne sull'offerta Sponsorship: https://azuresponsorships-staging.azurewebsites.net/faq
 - Richiesta di supporto per l'attivazione dell'offerta Sponsorship: http://aka.ms/azrsponsorship
 
 ## <a name="next-steps"></a>Passaggi successivi

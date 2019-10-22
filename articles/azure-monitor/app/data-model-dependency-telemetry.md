@@ -1,29 +1,25 @@
 ---
 title: Modello di dati di Azure Application Insights Telemetry - Telemetria delle dipendenze | Microsoft Docs
 description: Modello di dati di Application Insights per la telemetria delle dipendenze
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: 3e3d6b8fdc9ac8dd28f73fecd6231e97a5645407
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e0923c20b11aa02f380af1faa6766d2346ad1fb2
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60901026"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677442"
 ---
-# <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria di dipendenza: Modello di dati di Application Insights
+# <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria delle dipendenze: modello di dati di Application Insights
 
 In [Application Insights](../../azure-monitor/app/app-insights-overview.md), la telemetria delle dipendenze rappresenta un'interazione del componente monitorato con un componente remoto, ad esempio SQL o un endpoint HTTP.
 
-## <a name="name"></a>Name
+## <a name="name"></a>name
 
 Nome del comando avviato con questa chiamata delle dipendenze. Valore di cardinalità basso. Esempi sono il nome della stored procedure e il modello di percorso URL.
 
@@ -39,7 +35,7 @@ Comando avviato con questa chiamata delle dipendenze. Esempi sono l'istruzione S
 
 Nome del tipo di dipendenza. Valore di cardinalità basso per un raggruppamento logico delle dipendenze e l'interpretazione di altri campi come commandName e resultCode. Esempi sono SQL, tabelle di Azure e HTTP.
 
-## <a name="target"></a>Destinazione
+## <a name="target"></a>Obiettivo
 
 Sito di destinazione di una chiamata delle dipendenze. Esempi sono nome del server, indirizzo host. Per altre informazioni vedere la pagina relativa alla [correlazione](../../azure-monitor/app/correlation.md).
 
@@ -51,7 +47,7 @@ Durata della richiesta in formato: `DD.HH:MM:SS.MMMMMM`. Deve essere inferiore a
 
 Codice risultato di una chiamata delle dipendenze. Esempi sono il codice di errore SQL e il codice di stato HTTP.
 
-## <a name="success"></a>Riuscito
+## <a name="success"></a>Success
 
 Indicazione di chiamata con esito positivo o con esito negativo.
 

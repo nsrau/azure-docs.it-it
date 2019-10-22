@@ -1,27 +1,26 @@
 ---
-title: Aggiungere cicli che ripetono le azioni o elaborano le matrici- App per la logica di Azure | Microsoft Docs
-description: Come creare cicli che ripetono le azioni del flusso di lavoro o elaborano le matrici nelle App per la logica di Azure
+title: Aggiungere cicli a azioni ripetute-app per la logica di Azure
+description: Creare cicli che ripetono le azioni del flusso di lavoro o elaborano le matrici nelle App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-manager: jeconnoc
-ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/05/2019
+ms.openlocfilehash: 31885749a7194a94a403e5c156220b3fceab951d
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60683962"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680458"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Creare cicli che ripetono le azioni del flusso di lavoro o elaborano le matrici nelle App per la logica di Azure
 
 Per elaborare una matrice nell'app per la logica, è possibile creare un [ciclo "Foreach"](#foreach-loop). Questo ciclo ripete una o più azioni su ogni elemento della matrice. Per i limiti al numero massimo di elementi di una matrice che i cicli "Foreach" possono elaborare, vedere [Limiti e configurazione](../logic-apps/logic-apps-limits-and-config.md). 
 
-Per ripetere le azioni fino a quando una condizione non viene soddisfatta o non viene modificato uno stato, è possibile creare un [ciclo "Until"](#until-loop). Innanzitutto, app per la logica esegue tutte le azioni all'interno del ciclo e controlla quindi lo stato o una condizione. Se la condizione viene soddisfatta, il ciclo si arresta. In caso contrario, il ciclo viene ripetuto. Per i limiti al numero massimo di cicli "Until" in un'esecuzione dell'app per la logica, vedere [Limiti e configurazione](../logic-apps/logic-apps-limits-and-config.md). 
+Per ripetere le azioni fino a quando una condizione non viene soddisfatta o non viene modificato uno stato, è possibile creare un [ciclo "Until"](#until-loop). L'app per la logica esegue prima tutte le azioni all'interno del ciclo, quindi controlla la condizione o lo stato. Se la condizione viene soddisfatta, il ciclo si arresta. In caso contrario, il ciclo viene ripetuto. Per i limiti al numero massimo di cicli "Until" in un'esecuzione dell'app per la logica, vedere [Limiti e configurazione](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP]
 > Se è presente un trigger che riceve una matrice e si vuole eseguire un flusso di lavoro per ogni elemento della matrice, è possibile *eseguire il debatch* di tale matrice con la [proprietà **SplitOn** per il trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
@@ -58,7 +57,7 @@ Questa app per la logica di esempio invia un riepilogo giornaliero per un feed R
 
       ![Selezionare "Add an action" (Aggiungi un'azione)](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
-   1. Nella casella di ricerca scegliere **Tutti**. Nella casella di ricerca digitare "for each" come filtro. Nell'elenco di azioni selezionare questa azione: **For each - Controllo**
+   1. Nella casella di ricerca scegliere **Tutti**. Nella casella di ricerca digitare "for each" come filtro. Nell'elenco azioni selezionare questa azione: **per ogni controllo**
 
       ![Aggiungere un ciclo "For each"](media/logic-apps-control-flow-loops/select-for-each.png)
 
@@ -122,7 +121,7 @@ Se si usa la visualizzazione Codice per l'app per la logica, è invece possibile
 
 <a name="sequential-foreach-loop"></a>
 
-## <a name="foreach-loop-sequential"></a>Ciclo "Foreach": Sequenziale
+## <a name="foreach-loop-sequential"></a>Ciclo "Foreach": sequenziale
 
 Per impostazione predefinita, in una versione di "Foreach" i cicli sono eseguiti in parallelo. Per eseguire ogni ciclo in sequenza, impostare l'opzione **Sequenziale** della versione. I cicli "Foreach" devono essere eseguiti in sequenza quando sono presenti cicli annidati o variabili all'interno dei cicli dove si attendono risultati prevedibili. 
 
@@ -154,7 +153,7 @@ Se si usa la definizione JSON dell'app per la logica, è possibile usare l'opzio
 
 ## <a name="until-loop"></a>Ciclo "Until"
   
-Per eseguire e ripetere azioni fino a quando non ottiene soddisfatta una condizione o uno stato modificato, inserire tali azioni in un ciclo "Until". Innanzitutto, app per la logica esegue tutte le azioni all'interno del ciclo e controlla quindi lo stato o una condizione. Se la condizione viene soddisfatta, il ciclo si arresta. In caso contrario, il ciclo viene ripetuto.
+Per eseguire e ripetere le azioni fino a quando non viene soddisfatta una condizione o uno stato, inserire le azioni in un ciclo "until". L'app per la logica esegue prima tutte le azioni all'interno del ciclo, quindi controlla la condizione o lo stato. Se la condizione viene soddisfatta, il ciclo si arresta. In caso contrario, il ciclo viene ripetuto.
 
 Ecco alcuni scenari comuni in cui è possibile usare un ciclo "Until":
 
@@ -169,7 +168,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 > [Controllare l'elenco dei connettori qui](https://docs.microsoft.com/connectors/). Se si usa un altro account di posta elettronica, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa. 
 
 1. Creare un'app per la logica vuota. In Progettazione app per la logica scegliere **Tutti** sotto la casella di ricerca. Cercare "ricorrenza". 
-   Nell'elenco di trigger selezionare questo trigger: **Ricorrenza - Pianificazione**
+   Dall'elenco trigger selezionare questo trigger: **ricorrenza-pianificazione**
 
    ![Aggiungere il trigger "Ricorrenza - Pianificazione"](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
 
@@ -185,7 +184,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
    ||| 
 
 1. Nel trigger scegliere **Nuovo passaggio**. 
-   Cercare "variabili" e selezionare questa azione: **Inizializza variabile - Variabili**
+   Cercare "variabili" e selezionare questa azione: **Inizializza variabile-variabili**
 
    ![Aggiungere l'azione "Inizializza variabile - Variabili"](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
@@ -193,7 +192,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
    ![Impostare le proprietà della variabile](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | Proprietà | Valore | DESCRIZIONE |
+   | Proprietà | Value | Description |
    | -------- | ----- | ----------- |
    | **Nome** | Limite | Nome della variabile | 
    | **Tipo** | Integer | Nome del tipo di dati della variabile | 
@@ -202,7 +201,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
 1. Sotto l'azione **Inizializza variabile** scegliere **Nuovo passaggio**. 
 
-1. Nella casella di ricerca scegliere **Tutti**. Cercare "until" e selezionare questa azione: **Until - Controllo**
+1. Nella casella di ricerca scegliere **Tutti**. Cercare "until" e selezionare questa azione: **until-Control**
 
    ![Aggiungere il ciclo "Until"](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
 
@@ -213,7 +212,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
 1. Nel ciclo scegliere **Aggiungi un'azione**. 
 
-1. Nella casella di ricerca scegliere **Tutti**. Cercare "variabili" e selezionare questa azione: **Incrementa variabile - Variabili**
+1. Nella casella di ricerca scegliere **Tutti**. Cercare "variabili" e selezionare questa azione: **incremento variabile-variabili**
 
    ![Aggiungere l'azione per incrementare la variabile](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
@@ -234,9 +233,9 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
       ![Configurare le proprietà del messaggio di posta elettronica](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | Proprietà | Valore | Descrizione |
+      | Proprietà | Value | Description |
       | -------- | ----- | ----------- | 
-      | **To** | *\<email-address\@domain>* | Indirizzo e-mail del destinatario. Per il test è possibile usare l'indirizzo di posta elettronica personale. | 
+      | **To** | *\<email-Address \@domain >* | Indirizzo e-mail del destinatario. Per il test è possibile usare l'indirizzo di posta elettronica personale. | 
       | **Oggetto** | Il valore corrente per "Limite" è **Limite** | Specificare l'oggetto del messaggio di posta elettronica. Assicurarsi di includere in questo esempio la variabile **Limite**. | 
       | **Corpo** | <*contenuto del messaggio di posta elettronica*> | Specificare il contenuto del messaggio di posta elettronica da inviare. Per questo esempio, immettere il testo desiderato. | 
       |||| 
@@ -251,7 +250,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
 Un ciclo "Until" ha limiti predefiniti che arrestano l'esecuzione se si verifica una di queste condizioni:
 
-| Proprietà | Valore predefinito | Descrizione | 
+| Proprietà | Valore predefinito | Description | 
 | -------- | ------------- | ----------- | 
 | **Numero** | 60 | Numero massimo di cicli eseguiti prima della chiusura del ciclo. L'impostazione predefinita è 60 cicli. | 
 | **Timeout** | PT1H | Intervallo di tempo massimo per l'esecuzione di un ciclo prima della chiusura del ciclo. L'impostazione predefinita è un'ora ed è specificata in formato ISO 8601. <p>Il valore di timeout viene valutato per ogni ciclo. Se un'azione del ciclo richiede più tempo di quello previsto dal limite di timeout, la sequenza corrente non viene arrestata. Il ciclo successivo non viene tuttavia avviato perché non viene soddisfatta la condizione limite. | 
@@ -337,7 +336,7 @@ Questo ciclo "Until" di esempio chiama un endpoint HTTP, che crea una risorsa. I
 }
 ```
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare suggerimenti relativi alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica di Azure](https://aka.ms/logicapps-wish).

@@ -1,5 +1,5 @@
 ---
-title: Usare l'intelligenza artificiale per comprendere i dati BLOB
+title: Usare l'intelligenza artificiale per comprendere i dati di archiviazione BLOB
 titleSuffix: Azure Search
 description: Aggiungere un'analisi semantica, di elaborazione del linguaggio naturale e di immagini ai BLOB di Azure usando una pipeline di arricchimento di intelligenza artificiale in ricerca di Azure.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: f7e264be9a02514972f9c9702adec8fa55a157bd
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 1a8840aca71daacc08cf85b178668e42ff9f796c
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529389"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678424"
 ---
-# <a name="use-ai-to-understand-blob-data"></a>Usare l'intelligenza artificiale per comprendere i dati BLOB
+# <a name="use-ai-to-understand-blob-storage-data"></a>Usare l'intelligenza artificiale per comprendere i dati di archiviazione BLOB
 
 I dati nell'archiviazione BLOB di Azure spesso sono un'ampia gamma di contenuto non strutturato, ad esempio immagini, testo lungo, PDF e documenti di Office. Usando le funzionalità di intelligenza artificiale in ricerca di Azure, è possibile comprendere ed estrarre informazioni utili dai BLOB in diversi modi. Esempi di applicazione dell'intelligenza artificiale al contenuto BLOB includono:
 
@@ -112,7 +112,8 @@ Un documento arricchito alla fine della pipeline è diverso dalla versione di in
 
 È possibile eseguire molte altre operazioni con l'arricchimento di intelligenza artificiale per sfruttare al meglio i dati in archiviazione di Azure, tra cui combinare servizi cognitivi in modi diversi e creare competenze personalizzate per i casi in cui non esiste un servizio cognitivo esistente per lo scenario. Per altre informazioni, vedere i collegamenti seguenti.
 
-> [!div class="nextstepaction"]
-> [Panoramica dell'arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) 
-> [creare un](cognitive-search-defining-skillset.md)insieme di competenze 
-> [nodi mappa in un albero delle annotazioni](cognitive-search-output-field-mapping.md)
++ [Caricare, scaricare ed elencare BLOB con il portale di Azure (archiviazione BLOB di Azure)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
++ [Configurare un indicizzatore BLOB (ricerca di Azure)](search-howto-indexing-azure-blob-storage.md) 
++ [Panoramica dell'arricchimento di intelligenza artificiale (ricerca di Azure)](cognitive-search-concept-intro.md) 
++ [Creare un skillt (ricerca di Azure)](cognitive-search-defining-skillset.md)
++ [Mappare i nodi in un albero delle annotazioni (ricerca di Azure)](cognitive-search-output-field-mapping.md)

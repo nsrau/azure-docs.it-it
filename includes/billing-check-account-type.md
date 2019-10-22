@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 07/01/2019
 ms.author: amberb
-ms.openlocfilehash: a271f03788bc7b831e6d8daff3d53503db5a2710
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 4b2533131407081b97bb491895d96cf566442090
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67491084"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375453"
 ---
 Verificare il tipo di contratto per determinare il tipo di account di fatturazione
  
@@ -23,7 +23,7 @@ Verificare il tipo di contratto per determinare il tipo di account di fatturazio
  
     ![Screenshot che mostra Contratto del cliente Microsoft nella pagina Proprietà](./media/billing-check-account-type/billing-mca-property.png)
     
-    **Tipo di account di fatturazione** nella pagina Proprietà determina il tipo di account. Può trattarsi di Programma di Microsoft Online Services, Contratto Enterprise o Contratto del cliente Microsoft. Per altre informazioni sul tipo di account di fatturazione, vedere [Visualizzare gli account di fatturazione nel portale di Azure](../articles/billing/billing-view-all-accounts.md).  
+    **Tipo di account di fatturazione** nella pagina Proprietà determina il tipo di account. Può trattarsi di un account Programma dei Microsoft Online Services, Contratto Enterprise, Contratto del cliente Microsoft o Contratto Microsoft Partner. Per altre informazioni sul tipo di account di fatturazione, vedere [Visualizzare gli account di fatturazione nel portale di Azure](../articles/billing/billing-view-all-accounts.md).  
  
 4. Se si dispone dell'accesso a più ambiti di fatturazione, selezionare **Account di fatturazione** o **Tutti gli ambiti di fatturazione** sul lato sinistro. Controllare il tipo nella colonna **Tipo di account di fatturazione**.
  

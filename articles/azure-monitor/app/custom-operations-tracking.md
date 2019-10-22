@@ -1,23 +1,19 @@
 ---
 title: Verifica delle operazioni personalizzate con Azure Application Insights .NET SDK | Documentazione Microsoft
 description: Verifica delle operazioni personalizzate con Azure Application Insights .NET SDK
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: d966ff3bc00d5190ebc163d4f4bfa35ba73d21ab
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: f05c8724fe87888c93230b4ca77a7a82fe9357c2
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087667"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677477"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Verifica delle operazioni personalizzate con Application Insights .NET SDK
 
@@ -132,7 +128,7 @@ Sebbene esistano il [contesto di traccia W3C](https://www.w3.org/TR/trace-contex
 
 ### <a name="service-bus-queue"></a>Coda del bus di servizio
 Application Insights tiene traccia delle chiamate di messaggistica del bus di servizio con il nuovo [client del bus di servizio di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) versione 3.0.0 e successive.
-Se per elaborare i messaggi si usa il [criterio del gestore di messaggi](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler), non ci sono altre operazioni da eseguire. Tutte le chiamate al bus di servizio eseguite dal servizio vengono automaticamente verificate e correlate con altri elementi di telemetria. Se i messaggi vengono elaborati manualmente, vedere [Service Bus client tracing with Microsoft Application Insights](../../service-bus-messaging/service-bus-end-to-end-tracing.md) (Traccia del client del bus di servizio con Microsoft Application Insights).
+Se per elaborare i messaggi si usa il [criterio con gestore di messaggi](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler), non ci sono altre operazioni da eseguire: tutte le chiamate al bus di servizio eseguite dal servizio vengono automaticamente verificate e correlate con altri elementi di telemetria. Se i messaggi vengono elaborati manualmente, vedere [Service Bus client tracing with Microsoft Application Insights](../../service-bus-messaging/service-bus-end-to-end-tracing.md) (Traccia del client del bus di servizio con Microsoft Application Insights).
 
 Se si usa il pacchetto [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/), continuare a leggere. Gli esempi seguenti illustrano come verificare e correlare le chiamate al bus di servizio dal momento che la coda del bus di servizio usa il protocollo AMQP mentre Application Insights non tiene traccia automaticamente delle operazioni nella coda.
 Gli identificatori di correlazione vengono passati nelle proprietà del messaggio.
@@ -177,7 +173,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>Process
+#### <a name="process"></a>Processo
 ```csharp
 public async Task Process(BrokeredMessage message)
 {
@@ -221,10 +217,10 @@ Inoltre è possibile correlare l'ID operazione di Application Insights con l'ID 
 #### <a name="enqueue"></a>Accodare
 Poiché le code di archiviazione di Azure supportano l'API HTTP, tutte le operazioni con la coda vengono automaticamente registrate da Application Insights. In molti casi, questa strumentazione dovrebbe essere sufficiente. Per correlare le tracce sul lato consumer con le tracce del producer, è necessario passare parte del contesto di correlazione in modo simile a quanto avviene nel protocollo HTTP per la correlazione. 
 
-Questo esempio illustra come tenere traccia dell'operazione `Enqueue`. È possibile:
+Questo esempio illustra come tenere traccia dell'operazione `Enqueue`. Puoi:
 
- - **Correlare gli eventuali tentativi**: hanno tutti un'operazione padre comune, ovvero `Enqueue`. In caso contrario, vengono registrati come elementi figlio della richiesta in ingresso. Se sono presenti più richieste logiche per la coda, potrebbe risultare difficile trovare la chiamata che ha restituito i tentativi.
- - **Correlare i log di archiviazione, se e quando necessario**: vengono correlati con i dati di telemetria di Application Insights.
+ - **Correlare gli eventuali tentativi**, che hanno tutti un'operazione padre comune, ovvero `Enqueue`. In caso contrario, vengono registrati come elementi figlio della richiesta in ingresso. Se sono presenti più richieste logiche per la coda, potrebbe risultare difficile trovare la chiamata che ha restituito i tentativi.
+ - **Correlare i log di archiviazione (se e quando necessario)** con i dati di telemetria di Application Insights.
 
 L'operazione `Enqueue` è l’elemento figlio di un'operazione padre (ad esempio, una richiesta HTTP in ingresso). La chiamata di dipendenza HTTP è l'elemento figlio dell'operazione `Enqueue` e nipote della richiesta in ingresso:
 
@@ -308,7 +304,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>Process
+#### <a name="process"></a>Processo
 
 Nell'esempio seguente un messaggio in arrivo viene verificato in maniera simile a quanto avviene per una richiesta HTTP in ingresso:
 
@@ -354,13 +350,13 @@ Quando si instrumenta l'eliminazione di un messaggio, assicurarsi di impostare g
 
 ### <a name="dependency-types"></a>Tipi di dipendenza
 
-Application Insights usa il tipo di dipendenza per le esperienze dell'interfaccia utente di penna. Per le code, riconosce i tipi seguenti `DependencyTelemetry` di che migliorano l' [esperienza di diagnostica delle transazioni](/azure/azure-monitor/app/transaction-diagnostics):
-- `Azure queue`per le code di archiviazione di Azure
-- `Azure Event Hubs`per hub eventi di Azure
-- `Azure Service Bus`per il bus di servizio di Azure
+Application Insights usa il tipo di dipendenza per le esperienze dell'interfaccia utente di penna. Per le code, riconosce i tipi di `DependencyTelemetry` seguenti che migliorano l' [esperienza di diagnostica delle transazioni](/azure/azure-monitor/app/transaction-diagnostics):
+- `Azure queue` per le code di archiviazione di Azure
+- `Azure Event Hubs` per hub eventi di Azure
+- `Azure Service Bus` per il bus di servizio di Azure
 
 ### <a name="batch-processing"></a>Elaborazione batch
-Per alcune code, è possibile una rimozione dalla coda di più messaggi con una singola richiesta. L'elaborazione di tali messaggi è presumibilmente indipendente e appartiene a diverse operazioni logiche. Non è possibile correlare l' `Dequeue` operazione a un determinato messaggio in fase di elaborazione.
+Per alcune code, è possibile una rimozione dalla coda di più messaggi con una singola richiesta. L'elaborazione di tali messaggi è presumibilmente indipendente e appartiene a diverse operazioni logiche. Non è possibile correlare l'operazione `Dequeue` a un determinato messaggio in fase di elaborazione.
 
 Ogni elaborazione dei messaggi deve essere eseguita nel proprio flusso di controllo asincrono. Per ulteriori informazioni, vedere la sezione [Verifica delle dipendenze in uscita](#outgoing-dependencies-tracking).
 
@@ -477,11 +473,11 @@ public async Task RunAllTasks()
 ```
 
 ## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>Operazioni ApplicationInsights rispetto a System. Diagnostics. Activity
-`System.Diagnostics.Activity`rappresenta il contesto della traccia distribuita e viene usato da Framework e librerie per creare e propagare il contesto all'interno e all'esterno del processo e correlare gli elementi di telemetria. L'attività interagisce `System.Diagnostics.DiagnosticSource` con: il meccanismo di notifica tra il Framework o la libreria per notificare gli eventi interessanti (richieste in ingresso o in uscita, eccezioni e così via).
+`System.Diagnostics.Activity` rappresenta il contesto della traccia distribuita e viene usato da Framework e librerie per creare e propagare il contesto all'interno e all'esterno del processo e correlare gli elementi di telemetria. L'attività interagisce con `System.Diagnostics.DiagnosticSource`: il meccanismo di notifica tra il Framework o la libreria per notificare gli eventi interessanti (richieste in ingresso o in uscita, eccezioni e così via).
 
-Le attività sono i cittadini di prima classe in Application Insights e la dipendenza automatica e la `DiagnosticSource` raccolta di richieste si basa in modo significativo su di essi insieme agli eventi. Se si crea un'attività nell'applicazione, non si verificherà la creazione di dati di telemetria Application Insights. Application Insights deve ricevere eventi DiagnosticSource e conosce i nomi e i payload degli eventi per tradurre l'attività nei dati di telemetria.
+Le attività sono i cittadini di prima classe in Application Insights e la dipendenza automatica e la raccolta di richieste si basa in modo significativo su tali attività insieme a eventi di `DiagnosticSource`. Se si crea un'attività nell'applicazione, non si verificherà la creazione di dati di telemetria Application Insights. Application Insights deve ricevere eventi DiagnosticSource e conosce i nomi e i payload degli eventi per tradurre l'attività nei dati di telemetria.
 
-Ogni operazione di Application Insights (richiesta o dipendenza) `Activity` implica- `StartOperation` quando viene chiamato, crea un'attività sottostante. `StartOperation`è il metodo consigliato per tenere traccia delle telemetrie delle richieste o delle dipendenze manualmente e garantire che tutti gli elementi siano correlati.
+Ogni operazione di Application Insights (richiesta o dipendenza) implica `Activity`-quando viene chiamato `StartOperation`, crea un'attività sottostante. `StartOperation` è il modo consigliato per tenere traccia delle telemetrie delle richieste o delle dipendenze manualmente e garantire che tutti gli elementi siano correlati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

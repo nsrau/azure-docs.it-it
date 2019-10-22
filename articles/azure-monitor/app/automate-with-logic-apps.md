@@ -1,26 +1,22 @@
 ---
 title: Automatizzare i processi di Azure Application Insights con app per la logica.
 description: Informazioni su come automatizzare in poco tempo i processi ripetibili aggiungendo il connettore di Application Insights all'app per la logica.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/11/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 61215adc2aee5cef3693d119bf0efb36526d748b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/11/2019
+ms.openlocfilehash: 8211598071d0835a32f9e25cfcf4e34576702770
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60904832"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677609"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatizzare i processi di Application Insights con app per la logica
 
-Ci si trova spesso a eseguire ripetutamente le stesse query sui dati di telemetria per verificare il corretto funzionamento del servizio? Si vuole automatizzare queste query per trovare tendenze e anomalie e creare quindi flussi di lavoro basati su queste informazioni? Il connettore di Azure Application Insights per App per la logica è lo strumento ideale a questo scopo.
+Ci si trova spesso a eseguire ripetutamente le stesse query sui dati di telemetria per verificare il corretto funzionamento del servizio? Si vuole automatizzare queste query per trovare tendenze e anomalie e creare quindi flussi di lavoro basati su queste informazioni? Il connettore applicazione Azure Insights per le app per la logica è lo strumento ideale per questo scopo.
 
 Con questa integrazione è possibile automatizzare numerosi processi senza dover scrivere una sola riga di codice. È possibile creare un'app per la logica con il connettore di Application Insights per automatizzare rapidamente qualsiasi processo di Application Insights. 
 
@@ -41,16 +37,16 @@ Questa esercitazione illustra come creare un'app per la logica che usa l'algorit
 
     ![Finestra di progettazione di app per la logica](./media/automate-with-logic-apps/2logicappdesigner.png)
 
-1. Nel **intervallo** , digitare **1** e quindi**frequenza** , quindi selezionare **giorno**.
+1. Nella casella **intervallo** Digitare **1** , quindi selezionare **giorno**nella casella**frequenza** .
 
     !["Ricorrenza" nella finestra Progettazione app per la logica](./media/automate-with-logic-apps/3recurrence.png)
 
-### <a name="step-3-add-an-application-insights-action"></a>Passaggio 3: aggiungere un'azione di Application Insights
+### <a name="step-3-add-an-application-insights-action"></a>Passaggio 3: Aggiungere un'azione di Application Insights
 1. Fare clic su **nuovo passaggio**.
 
 1. Nella casella di ricerca **Scegliere un'azione** digitare **Azure Application Insights**.
 
-1. Sotto **azioni**, fare clic su **Azure Application Insights - query Analitica visualizzare**.
+1. In **azioni**fare clic su **applicazione Azure Insights-Visualizza query di analisi**.
 
     !["Scegliere un'azione" nella finestra Progettazione app per la logica](./media/automate-with-logic-apps/4visualize.png)
 
@@ -66,7 +62,7 @@ Specificare un nome per la connessione, l'ID applicazione e la chiave API.
 
 ![Connessione per il flusso nella finestra Progettazione app per la logica](./media/automate-with-logic-apps/7connection.png)
 
-### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Passaggio 5: Specificare la query e il tipo di grafico di Analytics
+### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Passaggio 5: Specificare la query e il tipo di grafico di Analisi
 In questo esempio la query seleziona le richieste non riuscite entro l'ultimo giorno e le correla alle eccezioni che si sono verificate durante l'operazione. La correlazione delle richieste non riuscite eseguita da Analisi si basa sull'identificatore operation_Id. La query segmenta quindi i risultati usando l'algoritmo di cluster automatico. 
 
 Quando si creano query, verificare che funzionino correttamente in Analisi prima di aggiungerle al flusso.
@@ -94,7 +90,7 @@ Quando si creano query, verificare che funzionino correttamente in Analisi prima
 
 1. Nella casella di ricerca digitare **Office 365 Outlook**.
 
-1. Fare clic su **Office 365 Outlook - Send an email** (Office 365 Outlook - Invia un messaggio di posta elettronica).
+1. Fare clic su **Office 365 Outlook - Send an email** (Office 365 Outlook: invia un messaggio di posta elettronica).
 
     ![Selezione di Office 365 Outlook](./media/automate-with-logic-apps/9sendemail.png)
 
@@ -106,7 +102,7 @@ Quando si creano query, verificare che funzionino correttamente in Analisi prima
 
    c. Fare clic in un punto qualsiasi della casella **Corpo** e scegliere **Corpo** dal menu di contenuto dinamico che viene visualizzato a destra.
     
-   d. Fare clic sui **Aggiungi nuovo parametro** elenco a discesa e selezionare gli allegati e HTML.
+   d. Fare clic sull'elenco a discesa **Aggiungi nuovo parametro** e selezionare allegati ed è HTML.
 
       ![Configurazione di Office 365 Outlook](./media/automate-with-logic-apps/10emailbody.png)
 

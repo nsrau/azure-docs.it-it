@@ -1,6 +1,6 @@
 ---
-title: Messaggi XML per l'integrazione aziendale B2B - App per la logica di Azure | Microsoft Docs
-description: Elaborare, convalidare, trasformare e migliorare i messaggi XML per le soluzioni B2B in App per la logica di Azure con Enterprise Integration Pack
+title: Messaggi XML e file flat-app per la logica di Azure
+description: Elaborare, convalidare e trasformare i messaggi XML in app per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,30 +8,34 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
 ms.date: 02/27/2017
-ms.openlocfilehash: a75ac9773072423c13eef85ecad29c632c13d024
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 730adf3e6ef3ddab5a8b0e927f94ffe3725358f4
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996575"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679914"
 ---
 # <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>Messaggi XML e file flat in App per la logica di Azure con Enterprise Integration Pack
 
-Grazie all'uso delle app per la logica, è possibile elaborare i messaggi XML che si inviano e si ricevono. Questa funzionalità è inclusa in Enterprise Integration Pack. Per gli utenti con uno sfondo a BizTalk Server, Enterprise Integration Pack offre funzionalità simili per trasformare e convalidare i messaggi, usare i file flat e persino servirsi di XPath per migliorare o estrarre le proprietà specifiche di un messaggio. 
+In [app](logic-apps-overview.md)per la logica di Azure è possibile elaborare i messaggi XML che vengono inviati e ricevuti usando il Enterprise Integration Pack. Se si è utilizzato BizTalk Server, il Enterprise Integration Pack fornisce funzionalità simili per trasformare e convalidare i messaggi, utilizzare file flat e persino utilizzare XPath per arricchire o estrarre proprietà specifiche da un messaggio. Se non si ha familiarità con questo spazio, queste funzionalità espandono la modalità di elaborazione dei messaggi nel flusso di lavoro dell'app per la logica. Se, ad esempio, si dispone di uno scenario business-to-business (B2B) e si utilizzano schemi XML specifici, è possibile utilizzare il Enterprise Integration Pack per migliorare la modalità di elaborazione dei messaggi da parte dell'azienda.
 
-Per gli utenti che non hanno familiarità con questo spazio, queste funzionalità ampliano le modalità di elaborazione dei messaggi nel flusso di lavoro. Ad esempio, in uno scenario Business-to-Business in cui si usano schemi XML specifici, è possibile usare Enterprise Integration Pack per migliorare le modalità di elaborazione aziendale dei messaggi. 
+Ad esempio, il Enterprise Integration Pack include le seguenti funzionalità:
 
-Enterprise Integration Pack include: 
+* [Convalida XML](logic-apps-enterprise-integration-xml-validation.md): convalidare un messaggio XML in entrata o in uscita rispetto a uno schema specifico.
 
-* [Convalida dei messaggi XML](logic-apps-enterprise-integration-xml-validation.md "Informazioni sulla convalida dei messaggi XML"): consente di convalidare un messaggio XML in entrata o in uscita rispetto a uno schema specifico.
-* [Trasformazione dei messaggi XML](../logic-apps/logic-apps-enterprise-integration-transform.md "Informazioni sulle mappe e le trasformazioni di messaggi XML"): consente di convertire o personalizzare un messaggio XML in base ai propri requisiti o a quelli di un partner.
-* [Codifica e decodifica del file flat](logic-apps-enterprise-integration-flatfile.md "Informazioni sulla codifica o decodifica del file flat"): consente di codificare o decodificare un file flat. Ad esempio, SAP accetta e invia file IDOC in formato file flat. Molte piattaforme di integrazione creano messaggi XML, tra cui App per la logica. Pertanto, è possibile creare un'app per la logica che usi il codificatore di file flat per "convertire" i file XML in file flat. 
-* [XPath](https://msdn.microsoft.com/library/mt643789.aspx): consente di arricchire un messaggio ed estrarre le proprietà specifiche del messaggio. È possibile quindi usare le proprietà estratte per indirizzare il messaggio a un endpoint intermedio o di destinazione.
+* [Trasformazione XML](logic-apps-enterprise-integration-transform.md): convertire o personalizzare un messaggio XML in base ai requisiti o ai requisiti di un partner usando maps.
 
-## <a name="try-it-out"></a>Provare il servizio
-[Distribuire un'app per la logica completamente operativa](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) (esempio di GitHub) usando le funzionalità XML nelle App per la logica di Azure.
+* [Codifica file flat e decodifica file flat](logic-apps-enterprise-integration-flatfile.md): codificare o decodificare un file flat.
 
-## <a name="learn-more"></a>Altre informazioni
-[Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")
+  Ad esempio, SAP accetta e invia file IDOC in formato file flat. Molte piattaforme di integrazione creano messaggi XML, tra cui App per la logica. Pertanto, è possibile creare un'app per la logica che usi il codificatore di file flat per "convertire" i file XML in file flat.
+
+* [XPath](workflow-definition-language-functions-reference.md#xpath): arricchire un messaggio ed estrarre proprietà specifiche dal messaggio. È possibile quindi usare le proprietà estratte per indirizzare il messaggio a un endpoint intermedio o di destinazione.
+
+## <a name="sample"></a>Esempio
+
+[Distribuire un'app per la logica completamente operativa](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) (esempio GitHub) usando le funzionalità XML di app per la logica di Azure.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Scopri di più sulla [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)

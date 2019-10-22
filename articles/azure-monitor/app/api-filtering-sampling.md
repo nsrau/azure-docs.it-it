@@ -1,23 +1,18 @@
 ---
 title: Filtri e pre-elaborazione in Azure Application Insights SDK | Microsoft Docs
 description: Scrivere processori e inizializzatori di telemetria per l'SDK per filtrare i dati o aggiungere proprietà prima dell'invio della telemetria al portale di Application Insights.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 11/23/2016
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: cae035927217a7e2677cf6ebfcce1b53782e4c01
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.date: 11/23/2016
+ms.openlocfilehash: 1e02e227180bb0082dd87ab8f5d2fe64e19b60f2
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248737"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677816"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtri e pre-elaborazione della telemetria in Application Insights SDK
 
@@ -34,7 +29,7 @@ Prima di iniziare:
 
 <a name="filtering"></a>
 
-## <a name="filtering-itelemetryprocessor"></a>Filtri: ITelemetryProcessor
+## <a name="filtering-itelemetryprocessor"></a>Filtro: ITelemetryProcessor
 
 Questa tecnica offre il controllo diretto sugli elementi inclusi o esclusi dal flusso di dati di telemetria. È possibile usare il filtro per eliminare gli elementi di telemetria dall'invio a Application Insights. È possibile usarla insieme al campionamento oppure separatamente.
 
@@ -124,7 +119,7 @@ Gli elementi TelemetryClient creati dopo questo punto useranno i processori dell
 > [!NOTE]
 > L'aggiunta di un processore con `ApplicationInsights.config` o con `TelemetryConfiguration.Active` non è valida per le applicazioni ASP.NET Core o se si usa Microsoft. ApplicationInsights. WorkerService SDK.
 
-Per le app scritte con [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) o [WorkerService](worker-service.md#adding-telemetry-processors), l'aggiunta di un nuovo `TelemetryProcessor` viene eseguita usando il metodo di estensione `AddApplicationInsightsTelemetryProcessor` su `IServiceCollection`, come illustrato di seguito. Questo metodo viene chiamato nel metodo `ConfigureServices` della classe `Startup.cs`.
+Per le app scritte con [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) o [WorkerService](worker-service.md#adding-telemetry-processors), l'aggiunta di una nuova `TelemetryProcessor` viene eseguita usando `AddApplicationInsightsTelemetryProcessor` metodo di estensione su `IServiceCollection`, come illustrato di seguito. Questo metodo viene chiamato nel metodo `ConfigureServices` della classe `Startup.cs`.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -203,13 +198,13 @@ public void Process(ITelemetry item)
 
 <a name="add-properties"></a>
 
-## <a name="add-properties-itelemetryinitializer"></a>Aggiungere le proprietà: ITelemetryInitializer
+## <a name="add-properties-itelemetryinitializer"></a>Aggiungere proprietà: ITelemetryInitializer
 
 Usare gli inizializzatori di telemetria per arricchire la telemetria con altre informazioni e/o per eseguire l'override delle proprietà di telemetria impostate dai moduli di telemetria standard.
 
 Il Application Insights per il pacchetto Web, ad esempio, raccoglie i dati di telemetria sulle richieste HTTP. per impostazione predefinita, contrassegna come non riuscita qualsiasi richiesta con un codice di risposta > = 400. Tuttavia, se si vuole considerare 400 come un risultato positivo, è possibile fornire un inizializzatore di telemetria che imposti la proprietà Success.
 
-In tal modo, l'inizializzatore di telemetria verrà chiamato ogni volta che viene chiamato uno dei metodi Track*(). Sono inclusi i metodi `Track()` chiamati dai moduli di telemetria standard. Per convenzione, questi moduli non impostano le proprietà che sono già state impostate da un inizializzatore. Gli inizializzatori di telemetria vengono chiamati prima di chiamare i processori di telemetria. Quindi, eventuali arricchimenti eseguiti dagli inizializzatori sono visibili ai processori.
+In tal modo, l'inizializzatore di telemetria verrà chiamato ogni volta che viene chiamato uno dei metodi Track*(). Sono inclusi `Track()` metodi chiamati dai moduli di telemetria standard. Per convenzione, questi moduli non impostano le proprietà che sono già state impostate da un inizializzatore. Gli inizializzatori di telemetria vengono chiamati prima di chiamare i processori di telemetria. Quindi, eventuali arricchimenti eseguiti dagli inizializzatori sono visibili ai processori.
 
 **Definire l'inizializzatore**
 
@@ -252,7 +247,7 @@ namespace MvcWebRole.Telemetry
 }
 ```
 
-app **ASP.NET: Caricare l'inizializzatore @ no__t-0
+**App ASP.NET: caricare l'inizializzatore**
 
 In ApplicationInsights.config:
 
@@ -278,12 +273,12 @@ protected void Application_Start()
 
 [Vedere questo esempio nel dettaglio.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
-**ASP.NET Core/Worker Service Apps: Caricare l'inizializzatore @ no__t-0
+**App del servizio ASP.NET Core/Worker: caricare l'inizializzatore**
 
 > [!NOTE]
-> L'aggiunta di un inizializzatore con `ApplicationInsights.config` o con `TelemetryConfiguration.Active` non è valida per le applicazioni ASP.NET Core o se si usa Microsoft. ApplicationInsights. WorkerService SDK.
+> L'aggiunta di un inizializzatore usando `ApplicationInsights.config` o l'uso di `TelemetryConfiguration.Active` non è valida per le applicazioni ASP.NET Core o se si usa Microsoft. ApplicationInsights. WorkerService SDK.
 
-Per le app scritte con [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) o [WorkerService](worker-service.md#adding-telemetryinitializers), l'aggiunta di un nuovo `TelemetryInitializer` viene eseguita aggiungendola al contenitore di inserimento delle dipendenze, come illustrato di seguito. Questa operazione viene eseguita nel metodo `Startup.ConfigureServices`.
+Per le app scritte con [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) o [WorkerService](worker-service.md#adding-telemetryinitializers), l'aggiunta di una nuova `TelemetryInitializer` viene eseguita aggiungendola al contenitore di inserimento delle dipendenze, come illustrato di seguito. Questa operazione viene eseguita nel metodo `Startup.ConfigureServices`.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -408,7 +403,7 @@ Qual è la differenza tra processori di telemetria e inizializzatori di telemetr
 * Verificare che il nome di tipo completo e il nome di assembly siano corretti.
 * Verificare che il file applicationinsights.config si trovi nella directory di output e includa le ultime modifiche apportate.
 
-## <a name="reference-docs"></a>Documentazione di riferimento
+## <a name="reference-docs"></a>Documenti di riferimento
 
 * [Panoramica API](../../azure-monitor/app/api-custom-events-metrics.md)
 * [Riferimento ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
@@ -422,4 +417,4 @@ Qual è la differenza tra processori di telemetria e inizializzatori di telemetr
 ## <a name="next"></a>Passaggi successivi
 * [Ricerca di eventi e log](../../azure-monitor/app/diagnostic-search.md)
 * [Campionamento](../../azure-monitor/app/sampling.md)
-* [Risoluzione dei problemi](../../azure-monitor/app/troubleshoot-faq.md)
+* [risoluzione dei problemi](../../azure-monitor/app/troubleshoot-faq.md)

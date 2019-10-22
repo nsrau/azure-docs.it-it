@@ -1,26 +1,22 @@
 ---
 title: 'Monitoraggio di Azure: applicazione Azure Insights sostituisce gli endpoint SDK predefiniti | Microsoft Docs'
 description: Modificare gli endpoint predefiniti di applicazione Azure Insights SDK per le aree come Azure per enti pubblici.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/26/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 25087c5b3a078b740764f51a7780a24277d5c642
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 07/26/2019
+ms.openlocfilehash: e1db9782fe923f7a5759f4e001cd0db970606fed
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639568"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677485"
 ---
- # <a name="application-insights-overriding-default-endpoints"></a>Application Insights l'override degli endpoint predefiniti
+# <a name="application-insights-overriding-default-endpoints"></a>Application Insights l'override degli endpoint predefiniti
 
-Per inviare dati da Application Insights a determinate aree, è necessario eseguire l'override degli indirizzi endpoint predefiniti. Ogni SDK richiede modifiche leggermente diverse, descritte in questo articolo. Per queste modifiche è necessario modificare il codice di esempio e sostituire i `QuickPulse_Endpoint_Address`valori `TelemetryChannel_Endpoint_Address`segnaposto `Profile_Query_Endpoint_address` per, e con gli indirizzi endpoint effettivi per l'area specifica. La fine di questo articolo contiene i collegamenti agli indirizzi degli endpoint per le aree in cui è necessaria questa configurazione.
+Per inviare dati da Application Insights a determinate aree, è necessario eseguire l'override degli indirizzi endpoint predefiniti. Ogni SDK richiede modifiche leggermente diverse, descritte in questo articolo. Per queste modifiche è necessario modificare il codice di esempio e sostituire i valori segnaposto per `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address` e `Profile_Query_Endpoint_address` con gli indirizzi endpoint effettivi per l'area specifica. La fine di questo articolo contiene i collegamenti agli indirizzi degli endpoint per le aree in cui è necessaria questa configurazione.
 
 ## <a name="sdk-code-changes"></a>Modifiche al codice SDK
 
@@ -62,7 +58,7 @@ Modificare il file appSettings. JSON nel progetto come indicato di seguito per m
   }
 ```
 
-I valori per la metrica dinamica e l'endpoint di query del profilo possono essere impostati solo tramite codice. Per eseguire l'override dei valori predefiniti per tutti i valori dell'endpoint tramite codice, apportare le `ConfigureServices` modifiche seguenti nel `Startup.cs` metodo del file:
+I valori per la metrica dinamica e l'endpoint di query del profilo possono essere impostati solo tramite codice. Per eseguire l'override dei valori predefiniti per tutti i valori dell'endpoint tramite codice, apportare le modifiche seguenti nel metodo `ConfigureServices` del file di `Startup.cs`:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
@@ -157,7 +153,7 @@ Modificare il file applicationinsights. XML per modificare l'indirizzo dell'endp
 
 ### <a name="spring-boot"></a>Spring Boot
 
-Modificare il `application.properties` file e aggiungere:
+Modificare il file di `application.properties` e aggiungere:
 
 ```yaml
 azure.application-insights.channel.in-process.endpoint-address= TelemetryChannel_Endpoint_Address
@@ -199,22 +195,22 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 Attualmente le uniche aree che richiedono modifiche all'endpoint sono [Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) e [Azure Cina](https://docs.microsoft.com/azure/china/resources-developer-guide).
 
-|Region |  Nome endpoint | Value |
+|Area geografica |  Nome endpoint | Value |
 |-----------------|:------------|:-------------|
 | Azure Cina | Canale di telemetria | `https://dc.applicationinsights.azure.cn/v2/track` |
 | Azure Cina | QuickPulse (metriche attive) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
 | Azure Cina | Query del profilo |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
-| Azure Government | Canale di telemetria |`https://dc.applicationinsights.us/v2/track` |
-| Azure Government | QuickPulse (metriche attive) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
-| Azure Government | Query del profilo |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
+| Azure per enti pubblici | Canale di telemetria |`https://dc.applicationinsights.us/v2/track` |
+| Azure per enti pubblici | QuickPulse (metriche attive) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
+| Azure per enti pubblici | Query del profilo |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
 
-Se attualmente si usa l' [API](https://dev.applicationinsights.io/
-) REST di Application Insights, a cui si accede in genere tramite "API.applicationinsights.io", sarà necessario usare un endpoint locale per l'area:
+Se attualmente si usa l' [API REST di Application Insights](https://dev.applicationinsights.io/
+) , a cui si accede in genere tramite "API.applicationinsights.io", sarà necessario usare un endpoint locale per l'area:
 
-|Region |  Nome endpoint | Value |
+|Area geografica |  Nome endpoint | Value |
 |-----------------|:------------|:-------------|
 | Azure Cina | API REST | `api.applicationinsights.azure.cn` |
-| Azure Government | API REST | `api.applicationinsights.us`|
+| Azure per enti pubblici | API REST | `api.applicationinsights.us`|
 
 > [!NOTE]
 > Il monitoraggio di agenti/estensioni senza codice per i servizi di app Azure **non è attualmente supportato** in queste aree. Non appena questa funzionalità diventa disponibile, questo articolo verrà aggiornato.

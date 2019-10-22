@@ -1,19 +1,19 @@
 ---
-title: Usare Visual Studio Code per creare, compilare e distribuire contratti intelligenti con il servizio Azure Blockchain
+title: Usare Visual Studio Code - Servizio Azure Blockchain
 description: Esercitazione sull'utilizzo dell'estensione Azure Blockchain Development Kit per Ethereum in Visual Studio Code per creare, compilare e distribuire un contratto intelligente con il servizio Azure Blockchain.
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/10/2019
+ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
-ms.openlocfilehash: 96fe4d77efdd1fda309d7da021bcc208edd2dfe9
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 13a5993a14e386dc7d24c7464610bbf1ace4b9cb
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934935"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329232"
 ---
 # <a name="tutorial-usevisual-studio-code-to-create-buildanddeploysmartcontracts"></a>Esercitazione: Usare Visual Studio Code per creare, compilare e distribuire contratti intelligenti
 

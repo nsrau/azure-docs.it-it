@@ -1,21 +1,19 @@
 ---
 title: Traccia distribuita in Azure Application Insights | Microsoft Docs
 description: Vengono fornite informazioni sul supporto di Microsoft per la traccia distribuita tramite l'utilità di inoltro locale e la collaborazione al progetto OpenCensus
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: nikmd23
 ms.author: nimolnar
-ms.reviewer: mbullwin
 ms.date: 09/17/2018
-ms.service: application-insights
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 7bc04748f2a5b8caa8f589140dd46f0650b7b390
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.reviewer: mbullwin
+ms.openlocfilehash: 0b51617966ad85037ad29f3e5005a17f66602e01
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60898847"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677132"
 ---
 # <a name="what-is-distributed-tracing"></a>Che cos'è la traccia distribuita?
 
@@ -40,7 +38,7 @@ Le versioni di Application Insights SDK per .NET, .NET Core, Java, Node.js e Jav
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
 * [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
-* [Node.JS](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
+* [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
 * [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
 
 Dopo avere installato e configurato la versione corretta di Application Insights SDK, le informazioni di traccia vengono raccolte automaticamente per le librerie, le tecnologie e i framework più diffusi da agenti di raccolta delle dipendenze dell'SDK automatici. L'elenco completo delle tecnologie supportate è disponibile nella [documentazione sulla raccolta automatica delle dipendenze](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
@@ -57,6 +55,6 @@ Il sito Web OpenCensus include la documentazione di riferimento delle API per [P
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida all'utilizzo di Python con OpenCensus](https://opencensus.io/api/python/trace/usage.html)
+* [Guida all'utilizzo di OpenCensus Python](https://opencensus.io/api/python/trace/usage.html)
 * [Mappa delle applicazioni](./../../azure-monitor/app/app-map.md)
 * [Monitoraggio delle prestazioni end-to-end](./../../azure-monitor/learn/tutorial-performance.md)

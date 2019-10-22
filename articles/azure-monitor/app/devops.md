@@ -1,23 +1,18 @@
 ---
 title: 'Monitoraggio delle prestazioni delle applicazioni Web: Azure Application Insights | Microsoft Docs'
 description: Funzione di Application Insights nel ciclo devOps
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 12/21/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 24b0bc01b5cb4f1d2696a7c9526d586c9b42d0fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/21/2018
+ms.openlocfilehash: bf7c0b4db2b7eb662f55b917dbe318d0ad8023ce
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60899717"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677298"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnostica completa per servizi e app Web con Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Funzione di Application Insights
@@ -56,7 +51,7 @@ Alcune domande da chiedersi durante lo sviluppo di un sistema Web:
 * Qual è la causa radice? L'errore si è verificato al livello di un componente o di una dipendenza? Si tratta di un problema di comunicazione?
 * Quanti sono gli utenti interessati? Se i più problemi da affrontare sono più di uno, qual è il più importante?
 
-## <a name="what-is-application-insights"></a>Informazioni su Azure Application Insights
+## <a name="what-is-application-insights"></a>Che cos'è Application Insights?
 ![Flusso di lavoro di base di Application Insights](./media/devops/020.png)
 
 1. Application Insights consente di instrumentare l'app, inviandone i dati di telemetria durante l'esecuzione. È possibile compilare l'SDK di Application Insights direttamente nell'applicazione oppure applicare la strumentazione in fase di runtime. Il primo metodo è più flessibile, perché consente di aggiungere i propri dati di telemetria ai normali moduli.
@@ -78,7 +73,7 @@ Le principali categorie di dati sono:
 * Eventi personalizzati utilizzabili per tenere traccia degli eventi aziendali.
 * Tracce del log a scopo di debug.
 
-## <a name="case-study-real-madrid-fc"></a>Case study: Real Madrid F.C.
+## <a name="case-study-real-madrid-fc"></a>Case study: Real Madrid C.F.
 Il servizio Web del [Real Madrid Football Club](https://www.realmadrid.com/) serve circa 450 milioni di tifosi in tutto il mondo, che vi accedono tramite Web browser e dalle app per dispositivi mobili della società non solo per prenotare i biglietti, ma anche per consultare informazioni e guardare clip video su risultati, giocatori e partite in programma. I tifosi possono eseguire ricerche applicando filtri come, ad esempio, il numero di goal segnati. Inoltre, sono disponibili i collegamenti ai social media. L'esperienza utente è altamente personalizzata e progettata come strumento di comunicazione bidirezionale per coinvolgere i tifosi.
 
 La soluzione [è un sistema di servizi e applicazioni in Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). La scalabilità è un requisito essenziale: il traffico è variabile e può raggiungere volumi molto elevati prima, dopo e durante le partite.
@@ -166,7 +161,7 @@ Quando viene generato un avviso, Application Insights può creare automaticament
 ## <a name="next-steps"></a>Passaggi successivi
 Iniziare a usare Application Insights è semplice. Le opzioni principali sono le seguenti:
 
-* [Server IIS](../../azure-monitor/app/monitor-performance-live-website-now.md), nonché per [servizio App di Azure](../../azure-monitor/app/app-insights-overview.md).
+* [Server IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)e anche per [app Azure servizio](../../azure-monitor/app/app-insights-overview.md).
 * Instrumentare il progetto in fase di sviluppo, cosa possibile per le app [ASP.NET](../../azure-monitor/app/asp-net.md) o [Java](../../azure-monitor/app/java-get-started.md), nonché per [Node. js](../../azure-monitor/app/nodejs.md) e una serie di [altri tipi](../../azure-monitor/app/platforms.md). 
 * Instrumentare [qualsiasi pagina Web](../../azure-monitor/app/javascript.md) aggiungendo un breve frammento di codice.
 

@@ -1,23 +1,18 @@
 ---
 title: Errori ed eccezioni di diagnosi nelle app Web con Azure Application Insights | Microsoft Docs
 description: Acquisire le eccezioni da app ASP.NET insieme ai dati di telemetria della richiesta.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/11/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: c8d46ddc834cb12aa63720673c83d745ab53ab4d
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.date: 07/11/2019
+ms.openlocfilehash: 90f03baa35d0bf2b63ec480a23db30409df3845f
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226870"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677780"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticare eccezioni nelle app Web con Application Insights
 Le eccezioni nell'applicazione Web attiva vengono segnalate da [Application Insights](../../azure-monitor/app/app-insights-overview.md). È possibile correlare le richieste non riuscite con le eccezioni e altri eventi nel client e nel server, in modo da poter diagnosticare rapidamente le cause.
@@ -25,10 +20,10 @@ Le eccezioni nell'applicazione Web attiva vengono segnalate da [Application Insi
 ## <a name="set-up-exception-reporting"></a>Configurare la creazione di report sulle eccezioni
 * Per segnalare le eccezioni dall'app del server:
   * App Web di Azure: aggiungere l'[estensione di Application Insights](../../azure-monitor/app/azure-web-apps.md)
-  * VM di Azure e set di scalabilità di macchine virtuali di Azure-App ospitate in IIS: Aggiungere l' [estensione di monitoraggio dell'applicazione](../../azure-monitor/app/azure-vm-vmss-apps.md)
+  * VM di Azure e set di scalabilità di macchine virtuali di Azure-App ospitate in IIS: aggiungere l' [estensione di monitoraggio delle applicazioni](../../azure-monitor/app/azure-vm-vmss-apps.md)
   * Installare [Application Insights SDK](../../azure-monitor/app/asp-net.md) nel codice dell'app, oppure
   * Server Web IIS: eseguire l'[Agente di Application Insights](../../azure-monitor/app/monitor-performance-live-website-now.md); o
-  * App Web Java: Installare l'[agente Java](../../azure-monitor/app/java-agent.md)
+  * App Web Java: installare l'[agente Java](../../azure-monitor/app/java-agent.md)
 * Installare il [frammento di JavaScript](../../azure-monitor/app/javascript.md) nelle pagine Web per intercettare le eccezioni del browser.
 * In certi framework applicazione o con alcune impostazioni è necessario eseguire alcuni passaggi aggiuntivi per intercettare più eccezioni:
   * [Web Form](#web-forms)
@@ -48,7 +43,7 @@ Aprire la finestra di ricerca di Application Insights in Visual Studio e imposta
 
 Si noti che è possibile filtrare il report per visualizzare solo le eccezioni.
 
-*Se non vengono visualizzate eccezioni, vedere la sezione [Acquisizione delle eccezioni](#exceptions).*
+*Non vengono visualizzate eccezioni? Vedere [acquisire eccezioni](#exceptions).*
 
 Fare clic su un report di eccezione per visualizzarne l'analisi dello stack.
 Fare clic su un riferimento di riga nell'analisi dello stack per aprire il relativo file.
@@ -69,7 +64,7 @@ Con un solo clic è possibile esaminare i campioni rappresentativi per ognuno di
 
 **In alternativa** , anziché esaminare le eccezioni di un'operazione di errore specifica, è possibile iniziare dalla visualizzazione complessiva delle eccezioni passando alla scheda eccezioni nella parte superiore. Qui è possibile visualizzare tutte le eccezioni raccolte per l'app monitorata.
 
-*Se non vengono visualizzate eccezioni, vedere la sezione [Acquisizione delle eccezioni](#exceptions).*
+*Non vengono visualizzate eccezioni? Vedere [acquisire eccezioni](#exceptions).*
 
 
 ## <a name="custom-tracing-and-log-data"></a>Dati di traccia e di log personalizzati
@@ -101,7 +96,7 @@ I dettagli della richiesta non includono i dati inviati all'app in una chiamata 
 ## <a name="exceptions"></a> Acquisizione delle eccezioni e dei relativi dati di diagnostica
 Inizialmente, nel portale non verranno visualizzate tutte le eccezioni che causano errori nell'app. Verranno visualizzate tutte le eccezioni del browser (se si usa [JavaScript SDK](../../azure-monitor/app/javascript.md) nelle pagine Web). La maggior parte delle eccezioni del server viene rilevata da IIS, ma è necessario scrivere qualche riga di codice per visualizzarle.
 
-È possibile:
+Puoi:
 
 * **Registrare le eccezioni in modo esplicito** inserendo il codice nei gestori di eccezioni per segnalare le eccezioni.
 * **Acquisire automaticamente le eccezioni** configurando il framework di ASP.NET. Gli elementi da aggiungere variano a seconda dei diversi tipi di framework.
@@ -206,7 +201,7 @@ Se però sono presenti reindirizzamenti attivi, aggiungere le righe seguenti all
 ## <a name="mvc"></a>MVC
 A partire da Application Insights Web SDK versione 2.6 (beta 3 e versioni successive), Application Insights raccoglie le eccezioni non gestite generate automaticamente nei metodi dei controller MVC 5+. Se in precedenza è stato aggiunto un gestore personalizzato per tenere traccia di tali eccezioni (come descritto negli esempi seguenti), è possibile rimuoverlo per evitare il doppio rilevamento delle eccezioni.
 
-Alcuni casi non possono essere gestiti dai filtri eccezioni. Ad esempio:
+Alcuni casi non possono essere gestiti dai filtri eccezioni. ad esempio:
 
 * Eccezioni generate dai costruttori dei controller.
 * Eccezioni generate dai gestori di messaggi.
@@ -298,7 +293,7 @@ Registrare AiHandleErrorAttribute come filtro globale in FilterConfig.cs:
 ## <a name="web-api"></a>API Web
 A partire da Application Insights Web SDK versione 2.6 (beta 3 e versioni successive), Application Insights raccoglie le eccezioni non gestite generate automaticamente nei metodi dei controller per WebAPI 2+. Se in precedenza è stato aggiunto un gestore personalizzato per tenere traccia di tali eccezioni (come descritto negli esempi seguenti), è possibile rimuoverlo per evitare il doppio rilevamento delle eccezioni.
 
-Alcuni casi non possono essere gestiti dai filtri eccezioni. Ad esempio:
+Alcuni casi non possono essere gestiti dai filtri eccezioni. ad esempio:
 
 * Eccezioni generate dai costruttori dei controller.
 * Eccezioni generate dai gestori di messaggi.

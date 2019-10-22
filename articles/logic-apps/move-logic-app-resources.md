@@ -1,5 +1,5 @@
 ---
-title: Spostare le risorse dell'app per la logica tra sottoscrizioni, gruppi di risorse o aree-app per la logica di Azure
+title: Spostare app per la logica in sottoscrizioni, gruppi di risorse o aree geografiche-app per la logica di Azure
 description: Eseguire la migrazione di app per la logica o account di integrazione ad altre sottoscrizioni di Azure, gruppi di risorse o posizioni (aree)
 services: logic-apps
 ms.service: logic-apps
@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: e7c201004be6c4d39f482cc288824cba74e302cb
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 8c3bad32943b83cbfe4c96087f3fef1c51f64bb1
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737498"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679102"
 ---
-# <a name="migrate-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Eseguire la migrazione delle risorse dell'app per la logica ad altre sottoscrizioni, gruppi di risorse o aree di Azure
+# <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Spostare le risorse dell'app per la logica in altre sottoscrizioni, gruppi di risorse o aree di Azure
 
 Per spostare l'app per la logica o le risorse correlate in un'altra sottoscrizione di Azure, gruppo di risorse o area, sono disponibili vari modi per completare queste attività, ad esempio portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure e l'API REST. Prima di spostare le risorse, esaminare le considerazioni seguenti: 
 
@@ -82,7 +82,7 @@ Quando si vuole spostare un'app per la logica in un'area diversa, le opzioni var
 
 Per ulteriori informazioni sui modelli di distribuzione per le app per la logica, vedere gli argomenti seguenti:
 
-* [Panoramica: Automatizzare la distribuzione per le app per la logica di Azure usando modelli di Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Panoramica: automatizzare la distribuzione per le app per la logica di Azure usando modelli di Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Trovare, aprire e scaricare l'app per la logica dal portale di Azure in Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
 * [Creare modelli di Azure Resource Manager per app per la logica di Azure](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
 * [Distribuire modelli di Azure Resource Manager per app per la logica di Azure](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)

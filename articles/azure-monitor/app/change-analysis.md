@@ -1,21 +1,18 @@
 ---
 title: Usare l'analisi delle modifiche dell'applicazione in monitoraggio di Azure per trovare i problemi delle app Web | Microsoft Docs
 description: Usare l'analisi delle modifiche dell'applicazione in monitoraggio di Azure per risolvere i problemi dell'applicazione nei siti Live nel servizio app Azure.
-services: application-insights
-author: cawams
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/07/2019
+author: cawams
 ms.author: cawa
-ms.openlocfilehash: 84e423ac055c074028df217060a548b932823496
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 05/07/2019
+ms.openlocfilehash: 3805d7b39c25bcb213a1d4f110161dcd00eb3630
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033390"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678244"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usare l'analisi delle modifiche dell'applicazione (anteprima) in monitoraggio di Azure
 
@@ -38,7 +35,7 @@ L'analisi delle modifiche è attualmente integrata nell'esperienza di **diagnost
 
 ### <a name="azure-resource-manager-deployment-changes"></a>Azure Resource Manager modifiche della distribuzione
 
-Usando il [grafo delle risorse di Azure](https://docs.microsoft.com/azure/governance/resource-graph/overview), l'analisi delle modifiche fornisce un record cronologico del modo in cui le risorse di Azure che ospitano l'applicazione sono state modificate nel tempo. L'analisi delle modifiche può rilevare, ad esempio, le modifiche alle regole di configurazione IP, alle identità gestite e alle impostazioni SSL. Quindi, se viene aggiunto un tag a un'app Web, l'analisi delle modifiche riflette la modifica. Queste informazioni sono disponibili finché il `Microsoft.ChangeAnalysis` provider di risorse è abilitato nella sottoscrizione di Azure.
+Usando il [grafo delle risorse di Azure](https://docs.microsoft.com/azure/governance/resource-graph/overview), l'analisi delle modifiche fornisce un record cronologico del modo in cui le risorse di Azure che ospitano l'applicazione sono state modificate nel tempo. L'analisi delle modifiche può rilevare, ad esempio, le modifiche alle regole di configurazione IP, alle identità gestite e alle impostazioni SSL. Quindi, se viene aggiunto un tag a un'app Web, l'analisi delle modifiche riflette la modifica. Queste informazioni sono disponibili purché il provider di risorse `Microsoft.ChangeAnalysis` sia abilitato nella sottoscrizione di Azure.
 
 ### <a name="changes-in-web-app-deployment-and-configuration"></a>Modifiche alla distribuzione e alla configurazione dell'app Web
 
@@ -67,7 +64,7 @@ In monitoraggio di Azure, l'analisi delle modifiche è attualmente integrata nel
 
     ![Screenshot delle opzioni di risoluzione dei problemi di disponibilità e prestazioni](./media/change-analysis/availability-and-performance.png)
 
-1. Selezionare **le modifiche**apportate all'applicazione. Non è possibile che la funzionalità sia disponibile anche negli **arresti anomali dell'applicazione**.
+1. Selezionare **le modifiche apportate all'applicazione**. Non è possibile che la funzionalità sia disponibile anche negli **arresti anomali dell'applicazione**.
 
    ![Screenshot del pulsante "arresti anomali dell'applicazione"](./media/change-analysis/application-changes.png)
 
@@ -80,7 +77,7 @@ In monitoraggio di Azure, l'analisi delle modifiche è attualmente integrata nel
     ![Screenshot dell'interfaccia utente "Enable Change Analysis"](./media/change-analysis/change-analysis-on.png)
 
 
-1. Per accedere all'analisi delle modifiche, selezionare **diagnostica e Risolvi i problemi relativi** > a**disponibilità e prestazioni** > **anomali dell'applicazione**. Verrà visualizzato un grafico che riepiloga il tipo di modifiche nel tempo insieme ai dettagli relativi a tali modifiche:
+1. Per accedere all'analisi delle modifiche, selezionare **diagnostica e Risolvi i problemi**  > **disponibilità e prestazioni**  > **arresti anomali dell'applicazione**. Verrà visualizzato un grafico che riepiloga il tipo di modifiche nel tempo insieme ai dettagli relativi a tali modifiche:
 
      ![Screenshot della visualizzazione delle differenze delle modifiche](./media/change-analysis/change-view.png)
 
@@ -90,7 +87,7 @@ In monitoraggio di Azure, l'analisi delle modifiche è attualmente integrata nel
 Se la sottoscrizione include numerose app Web, l'abilitazione del servizio al livello dell'app Web risulterebbe inefficiente. Eseguire lo script seguente per abilitare tutte le app Web nella sottoscrizione.
 
 Prerequisiti:
-* PowerShell AZ Module. Seguire le istruzioni in [installare il modulo Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.6.0)
+* PowerShell AZ Module. Seguire le istruzioni in [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.6.0)
 
 Eseguire lo script seguente:
 

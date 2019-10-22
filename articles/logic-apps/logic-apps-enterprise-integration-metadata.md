@@ -1,5 +1,5 @@
 ---
-title: Gestire i metadati degli elementi degli account di integrazione - App per la logica di Azure | Microsoft Docs
+title: Gestire i metadati degli elementi dell'account di integrazione-app per la logica di Azure
 description: Aggiungere o ottenere i metadati degli elementi dagli account di integrazione in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
@@ -8,14 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 01/17/2019
-ms.openlocfilehash: 5ebdf45bec4e7cfceb75354af40c7a21c22c6eef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8e2daf1de9223766c8cec835f7718007a8cf309
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60846202"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679984"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Gestire i metadati degli elementi dagli account di integrazione con App per la logica di Azure ed Enterprise Integration Pack
 
@@ -30,7 +29,7 @@ ms.locfileid: "60846202"
   * [Partner](logic-apps-enterprise-integration-partners.md)
   * [Contratto](logic-apps-enterprise-integration-agreements.md)
   * [Schema](logic-apps-enterprise-integration-schemas.md)
-  * [Mappa](logic-apps-enterprise-integration-maps.md)
+  * [Map](logic-apps-enterprise-integration-maps.md)
 
 * Un'app per la logica collegata all'account di integrazione e ai metadati dell'elemento che si vogliono usare. Se l'app per la logica non è già collegata, vedere l'articolo su [come collegare app per la logica agli account di integrazione](logic-apps-enterprise-integration-create-integration-account.md#link-account). 
 
@@ -57,16 +56,16 @@ ms.locfileid: "60846202"
 
 1. Se si aggiunge il passaggio per il recupero dei metadati sotto il trigger o l'ultima azione nel flusso di lavoro, in Progettazione App per la logica scegliere **Nuovo passaggio** > **Aggiungi un'azione**. 
 
-1. Nella casella di ricerca, digitare "account di integrazione". Nella casella di ricerca scegliere **Tutti**. Nell'elenco di azioni selezionare questa azione: **Ricerca elemento dell'account di integrazione - Account di integrazione**
+1. Nella casella di ricerca, digitare "account di integrazione". Nella casella di ricerca scegliere **Tutti**. Dall'elenco delle azioni selezionare questa azione: **ricerca artefatto dell'account di integrazione-account di integrazione**
 
    ![Selezionare "Ricerca elemento dell'account di integrazione"](media/logic-apps-enterprise-integration-metadata/integration-account-artifact-lookup.png)
 
 1. Specificare queste informazioni per l'elemento da trovare:
 
-   | Proprietà | Obbligatorio | Value | Descrizione | 
+   | Proprietà | Obbligatoria | Value | Description | 
    |----------|---------|-------|-------------| 
-   | **Tipo di elemento** | Yes | **Schema**, **Mappa**, **Partner**, **Contratto** o un tipo personalizzato | Tipo dell'elemento desiderato | 
-   | **Nome elemento** | Yes | <*artifact-name*> | Nome dell'elemento desiderato | 
+   | **Tipo di elemento** | SÌ | **Schema**, **Mappa**, **Partner**, **Contratto** o un tipo personalizzato | Tipo dell'elemento desiderato | 
+   | **Nome elemento** | SÌ | <*artifact-name*> | Nome dell'elemento desiderato | 
    ||| 
 
    Ad esempio, si supponga di voler ottenere i metadati per un elemento partner commerciale:
@@ -77,7 +76,7 @@ ms.locfileid: "60846202"
 
    1. Sotto l'azione **Ricerca elemento dell'account di integrazione** scegliere **Passaggio successivo**e selezionare **Aggiungi un'azione**. 
 
-   1. Nella casella di ricerca immettere "http". Sotto la casella di ricerca scegliere **Predefiniti**e selezionare questa azione: **HTTP - HTTP**
+   1. Nella casella di ricerca immettere "http". Nella casella di ricerca scegliere **built-** in e selezionare questa azione: **http-http**
 
       ![Aggiungere azione HTTP](media/logic-apps-enterprise-integration-metadata/http-action.png)
 
@@ -85,15 +84,15 @@ ms.locfileid: "60846202"
 
       Ad esempio, si supponga di voler ottenere i metadati `routingUrl` aggiunti in precedenza in questo argomento. Ecco i valori delle proprietà che è possibile specificare: 
 
-      | Proprietà | Obbligatorio | Value | Descrizione | 
+      | Proprietà | Obbligatoria | Value | Description | 
       |----------|----------|-------|-------------| 
-      | **Metodo** | Yes | <*operation-to-run*> | Operazione HTTP da eseguire sull'elemento. Ad esempio, questa azione HTTP usa il metodo **GET**. | 
-      | **URI** | Yes | <*metadata-location*> | Per accedere al valore dei metadati `routingUrl` dall'elemento recuperato si può usare un'espressione, ad esempio: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
+      | **Metodo** | SÌ | <*operation-to-run*> | Operazione HTTP da eseguire sull'elemento. Ad esempio, questa azione HTTP usa il metodo **GET**. | 
+      | **URI** | SÌ | <*metadata-location*> | Per accedere al valore dei metadati `routingUrl` dall'elemento recuperato si può usare un'espressione, ad esempio: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
       | **Intestazioni** | No | <*header-values*> | Qualsiasi intestazione di output del trigger da passare nell'azione HTTP. Ad esempio, per passare il valore della proprietà `headers` del trigger è possibile usare un'espressione, ad esempio: <p>`@triggeroutputs()['headers']` | 
-      | **Corpo** | No | <*body-content*> | Qualsiasi altro contenuto che si vuole passare tramite la proprietà `body` dell'azione HTTP. Questo esempio passa i valori `properties` dell'elemento nell'azione HTTP: <p>1. Fare clic all'interno della proprietà **Corpo** in modo che venga visualizzato l'elenco di contenuto dinamico. Se non compaiono proprietà, scegliere **Altre informazioni**. <br>2. Nell'elenco del contenuto dinamico, sotto **Ricerca elemento dell'account di integrazione** selezionare **Proprietà**. | 
+      | **Corpo** | No | <*body-content*> | Qualsiasi altro contenuto che si vuole passare tramite la proprietà `body` dell'azione HTTP. Questo esempio passa i valori `properties` dell'elemento nell'azione HTTP: <p>1. fare clic all'interno della proprietà **Body** per visualizzare l'elenco di contenuto dinamico. Se non compaiono proprietà, scegliere **Altre informazioni**. <br>2. dall'elenco di contenuto dinamico, in **ricerca artefatto dell'account di integrazione**, selezionare **Proprietà**. | 
       |||| 
 
-      Ad esempio:
+      ad esempio:
 
       ![Specificare i valori e le espressioni per un'azione HTTP](media/logic-apps-enterprise-integration-metadata/add-http-action-values.png)
 

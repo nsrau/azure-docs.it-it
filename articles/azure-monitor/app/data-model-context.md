@@ -1,25 +1,21 @@
 ---
 title: Modello di dati di Azure Application Insights Telemetry - Contesto dei dati di telemetria | Microsoft Docs
 description: Modello di contesto dei dati di telemetria di Application Insights
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: 7c1f47c9b88bd68b326b3c8923ba5b81d425c3e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0351f4fe65745242da58d3c3fb2f9fbe5c722d06
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900711"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677447"
 ---
-# <a name="telemetry-context-application-insights-data-model"></a>Contesto dei dati di telemetria: Modello di dati di Application Insights
+# <a name="telemetry-context-application-insights-data-model"></a>Contesto dei dati di telemetria: modello di dati di Application Insights
 
 Ogni elemento di telemetria può contenere campi di contesto fortemente tipizzati. Ogni campo consente uno specifico scenario di monitoraggio. Usare la raccolta di proprietà personalizzate per archiviare informazioni contestuali personalizzate o specifiche dell'applicazione.
 
@@ -82,7 +78,7 @@ Lunghezza massima: 64
 
 ## <a name="anonymous-user-id"></a>ID utente anonimo
 
-L'ID utente anonimo. Rappresenta l'utente finale dell'applicazione. Quando i dati di telemetria vengono inviati da un servizio, il contesto utente si riferisce all'utente che ha avviato l'operazione nel servizio.
+ID utente anonimo. Rappresenta l'utente finale dell'applicazione. Quando i dati di telemetria vengono inviati da un servizio, il contesto utente si riferisce all'utente che ha avviato l'operazione nel servizio.
 
 Il [campionamento](../../azure-monitor/app/sampling.md) è una delle tecniche usate per ridurre al minimo la quantità di dati di telemetria raccolti. L'algoritmo di campionamento tenta di sondare tutti i dati di telemetria correlati in ingresso o in uscita. L'ID utente anonimo viene usato per generare un punteggio di campionamento. L'ID utente anonimo deve essere quindi un valore sufficientemente casuale. 
 
@@ -93,7 +89,7 @@ Lunghezza massima: 128
 
 ## <a name="authenticated-user-id"></a>ID utente autenticato
 
-L'ID utente autenticato. Al contrario dell'ID utente anonimo, questo campo rappresenta l'utente con un nome descrittivo. Le sue informazioni personali non vengono infatti raccolte per impostazione predefinita dalla maggior parte degli SDK.
+ID utente autenticato. Il valore opposto all'ID utente anonimo, questo campo rappresenta l'utente con un nome descrittivo. Le sue informazioni personali non vengono infatti raccolte per impostazione predefinita dalla maggior parte degli SDK.
 
 Lunghezza massima: 1024
 
@@ -119,14 +115,14 @@ Il nome dell'istanza in cui l'applicazione è in esecuzione. Il nome computer in
 Lunghezza massima: 256
 
 
-## <a name="internal-sdk-version"></a>Interno: Versione dell'SDK
+## <a name="internal-sdk-version"></a>Informazione interna: versione dell'SDK
 
 La versione dell'SDK. Per informazioni vedere https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SDK-AUTHORING.md#sdk-version-specification.
 
 Lunghezza massima: 64
 
 
-## <a name="internal-node-name"></a>Interno: Nome nodo
+## <a name="internal-node-name"></a>Informazione interna: nome del nodo
 
 Questo campo rappresenta il nome del nodo usato a scopi di fatturazione. È possibile usarlo per eseguire l'override del rilevamento standard dei nodi.
 

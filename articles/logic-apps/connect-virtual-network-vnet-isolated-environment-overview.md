@@ -1,6 +1,6 @@
 ---
-title: Accedere alle reti virtuali di Azure da App per la logica di Azure con ambienti del servizio di integrazione (ISE)
-description: Questa panoramica descrive in che modo gli ambienti del servizio di integrazione (ISE) consentono alle app per la logica di accedere alle reti virtuali di Azure (VNET)
+title: Accesso alle reti virtuali di Azure-app per la logica di Azure
+description: Panoramica su come gli ambienti di Integration Services (ISEs) consentono alle app per la logica di accedere alle reti virtuali di Azure (reti virtuali)
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 831a1457d865429fd53af1887a14c363b806300c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 5d42b9fc2dfd7cbee230b65f7d9844c9e7332147
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516614"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680510"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accedere alle risorse di Rete virtuale di Azure da App per la logica di Azure usando ambienti del servizio di integrazione (ISE)
 
@@ -30,7 +30,7 @@ L'app per la logica ora può accedere direttamente ai sistemi interni o connessi
 
 * Un connettore con etichetta **ISE**per quel sistema, ad esempio SQL Server
 * Un trigger o un'azione incorporata con etichetta **Core**, ad esempio il trigger o l'azione http
-* Un connettore personalizzato
+* un connettore personalizzato
 
 Questa panoramica descrive più dettagliatamente il modo in cui un ISE fornisce alle app per la logica e agli account di integrazione l'accesso diretto alla rete virtuale di Azure e confronta le differenze tra un ISE e il servizio globale app per la logica.
 
@@ -91,8 +91,8 @@ Per informazioni sui prezzi, vedere [prezzi di app](https://azure.microsoft.com/
 
 Quando si crea ISE, è possibile scegliere di usare endpoint di accesso interni o esterni. Questi endpoint determinano se i trigger di richiesta o webhook nelle app per la logica in ISE possono ricevere chiamate dall'esterno della rete virtuale. Questi endpoint influiscono anche sull'accesso a input e output nella cronologia di esecuzione dell'app per la logica.
 
-* **Interna**: Endpoint privati che consentono chiamate alle app per la logica in ISE e l'accesso agli input e agli output nella cronologia di esecuzione solo *dall'interno della rete virtuale*
-* **Esterna**: Endpoint pubblici che consentono chiamate alle app per la logica in ISE e l'accesso a input e output nella cronologia di esecuzione *dall'esterno della rete virtuale*
+* **Interno**: endpoint privati che consentono chiamate alle app per la logica in ISE e l'accesso agli input e agli output nella cronologia di esecuzione solo *dall'interno della rete virtuale*
+* **Esterno**: endpoint pubblici che consentono chiamate alle app per la logica in ISE e l'accesso a input e output nella cronologia di esecuzione *dall'esterno della rete virtuale*
 
 > [!IMPORTANT]
 > L'opzione endpoint di accesso è disponibile solo alla creazione di ISE e non può essere modificata in un secondo momento.

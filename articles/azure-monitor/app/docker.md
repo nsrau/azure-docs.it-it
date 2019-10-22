@@ -1,25 +1,20 @@
 ---
 title: Monitorare le applicazioni Docker in Azure Application Insights | Microsoft Docs
 description: I contatori delle prestazioni, gli eventi e le eccezioni di Docker possono essere visualizzati in Application Insights, insieme ai dati di telemetria dalle app nei contenitori.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 115e2d6b041ecc3f38a2a6438d90777da9660221
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/14/2019
+ms.openlocfilehash: 66a2481d25c863bbdbf4d72c4683a309918776db
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62098032"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677932"
 ---
-# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Monitorare le applicazioni Docker in Application Insights (deprecata)
+# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Monitorare le applicazioni Docker in Application Insights (deprecato)
 
 > [!NOTE]
 > Questa soluzione è stata deprecata. Per altre informazioni sugli investimenti attuali di Microsoft per il monitoraggio dei contenitori, è consigliabile vedere [Monitoraggio di Azure per i contenitori](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
@@ -90,7 +85,7 @@ Per analizzare i singoli eventi, fare clic su [Cerca](../../azure-monitor/app/di
 ### <a name="docker-context-added-to-app-telemetry"></a>Contesto Docker aggiunto ai dati di telemetria dell’app
 I dati di telemetria sulle richieste inviati dall'applicazione instrumentata con AI SDK sono arricchiti con informazioni di contesto Docker.
 
-## <a name="q--a"></a>Domande e risposte
+## <a name="q--a"></a>Domande frequenti
 *Quali sono i vantaggi di Application Insights rispetto a Docker?*
 
 * Suddivisione dettagliata dei contatori delle prestazioni in base al contenitore e all'immagine.
@@ -99,7 +94,7 @@ I dati di telemetria sulle richieste inviati dall'applicazione instrumentata con
 
 *Come ottenere la telemetria direttamente dall'app?*
 
-* Installare Application Insights SDK nell'app. Per informazioni, vedere: [App Web Java](../../azure-monitor/app/java-get-started.md) e [App Web Windows](../../azure-monitor/app/asp-net.md).
+* Installare Application Insights SDK nell'app. Per informazioni, vedere [App Web Java](../../azure-monitor/app/java-get-started.md) e [App Web Windows](../../azure-monitor/app/asp-net.md).
 
 ## <a name="video"></a>Video
 

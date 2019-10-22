@@ -1,5 +1,5 @@
 ---
-title: Creare query di rilevamento per i messaggi B2B in log di monitoraggio di Azure - App per la logica di Azure | Microsoft Docs
+title: Creare query di rilevamento per i messaggi B2B-app per la logica di Azure
 description: Creare query per monitorare i messaggi AS2, X12 ed EDIFACT in Log Analytics di Azure per App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
@@ -9,16 +9,16 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: d4a94e75de34bbafd3bc8f1c1a0d1a6817245e5f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d7bb53d24a113ea78b5bac3f9682fbb61ce2de9
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60846509"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680089"
 ---
-# <a name="create-tracking-queries-for-b2b-messages-in-azure-monitor-logs-for-azure-logic-apps"></a>Creare query di rilevamento per i messaggi B2B in log di monitoraggio di Azure per le App per la logica di Azure
+# <a name="create-tracking-queries-for-b2b-messages-in-azure-monitor-logs-for-azure-logic-apps"></a>Creare query di rilevamento per i messaggi B2B nei log di monitoraggio di Azure per app per la logica di Azure
 
-Per trovare AS2, X12 o EDIFACT messaggi che si vuole monitorare con [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md), è possibile creare query per filtrare le azioni in base a criteri specifici. Ad esempio, è possibile trovare i messaggi in base a un numero di controllo interscambio specifico.
+Per trovare i messaggi AS2, X12 o EDIFACT che si sta monitorando con i [log di monitoraggio di Azure](../log-analytics/log-analytics-overview.md), è possibile creare query che filtrano le azioni in base a criteri specifici. Ad esempio, è possibile trovare i messaggi in base a un numero di controllo interscambio specifico.
 
 > [!NOTE]
 > Questa pagina offriva in precedenza una descrizione dei passaggi per eseguire queste attività con Microsoft Operations Management Suite (OMS), che verrà [ritirato nel gennaio 2019](../azure-monitor/platform/oms-portal-transition.md), mentre ora riguarda gli stessi passaggi in Azure Log Analytics. 
@@ -31,7 +31,7 @@ Per trovare AS2, X12 o EDIFACT messaggi che si vuole monitorare con [monitoraggi
 
 * Un account di integrazione configurato con il monitoraggio e la registrazione. Informazioni su [come creare un account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) e [come configurare il monitoraggio e la registrazione per tale account](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Se non già [pubblicare i dati di diagnostica per i log di monitoraggio di Azure](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) e [configurare verifica dei messaggi in Monitoraggio di Azure log](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Se non è già stato fatto, [pubblicare i dati di diagnostica nei log di monitoraggio di Azure](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) e [configurare la verifica dei messaggi nei log di monitoraggio di Azure](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 ## <a name="create-queries-with-filters"></a>Creare query con filtri
 
@@ -55,7 +55,7 @@ Per trovare i messaggi in base a proprietà o valori specifici, è possibile cre
 1. Nella casella di modifica della query iniziare a digitare il nome del campo da trovare. Quando si inizia a digitare,l'editor di query mostra le possibili corrispondenze e le operazioni che è possibile usare. Dopo aver creato la query scegliere **Esegui** oppure premere il tasto Invio.
 
    Questo esempio cerca le corrispondenze in **LogicAppB2B**. 
-   Altre informazioni sulle [come trovare i dati nei log di monitoraggio di Azure](../log-analytics/log-analytics-log-searches.md).
+   Altre informazioni su [come trovare i dati nei log di monitoraggio di Azure](../log-analytics/log-analytics-log-searches.md).
 
    ![Iniziare a digitare una stringa di query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/create-query.png)
 

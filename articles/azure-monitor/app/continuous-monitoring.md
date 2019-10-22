@@ -1,20 +1,18 @@
 ---
 title: Monitoraggio continuo della pipeline di rilascio di DevOps con Azure Pipelines e applicazione Azure Insights | Microsoft Docs
 description: Vengono fornite istruzioni per configurare rapidamente il monitoraggio continuo con Application Insights
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/16/2019
-ms.service: application-insights
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: c39a2f75fe74b61463af464078b4446bba07dec0
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c891cc7564a60dfd665d84d569e266332d255fa9
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277678"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677525"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Aggiungere un monitoraggio continuo alla pipeline di versione
 
@@ -26,7 +24,7 @@ Con il monitoraggio continuo, le pipeline di versione possono incorporare i dati
 
 1. In [Azure DevOps](https://dev.azure.com)selezionare un'organizzazione e un progetto.
    
-1. Nel menu a sinistra della pagina del progetto selezionare **pipeline** > **versioni**. 
+1. Nel menu a sinistra della pagina del progetto selezionare **pipeline**  > **versioni**. 
    
 1. A discesa della freccia accanto a **nuovo** e selezionare **nuova pipeline di rilascio**. In alternativa, se non è ancora disponibile una pipeline, selezionare **nuova pipeline** nella pagina visualizzata.
    
@@ -53,7 +51,7 @@ Con il monitoraggio continuo, le pipeline di versione possono incorporare i dati
 
 ## <a name="modify-alert-rules"></a>Modificare le regole di avviso
 
-In modalità predefinita, il modello **di distribuzione del servizio app Azure con monitoraggio continuo** prevede quattro regole di avviso: **Disponibilità**, **richieste non riuscite**, **tempo di risposta del server**ed eccezioni del **Server**. È possibile aggiungere altre regole o modificare le impostazioni delle regole per soddisfare le esigenze del livello di servizio. 
+In modalità predefinita, il modello **di distribuzione del servizio app Azure con monitoraggio continuo** prevede quattro regole di avviso: **disponibilità**, **richieste non riuscite**, **tempo di risposta del server**ed eccezioni del **Server**. È possibile aggiungere altre regole o modificare le impostazioni delle regole per soddisfare le esigenze del livello di servizio. 
 
 Per modificare le impostazioni delle regole di avviso:
 
@@ -87,7 +85,7 @@ Per aggiungere le attività di controllo di distribuzione:
    
    ![Eseguire query sugli avvisi di monitoraggio di Azure](media/continuous-monitoring/005.png)
    
-1. In **Opzioni di valutazione**, immettere i valori desiderati per le impostazioni come **l'intervallo tra la rivalutazione delle attività di** controllo e **il timeout dopo il quale**i cancelli hanno esito negativo. 
+1. In **Opzioni di valutazione**, immettere i valori desiderati per le impostazioni come **l'intervallo tra la rivalutazione delle attività di** controllo e **il timeout dopo il quale i cancelli hanno esito negativo**. 
 
 ## <a name="view-release-logs"></a>Visualizza log versione
 

@@ -1,6 +1,6 @@
 ---
-title: Integrare le operazioni di sicurezza con Microsoft Graph Security - App per la logica di Azure
-description: Migliorare le capacità di protezione, rilevamento e risposta alle minacce per le app attraverso la gestione delle operazioni di sicurezza con Microsoft Graph Security e le app per la logica di Azure
+title: 'Integrare e gestire le operazioni di sicurezza: app per la logica di Azure & sicurezza Microsoft Graph'
+description: Migliorare la protezione, il rilevamento e la risposta alle minacce dell'app con Microsoft Graph sicurezza & app per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,12 +10,12 @@ ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/30/2019
 tags: connectors
-ms.openlocfilehash: 24963a35bc3e54b2d140bf4ed1d169b213bd9b2a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 845f57d84f49bdd964cc6f61790faff093f59466
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60448049"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679090"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Migliorare la protezione dalle minacce integrando le operazioni di sicurezza con Microsoft Graph Security e le app per la logica di Azure
 
@@ -87,7 +87,7 @@ Per filtrare, ordinare oppure ottenere i risultati più recenti, fornire *solo* 
 
 Per altre informazioni sulle query che è possibile usare con questo connettore, vedere la [documentazione di riferimento sugli avvisi di Microsoft Graph Security](https://docs.microsoft.com/graph/api/alert-list). Per creare esperienze ottimizzate con questo connettore, consultare altre informazioni sugli [avvisi delle proprietà dello schema](https://docs.microsoft.com/graph/api/resources/alert) supportati dal connettore.
 
-| Azione | Descrizione |
+| Azione | Description |
 |--------|-------------|
 | **Ottieni avvisi** | Ottenere gli avvisi filtrati in base a una o più [proprietà degli avvisi](https://docs.microsoft.com/graph/api/resources/alert), ad esempio: <p>`Provider eq 'Azure Security Center' or 'Palo Alto Networks'` | 
 | **Get alert by ID** (Ottieni avviso in base all'ID) | Ottenere un avviso specifico in base all'ID dell'avviso. | 
@@ -101,7 +101,7 @@ Microsoft Graph supporta le [*sottoscrizioni*](https://docs.microsoft.com/graph/
 
 `security/alerts?$filter=status eq 'New'`
 
-| Azione | Descrizione |
+| Azione | Description |
 |--------|-------------|
 | **Create subscriptions** (Crea sottoscrizioni) | [Creare una sottoscrizione](https://docs.microsoft.com/graph/api/subscription-post-subscriptions) per ricevere notifiche in caso di modifiche. È possibile filtrare la sottoscrizione in base agli specifici tipi di avviso a cui si è interessati. È ad esempio creare una sottoscrizione che invia una notifica in caso di avvisi con gravità alta. |
 | **Get active subscriptions** (Ottieni sottoscrizioni attive) | [Ottenere le sottoscrizioni non scadute](https://docs.microsoft.com/graph/api/subscription-list). | 
@@ -113,7 +113,7 @@ Microsoft Graph supporta le [*sottoscrizioni*](https://docs.microsoft.com/graph/
 
 Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](https://aka.ms/graphsecurityconnectorreference) del connettore.
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).

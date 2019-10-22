@@ -1,26 +1,21 @@
 ---
 title: Mappa delle applicazioni in Azure Application Insights | Microsoft Docs
 description: Monitorare topologie di applicazioni complesse con la mappa delle applicazioni
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: f895aa9aa4bc66c32f10d290b7ee708345be8c9b
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 49efad50b988da263a715c1aba9d53ad4b4a7121
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983773"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678379"
 ---
-# <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: Valutazione delle applicazioni distribuite
+# <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: valutare le applicazioni distribuite
 
 La mappa delle applicazioni consente di individuare i colli di bottiglia delle prestazioni o le aree sensibili agli errori in tutti i componenti dell'applicazione distribuita. Ogni nodo nella mappa rappresenta un componente dell'applicazione o le relative dipendenze e ha un indicatore KPI dell'integrità e uno stato degli avvisi. È possibile fare clic da qualsiasi componente per ottenere una diagnostica più dettagliata, ad esempio sugli eventi di Application Insights. Se l'app usa i servizi di Azure, è possibile anche fare clic sulla diagnostica di Azure, ad esempio per consigli di Advisor su database SQL.
 
@@ -50,7 +45,7 @@ Fare clic su qualsiasi componente per visualizzare le informazioni dettagliate c
 
 ![Riquadro a comparsa](media/app-map/application-map-002.png)
 
-### <a name="investigate-failures"></a>Esamina errori
+### <a name="investigate-failures"></a>Esaminare gli errori
 
 Selezionare **Esamina errori** per aprire il riquadro Errori.
 
@@ -58,7 +53,7 @@ Selezionare **Esamina errori** per aprire il riquadro Errori.
 
 ![Screenshot dell'esperienza Errori](media/app-map/failures.png)
 
-### <a name="investigate-performance"></a>Esamina prestazioni
+### <a name="investigate-performance"></a>Esaminare le prestazioni
 
 Per risolvere i problemi relativi alle prestazioni, selezionare **Esamina prestazioni**.
 
@@ -119,7 +114,7 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**App ASP.NET: Carica inizializzatore nel TelemetryConfiguration attivo**
+**App ASP.NET: caricamento dell'inizializzatore nel TelemetryConfiguration attivo**
 
 In ApplicationInsights. config:
 
@@ -147,11 +142,11 @@ Un metodo alternativo per le app Web ASP.NET è creare un'istanza dell'inizializ
 ```
 
 > [!NOTE]
-> L'aggiunta di `ApplicationInsights.config` un inizializzatore tramite o utilizzando `TelemetryConfiguration.Active` non è valida per le applicazioni ASP.NET Core. 
+> L'aggiunta di un inizializzatore utilizzando `ApplicationInsights.config` o l'utilizzo di `TelemetryConfiguration.Active` non è valida per ASP.NET Core applicazioni. 
 
-**App ASP.NET Core: Carica l'inizializzatore in TelemetryConfiguration**
+**App ASP.NET Core: caricamento dell'inizializzatore in TelemetryConfiguration**
 
-Per [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applicazioni, l'aggiunta di `TelemetryInitializer` un nuovo viene eseguita aggiungendola al contenitore di inserimento delle dipendenze, come illustrato di seguito. Questa operazione viene eseguita `ConfigureServices` nel metodo `Startup.cs` della classe.
+Per [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applicazioni, l'aggiunta di una nuova `TelemetryInitializer` viene eseguita aggiungendola al contenitore di inserimento delle dipendenze, come illustrato di seguito. Questa operazione viene eseguita nel metodo `ConfigureServices` della classe `Startup.cs`.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -210,7 +205,7 @@ Per quanto concerne il nome del **ruolo Cloud**, può essere utile esaminare una
 
 ![Screenshot della mappa delle applicazioni](media/app-map/cloud-rolename.png)
 
-Nella mappa delle applicazioni sopra ognuno dei nomi in caselle verdi sono presenti i valori del nome del ruolo Cloud per diversi aspetti di questa particolare applicazione distribuita. Per questa app, quindi, i ruoli sono `Authentication`costituiti `Inventory Management`da: `Payment Processing Worker Role`, `acmefrontend`,, a. 
+Nella mappa delle applicazioni sopra ognuno dei nomi in caselle verdi sono presenti i valori del nome del ruolo Cloud per diversi aspetti di questa particolare applicazione distribuita. Per questa app, quindi, i ruoli sono costituiti da: `Authentication`, `acmefrontend`, `Inventory Management`, `Payment Processing Worker Role`. 
 
 Nel caso di questa app, ognuno di questi nomi di ruolo cloud rappresenta anche una risorsa Application Insights univoca diversa con le rispettive chiavi di strumentazione. Poiché il proprietario di questa applicazione ha accesso a ognuna di queste quattro risorse Application Insights diversi, la mappa delle applicazioni è in grado di unire una mappa delle relazioni sottostanti.
 
@@ -230,13 +225,13 @@ In alternativa, l' **istanza del ruolo Cloud** può essere utile per gli scenari
 
 Uno scenario in cui potrebbe essere necessario eseguire l'override del valore per l'istanza del ruolo cloud potrebbe essere se l'app è in esecuzione in un ambiente contenitore in cui semplicemente la conoscenza del singolo server potrebbe non essere sufficiente per individuare un determinato problema.
 
-Per altre informazioni su come eseguire l'override della proprietà del nome del ruolo cloud con gli inizializzatori [di telemetria, vedere Aggiungere proprietà: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Per altre informazioni su come eseguire l'override della proprietà del nome del ruolo cloud con gli inizializzatori di telemetria, vedere [aggiungere proprietà: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se si verificano problemi nel far funzionare come previsto la mappa delle applicazioni, provare questa procedura:
 
-### <a name="general"></a>Generale
+### <a name="general"></a>Informazioni di carattere generale
 
 1. Assicurarsi di usare un SDK supportato ufficialmente. Gli SDK non supportati/community potrebbero non supportare la correlazione.
 

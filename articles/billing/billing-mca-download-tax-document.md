@@ -1,6 +1,6 @@
 ---
-title: Visualizzare i documenti fiscali per il Contratto del cliente Microsoft in Azure
-description: Informazioni su come visualizzare e scaricare le ricevute fiscali per il profilo di fatturazione del Contratto del cliente Microsoft.
+title: Visualizzare i documenti fiscali per la fattura di Azure
+description: Informazioni su come visualizzare e scaricare le ricevute fiscali per il profilo di fatturazione.
 author: bandersmsft
 manager: jureid
 tags: billing
@@ -12,35 +12,31 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 66d47ad1d67c963d70fb40e43eb077222ad8b360
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: c8c39a832f54cd5075b57507ead14cbcdff2bb53
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709796"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375526"
 ---
-# <a name="view-the-tax-documents-for-your-microsoft-customer-agreement"></a>Visualizzare i documenti fiscali per il Contratto del cliente Microsoft
+# <a name="view-and-download-tax-documents-for-your-azure-invoice"></a>Visualizzare e scaricare i documenti fiscali per la fattura di Azure
 
-Questo articolo si applica a un account di fatturazione per un Contratto del cliente Microsoft. [Verificare di avere accesso a un Contratto del cliente Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Se si ha accesso alle fatture nel portale di Azure, è possibile scaricare i documenti fiscali per la fattura di Azure. Solo determinati ruoli sono autorizzati ad accedere alle fatture, ad esempio l'amministratore dell'account. Per scaricare le fatture e i documenti fiscali, un cliente con Contratto del cliente Microsoft deve avere il ruolo di proprietario, collaboratore, lettore o gestione fatture del profilo di fatturazione. Per un cliente con Contratto Microsoft Partner, è necessario disporre del ruolo di amministratore globale o agente amministratore nell'organizzazione partner. [Controllare il tipo di account di fatturazione ](#check-billing-account-type) per verificare le autorizzazioni necessarie per scaricare i documenti fiscali.
 
 ## <a name="view-and-download-tax-documents"></a>Visualizzare e scaricare i documenti fiscali
 
-Per visualizzare e scaricare i documenti fiscali, è necessario avere il ruolo di proprietario, collaboratore, lettore o gestione fatture del profilo di fatturazione. Per altre informazioni sui ruoli di fatturazione per i Contratti del cliente Microsoft, vedere [Ruoli e attività del profilo di fatturazione](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
-
-
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Cercare *Gestione dei costi e fatturazione*.
-1. Selezionare un profilo di fatturazione.
-1. Selezionare **Fatture**.
+1. A seconda dell'accesso, potrebbe essere necessario selezionare un account di fatturazione o un profilo di fatturazione.
+1. Nel menu a sinistra selezionare **Fatture** in **Fatturazione**.
 1. Nella griglia della fattura trovare la riga corrispondente al documento fiscale che si vuole scaricare.
-1. Fare clic sui puntini di sospensione (`...`) alla fine della riga.
-7. Selezionare **Scarica il documento fiscale**. A seconda del paese o dell'area geografica del profilo di fatturazione, è possibile che venga visualizzato più di un documento fiscale per fattura.
+1. Fare clic sull'icona del download o sui puntini di sospensione (`...`) alla fine della riga.
+7. Selezionare **Documento fiscale** nel menu di download. A seconda del paese o dell'area geografica del profilo di fatturazione, è possibile che venga visualizzato più di un documento fiscale per fattura.
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificare l'accesso a un Contratto del cliente Microsoft
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+## <a name="check-billing-account-type"></a>Controllare il tipo di account di fatturazione
+[!INCLUDE [billing-check-account-type](../../includes/billing-check-account-type.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Visualizzare e scaricare la fattura di Microsoft Azure](billing-download-azure-invoice.md)
 - [Visualizzare e scaricare l'utilizzo e gli addebiti di Microsoft Azure](billing-download-azure-daily-usage.md)
-- [Informazioni sugli addebiti nella fattura del profilo di fatturazione](billing-mca-understand-your-bill.md)

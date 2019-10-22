@@ -1,6 +1,6 @@
 ---
-title: Inviare e ricevere messaggi con il bus di servizio di Azure-app per la logica di Azure
-description: Configurare la messaggistica cloud aziendale usando il bus di servizio di Azure e le app per la logica di Azure
+title: Scambiare messaggi con il bus di servizio di Azure-app per la logica di Azure
+description: Inviare e ricevere messaggi tramite il bus di servizio di Azure in app per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,16 +9,15 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 09/19/2019
-ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 tags: connectors
-ms.openlocfilehash: f2034686e4a8de5e1ccc246f49337a6600bf441f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 0cf5486e77e69f83973f7e62669e5ab45d1c94a2
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121001"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679192"
 ---
-# <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-with-azure-service-bus"></a>Scambiare messaggi nel cloud usando app per la logica di Azure con il bus di servizio di Azure
+# <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Scambiare messaggi nel cloud usando app per la logica di Azure e il bus di servizio di Azure
 
 Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il connettore del bus di servizio di [Azure](../service-bus-messaging/service-bus-messaging-overview.md) è possibile creare attività e flussi di lavoro automatizzati che trasferiscono i dati, ad esempio ordini di vendita e di acquisto, Journal e movimenti di inventario tra le applicazioni dell'organizzazione. Il connettore non solo monitora, invia e gestisce i messaggi, ma esegue anche azioni con code, sessioni, argomenti, sottoscrizioni e così via, ad esempio:
 

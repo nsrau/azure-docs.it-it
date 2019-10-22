@@ -1,6 +1,6 @@
 ---
-title: Messaggi AS2 per l'integrazione aziendale B2B-app per la logica di Azure
-description: Scambiare messaggi AS2 in app per la logica di Azure con Enterprise Integration Pack
+title: Inviare e ricevere messaggi AS2 per B2B-app per la logica di Azure
+description: Scambiare messaggi AS2 per scenari di integrazione aziendale B2B usando app per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 08/22/2019
-ms.openlocfilehash: b1e7664aa08171c16c83e17ad93977b29e31b5c0
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 1f063c0e8dada8eb6c4eee031764f6ca7dd3a91d
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656416"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680379"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi AS2 per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
@@ -54,7 +54,7 @@ Questo articolo illustra come aggiungere le azioni di codifica e decodifica AS2 
 
 * Una sottoscrizione di Azure. Se non si dispone ancora di una sottoscrizione di Azure, [registrarsi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* App per la logica da cui si vuole usare il connettore AS2 e un trigger che avvia il flusso di lavoro dell'app per la logica. Il connettore AS2 fornisce solo azioni, non trigger. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* App per la logica da cui si vuole usare il connettore AS2 e un trigger che avvia il flusso di lavoro dell'app per la logica. Il connettore AS2 fornisce solo azioni, non trigger. Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associato alla sottoscrizione di Azure e collegato all'app per la logica in cui si prevede di usare il connettore AS2. Sia l'app per la logica che l'account di integrazione devono esistere nella stessa località o nell'area di Azure.
 
@@ -62,9 +62,9 @@ Questo articolo illustra come aggiungere le azioni di codifica e decodifica AS2 
 
 * Prima di poter utilizzare il connettore AS2, è necessario creare un [contratto](../logic-apps/logic-apps-enterprise-integration-agreements.md) AS2 tra i partner commerciali e archiviare tale contratto nell'account di integrazione.
 
-* Se si usa [Azure Key Vault](../key-vault/key-vault-overview.md) per la gestione dei certificati, verificare che le chiavi dell'insieme di credenziali consentano le operazioni di **crittografia** e decrittografia. In caso contrario, le azioni di codifica e decodifica avranno esito negativo.
+* Se si usa [Azure Key Vault](../key-vault/key-vault-overview.md) per la gestione dei certificati, verificare che le chiavi dell'insieme di credenziali consentano le operazioni di **crittografia** e **decrittografia** . In caso contrario, le azioni di codifica e decodifica avranno esito negativo.
 
-  Nel portale di Azure passare all'insieme di credenziali delle chiavi, visualizzare le **operazioni**consentite della chiave dell'insieme di credenziali e verificare che le operazioni di **crittografia** e decrittografia siano selezionate.
+  Nel portale di Azure passare all'insieme di credenziali delle chiavi, visualizzare le **operazioni consentite**della chiave dell'insieme di credenziali e verificare che le operazioni di **crittografia** e **decrittografia** siano selezionate.
 
   ![Controllare le operazioni di Key Vault](media/logic-apps-enterprise-integration-as2/vault-key-permitted-operations.png)
 
@@ -76,20 +76,20 @@ Questo articolo illustra come aggiungere le azioni di codifica e decodifica AS2 
 
 1. Nella finestra di progettazione aggiungere una nuova azione all'app per la logica.
 
-1. In **scegliere un'azione** e la casella di ricerca selezionare **tutti**. Nella casella di ricerca immettere "codifica AS2" e assicurarsi di selezionare l'azione AS2 (v2): **Codifica AS2**
+1. In **Scegliere un'azione** e nella casella di ricerca selezionare **Tutte**. Nella casella di ricerca immettere "codifica AS2" e assicurarsi di selezionare l'azione AS2 (v2): **codifica AS2**
 
    ![Selezionare "codifica AS2"](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
 
 1. Specificare ora le informazioni per queste proprietà:
 
-   | Proprietà | Descrizione |
+   | Proprietà | Description |
    |----------|-------------|
    | **Messaggio da codificare** | Payload del messaggio |
    | **AS2 da** | Identificatore del mittente del messaggio come specificato dall'accordo AS2 |
    | **Da AS2 a** | Identificatore del destinatario del messaggio come specificato dall'accordo AS2 |
    |||
 
-   Esempio:
+   ad esempio:
 
    ![Proprietà di codifica del messaggio](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 
@@ -101,7 +101,7 @@ Questo articolo illustra come aggiungere le azioni di codifica e decodifica AS2 
 
 1. Nella finestra di progettazione aggiungere una nuova azione all'app per la logica.
 
-1. In **scegliere un'azione** e la casella di ricerca selezionare **tutti**. Nella casella di ricerca immettere "Decode AS2" e assicurarsi di selezionare l'azione AS2 (v2): **Decodifica AS2**
+1. In **Scegliere un'azione** e nella casella di ricerca selezionare **Tutte**. Nella casella di ricerca immettere "Decode AS2" e assicurarsi di selezionare l'azione AS2 (v2): **Decode AS2**
 
    ![Selezionare "AS2 Decode"](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
 

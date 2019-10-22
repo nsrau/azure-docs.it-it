@@ -1,5 +1,5 @@
 ---
-title: 'Scenario senza server: Creare un dashboard Customer Insights con Servizi di Azure | Microsoft Docs'
+title: Creare un dashboard di Customer Insights-app per la logica di Azure
 description: Gestire i suggerimenti dei clienti, i dati dei social media e altro ancora creando un dashboard Customer Insights con App per la logica di Azure e Funzioni di Azure
 services: logic-apps
 ms.service: logic-apps
@@ -7,21 +7,20 @@ ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
 ms.reviewer: estfan, LADocs
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: b8ba341252679a07e50f9b276f7f485b08a6acba
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: c9c5cf9c56f2e22faa973c983c6fd81733119daa
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164872"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680118"
 ---
-# <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creare un dashboard Customer Insights in streaming con App per la logica di Azure e Funzioni di Azure
+# <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creare un dashboard Customer Insights in streaming con App per la logica di Azure e Funzioni di Azure
 
 Azure offre strumenti [serverless](https://azure.microsoft.com/solutions/serverless/) che consentono di compilare rapidamente e ospitare app nel cloud, senza doversi preoccupare dell'infrastruttura. In questa esercitazione è possibile creare un dashboard che si attiva con i suggerimenti dei clienti, analizza i suggerimenti con Machine Learning e pubblica informazioni dettagliate in un'origine come Power BI o Azure Data Lake.
 
-Per questa soluzione, si usano i due componenti chiave di Azure per le app serverless: [Funzioni di Azure](https://azure.microsoft.com/services/functions/) e [App per la logica di Azure](https://azure.microsoft.com/services/logic-apps/).
+Per questa soluzione, si usano i due componenti chiave di Azure per le app senza server: [Funzioni di Azure](https://azure.microsoft.com/services/functions/) e [App per la logica di Azure](https://azure.microsoft.com/services/logic-apps/).
 App per la logica di Azure fornisce un motore del flusso di lavoro senza server nel cloud, in modo da poter creare orchestrazioni tra componenti senza server e connettersi a oltre 200 servizi e API. Funzioni di Azure consente l'elaborazione senza server nel cloud. Questa soluzione usa Funzioni di Azure per contrassegnare i tweet dei clienti in base a parole chiave predefinite.
 
 In questo scenario viene creata un'app per la logica attivabile con i suggerimenti dei clienti. Tra i connettori che consentono di rispondere ai suggerimenti dei clienti sono inclusi Outlook.com, Office 365, Survey Monkey, Twitter e una [richiesta HTTP da un Web Form](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). Il flusso di lavoro creato monitora un hashtag su Twitter.
@@ -34,7 +33,7 @@ In questo scenario viene creata un'app per la logica attivabile con i suggerimen
 
    Se non si ha familiarità con le app per la logica, vedere la [guida introduttiva per il portale di Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md) o la [guida introduttiva per Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
-2. In Progettazione app per la logica trovare e aggiungere il trigger di Twitter con questa azione: **Quando viene pubblicato un nuovo tweet**
+2. In Progettazione app per la logica individuare e aggiungere il trigger di Twitter con l'azione **Quando viene pubblicato un nuovo tweet**.
 
 3. Impostare il trigger per l'ascolto dei tweet in base a una parola chiave o un hashtag.
 
@@ -60,7 +59,7 @@ Per rilevare il tipo di valutazione per un testo, è possibile usare i [Servizi 
 
 Dopo avere ottenuto i dati del tweet e informazioni dettagliate sul tweet, è ora possibile usare diversi altri connettori pertinenti e le relative azioni:
 
-* **Power BI. Aggiunta di righe ai set di dati di streaming**: visualizza i tweet in arrivo in un dashboard di Power BI.
+* **Power BI. Aggiunta di righe al set di dati di streaming**: visualizza i tweet in arrivo in un dashboard di Power BI.
 * **Azure Data Lake. Aggiunta file**: aggiunge i dati di un cliente a un set di dati di Azure Data Lake da includere nei processi di analisi.
 * **SQL. Aggiunta di righe**: archivia i dati in un database per recuperarli in seguito.
 * **Slack. Invio messaggio**: notifica a un canale di Slack l'arrivo di commenti negativi che potrebbero richiedere l'esecuzione di un'azione.

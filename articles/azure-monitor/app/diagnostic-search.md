@@ -1,23 +1,18 @@
 ---
 title: Utilizzo della funzionalità Ricerca in Azure Application Insights | Microsoft Docs
 description: Ricercare e filtrare elementi di telemetria non elaborata inviata da App Web.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/30/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: d08fd2ac6db63eee01c0653d2dbb1623fb1b51ed
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.date: 07/30/2019
+ms.openlocfilehash: 77cd0a8d0c1a93e7dc1db931e987a172d31978ef
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705411"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678017"
 ---
 # <a name="using-search-in-application-insights"></a>Utilizzo della funzionalità Ricerca in Application Insights
 
@@ -101,7 +96,7 @@ Per trovare tutti gli elementi con lo stesso valore della proprietà, digitarli 
 
 Cercare parole complete, non sottostringhe. Utilizzare le virgolette per racchiudere i caratteri speciali.
 
-| String | *Non* trovato | Trovato |
+| Stringa | *Non* trovato | Trovato |
 | --- | --- | --- |
 | ControllerHome.Info |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |Stati Uniti|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
@@ -119,9 +114,9 @@ Cercare parole complete, non sottostringhe. Utilizzare le virgolette per racchiu
 
 Se l'app genera una grande quantità di dati di telemetria (e si usa ASP.NET SDK versione 2.0.0-beta3 o successiva), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta vengono selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati.
 
-[Informazioni sul campionamento](../../azure-monitor/app/sampling.md).
+[Informazioni sul campionamento.](../../azure-monitor/app/sampling.md)
 
-## <a name="create-work-item"></a>Crea elemento di lavoro
+## <a name="create-work-item"></a>Creare un elemento di lavoro
 
 È possibile creare un bug in GitHub o Azure DevOps con i dettagli provenienti da qualsiasi elemento di dati di telemetria.
 
@@ -157,4 +152,4 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 * [Scrivere query complesse in Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Inviare log e dati di telemetria personalizzati ad Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Configurare i test di disponibilità e velocità di risposta](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Risoluzione dei problemi](../../azure-monitor/app/troubleshoot-faq.md)
+* [risoluzione dei problemi](../../azure-monitor/app/troubleshoot-faq.md)

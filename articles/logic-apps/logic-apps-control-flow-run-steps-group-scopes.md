@@ -1,23 +1,22 @@
 ---
-title: Aggiungere ambiti che eseguono azioni in base allo stato del gruppo - App per la logica di Azure | Microsoft Docs
-description: Come creare ambiti che eseguono azioni del flusso di lavoro in base allo stato dell'azione del gruppo nelle App per la logica di Azure
+title: Raggruppare ed eseguire azioni per ambito-app per la logica di Azure
+description: Creare azioni con ambito eseguite in base allo stato del gruppo in app per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b0f53d1dbcd5b8bbbe38ffe3dd9ba62087ed3432
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60685404"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680011"
 ---
-# <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Eseguire azioni in base allo stato del gruppo con ambiti nelle App per la logica di Azure
+# <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Eseguire azioni in base allo stato del gruppo usando gli ambiti nelle app per la logica di Azure
 
 Per eseguire azioni solo dopo che un altro gruppo di azioni ha avuto esito positivo o negativo, raggruppare tali azioni in un *ambito*. Questa struttura è utile quando si vuole organizzare le azioni come gruppo logico, valutare lo stato del gruppo ed eseguire le azioni in base allo stato dell'ambito. Al termine dell'esecuzione di tutte le azioni in un ambito, l'ambito ottiene anche il proprio stato. È ad esempio possibile usare gli ambiti quando si vuole implementare la [gestione degli errori e delle eccezioni](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
@@ -54,7 +53,7 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
 
 1. Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a>, se questa operazione non è già stata eseguita. Creare un'app per la logica vuota.
 
-1. Aggiungere il **pianificazione - ricorrenza** trigger con le seguenti impostazioni: **Intervallo** = "1" e **frequenza** = "Minuto"
+1. Aggiungere il trigger **Pianificazione - Ricorrenza** con queste impostazioni: **Intervallo** = "1" e **Frequenza** = "Minuto"
 
    ![Configurazione del trigger "Pianificazione - Ricorrenza"](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
@@ -65,7 +64,7 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
 
    1. Se non si ha già una connessione esistente a Bing Maps, viene chiesto di crearne una.
 
-      | Impostazione | Valore | Descrizione |
+      | Impostazione | Value | Description |
       | ------- | ----- | ----------- |
       | **Connection Name** (Nome connessione) | BingMapsConnection | Specificare un nome per la connessione. | 
       | **Chiave API** | <*chiave-Bing-Maps*> | Immettere la chiave di Bing Maps ricevuta in precedenza. | 
@@ -77,22 +76,22 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
 
       Per altre informazioni su questi parametri, vedere [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcolare un itinerario).
 
-      | Impostazione | Valore | Descrizione |
+      | Impostazione | Value | Description |
       | ------- | ----- | ----------- |
       | **Punto di tragitto 1** | <*start*> | Immettere l'origine dell'itinerario. | 
       | **Punto di tragitto 2** | <*end*> | Immettere la destinazione dell'itinerario. | 
-      | **Avoid** (Evita) | Nessuna | Immettere gli elementi da evitare lungo l'itinerario, ad esempio autostrade, strade a pedaggio e così via. Per i possibili valori, vedere [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcolare un itinerario). | 
+      | **Avoid** (Evita) | Nessuno | Immettere gli elementi da evitare lungo l'itinerario, ad esempio autostrade, strade a pedaggio e così via. Per i possibili valori, vedere [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcolare un itinerario). | 
       | **Optimize** (Ottimizza) | timeWithTraffic | Selezionare un parametro per ottimizzare l'itinerario, ad esempio distanza, tempo con le informazioni sul traffico corrente e così via. Questo esempio usa il valore "timeWithTraffic" | 
-      | **Unità distanza** | <*preferenza*> | Immettere l'unità di distanza per calcolare l'itinerario. Questo esempio Usa questo valore: "Miglia" | 
+      | **Unità distanza** | <*preferenza*> | Immettere l'unità di distanza per calcolare l'itinerario. Questo esempio usa il valore "Mile" | 
       | **Travel mode** (Modalità di viaggio) | Driving (Guida) | Immettere la modalità di viaggio per l'itinerario. Questo esempio usa il valore "Driving" | 
-      | **Transit Date-Time** (Data e ora transito) | Nessuna | Si applica solo alla modalità di transito. | 
-      | **Transit Date-Time Type** (Tipo di data e ora transito) | Nessuna | Si applica solo alla modalità di transito. | 
+      | **Transit Date-Time** (Data e ora transito) | Nessuno | Si applica solo alla modalità di transito. | 
+      | **Transit Date-Time Type** (Tipo di data e ora transito) | Nessuno | Si applica solo alla modalità di transito. | 
       ||||  
 
 1. [Aggiungere una condizione](../logic-apps/logic-apps-control-flow-conditional-statement.md) per verificare se il tempo di viaggio corrente con il traffico è superiore al tempo specificato. 
    Per questo esempio, seguire questa procedura:
 
-   1. Rinominare la condizione con questa descrizione: **Se il traffico è superiore di tempo specificato**
+   1. Rinominare la condizione con questa descrizione: **If traffic time is more than specified time** (Se il tempo con il traffico è superiore al tempo specificato).
 
    1. Nella colonna più a sinistra fare clic all'interno della casella **Scegliere un valore** in modo che venga visualizzato l'elenco di contenuto dinamico. In questo elenco selezionare il campo **Travel Duration Traffic** (Durata viaggio con traffico), espresso in secondi. 
 
@@ -100,7 +99,7 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
 
    1. Nella casella centrale selezionare l'operatore: **è maggiore di**.
 
-   1. Nella colonna all'estrema destra, immettere questo valore di confronto, in secondi ed equivalente a 10 minuti: **600**
+   1. Nella colonna all'estrema destra immettere questo valore di confronto, che è in secondi e equivalente a 10 minuti: **600**
 
       Al termine, la condizione avrà un aspetto simile a quello in questo esempio:
 
@@ -147,11 +146,11 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
    1. Al termine dell'operazione, scegliere **OK**.
 
    <!-- markdownlint-disable MD038 -->
-   1. Dopo l'espressione viene risolta, aggiungere il testo seguente con uno spazio iniziale: ``` minutes```
+   1. Dopo la risoluzione dell'espressione, aggiungere questo testo con uno spazio principale: ``` minutes```
   
        Il campo **Corpo** dovrebbe avere ora un aspetto simile all'esempio seguente:
 
-       ![Campo "Corpo" completato](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       ![Finished campo "Body" ](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
    <!-- markdownlint-enable MD038 -->
 
 1. Salvare l'app per la logica.
@@ -183,7 +182,7 @@ Aggiungere successivamente un ambito per poter raggruppare azioni specifiche e v
 
    ![Ambito aggiunto](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-1. Sotto l'ambito aggiungere una condizione che controlla lo stato dell'ambito. Rinominare la condizione con questa descrizione: **Se l'ambito non è riuscita**
+1. Sotto l'ambito aggiungere una condizione che controlla lo stato dell'ambito. Rinominare la condizione con questa descrizione: **If scope failed** (Se l'ambito ha avuto esito negativo)
 
    ![Aggiungere la condizione per controllare lo stato dell'ambito](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   
@@ -390,7 +389,7 @@ Se si usa la visualizzazione Codice, è invece possibile definire una struttura 
 },
 ```
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare suggerimenti relativi alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica di Azure](https://aka.ms/logicapps-wish).

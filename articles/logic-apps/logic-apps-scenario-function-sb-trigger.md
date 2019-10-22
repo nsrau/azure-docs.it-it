@@ -1,6 +1,6 @@
 ---
-title: Chiamare o avviare le App per la logica con funzioni di Azure e Bus di servizio di Azure
-description: Creare funzioni di Azure che chiamano o attivano App per la logica usando il Bus di servizio di Azure
+title: Chiamare app per la logica con funzioni di Azure-app per la logica di Azure
+description: Creare funzioni di Azure che chiamano o attivano app per la logica ascoltando il bus di servizio di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,42 +8,41 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
-ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.date: 06/04/2019
-ms.openlocfilehash: 3d4f642ae25a179ea2c3241240996da774cd8c23
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ab6ace7c30c3dd385928b6b0ae8000485d5f495
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494895"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680154"
 ---
-# <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Chiamare o avviare le App per la logica con funzioni di Azure e Bus di servizio di Azure
+# <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Chiamare o attivare app per la logica usando funzioni di Azure e il bus di servizio di Azure
 
-È possibile usare [funzioni di Azure](../azure-functions/functions-overview.md) per attivare un'app per la logica quando è necessario distribuire un listener con esecuzione prolungata o attività. Ad esempio, è possibile creare una funzione di Azure che è in ascolto su un [Bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md) della coda e viene attivato immediatamente un'app per la logica come trigger di push.
+È possibile usare [funzioni di Azure](../azure-functions/functions-overview.md) per attivare un'app per la logica quando è necessario distribuire un'attività o un listener con esecuzione prolungata. Ad esempio, è possibile creare una funzione di Azure che rimane in ascolto in una coda del [bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md) e genera immediatamente un'app per la logica come trigger di push.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* Uno spazio dei nomi del Bus di servizio di Azure. Se non si dispone di uno spazio dei nomi [creare prima di tutto lo spazio dei nomi](../service-bus-messaging/service-bus-create-namespace-portal.md).
+* Uno spazio dei nomi del bus di servizio di Azure. Se non si dispone di uno spazio dei nomi, [creare prima lo spazio dei nomi](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-* Un'app funzioni di Azure, che è un contenitore per le funzioni di Azure. Se non si dispone di un'app per le funzioni, [creare prima l'app per le funzioni](../azure-functions/functions-create-first-azure-function.md)e assicurarsi di selezionare .NET come lo stack di runtime.
+* App per le funzioni di Azure, un contenitore per funzioni di Azure. Se non si dispone di un'app per [le funzioni, creare prima l'app per le funzioni](../azure-functions/functions-create-first-azure-function.md)e assicurarsi di selezionare .NET come stack di Runtime.
 
 * Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## <a name="create-logic-app"></a>Creare l'app per la logica
 
-Per questo scenario, disponibile una funzione che esegue ogni app per la logica che si desidera attivare. Innanzitutto, creare un'app per la logica che inizia con un trigger di richiesta HTTP. La funzione chiamerà tale endpoint ogniqualvolta venga ricevuto un messaggio in coda.  
+Per questo scenario, è presente una funzione che esegue ogni app per la logica che si vuole attivare. Prima di tutto, creare un'app per la logica che inizia con un trigger di richiesta HTTP. La funzione chiamerà tale endpoint ogniqualvolta venga ricevuto un messaggio in coda.  
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e creare un'app per la logica vuota.
 
-   Se si ha familiarità con App per la logica, esaminare [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   Se non si ha familiarità con le app per la logica, vedere [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Nella casella di ricerca immettere "richiesta http". Nell'elenco di trigger selezionare questo trigger: **Quando viene ricevuta una richiesta HTTP**
+1. Nella casella di ricerca immettere "richiesta http". Nell'elenco dei trigger selezionare questo trigger: **Alla ricezione di una richiesta HTTP**
 
    ![Selezionare il trigger](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
-   Con il trigger di richiesta, è possibile immettere uno schema JSON da usare con il messaggio della coda. Gli schemi JSON consentono di progettazione di App per la logica di comprendere la struttura per i dati di input e rendere più facile da usare nel flusso di lavoro gli output.
+   Con il trigger request è possibile immettere facoltativamente uno schema JSON da usare con il messaggio della coda. Gli schemi JSON consentono alla finestra di progettazione di app per la logica di comprendere la struttura per i dati di input e di semplificare l'uso di output nel flusso di lavoro.
 
 1. Per specificare uno schema, immetterlo nella casella **Schema JSON del corpo della richiesta**, ad esempio:
 
@@ -87,13 +86,13 @@ Per questo scenario, disponibile una funzione che esegue ogni app per la logica 
    }
    ```
 
-1. Aggiungere tutte le altre azioni da eseguire dopo aver ricevuto il messaggio della coda.
+1. Aggiungere eventuali altre azioni che si desidera eseguire dopo la ricezione del messaggio in coda.
 
    È ad esempio possibile inviare un messaggio di posta elettronica con il connettore Office 365 Outlook.
 
-1. Salvare l'app per la logica in modo da generare l'URL di callback per il trigger nell'app per la logica. In un secondo momento, usare questo URL di callback nel codice per il trigger di coda del Bus di servizio Azure.
+1. Salvare l'app per la logica in modo da generare l'URL di callback per il trigger nell'app per la logica. In seguito, questo URL di callback verrà usato nel codice per il trigger della coda del bus di servizio di Azure.
 
-   Il callback URL verrà visualizzato il **URL POST HTTP** proprietà.
+   L'URL di callback viene visualizzato nella proprietà **http post URL** .
 
    ![URL di callback generato per il trigger](./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png)
 
@@ -105,21 +104,21 @@ A questo punto creare la funzione che agisce come trigger e rimane in ascolto su
 
 1. Sotto il nome dell'app espandere **Funzioni**. Nel riquadro **Funzioni** scegliere **Nuova funzione**.
 
-   ![Espandere "Funzioni" e scegliere "Nuova funzione"](./media/logic-apps-scenario-function-sb-trigger/create-new-function.png)
+   ![Espandere "funzioni" e scegliere "nuova funzione".](./media/logic-apps-scenario-function-sb-trigger/create-new-function.png)
 
-1. Selezionare questo modello basato su se è stato creato una nuovo app per le funzioni in cui .NET è stato selezionato come lo stack di runtime, o si usa un'app per le funzioni esistente.
+1. Selezionare questo modello a seconda che sia stata creata una nuova app per le funzioni in cui è stato selezionato .NET come stack di runtime oppure si sta usando un'app per le funzioni esistente.
 
-   * Per la nuova App per le funzioni, selezionare questo modello: **Trigger della coda del Bus di servizio**
+   * Per le nuove app per le funzioni, selezionare questo modello: **trigger della coda del bus di servizio**
 
      ![Selezionare il modello per la nuova app per le funzioni](./media/logic-apps-scenario-function-sb-trigger/current-add-queue-trigger-template.png)
 
-   * Per un'app per le funzioni esistente, selezionare questo modello: **Trigger di coda del Bus di servizio:C#**
+   * Per un'app per le funzioni esistente, selezionare questo modello: **trigger della coda C# del bus di servizio-**
 
-     ![Selezionare il modello per app per le funzioni esistente](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
+     ![Selezionare il modello per l'app per le funzioni esistente](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
 
-1. Nel **trigger coda Bus di servizio di Azure** riquadro, specificare un nome per il trigger e impostare il **connessione del Bus di servizio** per la coda, che usa il SDK del Bus di servizio di Azure `OnMessageReceive()` listener e scegliere **Creare**.
+1. Nel riquadro **trigger della coda del bus di servizio di Azure** specificare un nome per il trigger e configurare la **connessione del bus di servizio** per la coda, che usa il listener del bus di servizio di Azure `OnMessageReceive()` e scegliere **Crea**.
 
-1. Scrivere una semplice funzione per chiamare l'endpoint dell'app per la logica creata in precedenza usando il messaggio della coda come trigger. Nell'esempio viene usato il tipo di contenuto di messaggio `application/json`, ma è possibile modificare questo tipo in base alle proprie esigenze. Se possibile, riusare l'istanza di client HTTP. Per altre informazioni, vedere [gestire le connessioni in funzioni di Azure](../azure-functions/manage-connections.md).
+1. Scrivere una funzione di base per chiamare l'endpoint dell'app per la logica creato in precedenza usando il messaggio della coda come trigger. Nell'esempio viene usato il tipo di contenuto di messaggio `application/json`, ma è possibile modificare questo tipo in base alle proprie esigenze. Se possibile, riutilizzare l'istanza di client HTTP. Per altre informazioni, vedere [Manage Connections in funzioni di Azure](../azure-functions/manage-connections.md).
 
    ```CSharp
    using System;

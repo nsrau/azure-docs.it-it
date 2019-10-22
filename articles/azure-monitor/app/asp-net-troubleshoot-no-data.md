@@ -1,23 +1,18 @@
 ---
 title: Risoluzione dei problemi relativi a dati non disponibili in Application Insights per .NET
 description: I dati non vengono visualizzati in Azure Application Insights Risposte ai problemi più comuni.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
-ms.service: application-insights
-ms.workload: mobile
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/23/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: b4bfd984f1e169cb1044002118f9534c4efc9bd8
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 07/23/2018
+ms.openlocfilehash: 0bb32486ea3fcfd37337b18b02f4f432effa8f75
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169581"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678336"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Risoluzione dei problemi relativi a dati non disponibili in Application Insights per .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Alcuni dati di telemetria sono mancanti
@@ -34,7 +29,7 @@ ms.locfileid: "71169581"
 
 *Si è verificata una perdita di dati nell'app console o nell'app Web quando l'app sta per essere arrestata.*
 
-* Il canale SDK mantiene i dati di telemetria nel buffer e li invia in batch. Se l'applicazione è in fase di chiusura, potrebbe essere necessario chiamare in modo esplicito [Flush ()](api-custom-events-metrics.md#flushing-data). Il comportamento `Flush()` di dipende dal [canale](telemetry-channels.md#built-in-telemetry-channels) effettivo utilizzato.
+* Il canale SDK mantiene i dati di telemetria nel buffer e li invia in batch. Se l'applicazione è in fase di chiusura, potrebbe essere necessario chiamare in modo esplicito [Flush ()](api-custom-events-metrics.md#flushing-data). Il comportamento di `Flush()` dipende dal [canale](telemetry-channels.md#built-in-telemetry-channels) effettivo utilizzato.
 
 ## <a name="no-data-from-my-server"></a>Non sono disponibili dati dal server
 *L'app è stata installata nel server Web e ora non vengono visualizzati i dati di telemetria. Nel computer di sviluppo funzionava correttamente.*
@@ -42,7 +37,7 @@ ms.locfileid: "71169581"
 * Probabilmente è un problema del firewall. [Impostare le eccezioni del firewall per l'invio di dati da parte di Application Insights](../../azure-monitor/app/ip-addresses.md).
 * È possibile che il server IIS non sia conforme ad alcuni prerequisiti: Estendibilità .NET 4.5 e ASP.NET 4.5.
 
-*È stato [installato Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md) nel server Web per monitorare le app esistenti, ma non è presente alcun risultato.*
+*Ho [installato Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md) nel server Web per monitorare le app esistenti. Non viene visualizzato alcun risultato.*
 
 * Vedere [Risoluzione dei problemi relativi a Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot).
 
@@ -67,7 +62,7 @@ Correzione:
 
 * Verificare di avere specificato le credenziali di accesso per l'account Azure appropriato.
 * Nel browser, verificare di avere accesso al [portale di Azure](https://portal.azure.com). Aprire le impostazioni e vedere se sono presenti restrizioni.
-* [Aggiungere Application Insights al progetto esistente](../../azure-monitor/app/asp-net.md): In Esplora soluzioni fare clic con il pulsante destro del mouse e scegliere "Aggiungi Application Insights".
+* [Aggiungere Application Insights a un nuovo progetto](../../azure-monitor/app/asp-net.md): in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere "Aggiungi Application Insights".
 
 ## <a name="emptykey"></a>Viene visualizzato l'errore: "La chiave di strumentazione non può essere vuota"
 Sembra che si sia verificato un problema durante l'installazione di Application Insights o forse di un adattatore di registrazione.
@@ -102,7 +97,7 @@ In caso contrario, il tipo di progetto non è supportato direttamente dagli stru
 Le ultime informazioni di accesso Microsoft usate nel browser predefinito non hanno accesso alla [risorsa creata quando Application Insights è stato aggiunto all'app](../../azure-monitor/app/asp-net.md). Le cause possibili sono due:
 
 * L'utente ha più di un account Microsoft, ad esempio un account Microsoft di lavoro e uno personale. Le ultime informazioni di accesso usate nel browser predefinito sono relative a un account diverso da quello che ha accesso per [Application Insights al progetto](../../azure-monitor/app/asp-net.md).
-  * Correzione: fare clic sul nome nell'angolo superiore destro della finestra del browser e disconnettersi. Quindi accedere con l'account corretto. Nella barra di spostamento a sinistra fare quindi clic su Application Insights e selezionare l'app.
+  * Correzione: fare clic sul nome nella parte superiore destra della finestra del browser e disconnettersi. Accedere quindi con l'account che ha accesso. Nella barra di spostamento a sinistra fare quindi clic su Application Insights e selezionare l'app.
 * Un altro utente ha aggiunto Application Insights al progetto e ha dimenticato di concedere l' [accesso al gruppo di risorse](../../azure-monitor/app/resources-roles-access-control.md) in cui è stato creato.
   * Correzione: se è stato usato un account aziendale, è possibile chiedere di essere aggiunti al team o che venga concesso l'accesso individuale al gruppo di risorse.
 
@@ -122,7 +117,7 @@ Correzione:
 * Aprire direttamente la risorsa. Accedere al [portale di Azure](https://portal.azure.com), fare clic su Application Insights nella barra di spostamento a sinistra e quindi selezionare l'app.
 
 ## <a name="where-do-i-find-my-telemetry"></a>Dove è possibile trovare i dati di telemetria?
-*Dopo aver eseguito l'accesso al [portale di Microsoft Azure](https://portal.azure.com) e aver visualizzato il dashboard della schermata iniziale di Azure, dove è possibile trovare i dati di Application Insights?*
+*Ho effettuato l'accesso all' [portale di Microsoft Azure](https://portal.azure.com)e sto guardando il dashboard Home di Azure. Dove è possibile trovare i dati Application Insights?*
 
 * Nella barra di spostamento a sinistra fare clic su Application Insights e selezionare l'app. Se non è presente alcun progetto, è necessario [aggiungere o configurare Application Insights nel progetto Web](../../azure-monitor/app/asp-net.md).  
   Verranno visualizzati alcuni grafici di riepilogo. Fare clic su qualsiasi grafico per visualizzare altri dettagli.
@@ -163,11 +158,11 @@ I dati sulle prestazioni (CPU, velocità di IO e così via) sono disponibili per
 * Verificare di aver effettivamente copiato tutti i Microsoft. DLL ApplicationInsights al server, insieme a Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
 * Nel firewall potrebbe essere necessario [aprire alcune porte TCP](../../azure-monitor/app/ip-addresses.md).
 * Se è necessario usare un proxy per inviare all'esterno della rete aziendale, impostare [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) in Web.config
-* Windows Server 2008: Assicurarsi di avere installato gli aggiornamenti seguenti: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
+* Windows Server 2008: assicurarsi che siano stati installati i seguenti aggiornamenti: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Non vengono più visualizzati i dati disponibili in precedenza
 * Controllare il [blog sullo stato](https://blogs.msdn.com/b/applicationinsights-status/).
-* È stata raggiunta la quota mensile relativa ai punti dati? Per saperlo, aprire Impostazioni/Quota e Prezzi. Se la quota è stata raggiunta, è possibile aggiornare il piano oppure pagare per disporre di ulteriore capacità. Vedere lo [schema dei prezzi](https://azure.microsoft.com/pricing/details/application-insights/).
+* È stata raggiunta la quota mensile relativa ai punti dati? Aprire le impostazioni/quota e i prezzi per individuarli. In tal caso, è possibile aggiornare il piano o pagare per la capacità aggiuntiva. Vedere lo [schema dei prezzi](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>Non sono presenti tutti i dati previsti
 Se l'applicazione invia una grande quantità di dati ed è in uso Application Insights SDK per ASP.NET 2.0.0 Beta3 o versione successiva, la funzionalità di [campionamento adattivo](../../azure-monitor/app/sampling.md) può funzionare e inviare solo una percentuale dei dati di telemetria.
@@ -183,7 +178,7 @@ Il 5 febbraio 2018 è stata annunciata la rimozione della registrazione dell'ind
 > Questa operazione non influisce sui dati raccolti prima del 5 febbraio 2018.
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Dati geografici errati nella telemetria utente
-Le dimensioni relative alla città, all'area, al paese e all'area geografica vengono derivate dagli indirizzi IP e non sono sempre accurate. Questi indirizzi IP vengono elaborati prima di tutto per la posizione e quindi modificati su 0.0.0.0 per essere archiviati.
+Le dimensioni relative alla città, all'area, al paese e alla regione vengono derivate dagli indirizzi IP e non sono sempre accurate. Questi indirizzi IP vengono elaborati prima di tutto per la posizione e quindi modificati su 0.0.0.0 per essere archiviati.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Eccezione "metodo non trovato" durante l'esecuzione dei servizi cloud di Azure
 È stata eseguita la compilazione per .NET 4.6? La versione 4.6 non è supportata automaticamente nei ruoli dei servizi cloud di Azure. [Installare la versione 4.6 in ogni ruolo](../../cloud-services/cloud-services-dotnet-install-dotnet.md) prima di eseguire l'app.

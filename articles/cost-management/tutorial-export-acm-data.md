@@ -1,21 +1,21 @@
 ---
-title: 'Esercitazione: Creare e gestire dati esportati da Gestione costi di Azure | Microsoft Docs'
+title: 'Esercitazione: Creare e gestire dati esportati da Gestione costi di Azure'
 description: Questo articolo descrive come creare e gestire dati esportati di Gestione costi di Azure per poterli usare in sistemi esterni.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2019
+ms.date: 10/12/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 521a5f2543b9a4a84d50f8f0e53a6ae5108f760b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 070844cbf8f6a550b92d764ddb8a31afec12f437
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792880"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374604"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Esercitazione: Creare e gestire dati esportati
 
@@ -50,8 +50,8 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 Per creare o visualizzare un'esportazione di dati o pianificare un'esportazione, aprire l'ambito desiderato nel portale di Azure e selezionare **Analisi dei costi** nel menu. Passare ad esempio a **Sottoscrizioni**, selezionare una sottoscrizione dall'elenco, quindi selezionare **Analisi dei costi** nel menu. Nella parte superiore della pagina Analisi dei costi fare clic su **Esporta** e quindi scegli un'opzione di esportazione. Ad esempio fare clic su **Pianifica l'esportazione**.  
 
 > [!NOTE]
-> Oltre alle sottoscrizioni, è possibile creare esportazioni di gruppi di risorse, account, reparti e iscrizioni. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
->
+> - Oltre alle sottoscrizioni, è possibile creare esportazioni di gruppi di risorse, account, reparti e iscrizioni. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
+>- Dopo aver eseguito l'accesso come partner a livello dell'ambito dell'account di fatturazione o nel tenant di un cliente, è possibile esportare i dati in un account di archiviazione di Azure collegato all'account di archiviazione partner. Tuttavia, è necessario disporre di una sottoscrizione attiva nel tenant CSP.
 >
 
 

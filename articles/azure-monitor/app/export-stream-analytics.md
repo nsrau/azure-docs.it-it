@@ -1,23 +1,18 @@
 ---
 title: Esportare da Azure Application Insights usando l'analisi di flusso | Documentazione Microsoft
 description: L'analisi di flusso può trasformare, filtrare e instradare continuativamente i dati esportati da Application Insights.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 31594221-17bd-4e5e-9534-950f3b022209
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/08/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: d4a4196aa601fc8da79da3962faec026eff5ec87
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.date: 01/08/2019
+ms.openlocfilehash: 3be1a643cbe942c0b740ae8ebcc2c7f2dda24854
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67625071"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677941"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usare l'analisi di flusso per elaborare dati esportati da Application Insights
 L'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) è lo strumento ideale per elaborare dati [esportati da Application Insights](export-telemetry.md). L'analisi di flusso può eseguire il pull di dati da un'ampia gamma di origini. Può trasformare e filtrare i dati e quindi instradarli a molti sink diversi.
@@ -67,7 +62,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 1. Lasciare che alcuni dati si accumulino. Attendere che gli utenti usino l'applicazione per qualche tempo. Verranno restituiti i dati di telemetria e sarà possibile esaminare i grafici statistici in [Esplora metriche](../../azure-monitor/app/metrics-explorer.md) e i singoli eventi in [Ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md). 
    
     I dati verranno inoltre esportati nell'archivio. 
-2. Esaminare i dati esportati. In Visual Studio, scegliere **Visualizza/Cloud Explorer**e aprire Azure/Archiviazione. Se questa opzione di menu non è disponibile, è necessario installare Azure SDK: aprire la finestra di dialogo Nuovo progetto e aprire Visual C#/Cloud/Get Microsoft Azure SDK for .NET (Ottieni Microsoft Azure SDK per .NET).
+2. Esaminare i dati esportati. In Visual Studio, scegliere **Visualizza/Cloud Explorer**e aprire Azure/Archiviazione. (Se non si dispone di tale opzione del menu, è necessario installare l’SDK di Azure: aprire la finestra di dialogo Nuovo progetto, aprire Visual C#/Cloud/Ottieni Microsoft Azure SDK per .NET).
    
     ![](./media/export-stream-analytics/04-data.png)
    
@@ -104,7 +99,7 @@ Lo schema prefisso percorso specifica dove l'analisi di flusso trova i file di i
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
-Esempio:
+In questo esempio:
 
 * `webapplication27` è il nome della risorsa di Application Insights, **tutto minuscolo**.
 * `1234...` è la chiave di strumentazione della risorsa di Application Insights, **senza trattini**. 
@@ -210,7 +205,7 @@ Aprire Power BI con l’account aziendale o dell’istituto di istruzione e sele
 
 ![In Power BI selezionare il set di dati e i campi.](./media/export-stream-analytics/210.png)
 
-## <a name="no-data"></a>Dati non visualizzati
+## <a name="no-data"></a>Dati non disponibili?
 * Verificare di aver [impostato il formato di data](#set-path-prefix-pattern) correttamente su AAAA-MM-GG (con i trattini).
 
 ## <a name="video"></a>Video

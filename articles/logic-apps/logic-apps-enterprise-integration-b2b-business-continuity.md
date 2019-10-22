@@ -1,6 +1,6 @@
 ---
-title: "Ripristino di emergenza per l'account di integrazione B2B: App per la logica di Azure | Microsoft Docs"
-description: Prepararsi per il ripristino di emergenza tra più aree in App per la logica di Azure
+title: Ripristino di emergenza per gli account di integrazione-app per la logica di Azure
+description: Configurare il ripristino di emergenza tra aree per gli account di integrazione in app per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,16 +8,15 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
-ms.openlocfilehash: ac29ef7f0599cc41924ba1a5a00e46b0292e7e9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 321bfb673bab748176d75db7bcf21d76ddf0c819
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967754"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680403"
 ---
-# <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Ripristino di emergenza tra più aree per l'account di integrazione B2B: App per la logica di Azure | Microsoft Docs
+# <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Configurare il ripristino di emergenza tra aree per gli account di integrazione in app per la logica di Azure
 
 I carichi di lavoro B2B coinvolgono le transazioni di denaro, come ad esempio gli ordini e le fatture. In caso di un evento di emergenza, per un'azienda è essenziale eseguire rapidamente un ripristino per soddisfare i contratti di servizio a livello di business secondo gli accordi presi con i partner. In questo articolo viene illustrato come creare un piano di continuità aziendale per i carichi di lavoro B2B. 
 

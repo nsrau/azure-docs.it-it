@@ -1,6 +1,6 @@
 ---
 title: Evitare costi imprevisti e gestire la fatturazione in Azure
-description: Informazioni su come evitare addebiti imprevisti nella fattura di Azure. Usare le funzionalità di gestione e verifica dei costi per una sottoscrizione di Azure.
+description: Informazioni su come evitare addebiti imprevisti nella fattura di Azure. Usare le funzionalità di gestione e verifica dei costi per l'account Azure.
 author: bandersmsft
 manager: amberb
 tags: billing
@@ -11,110 +11,80 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: d6c287d5ead0095a4f7bb5ad754212b134f7103c
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 6f7a29adfbd145be11f9f6c91e8e66dd229fed62
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719811"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375622"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitare addebiti imprevisti con la gestione dei costi e della fatturazione di Azure
 
 Quando si effettua l'iscrizione ad Azure, è consigliabile eseguire alcune operazioni per conoscere meglio la spesa sostenuta:
 
-- Il [calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/) può fornire una stima dei costi prima di creare una risorsa di Azure. 
-
-- Il [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) fornisce la scomposizione e la previsione dei costi correnti. 
-
-- Per raggruppare e conoscere i costi per le risorse usate per diversi progetti o team, esaminare i [tag delle risorse](../azure-resource-manager/resource-group-using-tags.md). Se l'organizzazione dispone di un sistema di creazione report, vedere le [API per la fatturazione](billing-usage-rate-card-overview.md).
-
-- Se la sottoscrizione è stata creata da un contratto Enterprise Agreement (EA), è possibile visualizzare i costi nel portale di Azure. Alcune funzionalità descritte di seguito possono non essere applicabili ai clienti che hanno una sottoscrizione ottenuta tramite Cloud Solution Provider (CSP) o Azure Sponsorship. Per altre informazioni, vedere [Risorse aggiuntive per EA, CSP e Sponsorship](#other-offers).
-
-- Se la sottoscrizione è di una versione di valutazione gratuita, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure in Open (AIO) o BizSpark, viene disabilitata automaticamente all'esaurimento dei crediti. È possibile ottenere altre informazioni sui [limiti di spesa](#spending-limit) per evitare che la sottoscrizione venga disabilitata all'improvviso.
-
-- Se è stata eseguita l'iscrizione a un [account gratuito di Azure](https://azure.microsoft.com/free/), [è possibile usare gratuitamente alcuni dei servizi Azure più richiesti per 12 mesi](billing-create-free-services-included-free-account.md). Oltre ai consigli elencati di seguito, vedere l'argomento su come [evitare di pagare l'account gratuito](billing-avoid-charges-free-account.md).
+- Ottenere i costi stimati prima di aggiungere servizi usando il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/), l'elenco prezzi di Azure o durante l'aggiunta di servizi nel portale di Azure.
+- Monitorare i costi con [budget ](../cost-management/tutorial-acm-create-budgets.md), [avvisi](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) e [analisi dei costi](../cost-management/quick-acm-cost-analysis.md).
+- Esaminare gli addebiti in fattura confrontandoli con i [file di utilizzo dettagliato](billing-download-azure-invoice-daily-usage-date.md).
+- Integrare i dati della fatturazione e dei costi con il proprio sistema di creazione di report usando le API per la [fatturazione](https://docs.microsoft.com/rest/api/billing/) e l'[utilizzo](https://docs.microsoft.com/rest/api/consumption/).
+- Usare le risorse e gli strumenti aggiuntivi per i clienti con contratto Enterprise (EA), Cloud Solution Provider (CSP) e Azure Sponsorship.
+- Sfruttare [gratuitamente alcuni dei servizi di Azure più diffusi per 12 mesi](billing-create-free-services-included-free-account.md) disponibili con l'[account Azure gratuito](https://azure.microsoft.com/free/). Oltre ai consigli elencati di seguito, vedere l'argomento su come [evitare di pagare l'account gratuito](billing-avoid-charges-free-account.md).
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Ottenere una stima dei costi prima di aggiungere servizi di Azure
 
-Ecco alcune informazioni aggiuntive sulla stima dei costi con gli strumenti seguenti:
+Usare uno degli strumenti seguenti per stimare il costo dell'utilizzo di un servizio di Azure:
 - Calcolatore prezzi di Azure
+- Elenco prezzi di Azure
 - Portale di Azure
-- Limite di spesa
 
 Nelle immagini delle sezioni seguenti i prezzi di esempio sono indicati in dollari statunitensi.
 
 ### <a name="estimate-cost-online-using-the-pricing-calculator"></a>Stimare i costi online con il calcolatore dei prezzi
 
-Usare il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/) per ottenere una stima del costo mensile del servizio a cui si è interessati. È possibile aggiungere qualsiasi risorsa di Azure proprietaria per ottenere una stima del costo. Nel calcolatore dei prezzi è possibile modificare il tipo di valuta.
+Usare il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/) per ottenere una stima del costo mensile del servizio che si vuole aggiungere. È possibile modificare la valuta per ottenere la stima nella valuta locale.
 
 ![Screenshot del menu del calcolatore dei prezzi](./media/billing-getting-started/pricing-calc.png)
 
-Nel calcolatore dei prezzi per una macchina virtuale Windows A1 mantenuta costantemente in esecuzione, ad esempio, il costo stimato in ore di calcolo è pari a un determinato importo/mese:
+È possibile visualizzare il costo stimato per qualsiasi servizio proprietario di Azure. Nello screenshot seguente, ad esempio, per una macchina virtuale Windows A1 mantenuta in esecuzione per tutto il tempo, il costo stimato in ore di calcolo è $ 66,96 al mese:
 
 ![Screenshot del calcolatore dei prezzi che mostra che il costo stimato mensile di una macchina virtuale Windows A1](./media/billing-getting-started/pricing-calcvm.png)
 
 Per altre informazioni sui prezzi, vedere [Domande frequenti sui prezzi](https://azure.microsoft.com/pricing/faq/). Per contattare un venditore di Azure, chiamare il numero di telefono indicato nella parte superiore della pagina delle domande frequenti.
 
+### <a name="view-and-download-azure-price-sheet"></a>Visualizzare e scaricare l'elenco prezzi di Azure
+
+Se si ha accesso ad Azure tramite un contratto Enterprise (EA) o un Contratto del cliente Microsoft, è possibile visualizzare e scaricare l'elenco prezzi per l'account Azure. L'elenco prezzi è un file di Excel che contiene i prezzi per tutti i servizi di Azure. Per altre informazioni, vedere [Visualizzare e scaricare i prezzi di Azure](billing-ea-pricing.md).
+
 ### <a name="review-estimated-costs-in-the-azure-portal"></a>Esaminare i costi stimati nel portale di Azure
 
-Quando si aggiunge un servizio nel portale di Azure, in genere una visualizzazione mostra un costo mensile stimato simile nella valuta fatturata. Quando si scelgono le dimensioni di una VM Windows, ad esempio, viene visualizzato il costo mensile stimato per le ore di calcolo:
+È possibile visualizzare il costo stimato al mese durante l'aggiunta di un servizio nel portale di Azure. Quando si scelgono le dimensioni di una VM Windows, ad esempio, viene visualizzato il costo mensile stimato per le ore di calcolo:
 
 ![Esempio: costo stimato mensile di una macchina virtuale Windows A1](./media/billing-getting-started/vm-size-cost.png)
-
-### <a name="spending-limit"></a> Controllare se è attivo un limite di spesa
-
-Se si ha una sottoscrizione che usa crediti, il limite di spesa è attivato per impostazione predefinita. In questo modo, quando si esauriscono tutti i crediti non verrà effettuato alcun addebito sulla carta di credito. Vedere l'[elenco completo delle offerte di Azure e la disponibilità del limite di spesa](https://azure.microsoft.com/support/legal/offer-details/).
-
-Quando si raggiunge il limite di spesa, tuttavia, i servizi vengono disabilitati. Le VM vengono quindi deallocate. Per evitare tempi di inattività del servizio, è necessario disattivare il limite di spesa. Qualsiasi eccedenza verrà addebitata sulla carta di credito in archivio.
-
-Per verificare se è attivo un limite di spesa, passare alla [visualizzazione Sottoscrizioni nel Centro account](https://account.windowsazure.com/Subscriptions). Se il limite di spesa è attivato, viene visualizzato un banner simile al seguente:
-
-![Screenshot con avviso che informa che è attivo il limite di spesa nel Centro account](./media/billing-getting-started/spending-limit-banner.png)
-
-Fare clic sul banner e seguire le istruzioni per rimuovere il limite di spesa. Se al momento dell'iscrizione non si sono immesse le informazioni relative alla carta di credito, per rimuovere il limite di spesa è necessario inserirle. Per altre informazioni, vedere [Limite di spesa di Azure - Come funziona e come abilitarlo o rimuoverlo](https://azure.microsoft.com/pricing/spending-limits/).
-
-## <a name="use-budgets-and-cost-alerts"></a>Usare budget e avvisi relativi ai costi
-
-È possibile creare [budget](../cost-management/tutorial-acm-create-budgets.md) per gestire i costi e creare [avvisi](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) per informare automaticamente gli stakeholder in caso di anomalie di spesa e rischi di costi eccessivi. Gli avvisi si basano sul confronto tra la spesa e le soglie definite budget e costi.
 
 ## <a name="monitor-costs-when-using-azure-services"></a>Monitorare i costi quando si usano i servizi di Azure
 È possibile monitorare i costi con gli strumenti seguenti:
 
-- Tag
-- Velocità e dettaglio dei costi
+- Budget e avvisi per i costi
 - Analisi dei costi
 
-### <a name="tags"></a> Aggiungere tag alle risorse per raggruppare i dati di fatturazione
+### <a name="track-costs-with-budgets-and-cost-alerts"></a>Tenere traccia dei costi con i budget e gli avvisi per i costi
 
-È possibile usare tag per raggruppare i dati di fatturazione per i servizi supportati. Se si eseguono più VM per diversi team, ad esempio, è possibile usare i tag per classificare i costi per centro di costo, come HR, marketing, finanza e così via, oppure o ambiente, come produzione, pre-produzione, test.
+È possibile creare [budget](../cost-management/tutorial-acm-create-budgets.md) per gestire i costi e creare [avvisi](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) per informare automaticamente l'utente e gli stakeholder in caso di anomalie di spesa e rischi di costi eccessivi. 
 
-![Schermata che mostra la configurazione dei tag nel portale](./media/billing-getting-started/tags.png)
+### <a name="costs"></a> Esplorare e analizzare i costi con l'analisi dei costi
 
-I tag sono riportati in diverse visualizzazioni di report dei costi. Ad esempio, sono visibili immediatamente nella [visualizzazione dell'analisi dei costi](#costs) e dopo il primo periodo di fatturazione nel file CSV dei dati dettagliati di utilizzo.
+Una volta che i servizi di Azure sono in esecuzione, controllare regolarmente i costi per monitorare la spesa di Azure. È possibile usare l'analisi dei costi per ottenere informazioni sull'origine dei costi per l'utilizzo di Azure. 
 
-Per altre informazioni, vedere [Uso dei tag per organizzare le risorse di Azure](../azure-resource-manager/resource-group-using-tags.md).
+1. Visitare la pagina [Gestione costi e fatturazione nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade).
 
-### <a name="costs"></a> Monitorare il dettaglio dei costi e la velocità
-
-Dopo aver eseguito i servizi di Azure, controllare regolarmente gli addebiti. È possibile visualizzare la velocità e la spesa corrente nel portale di Azure.
-
-1. Vedere il [pannello Sottoscrizioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selezionare una sottoscrizione.
-
-2. Se si tratta di funzionalità supportate per la sottoscrizione, verranno visualizzate la velocità e il dettaglio dei costi.
-
-    ![Screenshot della velocità e della scomposizione nel portale di Azure](./media/billing-getting-started/burn-rate.PNG)
-
-3. Fare clic su [Analisi dei costi](../cost-management/quick-acm-cost-analysis.md) nell'elenco a sinistra per visualizzare il dettaglio dei costi per risorsa. Dopo l'aggiunta di un servizio è necessario attendere 24 ore prima che i dati vengano visualizzati.
+2. Fare clic su **Analisi dei costi** sul lato sinistro della schermata per visualizzare i costi correnti suddivisi in base a vari pivot, ad esempio servizio, località e sottoscrizione. Dopo aver aggiunto o acquistato un servizio, è necessario attendere 24 ore prima che i dati vengano visualizzati. Per impostazione predefinita, l'analisi dei costi indica i costi per l'ambito corrente. Ad esempio, nello screenshot seguente viene visualizzato il costo per l'account di fatturazione Contoso. Usare l'etichetta Ambito per passare a un ambito diverso nell'analisi dei costi. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](../cost-management/understand-work-scopes.md#scopes)
 
     ![Screenshot della visualizzazione dell'analisi dei costi nel portale di Azure](./media/billing-getting-started/cost-analysis.png)
 
-4. È possibile filtrare la visualizzazione in base a diverse proprietà come [tag](#tags), tipo di risorsa, gruppo di risorse e intervallo di tempo. Fare clic su **Applica** per confermare i filtri e su **Scarica** per esportare la visualizzazione in un file con valori delimitati da virgole (CSV).
+4. È possibile filtrare in base a diverse proprietà, ad esempio tag, tipo di risorsa e intervallo di tempo. Fare clic su **Aggiungi filtro** per aggiungere il filtro per una proprietà e selezionare i valori da filtrare. Selezionare **Esporta** per esportare la visualizzazione in un file con valori delimitati da virgole (CSV).
 
-5. È anche possibile fare clic su una risorsa per visualizzare la cronologia di spesa e il costo giornaliero della risorsa.
+5. È inoltre possibile fare clic sulle etichette del grafico per visualizzare la cronologia della spesa giornaliera per l'etichetta corrispondente. Ad esempio: Nello screenshot seguente quando si fa clic sulle macchine virtuali, viene visualizzato il costo giornaliero per l'esecuzione delle macchine virtuali.
 
     ![Screenshot della visualizzazione della cronologia di spesa nel portale di Azure](./media/billing-getting-started/costhistory.png)
-
-Confrontare i costi con le stime visualizzate al momento della selezione dei servizi. In caso di differenza significativa tra i costi e le stime, controllare il piano tariffario selezionato per le risorse.
 
 ## <a name="optimize-and-reduce-costs"></a>Ottimizzare e ridurre i costi
 Se non si conoscono ancora i principi della gestione costi, leggere [Come ottimizzare gli investimenti per il cloud con Gestione costi di Azure](../cost-management/cost-mgt-best-practices.md).
@@ -133,23 +103,25 @@ Per informazioni su altre funzionalità per la riduzione dei costi per gli ambie
 
 ### <a name="turn-on-and-review-azure-advisor-recommendations"></a>Attivare e rivedere le raccomandazioni di Azure Advisor
 
-[Azure Advisor](../advisor/advisor-overview.md) consente di ridurre i costi identificando le risorse a basso utilizzo. Esaminare Advisor nel portale di Azure:
+[Azure Advisor](../advisor/advisor-overview.md) consente di ridurre i costi identificando le risorse a basso utilizzo. Cercare **Advisor** nel portale di Azure:
 
 ![Screenshot del pulsante Azure Advisor nel portale di Azure](./media/billing-getting-started/advisor-button.png)
 
-È possibile visualizzare raccomandazioni pratiche sui costi nella scheda **Costo** del dashboard di Advisor:
+Selezionare **Costo** nella parte sinistra. Nella scheda **Costo** verranno visualizzate le raccomandazioni operative:
 
 ![Screenshot di un esempio di raccomandazione sui costi di Advisor](./media/billing-getting-started/advisor-action.png)
 
 Vedere [Ottimizzare i costi grazie agli elementi consigliati](../cost-management/tutorial-acm-opt-recommendations.md) per un'esercitazione guidata sulle raccomandazioni di Advisor per il risparmio dei costi.
 
-## <a name="review-costs-against-your-latest-invoice"></a>Esaminare i costi in base alla fattura più recente
+## <a name="review-charges-against-your-latest-invoice"></a>Esaminare gli addebiti in base alla fattura più recente
 
-Alla fine del ciclo di fatturazione, è disponibile la fattura più recente. È anche possibile [scaricare le fatture e i file dei dati dettagliati di utilizzo](billing-download-azure-invoice-daily-usage-date.md) per verificare che gli addebiti siano corretti. Per altre informazioni sul confronto tra i dati di utilizzo giornalieri e la fattura, vedere [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md).
+Alla fine del ciclo di fatturazione, è disponibile la fattura. È anche possibile [scaricare le fatture e i file di utilizzo dettagliati](billing-download-azure-invoice-daily-usage-date.md) e confrontarli per verificare che gli addebiti siano corretti. Per altre informazioni sul confronto tra i dati di utilizzo giornalieri e la fattura, vedere [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md).
 
-### <a name="billing-api"></a>API per la fatturazione
+Se si usa Azure tramite un Contratto del cliente Microsoft, è anche possibile [confrontare la fattura con le transazioni ](billing-mca-understand-your-bill.md#view-transactions-for-an-invoice-in-the-azure-portal) per comprendere gli addebiti nella fattura.
 
-Usare l'API per la fatturazione di Azure per ottenere i dati di utilizzo a livello di codice. Usare insieme l'API RateCard e l'API Usage per ottenere l'utilizzo addebitato. Per altre informazioni, vedere [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure](billing-usage-rate-card-overview.md).
+## <a name="integrate-with-billing-and-consumption-apis"></a>Integrazione con le API di fatturazione e utilizzo
+
+Usare le API di [fatturazione](https://docs.microsoft.com/rest/api/billing/) e [utilizzo](https://docs.microsoft.com/rest/api/consumption/) di Azure per ottenere i dati relativi alla fatturazione e ai costi a livello di codice. Usare insieme l'API RateCard e l'API Usage per ottenere l'utilizzo addebitato. Per altre informazioni, vedere [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure](billing-usage-rate-card-overview.md).
 
 ## <a name="other-offers"></a> Risorse aggiuntive e casi speciali
 
@@ -164,7 +136,7 @@ Per iniziare, rivolgersi all'account manager o al partner di Azure.
 
 Se si è responsabili della gestione IT per un'organizzazione di grandi dimensioni, è consigliabile leggere l'articolo relativo allo [scaffolding aziendale Azure](/azure/architecture/cloud-adoption-guide/subscription-governance) e il [white paper per l'IT aziendale](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (download file PDF, solo in lingua inglese).
 
-#### <a name="EA"></a> Visualizzazioni dei costi per i contratti Enterprise Agreement nel portale di Azure
+### <a name="EA"></a> Visualizzazioni dei costi per i contratti Enterprise Agreement nel portale di Azure
 
 Le visualizzazioni dei costi aziendali sono attualmente disponibili in versione di anteprima pubblica. Elementi da considerare:
 
@@ -180,16 +152,13 @@ Le visualizzazioni dei costi aziendali sono attualmente disponibili in versione 
 
 ### <a name="check-your-subscription-and-access"></a>Controllare la sottoscrizione e l'accesso
 
-Per visualizzare i costi, è necessario l'[accesso a livello di sottoscrizione alle informazioni di fatturazione](billing-manage-access.md). Solo l'amministratore dell'account può accedere al [Centro account](https://account.azure.com/Subscriptions), modificare le informazioni di fatturazione e gestire le sottoscrizioni. L'amministratore dell'account è la persona che ha completato il processo di iscrizione. Per altre informazioni, vedere [Aggiungere o modificare i ruoli di amministratore di Azure che gestiscono la sottoscrizione o i servizi](billing-add-change-azure-subscription-administrator.md).
+Per visualizzare i costi, è necessario l'accesso a livello di account o di sottoscrizione alle informazioni sui costi o sulla fatturazione. L'accesso varia in base al tipo di account di fatturazione. Per altre informazioni sugli account di fatturazione e su come verificare il tipo di account di fatturazione, vedere [Visualizzare gli account di fatturazione nel portale di Azure](billing-view-all-accounts.md).
 
-Per verificare se si è l'amministratore dell'account, passare a [Sottoscrizioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Visualizzare l'elenco delle sottoscrizioni e cercare **Ruolo personale**. Se il ruolo è *Amministratore dell'account*, si hanno i privilegi completi. Se il ruolo indicato è diverso, ad esempio *Proprietario*, non si hanno privilegi completi.
+Se si ha accesso ad Azure tramite un account di fatturazione del Programma dei Microsoft Online Services, vedere [Gestire l'accesso alle informazioni di fatturazione per Azure](billing-manage-access.md).
 
-![Screenshot del ruolo dell'utente nella visualizzazione Sottoscrizioni nel portale di Azure](./media/billing-getting-started/sub-blade-view.PNG)
+Se si ha accesso ad Azure tramite un account di fatturazione del contratto Enterprise (EA), vedere [Informazioni sui ruoli amministrativi per il contratto Enterprise di Azure in Azure](billing-understand-ea-roles.md).
 
-Per gestire le sottoscrizioni e modificare le informazioni di fatturazione, [individuare l'amministratore dell'account](billing-subscription-transfer.md#whoisaa). Chiedere all'amministratore dell'account di completare le attività oppure di [trasferire la proprietà della sottoscrizione](billing-subscription-transfer.md).
-
-Se l'amministratore dell'account non fa più parte dell'organizzazione ed è necessario gestire la fatturazione, [contattare il supporto tecnico](https://go.microsoft.com/fwlink/?linkid=2083458).
-
+Se si ha accesso ad Azure tramite un account di fatturazione del Contratto del cliente Microsoft, vedere [Informazioni sui ruoli amministrativi per i contratti dei clienti Microsoft in Azure](billing-understand-mca-roles.md).
 
 ### <a name="request-a-service-level-agreement-credit-for-a-service-incident"></a>Richiedere un credito del Contratto di servizio per un evento imprevisto del servizio
 

@@ -1,6 +1,6 @@
 ---
-title: Scenario di gestione delle eccezioni e registrazione degli errori - App per la logica di Azure | Microsoft Docs
-description: Di seguito viene descritto un caso d'uso reale riguardo a modalità avanzate di gestione delle eccezioni e registrazione degli errori nelle app per la logica di Azure
+title: Gestione delle eccezioni & scenario di registrazione degli errori-app per la logica di Azure
+description: Caso d'uso reale e scenario per la gestione avanzata delle eccezioni e la registrazione degli errori nelle app per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,16 +10,16 @@ ms.reviewer: LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: ec01f738ee4943659de1b49ab8d52218e6a8fb79
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 7930d487d367ee19b869becae5017f80ea1df8cb
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385470"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680167"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Gestione delle eccezioni e registrazione degli errori per le app per la logica
 
-Questo scenario descrive come è possibile estendere un'app per la logica per supportare al meglio la gestione delle eccezioni. È stato usato un caso d'uso reale per rispondere alla domanda: "App per la logica di Azure supporta la gestione degli errori e delle eccezioni?"
+Questo scenario descrive come è possibile estendere un'app per la logica per supportare al meglio la gestione delle eccezioni. Si tratta di un caso d'uso reale che risponde alla domanda "Le app per la logica di Azure supportano la gestione di errori ed eccezioni?".
 
 > [!NOTE]
 > Lo schema corrente delle app per la logica di Azure offre un modello standard per le risposte alle azioni, che include le risposte per gli errori e la convalida interna restituite da un'app per le API.
@@ -36,13 +36,13 @@ Il progetto prevedeva due requisiti principali:
 * Un modo per visualizzare gli eventuali errori verificatisi nel flusso di lavoro
 
 > [!TIP]
-> Per un video generale su questo progetto, vedere il sito Web [Integration User Group](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Integration User Group").
+> Per un video dettagliato su questo progetto, andare alla pagina di [Integration User Group](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Integration User Group").
 
 ## <a name="how-we-solved-the-problem"></a>Come è stato risolto il problema
 
-Come repository per i record di log e di errore è stato scelto [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB"), in cui i record sono definiti documenti. Dato che le app per la logica di Azure includono un modello standard per tutte le risposte, non è stato necessario creare uno schema personalizzato. È stato possibile creare un'app per le API per l'**inserimento** e la **query** per i record di errore e di log. È stato anche possibile definire uno schema per ognuno all'interno dell'app per le API.  
+Abbiamo scelto [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") come repository per i record di log e di errore (Cosmos DB fa riferimento ai record come documenti). Dato che le app per la logica di Azure includono un modello standard per tutte le risposte, non è stato necessario creare uno schema personalizzato. È stato possibile creare un'app per le API per l'**inserimento** e la **query** per i record di errore e di log. È stato anche possibile definire uno schema per ognuno all'interno dell'app per le API.  
 
-Un altro requisito era ripulire i record dopo una certa data. Cosmos DB include una proprietà denominata [durata (TTL)](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "durata (TTL)") che ha consentito di impostare un valore di **durata (TTL)** per ogni record o raccolta. Questa funzionalità ha evitato di dover eliminare manualmente i record in Cosmos DB.
+Un altro requisito era ripulire i record dopo una certa data. Cosmos DB dispone di una proprietà denominata [time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Durata (TTL)") (TTL), che ci ha consentito di impostare un valore di **durata** (TTL) per ogni record o raccolta. Questa funzionalità ha evitato di dover eliminare manualmente i record in Cosmos DB.
 
 > [!IMPORTANT]
 > Per completare questa esercitazione, è necessario creare un database Cosmos DB e due raccolte, per la registrazione e gli errori.
@@ -93,7 +93,7 @@ Viene usato un trigger di **richiesta** come illustrato nell'esempio seguente:
 ```
 
 
-## <a name="steps"></a>Passaggi
+## <a name="steps"></a>Procedure
 
 È necessario registrare l'origine (richiesta) del record del paziente dal portale Dynamics CRM Online.
 
@@ -402,7 +402,7 @@ La soluzione ha aggiunto funzionalità con [Azure Cosmos DB](https://azure.micro
 Per consultare gli errori, è possibile creare un'app Web MVC per visualizzare i record di errore da Cosmos DB. Nella versione corrente sono incluse operazioni di tipo **Elenco**, **Dettagli**, **Modifica** ed **Elimina**.
 
 > [!NOTE]
-> Operazione di modifica: Cosmos DB sostituisce l'intero documento. I record contenuti nelle visualizzazioni **elenco** e **dettagli** sono solo esempi. Non si tratta di record effettivi di appuntamenti dei pazienti.
+> Con l'operazione di modifica, Cosmos DB sostituisce l'intero documento. I record contenuti nelle visualizzazioni **elenco** e **dettagli** sono solo esempi. Non si tratta di record effettivi di appuntamenti dei pazienti.
 
 Questi sono esempi dei dettagli dell'app MVC creati con l'approccio precedentemente descritto.
 
@@ -471,7 +471,7 @@ L'API viene chiamata da un'app per la logica usando la sintassi seguente:
 
 L'espressione nell'esempio di codice precedente verifica la presenza dello stato **Non riuscito** di *Create_NewPatientRecord*.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 * È possibile implementare facilmente la registrazione e la gestione degli errori in un'app per la logica.
 * È possibile usare Azure Cosmos DB come repository per i record di log e di errore (documenti).
@@ -479,7 +479,7 @@ L'espressione nell'esempio di codice precedente verifica la presenza dello stato
 
 ### <a name="source-code"></a>Codice sorgente
 
-Il codice sorgente dell'applicazione per le API di gestione delle eccezioni di app per la logica è disponibile in questo [repository GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API di gestione delle eccezioni dell'app per la logica").
+Il codice sorgente per l'applicazione API di gestione delle eccezioni delle app per la logica è disponibile in questo [repository GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API di gestione delle eccezioni delle app per la logica").
 
 ## <a name="next-steps"></a>Passaggi successivi
 

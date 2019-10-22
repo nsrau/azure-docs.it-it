@@ -1,26 +1,21 @@
 ---
 title: Esportare in SQL da Azure Application Insights | Documentazione Microsoft
 description: Eseguire l'esportazione continua dei dati Application Insights in SQL tramite l'analisi di flusso.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/11/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: eecd2a50607fa42562a9ae6a7fb950a253655a45
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/11/2017
+ms.openlocfilehash: 41efcbc7b70395302858638a9f44f3cbba27bf9a
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65872712"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678275"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
-Questo articolo illustra come spostare i dati di telemetria da [Azure Application Insights][start] in un database SQL di Azure usando l'[esportazione continua][export] e l'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). 
+Questo articolo illustra come spostare i dati di telemetria da [applicazione Azure Insights][start] in un database SQL di Azure usando l' [esportazione continua][export] e [analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). 
 
 L'esportazione continua sposta i dati di telemetria in Archiviazione di Azure in formato JSON. Gli oggetti JSON verranno analizzati con l'analisi di flusso di Azure e verranno create righe in una tabella di database.
 
@@ -31,7 +26,7 @@ Si inizierà dal presupposto che si abbia già l'app che si vuole monitorare.
 In questo esempio verranno usati i dati relativi alle visualizzazioni pagina, ma gli stessi criteri possono essere estesi facilmente ad altri tipi di dati, ad esempio eccezioni ed eventi personalizzati. 
 
 ## <a name="add-application-insights-to-your-application"></a>Aggiunta di Application Insights all'applicazione
-Attività iniziali
+Per iniziare:
 
 1. [Installare Application Insights per le pagine Web](../../azure-monitor/app/javascript.md). 
    
@@ -73,7 +68,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 1. Lasciare che alcuni dati si accumulino. Attendere che gli utenti usino l'applicazione per qualche tempo. Verranno restituiti i dati di telemetria e sarà possibile esaminare i grafici statistici in [Esplora metriche](../../azure-monitor/app/metrics-explorer.md) e i singoli eventi in [Ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md). 
    
     I dati verranno inoltre esportati nell'archivio. 
-2. Esaminare i dati esportati, nel portale (scegliere **Esplora**, selezionare l'account di archiviazione, quindi **Contenitori**) o in Visual Studio. In Visual Studio, scegliere **Visualizza/Cloud Explorer**e aprire Azure/Archiviazione. Se questa opzione di menu non è disponibile, è necessario installare Azure SDK: aprire la finestra di dialogo Nuovo progetto e aprire l'oggetto visivo C# /cloud/Ottieni Microsoft Azure SDK per .NET.)
+2. Esaminare i dati esportati, nel portale (scegliere **Esplora**, selezionare l'account di archiviazione, quindi **Contenitori**) o in Visual Studio. In Visual Studio, scegliere **Visualizza/Cloud Explorer**e aprire Azure/Archiviazione. (Se non si dispone di tale opzione del menu, è necessario installare l’SDK di Azure: aprire la finestra di dialogo Nuovo progetto, aprire Visual C#/Cloud/Ottieni Microsoft Azure SDK per .NET).
    
     ![In Visual Studio aprire Esplora server, Azure, Archiviazione](./media/code-sample-export-sql-stream-analytics/087-explorer.png)
    
@@ -82,7 +77,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 Gli eventi vengono scritti nei file BLOB in formato JSON. Ogni file può contenere uno o più eventi. A questo punto sarà possibile leggere i dati degli eventi e filtrare i campi preferiti. È possibile eseguire una serie di operazioni sui dati, ma lo scopo di questo articolo è usare l'analisi di flusso per spostare i dati in un database SQL. Sarà quindi più semplice eseguire molte query interessanti.
 
 ## <a name="create-an-azure-sql-database"></a>Creare un database SQL di Azure
-Iniziando di nuovo dalla sottoscrizione nel [portale di Azure][portal], creare il database (e un nuovo server, se necessario) in cui si scriveranno i dati.
+Ancora una volta, a partire dalla sottoscrizione in [portale di Azure][portal], creare il database (e un nuovo server, a meno che non ne sia già stato creato uno) in cui si scriveranno i dati.
 
 ![Nuovo, Dati, SQL](./media/code-sample-export-sql-stream-analytics/090-sql.png)
 
@@ -168,7 +163,7 @@ Lo schema prefisso percorso specifica il modo in cui l'analisi di flusso trova i
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
-Esempio:
+In questo esempio:
 
 * `webapplication27` è il nome della risorsa di Application Insights, **tutto minuscolo**. 
 * `1234...` è la chiave di strumentazione della risorsa di Application Insights **con i trattini rimossi**. 
@@ -178,7 +173,7 @@ Esempio:
 Per ottenere il nome e la chiave di strumentazione (iKey) della risorsa di Application Insights, aprire Essentials nella relativa pagina di panoramica o aprire le impostazioni.
 
 > [!TIP]
-> Utilizzare la funzione di esempio per verificare di aver impostato correttamente il percorso di input. In caso di esito negativo: verificare che ci siano dati nell'archivio per l'intervallo di tempo di esempio che si seleziona. Modificare la definizione di input e controllare di impostare l'account di archiviazione, il prefisso del percorso e il formato di data corretto.
+> Utilizzare la funzione di esempio per verificare di aver impostato correttamente il percorso di input. In caso di errore: verificare che ci siano dati nell’archiviazione per l’intervallo di tempo esemplificativo che si seleziona. Modificare la definizione di input e controllare di impostare l'account di archiviazione, il prefisso del percorso e il formato di data corretto.
 
  
 ## <a name="set-query"></a>Impostare la query

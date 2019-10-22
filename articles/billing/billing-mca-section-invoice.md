@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: ba2a274397aa1941ef2be03ce97b0f0c9ce96a31
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 77dd8a5e54697a37a2039238ecdedb3e2a2fa326
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709574"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375468"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Creare sezioni sulla fattura per organizzare i costi
 
@@ -55,5 +55,5 @@ Se si necessita assistenza, [contattare il supporto tecnico](https://portal.azur
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Creare un'altra sottoscrizione di Azure per il Contratto del cliente Microsoft](billing-mca-create-subscription.md)
-- [Concedere ad altri utenti l'autorizzazione a creare una sottoscrizione di Azure](billing-mca-create-subscription.md#give-others-permission)
+- [Gestire i ruoli di fatturazione nel portale di Azure](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 - [Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure dagli utenti in altri account di fatturazione](billing-mca-request-billing-ownership.md)

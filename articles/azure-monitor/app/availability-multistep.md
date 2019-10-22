@@ -1,37 +1,33 @@
 ---
 title: Monitorare l'applicazione Web con i test Web in più passaggi e applicazione Azure Insights | Microsoft Docs
 description: Configurare test Web in più passaggi per monitorare le applicazioni Web con applicazione Azure Insights
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 07/25/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: a836e4cf66bf1e957f7b3779e21ec6a0296f7abe
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f34695cb4a92fbed285ba8c56764606a124194a4
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881451"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678226"
 ---
 # <a name="multi-step-web-tests"></a>Test Web in più passi
 
 È possibile monitorare una sequenza registrata di URL e interazioni con un sito Web tramite test Web in più passaggi. In questo articolo viene illustrato il processo di creazione di un test Web in più passaggi con Visual Studio Enterprise.
 
 > [!NOTE]
-> I test Web in più passaggi dipendono dai file di test Web di Visual Studio. È stato [annunciato](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) che Visual Studio 2019 sarà l'ultima versione con funzionalità di test Web. È importante comprendere che, sebbene non vengano aggiunte nuove funzionalità, la funzionalità di test Web in Visual Studio 2019 è ancora attualmente supportata e continuerà a essere supportata durante il ciclo di vita del supporto del prodotto. Il team del prodotto monitoraggio di Azure ha risolto le domande relative al futuro dei test di [disponibilità in più passaggi](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
+> I test Web in più passaggi dipendono dai file di test Web di Visual Studio. È stato [annunciato](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) che Visual Studio 2019 sarà l'ultima versione con funzionalità di test Web. È importante comprendere che, sebbene non vengano aggiunte nuove funzionalità, la funzionalità di test Web in Visual Studio 2019 è ancora attualmente supportata e continuerà a essere supportata durante il ciclo di vita del supporto del prodotto. Il team del prodotto monitoraggio di Azure ha risolto le domande relative al futuro [dei test di](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101)disponibilità in più passaggi.  
 
 ## <a name="pre-requisites"></a>Prerequisiti
 
 * Visual Studio 2017 Enterprise o versione successiva.
 * Strumenti per test di carico e prestazioni Web di Visual Studio.
 
-Per individuare il prerequisito degli strumenti di test. Avviare il **programma di installazione di Visual Studio** > **singoli componenti** > **eseguendo il debug e testando** > gli**strumenti di test di carico e prestazioni Web**.
+Per individuare il prerequisito degli strumenti di test. Avviare il **Programma di installazione di Visual Studio**  > **singoli componenti**  >  il**debug e il test**  > **strumenti per test di carico e prestazioni Web**.
 
 ![Screenshot dell'interfaccia utente del programma di installazione di Visual Studio con singoli componenti selezionati con una casella di controllo accanto all'elemento per gli strumenti di test di carico e prestazioni Web](./media/availability-multistep/web-performance-load-testing.png)
 
@@ -48,11 +44,11 @@ Per creare un test in più passaggi, registrare lo scenario con Visual Studio En
 
 Usare Visual Studio Enterprise per registrare una sessione Web.
 
-1. Creare un progetto di test di carico e prestazioni Web. **File** > **nuovo**progettoVisualTest >  >   > **C#**
+1. Creare un progetto di test di carico e prestazioni Web. **File**  > **nuovo** **progetto**  >   > **Visual C#**   > **test**
 
     ![Interfaccia utente nuovo progetto di Visual Studio](./media/availability-multistep/vs-web-performance-and-load-test.png)
 
-2. Aprire il `.webtest` file e avviare la registrazione.
+2. Aprire il file di `.webtest` e avviare la registrazione.
 
     ![Interfaccia utente di registrazione test di Visual Studio](./media/availability-multistep/open-web-test.png)
 
@@ -73,7 +69,7 @@ Usare Visual Studio Enterprise per registrare una sessione Web.
 
 ## <a name="upload-the-web-test"></a>Caricare il test Web
 
-1. Nel portale di Application Insights nel riquadro di disponibilità selezionare **Crea** > test del**tipo** > test Web in più**passaggi**.
+1. Nel portale di Application Insights nel riquadro disponibilità selezionare **Crea test**  > **tipo di test**  > **test Web**in più passaggi.
 
 2. Impostare i percorsi dei test, la frequenza e i parametri di avviso.
 
@@ -84,7 +80,7 @@ Usare Visual Studio Enterprise per registrare una sessione Web.
 |**Frequenza test**| impostare la frequenza di esecuzione del test da ogni località di test. Con una frequenza predefinita di cinque minuti e cinque località di test, il sito verrà testato in media ogni minuto.|
 |**Percorsi test**| Sono le posizioni da cui i server inviano richieste Web all'URL. **Il numero minimo di posizioni di test consigliate è cinque** per garantire che sia possibile distinguere i problemi nel sito Web dai problemi di rete. È possibile selezionare fino a 16 località.
 
-### <a name="success-criteria"></a>Criteri di superamento
+### <a name="success-criteria"></a>Criteri di esito positivo
 
 |Impostazione| Spiegazione
 |----|----|----|
@@ -98,7 +94,7 @@ Usare Visual Studio Enterprise per registrare una sessione Web.
 |----|----|----|
 |**Quasi in tempo reale (anteprima)** | Si consiglia di usare gli avvisi near-realtime. La configurazione di questo tipo di avviso viene eseguita dopo la creazione del test di disponibilità.  |
 |**Classico** | Non è più consigliabile usare gli avvisi classici per i nuovi test di disponibilità.|
-|**Soglia posizione avviso**|Si consiglia un minimo di 3-5 posizioni. La relazione ottimale tra la soglia della posizione di avviso e il numero di percorsi di test è il numero **soglia** = **di posizioni di avviso per il percorso di test-2, con un minimo di cinque posizioni di test.**|
+|**Soglia posizione avviso**|Si consiglia un minimo di 3-5 posizioni. La relazione ottimale tra la soglia della posizione di avviso e il numero di percorsi di test è la **soglia di posizione degli avvisi**  = **numero di percorsi di test-2, con almeno cinque posizioni di test.**|
 
 ## <a name="advanced-configuration"></a>Configurazione avanzata
 
@@ -138,7 +134,7 @@ In tutti i casi è consigliabile creare un account nell'applicazione solo a scop
 
 **Autenticazione SAML**
 
-|Nome proprietà| DESCRIZIONE|
+|Nome proprietà| Description|
 |----|-----|
 | URI del gruppo di destinatari | URI del destinatario per il token SAML.  Si tratta dell'URI per il servizio di controllo di accesso (ACS), inclusi lo spazio dei nomi ACS e il nome host. |
 | Password certificato | Password del certificato client che consentirà l'accesso alla chiave privata incorporata. |
@@ -153,7 +149,7 @@ In tutti i casi è consigliabile creare un account nell'applicazione solo a scop
 
 Ecco un test Web di esempio di un'app Web di Azure che usa una chiave dell'app:
 
-![Screenshot di esempio](./media/availability-multistep/client-secret.png)
+![Schermata di esempio](./media/availability-multistep/client-secret.png)
 
 Ottenere il token da AAD usando il segreto client (AppKey).
 Estrarre il token di connessione dalla risposta.

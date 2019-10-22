@@ -1,5 +1,5 @@
 ---
-title: 'Controllare lo stato, configurare la registrazione e ottenere avvisi: App per la logica di Azure | Microsoft Docs'
+title: Controllare lo stato, configurare la registrazione e ottenere gli avvisi-app per la logica di Azure
 description: Monitorare lo stato, registrare i dati di diagnostica e configurare gli avvisi per le App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
@@ -8,14 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: f6ece10c43c2c4a6bea92d14a8bf6fbdb49fd318
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 336e2ac93a954c35b7afc8dbb98dd1fca1838985
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261358"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680293"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorare lo stato, configurare la registrazione diagnostica e attivare gli avvisi per App per la logica di Azure
 
@@ -35,7 +34,7 @@ Per ottenere notifiche sugli errori o su altri possibili problemi, configurare g
 
 2. Selezionare l'app per la logica, quindi scegliere **Panoramica**.
 
-   Il portale di Azure visualizza la cronologia delle esecuzioni e la cronologia dei trigger per l'app per la logica, Esempio:
+   Il portale di Azure visualizza la cronologia delle esecuzioni e la cronologia dei trigger per l'app per la logica, ad esempio:
 
    ![Cronologia delle esecuzioni e cronologia dei trigger delle app per la logica](media/logic-apps-monitor-your-logic-apps/overview.png)
 
@@ -49,7 +48,7 @@ Per ottenere notifiche sugli errori o su altri possibili problemi, configurare g
 
 3. Per visualizzare i passaggi da una specifica esecuzione, selezionarla in **Cronologia esecuzioni**. 
 
-   La vista di monitoraggio mostra ogni passaggio di tale esecuzione, Esempio:
+   La vista di monitoraggio mostra ogni passaggio di tale esecuzione, ad esempio:
 
    ![Azioni per una specifica esecuzione](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
@@ -59,7 +58,7 @@ Per ottenere notifiche sugli errori o su altri possibili problemi, configurare g
 
    È ad esempio possibile ottenere l'**ID di correlazione** dell'esecuzione, che potrebbe essere necessario quando si usa l'[API REST per App per la logica](https://docs.microsoft.com/rest/api/logic).
 
-5. Per ottenere informazioni dettagliate su un passaggio specifico, scegliere il passaggio. È ora possibile esaminare dettagli come input, output ed eventuali errori verificatisi per tale passaggio, Esempio:
+5. Per ottenere informazioni dettagliate su un passaggio specifico, scegliere il passaggio. È ora possibile esaminare dettagli come input, output ed eventuali errori verificatisi per tale passaggio, ad esempio:
 
    ![Dettagli del passaggio](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
@@ -80,7 +79,7 @@ Prima di iniziare, è necessario avere un'area di lavoro Log Analytics. Informaz
 
 1. Nel [portale di Azure](https://portal.azure.com) trovare e selezionare l'app per la logica. 
 
-2. Nel menu del pannello dell'app per la logica, in **monitoraggio** **, scegliere** > diagnostica **Impostazioni**di diagnostica.
+2. Nel menu del pannello dell'app per la logica, in **monitoraggio**scegliere **diagnostica** > **impostazioni di diagnostica**.
 
    ![Andare a Monitoraggio, Diagnostica, Impostazioni di diagnostica](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
@@ -160,7 +159,7 @@ Insieme ai log di monitoraggio di Azure, è possibile estendere il modo in cui s
 * [Archiviare i log di diagnostica di Azure in Archiviazione di Microsoft Azure](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Trasmettere i log di diagnostica di Azure a Hub eventi di Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 
 
-È quindi possibile eseguire il monitoraggio in tempo reale usando i dati di telemetria e l'analisi da altri servizi, ad esempio [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) e [Power BI](../azure-monitor/platform/powerbi.md), Esempio:
+È quindi possibile eseguire il monitoraggio in tempo reale usando i dati di telemetria e l'analisi da altri servizi, ad esempio [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) e [Power BI](../azure-monitor/platform/powerbi.md), ad esempio:
 
 * [Trasmettere i dati da Hub eventi ad Analisi di flusso](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analizzare i dati di streaming con Analisi di flusso e creare un dashboard di analisi in tempo reale in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)

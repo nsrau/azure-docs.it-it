@@ -1,24 +1,19 @@
 ---
 title: Azure Application Insights per le applicazioni console | Microsoft Docs
 description: Monitorare la disponibilità, le prestazioni e l'utilizzo delle applicazioni Web.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 01/30/2019
 ms.reviewer: lmolkova
-ms.author: mbullwin
-ms.openlocfilehash: 53a765cd2e71b5b1eb1ac2c70506fd55aec6736e
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 1cafa78fb4fba28fbd0691e256efe482fc9664ef
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274138"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678193"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights per le applicazioni console .NET
 
@@ -27,10 +22,10 @@ ms.locfileid: "72274138"
 È necessaria una sottoscrizione a [Microsoft Azure](https://azure.com). È possibile accedere con un account Microsoft, che in genere si ottiene per Windows, XBox Live o altri servizi cloud Microsoft. Se il team ha una sottoscrizione di Azure per l'organizzazione, chiedere al proprietario di aggiungere l'utente alla sottoscrizione usando il rispettivo account Microsoft.
 
 > [!NOTE]
-> È disponibile un nuovo SDK di Application Insights beta denominato [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) , che può essere usato per abilitare Application Insights per qualsiasi applicazione console. È consigliabile usare questo pacchetto e le istruzioni associate da [qui](../../azure-monitor/app/worker-service.md). Questo pacchetto è destinato a [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard), quindi può essere usato in .net core 2,0 o versione successiva e .NET Framework 4.7.2 o versione successiva.
+> È disponibile un nuovo SDK di Application Insights beta denominato [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) , che può essere usato per abilitare Application Insights per qualsiasi applicazione console. È consigliabile usare questo pacchetto e le istruzioni associate da [qui](../../azure-monitor/app/worker-service.md). Questo pacchetto è destinato [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard), quindi può essere usato in .net core 2,0 o versione successiva e .NET Framework 4.7.2 o versione successiva.
 Questo documento verrà deprecato dopo il rilascio di una versione stabile del nuovo pacchetto.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 * Nel [portale di Azure](https://portal.azure.com) [creare una risorsa di Application Insights](../../azure-monitor/app/create-new-resource.md). Per il tipo di applicazione, scegliere **Generale**.
 * Eseguire una copia della chiave di strumentazione. Trovare la chiave nell'elenco a discesa **Informazioni di base** della nuova risorsa creata. 
@@ -130,7 +125,7 @@ module.Initialize(configuration);
 configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-Se è stata creata la configurazione con un costruttore Plain `TelemetryConfiguration()`, è necessario abilitare anche il supporto per la correlazione. **Non è necessario** se si legge la configurazione dal file, usata `TelemetryConfiguration.CreateDefault()` o `TelemetryConfiguration.Active`.
+Se la configurazione è stata creata con il costruttore Plain `TelemetryConfiguration()`, è necessario abilitare anche il supporto per la correlazione. **Non è necessario** se si legge la configurazione da file, usata `TelemetryConfiguration.CreateDefault()` o `TelemetryConfiguration.Active`.
 
 ```csharp
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());

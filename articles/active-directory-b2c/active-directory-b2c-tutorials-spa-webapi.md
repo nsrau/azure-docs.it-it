@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 60fe9569b0e6e92ae161271439ecbf1b04788ed4
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 9ac95896e67338437325e8290a96b8e42b2fa3a7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694600"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374237"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Esercitazione: Concedere l'accesso a un'API Web ASP.NET Core da un'applicazione a pagina singola con Azure Active Directory B2C
 
@@ -70,7 +70,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 ### <a name="configure-the-web-api"></a>Configurare l'API Web
 
-1. Aprire il file *B2C-WebApi/ **appsettings.json*** in Visual Studio o Visual Studio Code.
+1. Aprire il file <em>B2C-WebApi/**appsettings.json**</em> in Visual Studio o Visual Studio Code.
 1. Modificare il blocco `AzureAdB2C` in base al nome del tenant, l'ID dell'applicazione API Web, il nome dei criteri di iscrizione/accesso e gli ambiti definiti in precedenza. Il blocco dovrebbe essere simile all'esempio seguente (con i valori `Tenant` e `ClientId` appropriati):
 
     ```json

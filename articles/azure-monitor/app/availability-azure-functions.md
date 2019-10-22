@@ -1,22 +1,18 @@
 ---
 title: Creare ed eseguire test di disponibilità personalizzati con funzioni di Azure
 description: Questo documento illustra come creare una funzione di Azure con TrackAvailability () che verrà eseguito periodicamente in base alla configurazione specificata nella funzione TimerTrigger. I risultati di questo test verranno inviati alla risorsa Application Insights, in cui sarà possibile eseguire una query e inviare un avviso sui dati dei risultati di disponibilità. I test personalizzati consentiranno di scrivere test di disponibilità più complessi rispetto a quanto possibile tramite l'interfaccia utente del portale, monitorare un'app all'interno della VNET di Azure, modificare l'indirizzo dell'endpoint o creare un test di disponibilità se non è disponibile nella propria area.
-services: application-insights
-documentationcenter: ''
-author: morgangrobin
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 10/11/2019
+author: morgangrobin
 ms.author: mogrobin
-ms.openlocfilehash: 38a83169a7d1ffa03416f5947ada703bcba5017a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 10/11/2019
+ms.openlocfilehash: a2b29f2c24a3244cdc800d882e7c2ed8f943eabe
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301373"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677595"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Creare ed eseguire test di disponibilità personalizzati con funzioni di Azure
 
@@ -220,7 +216,7 @@ Per visualizzare i dettagli della transazione end-to-end, selezionare **esito po
 
 ![Risultati della disponibilità](media/availability-azure-functions/availabilityresults.png)
 
-![Dependencies](media/availability-azure-functions/dependencies.png)
+![Dipendenze](media/availability-azure-functions/dependencies.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

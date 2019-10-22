@@ -1,35 +1,31 @@
 ---
 title: Modello di dati di Azure Application Insights Telemetry - Telemetria delle richieste | Microsoft Docs
 description: Modello di dati di Application Insights per la telemetria delle richieste
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff7b52cbd88e4927db275dee4d7fbc4691ad076b
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900532"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677323"
 ---
-# <a name="request-telemetry-application-insights-data-model"></a>Dati di telemetria richiesta: Modello di dati di Application Insights
+# <a name="request-telemetry-application-insights-data-model"></a>Telemetria delle richieste: modello di dati di Application Insights
 
 In [Application Insights](../../azure-monitor/app/app-insights-overview.md), un elemento di telemetria delle richieste rappresenta la sequenza logica di esecuzione attivata da una richiesta esterna all'applicazione. Ogni esecuzione di richiesta è identificato da un `ID` univoco e un `url` contenente tutti i parametri di esecuzione. È possibile raggruppare le richieste in base al `name` logico e definire il `source` della richiesta. L'esecuzione del codice può restituire un campo `success` o `fail` e ha un campo `duration` specificato. Le esecuzioni con esito positivo e negativo possono essere ulteriormente raggruppate in base a `resultCode`. L'ora di inizio della telemetria delle richieste è definita a livello di busta.
 
 La telemetria delle richieste supporta il modello di estendibilità standard usando `properties` e `measurements` personalizzate.
 
-## <a name="name"></a>Name
+## <a name="name"></a>name
 
 Il nome della richiesta rappresenta il percorso di codice intrapreso per elaborare la richiesta. Un valore di cardinalità basso consente di raggruppare meglio le richieste. Per le richieste HTTP, rappresenta il metodo HTTP e un modello di percorso URL, ad esempio `GET /values/{id}`, senza il valore di `id` effettivo.
 
-Web Application Insights SDK invia il nome della richiesta "così com'è" per quanto riguarda le maiuscole e minuscole. Il raggruppamento nell'interfaccia utente considera la distinzione tra maiuscole e minuscole, pertanto `GET /Home/Index` viene considerato diverso da `GET /home/INDEX`, anche se spesso riguardano l'esecuzione della stessa azione e dello stesso controller. Ciò accade perché gli URL rilevano in genere [la distinzione tra maiuscole e minuscole](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Si consiglia di verificare se tutti gli errori `404` si sono verificati per gli URL digitati in maiuscolo. È possibile leggere ulteriori raccolta nome richiesta via da ASP.NET Web SDK nel [post di blog](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Web Application Insights SDK invia il nome della richiesta "così com'è" per quanto riguarda le maiuscole e minuscole. Il raggruppamento nell'interfaccia utente considera la distinzione tra maiuscole e minuscole, pertanto `GET /Home/Index` viene considerato diverso da `GET /home/INDEX`, anche se spesso riguardano l'esecuzione della stessa azione e dello stesso controller. Ciò accade perché gli URL rilevano in genere [la distinzione tra maiuscole e minuscole](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Si consiglia di verificare se tutti gli errori `404` si sono verificati per gli URL digitati in maiuscolo. Per altre informazioni, vedere la pagina relativa alla raccolta dei nomi delle richieste di ASP.NET Web SDK nel [post di Blog](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
 
 Lunghezza massima: 1024 caratteri
 
@@ -45,7 +41,7 @@ URL della richiesta con tutti i parametri di stringa di query.
 
 Lunghezza massima: 2048 caratteri
 
-## <a name="source"></a>`Source`
+## <a name="source"></a>Source (Sorgente)
 
 Origine della richiesta. Esempi sono la chiave di strumentazione o l'indirizzo IP del chiamante. Per altre informazioni vedere la pagina relativa alla [correlazione](../../azure-monitor/app/correlation.md).
 
@@ -61,7 +57,7 @@ Risultato dell'esecuzione di una richiesta. Codice di stato HTTP per le richiest
 
 Lunghezza massima: 1024 caratteri
 
-## <a name="success"></a>Riuscito
+## <a name="success"></a>Success
 
 Indicazione di chiamata con esito positivo o con esito negativo. Questo campo è obbligatorio. Se non è impostata in modo esplicito su `false`, una richiesta viene considerata con esito positivo. Impostare questo valore su `false` se l'operazione è stata interrotta da un'eccezione o un codice di errore restituito.
 

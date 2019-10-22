@@ -1,6 +1,6 @@
 ---
-title: Convalidare XML per l'integrazione aziendale B2B - App per la logica di Azure | Microsoft Docs
-description: Convalidare XML con gli schemi per soluzioni B2B in App per la logica di Azure tramite Enterprise Integration Pack
+title: Convalidare l'XML per l'integrazione aziendale B2B-app per la logica di Azure
+description: Convalidare il codice XML usando gli schemi in app per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,53 +8,62 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: d700588f-2d8a-4c92-93eb-e1e6e250e760
-ms.date: 07/08/2016
-ms.openlocfilehash: 8db0dbadd944007ff953f9ea69695bf988ffebb7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/21/2019
+ms.openlocfilehash: 7813dcb375ff4a123b1314f8f9db453b1f0b187e
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996354"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680285"
 ---
 # <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Convalidare XML per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
-Spesso negli scenari B2B i partner di un contratto devono accertarsi che i messaggi scambiati siano validi prima di avviare l'elaborazione dei dati. In Enterprise Integration Pack, è possibile usare il connettore di convalida XML per convalidare i documenti in base a uno schema predefinito.
+Spesso negli scenari B2B, i partner commerciali di un accordo devono assicurarsi che i messaggi scambiati siano validi prima di poter avviare qualsiasi elaborazione dei dati. È possibile convalidare i documenti in base a uno schema predefinito utilizzando l'azione di convalida XML, disponibile con l'Enterprise Integration Pack.
 
-## <a name="validate-a-document-with-the-xml-validation-connector"></a>Come convalidare un documento con il connettore di convalida XML
+## <a name="prerequisites"></a>Prerequisiti
 
-1. Creare un'app per la logica e [collegarla all'account di integrazione](../logic-apps/logic-apps-enterprise-integration-accounts.md "Informazioni su come collegare un account di integrazione a un'app per la logica") che contiene lo schema che verrà usato per convalidare i dati XML.
+* Una sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, [iscriversi per ottenere un account Azure gratuito](https://azure.microsoft.com/free/).
 
-2. Aggiungere un trigger **Richiesta - Alla ricezione di una richiesta HTTP** all'app per la logica.
+* App per la logica vuota o esistente in cui si vuole usare l'azione di convalida XML. Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1.png)
+* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associato alla sottoscrizione di Azure è collegato all'app per la logica in cui si prevede di usare l'azione di convalida XML e contiene lo schema che si vuole usare per la convalida del contenuto XML. Sia l'app per la logica che l'account di integrazione devono esistere nella stessa località o nell'area di Azure.
 
-3. Aggiungere l'azione **Convalida XML** selezionando **Aggiungi un'azione**.
+## <a name="add-xml-validation-action"></a>Aggiungi azione di convalida XML
 
-4. Immettere *xml* nella casella di ricerca per filtrare tutte le azioni su quella che si desidera. Selezionare **Convalida XML**.
+1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-2.png)
+1. Se si dispone di un'app per la logica vuota, nella casella di ricerca della finestra di progettazione dell'app per la logica immettere `HTTP request` come filtro e selezionare il trigger **quando viene ricevuta una richiesta http** . In caso contrario, continuare con il passaggio successivo.
 
-5. Per specificare il contenuto XML che si desidera convalidare, selezionare **CONTENUTO**.
+1. Nell'ultimo passaggio del flusso di lavoro selezionare **nuovo passaggio**.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1-5.png)
+   Per aggiungere un'azione tra i passaggi esistenti, spostare il puntatore sulla freccia che connette tali passaggi, in modo che venga visualizzato il segno più ( **+** ). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
 
-6. Selezionare il tag del corpo come contenuto che si desidera convalidare.
+1. In **Scegliere un'azione** selezionare **Predefinita**. Nella casella di ricerca immettere `xml validation` come filtro. Nell'elenco azioni selezionare **convalida XML**.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-3.png)
+   ![Trovare e selezionare l'azione "convalida XML"](./media/logic-apps-enterprise-integration-xml-validation/select-xml-validation-action.png)
 
-7. Per specificare lo schema che desidera usare per convalidare il *contenuto* immesso in precedenza, scegliere **NOME SCHEMA**.
+1. Per specificare il contenuto XML che si desidera convalidare, fare clic all'interno della casella **contenuto** in modo che venga visualizzato l'elenco contenuto dinamico.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-4.png)
+   ![Apri elenco di contenuto dinamico](./media/logic-apps-enterprise-integration-xml-validation/open-dynamic-content-list.png)
 
-8. Salvare il lavoro  
+   L'elenco di contenuto dinamico Mostra i token di proprietà che rappresentano gli output dei passaggi precedenti del flusso di lavoro. Se nell'elenco non è visualizzata una proprietà prevista, controllare il trigger o l'intestazione dell'azione se è possibile selezionare **Visualizza altro**.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-5.png)
+1. Dall'elenco di contenuto dinamico selezionare la proprietà che contiene il contenuto che si desidera convalidare.
 
-A questo punto, la configurazione del connettore di convalida è completa. In un'applicazione reale è possibile archiviare i dati convalidati in un'app line-of-business (LOB), ad esempio SalesForce. Per inviare l'output della convalida a Salesforce, aggiungere un'azione.
+   Questo esempio Mostra come selezionare l'output del **corpo** del trigger.
 
-Per testare l'azione di convalida, eseguire una richiesta all'endpoint HTTP.
+   ![Selezionare il contenuto da convalidare](./media/logic-apps-enterprise-integration-xml-validation/select-content-to-validate.png)
+
+1. Per specificare lo schema che si desidera utilizzare per la convalida, aprire l'elenco **nome schema** e selezionare lo schema di convalida aggiunto all'account di integrazione collegata.
+
+   ![Selezionare lo schema da usare per la convalida](./media/logic-apps-enterprise-integration-xml-validation/select-validation-schema.png)
+
+1. Salvare l'app per la logica.
+
+   A questo punto è stata eseguita la configurazione della convalida. In un'app reale è possibile archiviare i dati convalidati in un'app line-of-business (LOB), ad esempio SalesForce. Per inviare l'output della convalida a Salesforce, aggiungere un'azione.
+
+1. Per testare l'azione di convalida, è possibile inviare una richiesta per attivare il flusso di lavoro dell'app per la logica.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")   
 
+* Scopri di più sulla [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)

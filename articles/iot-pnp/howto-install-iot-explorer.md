@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: f59e449589c7f3027dc8a9daf9d8d12f04831dd7
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 3b5e9a70f9eecbf187a6748073de009653061dc0
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960581"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679859"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installare e usare Azure Internet Explorer
 
@@ -73,27 +73,33 @@ Nella pagina dell'elenco dei **dispositivi** è possibile:
 
 - Selezionare **Aggiungi** per registrare un nuovo dispositivo con l'hub. Immettere quindi un ID dispositivo. Usare le impostazioni predefinite per generare automaticamente le chiavi di autenticazione e abilitare la connessione all'hub.
 - Selezionare un dispositivo e quindi fare clic su **Elimina** per eliminare un'identità del dispositivo. Esaminare i dettagli del dispositivo prima di completare questa azione per assicurarsi di eliminare l'identità del dispositivo corretta.
-- Eseguire una query per `capabilityID` e `interfaceID`. Aggiungere il `capabilityID` o `interfaceID` come parametro per eseguire query sui dispositivi.
+- Eseguire una query per `capabilityID` e `interfaceID`. Aggiungere il `capabilityID` o `interfaceID` come parametro per eseguire una query sui dispositivi.
 
 ## <a name="interact-with-a-device"></a>Interagire con un dispositivo
 
-Nella pagina elenco **dispositivi** selezionare un valore nella colonna **ID dispositivo** per visualizzare la pagina dei dettagli del dispositivo registrato. Per il dispositivo sono presenti due sezioni: **Dispositivi e dispositivi** **gemelli digitali**.
+Nella pagina elenco **dispositivi** selezionare un valore nella colonna **ID dispositivo** per visualizzare la pagina dei dettagli del dispositivo registrato. Per ogni dispositivo sono presenti due sezioni: **Device** e **Digital gemelle**.
 
 ### <a name="device"></a>Dispositivo
 
-Questa sezione include le schede **identità dispositivo**, **dispositivo gemello**e **telemetria** .
+Questa sezione include le schede **identità dispositivo**, **dispositivo gemello**, **telemetria**, **metodo diretto** e **messaggio da cloud a dispositivo** .
 
 - È possibile visualizzare e aggiornare le informazioni sull' [identità del dispositivo](../iot-hub/iot-hub-devguide-identity-registry.md) nella scheda **identità dispositivo** .
 - È possibile accedere alle informazioni sul [dispositivo gemello](../iot-hub/iot-hub-devguide-device-twins.md) nella scheda del **dispositivo gemello** .
 - Se un dispositivo è connesso e invia attivamente dati, è possibile visualizzare i dati di [telemetria](../iot-hub/iot-hub-devguide-messages-read-builtin.md) nella scheda **telemetria** .
+- È possibile chiamare un [metodo diretto](../iot-hub/iot-hub-devguide-direct-methods.md) sul dispositivo nella scheda **metodo diretto** .
+- È possibile inviare un [messaggio da cloud a dispositivo](../iot-hub/iot-hub-devguide-messages-c2d.md) nella scheda **messaggi da cloud a dispositivo** .
 
 ### <a name="digital-twin"></a>Gemello digitale
 
-È possibile usare lo strumento per visualizzare un'istanza del dispositivo gemello digitale del dispositivo. Per un dispositivo Plug and Play, tutte le interfacce associate al modello di funzionalità del dispositivo vengono visualizzate in questo articolo. Consente di selezionare un'interfaccia per espandere le relative [plug and Play primitive](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+È possibile usare lo strumento per visualizzare un'istanza del dispositivo gemello digitale del dispositivo. Per un dispositivo Plug and Play, tutte le interfacce associate al modello di funzionalità del dispositivo vengono visualizzate in questa sezione dello strumento. Consente di selezionare un'interfaccia per espandere le relative [plug and Play primitive](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
-#### <a name="properties"></a>Proprietà
+### <a name="interface"></a>Interfaccia
 
-È possibile visualizzare le proprietà di sola lettura definite in un'interfaccia nella pagina delle **Proprietà** . È possibile aggiornare le proprietà scrivibili definite in un'interfaccia nella pagina **proprietà scrivibili** .
+Nella pagina **interfaccia** è possibile visualizzare la definizione JSON dell'interfaccia.
+
+#### <a name="properties"></a>properties
+
+È possibile visualizzare le proprietà di sola lettura definite in un'interfaccia nella pagina **proprietà non scrivibile** . È possibile aggiornare le proprietà scrivibili definite in un'interfaccia nella pagina **proprietà scrivibile** :
 
 1. Passare alla pagina delle **proprietà scrivibili** .
 1. Fare clic sulla proprietà che si desidera aggiornare.

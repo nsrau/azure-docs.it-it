@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Accedere ad Archiviazione BLOB di Azure da Azure Databricks usando Azure Key Vault'
+title: Accedere all'archiviazione BLOB con l'insieme di credenziali delle chiavi - Azure Databricks
 description: Questa esercitazione descrive come accedere ad Archiviazione BLOB di Azure da Azure Databricks usando i segreti archiviati in un insieme di credenziali delle chiavi.
 author: mamccrea
 ms.author: mamccrea
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 45c5be8b203daf21697f3cb6dad4ecadb6449339
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 1e44a1f1be6dcadac937d641e00c99994af0c651
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976523"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274081"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Esercitazione: Accedere ad Archiviazione BLOB di Azure da Azure Databricks usando Azure Key Vault
 

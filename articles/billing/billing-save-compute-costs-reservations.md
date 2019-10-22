@@ -7,12 +7,12 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: bb90a9dec161746356b8c13df448718c53626684
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b2c3fd9b59b371330e37dceb52b2e89b3db6c48e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806355"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390150"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
@@ -40,11 +40,11 @@ Per le macchine virtuali Windows e il database SQL, i costi delle licenze posson
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>Chi è idoneo all'acquisto di una prenotazione?
 
-Per acquistare un piano, è necessario avere un ruolo di proprietario di una sottoscrizione Enterprise (MS-AZR-0017P o MS-AZR-0148P) o di una sottoscrizione con pagamento in base al consumo (MS-AZR-0003P o MS-AZR-0023P). Per acquistare prenotazioni di Azure, i partner CSP (Cloud Solution Provider) possono usare il portale di Azure o il  [Centro per i partner](/partner-center/azure-reservations) .
+Per acquistare un piano, è necessario avere un ruolo di proprietario di una sottoscrizione Enterprise (MS-AZR-0017P o MS-AZR-0148P), di una sottoscrizione con pagamento in base al consumo (MS-AZR-0003P o MS-AZR-0023P) o di una sottoscrizione Contratto del cliente Microsoft. Per acquistare prenotazioni di Azure, i partner CSP (Cloud Solution Provider) possono usare il portale di Azure o il  [Centro per i partner](/partner-center/azure-reservations) .
 
 I clienti con contratto Enterprise Agreement (EA) possono limitare gli acquisti agli amministratori EA disabilitando l'opzione **Aggiungi istanze riservate** in EA Portal. Gli amministratori EA devono essere proprietari di almeno una sottoscrizione EA per acquistare una prenotazione. Questa opzione è utile per le organizzazioni che vogliono che le prenotazioni per diversi centri di costo vengano acquistate da un team centralizzato. Dopo l'acquisto, i team centralizzati possono aggiungere proprietari del centro di costo alle prenotazioni. I proprietari possono quindi definire l'ambito della prenotazione per le sottoscrizioni. Il team centralizzato non deve necessariamente avere accesso come proprietario della sottoscrizione in cui viene acquistata la prenotazione.
 
-Lo sconto per la prenotazione si applica solo alle risorse associate alle sottoscrizioni acquistate tramite piani Enterprise, Cloud Solution Provider (CSP) e singoli piani con pagamento in base al consumo.
+Lo sconto per la prenotazione si applica solo alle risorse associate alle sottoscrizioni acquistate tramite piani Enterprise, Cloud Solution Provider (CSP), Contratto del cliente Microsoft e singoli piani con pagamento in base al consumo.
 
 ## <a name="scope-reservations"></a>Definire l'ambito delle prenotazioni
 
@@ -55,8 +55,8 @@ Come ambito di una prenotazione è possibile definire una sottoscrizione o grupp
 Sono disponibili tre opzioni per definire l'ambito di una prenotazione, a seconda delle esigenze:
 
 - **Gruppo di risorse singolo**: lo sconto per la prenotazione si applica solo alle risorse corrispondenti incluse nel gruppo di risorse selezionato.
-- **Sottoscrizione singola**: lo sconto per la prenotazione si applica solo alle risorse corrispondenti incluse nella sottoscrizione selezionata.
-- **Condiviso**: lo sconto per la prenotazione si applica alle risorse corrispondenti nelle sottoscrizioni idonee incluse nel contesto di fatturazione. Per i clienti con contratto Enterprise Agreement, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.
+- **Sottoscrizione singola**: lo sconto della prenotazione viene applicato alle risorse corrispondenti incluse nella sottoscrizione selezionata.
+- **Condiviso**: lo sconto della prenotazione viene applicato alle risorse corrispondenti nelle sottoscrizioni idonee incluse nel contesto di fatturazione. Per i clienti con contratto Enterprise Agreement, il contesto di fatturazione è la registrazione. Per i clienti con Contratto del cliente Microsoft, l'ambito di fatturazione corrisponde al profilo di fatturazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.
 
 Per l'applicazione degli sconti sull'utilizzo di risorse, Azure elabora la prenotazione nell'ordine seguente:
 
@@ -84,7 +84,7 @@ Dopo aver acquistato una prenotazione, è sempre possibile aggiornare l'ambito. 
 
 È possibile monitorare l'utilizzo delle prenotazioni in diversi modi: tramite il portale di Azure, le API o i dati di utilizzo. Per visualizzare tutte le prenotazioni a cui si ha accesso, passare a **Prenotazioni** nel portale di Azure. La griglia mostra l'ultima percentuale di utilizzo registrata per la prenotazione. Fare clic sulla prenotazione per visualizzarne l'utilizzo a lungo termine.
 
-I clienti con contratto Enterprise Agreement possono ottenere i dati sull'utilizzo delle prenotazioni anche tramite le [API](billing-reservation-apis.md#see-reservation-usage) e i [dati di utilizzo](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks).
+I clienti con contratto Enterprise o con Contratto del cliente Microsoft possono ottenere i dati sull'utilizzo delle prenotazioni anche tramite le [API](billing-reservation-apis.md#see-reservation-usage) e i [dati di utilizzo](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks).
 
 Se si nota che l'utilizzo della prenotazione è basso con il gruppo di risorse come ambito, è possibile aggiornare l'ambito impostandolo su una sottoscrizione singola oppure condividerlo nel contesto di fatturazione. È anche possibile suddividere la prenotazione e applicare le prenotazioni risultanti a gruppi di risorse diversi.
 
@@ -99,6 +99,7 @@ L'ambito di una prenotazione non viene aggiornato automaticamente se il gruppo d
 Gli sconti Prenotazione si applicano alle sottoscrizioni idonee e ai tipi di offerte seguenti.
 
 - Contratto Enterprise (numeri offerte: MS-AZR-0017P o MS-AZR-0148P)
+- Sottoscrizioni Contratto del cliente Microsoft.
 - Piani individuali con tariffe con pagamento in base al consumo (numeri offerte: MS-AZR-0003P o MS-AZR-0023P)
 - Sottoscrizioni provider di servizi cloud
 
@@ -106,7 +107,7 @@ Le risorse eseguite in una sottoscrizione con altri tipi di offerta non prevedon
 
 ## <a name="how-is-a-reservation-billed"></a>Come viene fatturata una prenotazione?
 
-La prenotazione viene addebitata in base al metodo di pagamento associato alla sottoscrizione. Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Se tale saldo non copre il costo della prenotazione, l'eccedenza verrà fatturata. Se si ha una sottoscrizione di un singolo piano con pagamento in base al consumo, sulla carta di credito associata all'account verranno immediatamente addebitati gli acquisti anticipati. I pagamenti mensili vengono visualizzati nella fattura e addebitati mensilmente sulla carta di credito. Se l'addebito avviene tramite fattura, il costo risulterà visibile sulla fattura successiva.
+La prenotazione viene addebitata in base al metodo di pagamento associato alla sottoscrizione. Il costo della prenotazione viene sottratto dal saldo dell'impegno monetario, se disponibile. Se tale saldo non copre il costo della prenotazione, l'eccedenza verrà fatturata. Se si ha una sottoscrizione di un singolo piano con pagamento in base al consumo, sulla carta di credito associata all'account verranno immediatamente addebitati gli acquisti anticipati. I pagamenti mensili vengono visualizzati nella fattura e addebitati mensilmente sulla carta di credito. Se l'addebito avviene tramite fattura, il costo risulterà visibile sulla fattura successiva.
 
 ## <a name="how-reservation-discount-is-applied"></a>Come viene applicato lo sconto per la prenotazione
 
@@ -120,7 +121,7 @@ Ad esempio, è possibile creare una risorsa in un secondo momento e avere una pr
 
 Se le macchine virtuali sono in esecuzione in diverse sottoscrizioni all'interno della sottoscrizione o dell'account corrente, selezionare l'ambito condiviso. L'ambito condiviso consente l'applicazione dello sconto relativo all'acquisto di istanze riservate tra sottoscrizioni. Dopo aver acquistato una prenotazione è possibile modificare l'ambito. Per altre informazioni, vedere [Gestire le prenotazioni di Azure](billing-manage-reserved-vm-instance.md).
 
-Lo sconto per la prenotazione si applica solo alle risorse associate a sottoscrizioni Enterprise, CSP o con pagamento in base al consumo. Le risorse eseguite in una sottoscrizione con altri tipi di offerta non prevedono questo tipo di sconto.
+Lo sconto per la prenotazione si applica solo alle risorse associate a sottoscrizioni Enterprise, Contratto del cliente Microsoft, CSP o con pagamento in base al consumo. Le risorse eseguite in una sottoscrizione con altri tipi di offerta non prevedono questo tipo di sconto.
 
 ## <a name="when-the-reservation-term-expires"></a>Quando il periodo di prenotazione termina
 

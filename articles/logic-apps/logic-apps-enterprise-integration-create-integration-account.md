@@ -1,24 +1,22 @@
 ---
-title: Creare e gestire gli account di integrazione per le soluzioni B2B-app per la logica di Azure
-description: Creare, collegare, spostare ed eliminare gli account di integrazione per le soluzioni Enterprise Integration e B2B usando app per la logica di Azure
+title: Creare o gestire gli account di integrazione B2B-app per la logica di Azure
+description: Creare, collegare e gestire gli account di integrazione per l'integrazione aziendale con le app per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: carmonm
-ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: be0f534e6770cde561f18bfcb310524a7c506416
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 960733b7423ad1e22bd05a75d9b994cd85b1d30c
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801296"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680359"
 ---
-# <a name="create-and-manage-integration-accounts-for-b2b-solutions-by-using-azure-logic-apps"></a>Creare e gestire gli account di integrazione per le soluzioni B2B usando app per la logica di Azure
+# <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Creare e gestire gli account di integrazione per B2B Enterprise Integrations in app per la logica di Azure
 
 Prima di poter creare [soluzioni di integrazione aziendale e B2B](../logic-apps/logic-apps-enterprise-integration-overview.md) tramite [App per la logica di Azure](../logic-apps/logic-apps-overview.md) è necessario creare un account di integrazione, ovvero una risorsa di Azure separata che fornisca un contenitore sicuro, scalabile e gestibile per gli artefatti di integrazione definiti e usati con i flussi di lavoro di app per la logica.
 
@@ -58,13 +56,13 @@ Per questa attività, è possibile usare l'portale di Azure seguendo la procedur
 
    ![Specificare i dettagli dell'account di integrazione](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | Proprietà | Obbligatorio | Value | DESCRIZIONE |
+   | Proprietà | Obbligatoria | Value | Description |
    |----------|----------|-------|-------------|
-   | **Nome** | Sì | <*integration-account-name*> | Nome dell'account di integrazione, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`), parentesi`(`( `)`,) e punti (`.`). In questo esempio viene usato "Fabrikam-Integration". |
-   | **Sottoscrizione** | Sì | <*nome sottoscrizione di Azure*> | Nome della sottoscrizione di Azure |
-   | **Gruppo di risorse** | Yes | <*Azure-resource-group-name*> | Nome del gruppo di [risorse di Azure](../azure-resource-manager/resource-group-overview.md) da usare per organizzare le risorse correlate. Per questo esempio, creare un nuovo gruppo di risorse con il nome "FabrikamIntegration-RG". |
-   | **Piano tariffario** | Sì | <*livello di prezzo*> | Il piano tariffario per l'account di integrazione, che può essere modificato in un secondo momento. Per questo esempio, selezionare **Free**. Per altre informazioni, vedere gli argomenti seguenti: <p>- [Modello di determinazione prezzi di app per la logica](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Limiti e configurazione delle app per la logica](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Prezzi di app per la logica](https://azure.microsoft.com/pricing/details/logic-apps/) |
-   | **Location** | Yes | <*Area di Azure*> | Area in cui archiviare i metadati dell'account di integrazione. Selezionare lo stesso percorso dell'app per la logica o creare le app per la logica nella stessa posizione dell'account di integrazione. Per questo esempio, usare "Stati Uniti occidentali". <p>**Nota**: Per creare un account di integrazione all'interno di un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), selezionare ISE come percorso. Per altre informazioni, vedere [creare account di integrazione in un ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
+   | **Nome** | SÌ | <*integration-account-name*> | Nome dell'account di integrazione, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`), parentesi (`(`, `)`) e punti (`.`). In questo esempio viene usato "Fabrikam-Integration". |
+   | **Sottoscrizione** | SÌ | <*nome sottoscrizione di Azure*> | Nome della sottoscrizione di Azure |
+   | **Gruppo di risorse** | SÌ | <*Azure-resource-group-name*> | Nome del gruppo di [risorse di Azure](../azure-resource-manager/resource-group-overview.md) da usare per organizzare le risorse correlate. Per questo esempio, creare un nuovo gruppo di risorse con il nome "FabrikamIntegration-RG". |
+   | **Piano tariffario** | SÌ | < >*a livello di prezzo* | Il piano tariffario per l'account di integrazione, che può essere modificato in un secondo momento. Per questo esempio, selezionare **Free**. Per altre informazioni, vedere gli argomenti seguenti: <p>[modello di determinazione dei prezzi -  app](../logic-apps/logic-apps-pricing.md#integration-accounts) per la logica <p>[limiti e configurazione di -  app per la logica](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>[prezzi di app](https://azure.microsoft.com/pricing/details/logic-apps/) per la logica -  |
+   | **Località** | SÌ | <*Area di Azure*> | Area in cui archiviare i metadati dell'account di integrazione. Selezionare lo stesso percorso dell'app per la logica o creare le app per la logica nella stessa posizione dell'account di integrazione. Per questo esempio, usare "Stati Uniti occidentali". <p>**Nota**: per creare un account di integrazione all'interno di un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), selezionare ISE come percorso. Per altre informazioni, vedere [creare account di integrazione in un ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
    | **Log Analytics** | No | Disattivato, acceso | Per questo esempio, lasciare l'impostazione **off** . |
    |||||
 
@@ -102,7 +100,7 @@ A questo punto, l'app per la logica può usare gli elementi nell'account di inte
 
 <a name="change-pricing-tier"></a>
 
-## <a name="change-pricing-tier"></a>Modifica piano tariffario
+## <a name="change-pricing-tier"></a>Modificare il piano tariffario
 
 Per aumentare i [limiti](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) di un account di integrazione, è possibile [eseguire l'aggiornamento a un piano tariffario superiore](#upgrade-pricing-tier), se disponibile. Ad esempio, è possibile eseguire l'aggiornamento dal livello gratuito al livello Basic o standard. È anche possibile [effettuare il downgrade a un livello inferiore](#downgrade-pricing-tier), se disponibile. Per ulteriori informazioni sui prezzi, vedere gli argomenti seguenti:
 
@@ -147,7 +145,7 @@ Per apportare questa modifica, è possibile usare l'portale di Azure attenendosi
    az resource update --resource-group {ResourceGroupName} --resource-type Microsoft.Logic/integrationAccounts --name {IntegrationAccountName} --subscription {AzureSubscriptionID} --set sku.name={SkuName}
    ```
   
-   Se, ad esempio, si dispone del livello Basic, è possibile `skuName` impostare `Standard`su:
+   Se, ad esempio, si dispone del livello Basic, è possibile impostare `skuName` su `Standard`:
 
    ```Azure CLI
    az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Standard
@@ -171,7 +169,7 @@ Per apportare questa modifica, usare l' [interfaccia](https://docs.microsoft.com
    az resource update --resource-group <resourceGroupName> --resource-type Microsoft.Logic/integrationAccounts --name <integrationAccountName> --subscription <AzureSubscriptionID> --set sku.name=<skuName>
    ```
   
-   Se, ad esempio, si dispone del livello standard, è possibile `skuName` impostare `Basic`su:
+   Se, ad esempio, si dispone del livello standard, è possibile impostare `skuName` su `Basic`:
 
    ```Azure CLI
    az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Basic
@@ -197,7 +195,7 @@ Se si vuole collegare l'app per la logica a un altro account di integrazione o n
 
    ![Nella scheda "dati" selezionare "modifica"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-select-edit.png)
 
-1. Nell'editor individuare l' `integrationAccount` oggetto ed eliminare la proprietà, il cui formato è il seguente:
+1. Nell'editor individuare l'oggetto `integrationAccount` ed eliminare la proprietà, il cui formato è il seguente:
 
    ```json
    {
@@ -209,7 +207,7 @@ Se si vuole collegare l'app per la logica a un altro account di integrazione o n
    },
    ```
 
-   Esempio:
+   ad esempio:
 
    ![Trova oggetto "integrationAccount"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 
@@ -247,9 +245,9 @@ Per questa attività, è possibile usare l'portale di Azure attenendosi alla pro
 
 1. In base alla selezione, attenersi alla procedura seguente per modificare il gruppo di risorse o la sottoscrizione:
 
-   * Gruppo di risorse: Dall'elenco **gruppo di risorse** selezionare il gruppo di risorse di destinazione. In alternativa, per creare un gruppo di risorse diverso, selezionare **Crea un nuovo gruppo di risorse**.
+   * Gruppo di risorse: dall'elenco **gruppo di risorse** selezionare il gruppo di risorse di destinazione. In alternativa, per creare un gruppo di risorse diverso, selezionare **Crea un nuovo gruppo di risorse**.
 
-   * Sottoscrizione: Dall'elenco **sottoscrizione** selezionare la sottoscrizione di destinazione. Dall'elenco **gruppo di risorse** selezionare il gruppo di risorse di destinazione. In alternativa, per creare un gruppo di risorse diverso, selezionare **Crea un nuovo gruppo di risorse**.
+   * Sottoscrizione: dall'elenco **sottoscrizione** selezionare la sottoscrizione di destinazione. Dall'elenco **gruppo di risorse** selezionare il gruppo di risorse di destinazione. In alternativa, per creare un gruppo di risorse diverso, selezionare **Crea un nuovo gruppo di risorse**.
 
 1. Per confermare che gli script o gli strumenti associati alle risorse spostate non funzioneranno finché non vengono aggiornati con i nuovi ID di risorsa, selezionare la casella di conferma e quindi fare clic su **OK**.
 

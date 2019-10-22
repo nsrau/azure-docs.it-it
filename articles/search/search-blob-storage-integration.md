@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: db54c7886f5256dab41325cd12f1b893be732d72
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 6d8ad27766e85568cc759af84cc586476ad3ef9a
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529038"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678431"
 ---
 # <a name="add-full-text-search-to-azure-blob-data-using-azure-search"></a>Aggiungere la ricerca full-text ai dati BLOB di Azure con ricerca di Azure
 
@@ -70,5 +70,5 @@ Una soluzione più permanente consiste nel raccogliere gli input della query e p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Configurare un indicizzatore BLOB](search-howto-indexing-azure-blob-storage.md) 
++ [Caricare, scaricare ed elencare BLOB con il portale di Azure (archiviazione BLOB di Azure)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
++ [Configurare un indicizzatore BLOB (ricerca di Azure)](search-howto-indexing-azure-blob-storage.md) 

@@ -1,6 +1,6 @@
 ---
-title: Chiamare, attivare o annidare flussi di lavoro con endpoint HTTP-app per la logica di Azure
-description: Configurare endpoint HTTP per chiamare, attivare o annidare flussi di lavoro di app per la logica di Azure
+title: Chiamare, attivare o annidare app per la logica-app per la logica di Azure
+description: Configurare endpoint HTTP per chiamare, attivare o annidare flussi di lavoro di app per la logica in app per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.workload: integration
@@ -12,14 +12,14 @@ ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.openlocfilehash: f93e90ef442740e4fb17f166023fbe3d5f0bae66
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: eb8451272ecb5bc7b9a7c670545170cd74621883
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875960"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680314"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Chiamare, attivare o annidare flussi di lavoro con endpoint HTTP in app per la logica di Azure
+# <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Chiamare, attivare o annidare app per la logica usando endpoint HTTP in app per la logica di Azure
 
 È possibile esporre a livello nativo gli endpoint HTTP sincroni come trigger sulle app per la logica, permettendo in tal modo di attivare o di chiamare le app per la logica tramite un URL. È inoltre possibile annidare i flussi di lavoro nell'app per la logica usando un modello di endpoint richiamabile.
 
@@ -38,7 +38,7 @@ Per creare gli endpoint HTTP, è possibile aggiungere questi trigger in modo che
 
 Per creare un endpoint HTTP, aggiungere un trigger in grado di ricevere le richieste in ingresso.
 
-1. Accedere al [Portale di Azure](https://portal.azure.com "Portale di Azure"). Andare in app per la logica e aprire Progettazione app per la logica.
+1. Accedere al [portale di Azure](https://portal.azure.com "Portale di Azure"). Andare in app per la logica e aprire Progettazione app per la logica.
 
 2. Aggiungere un trigger che consente all'app per la logica di ricevere richieste in ingresso. Ad esempio aggiungere il trigger **Request** all'app per la logica.
 
@@ -241,10 +241,10 @@ Per alcune richieste che avviano un'app per la logica, può risultare utile risp
 
 Le risposte hanno le seguenti proprietà:
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 | --- | --- |
 | statusCode |Specifica il codice di stato HTTP per la risposta alla richiesta in ingresso. Può essere qualsiasi codice di stato valido che inizia con 2xx, 4xx o 5xx. I codici di stato 3xx non sono consentiti. |
-| headers |Definisce un numero illimitato di intestazioni da includere nella risposta. |
+| Headers |Definisce un numero illimitato di intestazioni da includere nella risposta. |
 | body |Specifica un oggetto body che può essere una stringa, un oggetto JSON o anche contenuto binario a cui si fa riferimento da un passaggio precedente. |
 
 Di seguito viene riportato l'aspetto che lo schema JSON dovrebbe avere ora per l'azione **Risposta**:
@@ -269,11 +269,11 @@ Di seguito viene riportato l'aspetto che lo schema JSON dovrebbe avere ora per l
 > [!TIP]
 > Per visualizzare la definizione JSON completa per l'app per la logica, nella finestra di progettazione dell'app per la logica, scegliere **Visualizzazione codice**.
 
-## <a name="q--a"></a>Domande e risposte
+## <a name="q--a"></a>Domande frequenti
 
-#### <a name="q-what-about-url-security"></a>D: E per quanto riguarda la sicurezza degli URL?
+#### <a name="q-what-about-url-security"></a>D: Come viene garantita la sicurezza degli URL?
 
-R: Azure genera in modo sicuro gli URL di callback delle app per la logica usando una firma di accesso condiviso (SAS). La firma viene trasmessa come parametro di query e deve essere convalidata prima dell'attivazione dell'app per la logica. Azure genera la firma con una combinazione univoca che include la chiave privata per ogni app per la logica, il nome del trigger e l'operazione in esecuzione. Pertanto, a meno che un utente non ottenga l'accesso alla chiave privata dell'app per la logica, non potrà generare una firma valida.
+R: Azure genera in modo sicuro gli URL di callback dell'app per la logica mediante una firma di accesso condiviso (SAS). La firma viene trasmessa come parametro di query e deve essere convalidata prima dell'attivazione dell'app per la logica. Azure genera la firma con una combinazione univoca che include la chiave privata per ogni app per la logica, il nome del trigger e l'operazione in esecuzione. Pertanto, a meno che un utente non ottenga l'accesso alla chiave privata dell'app per la logica, non potrà generare una firma valida.
 
    > [!IMPORTANT]
    > Per i sistemi di produzione e protezione, è consigliabile evitare la chiamata dell'app per la logica direttamente dal browser in quanto:
@@ -283,14 +283,14 @@ R: Azure genera in modo sicuro gli URL di callback delle app per la logica usand
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>D: È possibile configurare ulteriormente gli endpoint HTTP?
 
-R: Sì, gli endpoint HTTP supportano una configurazione più avanzata tramite [**gestione API**](../api-management/api-management-key-concepts.md). Questo servizio offre inoltre la possibilità di gestire tutte le API in modo coerente, incluse le app per la logica, di impostare i nomi di dominio personalizzato, usare più metodi di autenticazione e altro ancora, ad esempio:
+R: Sì, gli endpoint HTTP supportano configurazioni più avanzate tramite la [**Gestione API**](../api-management/api-management-key-concepts.md). Questo servizio offre inoltre la possibilità di gestire tutte le API in modo coerente, incluse le app per la logica, di impostare i nomi di dominio personalizzato, usare più metodi di autenticazione e altro ancora, ad esempio:
 
 * [Impostare il metodo della richiesta](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [Modificare i segmenti dell'URL della richiesta](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
-* Configurare i domini di Gestione API nel [portale di Azure](https://portal.azure.com/ "portale di Azure")
+* Configurare i domini di gestione API nel [portale di Azure](https://portal.azure.com/ "Portale di Azure")
 * Impostare la norma per verificare l'autenticazione di base
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>D: Cosa è cambiato quando lo schema è stato migrato dal 1 ° dicembre 2014 Preview?
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>D: Che cosa è cambiato con la migrazione dello schema dall'anteprima del 1 dicembre 2014?
 
 R: Di seguito è riportato un riepilogo di queste modifiche:
 
@@ -304,7 +304,7 @@ R: Di seguito è riportato un riepilogo di queste modifiche:
 | Fare riferimento all'oggetto body in ingresso tramite `@triggerOutputs().body.Content` |Fare riferimento tramite `@triggerOutputs().body` |
 | **Send HTTP response** (Invia risposta HTTP) nel Listener HTTP |Fare clic su **Respond to HTTP request** (Rispondi alla richiesta HTTP). Non è necessaria un'app per le API. |
 
-## <a name="get-help"></a>Ottenere aiuto
+## <a name="get-help"></a>Ottenere supporto
 
 Per porre domande, fornire risposte e ottenere informazioni sulle attività degli altri utenti di App per la logica di Azure, vedere il [forum su App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 

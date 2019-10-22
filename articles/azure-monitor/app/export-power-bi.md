@@ -1,23 +1,18 @@
 ---
 title: Esportare dati in Power BI da Azure Application Insights | Microsoft Docs
 description: Le query di Analisi possono essere visualizzate in Power BI.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/10/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/10/2018
+ms.openlocfilehash: 04848f763fe8246f8e10f563169c04ea37b0ed37
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900394"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677303"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
 [Power BI](https://www.powerbi.com/) è un insieme di strumenti aziendali che consente di analizzare i dati e condividere informazioni dettagliate e significative. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -105,8 +100,8 @@ Se la riduzione del set di dati risultante dalla query di Analisi non è una sol
 
 1. Creare una [chiave API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Aggiornare lo script M di Power BI esportato da Analisi sostituendo l'URL di Azure Resource Manager con l'API di Application Insights.
-   * Sostituire **https:\//management.azure.com/subscriptions/...**
-   * with, **https:\//api.applicationinsights.io/beta/apps/...**
+   * Sostituisci **https: \//Management.Azure.com/subscriptions/...**
+   * con, **https: \//API.applicationinsights.io/beta/Apps/...**
 3. Aggiornare infine le credenziali in credenziali di base e usare la chiave API.
 
 **Script esistente**
