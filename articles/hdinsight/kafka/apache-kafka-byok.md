@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: ba49944011546db45d25cc87c2c4b93c8b99502a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71122675"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Bring your own key per Apache Kafka in Azure HDInsight
@@ -55,7 +55,7 @@ Per creare un cluster Kafka abilitato per BYOK, seguire questa procedura:
 
         a. Per creare una nuova chiave, selezionare **Genera/Importa** nel menu **Chiavi** in **Impostazioni**.
 
-        ![Genera una nuova chiave in Azure Key Vault](./media/apache-kafka-byok/kafka-create-new-key.png "Genera una nuova chiave in Azure Key Vault")
+        ![Genera una nuova chiave in Azure Key Vault](./media/apache-kafka-byok/kafka-create-new-key.png "Generare una nuova chiave in Azure Key Vault")
 
         b. Impostare **Opzioni** su **Genera** e assegnare un nome alla chiave.
 
@@ -91,7 +91,7 @@ Per creare un cluster Kafka abilitato per BYOK, seguire questa procedura:
 
         ![Salva i criteri di accesso Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-save.png)
 
-## <a name="create-hdinsight-cluster"></a>Crea cluster HDInsight
+## <a name="create-hdinsight-cluster"></a>Creare un cluster HDInsight
 
    È ora possibile creare un nuovo cluster HDInsight. BYOK è applicabile solo ai nuovi cluster durante la creazione di un cluster. La crittografia non può essere rimossa dai cluster BYOK e la modalità BYOK non può essere aggiunta ai cluster esistenti.
 

@@ -1,18 +1,18 @@
 ---
-title: Esempio - Progetto della zona di destinazione per le migrazioni di Cloud Adoption Framework - Procedura di distribuzione
-description: Procedura di distribuzione del progetto di esempio della zona di destinazione per le migrazioni di Cloud Adoption Framework.
+title: Progetto di esempio della zona di destinazione per la migrazione di Cloud Adoption Framework - Procedura di distribuzione
+description: Procedura di distribuzione per il progetto di esempio della zona di destinazione per la migrazione di Cloud Adoption Framework, inclusi i dettagli dei parametri dell'artefatto del progetto.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 ms.custom: fasttrack-new
-ms.openlocfilehash: cec8d224e52de25fe026a17d57144da3cd53fc5b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: cb41d363b208400598c8afb06dfdb4acaeb02d2b
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981672"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298014"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Distribuire il progetto di esempio della zona di destinazione per le migrazioni di Microsoft Cloud Adoption Framework per Azure
 
@@ -118,7 +118,7 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 Dopo aver esaminato la procedura per la distribuzione del progetto di esempio della zona di destinazione per le migrazioni di Cloud Adoption Framework, vedere l'articolo seguente per informazioni sull'architettura:
 
 > [!div class="nextstepaction"]
-> [Progetto della zona di destinazione per le migrazioni di Cloud Adoption Framework - Panoramica](./index.md)
+> [Progetto della zona di destinazione per la migrazione di Cloud Adoption Framework - Panoramica](./index.md)
 
 Altri articoli sui progetti e su come usarli:
 

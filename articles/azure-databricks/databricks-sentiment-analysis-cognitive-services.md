@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Analisi della valutazione sui dati in streaming con Azure Databricks'
+title: Usare Azure Databricks per l'analisi del sentiment
 description: Informazioni su come usare Azure Databricks con Hub eventi e l'API Servizi cognitivi per eseguire l'analisi della valutazione su dati in streaming quasi in tempo reale.
 services: azure-databricks
 author: lenadroid
@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 9718a6e394c7628cdf7bb62b2dafea2f3d59a3ca
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 1d8b3aad3104f07f8f6499c88f00328c95047816
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "68619529"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274211"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Esercitazione: Analisi della valutazione sui dati in streaming con Azure Databricks
 

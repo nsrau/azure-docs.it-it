@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-ms.openlocfilehash: 82c56a01d7f14f1eeae26dfa784f3545552bf6b9
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 43d39039d01b22e7d918755e9557d6a1030ef7a8
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981395"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302869"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Esercitazione: Creare e gestire i criteri per applicare la conformità
 
@@ -390,7 +390,7 @@ Una definizione di iniziativa consente di raggruppare più definizioni di criter
 
 1. Selezionare **Assegnazioni** a sinistra nella pagina Criteri di Azure.
 
-1. Individuare l'iniziativa **Get Source**. È probabile che sia ancora nello _Stato di conformità_ o **Non avviato**.
+1. Individuare l'iniziativa **Get Secure**. È probabile che sia ancora nello _Stato di conformità_ o **Non avviato**.
    Fare clic sull'iniziativa per ottenere i dettagli completi sullo stato di avanzamento dell'assegnazione.
 
    ![Pagina di conformità dell'iniziativa - valutazioni non avviate](../media/create-and-manage/compliance-status-not-started.png)

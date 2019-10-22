@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2018
+ms.date: 10/16/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d5452f23e830ca7a9ffe5ca5ed3d4aa12fb717
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a11c5489c97e1050e525c0b83c160c1360119b60
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66236056"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433165"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure SQL
 
@@ -103,7 +103,7 @@ Il codice in esecuzione nella macchina virtuale può ora ottenere un token trami
 
 Azure SQL supporta in modo nativo l'autenticazione di Azure AD, in modo da poter accettare direttamente i token di accesso ottenuti usando identità gestite per le risorse di Azure. Usare il metodo di creazione di una connessione a SQL del **token di accesso**. Questo fa parte dell'integrazione di SQL di Azure con Azure AD e non prevede l'inserimento di credenziali nella stringa di connessione.
 
-Di seguito è riportato un esempio di codice .NET per l'apertura di una connessione a SQL tramite un token di accesso. Questo codice deve essere eseguito nella macchina virtuale per poter accedere all'endpoint dell'identità gestita assegnata dal sistema della macchina virtuale. Per usare il metodo del token di accesso è necessario **.NET Framework 4.6** o una versione successiva. Sostituire i valori di AZURE-SQL-SERVERNAME e DATABASE di conseguenza. Si noti che l'ID risorsa per Azure SQL è `https://database.windows.net/`.
+Di seguito è riportato un esempio di codice .NET per l'apertura di una connessione a SQL tramite un token di accesso. Questo codice deve essere eseguito nella macchina virtuale per poter accedere all'endpoint dell'identità gestita assegnata dal sistema della macchina virtuale. Per usare il metodo del token di accesso, è necessario **.NET Framework 4.6** o versione successiva oppure **.NET Core 2.2** o versione successiva. Sostituire i valori di AZURE-SQL-SERVERNAME e DATABASE di conseguenza. Si noti che l'ID risorsa per Azure SQL è `https://database.windows.net/`.
 
 ```csharp
 using System.Net;

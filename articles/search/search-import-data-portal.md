@@ -10,10 +10,10 @@ ms.date: 10/03/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 89f43227cfca3519a4985c5c961cf0b3c5774177
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71936915"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Procedura guidata Importa dati per Ricerca di Azure
@@ -62,7 +62,7 @@ La procedura guidata **Importa dati** si connette a un'origine dati esterna usan
 
 È necessario creare questa singola tabella o vista prima di eseguire la procedura guidata e deve contenere contenuto. Per ovvie ragioni, non è consigliabile eseguire la procedura guidata di **importazione dei dati** in un'origine dati vuota.
 
-|  Selezione | Descrizione |
+|  Selezione | Description |
 | ---------- | ----------- |
 | **Origine dati esistente** |Se nel servizio di ricerca sono già definiti indicizzatori, potrebbe essere presente una definizione dell'origine dati che è possibile riutilizzare. In Ricerca di Azure, gli oggetti origine dati vengono usati solo dagli indicizzatori. È possibile creare un oggetto origine dati a livello di codice o tramite la procedura guidata **Importa dati** e riutilizzarli in base alle esigenze.|
 | **Esempi**| Ricerca di Azure offre due origini dati di esempio predefinite che vengono usate nelle esercitazioni e nelle guide introduttive: un database SQL immobiliare e un database di hotel ospitato in Cosmos DB. Per una procedura dettagliata basata sull'esempio di Hotel, vedere l'articolo relativo alla [creazione di un indice nella portale di Azure](search-get-started-portal.md) Guida introduttiva. |
@@ -76,7 +76,7 @@ La procedura guidata **Importa dati** si connette a un'origine dati esterna usan
 
 Dietro le quinte, la procedura guidata consente di creare, configurare e richiamare gli oggetti seguenti. Dopo l'esecuzione della procedura guidata, è possibile trovarne l'output nelle pagine del portale. La pagina Panoramica del servizio include elenchi di indici, indicizzatori, origini dati e skillsets. Le definizioni degli indici possono essere visualizzate in formato JSON completo nel portale. Per altre definizioni, è possibile usare l' [API REST](https://docs.microsoft.com/rest/api/searchservice/) per ottenere oggetti specifici.
 
-| Object | Descrizione | 
+| Oggetto | Description | 
 |--------|-------------|
 | [Origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Rende permanente le informazioni di connessione ai dati di origine, incluse le credenziali. Un oggetto origine dati viene utilizzato esclusivamente con gli indicizzatori. | 
 | [Index](https://docs.microsoft.com/rest/api/searchservice/create-index) | Struttura di dati fisici utilizzata per la ricerca full-text e altre query. | 
@@ -106,7 +106,7 @@ La procedura guidata genera un indice incompleto, che verrà popolato con i docu
 
 1. Il tipo di dati è appropriato per i dati in ingresso? Ricerca di Azure supporta i [tipi di dati EDM (Entity Data Model)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). Per i dati SQL di Azure è presente un [grafico di mapping](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-between-sql-and-azure-search-data-types) che definisce valori equivalenti. Per ulteriori informazioni, vedere [mapping dei campi e trasformazioni](search-indexer-field-mappings.md).
 
-1. Si dispone di un campo che può fungere da *chiave*? Questo campo deve essere Edm. String e deve identificare in modo univoco un documento. Per i dati relazionali, è possibile eseguirne il mapping a una chiave primaria. Per i BLOB, potrebbe essere `metadata-storage-path`. Se i valori dei campi includono spazi o trattini, è necessario impostare l'opzione **Chiavi di codifica Base 64** nel passaggio **Crea un indicizzatore**, in **Opzioni avanzate**, per evitare il controllo di convalida per questi caratteri.
+1. Si dispone di un campo che può fungere da *chiave*? Questo campo deve essere Edm. String e deve identificare in modo univoco un documento. Per i dati relazionali, è possibile eseguirne il mapping a una chiave primaria. Per i BLOB, potrebbe essere il `metadata-storage-path`. Se i valori dei campi includono spazi o trattini, è necessario impostare l'opzione **Chiavi di codifica Base 64** nel passaggio **Crea un indicizzatore**, in **Opzioni avanzate**, per evitare il controllo di convalida per questi caratteri.
 
 1. Impostare gli attributi per determinare il modo in cui tale campo viene utilizzato in un indice. 
 

@@ -1,17 +1,17 @@
 ---
-title: Esempio - Rifiutare la suddivisione in livelli di accesso sporadico per gli account di archiviazione
+title: Esempio - Nessuna suddivisione in livelli di accesso sporadico negli account di archiviazione
 description: Questa definizione di criteri di esempio impedisce l'uso della suddivisione in livelli di accesso sporadico per gli account di archiviazione BLOB.
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 21ee0e62e300b5807e3a38a0834c3365ab123dad
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: a686126d0f164df2df224ced2e16f03a0a9bb283
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977244"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255791"
 ---
 # <a name="sample---deny-cool-access-tiering-for-storage-accounts"></a>Esempio - Rifiutare la suddivisione in livelli di accesso sporadico per gli account di archiviazione
 

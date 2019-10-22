@@ -1,5 +1,5 @@
 ---
-title: 'Esempio: Facet multilivello - Ricerca di Azure'
+title: 'Esempio: facet a più livelli-ricerca di Azure'
 description: Informazioni su come creare strutture di facet per tassonomie multilivello, realizzando così una struttura di esplorazione nidificata che è possibile includere nelle pagine delle applicazioni.
 author: HeidiSteen
 manager: nitinme
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.openlocfilehash: 9a56bba55f9b3a59126168bc2bbbd50927c3fc78
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70274093"
 ---
-# <a name="example-multi-level-facets-in-azure-search"></a>Esempio: Facet multilivello in Ricerca di Azure
+# <a name="example-multi-level-facets-in-azure-search"></a>Esempio: facet multilivello in ricerca di Azure
 
 Gli schemi di Ricerca di Azure non supportano esplicitamente le categorie tassonomiche multilivello, ma è possibile creare un'approssimazione di tali categorie modificando il contenuto prima di eseguire l'indicizzazione e quindi applicando alcune modifiche particolari ai risultati. 
 
@@ -35,7 +35,7 @@ LEFT JOIN
   ON category.ParentProductCategoryId=parent.ProductCategoryId
 ```
 
-  ![Risultati della query](./media/search-example-adventureworks/prod-query-results.png "Risultati della query")
+  ![Risultati query](./media/search-example-adventureworks/prod-query-results.png "Risultati query")
 
 ## <a name="indexing-to-a-collection-field"></a>Indicizzazione in base a un campo Collection
 
@@ -51,7 +51,7 @@ Quando si eseguono query, includere la specifica di facet seguente (dove taxonom
 
 Il valore di count deve essere sufficientemente elevato da restituire tutti i valori possibili della tassonomia. I dati di AdventureWorks contengono 41 valori di tassonomia distinti e pertanto `count:50` è sufficiente.
 
-  ![Filtro in base a facet](./media/search-example-adventureworks/facet-filter.png "Filtro in base a facet")
+  ![Filtro sfaccettato](./media/search-example-adventureworks/facet-filter.png "Filtro sfaccettato")
 
 ## <a name="build-the-structure-in-client-code"></a>Creare la struttura nel codice client
 
@@ -84,10 +84,10 @@ categories.count = sum;
 
 È ora possibile usare l'oggetto **categories** per eseguire il rendering di un albero della tassonomia comprimibile con conteggi accurati:
 
-  ![filtro in base a facet multilivello](./media/search-example-adventureworks/multi-level-facet.png "filtro in base a facet multilivello")
+  ![filtro sfaccettato a più livelli](./media/search-example-adventureworks/multi-level-facet.png "filtro sfaccettato a più livelli")
 
  
-Ogni collegamento nell'albero deve applicare il filtro correlato. Ad esempio:
+Ogni collegamento nell'albero deve applicare il filtro correlato. ad esempio:
 
 + **taxonomy/any**`(x:x eq 'Accessories')` restituisce tutti i documenti nel ramo Accessories
 + **taxonomy/any**`(x:x eq 'Accessories|Bike Racks')` restituisce solo i documenti con sottocategoria Bike Racks nel ramo Accessories.
@@ -97,6 +97,6 @@ Questa tecnica può essere adattata per gestire scenari più complessi come albe
 > [!TIP]
 > La velocità della query dipende dal numero di facet restituiti. Per supportare set di tassonomia molto grandi, è consigliabile aggiungere un campo **Edm.String** abilitato per l'esplorazione in base a facet che contenga il valore di tassonomia di primo livello per ogni documento. Applicare quindi la stessa tecnica descritta in precedenza, ma eseguire solo la query in base a facet di tipo raccolta (ovvero filtrata in base al campo radice della tassonomia) quando l'utente espande un nodo di primo livello. In alternativa, se non è necessaria una percentuale di richiamo del 100%, è sufficiente ridurre il totale dei facet a un numero ragionevole e assicurarsi che le voci dei facet siano ordinate in base al totale.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
-[Esempio: Modellare il database di inventario di AdventureWorks per Ricerca di Azure](search-example-adventureworks-modeling.md)
+[Esempio: modellare il database di inventario AdventureWorks per ricerca di Azure](search-example-adventureworks-modeling.md)

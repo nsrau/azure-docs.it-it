@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
 ms.openlocfilehash: b720d64f5b0a5f66375083b7854658aa754db150
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70072292"
 ---
 # <a name="azure-api-management-page-controls"></a>Controlli pagina in Gestione API di Azure
@@ -39,7 +39,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 -   [app-actions](#app-actions)  
 -   [basic-signin](#basic-signin)  
 -   [paging-control](#paging-control)  
--   [providers](#providers)  
+-   [provider](#providers)  
 -   [search-control](#search-control)  
 -   [sign-up](#sign-up)  
 -   [subscribe-button](#subscribe-button)  
@@ -48,7 +48,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 ##  <a name="app-actions"></a> app-actions  
  Il controllo `app-actions` offre un'interfaccia utente per interagire con le applicazioni nella pagina del profilo utente nel portale per sviluppatori.  
   
- ![Controllo app&#45;actions](./media/api-management-page-controls/APIM-app-actions-control.png "Controllo app-actions in Gestione API di Azure")  
+ ![controllo&#45;azioni app](./media/api-management-page-controls/APIM-app-actions-control.png "App gestione API-controllo azioni")  
   
 ### <a name="usage"></a>Utilizzo  
   
@@ -56,9 +56,9 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
 ```  
   
-### <a name="parameters"></a>Parametri  
+### <a name="parameters"></a>parameters  
   
-|Parametro|Descrizione|  
+|Parametro|Description|  
 |---------------|-----------------|  
 |appId|L'ID dell'applicazione.|  
   
@@ -70,7 +70,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 ##  <a name="basic-signin"></a> basic-signin  
  Il controllo `basic-signin` permette di raccogliere le informazioni di accesso degli utenti nella pagina di accesso del portale per sviluppatori.  
   
- ![Controllo basic&#45;signin](./media/api-management-page-controls/APIM-basic-signin-control.png "Controllo basic-signin in Gestione API di Azure")  
+ ![controllo&#45;di accesso di base](./media/api-management-page-controls/APIM-basic-signin-control.png "GESTIONE API Basic-controllo signin")  
   
 ### <a name="usage"></a>Utilizzo  
   
@@ -78,8 +78,8 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 <basic-SignIn></basic-SignIn>  
 ```  
   
-### <a name="parameters"></a>Parametri  
- No.  
+### <a name="parameters"></a>parameters  
+ None.  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `basic-signin` nei seguenti modelli del portale per sviluppatori:  
@@ -89,7 +89,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 ##  <a name="paging-control"></a> paging-control  
  Il controllo `paging-control` offre funzionalità di paging nelle pagine del portale per sviluppatore che presentano un elenco di elementi.  
   
- ![paging-control](./media/api-management-page-controls/APIM-paging-control.png "paging-control in Gestione API di Azure")  
+ ![controllo paging](./media/api-management-page-controls/APIM-paging-control.png "Controllo paging gestione API")  
   
 ### <a name="usage"></a>Utilizzo  
   
@@ -97,8 +97,8 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 <paging-control></paging-control>  
 ```  
   
-### <a name="parameters"></a>Parametri  
- No.  
+### <a name="parameters"></a>parameters  
+ None.  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `paging-control` nei seguenti modelli del portale per sviluppatori:  
@@ -112,7 +112,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 ##  <a name="providers"></a> providers  
  Il controllo `providers` permette di selezionare i provider di autenticazione nella pagina di accesso del portale per sviluppatori.  
   
- ![Controllo providers](./media/api-management-page-controls/APIM-providers-control.png "Controllo providers in Gestione API di Azure")  
+ ![controllo provider](./media/api-management-page-controls/APIM-providers-control.png "Controllo provider gestione API")  
   
 ### <a name="usage"></a>Utilizzo  
   
@@ -120,8 +120,8 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 <providers></providers>  
 ```  
   
-### <a name="parameters"></a>Parametri  
- No.  
+### <a name="parameters"></a>parameters  
+ None.  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `providers` nei seguenti modelli del portale per sviluppatori:  
@@ -131,7 +131,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 ##  <a name="search-control"></a> search-control  
  Il controllo `search-control` offre funzionalità di ricerca nelle pagine del portale per sviluppatore che presentano un elenco di elementi.  
   
- ![search- control](./media/api-management-page-controls/APIM-search-control.png "search-control in Gestione API di Azure")  
+ ![controllo di ricerca](./media/api-management-page-controls/APIM-search-control.png "Controllo di ricerca gestione API")  
   
 ### <a name="usage"></a>Utilizzo  
   
@@ -139,8 +139,8 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 <search-control></search-control>  
 ```  
   
-### <a name="parameters"></a>Parametri  
- No.  
+### <a name="parameters"></a>parameters  
+ None.  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `search-control` nei seguenti modelli del portale per sviluppatori:  
@@ -152,7 +152,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 ##  <a name="sign-up"></a> sign-up  
  Il controllo `sign-up` permette di raccogliere le informazioni di profilo degli utenti nella pagina di iscrizione del portale per sviluppatori.  
   
- ![Controllo sign&#45;up](./media/api-management-page-controls/APIM-sign-up-control.png "Controllo sign-up in Gestione API di Azure")  
+ ![controllo&#45;di iscrizione](./media/api-management-page-controls/APIM-sign-up-control.png "Controllo di iscrizione gestione API")  
   
 ### <a name="usage"></a>Utilizzo  
   
@@ -160,8 +160,8 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 <sign-up></sign-up>  
 ```  
   
-### <a name="parameters"></a>Parametri  
- No.  
+### <a name="parameters"></a>parameters  
+ None.  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `sign-up` nei seguenti modelli del portale per sviluppatori:  
@@ -171,7 +171,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 ##  <a name="subscribe-button"></a> subscribe-button  
  Il controllo `subscribe-button` consente di sottoscrivere un utente a un prodotto.  
   
- ![Controllo subscribe&#45;button](./media/api-management-page-controls/APIM-subscribe-button-control.png "Controllo subscribe-button in Gestione API di Azure")  
+ ![controllo&#45;pulsante di sottoscrizione](./media/api-management-page-controls/APIM-subscribe-button-control.png "Controllo del pulsante di sottoscrizioni gestione API")  
   
 ### <a name="usage"></a>Utilizzo  
   
@@ -179,8 +179,8 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 <subscribe-button></subscribe-button>  
 ```  
   
-### <a name="parameters"></a>Parametri  
- No.  
+### <a name="parameters"></a>parameters  
+ None.  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `subscribe-button` nei seguenti modelli del portale per sviluppatori:  
@@ -190,7 +190,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 ##  <a name="subscription-cancel"></a> subscription-cancel  
  Il controllo `subscription-cancel` consente di annullare la sottoscrizione a un prodotto nella pagina di profilo dell'utente nel portale per sviluppatori.  
   
- ![Controllo subscription&#45;cancel](./media/api-management-page-controls/APIM-subscription-cancel-control.png "Controllo subscription-cancel in Gestione API di Azure")  
+ ![controllo&#45;Annulla sottoscrizione](./media/api-management-page-controls/APIM-subscription-cancel-control.png "Sottoscrizione di gestione API-controllo annulla")  
   
 ### <a name="usage"></a>Utilizzo  
   
@@ -200,9 +200,9 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
   
 ```  
   
-### <a name="parameters"></a>Parametri  
+### <a name="parameters"></a>parameters  
   
-|Parametro|Descrizione|  
+|Parametro|Description|  
 |---------------|-----------------|  
 |subscriptionId|L'ID della sottoscrizione da annullare.|  
 |cancelUrl|L'URL di annullamento della sottoscrizione.|  
@@ -213,4 +213,4 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 -   [Prodotto](api-management-product-templates.md#Product)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli](api-management-developer-portal-templates.md).
+Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](api-management-developer-portal-templates.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Foresta delle decisioni a due classi: Riferimento al modulo'
+title: 'Foresta delle decisioni a due classi: riferimento al modulo'
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il modulo Two-Class Decision Forest nel servizio Azure Machine Learning per creare un modello di machine learning basato sull'algoritmo delle foreste delle decisioni.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 37a2ce77e438145219df9cb553d1881626e8a2c6
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 243f1774069f048d0e8a1ce11e3ac42e4e73f58b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128390"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693611"
 ---
 # <a name="two-class-decision-forest-module"></a>Modulo della foresta delle decisioni a due classi
 
@@ -49,23 +49,23 @@ Per altre informazioni, vedere [foreste delle decisioni](https://go.microsoft.co
 
 ## <a name="how-to-configure"></a>Come configurare
   
-1.  Aggiungere il modulo **Two-Class Decision Forest** all'esperimento in Azure Machine Learning e aprire il riquadro delle **Proprietà** del modulo. 
+1.  Aggiungere il modulo **Two-Class Decision Forest** alla pipeline in Azure Machine Learning e aprire il riquadro delle **Proprietà** del modulo. 
 
     Il modulo è reperibile in **Machine Learning**. Espandere **Initialize**e quindi **Classification**.  
   
-2.  Per il **Metodo**di ricampionamento, scegliere il metodo usato per creare i singoli alberi.  È possibile scegliere tra l'insaccamento o la **replica**.  
+2.  Per il **metodo di ricampionamento**, scegliere il metodo usato per creare i singoli alberi.  È possibile scegliere tra l' **insaccamento** o la **replica**.  
   
-    -   Insaccamento: L'insaccamento viene chiamato anche *aggregazione bootstrap*. In questo metodo ogni albero viene ampliato in un nuovo esempio, creato eseguendo il campionamento casuale del set di dati originale con sostituzione fino a quando non si dispone di un set di dati di dimensioni originali.  
+    -   **Insaccamento**: l'insaccamento viene chiamato anche *aggregazione bootstrap*. In questo metodo ogni albero viene ampliato in un nuovo esempio, creato eseguendo il campionamento casuale del set di dati originale con sostituzione fino a quando non si dispone di un set di dati di dimensioni originali.  
   
          Gli output dei modelli vengono combinati *votando*, ovvero una forma di aggregazione. Ogni albero in una foresta delle decisioni di classificazione restituisce un istogramma di frequenza non normalizzato di etichette. L'aggregazione consiste nel sommare questi istogrammi e normalizzare per ottenere le "probabilità" per ciascuna etichetta. In questo modo, gli alberi con attendibilità di stima elevata avranno un peso maggiore nella decisione finale dell'insieme.  
   
          Per ulteriori informazioni, vedere la voce Wikipedia per l'aggregazione bootstrap.  
   
-    -   **Replica**: Nella replica ogni albero viene sottoposto a training esattamente sugli stessi dati di input. La determinazione del predicato Split utilizzato per ogni nodo della struttura ad albero rimane casuale e gli alberi saranno diversi.   
+    -   **Replicate**: nella replica ogni albero viene sottoposto a training esattamente sugli stessi dati di input. La determinazione del predicato Split utilizzato per ogni nodo della struttura ad albero rimane casuale e gli alberi saranno diversi.   
   
 3.  Specificare il modo in cui si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .  
   
-    -   **Singolo parametro**: Se si conosce il modo in cui si desidera configurare il modello, è possibile specificare come argomenti un set specifico di valori.
+    -   **Singolo parametro**: se si sa come si desidera configurare il modello, è possibile fornire un set di valori specifico come argomenti.
   
 4.  Per **numero di alberi delle decisioni**, digitare il numero massimo di alberi delle decisioni che è possibile creare nell'insieme. Creando più alberi delle decisioni, è possibile ottenere una migliore copertura, ma aumenta il tempo di training.  
   
@@ -74,7 +74,7 @@ Per altre informazioni, vedere [foreste delle decisioni](https://go.microsoft.co
   
 5.  Per la **profondità massima degli alberi delle decisioni**, digitare un numero per limitare la profondità massima di qualsiasi albero delle decisioni. L'aumento della profondità dell'albero può aumentare la precisione, a rischio di overfitting e di aumento dei tempi di training.
   
-6.  Per **numero di**divisioni casuali per nodo, digitare il numero di divisioni da usare durante la compilazione di ogni nodo dell'albero. Una *suddivisione* indica che le funzionalità di ogni livello dell'albero (nodo) sono divise in modo casuale.
+6.  Per **numero di divisioni casuali per nodo**, digitare il numero di divisioni da usare durante la compilazione di ogni nodo dell'albero. Una *suddivisione* indica che le funzionalità di ogni livello dell'albero (nodo) sono divise in modo casuale.
   
 7.  Per il **numero minimo di campioni per nodo foglia**, indicare il numero minimo di case necessari per creare qualsiasi nodo terminale (foglia) in un albero.
   
@@ -93,13 +93,13 @@ Per altre informazioni, vedere [foreste delle decisioni](https://go.microsoft.co
 
 Al termine del training:
 
-+ Per visualizzare l'albero che è stato creato a ogni iterazione, fare clic con il pulsante destro del mouse sull'output del modulo [Train Model](./train-model.md) e selezionare Visualize ( **Visualizza**).
++ Per visualizzare l'albero che è stato creato a ogni iterazione, fare clic con il pulsante destro del mouse sull'output del modulo [Train Model](./train-model.md) e selezionare **Visualize (Visualizza**).
   
     Fare clic su ogni albero per eseguire il drill-down nelle divisioni e visualizzare le regole per ogni nodo.
 
-+ Per salvare uno snapshot del modello, fare clic con il pulsante destro del mouse sull'output del modello sottoposto a **Training** e selezionare **Salva modello**. Il modello salvato non viene aggiornato nelle esecuzioni successive dell'esperimento.
++ Per salvare uno snapshot del modello, fare clic con il pulsante destro del mouse sull'output del modello sottoposto a **Training** e selezionare **Salva modello**. Il modello salvato non viene aggiornato nelle esecuzioni successive della pipeline.
 
-+ Per usare il modello per l'assegnazione dei punteggi, aggiungere il modulo **Score Model** a un esperimento.
++ Per usare il modello per l'assegnazione dei punteggi, aggiungere il modulo **Score Model** a una pipeline.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

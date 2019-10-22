@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 83339273d9161c3947df191d10e788980db39b28
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 4a6fd7dd40905a8a81a104c9d6ef22040ff88f15
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "67445988"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516285"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Guida introduttiva: Abilitare SSH e RDP su un flusso del dispositivo dell'hub IoT con un'applicazione proxy Node.js (anteprima)
 
@@ -76,10 +76,10 @@ Se è stata completato l'argomento [Avvio rapido: Inviare dati di telemetria da 
 
    > [!NOTE]
    > * Sostituire il segnaposto *YourIoTHubName* con il nome scelto per l'hub IoT.
-   > * Usare *MyDevice* come illustrato. Si tratta del nome specificato per il dispositivo registrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usarlo nell'intero articolo e aggiornarlo nelle applicazioni di esempio prima di eseguirle.
+   > * Per il nome del dispositivo che si sta registrando, è consigliabile usare *MyDevice* , come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usarlo nell'intero articolo e aggiornarlo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. Per consentire all'applicazione back-end di connettersi all'hub IoT e recuperare i messaggi, è necessaria anche una *stringa di connessione del servizio*. Il comando seguente recupera la stringa per l'hub IoT:
@@ -88,10 +88,10 @@ Se è stata completato l'argomento [Avvio rapido: Inviare dati di telemetria da 
    > Sostituire il segnaposto *YourIoTHubName* con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
-    Prendere nota del valore restituirlo per usarlo in seguito nella guida. Sarà simile a quanto indicato nell'esempio seguente:
+   Prendere nota della stringa di connessione del servizio restituita per usarla in seguito in questo argomento di avvio rapido. Sarà simile a quanto indicato nell'esempio seguente:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -110,25 +110,25 @@ Prima di procedere con il passaggio successivo, assicurarsi che l'applicazione p
 
 ### <a name="run-the-service-local-proxy-application"></a>Eseguire l'applicazione proxy locale del servizio
 
-Con l'applicazione proxy locale del dispositivo in esecuzione, procedere come segue per eseguire l'applicazione proxy locale del servizio scritta in Node.js:
+Con l'applicazione proxy locale del dispositivo in esecuzione, procedere come segue per eseguire l'applicazione proxy locale del servizio scritta in Node.js in una finestra terminale locale:
 
 1. Per le variabili di ambiente, fornire le credenziali del servizio, l'ID del dispositivo di destinazione in cui viene eseguito il daemon SSH e il numero di porta per il proxy in esecuzione nel dispositivo.
 
    ```
    # In Linux
-   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
+   export IOTHUB_CONNECTION_STRING="{ServiceConnectionString}"
    export STREAMING_TARGET_DEVICE="MyDevice"
    export PROXY_PORT=2222
 
    # In Windows
-   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
+   SET IOTHUB_CONNECTION_STRING={ServiceConnectionString}
    SET STREAMING_TARGET_DEVICE=MyDevice
    SET PROXY_PORT=2222
    ```
 
-   Cambiare i valori indicati in precedenza in modo che l'ID dispositivo corrisponda alla stringa di connessione.
+   Modificare il segnaposto ServiceConnectionString in modo che corrisponda alla stringa di connessione del servizio e **MyDevice** in modo che corrisponda all'ID dispositivo se si è assegnato un nome diverso.
 
-1. Passare alla directory *Quickstarts/device-streams-service* nella cartella del progetto non compresso ed eseguire l'applicazione proxy locale del servizio.
+1. Passare alla directory `Quickstarts/device-streams-service` nella cartella del progetto decompressa. Usare il codice seguente per eseguire l'applicazione proxy locale del servizio:
 
    ```
    cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 967988d802a1b3d33ff50f578650e44794015583
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9fe7147325b2e14a7ae6bb4b31aa941fb4059b11
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550854"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690821"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di funzioni di Azure
 
@@ -36,7 +36,7 @@ I modelli di hosting hanno diversi livelli di isolamento della rete disponibili.
 |[Restrizioni IP in ingresso & accesso al sito privato](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
 |[Integrazione della rete virtuale](#virtual-network-integration)|❌No|✅Yes (regione)|✅Yes (Regional e gateway)|✅Yes|
 |[Trigger della rete virtuale (non HTTP)](#virtual-network-triggers-non-http)|❌No| ❌No|✅Yes|✅Yes|
-|[connessioni ibride](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
+|[connessioni ibride](#hybrid-connections)|❌No|✅Yes|✅Yes|✅Yes|
 |[Restrizioni IP in uscita](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Yes|
 
 
@@ -127,11 +127,11 @@ Controllare [questo elenco per tutti i trigger non http](./functions-triggers-bi
 
 ## <a name="hybrid-connections"></a>Connessioni ibride
 
-[Connessioni ibride](../service-bus-relay/relay-hybrid-connections-protocol.md) è una funzionalità del servizio di inoltro di Azure che è possibile usare per accedere alle risorse dell'applicazione in altre reti. Fornisce l'accesso dalla propria app a un endpoint applicazione. Non è possibile usarlo per accedere all'applicazione. Connessioni ibride è disponibile per le funzioni in esecuzione in un [piano di servizio app](functions-scale.md#app-service-plan) e una [ambiente del servizio app](../app-service/environment/intro.md).
+[Connessioni ibride](../service-bus-relay/relay-hybrid-connections-protocol.md) è una funzionalità del servizio di inoltro di Azure che è possibile usare per accedere alle risorse dell'applicazione in altre reti. Fornisce l'accesso dalla propria app a un endpoint applicazione. Non è possibile usarlo per accedere all'applicazione. Connessioni ibride è disponibile per le funzioni in esecuzione in tutti i piani a consumo.
 
 Come usato in funzioni di Azure, ogni connessione ibrida è correlata a una singola combinazione di host e porta TCP. Ciò significa che l'endpoint della connessione ibrida può trovarsi in qualsiasi sistema operativo e qualsiasi applicazione, a condizione che si acceda a una porta di ascolto TCP. La funzionalità Connessioni ibride non conosce né interessa il protocollo dell'applicazione o ciò che si sta accedendo. Fornisce semplicemente l'accesso alla rete.
 
-Per altre informazioni, vedere la [documentazione del servizio app per connessioni ibride](../app-service/app-service-hybrid-connections.md), che supporta le funzioni in un piano di servizio app.
+Per altre informazioni, vedere la [documentazione del servizio app per connessioni ibride](../app-service/app-service-hybrid-connections.md), che supporta le funzioni tramite gli stessi passaggi di configurazione.
 
 ## <a name="outbound-ip-restrictions"></a>Restrizioni IP in uscita
 

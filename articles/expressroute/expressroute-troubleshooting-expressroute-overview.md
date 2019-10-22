@@ -1,5 +1,5 @@
 ---
-title: 'Verificare la connettività - Guida alla risoluzione dei problemi di ExpressRoute: Azure | Microsoft Docs'
+title: 'Verificare la connettività-Guida alla risoluzione dei problemi di ExpressRoute: Azure | Microsoft Docs'
 description: Questa pagina fornisce istruzioni sulla risoluzione dei problemi e convalida della connettività end-to-end di un circuito ExpressRoute.
 services: expressroute
 author: rambk
@@ -9,16 +9,16 @@ ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 026900e3dcbf7c20750bb8e17e44ba64897c9a30
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71123450"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifica della connettività di ExpressRoute
 Questo articolo fornisce informazioni sulla verifica e la risoluzione dei problemi di connettività di ExpressRoute. ExpressRoute, che consente di estendere una rete locale nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività, coinvolge le tre diverse aree di rete seguenti:
 
--   Rete cliente
+-   Rete del cliente
 -   Rete del provider
 -   Datacenter Microsoft
 
@@ -157,7 +157,7 @@ Una risposta di esempio:
     Sku                              : Standard
     Status                           : Enabled
 
-Per verificare se un circuito ExpressRoute è operativo, prestare particolare attenzione ai campi seguenti: ServiceProviderProvisioningState : Provisioned Status                           : Enabled
+Per verificare se un circuito ExpressRoute è operativo, prestare particolare attenzione ai campi seguenti: ServiceProviderProvisioningState: Provisioned Status: Enabled
 
 > [!NOTE]
 > Se lo *stato* non è abilitato, contattare [supporto tecnico Microsoft][Support]. Se *ServiceProviderProvisioningState* è senza provisioning, contattare il provider di servizi.
@@ -165,7 +165,7 @@ Per verificare se un circuito ExpressRoute è operativo, prestare particolare at
 >
 
 ## <a name="validate-peering-configuration"></a>Convalidare la configurazione del peering
-Dopo che il provider di servizi ha completato il provisioning del circuito ExpressRoute, è possibile creare una configurazione di routing sul circuito ExpressRoute tra MSEE-PR (4) e MSEE (5). Ogni circuito ExpressRoute può avere uno, due o tre contesti di routing abilitati: Peering privato di Azure (traffico verso reti virtuali private in Azure), peering pubblico di Azure (traffico verso indirizzi IP pubblici in Azure) e peering Microsoft (traffico verso Office 365). Per altre informazioni su come creare e modificare la configurazione del routing, vedere l'articolo [creare e modificare il routing per un circuito ExpressRoute][CreatePeering].
+Dopo che il provider di servizi ha completato il provisioning del circuito ExpressRoute, è possibile creare una configurazione di routing sul circuito ExpressRoute tra MSEE-PR (4) e MSEE (5). Ogni circuito ExpressRoute può avere uno, due o tre contesti di routing abilitati: peering privato di Azure (traffico verso reti virtuali private in Azure), peering pubblico di Azure (traffico verso indirizzi IP pubblici in Azure) e peering Microsoft (traffico verso Office 365). Per altre informazioni su come creare e modificare la configurazione del routing, vedere l'articolo [creare e modificare il routing per un circuito ExpressRoute][CreatePeering].
 
 ### <a name="verification-via-the-azure-portal"></a>Verifica tramite il portale di Azure
 
@@ -378,7 +378,7 @@ Output di esempio del comando per un peering inesistente:
         + CategoryInfo          : CloseError: (:) [Get-AzureDedicatedCircuitStats], CloudException
         + FullyQualifiedErrorId : Microsoft.WindowsAzure.Commands.ExpressRoute.GetAzureDedicatedCircuitPeeringStatsCommand
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Per maggiori informazioni o assistenza, consultare i collegamenti seguenti:
 
 - [Supporto tecnico Microsoft][Support]

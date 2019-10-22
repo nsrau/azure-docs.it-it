@@ -1,5 +1,5 @@
 ---
-title: 'Albero delle decisioni con boosting multiclasse: Riferimento al modulo'
+title: 'Albero delle decisioni con boosting multiclasse: riferimento al modulo'
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il modulo di albero delle decisioni con boosting multiclasse nel servizio Azure Machine Learning per creare un classificatore usando i dati con etichetta.
 services: machine-learning
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 08/22/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4a9cf134a3db5b9bc62cd0f9054aefa6092954d9
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 09d2a637099bae414400f49bb89efc5b6652f150
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129913"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692827"
 ---
-# <a name="multiclass-boosted-decision-tree"></a>Albero delle decisioni con boosting multiclasse
+# <a name="multiclass-boosted-decision-tree"></a>Albero delle decisioni incrementato a più classi
 
 Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
 
@@ -31,11 +31,11 @@ Questo modulo crea un modello di classificazione non sottoposto a training. Poic
 
 Per eseguire il training di questo tipo di modello, è possibile usare il [modello Train](././train-model.md). 
 
-1.  Aggiungere il modulo di **albero delle decisioni** con boosting multiclasse all'esperimento.
+1.  Aggiungere il modulo di **albero delle decisioni con boosting multiclasse** alla pipeline.
 
 1.  Specificare come si desidera eseguire il training del modello impostando l'opzione **crea modalità trainer** .
 
-    + **Singolo parametro**: Se si conosce il modo in cui si desidera configurare il modello, è possibile specificare come argomenti un set specifico di valori.
+    + **Singolo parametro**: se si sa come si desidera configurare il modello, è possibile fornire un set di valori specifico come argomenti.
 
 
     *  Il **numero massimo di foglie per albero** limita il numero massimo di nodi terminali (foglie) che possono essere creati in qualsiasi albero.

@@ -1,18 +1,18 @@
 ---
-title: Esperienze di gestione tra tenant con Azure Lighthouse
+title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 09/25/2019
+ms.date: 10/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 17a32d50e2e0330218ff51b849cb4f3aeadb3d13
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 0c6fed9cd83f18df0fe0a77d57a76c60cd570c21
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309661"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300991"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -58,6 +58,7 @@ L'esperienza di gestione tra tenant supporta attualmente gli scenari seguenti co
 - Visualizzare gli avvisi per le sottoscrizioni delegate nel portale di Azure o a livello di codice tramite chiamate API REST, con la possibilità di visualizzare gli avvisi in tutte le sottoscrizioni
 - Visualizzare i dettagli del log attività per le sottoscrizioni delegate
 - Log Analytics: Eseguire query sui dati dalle aree di lavoro remote dei clienti in più tenant
+- Creare avvisi nei tenant dei clienti che attivano l'automazione, ad esempio runbook di Automazione di Azure o Funzioni di Azure, nel tenant del provider di servizi tramite webhook
 
 [Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/):
 
@@ -65,7 +66,7 @@ L'esperienza di gestione tra tenant supporta attualmente gli scenari seguenti co
 - Creare e modificare le definizioni dei criteri in una sottoscrizione delegata
 - Assegnare le definizioni dei criteri definite dal cliente nella sottoscrizione delegata
 - I clienti visualizzano i criteri creati dal provider di servizi insieme ai criteri che hanno creato personalmente
-- Consente di correggere le assegnazioni deployIfNotExists all'interno dei tenant dei clienti se il cliente ha configurato l'identità gestita e *roleDefinitionIds* per l'assegnazione dei criteri
+- Può [correggere deployIfNotExists o modificare le assegnazioni nel tenant del cliente](../how-to/deploy-policy-remediation.md)
 
 [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
 

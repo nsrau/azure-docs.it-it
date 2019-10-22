@@ -1,17 +1,17 @@
 ---
-title: Esempio - Progetto CIS Microsoft Azure Foundations Benchmark - Mapping di raccomandazioni
+title: Esempio di progetto CIS Microsoft Azure Foundations Benchmark - Mapping di raccomandazioni
 description: Mapping di raccomandazioni del progetto di esempio CIS Microsoft Azure Foundations Benchmark in Criteri di Azure.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/01/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 9368ad220f1ded1a11360dbdf0af86c27277a207
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: fa683206ec1ff4d02298fd2689791601ff11f85c
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001287"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297804"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapping di raccomandazioni del progetto di esempio CIS Microsoft Azure Foundations Benchmark
 

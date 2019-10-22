@@ -1,17 +1,17 @@
 ---
-title: Esempio - Controllare l'impostazione di rilevamento delle minacce a livello di server
+title: Esempio - Controllare il rilevamento delle minacce a livello di server
 description: Questa definizione di criteri di esempio controlla i criteri degli avvisi di sicurezza del server SQL nel caso in cui non siano impostati sullo stato specificato.
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 25504b558a930ae6dcea710ee850ae296c63c4ae
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 0c5cfe2d30668102a356224b5efd141746ab0866
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977255"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254755"
 ---
 # <a name="sample---audit-server-level-threat-detection-setting"></a>Esempio - Controllare l'impostazione di rilevamento delle minacce a livello di server
 

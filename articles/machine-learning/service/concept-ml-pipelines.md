@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 09/14/2019
-ms.openlocfilehash: 0465dcba5130f3b2dc5c615c884bfa0d3b138eb7
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.date: 10/10/2019
+ms.openlocfilehash: f5136084530c48815fd6a9f9e25b7358df00af07
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514941"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692543"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Che cosa sono le pipeline Azure Machine Learning?
 
@@ -112,6 +112,14 @@ In [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/ove
 Una pipeline di Azure ML è associata a un'area di lavoro Azure Machine Learning e un passaggio della pipeline è associato a una destinazione di calcolo disponibile all'interno dell'area di lavoro. Per altre informazioni, vedere [creare e gestire aree di lavoro Azure Machine Learning nell'portale di Azure](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) o informazioni sulle [destinazioni di calcolo in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target).
 
 In Azure Machine Learning, una destinazione di calcolo è l'ambiente in cui si verifica una fase di ML. L'ambiente software può essere una macchina virtuale remota, Azure Machine Learning calcolo, Azure Databricks, Azure Batch e così via. L'ambiente hardware può anche variare significativamente, a seconda del supporto della GPU, della memoria, dell'archiviazione e così via. È possibile specificare la destinazione di calcolo per ogni passaggio, che offre un controllo granulare sui costi. È possibile utilizzare risorse più o meno potenti per l'azione specifica, il volume dei dati e le esigenze di prestazioni del progetto. 
+
+## <a name="how-do-i-build-pipelines-using-the-azure-machine-learning-visual-interface"></a>Ricerca per categorie le pipeline di compilazione usando l'interfaccia visiva Azure Machine Learning?
+
+Gli sviluppatori che preferiscono un'area di progettazione visiva possono usare l'interfaccia visiva Azure Machine Learning per creare pipeline. È possibile accedere a questo strumento dalla selezione dell' **interfaccia visiva** nella Home page dell'area di lavoro.  L'interfaccia visiva consente di trascinare e rilasciare i passaggi nell'area di progettazione. Per un rapido sviluppo, è possibile usare i moduli esistenti attraverso la gamma di attività di Machine Learning; i moduli esistenti coprono tutti gli elementi, dalla trasformazione dei dati alla selezione dell'algoritmo alla formazione alla distribuzione. In alternativa, è possibile creare una pipeline completamente personalizzata combinando i propri passaggi definiti negli script Python.
+
+Quando si progettano le pipeline visivamente, gli input e gli output di un passaggio vengono visualizzati in maniera visibile. È possibile trascinare e rilasciare le connessioni dati, consentendo di comprendere e modificare rapidamente il flusso di dati della pipeline.
+ 
+![Esempio di interfaccia visiva Azure Machine Learning](./media/concept-ml-pipelines/visual-design-surface.gif)
 
 ### <a name="understanding-the-execution-graph"></a>Informazioni sul grafico di esecuzione
 

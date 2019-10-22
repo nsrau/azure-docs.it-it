@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/10/2019
+ms.date: 10/03/2019
 ms.author: juliako
-ms.openlocfilehash: 152a767ad1aa2494579f15dd8051c6bc1f718a92
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: af6542757e75d7d6226c2470adf3c2b51d60875a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910270"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383524"
 ---
 # <a name="dynamic-packaging"></a>creazione dinamica dei pacchetti
 
@@ -236,11 +236,30 @@ Il lettore può usare l'elemento `Label` da visualizzare nell'interfaccia utente
 
 ### <a name="signaling-audio-description-tracks"></a>Segnalazione delle tracce di descrizione audio
 
-Un cliente potrebbe contrassegnare una traccia audio come descrizione audio nel manifesto. A questo scopo, aggiungerebbe i parametri "accessibility" e "role" al file con estensione ism. Servizi multimediali riconoscerà la descrizione audio se una traccia audio contiene il parametro "accessibility" con valore "description" e il parametro "role" con valore "alternate". Se Servizi multimediali rileva la descrizione audio nel file con estensione ism, le informazioni della descrizione audio vengono passate al manifesto client come attributi `Accessibility="description"` e `Role="alternate"` nell'elemento `StreamIndex`.
+È possibile aggiungere una traccia audio al video per aiutare i clienti con problemi di vista a seguire la registrazione ascoltando la narrazione. È necessario annotare una traccia audio come descrizione audio nel manifesto. A questo scopo, aggiungere i parametri "accessibility" e "role" al file con estensione ism. È responsabilità del cliente impostare correttamente questi parametri per segnalare una traccia audio come descrizione audio. Ad esempio, aggiungere `<param name="accessibility" value="description" />` e `<param name="role" value="alternate"` al file ISM per una traccia audio specifica. 
 
-Se la combinazione di "accessibility" = "description" e "role" = "alternate" è impostata nel file con estensione ism, il manifesto DASH e il manifesto Smooth contengono i valori come impostati nei parametri "accessibility" e "role". È responsabilità del cliente impostare correttamente questi due valori e contrassegnare una traccia audio come descrizione audio. In base alle specifiche DASH, la combinazione "accessibility" = "description" e "role" = "alternate" indica che una traccia audio è una descrizione audio.
+Per altre informazioni, vedere l'esempio [Come segnalare una traccia audio descrittiva](signal-descriptive-audio-howto.md).
 
-Per HLS v7 e versioni successive (`format=m3u8-cmaf`), la playlist contiene `CHARACTERISTICS="public.accessibility.describes-video"` solo se la combinazione "accessibility" = "description" e "role" = "alternate" è impostata nel file con estensione ism. 
+#### <a name="smooth-streaming-manifest"></a>Manifesto Smooth Streaming
+
+Se si sta riproducendo un flusso di Smooth Streaming, il manifesto conterrà i valori negli attributi `Accessibility` e `Role` per la traccia audio. Ad esempio, `Role="alternate" Accessibility="description"` verrebbe aggiunto nell'elemento `StreamIndex` per indicare che si tratta di una descrizione audio.
+
+#### <a name="dash-manifest"></a>Manifesto DASH
+
+Per il manifesto DASH, verranno aggiunti i due elementi seguenti per segnalare la descrizione audio:
+
+```xml
+<Accessibility schemeIdUri="urn:mpeg:dash:role:2011" value="description"/>
+<Role schemeIdUri="urn:mpeg:dash:role:2011" value="alternate"/>
+```
+
+#### <a name="hls-playlist"></a>Playlist HLS
+
+Per HLS V7 e versioni successive a `(format=m3u8-cmaf)`, la playlist contiene `AUTOSELECT=YES,CHARACTERISTICS="public.accessibility.describes-video"` quando viene segnalata la traccia della descrizione audio.
+
+#### <a name="example"></a>Esempio
+
+Per altre informazioni, vedere [Come segnalare tracce di descrizione audio](signal-descriptive-audio-howto.md).
 
 ## <a name="dynamic-manifest"></a>Manifesto dinamico
 

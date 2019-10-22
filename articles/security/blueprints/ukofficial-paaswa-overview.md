@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
 ms.openlocfilehash: 1f6eeea85a348bb8e88a387fa0fc6bed55e41a5e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71262777"
 ---
-# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Progetto di sicurezza e conformità di Azure: Hosting di applicazioni Web PaaS per i carichi di lavoro UK OFFICIAL
+# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: Hosting di applicazioni Web PaaS per carichi di lavoro UK OFFICIAL
 
 ## <a name="azure-security-and-compliance-blueprints"></a>Progetti di sicurezza e conformità di Azure
 
@@ -35,7 +35,7 @@ Questo progetto è incentrato sul provisioning di un'interfaccia basata sul Web 
 - Un utente richiede un servizio tramite un'applicazione basata su Web e un utente di back-office convalida ed eroga il servizio; oppure
 - Un utente cerca e visualizza informazioni di dominio pubblico in merito a un servizio della pubblica amministrazione.
 
-Usando modelli di [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) e script dell'interfaccia della riga di comando di Azure, il progetto distribuisce un ambiente conforme ai [principi per la sicurezza cloud](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) di UK National Cyber Security Centre (NCSC) 14 e ai [controlli di sicurezza critici](https://www.cisecurity.org/critical-controls.cfm) del Center for Internet Security (CIS). NCSC consiglia l'adozione dei principi per la sicurezza cloud da parte dei clienti per valutare le proprietà di sicurezza del servizio e per contribuire alla comprensione della suddivisione delle responsabilità tra cliente e fornitore. Microsoft ha reso disponibili informazioni relative a ogni principio per una migliore comprensione della suddivisione delle responsabilità. Questa architettura e i modelli corrispondenti di Azure Resource Manager sono supportati dal white paper Microsoft, [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1) (14 controlli di sicurezza del cloud per il cloud del Regno Unito con Microsoft Azure). Questa architettura è stata verificata dal centro NCSC e rispetta i principi per la sicurezza del cloud UK NCSC 14, consentendo quindi alle organizzazioni del settore pubblico di ottenere rapidamente l'idoneità ai requisiti di conformità tramite servizi basati sul cloud a livello globale e nel Regno Unito sul cloud Microsoft Azure. Questo modello distribuisce l'infrastruttura per il carico di lavoro. Il codice dell'applicazione e il software per il livello aziendale di supporto e per il livello dati devono essere installati e configurati dai clienti. Istruzioni di distribuzione dettagliate sono disponibili [qui](https://aka.ms/ukofficial-paaswa-repo/).
+Usando modelli di [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) e script dell'interfaccia della riga di comando di Azure, il progetto distribuisce un ambiente conforme ai [principi per la sicurezza cloud](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) di UK National Cyber Security Centre (NCSC) 14 e ai [controlli di sicurezza critici](https://www.cisecurity.org/critical-controls.cfm) del Center for Internet Security (CIS). NCSC consiglia l'adozione dei principi per la sicurezza cloud da parte dei clienti per valutare le proprietà di sicurezza del servizio e per contribuire alla comprensione della suddivisione delle responsabilità tra cliente e fornitore. Microsoft ha reso disponibili informazioni relative a ogni principio per una migliore comprensione della suddivisione delle responsabilità. Questa architettura e i modelli corrispondenti di Azure Resource Manager sono supportati dal white paper Microsoft, [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1) (14 controlli di sicurezza del cloud per il cloud del Regno Unito con Microsoft Azure). Questa architettura è stata verificata dal centro NCSC e rispetta i principi per la sicurezza del cloud UK NCSC 14, consentendo quindi alle organizzazioni del settore pubblico di ottenere rapidamente l'idoneità ai requisiti di conformità tramite servizi basati sul cloud a livello globale e nel Regno Unito sul cloud Microsoft Azure. Questo modello distribuisce l'infrastruttura per il carico di lavoro. Il codice dell'applicazione e il software per il livello aziendale di supporto e per il livello dati devono essere installati e configurati dai clienti. Per istruzioni dettagliate sulla distribuzione, vedere [qui](https://aka.ms/ukofficial-paaswa-repo/).
 
 Questo progetto è un'architettura di base. I clienti possono usare questo progetto come base per i carichi di lavoro basati sul Web con classificazione OFFICIAL ed espandere i modelli e le risorse in base ai propri requisiti. Questo progetto si basa sui principi del [progetto per applicazioni Web IaaS su tre livelli UK OFFICIAL](https://aka.ms/ukofficial-iaaswa) per offrire ai nostri clienti sia l'opzione [infrastruttura distribuita come servizio (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/) che l'opzione PaaS come scelte di implementazione per l'hosting di carichi di lavoro basati sul Web.
 
@@ -45,7 +45,7 @@ Per distribuire questo progetto, è necessaria una sottoscrizione di Azure. Se n
 
 Questo progetto offre una soluzione di hosting di applicazione Web in un ambiente cloud di Azure che supporta carichi di lavoro UK OFFICIAL. L'architettura consente di implementare un ambiente protetto che sfrutta le funzionalità di piattaforma distribuita come servizio (PaaS) di Azure. All'interno dell'ambiente, vengono distribuite due app Web del servizio app (una per gli utenti pubblici e una per gli utenti del back-office), con un livello di app API per fornire i servizi aziendali per il front-end Web. Viene distribuito un database SQL di Azure come archivio dati relazionale gestito per l'applicazione. La connettività a questi componenti dall'esterno della piattaforma e tra tutti questi componenti è crittografata con TLS 1.2 per garantire la privacy dei dati durante il trasporto, con accesso autenticato da Azure Active Directory.
 
-![Diagramma dell'architettura di riferimento dell'hosting di applicazioni Web PaaS per carichi di lavoro UK OFFICIAL](images/ukofficial-paaswa-architecture.png?raw=true "Diagramma dell'architettura di riferimento dell'hosting di applicazioni Web PaaS per carichi di lavoro UK OFFICIAL")
+![PaaS applicazione Web che ospita il diagramma dell'architettura di riferimento per carichi di lavoro ufficiali del Regno Unito](images/ukofficial-paaswa-architecture.png?raw=true "PaaS applicazione Web che ospita il diagramma dell'architettura di riferimento per carichi di lavoro ufficiali del Regno Unito")
 
 Come parte dell'architettura della distribuzione vengono distribuite anche funzionalità di provisioning dell'archiviazione sicura, monitoraggio e registrazione, gestione unificata della sicurezza e protezione avanzata dalle minacce, nonché funzionalità di gestione per garantire che i clienti dispongano di tutti gli strumenti necessari per proteggere e monitorare l'ambiente per questa soluzione.
 
@@ -54,13 +54,13 @@ Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'
 - Azure Active Directory
 - Servizio app
 - App Web
-- App per le api
-- DNS di Azure
+- App per le API
+- Servizio DNS di Azure
 - Key Vault
 - Monitoraggio di Azure (log)
 - Application Insights
 - Azure Resource Manager
-- Centro sicurezza di Azure
+- Centro sicurezza Azure
 - database SQL di Azure
 - Archiviazione di Azure
 
@@ -68,7 +68,7 @@ Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'
 
 La sezione seguente descrive in modo dettagliato gli elementi di sviluppo e implementazione.
 
-### <a name="security"></a>Security
+### <a name="security"></a>Sicurezza
 
 #### <a name="identity-and-authentication"></a>Identità e autenticazione
 
@@ -110,14 +110,14 @@ I piani Basic, Standard e Premium sono destinati a carichi di lavoro di produzio
 Questo modello distribuisce le funzionalità seguenti del servizio app:
 
 - Livello del piano di servizio app [Standard](https://docs.microsoft.com/azure/app-service/overview-hosting-plans)
-- Più [slot di distribuzione](https://docs.microsoft.com/azure/app-service/deploy-staging-slots) del servizio app: Dev, Preview, QA, UAT e naturalmente Production (slot predefinito).
+- Più slot di [distribuzione](https://docs.microsoft.com/azure/app-service/deploy-staging-slots)del servizio app: dev, Preview, QA, UAT e naturalmente Production (slot predefinito).
 - [Identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/app-service/overview-managed-identity) per connettersi ad [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (questa funzionalità potrebbe essere usata anche per fornire l'accesso al [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) 
 - Integrazione con [Azure Application Insights](../../azure-monitor/app/azure-web-apps.md) per monitorare le prestazioni
 - [Log di diagnostica](../../azure-monitor/platform/resource-logs-overview.md) 
 - [Avvisi](../../azure-monitor/app/alerts.md) delle metriche 
 - [App per le API di Azure](https://azure.microsoft.com/services/app-service/api/) 
 
-#### <a name="azure-sql-database"></a>Database SQL di Azure
+#### <a name="azure-sql-database"></a>database SQL di Azure
 
 Il database SQL è un servizio gestito di database relazionale per utilizzo generico in Microsoft Azure che supporta strutture come dati relazionali, JSON, dati spaziali e XML. Il database SQL offre database SQL singoli gestiti, database SQL gestiti in un [pool elastico](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool) e [istanze gestite](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) di SQL (in anteprima pubblica). Questo servizio offre [prestazioni con scalabilità dinamica](../../sql-database/sql-database-purchase-models.md) e opzioni come gli [indici columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) per funzionalità di analisi e report avanzatissime e [OLTP in memoria](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) per l'elaborazione XTP (Extreme Transaction Processing). Microsoft gestisce agevolmente tutte le operazioni di applicazione di patch e aggiornamento della base di codice SQL, rimuovendo tutte le attività di gestione dell'infrastruttura sottostante.
 
@@ -199,9 +199,9 @@ Il [log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platf
 
 ## <a name="threat-model"></a>Modello di minaccia
 
-Il diagramma di flusso di dati per questa architettura di riferimento è disponibile per il [download](https://aka.ms/ukofficial-paaswa-tm) o è riportato più avanti. Il modello può aiutare i clienti comprendere i punti di rischio potenziale nell'infrastruttura del sistema quando vengono apportate modifiche.
+Il diagramma di flusso di dati per questa architettura di riferimento è disponibile per il [download](https://aka.ms/ukofficial-paaswa-tm) o è riportato più avanti. Questo modello può aiutare i clienti a comprendere i punti di rischio potenziale nell'infrastruttura del sistema quando vengono apportate modifiche.
 
-![Modello di minaccia dell'hosting di applicazioni Web PaaS per carichi di lavoro UK OFFICIAL](images/ukofficial-paaswa-threat-model.png?raw=true "Modello di minaccia dell'hosting di applicazioni Web PaaS per carichi di lavoro UK OFFICIAL")
+![PaaS Web Application Hosting per i carichi di lavoro ufficiali UK modello di rischio](images/ukofficial-paaswa-threat-model.png?raw=true "PaaS Web Application Hosting per i carichi di lavoro ufficiali UK modello di rischio")
 
 ## <a name="ncsc-cloud-security-principles-compliance-documentation"></a>Documentazione relativa alla conformità ai principi per la sicurezza cloud NCSC
 
@@ -224,14 +224,14 @@ I modelli di automazione sono stati testati dal team UK Customer Success Unit Az
 
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione
 
-Questo progetto di automazione Azure Security and Compliance Blueprint è costituito da file di configurazione JSON e script di PowerShell gestiti dal servizio API di Azure Resource Manager per distribuire risorse in Azure. Istruzioni di distribuzione dettagliate sono disponibili [qui](https://aka.ms/ukofficial-paaswa-repo).
+Questo progetto di automazione Azure Security and Compliance Blueprint è costituito da file di configurazione JSON e script di PowerShell gestiti dal servizio API di Azure Resource Manager per distribuire risorse in Azure. Per istruzioni dettagliate sulla distribuzione, vedere [qui](https://aka.ms/ukofficial-paaswa-repo).
 
 Per la distribuzione sono stati forniti tre approcci: un approccio semplice rapido con l'[interfaccia della riga di comando di Azure 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) adatto per l'implementazione rapida di un ambiente di test; un approccio con parametri con l'[interfaccia della riga di comando di Azure 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) che consente una maggiore configurazione per gli ambienti del carico di lavoro; e una distribuzione basata sul portale di Azure in cui l'operatore può specificare i parametri di distribuzione tramite il portale di Azure. 
 
 1.  Clonare o scaricare [questo](https://aka.ms/ukofficial-paaswa-repo) repository GitHub nella workstation locale.
-2.  Revisione [Metodo 1: interfaccia della riga di comando di Azure 2 (versione rapida)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) ed esecuzione dei i comandi specificati.
-3.  Revisione [Metodo 1a: interfaccia della riga di comando di Azure 2 (configurazione della distribuzione tramite argomenti script)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) ed eseguire i comandi specificati
-4.  Revisione [Metodo 2: processo di distribuzione con il portale di Azure](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) ed esecuzione dei comandi elencati
+2.  Vedere il [metodo 1: interfaccia della riga di comando di Azure 2 (versione rapida)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) ed eseguire i comandi specificati
+3.  Vedere il [metodo 1a: interfaccia della riga di comando di Azure 2 (configurazione della distribuzione tramite argomenti script)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) ed eseguire i comandi specificati
+4.  Esaminare il [Metodo 2: portale di Azure processo di distribuzione](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) ed eseguire i comandi elencati
 
 ## <a name="guidance-and-recommendations"></a>Indicazioni e consigli
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: dacurwin
 ms.openlocfilehash: ae8421ca9e3705d697e9638e80fc61f853ff9d28
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72028287"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminare un insieme di credenziali di servizi di ripristino di Azure Backup
@@ -44,7 +44,7 @@ Scenario | Procedura per rimuovere le dipendenze per eliminare l'insieme di cred
 I file e le cartelle locali sono protetti con l'agente di backup di Azure, eseguendo il backup in Azure | Eseguire la procedura descritta in [eliminare gli elementi di backup dalla console di gestione di Mars](#delete-backup-items-from-the-mars-management-console)
 Sono presenti computer locali protetti tramite MAB (Backup di Microsoft Azure Server) o DPM (System Center Data Protection Manager) in Azure | Eseguire la procedura descritta in [eliminare gli elementi di backup dalla console di gestione di MAB](#delete-backup-items-from-the-mabs-management-console)
 Sono presenti elementi protetti nel cloud (ad esempio, una macchina virtuale laaS o una condivisione File di Azure)  | Eseguire la procedura descritta in [eliminare gli elementi protetti nel cloud](#delete-protected-items-in-the-cloud)
-Sono presenti elementi protetti sia in locale che nel cloud | Eseguire i passaggi in tutte le sezioni seguenti, nell'ordine seguente: <br> 1. [Eliminare gli elementi protetti nel cloud](#delete-protected-items-in-the-cloud)<br> 2. [Eliminare gli elementi di backup dalla console di gestione di MARS](#delete-backup-items-from-the-mars-management-console) <br> 3. [Eliminare gli elementi di backup dalla console di gestione di MAB](#delete-backup-items-from-the-mabs-management-console)
+Sono presenti elementi protetti sia in locale che nel cloud | Eseguire i passaggi in tutte le sezioni seguenti, nell'ordine seguente: <br> 1. [eliminare gli elementi protetti nel cloud](#delete-protected-items-in-the-cloud)<br> 2. [eliminare gli elementi di backup dalla console di gestione di Mars](#delete-backup-items-from-the-mars-management-console) <br> 3. [eliminare gli elementi di backup dalla console di gestione di MAB](#delete-backup-items-from-the-mabs-management-console)
 Non sono presenti elementi protetti in locale o nel cloud; Tuttavia, ricevo ancora l'errore di eliminazione dell'insieme di credenziali | Eseguire la procedura descritta in [eliminare l'insieme di credenziali di servizi di ripristino usando Azure Resource Manager](#delete-the-recovery-services-vault-by-using-azure-resource-manager)
 
 
@@ -68,7 +68,7 @@ Per arrestare la protezione ed eliminare i dati di backup, seguire questa proced
 
          ![Riquadro Elimina dati di backup.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-5. Controllare l'icona di **notifica** : icona di notifica ![The. ](./media/backup-azure-delete-vault/messages.png) Al termine del processo, il servizio Visualizza il messaggio seguente: *Interruzione del backup ed eliminazione dei dati di backup per "* Elemento di backup *"* . *L'operazione è stata completata*.
+5. Selezionare l'icona di **notifica** : ![The icona di notifica. ](./media/backup-azure-delete-vault/messages.png) Al termine del processo, il servizio Visualizza il messaggio seguente: *interruzione del backup ed eliminazione dei dati di backup per "elemento di*backup *"* . *L'operazione è stata completata*.
 6. Selezionare **Aggiorna** dal menu **elementi di backup** per assicurarsi che l'elemento di backup sia stato eliminato.
 
       ![Pagina Elimina elementi di backup.](./media/backup-azure-delete-vault/empty-items-list.png)
@@ -102,7 +102,7 @@ Prima di tutto, leggere la sezione **[prima di iniziare](#before-you-start)** pe
 4. Selezionare la casella di controllo consenso, quindi selezionare **Elimina**.
 
 
-5. Selezionare l'icona di **notifica** ![delete backup data @ no__t-2. Al termine dell'operazione, il servizio Visualizza il messaggio: *Interruzione del backup ed eliminazione dei dati di backup per "elemento di backup".* *L'operazione è stata completata*.
+5. Selezionare l'icona di **notifica** ![delete backup data ](./media/backup-azure-delete-vault/messages.png). Al termine dell'operazione, il servizio Visualizza il messaggio: *interruzione del backup ed eliminazione dei dati di backup per "elemento di backup".* *L'operazione è stata completata*.
 6. Selezionare **Aggiorna** dal menu **elementi di backup** per assicurarsi che l'elemento di backup venga eliminato.
 
 Al termine di questo processo, è possibile eliminare gli elementi di backup dalla console di gestione:
@@ -122,13 +122,13 @@ Al termine di questo processo, è possibile eliminare gli elementi di backup dal
 
     ![Arrestare un backup pianificato.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Viene richiesto di immettere un PIN di sicurezza (Personal Identification Number), che è necessario generare manualmente. A tale scopo, accedere prima al portale di Azure.
-5. Passare a insieme di credenziali di **servizi di ripristino** > **Impostazioni** > **proprietà**.
+5. Passare a insieme di credenziali di **servizi di ripristino**  > **Impostazioni**  > **proprietà**.
 6. In **pin di sicurezza**selezionare **genera**. Copiare questo PIN. Il PIN è valido solo per cinque minuti.
 7. Nella console di gestione incollare il PIN e quindi fare clic su **OK**.
 
     ![Generare un PIN di sicurezza.](./media/backup-azure-delete-vault/security-pin.png)
 
-8. Nella pagina **modifica stato backup** viene visualizzato il messaggio seguente: i dati di backup *Deleted verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente.*  
+8. Nella pagina **modifica stato backup** viene visualizzato il messaggio seguente: i *dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente.*  
 
     ![Eliminare l'infrastruttura di backup.](./media/backup-azure-delete-vault/deleted-backup-data.png)
 
@@ -212,7 +212,7 @@ Per arrestare la protezione ed eliminare i dati di backup:
        [-Confirm] 
        [<CommonParameters>] 
     ```
-    [Altre informazioni](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0) about Disabilita la protezione per un elemento protetto da backup. 
+    [Altre informazioni](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0)  about Disabilita la protezione per un elemento protetto da backup. 
 
 - Per i file e le cartelle locali protetti con l'agente di backup di Azure (MARS) che esegue il backup in Azure, usare il comando di PowerShell seguente per eliminare i dati di cui è stato eseguito il backup da ogni modulo di PowerShell MARS:
 
@@ -222,7 +222,7 @@ Per arrestare la protezione ed eliminare i dati di backup:
 
     Pubblicare il messaggio seguente:
      
-    @no__t backup di Azure 0Microsoft rimuovere il criterio di backup? I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente. <br/> [Y] Sì [A] Sì a tutti [N] no [L] no a tutti [S] Sospendi [?] Guida (il valore predefinito è "Y"): *
+    *Backup di Microsoft Azure rimuovere il criterio di backup? I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente.  <br/> [Y] Sì [A] Sì a tutti [N] no [L] no a all [S] Suspend [?] Guida (il valore predefinito è "Y"):*
 
 
 - Per i computer locali protetti con MAB (Backup di Microsoft Azure Server) o DPM in Azure (System Center Data Protection Manager), usare il comando seguente per eliminare i dati di cui è stato eseguito il backup in Azure.
@@ -233,7 +233,7 @@ Per arrestare la protezione ed eliminare i dati di backup:
 
     Pubblicare il messaggio seguente: 
          
-   @no__t backup di Azure 0Microsoft rimuovere il criterio di backup? I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente. <br/> [Y] Sì [A] Sì a tutti [N] no [L] no a tutti [S] Sospendi [?] Guida (il valore predefinito è "Y"): *
+   *Backup di Microsoft Azure rimuovere il criterio di backup? I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente.  <br/> [Y] Sì [A] Sì a tutti [N] no [L] no a all [S] Suspend [?] Guida (il valore predefinito è "Y"):*
 
 Dopo aver eliminato i dati di cui è stato eseguito il backup, annullare la registrazione di tutti i contenitori locali e i server di gestione. 
 
@@ -344,7 +344,7 @@ Per ulteriori informazioni sul comando ARMClient, vedere il [file Leggimi di ARM
    ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-2. Se l'insieme di credenziali non è vuoto, verrà visualizzato il messaggio di errore seguente: *Non è possibile eliminare l'insieme di credenziali perché sono presenti risorse esistenti all'interno di questo insieme di credenziali.* Per rimuovere un elemento o un contenitore protetto in un insieme di credenziali, eseguire il comando seguente:
+2. Se l'insieme di credenziali non è vuoto, verrà visualizzato il messaggio di errore seguente: *non è possibile eliminare l'insieme di credenziali perché sono presenti risorse esistenti all'interno di questo insieme di credenziali.* Per rimuovere un elemento o un contenitore protetto in un insieme di credenziali, eseguire il comando seguente:
 
    ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01

@@ -12,21 +12,21 @@ ms.topic: article
 ms.date: 10/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ed509ac8fea43a9c011bbbf76c1dc433cd78d43c
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d13ff3944e53f103c03a92e03d217b0066bc97df
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298959"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693319"
 ---
-# <a name="filtering-ordering-paging-of-media-services-entities"></a>Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali
+# <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtraggio, ordinamento e paging delle entità di servizi multimediali
 
 Questo argomento illustra le opzioni di query OData e il supporto per l'impaginazione disponibili quando si elencano le entità di servizi multimediali di Azure V3.
 
 ## <a name="considerations"></a>Considerazioni
 
-* Le proprietà delle entità di tipo Datetime sono sempre in formato UTC.
-* Gli spazi vuoti nella stringa di query devono essere codificati in URL prima dell'invio di una richiesta.
+* Le proprietà delle entità di tipo `Datetime` sono sempre in formato UTC.
+* Gli spazi vuoti nella stringa di query devono essere codificati in URL prima di inviare una richiesta.
 
 ## <a name="comparison-operators"></a>Operatori di confronto
 
@@ -34,21 +34,21 @@ Per confrontare un campo con un valore costante, è possibile usare gli operator
 
 Operatori di uguaglianza:
 
-- `eq`: Verificare se un campo è **uguale a** un valore costante
-- `ne`: Verificare se un campo **non è uguale a** un valore costante
+- `eq`: verificare se un campo è *uguale a* un valore costante.
+- `ne`: verificare se un campo *non è uguale a* un valore costante.
 
 Operatori di intervallo:
 
-- `gt`: Verificare se un campo è **maggiore di** un valore costante
-- `lt`: Verificare se un campo è **minore di** un valore costante
-- `ge`: Verificare se un campo è **maggiore o uguale a** un valore costante
-- `le`: Verificare se un campo è **minore o uguale a** un valore costante
+- `gt`: verificare se un campo è *maggiore di* un valore costante.
+- `lt`: verificare se un campo è *minore di* un valore costante.
+- `ge`: verificare se un campo è *maggiore o uguale a* una costante. value
+- `le`: verificare se un campo è *minore o uguale a* un valore costante.
 
-## <a name="filter"></a>Filtro
+## <a name="filter"></a>Filtra
 
-**$Filter** : usare il filtro per fornire un parametro di filtro OData per trovare solo gli oggetti a cui si è interessati.
+Usare `$filter` per fornire un parametro di filtro OData per trovare solo gli oggetti a cui si è interessati.
 
-L'esempio REST seguente Filtra in alternateId di un asset:
+Nell'esempio REST seguente viene filtrato il valore `alternateId` di un asset:
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$filter=properties/alternateId%20eq%20'unique identifier'
@@ -63,30 +63,30 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ## <a name="order-by"></a>Ordina per
 
-**$OrderBy** : consente di ordinare gli oggetti restituiti in base al parametro specificato. Esempio:    
+Utilizzare `$orderby` per ordinare gli oggetti restituiti in base al parametro specificato. ad esempio:    
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-Per ordinare i risultati in ordine crescente o decrescente, aggiungere `asc` o `desc` al nome del campo, separato da uno spazio. Ad esempio `$orderby properties/created desc`.
+Per ordinare i risultati in ordine crescente o decrescente, aggiungere `asc` o `desc` al nome del campo, separati da uno spazio. Ad esempio: `$orderby properties/created desc`.
 
 ## <a name="skip-token"></a>Ignora token
 
-**$skiptoken** : se una risposta alla query contiene molti elementi, il servizio restituisce un valore skip token (`@odata.nextLink`) usato per ottenere la pagina di risultati successiva. Questa proprietà può essere usata per scorrere l'intero set di risultati.
+Se una risposta alla query contiene molti elementi, il servizio restituisce un valore `$skiptoken` (`@odata.nextLink`) usato per ottenere la pagina di risultati successiva. Utilizzarlo per eseguire il paging dell'intero set di risultati.
 
-In servizi multimediali V3 non è possibile configurare le dimensioni della pagina. La dimensione varia in base al tipo di entità. Per informazioni dettagliate, leggere le singole sezioni seguenti.
+In servizi multimediali V3 non è possibile configurare le dimensioni della pagina. Le dimensioni della pagina variano in base al tipo di entità. Leggere le singole sezioni che seguono per informazioni dettagliate.
 
-Se vengono create o eliminate entità durante la restituzione delle pagine della raccolta, le modifiche si riflettono sui risultati restituiti (se tali modifiche si trovano nella parte della raccolta che non è stata scaricata). 
+Se le entità vengono create o eliminate durante il paging della raccolta, le modifiche vengono riflesse nei risultati restituiti (se tali modifiche si trovano nella parte della raccolta che non è stata scaricata). 
 
 > [!TIP]
-> Usare sempre il `nextLink` per enumerare la raccolta e non dipendere da una particolare dimensione della pagina.
+> Usare sempre `nextLink` per enumerare la raccolta e non dipendere da una particolare dimensione della pagina.
 >
-> Il `nextLink` sarà presente solo se sono presenti più di una pagina di entità.
+> Il valore `nextLink` sarà presente solo se è presente più di una pagina di entità.
 
-Si consideri l'esempio seguente per vedere dove viene usato $skiptoken. Assicurarsi di sostituire *amstestaccount* con il proprio nome dell'account e di impostare il valore *api-version* sulla versione più recente.
+Si consideri l'esempio seguente in cui viene usato `$skiptoken`. Assicurarsi di sostituire *amstestaccount* con il proprio nome dell'account e di impostare il valore *api-version* sulla versione più recente.
 
-Se si richiede un elenco degli asset simile al seguente:
+Se si richiede un elenco di asset come il seguente:
 
 ```
 GET  https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
@@ -94,7 +94,7 @@ x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
 Content-Type: application/json; charset=utf-8
 ```
 
-La risposta ottenuta sarà simile a questa:
+Verrà restituita una risposta simile alla seguente:
 
 ```
 HTTP/1.1 200 OK
@@ -136,7 +136,7 @@ while (currentPage.NextPageLink != null)
 
 ## <a name="using-logical-operators-to-combine-query-options"></a>Utilizzo di operatori logici per combinare le opzioni di query
 
-Media Services V3 supporta gli operatori logici ' or ' è and '. 
+Media Services V3 supporta gli operatori logici **or** e **e** . 
 
 L'esempio REST seguente controlla lo stato del processo:
 
@@ -153,9 +153,9 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 ## <a name="filtering-and-ordering-options-of-entities"></a>Filtro e ordinamento delle opzioni delle entità
 
-Nella tabella seguente viene illustrato il modo in cui le opzioni di filtro e ordinamento possono essere applicate a entità diverse:
+La tabella seguente illustra come applicare le opzioni di filtro e ordinamento a entità diverse:
 
-|Nome dell'entità|Nome proprietà|Filtro|Ordine|
+|Nome dell'entità|Nome proprietà|Filtra|Ordina|
 |---|---|---|---|
 |[Asset](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` e `desc`|
 ||properties.alternateId |`eq`||

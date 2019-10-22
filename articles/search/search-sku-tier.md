@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: heidist
 ms.openlocfilehash: 32ec97ce923c1cffd92fa6522f30abf7ea87fff7
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72331203"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Scegliere un piano tariffario per Ricerca di Azure
@@ -41,7 +41,7 @@ Il livello selezionato determina la velocità fatturabile. Lo screenshot seguent
 
 **Gratuito** consente di creare un servizio di ricerca limitato in un cluster, condiviso con altri Sottoscrittori. È possibile completare piccoli progetti, incluse guide introduttive ed esercitazioni, ma non è possibile ridimensionare il servizio o eseguire carichi di lavoro significativi. **Basic** e **standard** sono i livelli fatturabili più comunemente usati, con l'impostazione predefinita **standard** .
 
-![Piani tariffari dei](media/search-sku-tier/tiers.png "piani tariffari di ricerca di Azure di ricerca di Azure")
+![Piani tariffari di ricerca di Azure](media/search-sku-tier/tiers.png "Piani tariffari di ricerca di Azure")
 
 Alcuni livelli sono ottimizzati per determinati tipi di lavoro. Ad esempio, **standard 3 High Density (S3 HD)** è una *modalità di hosting* per S3, in cui l'hardware sottostante è ottimizzato per un numero elevato di indici più piccoli ed è destinato a scenari di multi-tenant. S3 HD ha lo stesso addebito per unità come S3, ma l'hardware è ottimizzato per le letture di file veloci su un numero elevato di indici più piccoli.
 

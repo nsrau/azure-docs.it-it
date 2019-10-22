@@ -1,5 +1,5 @@
 ---
-title: 'Modello di Punteggio: Riferimento al modulo'
+title: 'Modello di Punteggio: riferimento al modulo'
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il modulo Score Model nel servizio Azure Machine Learning per generare stime usando un modello di classificazione o regressione con training.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 43a398b091b282da6ede06796250cda17117dc18
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f046b41d02ac392d003a9ecd15f25b43e5449cd0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128510"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692664"
 ---
 # <a name="score-model-module"></a>Modulo Score Model
 
@@ -24,13 +24,13 @@ Usare questo modulo per generare stime usando un modello di classificazione o re
 
 ## <a name="how-to-use"></a>Utilizzo
 
-1. Aggiungere il modulo **Score Model (Punteggio modello** ) all'esperimento.
+1. Aggiungere il modulo **Score Model (Punteggio modello** ) alla pipeline.
 
 2. Alleghi un modello sottoposto a training e un DataSet contenente i nuovi dati di input. 
 
     I dati devono essere in un formato compatibile con il tipo di modello sottoposto a training in uso. Lo schema del set di dati di input deve anche corrispondere generalmente allo schema dei dati utilizzati per il training del modello.
 
-3. Eseguire l'esperimento.
+3. Eseguire la pipeline.
 
 ## <a name="results"></a>Risultati
 
@@ -48,7 +48,7 @@ Il Punteggio, o valore stimato, può essere in molti formati diversi, a seconda 
 
 ## <a name="publish-scores-as-a-web-service"></a>Pubblicare i punteggi come servizio Web
 
-Un uso comune dei punteggi consiste nel restituire l'output come parte di un servizio Web predittivo. Per altre informazioni, vedere questa esercitazione su come creare un servizio Web basato su un esperimento in Azure Machine Learning:
+Un uso comune dei punteggi consiste nel restituire l'output come parte di un servizio Web predittivo. Per ulteriori informazioni, vedere questa esercitazione su come creare un servizio Web basato su una pipeline in Azure Machine Learning:
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/04/2019
 ms.author: v-vasuke
-ms.openlocfilehash: 74a47bc5fc6dbcadef5e1a0da88eb93056334703
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 59770bccec57220560eeb5a5204e574ce172fc80
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244866"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296521"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Guida introduttiva: Avviare un'applicazione Azure Spring Cloud con il portale di Azure
 
@@ -57,9 +57,11 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>Effettuare il provisioning di un'istanza del servizio nel portale di Azure
 
-1. In un Web browser aprire il [portale di Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension) e accedere con il proprio account.
+1. In un Web browser aprire il [questo collegamento ad Azure Spring Cloud nel portale di Azure](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/Azure%20Spring%20Cloud).
 
-1. Cercare l'opzione **Azure Spring Cloud** e selezionarla per passare alla pagina di panoramica. Selezionare il pulsante **Crea** per iniziare.
+    ![Screenshot del portale ASC](media/spring-cloud-quickstart-launch-app-portal/goto-portal.png)
+
+1. Selezionare **Azure Spring Cloud** per passare alla pagina di panoramica. Quindi, selezionare il pulsante **Crea** per iniziare.
 
 1. Compilare il modulo, considerando le indicazioni seguenti:
     - Nome servizio: specificare il nome dell'istanza del servizio.  Il nome deve essere composto da 4-32 caratteri e può contenere solo lettere in minuscolo, numeri e trattini.  Il primo carattere del nome del servizio deve essere una lettera e l'ultimo deve essere una lettera o un numero.
@@ -74,6 +76,8 @@ Per distribuire il servizio sono necessari circa 5 minuti.  Una volta completata
 1. Passare alla pagina **Panoramica** e selezionare **Config Server**.
 
 1. Nella sezione **Repository predefinito** impostare **URI** su "https://github.com/Azure-Samples/piggymetrics", **LABEL** su "config" e selezionare **Applica** per salvare le modifiche.
+
+    ![Screenshot del portale ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## <a name="build-and-deploy-microservice-applications"></a>Creare e distribuire applicazioni di microservizi
 
@@ -130,10 +134,15 @@ Per distribuire il servizio sono necessari circa 5 minuti.  Una volta completata
 
 ## <a name="assign-a-public-endpoint-to-gateway"></a>Assegnare un endpoint pubblico al gateway
 
-1. Aprire la pagina **Dashboard dell'applicazione**.
-2. Selezionare l'applicazione `gateway` per visualizzare la pagina **Dettagli applicazione**.
-3. Selezionare **Assign Domain** (Assegna dominio) per assegnare un endpoint pubblico al gateway. Questa operazione può richiedere alcuni minuti. 
-4. Immettere l'IP pubblico assegnato nel browser per visualizzare l'applicazione in esecuzione.
+1. Nel menu a sinistra aprire la scheda **App**.
+2. Selezionare l'applicazione `gateway` per visualizzare la pagina **Panoramica**.
+3. Selezionare **Assign Domain** (Assegna dominio) per assegnare un endpoint pubblico al gateway. Questa operazione può richiedere alcuni minuti.
+
+    ![Screenshot del portale ASC](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
+
+1. Immettere l'IP pubblico assegnato (etichettato come **URL**) nel browser per visualizzare l'applicazione in esecuzione.
+
+    ![Screenshot del portale ASC](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

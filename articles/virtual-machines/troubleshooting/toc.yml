@@ -127,12 +127,18 @@
   href: storage-resource-deletion-errors.md
 - name: Errori durante l'eliminazione di risorse di archiviazione classiche
   href: storage-classic-cannot-delete-storage-account-container-vhd.md
-- name: Riavvii imprevisti di VM con dischi rigidi virtuali collegati
-  href: unexpected-reboots-attached-vhds.md
-- name: Problemi di attivazione di Windows
-  href: troubleshoot-activation-problems.md
-- name: Problema di attivazione con il tunneling forzato
-  href: custom-routes-enable-kms-activation.md
+- name: Risolvere i problemi di riavvio delle VM
+  items:
+    - name: Riavvii imprevisti di VM con dischi rigidi virtuali collegati
+      href: unexpected-reboots-attached-vhds.md
+    - name: Informazioni sul riavvio del sistema
+      href: understand-vm-reboot.md
+- name: Attivazione di Windows
+  items:
+    - name: Problemi di attivazione di Windows
+      href: troubleshoot-activation-problems.md
+    - name: Problema di attivazione con il tunneling forzato
+      href: custom-routes-enable-kms-activation.md
 - name: Problemi di accesso alle applicazioni
   href: troubleshoot-app-connection.md
 - name: Nuove distribuzioni di VM
@@ -188,8 +194,6 @@
   href: troubleshooting-throttling-errors.md
 - name: Usare la virtualizzazione annidata
   href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: Informazioni sul riavvio del sistema
-  href: understand-vm-reboot.md
 - name: Strumenti per la risoluzione remota dei problemi
   href: remote-tools-troubleshoot-azure-vm-issues.md
 - name: Riparazione della macchina virtuale

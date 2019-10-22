@@ -1,5 +1,5 @@
 ---
-title: Visualizzare e gestire i clienti e le risorse delegate nel portale di Azure
+title: Visualizzare e gestire clienti e risorse delegate
 description: I provider di servizi che usano la gestione risorse delegate di Azure possono visualizzare tutte le sottoscrizioni e le risorse dei clienti delegate passando a Clienti personali nel portale di Azure.
 author: JnHs
 ms.author: jenhayes
@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: acc90afa258fa7140cd7dfa8711dd64b554df45d
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 53aabc4dc6c0d3fcef28aab16ea598cbbf6dbd55
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810845"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302751"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Visualizzare e gestire clienti e risorse delegate
 
@@ -37,7 +37,7 @@ Da questa pagina è possibile visualizzare le informazioni seguenti:
 
 - Per visualizzare tutte le sottoscrizioni, le offerte e le deleghe associate a un cliente, selezionare il nome del cliente.
 - Per visualizzare altri dettagli su un'offerta e le relative deleghe, selezionare il nome dell'offerta.
-- Per visualizzare altri dettagli sulle assegnazioni di accesso per le sottoscrizioni o i gruppi di risorse delegati, selezionare la voce nella colonna **Deleghe**.
+- Per visualizzare altri dettagli sulle assegnazioni di ruolo per le sottoscrizioni o i gruppi di risorse delegati, selezionare la voce nella colonna **Deleghe**.
 
 ## <a name="view-delegations"></a>Visualizzare le deleghe
 

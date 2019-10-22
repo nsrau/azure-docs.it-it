@@ -1,17 +1,17 @@
 ---
-title: Esempio - Progetto ISO 27001 - Mapping dei controlli
-description: Mapping dei controlli dell'esempio di progetto ISO 27001 in Criteri di Azure.
+title: Esempio di progetto ISO 27001 - Mapping dei controlli
+description: Mapping dei controlli dell'esempio di progetto ISO 27001. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 07/22/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 46dab6207fdb46fb7c6b9102ca91a12b2c411f6c
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 57636db9eb341bad2e0caca83a2c413320847aae
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978272"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297511"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto ISO 27001
 

@@ -1,22 +1,18 @@
 ---
 title: Automatizzare i processi di Azure Application Insights con Microsoft Flow
 description: Informazioni su come usare Microsoft Flow per automatizzare in poco tempo i processi ripetibili usando il connettore di Application Insights.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/29/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 541d5b70ee56d62831f0947e64b9522e17a07dd9
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.date: 08/29/2019
+ms.openlocfilehash: ff0896498c0270b8eb43b762228916985f924def
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195031"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678315"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizzare i processi di Azure Application Insights con il connettore per Microsoft Flow
 
@@ -47,12 +43,12 @@ In questa esercitazione si apprenderà come creare un flusso che usa l'algoritmo
 
 1. Fare clic su **Create**(Crea).
 
-### <a name="step-3-add-an-application-insights-action"></a>Passaggio 3: aggiungere un'azione di Application Insights
+### <a name="step-3-add-an-application-insights-action"></a>Passaggio 3: Aggiungere un'azione di Application Insights
 
 1. Cercare **Application Insights**.
 2. Fare clic su **applicazione Azure Insights-Visualizza query di analisi**.
 
-    ![Scegliere un'azione: Query di visualizzazione di applicazione Azure Insights](./media/automate-with-flow/3-visualize.png)
+    ![Scegliere un'azione: applicazione Azure la query di analisi di visualizzazione di Insights](./media/automate-with-flow/3-visualize.png)
 
 3. Selezionare **Nuovo passaggio**.
 
@@ -72,7 +68,7 @@ Se la casella connessione non viene visualizzata immediatamente e passa direttam
 
 Fare clic su **Create**(Crea).
 
-### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Passaggio 5: Specificare la query e il tipo di grafico di Analytics
+### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Passaggio 5: Specificare la query e il tipo di grafico di Analisi
 Questa query di esempio seleziona le richieste non riuscite entro l'ultimo giorno e le correla alle eccezioni che si sono verificate durante l'operazione. La correlazione eseguita da Analisi si basa sull'identificatore operation_Id. La query segmenta quindi i risultati usando l'algoritmo di cluster automatico.
 
 Quando si creano query, verificare che funzionino correttamente in Analisi prima di aggiungerle al flusso.
@@ -92,10 +88,10 @@ Quando si creano query, verificare che funzionino correttamente in Analisi prima
     
     ![Finestra di configurazione della query di Analisi](./media/automate-with-flow/5-query.png)
 
-### <a name="step-6-configure-the-flow-to-send-email"></a>Passaggio 6: Configurare il flusso per l'invio di un messaggio di posta elettronica
+### <a name="step-6-configure-the-flow-to-send-email"></a>Passaggio 6: Configurare il flusso per l'invio tramite posta elettronica
 
 1. Cercare **Office 365 Outlook**.
-2. Fare clic su **Office 365 Outlook - Send an email** (Office 365 Outlook - Invia un messaggio di posta elettronica).
+2. Fare clic su **Office 365 Outlook - Send an email** (Office 365 Outlook: invia un messaggio di posta elettronica).
 
     ![Finestra di selezione di Office 365 Outlook](./media/automate-with-flow/6-outlook.png)
 
@@ -121,9 +117,9 @@ Quando si creano query, verificare che funzionino correttamente in Analisi prima
 
 ### <a name="step-7-save-and-test-your-flow"></a>Passaggio 7: Salvare e testare il flusso
 
-Fare clic su **Save**.
+Fare clic su **Salva**
 
-È possibile attendere che il trigger esegua l'azione oppure fare clic sul ![ **test** dell'icona](./media/automate-with-flow/testicon.png) del test del becher nella parte superiore.
+È possibile attendere che il trigger esegua l'azione oppure fare clic sull'icona ![beaker test ](./media/automate-with-flow/testicon.png) **test** nella parte superiore.
 
 Dopo aver selezionato il **test**:
 

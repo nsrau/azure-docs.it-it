@@ -1,6 +1,6 @@
 ---
 title: Risolvere i problemi delle distribuzioni Resource Manager | Microsoft Docs
-description: Informazioni su come monitorare le distribuzioni Resource Manager e risolverne i problemi.
+description: Informazioni su come monitorare le distribuzioni di modelli di Azure Resource Manager e risolverne i problemi. Mostra i log attività e la cronologia di distribuzione.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c889c3123160680d96889227d6964ff197dc41cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ad32ed83d731a26b6bb72fca230d00d5465c45a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388643"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390202"
 ---
 # <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Esercitazione: Risolvere i problemi delle distribuzioni dei modelli di Resource Manager
 

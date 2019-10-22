@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: a5c4ffde886735e096c4c4a96a648c997d1e7dec
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 7187bc7a42971a86b31d663f0a3754a061a2421a
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050187"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515046"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con un'applicazione del dispositivo in C tramite i flussi dispositivo dell'hub IoT (anteprima)
 
@@ -122,10 +122,10 @@ Per poter connettere un dispositivo, è necessario registrarlo con l'hub IoT. In
 
    > [!NOTE]
    > * Sostituire il segnaposto *YourIoTHubName* con il nome scelto per l'hub IoT.
-   > * Usare *MyDevice* come illustrato. Si tratta del nome specificato per il dispositivo registrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usarlo nell'intero articolo e aggiornarlo nelle applicazioni di esempio prima di eseguirle.
+   > * Per il nome del dispositivo che si sta registrando, è consigliabile usare *MyDevice* , come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usarlo nell'intero articolo e aggiornarlo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. Per ottenere la *stringa di connessione* per il dispositivo appena registrato, eseguire il comando seguente in Cloud Shell:
@@ -134,10 +134,10 @@ Per poter connettere un dispositivo, è necessario registrarlo con l'hub IoT. In
    > Sostituire il segnaposto *YourIoTHubName* con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    Prendere nota della stringa di connessione del dispositivo per usarla in seguito nella guida. Sarà simile a quanto indicato nell'esempio seguente:
+    Prendere nota della stringa di connessione del dispositivo restituita per usarla in seguito in questo argomento di avvio rapido. Sarà simile a quanto indicato nell'esempio seguente:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -149,14 +149,14 @@ In questa sezione verranno eseguite sia l'applicazione sul lato dispositivo sia 
 
 Per eseguire l'applicazione sul lato dispositivo, procedere come segue:
 
-1. Specificare le credenziali del dispositivo modificando il file di origine *iothub_client_c2d_streaming_sample.c* nella cartella *iothub_client/samples/iothub_client_c2d_streaming_sample*, quindi specificare la stringa di connessione del dispositivo.
+1. Fornire le credenziali del dispositivo modificando il file di origine **iothub_client_c2d_streaming_sample.c** nella cartella `iothub_client/samples/iothub_client_c2d_streaming_sample` e aggiungendo la stringa di connessione del dispositivo.
 
    ```C
    /* Paste in your iothub connection string  */
-   static const char* connectionString = "[device connection string]";
+   static const char* connectionString = "{DeviceConnectionString}";
    ```
 
-1. Compilare il codice come segue:
+1. Compilare il codice con i comandi seguenti:
 
    ```bash
    # In Linux
@@ -186,7 +186,7 @@ Per eseguire l'applicazione sul lato dispositivo, procedere come segue:
 
 ### <a name="run-the-service-side-application"></a>Eseguire l'applicazione sul lato servizio
 
-Come indicato in precedenza, l'SDK dell'hub IoT per C supporta solo i flussi del dispositivo sul lato dispositivo. Per compilare ed eseguire l'applicazione sul lato servizio, seguire le istruzioni disponibili in uno degli argomenti di avvio rapido seguenti:
+Come indicato in precedenza, l'SDK dell'hub IoT per C supporta solo i flussi del dispositivo sul lato dispositivo. Per compilare ed eseguire l'applicazione sul lato servizio associata, seguire le istruzioni disponibili in uno degli argomenti di avvio rapido seguenti:
 
 * [Comunicare con un'applicazione del dispositivo in C# tramite i flussi dispositivo dell'hub IoT](./quickstart-device-streams-echo-csharp.md)
 

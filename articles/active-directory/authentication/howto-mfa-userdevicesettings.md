@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 190d697dca56fa51d92987f32db0146aa79881aa
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70162410"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gestire le impostazioni utente nel cloud con Azure Multi-Factor Authentication
@@ -51,11 +51,11 @@ Questa impostazione impone all'utente di completare di nuovo il processo di regi
 4. Selezionare la casella accanto a uno o più utenti che si desidera gestire. A destra viene visualizzato un elenco di opzioni di passaggio rapido.
 5. Selezionare **Gestisci le impostazioni dell'utente**.
 6. Selezionare la casella accanto a **Richiedere agli utenti selezionati di fornire di nuovo i metodi di contatto**.
-   ![Richiedi agli utenti di fornire di nuovo i metodi di contatto](./media/howto-mfa-userdevicesettings/reproofup.png)
+   ![Require gli utenti di fornire nuovamente i metodi di contatto ](./media/howto-mfa-userdevicesettings/reproofup.png)
 7. Fare clic su **save**.
 8. Fare clic su **chiudi**.
 
-Le organizzazioni possono completare questi passaggi con PowerShell usando il comando seguente come guida per cancellare `StrongAuthenticationMethods` l'attributo:
+Le organizzazioni possono completare questi passaggi con PowerShell usando il comando seguente come guida per cancellare l'attributo `StrongAuthenticationMethods`:
 
 ```PowerShell
 $Upn = "theuser@domain.com"
@@ -75,7 +75,7 @@ Questa impostazione elimina tutte le password dell'app create da un utente. Le a
 4. Selezionare la casella accanto a uno o più utenti che si desidera gestire. A destra viene visualizzato un elenco di opzioni di passaggio rapido.
 5. Selezionare **Gestisci le impostazioni dell'utente**.
 6. Selezionare la casella accanto a **Eliminare tutte le password dell'app esistenti generate dagli utenti selezionati**.
-   ![Elimina tutte le password dell'app esistenti](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
+   ![Delete tutte le password dell'app esistenti ](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 7. Fare clic su **save**.
 8. Fare clic su **chiudi**.
 
@@ -94,8 +94,8 @@ Quando questa opzione è selezionata, è necessario **ripristinare l'autenticazi
 3. A destra selezionare **Multi-Factor Authentication** sulla barra degli strumenti. Viene aperta la pagina dell'autenticazione a più fattori.
 4. Selezionare la casella accanto a uno o più utenti che si desidera gestire. A destra viene visualizzato un elenco di opzioni di passaggio rapido.
 5. Selezionare **Gestisci le impostazioni dell'utente**.
-6. Selezionare la casella per **ripristinare l'autenticazione a più fattori in tutti i dispositivi**
-   ![memorizzati ripristinare l'autenticazione a più fattori in tutti i dispositivi memorizzati](./media/howto-mfa-userdevicesettings/rememberdevices.png)
+6. Selezionare la casella per **ripristinare l'autenticazione a più fattori in tutti i dispositivi memorizzati** 
+    ![Restore autenticazione a più fattori in tutti i dispositivi memorizzati ](./media/howto-mfa-userdevicesettings/rememberdevices.png)
 7. Fare clic su **save**.
 8. Fare clic su **chiudi**.
 

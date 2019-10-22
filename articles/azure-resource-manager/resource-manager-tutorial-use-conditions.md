@@ -1,6 +1,6 @@
 ---
 title: Usare una condizione nei modelli di Azure Resource Manager | Microsoft Docs
-description: Informazioni su come distribuire risorse di Azure in base a condizioni.
+description: Informazioni su come distribuire risorse di Azure in base a condizioni. Mostra come distribuire una nuova risorsa oppure usarne una esistente.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 50c6c2a1f8be979d10b77793adb168e6bd276e49
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 5fa1db5131f555c92aa12fc01a109469c2cf819e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258855"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390199"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Esercitazione: Usare una condizione nei modelli di Azure Resource Manager
 

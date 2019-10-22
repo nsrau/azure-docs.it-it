@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 85471323a7f8918d80b7c0944fe5c255e9fa836a
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: cc01b12e493f3e0d3cd63786c27819d4704f97f4
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "69018910"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263882"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: Eseguire le applicazioni nel servizio Azure Kubernetes
 
@@ -115,7 +115,7 @@ Per vedere l'applicazione in azione, aprire un Web browser all'indirizzo IP este
 
 ![Immagine del cluster Kubernetes in Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-Se l'applicazione non è stata caricata, potrebbe essersi verificato un problema di autorizzazione con il registro immagini. Per visualizzare lo stato dei contenitori, usare il comando`kubectl get pods`. Se non è possibile eseguire il pull delle immagini del contenitore, vedere [Consentire l'accesso a Registro Container con un segreto di Kubernetes](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
+Se l'applicazione non è stata caricata, potrebbe essersi verificato un problema di autorizzazione con il registro immagini. Per visualizzare lo stato dei contenitori, usare il comando`kubectl get pods`. Se non è possibile eseguire il pull delle immagini del contenitore, vedere [Eseguire l'autenticazione con Registro Azure Container dal servizio Azure Kubernetes](cluster-container-registry-integration.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

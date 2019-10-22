@@ -1,5 +1,5 @@
 ---
-title: 'Regressione della rete neurale: Riferimento al modulo'
+title: 'Regressione della rete neurale: riferimento al modulo'
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il modulo di regressione della rete neurale nel servizio Azure Machine Learning per creare un modello di regressione usando un algoritmo di rete neurale personalizzabile.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 93f27458a2571b2e26a090c06b01d8abe3e79c2a
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 54518d21db0c9b14cbb7b4fc4316d1db2b871573
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128578"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692743"
 ---
 # <a name="neural-network-regression-module"></a>Modulo di regressione della rete neurale
 
@@ -52,11 +52,11 @@ Usare questo modulo per creare un modello di regressione usando un algoritmo di 
 
 ##  <a name="bkmk_DefaultArchitecture"></a>Creare un modello di rete neurale usando l'architettura predefinita
   
-1.  Aggiungere il modulo di regressione della **rete neurale** all'esperimento nell'interfaccia. È possibile trovare questo modulo in **Machine Learning**, **Initialize**, nella categoria **regressione** . 
+1.  Aggiungere il modulo di **regressione della rete neurale** alla pipeline nell'interfaccia. È possibile trovare questo modulo in **Machine Learning**, **Initialize**, nella categoria **regressione** . 
   
 2. Indicare come si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .  
   
-    -   **Singolo parametro**: Scegliere questa opzione se si conosce già il modo in cui si desidera configurare il modello.  
+    -   **Singolo parametro**: scegliere questa opzione se si conosce già il modo in cui si vuole configurare il modello.  
 
 3.  In **specifica livello nascosto**selezionare **case con connessione completa**. Questa opzione consente di creare un modello utilizzando l'architettura di rete neurale predefinita, per un modello di regressione della rete neurale, con questi attributi:  
   
@@ -76,24 +76,24 @@ Usare questo modulo per creare un modello di regressione usando un algoritmo di 
 
 8.  Per **il momento**, digitare un valore da applicare durante l'apprendimento come peso nei nodi delle iterazioni precedenti.
 
-10. Selezionare l'opzione, **esempi shuffle**, per modificare l'ordine dei case tra le iterazioni. Se si deseleziona questa opzione, i case vengono elaborati esattamente nello stesso ordine ogni volta che si esegue l'esperimento.
+10. Selezionare l'opzione, **esempi shuffle**, per modificare l'ordine dei case tra le iterazioni. Se si deseleziona questa opzione, i case vengono elaborati esattamente nello stesso ordine ogni volta che si esegue la pipeline.
   
-11. Per il valore di inizializzazione del **numero casuale**, è possibile digitare facoltativamente un valore da usare come valore di inizializzazione. Specificare un valore di inizializzazione è utile quando si desidera garantire la ripetibilità tra esecuzioni dello stesso esperimento.
+11. Per il valore di **inizializzazione del numero casuale**, è possibile digitare facoltativamente un valore da usare come valore di inizializzazione. La specifica di un valore di inizializzazione è utile quando si desidera garantire la ripetibilità tra le esecuzioni della stessa pipeline.
   
 13. Connettere un set di dati di training e uno dei [moduli di training](module-reference.md): 
   
     -   Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, usare [Train Model](./train-model.md).  
   
    
-14. Eseguire l'esperimento.  
+14. Eseguire la pipeline.  
 
 ## <a name="results"></a>Risultati
 
 Al termine del training:
 
-+ Per visualizzare un riepilogo dei parametri del modello, insieme ai pesi della funzionalità appresi dal training e ad altri parametri della rete neurale, fare clic con il pulsante destro del mouse sull'output di [Train Model](./train-model.md)e selezionare Visualize ( **Visualizza**).  
++ Per visualizzare un riepilogo dei parametri del modello, insieme ai pesi della funzionalità appresi dal training e ad altri parametri della rete neurale, fare clic con il pulsante destro del mouse sull'output di [Train Model](./train-model.md)e selezionare **Visualize (Visualizza**).  
 
-+ Per salvare uno snapshot del modello con training, fare clic con il pulsante destro del mouse sull'output del **modello** sottoposto a training e selezionare **Salva come modello con training**. Questo modello non viene aggiornato nelle esecuzioni successive dello stesso esperimento.
++ Per salvare uno snapshot del modello con training, fare clic con il pulsante destro del mouse sull'output del **modello** sottoposto a training e selezionare **Salva come modello con training**. Questo modello non viene aggiornato in esecuzioni successive della stessa pipeline.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
