@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 05/23/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 3cffd2de0763ea6984b64b965ce1214951d3d569
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "67056465"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Quanti endpoint client VPN è possibile includere nella configurazione da punto sito?
@@ -29,7 +29,7 @@ Sono supportati i sistemi operativi client seguenti:
 * Windows Server 2012 (solo a 64 bit)
 * Windows Server 2012 R2 (solo a 64 bit)
 * Windows Server 2016 (solo a 64 bit)
-* Windows 10
+* Windows 10
 * Mac OS X versione 10.11 o successiva
 * Linux (StrongSwan)
 * iOS
@@ -40,11 +40,11 @@ Sono supportati i sistemi operativi client seguenti:
 
 Azure supporta tre tipi di opzioni VPN da punto a sito:
 
-* SSTP (Secure Socket Tunneling Protocol). SSTP è una proprietario basati su SSL soluzione Microsoft che può penetrare i firewall perché la maggior parte dei firewall apre la porta TCP in uscita che usa SSL 443.
+* SSTP (Secure Socket Tunneling Protocol). SSTP è una soluzione basata su SSL proprietaria di Microsoft che può penetrare i firewall poiché la maggior parte dei firewall apre la porta TCP in uscita utilizzata da 443 SSL.
 
-* OpenVPN. OpenVPN è una soluzione basata su SSL può penetrare i firewall perché la maggior parte dei firewall apre la porta TCP in uscita che usa SSL 443.
+* OpenVPN. OpenVPN è una soluzione basata su SSL che può penetrare i firewall poiché la maggior parte dei firewall apre la porta TCP in uscita utilizzata da 443 SSL.
 
-* VPN IKEv2. VPN IKEv2 è una soluzione VPN IPsec basata su standard che utilizza il protocollo IP e porte in uscita UDP 500 e 4500 no. 50. Non sempre queste porte vengono aperte dai firewall ed esiste quindi la possibilità che la VPN IKEv2 non riesca ad attraversare proxy e firewall.
+* VPN IKEv2. La VPN IKEv2 è una soluzione VPN IPsec basata su standard che usa le porte UDP in uscita 500 e 4500 e il protocollo IP No. 50. Non sempre queste porte vengono aperte dai firewall ed esiste quindi la possibilità che la VPN IKEv2 non riesca ad attraversare proxy e firewall.
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>Se si riavvia un computer client configurato per la funzionalità Da punto a sito, la VPN verrà riconnessa automaticamente?
 
@@ -68,17 +68,17 @@ No. Un client da punto a sito può connettersi solo alle risorse nella rete virt
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>Per la connettività da punto a sito è possibile usare qualsiasi client VPN software che supporta SSTP e/o IKEv2?
 
-No. È possibile usare solo il client VPN nativo in Windows per SSTP e il client VPN nativo in Mac per IKEv2. Tuttavia, è possibile utilizzare il client OpenVPN su tutte le piattaforme per la connessione tramite protocollo OpenVPN. Vedere l'elenco dei sistemi operativi client supportati.
+No. È possibile usare solo il client VPN nativo in Windows per SSTP e il client VPN nativo in Mac per IKEv2. Tuttavia, è possibile usare il client OpenVPN su tutte le piattaforme per connettersi tramite il protocollo OpenVPN. Vedere l'elenco dei sistemi operativi client supportati.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure supporta VPN IKEv2 con Windows?
 
-IKEv2 è supportato in Windows 10 e Server 2016. Per poter usare IKEv2, è però necessario installare gli aggiornamenti e impostare in locale un valore della chiave del Registro di sistema. Versioni del sistema operativo precedenti a Windows 10 non sono supportate e possono usare solo SSTP o **OpenVPN® protocollo**.
+IKEv2 è supportato in Windows 10 e Server 2016. Per poter usare IKEv2, è però necessario installare gli aggiornamenti e impostare in locale un valore della chiave del Registro di sistema. Le versioni del sistema operativo precedenti a Windows 10 non sono supportate e possono usare solo il protocollo SSTP o **OpenVPN®**.
 
 Per preparare Windows 10 o Server 2016 per IKEv2:
 
 1. Installare l'aggiornamento.
 
-   | Versione del sistema operativo | Date | Numero/collegamento |
+   | Versione del sistema operativo | Data | Numero/collegamento |
    |---|---|---|
    | Windows Server 2016<br>Windows 10 versione 1607 | 17 gennaio 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10 versione 1703 | 17 gennaio 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |

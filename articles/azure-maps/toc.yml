@@ -53,8 +53,6 @@
       href: supported-languages.md
     - name: Stili di mappa supportati
       href: supported-map-styles.md
-    - name: Browser supportati dall'SDK Web
-      href: supported-browsers.md
     - name: Livelli di zoom e griglia riquadri
       href: zoom-levels-and-tile-grid.md
     - name: Struttura dei dati del servizio di mobilità
@@ -147,6 +145,8 @@
               href: map-get-information-from-coordinate.md
             - name: Visualizzare le indicazioni stradali da A a B
               href: map-route.md
+        - name: Browser supportati dall'SDK Web
+          href: supported-browsers.md
     - name: Sviluppare con Android SDK
       items:
         - name: Introduzione al controllo mappa di Android

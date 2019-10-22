@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 802a4e9c6191d33051eb075543691845595bc9c3
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69656685"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Come indicizzare Cosmos DB usando un indicizzatore di ricerca di Azure
@@ -50,7 +50,7 @@ Il metodo più semplice per indicizzare gli elementi di Azure Cosmos consiste ne
 
 È necessario avere un account Cosmos, un database di Azure Cosmos mappato all'API SQL o l'API MongoDB e un contenitore di documenti JSON. 
 
-Verificare che il database di Cosmos DB contenga dati. La [procedura guidata Importa dati](search-import-data-portal.md) legge i metadati ed esegue il campionamento dei dati per dedurre uno schema di indice, ma carica anche i dati da Cosmos DB. Se i dati sono mancanti, la procedura guidata viene arrestata con l'errore "errore durante il rilevamento dello schema dell'indice dall'origine dati: Non è stato possibile compilare un indice del prototipo perché DataSource ' emptycollection ' non ha restituito dati.
+Verificare che il database di Cosmos DB contenga dati. La [procedura guidata Importa dati](search-import-data-portal.md) legge i metadati ed esegue il campionamento dei dati per dedurre uno schema di indice, ma carica anche i dati da Cosmos DB. Se i dati risultano mancanti, la procedura guidata viene arrestata con l'errore "errore durante il rilevamento dello schema dell'indice dall'origine dati: Impossibile compilare un indice del prototipo perché DataSource ' emptycollection ' non ha restituito dati".
 
 ### <a name="2---start-import-data-wizard"></a>2 - Avviare la procedura guidata Importa dati
 
@@ -67,7 +67,7 @@ Nella pagina **origine dati** , l'origine deve essere **Cosmos DB**, con le spec
 
 + **Nome** è il nome dell'oggetto origine dati. Una volta creato, è possibile sceglierlo per altri carichi di lavoro.
 
-+ **Cosmos DB account** deve essere la stringa di connessione primaria o secondaria da Cosmos DB, con `AccountEndpoint` e. `AccountKey` L'account determina se viene eseguito il cast dei dati come API SQL o l'API Mongo DB
++ **Cosmos DB account** deve essere la stringa di connessione primaria o secondaria di Cosmos DB, con un `AccountEndpoint` e un `AccountKey`. L'account determina se viene eseguito il cast dei dati come API SQL o l'API Mongo DB
 
 + Il **database** è un database esistente dall'account. 
 
@@ -124,12 +124,12 @@ Al termine dell'indicizzazione, è possibile usare [Esplora ricerche](search-exp
 
 È possibile usare l'API REST per indicizzare i dati Azure Cosmos DB, seguendo un flusso di lavoro in tre parti comune a tutti gli indicizzatori in ricerca di Azure: creare un'origine dati, creare un indice, creare un indicizzatore. L'estrazione dei dati dall'archiviazione Cosmos si verifica quando si invia la richiesta create Indexer. Al termine di questa richiesta, sarà presente un indice Queryable. 
 
-Se si sta valutando MongoDB, è necessario usare il resto `api-version=2019-05-06-Preview` per creare l'origine dati.
+Se si sta valutando MongoDB, è necessario utilizzare il `api-version=2019-05-06-Preview` REST per creare l'origine dati.
 
 Nell'account Cosmos DB è possibile specificare se la raccolta deve indicizzare automaticamente tutti i documenti. Per impostazione predefinita, tutti i documenti vengono indicizzati automaticamente, ma è possibile disattivare l'indicizzazione automatica. Quando l'indicizzazione è disattivata, i documenti sono accessibili solo tramite i rispettivi collegamenti automatici o tramite query usando l'ID documento. Il servizio Ricerca di Azure richiede l'attivazione dell'indicizzazione automatica di Cosmos DB nella raccolta che verrà indicizzata da Ricerca di Azure. 
 
 > [!WARNING]
-> Azure Cosmos DB è la nuova generazione di DocumentDB. In precedenza con l'API versione **2017-11-11** è possibile `documentdb` usare la sintassi. Ciò significava che è possibile specificare il tipo di origine dati `cosmosdb` come `documentdb`o. A partire dalla versione API **2019-05-06** , le API di ricerca di Azure e il `cosmosdb` portale supportano solo la sintassi come indicato in questo articolo. Questo significa che il tipo di origine dati `cosmosdb` deve essere connesso a un endpoint Cosmos DB.
+> Azure Cosmos DB è la nuova generazione di DocumentDB. In precedenza con l'API versione **2017-11-11** è possibile usare la sintassi `documentdb`. Ciò significava che è possibile specificare il tipo di origine dati come `cosmosdb` o `documentdb`. A partire dalla versione API **2019-05-06** , le API di ricerca di Azure e il portale supportano solo la sintassi `cosmosdb` come indicato in questo articolo. Questo significa che il tipo di origine dati deve `cosmosdb` se si desidera connettersi a un endpoint di Cosmos DB.
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-assemblare gli input per la richiesta
 
@@ -174,12 +174,12 @@ Per creare un'origine dati, formulare una richiesta POST:
 
 Il corpo della richiesta contiene la definizione dell'origine dati, che deve includere i campi seguenti:
 
-| Campo   | DESCRIZIONE |
+| Campo   | Description |
 |---------|-------------|
-| **name** | Richiesto. Scegliere un nome qualsiasi per rappresentare l'oggetto origine dati. |
+| **nome** | Richiesto. Scegliere un nome qualsiasi per rappresentare l'oggetto origine dati. |
 |**type**| Richiesto. Deve essere `cosmosdb`. |
-|**credentials** | Richiesto. Deve essere una stringa di connessione Cosmos DB.<br/>Per le raccolte SQL, le stringhe di connessione sono nel formato seguente:`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>Per le raccolte MongoDB, aggiungere **tipologia API = MongoDB** alla stringa di connessione:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Evitare i numeri di porta nell'URL dell'endpoint. Se si include il numero di porta, Ricerca di Azure non potrà indicizzare il database di Azure Cosmos DB.|
-| **container** | Contiene gli elementi seguenti: <br/>**name**: Richiesto. Consente di specificare l'ID della raccolta di database da indicizzare.<br/>**query**: facoltativo. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.<br/>Per le raccolte di MongoDB, le query non sono supportate. |
+|**credentials** | Richiesto. Deve essere una stringa di connessione Cosmos DB.<br/>Per le raccolte SQL, le stringhe di connessione sono in questo formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>Per le raccolte MongoDB, aggiungere **tipologia API = MongoDB** alla stringa di connessione:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Evitare i numeri di porta nell'URL dell'endpoint. Se si include il numero di porta, Ricerca di Azure non potrà indicizzare il database di Azure Cosmos DB.|
+| **container** | Contiene gli elementi seguenti: <br/>**name**: obbligatorio. Consente di specificare l'ID della raccolta di database da indicizzare.<br/>**query**: facoltativa. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.<br/>Per le raccolte di MongoDB, le query non sono supportate. |
 | **dataChangeDetectionPolicy** | Consigliato. Vedere la sezione [Indicizzazione di documenti modificati](#DataChangeDetectionPolicy).|
 |**dataDeletionDetectionPolicy** | facoltativo. Vedere la sezione [Indicizzazione di documenti eliminati](#DataDeletionDetectionPolicy).|
 
@@ -255,10 +255,10 @@ Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo sch
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Mapping tra tipi di dati JSON e tipi di dati di Ricerca di Azure
 | Tipo di dati JSON | Tipi di campi dell'indice di destinazione compatibili |
 | --- | --- |
-| Bool |Edm.Boolean, Edm.String |
+| Booleano |Edm.Boolean, Edm.String |
 | Numeri che rappresentano numeri interi |Edm.Int32, Edm.Int64, Edm.String |
 | Numeri che rappresentano numeri a virgola mobile |Edm.Double, Edm.String |
-| String |Edm.String |
+| Stringa |Edm.String |
 | Matrici di tipi primitivi, ad esempio ["a", "b", "c"] |Collection(Edm.String) |
 | Stringhe che rappresentano date |Edm.DateTimeOffset, Edm.String |
 | Oggetti GeoJSON, ad esempio { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
@@ -365,7 +365,7 @@ L'esempio seguente crea un'origine dati con criteri di eliminazione temporanea:
 
 ## <a name="NextSteps"></a>Passaggi successivi
 
-La procedura è stata completata. Si è appena appreso come integrare Azure Cosmos DB con Ricerca di Azure usando un indicizzatore.
+Congratulazioni. Si è appena appreso come integrare Azure Cosmos DB con Ricerca di Azure usando un indicizzatore.
 
 * Per altre informazioni su Azure Cosmos DB, vedere la [pagina del servizio Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 * Per altre informazioni su Ricerca di Azure, vedere la [pagina del servizio ricerca](https://azure.microsoft.com/services/search/).

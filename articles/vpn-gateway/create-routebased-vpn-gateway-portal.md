@@ -1,5 +1,5 @@
 ---
-title: 'Creare un gateway VPN basato su Route: portale di Azure | Microsoft Docs'
+title: 'Creare un gateway VPN basato su route: portale di Azure | Microsoft Docs'
 description: Creare un gateway VPN basato su route usando il portale di Azure
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/24/2019
 ms.author: cherylmc
 ms.openlocfilehash: 3ab662a4f06b2d73ab0dab52f562398fee23686c
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71266535"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Creare un gateway VPN basato su route usando il portale di Azure
@@ -26,7 +26,7 @@ Seguendo i passaggi in questo articolo si creeranno una rete virtuale, una subne
 
 ## <a name="gwvalues"></a>Configurare e creare il gateway
 
-Questo passaggio illustra come creare il gateway di rete virtuale per la rete virtuale. La creazione di un gateway spesso richiede anche più di 45 minuti di tempo a seconda dello SKU gateway selezionato.
+Questo passaggio illustra come creare il gateway di rete virtuale per la rete virtuale. La creazione di un gateway spesso richiede anche più di 45 minuti di tempo a seconda dell'SKU gateway selezionato.
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
@@ -49,7 +49,7 @@ Questo passaggio illustra come creare il gateway di rete virtuale per la rete vi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver creato il gateway, è possibile creare una connessione tra la propria rete virtuale e un'altra rete virtuale oppure tra la propria rete virtuale e una posizione locale.
+Al termine della creazione del gateway, è possibile creare una connessione tra la propria rete virtuale e un'altra rete virtuale oppure creare una connessione tra la propria rete virtuale e una posizione locale.
 
 > [!div class="nextstepaction"]
 > [Creare una connessione da sito a sito](vpn-gateway-howto-site-to-site-resource-manager-portal.md)<br><br>

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
 ms.openlocfilehash: fe8061f8e99742f9dc5c1181235c4203aaad82ca
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72331219"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorare l'utilizzo delle risorse e l'attività di query in ricerca di Azure
@@ -30,8 +30,8 @@ Le sezioni **Utilizzo** e **Monitoraggio** disponibili per impostazione predefin
 
 La scheda **Utilizzo** mostra la disponibilità delle risorse rispetto ai [limiti](search-limits-quotas-capacity.md) correnti. La figura seguente è riferita al servizio gratuito, che prevede un limite di 3 oggetti di ogni tipo e 50 MB di spazio di archiviazione. Un servizio Basic o Standard ha limiti più elevati e se si aumenta il numero delle partizioni, lo spazio di archiviazione massimo aumenta in proporzione.
 
-![Stato di utilizzo rispetto ai limiti effettivi](./media/search-monitor-usage/usage-tab.png
- "Stato di utilizzo rispetto ai limiti effettivi")
+![Stato di utilizzo relativo ai limiti effettivi](./media/search-monitor-usage/usage-tab.png
+ "Stato di utilizzo relativo ai limiti effettivi")
 
 ## <a name="queries-per-second-qps-and-other-metrics"></a>Query al secondo e altre metriche
 
@@ -40,7 +40,7 @@ La scheda **Monitoraggio** mostra le medie mobili per metriche quali le *query d
 
 Questi numeri sono approssimativi e hanno lo scopo di offrire un quadro generale dell'efficienza del sistema per la gestione delle richieste. Le query al secondo effettive potrebbero essere superiori o inferiori rispetto al numero indicato nel portale.
 
-![Attività di query al secondo](./media/search-monitor-usage/monitoring-tab.png "Attività di query al secondo")
+![Attività query al secondo](./media/search-monitor-usage/monitoring-tab.png "Attività query al secondo")
 
 ## <a name="activity-logs"></a>Log attività
 
@@ -78,13 +78,13 @@ In questa sezione si apprenderà come usare l'archiviazione BLOB per archiviare 
 
 2. Aprire la pagina Panoramica del servizio di ricerca. Nel riquadro di spostamento a sinistra scorrere verso il basso fino a **Monitoraggio** e fare clic su **Abilita monitoraggio**.
 
-   ![Abilitare il monitoraggio](./media/search-monitor-usage/enable-monitoring.png "Abilitare il monitoraggio")
+   ![Abilita monitoraggio](./media/search-monitor-usage/enable-monitoring.png "Abilitare il monitoraggio")
 
 3. Scegliere i dati da esportare: log, metriche o entrambi. È possibile copiarlo in un account di archiviazione, inviarlo a un hub eventi o esportarlo nei log di monitoraggio di Azure.
 
    Per l'opzione di archiviazione BLOB, deve esistere solo l'account di archiviazione. I contenitori e i BLOB verranno creati in base alle esigenze quando si esportano i dati di log.
 
-   ![Configurare l'archivio BLOB](./media/search-monitor-usage/configure-blob-storage-archive.png "Configurare l'archivio BLOB")
+   ![Configurare l'archivio di archiviazione BLOB](./media/search-monitor-usage/configure-blob-storage-archive.png "Configurare l'archivio di archiviazione BLOB")
 
 4. Salvare il profilo.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Applica trasformazione: Riferimento al modulo'
+title: 'Applica trasformazione: riferimento al modulo'
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il modulo Apply Transformation nel servizio Azure Machine Learning per modificare un set di dati di input in base a una trasformazione calcolata in precedenza.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 8b4ec9e71d9ce932a7b206467db91760f4a4fc47
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: adb2477fe2b7eea0dd0a98c7240843d90411d832
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128973"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693871"
 ---
 # <a name="apply-transformation-module"></a>Modulo Apply Transformation
 
@@ -32,9 +32,9 @@ Azure Machine Learning fornisce il supporto per la creazione e l'applicazione di
 
 ## <a name="how-to-use-apply-transformation"></a>Come utilizzare Applica trasformazione  
   
-1. Aggiungere il modulo **Apply Transformation** all'esperimento. È possibile trovare questo modulo in **Machine Learning**, nella categoria **Punteggio** . 
+1. Aggiungere il modulo **Apply Transformation** alla pipeline. È possibile trovare questo modulo in **Machine Learning**, nella categoria **Punteggio** . 
   
-2. Individuare una trasformazione esistente da utilizzare come input.  Le trasformazioni salvate in precedenza sono reperibili nel gruppo trasformazioni nel riquadro di spostamento a sinistra.  
+2. Individuare una trasformazione esistente da utilizzare come input.  Le trasformazioni salvate in precedenza sono reperibili nel gruppo **trasformazioni** nel riquadro di spostamento a sinistra.  
   
    
   
@@ -42,7 +42,7 @@ Azure Machine Learning fornisce il supporto per la creazione e l'applicazione di
   
 4. Non è necessario impostare altri parametri, perché durante la definizione della trasformazione viene eseguita la personalizzazione.  
   
-5. Per applicare una trasformazione al nuovo set di dati, eseguire l'esperimento.  
+5. Per applicare una trasformazione al nuovo set di dati, eseguire la pipeline.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

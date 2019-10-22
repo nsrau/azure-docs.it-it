@@ -121,15 +121,8 @@
           href: paas-applications-using-storage.md
         - name: Procedure consigliate per i database per PaaS
           href: paas-applications-using-sql.md
-    - name: IoT
-      href: iot-overview.md
     - name: Sicurezza di Azure Service Fabric
-      href: service-fabric-overview.md
-      items:
-        - name: Procedure consigliate
-          href: service-fabric-best-practices.md
-        - name: Elenco di controllo relativo alla sicurezza
-          href: service-fabric-checklist.md
+      href: service-fabric-best-practices.md
 - name: 'Monitoraggio, controllo e operazioni'
   href: management-monitoring-overview.md
   items:

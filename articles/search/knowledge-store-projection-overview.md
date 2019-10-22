@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.openlocfilehash: c5fb547b18bc4014f91341070f49c4af84c01005
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71265175"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Uso delle proiezioni in un archivio informazioni in ricerca di Azure
@@ -29,9 +29,9 @@ Le proiezioni possono essere tabulari, con dati archiviati in righe e colonne ne
 
 Nell'archivio informazioni sono supportati due tipi di proiezioni:
 
-+ **Tabelle**: Per i dati rappresentati in modo ottimale come righe e colonne, le proiezioni di tabella consentono di definire una forma o proiezione schematizzato nell'archivio tabelle. 
++ **Tabelle**: per i dati rappresentati in modo ottimale come righe e colonne, le proiezioni di tabella consentono di definire una forma o proiezione schematizzato nell'archivio tabelle. 
 
-+ **Oggetti**: Quando è necessaria una rappresentazione JSON dei dati e degli arricchimenti, le proiezioni di oggetti vengono salvate come BLOB.
++ **Oggetti**: quando è necessaria una rappresentazione JSON dei dati e degli arricchimenti, le proiezioni di oggetti vengono salvate come BLOB.
 
 Per visualizzare le proiezioni definite nel contesto, eseguire un'istruzione per iniziare a [usare l'archivio informazioni](knowledge-store-howto.md).
 
@@ -64,18 +64,18 @@ Poiché semplifica l'importazione, si consigliano le proiezioni di tabella per l
 
 ### <a name="defining-a-table-projection"></a>Definizione di una proiezione di tabella
 
-Quando si definisce una proiezione di tabella `knowledgeStore` all'interno dell'elemento dell'elemento Skills, iniziare eseguendo il mapping di un nodo nell'albero di arricchimento all'origine della tabella. In genere, questo nodo è l'output di una competenza di **shaper** aggiunto all'elenco di competenze per produrre una forma specifica che è necessario proiettare nelle tabelle. Il nodo scelto per il progetto può essere sezionato in modo da essere proiettato in più tabelle. La definizione delle tabelle è un elenco di tabelle che si desidera proiettare. 
+Quando si definisce una proiezione di tabella all'interno dell'elemento `knowledgeStore` del suo competenze, iniziare eseguendo il mapping di un nodo nell'albero di arricchimento all'origine della tabella. In genere, questo nodo è l'output di una competenza di **shaper** aggiunto all'elenco di competenze per produrre una forma specifica che è necessario proiettare nelle tabelle. Il nodo scelto per il progetto può essere sezionato in modo da essere proiettato in più tabelle. La definizione delle tabelle è un elenco di tabelle che si desidera proiettare. 
 
 #### <a name="projection-slicing"></a>Sezionamento della proiezione
 Quando si definisce un gruppo di proiezione della tabella, è possibile suddividere in più tabelle correlate un singolo nodo nell'albero di arricchimento. Se si aggiunge una tabella con un percorso di origine figlio di una proiezione di tabella esistente, il nodo figlio verrà sezionato al di fuori del nodo padre e proiettato nella nuova tabella ancora correlata. In questo modo è possibile definire un singolo nodo in un'abilità di shaper che può essere l'origine di tutte le proiezioni di tabella.
 
 Ogni tabella richiede tre proprietà:
 
-+ TableName Nome della tabella in archiviazione di Azure.
++ TableName: il nome della tabella in archiviazione di Azure.
 
-+ generatedKeyName: Nome della colonna per la chiave che identifica in modo univoco questa riga.
++ generatedKeyName: il nome della colonna per la chiave che identifica in modo univoco questa riga.
 
-+ source: Nodo dalla struttura ad albero di arricchimento da cui si ottengono i miglioramenti. Si tratta in genere dell'output di un shaper, ma potrebbe essere l'output di qualsiasi competenza.
++ Source: nodo dall'albero di arricchimento da cui si stanno riprendendo le risorse. Si tratta in genere dell'output di un shaper, ma potrebbe essere l'output di qualsiasi competenza.
 
 Di seguito è riportato un esempio di proiezioni di tabella.
 
@@ -154,9 +154,9 @@ Le proiezioni oggetto sono rappresentazioni JSON dell'albero di arricchimento ch
 
 Per la generazione di una proiezione di oggetti sono necessari alcuni attributi specifici dell'oggetto:
 
-+ StorageContainer Contenitore in cui verranno salvati gli oggetti
-+ source: Percorso del nodo della struttura ad albero di arricchimento che è la radice della proiezione
-+ Chiave Percorso che rappresenta una chiave univoca per l'oggetto da archiviare. Verrà usato per creare il nome del BLOB nel contenitore.
++ storageContainer: il contenitore in cui verranno salvati gli oggetti
++ Source: percorso del nodo della struttura ad albero di arricchimento che è la radice della proiezione
++ Key: un percorso che rappresenta una chiave univoca per l'oggetto da archiviare. Verrà usato per creare il nome del BLOB nel contenitore.
 
 ## <a name="projection-lifecycle"></a>Ciclo di vita della proiezione
 

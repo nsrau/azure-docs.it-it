@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: apimpm
 ms.openlocfilehash: 1189689566da84df6d6b8845bf7c81bd8aa5f1ab
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70072234"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelli di pagina in Gestione API di Azure
@@ -39,7 +39,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ##  <a name="SignIn"></a> Accesso  
  Il modello di **accesso** consente di personalizzare la pagina di accesso del portale per sviluppatori.  
   
- ![Pagina di accesso](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "Modelli della pagina di accesso nel portale per sviluppatori di Gestione API")  
+ ![Pagina di accesso](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "Modelli del portale per sviluppatori della pagina di accesso gestione API")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -138,7 +138,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ##  <a name="SignUp"></a> Iscrizione  
  Il modello di **iscrizione** consente di personalizzare la pagina di iscrizione del portale per sviluppatori.  
   
- ![Pagina di iscrizione](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "Modelli della pagina di iscrizione nel portale per sviluppatori di Gestione API")  
+ ![Pagina di iscrizione](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "Modelli del portale per sviluppatori della pagina di iscrizione gestione API")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -186,7 +186,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ##  <a name="PageNotFound"></a> Pagina non trovata  
  Il modello **Pagina non trovata** consente di personalizzare la pagina Pagina non trovata del portale per sviluppatori.  
   
- ![Pagina non trovata](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "Modelli di Pagina non trovata nel portale per sviluppatori di Gestione API")  
+ ![Pagina non trovata](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "GESTIONE API pagina non trovata modelli del portale per sviluppatori")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -225,7 +225,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
   
 ### <a name="data-model"></a>Modello di dati  
   
-|Proprietà|Type|Descrizione|  
+|Proprietà|Type|Description|  
 |--------------|----------|-----------------|  
 |referenceCode|string|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  
 |errorCode|string|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  
@@ -246,4 +246,4 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli](api-management-developer-portal-templates.md).
+Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](api-management-developer-portal-templates.md).

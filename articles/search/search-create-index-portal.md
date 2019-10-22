@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: heidist
 ms.openlocfilehash: 4abef5a3030643d4c7b91d2911f350190972f1eb
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71937272"
 ---
 # <a name="create-an-azure-search-index-in-the-portal"></a>Creare un indice di Ricerca di Azure nel portale
@@ -27,7 +27,7 @@ La finestra di progettazione degli indici rappresenta solo uno degli approcci pe
 
 2. Fare clic sul collegamento **Aggiungi indice** nella barra dei comandi nella parte superiore della pagina.
 
-   ![Collegamento Aggiungi indice nella barra dei comandi](media/search-create-index-portal/add-index.png "Collegamento Aggiungi indice nella barra dei comandi")
+   ![Aggiungi collegamento Indice nella barra dei comandi](media/search-create-index-portal/add-index.png "Aggiungi collegamento Indice nella barra dei comandi")
 
 3. Assegnare un nome all'indice di Ricerca di Azure. Il riferimento ai nomi di indice è previsto nelle operazioni di indicizzazione e creazione di query. Il nome dell'indice diventa parte dell'URL dell'endpoint usato per le connessioni all'indice e per l'invio di richieste HTTP nell'API REST di Ricerca di Azure.
 
@@ -49,7 +49,7 @@ La composizione dell'indice include un *insieme di campi* che definisce i dati s
 
     La documentazione API di Ricerca di Azure include esempi di codice che presentano un semplice indice *hotel*. Nello screenshot seguente è possibile vedere la definizione dell'indice, che include l'analizzatore di lingua francese specificato durante la definizione dell'indice, che è possibile ricreare come esercitazione nel portale.
 
-    ![Indice demo degli hotel](media/search-create-index-portal/field-definitions.png "Indice demo degli hotel")
+    ![Indice demo degli Alberghi](media/search-create-index-portal/field-definitions.png "Indice demo degli Alberghi")
 
 1. Al termine, fare clic su **Crea** per salvare e creare l'indice.
 
@@ -65,7 +65,7 @@ I campi della stringa spesso sono contrassegnati come **Ricercabile** e **Recupe
 
 Gli attributi del campo determinano le modalità in cui un campo viene usato, ad esempio se viene usato nella ricerca full-text, nella navigazione con facet, nelle operazioni di ordinamento e così via. Nella tabella seguente sono descritti i singoli attributi.
 
-|Attributo|Descrizione|  
+|Attributo|Description|  
 |---------------|-----------------|  
 |**searchable**|Ricercabile full-text, soggetto ad analisi lessicali, ad esempio alla scomposizione delle parole durante l'indicizzazione. Se si imposta un campo ricercabile su un valore come "sunny day", questo viene suddiviso internamente nei singoli token "sunny" e "day". Per informazioni vedere [Funzionamento della ricerca full-text](search-lucene-query-architecture.md).|  
 |**filterable**|A cui si fa riferimento nelle query **$filter**. I campi filtrabili di tipo `Edm.String` o `Collection(Edm.String)` non sono sottoposti a suddivisione delle parole e quindi i confronti riguardano solo le corrispondenze esatte. Se ad esempio si imposta un campo su "sunny day", `$filter=f eq 'sunny'` non troverà corrispondenze, mentre `$filter=f eq 'sunny day'` ne troverà. |  
@@ -80,7 +80,7 @@ Dopo aver creato un indice di Ricerca di Azure, è possibile passare al passaggi
 
 In alternativa, è anche possibile [analizzare in modo approfondito gli indici](search-what-is-an-index.md). Oltre alla raccolta di campi, un indice specifica anche gli analizzatori, gli strumenti suggerimenti, i profili di punteggio e le impostazioni CORS. Il portale offre pagine a schede per definire gli elementi più comuni: i campi, gli analizzatori e gli strumenti di suggerimento. Per creare o modificare altri elementi, è possibile usare l'API REST o .NET SDK.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
  [Funzionamento della ricerca full-text](search-lucene-query-architecture.md)  
  [API REST del servizio Ricerca](https://docs.microsoft.com/rest/api/searchservice/)[ .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)
