@@ -16,10 +16,10 @@ ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 64de004a1d9b3aa011c447fdded51658582586b0
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68825771"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Esercitazione: Configurare Salesforce per il provisioning utenti automatico
@@ -30,7 +30,7 @@ Questa esercitazione descrive le procedure da eseguire in Salesforce e Azure AD 
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
-* Tenant di Azure Active Directory
+* Un tenant di Azure Active Directory
 * Tenant di Salesforce.com
 
 > [!IMPORTANT]
@@ -53,7 +53,7 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
     > [!NOTE]
     > Come parte del processo di provisioning, quest'app importa da Salesforce profili che il cliente può decidere di selezionare durante l'assegnazione di utenti in Azure AD. Si noti che i profili importati da Salesforce vengono visualizzati come ruoli in Azure AD.
 
-## <a name="enable-automated-user-provisioning"></a>Abilitare il provisioning utenti automatico
+## <a name="enable-automated-user-provisioning"></a>Abilitare il provisioning automatizzato degli utenti
 
 Questa sezione illustra la connessione di Azure AD all'API per il provisioning degli account utente di Salesforce e la configurazione del servizio di provisioning per la creazione, l'aggiornamento e la disabilitazione degli account utente assegnati in Salesforce in base all'assegnazione di utenti e gruppi in Azure AD.
 
@@ -82,15 +82,15 @@ In questa sezione viene descritto come abilitare il provisioning utenti degli ac
 
 6. Per ottenere il token di sicurezza di Salesforce, aprire una nuova scheda e accedere allo stesso account di amministratore di Salesforce. Nell'angolo superiore destro della pagina fare clic sul proprio nome e quindi su **Impostazioni**.
 
-    ![Enable automatic user provisioning](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Enable automatic user provisioning")
+    ![Abilita provisioning utenti automatico](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Abilita provisioning utenti automatico")
 
 7. Nel pannello di navigazione sinistro fare clic su **My Personal Information** (Informazioni personali) per espandere la sezione corrispondente e quindi fare clic su **Reset My Security Token** (Reimposta token di sicurezza personale).
   
-    ![Enable automatic user provisioning](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Enable automatic user provisioning")
+    ![Abilita provisioning utenti automatico](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Abilita provisioning utenti automatico")
 
 8. Nella pagina **Reset Security Token** (Reimposta token di sicurezza) fare clic sul pulsante **Reset Security Token** (Reimposta token di sicurezza).
 
-    ![Enable automatic user provisioning](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Enable automatic user provisioning")
+    ![Abilita provisioning utenti automatico](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Abilita provisioning utenti automatico")
 
 9. Controllare la casella di posta elettronica associata a questo account di amministratore. Cercare un messaggio di posta elettronica da Salesforce.com contenente il nuovo token di sicurezza.
 

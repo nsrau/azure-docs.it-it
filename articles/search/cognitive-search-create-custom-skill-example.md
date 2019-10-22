@@ -1,5 +1,5 @@
 ---
-title: 'Esempio: Creazione di una competenza cognitiva personalizzata con API Ricerca entità Bing ricerca di Azure'
+title: 'Esempio: creazione di una competenza cognitiva personalizzata con API Ricerca entità Bing ricerca di Azure'
 description: Illustra l'uso del servizio Ricerca entità Bing in un'abilità personalizzata mappata a una pipeline di indicizzazione di ricerca cognitiva in ricerca di Azure.
 manager: nitinme
 author: luiscabrer
@@ -8,14 +8,14 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: d76a250cc3554b086501899376cb411346a4251c
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: ab2f9e8859fba0c906e181727aab923254e9b620
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266341"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692209"
 ---
-# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Esempio: Creare una competenza personalizzata usando il API Ricerca entità Bing
+# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Esempio: creare una competenza personalizzata usando il API Ricerca entità Bing
 
 In questo esempio viene illustrato come creare un'API Web personalizzata. Questa competenza accetterà le località, le cifre pubbliche e le organizzazioni e restituirà le descrizioni. Nell'esempio viene usata una [funzione di Azure](https://azure.microsoft.com/services/functions/) per eseguire il wrapping del [API ricerca entità Bing](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) in modo che implementi l'interfaccia skill personalizzata.
 
@@ -313,9 +313,9 @@ namespace SampleSkills
 
 Assicurarsi di immettere un valore di *chiave* personalizzato nella `key` costante in base alla chiave ottenuta al momento dell'iscrizione all'API ricerca entità Bing.
 
-Questo esempio include tutto il codice necessario in un singolo file per praticità. È possibile trovare una versione leggermente più strutturata della stessa abilità nel [repository Power Skills](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
+Questo esempio include tutto il codice necessario in un singolo file per praticità. È possibile trovare una versione leggermente più strutturata della stessa capacità, oltre ad altri esempi di competenze personalizzate nel [repository Power Skills](https://aka.ms/entity-search-power-skill).
 
-Naturalmente, è possibile rinominare il file da `Function1.cs` a. `BingEntitySearch.cs`
+Naturalmente, è possibile rinominare il file da `Function1.cs` `BingEntitySearch.cs`.
 
 ## <a name="test-the-function-from-visual-studio"></a>Testare la funzione da Visual Studio
 
@@ -347,7 +347,7 @@ POST https://localhost:7071/api/EntitySearch
 }
 ```
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>Response
 La risposta dovrebbe essere simile all'esempio seguente:
 
 ```json
@@ -383,7 +383,7 @@ Quando si è soddisfatti del comportamento della funzione, è possibile pubblica
 
 1. Al termine della distribuzione, si noti l'URL del sito. Questo è l'indirizzo dell'app per le funzioni in Azure. 
 
-1. Nella [portale di Azure](https://portal.azure.com)passare al gruppo di risorse e cercare la `EntitySearch` funzione pubblicata. Nella sezione **Gestisci** dovrebbe essere presente un elenco Chiavi host. Selezionare l'icona **Copia** icona per la chiave host *predefinita*.  
+1. Nella [portale di Azure](https://portal.azure.com)passare al gruppo di risorse e cercare la funzione `EntitySearch` pubblicata. Nella sezione **Gestisci** dovrebbe essere presente un elenco Chiavi host. Selezionare l'icona **Copia** icona per la chiave host *predefinita*.  
 
 ## <a name="test-the-function-in-azure"></a>Testare la funzione in Azure
 
@@ -393,7 +393,7 @@ Ora che si dispone della chiave host predefinita, testare la funzione come segue
 POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?code=[enter default host key here]
 ```
 
-### <a name="request-body"></a>Corpo della richiesta
+### <a name="request-body"></a>Request Body
 ```json
 {
     "values": [
@@ -476,9 +476,10 @@ Qui viene conteggiata la competenza incorporata per il [riconoscimento delle ent
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-La procedura è stata completata. Il primo arricchimento personalizzato è stato creato. Ora è possibile seguire lo stesso schema per aggiungere funzionalità personalizzate. 
+Congratulazioni. Il primo arricchimento personalizzato è stato creato. Ora è possibile seguire lo stesso schema per aggiungere funzionalità personalizzate. 
 
++ [Power Skills: un repository di competenze personalizzate](https://aka.ms/powerskills)
 + [Aggiungere una competenza personalizzata a una pipeline di ricerca cognitiva](cognitive-search-custom-skill-interface.md)
-+ [Come definire un set di competenze](cognitive-search-defining-skillset.md)
-+ [Creare un set di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
++ [Creare un insieme di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)

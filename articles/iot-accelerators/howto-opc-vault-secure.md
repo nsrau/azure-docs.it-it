@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: b5c886625c944e2f5501859e78506ca89ec3d765
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71203684"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Usare il servizio di gestione certificati dell'insieme di credenziali OPC
@@ -31,12 +31,12 @@ Se non è ancora stato fatto, creare il certificato CA dell'autorità emittente.
 
 ## <a name="secure-opc-ua-applications"></a>Applicazioni OPC UA sicure
 
-### <a name="step-1-register-your-opc-ua-application"></a>Passaggio 1: Registrare l'applicazione OPC UA 
+### <a name="step-1-register-your-opc-ua-application"></a>Passaggio 1: registrare l'applicazione OPC UA 
 
 > [!IMPORTANT]
 > Il ruolo writer è necessario per registrare un'applicazione.
 
-1. Aprire il servizio certificati all' `https://myResourceGroup-app.azurewebsites.net`indirizzo ed accedere.
+1. Aprire il servizio certificati all'`https://myResourceGroup-app.azurewebsites.net` ed accedere.
 2. Passare a **Registra nuovo**. Per la registrazione di un'applicazione, un utente deve avere almeno il ruolo di writer assegnato.
 2. Il modulo di immissione segue le convenzioni di denominazione in OPC UA. Nello screenshot seguente, ad esempio, vengono visualizzate le impostazioni per l'esempio [OPC UA Reference Server](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) nello stack opc UA .NET standard:
 
@@ -44,7 +44,7 @@ Se non è ancora stato fatto, creare il certificato CA dell'autorità emittente.
 
 5. Selezionare **Register (registra** ) per registrare l'applicazione nel database dell'applicazione di servizio certificati. Il flusso di lavoro Guida direttamente l'utente al passaggio successivo per richiedere un certificato firmato per l'applicazione.
 
-### <a name="step-2-secure-your-application-with-a-ca-signed-application-certificate"></a>Passaggio 2: Proteggere l'applicazione con un certificato dell'applicazione firmata dall'autorità di certificazione
+### <a name="step-2-secure-your-application-with-a-ca-signed-application-certificate"></a>Passaggio 2: proteggere l'applicazione con un certificato dell'applicazione firmata dall'autorità di certificazione
 
 Proteggere l'applicazione OPC UA emettendo un certificato firmato in base a una richiesta di firma del certificato (CSR). In alternativa, è possibile richiedere una nuova coppia di chiavi, che include una nuova chiave privata in formato PFX o PEM. Per informazioni sul metodo supportato per l'applicazione, vedere la documentazione del dispositivo OPC UA. In generale, è consigliabile usare il metodo CSR, perché non richiede il trasferimento di una chiave privata in rete.
 
@@ -71,7 +71,7 @@ Proteggere l'applicazione OPC UA emettendo un certificato firmato in base a una 
 8. Dopo aver scaricato e archiviato la chiave privata in modo sicuro, è possibile selezionare **Elimina chiave privata**. Il certificato con la chiave pubblica rimane disponibile per un uso futuro.
 9. A causa dell'utilizzo di un certificato firmato da un'autorità di certificazione, è necessario scaricare anche il certificato CA e l'elenco di revoche di certificati (CRL).
 
-A questo punto, dipende dal dispositivo OPC UA come applicare la nuova coppia di chiavi. In genere, il certificato CA e il CRL vengono copiati in una `trusted` cartella, mentre le chiavi pubbliche e private del certificato dell'applicazione vengono applicate a una `own` cartella nell'archivio certificati. Alcuni dispositivi potrebbero già supportare il push del server per gli aggiornamenti del certificato. Vedere la documentazione del dispositivo OPC UA.
+A questo punto, dipende dal dispositivo OPC UA come applicare la nuova coppia di chiavi. In genere, il certificato CA e il CRL vengono copiati in una cartella `trusted`, mentre le chiavi pubbliche e private del certificato dell'applicazione vengono applicate a una cartella di `own` nell'archivio certificati. Alcuni dispositivi potrebbero già supportare il push del server per gli aggiornamenti del certificato. Vedere la documentazione del dispositivo OPC UA.
 
 #### <a name="request-a-new-certificate-with-a-csr"></a>Richiedere un nuovo certificato con CSR 
 
@@ -96,9 +96,9 @@ A questo punto, dipende dal dispositivo OPC UA come applicare la nuova coppia di
 10. Dopo che il certificato è stato scaricato e archiviato in modo sicuro, è possibile selezionare **Elimina certificato**.
 11. A causa dell'utilizzo di un certificato firmato da un'autorità di certificazione, è necessario scaricare anche il certificato CA e il CRL.
 
-A questo punto, dipende dal dispositivo OPC UA come applicare il nuovo certificato. In genere, il certificato CA e il CRL vengono copiati in una `trusted` cartella, mentre il certificato dell'applicazione viene applicato a una `own` cartella nell'archivio certificati. Alcuni dispositivi potrebbero già supportare il push del server per gli aggiornamenti del certificato. Vedere la documentazione del dispositivo OPC UA.
+A questo punto, dipende dal dispositivo OPC UA come applicare il nuovo certificato. In genere, il certificato CA e il CRL vengono copiati in una cartella `trusted`, mentre il certificato dell'applicazione viene applicato a una cartella di `own` nell'archivio certificati. Alcuni dispositivi potrebbero già supportare il push del server per gli aggiornamenti del certificato. Vedere la documentazione del dispositivo OPC UA.
 
-### <a name="step-4-device-secured"></a>Passaggio 4: Dispositivo protetto
+### <a name="step-4-device-secured"></a>Passaggio 4: dispositivo protetto
 
 Il dispositivo OPC UA è ora pronto per comunicare con altri dispositivi OPC UA protetti da certificati della CA firmati, senza ulteriori configurazioni.
 

@@ -11,10 +11,10 @@ ms.workload: big-compute
 ms.date: 07/19/2019
 ms.author: lahugh
 ms.openlocfilehash: 6ccf530fe2164b3d9b1936648ffe9057c334efd6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70094214"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Analisi dei costi e budget per Azure Batch
@@ -36,7 +36,7 @@ I servizi che non includono macchine virtuali e spazio di archiviazione possono 
 Altri servizi comunemente usati con batch possono includere:
 
 - Application Insights
-- Data factory
+- Data Factory
 - Monitoraggio di Azure
 - Rete virtuale
 - Macchine virtuali con applicazioni grafiche
@@ -50,9 +50,9 @@ Grazie alla portale di Azure, è possibile creare budget e avvisi di spesa per i
 1. Nella portale di Azure selezionare **Gestione costi e fatturazione** dalla barra di spostamento a sinistra.
 1. Selezionare la sottoscrizione nella sezione **sottoscrizioni personali**
 1. Passare a **analisi costi** nella sezione **Gestione costi** della barra di spostamento a sinistra, in cui verrà visualizzata una visualizzazione simile alla seguente:
-1. Selezionare **Aggiungi filtro**. Nel primo elenco a discesa selezionare **risorsa** ![selezionare il filtro risorse.](./media/batch-budget/resource-filter.png)
+1. Selezionare **Aggiungi filtro**. Nel primo elenco a discesa selezionare **resource** ![Select il filtro delle risorse ](./media/batch-budget/resource-filter.png)
 1. Nel secondo elenco a discesa selezionare il pool di batch. Quando il pool è selezionato, l'analisi dei costi sarà simile a quella riportata di seguito.
-    ![Analisi dei costi di un pool](./media/batch-budget/pool-cost-analysis.png)
+    ![Cost l'analisi di un pool ](./media/batch-budget/pool-cost-analysis.png)
 
 L'analisi dei costi risultante Mostra il costo del pool e le risorse che contribuiscono a questo costo. In questo esempio, le macchine virtuali usate nel pool sono la risorsa più costosa.
 
@@ -75,7 +75,7 @@ Per altre informazioni su come configurare le macchine virtuali con priorità ba
 
 ### <a name="virtual-machine-os-disk-type"></a>Tipo di disco del sistema operativo della macchina virtuale
 
-Sono disponibili più [tipi di dischi del sistema operativo VM](../virtual-machines/windows/disks-types.md). Per la maggior parte delle serie VM sono disponibili dimensioni che supportano archiviazione standard e Premium. Quando si selezionano le dimensioni della macchina virtuale per un pool, batch configura i dischi del sistema operativo SSD Premium. Quando viene selezionata la dimensione della macchina virtuale "non s", viene usato il tipo di disco HDD standard più economico. Ad esempio, i dischi del sistema operativo SSD Premium `Standard_D2s_v3` vengono usati per e per i dischi del `Standard_D2_v3`sistema operativo standard HDD.
+Sono disponibili più [tipi di dischi del sistema operativo VM](../virtual-machines/windows/disks-types.md). Per la maggior parte delle serie VM sono disponibili dimensioni che supportano archiviazione standard e Premium. Quando si selezionano le dimensioni della macchina virtuale per un pool, batch configura i dischi del sistema operativo SSD Premium. Quando viene selezionata la dimensione della macchina virtuale "non s", viene usato il tipo di disco HDD standard più economico. Ad esempio, i dischi del sistema operativo SSD Premium vengono usati per la `Standard_D2s_v3` e i dischi del sistema operativo HDD standard vengono usati per `Standard_D2_v3`.
 
 SSD Premium dischi del sistema operativo sono più costosi, ma hanno prestazioni migliori e le macchine virtuali con dischi Premium possono iniziare leggermente più rapidamente rispetto alle VM con dischi del sistema operativo HDD standard. Con batch, il disco del sistema operativo spesso non viene usato molto perché le applicazioni e i file delle attività si trovano nel disco SSD temporaneo delle macchine virtuali. Pertanto, in molti casi, non è necessario pagare il costo maggiore per l'unità SSD Premium di cui viene effettuato il provisioning quando si specifica la dimensione della VM a.
 
@@ -83,7 +83,7 @@ SSD Premium dischi del sistema operativo sono più costosi, ma hanno prestazioni
 
 Se si prevede di usare batch per un lungo periodo di tempo, è possibile risparmiare sui costi delle macchine virtuali usando le [prenotazioni di Azure](../billing/billing-save-compute-costs-reservations.md) per i carichi di lavoro. Una tariffa di prenotazione è notevolmente inferiore rispetto a una tariffa con pagamento in base al consumo. Per le istanze di macchine virtuali usate senza prenotazione viene addebitata una tariffa con pagamento in base al consumo. Se si acquista una prenotazione, viene applicato lo sconto di prenotazione e non vengono più addebitate le tariffe con pagamento in base al consumo.
 
-### <a name="automatic-scaling"></a>Scalabilità automatica
+### <a name="automatic-scaling"></a>Ridimensionamento automatico
 
 Il [ridimensionamento automatico ridimensiona](batch-automatic-scaling.md) in modo dinamico il numero di macchine virtuali nel pool di batch in base alle esigenze del processo corrente. Ridimensionando il pool in base alla durata di un processo, il ridimensionamento automatico garantisce che le macchine virtuali vengano aumentate e usate solo quando è presente un processo da eseguire. Al termine del processo o se non sono presenti processi, le macchine virtuali vengono automaticamente ridimensionate per ridurre le risorse di calcolo. La scalabilità consente di ridurre il costo complessivo della soluzione batch usando solo le risorse necessarie.
 

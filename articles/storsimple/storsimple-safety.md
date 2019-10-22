@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
 ms.openlocfilehash: 4622a8575d7b6a38226ee3a980c05f143c128356
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68963528"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Installazione sicura e funzionamento del dispositivo StorSimple
@@ -33,17 +33,17 @@ Leggere tutte le informazioni di sicurezza e integrità in questo articolo che s
 ## <a name="safety-icon-conventions"></a>Convenzioni di sicurezza
 Ecco le icone dove sono visualizzate le precauzioni di sicurezza da osservare durante l'installazione e l'esecuzione del dispositivo Microsoft Azure StorSimple.
 
-| Icona | Descrizione |
+| Icona | Description |
 |:--- |:--- |
 | ![Icona di pericolo](./media/storsimple-safety/IC740879.png) **PERICOLO!** |Indica una situazione di pericolo che, se non viene evitato, comporterà morte o gravi ferite. Questa parola deve essere limitata a situazioni più estreme. |
 | ![Icona di avviso](./media/storsimple-safety/IC740879.png)**AVVISO!** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |
 | ![Icona di avviso](./media/storsimple-safety/IC740879.png)**ATTENZIONE:** |Indica una situazione di pericolo che, se non viene evitato, comporterà ferite lievi o limitate. |
 | ![Icona di notifica](./media/storsimple-safety/IC740881.png)**NOTIFICA:** |Indica le informazioni considerate importanti, ma non correlate al rischio. |
-| ![Icona di scossa elettrica](./media/storsimple-safety/IC740882.png)**pericolo di scosse elettriche** |Voltaggio |
+| ![Icona di scossa elettrica](./media/storsimple-safety/IC740882.png) **pericolo di scosse elettriche** |Voltaggio |
 | ![Icona peso elevato](./media/storsimple-safety/IC740883.png) **Pesante** | |
 | ![Nessuna icona di parti riparabili dall'utente](./media/storsimple-safety/IC740879.png) **Nessuna parte riparabile dall'utente** |Non accedere a meno che non si sia stati adeguatamente formati. |
 | ![Icona di avviso di sicurezza lettura](./media/storsimple-safety/IC740885.png)**Leggere prima tutte le istruzioni** | |
-| ![Suggerimento di pericolo icona](./media/storsimple-safety/IC740886.png)**Suggerimento di pericolo** | |
+| ![Suggerimento di pericolo icona](./media/storsimple-safety/IC740886.png) **Suggerimento di pericolo** | |
 
 ## <a name="handling-precautions"></a>Precauzioni relative alla gestione
 ![Icona di avviso](./media/storsimple-safety/IC740879.png) ![Icona peso elevato](./media/storsimple-safety/IC740883.png) **AVVISO!** 
@@ -55,7 +55,7 @@ Per ridurre il rischio di ferirsi:
 * Non sollevare lo chassis dagli handle sui moduli di potenza e di raffreddamento (PCM) che si trovano nella parte posteriore dell'unità. Questi non sono progettati per sostenere il peso.
 
 ## <a name="connection-precautions"></a>Precauzioni relative alla connessione
-![Warning Icon](./media/storsimple-safety/IC740879.png)![Electrical Shock Icon](./media/storsimple-safety/IC740882.png)**AVVISO!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **AVVISO!**
 
 Per ridurre la probabilità di ferite, scosse elettriche o morte:
 
@@ -65,7 +65,7 @@ Per ridurre la probabilità di ferite, scosse elettriche o morte:
 * Assicurarsi che le connessioni di alimentazione siano sempre disconnesse prima di rimuovere un PCM dallo chassis.
 * Dato che il cavo di alimentazione Alimentatore Ethernet è il principale dispositivo di disconnessione, accertarsi che si trovino prese vicine alle apparecchiature e che siano facilmente accessibili.
 
-![Warning Icon](./media/storsimple-safety/IC740879.png)![Electrical Shock Icon](./media/storsimple-safety/IC740882.png)**AVVISO!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **AVVISO!**
 
 Per ridurre il rischio di surriscaldamento o fiamme dalle connessioni elettriche:
 
@@ -93,7 +93,7 @@ Per ridurre la probabilità di pregiudizio da un suggerimento su:
 * Quando si carica un rack, riempire rack dalla parte inferiore e vuota dall'alto verso il basso.
 * Non fare scivolare più di una enclosure alla volta per evitare il pericolo di rovesciamento del rack.
 
-![Icona di avviso](./media/storsimple-safety/IC740879.png)![Icona di scossa elettrica](./media/storsimple-safety/IC740882.png)**AVVISO!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **AVVISO!**
 
 Per ridurre la probabilità di ferite, scosse elettriche o morte:
 
@@ -112,7 +112,7 @@ Per il raffreddamento corretto del sistema rack:
 ## <a name="power-cooling-module-pcm-precautions"></a>Precauzioni relative alla potenza modulo raffreddamento (PCM)
 Il dispositivo è progettato per funzionare con due PCM. Ogni PCM dispone di un alimentatore e una ventola a due assi. Durante una condizione critica, il sistema consente un errore di un alimentatore continuando le normali operazioni. Due PCM (e pertanto alimentatori) devono sempre essere installati. Un singolo PCM non fornisce alimentazione ridondante. Pertanto, l'errore di PCM anche una può comportare tempi di inattività o la possibile perdita di dati.
 
-![Icona di avviso](./media/storsimple-safety/IC740879.png)![Icona di scossa elettrica](./media/storsimple-safety/IC740882.png)**AVVISO!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **AVVISO!**
 
 Per ridurre la probabilità di ferite, scosse elettriche o morte:
 

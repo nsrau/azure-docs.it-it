@@ -1,5 +1,5 @@
 ---
-title: 'Pulisci i dati mancanti: Riferimento al modulo'
+title: 'Pulire i dati mancanti: riferimento al modulo'
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il modulo clean Missing data nel servizio Azure Machine Learning per rimuovere, sostituire o dedurre i valori mancanti.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: a65e8224b00bb592d6e0e42abdd304cf325d4412
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7167d53cce2c44f754f438753acda008e53bb2b3
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128943"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693207"
 ---
 # <a name="clean-missing-data-module"></a>Pulisci modulo dati mancanti
 
@@ -50,7 +50,7 @@ Questo modulo consente di definire un'operazione di pulizia. È anche possibile 
 
 Ogni volta che si applica il modulo [Clean Missing data](./clean-missing-data.md) a un set di dati, la stessa operazione di pulizia viene applicata a tutte le colonne selezionate. Se pertanto è necessario pulire colonne diverse utilizzando metodi diversi, utilizzare istanze separate del modulo.
 
-1.  Aggiungere il modulo [Clean Missing data](./clean-missing-data.md) all'esperimento e connettere il set di dati con valori mancanti.  
+1.  Aggiungere il modulo [Clean Missing data](./clean-missing-data.md) alla pipeline e connettere il set di dati con valori mancanti.  
   
 2.  Per le **colonne da pulire**, scegliere le colonne che contengono i valori mancanti che si desidera modificare. È possibile scegliere più colonne, ma è necessario utilizzare lo stesso metodo di sostituzione in tutte le colonne selezionate. Pertanto, in genere è necessario pulire separatamente le colonne stringa e le colonne numeriche.
 
@@ -63,7 +63,7 @@ Ogni volta che si applica il modulo [Clean Missing data](./clean-missing-data.md
 
     3. Per **Includi**selezionare **tipo di colonna** dall'elenco a discesa, quindi selezionare **numerico**oppure un tipo numerico più specifico. 
   
-    Qualsiasi metodo di pulizia o sostituzione scelto deve essere applicabile a **tutte** le colonne nella selezione. Se i dati in una colonna non sono compatibili con l'operazione specificata, il modulo restituisce un errore e arresta l'esperimento.
+    Qualsiasi metodo di pulizia o sostituzione scelto deve essere applicabile a **tutte** le colonne nella selezione. Se i dati in una colonna non sono compatibili con l'operazione specificata, il modulo restituisce un errore e arresta la pipeline.
   
 3.  Per il **rapporto valore mancante minimo**specificare il numero minimo di valori mancanti necessari per l'esecuzione dell'operazione.  
   
@@ -87,23 +87,23 @@ Ogni volta che si applica il modulo [Clean Missing data](./clean-missing-data.md
 5. Per la **modalità di pulizia**, selezionare una delle opzioni seguenti per sostituire o rimuovere i valori mancanti:  
   
   
-    + **Valore di sostituzione personalizzato**: Usare questa opzione per specificare un valore segnaposto, ad esempio 0 o NA, che si applica a tutti i valori mancanti. Il valore specificato come sostituzione deve essere compatibile con il tipo di dati della colonna.
+    + **Valore di sostituzione personalizzato**: usare questa opzione per specificare un valore segnaposto, ad esempio 0 o na, che si applica a tutti i valori mancanti. Il valore specificato come sostituzione deve essere compatibile con il tipo di dati della colonna.
   
-    + **Sostituisci con Mean**: Calcola la media della colonna e utilizza la media come valore di sostituzione per ogni valore mancante nella colonna.  
+    + **Sostituisci con Mean**: calcola la media della colonna e usa la media come valore di sostituzione per ogni valore mancante nella colonna.  
   
         Si applica solo alle colonne con tipi di dati Integer, Double o Boolean.  
   
-    + **Sostituisci con mediana**: Calcola il valore mediano della colonna e usa il valore mediano come sostituzione per qualsiasi valore mancante nella colonna.  
+    + **Sostituisci con mediana**: calcola il valore mediano della colonna e usa il valore mediano come sostituzione per qualsiasi valore mancante nella colonna.  
   
         Si applica solo alle colonne con tipi di dati Integer o Double. 
   
-    + **Sostituisci con modalità**: Calcola la modalità per la colonna e utilizza la modalità come valore di sostituzione per ogni valore mancante nella colonna.  
+    + **Sostituisci con Mode**: calcola la modalità per la colonna e usa la modalità come valore di sostituzione per ogni valore mancante nella colonna.  
   
         Si applica alle colonne con tipi di dati Integer, Double, Boolean o categorico. 
   
-    + **Rimuovi intera riga**: Rimuove completamente una riga nel set di dati con uno o più valori mancanti. Questa operazione è utile se il valore mancante può essere considerato mancante in modo casuale.  
+    + **Rimuovi intera riga**: rimuove completamente tutte le righe del set di dati che hanno uno o più valori mancanti. Questa operazione è utile se il valore mancante può essere considerato mancante in modo casuale.  
   
-    + **Rimuovere l'intera colonna**: Rimuove completamente tutte le colonne del set di dati che hanno uno o più valori mancanti.  
+    + **Rimuovi intera colonna**: rimuove completamente tutte le colonne del set di dati che hanno uno o più valori mancanti.  
   
     
   
@@ -111,29 +111,29 @@ Ogni volta che si applica il modulo [Clean Missing data](./clean-missing-data.md
   
     Si noti che è possibile utilizzare questa opzione solo nelle colonne con tipi di dati Integer, Double, Boolean o date. Per le colonne di data, il valore di sostituzione può anche essere immesso come numero di cicli 100-nanosecondi a partire dalle 1/1/0001 12:00.  
   
-7. **Genera colonna indicatore valore mancante**: Selezionare questa opzione se si desidera restituire un'indicazione che indica se i valori nella colonna soddisfano i criteri per la pulizia dei valori mancanti. Questa opzione è particolarmente utile quando si configura una nuova operazione di pulizia e si desidera assicurarsi che funzioni come previsto.
+7. **Genera colonna indicatore valore mancante**: selezionare questa opzione se si desidera restituire un valore che indica se i valori nella colonna soddisfano i criteri per la pulizia dei valori mancanti. Questa opzione è particolarmente utile quando si configura una nuova operazione di pulizia e si desidera assicurarsi che funzioni come previsto.
   
-8. Eseguire l'esperimento.
+8. Eseguire la pipeline.
 
 ### <a name="results"></a>Risultati
 
 Il modulo restituisce due output:  
 
--   **Set di dati puliti**: Set di dati costituito dalle colonne selezionate, con valori mancanti gestiti come specificato, insieme a una colonna indicatore, se è stata selezionata questa opzione.  
+-   **DataSet pulito**: set di dati costituito dalle colonne selezionate, con valori mancanti gestiti come specificato, insieme a una colonna indicatore, se è stata selezionata questa opzione.  
 
     Anche le colonne non selezionate per la pulizia sono "passate".  
   
--  **Trasformazione pulizia**: Trasformazione dei dati utilizzata per la pulizia, che può essere salvata nell'area di lavoro e applicata ai nuovi dati in un secondo momento.
+-  **Trasformazione pulizia**: trasformazione dei dati usata per la pulizia, che può essere salvata nell'area di lavoro e applicata ai nuovi dati in un secondo momento.
 
 ### <a name="apply-a-saved-cleaning-operation-to-new-data"></a>Applicare un'operazione di pulizia salvata ai nuovi dati  
 
 Se è necessario ripetere spesso le operazioni di pulizia, è consigliabile salvare la ricetta per la pulizia dei dati come *trasformazione*, per riutilizzarla con lo stesso set di dati. Il salvataggio di una trasformazione di pulizia è particolarmente utile se è necessario reimportare di frequente e quindi pulire i dati con lo stesso schema.  
       
-1.  Aggiungere il modulo [Apply Transformation](./apply-transformation.md) all'esperimento.  
+1.  Aggiungere il modulo [Apply Transformation](./apply-transformation.md) alla pipeline.  
   
 2.  Aggiungere il set di dati che si desidera pulire e connettere il set di dati alla porta di input di destra.  
   
-3.  Espandere il gruppo trasformazioni nel riquadro a sinistra dell'interfaccia. Individuare la trasformazione salvata e trascinarla nell'esperimento.  
+3.  Espandere il gruppo **trasformazioni** nel riquadro a sinistra dell'interfaccia. Individuare la trasformazione salvata e trascinarla nella pipeline.  
   
 4.  Connettere la trasformazione salvata alla porta di input sinistra di [Apply Transformation](./apply-transformation.md). 
 
@@ -141,7 +141,7 @@ Se è necessario ripetere spesso le operazioni di pulizia, è consigliabile salv
 
     Si supponga, tuttavia, che sia stata creata una trasformazione su un subset di colonne numeriche. È possibile applicare questa trasformazione a un set di dati di tipi di colonna misti senza generare un errore, in quanto i valori mancanti vengono modificati solo nelle colonne numeriche corrispondenti.
 
-6.  Eseguire l'esperimento.  
+6.  Eseguire la pipeline.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

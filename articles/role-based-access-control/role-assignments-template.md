@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b4eebf7dac4d388411f570b1546c96e3b82b2a98
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 5f57ea658df0569c4e69e476513863abe6940471
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950055"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692898"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e i modelli di Azure Resource Manager
 
@@ -160,7 +160,7 @@ az deployment create --location centralus --template-file rbac-test.json --param
 ```
 
 > [!NOTE]
-> Questo modello non è idempotente a meno che non venga specificato lo stesso valore `roleNameGuid` come parametro per ogni distribuzione del modello. Se non viene specificato alcun `roleNameGuid`, per impostazione predefinita viene generato un nuovo GUID per ogni distribuzione e le distribuzioni successive avranno esito negativo con un errore `Conflict: RoleAssignmentExists`.
+> Questo modello non è idempotente a meno che non venga specificato lo stesso valore di `roleNameGuid` come parametro per ogni distribuzione del modello. Se non viene specificato alcun `roleNameGuid`, per impostazione predefinita viene generato un nuovo GUID per ogni distribuzione e le distribuzioni successive avranno esito negativo con un errore `Conflict: RoleAssignmentExists`.
 
 ## <a name="create-a-role-assignment-at-a-resource-scope"></a>Creare un'assegnazione di ruolo in un ambito di risorsa
 
@@ -232,7 +232,7 @@ Per usare il modello, è necessario specificare gli input seguenti:
         {
             "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
             "apiVersion": "2018-09-01-preview",
-            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', guid(uniqueString(parameters('storageName'))))]",
+            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', guid(uniqueString(variables('storageName'))))]",
             "dependsOn": [
                 "[variables('storageName')]"
             ],
@@ -329,7 +329,7 @@ Di seguito viene illustrato un esempio di assegnazione di ruolo Collaboratore a 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Avvio rapido: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
+- [Guida introduttiva: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 - [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 - [Creare gruppi di risorse e risorse a livello di sottoscrizione](../azure-resource-manager/deploy-to-subscription.md)
-- [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?term=rbac)
+- [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

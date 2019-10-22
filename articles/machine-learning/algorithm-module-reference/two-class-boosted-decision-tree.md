@@ -1,5 +1,5 @@
 ---
-title: 'Albero delle decisioni con boosting a due classi: Riferimento al modulo'
+title: 'Albero delle decisioni con boosting a due classi: riferimento al modulo'
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il modulo a albero delle decisioni con boosting a due classi nel servizio Azure Machine Learning per creare un modello di machine learning basato sull'algoritmo degli alberi delle decisioni con boosting.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 812fb8d312b165bd43f600da520f390f9c6399fe
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 5795dc994872ac5da37a1226524dddd35aa35126
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128410"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692641"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Modulo di albero delle decisioni con boosting a due classi
 
@@ -32,11 +32,11 @@ Questo modulo crea un modello di classificazione non sottoposto a training. Poic
 
 È possibile eseguire il training di questo tipo di modello utilizzando [Train Model](././train-model.md). 
 
-1.  In Azure Machine Learning aggiungere il modulo di **albero delle decisioni** con boosting all'esperimento.
+1.  In Azure Machine Learning aggiungere il modulo di **albero delle decisioni con boosting** alla pipeline.
   
 2.  Specificare il modo in cui si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .
   
-    + **Singolo parametro**: Se si conosce il modo in cui si desidera configurare il modello, è possibile specificare come argomenti un set specifico di valori.
+    + **Singolo parametro**: se si sa come si desidera configurare il modello, è possibile fornire un set di valori specifico come argomenti.
   
   
 3.  Per il **numero massimo di foglie per albero**, indicare il numero massimo di nodi terminali (foglie) che è possibile creare in qualsiasi albero.

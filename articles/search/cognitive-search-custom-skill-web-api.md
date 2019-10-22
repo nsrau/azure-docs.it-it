@@ -9,12 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 89539d42e9ac9456c7ee971f6ea607b6b2c6befa
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: a148f974671e0d909591cbf24a433384a7570842
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266317"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693299"
 ---
 # <a name="custom-web-api-skill"></a>Competenza API Web personalizzata
 
@@ -35,9 +35,9 @@ Microsoft.Skills.Custom.WebApiSkill
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Nome parametro     | Descrizione |
+| Nome parametro     | Description |
 |--------------------|-------------|
-| URI | URI dell'API Web a cui verrà inviato il payload _JSON_ . È consentito solo lo schema URI **https** |
+| Uri | URI dell'API Web a cui verrà inviato il payload _JSON_ . È consentito solo lo schema URI **https** |
 | httpMethod | Metodo da usare per l'invio del payload. I metodi consentiti sono `PUT` o `POST` |
 | httpHeaders | Raccolta di coppie chiave-valore in cui le chiavi corrispondono ai nomi di intestazione e i valori rappresentano i valori di intestazione che verranno inviati all'API Web insieme al payload. In questa raccolta è proibito l'uso delle intestazioni seguenti: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | timeout | (facoltativo) Se specificato, indica il timeout per il client HTTP che effettua la chiamata API. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Ad esempio, `PT60S` per 60 secondi. Se non impostato, viene scelto un valore predefinito di 30 secondi. Il timeout può essere impostato su un massimo di 230 secondi e un minimo di 1 secondo. |
@@ -138,7 +138,7 @@ Seguirà sempre questi vincoli:
 
 ## <a name="sample-output-json-structure"></a>Struttura JSON di output di esempio
 
-L'output corrisponde alla risposta restituita dall'API Web. L'API Web deve restituire solo un payload _JSON_ (verificato osservando l'intestazione `Content-Type` della risposta) e deve soddisfare i vincoli seguenti:
+L'output corrisponde alla risposta restituita dall'API Web. L'API Web deve restituire solo un payload _JSON_ (verificato osservando l'intestazione della risposta `Content-Type`) e deve soddisfare i vincoli seguenti:
 
 * Deve contenere un'entità di primo livello denominata `values` che deve essere una matrice di oggetti.
 * Il numero di oggetti nella matrice deve essere uguale al numero di oggetti inviati all'API Web.
@@ -200,8 +200,9 @@ Oltre alla non disponibilità dell'API Web o all'invio di codici di stato che no
 
 Nei casi in cui l'API Web non è disponibile o restituisce un errore HTTP, un errore descrittivo con i dettagli disponibili sull'errore HTTP verrà aggiunto alla cronologia di esecuzione dell'indicizzatore.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
-+ [Come definire un set di competenze](cognitive-search-defining-skillset.md)
++ [Power Skills: un repository di competenze personalizzate](https://aka.ms/powerskills)
++ [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
 + [Come aggiungere una competenza personalizzata a una pipeline di ricerca cognitiva](cognitive-search-custom-skill-interface.md)
-+ [Esempio: Creare una competenza personalizzata per la ricerca cognitiva](cognitive-search-create-custom-skill-example.md)
++ [Esempio: creazione di un'abilità personalizzata per la ricerca cognitiva](cognitive-search-create-custom-skill-example.md)

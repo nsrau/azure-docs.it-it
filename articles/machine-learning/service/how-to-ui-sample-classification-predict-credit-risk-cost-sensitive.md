@@ -1,7 +1,7 @@
 ---
-title: 'Esempio di interfaccia visiva #4: Classificazione per la stima del rischio di credito (sensibile ai costi)'
+title: 'Esempio di interfaccia visiva #4: classificazione per stimare il rischio di credito (sensibile ai costi)'
 titleSuffix: Azure Machine Learning
-description: Questo articolo illustra come creare un esperimento di Machine Learning complesso usando l'interfaccia visiva. Si apprenderà come implementare script Python personalizzati e confrontare più modelli per scegliere l'opzione migliore.
+description: Questo articolo illustra come creare una pipeline di Machine Learning complessa usando l'interfaccia visiva. Si apprenderà come implementare script Python personalizzati e confrontare più modelli per scegliere l'opzione migliore.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,52 +9,52 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/10/2019
-ms.openlocfilehash: c06da0fd325f6b79bc0e14c4e6a246497f86a900
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/23/2019
+ms.openlocfilehash: 7196e9522695a28a5560faa77860073bd08e25ee
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131909"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693525"
 ---
-# <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Esempio 4-Classificazione: Stimare il rischio di credito (costo sensibile)
+# <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Esempio 4-Classificazione: stimare il rischio di credito (costo sensibile)
 
-Questo articolo illustra come creare un esperimento di Machine Learning complesso usando l'interfaccia visiva. Si apprenderà come implementare la logica personalizzata usando gli script Python e confrontare più modelli per scegliere l'opzione migliore.
+Questo articolo illustra come creare una pipeline di Machine Learning complessa usando l'interfaccia visiva. Si apprenderà come implementare la logica personalizzata usando gli script Python e confrontare più modelli per scegliere l'opzione migliore.
 
 Questo esempio consente di eseguire il training di un classificatore per stimare il rischio di credito usando le informazioni sull'applicazione di credito, ad esempio la cronologia dei crediti, l'età e il numero Tuttavia, è possibile applicare i concetti in questo articolo per risolvere i problemi di apprendimento automatico.
 
 Se si sta iniziando a usare Machine Learning, è possibile esaminare prima di tutto l' [esempio di classificatore di base](how-to-ui-sample-classification-predict-credit-risk-basic.md) .
 
-Ecco il grafo completato per questo esperimento:
+Ecco il grafico completato per questa pipeline:
 
-[![Grafico dell'esperimento](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph della pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Selezionare il pulsante **Apri** per l'esperimento 4 di esempio:
+4. Selezionare il pulsante **Apri** per la pipeline di esempio 4:
 
-    ![Aprire l'esperimento](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
+    ![Aprire la pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
-## <a name="data"></a>Data
+## <a name="data"></a>Dati
 
-Questo esempio usa il set di dati della carta di credito tedesca del repository UC Irvine. Questo set di dati contiene 1.000 esempi con 20 funzionalità e 1 etichetta. Ogni esempio rappresenta una persona. Le 20 funzionalità includono le funzionalità numeriche e categoriche. Per ulteriori informazioni sul set di dati, vedere il [sito Web UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). L'ultima colonna è l'etichetta, che indica il rischio di credito e dispone solo di due valori possibili: High Credit Risk = 2 e low Credit Risk = 1.
+Questo esempio usa il set di dati della carta di credito tedesca del repository UC Irvine. Contiene 1.000 campioni con 20 funzionalità e 1 etichetta. Ogni esempio rappresenta una persona. Le 20 funzionalità includono le funzionalità numeriche e categoriche. Per ulteriori informazioni sul set di dati, vedere il [sito Web UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). L'ultima colonna è l'etichetta, che indica il rischio di credito e dispone solo di due valori possibili: High Credit Risk = 2 e low Credit Risk = 1.
 
-## <a name="experiment-summary"></a>Riepilogo esperimento
+## <a name="pipeline-summary"></a>Riepilogo della pipeline
 
-In questo esperimento si confrontano due approcci diversi per la generazione di modelli per risolvere il problema:
+In questa pipeline si confrontano due approcci diversi per la generazione di modelli per risolvere il problema:
 
 - Training con il set di dati originale.
 - Training con un set di dati replicato.
 
-Con entrambi gli approcci, è possibile valutare i modelli usando il set di dati di test con la replica per assicurarsi che i risultati siano allineati con la funzione cost. Testare due classificatori con entrambi gli approcci: **Macchina a vettori di supporto a due classi** e **albero delle decisioni con boosting**a due classi.
+Con entrambi gli approcci, è possibile valutare i modelli usando il set di dati di test con la replica per assicurarsi che i risultati siano allineati con la funzione cost. Testare due classificatori con entrambi gli approcci: **macchina a vettori di supporto a due classi** e albero delle decisioni con **boosting a due classi**.
 
 Il costo di un'errata classificazione di un esempio a basso rischio è pari a 1 e il costo di una classificazione errata di un esempio ad alto rischio come basso è 5. Viene usato un modulo **Execute Python script** per tenere conto di questo costo di classificazione errata.
 
-Ecco il grafico dell'esperimento:
+Ecco il grafico della pipeline:
 
-[![Grafico dell'esperimento](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph della pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="data-processing"></a>Elaborazione dati
 
@@ -89,7 +89,7 @@ Il modulo **Execute Python script** replica i set di risultati di training e di 
 
 ### <a name="feature-engineering"></a>Progettazione delle funzioni
 
-L'algoritmo di **macchina a vettori di supporto a due classi** richiede i dati normalizzati. Usare quindi il modulo **Normalize data** per normalizzare gli intervalli di tutte le funzionalità numeriche con `tanh` una trasformazione. Una `tanh` trasformazione converte tutte le funzionalità numeriche in valori compresi in un intervallo compreso tra 0 e 1, conservando la distribuzione complessiva dei valori.
+L'algoritmo di **macchina a vettori di supporto a due classi** richiede i dati normalizzati. Usare quindi il modulo **Normalize data** per normalizzare gli intervalli di tutte le funzionalità numeriche con una trasformazione `tanh`. Una trasformazione `tanh` converte tutte le funzionalità numeriche in valori compresi in un intervallo compreso tra 0 e 1, conservando la distribuzione complessiva dei valori.
 
 Il modulo **Two-Class Support Vector Machine** gestisce le funzionalità di stringa, le converte in funzionalità categoriche e quindi in funzionalità binarie con un valore 0 o 1. Non è quindi necessario normalizzare queste funzionalità.
 
@@ -108,11 +108,11 @@ Questo esempio usa il flusso di lavoro di data science standard per creare, eseg
 1. Utilizzare **Train Model** per applicare l'algoritmo ai dati e creare il modello effettivo.
 1. Usare **Score Model** per produrre punteggi usando gli esempi di test.
 
-Il diagramma seguente illustra una parte di questo esperimento, in cui vengono usati i set di training originali e replicati per eseguire il training di due modelli SVM diversi. **Train Model** è connesso al set di training e **Score Model** è connesso al set di test.
+Il diagramma seguente mostra una parte di questa pipeline, in cui vengono usati i set di training originali e replicati per eseguire il training di due modelli SVM diversi. **Train Model** è connesso al set di training e **Score Model** è connesso al set di test.
 
-![Grafico dell'esperimento](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
+![Grafico della pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
-Nella fase di valutazione dell'esperimento viene calcolata l'accuratezza di ognuno dei quattro modelli. Per questo esperimento, usare **Evaluate Model** per confrontare esempi con lo stesso costo di classificazione errata.
+Nella fase di valutazione della pipeline viene calcolata l'accuratezza di ognuno dei quattro modelli. Per questa pipeline, usare **Evaluate Model** per confrontare esempi con lo stesso costo di classificazione errata.
 
 Il modulo **Evaluate Model** consente di calcolare le metriche delle prestazioni per tutti i due modelli con punteggio. Pertanto, è possibile utilizzare un'istanza di **Evaluate Model** per valutare i due modelli SVM e un'altra istanza di **Evaluate Model** per valutare i due modelli di albero delle decisioni con boosting.
 
@@ -142,12 +142,14 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ## <a name="results"></a>Risultati
 
-Per visualizzare i risultati dell'esperimento, è possibile fare clic con il pulsante destro del mouse sull'output di visualizzazione dell'ultimo modulo **Select Columns in DataSet** .
+Per visualizzare i risultati della pipeline, è possibile fare clic con il pulsante destro del mouse sull'output di visualizzazione dell'ultimo modulo **Select Columns in DataSet** .
 
 ![Visualizza output](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/result.png)
 
 La prima colonna elenca l'algoritmo di Machine Learning utilizzato per generare il modello.
+
 La seconda colonna indica il tipo del set di training.
+
 La terza colonna contiene il valore di accuratezza sensibile ai costi.
 
 Da questi risultati è possibile osservare che la precisione migliore viene fornita dal modello creato con una **macchina a vettori di supporto a due classi** e con training sul set di dati di training replicato.
@@ -160,8 +162,9 @@ Da questi risultati è possibile osservare che la precisione migliore viene forn
 
 Esplorare gli altri esempi disponibili per l'interfaccia visiva:
 
-- [Esempio 1: regressione: Stimare il prezzo di un'automobile](how-to-ui-sample-regression-predict-automobile-price-basic.md)
-- [Esempio 2: regressione: Confrontare gli algoritmi per la stima del prezzo dell'automobile](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Esempio 3-classificazione: Stima del rischio di credito](how-to-ui-sample-classification-predict-credit-risk-basic.md)
-- [Esempio 5-classificazione: Varianza stima](how-to-ui-sample-classification-predict-churn.md)
-- [Esempio 6-Classificazione: Stimare i ritardi dei voli](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Esempio 1: regressione: stimare il prezzo di un'automobile](how-to-ui-sample-regression-predict-automobile-price-basic.md)
+- [Esempio 2: regressione: confrontare gli algoritmi per la stima del prezzo dell'automobile](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Esempio 3-classificazione: stima del rischio di credito](how-to-ui-sample-classification-predict-credit-risk-basic.md)
+- [Esempio 5-classificazione: varianza di stima](how-to-ui-sample-classification-predict-churn.md)
+- [Esempio 6-Classificazione: stima dei ritardi dei voli](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Esempio 7-classificazione di testo: revisioni della documentazione](how-to-ui-sample-text-classification.md)

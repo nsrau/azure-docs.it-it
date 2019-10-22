@@ -1,5 +1,5 @@
 ---
-title: 'Esempio di interfaccia visiva #6: Classificazione per la stima dei ritardi dei voli'
+title: 'Esempio di interfaccia visiva #6: classificazione per la stima dei ritardi dei voli'
 titleSuffix: Azure Machine Learning
 description: Questo articolo illustra come creare un modello di apprendimento automatico per stimare i ritardi dei voli usando l'interfaccia visiva di trascinamento della selezione e il codice R personalizzato.
 services: machine-learning
@@ -9,46 +9,44 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
-ms.date: 07/02/2019
-ms.openlocfilehash: 257f6034df7d1974f3964c4d07ca96d17c7fe509
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/23/2019
+ms.openlocfilehash: 6e65075b309ed12505ce6fffadac12af3f16344b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131649"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692589"
 ---
-# <a name="sample-6---classification-predict-flight-delays-using-r"></a>Esempio 6-Classificazione: Stimare i ritardi dei voli usando R
+# <a name="sample-6---classification-predict-flight-delays-using-r"></a>Esempio 6-Classificazione: prevedere i ritardi dei voli usando R
 
-Questo esperimento usa il volo cronologico e i dati meteorologici per prevedere se un volo passeggero pianificato verrà ritardato di oltre 15 minuti.
+Questa pipeline usa il volo cronologico e i dati meteorologici per prevedere se un volo passeggero pianificato verrà ritardato di oltre 15 minuti. Questo problema può essere affrontato come un problema di classificazione, stimando due classi: ritardata o in tempo.
 
-Questo problema può essere affrontato come un problema di classificazione, stimare due classi, ritardate o in tempo. Per compilare un classificatore, questo modello usa un numero elevato di esempi di dati di volo cronologici.
+Ecco il grafico della pipeline finale per questo esempio:
 
-Ecco il grafico dell'esperimento finale per questo esempio:
-
-[![Grafico dell'esperimento](media/how-to-ui-sample-classification-predict-flight-delay/experiment-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph della pipeline](media/how-to-ui-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Selezionare il pulsante **Apri** per l'esperimento Sample 6:
+4. Selezionare il pulsante **Apri** per la pipeline Sample 6:
 
-    ![Aprire l'esperimento](media/how-to-ui-sample-classification-predict-flight-delay/open-sample6.png)
+    ![Aprire la pipeline](media/how-to-ui-sample-classification-predict-flight-delay/open-sample6.png)
 
 ## <a name="get-the-data"></a>Ottenere i dati
 
-Questo esperimento usa il set di **dati dei ritardi dei voli** . Fa parte della raccolta di dati di TranStats da Stati Uniti Reparto di trasporto. Il set di dati contiene informazioni sui ritardi dei voli da aprile a ottobre 2013. Prima di caricare i dati nell'interfaccia visiva, è stata pre-elaborata come indicato di seguito:
+Questo esempio usa il set di **dati dei ritardi dei voli** . Fa parte della raccolta di dati TranStats dal Ministero del trasporto statunitense. Il set di dati contiene informazioni sui ritardi dei voli da aprile a ottobre 2013. Il set di dati è stato pre-elaborato come segue:
 
 * Filtrato per includere gli aeroporti più attivi 70 nella Stati Uniti continentale.
-* Per i voli annullati, rietichettati con un ritardo superiore a 15 minuti.
+* Sono stati rietichettati i voli annullati in ritardo di oltre 15 minuti.
 * Voli deviati esclusi.
 * 14 colonne selezionate.
 
-Per integrare i dati relativi al volo, viene usato il set di dati **Weather** . I dati meteorologici contengono osservazioni meteorologiche basate sul terreno orario da NOAA e rappresentano osservazioni dalle stazioni meteo aeroportuali, che coprono lo stesso periodo di tempo di aprile-ottobre 2013. Prima di caricare l'interfaccia visiva di Azure ML, è stata pre-elaborata come indicato di seguito:
+Per integrare i dati relativi al volo, viene usato il set di dati **Weather** . I dati meteorologici contengono osservazioni meteorologiche basate su base oraria dal NOAA e rappresentano osservazioni dalle stazioni meteo aeroportuali, che coprono lo stesso periodo di tempo del set di dati dei voli. È stata pre-elaborata come indicato di seguito:
 
 * È stato eseguito il mapping degli ID stazione meteo agli ID aeroporto corrispondenti.
 * Le stazioni meteo non associate a 70 aeroporti più attivi sono state rimosse.
-* La colonna della data è stata suddivisa in colonne separate: Anno, mese e giorno.
+* La colonna della data è stata suddivisa in colonne separate: anno, mese e giorno.
 * Selezionato 26 colonne.
 
 ## <a name="pre-process-the-data"></a>Pre-elaborare i dati
@@ -63,13 +61,13 @@ Le colonne **Carrier**, **OriginAirportID**e **DestAirportID** vengono salvate c
 
 ![Modifica-metadati](media/how-to-ui-sample-classification-predict-flight-delay/edit-metadata.png)
 
-Usare quindi il modulo **Select Columns** in DataSet per escludere dalle colonne del set di dati che sono possibili perdite di destinazione: **DepDelay**, **DepDel15**, **ArrDelay**, **annullato**, **anno**. 
+Usare quindi il modulo **Select Columns** in DataSet per escludere le colonne del set di dati che sono possibili perdite di destinazione: **DepDelay**, **DepDel15**, **ArrDelay**, **annullato**, **year**. 
 
 Per unire i record di volo con i record meteorologici orari, usare l'ora di partenza pianificata come una delle chiavi di join. Per eseguire il join, è necessario arrotondare la colonna CSRDepTime all'ora più vicina, eseguita dal modulo **Execute R script** . 
 
 ### <a name="weather-data"></a>Dati meteo
 
-Le colonne con una proporzione elevata di valori mancanti vengono escluse mediante il modulo **Project Columns** . Queste colonne includono tutte le colonne con valori di stringa: **ValueForWindCharacter**, **WetBulbFarenheit**, **WetBulbCelsius**, **PressureTendency**, **PressureChange**, **SeaLevelPressure**e **StationPressure**.
+Le colonne con una proporzione elevata di valori mancanti vengono escluse mediante il modulo **Project Columns** . Queste colonne includono tutte le colonne con valori di stringa: **ValueForWindCharacter**, **WetBulbFarenheit**, **WetBulbCelsius**, **PressureTendency**, **PressureChange**, **SeaLevelPressure**e **StationPressure** .
 
 Il modulo **Clean Missing data** viene quindi applicato alle colonne rimanenti per rimuovere le righe con dati mancanti.
 
@@ -107,12 +105,11 @@ Per compilare un modello, è possibile utilizzare tutte le funzionalità disponi
 Creare un modello usando il modulo di **regressione logistica a due classi** ed eseguirne il training sul set di dati di training. 
 
 Il risultato del modulo **Train Model** è un modello di classificazione sottoposto a training che può essere usato per assegnare punteggi ai nuovi esempi per eseguire stime. Usare il set di test per generare punteggi dai modelli sottoposti a training. Usare quindi il modulo **Evaluate Model** per analizzare e confrontare la qualità dei modelli.
+pipeline dopo l'esecuzione della pipeline, è possibile visualizzare l'output del modulo **Score Model** facendo clic sulla porta di output e selezionando **Visualize (Visualizza**). L'output include le etichette con punteggio e le probabilità per le etichette.
 
-Dopo aver eseguito l'esperimento, è possibile visualizzare l'output del modulo **Score Model** facendo clic sulla porta di output e selezionando **Visualize (Visualizza**). L'output include le etichette con punteggio e le probabilità per le etichette.
+Infine, per testare la qualità dei risultati, aggiungere il modulo **Evaluate Model** nell'area di disegno della pipeline e connettere la porta di input sinistra all'output del modulo Score Model. Eseguire la pipeline e visualizzare l'output del modulo **Evaluate Model** facendo clic sulla porta di output e selezionando **Visualize (Visualizza**).
 
-Infine, per testare la qualità dei risultati, aggiungere il modulo **Evaluate Model** nell'area di disegno dell'esperimento e connettere la porta di input sinistra all'output del modulo Score Model. Eseguire l'esperimento e visualizzare l'output del modulo **Evaluate Model** facendo clic sulla porta di output e selezionando **Visualize (Visualizza**).
-
-## <a name="evaluate"></a>Valuta
+## <a name="evaluate"></a>Metodo Evaluate
 Il modello di regressione logistica dispone dell'AUC di 0,631 sul set di test.
 
  ![evaluate](media/how-to-ui-sample-classification-predict-flight-delay/evaluate.png)
@@ -121,8 +118,9 @@ Il modello di regressione logistica dispone dell'AUC di 0,631 sul set di test.
 
 Esplorare gli altri esempi disponibili per l'interfaccia visiva:
 
-- [Esempio 1: regressione: Stimare il prezzo di un'automobile](how-to-ui-sample-regression-predict-automobile-price-basic.md)
-- [Esempio 2: regressione: Confrontare gli algoritmi per la stima del prezzo dell'automobile](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Esempio 3-classificazione: Stima del rischio di credito](how-to-ui-sample-classification-predict-credit-risk-basic.md)
-- [Esempio 4-Classificazione: Stimare il rischio di credito (costo sensibile)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Esempio 5-classificazione: Varianza stima](how-to-ui-sample-classification-predict-churn.md)
+- [Esempio 1: regressione: stimare il prezzo di un'automobile](how-to-ui-sample-regression-predict-automobile-price-basic.md)
+- [Esempio 2: regressione: confrontare gli algoritmi per la stima del prezzo dell'automobile](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Esempio 3-classificazione: stima del rischio di credito](how-to-ui-sample-classification-predict-credit-risk-basic.md)
+- [Esempio 4-Classificazione: stimare il rischio di credito (costo sensibile)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Esempio 5-classificazione: varianza di stima](how-to-ui-sample-classification-predict-churn.md)
+- [Esempio 7-classificazione di testo: revisioni della documentazione](how-to-ui-sample-text-classification.md)

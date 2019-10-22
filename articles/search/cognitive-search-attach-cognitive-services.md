@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
 ms.openlocfilehash: 113286f829b628d4740fbba34e7279741a934aef
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71265936"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Allegare la risorsa Servizi cognitivi a un set di competenze - Ricerca di Azure 
 
 Gli algoritmi di intelligenza artificiale guidano le [pipeline di indicizzazione cognitive](cognitive-search-concept-intro.md) usate per l'arricchimento dei documenti in ricerca di Azure. Questi algoritmi sono basati sulle risorse dei servizi cognitivi di Azure, tra cui [visione artificiale](https://azure.microsoft.com/services/cognitive-services/computer-vision/) per l'analisi delle immagini e il riconoscimento ottico dei caratteri (OCR) e [analisi del testo](https://azure.microsoft.com/services/cognitive-services/text-analytics/) per il riconoscimento delle entità, l'estrazione di frasi chiave e altri arricchimenti . Come usato da ricerca di Azure per scopi di arricchimento dei documenti, gli algoritmi vengono incapsulati all'interno di un' *abilità*, inseriti in un *skillt*e a cui fa riferimento un *indicizzatore* durante l'indicizzazione.
 
-Puoi arricchire gratuitamente un numero limitato di documenti. In alternativa, è possibile allungare una risorsa di servizi cognitivi fatturabili a un livello di *competenze* per carichi di lavoro più grandi e più frequenti. In questo articolo si apprenderà come alleghi una risorsa di servizi cognitivi fatturabile per arricchire i documenti durante l'[indicizzazione](search-what-is-an-index.md) di ricerca di Azure.
+Puoi arricchire gratuitamente un numero limitato di documenti. In alternativa, è possibile allungare una risorsa di servizi cognitivi fatturabili a un livello di *competenze* per carichi di lavoro più grandi e più frequenti. In questo articolo si apprenderà come alleghi una risorsa di servizi cognitivi fatturabile per arricchire i documenti durante l' [indicizzazione](search-what-is-an-index.md)di ricerca di Azure.
 
 > [!NOTE]
 > Gli eventi fatturabili includono chiamate a API Servizi cognitivi ed estrazione di immagini come parte della fase di cracking del documento in ricerca di Azure. Non è previsto alcun addebito per l'estrazione del testo dai documenti o per le competenze che non chiamano servizi cognitivi.
@@ -28,7 +28,7 @@ Puoi arricchire gratuitamente un numero limitato di documenti. In alternativa, �
 
 ## <a name="same-region-requirement"></a>Requisito della stessa area
 
-È necessario che ricerca di Azure e servizi cognitivi di Azure esistano nella stessa area. In caso contrario, verrà ricevuto questo messaggio in fase di esecuzione:`"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+È necessario che ricerca di Azure e servizi cognitivi di Azure esistano nella stessa area. In caso contrario, verrà ricevuto questo messaggio in fase di esecuzione: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
 
 Non è possibile spostare un servizio tra le aree. Se si riceve questo errore, è necessario creare una nuova risorsa Servizi cognitivi nella stessa area di ricerca di Azure.
 
@@ -51,7 +51,7 @@ Le risorse gratuite (arricchimenti limitati) sono limitate a 20 documenti al gio
 
    ![Sezione Servizi cognitivi allargati collegati](./media/cognitive-search-attach-cognitive-services/attach1.png "Sezione Servizi cognitivi allargati collegati")
 
-1. Continuare con il passaggio successivo, **aggiungere arricchimenti**. Per una descrizione delle competenze disponibili nel portale, vedere [Step 2: Aggiungere competenze](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) cognitive nella Guida introduttiva alla ricerca cognitiva.
+1. Continuare con il passaggio successivo, **aggiungere arricchimenti**. Per una descrizione delle competenze disponibili nel portale, vedere [passaggio 2: aggiungere competenze cognitive](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) nella Guida introduttiva alla ricerca cognitiva.
 
 ## <a name="use-billable-resources"></a>Usare risorse fatturabili
 
@@ -63,7 +63,7 @@ Vengono addebitate solo le competenze che chiamano il API Servizi cognitivi. Non
 
 1. Espandere **Connetti Servizi cognitivi** e quindi selezionare **Crea nuova risorsa Servizi cognitivi**. Viene visualizzata una nuova scheda in cui è possibile creare la risorsa:
 
-   ![Creare una risorsa Servizi cognitivi](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Creare una risorsa Servizi cognitivi")
+   ![Creare una risorsa di servizi cognitivi](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Creare una risorsa per Servizi cognitivi")
 
 1. Nell'elenco **location (percorso** ) selezionare l'area in cui si trova il servizio ricerca di Azure. Assicurarsi di usare questa area per motivi di prestazioni. L'uso di questa area Annulla anche gli addebiti per la larghezza di banda in uscita tra aree.
 
@@ -81,7 +81,7 @@ Vengono addebitate solo le competenze che chiamano il API Servizi cognitivi. Non
 
    ![Selezionare la risorsa Servizi cognitivi](./media/cognitive-search-attach-cognitive-services/attach2.png "Selezionare la risorsa Servizi cognitivi")
 
-1. Espandere la sezione **Aggiungi arricchimenti** per selezionare le competenze cognitive specifiche che si desidera eseguire sui dati. Completare il resto della procedura guidata. Per una descrizione delle competenze disponibili nel portale, vedere [Step 2: Aggiungere competenze](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) cognitive nella Guida introduttiva alla ricerca cognitiva.
+1. Espandere la sezione **Aggiungi arricchimenti** per selezionare le competenze cognitive specifiche che si desidera eseguire sui dati. Completare il resto della procedura guidata. Per una descrizione delle competenze disponibili nel portale, vedere [passaggio 2: aggiungere competenze cognitive](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) nella Guida introduttiva alla ricerca cognitiva.
 
 ## <a name="attach-an-existing-skillset-to-a-cognitive-services-resource"></a>Collegare un set di competenze esistente a una risorsa Servizi cognitivi
 
@@ -89,11 +89,11 @@ Se si ha un set di competenze esistenti, è possibile collegarlo a una risorsa S
 
 1. Nella pagina **Panoramica servizio** selezionare **skillsets**:
 
-   ![Scheda Set di competenze](./media/cognitive-search-attach-cognitive-services/attach-existing1.png "Scheda Set di competenze")
+   ![Scheda skillsets](./media/cognitive-search-attach-cognitive-services/attach-existing1.png "Scheda skillsets")
 
 1. Selezionare il nome del file di competenze, quindi selezionare una risorsa esistente o crearne una nuova. Selezionare **OK** per confermare le modifiche.
 
-   ![Elenco di risorse set di competenze](./media/cognitive-search-attach-cognitive-services/attach-existing2.png "Elenco di risorse set di competenze")
+   ![Elenco delle risorse di competenze](./media/cognitive-search-attach-cognitive-services/attach-existing2.png "Elenco delle risorse di competenze")
 
    Tenere presente che l'opzione **gratuito (arricchimenti limitati)** limita la disponibilità di 20 documenti al giorno e che è possibile usare **Crea nuova risorsa Servizi cognitivi** per eseguire il provisioning di una nuova risorsa fatturabile. Se si crea una nuova risorsa, selezionare **Aggiorna** per aggiornare l'elenco delle risorse Servizi cognitivi, quindi selezionare la risorsa.
 
@@ -101,7 +101,7 @@ Se si ha un set di competenze esistenti, è possibile collegarlo a una risorsa S
 
 Quando si definisce il set di competenze a livello di codice, aggiungere una sezione `cognitiveServices` al set di competenze. In questa sezione, includere la chiave della risorsa Servizi cognitivi che si desidera associare al proprio insieme di competenze. Tenere presente che la risorsa deve trovarsi nella stessa area della risorsa di ricerca di Azure. Aggiungere anche `@odata.type` e impostarlo su `#Microsoft.Azure.Search.CognitiveServicesByKey`.
 
-Il formato è indicato nel seguente esempio. Si noti `cognitiveServices` la sezione alla fine della definizione.
+Il formato è indicato nel seguente esempio. Si noti la sezione `cognitiveServices` alla fine della definizione.
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
@@ -137,7 +137,7 @@ Content-Type: application/json
 }
 ```
 
-## <a name="example-estimate-costs"></a>Esempio: Stimare i costi
+## <a name="example-estimate-costs"></a>Esempio: stimare i costi
 
 Per stimare i costi associati all'indicizzazione della ricerca cognitiva, iniziare con un'idea dell'aspetto di un documento medio, in modo da poter eseguire alcuni numeri. Ad esempio, è possibile approssimarsi:
 
@@ -160,6 +160,6 @@ Riunendola, pagherai circa $57,00 per inserire i documenti PDF 1.000 di questo t
 
 ## <a name="next-steps"></a>Passaggi successivi
 + [Pagina Prezzi di Ricerca di Azure](https://azure.microsoft.com/pricing/details/search/)
-+ [Come definire un set di competenze](cognitive-search-defining-skillset.md)
-+ [Creare un set di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
++ [Creare un insieme di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)

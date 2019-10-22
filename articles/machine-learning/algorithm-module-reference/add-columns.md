@@ -1,5 +1,5 @@
 ---
-title: 'Aggiungi colonne: Riferimento al modulo'
+title: 'Aggiungi colonne: riferimento al modulo'
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il modulo Add columns nel servizio Azure Machine Learning per concatenare due set di impostazioni.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 630f8f7d4561ed6e7e9f943f4b3b123daeee4d67
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: cbb1249b529fde1368bfaff0c6c251c93fa6c309
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129028"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693849"
 ---
 # <a name="add-columns-module"></a>Modulo Aggiungi colonne
 
@@ -25,7 +25,7 @@ Usare questo modulo per concatenare due set di impostazioni. Per creare un singo
 
 
 ## <a name="how-to-configure-add-columns"></a>Come configurare Aggiungi colonne
-1. Aggiungere il modulo **Aggiungi colonne** all'esperimento.
+1. Aggiungere il modulo **Aggiungi colonne** alla pipeline.
 
 2. Connettere i due set di impostazioni che si desidera concatenare. Se si desidera combinare più di due set di impostazioni, è possibile concatenare diverse combinazioni di **Aggiungi colonne**.
 
@@ -33,10 +33,10 @@ Usare questo modulo per concatenare due set di impostazioni. Per creare un singo
 
     - Non è possibile scegliere singole colonne da aggiungere. Tutte le colonne di ogni set di dati vengono concatenate quando si usa **Aggiungi colonne**. Se pertanto si desidera aggiungere solo un subset delle colonne, utilizzare Seleziona colonne nel set di dati per creare un set di dati con le colonne desiderate.
 
-3. Eseguire l'esperimento.
+3. Eseguire la pipeline.
 
 ### <a name="results"></a>Risultati
-Dopo l'esecuzione dell'esperimento:
+Dopo l'esecuzione della pipeline:
 
 - Per visualizzare le prime righe del nuovo set di dati, fare clic con il pulsante destro del mouse sull'output di **Aggiungi colonne** e selezionare Visualizza.
 

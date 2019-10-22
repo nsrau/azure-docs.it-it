@@ -1,5 +1,5 @@
 ---
-title: 'Macchina a vettori di supporto a due classi: Riferimento al modulo'
+title: 'Macchina a vettori di supporto a due classi: riferimento al modulo'
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il modulo **Two-Class Support Vector Machine** nel servizio Azure Machine Learning per creare un modello basato sull'algoritmo della macchina a vettori di supporto.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 23f5c638146472b72078e76745e557b6babe7a49
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c58e66070f137f9c5d713a45682afac5f30bbd1e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128317"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692596"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Modulo della macchina a vettori di supporto a due classi
 
@@ -30,7 +30,7 @@ Dopo aver definito i parametri del modello, eseguire il training del modello usa
 
 Le macchine a vettori di supporto sono tra i primi degli algoritmi di machine learning e i modelli SVM sono stati usati in molte applicazioni, dal recupero delle informazioni alla classificazione di testo e immagini. SVM può essere usato sia per le attività di classificazione che di regressione.
 
-Questo modello SVM è un modello di apprendimento supervisionato che richiede dati con etichetta. Nel processo di training, l'algoritmo analizza i dati di input e riconosce i modelli in uno spazio di funzionalità multidimensionaledenominato iperpiano.  Tutti gli esempi di input sono rappresentati come punti in questo spazio ed è stato eseguito il mapping alle categorie di output in modo che le categorie siano divise per il livello più ampio e determinino il gap possibile.
+Questo modello SVM è un modello di apprendimento supervisionato che richiede dati con etichetta. Nel processo di training, l'algoritmo analizza i dati di input e riconosce i modelli in uno spazio di funzionalità multidimensionale denominato *iperpiano*.  Tutti gli esempi di input sono rappresentati come punti in questo spazio ed è stato eseguito il mapping alle categorie di output in modo che le categorie siano divise per il livello più ampio e determinino il gap possibile.
 
 Per la stima, l'algoritmo SVM assegna nuovi esempi in una categoria o nell'altra, eseguendone il mapping nello stesso spazio. 
 
@@ -38,11 +38,11 @@ Per la stima, l'algoritmo SVM assegna nuovi esempi in una categoria o nell'altra
 
 Per questo tipo di modello, è consigliabile normalizzare il set di dati prima di usarlo per il training del classificatore.
   
-1.  Aggiungere il modulo **Two-Class Support Vector Machine** all'esperimento.  
+1.  Aggiungere il modulo **Two-Class Support Vector Machine** alla pipeline.  
   
 2.  Specificare il modo in cui si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .  
   
-    -   **Singolo parametro**: Se si conosce il modo in cui si desidera configurare il modello, è possibile specificare come argomenti un set specifico di valori.  
+    -   **Singolo parametro**: se si sa come si desidera configurare il modello, è possibile fornire un set di valori specifico come argomenti.  
 
 3.  Per **numero di iterazioni**, digitare un numero che indica il numero di iterazioni utilizzate durante la compilazione del modello.  
   
@@ -52,7 +52,7 @@ Per questo tipo di modello, è consigliabile normalizzare il set di dati prima d
   
      Questo coefficiente di regolarizzazione può essere utilizzato per ottimizzare il modello. I valori più elevati penalizzano i modelli più complessi.  
   
-5.  Selezionare l'opzione normalizzare le **funzionalità**se si vuole normalizzare le funzionalità prima del training.
+5.  Selezionare l'opzione **normalizzare le funzionalità**se si vuole normalizzare le funzionalità prima del training.
   
      Se si applica la normalizzazione, prima del training, i punti dati vengono centrati sul valore medio e ridimensionati in modo da avere un'unità di deviazione standard.
   
@@ -67,13 +67,13 @@ Per questo tipo di modello, è consigliabile normalizzare il set di dati prima d
     -   Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, usare il modulo [Train Model](train-model.md) .
   
 
-10. Eseguire l'esperimento.
+10. Eseguire la pipeline.
 
 ## <a name="results"></a>Risultati
 
 Al termine del training:
 
-+ Per visualizzare un riepilogo dei parametri del modello, insieme ai pesi delle funzionalità appresi dal training, fare clic con il pulsante destro del mouse sull'output di [Train Model](./train-model.md)e selezionare Visualize ( **Visualizza**).
++ Per visualizzare un riepilogo dei parametri del modello, insieme ai pesi delle funzionalità appresi dal training, fare clic con il pulsante destro del mouse sull'output di [Train Model](./train-model.md)e selezionare **Visualize (Visualizza**).
 
 + Per usare i modelli sottoposti a training per eseguire stime, connettere il modello sottoposto a training al modulo [Score Model](score-model.md) .
 

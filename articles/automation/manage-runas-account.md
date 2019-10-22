@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 318a9c2df7902ae89a731ca45b24b8bb6241faa1
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: fd7e94261d8302224b0e31e5f4ac46978dfa812f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498387"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690869"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gestire account RunAs di Automazione di Azure
 
@@ -43,7 +43,7 @@ Esistono due tipi di account RunAs:
 
 ## <a name="permissions"></a>Autorizzazioni per la configurazione degli account RunAs
 
-Per creare o aggiornare un account RunAs, è necessario avere autorizzazioni e privilegi specifici. Un amministratore globale in Azure Active Directory e un proprietario in una sottoscrizione possono completare tutte le attività. Nel caso in cui i compiti siano separati, nella tabella seguente è disponibile un elenco delle attività, il relativo cmdlet e le autorizzazioni necessarie:
+Per creare o aggiornare un account RunAs, è necessario avere autorizzazioni e privilegi specifici. Un amministratore dell'applicazione in Azure Active Directory e un proprietario in una sottoscrizione possono completare tutte le attività. Nel caso in cui i compiti siano separati, nella tabella seguente è disponibile un elenco delle attività, il relativo cmdlet e le autorizzazioni necessarie:
 
 |Attività|Cmdlet  |Autorizzazioni minime  |Dove impostare le autorizzazioni|
 |---|---------|---------|---|
@@ -372,14 +372,14 @@ Per rinnovare il certificato, seguire questa procedura:
 
 Per rinnovare automaticamente i certificati, è possibile usare un Runbook di automazione. Lo script seguente in [GitHub](https://github.com/ikanni/PowerShellScripts/blob/master/AzureAutomation/RunAsAccount/GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1) Abilita questa funzionalità nell'account di automazione.
 
-- Lo `GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1` script crea una pianificazione settimanale per rinnovare i certificati dell'account RunAs.
+- Lo script `GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1` crea una pianificazione settimanale per rinnovare i certificati dell'account RunAs.
 - Lo script aggiunge un Runbook **Update-AutomationRunAsCredential** all'account di automazione.
   - È anche possibile visualizzare il codice Runbook in GitHub, nello script: [Update-AutomationRunAsCredential. ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AutomationRunAsCredential.ps1).
   - È anche possibile usare il codice PowerShell nel file per rinnovare manualmente i certificati in base alle esigenze.
 
 Per testare immediatamente il processo di rinnovo, attenersi alla procedura seguente:
 
-1. Modificare il Runbook **Update-AutomationRunAsCredential** e inserire un carattere di commento`#`() alla riga 122, davanti al `Exit(1)` comando, come illustrato di seguito.
+1. Modificare il Runbook **Update-AutomationRunAsCredential** e inserire un carattere di commento (`#`) alla riga 122, davanti al comando `Exit(1)`, come illustrato di seguito.
 
    ```powershell
    #Exit(1)
@@ -410,11 +410,11 @@ Per testare immediatamente il processo di rinnovo, attenersi alla procedura segu
 Per controllare la destinazione dell'automazione sulle risorse in Azure, è possibile eseguire lo script [Update-AutomationRunAsAccountRoleAssignments. ps1](https://aka.ms/AA5hug8) in PowerShell Gallery per modificare l'entità servizio dell'account RunAs esistente per creare e usare un ruolo personalizzato definizione. Questo ruolo disporrà delle autorizzazioni per tutte le risorse eccetto [Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
 > [!IMPORTANT]
-> Dopo l'esecuzione `Update-AutomationRunAsAccountRoleAssignments.ps1` dello script, manuali operativi che accedono all'insieme di credenziali delle credenziali tramite l'uso degli account RunAs non funzioneranno più. È necessario esaminare manuali operativi nell'account per le chiamate all'insieme di credenziali delle credenziali di Azure.
+> Dopo aver eseguito lo script di `Update-AutomationRunAsAccountRoleAssignments.ps1`, manuali operativi che accedono all'insieme di credenziali delle credenziali tramite l'uso degli account RunAs non funzionerà più. È necessario esaminare manuali operativi nell'account per le chiamate all'insieme di credenziali delle credenziali di Azure.
 >
 > Per abilitare l'accesso a un insieme di credenziali delle credenziali da manuali operativi di automazione di Azure, è necessario [aggiungere l'account RunAs alle autorizzazioni dell'](#add-permissions-to-key-vault)insieme di credenziali.
 
-Se è necessario limitare le operazioni che l'entità servizio RunAs può eseguire ulteriormente, è possibile aggiungere altri tipi di `NotActions` risorse alla della definizione di ruolo personalizzata. Nell'esempio seguente viene limitato l'accesso a `Microsoft.Compute`. Se si aggiunge questo oggetto ai  notacts della definizione di ruolo, questo ruolo non sarà in grado di accedere alle risorse di calcolo. Per altre informazioni sulle definizioni di ruolo, vedere informazioni sulle [definizioni di ruolo per le risorse di Azure](../role-based-access-control/role-definitions.md).
+Se è necessario limitare le operazioni che l'entità servizio RunAs può eseguire ulteriormente, è possibile aggiungere altri tipi di risorse al `NotActions` della definizione di ruolo personalizzata. Nell'esempio seguente viene limitato l'accesso ai `Microsoft.Compute`. Se si aggiunge questo oggetto ai **Notacts** della definizione di ruolo, questo ruolo non sarà in grado di accedere alle risorse di calcolo. Per altre informazioni sulle definizioni di ruolo, vedere informazioni sulle [definizioni di ruolo per le risorse di Azure](../role-based-access-control/role-definitions.md).
 
 ```powershell
 $roleDefinition = Get-AzureRmRoleDefinition -Name 'Automation RunAs Contributor'
@@ -422,9 +422,9 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzureRMRoleDefinition
 ```
 
-Per determinare se l'entità servizio usata dall'account RunAs si trova nel **collaboratore** o in una definizione di ruolo personalizzata, passare all'account di automazione e in **Impostazioni account**Selezionare account **RunAs** > account RunAs di**Azure** . In **ruolo** è presente la definizione di ruolo utilizzata.
+Per determinare se l'entità servizio usata dall'account RunAs si trova nel **collaboratore** o in una definizione di ruolo personalizzata, passare all'account di automazione e in **Impostazioni account**selezionare account **RunAs**  > **account RunAs di Azure**. In **ruolo** è presente la definizione di ruolo utilizzata.
 
-[![](media/manage-runas-account/verify-role.png "Verificare il ruolo account RunAs")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+[![](media/manage-runas-account/verify-role.png "Verify the Run As Account role")](media/manage-runas-account/verify-role-expanded.png#lightbox)
 
 Per determinare la definizione di ruolo utilizzata dagli account RunAs di automazione per più sottoscrizioni o account di automazione, è possibile utilizzare lo script [Check-AutomationRunAsAccountRoleAssignments. ps1](https://aka.ms/AA5hug5) nella PowerShell Gallery.
 

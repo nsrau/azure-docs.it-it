@@ -9,10 +9,10 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.openlocfilehash: 4646cb30ef7602da990e24f923c8eceada4debd0
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71178031"
 ---
 # <a name="query-types-and-composition-in-azure-search"></a>Tipi di query e composizione in Ricerca di Azure
@@ -33,13 +33,13 @@ L'esempio seguente è una query rappresentativa costruita nell' [API REST](https
 }
 ```
 
-+ **`queryType`** imposta il parser, ovvero il parser di [query semplice predefinito](search-query-simple-examples.md) (ottimale per la ricerca full-text) o il [parser di query Lucene completo](search-query-lucene-examples.md) usato per costrutti di query avanzati come le espressioni regolari, la ricerca per prossimità, la ricerca fuzzy e con caratteri jolly, per denominare un pochi.
++ **`queryType`** imposta il parser, ovvero il parser di [query semplice predefinito](search-query-simple-examples.md) (ottimale per la ricerca full-text) o il [parser di query Lucene completo](search-query-lucene-examples.md) usato per costrutti di query avanzati come le espressioni regolari, la ricerca per prossimità, fuzzy e ricerca con caratteri jolly, per citarne alcune.
 
 + **`search`** fornisce la corrispondenza ai criteri, in genere testo ma spesso accompagnato da operatori booleani. I termini singoli autonomi sono query *termine*. Le query in più parti racchiuse tra virgolette sono query *frasi chiave*. La ricerca può essere non definita, come in **`search=*`** , ma è più probabile che sia costituita da termini, frasi e operatori simili a quanto visualizzato nell'esempio.
 
-+ **`searchFields`** vincola l'esecuzione di query a campi specifici. Qualsiasi campo attribuito come *ricercabile* nello schema dell'indice è un candidato per questo parametro.
++ **`searchFields`** vincola l'esecuzione delle query a campi specifici. Qualsiasi campo attribuito come *ricercabile* nello schema dell'indice è un candidato per questo parametro.
 
-Le risposte sono anche delineate dai parametri da includere nella query. Nell'esempio, il set di risultati è costituito da campi elencati nell’istruzione **`select`** . In un'istruzione $select possono essere utilizzati solo i campi contrassegnati come *recuperabili* . Inoltre, in questa **`top`** query vengono restituiti solo i 10 riscontri, **`count`** mentre indica il numero di documenti corrispondenti, che possono essere maggiori di quelli restituiti. In questa query le righe vengono ordinate in base alla classificazione in ordine decrescente.
+Le risposte sono anche delineate dai parametri da includere nella query. Nell'esempio, il set di risultati è costituito da campi elencati nell’istruzione **`select`** . In un'istruzione $select possono essere utilizzati solo i campi contrassegnati come *recuperabili* . Inoltre, in questa query vengono restituiti solo i riscontri **`top`** 10, mentre **`count`** indica il numero di documenti corrispondenti complessivamente, che possono essere maggiori di quelli restituiti. In questa query le righe vengono ordinate in base alla classificazione in ordine decrescente.
 
 Nella Ricerca di Azure, l'esecuzione della query avviene sempre rispetto a un indice e l'autenticazione viene eseguita con una chiave API fornita nella richiesta. In REST, entrambi vengono forniti nelle intestazioni della richiesta.
 
@@ -53,7 +53,7 @@ Per eseguire questa query, usare [Esplora ricerche e l'indice demo degli hotel](
 
 La progettazione di indici e query di progettazione sono strettamente collegati in Ricerca di Azure. Un aspetto essenziale da conoscere fin dall'inizio è che lo *schema dell'indice*, con gli attributi in ogni campo, determina il tipo di query che è possibile compilare. 
 
-Gli attributi dell'indice in un campo impostano le operazioni consentite - se un campo è *ricercabile* nell'indice *recuperabile* nei risultati *ordinabile*,  *filtrabile*e così via. Nella stringa di query di esempio `"$orderby": "Rating"` , funziona solo perché il campo rating è contrassegnato come *ordinabile* nello schema dell'indice. 
+Gli attributi dell'indice in un campo impostano le operazioni consentite - se un campo è *ricercabile* nell'indice *recuperabile* nei risultati *ordinabile*,  *filtrabile*e così via. Nella stringa di query di esempio, `"$orderby": "Rating"` funziona solo perché il campo rating è contrassegnato come *ordinabile* nello schema dell'indice. 
 
 ![Definizione di indice per l'esempio di Hotel](./media/search-query-overview/hotel-sample-index-definition.png "Definizione di indice per l'esempio di Hotel")
 
@@ -80,7 +80,7 @@ Tutti gli altri parametri di ricerca sono facoltativi. Per l'elenco completo deg
 
 La tabella seguente elenca le API e i metodi basati su strumenti per inviare query.
 
-| Metodologia | Descrizione |
+| Metodologia | Description |
 |-------------|-------------|
 | [Esplora ricerche (portale)](search-explorer.md) | Fornisce opzioni e una barra di ricerca per selezioni indice e versione API. I risultati vengono restituiti come documenti JSON. Consigliato per l'esplorazione, il test e la convalida. <br/>[Altre informazioni.](search-get-started-portal.md#query-index) | 
 | [Postazione o altri strumenti REST](search-get-started-postman.md) | Gli strumenti di test Web sono un'ottima scelta per formulare le chiamate REST. L'API REST supporta tutte le operazioni possibili in Ricerca di Azure. In questo articolo viene spiegato come configurare l'intestazione e il corpo di una richiesta HTTP per l'invio di richieste a Ricerca di Azure.  |
@@ -93,13 +93,13 @@ Ricerca di Azure si basa su Apache Lucene e consente di scegliere tra due parser
 
 La [sintassi di query Lucene completa](query-Lucene-syntax.md#bkmk_syntax), che viene abilitata quando si aggiunge `queryType=full` alla richiesta, espone il linguaggio di query espressivo e ampiamente usato sviluppato come parte di [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). La Sintassi completa estende la sintassi semplice. Qualsiasi query scritta per la sintassi semplice viene eseguita con il parser di Lucene full. 
 
-Gli esempi seguenti illustrano il punto: eseguire una query, ma con impostazioni queryType diverse, genera risultati diversi. Nella prima query il `^3` metodo after `historic` viene considerato come parte del termine di ricerca. Il risultato in primo piano per questa query è "Marquis Plaza & Suites", che ha l' *oceano* nella descrizione
+Gli esempi seguenti illustrano il punto: eseguire una query, ma con impostazioni queryType diverse, genera risultati diversi. Nella prima query, il `^3` dopo la `historic` viene considerato come parte del termine di ricerca. Il risultato in primo piano per questa query è "Marquis Plaza & Suites", che ha l' *oceano* nella descrizione
 
 ```
 queryType=simple&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
-La stessa query `^3` che usa il parser Lucene completo interpreta come un richiamo di termine nel campo. Il passaggio dei parser comporta la modifica del rango, con risultati che contengono il termine spostamento *cronologico* verso l'alto.
+La stessa query che usa il parser Lucene completo interpreta `^3` come un richiamo del termine nel campo. Il passaggio dei parser comporta la modifica del rango, con risultati che contengono il termine spostamento *cronologico* verso l'alto.
 
 ```
 queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
@@ -157,7 +157,7 @@ Se si vuole che Ricerca di Azure restituisca i risultati ordinati in base a un v
 ### <a name="hit-highlighting"></a>Evidenziazione dei risultati
 In Ricerca di Azure è semplice mettere in evidenza la parte esatta dei risultati della ricerca che corrispondono alla query di ricerca usando i parametri **`highlight`** , **`highlightPreTag`** , e **`highlightPostTag`** . È possibile specificare quali campi *ricercabili* devono avere il testo corrispondente evidenziato e specificare anche i tag della stringa esatta da aggiungere all'inizio e alla fine del testo corrispondente restituito da Ricerca di Azure.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 + [Come funziona la ricerca full-text in Ricerca di Azure (architettura di analisi delle query)](search-lucene-query-architecture.md)
 + [Esplora ricerche](search-explorer.md)

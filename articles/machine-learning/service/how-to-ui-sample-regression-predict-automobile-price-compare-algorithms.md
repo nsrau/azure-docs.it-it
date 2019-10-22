@@ -1,7 +1,7 @@
 ---
 title: 'Esempio di interfaccia visiva #3: regressione al prezzo e confrontare gli algoritmi'
 titleSuffix: Azure Machine Learning
-description: Questo articolo illustra come creare un esperimento di apprendimento automatico complesso senza scrivere una sola riga di codice usando l'interfaccia visiva. Informazioni su come eseguire il training e il confronto di più modelli di regressione per stimare il prezzo di un'automobile in base alle funzionalità tecniche
+description: Questo articolo illustra come creare una pipeline di Machine Learning complessa senza scrivere una sola riga di codice usando l'interfaccia visiva. Informazioni su come eseguire il training e il confronto di più modelli di regressione per stimare il prezzo di un'automobile in base alle funzionalità tecniche
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,34 +10,34 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: c40d76b87ca7437e25c567176b0309f08f3ca9f2
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 651644eaae910792aac2144531d09afc4cde7153
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131571"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692808"
 ---
-# <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Esempio 2: regressione: Stimare il prezzo e confrontare gli algoritmi
+# <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Esempio 2-regressione: stimare il prezzo e confrontare gli algoritmi
 
-Informazioni su come creare un esperimento di apprendimento automatico complesso senza scrivere una singola riga di codice usando l'interfaccia visiva. Questo esempio consente di eseguire il training e confrontare più modelli di regressione per stimare il prezzo di un'automobile in base alle funzionalità tecniche. Forniremo la logica per le scelte effettuate in questo esperimento, in modo da poter affrontare i problemi di apprendimento automatico.
+Informazioni su come creare una pipeline di Machine Learning complessa senza scrivere una singola riga di codice usando l'interfaccia visiva. Questo esempio consente di eseguire il training e confrontare più modelli di regressione per stimare il prezzo di un'automobile in base alle funzionalità tecniche. Forniremo la logica per le scelte effettuate in questa pipeline, in modo da poter affrontare i problemi di apprendimento automatico.
 
-Se si sta iniziando a usare Machine Learning, vedere la [versione di base](how-to-ui-sample-regression-predict-automobile-price-basic.md) di questo esperimento.
+Se si sta iniziando a usare Machine Learning, vedere la [versione di base](how-to-ui-sample-regression-predict-automobile-price-basic.md) di questa pipeline.
 
-Ecco il grafo completato per questo esperimento:
+Ecco il grafico completato per questa pipeline:
 
-[![Grafico dell'esperimento](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph della pipeline](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Selezionare il pulsante **Apri** per l'esperimento di esempio 2:
+4. Selezionare il pulsante **Apri** per la pipeline di esempio 2:
 
-    ![Aprire l'esperimento](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
+    ![Aprire la pipeline](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
-## <a name="experiment-summary"></a>Riepilogo esperimento
+## <a name="pipeline-summary"></a>Riepilogo della pipeline
 
-Seguire questa procedura per creare l'esperimento di Machine Learning:
+Per compilare la pipeline di Machine Learning, seguire questa procedura:
 
 1. Ottenere i dati.
 1. Pre-elaborare i dati.
@@ -56,15 +56,13 @@ Usare il modulo **Select Columns in DataSet** per escludere le perdite normalizz
 
 ![Pre-elaborazione dei dati](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
 
-## <a name="train-the-model"></a>Eseguire il training del modello
+## <a name="train-the-model"></a>Training del modello
 
 I problemi di Machine Learning variano. Le attività comuni di Machine Learning includono sistemi di classificazione, clustering, regressione e raccomandazione, ciascuno dei quali potrebbe richiedere un algoritmo diverso. La scelta dell'algoritmo dipende spesso dai requisiti del caso d'uso. Dopo aver selezionato un algoritmo, è necessario ottimizzarne i parametri per eseguire il training di un modello più accurato. È quindi necessario valutare tutti i modelli in base alle metriche come accuratezza, intelligibilità ed efficienza.
 
-Dato che l'obiettivo di questo esperimento è stimare i prezzi delle automobili e perché la colonna Label (price) contiene numeri reali, un modello di regressione è una scelta ottimale. Poiché il numero di funzionalità è relativamente ridotto (inferiore a 100) e queste funzionalità non sono di tipo sparse, è probabile che il limite della decisione sia non lineare.
+Poiché l'obiettivo di questa pipeline è stimare i prezzi delle automobili e perché la colonna Label (price) contiene numeri reali, un modello di regressione è una scelta ottimale. Poiché il numero di funzionalità è relativamente ridotto (inferiore a 100) e queste funzionalità non sono di tipo sparse, è probabile che il limite della decisione sia non lineare.
 
-Dato che l'obiettivo di questo esperimento è stimare i prezzi delle automobili e perché la colonna Label (price) contiene numeri reali, un modello di regressione è una scelta ottimale. Poiché il numero di funzionalità è relativamente ridotto (inferiore a 100) e queste funzionalità non sono di tipo sparse, è probabile che il limite della decisione sia non lineare.
-
-Per confrontare le prestazioni di algoritmi diversi, vengono usati due algoritmi non lineari, la **regressione dell'albero delle decisioni con boosting** e la **regressione della foresta delle decisioni**, per la compilazione dei modelli. Entrambi gli algoritmi hanno parametri che è possibile modificare, ma in questo esempio vengono usati i valori predefiniti per questo esperimento.
+Per confrontare le prestazioni di algoritmi diversi, vengono usati due algoritmi non lineari, la **regressione dell'albero delle decisioni con boosting** e la **regressione della foresta delle decisioni**, per la compilazione dei modelli. Entrambi gli algoritmi hanno parametri che è possibile modificare, ma in questo esempio vengono usati i valori predefiniti per questa pipeline.
 
 Usare il modulo **Split data** per dividere in modo casuale i dati di input in modo che il set di dati di training contenga il 70% dei dati originali e il set di dati di testing contenga il 30% dei dati originali.
 
@@ -74,7 +72,7 @@ Usare due diversi set di dati scelti in modo casuale per eseguire il training e 
 
 Dopo aver eseguito il training del modello, utilizzare i moduli **Score Model** e **Evaluate Model** per generare risultati stimati e valutare i modelli. **Score Model** genera stime per il set di dati di test usando il modello sottoposto a training. Passare quindi i punteggi per **valutare il modello** per generare le metriche di valutazione.
 
-In questo esperimento vengono usate due istanze di **Evaluate Model** per confrontare due coppie di modelli.
+In questa pipeline vengono usate due istanze di **Evaluate Model** per confrontare due coppie di modelli.
 
 Confrontare innanzitutto due algoritmi nel set di dati di training.
 In secondo luogo, confrontare due algoritmi nel set di dati di testing.
@@ -95,8 +93,9 @@ Entrambi gli algoritmi hanno un errore inferiore nel set di dati di training ris
 
 Esplorare gli altri esempi disponibili per l'interfaccia visiva:
 
-- [Esempio 1: regressione: Stimare il prezzo di un'automobile](how-to-ui-sample-regression-predict-automobile-price-basic.md)
-- [Esempio 3-classificazione: Stima del rischio di credito](how-to-ui-sample-classification-predict-credit-risk-basic.md)
-- [Esempio 4-Classificazione: Stimare il rischio di credito (costo sensibile)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Esempio 5-classificazione: Varianza stima](how-to-ui-sample-classification-predict-churn.md)
-- [Esempio 6-Classificazione: Stimare i ritardi dei voli](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Esempio 1: regressione: stimare il prezzo di un'automobile](how-to-ui-sample-regression-predict-automobile-price-basic.md)
+- [Esempio 3-classificazione: stima del rischio di credito](how-to-ui-sample-classification-predict-credit-risk-basic.md)
+- [Esempio 4-Classificazione: stimare il rischio di credito (costo sensibile)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Esempio 5-classificazione: varianza di stima](how-to-ui-sample-classification-predict-churn.md)
+- [Esempio 6-Classificazione: stima dei ritardi dei voli](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Esempio 7-classificazione di testo: revisioni della documentazione](how-to-ui-sample-text-classification.md)

@@ -10,18 +10,38 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: f51b9c3032518fb66215126c5a8bf26ab9b59526
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5ea900efffe1aa0eec768c5376128bad72e85ca4
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331564"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693539"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
 In questo articolo vengono fornite informazioni sulle versioni Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) . 
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
+
+## <a name="2019-10-21"></a>2019-10-21
+
+### <a name="visual-interface-preview"></a>Interfaccia visuale (anteprima)
+
++ L'interfaccia visiva Azure Machine Learning (anteprima) è stata revisionata per l'esecuzione su [Azure Machine Learning pipeline](concept-ml-pipelines.md). Le pipeline (note in precedenza come esperimenti) create nell'interfaccia visiva sono ora completamente integrate con l'esperienza di base Azure Machine Learning.
+  + Esperienza di gestione unificata con asset SDK
+  + Controllo delle versioni e rilevamento per modelli di interfaccia visivi, pipeline ed endpoint 
+  + Interfaccia utente riprogettata
+  + Aggiunta della distribuzione di batch inferenza
+  + Aggiunto il supporto di Azure Kubernetes Service (AKS) per l'inferenza di destinazioni di calcolo
+  + Nuovo flusso di lavoro di creazione della pipeline Python-Step
+  + Nuova [pagina di destinazione](https://ml.azure.com) per gli strumenti di creazione visiva
+
++ **Nuovi moduli**
+  + Applica operazione matematica
+  + Applica trasformazione SQL
+  + Ritaglia valori
+  + Riepiloga dati
+  + Importa da database SQL  
 
 ## <a name="2019-10-14"></a>2019-10-14
 
@@ -68,6 +88,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Non sarà più possibile eseguire l'operazione padre quando l'iterazione del programma di installazione non è riuscita perché l'orchestrazione si occupa già di tale operazione.
     + Aggiunta del supporto locale-Docker e locale-conda per gli esperimenti AutoML
 
+
 ## <a name="2019-10-08"></a>2019-10-08
 
 ### <a name="new-web-experience-preview-for-azure-machine-learning-workspaces"></a>Nuova esperienza Web (anteprima) per aree di lavoro Azure Machine Learning
@@ -111,7 +132,7 @@ La scheda Experiment (esperimento) del [nuovo portale dell'area di lavoro](http:
   + **azureml-Core**
     + Aggiunta della possibilità di recuperare l'URL di firma di accesso condiviso nel modello nell'archiviazione tramite l'oggetto modello. Esempio: Model. Get _sas_url ()
     + Introdurre `run.get_details()['datasets']` per ottenere i set di impostazioni associati all'esecuzione inviata
-    + Aggiungere l'API `Dataset.Tabular.from_json_lines_files` per creare un TabularDataset da file di righe JSON. Per informazioni su questi dati tabulari nei file di righe JSON in TabularDataset, vedere https://aka.ms/azureml-data per la documentazione.
+    + Aggiungere `Dataset.Tabular.from_json_lines_files` API per creare un TabularDataset da file di righe JSON. Per informazioni su questi dati tabulari nei file di righe JSON in TabularDataset, vedere https://aka.ms/azureml-data per la documentazione.
     + Aggiunta di campi di dimensioni di VM aggiuntivi (disco del sistema operativo, numero di GPU) alla funzione supported_vmsizes ()
     + Sono stati aggiunti altri campi alla funzione list_nodes () per visualizzare l'esecuzione, l'indirizzo IP privato e pubblico, la porta e così via.
     + Possibilità di specificare un nuovo campo durante il provisioning del cluster: remotelogin_port_public_access che può essere impostato su abilitato o disabilitato a seconda che si desideri lasciare aperta o chiusa la porta SSH al momento della creazione del cluster. Se non viene specificato, il servizio aprirà o chiuderà in modo intelligente la porta a seconda che si stia distribuendo il cluster all'interno di una VNet.
@@ -150,7 +171,7 @@ La scheda Experiment (esperimento) del [nuovo portale dell'area di lavoro](http:
     + È stata rivisitata la gestione delle eccezioni nel codice ADB e sono state apportate modifiche a in base alla nuova gestione degli errori
     + Aggiunta dell'autenticazione MSI automatica per le macchine virtuali del notebook.
     + Corregge il bug in cui è possibile caricare modelli danneggiati o vuoti a causa di tentativi non riusciti.
-    + Correzione del bug in cui il nome `DataReference` cambia quando viene modificata la modalità `DataReference` (ad esempio, quando si chiama `as_upload`, `as_download` o `as_mount`).
+    + Correzione del bug in cui `DataReference` nome cambia quando viene modificata la modalità di `DataReference`, ad esempio quando si chiama `as_upload`, `as_download` o `as_mount`.
     + Rendere `mount_point` e `target_path` facoltativo per `FileDataset.mount` e `FileDataset.download`.
     + Eccezione che non è possibile trovare la colonna timestamp se l'API relativa alle serie temporali è chiamata senza una colonna di tipo timestamp assegnata o se le colonne timestamp assegnate vengono eliminate.
     + Le colonne delle serie temporali devono essere assegnate con la colonna il cui tipo è date. in caso contrario, è prevista l'eccezione
@@ -224,7 +245,7 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
     + I modelli AutoML ora restituiscono AutoMLExceptions
     + Questa versione migliora le prestazioni di esecuzione delle esecuzioni locali automatiche di machine learning.
   + **azureml-Core**
-    + Introdurre DataSet. Get _all (area di lavoro), che restituisce un dizionario di oggetti `TabularDataset` e `FileDataset` con chiave per nome di registrazione. 
+    + Introdurre DataSet. Get _all (area di lavoro), che restituisce un dizionario di `TabularDataset` e `FileDataset` oggetti con chiave in base al nome di registrazione. 
     
     ```py 
     workspace = Workspace.from_config() 
@@ -244,7 +265,7 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
     + Il parametro feature_maps è stato aggiunto al nuovo MimicWrapper, consentendo agli utenti di ottenere spiegazioni sulle funzionalità non elaborate.
     + Per impostazione predefinita, i caricamenti del set di dati sono disattivati per la spiegazione e possono essere riabilitati con upload_datasets = true
     + Aggiunta dei parametri di filtro "is_law" all'elenco di spiegazione e alle funzioni di download.
-    + Aggiunge il metodo `get_raw_explanation(feature_maps)` agli oggetti spiegazione globale e locale.
+    + Aggiunge `get_raw_explanation(feature_maps)` di metodo agli oggetti spiegazione globale e locale.
     + Aggiunta del controllo della versione a lightgbm con avviso stampato se la versione supportata è la seguente
     + Utilizzo di memoria ottimizzato durante l'invio in batch di spiegazioni
     + I modelli AutoML ora restituiscono AutoMLExceptions
@@ -259,7 +280,7 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
 + **Correzioni di bug e miglioramenti**
   + È stata abilitata la scrittura in ADLS/ADLSGen2 usando il percorso non elaborato e le credenziali.
   + Correzione di un bug che causava il mancato funzionamento di `include_path=True` per `read_parquet`.
-  + Correzione di un errore `to_pandas_dataframe()` causato dall'eccezione "valore di proprietà non valido: hostSecret".
+  + Correzione dell'errore `to_pandas_dataframe()` causata dall'eccezione "valore di proprietà non valido: hostSecret".
   + Correzione di un bug per cui non è stato possibile leggere i file in DBFS in modalità Spark.
   
 ## <a name="2019-08-19"></a>2019-08-19
@@ -308,7 +329,7 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
     + È ora possibile aggiornare il certificato SSL per l'endpoint di assegnazione dei punteggi distribuito nel cluster AKS sia per il certificato generato da Microsoft che per il cliente.
   + **azureml-explain-Model**
     + Aggiunta del parametro per aggiungere un ID modello alle spiegazioni al caricamento.
-    + Aggiunta dell'assegnazione di tag `is_raw` alle spiegazioni in memoria e caricamento.
+    + Aggiunta `is_raw` l'assegnazione di tag alle spiegazioni in memoria e caricamento.
     + Aggiunta del supporto di pytorch e test per il pacchetto azureml-explain-Model.
   + **azureml-opendatasets**
     + Supporto per il rilevamento e la registrazione dell'ambiente di test automatico.
@@ -331,11 +352,11 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1112"></a>Azure Machine Learning data Prep SDK v 1.1.12
 + **Nuove funzionalità**
-  + È ora possibile passare gli elenchi di stringhe come input ai metodi `read_*`.
+  + È ora possibile passare gli elenchi di stringhe come input per `read_*` metodi.
 
 + **Correzioni di bug e miglioramenti**
   + Le prestazioni di `read_parquet` sono state migliorate significativamente durante l'esecuzione in Spark.
-  + È stato risolto un problema per cui `column_type_builder` ha avuto esito negativo in caso di una singola colonna con formati di data ambigui.
+  + Correzione di un problema per cui `column_type_builder` ha avuto esito negativo in caso di una singola colonna con formati di data ambigui.
 
 ### <a name="azure-portal"></a>Portale di Azure
 + **Funzionalità di anteprima**
@@ -372,7 +393,7 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
     + Aggiunta del supporto per l'utilizzo di un oggetto Environment quando si distribuisce un modello in un WebService. È ora possibile fornire l'oggetto Environment come parte dell'oggetto InferenceConfig.
     + Aggiungere il mapping di appinsifht per le nuove aree-centralus-westus-northcentralus
     + Aggiunta della documentazione per tutti gli attributi di tutte le classi di archivio dati.
-    + Aggiunta del parametro blob_cache_timeout a `Datastore.register_azure_blob_container`.
+    + Aggiunta del parametro blob_cache_timeout al `Datastore.register_azure_blob_container`.
     + Aggiunta di metodi save_to_directory e load_from_directory a azureml. Core. Environment. Environment.
     + Sono stati aggiunti i comandi "AZ ml Environment download" e "AZ ml Environment Register" all'interfaccia della riga di comando.
     + Aggiunto ambiente. aggiungere il metodo _private_pip_wheel.
@@ -388,7 +409,7 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
     + Aggiunta del supporto per i parametri della pipeline nel passaggio DatabricksStep.
   + **azureml-Train-automl**
     + Aggiunta di docstrings per i file correlati all'insieme.
-    + Aggiornamento di docs a un linguaggio più appropriato per `max_cores_per_iteration` e `max_concurrent_iterations`
+    + Aggiornamento di docs alla lingua più appropriata per `max_cores_per_iteration` e `max_concurrent_iterations`
     + La registrazione delle attività di previsione sulle esecuzioni remote è stata migliorata. l'utente viene ora fornito con un messaggio di errore completo se l'esecuzione non è riuscita.
     + Rimosso get_Data dalla pipeline automlstep notebook.
     + Il supporto di dataprep è stato avviato in automlstep.
@@ -397,7 +418,7 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
 
 + **Nuove funzionalità**
   + È ora possibile richiedere l'esecuzione di controlli specifici, ad esempio istogramma, grafico a dispersione e così via, su colonne specifiche.
-  + Aggiunto un argomento parallelizzare a `append_columns`. Se true, i dati verranno caricati in memoria, ma l'esecuzione verrà eseguita in parallelo; Se false, l'esecuzione sarà di flusso ma a thread singolo.
+  + Aggiunto un argomento parallelizzare per `append_columns`. Se true, i dati verranno caricati in memoria, ma l'esecuzione verrà eseguita in parallelo; Se false, l'esecuzione sarà di flusso ma a thread singolo.
 
 ## <a name="2019-07-23"></a>2019-07-23
 
@@ -440,7 +461,7 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
     + Aggiornare la dipendenza NimbusML alla versione 1.2.0 (Current Latest).
   + **azureml-Core**
     + Aggiunta della possibilità di alleghire archivi dati DBFS nell'interfaccia della riga di comando di AzureML 
-    + Correzione del bug relativo al caricamento dell'archivio dati in cui viene creata una cartella vuota se `target_path` è iniziata con `/`
+    + Correzione del bug relativo al caricamento dell'archivio dati in cui viene creata una cartella vuota se `target_path` avviata con `/`
     + Correzione del problema di DeepCopy in ServicePrincipalAuthentication.
     + Sono stati aggiunti i comandi "AZ ml Environment Show" e "AZ ml Environment list" all'interfaccia della riga di comando.
     + Gli ambienti supportano ora la specifica di un base_dockerfile come alternativa a un base_image già compilato.
@@ -450,9 +471,9 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
     + Correzione del bug che stampava una durata vuota per le distribuzioni che si verificano quando si crea un'area di lavoro per alcuni ambienti.
     + Eccezioni di creazione dell'area di lavoro migliorate. In modo che gli utenti non visualizzino "Impossibile creare l'area di lavoro. Impossibile trovare... " come messaggio e visualizzano invece l'effettivo errore di creazione.
     + Aggiungere il supporto per l'autenticazione del token in AKS WebServices. 
-    + Aggiungere il metodo `get_token()` a oggetti `Webservice`.
+    + Aggiungere `get_token()` metodo per `Webservice` oggetti.
     + Aggiunta del supporto dell'interfaccia della riga di comando per la gestione di set di impostazioni
-    + `Datastore.register_azure_blob_container` ora accetta facoltativamente un valore `blob_cache_timeout` (in secondi) che configura i parametri di montaggio di blobfuse per abilitare la scadenza della cache per l'archivio dati. Il valore predefinito non prevede alcun timeout, ad esempio quando un BLOB viene letto, rimane nella cache locale fino al termine del processo. La maggior parte dei processi preferisce questa impostazione, ma alcuni processi devono leggere più dati da un set di dati di grandi dimensioni rispetto ai relativi nodi. Per questi processi, l'ottimizzazione di questo parametro ne consentirà l'esito positivo. Prestare attenzione quando si esegue l'ottimizzazione di questo parametro: l'impostazione di un valore troppo basso può comportare una riduzione delle prestazioni, in quanto i dati utilizzati in un'epoca possono scadere prima di essere riutilizzati. Ciò significa che tutte le letture verranno eseguite dall'archiviazione BLOB, ovvero dalla rete, anziché dalla cache locale, che influisce negativamente sui tempi di training.
+    + `Datastore.register_azure_blob_container` ora accetta facoltativamente un valore di `blob_cache_timeout` (in secondi) che configura i parametri di montaggio di blobfuse per abilitare la scadenza della cache per l'archivio dati. Il valore predefinito non prevede alcun timeout, ad esempio quando un BLOB viene letto, rimane nella cache locale fino al termine del processo. La maggior parte dei processi preferisce questa impostazione, ma alcuni processi devono leggere più dati da un set di dati di grandi dimensioni rispetto ai relativi nodi. Per questi processi, l'ottimizzazione di questo parametro ne consentirà l'esito positivo. Prestare attenzione quando si esegue l'ottimizzazione di questo parametro: l'impostazione di un valore troppo basso può comportare una riduzione delle prestazioni, in quanto i dati utilizzati in un'epoca possono scadere prima di essere riutilizzati. Ciò significa che tutte le letture verranno eseguite dall'archiviazione BLOB, ovvero dalla rete, anziché dalla cache locale, che influisce negativamente sui tempi di training.
     + La descrizione del modello può ora essere aggiornata correttamente dopo la registrazione
     + L'eliminazione di modelli e immagini offre ora ulteriori informazioni sugli oggetti upstream che dipendono da tali oggetti, causando l'esito negativo dell'eliminazione
     + Migliorare l'utilizzo delle risorse delle esecuzioni remote con azureml. mlflow.
@@ -465,7 +486,7 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
     + priorità della funzionalità di permutazione fissa durante l'argomento delle trasformazioni fornito per ottenere l'importanza della funzionalità RAW
     + aggiungere batch_size a MIME Explainer quando include_local = false per lo streaming di spiegazioni globali in batch per migliorare i tempi di esecuzione di DecisionTreeExplainableModel
     + per la libreria di spiegazione del modello, i Explainer di Blackbox fissi dove è richiesto l'input dei frame di dati Pandas per la stima
-    + Correzione di un bug in cui `explanation.expected_values` restituiva a volte un valore float anziché un elenco con un valore float.
+    + Correzione di un bug in cui `explanation.expected_values` talvolta restituirebbe un valore float anziché un elenco con un valore float.
   + **azureml-mlflow**
     + Migliorare le prestazioni di mlflow. set _experiment (experiment_name)
     + Correzione di un bug in uso di InteractiveLoginAuthentication per mlflow tracking_uri
@@ -529,13 +550,13 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
   + **azureml-explain-Model**
     + Documentazione online aggiornata per gli oggetti di interpretazione.
     + Aggiunta di batch_size a Mimit Explainer quando include_local = false per lo streaming di spiegazioni globali in batch per migliorare i tempi di esecuzione di DecisionTreeExplainableModel.
-    + È stato risolto il problema per cui `explanation.expected_values` restituiva a volte un valore float anziché un elenco con un valore float.
+    + È stato risolto il problema per cui `explanation.expected_values` talvolta restituiva un valore float anziché un elenco con un valore float.
     + Sono stati aggiunti i valori previsti per l'output automl per Mimic Explainer nella libreria di modelli explain.
     + Priorità della funzionalità di permutazione fissa quando l'argomento delle trasformazioni viene fornito per ottenere la funzionalità RAW.
     + Aggiunta di batch_size a MIME Explainer quando include_local = false per lo streaming di spiegazioni globali in batch per migliorare i tempi di esecuzione di DecisionTreeExplainableModel per la libreria di spiegazione del modello.
   + **azureml-Core**
     + Aggiunta della possibilità di alleghire gli archivi dati DBFS nell'interfaccia della riga di comando di AzureML.
-    + Correzione del problema relativo al caricamento dell'archivio dati in cui viene creata una cartella vuota se `target_path` è iniziata con `/`.
+    + Correzione del problema relativo al caricamento dell'archivio dati in cui viene creata una cartella vuota se `target_path` avviata con `/`.
     + È stato abilitato il confronto di due set di impostazioni.
     + Model and Image Delete offre ora ulteriori informazioni sul recupero di oggetti upstream che dipendono da essi se l'eliminazione non riesce a causa di una dipendenza upstream.
     + L'impostazione RunConfiguration non utilizzata in auto_prepare_environment è stata deprecata.
@@ -552,7 +573,7 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
   + **azureml-Train-Core**
     + Le stringhe sono ora accettate come destinazione di calcolo per l'ottimizzazione automatica degli iperparametri.
     + L'impostazione RunConfiguration non utilizzata in auto_prepare_environment è stata deprecata.
-    + Parametri deprecati `conda_dependencies_file_path` e `pip_requirements_file_path` a favore di `conda_dependencies_file` e `pip_requirements_file` rispettivamente.
+    + I parametri deprecati `conda_dependencies_file_path` e `pip_requirements_file_path` a favore rispettivamente di `conda_dependencies_file` e `pip_requirements_file`.
   + **azureml-opendatasets**
     + Migliorare significativamente le prestazioni di NoaaIsdWeather in una versione non SPARK.
 
@@ -572,7 +593,7 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
 ### <a name="azure-machine-learning-data-prep-sdk-v117"></a>Azure Machine Learning data Prep SDK v 1.1.7
 
 È stata ripristinata una modifica che ha migliorato le prestazioni, in quanto causava problemi per alcuni clienti che utilizzavano Azure Databricks. Se si è verificato un problema in Azure Databricks, è possibile eseguire l'aggiornamento alla versione 1.1.7 usando uno dei metodi seguenti:
-1. Eseguire questo script per eseguire l'aggiornamento: `%sh /home/ubuntu/databricks/python/bin/pip install azureml-dataprep==1.1.7`
+1. Eseguire questo script per aggiornare: `%sh /home/ubuntu/databricks/python/bin/pip install azureml-dataprep==1.1.7`
 2. Ricreare il cluster, che installerà la versione più recente di data Prep SDK.
 
 ## <a name="2019-06-25"></a>2019-06-25
@@ -609,10 +630,10 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
   + Sono state aggiunte funzioni di riepilogo per i valori principali (`SummaryFunction.TOPVALUES`) e i valori inferiori (`SummaryFunction.BOTTOMVALUES`).
 
 + **Correzioni di bug e miglioramenti**
-  + Miglioramento significativo delle prestazioni di `read_pandas_dataframe`.
-  + Correzione di un bug che provocava l'errore `get_profile()` in un flusso di dati che puntava a file binari.
+  + Miglioramento significativo delle prestazioni dei `read_pandas_dataframe`.
+  + Correzione di un bug che comporterebbe il mancato `get_profile()` di un flusso di dati che punta ai file binari.
   + Esposto `set_diagnostics_collection()` per consentire l'abilitazione o la disabilitazione della raccolta di dati di telemetria a livello di codice.
-  + Modifica del comportamento di `get_profile()`. I valori NaN vengono ora ignorati per min, Mean, STD e Sum, che è allineato al comportamento di Pandas.
+  + Modifica del comportamento del `get_profile()`. I valori NaN vengono ora ignorati per min, Mean, STD e Sum, che è allineato al comportamento di Pandas.
 
 
 ## <a name="2019-06-10"></a>2019-06-10
@@ -641,12 +662,12 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
   + Aggiunta della memorizzazione nella cache in ServicePrincipalAuthentication, disattivata per impostazione predefinita.
   + Abilitare la registrazione di più tracciati con lo stesso nome di metrica.
   + Classe modello ora importabile correttamente da azureml. Core (`from azureml.core import Model`).
-  + Nei passaggi della pipeline, il parametro `hash_path` è ora deprecato. Il nuovo comportamento prevede l'hashing completo di source_directory, eccetto i file elencati in. amlignore o. gitignore.
-  + Nei pacchetti della pipeline, i vari metodi `get_all` e `get_all_*` sono stati deprecati a favore di `list` e `list_*` rispettivamente.
+  + Nei passaggi della pipeline `hash_path` parametro è ora deprecato. Il nuovo comportamento prevede l'hashing completo di source_directory, eccetto i file elencati in. amlignore o. gitignore.
+  + Nei pacchetti della pipeline, diversi metodi `get_all` e `get_all_*` sono stati deprecati a favore rispettivamente di `list` e `list_*`.
   + azureml. Core. Get _run non richiede più le classi da importare prima di restituire il tipo di esecuzione originale.
   + È stato risolto un problema per cui alcune chiamate all'aggiornamento WebService non hanno attivato un aggiornamento.
   + Il timeout di assegnazione dei punteggi per i servizi WebService AKS deve essere compreso tra 5 ms e, che indica. Il numero massimo di scoring_timeout_ms consentito per le richieste di assegnazione dei punteggi è stato raggiunto da 1 min a 5 minuti.
-  + Gli oggetti LocalWebservice hanno ora proprietà `scoring_uri` e `swagger_uri`.
+  + Gli oggetti LocalWebservice ora hanno `scoring_uri` e `swagger_uri` proprietà.
   + La creazione della directory degli output è stata spostata e il caricamento della directory è stato eliminato dal processo utente. Abilitazione dell'SDK della cronologia di esecuzione per l'esecuzione in ogni processo utente. Questa operazione dovrebbe risolvere alcuni problemi di sincronizzazione riscontrati dalle esecuzioni di training distribuite.
   + Il nome del log azureml scritto dal nome del processo utente includerà ora il nome del processo (solo per il training distribuito) e il PID.
 
@@ -656,7 +677,7 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
   + Per i valori DateTime interpretati con formato di anno a 2 cifre, l'intervallo di anni validi è stato aggiornato in base alla versione di Windows. L'intervallo è stato modificato da 1930-2029 a 1950-2049.
   + Quando si esegue la lettura in un file e si imposta `handleQuotedLineBreaks=True`, `\r` verrà considerato come una nuova riga.
   + Correzione di un bug che causava l'esito negativo di `read_pandas_dataframe` in alcuni casi.
-  + Miglioramento delle prestazioni di `get_profile`.
+  + Miglioramento delle prestazioni dei `get_profile`.
   + Messaggi di errore migliorati.
 
 ## <a name="2019-05-28"></a>2019-05-28
@@ -805,14 +826,14 @@ Nota: la preparazione dei dati Python SDK non installerà più i pacchetti `nump
     + Esempi:
       + `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
       + `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
-  + È ora possibile usare `to_upper` @ no__t-1 e `to_lower` @ no__t-3functions nel linguaggio delle espressioni.
+  + È ora possibile usare `to_upper`  and `to_lower`  functions nel linguaggio delle espressioni.
   + È ora possibile visualizzare il numero di valori univoci di ogni colonna in un profilo dati.
   + Per alcuni dei passaggi di Reader usati di frequente, è ora possibile passare l'argomento `infer_column_types`. Se è impostato su `True`, la preparazione dei dati tenterà di rilevare e convertire automaticamente i tipi di colonna.
-    + `inference_arguments` è ora deprecata.
+    + `inference_arguments` ora è deprecata.
   + È ora possibile chiamare `Dataflow.shape`.
 
 + **Correzioni di bug e miglioramenti**
-  + `keep_columns` @ no__t-1now accetta un argomento facoltativo aggiuntivo `validate_column_exists`, che controlla se il risultato di `keep_columns` conterrà qualsiasi colonna.
+  + `keep_columns`  now accetta un argomento facoltativo aggiuntivo `validate_column_exists`, che controlla se il risultato di `keep_columns` conterrà colonne.
   + Tutti i passaggi del lettore, che leggono da un file, accettano ora un argomento facoltativo aggiuntivo `verify_exists`.
   + Miglioramento delle prestazioni di lettura dal dataframe Pandas e recupero dei profili dati.
   + Correzione di un bug per cui il sezionamento di un singolo passaggio da un flusso di un flusso di un flusso di un oggetto non è riuscito
@@ -831,7 +852,7 @@ Nota: la preparazione dei dati Python SDK non installerà più i pacchetti `nump
 
 + **Nuove funzionalità**
   + Il Azure Machine Learning SDK supporta ora Python 3,7.
-  + Azure Machine Learning DNN Estimator ora fornisce supporto integrato per più versioni. Ad esempio, `TensorFlow` @ no__t-1estimator accetta ora un parametro `framework_version` e gli utenti possono specificare la versione "1,10" o "1,12". Per un elenco delle versioni supportate dalla versione corrente dell'SDK, chiamare `get_supported_versions()` sulla classe Framework desiderata, ad esempio `TensorFlow.get_supported_versions()`.
+  + Azure Machine Learning DNN Estimator ora fornisce supporto integrato per più versioni. Ad esempio, `TensorFlow`  estimator ora accetta un parametro `framework_version` e gli utenti possono specificare la versione "1,10" o "1,12". Per un elenco delle versioni supportate dalla versione corrente dell'SDK, chiamare `get_supported_versions()` sulla classe Framework desiderata, ad esempio `TensorFlow.get_supported_versions()`.
   Per un elenco delle versioni supportate dalla versione più recente dell'SDK, vedere la [documentazione di DNN Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v111"></a>Azure Machine Learning data Prep SDK v 1.1.1
@@ -874,7 +895,7 @@ Nota: la preparazione dei dati Python SDK non installerà più i pacchetti `nump
 
 + **Correzioni di bug e miglioramenti**
   + È ora possibile specificare il numero di contenitori da usare in un istogramma per i profili di colonna numerici.
-  + Per la trasformazione `read_pandas_dataframe` è ora necessario che il dataframe includa nomi di colonna di tipo stringa o di tipo byte.
+  + Per la trasformazione `read_pandas_dataframe` ora è necessario che il dataframe includa nomi di colonna di tipo stringa o di tipo byte.
   + Correzione di un bug nella trasformazione `fill_nulls`, in cui i valori non venivano compilati correttamente se la colonna non è presente.
 
 ## <a name="2019-03-11"></a>2019-03-11

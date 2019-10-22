@@ -1,6 +1,6 @@
 ---
 title: Soluzione Gestione aggiornamenti in Azure
-description: Questo articolo illustra l'uso della soluzione Gestione aggiornamenti di Azure per gestire gli aggiornamenti per i computer Windows e Linux.
+description: Questo articolo descrive come usare la soluzione Gestione aggiornamenti di Azure per gestire gli aggiornamenti per i computer Windows e Linux.
 services: automation
 ms.service: automation
 ms.subservice: update-management
@@ -9,40 +9,40 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1751e8d67f59285d011df33a2d4d1d6d8abcec6a
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 66acb1284f0814eec91715284259272a065dbae2
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376042"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690901"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
-È possibile usare la soluzione Gestione aggiornamenti in automazione di Azure per gestire gli aggiornamenti del sistema operativo per i computer Windows e Linux in Azure, in ambienti locali o in altri provider di servizi cloud. È possibile valutare rapidamente lo stato degli aggiornamenti disponibili in tutti i computer agente e gestire il processo di installazione degli aggiornamenti necessari per i server.
+È possibile usare la soluzione Gestione aggiornamenti in automazione di Azure per gestire gli aggiornamenti del sistema operativo per i computer Windows e Linux in Azure, negli ambienti locali e in altri provider di servizi cloud. È possibile valutare rapidamente lo stato degli aggiornamenti disponibili in tutti i computer agente e gestire il processo di installazione degli aggiornamenti necessari per i server.
 
-È possibile abilitare Gestione aggiornamenti per le macchine virtuali direttamente dall'account di Automazione di Azure. Per informazioni su come abilitare Gestione aggiornamenti per le macchine virtuali dall'account di Automazione, vedere [Gestire gli aggiornamenti per più macchine virtuali](manage-update-multi.md). È anche possibile abilitare Gestione aggiornamenti per una macchina virtuale dalla pagina della macchina virtuale nel portale di Azure. Questo scenario è disponibile per macchine virtuali [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) e [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management).
+È possibile abilitare Gestione aggiornamenti per le macchine virtuali (VM) direttamente dall'account di automazione di Azure. Per informazioni, vedere [gestire gli aggiornamenti per più macchine virtuali](manage-update-multi.md). È anche possibile abilitare Gestione aggiornamenti per una VM dalla pagina della macchina virtuale nel portale di Azure. Questo scenario è disponibile per le macchine virtuali [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) e [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) .
 
 > [!NOTE]
-> La soluzione Gestione aggiornamenti richiede il collegamento di un'area di lavoro Log Analytics all'account di automazione. Per un elenco definitivo delle aree supportate, vedere [mapping dell'area di lavoro di Azure](./how-to/region-mappings.md). I mapping dell'area non influiscono sulla possibilità di gestire le macchine virtuali in un'area separata rispetto all'account di automazione.
+> La soluzione Gestione aggiornamenti richiede il collegamento di un'area di lavoro Log Analytics all'account di automazione. Per un elenco definitivo delle aree supportate, vedere [mapping dell'area di lavoro di Azure](./how-to/region-mappings.md). I mapping dell'area non influiscono sulla possibilità di gestire le macchine virtuali in un'area separata dall'account di automazione.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="solution-overview"></a>Panoramica della soluzione
 
-I computer gestiti da Gestione aggiornamenti usano le configurazioni seguenti per le valutazioni e le distribuzioni degli aggiornamenti:
+I computer gestiti da Gestione aggiornamenti utilizzano le configurazioni seguenti per eseguire la valutazione e aggiornare le distribuzioni:
 
 * Microsoft Monitoring Agent (MMA) per Windows o Linux
 * PowerShell DSC (Desired State Configuration) per Linux
 * Ruolo di lavoro ibrido per runbook di Automazione
 * Microsoft Update o Windows Server Update Services (WSUS) per computer Windows
 
-Il diagramma seguente offre una visualizzazione concettuale del comportamento e del flusso dei dati e indica in che modo la soluzione valuta e applica gli aggiornamenti della sicurezza a tutti i computer Windows Server e Linux connessi in un'area di lavoro:
+Il diagramma seguente illustra il modo in cui la soluzione valuta e applica gli aggiornamenti della sicurezza a tutti i computer Windows Server e Linux connessi in un'area di lavoro:
 
 ![Flusso del processo di Gestione aggiornamenti](./media/automation-update-management/update-mgmt-updateworkflow.png)
 
 Gestione aggiornamenti può essere usato per l'onboarding nativo di computer in più sottoscrizioni nello stesso tenant.
 
-Una volta rilasciato un pacchetto, sono necessarie 2-3 ore prima che la patch venga visualizzata per i computer Linux per la valutazione. Per i computer Windows, la visualizzazione della patch per la valutazione dopo il rilascio richiede 12-15 ore.
+Dopo il rilascio di un pacchetto, sono necessarie da 2 a 3 ore per la visualizzazione della patch per i computer Linux per la valutazione. Per i computer Windows, sono necessarie da 12 a 15 ore per la visualizzazione della patch per la valutazione dopo che è stata rilasciata.
 
 Quando un computer completa un'analisi per la conformità degli aggiornamenti, l'agente trasmette le informazioni in blocco ai log di monitoraggio di Azure. In un computer Windows l'analisi della conformità viene eseguita ogni 12 ore per impostazione predefinita.
 
@@ -50,20 +50,20 @@ Oltre all'analisi pianificata, l'analisi della conformità degli aggiornamenti v
 
 Per un computer Linux, l'analisi di conformità viene eseguita ogni ora per impostazione predefinita. Se l'agente MMA viene riavviato, viene avviata un'analisi della conformità entro 15 minuti.
 
-La soluzione genera report sullo stato di aggiornamento del computer in base all'origine configurata per la sincronizzazione. Se il computer Windows è configurato per l'invio di report a WSUS, in base a quando WSUS ha eseguito l'ultima sincronizzazione con Microsoft Update i risultati possono differire da quanto visualizzato da Microsoft Update. Questo comportamento è lo stesso per i computer Linux configurati per l'invio di report a un repository locale anziché a un repository pubblico.
+La soluzione genera report sullo stato di aggiornamento del computer in base all'origine configurata per la sincronizzazione. Se il computer Windows è configurato per la segnalazione a WSUS, a seconda del momento in cui WSUS è stato sincronizzato con Microsoft Update, i risultati potrebbero essere diversi da quelli Microsoft Update visualizzati. Questo comportamento è lo stesso per i computer Linux configurati per l'invio di report a un repository locale anziché a un repository pubblico.
 
 > [!NOTE]
 > Per inviare correttamente un report al servizio, Gestione aggiornamenti richiede l'abilitazione di determinati URL e porte. Per altre informazioni su questi requisiti, vedere l'articolo sulla [pianificazione della rete per i ruoli di lavoro ibridi](automation-hybrid-runbook-worker.md#network-planning).
 
 È possibile distribuire e installare gli aggiornamenti software nei computer che richiedono gli aggiornamenti creando una distribuzione pianificata. Gli aggiornamenti classificati come *facoltativi* non sono inclusi nell'ambito della distribuzione per i computer Windows. Nell'ambito della distribuzione vengono inclusi solo gli aggiornamenti obbligatori.
 
-La distribuzione pianificata definisce quali computer di destinazione ricevono gli aggiornamenti applicabili, specificando in modo esplicito i computer o selezionando un [gruppo di computer](../azure-monitor/platform/computer-groups.md) basato sulle ricerche log di un determinato set di computer o su una [query di Azure](automation-update-management-query-logs.md) che seleziona dinamicamente le VM di Azure in base ai criteri specificati. Questi gruppi sono diversi dalla [configurazione dell'ambito](../azure-monitor/insights/solution-targeting.md), che viene usata solo per determinare quali computer ottengono i Management Pack che abilitano la soluzione.
+La distribuzione pianificata definisce quali computer di destinazione ricevono gli aggiornamenti applicabili. Questa operazione viene eseguita specificando esplicitamente determinati computer o selezionando un [gruppo di computer](../azure-monitor/platform/computer-groups.md) basato sulle ricerche nei log di un set specifico di computer (o su una [query di Azure](automation-update-management-query-logs.md) che seleziona dinamicamente le VM di Azure in base ai criteri specificati). Questi gruppi si differenziano dalla [configurazione dell'ambito](../azure-monitor/insights/solution-targeting.md), che viene utilizzata solo per determinare quali computer ottengono i Management Pack che abilitano la soluzione.
 
-Si specifica anche una pianificazione per approvare e impostare un periodo di tempo durante il quale è possibile installare gli aggiornamenti. Questo periodo di tempo viene chiamato finestra di manutenzione. Venti minuti della finestra di manutenzione sono riservati ai riavvii se è necessario un riavvio ed è stata selezionata l'opzione di riavvio appropriato. Se l'applicazione di patch richiede più tempo del previsto e la finestra di manutenzione è inferiore a venti minuti, non si verificherà un riavvio.
+È inoltre possibile specificare una pianificazione per approvare e impostare un periodo di tempo durante il quale è possibile installare gli aggiornamenti. Questo periodo è denominato finestra di manutenzione. Un intervallo di 20 minuti della finestra di manutenzione è riservato per i riavvii, presupponendo che uno sia necessario ed è stata selezionata l'opzione di riavvio appropriato. Se l'applicazione di patch richiede più tempo del previsto e sono presenti meno di 20 minuti nella finestra di manutenzione, non si verificherà un riavvio.
 
-Gli aggiornamenti vengono installati da runbook in Automazione di Azure. Questi runbook non richiedono alcuna configurazione e non possono essere visualizzati. Quando si crea una distribuzione degli aggiornamenti, nella distribuzione viene creata una pianificazione che avvia un runbook di aggiornamento master alla data e ora specificate per i computer inclusi. Il runbook master avvia un runbook figlio in ogni agente per installare gli aggiornamenti necessari.
+Gli aggiornamenti vengono installati da runbook in Automazione di Azure. Non è possibile visualizzare questi manuali operativi e non richiedono alcuna configurazione. Quando viene creata una distribuzione degli aggiornamenti, viene creata una pianificazione che avvia un Runbook di aggiornamento Master all'ora specificata per i computer inclusi. Il runbook master avvia un runbook figlio in ogni agente per installare gli aggiornamenti necessari.
 
-Alla data e ora specificate nella distribuzione degli aggiornamenti, i computer di destinazione eseguono la distribuzione in parallelo. Prima dell'installazione viene eseguita un'analisi per verificare che gli aggiornamenti siano ancora necessari. Per i computer client WSUS, la distribuzione degli aggiornamenti ha esito negativo se gli aggiornamenti non sono approvati in WSUS.
+Alla data e ora specificate nella distribuzione degli aggiornamenti, i computer di destinazione eseguono la distribuzione in parallelo. Prima dell'installazione viene eseguita un'analisi per verificare che gli aggiornamenti siano ancora necessari. Per i computer client WSUS, se gli aggiornamenti non sono approvati in WSUS, la distribuzione degli aggiornamenti ha esito negativo.
 
 Il computer registrato per Gestione aggiornamenti in più di un'area di lavoro di Log Analytics (multihoming) non è supportato.
 
@@ -71,19 +71,19 @@ Il computer registrato per Gestione aggiornamenti in più di un'area di lavoro d
 
 ### <a name="supported-client-types"></a>Tipi di client supportati
 
-La tabella seguente mostra un elenco dei sistemi operativi supportati per le valutazioni degli aggiornamenti. L'applicazione di patch richiede un ruolo di lavoro ibrido per Runbook. Per informazioni sui requisiti del ruolo di lavoro ibrido per Runbook, vedere le guide all'installazione per [Windows lavoro ibrido](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) e [Linux lavoro ibrido](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker).
+Nella tabella seguente sono elencati i sistemi operativi supportati per le valutazioni degli aggiornamenti. L'applicazione di patch richiede un ruolo di lavoro ibrido per Runbook. Per informazioni sui requisiti del ruolo di lavoro ibrido per Runbook, vedere le guide all'installazione per l'installazione di un ruolo [di lavoro](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)ibrido per [Runbook](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)
 
 |Sistema operativo  |Note  |
 |---------|---------|
 |Windows Server 2019 (Datacenter/datacenter core/standard)<br><br>Windows Server 2016 (Datacenter/datacenter core/standard)<br><br>Windows Server 2012 R2 (Datacenter/standard)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM e SP1 Standard)||
-|CentOS 6 (x86/x64) e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. L'applicazione di patch basata sulla classificazione richiede "yum" per restituire i dati sulla sicurezza che non sono predefiniti in CentOS. Per altre informazioni sull'applicazione di patch basata sulla classificazione su CentOS, vedere [classificazioni degli aggiornamenti in Linux](#linux-2)          |
+|CentOS 6 (x86/x64) e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. L'applicazione di patch basata sulla classificazione richiede `yum` per restituire i dati di sicurezza che CentOS non ha nelle versioni RTM. Per altre informazioni sull'applicazione di patch basata sulla classificazione su CentOS, vedere [classificazioni degli aggiornamenti in Linux](#linux-2).          |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |Ubuntu 14.04 LTS, 16.04 LTS e 18.04 LTS (x86/x64)      |Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.         |
 
 > [!NOTE]
-> I set di scalabilità di macchine virtuali di Azure possono essere gestiti con Gestione aggiornamenti. Gestione aggiornamenti funziona sulle istanze stesse e non sull'immagine di base. È necessario pianificare gli aggiornamenti in modo incrementale, perché non aggiornare tutte le istanze di macchina virtuale in una sola volta.
-> I nodi VMSS possono essere aggiunti attenendosi alla procedura descritta in [onboarding a computer non Azure](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
+> I set di scalabilità di macchine virtuali di Azure possono essere gestiti tramite Gestione aggiornamenti. Gestione aggiornamenti funziona sulle istanze stesse e non sull'immagine di base. È necessario pianificare gli aggiornamenti in modo incrementale, in modo che non tutte le istanze di VM vengano aggiornate contemporaneamente.
+> È possibile aggiungere nodi per i set di scalabilità di macchine virtuali attenendosi alla procedura descritta in [onboarding a computer non Azure](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
 
 ### <a name="unsupported-client-types"></a>Tipi di client non supportati
 
@@ -93,36 +93,36 @@ Nella tabella seguente sono elencati i sistemi operativi non supportati:
 |---------|---------|
 |Client Windows     | I sistemi operativi client, ad esempio Windows 7 e Windows 10, non sono supportati.        |
 |Windows Server 2016 Nano Server     | Non supportati.       |
-|Nodi del servizio Azure Kubernetes | Non supportati. Usare il processo di applicazione delle patch dettagliato in [applicare gli aggiornamenti di sicurezza e kernel ai nodi Linux in Azure Kubernetes Service (AKS)](../aks/node-updates-kured.md)|
+|Nodi del servizio Azure Kubernetes | Non supportati. Usare il processo di applicazione di patch descritto in [applicare aggiornamenti di sicurezza e kernel ai nodi Linux in Azure Kubernetes Service (AKS)](../aks/node-updates-kured.md)|
 
 ### <a name="client-requirements"></a>Requisiti per i client
 
-Le informazioni seguenti descrivono i requisiti client specifici del sistema operativo.  Per ulteriori indicazioni, vedere anche [pianificazione della rete](#ports) .
+Le informazioni seguenti descrivono i requisiti del client specifici del sistema operativo. Per ulteriori indicazioni, vedere [pianificazione della rete](#ports).
 
 #### <a name="windows"></a>Windows
 
-Gli agenti Windows devono essere configurati per comunicare con un server WSUS o devono avere accesso a Microsoft Update.
+Gli agenti Windows devono essere configurati per comunicare con un server WSUS oppure devono avere accesso a Microsoft Update.
 
-Gestione aggiornamenti può essere usato con System Center Configuration Manager. Per altre informazioni sugli scenari di integrazione, vedere [Integrare System Center Configuration Manager con Gestione aggiornamenti](oms-solution-updatemgmt-sccmintegration.md#configuration). L'[agente Windows](../azure-monitor/platform/agent-windows.md) è obbligatorio. L'agente viene installato automaticamente in caso di onboarding di una macchina virtuale di Azure.
+Gestione aggiornamenti può essere usato con System Center Configuration Manager. Per altre informazioni sugli scenari di integrazione, vedere [Integrare System Center Configuration Manager con Gestione aggiornamenti](oms-solution-updatemgmt-sccmintegration.md#configuration). L'[agente Windows](../azure-monitor/platform/agent-windows.md) è obbligatorio. L'agente viene installato automaticamente se si sta caricando una macchina virtuale di Azure.
 
-Per impostazione predefinita, le macchine virtuali di Windows distribuite da Azure Marketplace ricevono aggiornamenti automatici dal servizio Windows Update. Questo comportamento non cambia quando si aggiunge questa soluzione o si aggiungono macchine virtuali di Windows all'area di lavoro. Se gli aggiornamenti non vengono gestiti attivamente con questa soluzione, è applicabile il comportamento predefinito, ovvero gli aggiornamenti vengono applicati automaticamente.
+Per impostazione predefinita, le macchine virtuali Windows distribuite da Azure Marketplace sono impostate per ricevere aggiornamenti automatici dal servizio Windows Update. Questo comportamento non cambia quando si aggiunge questa soluzione o si aggiungono macchine virtuali Windows all'area di lavoro. Se gli aggiornamenti non vengono gestiti attivamente con questa soluzione, è applicabile il comportamento predefinito, ovvero gli aggiornamenti vengono applicati automaticamente.
 
 > [!NOTE]
-> È possibile che un utente modifichi Criteri di gruppo in modo che il riavvio del computer possa essere eseguito solo dall'utente, non dal sistema. I computer gestiti potrebbero rimanere bloccati, se Gestione aggiornamenti non dispone dei diritti necessari per riavviare il computer senza interazione manuale da parte dell'utente.
+> Un utente può modificare Criteri di gruppo in modo che il riavvio del computer possa essere eseguito solo dall'utente e non dal sistema. I computer gestiti possono restare bloccati se Gestione aggiornamenti non dispone dei diritti necessari per riavviare il computer senza interazione manuale da parte dell'utente.
 >
-> Per ulteriori informazioni, vedere [configurare le impostazioni di criteri di gruppo per aggiornamenti automatici](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates).
+> Per ulteriori informazioni, vedere [configurare le impostazioni di criteri di gruppo per aggiornamenti automatici](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates).
 
 #### <a name="linux"></a>Linux
 
-Per Linux, il computer deve avere accesso a un repository degli aggiornamenti. Il repository degli aggiornamenti può essere privato o pubblico. Per interagire con Gestione aggiornamenti è necessario TLS 1.1 o TLS 1.2. Un agente di Log Analytics per Linux configurato per l'invio di report a più di un'area di lavoro di Log Analytics non è supportato per questa soluzione.  Nel computer deve essere installato anche Python 2. x.
+Per Linux, il computer deve avere accesso a un repository degli aggiornamenti. Il repository degli aggiornamenti può essere privato o pubblico. Per interagire con Gestione aggiornamenti è necessario TLS 1.1 o TLS 1.2. Un agente Log Analytics per Linux configurato per la segnalazione a più di un'area di lavoro Log Analytics non è supportato con questa soluzione. Nel computer deve essere installato anche Python 2. x.
 
-Per informazioni su come installare l'agente di Log Analytics per Linux e scaricare la versione più recente, vedere [log Analytics Agent per Linux](https://github.com/microsoft/oms-agent-for-linux). Per informazioni su come installare l'agente di Log Analytics per Windows, vedere [Microsoft Monitoring Agent per Windows](../log-analytics/log-analytics-windows-agent.md).
+Per informazioni su come installare l'agente di Log Analytics per Linux e scaricare la versione più recente, vedere [log Analytics Agent per Linux](https://github.com/microsoft/oms-agent-for-linux). Per informazioni su come installare l'agente di Log Analytics per Windows, vedere [connettere computer Windows a monitoraggio di Azure](../log-analytics/log-analytics-windows-agent.md).
 
-Le macchine virtuali create dalle immagini di Red Hat Enterprise Linux (RHEL) su richiesta e disponibili in Azure Marketplace vengono registrate per accedere al servizio [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) distribuito in Azure. Altre distribuzioni di Linux devono essere aggiornate dal repository di file online della distribuzione seguendo i metodi supportati della distribuzione.
+Le macchine virtuali create dalle immagini di Red Hat Enterprise Linux su richiesta (RHEL) disponibili in Azure Marketplace vengono registrate per accedere a [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) distribuito in Azure. Tutte le altre distribuzioni di Linux devono essere aggiornate dal repository di file online della distribuzione usando i metodi supportati della distribuzione.
 
 ## <a name="permissions"></a>autorizzazioni
 
-Per creare e gestire le distribuzioni degli aggiornamenti, sono necessarie autorizzazioni specifiche. Per informazioni su queste autorizzazioni, vedere [Controllo degli accessi in base al ruolo - Gestione aggiornamenti](automation-role-based-access-control.md#update-management).
+Per creare e gestire le distribuzioni degli aggiornamenti, sono necessarie autorizzazioni specifiche. Per informazioni su queste autorizzazioni, vedere [accesso basato sui ruoli-Gestione aggiornamenti](automation-role-based-access-control.md#update-management).
 
 ## <a name="solution-components"></a>Componenti della soluzione
 
@@ -132,7 +132,7 @@ La soluzione è costituita dalle risorse seguenti. Le risorse vengono aggiunte a
 
 Dopo aver abilitato questa soluzione, qualsiasi computer Windows direttamente connesso all'area di lavoro Log Analytics viene configurato automaticamente come ruolo di lavoro ibrido per runbook per supportare i runbook che fanno parte di questa soluzione.
 
-Ogni computer Windows gestito dalla soluzione è elencato nella pagina dei **gruppi di ruoli di lavoro ibridi** come **gruppo di ruoli di lavoro ibridi per il sistema** per l'account di Automazione. Le soluzioni usano la convenzione di denominazione *Hostname FQDN_GUID*. Non è possibile applicare runbook a questi gruppi nell'account. In caso contrario avranno esito negativo. Questi gruppi sono destinati solo al supporto della soluzione di gestione.
+Ogni computer Windows gestito dalla soluzione è elencato nella pagina dei **gruppi di ruoli di lavoro ibridi** come **gruppo di ruoli di lavoro ibridi per il sistema** per l'account di Automazione. Le soluzioni usano la convenzione di denominazione *FQDN_GUID nome host* . Non è possibile applicare runbook a questi gruppi nell'account. Se si prova, il tentativo ha esito negativo. Questi gruppi sono destinati solo al supporto della soluzione di gestione.
 
 È possibile aggiungere i computer Windows a un gruppo di ruoli di lavoro ibridi per runbook nell'account di Automazione per supportare i runbook di Automazione, se si usa lo stesso account sia per la soluzione che per l'appartenenza al gruppo di ruoli di lavoro ibridi per runbook. Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.
 
@@ -145,24 +145,24 @@ Se il gruppo di gestione di System Center Operations Manager è connesso all'are
 * Update Deployment MP
 
 > [!NOTE]
-> Se si dispone di un gruppo di gestione Operations Manager 1807 o 2019 con gli agenti configurati a livello di gruppo di gestione da associare a un'area di lavoro, la soluzione alternativa corrente per visualizzarli è eseguire l'override di **IsAutoRegistrationEnabled** su **true** in regola **Microsoft. IntelligencePacks. AzureAutomation. HybridAgent. init** .
+> Si supponga di disporre di un gruppo di gestione Operations Manager 1807 o 2019 con gli agenti configurati a livello di gruppo di gestione per associarli a un'area di lavoro. Per visualizzare la soluzione corrente, è necessario eseguire l'override di **IsAutoRegistrationEnabled** su **true** nella regola **Microsoft. IntelligencePacks. AzureAutomation. HybridAgent. init** .
 
 Per altre informazioni sulla modalità di aggiornamento dei Management Pack per le soluzioni, vedere [connettere Operations Manager ai log di monitoraggio di Azure](../azure-monitor/platform/om-agents.md).
 
 > [!NOTE]
-> Nei sistemi con l'agente di Operations Manager, quest'ultimo deve essere aggiornato a Microsoft Monitoring Agent per essere gestito completamente da Gestione aggiornamenti. Per informazioni su come aggiornare l'agente, vedere [How to upgrade an Operations Manager agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents) (Come aggiornare un agente di Operations Manager). Per gli ambienti che usano Operations Manager, è necessario eseguire System Center Operations Manager 2012 R2 UR 14 o versione successiva.
+> Per i sistemi con l'agente Operations Manager: affinché un agente sia completamente gestito da Gestione aggiornamenti, l'agente deve essere aggiornato a MMA. Per informazioni su come aggiornare l'agente, vedere [How to upgrade an Operations Manager agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents) (Come aggiornare un agente di Operations Manager). Negli ambienti che usano Operations Manager è necessario eseguire System Center Operations Manager 2012 R2 UR 14 o versione successiva.
 
 ## <a name="data-collection"></a>Raccolta dei dati
 
 ### <a name="supported-agents"></a>Agenti supportati
 
-La tabella seguente descrive le origini connesse che sono supportate da questa soluzione:
+La tabella seguente descrive le origini connesse supportate da questa soluzione:
 
 | Origine connessa | Supportato | Description |
 | --- | --- | --- |
 | Agenti Windows |SÌ |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e quindi avvia l'installazione degli aggiornamenti necessari. |
 | Agenti Linux |SÌ |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Linux e quindi avvia l'installazione degli aggiornamenti necessari nelle distribuzioni supportate. |
-| Gruppo di gestione di Operations Manager |SÌ |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti in un gruppo di gestione connesso.<br/>Non è necessaria una connessione diretta dall'agente Operations Manager ai log di monitoraggio di Azure. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro Log Analytics. |
+| Gruppo di gestione di Operations Manager |SÌ |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti in un gruppo di gestione connesso.<br/><br/>Non è necessaria una connessione diretta dall'agente Operations Manager ai log di monitoraggio di Azure. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequenza della raccolta
 
@@ -172,7 +172,7 @@ Un'analisi viene eseguita ogni ora per ogni computer Linux gestito.
 
 La visualizzazione nel dashboard dei dati aggiornati dei computer gestiti può richiedere da 30 minuti a 6 ore.
 
-Il monitoraggio di Azure medio registra l'utilizzo dei dati per un computer che usa Gestione aggiornamenti è approssimativamente 25MB al mese. Questo valore è solo un'approssimazione ed è soggetto a modifiche, in base all'ambiente in uso. È consigliabile monitorare l'ambiente per visualizzare l'esatta quantità di dati usati.
+L'utilizzo medio dei dati da parte dei log di monitoraggio di Azure per un computer che usa Gestione aggiornamenti è di circa 25 megabyte (MB) al mese. Questo valore è solo un'approssimazione ed è soggetto a modifiche, a seconda dell'ambiente. Si consiglia di monitorare l'ambiente per tenere traccia dell'utilizzo esatto.
 
 ## <a name="ports"></a>Pianificazione della rete
 
@@ -185,13 +185,13 @@ I seguenti indirizzi sono necessari e specifici per Gestione aggiornamenti. La c
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |*.azure-automation.net|*.azure-automation.us|
 
-Per i computer Windows, è necessario consentire il traffico anche a tutti gli endpoint necessari per Windows Update.  È possibile trovare un elenco aggiornato degli endpoint necessari nei [problemi relativi a http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Se si dispone di un [server di Windows Update](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)locale, è necessario consentire anche il traffico al server specificato nella [chiave WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
+Per i computer Windows, è necessario consentire il traffico anche a tutti gli endpoint necessari per Windows Update. È possibile trovare un elenco aggiornato degli endpoint necessari nei [problemi relativi a http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Se si dispone di un [server di Windows Update](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)locale, è necessario consentire anche il traffico al server specificato nella [chiave WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
-Per i computer Red Hat Linux, vedere [gli indirizzi IP per i server per la distribuzione di contenuti di RHUI per gli](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) endpoint richiesti. Per altre distribuzioni Linux, vedere la documentazione del provider.
+Per i computer Red Hat Linux, vedere [indirizzi IP per i server per la distribuzione di contenuti di RHUI per gli](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) endpoint richiesti. Per altre distribuzioni Linux, vedere la documentazione del provider.
 
 Per altre informazioni sulle porte richieste dal ruolo di lavoro ibrido per runbook, vedere [Porte del ruolo di lavoro ibrido](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
-È consigliabile usare gli indirizzi elencati quando si definiscono eccezioni. Per gli indirizzi IP è possibile scaricare gli [intervalli di indirizzi IP dei data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Questo file viene aggiornato ogni settimana con gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP.
+Si consiglia di utilizzare gli indirizzi elencati durante la definizione delle eccezioni. Per gli indirizzi IP è possibile scaricare [Microsoft Azure intervalli IP del Data Center](https://www.microsoft.com/download/details.aspx?id=41653). Questo file viene aggiornato settimanalmente e riflette gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP.
 
 Seguire le istruzioni riportate in [connettere i computer senza accesso a Internet](../azure-monitor/platform/gateway.md) per configurare i computer che non hanno accesso a Internet.
 
@@ -199,9 +199,9 @@ Seguire le istruzioni riportate in [connettere i computer senza accesso a Intern
 
 Selezionare **Gestione aggiornamenti** nell'account di Automazione per visualizzare lo stato dei computer.
 
-Questa visualizzazione contiene informazioni sui computer, sugli aggiornamenti mancanti, sulle distribuzioni degli aggiornamenti e sulle distribuzioni degli aggiornamenti pianificate. Nella colonna **CONFORMITÀ** è possibile vedere quando è stata eseguita l'ultima valutazione del computer. Nella colonna **UPDATE AGENT READINESS** (Idoneità agente di aggiornamento) è possibile verificare l'integrità dell'agente di aggiornamento. Se si verifica un problema, selezionare il collegamento alla documentazione sulla risoluzione dei problemi, che contiene informazioni utili sulle operazioni da eseguire per risolverlo.
+Questa visualizzazione contiene informazioni sui computer, sugli aggiornamenti mancanti, sulle distribuzioni degli aggiornamenti e sulle distribuzioni degli aggiornamenti pianificate. Nella colonna **conformità** è possibile visualizzare l'ultima volta in cui il computer è stato valutato. Nella colonna **aggiornamento disponibilità agenti** è possibile verificare l'integrità dell'agente di aggiornamento. Se si verifica un problema, selezionare il collegamento per passare alla documentazione per la risoluzione dei problemi che consente di risolvere il problema.
 
-Per eseguire una ricerca log che restituisce informazioni sul computer, l'aggiornamento o la distribuzione, selezionare l'elemento nell'elenco. Si apre il riquadro **Ricerca log** con una query per l'elemento selezionato:
+Per eseguire una ricerca log che restituisce informazioni sul computer, l'aggiornamento o la distribuzione, selezionare l'elemento corrispondente nell'elenco. Si apre il riquadro **Ricerca log** con una query per l'elemento selezionato:
 
 ![Visualizzazione predefinita di Gestione aggiornamenti](media/automation-update-management/update-management-view.png)
 
@@ -233,15 +233,15 @@ Nelle tabelle che seguono sono riportate le classificazioni degli aggiornamenti 
 |Classificazione  |Description  |
 |---------|---------|
 |Aggiornamenti critici e della sicurezza     | Aggiornamenti per un problema specifico o specifico del prodotto, correlato alla sicurezza.         |
-|Altri aggiornamenti     | Tutti gli altri aggiornamenti non critici per loro natura o che non sono aggiornamenti della sicurezza.        |
+|Altri aggiornamenti     | Tutti gli altri aggiornamenti che non sono critici per natura o che non sono aggiornamenti della sicurezza.        |
 
-Per Linux, Gestione aggiornamenti è in grado di distinguere tra gli aggiornamenti critici e quelli della sicurezza nel cloud, visualizzando i dati di valutazione dovuti all'arricchimento dei dati nel cloud. Per l'applicazione di patch, Gestione aggiornamenti si affida ai dati di classificazione disponibili nel computer. A differenza di altre distribuzioni, CentOS non mette a disposizione queste informazioni per impostazione predefinita. Se i computer CentOS sono configurati in modo da restituire dati sulla sicurezza per il comando seguente, Gestione aggiornamenti sarà in grado di applicare patch in base alle classificazioni.
+Per Linux, Gestione aggiornamenti possibile distinguere tra gli aggiornamenti critici e gli aggiornamenti della sicurezza nel cloud, visualizzando i dati di valutazione a causa dell'arricchimento dei dati nel cloud. Per l'applicazione di patch, Gestione aggiornamenti si affida ai dati di classificazione disponibili nel computer. A differenza di altre distribuzioni, CentOS non ha queste informazioni disponibili nella versione RTM. Se i computer CentOS sono configurati per restituire i dati di sicurezza per il comando seguente, Gestione aggiornamenti possibile applicare una patch in base alle classificazioni.
 
 ```bash
 sudo yum -q --security check-update
 ```
 
-Attualmente non è supportato alcun metodo per abilitare i dati di classificazione nativi in CentOS. In questa fase viene offerto il miglior supporto possibile ai clienti che abilitano autonomamente questa funzionalità.
+Attualmente non è disponibile alcun metodo supportato per abilitare la classificazione nativa: disponibilità dei dati in CentOS. A questo punto, viene fornito solo il supporto per il massimo sforzo ai clienti che potrebbero avere abilitato questa funzionalità autonomamente.
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integrazione con System Center Configuration Manager
 
@@ -259,28 +259,26 @@ Le sezioni seguenti illustrano i potenziali problemi relativi all'applicazione d
 
 ### <a name="unexpected-os-level-upgrades"></a>Aggiornamenti imprevisti a livello di sistema operativo
 
-In alcune varianti di Linux, ad esempio Red Hat Enterprise Linux, è possibile che gli aggiornamenti a livello di sistema operativo vengano eseguiti con i pacchetti. Questo può causare esecuzioni di Gestione aggiornamenti in cui viene modificato il numero di versione del sistema operativo. Poiché Gestione aggiornamenti usa gli stessi metodi di aggiornamento dei pacchetti che userebbe un amministratore in locale nel computer Linux, questo comportamento è intenzionale.
+In alcune varianti di Linux, ad esempio Red Hat Enterprise Linux, gli aggiornamenti a livello di sistema operativo possono verificarsi tramite pacchetti. Questo può causare esecuzioni di Gestione aggiornamenti in cui viene modificato il numero di versione del sistema operativo. Poiché Gestione aggiornamenti usa gli stessi metodi di aggiornamento dei pacchetti che userebbe un amministratore in locale nel computer Linux, questo comportamento è intenzionale.
 
-Per evitare l'aggiornamento della versione del sistema operativo tramite esecuzioni di Gestione aggiornamenti, usare la funzionalità **Esclusione**.
+Per evitare di aggiornare la versione del sistema operativo tramite Gestione aggiornamenti esecuzioni, usare la funzionalità di **esclusione** .
 
 In Red Hat Enterprise Linux il nome del pacchetto da escludere è redhat-release-server.x86_64.
 
 ![Pacchetti da escludere per Linux](./media/automation-update-management/linuxpatches.png)
 
-### <a name="critical--security-patches-arent-applied"></a>Le patch critiche o di sicurezza non vengono applicate
+### <a name="criticalsecurity-patches-arent-applied"></a>Non vengono applicate le patch critiche/di sicurezza
 
-Durante la distribuzione degli aggiornamenti in un computer Linux è possibile selezionare le classificazioni degli aggiornamenti. In questo modo è possibile filtrare gli aggiornamenti applicati al computer che soddisfano i criteri specificati. Questo filtro viene applicato in locale nel computer in cui viene distribuito l'aggiornamento.
+Durante la distribuzione degli aggiornamenti in un computer Linux è possibile selezionare le classificazioni degli aggiornamenti. Questa opzione consente di filtrare gli aggiornamenti applicati al computer che soddisfano i criteri specificati. Questo filtro viene applicato in locale nel computer in cui viene distribuito l'aggiornamento.
 
-Poiché Gestione aggiornamenti esegue l'arricchimento degli aggiornamenti nel cloud, è possibile contrassegnare alcuni aggiornamenti in Gestione aggiornamenti con un effetto di sicurezza, anche se il computer locale non dispone di tali informazioni. Di conseguenza, se si applicano aggiornamenti critici in un computer Linux, è possibile che alcuni aggiornamenti non siano contrassegnati come elementi che influiscono sulla protezione del computer e gli aggiornamenti non vengono applicati.
+Poiché Gestione aggiornamenti esegue l'arricchimento degli aggiornamenti nel cloud, alcuni aggiornamenti possono essere contrassegnati Gestione aggiornamenti con un effetto di sicurezza, anche se il computer locale non dispone di tali informazioni. Di conseguenza, se si applicano aggiornamenti critici a un computer Linux, potrebbero essere presenti aggiornamenti che non sono contrassegnati come aventi un effetto di sicurezza sul computer e pertanto gli aggiornamenti non vengono applicati. Tuttavia, Gestione aggiornamenti possibile che il computer venga segnalato come non conforme perché contiene informazioni aggiuntive sull'aggiornamento pertinente.
 
-Tuttavia, Gestione aggiornamenti potrebbe continuare a segnalare tale computer come non conforme dal momento che contiene informazioni aggiuntive sull'aggiornamento pertinente.
-
-La distribuzione degli aggiornamenti in base alla classificazione di aggiornamento non funziona in CentOS per impostazione predefinita. Per distribuire correttamente gli aggiornamenti per CentOS, selezionare tutte le classificazioni per assicurarsi che gli aggiornamenti vengano applicati. Per SUSE, se si seleziona *solo* "Altri aggiornamenti" come classificazione, è possibile che vengano installati anche alcuni aggiornamenti della sicurezza se per prima cosa sono richiesti aggiornamenti della sicurezza correlati a zypper (gestione pacchetti) o alle relative dipendenze. Si tratta di una limitazione di zypper. In alcuni casi può essere necessario eseguire di nuovo la distribuzione degli aggiornamenti. Per verificare, controllare il log di aggiornamento.
+La distribuzione degli aggiornamenti tramite classificazione aggiornamenti non funziona nelle versioni RTM di CentOS. Per distribuire correttamente gli aggiornamenti per CentOS, selezionare tutte le classificazioni per assicurarsi che gli aggiornamenti vengano applicati. Per SUSE, la selezione di *solo* **altri aggiornamenti** come la classificazione può causare l'installazione di alcuni aggiornamenti della sicurezza anche se sono necessari prima gli aggiornamenti della sicurezza relativi a zypper (gestione pacchetti) o alle relative dipendenze. Si tratta di una limitazione di zypper. In alcuni casi, potrebbe essere necessario eseguire di nuovo la distribuzione degli aggiornamenti. Per verificare, controllare il log di aggiornamento.
 
 ### <a name="multi-tenant"></a>Distribuzioni di aggiornamenti tra tenant
 
-Se si hanno computer in un altro tenant di Azure che segnala a Gestione aggiornamenti che necessitano di una patch, occorrerà usare la seguente soluzione alternativa per la pianificazione. È possibile usare il cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) con l'opzione `-ForUpdate` per creare una pianificazione, usare il cmdlet [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
-) e passare i computer nell'altro tenant al parametro `-NonAzureComputer`. Segue un esempio di come effettuare questa operazione:
+Se si dispone di computer in un altro tenant di Azure per Gestione aggiornamenti che è necessario applicare patch, è necessario usare la soluzione alternativa seguente per prepararli. È possibile usare il cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) con l'opzione `-ForUpdate` per creare una pianificazione e usare il cmdlet [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
+) e passare le macchine nell'altro tenant al parametro `-NonAzureComputer`. L'esempio seguente illustra come farlo:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -303,7 +301,7 @@ Per avviare l'applicazione di patch ai sistemi, è necessario abilitare la soluz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Continuare con l'esercitazione sulla gestione degli aggiornamenti per le macchine virtuali Windows.
+Usare l'esercitazione seguente per informazioni su come gestire gli aggiornamenti per le macchine virtuali Windows:
 
 > [!div class="nextstepaction"]
 > [Gestire gli aggiornamenti e le patch per le macchine virtuali Windows di Azure](automation-tutorial-update-management.md)
@@ -311,5 +309,5 @@ Continuare con l'esercitazione sulla gestione degli aggiornamenti per le macchin
 * Usare le ricerche log nei [log di monitoraggio di Azure](../log-analytics/log-analytics-log-searches.md) per visualizzare i dati dettagliati sugli aggiornamenti.
 * [Creare avvisi](automation-tutorial-update-management.md#configure-alerts) per lo stato di distribuzione degli aggiornamenti.
 
-* Per informazioni su come interagire con Gestione aggiornamenti tramite l'API REST, vedere [Configurazioni degli aggiornamenti software](/rest/api/automation/softwareupdateconfigurations)
-* Sono disponibili informazioni sulla [risoluzione dei problemi di Gestione aggiornamenti](troubleshoot/update-management.md)
+* Per informazioni su come interagire con Gestione aggiornamenti tramite l'API REST, vedere [configurazioni degli aggiornamenti software](/rest/api/automation/softwareupdateconfigurations).
+* Per informazioni su come risolvere i problemi di Gestione aggiornamenti, vedere [risoluzione dei problemi gestione aggiornamenti](troubleshoot/update-management.md).

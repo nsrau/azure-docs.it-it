@@ -1,5 +1,5 @@
 ---
-title: 'Regressione logistica a due classi: Riferimento al modulo'
+title: 'Regressione logistica a due classi: riferimento al modulo'
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il modulo di regressione logistica a due classi nel servizio Azure Machine Learning per creare un modello di regressione logistica che può essere usato per stimare due (e solo due) risultati.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 818b8627decd5ee7db711abc417f71c83e32b6c0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7020bf529fa635d74959a9dac071aa6e2b134c5b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128370"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692615"
 ---
 # <a name="two-class-logistic-regression-module"></a>Modulo di regressione logistica a due classi
 
@@ -22,7 +22,7 @@ Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il se
 
 Usare questo modulo per creare un modello di regressione logistica che può essere usato per stimare due (e solo due) risultati. 
 
-La regressione logistica è una tecnica statistica ben nota utilizzata per la modellazione di molti tipi di problemi. Questo algoritmo è un metodo di *apprendimento* supervisionato.  Pertanto, è necessario fornire un set di dati che contenga già i risultati per il training del modello.  
+La regressione logistica è una tecnica statistica ben nota utilizzata per la modellazione di molti tipi di problemi. Questo algoritmo è un metodo di *apprendimento supervisionato* .  Pertanto, è necessario fornire un set di dati che contenga già i risultati per il training del modello.  
 
 ### <a name="about-logistic-regression"></a>Informazioni sulla regressione logistica  
 
@@ -36,17 +36,17 @@ Per eseguire il training di questo modello, è necessario fornire un set di dati
 
 Ad esempio, la colonna Label potrebbe essere [voted] con i possibili valori di "Yes" o "No". In alternativa, potrebbe essere [rischio di credito], con i valori possibili "High" o "low". 
   
-1.  Aggiungere il modulo di **regressione logistica a due classi** all'esperimento.  
+1.  Aggiungere il modulo di **regressione logistica a due classi** alla pipeline.  
   
 2.  Specificare il modo in cui si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .  
   
-    -   **Singolo parametro**: Se si conosce il modo in cui si desidera configurare il modello, è possibile specificare come argomenti un set specifico di valori.  
+    -   **Singolo parametro**: se si sa come si desidera configurare il modello, è possibile fornire un set di valori specifico come argomenti.  
   
 3.  Per la **tolleranza di ottimizzazione**, specificare un valore soglia da usare per l'ottimizzazione del modello. Se il miglioramento tra le iterazioni scende al di sotto della soglia specificata, l'algoritmo viene considerato convergente in una soluzione e il training viene arrestato.  
   
 4.  Per il peso della **regolarizzazione L1** e il **peso della regolarizzazione L2**, digitare un valore da usare per i parametri di regolarizzazione L1 e L2. Per entrambi è consigliabile un valore diverso da zero.  
   
-     La regolarizzazione è un metodo per evitare l'overfitting penalizzando i modelli con valori di coefficienti estremi. La regolarizzazione funziona aggiungendo la penalità associata ai valori coefficienti all'errore dell'ipotesi. Pertanto, un modello accurato con valori di coefficienti estremi verrebbe penalizzato più, ma un modello meno accurato con valori più conservativi verrebbe penalizzato meno.  
+     La *regolarizzazione* è un metodo per evitare l'overfitting penalizzando i modelli con valori di coefficienti estremi. La regolarizzazione funziona aggiungendo la penalità associata ai valori coefficienti all'errore dell'ipotesi. Pertanto, un modello accurato con valori di coefficienti estremi verrebbe penalizzato più, ma un modello meno accurato con valori più conservativi verrebbe penalizzato meno.  
   
      La regolarizzazione L1 e L2 presenta effetti e usi diversi.  
   
@@ -54,12 +54,12 @@ Ad esempio, la colonna Label potrebbe essere [voted] con i possibili valori di "
   
     -   Al contrario, la regolarizzazione L2 è preferibile per i dati che non sono di tipo sparse.  
   
-     Questo algoritmo supporta una combinazione lineare di valori di regolarizzazione L1 e L2, ovvero se <code>x = L1</code> e <code>y = L2</code>, quindi <code>ax + by = c</code> definisce la portata lineare dei termini di regolarizzazione.  
+     Questo algoritmo supporta una combinazione lineare di valori di regolarizzazione L1 e L2, ovvero se <code>x = L1</code> e <code>y = L2</code>, <code>ax + by = c</code> definisce la portata lineare dei termini di regolarizzazione.  
   
     > [!NOTE]
-    >  Per ulteriori informazioni sulla regolarizzazione L1 e L2, Nell'articolo seguente viene illustrato il modo in cui la regolarizzazione L1 e L2 sono diverse e il modo in cui influiscono sul montaggio del modello, con esempi di codice per i modelli di regressione logistica e di rete neurale:  [Regolarizzazione L1 e L2 per Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  Per ulteriori informazioni sulla regolarizzazione L1 e L2, Nell'articolo seguente viene illustrato il modo in cui la regolarizzazione L1 e L2 sono diverse e il modo in cui influiscono sul montaggio del modello, con esempi di codice per la regressione logistica e i modelli di rete neurale: [regolarizzazione L1 e L2 per Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
     >
-    > Sono state concepite diverse combinazioni lineari di termini L1 e L2 per i modelli di regressione logistica: ad esempio, la regolarizzazione di [reti elastiche](https://wikipedia.org/wiki/Elastic_net_regularization). Si consiglia di fare riferimento a queste combinazioni per definire una combinazione lineare che sia efficace nel modello.
+    > Sono state concepite diverse combinazioni lineari di termini L1 e L2 per i modelli di regressione logistica: ad esempio, la [regolarizzazione di reti elastiche](https://wikipedia.org/wiki/Elastic_net_regularization). Si consiglia di fare riferimento a queste combinazioni per definire una combinazione lineare che sia efficace nel modello.
       
 5.  Per le **dimensioni della memoria per l-BFGS**, specificare la quantità di memoria da usare per l'ottimizzazione *l-BFGS* .  
   
@@ -67,20 +67,20 @@ Ad esempio, la colonna Label potrebbe essere [voted] con i possibili valori di "
   
      Questo parametro di ottimizzazione limita la quantità di memoria utilizzata per calcolare il passaggio e la direzione successivi. Quando si specifica una quantità di memoria inferiore, il training è più veloce ma meno accurato.  
   
-6.  Per il valore di **inizializzazione numerico casuale**, digitare un valore integer. La definizione di un valore di inizializzazione è importante se si desidera che i risultati siano riproducibili su più esecuzioni dello stesso esperimento.  
+6.  Per il valore di **inizializzazione numerico casuale**, digitare un valore integer. La definizione di un valore di inizializzazione è importante se si desidera che i risultati siano riproducibili su più esecuzioni della stessa pipeline.  
   
   
-8. Aggiungere un set di dati con tag all'esperimento e connettere uno dei [moduli di training](module-reference.md).  
+8. Aggiungere un set di dati con tag alla pipeline e connettere uno dei [moduli di training](module-reference.md).  
   
     -   Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, usare il modulo [Train Model](./train-model.md) .  
   
-9. Eseguire l'esperimento.  
+9. Eseguire la pipeline.  
   
 ## <a name="results"></a>Risultati
 
 Al termine del training:
 
-+ Per visualizzare un riepilogo dei parametri del modello, insieme ai pesi delle funzionalità appresi dal training, fare clic con il pulsante destro del mouse sull'output di [Train Model](./train-model.md) e selezionare Visualize ( **Visualizza**).   
++ Per visualizzare un riepilogo dei parametri del modello, insieme ai pesi delle funzionalità appresi dal training, fare clic con il pulsante destro del mouse sull'output di [Train Model](./train-model.md) e selezionare **Visualize (Visualizza**).   
   
 + Per eseguire stime sui nuovi dati, usare il modello sottoposto a training e i nuovi dati come input per il modulo [Score Model](./score-model.md) . 
 

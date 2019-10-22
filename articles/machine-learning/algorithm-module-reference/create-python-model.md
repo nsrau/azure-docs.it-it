@@ -1,5 +1,5 @@
 ---
-title: 'Crea modello Python: Riferimento al modulo'
+title: 'Creare un modello Python: riferimento al modulo'
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il modello di creazione modello Python nel servizio Azure Machine Learning per creare un modulo di modellazione o elaborazione dati personalizzato.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: c6d7aabd41e9d0e872926adbbcb2d18332cb7d5e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 2a035644dc0d3d533aa052217c89968a5692230b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128930"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693897"
 ---
 # <a name="create-python-model"></a>Creare il modello Python
 
@@ -33,7 +33,7 @@ Dopo aver creato il modello, è possibile utilizzare [Train Model](train-model.m
 L'uso di questo modulo richiede una conoscenza intermedia o esperta di Python. Il modulo supporta l'uso di qualsiasi discente incluso nei pacchetti Python già installati in Azure Machine Learning. Vedere l'elenco di pacchetti Python preinstallato in [Esegui script Python](execute-python-script.md).
   
 
-Questo articolo illustra come usare il **modello create Python** con un esperimento semplice. Di seguito è riportato il grafico dell'esperimento.
+Questo articolo illustra come usare il modello di **creazione di Python** con una semplice pipeline. Di seguito è riportato il grafico della pipeline.
 
 ![creare-Python-Model](./media/module/aml-create-python-model.png)
 

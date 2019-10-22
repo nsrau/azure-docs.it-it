@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
 ms.openlocfilehash: f7cbee13416c090e59c82c928946b512af1c620b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69611912"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Eseguire la migrazione degli spazi dei nomi standard del bus di servizio di Azure esistenti al livello Premium
@@ -94,30 +94,30 @@ Per eseguire la migrazione dello spazio dei nomi standard del bus di servizio a 
 La migrazione tramite il portale di Azure ha lo stesso flusso logico della migrazione mediante i comandi. Attenersi alla seguente procedura per eseguire la migrazione tramite il portale di Azure.
 
 1. Nel menu di **spostamento** nel riquadro sinistro selezionare **migrazione a Premium**. Fare clic sul pulsante **Get Started (inizia** ) per passare alla pagina successiva.
-    ![Pagina di destinazione della migrazione][]
+    ![Migration pagina di destinazione ][]
 
 1. Completare l' **installazione**.
-   ![Spazio dei nomi di installazione][]
+   spazio dei nomi ![Setup ][]
    1. Creare e assegnare lo spazio dei nomi premium per la migrazione dello spazio dei nomi standard esistente a.
-        ![Spazio dei nomi setup-crea spazio dei nomi Premium][]
+        ![Setup spazio dei nomi-crea spazio dei nomi Premium ][]
    1. Scegliere un **nome post-migrazione**. Questo nome verrà usato per accedere allo spazio dei nomi standard al termine della migrazione.
-        ![Imposta spazio dei nomi-Seleziona post migrazione][]
+        ![Setup spazio dei nomi: selezionare il nome della migrazione post ][]
    1. Selezionare **' avanti '** per continuare.
 1. Sincronizzare le entità tra gli spazi dei nomi standard e Premium.
-    ![Configurare lo spazio dei nomi-entità di sincronizzazione-avvio][]
+    spazio dei nomi ![Setup-entità di sincronizzazione-iniziare ][]
 
    1. Selezionare **Avvia sincronizzazione** per avviare la sincronizzazione delle entità.
    1. Selezionare **Sì** nella finestra di dialogo per confermare e avviare la sincronizzazione.
    1. Attendere il completamento della sincronizzazione. Lo stato è disponibile sulla barra di stato.
-        ![Impostazione spazio dei nomi-Sincronizza entità-stato][]
+        entità di sincronizzazione dello spazio dei nomi ![Setup-stato ][]
         >[!IMPORTANT]
         > Se è necessario interrompere la migrazione per qualsiasi motivo, vedere il flusso di interruzione nella sezione Domande frequenti di questo documento.
    1. Al termine della sincronizzazione, selezionare **Avanti** nella parte inferiore della pagina.
 
 1. Esaminare le modifiche nella pagina di riepilogo. Selezionare **completa migrazione** per cambiare spazio dei nomi e completare la migrazione.
-    ![Opzioni del menu cambia spazio dei nomi][]  
+    ![Switch menu opzioni spazio dei nomi ][]  
     La pagina di conferma viene visualizzata al termine della migrazione.
-    ![Switch namespace-operazione riuscita][]
+    spazio dei nomi ![Switch-operazione riuscita ][]
 
 ## <a name="caveats"></a>Avvertenze
 
@@ -169,7 +169,7 @@ Il tempo di inattività riscontrato dall'applicazione è limitato al tempo neces
 No, per eseguire la migrazione non sono necessarie modifiche al codice o alla configurazione. La stringa di connessione utilizzata dalle applicazioni mittente e ricevitore per accedere allo spazio dei nomi standard viene mappata automaticamente per fungere da alias per lo spazio dei nomi Premium.
 
 ### <a name="what-happens-when-i-abort-the-migration"></a>Cosa accade quando si interrompe la migrazione?
-La migrazione può essere interrotta tramite il `Abort` comando o tramite il portale di Azure. 
+La migrazione può essere interrotta usando il comando `Abort` o l'portale di Azure. 
 
 #### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -179,8 +179,8 @@ az servicebus migration abort --resource-group $resourceGroup --name $standardNa
 
 #### <a name="azure-portal"></a>Portale di Azure
 
-![Abort Flow-Interrompi sincronizzazione][]
-![Interrompi flusso-terminazione completata][]
+![Abort Flow-Abort Sync ][]
+ ![Abort Flow-Abort complete ][]
 
 Quando il processo di migrazione viene interrotto, interrompe il processo di copia delle entità (argomenti, sottoscrizioni e filtri) dallo spazio dei nomi standard allo spazio dei nomi premium e interrompe l'associazione.
 
@@ -191,7 +191,7 @@ Tuttavia, non elimina le entità nello spazio dei nomi Premium o Elimina lo spaz
 >[!IMPORTANT]
 > Se si decide di interrompere la migrazione, eliminare lo spazio dei nomi premium di cui è stato effettuato il provisioning per la migrazione in modo che non vengano addebitate le risorse.
 
-#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>Non desidero svuotare i messaggi. Cosa devo fare?
+#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>Non desidero svuotare i messaggi. Che cosa occorre fare?
 
 È possibile che siano presenti messaggi inviati dalle applicazioni del mittente e di cui è stato eseguito il commit nell'archiviazione nello spazio dei nomi standard mentre è in corso la migrazione e appena prima del commit della migrazione.
 

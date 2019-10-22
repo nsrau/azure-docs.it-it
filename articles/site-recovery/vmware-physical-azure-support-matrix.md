@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 7d46773ce45cb3ef8b70d3c6074b9f1c771e9e24
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 179676ae2a7d68bc0263f897ffededcf8b7a01f4
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554630"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693378"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -276,7 +276,6 @@ Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |20 MB/s | 1684 GB per dis
 
 **Varianza dati di origine** | **Limite Massimo**
 ---|---
-Varianza media dei dati per VM| 25 MB/s
 Picco di varianza dei dati su tutti i dischi in una VM | 54 MB/s
 Varianza massima dei dati al giorno supportata da un server di elaborazione | 2 TB
 

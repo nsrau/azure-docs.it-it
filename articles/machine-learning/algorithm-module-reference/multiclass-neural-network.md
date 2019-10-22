@@ -1,5 +1,5 @@
 ---
-title: 'Rete neurale multiclasse: Riferimento al modulo'
+title: 'Rete neurale multiclasse: informazioni di riferimento sui moduli'
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il modulo di rete neurale multiclasse nel servizio Azure Machine Learning per creare un modello di rete neurale che può essere usato per stimare una destinazione con più valori.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 44d1e7606efd5bc6d2286254dc4863728e3edbfd
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3322f2be3c5c6f819adbc9d83ee9eb6b6577f707
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128607"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692718"
 ---
 # <a name="multiclass-neural-network-module"></a>Modulo di rete neurale multiclasse
 
@@ -40,17 +40,17 @@ Per calcolare l'output della rete per un input specifico, viene calcolato un val
 
 ## <a name="configure-multiclass-neural-network"></a>Configurare la rete neurale multiclasse
 
-1. Aggiungere il modulo di **rete neurale multiclasse** all'esperimento nell'interfaccia. È possibile trovare questo modulo in **Machine Learning**, **Initialize**, nella categoria **classificazione** .
+1. Aggiungere il modulo di **rete neurale multiclasse** alla pipeline nell'interfaccia. È possibile trovare questo modulo in **Machine Learning**, **Initialize**, nella categoria **classificazione** .
 
-2. **Crea modalità trainer**: Utilizzare questa opzione per specificare il modo in cui si desidera eseguire il training del modello:
+2. **Crea modalità trainer**: usare questa opzione per specificare come si desidera eseguire il training del modello:
 
-    - **Singolo parametro**: Scegliere questa opzione se si conosce già il modo in cui si desidera configurare il modello.
+    - **Singolo parametro**: scegliere questa opzione se si conosce già il modo in cui si vuole configurare il modello.
 
     
 
-3. **Specifica del livello nascosto**: Consente di selezionare il tipo di architettura di rete da creare.
+3. **Specifica livello nascosto**: selezionare il tipo di architettura di rete da creare.
 
-    - **Caso con connessione completa**: Selezionare questa opzione per creare un modello utilizzando l'architettura di rete neurale predefinita. Per i modelli di rete neurale multiclasse, i valori predefiniti sono i seguenti:
+    - **Caso di connessione completa**: selezionare questa opzione per creare un modello usando l'architettura di rete neurale predefinita. Per i modelli di rete neurale multiclasse, i valori predefiniti sono i seguenti:
 
         - Un livello nascosto
         - Il livello di output è completamente connesso al livello nascosto.
@@ -61,21 +61,21 @@ Per calcolare l'output della rete per un input specifico, viene calcolato un val
   
    
 
-5. **Numero di nodi nascosti**: Questa opzione consente di personalizzare il numero di nodi nascosti nell'architettura predefinita. Digitare il numero di nodi nascosti. Il valore predefinito è un livello nascosto con nodi 100.
+5. **Numero di nodi nascosti**: questa opzione consente di personalizzare il numero di nodi nascosti nell'architettura predefinita. Digitare il numero di nodi nascosti. Il valore predefinito è un livello nascosto con nodi 100.
 
-6. **Velocità di apprendimento**: Definire le dimensioni del passaggio effettuato a ogni iterazione, prima della correzione. Un valore più grande per la velocità di apprendimento può comportare una maggiore velocità di convergenza del modello, ma è possibile che venga superata la minima locale.
+6. **Velocità di apprendimento**: definire le dimensioni del passaggio effettuato a ogni iterazione, prima della correzione. Un valore più grande per la velocità di apprendimento può comportare una maggiore velocità di convergenza del modello, ma è possibile che venga superata la minima locale.
 
-7. **Numero di iterazioni di apprendimento**: Specificare il numero massimo di volte in cui l'algoritmo deve elaborare i case di training.
+7. **Numero di iterazioni di apprendimento**: specificare il numero massimo di volte in cui l'algoritmo deve elaborare i case di training.
 
-8. **Il diametro iniziale dei pesi di apprendimento**: Specificare i pesi del nodo all'inizio del processo di apprendimento.
+8. **Il diametro iniziale dei pesi di apprendimento**: specificare i pesi del nodo all'inizio del processo di apprendimento.
 
-9. **Il momento**: Specificare un peso da applicare durante l'apprendimento ai nodi dalle iterazioni precedenti.
+9. **Momentum**: specificare un peso da applicare durante l'apprendimento ai nodi dalle iterazioni precedenti.
   
-11. **Esempi di riproduzione casuale**: Selezionare questa opzione per riprodurre in modo casuale i casi tra le iterazioni.
+11. **Esempi di riproduzione casuale**: selezionare questa opzione per riprodurre in modo casuale i casi tra le iterazioni.
 
-    Se si deseleziona questa opzione, i case vengono elaborati esattamente nello stesso ordine ogni volta che si esegue l'esperimento.
+    Se si deseleziona questa opzione, i case vengono elaborati esattamente nello stesso ordine ogni volta che si esegue la pipeline.
 
-12. **Valore di inizializzazione numero casuale**: Digitare un valore da usare come valore di inizializzazione, se si vuole garantire la ripetibilità tra le esecuzioni dello stesso esperimento.
+12. Valore di **inizializzazione numero casuale**: digitare un valore da usare come valore di inizializzazione, se si vuole garantire la ripetibilità tra le esecuzioni della stessa pipeline.
 
 14. Connettere un set di dati di training e uno dei [moduli di training](module-reference.md): 
 
@@ -86,9 +86,9 @@ Per calcolare l'output della rete per un input specifico, viene calcolato un val
 
 Al termine del training:
 
-- Per visualizzare un riepilogo dei parametri del modello, insieme ai pesi della funzionalità appresi dal training e ad altri parametri della rete neurale, fare clic con il pulsante destro del mouse sull'outputdi [Train Model](./train-model.md) e scegliere Visualize.  
+- Per visualizzare un riepilogo dei parametri del modello, insieme ai pesi della funzionalità appresi dal training e ad altri parametri della rete neurale, fare clic con il pulsante destro del mouse sull'output di [Train Model](./train-model.md) e scegliere **Visualize**.  
 
-- Per salvare uno snapshot del modello con training, fare clic con il pulsante destro del mouse sull'output del **modello** sottoposto a training e selezionare **Salva come modello con training**. Questo modello non viene aggiornato nelle esecuzioni successive dello stesso esperimento.
+- Per salvare uno snapshot del modello con training, fare clic con il pulsante destro del mouse sull'output del **modello** sottoposto a training e selezionare **Salva come modello con training**. Questo modello non viene aggiornato in esecuzioni successive della stessa pipeline.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,5 +1,5 @@
 ---
-title: 'Modello di valutazione: Riferimento al modulo'
+title: 'Modello di valutazione: riferimento al modulo'
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il modulo Evaluate Model nel servizio Azure Machine Learning per misurare l'accuratezza di un modello sottoposto a training.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 17263c8e7300f427b7d82aea65e1f83edf6d6fc4
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 0ad4ceedf9c1d65339c9e4aabebc0a47475ed568
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128861"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693811"
 ---
 # <a name="evaluate-model-module"></a>Modulo Evaluate Model
 
@@ -30,7 +30,7 @@ Utilizzare questo modulo per misurare l'accuratezza di un modello sottoposto a t
 
 
 > [!TIP]
-> Se non si ha familiarità con la valutazione del modello, è consigliabile usare la serie di video di ripristino di emergenza. Stephen Elston, come parte del [corso di apprendimento automatico](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) di EDX. 
+> Se non si ha familiarità con la valutazione del modello, si consiglia la serie di video di Dr. Stephen Elston come parte del [corso di apprendimento automatico](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) di EDX. 
 
 
 Esistono tre modi per usare il modulo **Evaluate Model** :
@@ -44,7 +44,7 @@ Esistono tre modi per usare il modulo **Evaluate Model** :
 Per valutare un modello, è necessario connettere un set di dati che contiene un set di colonne di input e punteggi.  Se non sono disponibili altri dati, è possibile usare il set di dati originale.
 
 1. Connettere l'output del **set di dati con punteggio** del modello di [Punteggio](./score-model.md) all'input di **Evaluate Model**. 
-2. Fare clic su **Evaluate Model** Module ed eseguire l'esperimento per generare i punteggi di valutazione.
+2. Fare clic su **Evaluate Model** Module ed eseguire la pipeline per generare i punteggi di valutazione.
 
 ## <a name="use-testing-data"></a>Usare i dati di test
 
@@ -66,7 +66,7 @@ Questa funzionalità è utile perché è possibile confrontare facilmente i risu
 
 ## <a name="results"></a>Risultati
 
-Dopo aver eseguito **Evaluate Model**, fare clic con il pulsante destro del mouse sul modulo e selezionare **Risultati valutazione** per visualizzare i risultati. È possibile:
+Dopo aver eseguito **Evaluate Model**, fare clic con il pulsante destro del mouse sul modulo e selezionare **Risultati valutazione** per visualizzare i risultati. Puoi:
 
 + Salvare i risultati come set di dati, per semplificare l'analisi con altri strumenti
 + Generare una visualizzazione nell'interfaccia
@@ -80,7 +80,7 @@ Ad esempio, l'immagine seguente rappresenta un confronto dei risultati di due mo
 
 Poiché si tratta di un modello di clustering, i risultati della valutazione sono diversi rispetto a quelli di due modelli di regressione oppure a confrontati due modelli di classificazione. Tuttavia, la presentazione complessiva è la stessa. 
 
-## <a name="metrics"></a>metrics
+## <a name="metrics"></a>Metriche
 
 In questa sezione vengono descritte le metriche restituite per i tipi specifici di modelli supportati per l'utilizzo con **Evaluate Model**:
 
@@ -91,7 +91,7 @@ In questa sezione vengono descritte le metriche restituite per i tipi specifici 
 
 Quando si valutano i modelli di classificazione, vengono restituite le metriche seguenti. Se si confrontano i modelli, vengono classificati in base alla metrica selezionata per la valutazione.  
   
--   L'accuratezza misura la bontà di un modello di classificazione come la percentuale di risultati reali al numero totale di case.  
+-   L' **accuratezza** misura la bontà di un modello di classificazione come la percentuale di risultati reali al numero totale di case.  
   
 -   La **precisione** è la percentuale di risultati reali rispetto a tutti i risultati positivi.  
   
@@ -119,7 +119,7 @@ Le metriche restituite per i modelli di regressione sono in genere progettate pe
   
 - L'errore **quadratico relativo (RSE)** normalizza in modo analogo l'errore quadrato totale dei valori stimati dividendo per l'errore quadrato totale dei valori effettivi.  
   
-- **Media zero un errore (MZOE)** indica se la stima è stata corretta o meno.  In altre parole: `ZeroOneLoss(x,y) = 1` quando `x!=y`; in `0`caso contrario,.
+- **Media zero un errore (MZOE)** indica se la stima è stata corretta o meno.  In altre parole: `ZeroOneLoss(x,y) = 1` quando `x!=y`; in caso contrario `0`.
   
 - Il **coefficiente di determinazione**, spesso definito R<sup>2</sup>, rappresenta la potenza predittiva del modello come valore compreso tra 0 e 1. Zero indica che il modello è casuale (non spiega niente); 1 indica una soluzione perfetta. Tuttavia, è consigliabile usare l'attenzione per interpretare i valori di R<sup>2</sup> , in quanto i valori bassi possono essere completamente normali e i valori elevati possono essere sospetti.
   

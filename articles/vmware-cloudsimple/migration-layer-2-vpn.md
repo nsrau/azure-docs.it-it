@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 34b26dd1b9b8990da9e84c8d7cfc993d8bbe85a7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72376297"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Eseguire la migrazione di carichi di lavoro usando reti estese di livello 2
@@ -137,7 +137,7 @@ Nei passaggi seguenti viene illustrato come recuperare l'ID del router logico de
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>Recuperare l'ID del comcambio logico necessario per L2VPN
 
 1. Accedere a [NSX-T Manager](https://nsx-t-manager-ip-address).
-2. Selezionare **network** > **switching** > **switchs** > * * < \Logical switch @ No__t-5 * * > **Overview**.
+2. Selezionare **rete**  > **cambio**  > **Opzioni** > * * < commutatore \Logical \> * * **Panoramica**>.
 3. Prendere nota dell'UUID del Commuter logico stretch, che è necessario quando si configura L2VPN.
 
     ![ottenere l'output del router logico](media/l2vpn-fetch-switch01.png)
@@ -165,7 +165,7 @@ Per stabilire una VPN basata su Route IPsec tra il router NSX-T tier0 e il clien
 
 4. Accedere a NSX-T Manager e selezionare **rete** > **routing** > **router** > **Provider-LR** > **routing** > **BGP**1**neighbors**. Selezionare il primo elemento adiacente. Fare clic su **modifica** > **Indirizzo famiglie**. Per la famiglia IPv4, modificare la colonna **filtro di uscita** e selezionare l'elenco di prefisso IP creato. Fare clic su **Salva** Ripetere questo passaggio per il secondo router adiacente.
 
-    ![Attach elenco prefisso IP 1 @ no__t-1 ![Attach prefisso IP elenco 2 @ no__t-3
+    ![Attach elenco prefisso IP 1 ](media/l2vpn-routing-security03.png) ![Attach elenco di prefisso IP 2 ](media/l2vpn-routing-security04.png)
 
 5. Ridistribuire la route statica null in BGP. Per annunciare la route dell'interfaccia di loopback al sottoposto, è necessario ridistribuire la route statica null in BGP. Accedere a NSX-T Manager e selezionare **rete** > **routing** > **router** > **Provider-LR** >  routing  > **routing** **ridistribuzione**1 router**adiacenti**. Selezionare **provider-LR-Route_Redistribution** e fare clic su **modifica**. Selezionare la casella di controllo **static** e fare clic su **Salva**.
 
@@ -430,7 +430,7 @@ Prima di distribuire, verificare che le regole del firewall locale consentano il
 
 2. Passare alla cartella con tutti i file estratti. Selezionare tutti i file VMDK (NSX-I2t-client-large. MF e NSX-l2t-client-large. ovf per le dimensioni dell'appliance di grandi dimensioni o NSX-I2t-client-XLarge. MF e NSX-l2t-client-Xlarge. ovf per le dimensioni del dispositivo con dimensioni molto elevate). Fare clic su **Next** (Avanti).
 
-    ![Select template @ no__t-1 ![Selezionare template @ no__t-3
+    modello di ![Select ](media/l2vpn-deploy-client02.png) ![Select modello ](media/l2vpn-deploy-client03.png)
 
 3. Immettere un nome per il client autonomo NSX-T e fare clic su **Avanti**.
 
@@ -460,7 +460,8 @@ Prima di distribuire, verificare che le regole del firewall locale consentano il
     * **Lunghezza del prefisso**. Immettere la lunghezza del prefisso della VLAN/subnet uplink.
     * **Amministratore dell'interfaccia della riga di comando/Abilita/password utente root**. Impostare la password per l'account amministratore/Enable/root.
 
-      ![Customize template @ no__t-1 @ no__t-2Customize template-more @ no__t-3
+      modello di ![Customize ](media/l2vpn-deploy-client08.png)
+       ![Customize modello-altre ](media/l2vpn-deploy-client09.png)
 
 7. Verificare le impostazioni e fare clic su **fine**.
 

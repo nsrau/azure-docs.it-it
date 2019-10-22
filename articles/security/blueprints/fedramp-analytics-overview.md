@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
 ms.openlocfilehash: 9850c5f064815315db6f85a931e7e175d605dcc1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71257582"
 ---
-# <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Progetto di sicurezza e conformità di Azure: Analisi per FedRAMP
+# <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Progetto di sicurezza e conformità di Azure: analisi per FedRAMP
 
 ## <a name="overview"></a>Panoramica
 
@@ -25,7 +25,7 @@ Questa architettura di riferimento, le guide all'implementazione dei controlli a
 - L'architettura rappresenta una baseline per aiutare i clienti a distribuire carichi di lavoro in Azure rispettando la conformità a FedRAMP.
 - I clienti sono responsabili dell'esecuzione delle valutazioni appropriate in termini di sicurezza e conformità di qualsiasi soluzione creata con questa architettura, in quanto i requisiti possono variare a seconda delle specifiche di implementazione di ogni cliente.
 
-## <a name="architecture-diagram-and-components"></a>Diagramma e componenti dell'architettura
+## <a name="architecture-diagram-and-components"></a>Diagramma dell'architettura e componenti
 
 Questa soluzione offre una piattaforma di analisi su cui i clienti possono creare i propri strumenti. L'architettura di riferimento descrive un caso d'uso generico in cui i clienti inseriscono i dati con importazioni in blocco tramite l'amministratore SQL/dati o con gli aggiornamenti dei dati operativi tramite un utente operativo. Entrambi i flussi di lavoro incorporano [Funzioni Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview) per l'importazione di dati nel database SQL. È necessario configurare Funzioni di Azure nel portale di Azure per gestire le attività di importazione specifiche dei requisiti di analisi di ogni cliente.
 
@@ -41,7 +41,7 @@ Per una sicurezza ottimale, questa architettura gestisce le risorse con Azure Ac
 
 Il database SQL di Azure viene gestito in genere con SQL Server Management Studio (SSMS), eseguito in un computer locale configurato per l'accesso al database SQL di Azure tramite una connessione VPN o ExpressRoute sicura. **Azure consiglia di configurare una connessione Azure ExpressRoute o VPN per gestire e importare i dati nel gruppo di risorse dell'architettura di riferimento.**
 
-![Diagramma dell'architettura di riferimento per l'analisi per FedRAMP](images/fedramp-analytics-reference-architecture.png?raw=true "Diagramma dell'architettura di riferimento per l'analisi per FedRAMP")
+![Diagramma dell'architettura di riferimento di Analytics per FedRAMP](images/fedramp-analytics-reference-architecture.png?raw=true "Diagramma dell'architettura di riferimento di Analytics per FedRAMP")
 
 ### <a name="roles"></a>Ruoli
 Il progetto di analisi descrive uno scenario con tre tipi generali di utente, ovvero utente operativo, amministratore SQL/dati e sistemista. Il controllo degli accessi in base al ruolo di Azure consente di implementare in modo preciso la gestione degli accessi tramite ruoli personalizzati predefiniti. Sono disponibili risorse per la configurazione del [controllo degli accessi in base al ruolo](../../role-based-access-control/role-assignments-portal.md) e per la definizione e l'implementazione di [ruoli predefiniti](../../role-based-access-control/built-in-roles.md).
@@ -59,7 +59,7 @@ L'utente operativo aggiorna regolarmente i dati ed è responsabile della generaz
 
 Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'architettura di distribuzione sono disponibili nella sezione [Architettura di distribuzione](#deployment-architecture).
 - Funzioni di Azure
-- Database SQL di Azure
+- database SQL di Azure
 - Azure Analysis Services
 - Azure Active Directory
 - Azure Key Vault
@@ -71,18 +71,18 @@ Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'
 ## <a name="deployment-architecture"></a>Architettura di distribuzione
 La sezione seguente descrive in modo dettagliato gli elementi di sviluppo e implementazione.
 
-![testo alternativo](images/fedramp-analytics-components.png?raw=true "Diagramma dei componenti per l'analisi per FedRAMP")
+![testo alternativo](images/fedramp-analytics-components.png?raw=true "Diagramma dei componenti di Analytics per FedRAMP")
 
-**Funzioni di Azure**: [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview) sono soluzioni per l'esecuzione di piccole parti di codice nel cloud tramite la maggior parte dei linguaggi di programmazione. In questa soluzione le funzioni si integrano con Archiviazione di Azure per effettuare automaticamente il pull dei dati dei clienti nel cloud, semplificando l'integrazione con altri servizi di Azure. Le funzioni sono facilmente scalabili e prevedono un addebito solo quando vengono eseguite.
+**Funzioni di Azure**: [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview) consente di eseguire piccoli frammenti di codice nel cloud tramite la maggior parte dei linguaggi di programmazione. In questa soluzione le funzioni si integrano con Archiviazione di Azure per effettuare automaticamente il pull dei dati dei clienti nel cloud, semplificando l'integrazione con altri servizi di Azure. Le funzioni sono facilmente scalabili e prevedono un addebito solo quando vengono eseguite.
 
-**Servizio di analisi di Azure**: [Azure Analysis](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) Services offre funzionalità di modellazione e integrazione dei dati aziendali con i servizi della piattaforma dati di Azure. Azure Analysis Services accelera l'esplorazione in enormi quantità di dati combinando le informazioni da più origini in un singolo modello di dati.
+**Azure Analysis Services**: in [Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) sono disponibili funzionalità per la modellazione dei dati aziendali e l'integrazione con servizi della piattaforma dati di Azure. Azure Analysis Services accelera l'esplorazione in enormi quantità di dati combinando le informazioni da più origini in un singolo modello di dati.
 
-**Power BI**: [Power bi](https://docs.microsoft.com/power-bi/service-azure-and-power-bi) fornisce funzionalità di analisi e creazione di report per i clienti che tentano di ottenere informazioni più approfondite sulle attività di elaborazione dei dati.
+**Power BI**: in [Power BI](https://docs.microsoft.com/power-bi/service-azure-and-power-bi) sono disponibili funzionalità di analisi e di report per i clienti che tentanto di estrarre una maggiore quantità di informazioni dettagliate dalle attività di elaborazione.
 
 ### <a name="networking"></a>Rete
-**Gruppi di sicurezza di rete**: [Gruppi](../../virtual-network/virtual-network-vnet-plan-design-arm.md) sono configurati per gestire il traffico diretto alle risorse e ai servizi distribuiti. I gruppi di sicurezza di rete vengono configurati in base a uno schema di negazione per impostazione predefinita e consentono solo il traffico contenuto nell'elenco di controllo di accesso preconfigurato.
+**Gruppi di sicurezza di rete**: i [gruppi di sicurezza di rete](../../virtual-network/virtual-network-vnet-plan-design-arm.md) sono configurati per gestire il traffico diretto alle risorse e ai servizi distribuiti. I gruppi di sicurezza di rete vengono configurati in base a uno schema di negazione per impostazione predefinita e consentono solo il traffico contenuto nell'elenco di controllo di accesso preconfigurato.
 
-Per ognuno dei gruppi di sicurezza di rete sono aperti porte e protocolli specifici per garantire il funzionamento protetto e corretto della soluzione. Per ogni gruppo di sicurezza di rete sono abilitate anche le configurazioni seguenti:
+Per ognuno dei gruppi di sicurezza di rete sono aperti protocolli e porte specifici per garantire il funzionamento protetto e corretto della soluzione. Per ogni gruppo di sicurezza di rete sono abilitate anche le configurazioni seguenti:
   - [Log ed eventi di diagnostica](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) abilitati e archiviati in un account di archiviazione
   - I [log di monitoraggio di Azure](../../azure-monitor/insights/azure-networking-analytics.md) sono connessi ai log di diagnostica di NSG.
 
@@ -100,7 +100,7 @@ L'architettura protegge i dati inattivi tramite la crittografia, il controllo de
 
 **Database SQL di Azure**. L'istanza di database SQL di Azure usa le misure di sicurezza del database seguenti:
 -   L'[autenticazione e l'autorizzazione di AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) consentono la gestione delle identità degli utenti del database e di altri servizi Microsoft in una posizione centrale.
--   Il [controllo del database SQL](../../sql-database/sql-database-auditing.md) tiene traccia degli eventi che si verificano nel database e li registra in un log di controllo in un account di Archiviazione di Azure.
+-   Il [controllo del database SQL](../../sql-database/sql-database-auditing.md) tiene traccia degli eventi che si verificano nel database e li registra in un log di controllo in un account di archiviazione di Azure.
 -   Il database SQL è configurato per l'uso di [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), che esegue la crittografia e la decrittografia in tempo reale dei dati e dei file di log per proteggere le informazioni inattive. TDE garantisce che i dati archiviati non siano soggetti ad accesso non autorizzato.
 -   Le [regole del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) impediscono completamente l'accesso ai server di database fino alla concessione delle autorizzazioni appropriate. Il firewall concede l'accesso ai database in base all'indirizzo IP di origine di ogni richiesta.
 -   Il [servizio di rilevamento delle minacce di SQL](../../sql-database/sql-database-threat-detection.md) consente di rilevare e di rispondere a minacce potenziali non appena si verificano, visualizzando avvisi relativi alla sicurezza per attività sospette del database, vulnerabilità potenziali, attacchi SQL injection e modelli di accesso al database anomali.
@@ -110,26 +110,26 @@ L'architettura protegge i dati inattivi tramite la crittografia, il controllo de
 ### <a name="logging-and-audit"></a>Registrazione e controllo
 [Monitoraggio di Azure](../../azure-monitor/overview.md) genera una visualizzazione completa dei dati di monitoraggio, ad esempio log attività, metriche e dati di diagnostica, consentendo ai clienti di creare un quadro completo dello stato del sistema.  
 [Log di monitoraggio di Azure](../azure-security-disk-encryption-overview.md) offre una registrazione completa delle attività del sistema e degli utenti, nonché dell'integrità del sistema. Raccoglie e analizza i dati generati dalle risorse in Azure e negli ambienti locali.
-- **Log attività**: i [log attività](../../azure-monitor/platform/activity-logs-overview.md) offrono informazioni dettagliate sulle operazioni eseguite sulle risorse di una sottoscrizione.
+- **Log attività**: i [log attività](../../azure-monitor/platform/activity-logs-overview.md) forniscono informazioni dettagliate sulle operazioni eseguite sulle risorse di una sottoscrizione.
 - **Log di diagnostica**: i [log di diagnostica](../../azure-monitor/platform/resource-logs-overview.md) includono tutti i log generati da ogni risorsa. Questi log includono i registri di sistema degli eventi di Windows e i log di Archiviazione BLOB di Azure, delle tabelle e delle code.
-- **Log del firewall**: Il gateway applicazione fornisce log completi relativi a diagnostica e accesso. I log del firewall sono disponibili per le risorse del gateway applicazione con WAF abilitato.
-- **Archiviazione di log**: tutti i log di diagnostica scrivono a un account di archiviazione di Azure crittografato e centralizzato per l'archiviazione con un periodo di conservazione definito di 2 giorni. Questi log si connettono ai log di monitoraggio di Azure per l'elaborazione, l'archiviazione e il reporting del dashboard.
+- **Log del firewall**: il gateway applicazione genera log completi relativi a diagnostica e accesso. I log del firewall sono disponibili per le risorse del gateway applicazione con WAF abilitato.
+- **Archiviazione dei log**: tutti i log di diagnostica scrivono in un account di archiviazione di Azure crittografato e centralizzato per l'archiviazione con un periodo di mantenimento definito di 2 giorni. Questi log si connettono ai log di monitoraggio di Azure per l'elaborazione, l'archiviazione e il reporting del dashboard.
 
 Questa architettura include anche le soluzioni di monitoraggio seguenti:
 -   [Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): la soluzione Automazione di Azure archivia, esegue e gestisce i runbook.
--   [Sicurezza e controllo](../../security-center/security-center-intro.md): la dashboard Sicurezza e controllo offre informazioni dettagliate di alto livello sullo stato di sicurezza delle risorse, grazie a metriche relative a domini di sicurezza, problemi rilevanti, rilevamenti, intelligence per le minacce e query comuni per la sicurezza.
--   [Valutazione SQL](../../azure-monitor/insights/sql-assessment.md): la soluzione Controllo integrità SQL valuta il rischio e l'integrità degli ambienti server a intervalli regolari e offre ai clienti un elenco di elementi consigliati specifici per l'infrastruttura di server distribuita, classificati in ordine di priorità.
--   [Log attività di Azure](../../azure-monitor/platform/collect-activity-logs.md): la soluzione Analisi log attività offre assistenza per l'analisi dei log attività di Azure in tutte le sottoscrizioni di Azure per un cliente.
+-   [Sicurezza e controllo](../../security-center/security-center-intro.md): il dashboard Sicurezza e controllo offre informazioni dettagliate sullo stato di sicurezza delle risorse, grazie a metriche relative a domini di sicurezza, problemi rilevanti, rilevamenti, intelligence per le minacce e query comuni per la sicurezza.
+-   [Valutazione SQL](../../azure-monitor/insights/sql-assessment.md): la soluzione Controllo integrità SQL valuta il rischio e l'integrità degli ambienti server a intervalli regolari e presenta un elenco classificato in ordine di priorità di consigli specifici per l'infrastruttura di server distribuita.
+-   [Log attività di Azure](../../azure-monitor/platform/collect-activity-logs.md): la soluzione Analisi log attività fornisce assistenza per l'analisi dei log attività di Azure in tutte le sottoscrizioni di Azure per un cliente.
 
 ### <a name="identity-management"></a>Gestione delle identità
--   L'autenticazione per l'applicazione viene eseguita tramite Azure AD. Per altre informazioni, vedere [Integrazione di applicazioni con Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). La crittografia delle colonne del database usa Azure AD per autenticare l'applicazione nel database SQL di Azure. Per altre informazioni, vedere la procedura per [proteggere i dati sensibili nel database SQL](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+-   L'autenticazione per l'applicazione viene eseguita tramite Azure AD. Per altre informazioni, vedere [Integrazione di applicazioni con Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). La crittografia delle colonne del database usa Azure AD per autenticare l'applicazione nel database SQL di Azure. Per altre informazioni, vedere l'articolo su come [proteggere i dati sensibili nel database SQL](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
 -   [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) rileva le potenziali vulnerabilità che interessano le identità dell'organizzazione, consente di configurare risposte automatiche per le azioni sospette rilevate in relazione alle identità dell'organizzazione, ricerca la causa degli eventi sospetti per intraprendere le azioni appropriate per risolverli.
--   Il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) consente un'accurata gestione degli accessi per Azure. L'accesso alla sottoscrizione è limitato all'amministratore della sottoscrizione.
+-   Il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) consente un'accurata gestione degli accessi per Azure. L'accesso alla sottoscrizione è limitato all'amministratore della sottoscrizione stessa.
 
 Per altre informazioni sull'uso delle funzionalità di sicurezza del database SQL di Azure, vedere l'[applicazione demo di esempio Contoso Clinic](https://github.com/Microsoft/azure-sql-security-sample).
 
-### <a name="security"></a>Security
-**Gestione dei segreti**: la soluzione usa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) per la gestione delle chiavi e dei segreti. L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud.
+### <a name="security"></a>Sicurezza
+**Gestione dei segreti**: la soluzione usa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) per la gestione di chiavi e segreti. L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud.
 
 ## <a name="guidance-and-recommendations"></a>Indicazioni e consigli
 
@@ -143,21 +143,21 @@ Per altre informazioni sull'uso delle funzionalità di sicurezza del database SQ
 #### <a name="iaas---vm-considerations"></a>IaaS-considerazioni sulle VM
 Questa soluzione PaaS non incorpora alcuna macchina virtuale IaaS di Azure. Un cliente potrebbe creare una macchina virtuale di Azure per eseguire molti servizi PaaS descritti. In questo caso, è possibile sfruttare funzionalità e servizi specifici per la continuità aziendale e i log di monitoraggio di Azure:
 
-##### <a name="business-continuity"></a>Continuità aziendale
-- **Disponibilità elevata**: I carichi di lavoro del server vengono raggruppati in un [set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per garantire la disponibilità elevata delle macchine virtuali in Azure. Almeno una macchina virtuale è disponibile durante un evento di manutenzione pianificato o non pianificato, in conformità al Contratto di servizio di Azure con disponibilità garantita del 99,95%.
+##### <a name="business-continuity"></a>Business continuity
+- **Disponibilità elevata**: i carichi di lavoro sono raggruppati in un [set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per consentire di assicurare la disponibilità elevata delle macchine virtuali in Azure. Almeno una macchina virtuale è disponibile durante un evento di manutenzione pianificato o non pianificato, rispettando il Contratto di servizio di Azure al 99,95%.
 
-- **Insieme di credenziali di Servizi di ripristino**: l'[insieme di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) ospita i dati di backup e protegge tutte le configurazioni delle macchine virtuali di Azure in questa architettura. Con un insieme di credenziali di Servizi di ripristino i clienti possono ripristinare file e cartelle da una macchina virtuale IaaS senza ripristinare l'intera macchina virtuale, consentendo tempi di ripristino più rapidi.
+- **Insieme di credenziali di Servizi di ripristino**: l'[insieme di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) ospita i dati di backup e protegge tutte le configurazioni di Macchine virtuali di Azure in questa architettura. Con un insieme di credenziali di Servizi di ripristino i clienti possono ripristinare file e cartelle da una macchina virtuale IaaS senza ripristinare l'intera macchina virtuale, consentendo tempi di ripristino più rapidi.
 
 ##### <a name="monitoring-solutions"></a>Soluzioni di monitoraggio
--   [Valutazione Active Directory](../../azure-monitor/insights/ad-assessment.md): la soluzione Controllo integrità Active Directory valuta il rischio e l'integrità degli ambienti server a intervalli regolari e fornisce un elenco di elementi consigliati specifici per l'infrastruttura di server distribuita, classificati in ordine di priorità.
--   [Valutazione antimalware](../../security-center/security-center-install-endpoint-protection.md): la soluzione antimalware crea report relativi a malware, minacce e stato di protezione.
--   [Gestione aggiornamenti](../../automation/automation-update-management.md): la soluzione Gestione aggiornamenti consente ai clienti di gestire gli aggiornamenti di sicurezza del sistema operativo, tra cui lo stato degli aggiornamenti disponibili e il processo per l'installazione di quelli necessari.
--   [Integrità agente](../../monitoring/monitoring-solution-agenthealth.md): la soluzione Integrità agente segnala il numero di agenti distribuiti e la rispettiva distribuzione geografica, oltre al numero di agenti non reattivi e a quello degli agenti che inviano dati operativi.
+-   [Valutazione AD](../../azure-monitor/insights/ad-assessment.md): la soluzione Controllo integrità Active Directory valuta il rischio e l'integrità degli ambienti server a intervalli regolari e presenta un elenco classificato in ordine di priorità di consigli specifici per l'infrastruttura di server distribuita.
+-   [Valutazione antimalware](../../security-center/security-center-install-endpoint-protection.md): la soluzione Antimalware crea report relativi a malware, minacce e stato della protezione.
+-   [Gestione aggiornamenti](../../automation/automation-update-management.md): la soluzione Gestione aggiornamenti consente ai clienti di gestire gli aggiornamenti della sicurezza del sistema operativo, offrendo anche lo stato degli aggiornamenti disponibili e un processo per l'installazione di quelli necessari.
+-   [Integrità agente](../../monitoring/monitoring-solution-agenthealth.md): la soluzione Integrità agente segnala il numero di agenti distribuiti e la rispettiva distribuzione geografica, oltre al numero di agenti non reattivi e a quello di agenti che inviano dati operativi.
 -   [Rilevamento modifiche](../../automation/change-tracking.md): la soluzione Rilevamento modifiche consente ai clienti di identificare con facilità le modifiche apportate all'ambiente.
 
-##### <a name="security"></a>Security
-- **Protezione antimalware**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) per Macchine virtuali offre una funzionalità di protezione in tempo reale che consente di identificare e rimuovere virus, spyware e altro software dannoso con avvisi configurabili per i casi in cui un software dannoso o indesiderato tenta di installare o eseguire se stesso su macchine virtuali protette.
-- **Gestione delle patch**: Le macchine virtuali Windows distribuite come parte di questa architettura di riferimento sono configurate per impostazione predefinita in modo da ricevere aggiornamenti automatici dal servizio Windows Update. Questa soluzione include anche il servizio [Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-intro) che consente di creare distribuzioni aggiornate per applicare patch alle macchine virtuali quando è necessario.
+##### <a name="security"></a>Sicurezza
+- **Protezione da malware**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) per Macchine virtuali offre una funzionalità di protezione in tempo reale che consente di identificare e rimuovere virus, spyware e altro software dannoso con avvisi configurabili nel caso di tentativi di installazione o esecuzione di software dannoso o indesiderato su macchine virtuali protette.
+- **Gestione delle patch**: le macchine virtuali Windows distribuite come parte di questa architettura di riferimento sono configurate per impostazione predefinita in modo da ricevere aggiornamenti automatici dal servizio Windows Update. Questa soluzione include anche il servizio [Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-intro), che consente di creare distribuzioni aggiornate per applicare patch alle macchine virtuali quando necessario.
 
 #### <a name="azure-commercial"></a>Azure Commercial
 Sebbene questa architettura di analisi dei dati non sia progettata per la distribuzione nell'ambiente di [Azure Commercial](https://azure.microsoft.com/overview/what-is-azure/), obiettivi simili possono essere ottenuti tramite i servizi descritti in questa architettura di riferimento, nonché tramite servizi aggiuntivi disponibili solo nell'ambiente Azure Commercial. Azure Commercial mantiene un JAB P-ATO FedRAMP a livello di impatto moderato, consentendo agli enti e ai partner governativi di distribuire le informazioni moderatamente riservate nel cloud sfruttando l'ambiente Azure Commercial.

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
 ms.openlocfilehash: ce7a8af1416664a3a94b248c95203c8e775e805c
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70182401"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia di ricerca di Azure con chiavi gestite dal cliente in Azure Key Vault
@@ -45,7 +45,7 @@ In questo esempio vengono usati i servizi seguenti.
 
 ## <a name="1---enable-key-recovery"></a>1-Abilita ripristino chiavi
 
-Questo passaggio è facoltativo ma consigliato. Dopo aver creato la risorsa Azure Key Vault, abilitare l' **eliminazione** temporanea e ripulire la **protezione** nell'insieme di credenziali delle chiavi selezionato eseguendo i comandi di PowerShell o dell'interfaccia della riga di comando di Azure seguenti:   
+Questo passaggio è facoltativo ma consigliato. Dopo aver creato la risorsa Azure Key Vault, abilitare l' **eliminazione** temporanea e **ripulire la protezione** nell'insieme di credenziali delle chiavi selezionato eseguendo i comandi di PowerShell o dell'interfaccia della riga di comando di Azure seguenti:   
 
 ```powershell
 $resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "<vault_name>").ResourceId
@@ -164,7 +164,7 @@ Se si usa un'applicazione AAD per l'autenticazione Key Vault invece di usare un'
 }
 ```
 
-## <a name="example-index-encryption"></a>Esempio: Crittografia dell'indice
+## <a name="example-index-encryption"></a>Esempio: crittografia degli indici
 Per informazioni dettagliate sulla creazione di un nuovo indice tramite l'API REST, vedere [create index (API REST di Azure servizio di ricerca)](https://docs.microsoft.com/rest/api/searchservice/create-index), in cui l'unica differenza consiste nel specificare i dettagli della chiave di crittografia come parte della definizione dell'indice: 
 
 ```json
@@ -191,7 +191,7 @@ Per informazioni dettagliate sulla creazione di un nuovo indice tramite l'API RE
 ```
 È ora possibile inviare la richiesta di creazione dell'indice, quindi iniziare a utilizzare l'indice normalmente.
 
-## <a name="example-synonym-map-encryption"></a>Esempio: Crittografia mappa sinonimi
+## <a name="example-synonym-map-encryption"></a>Esempio: crittografia mappa sinonimo
 
 Per informazioni dettagliate sulla creazione di una nuova mappa dei sinonimi tramite l'API REST, vedere creare una mappa di sinonimi [(API REST di Azure servizio di ricerca)](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map), in cui l'unica differenza consiste nel specificare i dettagli della chiave di crittografia come parte della definizione della mappa dei sinonimi: 
 
@@ -214,7 +214,7 @@ Per informazioni dettagliate sulla creazione di una nuova mappa dei sinonimi tra
 > Sebbene non sia possibile aggiungere **encryptionKey** agli indici di ricerca di Azure o ai mapping di sinonimi esistenti, è possibile aggiornarli fornendo valori diversi per uno dei tre dettagli dell'insieme di credenziali delle chiavi (ad esempio, l'aggiornamento della versione della chiave). Quando si passa a una nuova chiave di Key Vault o a una nuova versione di chiave, qualsiasi indice di ricerca di Azure o mappa dei sinonimi che usa la chiave deve prima essere aggiornato per usare il nuovo key\version **prima** di eliminare il key\version. precedente In caso contrario, il mapping dell'indice o del sinonimo sarà inutilizzabile, in quanto non sarà in grado di decrittografare il contenuto quando l'accesso alla chiave viene perso.   
 > Il ripristino delle autorizzazioni di accesso di Key Vault in un secondo momento ripristinerà l'accesso al contenuto.
 
-## <a name="aad-app"></a>Avanzate Usare un'applicazione Azure Active Directory gestita esternamente
+## <a name="aad-app"></a>Avanzate: usare un'applicazione Azure Active Directory gestita esternamente
 
 Quando non è possibile usare un'identità gestita, è possibile creare un'applicazione Azure Active Directory con un'entità di sicurezza per il servizio ricerca di Azure. In particolare, un'identità gestita non è valida in queste condizioni:
 

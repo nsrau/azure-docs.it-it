@@ -15,10 +15,10 @@ ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9c9d6d13efaa07bff2a1eaabe05725a3257cf895
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70095683"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch
@@ -42,10 +42,10 @@ Per *applicazione* in Azure Batch si intende un set di file binari con versione 
 
 ![Diagramma di alto livello di applicazioni e pacchetti applicazione][1]
 
-### <a name="applications"></a>Applicazioni
+### <a name="applications"></a>applicazioni
 Un'applicazione in Batch contiene uno o più pacchetti dell'applicazione e specifica le opzioni di configurazione per l'applicazione. Un'applicazione può ad esempio specificare la versione predefinita del pacchetto dell'applicazione da installare nei nodi di calcolo e se i pacchetti possono essere aggiornati o eliminati.
 
-### <a name="application-packages"></a>Pacchetti dell'applicazione
+### <a name="application-packages"></a>Pacchetti delle applicazioni
 Un pacchetto dell'applicazione è un file zip contenente i file binari e i file di supporto dell'applicazione necessari per le attività di esecuzione dell'applicazione. Ogni pacchetto dell’applicazione rappresenta una versione specifica dell'applicazione.
 
 È possibile specificare i pacchetti dell'applicazione a livello di pool e di attività. È possibile specificare uno o più di questi pacchetti ed eventualmente una versione quando si crea un pool o un'attività.
@@ -94,7 +94,7 @@ Il servizio Batch usa l'account di archiviazione associato per archiviare i pacc
 > Non è attualmente possibile usare i pacchetti dell'applicazione con un account di archiviazione di Azure configurato con [regole del firewall](../storage/common/storage-network-security.md).
 > 
 
-Il servizio Batch usa Archiviazione di Azure per archiviare i pacchetti dell'applicazione come BLOB in blocchi. Viene addebitato il [costo normale][storage_pricing] per i dati BLOB in blocchi e le dimensioni di ogni pacchetto non possono superare le [dimensioni massime del BLOB in blocchi](../storage/common/storage-scalability-targets.md#azure-blob-storage-scale-targets). Controllare la dimensione e il numero dei pacchetti dell'applicazione e rimuovere periodicamente i pacchetti obsoleti per ridurre al minimo il costo.
+Il servizio Batch usa Archiviazione di Azure per archiviare i pacchetti dell'applicazione come BLOB in blocchi. Viene [addebitato il costo normale][storage_pricing] per i dati BLOB in blocchi e le dimensioni di ogni pacchetto non possono superare le [dimensioni massime del BLOB in blocchi](../storage/common/storage-scalability-targets.md#azure-blob-storage-scale-targets). Controllare la dimensione e il numero dei pacchetti dell'applicazione e rimuovere periodicamente i pacchetti obsoleti per ridurre al minimo il costo.
 > 
 > 
 
@@ -132,7 +132,7 @@ Nei dettagli dell'applicazione è possibile configurare le impostazioni seguenti
 * **Versione predefinita**: specificare un pacchetto dell'applicazione predefinito da distribuire nei nodi di calcolo.
 * **Nome visualizzato**: si tratta di un nome descrittivo che la soluzione Batch può usare per visualizzare informazioni sull'applicazione, ad esempio nell'interfaccia utente di un servizio offerto ai clienti tramite Batch.
 
-### <a name="add-a-new-application"></a>Aggiungere una nuova applicazione
+### <a name="add-a-new-application"></a>Aggiungere un’applicazione nuova
 Per creare un'applicazione nuova, aggiungere un pacchetto dell'applicazione usando un ID applicazione nuovo e univoco. Il primo pacchetto dell'applicazione aggiunto usando il nuovo ID applicazione crea anche la nuova applicazione.
 
 Fare clic su **Applicazioni** > **Aggiungi**.
@@ -141,7 +141,7 @@ Fare clic su **Applicazioni** > **Aggiungi**.
 
 La finestra **Nuova applicazione** contiene i campi seguenti per specificare le impostazioni della nuova applicazione e del pacchetto dell'applicazione.
 
-**ID dell'applicazione**
+**ID applicazione**
 
 Questo campo specifica l'ID della nuova applicazione, che è soggetto alle regole standard di convalida dell'ID di Azure Batch. Di seguito sono riportate le regole per fornire un ID applicazione:
 
@@ -225,7 +225,7 @@ await myCloudPool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Se la distribuzione di un pacchetto dell'applicazione non riesce per qualsiasi motivo, il servizio batch contrassegna il nodo come [inutilizzabile][net_nodestate] e nessuna attività è pianificata per l'esecuzione in tale nodo. In questo caso è necessario **riavviare** il nodo per reinizializzare la distribuzione del pacchetto. Il riavvio del nodo consente anche di pianificarne di nuovo le attività.
+> Se la distribuzione di un pacchetto dell'applicazione non riesce per qualsiasi motivo, il servizio batch contrassegna il nodo come [inutilizzabile][net_nodestate]e nessuna attività è pianificata per l'esecuzione in tale nodo. In questo caso è necessario **riavviare** il nodo per reinizializzare la distribuzione del pacchetto. Il riavvio del nodo consente anche di pianificarne di nuovo le attività.
 > 
 > 
 
@@ -260,7 +260,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-Nei nodi di Linux, il formato è leggermente diverso. Punti (.), trattini (-) e simboli di cancelletto (#) vengono convertiti in caratteri di sottolineatura nella variabile di ambiente. Si noti inoltre che il caso dell'ID dell'applicazione viene mantenuto. Ad esempio:
+Nei nodi di Linux, il formato è leggermente diverso. Punti (.), trattini (-) e simboli di cancelletto (#) vengono convertiti in caratteri di sottolineatura nella variabile di ambiente. Si noti inoltre che il caso dell'ID dell'applicazione viene mantenuto. ad esempio:
 
 ```
 Linux:

@@ -1,5 +1,5 @@
 ---
-title: 'Regressione della foresta delle decisioni: Riferimento al modulo'
+title: 'Regressione della foresta delle decisioni: riferimento al modulo'
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il modulo Two-Class averaged perceptron nel servizio Azure Machine Learning per creare un modello di machine learning basato sull'algoritmo perceptron medio.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: f560923b0a5457ac5fd03c7f76fc4315c6ca08e8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 369974e52cb3585e4333b6033573b433e0a1a41a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128431"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693636"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>Modulo perceptron medio a due classi
 
@@ -32,11 +32,11 @@ I modelli perceptron più semplici sono adatti per apprendere modelli separabili
 
 ## <a name="how-to-configure-two-class-averaged-perceptron"></a>Come configurare la media con due classi perceptron
 
-1.  Aggiungere il modulo **Two-Class averaged perceptron** all'esperimento.  
+1.  Aggiungere il modulo **Two-Class averaged perceptron** alla pipeline.  
 
 2.  Specificare il modo in cui si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .  
   
-    -   **Singolo parametro**: Se si conosce il modo in cui si desidera configurare il modello, fornire un set di valori specifico come argomenti.
+    -   **Singolo parametro**: se si sa come si desidera configurare il modello, fornire un set di valori specifico come argomenti.
   
 3.  Per la **velocità di apprendimento**specificare un valore per la velocità di *apprendimento*. I valori della velocità di apprendimento controllano le dimensioni del passaggio usato nella discesa della sfumatura stocastica ogni volta che il modello viene testato e corretto.
   
@@ -46,7 +46,7 @@ I modelli perceptron più semplici sono adatti per apprendere modelli separabili
   
      L'arresto anticipato spesso offre una maggiore generalizzazione. L'aumento del numero di iterazioni migliora l'adattamento, a rischio di overfitting.
   
-5.  Per il valore di **inizializzazione numerico casuale**, digitare facoltativamente un valore intero da utilizzare come valore di inizializzazione. L'uso di un valore di inizializzazione è consigliato se si vuole garantire la riproducibilità dell'esperimento tra le esecuzioni.  
+5.  Per il valore di **inizializzazione numerico casuale**, digitare facoltativamente un valore intero da utilizzare come valore di inizializzazione. L'uso di un valore di inizializzazione è consigliato se si vuole garantire la riproducibilità della pipeline tra le esecuzioni.  
   
 1.  Connettere un set di dati di training e uno dei moduli di training:
   

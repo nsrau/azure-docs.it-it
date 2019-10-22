@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.openlocfilehash: 687fde2e203ed471e2f0164f1f4a670de4afc74e
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71677093"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Creare cluster basati su Linux in HDInsight tramite il portale di Azure
@@ -28,7 +28,7 @@ Il portale di Azure è uno strumento di gestione basato sul Web per servizi e ri
 * **Una sottoscrizione di Azure**. Vedere [How to get Azure Free trial for testing Hadoop in HDInsight](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Come ottenere una versione di valutazione gratuita di Azure per testare Hadoop in HDInsight).
 * **Un Web browser moderno**. Il portale di Azure usa HTML5 e JavaScript. Potrebbe non funzionare correttamente in Web browser meno recenti.
 
-## <a name="create-clusters"></a>Creare i cluster
+## <a name="create-clusters"></a>Creare cluster
 
 Il portale di Azure espone la maggior parte delle proprietà del cluster. Con i modelli di Azure Resource Manager è possibile nascondere molti dettagli. Per altre informazioni, vedere [Creare cluster Apache Hadoop in HDInsight mediante modelli di Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
@@ -73,7 +73,7 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con i 
 
 1. In **2 Sicurezza + rete** è possibile connettere il cluster a una rete virtuale usando il menu a discesa. Selezionare una rete virtuale di Azure e la subnet, se si desidera posizionare il cluster in una rete virtuale. Per informazioni sull'uso di HDInsight con una rete virtuale, vedere [pianificare una distribuzione di rete virtuale per i cluster Azure HDInsight](hdinsight-plan-virtual-network-deployment.md). L'articolo include i requisiti di configurazione specifici per la rete virtuale.
 
-    Se si vuole usare **Enterprise Security Package**, seguire queste istruzioni: [Configurare un cluster HDInsight con Enterprise Security Package usando Azure Active Directory Domain Services](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
+    Se si vuole usare la **Enterprise Security Package**, seguire queste istruzioni: [configurare un cluster HDInsight con Enterprise Security Package tramite Azure Active Directory Domain Services](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
 
     Selezionare **Avanti** per passare alla pagina successiva.
 
@@ -81,10 +81,10 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con i 
 
      ![HDInsight creare l'archiviazione cluster](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png "Creazione di un nuovo cluster nel portale di Azure")
 
-     | Archiviazione                                      | Descrizione |
+     | Archiviazione                                      | Description |
      |----------------------------------------------|-------------|
-     | **BLOB del servizio di archiviazione di Azure come risorsa di archiviazione predefinita**   | <ul><li>Per **Tipo di archiviazione primario** selezionare **Archiviazione di Azure**. Per **Metodo di selezione** scegliere **Sottoscrizioni personali** se si vuole specificare un account di archiviazione che fa parte della sottoscrizione di Azure. Selezionare quindi l'account di archiviazione. In caso contrario, selezionare **Chiave di accesso**. Specificare quindi le informazioni relative all'account di archiviazione che si vuole scegliere all'esterno della sottoscrizione di Azure.</li><li>Per **Contenitore predefinito** scegliere il nome del contenitore predefinito suggerito dal portale oppure specificarne uno personale.</li><li>Se si usa l'archiviazione BLOB di Azure come risorsa di archiviazione predefinita, è anche possibile selezionare **Account di archiviazione aggiuntivi** per specificare gli account di archiviazione aggiuntivi da associare al cluster. Per **Chiavi di archiviazione di Azure** selezionare **Aggiungi una chiave di archiviazione**. È quindi possibile specificare un account di archiviazione dalle sottoscrizioni di Azure o da altre sottoscrizioni. Specificare la chiave di accesso dell'account di archiviazione.</li><li>Se si usa l'archiviazione BLOB come risorsa di archiviazione predefinita, è anche possibile selezionare **Accesso a Data Lake Storage** per specificare Azure Data Lake Storage come risorsa di archiviazione aggiuntiva. Per altre informazioni, vedere [Avvio rapido: Impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)</li></ul> |
-     | **Azure Data Lake Storage come risorsa di archiviazione predefinita** | Per **Tipo di archiviazione primario** selezionare **Azure Data Lake Storage Gen1** o **Azure Data Lake Storage Gen2** e quindi fare riferimento all'articolo [Avvio rapido: impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) per le istruzioni. |
+     | **BLOB del servizio di archiviazione di Azure come risorsa di archiviazione predefinita**   | <ul><li>Per **Tipo di archiviazione primario** selezionare **Archiviazione di Azure**. Per **Metodo di selezione** scegliere **Sottoscrizioni personali** se si vuole specificare un account di archiviazione che fa parte della sottoscrizione di Azure. Selezionare quindi l'account di archiviazione. In caso contrario, selezionare **Chiave di accesso**. Specificare quindi le informazioni relative all'account di archiviazione che si vuole scegliere all'esterno della sottoscrizione di Azure.</li><li>Per **Contenitore predefinito** scegliere il nome del contenitore predefinito suggerito dal portale oppure specificarne uno personale.</li><li>Se si usa l'archiviazione BLOB di Azure come risorsa di archiviazione predefinita, è anche possibile selezionare **Account di archiviazione aggiuntivi** per specificare gli account di archiviazione aggiuntivi da associare al cluster. Per **Chiavi di archiviazione di Azure** selezionare **Aggiungi una chiave di archiviazione**. È quindi possibile specificare un account di archiviazione dalle sottoscrizioni di Azure o da altre sottoscrizioni. Specificare la chiave di accesso dell'account di archiviazione.</li><li>Se si usa l'archiviazione BLOB come risorsa di archiviazione predefinita, è anche possibile selezionare **Accesso a Data Lake Storage** per specificare Azure Data Lake Storage come risorsa di archiviazione aggiuntiva. Per altre informazioni, vedere [Guida introduttiva: impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
+     | **Azure Data Lake Storage come risorsa di archiviazione predefinita** | Per **Tipo di archiviazione primario** selezionare **Azure Data Lake Storage Gen1** o **Azure Data Lake Storage Gen2** Per istruzioni, vedere l'articolo [Guida introduttiva: configurare cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) . |
      | **Metastore esterni**                      | È possibile, facoltativamente, specificare un database SQL per salvare i metadati Apache Hive e Apache Oozie associati al cluster. Per **Seleziona un database SQL per Hive** selezionare un database SQL. Specificare quindi il nome utente e la password per il database. Ripetere questi passaggi per i metadati Oozie.<br><br>Di seguito sono riportate alcune considerazioni sull'uso di database SQL di Azure per i metastore: <ul><li>Il database SQL di Azure usato per il metastore deve consentire la connettività ad altri servizi di Azure, incluso Azure HDInsight. Sul lato destro del dashboard del database SQL di Azure selezionare il nome del server. Questo è il server su cui viene eseguita l'istanza di database SQL. Nella visualizzazione del server selezionare **Configura**. Per **Servizi di Azure** selezionare quindi **Sì**. Selezionare quindi **Salva**.</li><li>Quando si crea un metastore, non usare trattini o segni meno nel nome del database, perché a causa di questi caratteri il processo di creazione del cluster non andrebbe a buon fine.</li></ul> |
 
      > [!WARNING]  
@@ -167,5 +167,5 @@ Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisit
 
 * [Creare un'applicazione autonoma con Scala](spark/apache-spark-create-standalone-application.md)
 * [Eseguire processi in modalità remota in un cluster Apache Spark usando Apache Livy](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark con BI: eseguire l’analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark con apprendimento automatico: usare Spark in HDInsight per stimare i risultati di controllo degli alimenti](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](spark/apache-spark-machine-learning-mllib-ipython.md)

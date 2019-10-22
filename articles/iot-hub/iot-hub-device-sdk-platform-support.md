@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 030ea87018e1a2d438e3e4d728af76e429efda08
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ac5817675d3cfc97a8732ee2e10ec7b9246b12a5
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169009"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693325"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Supporto della piattaforma SDK per dispositivi Azure
 
@@ -30,7 +30,7 @@ Questo argomento fornisce informazioni sugli SDK Microsoft e sulle configurazion
 
 ## <a name="microsoft-sdks-and-device-platform-support"></a>Microsoft SDK e supporto della piattaforma per dispositivi
 
-Microsoft pubblica gli SDK open source su GitHub per le seguenti lingue: C, .NET (C#), node. js, Java e Python. In questa sezione sono elencati gli SDK e le relative dipendenze. Gli SDK sono supportati in qualsiasi piattaforma per dispositivi che soddisfi tali dipendenze.
+Microsoft pubblica gli SDK open source su GitHub per le lingue seguenti: C, .NET (C#), node. js, Java e Python. In questa sezione sono elencati gli SDK e le relative dipendenze. Gli SDK sono supportati in qualsiasi piattaforma per dispositivi che soddisfi tali dipendenze.
 
 Per ognuno degli SDK elencati, Microsoft:
 
@@ -44,7 +44,7 @@ Per ognuno degli SDK elencati, Microsoft:
 
 L' [SDK per dispositivi C dell'hub Azure](https://github.com/Azure/azure-iot-sdk-c) è stato testato con e supporta le configurazioni seguenti.
 
-| OS                  | Libreria TLS                  | Requisiti aggiuntivi                                                                     |
+| Sistema operativo                  | Libreria TLS                  | Requisiti aggiuntivi                                                                     |
 |---------------------|------------------------------|---------------------------------------------------------------------------------------------|
 | Linux               | OpenSSL, WolfSSL o BearSSL | Socket Berkeley</br></br>POSIX (Portable Operating System Interface)                       |
 | iOS 12,2            | OpenSSL o OSX nativo        | XCode emulato in OSX 10.13.4                                                               |
@@ -56,35 +56,39 @@ L' [SDK per dispositivi C dell'hub Azure](https://github.com/Azure/azure-iot-sdk
 
 L' [SDK per dispositivi Python per hub Azure](https://github.com/Azure/azure-iot-sdk-python) è stato testato con e supporta le configurazioni seguenti.
 
-| OS                  | Compilatore                       |
-|---------------------|--------------------------------|
-| Linux               | Python 2,7, 3,4, 3,5, 3,6, 3,7 |
-| MacOS High Sierra   | Python 2,7, 3,4, 3,5, 3,6, 3,7 |
-| Famiglia Windows 10   | Python 2,7, 3,4, 3,5, 3,6, 3,7 |
+| Sistema operativo                  | Compilatore                          |
+|---------------------|-----------------------------------|
+| Linux               | Python 2,7 *, 3,4*, 3,5 *, 3,6, 3,7 |
+| MacOS High Sierra   | Python 2,7 *, 3,4*, 3,5 *, 3,6, 3,7 |
+| Famiglia Windows 10   | Python 2,7 *, 3,4*, 3,5 *, 3,6, 3,7 |
+
+\* Solo Python Version 3.5.3 o versioni successive supportano le API asincrone, è consigliabile usare 3,7 o versioni successive.
 
 ### <a name="net-sdk"></a>.NET SDK
 
 L' [SDK per dispositivi .NET (C#) di Azure](https://github.com/Azure/azure-iot-sdk-csharp) viene testato con e supporta le configurazioni seguenti.
 
-| OS                                   | Standard                                                   |
+| Sistema operativo                                   | Standard                                                   |
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | SKU per desktop e server di Windows 10   | .NET Core 2,1, .NET Framework 4.5.1 o .NET Framework 4,7 |
+
+.NET SDK può essere usato anche con Windows Internet core con l' [agente di dispositivo di Azure](https://github.com/ms-iot/azure-client-tools/blob/master/docs/device-agent/device-agent.md) o con [un ntservice personalizzato che può usare RPC per comunicare con le applicazioni UWP](https://docs.microsoft.com/samples/microsoft/windows-iotcore-samples/ntservice-rpc/).
 
 ### <a name="nodejs-sdk"></a>Node.js SDK
 
 L' [SDK del dispositivo node. js dell'hub Azure](https://github.com/Azure/azure-iot-sdk-node) è testato con e supporta le configurazioni seguenti.
 
-| OS                  | Versione del nodo    |
+| Sistema operativo                  | Versione del nodo    |
 |---------------------|-----------------|
 | Linux               | LTS e Current |
 | Famiglia Windows 10   | LTS e Current |
 
-### <a name="java-sdk"></a>SDK per Java
+### <a name="java-sdk"></a>Java SDK
 
 L' [SDK per dispositivi Java dell'hub Azure](https://github.com/Azure/azure-iot-sdk-java) è stato testato con e supporta le configurazioni seguenti.
 
-| OS                     | Versione Java |
+| Sistema operativo                     | Versione Java |
 |------------------------|--------------|
 | API Android 28         | Java 8       |
 | Linux x64             | Java 8       |

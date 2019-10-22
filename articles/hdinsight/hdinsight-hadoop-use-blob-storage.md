@@ -8,15 +8,15 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.openlocfilehash: d934568f09e62ad8c1b472583cbfee79d2c837f6
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71936865"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usare una risorsa di archiviazione di Azure con cluster Azure HDInsight
 
-Per analizzare i dati nel cluster HDInsight, è possibile archiviare i dati in [archiviazione di Azure](../storage/common/storage-introduction.md), [Azure Data Lake storage generazione 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake storage generazione 2](../storage/blobs/data-lake-storage-introduction.md)o una combinazione. Queste opzioni di archiviazione consentono di eliminare in modo sicuro i cluster HDInsight usati per il calcolo senza perdere i dati utente.
+Per analizzare i dati nel cluster HDInsight, è possibile archiviare i dati in [archiviazione di Azure](../storage/common/storage-introduction.md), [Azure Data Lake Storage generazione 1](../data-lake-store/data-lake-store-overview.md) /[Azure Data Lake storage generazione 2](../storage/blobs/data-lake-storage-introduction.md)o una combinazione. Queste opzioni di archiviazione consentono di eliminare in modo sicuro i cluster HDInsight usati per il calcolo senza perdere i dati utente.
 
 Apache Hadoop supporta una nozione del file system predefinito. Il file system predefinito implica uno schema e un'autorità predefiniti e può essere usato anche per risolvere percorsi relativi. Durante il processo di creazione del cluster HDInsight è possibile specificare un contenitore BLOB in Archiviazione di Azure come file system predefinito. In alternativa, con HDInsight 3.6 è possibile selezionare Archiviazione di Azure o Azure Data Lake Storage Gen 1/ Azure Data Lake Storage Gen 2 come file system predefinito, con alcune eccezioni. Per il supporto dell'uso di Data Lake Storage Gen 1 come risorsa di archiviazione sia predefinita che collegata, vedere [Disponibilità per il cluster HDInsight](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
@@ -27,11 +27,11 @@ Archiviazione di Azure è una soluzione di archiviazione affidabile, con finalit
 > [!IMPORTANT]  
 > Il tipo di account di archiviazione **BlobStorage** può essere usato solo come risorsa di archiviazione secondaria per i cluster HDInsight.
 
-| Tipologia account di archiviazione | Servizi supportati | Livelli di prestazioni supportati | Livelli di accesso supportati |
+| Tipo di account di archiviazione | Servizi supportati | Livelli di prestazioni supportati | Livelli di accesso supportati |
 |----------------------|--------------------|-----------------------------|------------------------|
-| Archiviazione v2 (utilizzo generico V2)  | Blob     | Standard                    | Frequente, ad accesso sporadico, archivio\*   |
-| Archiviazione (utilizzo generico V1)   | Blob     | Standard                    | N/D                    |
-| BlobStorage                    | Blob     | Standard                    | Frequente, ad accesso sporadico, archivio\*   |
+| Archiviazione v2 (utilizzo generico V2)  | BLOB     | Standard                    | Accesso frequente, ad accesso sporadico, archivio \*   |
+| Archiviazione (utilizzo generico V1)   | BLOB     | Standard                    | N/D                    |
+| BlobStorage                    | BLOB     | Standard                    | Accesso frequente, ad accesso sporadico, archivio \*   |
 
 Non è consigliabile usare il contenitore BLOB predefinito per l'archiviazione dei dati aziendali. È consigliabile eliminare il contenitore BLOB predefinito dopo ogni uso per ridurre i costi di archiviazione. Il contenitore predefinito include log di sistema e applicazioni. Assicurarsi di recuperare i log prima di eliminare il contenitore.
 
@@ -46,7 +46,7 @@ Se si sceglie di proteggere l'account di archiviazione con le restrizioni relati
 
 Nel diagramma seguente viene mostrata una visualizzazione astratta dell'architettura di archiviazione HDInsight dell'uso di Archiviazione di Azure:
 
-![I cluster Hadoop usano l'API HDFS per accedere e archiviare i dati nell'archivio BLOB](./media/hdinsight-hadoop-use-blob-storage/storage-architecture.png "Architettura archiviazione HDInsight")
+![I cluster Hadoop usano l'API HDFS per accedere e archiviare i dati nell'archivio BLOB](./media/hdinsight-hadoop-use-blob-storage/storage-architecture.png "Architettura Archiviazione HDInsight")
 
 HDInsight offre accesso al file system distribuito collegato localmente ai nodi di calcolo. Il file system è accessibile tramite l'URI completo, ad esempio:
 
@@ -58,18 +58,18 @@ HDInsight consente anche di accedere ai dati archiviati in Archiviazione di Azur
 
 Di seguito sono riportate alcune considerazioni sull'uso di un account di Archiviazione di Azure con i cluster HDInsight.
 
-* **Contenitori negli account di archiviazione connessi a un cluster:** poiché il nome e la chiave dell'account sono associati al cluster durante il processo di creazione, si disporrà di un accesso completo ai BLOB presenti in tali contenitori.
+* **Contenitori negli account di archiviazione connessi a un cluster:** poiché il nome e la chiave dell'account sono associati al cluster durante il processo di archiviazione, si disporrà di un accesso completo ai BLOB presenti in tali contenitori.
 
-* **Contenitori pubblici o BLOB pubblici negli account di archiviazione che non sono connessi a un cluster:** si dispone dell'autorizzazione di sola lettura ai BLOB nei contenitori.
+* **Contenitori pubblici o BLOB pubblici negli account di archiviazione NON connessi a un cluster:** si disporrà di un accesso in sola lettura ai BLOB presenti in tali contenitori.
   
 > [!NOTE]  
 > Un contenitore pubblico consente di ottenere un elenco di tutti i BLOB disponibili al suo interno, nonché i metadati del contenitore stesso. È possibile accedere a un BLOB pubblico solo se ne conosce l'URL esatto. Per altre informazioni, vedere [Gestire l'accesso a contenitori e Blob](../storage/blobs/storage-manage-access-to-resources.md).
 
-* **Contenitori privati negli account di archiviazione NON connessi a un cluster:** non è possibile accedere ai BLOB nei contenitori a meno che non sia stato definito l'account di archiviazione quando sono stati inviati i processi WebHCat. Questo concetto verrà spiegato più avanti nell'articolo.
+* **Contenitori privati negli account di archiviazione non connessi a un cluster:** Non è possibile accedere ai BLOB nei contenitori a meno che non si definisce l'account di archiviazione quando si inviano processi WebHCat. Questo concetto verrà spiegato più avanti nell'articolo.
 
-Gli account di archiviazione definiti nel processo di creazione e le relative chiavi vengono archiviati in `%HADOOP_HOME%/conf/core-site.xml` nei nodi del cluster. Il comportamento predefinito di HDInsight consiste nell'usare gli account di archiviazione definiti nel file core-site.xml. È possibile modificare questa impostazione usando [Apache Ambari](./hdinsight-hadoop-manage-ambari.md).
+Gli account di archiviazione definiti nel processo di creazione e le relative chiavi vengono archiviati in `%HADOOP_HOME%/conf/core-site.xml` sui nodi del cluster. Il comportamento predefinito di HDInsight consiste nell'usare gli account di archiviazione definiti nel file core-site.xml. È possibile modificare questa impostazione usando [Apache Ambari](./hdinsight-hadoop-manage-ambari.md).
 
-Più processi WebHCat, inclusi Apache Hive, MapReduce, lo streaming Apache Hadoop e Apache Pig, possono includere una descrizione degli account di archiviazione e dei metadati. (questo è valido solo per Pig con account di archiviazione, non per i metadati). Per altre informazioni, vedere [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx) (Uso di un cluster HDInsight con account di archiviazione e metastore alternativi).
+Più processi WebHCat, inclusi Apache Hive, MapReduce, lo streaming Apache Hadoop e Apache Pig, possono includere una descrizione degli account di archiviazione e dei metadati. (Attualmente funziona per Pig con account di archiviazione, ma non per i metadati). Per altre informazioni, vedere [uso di un cluster HDInsight con account di archiviazione e Metastore alternativi](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
 I BLOB possono essere usati per i dati strutturati e non strutturati. I contenitori BLOB archiviano i dati come coppie chiave/valore e non esiste alcuna gerarchia di directory. È tuttavia possibile usare il carattere barra ( / ) all'interno del nome della chiave per far sembrare che un file sia archiviato in una struttura di directory. Ad esempio, la chiave di un BLOB potrebbe essere *input/log1.txt*. Non esiste realmente una directory *input* ma, grazie alla presenza del carattere barra, il nome della chiave ha l'aspetto di un percorso di file.
 
@@ -79,15 +79,15 @@ Il costo implicito in termini di prestazioni di non condivisione dei cluster di 
 
 L'archiviazione dei dati in Archiviazione di Azure anziché in HDFS offre numerosi vantaggi:
 
-* **Condivisione e riutilizzo dei dati:** i dati in HDFS sono situati all'interno del cluster di elaborazione. Solo le applicazioni che hanno accesso al cluster di calcolo, quindi, possono usare i dati tramite le API HDFS. È possibile accedere ai dati in archiviazione di Azure tramite le API HDFS o tramite le [API REST di archiviazione BLOB](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API). Di conseguenza, è possibile produrre e usare i dati mediante un set più ampio di strumenti e applicazioni, compresi altri cluster HDInsight.
+* **Riuso e condivisione dei dati:** i dati in HDFS sono situati all'interno del cluster di calcolo. Solo le applicazioni che hanno accesso al cluster di calcolo, quindi, possono usare i dati tramite le API HDFS. È possibile accedere ai dati in archiviazione di Azure tramite le API HDFS o tramite le [API REST di archiviazione BLOB](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API). Di conseguenza, è possibile produrre e usare i dati mediante un set più ampio di strumenti e applicazioni, compresi altri cluster HDInsight.
 
-* **Archiviazione dati:** l'archiviazione dei dati in Archiviazione di Azure consente l'eliminazione sicura dei cluster HDInsight usati per i calcoli, senza perdita di dati utente.
+* **Archiviazione dei dati:** l'archiviazione dei dati in Archiviazione di Azure consente l'eliminazione sicura dei cluster HDInsight usati per i calcoli, senza perdita di dati utente.
 
 * **Costo di archiviazione dei dati:** l'archiviazione a lungo termine dei dati in DFS è più costosa rispetto ad Archiviazione di Azure, dato che il costo di un cluster di elaborazione è più alto di quello di Archiviazione di Azure. Inoltre, poiché i dati non devono essere ricaricati per ogni generazione del cluster di calcolo, vengono salvati anche i costi di caricamento dei dati.
 
-* **Scalabilità orizzontale elastica:** anche se Hadoop Distributed File System offre scalabilità orizzontale del file system, la scalabilità è determinata dal numero di nodi creati per il cluster. Modificare la scalabilità può diventare quindi un processo più complicato rispetto al semplice uso delle funzionalità di scalabilità elastica automaticamente disponibili in Archiviazione di Azure.
+* **Scalabilità orizzontale elastica:** anche se HDFS offre scalabilità orizzontale del file system, la scala è determinata dal numero di nodi di cui si effettua la creazione per il cluster. Modificare la scalabilità può diventare quindi un processo più complicato rispetto al semplice uso delle funzionalità di scalabilità elastica automaticamente disponibili in Archiviazione di Azure.
 
-* **Replica geografica:** Archiviazione di Azure può eseguire la replica geografica. Sebbene questo offra ripristino geografico e ridondanza dei dati, un failover nella posizione sottoposta a replica geografica incide molto negativamente sulle prestazioni e può comportare costi aggiuntivi. È pertanto consigliabile scegliere la scelta della replica geografica con oculatezza e solo se il valore dei dati giustifica i costi aggiuntivi.
+* **Replica geografica:** è possibile eseguire la replica geografica di Archiviazione di Azure. Sebbene questo offra ripristino geografico e ridondanza dei dati, un failover nella posizione sottoposta a replica geografica incide molto negativamente sulle prestazioni e può comportare costi aggiuntivi. È pertanto consigliabile scegliere la scelta della replica geografica con oculatezza e solo se il valore dei dati giustifica i costi aggiuntivi.
 
 Alcuni pacchetti e processi MapReduce possono creare risultati intermedi che non vale la pena di archiviare in Archiviazione di Azure. In questo caso, è possibile scegliere di archiviare i dati nel file system HDFS locale. In effetti, HDInsight utilizza DFS per molti di questi risultati intermedi nei processi Hive e in altri processi.
 
@@ -104,10 +104,10 @@ wasbs://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<p
 
 Lo schema URI offre l'accesso non crittografato (con il prefisso *wasb:* ) e l'accesso con crittografia SSL (con il prefisso *wasbs*). Se possibile, è consigliabile usare *wasbs* anche per accedere ai dati presenti nella stessa area di Azure.
 
-`<BlobStorageContainerName>` Identifica il nome del contenitore BLOB in archiviazione di Azure.
-`<StorageAccountName>` Identifica il nome dell'account di archiviazione di Azure. È necessario specificare un nome di dominio completo (FQDN).
+Il `<BlobStorageContainerName>` identifica il nome del contenitore BLOB in archiviazione di Azure.
+Il `<StorageAccountName>` identifica il nome dell'account di archiviazione di Azure. È necessario specificare un nome di dominio completo (FQDN).
 
-Se né `<StorageAccountName>` né è stato specificato, viene utilizzato il file System predefinito. `<BlobStorageContainerName>` Per i file presenti nel file system predefinito è possibile usare un percorso relativo o un percorso assoluto. Ad esempio, è possibile fare riferimento al file *hadoop-mapreduce-examples.jar* nei cluster HDInsight nei due modi seguenti:
+Se non è stato specificato né `<BlobStorageContainerName>` né `<StorageAccountName>`, viene utilizzato il file system predefinito. Per i file presenti nel file system predefinito è possibile usare un percorso relativo o un percorso assoluto. Ad esempio, è possibile fare riferimento al file *hadoop-mapreduce-examples.jar* nei cluster HDInsight nei due modi seguenti:
 
 ```config
 wasbs://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
@@ -141,10 +141,10 @@ Il contenitore BLOB predefinito archivia informazioni specifiche del cluster com
 
 Microsoft fornisce gli strumenti seguenti per lavorare con archiviazione di Azure:
 
-| Tool | Linux | OS X | Windows |
+| Strumento | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
-| [Interfaccia della riga di comando di Azure](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
+| [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [interfaccia della riga di comando di Azure](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
 
@@ -159,7 +159,7 @@ Durante la creazione di un cluster HDInsight viene specificato l'account di Arch
 
 In questo articolo è stato descritto come usare una risorsa di archiviazione di Azure compatibile con HDFS con HDInsight. In questo modo sarà possibile creare soluzioni scalabili di acquisizione e archiviazione a lungo termine dei dati e usare HDInsight per sbloccare le informazioni all'interno dei dati strutturati e non strutturati archiviati.
 
-Per altre informazioni, vedere:
+Per scoprire di più, vedi:
 
 * [Introduzione ad Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Introduzione ad Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md)

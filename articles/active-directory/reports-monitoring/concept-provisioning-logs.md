@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d48aa3ead28ab0b0a22478a0c4183995483058a
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70983491"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisioning dei report nel portale di Azure Active Directory (anteprima)
@@ -48,7 +48,7 @@ Questo argomento offre una panoramica del report di provisioning.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-provisioning-activities"></a>Che Azure AD licenza è necessario per accedere alle attività di provisioning?
 
-Il tenant deve disporre di una licenza di Azure AD Premium associata per visualizzare il report di tutte le attività di provisioning. vedere [Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) per aggiornare l'edizione di Azure Active Directory in uso. 
+Il tenant deve disporre di una licenza di Azure AD Premium associata per visualizzare il report di tutte le attività di provisioning. Per l'aggiornamento dell'edizione Azure Active Directory, vedere [Introduzione a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) . 
 
 ## <a name="provisioning-logs"></a>Log di provisioning
 
@@ -85,22 +85,22 @@ In questo modo è possibile visualizzare campi aggiuntivi o rimuovere campi già
 
 Selezionare un elemento nella visualizzazione elenco per ottenere maggiori informazioni dettagliate.
 
-![Informazioni dettagliate](./media/concept-provisioning-logs/steps.png "Filtro") di
+![Informazioni dettagliate](./media/concept-provisioning-logs/steps.png "Filtra")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrare le attività di provisioning
 
 Per limitare i dati segnalati a un livello che funziona automaticamente, è possibile filtrare i dati di provisioning usando i campi predefiniti seguenti. Si noti che i valori nei filtri vengono popolati in modo dinamico in base al tenant. Se, ad esempio, non sono presenti eventi di creazione nel tenant, non sarà disponibile un'opzione di filtro per crea.
 
-- identità
+- Identità
 - Azione
 - Sistema di origine
 - Sistema di destinazione
-- Stato
-- Date
+- Status
+- Data
 
 
-![Filtro] di (./media/concept-provisioning-logs/filter.png "Filtro") di
+![Filter](./media/concept-provisioning-logs/filter.png "Filtra")
 
 Il filtro di **identità** consente di specificare il nome o l'identità a cui si è interessati. Questa identità può essere un utente, un gruppo, un ruolo o un altro oggetto. È possibile eseguire la ricerca in base al nome o all'ID dell'oggetto. L'ID varia in base allo scenario. Ad esempio, quando si esegue il provisioning di un oggetto da Azure AD a SalesForce, l'ID di origine è l'ID oggetto dell'utente in Azure AD mentre TargetID è l'ID dell'utente in Salesforce. Quando si effettua il provisioning da giorni lavorativi a Active Directory, l'ID di origine è l'ID del dipendente del lavoro lavorativo. Si noti che il nome dell'utente potrebbe non essere sempre presente nella colonna Identity. Ci sarà sempre un ID. 
 
@@ -110,17 +110,17 @@ Il filtro di **sistema di destinazione** consente di specificare la posizione in
 
 Il filtro **Stato** consente di selezionare:
 
-- Tutti
-- Riuscito
-- Errore
-- Ignorata
+- Tutto
+- Success
+- Esito negativo
+- Skipped
 
 Il filtro **azione** consente di filtrare:
 
 - Create 
 - Aggiorna
-- Eliminare
-- Disattiva
+- Eliminazione
+- Disabilitare
 - Altro
 
 Il filtro **Date** (Data) permette di definire un intervallo di tempo per i dati restituiti.  
@@ -152,20 +152,20 @@ Oltre ai campi predefiniti, quando è selezionata, è anche possibile includere 
 Quando si seleziona un elemento nella visualizzazione elenco di provisioning, si ottengono ulteriori dettagli su questo elemento.
 I dettagli sono raggruppati in base alle categorie seguenti:
 
-- Passaggi
+- Procedure
 
 - Risoluzione dei problemi e suggerimenti
 
 - Proprietà modificate
 
-- Riepilogo
+- Summary
 
 
-![Filtro] di (./media/concept-provisioning-logs/provisioning-tabs.png "Schede") di
+![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Schede")
 
 
 
-### <a name="steps"></a>Passaggi
+### <a name="steps"></a>Procedure
 
 Nella scheda **passaggi** vengono descritti i passaggi necessari per eseguire il provisioning di un oggetto. Il provisioning di un oggetto può essere costituito da quattro passaggi: 
 
@@ -176,7 +176,7 @@ Nella scheda **passaggi** vengono descritti i passaggi necessari per eseguire il
 
 
 
-![Filtro] di (./media/concept-provisioning-logs/steps.png "Filtro") di
+![Filter](./media/concept-provisioning-logs/steps.png "Filtra")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Risoluzione dei problemi e suggerimenti
@@ -190,7 +190,7 @@ La scheda **risoluzione dei problemi e indicazioni** fornisce il codice e il mot
 Le **proprietà modificate** visualizzano il valore precedente e il nuovo valore. Nei casi in cui non è presente alcun valore precedente, la colonna del valore precedente è vuota. 
 
 
-### <a name="summary"></a>Riepilogo
+### <a name="summary"></a>Summary
 
 La scheda **Riepilogo** fornisce una panoramica delle operazioni eseguite e degli identificatori per l'oggetto nel sistema di origine e di destinazione. 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Esegui script Python: Riferimento al modulo'
+title: 'Esegui script Python: informazioni di riferimento sui moduli'
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il modulo Execute Python script nel servizio Azure Machine Learning per eseguire il codice Python.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 4bd3433db92767f2d0d733ab71e4298fc5e618f8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: ac68239c12fb284dd3cb5179b5719f3d36acbd34
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128815"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693784"
 ---
 # <a name="execute-python-script-module"></a>Eseguire il modulo di script Python
 
@@ -24,7 +24,7 @@ Usare questo modulo per eseguire il codice Python. Per altre informazioni sull'a
 
 Con Python è possibile eseguire attività che non sono attualmente supportate dai moduli esistenti, ad esempio:
 
-+ Visualizzazione dei dati tramite`matplotlib`
++ Visualizzazione dei dati tramite `matplotlib`
 + Uso delle librerie Python per enumerare i set di impostazioni e i modelli nell'area di lavoro
 + Lettura, caricamento e manipolazione di dati da origini non supportate dal modulo [Import Data](./import-data.md)
 + Esegui il tuo codice di apprendimento approfondito 
@@ -34,37 +34,37 @@ Azure Machine Learning usa la distribuzione anaconda di Python, che include molt
  -  Distribuzione di Anaconda 4.5 + per Python 3,6 
 
 I pacchetti preinstallati sono:
--  asn1crypto==0.24.0
-- attrs==19.1.0
-- azure-common==1.1.18
-- azure-storage-blob==1.5.0
-- azure-storage-common==1.4.0
-- certifi==2019.3.9
-- cffi==1.12.2
-- chardet==3.0.4
+-  asn1crypto = = 0.24.0
+- attrs = = 19.1.0
+- Azure-comune = = 1.1.18
+- Azure-storage-BLOB = = 1.5.0
+- Azure-storage-comune = = 1.4.0
+- Certified = = 2019.3.9
+- CFFI = = 1.12.2
+- bietola = = 3.0.4
 - crittografia = = 2.6.1
-- distro==1.4.0
+- distro = = 1.4.0
 - IDNA = = 2.8
-- jsonschema==3.0.1
-- lightgbm==2.2.3
-- more-itertools==6.0.0
-- numpy==1.16.2
-- pandas==0.24.2
-- Pillow==6.0.0
-- pip==19.0.3
-- pyarrow==0.12.1
+- jsonschema = = 3.0.1
+- lightgbm = = 2.2.3
+- altro-itertools = = 6.0.0
+- NumPy = = 1.16.2
+- Pandas = = 0.24.2
+- Pillow = = 6.0.0
+- PIP = = 19.0.3
+- pyarrow = = 0.12.1
 - pycparser = = 2.19
-- pycryptodomex==3.7.3
-- pyrsistent==0.14.11
-- python-dateutil==2.8.0
-- pytz==2018.9
-- requests==2.21.0
-- scikit-learn==0.20.3
-- scipy==1.2.1
-- setuptools==40.8.0
-- six==1.12.0
-- torch==1.0.1.post2
-- torchvision==0.2.2.post3
+- pycryptodomex = = 3.7.3
+- pyrsistent = = 0.14.11
+- Python-dateutil = = 2.8.0
+- pytz = = 2018.9
+- richieste = = 2.21.0
+- Scikit-learn = = 0.20.3
+- SciPy = = 1.2.1
+- setuptools = = 40.8.0
+- Sei = = 1.12.0
+- torcia = = 1.0.1. post2
+- torchvision = = 0.2.2. Post3
 - urllib3 = = 1.24.1
 - Wheel = = 0.33.1 
 
@@ -79,7 +79,7 @@ os.system(f"pip install scikit-misc")
 
 Il modulo **Execute Python script** contiene codice Python di esempio che è possibile usare come punto di partenza. Per configurare il modulo **Execute Python script (Esegui script Python** ), fornire un set di input e codice Python da eseguire nella casella di testo **script Python** .
 
-1. Aggiungere il modulo **Execute Python script (Esegui script Python** ) all'esperimento.
+1. Aggiungere il modulo **Execute Python script (Esegui script Python** ) alla pipeline.
 
 2. Aggiungere e connettersi a **DataSet1** tutti i set di dati dell'interfaccia che si vuole usare per l'input. Fare riferimento a questo set di dati nello script Python come **DataFrame1**.
 
@@ -93,27 +93,27 @@ Il modulo **Execute Python script** contiene codice Python di esempio che è pos
 
 4. Per includere nuovi pacchetti o codice Python, aggiungere il file compresso contenente queste risorse personalizzate nel **bundle di script**. L'input per il **bundle di script** deve essere un file compresso già caricato nell'area di lavoro. 
 
-    Qualsiasi file contenuto nell'archivio compresso caricato può essere usato durante l'esecuzione dell'esperimento. Se l'archivio include una struttura di directory, la struttura viene mantenuta, ma è necessario anteporre una directory denominata **src** al percorso.
+    Qualsiasi file contenuto nell'archivio compresso caricato può essere usato durante l'esecuzione della pipeline. Se l'archivio include una struttura di directory, la struttura viene mantenuta, ma è necessario anteporre una directory denominata **src** al percorso.
 
 5. Nella casella di testo **script Python** Digitare o incollare uno script Python valido.
 
     La casella di testo **script Python** è già popolata con alcune istruzioni nei commenti e il codice di esempio per l'accesso ai dati e l'output. **È necessario modificare o sostituire questo codice.** Assicurarsi di seguire le convenzioni Python relative a rientri e maiuscole e minuscole.
 
     + Lo script deve contenere una funzione denominata `azureml_main` come punto di ingresso per questo modulo.
-    + La funzione del punto di ingresso può contenere un massimo di due `Param<dataframe1>` argomenti di input: e`Param<dataframe2>`
-    + I file compressi connessi alla terza porta di input vengono decompressi e archiviati nella directory, `.\Script Bundle`, che viene anche aggiunta a Python. `sys.path` 
+    + La funzione del punto di ingresso può contenere un massimo di due argomenti di input: `Param<dataframe1>` e `Param<dataframe2>`
+    + I file compressi connessi alla terza porta di input vengono decompressi e archiviati nella directory, `.\Script Bundle`, che viene aggiunta anche al `sys.path` di Python. 
 
-    Quindi, se il file zip contiene `mymodule.py`, importarlo `import mymodule`usando.
+    Se quindi il file zip contiene `mymodule.py`, importarlo usando `import mymodule`.
 
     + Due set di impostazioni possono essere restituiti all'interfaccia, che deve essere una sequenza di tipo `pandas.DataFrame`. È possibile creare altri output nel codice Python e scriverli direttamente in archiviazione di Azure.
 
-6. Eseguire l'esperimento oppure selezionare il modulo e fare clic su **Esegui selezione** per eseguire solo lo script Python.
+6. Eseguire la pipeline oppure selezionare il modulo e fare clic su **Esegui selezione** per eseguire solo lo script Python.
 
     Tutti i dati e il codice vengono caricati in una macchina virtuale ed eseguiti usando l'ambiente Python specificato.
 
 ## <a name="results"></a>Risultati
 
-I risultati di tutti i calcoli eseguiti dal codice Python incorporato devono essere forniti come Pandas. Dataframe, che viene automaticamente convertito nel formato Azure Machine Learning set di dati, in modo che sia possibile usare i risultati con altri moduli nell'esperimento.
+I risultati di tutti i calcoli eseguiti dal codice Python incorporato devono essere forniti come Pandas. Dataframe, che viene automaticamente convertito nel formato Azure Machine Learning set di dati, in modo che sia possibile usare i risultati con altri moduli della pipeline.
 
 Il modulo restituisce due set di impostazioni:  
   

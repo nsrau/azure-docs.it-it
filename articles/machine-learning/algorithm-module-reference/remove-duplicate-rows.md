@@ -1,5 +1,5 @@
 ---
-title: 'Rimuovi righe duplicate: Riferimento al modulo'
+title: 'Rimuovi righe duplicate: riferimento al modulo'
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il modulo Remove duplicate rows nel servizio Azure Machine Learning per rimuovere potenziali duplicati da un set di dati.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: b16e745de277d5aa262f1e1624df22f97d0cf29c
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 8b3f73c56d85eecd50633085eca0e632abaa6b4c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128531"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693674"
 ---
 # <a name="remove-duplicate-rows-module"></a>Rimuovi modulo righe duplicate
 
@@ -24,11 +24,11 @@ Usare questo modulo per rimuovere potenziali duplicati da un set di dati.
 
 Si supponga, ad esempio, che i dati abbiano un aspetto simile al seguente e che rappresenti più record per i pazienti. 
 
-| PatientID | Initials| Sesso|Tempo di risoluzione|Ammessi|
+| PatientID | Initials| Genere|Età|Ammessi|
 |----|----|----|----|----|
-|1|F.M.| M| 53| gen|
-|2| F.A.M.| M| 53| gen|
-|3| F.A.M.| M| 24| gen|
+|1|F.M.| M| 53| Jan|
+|2| F.A.M.| M| 53| Jan|
+|3| F.A.M.| M| 24| Jan|
 |3| F.M.| M| 24| feb|
 |4| F.M.| M| 23| feb|
 | | F.M.| M| 23| |
@@ -51,7 +51,7 @@ Quando si esegue il modulo, viene creato un set di dati candidato e viene restit
 
 ## <a name="how-to-use-remove-duplicate-rows"></a>Come usare Rimuovi righe duplicate
 
-1. Aggiungere il modulo all'esperimento. È possibile trovare il modulo **Rimuovi righe duplicate** in **trasformazione dati**, **manipolazione**.  
+1. Aggiungere il modulo alla pipeline. È possibile trovare il modulo **Rimuovi righe duplicate** in **trasformazione dati**, **manipolazione**.  
 
 2. Connettere il set di dati che si desidera controllare per le righe duplicate.
 
@@ -61,15 +61,15 @@ Quando si esegue il modulo, viene creato un set di dati candidato e viene restit
 
     Esempi:
 
-    + "Voglio assicurarmi che gli ID siano univoci": Scegliere solo la colonna ID.
-    + "Voglio assicurarmi che la combinazione di nome, cognome e ID sia univoca": Selezionare tutte e tre le colonne.
+    + "Voglio assicurarmi che gli ID siano univoci": scegliere solo la colonna ID.
+    + "Voglio assicurarmi che la combinazione di nome, cognome e ID sia univoca": selezionare le tre colonne.
 
 4. Utilizzare la casella di controllo **Mantieni prima riga duplicata** per indicare la riga da restituire quando vengono trovati i duplicati:
 
     + Se questa opzione è selezionata, viene restituita la prima riga e altre eliminate. 
     + Se si deseleziona questa opzione, l'ultima riga duplicata viene mantenuta nei risultati e altri vengono eliminati. 
 
-5. Eseguire l'esperimento.
+5. Eseguire la pipeline.
 
 6. Per esaminare i risultati, fare clic con il pulsante destro del mouse sul modulo, scegliere **risultati set di dati**e fare clic su **Visualizza**. 
 

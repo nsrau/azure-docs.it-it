@@ -1,5 +1,5 @@
 ---
-title: 'Rete neurale a due classi: Riferimento al modulo'
+title: 'Rete neurale a due classi: riferimento al modulo'
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il modulo a due classi Neural Network nel servizio Azure Machine Learning per creare un modello di rete neurale che può essere usato per stimare una destinazione con solo due valori.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 6f0ad3cc6f506efdc0579f7b8949c41b539ade6a
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 8f38a7b7086e5023eb63e94363301ac5277f7e7c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128356"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693605"
 ---
 # <a name="two-class-neural-network-module"></a>Modulo di rete neurale a due classi
 
@@ -38,15 +38,15 @@ Per calcolare l'output della rete per un input specifico, viene calcolato un val
   
 ## <a name="how-to-configure"></a>Come configurare
 
-1.  Aggiungere il modulo di **rete neurale a due classi** all'esperimento. È possibile trovare questo modulo in **Machine Learning**, **Initialize**, nella categoria **classificazione** .  
+1.  Aggiungere il modulo a **due classi Neural Network** alla pipeline. È possibile trovare questo modulo in **Machine Learning**, **Initialize**, nella categoria **classificazione** .  
   
 2.  Specificare il modo in cui si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .  
   
-    -   **Singolo parametro**: Scegliere questa opzione se si conosce già il modo in cui si desidera configurare il modello.  
+    -   **Singolo parametro**: scegliere questa opzione se si conosce già il modo in cui si vuole configurare il modello.  
 
 3.  Per **specifica del livello nascosto**, selezionare il tipo di architettura di rete da creare.  
   
-    -   **Caso con connessione completa**: Usa l'architettura di rete neurale predefinita, definita per le reti neurali a due classi come indicato di seguito:
+    -   **Caso completamente connesso**: usa l'architettura di rete neurale predefinita, definita per le reti neurali a due classi come indicato di seguito:
   
         -   Dispone di un livello nascosto.
   
@@ -66,25 +66,25 @@ Per calcolare l'output della rete per un input specifico, viene calcolato un val
 
 8.  Per **il momento**, specificare un peso da applicare durante l'apprendimento ai nodi dalle iterazioni precedenti  
 
-10. Selezionare l'opzione **esempi shuffle** per mescolare i casi tra le iterazioni. Se si deseleziona questa opzione, i case vengono elaborati esattamente nello stesso ordine ogni volta che si esegue l'esperimento.
+10. Selezionare l'opzione **esempi shuffle** per mescolare i casi tra le iterazioni. Se si deseleziona questa opzione, i case vengono elaborati esattamente nello stesso ordine ogni volta che si esegue la pipeline.
   
 11. Per il valore di **inizializzazione numerico casuale**, digitare un valore da usare come valore di inizializzazione.
   
-     Specificare un valore di inizializzazione è utile quando si desidera garantire la ripetibilità tra esecuzioni dello stesso esperimento.  In caso contrario, viene usato un valore di clock di sistema come valore di inizializzazione, che può causare risultati leggermente diversi ogni volta che si esegue l'esperimento.
+     La specifica di un valore di inizializzazione è utile quando si desidera garantire la ripetibilità tra le esecuzioni della stessa pipeline.  In caso contrario, viene usato un valore clock di sistema come valore di inizializzazione, che può causare risultati leggermente diversi ogni volta che si esegue la pipeline.
   
-13. Aggiungere un set di dati con tag all'esperimento e connettere uno dei [moduli di training](module-reference.md).  
+13. Aggiungere un set di dati con tag alla pipeline e connettere uno dei [moduli di training](module-reference.md).  
   
     -   Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, usare il modulo [Train Model](train-model.md) .  
   
-14. Eseguire l'esperimento.
+14. Eseguire la pipeline.
 
 ## <a name="results"></a>Risultati
 
 Al termine del training:
 
-+ Per visualizzare un riepilogo dei parametri del modello, insieme ai pesi della funzionalità appresi dal training e ad altri parametri della rete neurale, fare clic con il pulsante destro del mouse sull'output di [Train Model](./train-model.md)e selezionare Visualize ( **Visualizza**).  
++ Per visualizzare un riepilogo dei parametri del modello, insieme ai pesi della funzionalità appresi dal training e ad altri parametri della rete neurale, fare clic con il pulsante destro del mouse sull'output di [Train Model](./train-model.md)e selezionare **Visualize (Visualizza**).  
 
-+ Per salvare uno snapshot del modello con training, fare clic con il pulsante destro del mouse sull'output del **modello** sottoposto a training e selezionare **Salva come modello con training**. Questo modello non viene aggiornato nelle esecuzioni successive dello stesso esperimento.
++ Per salvare uno snapshot del modello con training, fare clic con il pulsante destro del mouse sull'output del **modello** sottoposto a training e selezionare **Salva come modello con training**. Questo modello non viene aggiornato in esecuzioni successive della stessa pipeline.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

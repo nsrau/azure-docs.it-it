@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 0f24b9c6ce2aeb318040b61c29d7e14c01886c46
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70073319"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modelli di profilo utente in Gestione API di Azure
@@ -41,7 +41,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ##  <a name="Profile"></a> Profilo  
  Il modello **Profilo** consente di personalizzare la sezione profili utente della pagina del profilo utente nel portale per sviluppatori.  
   
- ![Pagina del profilo utente](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Pagina del profilo utente Gestione API")  
+ ![Pagina del profilo utente](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Pagina del profilo utente gestione API")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -103,7 +103,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 > [!NOTE]
 >  I modelli [Profilo](#Profile), [Applicazioni](#Applications) e [Sottoscrizioni](#Subscriptions) condividono lo stesso modello di dati e ricevono gli stessi dati del modello.  
   
-|Proprietà|Type|Descrizione|  
+|Proprietà|Type|Description|  
 |--------------|----------|-----------------|  
 |`firstName`|string|Nome dell'utente corrente.|  
 |`lastName`|string|Cognome dell'utente corrente.|  
@@ -186,7 +186,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ##  <a name="Subscriptions"></a> Sottoscrizioni  
  Il modello **Sottoscrizioni** consente di personalizzare la sezione sottoscrizioni della pagina del profilo utente nel portale per sviluppatori.  
   
- ![Pagina di sottoscrizione utente](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Pagina di sottoscrizione utente in Gestione API di Azure")  
+ ![Pagina sottoscrizione utente](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Pagina sottoscrizione utente gestione API")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -324,7 +324,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 > [!NOTE]
 >  I modelli [Profilo](#Profile), [Applicazioni](#Applications) e [Sottoscrizioni](#Subscriptions) condividono lo stesso modello di dati e ricevono gli stessi dati del modello.  
   
-|Proprietà|Type|Descrizione|  
+|Proprietà|Type|Description|  
 |--------------|----------|-----------------|  
 |`firstName`|string|Nome dell'utente corrente.|  
 |`lastName`|string|Cognome dell'utente corrente.|  
@@ -407,7 +407,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ##  <a name="Applications"></a> Applicazioni  
  Il modello **Applicazioni** consente di personalizzare la sezione applicazioni della pagina del profilo utente nel portale per sviluppatori.  
   
- ![Pagina applicazioni account utente](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Pagina applicazioni account utente in Gestione API di Azure")  
+ ![Pagina applicazioni account utente](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Pagina applicazioni account utente gestione API")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -487,7 +487,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 > [!NOTE]
 >  I modelli [Profilo](#Profile), [Applicazioni](#Applications) e [Sottoscrizioni](#Subscriptions) condividono lo stesso modello di dati e ricevono gli stessi dati del modello.  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Description|  
 |--------------|----------|-----------------|  
 |`firstName`|string|Nome dell'utente corrente.|  
 |`lastName`|string|Cognome dell'utente corrente.|  
@@ -570,7 +570,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ##  <a name="UpdateAccountInfo"></a> Aggiorna info account  
  Il modello **Aggiorna info account** consente di personalizzare la pagina di **aggiornamento delle informazioni dell'account** nel portale per sviluppatori.  
   
- ![Modelli del portale per sviluppatori, pagina di informazioni sull'account utente](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Modelli del portale per sviluppatori, pagina di informazioni sull'account utente in Gestione API di Azure")  
+ ![Pagina informazioni account utente modelli del portale per sviluppatori](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "GESTIONE API pagina informazioni account utente modelli del portale per sviluppatori")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -625,4 +625,4 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli](api-management-developer-portal-templates.md).
+Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](api-management-developer-portal-templates.md).
