@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 88a8258a91237c7b3eadccc32a30c3fe8149eca5
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1ef4ddc422041de623b96f3a0c85f067427cacd7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064643"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374236"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
@@ -86,14 +86,14 @@ Per creare un contenitore pubblico nell'archivio BLOB, seguire questa procedura:
 1. Per **nome**immettere *radice*. Può trattarsi di un nome a scelta, ad esempio *wingtiptoys*, ma in questo esempio viene usata la *radice* per semplicità.
 1. Per **livello di accesso pubblico**selezionare **BLOB**e quindi **OK**.
 1. Fare clic su **radice** per aprire il nuovo contenitore.
-1. Fare clic su **Upload**.
+1. Fare clic su **Carica**.
 1. Fare clic sull'icona della cartella accanto a **Selezionare un file**.
 1. Passare a e selezionare **Customize-UI. html** creato in precedenza nella sezione relativa alla personalizzazione dell'interfaccia utente della pagina.
 1. Se si desidera caricare in una sottocartella, espandere **Avanzate** e immettere un nome di cartella in **carica in cartella**.
 1. Selezionare **Carica**.
 1. Selezionare il BLOB **Customize-UI. html** caricato.
 1. A destra della casella di testo **URL** selezionare l'icona **copia negli Appunti** per copiare l'URL negli Appunti.
-1. Nel Web browser passare all'URL copiato per verificare che il BLOB caricato sia accessibile. Se è inaccessibile, ad esempio se si verifica un `ResourceNotFound` errore, verificare che il tipo di accesso del contenitore sia impostato su **BLOB**.
+1. Nel Web browser passare all'URL copiato per verificare che il BLOB caricato sia accessibile. Se è inaccessibile, ad esempio se si verifica un errore `ResourceNotFound`, verificare che il tipo di accesso del contenitore sia impostato su **BLOB**.
 
 ## <a name="configure-cors"></a>Configurare CORS
 
@@ -105,7 +105,7 @@ Configurare l'archiviazione BLOB per la condivisione di risorse tra le origini e
 1. Per **Intestazioni consentite** immettere un asterisco (*).
 1. Per **Intestazioni esposte** immettere un asterisco (*).
 1. Per **Età massima** immettere 200.
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**
 
 ## <a name="test-cors"></a>Testare CORS
 
@@ -119,7 +119,7 @@ Verificare che l'utente sia pronto attenendosi alla procedura seguente:
 
 Per configurare la personalizzazione dell'interfaccia utente, si copia **ContentDefinition** e i relativi elementi figlio dal file di base al file delle estensioni.
 
-1. Aprire il file di base dei criteri, Ad esempio, *`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`* * *. Si tratta di uno dei file di criteri inclusi nello Starter Pack del criterio personalizzato, che dovrebbe essere ottenuto nel prerequisito, per iniziare a [usare i criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Aprire il file di base dei criteri, Ad esempio, <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em> . Si tratta di uno dei file di criteri inclusi nello Starter Pack del criterio personalizzato, che dovrebbe essere ottenuto nel prerequisito, per iniziare a [usare i criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
 1. Cercare e copiare l'intero contenuto dell'elemento **ContentDefinitions**.
 1. Aprire il file di estensione. ad esempio *TrustFrameworkExtensions.xml*. Cercare l'elemento **BuildingBlocks**. Se l'elemento non esiste, aggiungerlo.
 1. Incollare l'intero contenuto dell'elemento **ContentDefinitions** copiato come figlio dell'elemento **BuildingBlocks**.
@@ -147,7 +147,7 @@ Per configurare la personalizzazione dell'interfaccia utente, si copia **Content
 
 ## <a name="upload-your-updated-custom-policy"></a>Caricare il criterio personalizzato aggiornato
 
-1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 1. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 1. Fare clic su **Tutti i criteri**.
@@ -160,7 +160,7 @@ Per configurare la personalizzazione dell'interfaccia utente, si copia **Content
 1. Selezionare il criterio personalizzato che è stato caricato e fare clic sul pulsante **Esegui adesso**.
 1. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.
 
-## <a name="reference"></a>Riferimenti
+## <a name="reference"></a>Riferimento
 
 ### <a name="sample-templates"></a>Modelli di esempio
 È possibile trovare modelli di esempio per la personalizzazione dell'interfaccia utente qui:
@@ -171,7 +171,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 
 La cartella sample_templates/wingtip contiene i file HTML seguenti:
 
-| Modello HTML5 | DESCRIZIONE |
+| Modello HTML5 | Description |
 |----------------|-------------|
 | *phonefactor.html* | Usare questo file come modello per una pagina di autenticazione a più fattori. |
 | *resetpassword.html* | Usare questo file come modello per una pagina Password dimenticata. |
@@ -182,17 +182,17 @@ La cartella sample_templates/wingtip contiene i file HTML seguenti:
 Ecco i passaggi per l'uso dell'esempio:
 
 1. Clonare il repository nel computer locale. Scegliere una cartella modello in sample_templates. È possibile utilizzare `wingtip` o `contoso`.
-1. Caricare tutti i file nelle `css`cartelle, e `images` nell'archiviazione BLOB, `fonts`come descritto nelle sezioni precedenti.
-1. Aprire quindi ogni \*file con estensione HTML nella radice `wingtip` di o `contoso` (a seconda del valore selezionato nel primo passaggio) e sostituire tutte le istanze di "http://localhost" con gli URL dei file CSS, images e fonts caricati nel passaggio 2.
-1. Salvare i \*file con estensione HTML e caricarli nell'archivio BLOB.
+1. Caricare tutti i file nelle cartelle `css`, `fonts` e `images` nell'archivio BLOB, come descritto nelle sezioni precedenti.
+1. Aprire quindi ogni file \*. html nella radice di `wingtip` o `contoso` (a seconda del valore selezionato nel primo passaggio) e sostituire tutte le istanze di "http://localhost" con gli URL dei file CSS, images e fonts caricati nel passaggio 2.
+1. Salvare i file \*. html e caricarli nell'archivio BLOB.
 1. Modificare ora il file delle estensioni come indicato in precedenza in [modificare il file delle estensioni](#modify-the-extensions-file).
-1. Se vengono visualizzati i tipi di carattere, le immagini o i file CSS mancanti, controllare i riferimenti nei \*criteri delle estensioni e nei file con estensione HTML.
+1. Se vengono visualizzati i tipi di carattere, le immagini o i CSS mancanti, controllare i riferimenti nei criteri delle estensioni e nei file \*. html.
 
 ### <a name="content-definition-ids"></a>ID definizione del contenuto
 
 Nella sezione Modificare i criteri personalizzati di iscrizione o di accesso è stata configurata la definizione del contenuto per `api.idpselections`. Il set completo di ID di definizione del contenuto riconosciuti dal framework dell'esperienza di gestione delle identità di AD B2C e le relative descrizioni sono disponibili nella tabella seguente:
 
-| ID definizione del contenuto | Descrizione |
+| ID definizione del contenuto | Description |
 |-----------------------|-------------|
 | *api.error* | **Pagina di errore**. Questa pagina viene visualizzata quando viene rilevata un'eccezione o un errore. |
 | *api.idpselections* | **Pagina di selezione del provider di identità**. Questa pagina contiene un elenco dei provider di identità che l'utente può scegliere durante la procedura di accesso. Si tratta di provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali. |
