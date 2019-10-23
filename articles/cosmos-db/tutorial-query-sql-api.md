@@ -1,19 +1,19 @@
 ---
 title: Procedura per l'esecuzione di query con SQL in Azure Cosmos DB
 description: Informazioni sull'esecuzione di query con SQL in Azure Cosmos DB
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7e57abcc3df17dadd2e607895a8de011761ed68c
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ffebdb0a46fdae981ca73a4569344365459dd7b8
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932788"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756812"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Esercitazione: Eseguire query in Azure Cosmos DB con l'API SQL
 
@@ -65,7 +65,7 @@ Per altre informazioni sulle query SQL, vedere:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-L'esercitazione presuppone la presenza di un account e di una raccolta di Azure Cosmos DB. Questi requisiti non sono disponibili? Completare la [Guida introduttiva di 5 minuti](create-mongodb-nodejs.md).
+L'esercitazione presuppone la presenza di un account e di una raccolta di Azure Cosmos DB. Questi requisiti non sono disponibili? Completare la [Guida introduttiva di 5 minuti](create-cosmosdb-resources-portal.md).
 
 ## <a name="example-query-1"></a>Query di esempio 1
 

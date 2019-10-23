@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 33fc6e59a0a85275b055524d8ccf5d78935725a8
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 05ce5fd560168c1f60b7c559539f4a368ba83ca8
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718754"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754288"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Esaminare la fatturazione della sottoscrizione con le API REST
 
@@ -92,7 +92,7 @@ Ogni elemento in **value** rappresenta un dettaglio relativo all'uso di un servi
 |**meterDetails** | Informazioni dettagliate sull'uso. |
 |**nextLink**| Se impostato, specifica un URL per la "pagina" dettagli successiva. Se la pagina è l'ultima, è vuoto. |
 
-Questo esempio è abbreviato; vedere [List usage details](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod) (Dettagli dell'elenco di utilizzo) per una descrizione completa di ogni campo di risposta.
+Questo esempio è abbreviato; vedere [List usage details](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod-legacy) (Dettagli dell'elenco di utilizzo) per una descrizione completa di ogni campo di risposta.
 
 Altri codici di stato indicano condizioni di errore. In questi casi l'oggetto risposta spiega il motivo per cui la richiesta non è riuscita.
 

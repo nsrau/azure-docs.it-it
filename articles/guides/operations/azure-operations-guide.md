@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: b225052daa61932f3b8b868789cfb3c204eca88f
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 9b23e3b69b4970e765ea1cd5af690cf074bad774
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543416"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693444"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Guida introduttiva per gli operatori IT di Azure
 
@@ -461,7 +461,6 @@ Per impostazione predefinita, una rete virtuale di Azure è accessibile solo per
 ### <a name="hybrid-virtual-networks"></a>Reti virtuali di Azure
 
 È possibile connettere una rete locale a una rete virtuale di Azure tramite ExpressRoute o una connessione VPN da sito a sito. In questa configurazione, la rete virtuale di Azure è essenzialmente un'estensione della rete locale basata su cloud.
-![Rete virtuale di Microsoft Azure tramite VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
 
 Poiché la rete virtuale di Azure è connessa alla rete locale, le reti virtuali cross-premise devono usare una parte univoca dello spazio indirizzi usato dall'organizzazione. Nello stesso modo in cui sedi aziendali diverse vengono assegnate a una subnet IP specifica, con l'estensione della rete Azure diventa un'altra sede.
 Per la distribuzione di una rete virtuale sono disponibili diverse opzioni.

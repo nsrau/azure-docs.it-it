@@ -3,15 +3,15 @@ title: Eseguire la prima query con Azure Resource Graph Explorer
 description: Questo articolo illustra la procedura per eseguire la prima query dal portale di Azure usando Azure Resource Graph Explorer.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/18/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: 755556b9ba049da7542494ee580215d29c1eb5f4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: abee722e725b55933d7ff1acdcd1e9a2e701502b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387610"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752141"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Guida introduttiva: Eseguire la prima query di Resource Graph con Azure Resource Graph Explorer
 
@@ -45,7 +45,10 @@ Quando la query finale viene eseguita più volte, presupponendo che non vengano 
 
 ### <a name="schema-browser"></a>Browser dello schema
 
-Il browser dello schema si trova nel riquadro sinistro di Resource Graph Explorer. Questo elenco di risorse mostra tutti i _tipi di risorsa_ di Azure supportati da Azure Resource Graph e che esistono in un tenant a cui si ha accesso. Espandendo un tipo di risorsa o le sottoproprietà vengono visualizzate le proprietà figlio che è possibile usare per creare una query di Resource Graph. Selezionando il tipo di risorsa, nella casella della query viene inserita la stringa `where type =="<resource type>"`. Selezionando una delle proprietà figlio, nella casella della query viene aggiunta la stringa `where <propertyName> == "INSERT_VALUE_HERE"`. Il browser dello schema è un ottimo modo per individuare le proprietà da usare nelle query. Assicurarsi di sostituire la stringa _INSERT\_VALUE\_HERE_ con il proprio valore e modificare la query con condizioni, operatori e funzioni per ottenere i risultati previsti.
+Il browser dello schema si trova nel riquadro sinistro di Resource Graph Explorer. Questo elenco di risorse mostra tutti i _tipi di risorsa_ di Azure supportati da Azure Resource Graph e che esistono in un tenant a cui si ha accesso. Espandendo un tipo di risorsa o le sottoproprietà vengono visualizzate le proprietà figlio che è possibile usare per creare una query di Resource Graph.
+
+Selezionando il tipo di risorsa, nella casella della query viene inserita la stringa `where type =="<resource type>"`. Selezionando una delle proprietà figlio, nella casella della query viene aggiunta la stringa `where <propertyName> == "INSERT_VALUE_HERE"`.
+Il browser dello schema è un ottimo modo per individuare le proprietà da usare nelle query. Assicurarsi di sostituire la stringa _INSERT\_VALUE\_HERE_ con il proprio valore e modificare la query con condizioni, operatori e funzioni per ottenere i risultati previsti.
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Creare un grafico dalla query di Resource Graph
 

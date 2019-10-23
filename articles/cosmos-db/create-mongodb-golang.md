@@ -1,20 +1,20 @@
 ---
 title: Creare un'app console usando l'API Azure Cosmos DB per MongoDB e Golang SDK
 description: Illustra un esempio di codice Golang che è possibile usare per la connessione e l'esecuzione di query usando l'API Azure Cosmos DB per MongoDB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.author: rimman
-ms.openlocfilehash: 5b60ac28cd8f65d464e659f328872524be59b3ed
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: e16b9b7e591fcc089d74794c98ddfc951cbdced9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586875"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755121"
 ---
-# <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>Avvio rapido: Creare un'app console usando l'API Azure Cosmos DB per MongoDB e Golang SDK
+# <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>Guida introduttiva: Creare un'app console usando l'API Azure Cosmos DB per MongoDB e Golang SDK
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -129,9 +129,9 @@ defer session.Close()
 session.SetSafe(&mgo.Safe{})
 ```
 
-Il metodo **mgo.Dial()** viene usato quando non è disponibile una connessione SSL. Per una connessione SSL è necessario il metodo **mgo.DialWithInfo()**.
+Il metodo **mgo.Dial()** viene usato quando non è disponibile una connessione SSL. Per una connessione SSL è necessario il metodo **mgo.DialWithInfo()** .
 
-Per creare l'oggetto sessione viene usata un'istanza dell'oggetto **DialWIthInfo{}**. Dopo che la sessione è stata stabilita, è possibile accedere alla raccolta usando il frammento di codice seguente:
+Per creare l'oggetto sessione viene usata un'istanza dell'oggetto **DialWIthInfo{}** . Dopo che la sessione è stata stabilita, è possibile accedere alla raccolta usando il frammento di codice seguente:
 
 ```go
 collection := session.DB("database").C("package")
