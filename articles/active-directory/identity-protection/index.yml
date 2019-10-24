@@ -12,44 +12,40 @@ metadata:
   ms.author: joflore
   ms.date: 08/20/2019
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: b493af4372c612c41bafeaef863d8542e6730cb1
-  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.openlocfilehash: aeaa23138fb7d0a6d73625fdf7c6507c7fd8152a
+  ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 08/28/2019
-  ms.locfileid: "70126205"
+  ms.lasthandoff: 10/24/2019
+  ms.locfileid: "72880685"
 landingContent:
 - title: Informazioni su Identity Protection
   linkLists:
   - linkListType: overview
     links:
     - text: Informazioni su Identity Protection
-      url: overview-v2.md
+      url: overview-identity-protection.md
     - text: Introduzione alla panoramica della sicurezza
-      url: security-overview.md
+      url: concept-identity-protection-security-overview.md
 - title: Analizzare i rilevamenti degli eventi di rischio
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Configurare i criteri di rischio
-      url: howto-configure-risk-policies.md
+      url: howto-identity-protection-configure-risk-policies.md
     - text: Analizzare gli eventi di rischio
-      url: howto-investigate-risk.md
+      url: howto-identity-protection-investigate-risk.md
   - linkListType: reference
     links:
     - text: Tipi di eventi
-      url: risk-events-reference.md
+      url: concept-identity-protection-risks.md
 - title: Esperienza di Identity Protection
   linkLists:
   - linkListType: concept
     links:
     - text: Esperienza d’accesso
-      url: flows.md
+      url: concept-identity-protection-user-experience.md
   - linkListType: how-to-guide
     links:
     - text: Simulare rilevamenti degli eventi di rischio
-      url: playbook.md
-  - linkListType: quickstart
-    links:
-    - text: Bloccare l'accesso quando viene rilevato un rischio nella sessione
-      url: quickstart-sign-in-risk-policy.md
+      url: howto-identity-protection-simulate-risk.md
