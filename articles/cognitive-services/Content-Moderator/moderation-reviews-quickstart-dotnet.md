@@ -3,19 +3,19 @@ title: Creare revisioni usando .NET - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Come creare revisioni usando Content Moderator SDK di Azure per .NET.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.author: sajagtap
-ms.openlocfilehash: e3b36eae4f6dc4343828a38fa4ffe3920a83f589
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: 540d9872d41ba3ffc73f5e42f098fe51437789c6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242875"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755305"
 ---
 # <a name="create-human-reviews-net"></a>Creare recensioni umane (.NET)
 
@@ -30,7 +30,7 @@ Esamina l'archivio e visualizza il contenuto per i moderatori umani da valutare.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Verificare che la chiave API possa chiamare l'API di verifica per la creazione della revisione
 
-Dopo aver completato i passaggi precedenti, si potrebbero avere due chiavi di Content Moderator se la procedura è stata avviata dal portale di Azure.
+Dopo aver completato i passaggi precedenti, potrebbero esserci due chiavi Content Moderator se la procedura è stata avviata dal portale di Azure.
 
 Se si prevede di usare la chiave API fornita da Azure nell'esempio di SDK, seguire i passaggi indicati nella sezione [Usare la chiave di Azure con l'API di revisione](./review-tool-user-guide/configure.md#use-your-azure-account-with-the-review-apis) per consentire all'applicazione di chiamare l'API di revisione e creare revisioni.
 
@@ -42,7 +42,7 @@ Se si usa la chiave di prova gratuita generata dallo strumento di revisione, l'a
 
    Nel codice di esempio assegnare al progetto il nome **CreateReviews**.
 
-1. Selezionare questo progetto come progetto di avvio singolo per la soluzione.
+1. Selezionare il progetto come progetto di avvio singolo per la soluzione.
 
 ### <a name="install-required-packages"></a>Installare i pacchetti necessari
 
@@ -156,7 +156,7 @@ Aggiungere la classe seguente alla classe **Program**. Usare questa classe per a
 > [!NOTE]
 > La chiave del servizio Content Moderator ha un limite di frequenza di richieste al secondo (RPS). Se questo limite viene superato, l'SDK genera un'eccezione con un codice di errore 429.
 >
-> Una chiave di livello gratuito prevede un unico limite di frequenza RPS.
+> Una chiave di livello gratuito prevede un limite di frequenza di richieste al secondo pari a uno.
 
 #### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Aggiungere le costanti seguenti alla classe **Program** in Program.cs
 
@@ -513,7 +513,7 @@ Creating reviews for the following images:
 
 ## <a name="your-callback-url-if-provided-receives-this-response"></a>L'URL di callback, se specificato, riceve la risposta
 
-Viene visualizzata una risposta simile all'esempio seguente:
+Verrà visualizzata una risposta simile all'esempio seguente:
 
 ```json
 {

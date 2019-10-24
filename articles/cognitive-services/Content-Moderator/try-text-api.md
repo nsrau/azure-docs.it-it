@@ -3,27 +3,27 @@ title: Moderare il testo usando l'API Moderazione testo - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Provare a moderare il testo usando l'API Moderazione testo nella console online.
 services: cognitive-services
-author: sanjeev3
-ms.author: sajagtap
+author: PatrickFarley
+ms.author: pafarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 49047c21f86530aac6ed3e0138a643fd08c35af8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf3f08436fb4bac56907b342c991709947f4c24d
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561184"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754197"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderare il testo dalla console dell'API
 
-Usare l' [API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) di moderazione del testo in Azure Content Moderator per analizzare il contenuto di testo in modo volgare e confrontarlo con elenchi personalizzati e condivisi.
+Usare l' [API di moderazione del testo](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure Content Moderator per analizzare il contenuto di testo in modo volgare e confrontarlo con elenchi personalizzati e condivisi.
 
 ## <a name="get-your-api-key"></a>Ottenere la chiave dell'API
 
-Prima di poter eseguire il test drive dell'API nella console online è necessario disporre della chiave di sottoscrizione. Questa si trova nella casella **Ocp-Apim-Subscription-Key** della scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
+Prima di poter eseguire il test drive dell'API nella console online, è necessario avere la chiave di sottoscrizione. Questa si trova nella casella **Ocp-Apim-Subscription-Key** della scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
 
 ## <a name="navigate-to-the-api-reference"></a>Passare al riferimento sulle API
 
@@ -41,7 +41,7 @@ Per **Open API testing console** (Apri console di test dell'API) selezionare l'a
 
 ## <a name="select-the-inputs"></a>Selezionare gli input
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
 Selezionare i parametri di query che si intende usare nella schermata di testo. Per questo esempio usare il valore predefinito per **language**. È possibile anche lasciarlo vuoto, perché l'operazione rileverà automaticamente la lingua nel corso della sua esecuzione.
 
@@ -172,8 +172,8 @@ La risposta seguente mostra le varie informazioni provenienti dall'API. Contiene
 }
 ```
 
-Per una spiegazione dettagliata di tutte le sezioni della risposta JSON, vedere la Guida concettuale relativa alla moderazione del [testo](text-moderation-api.md) .
+Per una spiegazione dettagliata di tutte le sezioni della risposta JSON, vedere la Guida concettuale relativa alla [moderazione del testo](text-moderation-api.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare l'API REST nel codice o iniziare con la [Guida introduttiva di .NET](text-moderation-quickstart-dotnet.md) per la moderazione del testo per l'integrazione con l'applicazione.
+Usare l'API REST nel codice o iniziare con la [Guida introduttiva di .NET per la moderazione del testo](text-moderation-quickstart-dotnet.md) per l'integrazione con l'applicazione.
