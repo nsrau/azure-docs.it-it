@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aacedeb2c047d1abfc5affdcf94404abbb2c7b62
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 516f61775060b3e4073ed9d623545d4f227563ed
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168606"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750353"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Come installare e configurare SAP HANA (istanze Large) in Azure
 
@@ -96,12 +96,12 @@ Vedere i [white paper/le librerie di risorse](https://www.suse.com/products/sles
 Collegamenti aggiuntivi utili correlati a SAP in SUSE:
 
 - [Sito relativo a SAP HANA in SUSE Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
-- [Procedure consigliate per SAP: Replica di accodamento e SAP NetWeaver in SUSE Linux Enterprise 12](https://www.suse.com/docrepcontent/container.jsp?containerId=9113)
+- [Best practices for SAP: Enqueue replication – SAP NetWeaver on SUSE Linux Enterprise 12](https://www.suse.com/docrepcontent/container.jsp?containerId=9113) (Procedure consigliate per SAP: replica di accodamento e SAP NetWeaver in SUSE Linux Enterprise 12)
 - [ClamSAP: SLES Virus Protection for SAP](https://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (ClamSAP: protezione da virus SLES per SAP), incluso SLES 12 for SAP Applications
 
 Note di supporto SAP applicabili all'implementazione di SAP HANA su SLES 12:
 
-- [SAP support note #1944799 – SAP HANA guidelines for SLES operating system installation](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html) (Nota di supporto SAP n. 1944799: linee guida di SAP HANA per l'installazione del sistema operativo SLES)
+- [SAP support note #1944799 – SAP HANA guidelines for SLES operating system installation](http://service.sap.com/sap/support/notes/1944799) (Nota di supporto SAP n. 1944799: linee guida di SAP HANA per l'installazione del sistema operativo SLES)
 - [SAP Support Note #2205917 – SAP HANA DB Recommended OS Settings for SLES 12 for SAP Applications](https://launchpad.support.sap.com/#/notes/2205917/E) (Nota di supporto SAP n. 2205917: impostazioni del sistema operativo consigliate per il database di SAP HANA per SLES 12 for SAP Applications)
 - [SAP support note #1984787 – SUSE Linux Enterprise Server 12:  installation notes](https://launchpad.support.sap.com/#/notes/1984787) (Nota di supporto SAP n. 1984787: note di installazione per SUSE Linux Enterprise Server 12)
 - [SAP Support Note #171356 – SAP Software on Linux:  General Information](https://launchpad.support.sap.com/#/notes/1984787) (Nota di supporto SAP n. 171356: informazioni generali sul software SAP in Linux)
@@ -115,13 +115,13 @@ Collegamenti aggiuntivi utili correlati a SAP in Red Hat:
 Note di supporto SAP applicabili all'implementazione di SAP HANA su Red Hat:
 
 - [SAP Support Note #2009879 - SAP HANA Guidelines for Red Hat Enterprise Linux (RHEL) Operating System](https://launchpad.support.sap.com/#/notes/2009879/E) (Nota di supporto SAP n. 2009879: linee guida di SAP HANA per il sistema operativo Red Hat Enterprise Linux, RHEL)
-- [SAP support note #2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690) (2292690 - SAP HANA DB: impostazioni del sistema operativo consigliate per RHEL 7)
-- [SAP Support Note #2247020 - SAP HANA DB: Recommended OS settings for RHEL 6.7](https://launchpad.support.sap.com/#/notes/2247020) (Nota di supporto SAP n. 2292690 - SAP HANA DB: impostazioni del sistema operativo consigliate per RHEL 7)
+- [SAP Support Note #2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690) (Nota di supporto n. 2247020 - SAP HANA DB: impostazioni del sistema operativo consigliate per RHEL 7)
+- [SAP Support Note #2247020 - SAP HANA DB: Recommended OS settings for RHEL 6.7](https://launchpad.support.sap.com/#/notes/2247020) (Nota di supporto n. 2247020 - SAP HANA DB: impostazioni del sistema operativo consigliate per RHEL 6.7)
 - [SAP Support Note #1391070 – Linux UUID Solutions](https://launchpad.support.sap.com/#/notes/1391070) (Nota di supporto SAP n. 1391070: soluzioni UUID Linux)
-- [SAP support note #2228351 - Linux: SAP HANA Database SPS 11 revision 110 (or higher) on RHEL 6 or SLES 11](https://launchpad.support.sap.com/#/notes/2228351) (Nota di supporto SAP n. 2228351 - Linux: SAP HANA Database SPS 11 revisione 110, o successiva, in RHEL 6 o SLES 11)
-- [SAP support note #2397039 - FAQ: SAP in RHEL](https://launchpad.support.sap.com/#/notes/2397039) (Nota di supporto SAP n. 2397039 - FAQ: SAP in RHEL)
+- [SAP Support Note #2228351 - Linux: SAP HANA Database SPS 11 revision 110 (or higher) on RHEL 6 or SLES 11](https://launchpad.support.sap.com/#/notes/2228351) (Nota di supporto SAP n. 2228351 - Linux: SAP HANA Database SPS 11 revisione 110, o successiva, in RHEL 6 o SLES 11)
+- [SAP Support Note #2397039 - FAQ: SAP on RHEL](https://launchpad.support.sap.com/#/notes/2397039) (Nota di supporto SAP n. 2397039 - Domande frequenti: SAP in RHEL)
 - [SAP Support Note #1496410 - Red Hat Enterprise Linux 6.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/1496410) (Nota di supporto SAP n. 1496410 - Red Hat Enterprise Linux 6.x: installazione e aggiornamento)
-- [SAP Support Note #2002167 - Red Hat Enterprise Linux 7.x: Installazione e aggiornamento](https://launchpad.support.sap.com/#/notes/2002167) (Nota di supporto SAP n. 2002167 - Red Hat Enterprise Linux 7.x: installazione e aggiornamento)
+- [SAP Support Note #2002167 - Red Hat Enterprise Linux 7.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/2002167) (Nota di supporto SAP n. 2002167 - Red Hat Enterprise Linux 7.x: installazione e aggiornamento)
 
 ### <a name="time-synchronization"></a>Sincronizzazione degli orari
 
@@ -152,8 +152,8 @@ Le convenzioni di denominazione dei volumi di archiviazione sono elencate nella 
 
 | Utilizzo delle risorse di archiviazione | Nome del montaggio | Nome del volume | 
 | --- | --- | ---|
-| Dati HANA | /hana/data/SID/mnt0000 @ no__t-0m > | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
-| Log HANA | /hana/log/SID/mnt0000 @ no__t-0m > | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
+| Dati HANA | /hana/data/SID/mnt0000 \<m > | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
+| Log HANA | /hana/log/SID/mnt0000 \<m > | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
 | Backup dei log HANA | /hana/log/backups | Storage IP:/hana_log_backups_SID_mnt00001_tenant_vol |
 | Condivisione HANA | /hana/shared/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
 | usr/sap | /usr/sap/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
@@ -172,7 +172,7 @@ Il volume HANA/log/backup non è il volume in cui salvare i backup dei database.
 
 Oltre alle risorse di archiviazione offerte, è possibile acquistare capacità di archiviazione aggiuntiva per incrementi di 1 TB. Questo ulteriore spazio di archiviazione può essere aggiunto come nuovi volumi alle istanze Large di HANA.
 
-Durante l'onboarding con SAP HANA in Azure `service management`, il cliente specifica un ID utente (UID) e un ID gruppo (GID) per l'utente sidadm e il gruppo sapsys (ad esempio: ad esempio 1000,500. È necessario usare questi stessi valori durante l'installazione del sistema SAP HANA. Poiché si vogliono distribuire più istanze di HANA in un'unità, si ottengono più set di volumi, ovvero un set per ogni istanza. In fase di distribuzione è quindi necessario definire quanto segue:
+Durante l'onboarding con SAP HANA in Azure `service management`, il cliente specifica un ID utente (UID) e un ID gruppo (GID) per l'utente sidadm e il gruppo sapsys (ad esempio: 1.000.500). È necessario usare questi stessi valori durante l'installazione del sistema SAP HANA. Poiché si vogliono distribuire più istanze di HANA in un'unità, si ottengono più set di volumi, ovvero un set per ogni istanza. In fase di distribuzione è quindi necessario definire quanto segue:
 
 - SID delle diverse istanze di HANA, da cui viene derivato il valore sidadm.
 - Dimensioni della memoria delle diverse istanze di HANA. Le dimensioni della memoria per ogni istanza definiscono le dimensioni dei volumi nei singoli set di volumi.
@@ -214,7 +214,7 @@ Lo spazio di archiviazione usato nelle istanze large di HANA presenta una limita
 > - Tenere presente la nota SAP [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
-Con SAP HANA 2.0, il framework hdbparam è stato deprecato. I parametri devono pertanto essere impostati tramite i comandi SQL. Per altre informazioni, vedere la [nota SAP n. 2399079: Eliminazione di hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
+Con SAP HANA 2.0, il framework hdbparam è stato deprecato. I parametri devono pertanto essere impostati tramite i comandi SQL. Per altre informazioni, vedere [SAP note #2399079: Elimination of hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079) (Nota SAP n. 2399079: eliminazione di hdbparam HANA 2).
 
 Per altre informazioni sul layout di archiviazione per l'architettura in uso, vedere [Scenari supportati nelle istanze Large di HANA](hana-supported-scenario.md).
 

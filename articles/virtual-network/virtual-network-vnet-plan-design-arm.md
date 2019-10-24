@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 17db8dbcba8dd0181be9ca7289ea1b85079ff9a1
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: f7f45e479ad21b27832573b73a5e09e8da1b37b1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168503"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756126"
 ---
 # <a name="plan-virtual-networks"></a>Pianificare le reti virtuali
 
@@ -29,7 +29,7 @@ Creare una rete virtuale per sperimentare è abbastanza semplice, ma è probabil
 
 Tutte le risorse di Azure hanno un nome. Il nome deve essere univoco all'interno di un ambito, che può variare per ogni tipo di risorsa. Ad esempio, il nome di una rete virtuale deve essere univoco all'interno di un [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), ma può essere duplicato all'interno di una [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) o di un'[area](https://azure.microsoft.com/regions/#services) di Azure. Definire una convenzione di denominazione che è possibile usare in modo coerente quando si denominano le risorse risulta utile quando si gestiscono diverse risorse di rete nel corso del tempo. Per alcuni suggerimenti, vedere [Naming conventions](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#virtual-networking) (Convenzioni di denominazione).
 
-## <a name="regions"></a>Regioni
+## <a name="regions"></a>Aree
 
 Tutte le risorse di Azure vengono create in un'area e in una sottoscrizione di Azure. Una risorsa può essere creata solo in una rete virtuale presente nella stessa area e nella stessa sottoscrizione della risorsa. È tuttavia possibile connettere reti virtuali esistenti in sottoscrizioni e aree diverse. Per altre informazioni, vedere [Problemi di connettività](#connectivity). Quando si decidono le aree in cui distribuire le risorse, prendere in considerazione dove si trovano fisicamente i consumer delle risorse:
 
@@ -105,15 +105,15 @@ Quando si usa [peering della rete virtuale](virtual-network-peering-overview.md)
 
 Le risorse in una rete virtuale non possono risolvere i nomi delle risorse nella rete virtuale con peering tramite il [DNS predefinito](virtual-networks-name-resolution-for-vms-and-role-instances.md) di Azure. Per risolvere i nomi nelle reti virtuali con peering, [distribuire un server DNS personalizzato](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) oppure usare [domini privati di DNS di Azure](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). La risoluzione dei nomi tra le reti locali e le risorse in una rete virtuale richiede anche di distribuire il proprio server DNS.
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>autorizzazioni
 
-Azure usa il [Controllo degli accessi basato sui ruoli](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) per le risorse. Le autorizzazioni vengono assegnate a un [ambito](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) nella gerarchia seguente: Sottoscrizione, gruppo di gestione, gruppo di risorse e risorse singole. Per altre informazioni sulla gerarchia, vedere [organizzare le risorse](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Per lavorare con reti virtuali di Azure e con tutte le funzionalità correlate, come ad esempio il peering, i gruppi di sicurezza di rete, gli endpoint del servizio e le tabelle di route, è possibile assegnare i membri dell'organizzazione ai ruoli incorporati [Proprietario](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Collaboratore](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor), o [Collaboratore di rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) e assegnare il ruolo all'ambito appropriato. Se si desidera assegnare autorizzazioni specifiche per un subset delle funzionalità di rete virtuale, creare un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e assegnare le autorizzazioni specifiche necessarie per le [reti virtuali](manage-virtual-network.md#permissions), le [subnet e gli endpoint del servizio](virtual-network-manage-subnet.md#permissions), le [interfacce di rete](virtual-network-network-interface.md#permissions), il [peering](virtual-network-manage-peering.md#permissions), i [gruppi di sicurezza di rete e delle applicazioni](manage-network-security-group.md#permissions), o le [tabelle route](manage-route-table.md#permissions) al ruolo.
+Azure usa il [Controllo degli accessi basato sui ruoli](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) per le risorse. Le autorizzazioni vengono assegnate a un [ambito](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) nella seguente gerarchia: gruppo di gestione, sottoscrizione, gruppo di risorse e singola risorsa. Per altre informazioni sulla gerarchia, vedere [organizzare le risorse](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Per lavorare con reti virtuali di Azure e con tutte le funzionalità correlate, come ad esempio il peering, i gruppi di sicurezza di rete, gli endpoint del servizio e le tabelle di route, è possibile assegnare i membri dell'organizzazione ai ruoli incorporati [Proprietario](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Collaboratore](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor), o [Collaboratore di rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) e assegnare il ruolo all'ambito appropriato. Se si desidera assegnare autorizzazioni specifiche per un subset delle funzionalità di rete virtuale, creare un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e assegnare le autorizzazioni specifiche necessarie per le [reti virtuali](manage-virtual-network.md#permissions), le [subnet e gli endpoint del servizio](virtual-network-manage-subnet.md#permissions), le [interfacce di rete](virtual-network-network-interface.md#permissions), il [peering](virtual-network-manage-peering.md#permissions), i [gruppi di sicurezza di rete e delle applicazioni](manage-network-security-group.md#permissions), o le [tabelle route](manage-route-table.md#permissions) al ruolo.
 
-## <a name="policy"></a>Criterio
+## <a name="policy"></a>Policy
 
 Criteri di Azure consente di creare, assegnare e gestire le definizioni dei criteri. Le definizioni dei criteri applicano regole diverse alle risorse, in modo che le risorse rimangano conformi ai contratti di servizio e agli standard dell'organizzazione. Criteri di Azure esegue una valutazione delle risorse, alla ricerca delle risorse che non sono conformi alle definizioni di criteri specificate. Ad esempio, è possibile definire e applicare un criterio che consente la creazione di reti virtuali solo in un gruppo di risorse o in un'area specifici. Un altro criterio potrebbe richiedere che a tutte le subnet sia associato un gruppo di sicurezza di rete. I criteri vengono quindi valutati durante la creazione e l'aggiornamento delle risorse.
 
-I criteri vengono applicati alla gerarchia seguente: Sottoscrizione, gruppo di gestione e gruppo di risorse. Per altre informazioni su [Criterio di Azure](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o distribuire alcuni esempi di reti virtuali [modello di criteri](policy-samples.md).
+I criteri vengono applicati alla gerarchia seguente: gruppo di gestione, sottoscrizione e gruppo di risorse. Per altre informazioni su [Criterio di Azure](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o distribuire alcuni esempi di reti virtuali [modello di criteri](policy-samples.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: v-qiwe
-ms.openlocfilehash: c09e685d10764470d328e7c66293551287b5b1b2
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 6ae761b9558a0d6c1b663c1202bc560382c7b0b6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962724"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752390"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vantaggi del Marketplace commerciale
 
@@ -41,10 +41,10 @@ Descrizioni dettagliate di tutti i vantaggi del programma sono disponibili nel [
 I passaggi per iniziare sono semplici:
 
 1. Pubblicare un'offerta in Microsoft AppSource o in Azure Marketplace.
-2. Il team raggiunge il "proprietario" o "contatto principale" per ogni offerta del Marketplace. È consigliabile immettere un singolo utente o un alias da controllare regolarmente: i messaggi inviati ad alias, ad esempio, info@company.com vengono spesso persi.
+2. Il team raggiunge il "proprietario" o "contatto principale" per ogni offerta del Marketplace. È consigliabile immettere un singolo utente o un alias da controllare regolarmente: i messaggi inviati ad alias come info@company.com spesso vanno persi.
 
 >[!Note]
->Se l'offerta è rimasta in tempo reale per più di quattro settimane e non è stato ricevuto alcun messaggio, verificare all'interno dell'organizzazione il proprietario dell'offerta in questione, cercando in portale Cloud Partner o nel centro per i partner. Devono avere la comunicazione e i passaggi successivi. <br> <br> Se non è possibile determinare il proprietario o se il proprietario ha lasciato l'azienda, è possibile generare un ticket di supporto https://aka.ms/marketplacepublishersupport all'indirizzo.
+>Se l'offerta è rimasta in tempo reale per più di quattro settimane e non è stato ricevuto alcun messaggio, verificare all'interno dell'organizzazione il proprietario dell'offerta in questione, cercando in portale Cloud Partner o nel centro per i partner. Devono avere la comunicazione e i passaggi successivi. <br> <br> Se non è possibile determinare il proprietario o se il proprietario ha lasciato l'azienda, è possibile generare un ticket di supporto in https://aka.ms/marketplacepublishersupport.
 
 L'ambito delle attività disponibili si espande in base alla crescita delle offerte nel marketplace. Tutti gli elenchi ricevono un livello di base di raccomandazioni e promozione per l'ottimizzazione nell'ambito di un messaggio di posta elettronica self-service di risorse e procedure consigliate.
 
@@ -60,7 +60,10 @@ Per le descrizioni dettagliate di tutti questi vantaggi, vedere il [mazzo del pr
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Vantaggi del Marketplace per i partner Transact
 
-Quando si usa l'offerta transazionale in Azure Marketplace o in Microsoft AppSource, è possibile accedere a vantaggi aggiuntivi man mano che si aumentano le transazioni di vendita fatturate tramite il Marketplace commerciale. 
+Quando si usa l'offerta transazionale in Azure Marketplace o in Microsoft AppSource, è possibile accedere a ulteriori vantaggi Man mano che si aumentano le transazioni di vendita fatturate o le postazioni vendute attraverso il Marketplace commerciale. 
+
+>[!Note]
+>La soglia venduta per le postazioni si applica solo alle app Microsoft 365 (le applicazioni SaaS con integrazioni con Microsoft teams, Office, Outlook o SharePoint) e i vantaggi devono essere completate entro il 30 giugno 2020.
 
 Questi vantaggi sono progettati per supportare il marketing, le vendite e le attività tecniche, consentendo così di ottenere più visitatori, ricevere altri lead e convertire altre attività aziendali.
 
@@ -72,6 +75,8 @@ Tutti i partner che hanno un'offerta Live possono collaborare con un responsabil
 
 ![Vantaggi tecnici](./media/marketplace-publishers-guide/technical-benefit.png)
 
+la soglia venduta \* selling si applica solo alle app Microsoft 365 (le applicazioni SaaS con integrazioni con Microsoft teams, Office, Outlook o SharePoint) e i vantaggi devono essere completate entro il 30 giugno 2020.
+
 Per le descrizioni dettagliate di tutti questi vantaggi, vedere il [mazzo del programma Rewards del Marketplace](https://aka.ms/marketplacerewards).
 
 Oltre ai vantaggi riconoscibili, i partner di applicazioni aziendali con le offerte Dynamics pubblicate per Microsoft AppSource hanno una programmazione supplementare disponibile tramite [ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview). Sono inclusi il supporto tecnico, marketing e vendite specializzato per le esigenze dei partner per le applicazioni aziendali.
@@ -82,7 +87,7 @@ Oltre ai vantaggi riconoscibili, i partner di applicazioni aziendali con le offe
 
 Tutte le attività descritte in questa pagina sono coperte dal contratto per la [pubblicazione nel Marketplace](https://docs.microsoft.com/legal/marketplace/terms) e sono conformi all'addendum del programma Commercial benefits.
 
-### <a name="cancellation-policy"></a>Politica di annullamento
+### <a name="cancellation-policy"></a>Criteri per l'annullamento
 
 Gli editori di [elenchi e di prova](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) possono acconsentire esplicitamente o rifiutare esplicitamente le attività per ogni pubblicazione dell'offerta. I partner possono rifiutare esplicitamente il coinvolgimento in qualsiasi momento. 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 600577ebf05a8bc89dbec35d3b3ee5162aa246e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7565ce24199dd8f86f756f01f66aa79e764a1a12
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64872735"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752196"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Livelli di messaggistica Standard e Premium del bus di servizio
 
@@ -37,7 +37,7 @@ Nella tabella seguente sono evidenziate alcune differenze generali.
 | Possibilità di aumentare o ridurre le prestazioni del carico di lavoro |N/D |
 | Dimensione messaggi fino a 1 MB |Dimensione messaggi fino a 256 KB |
 
-La **messaggistica di livello Premium del bus di servizio** garantisce l'isolamento delle risorse a livello di CPU e di memoria in modo che ogni carico di lavoro del cliente venga eseguito in isolamento. Questo contenitore di risorse viene chiamato *unità di messaggistica*. Ad ogni spazio dei nomi Premium viene allocata almeno un'unità di messaggistica. È possibile acquistare 1, 2, 4 o 8 unità per ogni spazio dei nomi Premium del Bus di servizio di messaggistica. Un singolo carico di lavoro o un'entità può estendersi su più unità di messaggistica e il numero di unità di messaggistica può essere modificato in base alle esigenze. Ne risultano prestazioni prevedibili e ripetibili per la soluzione basata sul bus di servizio.
+La **messaggistica di livello Premium del bus di servizio** garantisce l'isolamento delle risorse a livello di CPU e di memoria in modo che ogni carico di lavoro del cliente venga eseguito in isolamento. Questo contenitore di risorse viene chiamato *unità di messaggistica*. Ad ogni spazio dei nomi Premium viene allocata almeno un'unità di messaggistica. È possibile acquistare 1, 2, 4 o 8 unità di messaggistica per ogni spazio dei nomi premium del bus di servizio. Un singolo carico di lavoro o entità può estendersi su più unità di messaggistica e il numero di unità di messaggistica può essere modificato in corrispondenza di. Ne risultano prestazioni prevedibili e ripetibili per la soluzione basata sul bus di servizio.
 
 Non solo le prestazioni sono più prevedibili e disponibili, ma anche più veloci. La messaggistica Premium del bus di servizio è basata sul motore di archiviazione introdotto in [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/). Con la messaggistica Premium, le prestazioni massime sono più veloci rispetto al livello Standard.
 
@@ -56,19 +56,44 @@ Dato che la messaggistica Premium viene eseguita in un ambiente di runtime compl
 Se è presente codice in esecuzione nella messaggistica Standard e si vuole trasferirlo al livello Premium, assicurarsi che la proprietà [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) sia impostata su **false** (valore predefinito).
 
 ## <a name="premium-messaging-resource-usage"></a>Utilizzo delle risorse di messaggistica Premium
-In generale, qualsiasi operazione su un'entità può causare l'utilizzo della CPU e memoria. Ecco alcune di queste operazioni: 
+In generale, qualsiasi operazione su un'entità può causare l'utilizzo della CPU e della memoria. Di seguito sono riportate alcune di queste operazioni: 
 
-- Operazioni di gestione, ad esempio CRUD operations (Create, Retrieve, Update e Delete) su code, argomenti e sottoscrizioni.
-- Operazioni di runtime (inviare e ricevere messaggi)
-- Operazioni di monitoraggio e avvisi
+- Operazioni di gestione quali le operazioni CRUD (create, retrieve, Update ed Delete) su code, argomenti e sottoscrizioni.
+- Operazioni di runtime (invio e ricezione di messaggi)
+- Monitoraggio di operazioni e avvisi
 
-L'utilizzo di memoria aggiuntivo della CPU e non i prezzi dipendono inoltre tuttavia. Per il livello di messaggistica Premium, è disponibile un unico prezzo per unità di messaggi.
+Tuttavia, l'utilizzo aggiuntivo della CPU e della memoria non viene valutato. Per il livello di messaggistica Premium è disponibile un singolo prezzo per l'unità di messaggio.
 
-L'utilizzo della CPU e memoria vengono rilevate e visualizzato per l'oggetto per i motivi seguenti: 
+L'utilizzo della CPU e della memoria viene monitorato e visualizzato all'utente per i motivi seguenti: 
 
-- Trasparenza degli elementi interni del sistema
+- Fornire trasparenza negli elementi interni del sistema
 - Comprendere la capacità delle risorse acquistate.
-- Capacità di pianificazione che consente di decidere aumentare/ridurre le dimensioni.
+- Pianificazione della capacità che consente di scegliere la scalabilità verticale o orizzontale.
+
+## <a name="messaging-unit---how-many-are-needed"></a>Unità di messaggistica: quante sono necessarie?
+
+Durante il provisioning di uno spazio dei nomi premium del bus di servizio di Azure, è necessario specificare il numero di unità di messaggistica allocate. Queste unità di messaggistica sono risorse dedicate allocate allo spazio dei nomi.
+
+Il numero di unità di messaggistica allocate allo spazio dei nomi premium del bus di servizio può essere **modificato dinamicamente** per calcolare la variazione (aumento o riduzione) dei carichi di lavoro.
+
+Quando si decide il numero di unità di messaggistica per l'architettura, è necessario prendere in considerazione alcuni fattori:
+
+- Iniziare con ***1 o 2 unità di messaggistica*** allocate allo spazio dei nomi.
+- Esaminare le metriche di utilizzo della CPU nelle [metriche di utilizzo delle risorse](service-bus-metrics-azure-monitor.md#resource-usage-metrics) per lo spazio dei nomi.
+    - Se l'utilizzo della CPU è ***inferiore al 20%***, potrebbe essere possibile ***ridurre*** il numero di unità di messaggistica allocate allo spazio dei nomi.
+    - Se l'utilizzo della CPU è ***superiore al 70%***, l'applicazione trarrà vantaggio dal ***ridimensionamento*** del numero di unità di messaggistica allocate allo spazio dei nomi.
+
+Il processo di ridimensionamento delle risorse allocate a uno spazio dei nomi del bus di servizio può essere automatizzato tramite [manuali operativi di automazione di Azure](../automation/automation-quickstart-create-runbook.md).
+
+> [!NOTE]
+> Il **ridimensionamento** delle risorse allocate allo spazio dei nomi può essere di tipo preemptive o Reactive.
+>
+>  * **Preemptive**: se è previsto un carico di lavoro aggiuntivo (a causa della stagionalità o delle tendenze), è possibile continuare ad allocare più unità di messaggistica allo spazio dei nomi prima che i carichi di lavoro vengano raggiunti.
+>
+>  * **Reattivo**: se vengono identificati carichi di lavoro aggiuntivi studiando le metriche di utilizzo delle risorse, è possibile allocare risorse aggiuntive allo spazio dei nomi per incorporare la domanda crescente.
+>
+> I contatori di fatturazione per il bus di servizio sono orari. Nel caso di scalabilità verticale, si pagano solo le risorse aggiuntive per le ore in cui sono state usate.
+>
 
 ## <a name="get-started-with-premium-messaging"></a>Introduzione alla messaggistica Premium
 

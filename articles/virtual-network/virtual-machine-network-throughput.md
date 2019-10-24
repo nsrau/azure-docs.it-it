@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: 68fe50c75fc25106a0f47af8bf6cfc0db562fbe5
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 47f58b25b082784177910d14ab95d8d242fda71a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529110"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750315"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Larghezza di banda della rete di macchine virtuali
 
@@ -54,7 +54,7 @@ Il trasferimento dei dati tra endpoint richiede la creazione di più flussi, olt
 
 ## <a name="flow-limits-and-recommendations"></a>Limiti e raccomandazioni per il flusso
 
-Attualmente, lo stack di rete di Azure supporta 250K totali dei flussi di rete con prestazioni ottimali per le macchine virtuali con più di 8 core CPU e 100.000 flussi totali con prestazioni ottimali per le macchine virtuali con meno di 8 core CPU. Oltre questo limite, le prestazioni di rete diminuiscono normalmente per i flussi aggiuntivi fino a un limite rigido di 1 milione di flussi totali, 500.000 in ingresso e 500.000 in uscita, dopo il quale vengono eliminati i flussi aggiuntivi.
+Attualmente, lo stack di rete di Azure supporta 250K totali dei flussi di rete con prestazioni ottimali per le macchine virtuali con più di 8 core CPU e 100.000 flussi totali con prestazioni ottimali per le macchine virtuali con meno di 8 core CPU. Oltre questo limite, le prestazioni di rete diminuiscono normalmente per i flussi aggiuntivi fino a un limite rigido dei flussi totali 500.000, 250K in ingresso e 250K in uscita, dopo il quale vengono eliminati i flussi aggiuntivi.
 
 ||VM con < 8 core CPU|VM con più di 8 core CPU|
 |---|---|---|

@@ -3,19 +3,19 @@ title: Moderare le immagini con elenchi personalizzati e la console dell'API - C
 titleSuffix: Azure Content Moderator
 description: È possibile usare l'API di gestione degli elenchi di Azure Content Moderator per creare elenchi personalizzati di immagini.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 2b2ab138945d32ca874dc20576d412c862965dc9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 27d9b12d9e1a0237050243c2b5f07edaa8d8857a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564362"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757199"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Moderare le immagini con elenchi personalizzati nella console dell'API
 
@@ -121,7 +121,7 @@ L'eliminazione di un'immagine o di un elenco è un'operazione semplice. È possi
 
 - Eliminare un'immagine. **Image - Delete** (Immagine - Elimina)
 - Eliminare tutte le immagini incluse in un elenco senza eliminare l'elenco: **Image - Delete All Images** (Immagine - Elimina tutte le immagini)
-- Eliminare un elenco e tutto il contenuto: **Image Lists - Delete** (Elenchi di immagini - Elimina)
+- Eliminare un elenco e tutto il contenuto. **Image Lists - Delete** (Elenchi di immagini - Elimina)
 
 Questo esempio elimina una singola immagine:
 

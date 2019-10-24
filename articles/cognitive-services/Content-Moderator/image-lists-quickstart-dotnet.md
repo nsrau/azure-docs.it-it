@@ -3,19 +3,19 @@ title: Controllare le immagini in base a elenchi personalizzati in C# - Content 
 titleSuffix: Azure Cognitive Services
 description: Come moderare immagini con elenchi personalizzati di immagini usando Content Moderator SDK per C#.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
-ms.author: sajagtap
-ms.openlocfilehash: 63eb2285563bf83ac56beb03ff008a2bfa5daab6
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: 63dd3b782d868994c46e71b55201e65f91678d86
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242894"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755333"
 ---
 # <a name="moderate-with-custom-image-lists-in-c"></a>Eseguire la moderazione con elenchi personalizzati di immagini in C#
 
@@ -46,7 +46,7 @@ Per usare i servizi Content Moderator tramite l'API REST o l'SDK, è necessaria 
 
    Nel codice di esempio assegnare al progetto il nome **ImageLists**.
 
-1. Selezionare questo progetto come progetto di avvio singolo per la soluzione.
+1. Selezionare il progetto come progetto di avvio singolo per la soluzione.
 
 ### <a name="install-required-packages"></a>Installare i pacchetti necessari
 

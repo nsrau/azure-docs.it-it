@@ -1,18 +1,18 @@
 ---
 title: Archiviazione transazionale e analitica distribuita a livello globale per i contenitori di Azure Cosmos
 description: Informazioni sull'archiviazione transazionale e analitica e le relative opzioni di configurazione per i contenitori di Azure Cosmos.
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 27ca2102ee95273fbedd1a870e57d2ae3318e879
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: abf222b7a6d6e8fd053fa83c066d2b7850f575ab
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703386"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756895"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Archiviazione transazionale e analitica distribuita a livello globale per i contenitori di Azure Cosmos
 
@@ -29,8 +29,8 @@ Il motore di archiviazione transazionale è supportato da unità SSD locali, men
 
 |Funzionalità  |Archiviazione transazionale  |Archiviazione analitica |
 |---------|---------|---------|
-|Archiviazione massima per ogni contenitore di Azure Cosmos |   Senza limitazioni      |    Senza limitazioni     |
-|Spazio di archiviazione massimo per chiave di partizione logica   |   10 GB      |   Senza limitazioni      |
+|Archiviazione massima per ogni contenitore di Azure Cosmos |   Illimitato      |    Illimitato     |
+|Spazio di archiviazione massimo per chiave di partizione logica   |   10 GB      |   Illimitato      |
 |Codifica archiviazione  |   Orientato alla riga, con un formato interno.   |   Orientato alle colonne, usando il formato parquet Apache. |
 |Località di archiviazione |   Archiviazione replicata supportata da unità SSD locali/intra-cluster. |  Archiviazione replicata supportata da SSD economici remote/off-cluster.       |
 |Durabilità  |    99,99999 (7-9 s)     |  99,99999 (7-9 s)       |
@@ -90,7 +90,7 @@ A seconda dello scenario, è possibile abilitare o disabilitare in modo indipend
 
 1. **Configurare il contenitore esclusivamente per i carichi di lavoro analitici (con conservazione infinita)**
 
-   È possibile configurare il contenitore di Azure Cosmos esclusivamente per i carichi di lavoro analitici. Questa configurazione offre un vantaggio per cui non è necessario pagare per l'archiviazione transazionale. Se l'obiettivo è quello di usare il contenitore solo per i carichi di lavoro analitici, è possibile disabilitare l'archiviazione transazionale impostando `DefaultTimeToLive` su 0 nel contenitore Cosmos ed è possibile abilitare l'archiviazione analitica con conservazione infinita impostando @no__t da-1 a-1.
+   È possibile configurare il contenitore di Azure Cosmos esclusivamente per i carichi di lavoro analitici. Questa configurazione offre un vantaggio per cui non è necessario pagare per l'archiviazione transazionale. Se l'obiettivo consiste nell'usare il contenitore solo per i carichi di lavoro analitici, è possibile disabilitare l'archiviazione transazionale impostando `DefaultTimeToLive` su 0 nel contenitore Cosmos ed è possibile abilitare l'archiviazione analitica con conservazione infinita impostando `ColumnStoreTimeToLive` su-1.
 
    ![Carichi di lavoro analitici con conservazione infinita](./media/globally-distributed-transactional-analytical-storage/analytical-workload-configuration.png)
 
@@ -102,7 +102,7 @@ A seconda dello scenario, è possibile abilitare o disabilitare in modo indipend
 
 1. **Configurare il contenitore per i carichi di lavoro transazionali e analitici (con conservazione infinita)**
 
-   È possibile configurare il contenitore di Azure Cosmos per i carichi di lavoro transazionali e analitici con un isolamento completo delle prestazioni. È possibile abilitare l'archiviazione analitica impostando `ColumnStoreTimeToLive` su-1 e abilitando l'archiviazione transazionale con conservazione infinita impostando `DefaultTimeToLive ` su-1.
+   È possibile configurare il contenitore di Azure Cosmos per i carichi di lavoro transazionali e analitici con un isolamento completo delle prestazioni. È possibile abilitare l'archiviazione analitica impostando `ColumnStoreTimeToLive` su-1 e abilitare l'archiviazione transazionale con conservazione infinita impostando `DefaultTimeToLive ` su-1.
 
    ![Carichi di lavoro transazionali e analitici con conservazione infinita](./media/globally-distributed-transactional-analytical-storage/analytical-transactional-configuration-infinite-retention.png)
 
@@ -110,7 +110,7 @@ A seconda dello scenario, è possibile abilitare o disabilitare in modo indipend
 
    È possibile configurare il contenitore di Azure Cosmos per i carichi di lavoro transazionali e analitici con un isolamento completo delle prestazioni tra di essi con intervalli di conservazione diversi. Azure Cosmos DB impone che l'archiviazione analitica venga sempre mantenuta per un periodo di tempo più lungo rispetto all'archiviazione transazionale.
 
-   È possibile abilitare l'archiviazione transazionale con conservazione infinita impostando `DefaultTimeToLive` su < valore 1 > e abilitando l'archiviazione analitica impostando `ColumnStoreTimeToLive` su < valore 2 >. Azure Cosmos DB imporrà che < valore 2 > è sempre maggiore di < valore 1 >.
+   È possibile abilitare l'archiviazione transazionale con conservazione infinita impostando `DefaultTimeToLive` su < valore 1 > e abilitare l'archiviazione analitica impostando `ColumnStoreTimeToLive` su < valore 2 >. Azure Cosmos DB imporrà che < valore 2 > è sempre maggiore di < valore 1 >.
 
    ![Carichi di lavoro transazionali e analitici con suddivisione in livelli di archiviazione](./media/globally-distributed-transactional-analytical-storage/analytical-transactional-configuration-specified-retention.png)
 

@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 477b4e51c49a558aed0e5623a3821fa9b8d9eabd
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 0c2e368b9c12d8ab673e5b8808632501de448b9a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622356"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755758"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurare l'accesso per un'organizzazione Azure Active Directory specifica in Azure Active Directory B2C
 
@@ -31,7 +32,7 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
 4. Selezionare **Nuova registrazione**.
 5. Immettere un nome per l'applicazione. Ad esempio `Azure AD B2C App`.
 6. Accetta la selezione degli **account in questa directory organizzativa solo** per questa applicazione.
-7. Per l' **URI di reindirizzamento**accettare il valore di **Web**e immettere l'URL seguente in lettere minuscole, dove `your-B2C-tenant-name` viene sostituito con il nome del tenant Azure ad B2C. Ad esempio, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
+7. Per l' **URI di reindirizzamento**accettare il valore di **Web**e immettere l'URL seguente in lettere minuscole, in cui `your-B2C-tenant-name` viene sostituito con il nome del tenant di Azure ad B2C. Ad esempio, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
 
     ```
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
@@ -59,11 +60,13 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
 
     Ad esempio `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
+    **Non usare l'** endpoint dei metadati Azure ad v 2.0, ad esempio `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`. In questo modo si ottiene un errore simile a `AADB2C: A claim with id 'UserId' was not found, which is required by ClaimsTransformation 'CreateAlternativeSecurityId' with id 'CreateAlternativeSecurityId' in policy 'B2C_1_SignUpOrIn' of tenant 'contoso.onmicrosoft.com'` durante il tentativo di accesso.
+
 1. Per **ID client**immettere l'ID applicazione registrato in precedenza.
 1. Per il **segreto client**, immettere il segreto client registrato in precedenza.
 1. Lasciare i valori predefiniti per **ambito**, **tipo di risposta**e **modalità di risposta**.
 1. Opzionale Immettere un valore per **Domain_hint**. Ad esempio, *ContosoAD*. Si tratta del valore da usare quando si fa riferimento a questo provider di identità specificando *domain_hint* nella richiesta.
-1. In **mapping**delle attestazioni del provider di identità immettere i valori di mapping delle attestazioni seguenti:
+1. In **mapping delle attestazioni del provider di identità**immettere i valori di mapping delle attestazioni seguenti:
 
     * **ID utente**: *OID*
     * **Nome visualizzato**: *nome*

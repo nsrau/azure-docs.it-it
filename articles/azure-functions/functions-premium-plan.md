@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: 2cc6493d01508d439d8dcef2d12ca1ea40632d81
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ce83d521d5bc986be7bb24ef874f1f0e1051e3ae
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096235"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755404"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Piano Premium di funzioni di Azure (anteprima)
 
@@ -31,11 +31,11 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 --location <REGION> --sku EP1
 ```
 
-In questo esempio sostituire `<RESOURCE_GROUP>` con il gruppo di risorse e `<PLAN_NAME>` con un nome per il piano univoco nel gruppo di risorse. Specificare un [valore `<REGION>`supportato ](#regions). Per creare un piano Premium che supporta Linux, includere l' `--is-linux` opzione.
+In questo esempio, sostituire `<RESOURCE_GROUP>` con il gruppo di risorse e `<PLAN_NAME>` con un nome per il piano univoco nel gruppo di risorse. Specificare una [`<REGION>` supportata](#regions). Per creare un piano Premium che supporta Linux, includere l'opzione `--is-linux`.
 
 Dopo aver creato il piano, è possibile usare il comando [AZ functionapp create](/cli/azure/functionapp#az-functionapp-create) per creare l'app per le funzioni. Nel portale vengono creati contemporaneamente il piano e l'app. 
 
-## <a name="features"></a>Funzionalità
+## <a name="features"></a>database elastico
 
 Per le app per le funzioni distribuite in un piano Premium sono disponibili le funzionalità seguenti.
 
@@ -100,32 +100,40 @@ Quando si crea o si ridimensiona il piano, è possibile scegliere tra tre dimens
 |EP2|2|7 GB|250 GB|
 |EP3|4|14 GB|250 GB|
 
-## <a name="regions"></a>Regions
+## <a name="regions"></a>Aree
 
 Di seguito sono elencate le aree attualmente supportate per l'anteprima pubblica per ogni sistema operativo.
 
-|Region| Windows | Linux |
+|Area geografica| Windows | Linux |
 |--| -- | -- |
+|Australia centrale| ✔ * | |
+|Australia centrale 2| ✔ * | |
 |Australia orientale| ✔ | |
 |Australia sud-orientale | ✔ | ✔ |
+|Brasile meridionale| ✔ * * |  |
 |Canada centrale| ✔ |  |
 |Stati Uniti centrali| ✔ |  |
 |Asia orientale| ✔ |  |
-|East US | | ✔ |
+|Stati Uniti Orientali | ✔ | ✔ |
 |Stati Uniti orientali 2| ✔ |  |
 |Francia centrale| ✔ |  |
-|Giappone orientale|  | ✔ |
+|Giappone orientale| ✔ | ✔ |
 |Giappone occidentale| ✔ | |
-|Corea del Sud centrale| ✔ |  |
+|Corea centrale| ✔ |  |
 |Stati Uniti centro-settentrionali| ✔ |  |
 |Europa settentrionale| ✔ | ✔ |
 |Stati Uniti centro-meridionali| ✔ |  |
 |India meridionale | ✔ | |
 |Asia sud-orientale| ✔ | ✔ |
+|Regno Unito meridionale| ✔ | |
 |Regno Unito occidentale| ✔ |  |
 |Europa occidentale| ✔ | ✔ |
 |India occidentale| ✔ |  |
 |Stati Uniti occidentali| ✔ | ✔ |
+
+\* massima scalabilità orizzontale limitata a 20 istanze
+
+\* * massima scalabilità orizzontale limitata a 60 istanze
 
 ## <a name="known-issues"></a>Problemi noti
 

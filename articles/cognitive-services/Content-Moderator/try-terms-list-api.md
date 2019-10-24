@@ -3,19 +3,19 @@ title: Eseguire la moderazione del testo con elenchi personalizzati di termini -
 titleSuffix: Azure Cognitive Services
 description: Usare l'API di gestione degli elenchi per creare elenchi personalizzati di termini da usare con l'API di moderazione del testo.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 0a4e9b7925c2309a9682156934e9d94fa83c0d4b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 828e8ae68286d7c208462d77a31a764427c79637
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564397"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755277"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderare il testo con elenchi personalizzati nella console dell'API
 
@@ -38,7 +38,7 @@ L'API di gestione degli elenchi consente di eseguire queste attività:
 
 ## <a name="use-the-api-console"></a>Usare la console dell'API
 
-Prima di poter eseguire il test drive dell'API nella console online, è necessario disporre della chiave di sottoscrizione. Questa si trova nella casella **Ocp-Apim-Subscription-Key** della scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
+Prima di poter eseguire il test drive dell'API nella console online, è necessario avere la chiave di sottoscrizione. Questa si trova nella casella **Ocp-Apim-Subscription-Key** della scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
 
 ## <a name="refresh-search-index"></a>Aggiornare l'indice di ricerca
 
@@ -123,9 +123,9 @@ Dopo avere modificato un elenco di termini, è necessario aggiornarne l'indice i
 
 L'eliminazione di un termine o di un elenco è un'operazione semplice. È possibile usare l'API per eseguire queste attività:
 
-- Eliminare un termine: **Term - Delete** (Termine - Elimina)
-- Eliminare tutti termini inclusi in un elenco senza eliminare l'elenco: **Term - Delete All Terms** (Termine - Elimina tutti i termini)
-- Eliminare un elenco e tutto il contenuto: **Term Lists - Delete** (Elenchi di termini - Elimina)
+- Eliminare un termine. **Term - Delete** (Termine - Elimina)
+- Eliminare tutti termini inclusi in un elenco senza eliminare l'elenco. **Term - Delete All Terms** (Termine - Elimina tutti i termini)
+- Eliminare un elenco e tutto il contenuto. **Term Lists - Delete** (Elenchi di termini - Elimina)
 
 Questo esempio elimina un singolo termine.
 

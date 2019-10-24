@@ -4,11 +4,11 @@ description: Informazioni su come approvare o negare le richieste per i ruoli di
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
@@ -16,22 +16,22 @@ ms.date: 04/09/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a8d373a7e6edeaefd933e4f8ec8ee11e3c14ee
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 3245f7343a48d3e54795c14dcb23b836c8d9d988
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804029"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756419"
 ---
-# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Approva o rifiuta le richieste per i ruoli Azure AD in PIM
+# <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Approva o rifiuta le richieste per i ruoli di Azure AD in Privileged Identity Management
 
 Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), è possibile configurare i ruoli in modo da richiedere l'approvazione per l'attivazione e scegliere uno o più utenti o gruppi come responsabili approvazione delegati. I responsabili approvazione delegati hanno 24 ore di tempo per approvare le richieste. Se una richiesta non viene approvata entro 24 ore, l'utente idoneo deve inviare una nuova richiesta. L'intervallo di tempo di 24 ore per l'approvazione non è configurabile.
 
 Attenersi alla procedura descritta in questo articolo per approvare o negare le richieste di Azure AD ruoli.
 
-## <a name="view-pending-requests"></a>Visualizza richieste in sospeso
+## <a name="view-pending-requests"></a>Visualizzazione delle richieste in sospeso
 
-In qualità di responsabile approvazione delegata, si riceverà una notifica di posta elettronica quando una richiesta di ruolo Azure AD è in attesa dell'approvazione. È possibile visualizzare queste richieste in sospeso in PIM.
+In qualità di responsabile approvazione delegata, si riceverà una notifica di posta elettronica quando una richiesta di ruolo Azure AD è in attesa dell'approvazione. È possibile visualizzare le richieste in sospeso in Privileged Identity Management.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
@@ -45,7 +45,7 @@ In qualità di responsabile approvazione delegata, si riceverà una notifica di 
 
     È possibile visualizzare un elenco delle richieste in attesa di approvazione.
 
-## <a name="approve-requests"></a>Approva richieste
+## <a name="approve-requests"></a>Approvare le richieste
 
 1. Selezionare le richieste da approvare e quindi fare clic su **Approva** per aprire il riquadro Approva le richieste selezionate.
 
@@ -61,7 +61,7 @@ In qualità di responsabile approvazione delegata, si riceverà una notifica di 
 
     ![Approva il riquadro delle richieste selezionate dopo aver fatto clic sul pulsante approva](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
 
-## <a name="deny-requests"></a>Rifiutare le richieste
+## <a name="deny-requests"></a>Negare le richieste
 
 1. Selezionare le richieste da rifiutare e quindi fare clic su **Nega** per aprire il riquadro Rifiuta le richieste selezionate.
 
@@ -77,5 +77,5 @@ In qualità di responsabile approvazione delegata, si riceverà una notifica di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Notifiche tramite posta elettronica in PIM](pim-email-notifications.md)
-- [Approvare o rifiutare le richieste per i ruoli delle risorse di Azure in PIM](pim-resource-roles-approval-workflow.md)
+- [Notifiche tramite posta elettronica in Privileged Identity Management](pim-email-notifications.md)
+- [Approva o rifiuta le richieste per i ruoli delle risorse di Azure in Privileged Identity Management](pim-resource-roles-approval-workflow.md)

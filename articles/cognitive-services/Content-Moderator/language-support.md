@@ -3,19 +3,19 @@ title: Supporto per le lingue - API Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Di seguito un elenco delle lingue naturali supportate dall'API Content Moderator.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 6c71cefc25296df5a05c19ee84eb4e24ea90aa9d
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.author: pafarley
+ms.openlocfilehash: b4e6a5ca2dc19671dab3087c0a182925ac8f9a1b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562781"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755325"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Supporto per le lingue dell'API Content Moderator
 
@@ -30,10 +30,10 @@ ms.locfileid: "69562781"
 | Arabo (Romanizzato)   | Afrikaans   | Arabo   | Arabo |
 | Balinese | Albanese | Cinese (semplificato)    | Danese |
 | Bengalese | Amharico | Cinese (tradizionale)     | Olandese |
-| Buginese | Arabo | Ceco                     | Inglese |
+| Buginese | Arabo | Ceco                     | Italiano |
 | Buhid: | Armeno | Danese                     | Finlandese |
 | Caria | Assamese | Olandese                     | Francese |
-| Cinese (semplificato) | Azerbaigiano | Inglese  | Greco, moderno |
+| Cinese (semplificato) | Azerbaigiano | Italiano  | Greco, moderno |
 | Cinese (tradizionale) | Bangla - Bangladesh | Finlandese  | Italiano |
 | Churc (Slavo) | Bangla - India | Francese     | Coreano |
 | Copto | Basco | Tedesco                      | Norvegese |
@@ -53,7 +53,7 @@ ms.locfileid: "69562781"
 | Italiano | Danese | Spagnolo | |
 | Giapponese | Dari | Svedese | |
 | Coreano | Olandese | Turco | |
-| Curdo (paesi arabi) | Inglese | | |
+| Curdo (paesi arabi) | Italiano | | |
 | Curdo (Latino) | Estone | | |
 | Lepcha | Filippino | | |
 | Limbu | Finlandese | | |
@@ -111,7 +111,7 @@ ms.locfileid: "69562781"
 | | Quechua (Peru) | | |
 | | Rumeno | | |
 | | Russo | | |
-| | Gaelico scozzese | | |
+| | Scozzese Gaelico | | |
 | | Serbo (alfabeto cirillico) | | |
 | | Serbo (alfabeto cirillico, Bosnia ed Erzegovina) | | |
 | | Serbo (alfabeto latino) | | |

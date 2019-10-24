@@ -3,25 +3,25 @@ title: Creare revisioni di video usando .NET - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Questo articolo include informazioni ed esempi di codice per iniziare in poco tempo a usare Content Moderator SDK con C# per creare revisioni di video.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.author: sajagtap
-ms.openlocfilehash: 5a0d462f08e88ae4d26e1c684cfaf772910d2220
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: ca5322aa78a4fd3018d961a5d31c618cf10bf156
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242857"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757159"
 ---
 # <a name="create-video-reviews-using-net"></a>Creare revisioni di video usando .NET
 
 Questo articolo contiene informazioni ed esempi di codice per iniziare rapidamente a usare [Content Moderator SDK con C#](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) allo scopo di:
 
-- Creare la revisione di un video per moderatori umani
+- Creare una revisione di un video per moderatori umani
 - Aggiungere fotogrammi a una revisione
 - Ottenere i fotogrammi per la revisione
 - Ottenere lo stato e i dettagli della revisione
@@ -34,7 +34,7 @@ Questo articolo contiene informazioni ed esempi di codice per iniziare rapidamen
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Verificare che la chiave API possa chiamare l'API di verifica per la creazione della revisione
 
-Dopo aver completato i passaggi precedenti, si potrebbero avere due chiavi di Content Moderator se la procedura è stata avviata dal portale di Azure.
+Dopo aver completato i passaggi precedenti, potrebbero esserci due chiavi Content Moderator se la procedura è stata avviata dal portale di Azure.
 
 Se si prevede di usare la chiave API fornita da Azure nell'esempio di SDK, seguire i passaggi indicati nella sezione [Usare la chiave di Azure con l'API di revisione](review-tool-user-guide/configure.md#use-your-azure-account-with-the-review-apis) per consentire all'applicazione di chiamare l'API di revisione e creare revisioni.
 
@@ -65,7 +65,7 @@ Per i fotogrammi video (immagini), usare le immagini seguenti:
 
 1. Assegnare al progetto il nome **VideoReviews**.
 
-1. Selezionare questo progetto come progetto di avvio singolo per la soluzione.
+1. Selezionare il progetto come progetto di avvio singolo per la soluzione.
 
 ### <a name="install-required-packages"></a>Installare i pacchetti necessari
 
@@ -160,12 +160,12 @@ public static ContentModeratorClient NewClient()
 
 ## <a name="create-a-video-review"></a>Creare la revisione di un video
 
-Creare la revisione di un video con **ContentModeratorClient.Reviews.CreateVideoReviews**. Per altre informazioni, vedere le [informazioni di riferimento sulle API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+Creare la revisione di un video con **ContentModeratorClient.Reviews.CreateVideoReviews**. Per altre informazioni, vedere le [informazioni di riferimento sull'API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
 L'oggetto **CreateVideoReviews** ha i parametri obbligatori seguenti:
 1. Stringa contenente un tipo MIME, che deve essere "application/json". 
 1. Nome del team di Content Moderator.
-1. Oggetto **IList @ no__t-1CreateVideoReviewsBodyItem >** . Ogni oggetto **CreateVideoReviewsBodyItem** rappresenta la revisione di un video. Questo Avvio rapido crea una revisione alla volta.
+1. **IList \<CreateVideoReviewsBodyItem >** oggetto. Ogni oggetto **CreateVideoReviewsBodyItem** rappresenta la revisione di un video. Questo Avvio rapido crea una revisione alla volta.
 
 L'oggetto **CreateVideoReviewsBodyItem** include diverse proprietà. Impostare almeno le proprietà seguenti:
 - **Content**. URL del video da rivedere.
@@ -173,7 +173,7 @@ L'oggetto **CreateVideoReviewsBodyItem** include diverse proprietà. Impostare a
 - **Status**. Impostare il valore su "Unpublished". Se non si imposta questa proprietà, il valore predefinito è "Pending", vale a dire che la revisione del video è pubblicata e la revisione umana è in sospeso. Dopo la pubblicazione della revisione di un video, non è più possibile aggiungervi fotogrammi video, una trascrizione o il risultato della moderazione di una trascrizione.
 
 > [!NOTE]
-> **CreateVideoReviews** restituisce un > IList @ no__t-1string. Ognuna di queste stringhe contiene un ID per la revisione di un video. Questi ID sono GUID e non sono uguali al valore della proprietà **ContentId**. 
+> **CreateVideoReviews** restituisce un oggetto IList \<string >. Ognuna di queste stringhe contiene un ID per la revisione di un video. Questi ID sono GUID e non sono uguali al valore della proprietà **ContentId**. 
 
 Aggiungere la definizione del metodo seguente allo spazio dei nomi VideoReviews, classe Program.
 
@@ -213,7 +213,7 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 > [!NOTE]
 > La chiave del servizio Content Moderator ha un limite di frequenza di richieste al secondo (RPS). Se questo limite viene superato, l'SDK genera un'eccezione con un codice di errore 429.
 >
-> Una chiave di livello gratuito prevede un unico limite di frequenza RPS.
+> Una chiave di livello gratuito prevede un limite di frequenza di richieste al secondo pari a uno.
 
 ## <a name="add-video-frames-to-the-video-review"></a>Aggiungere fotogrammi video alla revisione di un video
 
@@ -223,18 +223,18 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 1. Stringa contenente un tipo MIME, che deve essere "application/json".
 1. Nome del team di Content Moderator.
 1. ID della revisione del video restituito da **CreateVideoReviews**.
-1. Oggetto **IList @ no__t-1VideoFrameBodyItem >** . Ogni oggetto **VideoFrameBodyItem** rappresenta un fotogramma video.
+1. **IList \<VideoFrameBodyItem >** oggetto. Ogni oggetto **VideoFrameBodyItem** rappresenta un fotogramma video.
 
 **VideoFrameBodyItem** ha le proprietà seguenti:
 - **Timestamp**. Stringa contenente, in secondi, l'ora nel video in cui è stato estratto il fotogramma video.
 - **FrameImage**. URL del fotogramma video.
-- **Metadata**. Un oggetto IList @ no__t-0VideoFrameBodyItemMetadataItem >. **VideoFrameBodyItemMetadataItem** è semplicemente una coppia chiave/valore. Le chiavi valide includono:
+- **Metadata**. IList \<VideoFrameBodyItemMetadataItem >. **VideoFrameBodyItemMetadataItem** è semplicemente una coppia chiave/valore. Le chiavi valide includono:
 - **reviewRecommended**. True se è consigliata una revisione umana del fotogramma video.
 - **adultScore**. Valore compreso tra 0 e 1 che classifica il livello di gravità del contenuto per adulti nel fotogramma video.
 - **a**. True se il video contiene contenuto per adulti.
 - **racyScore**. Valore compreso tra 0 e 1 che classifica il livello di gravità del contenuto spinto nel fotogramma video.
 - **r**. True se il fotogramma video contiene contenuto spinto.
-- **ReviewerResultTags**. Un oggetto IList @ no__t-0VideoFrameBodyItemReviewerResultTagsItem >. **VideoFrameBodyItemReviewerResultTagsItem** è semplicemente una coppia chiave/valore. Un'applicazione può usare questi tag per organizzare i fotogrammi video.
+- **ReviewerResultTags**. IList \<VideoFrameBodyItemReviewerResultTagsItem >. **VideoFrameBodyItemReviewerResultTagsItem** è semplicemente una coppia chiave/valore. Un'applicazione può usare questi tag per organizzare i fotogrammi video.
 
 > [!NOTE]
 > In questa guida introduttiva vengono generati valori casuali per le proprietà **adultScore** e **racyScore**. In un'applicazione di produzione è possibile ottenere questi valori dal [servizio di moderazione video](video-moderation-api.md), distribuito come servizio multimediale di Azure.
@@ -359,7 +359,7 @@ private static void GetReview(ContentModeratorClient client, string review_id)
 1. Nome del team di Content Moderator.
 1. ID della revisione del video restituito da **CreateVideoReviews**.
 
-Aggiungere la definizione del metodo seguente nello spazio dei nomi VideoReviews, classe Program.
+Aggiungere la definizione del metodo seguente allo spazio dei nomi VideoReviews, classe Program.
 
 ```csharp
 /// <summary>

@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: af20c9e3a50c0c60135b1e447e7e1cba1fc36526
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: fe4a2082647ef1325d03ce4eec428ed1579704c5
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815719"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755992"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creare ed eseguire pipeline di Machine Learning con Azure Machine Learning SDK
 
@@ -30,7 +30,7 @@ Le pipeline di ML create sono visibili ai membri dell' [area di lavoro](how-to-m
 
 Le pipeline ML usano le destinazioni di calcolo Remote per il calcolo e l'archiviazione dei dati intermedi e finali associati alla pipeline. Possono leggere e scrivere dati in e da percorsi di [archiviazione di Azure](https://docs.microsoft.com/azure/storage/) supportati.
 
-Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova la [versione gratuita o a pagamento del Azure Machine Learning](https://aka.ms/AMLFree).
+Se non si dispone di una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova la [versione gratuita o a pagamento del Azure Machine Learning](https://aka.ms/AMLFree).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -120,9 +120,9 @@ In Azure Machine Learning il termine computes__ (o __destinazione di calcolo__) 
 
 Di seguito sono riportati esempi di creazione e collegamento di destinazioni di calcolo per:
 
-* Ambiente di calcolo di Azure Machine Learning
+* Ambiente di calcolo di Machine Learning
 * Azure Databricks 
-* Azure Data Lake Analytics
+* Azure Data Lake Analytics.
 
 ### <a name="azure-machine-learning-compute"></a>Ambiente di calcolo di Azure Machine Learning
 
@@ -157,15 +157,15 @@ else:
 
 ### <a id="databricks"></a>Azure Databricks
 
-Azure Databricks è un ambiente basato su Apache Spark nel cloud di Azure. Può essere usato come destinazione di calcolo con una pipeline di Azure Machine Learning.
+Azure Databricks è un ambiente basato su Apache Spark nel cloud di Azure. Può essere usata come destinazione di calcolo con una pipeline di Azure Machine Learning.
 
 Creare un'area di lavoro di Azure Databricks prima di usarlo. Per creare una risorsa dell'area di lavoro, vedere il documento [eseguire un processo Spark in Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) .
 
 Per collegare Azure Databricks come destinazione di calcolo, fornire le informazioni seguenti:
 
-* __Nome dell'ambiente di calcolo di Databricks__: il nome da assegnare a questa risorsa di calcolo.
-* __Nome dell'area di lavoro di Azure Databricks__: il nome dell'area di lavoro di Azure Databricks.
-* __Token di accesso di Databricks__: il token di accesso usato per eseguire l'autenticazione in Azure Databricks. Per generare un token di accesso vedere il documento [Authentication](https://docs.azuredatabricks.net/api/latest/authentication.html) (Autenticazione).
+* __Databricks nome di calcolo__: il nome che si vuole assegnare a questa risorsa di calcolo.
+* __Nome area di lavoro databricks__: nome dell'area di lavoro Azure Databricks.
+* __Token di accesso di databricks__: il token di accesso usato per l'autenticazione Azure Databricks. Per generare un token di accesso vedere il documento [Authentication](https://docs.azuredatabricks.net/api/latest/authentication.html) (Autenticazione).
 
 Il codice seguente illustra come connettere Azure Databricks come destinazione di calcolo con l'SDK di Azure Machine Learning:
 
@@ -216,9 +216,9 @@ Creare un account di Azure Data Lake Analytics prima di usarla. Per creare quest
 
 Per connettere Data Lake Analytics come destinazione di calcolo è necessario usare Azure Machine Learning SDK e specificare le informazioni seguenti:
 
-* __Nome dell'ambiente di calcolo__: il nome da assegnare a questa risorsa di calcolo.
-* __Gruppo di risorse__: il gruppo di risorse che contiene l'account Data Lake Analytics.
-* __Nome account__: Nome dell'account Data Lake Analytics.
+* __Nome del calcolo__: il nome da assegnare a questa risorsa di calcolo.
+* __Gruppo di risorse__: il gruppo di risorse contenente l'account data Lake Analytics.
+* __Nome account__: il nome dell'account data Lake Analytics.
 
 Il codice seguente illustra in che modo connettere Data Lake Analytics come destinazione di calcolo:
 
@@ -278,7 +278,7 @@ trainStep = PythonScriptStep(
 )
 ```
 
-Il riutilizzo dei risultati`allow_reuse`precedenti () è fondamentale quando si usano le pipeline in un ambiente di collaborazione, poiché l'eliminazione di riesecuzioni non necessarie offre flessibilità. Il riutilizzo è il comportamento predefinito quando il SCRIPT_NAME, gli input e i parametri di un passaggio rimangono invariati. Quando l'output del passaggio viene riutilizzato, il processo non viene inviato al calcolo, bensì i risultati dell'esecuzione precedente sono immediatamente disponibili per l'esecuzione del passaggio successivo. Se `allow_reuse` è impostato su false, durante l'esecuzione della pipeline viene sempre generata una nuova esecuzione per questo passaggio. 
+Il riutilizzo dei risultati precedenti (`allow_reuse`) è fondamentale quando si usano le pipeline in un ambiente di collaborazione, poiché l'eliminazione di riesecuzioni non necessarie offre flessibilità. Il riutilizzo è il comportamento predefinito quando il SCRIPT_NAME, gli input e i parametri di un passaggio rimangono invariati. Quando l'output del passaggio viene riutilizzato, il processo non viene inviato al calcolo, bensì i risultati dell'esecuzione precedente sono immediatamente disponibili per l'esecuzione del passaggio successivo. Se `allow_reuse` è impostato su false, durante l'esecuzione della pipeline viene sempre generata una nuova esecuzione per questo passaggio. 
 
 Dopo la definizione dei passaggi, si crea la pipeline usando alcuni o tutti i passaggi definiti.
 
@@ -325,7 +325,7 @@ Per altre informazioni, vedere il [pacchetto Azure-pipeline-Steps](https://docs.
 Quando si invia la pipeline, Azure Machine Learning controlla le dipendenze per ogni passaggio e carica uno snapshot della directory di origine specificata. Se la directory di origine non è specificata, viene caricata la directory locale corrente. Lo snapshot viene inoltre archiviato come parte dell'esperimento nell'area di lavoro.
 
 > [!IMPORTANT]
-> Per impedire che i file vengano inclusi nello snapshot, creare un file con [estensione gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` nella directory e aggiungervi i file. Il `.amlignore` file usa la stessa sintassi e gli stessi criteri del file con [estensione gitignore](https://git-scm.com/docs/gitignore) . Se sono presenti entrambi i file `.amlignore` , il file avrà la precedenza.
+> Per impedire che i file vengano inclusi nello snapshot, creare un file con [estensione gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` nella directory e aggiungervi i file. Il file di `.amlignore` utilizza la stessa sintassi e gli stessi criteri del file con [estensione gitignore](https://git-scm.com/docs/gitignore) . Se sono presenti entrambi i file, il file `.amlignore` avrà la precedenza.
 >
 > Per altre informazioni, vedere [Snapshot](concept-azure-machine-learning-architecture.md#snapshots).
 
@@ -342,7 +342,7 @@ Quando si esegue una pipeline per la prima volta, Azure Machine Learning:
 * Scarica lo snapshot del progetto nella destinazione di calcolo dalla risorsa di archiviazione BLOB associata all'area di lavoro.
 * Crea un'immagine Docker corrispondente a ogni passaggio nella pipeline.
 * Scarica l'immagine Docker per ogni passaggio nella destinazione di calcolo dal registro contenitori.
-* Monta l'archivio dati se un `DataReference` oggetto viene specificato in un passaggio. Se il montaggio non è supportato, in alternativa i dati vengono copiati nella destinazione di calcolo.
+* Monta l'archivio dati se viene specificato un oggetto `DataReference` in un passaggio. Se il montaggio non è supportato, in alternativa i dati vengono copiati nella destinazione di calcolo.
 * Esegue il passaggio nella destinazione di calcolo specificata nella definizione del passaggio. 
 * Crea gli artefatti, ad esempio i log, stdout e stderr, le metriche e l'output specificati dal passaggio. Questi artefatti vengono quindi caricati e conservati nell'archivio dati predefinito dell'utente.
 
@@ -354,7 +354,7 @@ Per ulteriori informazioni, vedere la Guida di riferimento alla [classe Experime
 
 ## <a name="github-tracking-and-integration"></a>Rilevamento e integrazione di GitHub
 
-Quando si avvia un'esecuzione di training in cui la directory di origine è un repository git locale, le informazioni sul repository vengono archiviate nella cronologia di esecuzione. Ad esempio, l'ID commit corrente per il repository viene registrato come parte della cronologia.
+Quando si avvia un'esecuzione di training in cui la directory di origine è un repository git locale, le informazioni sul repository vengono archiviate nella cronologia di esecuzione. Per ulteriori informazioni, vedere [integrazione di Git per Azure Machine Learning](concept-train-model-git-integration.md).
 
 ## <a name="publish-a-pipeline"></a>Pubblicare una pipeline
 
@@ -429,17 +429,17 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-È possibile abilitarla di nuovo `p.enable()`con. Per altre informazioni, vedere riferimento alla [classe PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py) .
+È possibile abilitarlo nuovamente con `p.enable()`. Per altre informazioni, vedere riferimento alla [classe PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py) .
 
 
 ## <a name="caching--reuse"></a>Memorizzazione nella cache & riutilizzo  
 
 Per ottimizzare e personalizzare il comportamento delle pipeline, è possibile eseguire alcune operazioni per la memorizzazione nella cache e il riutilizzo. Ad esempio, è possibile scegliere di:
-+ **Disattivare il riutilizzo predefinito del passaggio Esegui output** `allow_reuse=False` impostando durante la [definizione del passaggio](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Il riutilizzo è fondamentale quando si utilizzano pipeline in un ambiente di collaborazione, perché l'eliminazione di esecuzioni non necessarie offre flessibilità. Tuttavia, è possibile rifiutare esplicitamente il riutilizzo.
++ **Disattivare il riutilizzo predefinito dell'output dell'esecuzione del passaggio** impostando `allow_reuse=False` durante la [definizione del passaggio](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Il riutilizzo è fondamentale quando si utilizzano pipeline in un ambiente di collaborazione, perché l'eliminazione di esecuzioni non necessarie offre flessibilità. Tuttavia, è possibile rifiutare esplicitamente il riutilizzo.
 + **Estendere l'hashing oltre lo script**, in modo da includere anche un percorso assoluto o percorsi relativi a source_directory per altri file e directory usando il `hash_paths=['<file or directory']` 
-+ **Forzare la rigenerazione dell'output per tutti i passaggi di un'esecuzione** con`pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
++ **Forzare la rigenerazione dell'output per tutti i passaggi di un'esecuzione** con `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-Per impostazione predefinita `allow_reuse` , per i passaggi è abilitato e viene eseguito l'hashing solo del file di script principale. Quindi, se lo script per un determinato passaggio rimane lo stesso (`script_name`, input e parametri), viene riutilizzato l'output di un'esecuzione del passaggio precedente, il processo non viene inviato al calcolo e i risultati dell'esecuzione precedente sono immediatamente disponibili al passaggio successivo. .  
+Per impostazione predefinita, `allow_reuse` per i passaggi è abilitato e viene eseguito l'hashing solo del file di script principale. Quindi, se lo script per un determinato passaggio rimane lo stesso (`script_name`, input e parametri), viene riutilizzato l'output di un'esecuzione del passaggio precedente, il processo non viene inviato al calcolo e i risultati dell'esecuzione precedente sono immediatamente disponibili al passaggio successivo.  
 
 ```python
 step = PythonScriptStep(name="Hello World",
