@@ -10,14 +10,14 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: c886289f098eb41f4b215b4abc2e206db93a27f9
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 706f76c00022c5f5661ea261a5bb35eedc13d5ba
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710131"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756039"
 ---
-# <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funzionamento di Azure Machine Learning: Architettura e concetti
+# <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funzionamento di Azure Machine Learning: architettura e concetti
 
 Informazioni sull'architettura, i concetti e il flusso di lavoro per Azure Machine Learning. Il diagramma seguente illustra i componenti principali del servizio e il flusso di lavoro generale durante il suo uso:
 
@@ -34,7 +34,7 @@ Il flusso di lavoro del modello di Machine Learning segue generalmente questa se
 
 1. **Pacchetto** : dopo che è stata rilevata un'esecuzione soddisfacente, registrare il modello permanente nel **Registro di sistema del modello**.
 
-1.  - Convalidare**la query nell'esperimento per le** metriche registrate dalle esecuzioni correnti e passate. Se le metriche non indicano un risultato desiderato, tornare al passaggio 1 ed eseguire l'iterazione sugli script.
+1. **Convalidare**  - **eseguire una query sull'esperimento per le** metriche registrate dalle esecuzioni correnti e passate. Se le metriche non indicano un risultato desiderato, tornare al passaggio 1 ed eseguire l'iterazione sugli script.
 
 1. **Distribuisci** : sviluppa uno script di assegnazione dei punteggi che usa il modello e **distribuisce il modello** come **servizio Web** in Azure o in un **dispositivo IOT Edge**.
 
@@ -89,9 +89,9 @@ Altre informazioni sulle [destinazioni di calcolo disponibili per il training e 
 
 ### <a name="datasets-and-datastores"></a>DataSet e archivi dati
 
-**Set di impostazioni Azure Machine Learning** (anteprima) semplifica l'accesso e l'utilizzo dei dati. I set di dati gestiscono i dati in diversi scenari, come il training del modello e la creazione della pipeline. Con Azure Machine Learning SDK è possibile accedere all'archiviazione sottostante, esplorare i dati e gestire il ciclo di vita delle diverse definizioni dei set di dati.
+**Azure Machine Learning set** di dati (anteprima) semplificano l'accesso e l'utilizzo dei dati. I set di dati gestiscono i dati in diversi scenari, come il training del modello e la creazione della pipeline. Con Azure Machine Learning SDK è possibile accedere all'archiviazione sottostante, esplorare i dati e gestire il ciclo di vita delle diverse definizioni dei set di dati.
 
-I set di dati forniscono metodi per lavorare con i dati nei formati più diffusi `from_delimited_files()` , `to_pandas_dataframe()`ad esempio usando o.
+I set di dati forniscono metodi per lavorare con i dati nei formati più diffusi, ad esempio l'uso di `from_delimited_files()` o `to_pandas_dataframe()`.
 
 Per altre informazioni, vedere [creare e registrare Azure Machine Learning set](how-to-create-register-datasets.md)di dati.  Per altri esempi di uso dei set di impostazioni, vedere i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets).
 
@@ -140,17 +140,18 @@ Per altre informazioni, vedere gli articoli seguenti:
 * Esegui il [training e la registrazione dei modelli TensorFlow su larga scala con Azure Machine Learning](how-to-train-tensorflow.md).
 * Esegui il [training e la registrazione dei modelli di Chainer su larga scala con Azure Machine Learning](how-to-train-chainer.md).
 
-### <a name="experiments"></a>Esperimenti
+### <a name="experiments"></a>Sperimentazioni
 
 Un esperimento è un raggruppamento di più esecuzioni da uno script specifico. Appartiene sempre a un'area di lavoro. Quando si invia un'esecuzione, si fornisce un nome dell'esperimento. Le informazioni per l'esecuzione vengono archiviate in tale esperimento. Se si invia un'esecuzione e si specifica un nome dell'esperimento che non esiste, viene creato automaticamente un nuovo esperimento il nuovo nome specificato.
 
-Per un esempio dell'uso di un esperimento, [vedere Esercitazione: Eseguire il training del](tutorial-1st-experiment-sdk-train.md)primo modello.
+Per un esempio dell'uso di un esperimento, vedere [esercitazione: eseguire il training del primo modello](tutorial-1st-experiment-sdk-train.md).
 
 
 ### <a name="github-tracking-and-integration"></a>Rilevamento e integrazione di GitHub
 
-Quando si avvia un'esecuzione di training in cui la directory di origine è un repository git locale, le informazioni sul repository vengono archiviate nella cronologia di esecuzione. Ad esempio, l'ID commit corrente per il repository viene registrato come parte della cronologia. Funziona con le esecuzioni inviate usando un estimatore, una pipeline ML o un'esecuzione di script. Funziona anche per le esecuzioni inviate dall'SDK o Machine Learning interfaccia della riga di comando.
+Quando si avvia un'esecuzione di training in cui la directory di origine è un repository git locale, le informazioni sul repository vengono archiviate nella cronologia di esecuzione. Funziona con le esecuzioni inviate usando un estimatore, una pipeline ML o un'esecuzione di script. Funziona anche per le esecuzioni inviate dall'SDK o Machine Learning interfaccia della riga di comando.
 
+Per ulteriori informazioni, vedere [integrazione di Git per Azure Machine Learning](concept-train-model-git-integration.md).
 
 ### <a name="logging"></a>Registrazione
 
@@ -172,7 +173,7 @@ Un modello è prodotto da un'esecuzione in Azure Machine Learning. È anche poss
 
 Azure Machine Learning è indipendente dal framework. Quando si crea un modello, è possibile usare qualsiasi framework di Machine Learning comune, ad esempio Scikit-learn, XGBoost, PyTorch, TensorFlow e Chainer.
 
-Per un esempio di training di un modello usando Scikit-learn e un Estimator [, vedere Esercitazione: Eseguire il training di un modello di](tutorial-train-models-with-aml.md)classificazione delle immagini con Azure Machine Learning.
+Per un esempio di training di un modello usando Scikit-learn e un Estimator, vedere Esercitazione: eseguire il training di [un modello di classificazione delle immagini con Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 Il **Registro di sistema del modello** tiene traccia di tutti i modelli nell'area di lavoro Azure Machine Learning.
 
@@ -217,7 +218,7 @@ Quando si invia un'esecuzione, Azure Machine Learning consente di comprimere la 
 
 Per eseguire il training di un modello si specifica la directory che contiene lo script di training e i file associati. Si specifica inoltre un nome per l'esperimento, che viene usato per archiviare le informazioni raccolte durante il training. Durante il training l'intera directory viene copiata nell'ambiente di training (destinazione di calcolo) e lo script specificato per la configurazione di esecuzione viene avviato. Uno snapshot della directory viene archiviato anche nell'esperimento nell'area di lavoro.
 
-Per un esempio, vedere [Esercitazione: Eseguire il training di un modello di](tutorial-train-models-with-aml.md)classificazione delle immagini con Azure Machine Learning.
+Per un esempio, vedere [esercitazione: eseguire il training di un modello di classificazione delle immagini con Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ### <a name="workspaces"></a>Aree di lavoro
 
@@ -230,4 +231,4 @@ Per iniziare a usare Azure Machine Learning, vedere:
 
 * [Cos'è Azure Machine Learning?](overview-what-is-azure-ml.md)
 * [Creare un'area di lavoro di Machine Learning di Azure](how-to-manage-workspace.md)
-* [Esercitazione (parte 1): Eseguire il training di un modello](tutorial-train-models-with-aml.md)
+* [Esercitazione (parte 1): eseguire il training di un modello](tutorial-train-models-with-aml.md)

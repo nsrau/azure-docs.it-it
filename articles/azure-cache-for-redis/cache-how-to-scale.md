@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: yegu
-ms.openlocfilehash: 495fc031150d04f253279606baebb5d64d52bce7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 21c93cac8b4126a46e4c3dc396db9857f6b62de9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66132937"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755443"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Come ridimensionare Cache Redis di Azure
 Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile aumentare o ridurre le dimensioni e il piano tariffario della cache. Questo articolo illustra come ridimensionare la cache usando il portale di Azure e strumenti come Azure PowerShell e l'interfaccia della riga di comando di Azure.
@@ -39,7 +39,7 @@ Se si determina che la cache non soddisfa più i requisiti dell'applicazione, è
 ## <a name="scale-a-cache"></a>Ridimensionare una cache
 Per ridimensionare la cache, [accedere alla cache](cache-configure.md#configure-azure-cache-for-redis-settings) nel [portale di Azure](https://portal.azure.com) e fare clic su **Ridimensionare** nel **menu Risorsa**.
 
-![Scalabilità](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+![Scalare](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
 Selezionare il piano tariffario desiderato nel pannello **Seleziona piano tariffario** e fare clic su **Seleziona**.
 
@@ -57,7 +57,7 @@ Il passaggio a un piano tariffario diverso è soggetto alle restrizioni seguenti
  
 Mentre è in corso il ridimensionamento della cache in base al nuovo piano tariffario, nel pannello **Cache Redis di Azure** viene visualizzato lo stato **Ridimensionamento**.
 
-![Ridimensionamento][redis-cache-scaling]
+![Scalabilità][redis-cache-scaling]
 
 Al termine dell'operazione, lo stato passa da **Ridimensionamento** a **In esecuzione**.
 
@@ -76,7 +76,7 @@ Oltre a usare il portale di Azure, per ridimensionare le istanze di Cache Redis 
 
     Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
-Per altre informazioni sul ridimensionamento con PowerShell, vedere le istruzioni per [ridimensionare una cache Redis di Azure mediante PowerShell](cache-howto-manage-redis-cache-powershell.md#scale).
+Per altre informazioni sul ridimensionamento con PowerShell, vedere le istruzioni per [ridimensionare una cache Redis di Azure mediante PowerShell](cache-how-to-manage-redis-cache-powershell.md#scale).
 
 ### <a name="scale-using-azure-cli"></a>Ridimensionare la cache tramite l'interfaccia della riga di comando di Azure
 Per ridimensionare le istanze di Cache Redis di Azure con l'interfaccia della riga di comando di Azure, chiamare il comando `azure rediscache set` e passare le modifiche di configurazione desiderate che includono una nuova dimensione della cache, SKU o dimensione del cluster, a seconda dell'operazione di ridimensionamento desiderata.
@@ -126,7 +126,7 @@ Nell'elenco seguente sono fornite le risposte alle domande poste comunemente sul
 * Non è possibile passare direttamente da una cache **Basic** a una cache **Premium**. È innanzitutto necessario passare da **Basic** a **Standard** con una prima operazione di ridimensionamento e quindi da **Standard** a **Premium** con una successiva operazione.
 * Se è stato abilitato il clustering durante la creazione della cache **Premium** , è possibile [modificare la dimensione della cache](cache-how-to-premium-clustering.md#cluster-size). Se la cache è stata creata senza clustering abilitato, è possibile configurare il clustering in un secondo momento.
   
-  Per altre informazioni, vedere [Come configurare il clustering per un'istanza di Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
+  Per altre informazioni, vedere [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
 
 ### <a name="after-scaling-do-i-have-to-change-my-cache-name-or-access-keys"></a>Dopo il ridimensionamento, è necessario modificare il nome della cache o le chiavi di accesso?
 No, il nome della cache e le chiavi restano invariati durante un'operazione di ridimensionamento.

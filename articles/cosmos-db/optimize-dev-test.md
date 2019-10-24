@@ -1,17 +1,17 @@
 ---
 title: Ottimizzazione di sviluppo e test in Azure Cosmos DB
 description: Questo articolo illustra le diverse opzioni offerte da Azure Cosmos DB per lo sviluppo e il test gratuiti del servizio.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
-ms.openlocfilehash: f9cb18b66def144b84de708351743832d1831fbf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 992d165d323aab79bb7b5475aa396d4432691530
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967274"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754888"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Ottimizzare i costi di sviluppo e test in Azure Cosmos DB
 
@@ -27,15 +27,15 @@ L'[emulatore di Azure Cosmos DB](local-emulator.md) è una versione scaricabile 
 
 ## <a name="azure-free-account"></a>Account Azure gratuito
 
-Azure Cosmos DB è incluso nell'[account Azure gratuito](https://azure.microsoft.com/free), che offre gratuitamente crediti e risorse di Azure per un periodo di tempo specifico. Per Azure Cosmos DB in particolare, l'account gratuito offre 5 GB di archiviazione e 400 UR di velocità effettiva con provisioning per l'intero anno. Questa esperienza consente a qualsiasi sviluppatore di testare facilmente le funzionalità di Azure Cosmos DB o di integrare questo strumento con altri servizi di Azure a costo zero. Con un account Azure gratuito, si ottiene un credito di 200 dollari da spendere nei primi 30 giorni. Anche se si inizia a usare i servizi, verranno applicati addebiti solo quando si sceglierà di eseguire l'aggiornamento. Per iniziare, visitare la pagina [Account Azure gratuito](https://azure.microsoft.com/free).
+Azure Cosmos DB è incluso nell'[account Azure gratuito](https://azure.microsoft.com/free), che offre gratuitamente crediti e risorse di Azure per un periodo di tempo specifico. Per Azure Cosmos DB in particolare, l'account gratuito offre 5 GB di archiviazione e 400 UR di velocità effettiva sottoposta a provisioning per l'intero anno. Questa esperienza consente a qualsiasi sviluppatore di testare facilmente le funzionalità di Azure Cosmos DB o di integrare questo strumento con altri servizi di Azure a costo zero. Con un account Azure gratuito, si ottiene un credito di 200 dollari da spendere nei primi 30 giorni. Anche se si inizia a usare i servizi, verranno applicati addebiti solo quando si sceglierà di eseguire l'aggiornamento. Per iniziare, visitare la pagina [Account Azure gratuito](https://azure.microsoft.com/free).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 È possibile iniziare a usare l'emulatore o gli account Azure Cosmos DB gratuiti con gli articoli seguenti:
 
 * Altre informazioni sull'[ottimizzazione di sviluppo e test](optimize-dev-test.md)
-* Altre informazioni sulla [Fatturazione in Azure Cosmos DB](understand-your-bill.md)
-* Altre informazioni sull'[Ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
+* Altre informazioni su [come comprendere la fatturazione di Azure Cosmos DB](understand-your-bill.md)
+* Altre informazioni sull'[ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
 * Altre informazioni sull'[Ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
 * Altre informazioni sull'[ottimizzazione del costo delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
 * Altre informazioni sull'[ottimizzazione del costo delle query](optimize-cost-queries.md)

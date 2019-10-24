@@ -1,6 +1,6 @@
 ---
 title: Configurare pre e post-script per la distribuzione di Gestione aggiornamenti in Azure
-description: Questo articolo descrive come configurare e gestire pre e post-script per le distribuzioni di aggiornamenti
+description: Questo articolo descrive come configurare e gestire gli script preliminari e i post-script per le distribuzioni degli aggiornamenti.
 services: automation
 ms.service: automation
 ms.subservice: update-management
@@ -9,42 +9,42 @@ ms.author: robreed
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 84cd5db812d995f1160a02917eac5857ee076c7f
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 860eaf5d37b3d3064e3b10bd1dab02c04b95ab5b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374449"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755505"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Gestire pre e post-script
 
-Pre e post-script consentono di eseguire PowerShell manuali operativi nell'account di automazione prima (pre-attività) e dopo (post-attività) una distribuzione degli aggiornamenti. Pre e post-script vengono eseguiti nel contesto di Azure e non in locale. Gli script preliminari vengono eseguiti all'inizio della distribuzione degli aggiornamenti. Registrare gli script eseguiti al termine della distribuzione e dopo eventuali riavvii che sono configurati.
+Gli script di pre e post-script consentono di eseguire PowerShell manuali operativi nell'account di automazione di Azure prima (pre-attività) e dopo (post-attività) una distribuzione degli aggiornamenti. Pre e post-script vengono eseguiti nel contesto di Azure, non in locale. Gli script preliminari vengono eseguiti all'inizio della distribuzione degli aggiornamenti. I post-script vengono eseguiti al termine della distribuzione e dopo i riavvii configurati.
 
 ## <a name="runbook-requirements"></a>Requisiti dei runbook
 
-Per poter usare un runbook come pre-script o post-script, il runbook deve essere importato nell'account di automazione e pubblicato. Per altre informazioni su questo processo, vedere [Pubblicazione di un runbook](manage-runbooks.md#publish-a-runbook).
+Perché un Runbook venga usato come pre o post-script, il Runbook deve essere importato nell'account di automazione e pubblicato. Per ulteriori informazioni su questo processo, vedere la pagina relativa alla [pubblicazione di un Runbook](manage-runbooks.md#publish-a-runbook).
 
-## <a name="using-a-prepost-script"></a>Uso di un pre/post-script
+## <a name="using-a-pre-script-or-post-script"></a>Utilizzo di uno script di pre-script o di post-script
 
-Per usare un pre-script e un post-script in una distribuzione di aggiornamento, iniziare creando una distribuzione di aggiornamento. Selezionare gli script **pre-script + post**. Verrà visualizzata la pagina **Selezionare i pre-script e i post-script**.
+Per usare uno script di pre-script o un post-script in una distribuzione di aggiornamenti, iniziare creando una distribuzione degli aggiornamenti. Selezionare **pre-script + post-script**. Verrà visualizzata la pagina **Selezionare i pre-script e i post-script**.
 
 ![Selezionare gli script](./media/pre-post-scripts/select-scripts.png)
 
-Selezionare lo script da usare, in questo esempio, è stato usato il runbook **UpdateManagement-TurnOnVms**. Quando si seleziona Runbook, viene visualizzata la pagina **Configura script** , scegliere **pre-script**. Fare clic su **OK** al termine dell'operazione.
+Selezionare lo script che si desidera utilizzare. In questo esempio viene usato **UpdateManagement-TurnOnVms** Runbook. Quando si seleziona Runbook, viene visualizzata la pagina **Configura script** . Selezionare **pre-script**, quindi fare clic su **OK**.
 
-Ripetere la procedura per lo script **UpdateManagement-TurnOffVms**. Al momento di selezionare il **Tipo di script**, scegliere però **Post-script**.
+Ripetere la procedura per lo script **UpdateManagement-TurnOffVms**. Tuttavia, quando si sceglie il **tipo di script**, selezionare **post-script**.
 
-La sezione **Elementi selezionati** mostra ora entrambi gli script selezionati, uno è un pre-script, l'altro è un post-script.
+Nella sezione **elementi selezionati** sono ora visualizzati entrambi gli script selezionati. Uno è uno script di pre-script e l'altro è uno script di post-script:
 
 ![Elementi selezionati](./media/pre-post-scripts/selected-items.png)
 
-Completare la configurazione della distribuzione di aggiornamento.
+Completare la configurazione della distribuzione degli aggiornamenti.
 
-Una volta terminata la distribuzione di aggiornamento, è possibile passare a **Distribuzioni di aggiornamento** per visualizzare i risultati. Come si può notare, è indicato lo stato del pre-script e del post-script.
+Al termine della distribuzione degli aggiornamenti, è possibile passare a **distribuzioni di aggiornamento** per visualizzare i risultati. Come si può notare, lo stato viene fornito per il pre-script e il post-script:
 
 ![Risultati aggiornamento](./media/pre-post-scripts/update-results.png)
 
-Facendo clic sull'esecuzione della distribuzione degli aggiornamenti, vengono forniti dettagli aggiuntivi sugli script pre e post-script. Viene fornito un collegamento all'origine dello script al momento dell'esecuzione.
+Selezionando l'esecuzione della distribuzione degli aggiornamenti, vengono visualizzati dettagli aggiuntivi sugli script pre e post-script. Viene fornito un collegamento all'origine dello script al momento dell'esecuzione.
 
 ![Risultati dell'esecuzione della distribuzione](./media/pre-post-scripts/deployment-run.png)
 
@@ -64,24 +64,27 @@ Quando si configurano pre e post-script, è possibile passare i parametri propri
 
 Se è necessario un altro tipo di oggetto, è possibile eseguirne il cast in un altro tipo con la propria logica nel runbook.
 
-Oltre ai parametri standard dei runbook viene passato un parametro aggiuntivo. **SoftwareUpdateConfigurationRunContext**. Questo parametro è una stringa JSON e, se si definisce il parametro nello script pre o post, viene passato automaticamente dalla distribuzione degli aggiornamenti. Il parametro contiene informazioni sulla distribuzione di aggiornamento costituite da un subset delle informazioni restituite dall'API [SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). La tabella seguente illustra le proprietà specificate nella variabile:
+Oltre ai parametri Runbook standard, viene fornito un altro parametro: **SoftwareUpdateConfigurationRunContext**
 
+Questo parametro è una stringa JSON e, se si definisce il parametro nello script pre o post-script, viene passato automaticamente dalla distribuzione degli aggiornamenti. Il parametro contiene informazioni sulla distribuzione degli aggiornamenti, ovvero un subset di informazioni restituite dall' [API SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). 
+
+Nella tabella seguente vengono illustrate le proprietà fornite nella variabile.
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Proprietà SoftwareUpdateConfigurationRunContext
 
 |Proprietà  |Description  |
 |---------|---------|
-|SoftwareUpdateConfigurationName     | Nome della configurazione di aggiornamento software        |
+|SoftwareUpdateConfigurationName     | Nome della configurazione di aggiornamento software.        |
 |SoftwareUpdateConfigurationRunId     | ID univoco per l'esecuzione.        |
-|SoftwareUpdateConfigurationSettings     | Raccolta di proprietà correlate alla configurazione di aggiornamento software         |
-|SoftwareUpdateConfigurationSettings.operatingSystem     | Sistemi operativi di destinazione per la distribuzione di aggiornamento         |
-|SoftwareUpdateConfigurationSettings.duration     | Durata massima dell'esecuzione di distribuzione aggiornamenti in formato `PT[n]H[n]M[n]S` ISO8601, denominata anche "finestra di manutenzione"          |
-|SoftwareUpdateConfigurationSettings.Windows     | Raccolta di proprietà relative ai computer Windows         |
-|SoftwareUpdateConfigurationSettings.Windows.excludedKbNumbers     | Elenco di Knowledge Base escluse dalla distribuzione di aggiornamento        |
-|SoftwareUpdateConfigurationSettings.Windows.includedUpdateClassifications     | Classificazioni degli aggiornamenti selezionati per la distribuzione di aggiornamento        |
-|SoftwareUpdateConfigurationSettings.Windows.rebootSetting     | Impostazioni di riavvio per la distribuzione di aggiornamento        |
-|azureVirtualMachines     | Elenco di ResourceID per le macchine virtuali di Azure nella distribuzione di aggiornamento        |
-|nonAzureComputerNames|Elenco di FQDN dei computer non Azure nella distribuzione di aggiornamento|
+|SoftwareUpdateConfigurationSettings     | Raccolta di proprietà correlate alla configurazione dell'aggiornamento software.         |
+|SoftwareUpdateConfigurationSettings.operatingSystem     | Sistemi operativi destinati alla distribuzione degli aggiornamenti.         |
+|SoftwareUpdateConfigurationSettings.duration     | La durata massima della distribuzione degli aggiornamenti viene eseguita `PT[n]H[n]M[n]S` come per ogni ISO8601; detto anche *finestra di manutenzione*.          |
+|SoftwareUpdateConfigurationSettings.Windows     | Raccolta di proprietà correlate ai computer Windows.         |
+|SoftwareUpdateConfigurationSettings.Windows.excludedKbNumbers     | Elenco di KB esclusi dalla distribuzione degli aggiornamenti.        |
+|SoftwareUpdateConfigurationSettings.Windows.includedUpdateClassifications     | Classificazioni degli aggiornamenti selezionate per la distribuzione degli aggiornamenti.        |
+|SoftwareUpdateConfigurationSettings.Windows.rebootSetting     | Impostazioni di riavvio per la distribuzione degli aggiornamenti.        |
+|azureVirtualMachines     | Elenco di resourceIds per le macchine virtuali di Azure nella distribuzione degli aggiornamenti.        |
+|nonAzureComputerNames|Elenco di FQDN dei computer non Azure nella distribuzione degli aggiornamenti.|
 
 Di seguito è riportato un esempio di stringa JSON passata al parametro **SoftwareUpdateConfigurationRunContext**:
 
@@ -113,15 +116,15 @@ Di seguito è riportato un esempio di stringa JSON passata al parametro **Softwa
    }
 ```
 
-Un esempio completo con tutte le proprietà è disponibile in: [Configurazioni degli aggiornamenti software - Recupero in base al nome](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
+Un esempio completo di tutte le proprietà è disponibile in: [ottenere la configurazione degli aggiornamenti software in base al nome](/rest/api/automation/softwareupdateconfigurations/getbyname#examples).
 
 > [!NOTE]
-> L'oggetto `SoftwareUpdateConfigurationRunContext` può contenere voci duplicate per i computer. Questo può causare l'esecuzione più volte di script pre e post nello stesso computer. Per aggirare questo comportamento, usare `Sort-Object -Unique` per selezionare solo nomi di VM univoci nello script.
+> L'oggetto `SoftwareUpdateConfigurationRunContext` può contenere voci duplicate per i computer. Questo può causare l'esecuzione più volte di pre e post-script nello stesso computer. Per ovviare a questo comportamento, usare `Sort-Object -Unique` per selezionare solo nomi di VM univoci nello script.
 
 
 ## <a name="stopping-a-deployment"></a>Arresto di una distribuzione
 
-Se si desidera arrestare una distribuzione basata su uno script preliminare, è necessario [generare](automation-runbook-execution.md#throw) un'eccezione. Se non viene generata un'eccezione, la distribuzione e lo script post vengono comunque eseguiti. Il frammento di codice seguente illustra come generare un'eccezione.
+Se si desidera arrestare una distribuzione basata su uno script preliminare, è necessario [generare](automation-runbook-execution.md#throw) un'eccezione. In caso contrario, la distribuzione e il post-script saranno ancora in esecuzione. Nel frammento di codice seguente viene illustrato come generare un'eccezione.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -138,11 +141,11 @@ foreach($summary in $finalStatus)
 
 ## <a name="samples"></a>Esempi
 
-Gli esempi di pre e post-script sono disponibili nella [raccolta di script Center](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell), [PowerShell Gallery](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22)o importati tramite l'portale di Azure. Per importarli tramite il portale, nell'account di automazione selezionare **Raccolta di runbook** in **Automazione processi**. Usare **Update Management** come filtro.
+Gli esempi di pre e post-script sono disponibili nella [raccolta di script Center](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) e nel [PowerShell Gallery](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22)oppure è possibile importarli tramite la portale di Azure. A tale scopo, nell'account di automazione, in **automazione processi**selezionare **raccolta manuali operativi**. Usare **Update Management** come filtro.
 
 ![Elenco della raccolta](./media/pre-post-scripts/runbook-gallery.png)
 
-In alternativa, è possibile eseguire una ricerca in base al nome dello script, come indicato nell'elenco seguente:
+In alternativa, è possibile cercarli in base al nome dello script, come illustrato nell'elenco seguente:
 
 * Update Management - Turn On VMs
 * Update Management - Turn Off VMs
@@ -151,9 +154,9 @@ In alternativa, è possibile eseguire una ricerca in base al nome dello script, 
 * Update Management - Run Script with Run Command
 
 > [!IMPORTANT]
-> Dopo aver importato i runbook, è necessario **pubblicarli** prima di poterli usare. A questo scopo trovare il runbook nell'account di automazione, selezionare **Modifica** e fare clic su **Pubblica**.
+> Dopo aver importato il manuali operativi, è necessario pubblicarlo prima di poterlo usare. A tale scopo, trovare il Runbook nell'account di automazione, selezionare **modifica**e quindi selezionare **pubblica**.
 
-Gli esempi sono tutti basati sul modello di base definito nell'esempio seguente. Questo modello può essere usato per creare Runbook personalizzati da usare con pre e post-script. Sono incluse la logica necessaria per l'autenticazione ad Azure e la gestione del parametro `SoftwareUpdateConfigurationRunContext`.
+Gli esempi sono tutti basati sul modello di base definito nell'esempio seguente. Questo modello può essere usato per creare Runbook personalizzati da usare con pre e post-script. Viene inclusa la logica necessaria per l'autenticazione con Azure e la gestione del parametro `SoftwareUpdateConfigurationRunContext`.
 
 ```powershell
 <#
@@ -161,7 +164,7 @@ Gli esempi sono tutti basati sul modello di base definito nell'esempio seguente.
  Barebones script for Update Management Pre/Post
 
 .DESCRIPTION
-  This script is intended to be run as a part of Update Management Pre/Post scripts.
+  This script is intended to be run as a part of Update Management pre/post-scripts.
   It requires a RunAs account.
 
 .PARAMETER SoftwareUpdateConfigurationRunContext
@@ -208,7 +211,7 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## <a name="interacting-with-machines"></a>Interazione con i computer
 
-Pre e post-attività vengono eseguite come Runbook nell'account di automazione e non direttamente nei computer nella distribuzione. Pre e post-Tasks vengono eseguiti anche nel contesto di Azure e non hanno accesso a computer non Azure. Le sezioni seguenti illustrano come è possibile interagire con i computer direttamente se si tratta di una VM di Azure o di un computer non Azure:
+Pre e post-attività vengono eseguite come Runbook nell'account di automazione e non direttamente nei computer nella distribuzione. Pre e post-Tasks vengono eseguiti anche nel contesto di Azure e non hanno accesso a computer non Azure. Le sezioni seguenti illustrano come è possibile interagire direttamente con i computer, che si tratti di macchine virtuali di Azure o computer non Azure.
 
 ### <a name="interacting-with-azure-machines"></a>Interazione con macchine virtuali di Azure
 
@@ -217,22 +220,22 @@ Le attività preliminari e successive vengono eseguite come manuali operativi e 
 * Un account RunAs
 * Un Runbook che si vuole eseguire
 
-Per interagire con i computer di Azure, è necessario usare il cmdlet [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) per interagire con le VM di Azure. Per un esempio di come eseguire questa operazione, vedere l'esempio Runbook [Gestione aggiornamenti-Esegui script con il comando Esegui](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
+Per interagire con i computer di Azure, è necessario usare il cmdlet [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) per interagire con le VM di Azure. Per un esempio di come eseguire questa operazione, vedere l'esempio Runbook [Gestione aggiornamenti – Esegui script con il comando Esegui](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
 
 ### <a name="interacting-with-non-azure-machines"></a>Interazione con computer non Azure
 
-Pre e post-attività vengono eseguite nel contesto di Azure e non hanno accesso a computer non Azure. Per interagire con i computer non Azure è necessario quanto segue:
+Pre e post-attività vengono eseguite nel contesto di Azure e non hanno accesso a computer non Azure. Per interagire con i computer non Azure, è necessario disporre degli elementi seguenti:
 
 * Un account RunAs
 * Ruolo di lavoro ibrido per runbook installato nel computer
 * Un runbook da eseguire in locale
-* Runbook padre
+* Un Runbook padre
 
-Per interagire con i computer non Azure, un runbook padre viene eseguito nel contesto di Azure. Questo runbook chiama un runbook figlio con il cmdlet [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). È necessario specificare il `-RunOn` parametro e specificare il nome del ruolo di lavoro ibrido per runbook in cui eseguire lo script. Per un esempio, vedere l'esempio Runbook [Gestione aggiornamenti-run script in locale](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
+Per interagire con computer non Azure, un Runbook padre viene eseguito nel contesto di Azure. Questo runbook chiama un runbook figlio con il cmdlet [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). È necessario specificare il `-RunOn` parametro e specificare il nome del ruolo di lavoro ibrido per runbook in cui eseguire lo script. Per altre informazioni, vedere l'esempio Runbook [Gestione aggiornamenti – eseguire lo script localmente](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
 ## <a name="abort-patch-deployment"></a>Interrompi distribuzione patch
 
-Se lo script preliminare restituisce un errore, è possibile che si desideri interrompere la distribuzione. A tale scopo, è necessario [generare](/powershell/module/microsoft.powershell.core/about/about_throw) un errore nello script per qualsiasi logica che costituirebbe un errore.
+Se lo script di pre-installazione restituisce un errore, è possibile che si desideri interrompere la distribuzione. A tale scopo, è necessario [generare](/powershell/module/microsoft.powershell.core/about/about_throw) un errore nello script per qualsiasi logica che costituirebbe un errore.
 
 ```powershell
 if (<My custom error logic>)
@@ -244,11 +247,11 @@ if (<My custom error logic>)
 
 ## <a name="known-issues"></a>Problemi noti
 
-* Non è possibile passare un valore booleano, un oggetto o una matrice ai parametri quando si usano pre e post-script. Il runbook avrà esito negativo. Per un elenco completo dei tipi supportati, vedere [parametri](#passing-parameters).
+* Non è possibile passare un valore booleano, un oggetto o una matrice ai parametri quando si usano pre e post-script. In caso contrario, il Runbook ha esito negativo. Per un elenco completo dei tipi supportati, vedere [passaggio di parametri](#passing-parameters).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Continuare con l'esercitazione sulla gestione degli aggiornamenti per le macchine virtuali Windows.
+Per informazioni su come gestire gli aggiornamenti per le macchine virtuali Windows, vedere l'esercitazione seguente:
 
 > [!div class="nextstepaction"]
 > [Gestire gli aggiornamenti e le patch per le macchine virtuali Windows di Azure](automation-tutorial-update-management.md)

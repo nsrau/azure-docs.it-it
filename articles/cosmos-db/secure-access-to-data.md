@@ -1,17 +1,17 @@
 ---
 title: Informazioni su come proteggere l'accesso ai dati in Azure Cosmos DB
 description: Informazioni sui concetti di controllo di accesso in Azure Cosmos DB, tra cui chiavi master, chiavi di sola lettura, utenti e autorizzazioni.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
-ms.openlocfilehash: f2e01e42a53f6f099191c03f45d6521668ea73a1
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 7e732f1d35097730d4468b43a2d9804fe7a18514
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616677"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753180"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteggere l'accesso ai dati in Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Questo articolo offre una panoramica della protezione dell'accesso ai dati archi
 
 Azure Cosmos DB usa due tipi di chiavi per autenticare gli utenti e fornire accesso ai dati e alle risorse. 
 
-|Tipo di chiave|Risorse|
+|Tipo di chiave|resources|
 |---|---|
 |[Chiavi master](#master-keys) |Usate per risorse amministrative, ovvero account di database, database, utenti e autorizzazioni|
 |[Token delle risorse](#resource-tokens)|Usati per le risorse dell'applicazione, ovvero contenitori, documenti, allegati, stored procedure, trigger e funzioni definite dall'utente|
@@ -124,12 +124,12 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 
 <a id="permissions"></a>
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>autorizzazioni
 Una risorsa autorizzazione di Cosmos DB è associata a un utente di Cosmos DB.  Ogni utente può contenere zero o più autorizzazioni di Cosmos DB.  Una risorsa autorizzazione fornisce l'accesso a un token di sicurezza di cui l'utente ha bisogno quando deve accedere a una risorsa applicazione specifica.
 Sono disponibili due livelli di accesso che possono essere forniti da una risorsa di autorizzazione:
 
-* Tutto: L'utente dispone dell'autorizzazione completa per la risorsa.
-* Lettura: L'utente può solo leggere i contenuti della risorsa, ma non può eseguire operazioni di scrittura, aggiornamento o eliminazione sulla risorsa.
+* Tutto: l'utente ha l'autorizzazione completa per la risorsa.
+* Lettura: l'utente può solo leggere i contenuti della risorsa, ma non può eseguire operazioni di scrittura, aggiornamento o eliminazione sulla risorsa.
 
 > [!NOTE]
 > Per eseguire le stored procedure di Cosmos DB, l'utente deve avere l'autorizzazione All per i contenitori in cui verrà eseguita la stored procedure.
@@ -183,7 +183,7 @@ Per aggiungere l'accesso in lettura dell'account Azure Cosmos DB al proprio acco
 4. Nella casella **Assegna accesso a** selezionare **Applicazione, gruppo o utente di Azure AD**.
 5. Selezionare l'utente, il gruppo o l'applicazione nella directory a cui si vuole concedere l'accesso.  È possibile eseguire ricerche nella directory in base al nome visualizzato, all'indirizzo di posta elettronica o all'identificatore dell'oggetto.
     L'applicazione, il gruppo o l'utente selezionato viene visualizzato nell'elenco dei membri selezionati.
-6. Fare clic su **Save**.
+6. Fare clic su **Salva**
 
 L'entità può ora leggere le risorse di Azure Cosmos DB.
 
@@ -193,5 +193,5 @@ Azure Cosmos DB consente di eseguire la ricerca, selezionare, modificare ed elim
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per ulteriori informazioni sulla sicurezza di Cosmos database, [vedere Cosmos DB: Sicurezza del database](database-security.md).
+* Per ulteriori informazioni sulla sicurezza di Cosmos database, vedere [Cosmos DB: sicurezza del database](database-security.md).
 * Per informazioni su come costruire i token di autorizzazione di Azure Cosmos DB, vedere [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) (Controllo di accesso per le risorse di Azure Cosmos DB).

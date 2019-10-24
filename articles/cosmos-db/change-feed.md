@@ -1,19 +1,19 @@
 ---
 title: Uso del supporto del feed delle modifiche in Azure Cosmos DB
 description: Usare il supporto del feed delle modifiche di Azure Cosmos DB per tenere traccia delle modifiche nei documenti, eseguire elaborazioni basate su eventi come i trigger e mantenere aggiornati i sistemi di cache e analisi.
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f50f1b3e2ee7f98d14d29f1e2205a97d76eaacc8
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 8e6bd3dadd636127f212db0ea0c0755a6b52a087
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219900"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757014"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Feed di modifiche in Azure Cosmos DB - panoramica
 
@@ -33,12 +33,12 @@ Il feed di modifiche in Azure Cosmos DB consente di creare soluzioni efficienti 
 
 La funzionalità è attualmente supportata dalle API e dagli SDK client Cosmos DB seguenti.
 
-| **Driver client** | **Interfaccia della riga di comando di Azure** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin**|**API di tabella** |
+| **Driver client** | **interfaccia della riga di comando di Azure** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin**|**API di tabella** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | NA | Yes | No | No | Yes | No |
-|Java|NA|Yes|No|No|Yes|No|
-|Python|NA|Yes|No|No|Yes|No|
-|Node/JS|NA|Yes|No|No|Yes|No|
+| .NET | ND | SÌ | No | No | SÌ | No |
+|Java|ND|SÌ|No|No|SÌ|No|
+|Python|ND|SÌ|No|No|SÌ|No|
+|Node/JS|ND|SÌ|No|No|SÌ|No|
 
 ## <a name="change-feed-and-different-operations"></a>Feed di modifiche e operazioni diverse
 
@@ -93,7 +93,7 @@ Di seguito sono indicati alcuni degli scenari che è possibile implementare faci
 
 È possibile utilizzare il feed di modifiche utilizzando le opzioni seguenti:
 
-* [Feed di modifiche con Funzioni di Azure](change-feed-functions.md)
+* [Uso del feed di modifiche con Funzioni di Azure](change-feed-functions.md)
 * [Uso del feed delle modifiche con il processore del feed delle modifiche](change-feed-processor.md) 
 
 Il feed di modifiche è disponibile per ogni chiave di partizione logica nel contenitore, ed è quindi possibile distribuirlo a uno o più consumer per l'elaborazione parallela, come illustrato nell'immagine seguente.
@@ -122,8 +122,8 @@ Il feed di modifiche è disponibile per ogni chiave di partizione logica nel con
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile ottenere altre informazioni sul feed di modifiche negli articoli seguenti:
+È ora possibile procedere per altre informazioni sul feed di modifiche negli articoli seguenti:
 
 * [Opzioni per la lettura di feed di modifiche](read-change-feed.md)
-* [Feed di modifiche con Funzioni di Azure](change-feed-functions.md)
+* [Uso del feed di modifiche con Funzioni di Azure](change-feed-functions.md)
 * [Uso del processore dei feed di modifiche](change-feed-processor.md)

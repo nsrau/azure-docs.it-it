@@ -7,12 +7,12 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: ec2a174c365e31520fe99ca0b505bbb62faad8c6
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 84e8f1d7b723bb86b31abb1ff60bce5351d7d996
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883412"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750148"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Verificare lo stato di pubblicazione dell'offerta del Marketplace commerciale
 
@@ -50,7 +50,7 @@ In questo passaggio, dopo aver convalidato i dati e le funzionalità del test dr
 
 In questo passaggio viene verificato che il sistema di gestione dei lead possa ricevere i lead dei clienti in base ai dettagli forniti nell'installazione dell'offerta. Questo passaggio è applicabile solo alle offerte con la gestione dei lead abilitata.
 
-## <a name="certification"></a>Certification
+## <a name="certification"></a>Certificazione
 
 Prima della pubblicazione, le offerte inviate al Marketplace commerciale nel centro per i partner devono essere certificate. Le offerte inviate vengono sottoposte a test rigorosi, alcune automatizzate e altre manuali, incluso un controllo rispetto ai [criteri di certificazione di Azure Marketplace](https://docs.microsoft.com/legal/marketplace/general-policies). Gli invii di offerte devono essere contrassegnati come idonei per la certificazione prima di procedere al passaggio successivo nel flusso di pubblicazione.
 
@@ -106,7 +106,7 @@ Durante il passaggio di **creazione dell'anteprima** , viene creata una versione
 
 In questo passaggio verrà inviato un messaggio di posta elettronica con una richiesta di verifica e approvazione dell'anteprima dell'offerta prima del passaggio di pubblicazione finale.
 
-Se si è scelto di vendere l'offerta tramite Microsoft, sarà possibile testare l'acquisizione e la distribuzione dell'offerta per verificare che soddisfi i propri requisiti durante questa fase di approvazione della versione di anteprima. L'offerta non sarà ancora disponibile nel Marketplace del pube. Una volta testata e approvata questa anteprima, sarà necessario selezionare **Go-Live** nel dashboard [**Panoramica dell'offerta**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) .
+Se si è scelto di vendere l'offerta tramite Microsoft, sarà possibile testare l'acquisizione e la distribuzione dell'offerta per verificare che soddisfi i propri requisiti durante questa fase di approvazione della versione di anteprima. L'offerta non sarà ancora disponibile nel Marketplace pubblico. Una volta testata e approvata questa anteprima, sarà necessario selezionare **Go-Live** nel dashboard [**Panoramica dell'offerta**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) .
 
 Se si desidera apportare modifiche all'offerta durante questa fase di anteprima, è possibile modificare e inviare di nuovo per pubblicare una nuova anteprima. Per informazioni dettagliate su altre modifiche, vedere l'articolo [aggiornare le offerte del Marketplace esistente](#update-existing-marketplace-offers) .
 

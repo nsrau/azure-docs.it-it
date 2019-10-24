@@ -1,18 +1,18 @@
 ---
 title: Soluzioni che usano l'analisi distribuita a livello globale in Azure Cosmos DB.
 description: Informazioni sulle soluzioni che possono essere create usando l'analisi distribuita a livello globale in Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.topic: conceptual
 ms.service: cosmos-db
 ms.date: 09/26/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d5c6b8727a24a7ea8ddf05f7983618b55884d3bf
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: d50b946e67bbcc171850b71021165356011f58e3
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338984"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755209"
 ---
 # <a name="solutions-using-globally-distributed-analytics-in-azure-cosmos-db"></a>Soluzioni che usano l'analisi distribuita a livello globale in Azure Cosmos DB
 
@@ -65,7 +65,7 @@ L'immagine seguente illustra l'utilizzo del supporto Spark di Azure Cosmos DB pe
 
 ![Supporto Spark di Azure Cosmos DB per creare un sistema di diagnostica dei veicoli in tempo reale](./media/spark-api-introduction/real-time-vehicle-diagnostic-system.png)
 
-## <a name="gaming"></a>Modalità di gioco
+## <a name="gaming"></a>Giochi
 
 * Grazie al supporto Spark incorporato, Azure Cosmos DB consente di creare, ridimensionare e distribuire facilmente e in pochi minuti modelli avanzati di analisi avanzata e Machine Learning per creare la migliore esperienza di gioco possibile.
 

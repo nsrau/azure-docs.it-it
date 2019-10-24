@@ -3,19 +3,19 @@ title: Definire i flussi di lavoro di moderazione con la console dell'API REST-C
 titleSuffix: Azure Cognitive Services
 description: È possibile usare le API di Azure Content Moderator Review per definire i flussi di lavoro e le soglie personalizzati in base ai criteri di contenuto.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: sajagtap
-ms.openlocfilehash: cb93cf1b7a5338058c6f2d93b4bb27f60286882e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.author: pafarley
+ms.openlocfilehash: 3e58be4b94457d95d28cf6528b9151e4be1802cf
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881198"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754174"
 ---
 # <a name="define-and-use-moderation-workflows-rest"></a>Definire e usare flussi di lavoro di moderazione (REST)
 
@@ -35,15 +35,15 @@ Per creare o aggiornare un flusso di lavoro, passare alla pagina **[flusso di la
 
 Immettere i valori per **Team**, **WorkflowName**e **OCP-gestione API-Subscription-Key**:
 
-- **team**: ID del team creato quando si configura l'account [dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) (disponibile nel campo **ID** nella schermata delle credenziali dello strumento di verifica).
-- **workflowname**: Nome di un nuovo flusso di lavoro da aggiungere o un nome esistente, se si desidera aggiornare un flusso di lavoro esistente.
-- **Ocp-Apim-Subscription-Key**: Chiave Content Moderator. È possibile trovarlo nella scheda **Impostazioni** dello strumento di [Revisione](https://contentmoderator.cognitive.microsoft.com).
+- **Team**: ID del team creato quando si configura l'account [dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) (disponibile nel campo **ID** nella schermata delle credenziali dello strumento di verifica).
+- **WorkflowName**: il nome di un nuovo flusso di lavoro da aggiungere o un nome esistente, se si desidera aggiornare un flusso di lavoro esistente.
+- **OCP-gestione API-Subscription-Key**: chiave di content moderator. È possibile trovarlo nella scheda **Impostazioni** dello strumento di [Revisione](https://contentmoderator.cognitive.microsoft.com).
 
 ![Parametri di query e intestazioni nella console Workflow - Create Or Update (Flusso di lavoro - Creazione o aggiornamento)](images/workflow-console-parameters.PNG)
 
 ### <a name="enter-a-workflow-definition"></a>Immettere una definizione del flusso di lavoro
 
-1. Modificare la casella del **corpo della richiesta** per immettere la richiesta JSON con i dettagli per la **Descrizione** e `Text`il **tipo** ( `Image` o).
+1. Modificare la casella del **corpo della richiesta** per immettere la richiesta JSON con i dettagli per la **Descrizione** e il **tipo** (`Image` o `Text`).
 2. Per **espressione**copiare l'espressione JSON del flusso di lavoro predefinita. La stringa JSON finale dovrebbe essere simile alla seguente:
 
 ```json
@@ -84,7 +84,7 @@ Selezionare **Send** (Invia). Se l'operazione viene completata correttamente, lo
 
 ### <a name="examine-the-new-workflow"></a>Esaminare il nuovo flusso di lavoro
 
-Nello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/)selezionare **Impostazioni** > flussi di**lavoro**. Il nuovo flusso di lavoro dovrebbe essere visualizzato nell'elenco.
+Nello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/)selezionare **Impostazioni** > **flussi di lavoro**. Il nuovo flusso di lavoro dovrebbe essere visualizzato nell'elenco.
 
 ![Esaminare l'elenco di strumenti dei flussi di lavoro](images/workflow-console-new-workflow.PNG)
 
@@ -98,11 +98,11 @@ Per recuperare i dettagli relativi a un flusso di lavoro esistente, passare alla
 
 ![Selezione dell'area in Workflow - Get (Flusso di lavoro - Acquisizione)](images/test-drive-region.png)
 
-Immettere i parametri di chiamata REST come nella sezione precedente. Verificare che questa volta WorkflowName sia il nome di un flusso di lavoro esistente.
+Immettere i parametri di chiamata REST come nella sezione precedente. Verificare che questa volta **WorkflowName** sia il nome di un flusso di lavoro esistente.
 
 ![Ottenere parametri di query e intestazioni](images/workflow-get-default.PNG)
 
-Selezionare **Send** (Invia). Se l'operazione ha esito positivo, lo stato `200 OK`della **risposta** è e nella casella **contenuto risposta** viene visualizzato il flusso di lavoro in formato JSON, come indicato di seguito:
+Selezionare **Send** (Invia). Se l'operazione ha esito positivo, lo **stato della risposta** è `200 OK`e nella casella **contenuto risposta** viene visualizzato il flusso di lavoro in formato JSON, come indicato di seguito:
 
 ```json
 {

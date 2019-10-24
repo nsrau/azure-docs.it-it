@@ -3,25 +3,25 @@ title: Concetti relativi a revisioni, flussi di lavoro e processi-Content Modera
 titleSuffix: Azure Cognitive Services
 description: Scopri di più su revisioni, flussi di lavoro e processi
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: sajagtap
-ms.openlocfilehash: a77b93c46c9989181cf4473e8b908571a3df2f20
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 0050e2b687b6001514d1ae80c269b1a0499efbea
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565545"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757302"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Revisioni, flussi di lavoro e processi di moderazione dei contenuti
 
 Content Moderator combina la moderazione assistita da computer con funzionalità di ciclo umano per creare un processo di moderazione ottimale per scenari reali. Questa operazione viene eseguita tramite lo strumento di [Revisione](https://contentmoderator.cognitive.microsoft.com)basato sul cloud. In questa guida vengono illustrati i concetti di base dello strumento di Revisione: revisioni, flussi di lavoro e processi.
 
-## <a name="reviews"></a>Recensioni
+## <a name="reviews"></a>Revisioni
 
 In una revisione, il contenuto viene caricato nello strumento di revisione e viene visualizzato nella scheda **Verifica** . Da qui gli utenti possono modificare i tag applicati e applicare i propri tag personalizzati in base alle esigenze. Quando un utente invia una revisione, i risultati vengono inviati a un endpoint di callback specificato e il contenuto viene rimosso dal sito.
 
@@ -29,7 +29,7 @@ In una revisione, il contenuto viene caricato nello strumento di revisione e vie
 
 Per informazioni su come eseguire questa operazione a livello di codice, vedere la [Guida dello strumento di revisione](./review-tool-user-guide/review-moderated-images.md) per iniziare a creare recensioni o vedere la [Guida dell'API REST](./try-review-api-review.md) .
 
-## <a name="workflows"></a>Workflows
+## <a name="workflows"></a>Flussi di lavoro
 
 Un flusso di lavoro è un filtro personalizzato basato sul cloud per il contenuto. I flussi di lavoro possono connettersi a un'ampia gamma di servizi per filtrare il contenuto in modi diversi e quindi intraprendere l'azione appropriata. Con il connettore Content Moderator, un flusso di lavoro può applicare automaticamente tag di moderazione e creare recensioni con contenuto inviato.
 

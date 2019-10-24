@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/05/2019
+ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c6c8bcfec9a8bdf6948190c5f132c2e1763b9973
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 574b1591669cc32ce30677cad5158e13b944486f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025643"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750210"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Sviluppo con le API di servizi multimediali V3
 
@@ -75,7 +75,7 @@ I nomi delle risorse di Servizi multimediali di Azure v3 (ad esempio, asset, pro
 
 I nomi delle risorse di Servizi multimediali non possono includere "<", ">", "%", "&", ":", "&#92;", "?", "/", "*", "+", ".", virgolette singole o caratteri di controllo. Sono consentiti tutti gli altri caratteri. La lunghezza massima di un nome di risorsa è di 260 caratteri. 
 
-Per altre informazioni sulla denominazione di Azure Resource Manager, vedere: [Requisiti di denominazione](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) e [Convenzioni di denominazione](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+Per altre informazioni sulla denominazione di Azure Resource Manager, vedere [Requisiti di denominazione](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) e [Convenzioni di denominazione](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
 ### <a name="names-of-filesblobs-within-an-asset"></a>Nomi di file/BLOB all'interno di un asset
 
@@ -108,6 +108,8 @@ Servizi multimediali prevede le seguenti operazioni a esecuzione prolungata:
 
 Al termine dell'invio di un'operazione di lunga durata si riceve un valore "202 accepted" ed è necessario eseguire il polling del completamento dell'operazione utilizzando l'ID operazione restituito.
 
+L'articolo [tenere traccia delle operazioni asincrone di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) illustra in dettaglio come tenere traccia dello stato delle operazioni di Azure asincrone tramite i valori restituiti nella risposta.
+
 È supportata una sola operazione a esecuzione prolungata per un evento Live specificato o uno qualsiasi degli output Live associati. Una volta avviata, è necessario completare un'operazione a esecuzione prolungata prima di avviare una successiva operazione a esecuzione prolungata nello stesso Live o in qualsiasi output Live associato. Per gli eventi live con più output Live, è necessario attendere il completamento di un'operazione a esecuzione prolungata su un output Live prima di attivare un'operazione a esecuzione prolungata su un altro output Live. 
 
 ## <a name="sdks"></a>SDK
@@ -115,21 +117,21 @@ Al termine dell'invio di un'operazione di lunga durata si riceve un valore "202 
 > [!NOTE]
 > Gli SDK di Servizi multimediali di Azure v3 non sono garantiti come thread-safe. Quando si sviluppa un'applicazione multithreading, è necessario aggiungere la propria logica di sincronizzazione thread per proteggere il client oppure usare un nuovo oggetto AzureMediaServicesClient per ogni thread. È anche necessario prestare attenzione ai problemi di multithreading introdotti da oggetti facoltativi forniti dal codice al client (ad esempio, un'istanza di HttpClient in .NET).
 
-|SDK|Riferimenti|
+|SDK|Riferimento|
 |---|---|
 |[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[Informazioni di riferimento su .NET](https://aka.ms/ams-v3-dotnet-ref)|
-|[SDK per Java](https://aka.ms/ams-v3-java-sdk)|[Informazioni di riferimento su Java](https://aka.ms/ams-v3-java-ref)|
+|[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Informazioni di riferimento su Java](https://aka.ms/ams-v3-java-ref)|
 |[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Informazioni di riferimento su Python](https://aka.ms/ams-v3-python-ref)|
 |[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Informazioni di riferimento su Node.js](https://aka.ms/ams-v3-nodejs-ref)| 
 |[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Informazioni di riferimento su Go](https://aka.ms/ams-v3-go-ref)|
 |[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedi anche
 
 - [EventGrid .NET SDK che include gli eventi per Servizi multimediali](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definizioni degli eventi di Servizi multimediali](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
 
-## <a name="azure-media-services-explorer"></a>Explorer di Servizi multimediali di Azure
+## <a name="azure-media-services-explorer"></a>Esplorazione di Servizi multimediali di Azure
 
 [Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) è uno strumento disponibile per i clienti di Windows che vogliono informazioni su Servizi multimediali. AMSE è un'applicazione Winforms/C# che esegue operazioni di caricamento, download, codifica, streaming di VOD e contenuti live con Servizi multimediali. Lo strumento AMSE è stato pensato per i clienti che vogliono testare Servizi multimediali senza scrivere codice. Il codice AMSE viene fornito come risorsa per i clienti che vogliono sviluppare con Servizi multimediali.
 
@@ -139,13 +141,13 @@ AMSE è un progetto open source il cui supporto viene fornito dalla community (i
 
 Vedere [filtro, ordinamento, paging delle entità di servizi multimediali di Azure](entities-overview.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback e ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
-[Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

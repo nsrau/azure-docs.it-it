@@ -1,17 +1,17 @@
 ---
 title: Come implementare la sincronizzazione personalizzata per ottimizzare l'ambiente per disponibilità e prestazioni più elevate in Azure Cosmos DB
 description: Informazioni su come implementare la sincronizzazione personalizzata per ottimizzare l'ambiente per disponibilità e prestazioni più elevate in Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.author: rimman
-ms.openlocfilehash: 8fce14496b9f8fa17f2dbfd04b7ea42f1495a8a9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1fdd05f8a4757a49414a2a03c8f991a80186ed44
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093349"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755051"
 ---
 # <a name="implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>Implementare la sincronizzazione personalizzata per ottimizzare l'ambiente per disponibilità e prestazioni più elevate
 
@@ -29,7 +29,7 @@ Il primo client può scrivere i dati nell'area locale, ad esempio Stati Uniti oc
 
 L'esempio seguente mostra un livello di accesso ai dati che crea un'istanza di due client per la sincronizzazione personalizzata:
 
-### <a name="net-v2-sdk"></a>.Net V2 SDK
+### <a name="net-v2-sdk"></a>.NET V2 SDK
 ```csharp
 class MyDataAccessLayer
 {
@@ -93,7 +93,7 @@ class MyDataAccessLayer
 
 Dopo l'inizializzazione dei client, l'applicazione può eseguire scritture nell'area locale (Stati Uniti occidentali) e forzarne la sincronizzazione con gli Stati Uniti orientali come segue.
 
-### <a name="net-v2-sdk"></a>.Net V2 SDK
+### <a name="net-v2-sdk"></a>.NET V2 SDK
 ```csharp
 class MyDataAccessLayer
 {

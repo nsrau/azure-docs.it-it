@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 4fd213a6550d045fe4bea280449ed228ba9eda35
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: c764460fb65287dab0031b27291d2f332cec3b3d
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550282"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756544"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usare il controllo mappa di mappe di Azure
 
@@ -44,6 +44,12 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
     <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
     <script src="node_modules/azure-maps-control/dist/atlas.min.js"></script>
     ```
+
+    >[!Note]
+    > È possibile importare le definizioni typescript nell'applicazione aggiungendo:
+    > ```Javascript
+    > import * as atlas from 'azure-maps-control';
+    > ```
 
 3. Per eseguire il rendering della mappa in modo che riempia l'intero corpo della pagina, aggiungere l'elemento `<style>` seguente all'elemento `<head>`.
 
@@ -102,6 +108,8 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
     </script>
     ```
 
+    Un elenco di esempi che illustrano come integrare Azure Active Directory (AAD) con mappe di Azure è disponibile [qui](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples). 
+    
     Per altre informazioni, vedere il documento relativo all' [autenticazione con Maps di Azure](azure-maps-authentication.md) .
 
 6. Facoltativamente, può risultare utile aggiungere gli elementi di tag meta seguenti all'inizio della pagina:
@@ -222,3 +230,8 @@ Per aggiungere altri dati alla mappa:
 
 > [!div class="nextstepaction"]
 > [Esempi di codice](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+
+Per un elenco di esempi che illustrano come integrare Azure Active Directory (AAD) con mappe di Azure, vedere:
+
+> [!div class="nextstepaction"]
+> [Esempi di autenticazione di AAD](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

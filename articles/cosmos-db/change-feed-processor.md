@@ -1,19 +1,19 @@
 ---
 title: Uso della libreria del processore dei feed di modifiche in Azure Cosmos DB
 description: Uso della libreria del processore dei feed di modifiche di Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 4074f26cdefd650c1b927293f422623841dfff7d
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 4bd7a31abf47664d1a6ffdd39fe46d9370dbbc97
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073697"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757035"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processore dei feed di modifiche in Azure Cosmos DB 
 
@@ -27,7 +27,7 @@ Sono disponibili quattro componenti principali per l'implementazione del process
 
 1. **Contenitore monitorato:** il contenitore monitorato include i dati da cui viene generato il feed di modifiche. Eventuali inserimenti e aggiornamenti del contenitore monitorati vengono riflessi nel feed delle modifiche del contenitore.
 
-1. **Contenitore di lease:** Il contenitore lease funge da archiviazione dello stato e coordina l'elaborazione del feed delle modifiche tra più thread di lavoro. Il contenitore lease può essere archiviato nello stesso account del contenitore monitorato o in un account separato. 
+1. **Il contenitore lease:** Il contenitore lease funge da archiviazione dello stato e coordina l'elaborazione del feed delle modifiche tra più thread di lavoro. Il contenitore lease può essere archiviato nello stesso account del contenitore monitorato o in un account separato. 
 
 1. **Host:** Un host è un'istanza dell'applicazione che utilizza il processore del feed delle modifiche per restare in ascolto delle modifiche. Più istanze con la stessa configurazione di lease possono essere eseguite in parallelo, ma ogni istanza deve avere un **nome di istanza**diverso. 
 
@@ -39,7 +39,7 @@ Per una migliore comprensione dell'interazione tra i quattro elementi del proces
 
 ## <a name="implementing-the-change-feed-processor"></a>Implementazione del processore del feed delle modifiche
 
-Il punto di ingresso è sempre il contenitore monitorato, da `Container` un'istanza chiamata `GetChangeFeedProcessorBuilder`:
+Il punto di ingresso è sempre il contenitore monitorato, da un'istanza di `Container` chiamata `GetChangeFeedProcessorBuilder`:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
@@ -49,16 +49,16 @@ Un esempio di un delegato è:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
-Infine, definire un nome per l'istanza del processore `WithInstanceName` con e che è il contenitore per il quale mantenere lo `WithLeaseContainer`stato di lease.
+Infine, definire un nome per l'istanza del processore con `WithInstanceName` e che è il contenitore per mantenere lo stato di lease con `WithLeaseContainer`.
 
-Se `Build` si chiama `StartAsync`, viene restituita l'istanza del processore che è possibile avviare chiamando.
+Se si chiama `Build`, viene restituita l'istanza del processore che è possibile avviare chiamando `StartAsync`.
 
 ## <a name="processing-life-cycle"></a>Ciclo di vita dell'elaborazione
 
 Il normale ciclo di vita di un'istanza dell'host è:
 
 1. Leggere il feed delle modifiche.
-1. Se non sono state apportate modifiche, sospendere per un periodo di tempo predefinito ( `WithPollInterval` personalizzabile con nel generatore) e passare a #1.
+1. Se non sono state apportate modifiche, sospendere per un periodo di tempo predefinito (personalizzabile con `WithPollInterval` nel generatore) e passare a #1.
 1. Se sono presenti modifiche, inviarle al **delegato**.
 1. Al termine dell'elaborazione **delle modifiche da**parte del delegato, aggiornare l'archivio dei lease con l'ultimo momento elaborato e passare a #1.
 

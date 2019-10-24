@@ -1,18 +1,18 @@
 ---
 title: Usare chiavi univoche in Azure Cosmos DB
 description: Informazioni su come usare chiavi univoche nel database di Azure Cosmos
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: e5b8eb4d5334eb198ff6699897c56b516ded069e
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 4a929566d464f8548c4bffeb9f89099e77722e67
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467572"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756780"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Vincoli di chiave univoca in Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Per creare elementi con lo stesso indirizzo di posta elettronica, ma non con la 
 
 Il contenitore può ad esempio contenere elementi con i valori seguenti, in cui ogni elemento rispetta il vincolo di chiave univoca.
 
-|CompanyID|Nome|Cognome|Indirizzo di posta elettronica|
+|CompanyID|Nome|Cognome|Indirizzo e-mail|
 |---|---|---|---|
 |Contoso|Gaby|Duperre|gaby@contoso.com |
 |Contoso|Gaby|Duperre|gaby@fabrikam.com|
@@ -35,7 +35,7 @@ Il contenitore può ad esempio contenere elementi con i valori seguenti, in cui 
 |Fabrikam|   |Duperre|gaby@fabraikam.com|
 |Fabrikam|   |   |gaby@fabraikam.com|
 
-Se si cerca di inserire un altro elemento con le combinazioni elencate nella tabella riportata sopra, viene visualizzato un messaggio di errore che indica che il vincolo di chiave univoca non è stato rispettato. Si riceve `Resource with specified ID or name already exists` o `Resource with specified ID, name, or unique index already exists` come messaggio restituito. 
+Se si cerca di inserire un altro elemento con le combinazioni elencate nella tabella riportata sopra, viene visualizzato un messaggio di errore che indica che il vincolo di chiave univoca non è stato rispettato. Si riceverà `Resource with specified ID or name already exists` o `Resource with specified ID, name, or unique index already exists` come messaggio restituito. 
 
 ## <a name="define-a-unique-key"></a>Definire una chiave univoca
 
@@ -45,13 +45,13 @@ Se si cerca di inserire un altro elemento con le combinazioni elencate nella tab
 
 * Per impostare una chiave univoca per un contenitore esistente, creare un nuovo contenitore con il vincolo di chiave univoca. Usare lo strumento di migrazione dei dati appropriato per spostare i dati dal contenitore esistente a quello nuovo. Per i contenitori SQL usare l'[Utilità di migrazione dati](import-data.md) per spostare i dati. Per i contenitori MongoDB usare [mongoimport.exe o mongorestore.exe](mongodb-migrate.md) per spostare i dati.
 
-* I criteri di chiave univoca possono contenere un massimo di 16 valori di percorso. Ad esempio, i valori possono essere `/firstName`, `/lastName`e `/address/zipCode`. I singoli criteri di chiave univoca possono avere un massimo di 10 vincoli o combinazioni di vincoli di chiave univoca. I percorsi combinati di ogni vincolo di chiave univoca non devono superare i 60 byte. Nell'esempio precedente, nome, cognome e indirizzo di posta elettronica rappresentano un unico vincolo, che usa 3 dei 16 possibili percorsi.
+* I criteri di chiave univoca possono contenere un massimo di 16 valori di percorso. Ad esempio, i valori possono essere `/firstName`, `/lastName` e `/address/zipCode`. I singoli criteri di chiave univoca possono avere un massimo di 10 vincoli o combinazioni di vincoli di chiave univoca. I percorsi combinati di ogni vincolo di chiave univoca non devono superare i 60 byte. Nell'esempio precedente, nome, cognome e indirizzo di posta elettronica rappresentano un unico vincolo, che usa 3 dei 16 possibili percorsi.
 
 * Quando un contenitore dispone di un criterio di chiave univoca, gli addebiti delle [unità richiesta](request-units.md) per creare, aggiornare ed eliminare un elemento sono leggermente più elevati.
 
 * Le chiavi univoche di tipo sparse non sono supportate. Se non sono definiti alcuni valori di percorso univoci, questi vengono considerati come valori Null facenti parte del vincolo di univocità. Per questo motivo può essere presente un solo elemento con valore Null per soddisfare il vincolo.
 
-* I nomi delle chiavi univoche distinguono tra maiuscole e minuscole. Si consideri, ad esempio, un contenitore con il vincolo `/address/zipcode`di chiave univoca impostato su. Se i dati hanno un campo denominato `ZipCode`, Azure Cosmos DB inserisce "null" come chiave univoca perché `zipcode` non è uguale a `ZipCode`. A causa di questa distinzione tra maiuscole e minuscole, tutti gli altri record con ZipCode non possono essere inseriti, in quanto il valore "null" duplicato viola il vincolo di chiave univoca.
+* I nomi delle chiavi univoche distinguono tra maiuscole e minuscole. Si consideri ad esempio un contenitore con il vincolo di chiave univoca impostato su `/address/zipcode`. Se i dati hanno un campo denominato `ZipCode`, Azure Cosmos DB inserisce "null" come chiave univoca perché `zipcode` non è uguale `ZipCode`. A causa di questa distinzione tra maiuscole e minuscole, tutti gli altri record con ZipCode non possono essere inseriti, in quanto il valore "null" duplicato viola il vincolo di chiave univoca.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

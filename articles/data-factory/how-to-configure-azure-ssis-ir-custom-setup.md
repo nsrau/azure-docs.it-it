@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 4962070d69af98d0c7b10dc6f931612766529dce
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: f7b09dcbd474debc08b79599e9e2dfaaca52285a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515716"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754694"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizzare l'installazione del runtime di integrazione Azure-SSIS
 
@@ -40,7 +40,7 @@ L'installazione personalizzata si configura preparando uno script e i relativi f
 
 -   La condivisione amministrativa non è attualmente supportata in runtime di integrazione Azure-SSIS.
 
--   Il driver ODBC di IBM iSeries Access non è supportato nel runtime di integrazione Azure-SSIS. Durante l'installazione personalizzata potrebbe essere visualizzato un errore di installazione. Per assistenza, contattare il supporto tecnico IBM.
+-   Il driver ODBC di IBM iSeries Access non è supportato nel Azure-SSIS IR. Durante l'installazione personalizzata potrebbe essere visualizzato un errore di installazione. Per assistenza, contattare il supporto tecnico IBM.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -64,6 +64,8 @@ Per personalizzare il runtime di integrazione Azure-SSIS occorre quanto segue:
 
    1.  È necessario disporre di un file di script denominato `main.cmd`, ovvero il punto di ingresso dell'installazione personalizzata.
 
+   1.  È necessario assicurarsi che lo script possa essere eseguito in modalità invisibile all'utente, è consigliabile testare prima lo script sul computer locale.
+
    1.  Se si vuole che nel contenitore vengano caricati anche i log generati da altri strumenti (ad esempio `msiexec.exe`), specificare negli script la variabile di ambiente predefinita `CUSTOM_SETUP_SCRIPT_LOG_DIR` come cartella dei log (ad esempio `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
 
 1. Scaricare, installare e avviare [Azure Storage Explorer](https://storageexplorer.com/).
@@ -84,7 +86,7 @@ Per personalizzare il runtime di integrazione Azure-SSIS occorre quanto segue:
 
       ![Creare un contenitore BLOB](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-   1. Selezionare il nuovo contenitore e caricare lo script di installazione personalizzato e i file associati. Assicurarsi di caricare `main.cmd` nel primo livello del contenitore, non in una cartella qualsiasi. Assicurarsi anche che il contenitore includa solo i file di installazione personalizzata necessari, in modo che non sarà necessario troppo tempo per scaricarli in Azure-SSIS IR in un secondo momento. Il periodo massimo di installazione personalizzata è attualmente impostato su 45 minuti prima del timeout e include il tempo per scaricare tutti i file dal contenitore e installarli nel runtime di integrazione Azure-SSIS. Se è necessario un periodo più lungo, generare un ticket di supporto.
+   1. Selezionare il nuovo contenitore e caricare lo script di installazione personalizzato e i file associati. Assicurarsi di caricare `main.cmd` nel primo livello del contenitore, non in una cartella qualsiasi. Assicurarsi anche che il contenitore includa solo i file di installazione personalizzata necessari, in modo che non sarà necessario troppo tempo per scaricarli in Azure-SSIS IR in un secondo momento. Il periodo massimo per la configurazione personalizzata è attualmente impostato su 45 minuti prima del timeout e include il tempo necessario per scaricare tutti i file dal contenitore e installarli nel Azure-SSIS IR. Se è necessario un periodo più lungo, generare un ticket di supporto.
 
       ![Caricare i file nel contenitore BLOB](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
@@ -107,7 +109,7 @@ Per personalizzare il runtime di integrazione Azure-SSIS occorre quanto segue:
 
       ![Immettere la firma di accesso condiviso](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
-      Quando si riconfigura o si esegue il provisioning del runtime di integrazione Azure-SSIS con PowerShell, prima di avviare il runtime eseguire il cmdlet `Set-AzDataFactoryV2IntegrationRuntime` inserendo l'URI SAS del contenitore come valore per il nuovo parametro `SetupScriptContainerSasUri`. Esempio:
+      Quando si riconfigura o si esegue il provisioning del runtime di integrazione Azure-SSIS con PowerShell, prima di avviare il runtime eseguire il cmdlet `Set-AzDataFactoryV2IntegrationRuntime` inserendo l'URI SAS del contenitore come valore per il nuovo parametro `SetupScriptContainerSasUri`. ad esempio:
 
       ```powershell
       Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `

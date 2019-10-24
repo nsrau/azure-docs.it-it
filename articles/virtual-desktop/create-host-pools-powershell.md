@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: a5e228417610a19c38acf9ce2db6e743ec122580
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 8ed0e1b1406eca6dd55e9e9faf184152a190da94
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679568"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757504"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Creare un pool di host con PowerShell
 
-I pool host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant di desktop virtuali Windows. Ogni pool di host può contenere un gruppo di app con cui gli utenti possono interagire come farebbero in un desktop fisico.
+I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant di Desktop virtuale Windows. Ogni pool di host può contenere un gruppo di app con cui gli utenti possono interagire come farebbero in un desktop fisico.
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Usare il client di PowerShell per creare un pool di host
 
@@ -85,7 +85,7 @@ Per aggiungere correttamente un dominio, eseguire le operazioni seguenti in ogni
 5. Eseguire l'autenticazione con un account di dominio che disponga dei privilegi per i computer aggiunti al dominio.
 
     >[!NOTE]
-    > Se si intende aggiungere le macchine virtuali a un ambiente Azure AD Domain Services (Azure AD DS), assicurarsi che l'utente di aggiunta a un dominio sia anche membro del [gruppo AAD DC Administrators](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
+    > Se si intende aggiungere le macchine virtuali a un ambiente Azure AD Domain Services (Azure AD DS), assicurarsi che l'utente di aggiunta a un dominio sia anche membro del [gruppo AAD DC Administrators](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registrare le macchine virtuali nel pool host del desktop virtuale Windows
 

@@ -1,17 +1,17 @@
 ---
 title: Unità richiesta e velocità effettiva in Azure Cosmos DB
 description: Informazioni su come specificare e stimare i requisiti relativi alle unità richiesta in Azure Cosmos DB
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
-ms.openlocfilehash: a1143f912d894c1219de05b03a2338dc4e5bdc5f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 6e5d95a47261445e3031f55368f4e2cd8e2830a7
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467646"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754857"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
 
@@ -27,30 +27,30 @@ Nell'immagine seguente viene illustrata l'idea generale delle UR:
 
 ![Utilizzo delle unità richiesta da parte delle operazioni di database](./media/request-units/request-units.png)
 
-Per gestire e pianificare la capacità, Azure Cosmos DB garantisce che il numero di UR per una specifica operazione di database su un determinato set di dati sia deterministico. È possibile esaminare l'intestazione della risposta per tenere traccia del numero di ur utilizzate da qualsiasi operazione del database. Quando si conoscono i [fattori che influiscono sugli](request-units.md#request-unit-considerations) addebiti delle unità richiesta e sui requisiti di velocità effettiva dell'applicazione, è possibile eseguire il costo dell'applicazione in modo efficiente.
+Per gestire e pianificare la capacità, Azure Cosmos DB garantisce che il numero di UR per una specifica operazione di database su un determinato set di dati sia deterministico. È possibile esaminare l'intestazione della risposta per tenere traccia del numero di ur utilizzate da qualsiasi operazione del database. Quando si conoscono i [fattori che influiscono sugli addebiti](request-units.md#request-unit-considerations) delle unità richiesta e sui requisiti di velocità effettiva dell'applicazione, è possibile eseguire il costo dell'applicazione in modo efficiente.
 
 Il provisioning del numero di UR per l'applicazione viene effettuato in base a incrementi di 100 UR al secondo. Per ridimensionare la velocità effettiva di cui viene effettuato il provisioning per l'applicazione, è possibile aumentare o diminuire il numero di UR in qualsiasi momento, Puoi ridimensionare in incrementi o decrementi di 100 ur. a livello di codice o tramite il portale di Azure. L'addebito viene addebitato su base oraria.
 
 È possibile effettuare il provisioning della velocità effettiva a due diversi livelli di granularità: 
 
-* **Contenitori**: Per altre informazioni, vedere [Effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md).
-* **Database**: Per altre informazioni, vedere [Effettuare il provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md).
+* **Contenitori**: per altre informazioni, vedere [provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md).
+* **Database**: per altre informazioni, vedere [provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md).
 
 ## <a name="request-unit-considerations"></a>Considerazioni sulle unità richiesta
 
 Per stimare il numero di UR al secondo di cui effettuare il provisioning, considerare i fattori seguenti:
 
-* **Dimensioni degli elementi**: con l'aumentare delle dimensioni di un elemento, aumenta anche il numero di UR utilizzate per leggere o scrivere l'elemento.
+* **Dimensioni elemento**: con l'aumentare delle dimensioni di un elemento, aumenta anche il numero di ur utilizzate per la lettura o la scrittura dell'elemento.
 
-* **Indicizzazione degli elementi**: Per impostazione predefinita, ogni elemento viene automaticamente indicizzato. Se si sceglie di non indicizzare alcuni degli elementi in un contenitore, viene utilizzato un numero inferiore di UR.
+* **Indicizzazione di elementi**: per impostazione predefinita, ogni elemento viene indicizzato automaticamente. Se si sceglie di non indicizzare alcuni degli elementi in un contenitore, viene utilizzato un numero inferiore di UR.
 
-* **Numero di proprietà degli elementi**: Supponendo che l'indicizzazione predefinita sia in tutte le proprietà, il numero di ur utilizzate per scrivere un elemento aumenta man mano che il conteggio delle proprietà dell'elemento aumenta.
+* **Conteggio proprietà elemento**: supponendo che l'indicizzazione predefinita sia su tutte le proprietà, il numero di ur utilizzate per scrivere un elemento aumenta man mano che aumenta il numero di proprietà dell'elemento.
 
-* **Proprietà indicizzate**: I criteri di indicizzazione in ogni contenitore determinano le proprietà che vengono indicizzate per impostazione predefinita. Per ridurre l'utilizzo di UR per le operazioni di scrittura, limitare il numero di proprietà indicizzate.
+* **Proprietà indicizzate**: un criterio di indice in ogni contenitore determina quali proprietà sono indicizzate per impostazione predefinita. Per ridurre l'utilizzo di UR per le operazioni di scrittura, limitare il numero di proprietà indicizzate.
 
-* **Coerenza dei dati**: durante l'esecuzione di operazioni di lettura, i livelli di coerenza assoluta e con decadimento ristretto utilizzano un numero di UR di due volte maggiore rispetto ad altri livelli di coerenza meno rigidi.
+* **Coerenza dei dati**: i livelli di coerenza con obsolescenza forte e limitata utilizzano circa due volte più ur durante l'esecuzione di operazioni di lettura rispetto a quelle di altri livelli di coerenza rilassati.
 
-* **Modelli di query**: la complessità di una query influisce sulla quantità di UR utilizzate per un'operazione. I fattori che influiscono sul costo delle operazioni di query sono: 
+* **Modelli di query**: la complessità di una query influiscono sul numero di ur utilizzate per un'operazione. I fattori che influiscono sul costo delle operazioni di query sono: 
     
     - Numero di risultati della query
     - Il numero di predicati
@@ -62,7 +62,7 @@ Per stimare il numero di UR al secondo di cui effettuare il provisioning, consid
 
   Azure Cosmos DB assicura che la stessa query sugli stessi dati costi sempre lo stesso numero di UR per esecuzioni ripetute.
 
-* **Utilizzo di script**: come le query, le stored procedure e i trigger utilizzano le UR in base alla complessità delle operazioni da eseguire. Durante lo sviluppo dell'applicazione, controllare l' [intestazione della richiesta](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) di addebito per comprendere meglio la capacità di ur utilizzata da ogni operazione.
+* **Utilizzo di script**: come per le query, le stored procedure e i trigger utilizzano le UR in base alla complessità delle operazioni eseguite. Durante lo sviluppo dell'applicazione, controllare l' [intestazione della richiesta di addebito](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) per comprendere meglio la capacità di ur utilizzata da ogni operazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

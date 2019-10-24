@@ -3,19 +3,19 @@ title: Configurare le impostazioni dello strumento di revisione-Content Moderato
 titleSuffix: Azure Cognitive Services
 description: Usare lo strumento di revisione per configurare o recuperare il team, i tag, i connettori, i flussi di lavoro e le credenziali per Content Moderator.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.author: sajagtap
-ms.openlocfilehash: 5e12806aca7c53c254cc43c8ff5bb8d314f9993e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.author: pafarley
+ms.openlocfilehash: 2ba314c814bdc92f62a607e28aefa30372bf297f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882728"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757422"
 ---
 # <a name="configure-the-review-tool"></a>Configurare lo strumento di revisione
 
@@ -25,7 +25,7 @@ Lo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com) in
 
 ## <a name="manage-team-and-subteams"></a>Gestisci team e sottoteam
 
-La scheda **Team** consente di gestire i&mdash;gruppi di utenti del team e dei sottoteam che possono ricevere notifiche quando vengono avviate determinate [recensioni umane](../review-api.md#reviews) . È possibile avere un solo team (creato quando si esegue l'iscrizione con lo strumento di revisione), ma è possibile creare più sottoteam. L'amministratore del team può invitare i membri, impostare le relative autorizzazioni e assegnarli a diversi sottoteam.
+La scheda **Team** consente di gestire il team e i sottoteam&mdash;gruppi di utenti che possono ricevere notifiche quando vengono avviate determinate verifiche [umane](../review-api.md#reviews) . È possibile avere un solo team (creato quando si esegue l'iscrizione con lo strumento di revisione), ma è possibile creare più sottoteam. L'amministratore del team può invitare i membri, impostare le relative autorizzazioni e assegnarli a diversi sottoteam.
 
 ![Esaminare le impostazioni del team degli strumenti](images/settings-2-team.png)
 
@@ -66,7 +66,7 @@ Se si è membri di più sottoteam, è possibile passare da un sottoteam all'altr
 
 ## <a name="tags"></a>Tag
 
-La scheda **tag** consente di definire tag di moderazione personalizzati, oltre ai due tag&mdash;di moderazione predefiniti (**a**) e a (**r**). Quando si crea un tag personalizzato, diventa disponibile nei revisioni insieme ai tag predefiniti. È possibile modificare i tag che vengono visualizzati nelle verifiche cambiando le impostazioni di visibilità.
+La **scheda Tag** consente di definire tag di moderazione personalizzati, oltre ai due tag di moderazione predefiniti&mdash;**Adult** (**a**) e **l'** utente (**r**). Quando si crea un tag personalizzato, diventa disponibile nei revisioni insieme ai tag predefiniti. È possibile modificare i tag che vengono visualizzati nelle verifiche cambiando le impostazioni di visibilità.
 
 ![Visualizzazione dei tag, incluse le caselle di controllo "visibile"](images/tags-4-disable.png)
 
@@ -74,9 +74,9 @@ La scheda **tag** consente di definire tag di moderazione personalizzati, oltre 
 
 Per creare un nuovo tag, è necessario immettere un codice, un nome e una descrizione brevi nei rispettivi campi.
 
-- **Codice breve**: Immettere un codice di due lettere per il tag. Esempio: **CB**
-- **Nome**: Immettere un nome di tag breve e descrittivo in lettere minuscole senza spazi. Esempio: **bullismo**.
-- **Descrizione**: (facoltativo) immettere una descrizione del tipo di contenuto a cui è destinato il tag. Esempio: **Rappresentazioni o istanze del bullismo**informatico.
+- **Short code**: immettere un codice di due lettere per il tag. Esempio: **CB**
+- **Nome**: immettere un nome di tag breve e descrittivo in lettere minuscole senza spazi. Esempio: **bullismo**.
+- **Descrizione**: (facoltativo) immettere una descrizione del tipo di contenuto a cui è destinato il tag. Esempio: **rappresentazioni o istanze di cyber bullismo**.
 
 Fare clic su **Aggiungi** per aggiungere un tag, quindi fare clic su **Salva** al termine della creazione di tag.
 
@@ -95,7 +95,7 @@ Il connettore predefinito quando si crea un flusso di lavoro è il connettore Co
 Lo [strumento di revisione](./human-in-the-loop.md) include i connettori seguenti:
 
 - API Emozioni
-- API Viso
+- Face API
 - Servizio cloud PhotoDNA
 - API Analisi del testo
 
@@ -105,7 +105,7 @@ Per aggiungere un connettore (e renderlo disponibile per l'uso nei [flussi di la
 
 ![Impostazioni per i connettori di Content Moderator](images/settings-4-connectors.png)
 
-## <a name="workflows"></a>Workflows
+## <a name="workflows"></a>Flussi di lavoro
 
 La scheda **flussi di lavoro** consente di gestire i flussi di [lavoro](../review-api.md#workflows). I flussi di lavoro sono filtri basati sul cloud per il contenuto e funzionano con i connettori per ordinare il contenuto in modi diversi e intraprendere le azioni appropriate. Qui è possibile definire, modificare e testare i flussi di lavoro. Per istruzioni su come eseguire questa operazione, vedere [definire e usare i flussi di lavoro](Workflows.md) .
 

@@ -5,14 +5,14 @@ services: service-fabric
 author: athinanthny
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 10/21/2019
 ms.author: atsenthi
-ms.openlocfilehash: dcffc1ba783b49343bf3380b62c3d4085f5aa347
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b9a3534c24649e71385cd8fdc8b4981ac471cf90
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390086"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752312"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>Che cos'è il modello di risorsa Service Fabric applicazione?
 Si consiglia di distribuire Service Fabric applicazioni nel cluster Service Fabric tramite Azure Resource Manager. Questo metodo rende possibile descrivere le applicazioni e i servizi in JSON e distribuirli nello stesso modello di Gestione risorse del cluster. Invece di distribuire e gestire le applicazioni tramite PowerShell o l'interfaccia della riga di comando di Azure, non è necessario attendere che il cluster sia pronto. Il processo di registrazione, provisioning e distribuzione delle applicazioni avviene in un unico passaggio. Si tratta della procedura consigliata per gestire il ciclo di vita delle applicazioni nel cluster. Per altre informazioni, vedere [procedure consigliate](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
@@ -41,8 +41,14 @@ Per la distribuzione di un'applicazione da un modello di Gestione risorse è nec
 ![Creare un account di archiviazione][CreateStorageAccount]
 
 ### <a name="configure-storage-account"></a>Configura account di archiviazione 
-Una volta creato l'account di archiviazione, è necessario creare un contenitore BLOB in cui le applicazioni possono essere preparate per la gestione temporanea. Nella portale di Azure passare all'account di archiviazione in cui si vogliono archiviare le applicazioni. Selezionare il pannello **BLOB** , quindi fare clic sul pulsante **Aggiungi contenitore** . Aggiungere un nuovo contenitore con il livello di accesso pubblico BLOB.
-   
+Una volta creato l'account di archiviazione, è necessario creare un contenitore BLOB in cui le applicazioni possono essere preparate per la gestione temporanea. Nella portale di Azure passare all'account di archiviazione in cui si vogliono archiviare le applicazioni. Selezionare il pannello **BLOB** , quindi fare clic sul pulsante **Aggiungi contenitore** . Le risorse del cluster possono essere protette impostando il livello di accesso pubblico su privato. L'accesso può essere concesso in diversi modi:
+* [Autorizzare l'accesso a BLOB e code con Azure Active Directory](../storage/common/storage-auth-aad-app.md)
+* [Concedere l'accesso ai dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo nel portale di Azure](../storage/common/storage-auth-aad-rbac-portal.md)
+* [Delega dell'accesso con una firma di accesso condiviso (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature
+)
+
+ Per questo esempio verrà usato l'accesso in lettura anonimo per i BLOB.
+
 ![Crea BLOB][CreateBlob]
 
 ### <a name="stage-application-in-a-storage-account"></a>Organizzare l'applicazione in un account di archiviazione
@@ -51,10 +57,10 @@ Prima di poter distribuire l'applicazione, è necessario eseguire la gestione te
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto di voto e selezionare pacchetto.   
 ![Applicazione pacchetto][PackageApplication]  
 2. Aprire la directory **.\Service-Fabric-DotNet-quickstart\Voting\pkg\Debug** che è stata creata e comprimere il contenuto in un file denominato **voter. zip** in modo che ApplicationManifest. XML si trovi alla radice del file zip.  
-![Zip Application @ no__t-1  
+][ZipApplication] applicazione ![Zip  
 3. Rinominare l'estensione del file da zip a **. sfpkg**.
 4. Nel portale di Azure, nel contenitore **app** dell'account di archiviazione, fare clic su **carica** e carica **Voto. sfpkg**.  
-Pacchetto app ![Upload @ no__t-1
+][UploadAppPkg] pacchetto app ![Upload
 
 L'applicazione è ora preparata per la gestione temporanea. A questo punto è possibile creare il modello di Azure Resource Manager per distribuire l'applicazione.      
    

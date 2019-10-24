@@ -3,15 +3,15 @@ title: Informazioni sul linguaggio di query
 description: Descrive le tabelle di grafici delle risorse e i tipi di dati, gli operatori e le funzioni di Kusto disponibili utilizzabili con Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/18/2019
+ms.date: 10/21/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 6189920cb03a6cf388f0b5d232c6ce97ae4f3f82
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 80b33212afa7fed3f87b241d5cf69b43be66574d
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389771"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755923"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informazioni sul linguaggio di query di Azure Resource Graph
 
@@ -30,7 +30,7 @@ Il grafico risorse fornisce diverse tabelle per i dati archiviati su Gestione ri
 |Tabelle di grafici delle risorse |Description |
 |---|---|
 |resources |Tabella predefinita se non ne è stata definita alcuna nella query. La maggior parte dei Gestione risorse tipi di risorse e le proprietà sono disponibili qui. |
-|ResourceContainers |Include i dati e i tipi di risorse della sottoscrizione (`Microsoft.Resources/subscriptions`) e del gruppo di risorse (`Microsoft.Resources/subscriptions/resourcegroups`). |
+|ResourceContainers |Include i dati e i tipi di risorse della sottoscrizione (in anteprima-`Microsoft.Resources/subscriptions`) e del gruppo di risorse (`Microsoft.Resources/subscriptions/resourcegroups`). |
 |AlertsManagementResources |Include le risorse _correlate_ a `Microsoft.AlertsManagement`. |
 |SecurityResources |Include le risorse _correlate_ a `Microsoft.Security`. |
 
@@ -51,8 +51,8 @@ La query seguente illustra un uso più complesso di `join`. La query limita la t
 
 ```kusto
 Resources
-| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
 | where type == 'microsoft.keyvault/vaults'
+| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
 | project type, name, SubName
 | limit 1
 ```
@@ -83,14 +83,14 @@ Di seguito è riportato l'elenco degli operatori tabulari KQL supportati da Reso
 |[summarize](/azure/kusto/query/summarizeoperator) |[Contare le risorse di Azure](../samples/starter.md#count-resources) |Solo la prima pagina è stata semplificata |
 |[take](/azure/kusto/query/takeoperator) |[Elencare tutti gli indirizzi IP pubblici](../samples/starter.md#list-publicip) |Sinonimo di `limit` |
 |[top](/azure/kusto/query/topoperator) |[Mostrare le prime cinque macchine virtuali per nome e tipo di sistema operativo](../samples/starter.md#show-sorted) | |
-|[union](/azure/kusto/query/unionoperator) |[Combinare i risultati di due query in un unico risultato](../samples/advanced.md#unionresults) |Singola tabella consentita: _T_ `| union` \[ @ no__t-3 `inner` @ no__t-5 @ no__t-6 @ no__t-7 \[ @ no__t-9_ColumnName_1 _Table_. Limite di 3 `union` gambe in un'unica query. Non è consentita la risoluzione fuzzy di tabelle `union`. Può essere utilizzato all'interno di una singola tabella o tra le _risorse_ e le tabelle _ResourceContainers_ . |
+|[union](/azure/kusto/query/unionoperator) |[Combinare i risultati di due query in un unico risultato](../samples/advanced.md#unionresults) |Singola tabella consentita: _T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=` _tabella_ _ColumnName_ 1. Limite di 3 `union` gambe in un'unica query. Non è consentita la risoluzione fuzzy di tabelle `union`. Può essere utilizzato all'interno di una singola tabella o tra le _risorse_ e le tabelle _ResourceContainers_ . |
 |[where](/azure/kusto/query/whereoperator) |[Mostrare le risorse che contengono archivi](../samples/starter.md#show-storage) | |
 
 ## <a name="escape-characters"></a>Caratteri di escape
 
 Per alcuni nomi di proprietà, ad esempio quelli che includono un `.` o `$`, è necessario eseguire il wrapped o il carattere di escape nella query oppure il nome della proprietà non viene interpretato correttamente e non fornisce i risultati previsti.
 
-- `.`-eseguire il wrapping del nome della proprietà come segue: `['propertyname.withaperiod']`
+- `.` eseguire il wrapping del nome della proprietà come segue: `['propertyname.withaperiod']`
   
   Query di esempio che esegue il wrapping della proprietà _OData. Type_:
 
@@ -100,7 +100,7 @@ Per alcuni nomi di proprietà, ad esempio quelli che includono un `.` o `$`, è 
 
 - `$`-escape per il carattere nel nome della proprietà. Il carattere di escape usato dipende dal grafico delle risorse della shell che viene eseguito da.
 
-  - **bash** -  @ no__t-2
+  - **bash**  -  `\`
 
     Query di esempio che esegue l'escape della proprietà _\$type_ in bash:
 
