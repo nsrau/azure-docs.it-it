@@ -1,0 +1,48 @@
+- name: Creare applicazioni per dispositivi mobili reali con i servizi Microsoft
+  href: index.md
+- name: Fasi della creazione di app per dispositivi mobili
+  items:
+    - name: Panoramica
+      href: stages-overview.md
+    - name: Scegliere il framework di sviluppo per dispositivi mobili
+      href: front-end-development-platform.md
+    - name: Pianificare e progettare app per dispositivi mobili con servizi back-end
+      items:
+        - name: Authentication
+          href: authentication.md
+        - name: Archiviazione dei dati
+          href: data-storage.md
+        - name: Calcolo serverless
+          href: serverless-compute.md
+        - name: Archiviazione di Azure
+          href: azure-storage.md
+        - name: App in tempo reale
+          href: real-time.md
+    - name: Controllo del codice sorgente
+      href: code-hosting-services.md
+    - name: DevOps
+      items:
+        - name: Informazioni su DevOps
+          href: devops.md
+        - name: Creazione e integrazione continue
+          href: continuous-integration.md
+        - name: Test su dispositivi reali
+          href: test.md
+        - name: Recapito continuo
+          href: continuous-delivery.md
+    - name: Analizzare l'utilizzo e il comportamento degli utenti
+      href: analytics.md
+    - name: Report sugli arresti anomali in tempo reale
+      href: diagnostics.md
+    - name: Notifiche push
+      href: push-notifications.md
+- name: Servizi aggiuntivi
+  items:
+    - name: Servizi cognitivi di Azure
+      href: cognitive-services.md
+    - name: Mappe di Azure
+      href: azure-maps.md
+    - name: Rete CDN di Azure
+      href: azure-cdn.md
+    - name: Ricerca di Azure
+      href: azure-search.md

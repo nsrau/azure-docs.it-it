@@ -3,19 +3,19 @@ title: Moderare le immagini con la console dell'API - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Usare l'API di moderazione di immagini in Azure Content Moderator per avviare flussi di lavoro di moderazione di analisi e revisione per il contenuto delle immagini.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 20353d488cba255925d21017b77d1def2d06b30b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: aa3b6ce886b06c32e9e4515469099a5b31ff49e3
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561255"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757213"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Moderare le immagini dalla console dell'API
 
@@ -54,7 +54,7 @@ Prima di poter eseguire il test drive dell'API nella console online, è necessar
 
    ![Punteggio di probabilità e determinazione delle condizioni nella console Try Image - Evaluate (Prova immagine - Valutazione)](images/try-image-api-3.PNG)
 
-## <a name="face-detection"></a>Rilevamento del viso
+## <a name="face-detection"></a>Rilevamento facciale
 
 È possibile usare l'API di moderazione immagini per individuare i visi in un'immagine. Questa opzione può essere utile quando si hanno problemi di privacy e si vuole impedire che un viso specifico venga pubblicato sulla piattaforma. 
 

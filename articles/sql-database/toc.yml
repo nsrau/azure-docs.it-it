@@ -719,6 +719,8 @@
           href: sql-database-managed-instance-aad-security-tutorial.md
         - name: Aggiungere l'istanza gestita a un gruppo di failover
           href: sql-database-managed-instance-failover-group-tutorial.md
+        - name: Eseguire la migrazione di utenti e gruppi locali
+          href: tutorial-managed-instance-azure-active-directory-migration.md
     - name: Concetti
       items:
         - name: Informazioni di riferimento sull'API Gestione

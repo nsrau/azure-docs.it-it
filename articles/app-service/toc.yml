@@ -123,6 +123,8 @@
               href: deploy-continuous-deployment.md
             - name: Eseguire la distribuzione dall'archivio Git locale
               href: deploy-local-git.md
+            - name: Eseguire la distribuzione con azioni di GitHub
+              href: deploy-github-actions.md
             - name: Eseguire la distribuzione con un modello
               href: deploy-complex-application-predictably.md
         - name: Reimpostare le credenziali di distribuzione

@@ -3,19 +3,19 @@ title: Usare i processi di moderazione con .NET-Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Usare Content Moderator .NET SDK per avviare i processi di moderazione dei contenuti end-to-end per il contenuto di immagini o testo in Azure Content Moderator.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: sajagtap
-ms.openlocfilehash: bc20af10e2e5b2ceb26c1cc891a8f69eb44e5740
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: c6925b979e5a93a2d73c2d6e8ac48f62714a5cd0
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242878"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757334"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>Definire e usare processi di moderazione (.NET)
 
@@ -32,7 +32,7 @@ Un processo di moderazione funge da wrapper per la funzionalità di moderazione 
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Verificare che la chiave API possa chiamare l'API di verifica per la creazione della revisione
 
-Dopo aver completato i passaggi precedenti, si potrebbero avere due chiavi di Content Moderator se la procedura è stata avviata dal portale di Azure.
+Dopo aver completato i passaggi precedenti, potrebbero esserci due chiavi Content Moderator se la procedura è stata avviata dal portale di Azure.
 
 Se si prevede di usare la chiave API fornita da Azure nell'esempio di SDK, seguire i passaggi indicati nella sezione [Usare la chiave di Azure con l'API di revisione](./review-tool-user-guide/configure.md#use-your-azure-account-with-the-review-apis) per consentire all'applicazione di chiamare l'API di revisione e creare revisioni.
 
@@ -51,7 +51,7 @@ Usare il nome del flusso di lavoro nel codice che avvia il processo di moderazio
 
    Nel codice di esempio assegnare al progetto il nome **CreateReviews**.
 
-1. Selezionare questo progetto come progetto di avvio singolo per la soluzione.
+1. Selezionare il progetto come progetto di avvio singolo per la soluzione.
 
 ### <a name="install-required-packages"></a>Installare i pacchetti necessari
 
@@ -242,7 +242,7 @@ using (TextWriter writer = new StreamWriter(OutputFile, false))
 > [!NOTE]
 > La chiave del servizio Content Moderator ha un limite di frequenza di richieste al secondo (RPS). Se si supera il limite, l'SDK genera un'eccezione con il codice di errore 429.
 >
-> Una chiave di livello gratuito prevede un unico limite di frequenza RPS.
+> Una chiave di livello gratuito prevede un limite di frequenza di richieste al secondo pari a uno.
 
 ## <a name="run-the-program-and-review-the-output"></a>Eseguire il programma ed esaminare l'output
 
@@ -255,7 +255,7 @@ Then, press any key to continue.
 
 Accedere allo strumento di revisione di Content Moderator per visualizzare la revisione dell'immagine in sospeso.
 
-Fare clic su **Avanti** per inviare.
+Fare clic su **Next** (Avanti) per inviare.
 
 ![Revisione di immagini per moderatori umani](images/ocr-sample-image.PNG)
 
@@ -299,7 +299,7 @@ Get review details.
 
 ## <a name="your-callback-url-if-provided-receives-this-response"></a>L'URL di callback, se specificato, riceve la risposta
 
-Viene visualizzata una risposta simile all'esempio seguente:
+Verrà visualizzata una risposta simile all'esempio seguente:
 
 > [!NOTE]
 > Nella risposta di callback le stringhe **ContentId** e **WorkflowId** riflettono i valori usati in precedenza.

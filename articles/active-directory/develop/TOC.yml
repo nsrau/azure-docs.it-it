@@ -59,6 +59,8 @@
           items:
             - name: Console .NET Core (daemon)
               href: quickstart-v2-netcore-daemon.md
+            - name: Console daemon Python
+              href: quickstart-v2-python-daemon.md
             - name: App Web daemon ASP.NET
               href: 'https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2'
     - name: Esercitazioni

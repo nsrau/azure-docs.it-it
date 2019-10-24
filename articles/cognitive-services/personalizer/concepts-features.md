@@ -1,7 +1,7 @@
 ---
-title: 'Caratteristiche: Azione e contesto - Personalizza esperienze'
+title: 'Funzionalità: azione e contesto-personalizzatore'
 titleSuffix: Azure Cognitive Services
-description: Personalizza esperienze usa caratteristiche, ossia informazioni su azioni e contesto, per fornire suggerimenti più accurati per la classificazione. Le caratteristiche possono essere molto generiche o specifiche di un elemento.
+description: Personalizza esperienze usa caratteristiche, ossia informazioni su azioni e contesto, per fornire suggerimenti più accurati per la classificazione. Possono essere molto generiche o specifiche di un elemento.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: diberry
-ms.openlocfilehash: db54a71a6bd252c1ca60ae356cbf340bc660d142
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2147ca2565d5977e3e47d5182627483aa3d8d1b2
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989096"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756097"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Le caratteristiche sono informazioni su azioni e contesto
 
@@ -25,7 +25,7 @@ Personalizza esperienze usa le **caratteristiche**, ossia informazioni sul **con
 
 Ad esempio, una **caratteristica** potrebbe riguardare:
 
-* _Persona utente_ , ad esempio `Sports_Shopper`. Questo non deve essere un ID utente singolo. 
+* _Persona utente_ , ad esempio un `Sports_Shopper`. Questo non deve essere un ID utente singolo. 
 * Il _contenuto_, ad esempio se un video è di tipo `Documentary`, `Movie` o `TV Series` oppure se un articolo è o meno disponibile per la vendita nel negozio.
 * Il periodo di tempo _corrente_, ad esempio il giorno della settimana.
 
@@ -43,8 +43,8 @@ Personalizza esperienze supporta caratteristiche di tipo stringa, numerico e boo
 
 ### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Effetti della scelta del tipo di funzionalità sui Machine Learning in personalizzatore
 
-* **Stringhe**: Per i tipi di stringa, ogni combinazione di chiave e valore crea nuovi pesi nel modello di Machine Learning di personalizzazione. 
-* **Numerico**: È consigliabile utilizzare valori numerici quando il numero deve influenzare proporzionalmente il risultato della personalizzazione. Si tratta di uno scenario molto dipendente. In un esempio semplificato, ad esempio, quando si Personalizza un'esperienza di vendita al dettaglio, NumberOfPetsOwned potrebbe essere una funzionalità che è numerica perché si vuole che gli utenti con 2 o 3 animali possano influenzare il risultato della personalizzazione due volte o tre volte più che avere 1 animale. Le funzionalità basate su unità numeriche ma in cui il significato non è lineare, ad esempio età, temperatura o altezza della persona, sono codificate in modo ottimale come stringhe e la qualità della funzionalità può in genere essere migliorata usando gli intervalli. Ad esempio, Age può essere codificato come "Age": "0-5", "Age": "6-10" e così via.
+* **Stringhe**: per i tipi di stringa, ogni combinazione di chiave e valore crea nuovi pesi nel modello di apprendimento automatico di personalizzazione. 
+* **Numeric**: è consigliabile usare valori numerici quando il numero deve influenzare proporzionalmente il risultato della personalizzazione. Si tratta di uno scenario molto dipendente. In un esempio semplificato, ad esempio, quando si Personalizza un'esperienza di vendita al dettaglio, NumberOfPetsOwned potrebbe essere una funzionalità che è numerica perché si vuole che gli utenti con 2 o 3 animali possano influenzare il risultato della personalizzazione due volte o tre volte più che avere 1 animale. Le funzionalità basate su unità numeriche ma in cui il significato non è lineare, ad esempio età, temperatura o altezza della persona, sono codificate in modo ottimale come stringhe e la qualità della funzionalità può in genere essere migliorata usando gli intervalli. Ad esempio, Age può essere codificato come "Age": "0-5", "Age": "6-10" e così via.
 * I valori **booleani** inviati con il valore "false" agiscono come se non fossero stati inviati.
 
 Le caratteristiche non presenti dovranno essere omesse dalla richiesta. Evitare di inviare caratteristiche con un valore Null, perché verrà elaborato come esistente e con un valore "null" quando si esegue il training del modello.
@@ -56,7 +56,7 @@ Personalizza esperienze accetta caratteristiche organizzate in spazi dei nomi. �
 Di seguito sono riportati esempi di spazi dei nomi di caratteristiche usati dalle applicazioni:
 
 * User_Profile_from_CRM
-* Time
+* Durata
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
@@ -69,7 +69,7 @@ Di seguito sono riportati esempi di spazi dei nomi di caratteristiche usati dall
 È possibile assegnare nomi agli spazi dei nomi di caratteristiche in base alle proprie convenzioni, purché siano chiavi JSON valide. Gli spazi dei nomi vengono usati per organizzare le funzionalità in Set distinti e per distinguere le funzionalità con nomi simili. È possibile considerare gli spazi dei nomi come un'prefisso ' aggiunto ai nomi delle funzionalità. Gli spazi dei nomi non possono essere annidati.
 
 
-Nel codice JSON seguente `user`, `state` e `device` sono spazi dei nomi di caratteristiche. Nota di anteprima pubblica: Attualmente è consigliabile usare nomi per gli spazi dei nomi delle funzionalità che sono basati su UTF-8 e iniziano con lettere diverse. Ad `user`esempio `device` `u`,, e iniziano con ,`s`e .`d` `state` Attualmente gli spazi dei nomi con gli stessi caratteri iniziali potrebbero causare collisioni negli indici usati per Machine Learning.
+Nel codice JSON seguente `user`, `state` e `device` sono spazi dei nomi di caratteristiche. Nota di anteprima pubblica: attualmente è consigliabile usare nomi per gli spazi dei nomi delle funzionalità che sono basati su UTF-8 e iniziano con lettere diverse. Ad esempio, `user`, `state` e `device` iniziano con `u`, `s` e `d`. Attualmente gli spazi dei nomi con gli stessi caratteri iniziali potrebbero causare collisioni negli indici usati per Machine Learning.
 
 Gli oggetti JSON possono includere oggetti JSON annidati e valori/proprietà semplici. Una matrice può essere inclusa solo se gli elementi della matrice sono numeri. 
 
@@ -97,6 +97,13 @@ Gli oggetti JSON possono includere oggetti JSON annidati e valori/proprietà sem
     ]
 }
 ```
+
+### <a name="restrictions-in-character-sets-for-namespaces"></a>Restrizioni nei set di caratteri per gli spazi dei nomi
+
+La stringa utilizzata per la denominazione dello spazio dei nomi deve seguire alcune restrizioni: 
+* Non può essere Unicode.
+* È possibile utilizzare alcuni dei simboli stampabili con i codici < 256 per i nomi degli spazi dei nomi. 
+* Non è possibile usare i simboli con i codici < 32 (non stampabile), 32 (spazio), 58 (due punti), 124 (pipe) e 126-140.
 
 ## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Come rendere più efficaci i set di caratteristiche per Personalizza esperienze
 
@@ -133,7 +140,7 @@ L'intelligenza artificiale e i servizi cognitivi pronti per l'esecuzione possono
 
 Pre-elaborando gli elementi con i servizi di intelligenza artificiale, è possibile estrarre automaticamente le informazioni che saranno probabilmente più pertinenti per la personalizzazione.
 
-Ad esempio:
+ad esempio:
 
 * È possibile eseguire il file di un film tramite [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) per estrarre elementi delle scene, testo, sentiment e molti altri attributi. Questi attributi possono quindi essere resi più densi in base a caratteristiche non presenti nei metadati degli elementi originali. 
 * È possibile eseguire immagini tramite rilevamento di oggetti, visi tramite sentiment e così via.
@@ -166,14 +173,14 @@ Non inviare più di 50 azioni per la classificazione delle azioni. Può trattars
 
 Le azioni da inviare all'API Classifica cambiano in base a quello che si prova a personalizzare.
 
-Ecco alcuni esempi:
+Di seguito sono riportati alcuni esempi:
 
-|Scopo|Azione|
+|Finalità|Azione|
 |--|--|
 |Personalizzare l'articolo da evidenziare in un sito Web di notizie.|Ogni azione è un potenziale articolo di notizie.|
 |Ottimizzare il posizionamento degli annunci in un sito Web.|Ogni azione sarà costituita da un layout o da regole per creare un layout per gli annunci (ad esempio in alto, a destra, immagini piccole, immagini grandi).|
 |Visualizzare una classifica personalizzata di articoli consigliati in un sito Web di acquisti.|Ogni azione corrisponde a un prodotto specifico.|
-|Suggerire elementi dell'interfaccia utente, come i filtri da applicare a una specifica foto.|Ogni azione può essere un filtro diverso.|
+|Suggerire elementi dell'interfaccia utente, come filtri da applicare a una specifica foto.|Ogni azione può essere un filtro diverso.|
 |Scegliere la risposta di un chatbot per chiarire le finalità dell'utente o suggerire un'azione.|Ogni azione corrisponde a un'opzione su come interpretare la risposta.|
 |Scegliere la voce da visualizzare all'inizio di un elenco di risultati della ricerca|Ogni azione corrisponde a uno dei primi risultati della ricerca.|
 

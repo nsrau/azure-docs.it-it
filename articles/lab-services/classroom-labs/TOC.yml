@@ -1,0 +1,92 @@
+- name: Documentazione di Lab Services
+  href: index.yml
+- name: Passa alla documentazione di DevTest Labs
+  href: ../devtest-lab-overview.md
+- name: Panoramica
+  items:
+    - name: Informazioni sui lab per le classi
+      href: classroom-labs-overview.md
+    - name: Informazioni su Lab Services e DevTest Labs
+      href: ../lab-services-overview.md?toc=%2fazure%2flab-services%2fclassroom-labs%2ftoc.json
+- name: Esercitazioni
+  items:
+    - name: Configurare un account Lab
+      href: tutorial-setup-lab-account.md
+    - name: Configurare un lab per le classi
+      href: tutorial-setup-classroom-lab.md
+    - name: Accedere a un lab per le classi
+      href: tutorial-connect-virtual-machine-classroom-lab.md
+    - name: Tenere traccia dell'utilizzo di un lab per le classi
+      href: tutorial-track-usage.md
+- name: Concetti
+  items:
+    - name: Concetti sui lab per le classi
+      href: classroom-labs-concepts.md
+    - name: Scenari
+      items:
+        - name: Usare i lab per gestire le classi
+          href: classroom-labs-scenarios.md
+- name: Guide alle procedure
+  items:
+    - name: Lab per le classi - Tipi di classe
+      items:
+        - name: Panoramica dei tipi di classi
+          href: class-types.md
+        - name: Deep Learning nell'elaborazione naturale
+          href: class-type-deep-learning-natural-processing.md
+        - name: Script della shell in Linux
+          href: class-type-shell-scripting-linux.md
+        - name: Hacking etico
+          href: class-type-ethical-hacking.md
+    - name: Creare e configurare account lab (proprietario di account lab)
+      items:
+        - name: Creare e gestire account di lab
+          href: how-to-manage-lab-accounts.md
+        - name: Configurare account di lab
+          href: how-to-configure-lab-accounts.md
+        - name: Connettere i lab a una rete virtuale peer
+          href: how-to-connect-peer-virtual-network.md
+        - name: Collegare o scollegare una raccolta immagini condivisa
+          href: how-to-attach-detach-shared-image-gallery.md
+    - name: Creare e configurare lab per le classi (istruttore)
+      items:
+        - name: Creare e gestire i lab per le classi
+          href: how-to-manage-classroom-labs.md
+        - name: 'Configurare, personalizzare e pubblicare modelli'
+          href: how-to-create-manage-template.md
+        - name: Configurare e gestire il pool di macchine virtuali
+          href: how-to-set-virtual-machine-passwords.md
+        - name: Aggiungere e gestire gli utenti del lab
+          href: how-to-configure-student-usage.md
+        - name: Creare e gestire pianificazioni
+          href: how-to-create-schedules.md
+        - name: Usare raccolta immagini condivisa
+          href: how-to-use-shared-image-gallery.md
+        - name: Abilitare Connessione desktop remoto per Linux
+          href: how-to-enable-remote-desktop-linux.md
+        - name: Abilitare la virtualizzazione annidata in una VM modello
+          href: how-to-enable-nested-virtualization-template-vm.md
+        - name: Creare un ambiente con più macchine virtuali all'interno di un modello di macchina virtuale
+          href: how-to-enable-multi-vm-environment.md
+    - name: Connettersi a una macchina virtuale in lab per le classi (studente)
+      items:
+        - name: Accedere ai lab per le classi
+          href: how-to-use-classroom-lab.md
+        - name: Usare Connessione desktop remoto per macchine virtuali Linux
+          href: how-to-use-remote-desktop-linux-student.md
+        - name: Impostare o reimpostare le password per le macchine virtuali
+          href: how-to-set-virtual-machine-passwords-student.md
+- name: riferimento
+  items:
+    - name: API REST
+      href: 'https://docs.microsoft.com/rest/api/labservices/'
+- name: Risorse
+  items:
+    - name: Aggiornamenti di Azure
+      href: 'https://azure.microsoft.com/updates/?product=lab-services'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/lab-services/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-lab-services'
+    - name: Domande frequenti
+      href: classroom-labs-faq.md

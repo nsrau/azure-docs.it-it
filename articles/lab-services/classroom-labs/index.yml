@@ -1,0 +1,79 @@
+### YamlMime:Landing
+title: Documentazione di Azure Lab Services
+summary: Informazioni su come usare Azure Lab Services per configurare rapidamente un lab per la classe o di sviluppo, test o hackathon per il team o gli studenti nel cloud.
+metadata:
+  title: Documentazione di Azure Lab Services
+  description: Informazioni su come usare Azure Lab Services per configurare rapidamente un lab per la classe o di sviluppo, test o hackathon per il team o gli studenti nel cloud.
+  services: lab-services
+  ms.service: lab-services
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: collection
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 09/26/2019
+  ms.openlocfilehash: cce45b3c38924a290c2b44379df060ecf636e982
+  ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 10/23/2019
+  ms.locfileid: "72795031"
+landingContent:
+- title: Panoramica generale
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni sui lab per le classi
+      url: classroom-labs-overview.md
+    - text: Informazioni su DevTest Labs e Lab Services
+      url: ../lab-services-overview.md?toc=%2fazure%2fevent-grid%2fclassroom-labs%2ftoc.json
+  - linkListType: concept
+    links:
+    - text: Concetti sui lab per le classi
+      url: classroom-labs-concepts.md
+- title: Account lab
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Configurare un account Lab
+      url: tutorial-setup-lab-account.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creare e gestire account di lab
+      url: how-to-manage-lab-accounts.md
+    - text: Configurare account di lab
+      url: how-to-configure-lab-accounts.md
+- title: Configurare lab per le classi
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Configurare un lab per le classi
+      url: tutorial-setup-classroom-lab.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creare e gestire i lab per le classi
+      url: how-to-manage-lab-accounts.md
+    - text: Configurare, personalizzare e pubblicare modelli
+      url: how-to-create-manage-template.md
+    - text: Configurare e gestire il pool di macchine virtuali
+      url: how-to-set-virtual-machine-passwords.md
+    - text: Aggiungere e gestire gli utenti del lab
+      url: how-to-configure-student-usage.md
+    - text: Creare e gestire pianificazioni
+      url: how-to-create-schedules.md
+- title: Usare lab per le classi
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Accedere a un lab per le classi
+      url: tutorial-connect-virtual-machine-classroom-lab.md
+  - linkListType: how-to-guide
+    links:
+    - text: Usare Connessione desktop remoto per macchine virtuali Linux
+      url: how-to-use-remote-desktop-linux-student.md
+- title: Esplorare il contenuto di riferimento
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: REST
+      url: /rest/api/labservices/

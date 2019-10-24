@@ -639,6 +639,8 @@
                   href: insights/vminsights-workbooks.md
                 - name: Analizzare i dati con le query sui log
                   href: insights/vminsights-log-search.md
+                - name: Aggiornare Dependency Agent
+                  href: insights/vminsights-dependency-agent-maintenance.md
                 - name: Disabilitare il monitoraggio
                   href: insights/vminsights-optout.md
             - name: Soluzione Capacità e prestazioni

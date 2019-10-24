@@ -3,19 +3,19 @@ title: Controllare testo in base a un elenco personalizzato di termini in C# - C
 titleSuffix: Azure Cognitive Services
 description: Come moderare testo con elenchi di termini personalizzati usando Content Moderator SDK per C#.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
-ms.author: sajagtap
-ms.openlocfilehash: d1c2f8b06d333be23f25a2d150c23269bf84cd2e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: 272063c3fcc77c76536dbd007b1ab0132a565e61
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242839"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757258"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Controllare testo in base a un elenco personalizzato di termini in C#
 
@@ -42,7 +42,7 @@ Per usare i servizi Content Moderator tramite l'API REST o l'SDK, è necessaria 
 
 1. Aggiungere un nuovo progetto **App console (.NET Framework)** alla soluzione.
 
-1. Assegnare al progetto il nome **TermLists**. Selezionare questo progetto come progetto di avvio singolo per la soluzione.
+1. Assegnare al progetto il nome **TermLists**. Selezionare il progetto come progetto di avvio singolo per la soluzione.
 
 ### <a name="install-required-packages"></a>Installare i pacchetti necessari
 
@@ -146,7 +146,7 @@ private const double latencyDelay = 0.5;
 Si crea un elenco di termini con **ContentModeratorClient.ListManagementTermLists.Create**. Il primo parametro per **Create** è una stringa contenente un tipo MIME, che deve essere "application/json". Per altre informazioni, vedere le [informazioni di riferimento sull'API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). Il secondo parametro è un oggetto **Body** contenente un nome e una descrizione per il nuovo elenco di termini.
 
 > [!NOTE]
-> È previsto un limite massimo di **cinque elenchi di termini** e ogni elenco **non può includere più di 10.000 termini**.
+> È previsto un limite massimo di **cinque elenchi di termini** e ogni elenco **non può includere più di 10.000 immagini**.
 
 Aggiungere la definizione di metodo seguente allo spazio dei nomi TermLists, classe Program.
 
@@ -274,10 +274,10 @@ Si filtra il testo usando un elenco di termini con **ContentModeratorClient.Text
 - Un tipo MIME, che può essere "text/html", "text/xml", "text/markdown" o "text/plain".
 - Il testo da filtrare.
 - Un valore booleano. Impostare questo campo su **true** per correggere automaticamente il testo prima di filtrarlo.
-- Un valore booleano. Impostare questo campo su **true** per rilevare le informazioni di identificazione personale nel testo.
+- Un valore booleano. Impostare questo campo su **true** per rilevare i dati personali nel testo.
 - L'ID dell'elenco di termini.
 
-Per altre informazioni, vedere le [informazioni di riferimento sulle API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
+Per altre informazioni, vedere le [informazioni di riferimento sull'API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
 
 **ScreenText** restituisce un oggetto **Screen**, che ha una proprietà **Terms** che elenca i termini rilevati da Content Moderator durante lo screening. Si noti che, se Content Moderator non ha rilevato termini durante lo screening, la proprietà **Terms** ha il valore **null**.
 
