@@ -1,18 +1,18 @@
 ---
 title: Impostare la scadenza dei dati in Cosmos DB usando la durata (TTL)
 description: Con l'impostazione TTL, Microsoft Azure Cosmos DB offre la possibilità di eliminare automaticamente i documenti dal sistema dopo un periodo di tempo determinato.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: c3e1c4f56c641bf5bfa189836a4bcdf99672a3c1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: f66508a4794b8009523cc2820efe0156b4a9e2f6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597494"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756856"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Durata (TTL) in Azure Cosmos DB 
 
@@ -48,7 +48,7 @@ Il valore di durata (TTL) viene impostato in secondi e viene interpretato come u
 
 L'eliminazione di elementi in base alla durata (TTL) è gratuita. Non vengono applicati costi aggiuntivi (ossia non vengono utilizzate UR aggiuntive) quando un elemento viene eliminato in seguito alla scadenza della durata.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 Questa sezione illustra alcuni esempi con valori di durata (TTL) diversi assegnati a contenitori ed elementi:
 

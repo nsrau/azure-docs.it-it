@@ -4,28 +4,28 @@ description: Visualizzare la cronologia delle attività e dei controlli per i ru
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e1ed018f66d4f5eefd02d587504cf64969f47b
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 0c9a58fb6cd8591f571b4e65c3ab88cc59e38cda
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804042"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756321"
 ---
-# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Visualizzare la cronologia delle attività e dei controlli per i ruoli delle risorse di Azure in PIM
+# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Visualizzare la cronologia delle attività e dei controlli per i ruoli delle risorse di Azure in Privileged Identity Management
 
-Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), è possibile visualizzare la cronologia di attività, attivazioni e controlli per i ruoli delle risorse di Azure all'interno dell'organizzazione, tra cui sottoscrizioni, gruppi di risorse e anche macchine virtuali. Ogni risorsa nel portale di Azure che sfrutta la funzionalità Controllo degli accessi in base al ruolo di Azure può usare tutte le funzionalità di sicurezza e gestione del ciclo di vita in PIM.
+Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), è possibile visualizzare la cronologia di attività, attivazioni e controlli per i ruoli delle risorse di Azure all'interno dell'organizzazione, tra cui sottoscrizioni, gruppi di risorse e anche macchine virtuali. Tutte le risorse all'interno del portale di Azure che sfruttano la funzionalità controllo degli accessi in base al ruolo di Azure possono sfruttare le funzionalità di sicurezza e gestione del ciclo di vita di Privileged Identity Management.
 
 ## <a name="view-activity-and-activations"></a>Visualizzare l'attività e le attivazioni
 
@@ -51,7 +51,7 @@ Se è necessario verificare quali azioni sono state effettuate da un utente spec
 
 ## <a name="export-role-assignments-with-children"></a>Esportare le assegnazioni di ruolo con gli elementi figlio
 
-Potrebbe essere previsto un requisito di conformità in base al quale è necessario fornire un elenco completo di assegnazione di ruolo ai revisori. PIM consente di eseguire query delle assegnazioni di ruolo in una risorsa specifica, incluse le assegnazioni di ruolo per tutte le risorse figlio. In precedenza, era difficile per gli amministratori ottenere un elenco completo delle assegnazioni di ruolo per una sottoscrizione. Per questo era necessario esportare le assegnazioni di ruolo per ogni risorsa specifica. Con PIM è possibile cercare tutte le assegnazioni di ruolo attive e idonee di una sottoscrizione, incluse quelle per tutti i gruppi di risorse e tutte le risorse.
+Potrebbe essere previsto un requisito di conformità in base al quale è necessario fornire un elenco completo di assegnazione di ruolo ai revisori. Privileged Identity Management consente di eseguire query sulle assegnazioni di ruolo in una risorsa specifica, incluse le assegnazioni di ruolo per tutte le risorse figlio. In precedenza risultava difficile per gli amministratori ottenere un elenco completo di assegnazioni di ruolo per una sottoscrizione ed era necessario esportare le assegnazioni di ruolo per ogni risorsa specifica. Utilizzando Privileged Identity Management, è possibile eseguire una query per tutte le assegnazioni di ruolo attive e idonee in una sottoscrizione, incluse le assegnazioni di ruolo per tutti i gruppi di risorse e le risorse.
 
 1. Aprire **Azure AD Privileged Identity Management**.
 
@@ -67,7 +67,7 @@ Potrebbe essere previsto un requisito di conformità in base al quale è necessa
 
 1. Fare clic su **Esporta tutti i membri** per esportare tutte le assegnazioni di ruolo in un file CSV.
 
-    ![Assegnazioni di ruolo esportate nel file con estensione CSV come visualizzato in Excel](media/azure-pim-resource-rbac/export-csv.png)
+    ![Assegnazioni di ruolo esportate nel file CSV come visualizzate in Excel](media/azure-pim-resource-rbac/export-csv.png)
 
 ## <a name="view-resource-audit-history"></a>Visualizzare la cronologia dei controlli delle risorse
 
@@ -111,6 +111,6 @@ Controllo personale consente di visualizzare l'attività del ruolo personale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Assegnare i ruoli delle risorse di Azure in PIM](pim-resource-roles-assign-roles.md)
-- [Approvare o rifiutare le richieste per i ruoli delle risorse di Azure in PIM](pim-resource-roles-approval-workflow.md)
-- [Visualizzare la cronologia di controllo per i ruoli Azure AD in PIM](pim-how-to-use-audit-log.md)
+- [Assegnare i ruoli delle risorse di Azure in Privileged Identity Management](pim-resource-roles-assign-roles.md)
+- [Approva o rifiuta le richieste per i ruoli delle risorse di Azure in Privileged Identity Management](pim-resource-roles-approval-workflow.md)
+- [Visualizzare la cronologia di controllo per i ruoli di Azure AD in Privileged Identity Management](pim-how-to-use-audit-log.md)

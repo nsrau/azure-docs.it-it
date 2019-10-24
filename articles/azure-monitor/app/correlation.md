@@ -8,12 +8,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: aa683e90a328e9525fa7d0a78981aa107818188a
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: df93405940c02affa224fba2d2e6f07ce5278b15
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678180"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755361"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -214,6 +214,82 @@ La [specifica del modello di dati OpenTracing](https://opentracing.io/) e i mode
 Per altre informazioni, vedere [Modello di dati di Application Insights Telemetry](../../azure-monitor/app/data-model.md). 
 
 Per le definizioni dei concetti di OpenTracing, vedere la [specifica](https://github.com/opentracing/specification/blob/master/specification.md) e le [convenzioni semantiche](https://github.com/opentracing/specification/blob/master/semantic_conventions.md).
+
+## <a name="telemetry-correlation-in-opencensus-python"></a>Correlazione di dati di telemetria in OpenCensus Python
+
+OpenCensus Python segue le specifiche del modello di dati `OpenTracing` illustrate in precedenza. Supporta inoltre il [contesto di traccia W3C](https://w3c.github.io/trace-context/) senza la necessità di alcuna configurazione.
+
+### <a name="incoming-request-correlation"></a>Correlazione delle richieste in ingresso
+
+OpenCensus Python mette in correlazione le intestazioni del contesto di traccia W3C dalle richieste in ingresso agli intervalli generati dalle richieste stesse. OpenCensus eseguirà questa operazione automaticamente con integrazioni per i Framework di applicazioni Web più diffusi, ad esempio `flask`, `django` e `pyramid`. Le intestazioni del contesto di traccia W3C devono semplicemente essere popolate con il [formato corretto](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)e inviate con la richiesta. Di seguito è riportato un esempio `flask` applicazione che illustra questa operazione.
+
+```python
+from flask import Flask
+from opencensus.ext.azure.trace_exporter import AzureExporter
+from opencensus.ext.flask.flask_middleware import FlaskMiddleware
+from opencensus.trace.samplers import ProbabilitySampler
+
+app = Flask(__name__)
+middleware = FlaskMiddleware(
+    app,
+    exporter=AzureExporter(),
+    sampler=ProbabilitySampler(rate=1.0),
+)
+
+@app.route('/')
+def hello():
+    return 'Hello World!'
+
+if __name__ == '__main__':
+    app.run(host='localhost', port=8080, threaded=True)
+```
+
+Viene eseguita un'applicazione `flask` di esempio nel computer locale, in ascolto della porta `8080`. Per correlare il contesto della traccia, viene inviata una richiesta all'endpoint. In questo esempio è possibile usare un comando `curl`.
+```
+curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" localhost:8080
+```
+Esaminando il [formato dell'intestazione del contesto di traccia](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format), si derivano le informazioni seguenti: `version`: `00` 
+ `trace-id`: `4bf92f3577b34da6a3ce929d0e0e4736` 
+ `parent-id/span-id`: `00f067aa0ba902b7` 
+ 0: 1
+
+Se si esamina la voce della richiesta inviata a monitoraggio di Azure, è possibile visualizzare i campi popolati con le informazioni di intestazione della traccia.
+
+![Screenshot dei dati di telemetria delle richieste nei log (Analytics) con campi di intestazione della traccia evidenziati nella casella rossa](./media/opencensus-python/0011-correlation.png)
+
+Il campo `id` è nel formato `<trace-id>.<span-id>`, in cui il `trace-id` viene ricavato dall'intestazione di traccia passata nella richiesta e il `span-id` è una matrice a 8 byte generata per questo intervallo. 
+
+Il campo `operation_ParentId` è nel formato `<trace-id>.<parent-id>`, in cui sia il `trace-id` che il `parent-id` vengono ricavati dall'intestazione di traccia passata nella richiesta.
+
+### <a name="logs-correlation"></a>Correlazione dei log
+
+OpenCensus Python consente la correlazione dei log arricchindo i record di log con ID traccia, ID span e flag di campionamento. Questa operazione viene eseguita installando l' [integrazione di registrazione](https://pypi.org/project/opencensus-ext-logging/)OpenCensus. Gli attributi seguenti verranno aggiunti a Python `LogRecord`s: `traceId`, `spanId` e `traceSampled`. Si noti che questa operazione è valida solo per i logger creati dopo l'integrazione.
+Di seguito viene illustrata un'applicazione di esempio.
+
+```python
+import logging
+
+from opencensus.trace import config_integration
+from opencensus.trace.samplers import AlwaysOnSampler
+from opencensus.trace.tracer import Tracer
+
+config_integration.trace_integrations(['logging'])
+logging.basicConfig(format='%(asctime)s traceId=%(traceId)s spanId=%(spanId)s %(message)s')
+tracer = Tracer(sampler=AlwaysOnSampler())
+
+logger = logging.getLogger(__name__)
+logger.warning('Before the span')
+with tracer.span(name='hello'):
+    logger.warning('In the span')
+logger.warning('After the span')
+```
+Quando questo codice viene eseguito, nella console viene riportato quanto segue:
+```
+2019-10-17 11:25:59,382 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 Before the span
+2019-10-17 11:25:59,384 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=70da28f5a4831014 In the span
+2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
+```
+Osservare come è presente un spanId per il messaggio di log compreso nell'intervallo, ovvero lo stesso spanId che appartiene all'intervallo denominato `hello`.
 
 ## <a name="telemetry-correlation-in-net"></a>Correlazione di dati di telemetria in .NET
 

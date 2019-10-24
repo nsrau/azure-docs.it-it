@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Installazione manuale di SAP HANA a istanza singola nelle macchine virtuali di Azure | Microsoft Docs'
+title: 'Guida introduttiva: Installazione manuale di SAP HANA a istanza singola nelle macchine virtuali di Azure | Microsoft Docs'
 description: Guida introduttiva per l'installazione manuale di SAP HANA a istanza singola nelle macchine virtuali di Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 8d4e7b7056f4d5e53785366818fad05e24cfc605
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 630f094ffc6c57a0137d1abc46476f5abe64f616
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100061"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750378"
 ---
-# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>Avvio rapido: Installazione manuale di SAP HANA a istanza singola in macchine virtuali di Azure
+# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>Guida introduttiva: installazione manuale di SAP HANA a istanza singola in macchine virtuali di Azure
 ## <a name="introduction"></a>Introduzione
 Questa guida consente di configurare una SAP HANA a istanza singola in macchine virtuali di Azure quando si installano manualmente SAP NetWeaver 7,5 e SAP HANA 1,0 SP12. Questa guida è incentrata su come distribuire SAP HANA in Azure. Non sostituisce la documentazione SAP. 
 
@@ -61,19 +61,19 @@ Per informazioni su come eseguire il backup di SAP HANA database in macchine vir
 Per informazioni su come usare SAP Cloud Appliance Library per distribuire S/4HANA o BW/4HANA, vedere [distribuire SAP S/4HANA o BW/4HANA in Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h).
 
 ### <a name="sap-hana-supported-operating-systems"></a>Sistemi operativi supportati di SAP HANA
-Per informazioni sui sistemi operativi supportati da SAP Hana, vedere [la nota SAP 2235581-SAP Hana: Sistemi](https://launchpad.support.sap.com/#/notes/2235581/E)operativi supportati. Le macchine virtuali di Azure supportano soltanto alcuni di questi sistemi operativi. I sistemi operativi seguenti sono supportati per la distribuzione di SAP HANA in Azure: 
+Per informazioni sui sistemi operativi supportati da SAP HANA, vedere la [Nota SAP 2235581-SAP Hana: sistemi operativi supportati](https://launchpad.support.sap.com/#/notes/2235581/E). Le macchine virtuali di Azure supportano soltanto alcuni di questi sistemi operativi. I sistemi operativi seguenti sono supportati per la distribuzione di SAP HANA in Azure: 
 
 * SUSE Linux Enterprise Server 12.x
 * Red Hat Enterprise Linux 7.2
 
 Per altra documentazione SAP su SAP HANA e sui diversi sistemi operativi Linux, vedere:
 
-* [Nota SAP 171356: Software SAP in Linux: Informazioni](https://launchpad.support.sap.com/#/notes/1984787)generali.
-* [Nota SAP 1944799: Linee guida SAP HANA per l'installazione](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)del sistema operativo SLES.
-* [Nota SAP 2205917: Impostazioni del sistema operativo consigliate SAP HANA database per SLES 12](https://launchpad.support.sap.com/#/notes/2205917/E)for SAP Applications.
-* [Nota SAP 1391070: Soluzioni](https://launchpad.support.sap.com/#/notes/1391070)UUID Linux.
-* [SAP Note 2009879: Linee guida SAP HANA per il sistema](https://launchpad.support.sap.com/#/notes/2009879)operativo Red Hat Enterprise Linux (RHEL).
-* [Nota SAP 2292690: DATABASE SAP HANA: Impostazioni del sistema operativo consigliate](https://launchpad.support.sap.com/#/notes/2292690/E)per RHEL 7.
+* [Nota sap 171356: software SAP in Linux: informazioni generali](https://launchpad.support.sap.com/#/notes/1984787).
+* [Nota SAP 1944799: linee guida SAP HANA per l'installazione del sistema operativo SLES](http://service.sap.com/sap/support/notes/1944799).
+* [Nota SAP 2205917: impostazioni del sistema operativo consigliate SAP Hana database per SLES 12 for SAP Applications](https://launchpad.support.sap.com/#/notes/2205917/E).
+* [Nota SAP 1391070: soluzioni UUID Linux](https://launchpad.support.sap.com/#/notes/1391070).
+* [Nota SAP 2009879: linee guida SAP HANA per il sistema operativo Red Hat Enterprise Linux (RHEL)](https://launchpad.support.sap.com/#/notes/2009879).
+* [Nota SAP 2292690: SAP Hana DB: impostazioni del sistema operativo consigliate per RHEL 7](https://launchpad.support.sap.com/#/notes/2292690/E).
 
 ### <a name="sap-monitoring-in-azure"></a>Monitoraggio SAP in Azure
 Per informazioni sul monitoraggio SAP in Azure:
@@ -85,7 +85,7 @@ Per informazioni sul monitoraggio SAP in Azure:
 ### <a name="azure-vm-types"></a>Tipi di macchine virtuali di Azure
 I tipi di VM di Azure e gli scenari di carico di lavoro supportati da SAP usati con SAP HANA sono documentati nelle [piattaforme IaaS certificate SAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). 
 
-I tipi di VM di Azure certificati da SAP per SAP NetWeaver o il livello dell'applicazione S/4HANA sono [descritti nella nota SAP 1928533: Applicazioni SAP in Azure: Prodotti supportati e tipi](https://launchpad.support.sap.com/#/notes/1928533/E)di VM di Azure.
+I tipi di VM di Azure certificati da SAP per SAP NetWeaver o il livello dell'applicazione S/4HANA sono descritti nella [Nota sap 1928533: applicazioni SAP in Azure: prodotti supportati e tipi di VM di Azure](https://launchpad.support.sap.com/#/notes/1928533/E).
 
 > [!NOTE]
 > L'integrazione tra SAP, Linux e Azure è supportata solo nel modello di distribuzione Azure Resource Manager e non in quello classico. 
@@ -175,20 +175,20 @@ Di seguito è riportato un esempio di come verificare la disponibilità di patch
  `sudo zypper list-patches`
 
 A seconda del tipo di problema, le patch sono suddivise per categoria e gravità. I valori di uso comune per Category sono: 
-- Security
+- Sicurezza
 - Consigliato
 - Facoltativo
 - Funzionalità
-- Documento
+- Di documenti
 - YaST
 
 I valori usati comunemente per la gravità sono:
 
 - Critico
 - Importante
-- Moderata
-- Basso
-- Non specificata
+- Moderate
+- Basse
+- Unspecified
 
 Il comando **zypper** ricerca solo gli aggiornamenti necessari ai pacchetti installati. Ad esempio, è possibile usare questo comando:
 
@@ -241,7 +241,7 @@ SLES for SAP Applications 12 disponibilità generale e SLES for SAP Applications
 
 Per altre informazioni su **tuned-adm**, vedere la [documentazione SUSE su tuned-adm](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip).
 
-Nello screenshot seguente è possibile vedere come **Tuned-adm** ha modificato i `transparent_hugepage` valori e `numa_balancing` , in base alle impostazioni di SAP Hana richieste:
+Nello screenshot seguente è possibile vedere come **Tuned-adm** ha modificato i valori `transparent_hugepage` e `numa_balancing`, in base alle impostazioni di SAP Hana richieste:
 
 ![Lo strumento tuned-adm modifica i valori in base alle impostazioni obbligatorie di SAP HANA](./media/hana-get-started/image005.jpg)
 
@@ -382,7 +382,7 @@ Immettere una domanda per la password dello schema SAPABAP1:
 
 ![Immettere una domanda per la password dello schema SAPABAP1](./media/hana-get-started/image037b.jpg)
 
-Al termine di ogni attività, viene visualizzato un segno di spunta verde accanto a ogni fase del processo di installazione del database. Viene visualizzato il messaggio "Execution of ... Database Instance has completed" (Esecuzione dell'istanza di database ... completata).
+Al termine di ogni attività, viene visualizzato un segno di spunta verde accanto a ogni fase del processo di installazione del database. Messaggio "esecuzione di... Viene visualizzata l'istanza del database completata.
 
 ![Finestra in cui viene visualizzata l'attività completata con il messaggio di conferma](./media/hana-get-started/image023.jpg)
 
@@ -419,7 +419,7 @@ Per altre informazioni sullo strumento HANA HDBLCM, vedere:
 * [Strumenti di gestione del ciclo](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm)di vita SAP Hana.
 * [Guida all'installazione e all'aggiornamento del server SAP Hana](https://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf).
 
-Si desidera evitare problemi con un'impostazione predefinita per l' `\<HANA SID\>adm user`ID gruppo per, che viene creato dallo strumento HDBLCM. Prima di installare SAP HANA tramite HDBLCM, definire un nuovo gruppo denominato `sapsys` usando l'ID `1001`gruppo:
+Si desidera evitare problemi con un'impostazione predefinita per l'ID gruppo per il `\<HANA SID\>adm user`, che viene creato dallo strumento HDBLCM. Prima di installare SAP HANA tramite HDBLCM, definire un nuovo gruppo denominato `sapsys` utilizzando l'ID gruppo `1001`:
 
 ![Nuovo gruppo "sapsys" definito con ID gruppo 1001](./media/hana-get-started/image030.jpg)
 
@@ -432,11 +432,11 @@ Nello screenshot riportato di seguito sono visualizzate tutte le opzioni chiave 
 > [!IMPORTANT]
 > Directory denominate per i volumi di dati e di log di HANA e il percorso di installazione,/Hana/Shared in questo esempio, e/usr/SAP non devono far parte del file system radice. Queste directory appartengono ai dischi dati di Azure collegati alla macchina virtuale. Per ulteriori informazioni, vedere la sezione "configurazione dei dischi". 
 
-Questo approccio consente di evitare che il file system radice esaurisca lo spazio disponibile. Si noti che l'amministratore di sistema Hana dispone `1005` di un `sapsys` ID utente ed è parte del gruppo `1001`, con ID, che è stato definito prima dell'installazione.
+Questo approccio consente di evitare che il file system radice esaurisca lo spazio disponibile. Si noti che l'amministratore di sistema HANA dispone di un ID utente `1005` ed è parte del gruppo di `sapsys`, con ID `1001`, che è stato definito prima dell'installazione.
 
 ![Elenco di tutti i componenti chiave di SAP HANA selezionati in precedenza](./media/hana-get-started/image032.jpg)
 
-Controllare i `\<HANA SID\>adm user` dettagli nella directory/etc/passwd `azdadm`Cercare, come illustrato nello screenshot seguente:
+Controllare i dettagli `\<HANA SID\>adm user` nella directory/etc/passwd Cercare `azdadm`, come illustrato nello screenshot seguente:
 
 ![Dettagli dell'utente \<HANA SID\>adm di HANA visualizzati nella directory /etc/passwd](./media/hana-get-started/image033.jpg)
 

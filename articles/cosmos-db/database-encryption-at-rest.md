@@ -1,18 +1,18 @@
 ---
 title: Crittografia dei dati inattivi in Azure Cosmos DB
 description: Informazioni su come Azure Cosmos DB gestisce la crittografia dei dati inattivi e come viene implementata questa funzionalità.
-author: rimman
+author: markjbrown
+ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f406f008e2c377b39deb8d151855ce7315616701
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: a9e89336973b0b13544c5bc0bccec41652c6952e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616864"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755095"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Crittografia dei dati in Azure Cosmos DB 
 
@@ -36,26 +36,26 @@ Il flusso di base di una richiesta dell'utente è il seguente:
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>D: qual è il costo aggiuntivo di Archiviazione di Azure se la crittografia del servizio di archiviazione è abilitata?
+### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>D: A quanto ammonta il costo aggiuntivo dell'Archiviazione di Azure se si abilita la crittografia del servizio di archiviazione?
 R: Non sono previsti costi aggiuntivi.
 
-### <a name="q-who-manages-the-encryption-keys"></a>D: chi gestisce le chiavi di crittografia?
-R: le chiavi vengono gestite da Microsoft.
+### <a name="q-who-manages-the-encryption-keys"></a>D: Chi gestisce le chiavi di crittografia?
+R: Le chiavi vengono gestite da Microsoft.
 
-### <a name="q-how-often-are-encryption-keys-rotated"></a>D: con quale frequenza vengono ruotate le chiavi di crittografia?
-R: Microsoft ha un set di linee guida interne per la rotazione della chiave di crittografia, seguite da Cosmos DB. Le linee guida specifiche non vengono pubblicate. Microsoft pubblica il [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), che viene considerato un subset di linee guida interne e include procedure consigliate utili per gli sviluppatori.
+### <a name="q-how-often-are-encryption-keys-rotated"></a>D: Con quale frequenza vengono ruotate le chiavi di crittografia?
+R: Microsoft ha un set di linee guida interne per la rotazione della chiave di crittografia che segue Cosmos DB. Le linee guida specifiche non vengono pubblicate. Microsoft pubblica il [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), che viene considerato un subset di linee guida interne e include procedure consigliate utili per gli sviluppatori.
 
-### <a name="q-can-i-use-my-own-encryption-keys"></a>D: è possibile usare le proprie chiavi di crittografia?
+### <a name="q-can-i-use-my-own-encryption-keys"></a>D: È possibile usare le proprie chiavi di crittografia?
 R: Cosmos DB è un servizio PaaS e l'intento è quello di garantire la semplicità d'uso. Spesso questa domanda viene usata come domanda di proxy per soddisfare un requisito conformità come PCI-DSS. Nell'ambito della compilazione di questa funzionalità, la collaborazione con i revisori della conformità consente ai clienti che usano Cosmos DB di soddisfare i propri requisiti senza dover gestire personalmente le chiavi.
 
-### <a name="q-what-regions-have-encryption-turned-on"></a>D: in quali aree è attiva la crittografia?
-R: la crittografia è attiva in tutte le aree di Azure Cosmos DB per tutti i dati utente.
+### <a name="q-what-regions-have-encryption-turned-on"></a>D: In quali aree è attiva la crittografia?
+R: La crittografia è attiva in tutte le aree di Azure Cosmos DB per tutti i dati utente.
 
-### <a name="q-does-encryption-affect-the-performance-latency-and-throughput-slas"></a>D: la crittografia influisce sui contratti di servizio per latenza delle prestazioni e velocità effettiva?
-R: non si registrano impatti o modifiche in relazione ai contratti di servizio per le prestazioni ora che la crittografia dei dati inattivi è abilitata per tutti gli account nuovi ed esistenti. Per altre informazioni sulle garanzie più recenti, vedere il [Contratto di servizio per Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db).
+### <a name="q-does-encryption-affect-the-performance-latency-and-throughput-slas"></a>D: La crittografia influisce sui contratti di servizio per latenza delle prestazioni e velocità effettiva?
+R: Non si registrano impatti o modifiche in relazione ai contratti di servizio per le prestazioni ora che la crittografia dei dati inattivi è abilitata per tutti gli account nuovi ed esistenti. Per altre informazioni sulle garanzie più recenti, vedere il [Contratto di servizio per Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db).
 
-### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>D: l'emulatore locale supporta la crittografia dei dati inattivi?
-R: l'emulatore è uno strumento di sviluppo e test autonomo e non usa i servizi di gestione delle chiavi usati dal servizio gestito di Cosmos DB. È consigliabile abilitare BitLocker sulle unità in cui si archiviano i dati di test sensibili dell'emulatore. L'[emulatore supporta la modifica nella directory di dati predefinita](local-emulator.md) e usa un percorso noto.
+### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>D: L'emulatore locale supporta la crittografia dei dati inattivi?
+R: L'emulatore è uno strumento di sviluppo e test autonomo e non usa i servizi di gestione delle chiavi usati dal servizio gestito di Cosmos DB. È consigliabile abilitare BitLocker sulle unità in cui si archiviano i dati di test sensibili dell'emulatore. L'[emulatore supporta la modifica nella directory di dati predefinita](local-emulator.md) e usa un percorso noto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

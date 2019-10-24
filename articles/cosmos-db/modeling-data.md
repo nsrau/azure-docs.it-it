@@ -2,18 +2,17 @@
 title: Modellazione dei dati in Azure Cosmos DB
 titleSuffix: Azure Cosmos DB
 description: Informazioni sulla modellazione dei dati nei database NoSQL e sulle differenze tra la modellazione dei dati nei database relazionali e nei database di documenti.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
-ms.custom: rimman
-ms.openlocfilehash: da119b2858c6b6c7bbc99b40d340f79964e0fae3
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 523049ea3286445117f41147f3dd12a2c911d1ae
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467887"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755022"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modellazione dei dati in Azure Cosmos DB
 
@@ -69,7 +68,7 @@ Si osserverà ora come modellare gli stessi dati come entità autonoma in Azure 
         ]
     }
 
-Usando l'approccio precedente è stato  denormalizzato il record Person, incorporando tutte le informazioni relative a questa persona, ad esempio i dettagli di contatto e gli indirizzi, in un *singolo documento JSON* .
+Usando l'approccio precedente è stato **denormalizzato** il record Person, **incorporando** tutte le informazioni relative a questa persona, ad esempio i dettagli di contatto e gli indirizzi, in un *singolo documento JSON* .
 Inoltre, dal momento che non esistono limiti imposti da uno schema fisso, abbiamo la flessibilità necessaria, ad esempio, per avere dettagli contatto di forme completamente diverse.
 
 Il recupero di un record di persona completo dal database è ora una **singola operazione di lettura** su un singolo contenitore e per un singolo elemento. L'aggiornamento di un record di persona, con i relativi dettagli di contatto e gli indirizzi, è anche una **singola operazione di scrittura** su un singolo elemento.
@@ -226,7 +225,7 @@ Poiché attualmente non esiste alcun vincolo, chiave esterna o altro, le relazio
 
 ### <a name="when-to-reference"></a>Quando fare riferimento
 
-In generale, usare i modelli di dati denormalizzati quando:
+In generale, usare i modelli di dati normalizzati quando:
 
 * Si rappresentano relazioni **uno a molti** .
 * Si rappresentano relazioni **molti a molti** .
@@ -374,7 +373,7 @@ Si consideri il codice JSON seguente.
 
 Qui abbiamo per lo più seguito il modello incorporato, in cui i dati delle altre entità vengono incorporati nel documento di primo livello, ma viene fatto riferimento agli altri dati.
 
-Se si osserva il documento dei libri, si possono vedere alcuni campi interessanti quando si considera la matrice degli autori. È presente un `id` campo che è il campo usato per fare riferimento a un documento autore, una procedura standard in un modello normalizzato, ma in questo caso sono `name` disponibili `thumbnailUrl`anche e. Potevamo rimanere bloccati con `id` l'applicazione per ottenere informazioni aggiuntive necessarie dal rispettivo documento di autore usando il "link", ma perché l'applicazione Visualizza il nome dell'autore e un'immagine di anteprima con ogni libro visualizzato è possibile salvare un round trip nel server per ogni libro in un elenco denormalizzando **alcuni** dati dall'autore.
+Se si osserva il documento dei libri, si possono vedere alcuni campi interessanti quando si considera la matrice degli autori. È presente un campo `id` che è il campo usato per fare riferimento a un documento autore, una procedura standard in un modello normalizzato, ma anche `name` e `thumbnailUrl`. Potevamo rimanere bloccati con `id` e lasciare l'applicazione per ottenere informazioni aggiuntive necessarie dal rispettivo documento di autore usando il "link", ma poiché l'applicazione Visualizza il nome dell'autore e un'immagine di anteprima con ogni libro visualizzato consente di salvare un round trip nel server per ogni libro in un elenco denormalizzando **alcuni** dati dall'autore.
 
 Certo, se il nome dell'autore è cambiato o vuole aggiornare la foto, è necessario aggiornare ogni libro pubblicato, ma per l'applicazione, in base al presupposto che gli autori non modifichino spesso i loro nomi, si tratta di una decisione di progettazione accettabile.  
 
@@ -384,7 +383,7 @@ Azure Cosmos DB supporta le transazioni in più documenti e consente quindi di u
 
 ## <a name="distinguishing-between-different-document-types"></a>Distinzione tra tipi di documento diversi
 
-In alcuni scenari può essere opportuno combinare tipi di documento diversi nella stessa raccolta. Questa situazione si verifica in genere quando si desidera che più documenti correlati si trovino nella stessa [partizione](partitioning-overview.md). Ad esempio, è possibile inserire le revisioni di libri e libri nella stessa raccolta e partizionarla con `bookId`. In questi casi, in genere si vuole aggiungere ai documenti un campo che identifica il tipo per distinguerli.
+In alcuni scenari può essere opportuno combinare tipi di documento diversi nella stessa raccolta. Questa situazione si verifica in genere quando si desidera che più documenti correlati si trovino nella stessa [partizione](partitioning-overview.md). È possibile, ad esempio, inserire le revisioni di libri e libri nella stessa raccolta e partizionarle per `bookId`. In questi casi, in genere si vuole aggiungere ai documenti un campo che identifica il tipo per distinguerli.
 
     Book documents:
     {

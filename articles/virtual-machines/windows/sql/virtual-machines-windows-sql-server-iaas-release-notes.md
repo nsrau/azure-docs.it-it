@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: f5f8985a0b9a97c559016add2567a936220aa910
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 599dd2b44f934bb864acfa9ffe8d03fa0e8bb850
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300090"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757457"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifiche alla documentazione per SQL Server in macchine virtuali di Azure
 
@@ -29,7 +29,7 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 | Modifiche | Dettagli |
 | --- | --- |
 | **Configurazione dell'archiviazione ottimizzata per le prestazioni** | È ora possibile [personalizzare completamente la configurazione dell'archiviazione](virtual-machines-windows-sql-server-storage-configuration.md#new-vms) quando si crea una nuova macchina virtuale SQL Server. |
-| **Condivisione file Premium per FCI** | È ora possibile creare un'istanza del cluster di failover usando la [condivisione file Premium](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md) anziché il metodo originale di [spazi di archiviazione diretta](virtual-machines-windows-portal-sql-create-failover-cluster.md). 
+| **Condivisione file Premium per FCI** | È ora possibile creare un'istanza del cluster di failover usando una [condivisione file Premium](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md) anziché il metodo originale di [spazi di archiviazione diretta](virtual-machines-windows-portal-sql-create-failover-cluster.md). 
 | &nbsp; | &nbsp; |
 
 ## <a name="august-2019"></a>Agosto 2019
@@ -83,7 +83,7 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 | --- | --- |
 | **Supporto per immagini personalizzate** | È ora possibile installare l' [estensione IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md#installation) per le immagini del sistema operativo e di SQL personalizzate, che offre la funzionalità limitata di [licenze flessibili](virtual-machines-windows-sql-ahb.md). Quando si esegue la registrazione dell'immagine personalizzata con il provider di risorse SQL, specificare il tipo di licenza "vantaggio Ahu". In caso contrario, la registrazione avrà esito negativo. | 
 | **Supporto per istanze denominate** | È ora possibile usare l' [estensione SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) con un'istanza denominata, se l'istanza predefinita è stata disinstallata correttamente. | 
-| **Miglioramento del portale** | L'esperienza portale di Azure per la distribuzione di una macchina virtuale SQL Server è stata rinnovata per migliorare l'usabilità. Per altre informazioni, vedere le brevi [guide introduttive](quickstart-sql-vm-create-portal.md) e [procedure](virtual-machines-windows-portal-sql-server-provision.md) dettagliate per la distribuzione di una macchina virtuale SQL Server.|
+| **Miglioramento del portale** | L'esperienza portale di Azure per la distribuzione di una macchina virtuale SQL Server è stata rinnovata per migliorare l'usabilità. Per altre informazioni, vedere le brevi guide [introduttive](quickstart-sql-vm-create-portal.md) e [procedure](virtual-machines-windows-portal-sql-server-provision.md) dettagliate per la distribuzione di una macchina virtuale SQL Server.|
 | &nbsp; | &nbsp; |
 
 

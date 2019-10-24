@@ -1,17 +1,17 @@
 ---
 title: Accesso al feed di modifiche in Azure Cosmos DB
 description: Questo articolo descrive diverse opzioni disponibili per leggere e accedere al feed di modifiche in Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
-ms.openlocfilehash: 3d52ba1abc22aae6121ea6a36f943851dfcca7a0
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3d30c9f946f97f06c1a3ba1cd2e77e1ab151a572
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467677"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754876"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lettura del feed di modifiche in Azure Cosmos DB
 
@@ -31,12 +31,12 @@ La libreria del processore dei feed delle modifiche rende tutto più semplice, p
 
 ## <a name="using-the-azure-cosmos-db-sql-api-sdk"></a>Uso di Azure Cosmos DB SQL API SDK
 
-Con l'SDK, si ottiene un controllo di basso livello del feed delle modifiche. È possibile gestire il checkpoint, accedere a una chiave di partizione logica specifica e così via. Se si hanno più lettori, è possibile usare `ChangeFeedOptions` per distribuire il carico delle letture in thread diversi o in client diversi. 
+Con l'SDK, si ottiene un controllo di basso livello del feed delle modifiche. È possibile gestire il checkpoint, accedere a una particolare chiave di partizione logica e così via. Se si dispone di più lettori, è possibile usare `ChangeFeedOptions` per distribuire il carico di lettura a thread diversi o a client diversi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile ottenere altre informazioni sul feed di modifiche negli articoli seguenti:
+È ora possibile procedere per altre informazioni sul feed di modifiche negli articoli seguenti:
 
 * [Panoramica del feed di modifiche](change-feed.md)
-* [Feed di modifiche con Funzioni di Azure](change-feed-functions.md)
+* [Uso del feed di modifiche con Funzioni di Azure](change-feed-functions.md)
 * [Uso della libreria del processore dei feed di modifiche](change-feed-processor.md)

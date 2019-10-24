@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Domain Services per Azure Cloud Solution Provider | Documentazione Microsoft
+title: Azure AD Domain Services per i provider di soluzioni cloud | Microsoft Docs
 description: Azure Active Directory Domain Services per Azure Cloud Solution Provider.
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: iainfou
-ms.openlocfilehash: dc4ad7d8cf9f3267713fd066fa79a4d9d8ab733f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1134c078ee36a146cb1e1cbf8ca46f6cd9f8d775
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612977"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754433"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure Active Directory (AD) Domain Services per Azure Cloud Solution Provider (CSP)
 Questo articolo spiega come utilizzare Azure AD Domain Services in una sottoscrizione Azure CSP.
@@ -43,7 +43,7 @@ Azure AD Domain Services offre servizi compatibili di AD di Windows Server in Az
 
 Azure AD Domain Services ora supporta le sottoscrizioni di Azure CSP. È ora possibile distribuire un'applicazione in una sottoscrizione di Azure CSP associata alla directory di Azure AD del cliente. Di conseguenza, il personale di supporto può gestire, amministrare e offrire assistenza per le macchine virtuali in cui è distribuita l'applicazione utilizzando le credenziali aziendali. Inoltre, è possibile effettuare il provisioning di un dominio gestito di Azure AD Domain Services per la directory di Azure AD del cliente. L'applicazione è connessa al dominio gestito del cliente. Le funzionalità all'interno dell'applicazione basate su Kerberos/NTLM, LDAP o l'[API System.DirectoryServices](/dotnet/api/system.directoryservices) funzionano perfettamente con la directory del cliente. I clienti finali traggono notevoli vantaggi dall'utilizzo dell'applicazione come servizio, senza doversi preoccupare della manutenzione dell'infrastruttura in cui è distribuita l'applicazione.
 
-Tutta la fatturazione per le risorse di Azure utilizzate nella sottoscrizione, tra cui Azure AD Domain Services, viene addebitata all'utente. L'utente ha il controllo completo della relazione con il cliente per quanto riguarda vendite, fatturazione, supporto tecnico e così via. Con la flessibilità della piattaforma Azure CSP, un piccolo team di agenti di supporto può dare assistenza a molti clienti con istanze dell'applicazione distribuita.
+Tutta la fatturazione per le risorse di Azure utilizzate nella sottoscrizione, tra cui Azure AD Domain Services, viene addebitata all'utente. Si mantiene il controllo completo sulla relazione con il cliente quando si tratta di vendite, fatturazione, supporto tecnico e così via. Con la flessibilità della piattaforma Azure CSP, un piccolo team di agenti di supporto può servire molti clienti di questo tipo che dispongono di istanze dell'applicazione distribuita.
 
 
 ## <a name="csp-deployment-models-for-azure-ad-domain-services"></a>Modelli di distribuzione CSP per Azure AD Domain Services
@@ -56,7 +56,7 @@ In questo modello di distribuzione, Azure AD Domain Services è abilitato in una
 
 ![Modello di distribuzione diretta](./media/csp/csp_direct_deployment_model.png)
 
-In questo modello di distribuzione, gli agenti di amministrazione del provider CSP possono amministrare le identità per il cliente. Gli agenti di amministrazione hanno la possibilità di effettuare il provisioning di nuovi utenti e gruppi, di aggiungere applicazioni all'interno della directory di Azure AD del cliente e così via. Questo modello di distribuzione è adatto a organizzazioni di piccole dimensioni che non dispongono di un amministratore di identità dedicato o preferiscono che sia il partner CSP ad amministrare le identità per loro conto.
+In questo modello di distribuzione, gli agenti di amministrazione del provider CSP possono amministrare le identità per il cliente. Questi agenti di amministrazione hanno la possibilità di effettuare il provisioning di nuovi utenti, gruppi, aggiungere applicazioni all'interno della directory Azure AD del cliente e così via. Questo modello di distribuzione può essere adatto per organizzazioni di piccole dimensioni che non dispongono di un amministratore di identità dedicato o che preferiscono al partner CSP di amministrare le identità per loro conto.
 
 
 ### <a name="peered-deployment-model"></a>Modello di distribuzione con peering
@@ -74,16 +74,16 @@ Le considerazioni importanti che seguono si applicano all'amministrazione di un 
 
 * **Gli agenti di amministrazione CSP possono effettuare il provisioning di un dominio gestito usando le proprie credenziali:** Azure AD Domain Services supporta le sottoscrizioni di Azure CSP. Gli utenti appartenenti al gruppo di agenti di amministrazione di un partner CSP, pertanto, possono effettuare il provisioning di un nuovo dominio gestito di Azure AD Domain Services.
 
-* **I partner CSP possono definire script per la creazione di nuovi domini gestiti per i propri clienti usando PowerShell:** Per informazioni, vedere [Come abilitare Azure AD Domain Services con PowerShell](powershell-create-instance.md).
+* **I CSP possono creare script per la creazione di nuovi domini gestiti per i clienti con PowerShell:** vedere [come abilitare Azure AD Domain Services tramite PowerShell](powershell-create-instance.md) per informazioni dettagliate.
 
-* **Gli agenti di amministrazione CSP non possono eseguire attività di gestione continuative nel dominio gestito usando le proprie credenziali:** Gli agenti di amministrazione CSP non possono eseguire attività di gestione di routine nel dominio gestito usando le proprie credenziali. Questi utenti sono esterni alla directory Azure AD del cliente e le loro credenziali non sono disponibili in tale directory. Azure AD Domain Services, pertanto, non ha accesso agli hash delle password Kerberos e NTLM di tali utenti. Questi utenti, di conseguenza, non possono essere autenticati in domini gestiti di Azure AD Domain Services.
+* **Gli agenti di amministrazione CSP non possono eseguire attività di gestione continuative nel dominio gestito usando le proprie credenziali:** gli utenti amministratori CSP non possono eseguire attività di gestione di routine all'interno del dominio gestito usando le proprie credenziali. Questi utenti sono esterni alla directory Azure AD del cliente e le loro credenziali non sono disponibili in tale directory. Azure AD Domain Services, pertanto, non ha accesso agli hash delle password Kerberos e NTLM di tali utenti. Questi utenti, di conseguenza, non possono essere autenticati in domini gestiti di Azure AD Domain Services.
 
   > [!WARNING]
   > **È necessario creare un account utente nella directory del cliente per eseguire attività di amministrazione continuative nel dominio gestito.**
   > Non è possibile accedere al dominio gestito utilizzando le credenziali di un utente amministratore CSP. A tale scopo, utilizzare le credenziali di un account utente appartenente alla directory Azure AD del cliente. Queste credenziali sono necessarie per attività quali l'aggiunta di macchine virtuali al dominio gestito, l'amministrazione di DNS, l'amministrazione di criteri di gruppo e così via.
   >
 
-* **L'account utente creato per le attività di amministrazione continuative deve essere aggiunto al gruppo "AAD DC Administrators":** Il gruppo "AAD DC Administrators" dispone di privilegi per eseguire determinate attività di amministrazione delegate nel dominio gestito. Tra le attività sono incluse la configurazione DNS, la creazione di unità organizzative, l'amministrazione dei criteri di gruppo e così via. Per consentire a un partner CSP di eseguire tali attività in un dominio gestito, è necessario creare un account utente nella directory Azure AD del cliente. Le credenziali per questo account devono essere condivise con gli agenti di amministrazione del partner CSP. L'account utente, inoltre, deve essere aggiunto al gruppo "Amministratori di AAD DC" per abilitare l'esecuzione delle attività di configurazione nel dominio gestito con questo account utente.
+* **L'account utente creato per l'amministrazione continuativa deve essere aggiunto al gruppo "Amministratori di AAD DC":** tale gruppo ha i privilegi necessari per eseguire alcune attività di amministrazione delegate per il dominio gestito. Queste attività includono la configurazione DNS, la creazione di unità organizzative, l'amministrazione di criteri di gruppo e così via. Affinché un partner CSP esegua tali attività in un dominio gestito, è necessario creare un account utente nella directory Azure AD del cliente. Le credenziali per questo account devono essere condivise con gli agenti di amministrazione del partner CSP. L'account utente, inoltre, deve essere aggiunto al gruppo "Amministratori di AAD DC" per abilitare l'esecuzione delle attività di configurazione nel dominio gestito con questo account utente.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

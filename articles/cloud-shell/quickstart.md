@@ -1,25 +1,21 @@
 ---
-title: Guida introduttiva Azure Cloud Shell | Microsoft Docs
-description: Guida introduttiva per Azure Cloud Shell
-services: ''
-documentationcenter: ''
+title: Guida introduttiva Azure Cloud Shell-bash
+description: Informazioni su come usare la riga di comando bash nel browser con Azure Cloud Shell.
 author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 8151013f263c6cf2f90e89fa1c3b0b3025f2ea38
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 574841b3a89385a3b8bf048d5ed36f40fac99a83
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741980"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757389"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guida introduttiva a Bash in Azure Cloud Shell
 
@@ -62,7 +58,7 @@ Creare un nuovo gruppo di risorse negli Stati Uniti occidentali denominato "MyRG
 az group create --location westus --name MyRG
 ```
 
-### <a name="create-a-linux-vm"></a>Creare una macchina virtuale Linux
+### <a name="create-a-linux-vm"></a>Creare una macchina virtuale di Linux
 Creare una VM Ubuntu nel nuovo gruppo di risorse. L'interfaccia della riga di comando di Azure creerà chiavi SSH con cui configurerà la macchina virtuale. <br>
 
 ```azurecli-interactive

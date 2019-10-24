@@ -1,18 +1,18 @@
 ---
 title: Transazioni del database e controllo della concorrenza ottimistica in Azure Cosmos DB
 description: Questo articolo illustra le transazioni del database e il controllo della concorrenza ottimistica in Azure Cosmos DB
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: b58255aa471fe78c84b5f6a7432c0f3d402f0875
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 4c263b32b7ededb9e5169e80a29806f322a3c849
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467913"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755161"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transazioni e controllo della concorrenza ottimistica
 
@@ -20,7 +20,7 @@ Le transazioni di database offrono un modello di programmazione sicuro e prevedi
 
 Il motore di database in Azure Cosmos DB supporta transazioni conformi ACID con l'isolamento dello snapshot. Tutte le operazioni di database all'interno dell'ambito della [partizione logica](partition-data.md) di un contenitore vengono eseguite in modo transazionale all'interno del motore di database ospitato dalla replica della partizione. Tali operazioni includono sia operazioni di scrittura (aggiornamento di uno o più elementi all'interno della partizione logica) e lettura. Nella tabella seguente vengono illustrati diversi tipi di transazioni e operazioni:
 
-| **operazione**  | **Tipo di operazione** | **Transazione singola o con più elementi** |
+| **Operazione**  | **Tipo di operazione** | **Transazione singola o con più elementi** |
 |---------|---------|---------|
 | Inserimento (senza un trigger di pre/post) | Scrittura | Transazione di un singolo elemento |
 | Inserimento (con un trigger di pre/post) | Lettura e scrittura | Transazione di più elementi |
@@ -53,9 +53,9 @@ Il controllo della concorrenza ottimistica consente di evitare la perdita di agg
 
 Gli aggiornamenti simultanei di un oggetto sono soggetti al controllo di concorrenza ottimistica dal livello di protocollo di comunicazione di Azure Cosmos DB. Il database di Azure Cosmos garantisce che la versione lato client dell'elemento in fase di aggiornamento (o di eliminazione) sia la stessa versione dell'elemento nel contenitore di Azure Cosmos. In questo modo si garantisce che le scritture non vengano sovrascritta accidentalmente dalle operazioni di scrittura di altri utenti e viceversa. In un ambiente multiutente, il controllo della concorrenza ottimistica protegge l'utente da un'accidentale eliminazione o aggiornamento della versione errata di un elemento. Di conseguenza, gli elementi sono protetti contro i famigerati problemi di "aggiornamento perso" o "eliminazione persa".
 
-Ogni elemento archiviato in un contenitore di Azure Cosmos ha un sistema definito proprietà `_etag`. Il valore di `_etag` viene automaticamente generato e aggiornato dal server ogni volta che viene aggiornato l'elemento. `_etag`può essere usato con l'intestazione della `if-match` richiesta fornita dal client per consentire al server di decidere se un elemento può essere aggiornato in modo condizionale. Il valore dell' `if-match` intestazione corrisponde al valore `_etag` di nel server, l'elemento viene quindi aggiornato. Se il valore dell' `if-match` intestazione della richiesta non è più aggiornato, il server rifiuta l'operazione con un messaggio di risposta "errore di precondizione http 412". Il client può quindi recuperare nuovamente l'elemento per acquisire la versione corrente dell'elemento nel server o eseguire l'override della versione dell'elemento nel server con il proprio `_etag` valore per l'elemento. Inoltre, `_etag` può essere usato con l' `if-none-match` intestazione per determinare se è necessaria una rilettura di una risorsa. 
+Ogni elemento archiviato in un contenitore di Azure Cosmos ha un sistema definito proprietà `_etag`. Il valore di `_etag` viene automaticamente generato e aggiornato dal server ogni volta che viene aggiornato l'elemento. `_etag` può essere utilizzato con il client fornito `if-match` intestazione della richiesta per consentire al server di decidere se un elemento può essere aggiornato in modo condizionale. Il valore dell'intestazione `if-match` corrisponde al valore della `_etag` nel server, l'elemento viene quindi aggiornato. Se il valore dell'intestazione della richiesta `if-match` non è più aggiornato, il server rifiuta l'operazione con un messaggio di risposta "errore precondizione HTTP 412". Il client può quindi recuperare nuovamente l'elemento per acquisire la versione corrente dell'elemento nel server o eseguire l'override della versione dell'elemento nel server con il proprio valore `_etag` per l'elemento. Inoltre, è possibile usare `_etag` con l'intestazione `if-none-match` per determinare se è necessaria una rilettura di una risorsa. 
 
-Il `_etag` valore dell'elemento viene modificato ogni volta che l'elemento viene aggiornato. Per le operazioni Replace Item `if-match` , deve essere espressa in modo esplicito come parte delle opzioni di richiesta. Per un esempio, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446). `_etag`i valori vengono controllati in modo implicito per tutti gli elementi scritti dal stored procedure. Se viene rilevato un conflitto, il stored procedure eseguirà il rollback della transazione e genererà un'eccezione. Con questo metodo, tutte o nessuna scrittura all'interno della stored procedure viene applicata in modo atomico. Si tratta di un segnale per l'applicazione per riapplicare gli aggiornamenti e ripetere la richiesta del client originale.
+Il valore `_etag` dell'elemento cambia ogni volta che l'elemento viene aggiornato. Per le operazioni di sostituzione di elementi, `if-match` deve essere espressa in modo esplicito come parte delle opzioni di richiesta. Per un esempio, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446). `_etag` valori vengono verificati in modo implicito per tutti gli elementi scritti con il stored procedure. Se viene rilevato un conflitto, il stored procedure eseguirà il rollback della transazione e genererà un'eccezione. Con questo metodo, tutte o nessuna scrittura all'interno della stored procedure viene applicata in modo atomico. Si tratta di un segnale per l'applicazione per riapplicare gli aggiornamenti e ripetere la richiesta del client originale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

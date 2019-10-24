@@ -1,17 +1,17 @@
 ---
 title: Ottimizzare le unità di richiesta e i costi per l'esecuzione di query in Azure Cosmos DB
 description: Informazioni su come valutare gli addebiti delle unità di richiesta per una query e ottimizzare la query in termini di prestazioni e costi.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: rimman
-ms.openlocfilehash: bdf223e60015c4e5d96416f95c410854a057c02c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 376c1a32a70951448b35a4c02022719229a3aad2
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717011"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753294"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Ottimizzare il costo delle query in Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Le query che leggono i dati da una o più partizioni comportano una latenza magg
 
 Dopo che sono stati memorizzati alcuni dati nei contenitori di Azure Cosmos, è possibile usare Esplora dati nel portale di Azure per creare ed eseguire le query. È anche possibile ottenere il costo delle query usando Esplora dati. Questo metodo offre un'idea dei costi effettivi coinvolti con le query e le operazioni tipiche che il sistema supporta.
 
-È anche possibile ottenere il costo delle query a livello programmatico tramite gli SDK. Per misurare l'overhead di qualunque operazione, ad esempio creazione, aggiornamento o eliminazione, ispezionare l'intestazione `x-ms-request-charge` quando si usa l'API REST. Se si usa .NET o Java SDK, la `RequestCharge` proprietà è la proprietà equivalente per ottenere l'addebito della richiesta e questa proprietà è presente in ResourceResponse o FeedResponse.
+È anche possibile ottenere il costo delle query a livello programmatico tramite gli SDK. Per misurare l'overhead di qualunque operazione, ad esempio creazione, aggiornamento o eliminazione, ispezionare l'intestazione `x-ms-request-charge` quando si usa l'API REST. Se si usa .NET o Java SDK, la proprietà `RequestCharge` è la proprietà equivalente per ottenere l'addebito della richiesta e questa proprietà è presente all'interno di ResourceResponse o FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -104,11 +104,11 @@ Per l'ottimizzazione del costo delle query, prendere in considerazione le proced
 È ora possibile passare ad altre informazioni sull'ottimizzazione dei costi in Azure Cosmos DB con gli articoli seguenti:
 
 * Altre informazioni sul [Funzionamento dei prezzi di Azure Cosmos DB](how-pricing-works.md)
-* Altre informazioni sull'[Ottimizzazione di sviluppo e test](optimize-dev-test.md)
-* Altre informazioni sulla [Fatturazione in Azure Cosmos DB](understand-your-bill.md)
-* Altre informazioni sull'[Ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
+* Altre informazioni sull'[ottimizzazione di sviluppo e test](optimize-dev-test.md)
+* Altre informazioni su [come comprendere la fatturazione di Azure Cosmos DB](understand-your-bill.md)
+* Altre informazioni sull'[ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
 * Altre informazioni sull'[Ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
-* Altre informazioni sull'[Ottimizzazione dei costi delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
-* Altre informazioni sull'[ottimizzazione dei costi degli account Azure Cosmos multi-area](optimize-cost-regions.md)
+* Altre informazioni sull'[ottimizzazione del costo delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
+* Altre informazioni sull'[ottimizzazione dei costi degli account Azure Cosmos multiarea](optimize-cost-regions.md)
 * Altre informazioni sulla [capacità riservata di Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 

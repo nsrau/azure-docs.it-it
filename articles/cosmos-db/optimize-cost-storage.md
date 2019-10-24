@@ -1,23 +1,23 @@
 ---
 title: Ottimizzare i costi di archiviazione in Azure Cosmos DB
 description: Questo articolo illustra come gestire i costi di archiviazione dei dati archiviati in Azure Cosmos DB
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
-ms.openlocfilehash: 2955df266bcf164ce4a155acc5209679eff0ce8a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1508adda761fcba7ba70df3bb212d3eb4e32f242
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615016"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754951"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Ottimizzare i costi di archiviazione in Azure Cosmos DB
 
 Azure Cosmos DB offre archiviazione e velocità effettiva illimitate. A differenza della velocità effettiva, di cui è necessario effettuare il provisioning o è necessario configurare nei contenitori o database di Azure Cosmos, l'archiviazione viene fatturata in base al consumo. La fatturazione viene effettuata solo per lo spazio di archiviazione logico utilizzato e non è necessario riservare in anticipo alcuno spazio di archiviazione. L'archiviazione viene scalata automaticamente in base ai dati aggiunti o rimossi in un contenitore di Azure Cosmos.
 
-## <a name="storage-cost"></a>Costo di archiviazione
+## <a name="storage-cost"></a>Costo delle risorse di archiviazione
 
 Lo spazio di archiviazione viene fatturato in GB. Lo spazio di archiviazione locale basato su unità SSD viene usato dai dati e dall'indicizzazione. Lo spazio di archiviazione totale usato è uguale allo spazio di archiviazione richiesto dai dati e dagli indici usati in tutte le aree in cui si usa Azure Cosmos DB. Se si replica a livello globale un account Azure Cosmos in tre aree, si pagherà il costo di archiviazione totale in ognuna di queste tre aree. Per stimare i requisiti di archiviazione, vedere lo strumento [Capacity Planner](https://www.documentdb.com/capacityplanner). Il costo dell'archiviazione in Azure Cosmos DB è di $0,25 GB/mese. Per gli ultimi aggiornamenti, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/). È possibile impostare gli avvisi per determinare lo spazio di archiviazione usato dal contenitore Azure Cosmos. Per monitorare lo spazio di archiviazione, vedere l'articolo [Monitorare Azure Cosmos DB](monitor-accounts.md).
 
@@ -54,10 +54,10 @@ Console.WriteLine("Item size quota: {0}, usage: {1}", collectionInfo.DocumentQuo
 
 È ora possibile passare ad altre informazioni sull'ottimizzazione dei costi in Azure Cosmos DB con gli articoli seguenti:
 
-* Altre informazioni sull'[Ottimizzazione di sviluppo e test](optimize-dev-test.md)
-* Altre informazioni sulla [Fatturazione in Azure Cosmos DB](understand-your-bill.md)
+* Altre informazioni sull'[ottimizzazione di sviluppo e test](optimize-dev-test.md)
+* Altre informazioni su [come comprendere la fatturazione di Azure Cosmos DB](understand-your-bill.md)
 * Altre informazioni sull'[ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
-* Altre informazioni sull'[ottimizzazione dei costi delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
+* Altre informazioni sull'[ottimizzazione del costo delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
 * Altre informazioni sull'[ottimizzazione del costo delle query](optimize-cost-queries.md)
 * Altre informazioni sull'[ottimizzazione dei costi degli account Azure Cosmos multiarea](optimize-cost-regions.md)
 

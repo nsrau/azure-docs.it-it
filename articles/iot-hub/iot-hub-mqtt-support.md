@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 6a43b721b70858d82083538638853c5bbdf1531d
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
-ms.translationtype: MT
+ms.openlocfilehash: 59bf62f73d8ba9732cd89209d2b239fd15a6d844
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004128"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754464"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -189,7 +189,7 @@ client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
                        device_id + "/?api-version=2018-06-30", password=sas_token)
 
 client.tls_set(ca_certs=path_to_root_cert, certfile=None, keyfile=None,
-               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1_2, ciphers=None)
 client.tls_insecure_set(False)
 
 client.connect(iot_hub_name+".azure-devices.net", port=8883)
@@ -216,7 +216,7 @@ client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
 cert_file = "<local path to your certificate file>"
 key_file = "<local path to your device key file>"
 client.tls_set(ca_certs=path_to_root_cert, certfile=cert_file, keyfile=key_file,
-               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1_2, ciphers=None)
 
 # Connect as before
 client.connect(iot_hub_name+".azure-devices.net", port=8883)
@@ -224,14 +224,14 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## <a name="sending-device-to-cloud-messages"></a>Invio di messaggi da dispositivo a cloud
 
-Dopo avere stabilito una connessione, un dispositivo può inviare messaggi all'hub IoT usando `devices/{device_id}/messages/events/` o `devices/{device_id}/messages/events/{property_bag}` come **nome di argomento**. L'elemento `{property_bag}` consente al dispositivo di inviare messaggi con proprietà aggiuntive in un formato con codifica URL. Ad esempio:
+Dopo avere stabilito una connessione, un dispositivo può inviare messaggi all'hub IoT usando `devices/{device_id}/messages/events/` o `devices/{device_id}/messages/events/{property_bag}` come **nome di argomento**. L'elemento `{property_bag}` consente al dispositivo di inviare messaggi con proprietà aggiuntive in un formato con codifica URL. ad esempio:
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
 ```
 
 > [!NOTE]
-> Questo `{property_bag}` elemento usa la stessa codifica delle stringhe di query nel protocollo HTTPS.
+> Questo elemento `{property_bag}` utilizza la stessa codifica delle stringhe di query nel protocollo HTTPS.
 
 Di seguito è riportato un elenco di comportamenti specifici dell'implementazione dell'hub IoT:
 
@@ -277,7 +277,7 @@ Il corpo della risposta contiene la sezione delle proprietà del dispositivo gem
 
 I possibili codici di stato sono i seguenti:
 
-|Stato | Descrizione |
+|Status | Description |
 | ----- | ----------- |
 | 204 | Operazione riuscita (non viene restituito alcun contenuto) |
 | 429 | Troppe richieste (limitate), come per la [limitazione dell'hub](iot-hub-devguide-quotas-throttling.md) degli anni |
@@ -297,7 +297,7 @@ La sequenza seguente descrive in che modo un dispositivo aggiorna le proprietà 
 
 3. Il servizio invia un messaggio di risposta che contiene il nuovo valore ETag per la raccolta di proprietà dichiarate sull'argomento `$iothub/twin/res/{status}/?$rid={request id}`. Questo messaggio di risposta usa lo stesso **request ID** della richiesta.
 
-Il corpo del messaggio di richiesta include un documento JSON che contiene nuovi valori per le proprietà segnalate. Ogni membro nel documento JSON aggiorna o aggiunge il membro corrispondente nel documento del dispositivo gemello. Un membro impostato su `null` elimina il membro dall'oggetto contenitore. Ad esempio:
+Il corpo del messaggio di richiesta include un documento JSON che contiene nuovi valori per le proprietà segnalate. Ogni membro nel documento JSON aggiorna o aggiunge il membro corrispondente nel documento del dispositivo gemello. Un membro impostato su `null` elimina il membro dall'oggetto contenitore. ad esempio:
 
 ```json
 {
@@ -308,9 +308,9 @@ Il corpo del messaggio di richiesta include un documento JSON che contiene nuovi
 
 I possibili codici di stato sono i seguenti:
 
-|Stato | DESCRIZIONE |
+|Status | Description |
 | ----- | ----------- |
-| 200 | Riuscito |
+| 200 | Success |
 | 400 | Richiesta non valida. JSON non valido |
 | 429 | Troppe richieste (limitate), come per la [limitazione dell'hub](iot-hub-devguide-quotas-throttling.md) degli anni |
 | 5** | Errori server |
@@ -335,7 +335,7 @@ Per altre informazioni, vedere [la guida per gli sviluppatori di dispositivi gem
 
 ## <a name="receiving-desired-properties-update-notifications"></a>Ricezione delle notifiche di aggiornamento delle proprietà desiderate
 
-Quando un dispositivo è connesso, l'hub IoT invia notifiche all'argomento `$iothub/twin/PATCH/properties/desired/?$version={new version}`, con il contenuto dell'aggiornamento eseguito dal back-end della soluzione. Ad esempio:
+Quando un dispositivo è connesso, l'hub IoT invia notifiche all'argomento `$iothub/twin/PATCH/properties/desired/?$version={new version}`, con il contenuto dell'aggiornamento eseguito dal back-end della soluzione. ad esempio:
 
 ```json
 {
@@ -360,7 +360,7 @@ Per rispondere, il dispositivo invia un messaggio con un codice JSON valido o un
 
 Per ulteriori informazioni, vedere [Guida per gli sviluppatori di metodi diretti](iot-hub-devguide-direct-methods.md).
 
-## <a name="additional-considerations"></a>Considerazioni aggiuntive
+## <a name="additional-considerations"></a>Considerazione aggiuntive
 
 Come ultima considerazione, se è necessario personalizzare il comportamento del protocollo MQTT sul lato cloud, è necessario esaminare il gateway del [protocollo di Azure](iot-hub-protocol-gateway.md). Questo software consente di distribuire un gateway di protocollo personalizzato ad alte prestazioni che si interfaccia direttamente con l'hub IoT. Il gateway del protocollo IoT Azure consente di personalizzare il protocollo del dispositivo per supportare le distribuzioni di MQTT cosiddette "brownfield" o altri protocolli personalizzati. Questo approccio richiede tuttavia l'esecuzione e la gestione di un gateway di protocollo personalizzato.
 

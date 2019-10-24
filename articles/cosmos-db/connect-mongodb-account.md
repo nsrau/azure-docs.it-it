@@ -1,22 +1,22 @@
 ---
 title: Connettere un'applicazione MongoDB ad Azure Cosmos DB
 description: Informazioni su come connettere un'app MongoDB ad Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: dabce19d60a380b47d3583dedb5c11303f416ce7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30b37b86bbe0e91887932423fa1884d8bd49333c
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978715"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756997"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Connettere un'applicazione MongoDB ad Azure Cosmos DB
-Informazioni su come connettere un'app MongoDB ad Azure Cosmos DB usando una stringa di connessione MongoDB. È quindi possibile usare un database di Azure Cosmos come dati di archivio per l'app MongoDB. 
+Informazioni su come connettere un'app MongoDB ad Azure Cosmos DB usando una stringa di connessione MongoDB. È quindi possibile usare un database di Azure Cosmos come archivio dati per l'app MongoDB. 
 
 Questa esercitazione illustra due modi per recuperare le informazioni della stringa di connessione:
 
@@ -51,17 +51,17 @@ Questa esercitazione illustra due modi per recuperare le informazioni della stri
 >
 >
 
-Azure Cosmos DB supporta il formato URI della stringa di connessione MongoDB standard, con un paio di requisiti specifici: gli account Azure Cosmos DB richiedono l'autenticazione e la comunicazione sicura tramite SSL. Il formato della stringa di connessione sarà quindi:
+Azure Cosmos DB supporta il formato URI della stringa di connessione di MongoDB standard, con un paio di requisiti specifici: gli account Azure Cosmos DB richiedono l'autenticazione e la comunicazione sicura tramite SSL. Il formato della stringa di connessione sarà quindi:
 
     mongodb://username:password@host:port/[database]?ssl=true
 
 I valori di questa stringa sono disponibili nel pannello **Stringa di connessione** mostrato in precedenza:
 
-* Nome utente (obbligatorio): nome dell'account Cosmos.
+* Username (obbligatorio): nome dell'account Cosmos.
 * Password (obbligatoria): password dell'account Cosmos.
 * Host (obbligatorio): nome di dominio completo dell'account Cosmos.
-* Porta (obbligatoria): 10255.
-* Database (facoltativo): database usato dalla connessione. Se viene specificato alcun database, il database predefinito è "test".
+* Porta (obbligatorio): 10255.
+* Database (facoltativo): il database utilizzato dalla connessione. Se viene specificato alcun database, il database predefinito è "test".
 * ssl=true (obbligatorio)
 
 Si consideri l'account mostrato nel pannello **Stringa di connessione**. Una stringa di connessione valida è la seguente:

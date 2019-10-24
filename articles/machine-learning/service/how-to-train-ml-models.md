@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 73887c39ebcee2efc4a31925f4aacfffb3c53ca7
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 087e1cd84aa182a0aae1bef6ba3dd38f369d5189
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828061"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755947"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Eseguire il training di modelli con Azure Machine Learning usando l'oggetto Estimator
 
@@ -56,15 +56,15 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 Questo frammento di codice specifica i parametri seguenti per il costruttore di `Estimator`.
 
-Parametro | Descrizione
+Parametro | Description
 --|--
 `source_directory`| Directory locale contenente tutto il codice necessario per il processo di training. Questa cartella viene copiata dal computer locale al calcolo remoto.
-`script_params`| Dizionario che specifica gli argomenti della riga di comando da passare allo script `entry_script`di training, sotto forma `<command-line argument, value>` di coppie. Per specificare un flag dettagliato in `script_params`, utilizzare. `<command-line argument, "">`
+`script_params`| Dizionario che specifica gli argomenti della riga di comando da passare allo script di training `entry_script`, sotto forma di coppie di `<command-line argument, value>`. Per specificare un flag dettagliato in `script_params`, utilizzare `<command-line argument, "">`.
 `compute_target`| Destinazione di calcolo remota in cui verrà eseguito lo script di training, in questo caso un cluster dell'ambiente di calcolo di Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)). Si noti che anche se il cluster AmlCompute è la destinazione di uso comune, è anche possibile scegliere altri tipi di destinazione di calcolo, ad esempio macchine virtuali di Azure o persino computer locale.
 `entry_script`| Percorso file (relativo a `source_directory`) dello script di training da eseguire nelle risorse di calcolo remote. Questo file e tutti i file aggiuntivi da cui dipende devono trovarsi in questa cartella.
 `conda_packages`| Elenco dei pacchetti Python da installare tramite Conda, necessari per lo script di training.  
 
-Il costruttore dispone di un altro `pip_packages` parametro denominato usato per tutti i pacchetti PIP necessari.
+Il costruttore dispone di un altro parametro denominato `pip_packages` usato per tutti i pacchetti PIP necessari.
 
 Ora che è stato creato l'oggetto `Estimator`, inviare il processo di training per l'esecuzione sulle risorse di calcolo remote tramite una chiamata alla funzione `submit` sull'oggetto [Experiment](concept-azure-machine-learning-architecture.md#experiments)`experiment`. 
 
@@ -108,7 +108,7 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 Il codice precedente espone i nuovi parametri seguenti al costruttore di `Estimator`:
 
-Parametro | Descrizione | Predefinito
+Parametro | Description | Predefinito
 --|--|--
 `custom_docker_image`| Nome dell'immagine da usare. Specificare solo immagini disponibili in repository Docker pubblici (in questo caso Hub Docker). Per usare un'immagine da un repository Docker privato, usare invece il parametro `environment_definition` del costruttore. [Vedere l'esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| Numero di nodi da usare per il processo di training. | `1`
@@ -124,9 +124,9 @@ print(run.get_portal_url())
 
 ## <a name="github-tracking-and-integration"></a>Rilevamento e integrazione di GitHub
 
-Quando si avvia un'esecuzione di training in cui la directory di origine è un repository git locale, le informazioni sul repository vengono archiviate nella cronologia di esecuzione. Ad esempio, l'ID commit corrente per il repository viene registrato come parte della cronologia.
+Quando si avvia un'esecuzione di training in cui la directory di origine è un repository git locale, le informazioni sul repository vengono archiviate nella cronologia di esecuzione. Per ulteriori informazioni, vedere [integrazione di Git per Azure Machine Learning](concept-train-model-git-integration.md).
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 Per un notebook che mostra le nozioni di base di un modello di Estimator, vedere:
 * [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 

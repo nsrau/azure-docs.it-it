@@ -1,7 +1,7 @@
 ---
 title: Integrazione git per Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Informazioni su come Azure Machine Learning si integra con un repository git locale.
+description: Informazioni su come Azure Machine Learning si integra con un repository git locale. Quando si invia un'esecuzione di training da una directory locale che è un repository git, le informazioni sul repository, il ramo e il commit corrente vengono rilevate come parte dell'esecuzione.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 10/11/2019
-ms.openlocfilehash: 1ef9f3f847cb74aca0cae66dc8354838d28a645f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: c8b2407b18f0d7115ce51fc28b956e7fd764c71e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553668"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756006"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integrazione git per Azure Machine Learning
 
@@ -92,5 +92,4 @@ Per ulteriori informazioni, vedere la documentazione di riferimento [AZ ml Run](
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni dettagliate su come eseguire il training con Azure Machine Learning in Visual Studio Code, vedere [esercitazione: eseguire il training di modelli con Azure Machine Learning](tutorial-train-models-with-aml.md).
-* Per una procedura dettagliata su come modificare, eseguire ed eseguire il debug di codice localmente, vedere l'esercitazione relativa a [Python Hello-World](https://code.visualstudio.com/docs/Python/Python-tutorial).
+* [Configurare e usare le destinazioni di calcolo per il training del modello](how-to-set-up-training-targets.md)

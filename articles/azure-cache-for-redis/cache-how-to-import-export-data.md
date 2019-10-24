@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: dfa8b47ced70386efa1daa44af318f1da55f49e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fda366f631e392379bd52b4bba728d0373f3e75e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60542244"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756745"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importare ed esportare dati in Cache Redis di Azure
 L'importazione/esportazione è un'operazione di gestione dati di Cache Redis di Azure che consente di importare o esportare dati nella Cache Redis di Azure importando o esportando uno snapshot del database di Cache Redis (RDB) da una cache Premium a un BLOB in un account di archiviazione di Azure. 
@@ -46,16 +46,16 @@ L'importazione può essere usata per spostare i file RDB compatibili con Redis d
 
 1. Per importare uno o più BLOB di cache esportati, [passare alla cache](cache-configure.md#configure-azure-cache-for-redis-settings) nel portale di Azure e fare clic su **Importa dati** dal **menu della risorsa**.
 
-    ![Importa dati][cache-import-data]
+    ![Importa dati](./media/cache-how-to-import-export-data/cache-import-data.png)
 2. Fare clic su **Scegliere i BLOB** e selezionare l'account di archiviazione che contiene i dati da importare.
 
-    ![Scegliere l'account di archiviazione][cache-import-choose-storage-account]
+    ![Scegliere l'account di archiviazione](./media/cache-how-to-import-export-data/cache-import-choose-storage-account.png)
 3. Fare clic sul contenitore che contiene i dati da importare.
 
-    ![Scegliere il contenitore][cache-import-choose-container]
+    ![Scegliere il contenitore](./media/cache-how-to-import-export-data/cache-import-choose-container.png)
 4. Selezionare uno o più BLOB da importare facendo clic sull'area a sinistra del nome del BLOB e quindi fare clic su **Seleziona**.
 
-    ![Scegliere il BLOB][cache-import-choose-blobs]
+    ![Scegliere il BLOB](./media/cache-how-to-import-export-data/cache-import-choose-blobs.png)
 5. Fare clic su **Importa** per avviare il processo di importazione.
 
    > [!IMPORTANT]
@@ -63,36 +63,35 @@ L'importazione può essere usata per spostare i file RDB compatibili con Redis d
    >
    >
 
-    ![Importa][cache-import-blobs]
+    ![Importa](./media/cache-how-to-import-export-data/cache-import-blobs.png)
 
     È possibile controllare lo stato dell'operazione di importazione tramite le notifiche del portale di Azure oppure visualizzando gli eventi nel [log di controllo](../azure-resource-manager/resource-group-audit.md).
 
-    ![Stato dell'importazione][cache-import-data-import-complete]
+    ![Stato dell'importazione](./media/cache-how-to-import-export-data/cache-import-data-import-complete.png)
 
 ## <a name="export"></a>Esportazione
 L'esportazione consente di esportare i dati archiviati in Cache Redis in file RDB compatibili con Redis. È possibile usare questa funzionalità per spostare i dati da un'istanza di Cache Redis di Azure a un'altra o su un altro server Redis. Durante il processo di esportazione viene creato un file temporaneo nella macchina virtuale che ospita l'istanza del server Cache Redis di Azure e il file viene caricato nell'account di archiviazione designato. Quando l'operazione di esportazione viene completata con esito positivo o negativo, il file temporaneo viene eliminato.
 
 1. Per esportare il contenuto corrente della cache nell'archiviazione, [passare alla cache](cache-configure.md#configure-azure-cache-for-redis-settings) nel portale di Azure e fare clic su **Esporta dati** dal **menu della risorsa**.
 
-    ![Scegliere il contenitore di archiviazione][cache-export-data-choose-storage-container]
+    ![Scegliere il contenitore di archiviazione](./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png)
 2. Fare clic su **Scegliere il contenitore di archiviazione** e selezionare l'account di archiviazione desiderato. L'account di archiviazione deve trovarsi nella stessa area e nella stessa sottoscrizione della cache.
 
    > [!IMPORTANT]
    > La funzionalità di esportazione è compatibile con i BLOB di pagine, supportati dagli account di archiviazione di Resource Manager e della versione classica ma al momento non supportati dagli account di archiviazione BLOB. Per altre informazioni, vedere [Panoramica dell'account di archiviazione di Azure](../storage/common/storage-account-overview.md).
    >
-   >
 
-    ![Account di archiviazione][cache-export-data-choose-account]
+    ![Account di archiviazione](./media/cache-how-to-import-export-data/cache-export-data-choose-account.png)
 3. Scegliere il contenitore BLOB desiderato e fare clic su **Seleziona**. Per usare un nuovo contenitore, fare clic su **Aggiungi contenitore** per aggiungerlo prima e quindi selezionarlo dall'elenco.
 
-    ![Scegliere il contenitore di archiviazione][cache-export-data-container]
+    ![Scegliere il contenitore di archiviazione](./media/cache-how-to-import-export-data/cache-export-data-container.png)
 4. Digitare un valore in **Prefisso nome BLOB** e fare clic su **Esporta** per avviare il processo di esportazione. Il prefisso del nome BLOB viene usato per i nomi dei file generati da questa operazione di esportazione.
 
-    ![Esportazione][cache-export-data]
+    ![Esportazione](./media/cache-how-to-import-export-data/cache-export-data.png)
 
     È possibile controllare lo stato dell'operazione di esportazione seguendo le notifiche del portale di Azure oppure visualizzando gli eventi nel [log di controllo](../azure-resource-manager/resource-group-audit.md).
 
-    ![Esportazione dei dati completa][cache-export-data-export-complete]
+    ![Esportazione dei dati completa](./media/cache-how-to-import-export-data/cache-export-data-export-complete.png)
 
     Durante il processo di esportazione le cache rimangono disponibili per l'uso.
 
@@ -146,7 +145,7 @@ La persistenza di Cache Redis di Azure consente di salvare in modo permanente in
 La funzionalità Importazione/Esportazione consente di importare o esportare dati in Cache Redis di Azure, ma non di configurare il backup e il ripristino usando la persistenza di Redis.
 
 ### <a name="can-i-automate-importexport-using-powershell-cli-or-other-management-clients"></a>È possibile automatizzare la funzionalità Importazione/Esportazione con PowerShell, l'interfaccia della riga di comando o altri client di gestione?
-Sì, per le istruzioni su PowerShell, vedere [Come importare un'istanza di Cache Redis di Azure](cache-howto-manage-redis-cache-powershell.md#to-import-an-azure-cache-for-redis) e [Come esportare un'istanza di Cache Redis di Azure](cache-howto-manage-redis-cache-powershell.md#to-export-an-azure-cache-for-redis).
+Sì, per le istruzioni su PowerShell, vedere [Come importare un'istanza di Cache Redis di Azure](cache-how-to-manage-redis-cache-powershell.md#to-import-an-azure-cache-for-redis) e [Come esportare un'istanza di Cache Redis di Azure](cache-how-to-manage-redis-cache-powershell.md#to-export-an-azure-cache-for-redis).
 
 ### <a name="i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean"></a>Durante l'operazione di Importazione/Esportazione è stato ricevuto un errore di timeout. Da cosa dipende il problema?
 Se il pannello **Importa dati** o **Esporta dati** rimane aperto per più di 15 minuti prima che l'operazione venga avviata, verrà visualizzato un errore contenente un messaggio simile al seguente:
@@ -155,24 +154,10 @@ Se il pannello **Importa dati** o **Esporta dati** rimane aperto per più di 15 
 
 Per risolvere il problema, avviare l'operazione di importazione o esportazione prima che scadano i 15 minuti.
 
-### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Durante l'esportazione dei dati nell'archivio BLOB di Azure è stato visualizzato un errore. Cosa è successo?
+### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Durante l'esportazione dei dati nell'archivio BLOB di Azure è stato visualizzato un errore. Che cosa è successo?
 L'esportazione funziona solo con i file RDB archiviati come BLOB di pagine. Al momento non sono supportati altri tipi di BLOB, inclusi gli account di archiviazione BLOB con livelli di accesso frequente e non frequente. Per altre informazioni, vedere [Panoramica dell'account di archiviazione di Azure](../storage/common/storage-account-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come usare altre funzionalità di cache premium.
 
-* [Introduzione al livello Premium di Cache Redis di Azure](cache-premium-tier-intro.md)    
-
-<!-- IMAGES -->
-[cache-settings-import-export-menu]: ./media/cache-how-to-import-export-data/cache-settings-import-export-menu.png
-[cache-export-data-choose-account]: ./media/cache-how-to-import-export-data/cache-export-data-choose-account.png
-[cache-export-data-choose-storage-container]: ./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png
-[cache-export-data-container]: ./media/cache-how-to-import-export-data/cache-export-data-container.png
-[cache-export-data-export-complete]: ./media/cache-how-to-import-export-data/cache-export-data-export-complete.png
-[cache-export-data]: ./media/cache-how-to-import-export-data/cache-export-data.png
-[cache-import-data]: ./media/cache-how-to-import-export-data/cache-import-data.png
-[cache-import-choose-storage-account]: ./media/cache-how-to-import-export-data/cache-import-choose-storage-account.png
-[cache-import-choose-container]: ./media/cache-how-to-import-export-data/cache-import-choose-container.png
-[cache-import-choose-blobs]: ./media/cache-how-to-import-export-data/cache-import-choose-blobs.png
-[cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
-[cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
+* [Introduzione al livello Premium di Cache Redis di Azure](cache-premium-tier-intro.md)

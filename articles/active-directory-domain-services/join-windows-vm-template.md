@@ -1,5 +1,5 @@
 ---
-title: Usare un modello per aggiungere una macchina virtuale Windows Server a Azure AD DS | Microsoft Docs
+title: Usare un modello per aggiungere una macchina virtuale Windows a Azure AD DS | Microsoft Docs
 description: Informazioni su come usare i modelli di Azure Resource Manager per aggiungere una macchina virtuale Windows Server nuova o esistente a un dominio gestito da Azure Active Directory Domain Services.
 services: active-directory-ds
 author: iainfoulds
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: d4e6beb376172e5ec5285d26b47fd23b396d5e38
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 9f35c9c3c6c974c79dc849425fc91b532aed4d22
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104103"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755697"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Aggiungere una macchina virtuale Windows Server a un dominio gestito Azure Active Directory Domain Services usando un modello di Gestione risorse
 
@@ -88,11 +88,11 @@ Per creare una macchina virtuale Windows Server, aggiungerla a un dominio gestit
     |---------------------------|-------|
     | Sottoscrizione              | Selezionare la stessa sottoscrizione di Azure in cui è abilitato Azure Active Directory Domain Services. |
     | Gruppo di risorse            | Scegliere il gruppo di risorse per la macchina virtuale. |
-    | Location                  | Selezionare il percorso di per la macchina virtuale. |
+    | Località                  | Selezionare il percorso di per la macchina virtuale. |
     | Nome VNET esistente        | Nome della rete virtuale esistente a cui connettere la VM, ad esempio *myVnet*. |
     | Nome subnet esistente      | Nome della subnet della rete virtuale esistente, ad esempio *carichi di lavoro*. |
     | Prefisso etichetta DNS          | Immettere un nome DNS da usare per la macchina virtuale, ad esempio *MyVM*. |
-    | Dimensioni macchina virtuale                   | Specificare le dimensioni della macchina virtuale, ad esempio *Standard_DS2_v2*. |
+    | Dimensioni VM                   | Specificare le dimensioni della macchina virtuale, ad esempio *Standard_DS2_v2*. |
     | Dominio da aggiungere            | Nome DNS del dominio gestito di Azure AD DS, ad esempio *contoso.com*. |
     | Nome utente dominio           | Account utente nel dominio gestito di Azure AD DS da usare per aggiungere la macchina virtuale al dominio gestito. Questo account deve essere membro del gruppo *amministratori di Azure ad controller* di dominio. |
     | Password di dominio           | Password per l'account utente specificato nell'impostazione precedente. |
@@ -121,7 +121,7 @@ Per aggiungere una macchina virtuale Windows Server esistente a un dominio gesti
     |---------------------------|-------|
     | Sottoscrizione              | Selezionare la stessa sottoscrizione di Azure in cui è abilitato Azure Active Directory Domain Services. |
     | Gruppo di risorse            | Scegliere il gruppo di risorse con la macchina virtuale esistente. |
-    | Location                  | Selezionare il percorso della macchina virtuale esistente. |
+    | Località                  | Selezionare il percorso della macchina virtuale esistente. |
     | Elenco VM                   | Immettere l'elenco delimitato da virgole delle macchine virtuali esistenti da aggiungere al dominio gestito di Azure AD DS, ad esempio *myVM1, myVM2*. |
     | Nome utente aggiunta al dominio     | Account utente nel dominio gestito di Azure AD DS da usare per aggiungere la macchina virtuale al dominio gestito. Questo account deve essere membro del gruppo *amministratori di Azure ad controller* di dominio. |
     | Password utente aggiunta al dominio | Password per l'account utente specificato nell'impostazione precedente. |

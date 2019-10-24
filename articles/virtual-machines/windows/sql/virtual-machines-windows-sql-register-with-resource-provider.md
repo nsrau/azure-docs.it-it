@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a0e5076f6ecb102b239a94b986830235eb720125
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 2f0fac5e1951f593ea769f73feb21a60afe9c02b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512370"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756205"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrare una macchina virtuale SQL Server in Azure con il provider di risorse VM SQL
 
@@ -203,7 +203,7 @@ Sono disponibili tre modalità di gestibilità gratuite per la SQL Server estens
      $sqlvm.Properties.sqlManagement
   ```
 
-SQL Server le macchine virtuali con l'estensione IaaS *Lightweight* installata possono aggiornare la modalità a _full_ usando il portale di Azure. SQL Server le macchine virtuali in modalità _senza agente_ possono eseguire l'aggiornamento alla _versione completa_ dopo l'aggiornamento del sistema operativo a Windows 2008 R2 e versioni successive. Non è possibile effettuare il downgrade. a tale scopo, sarà necessario eliminare la risorsa del provider di risorse VM SQL usando il portale di Azure e registrarsi nuovamente con il provider di risorse VM SQL. 
+SQL Server le macchine virtuali con l'estensione IaaS *Lightweight* installata possono aggiornare la modalità a _full_ usando il portale di Azure. SQL Server le macchine virtuali in modalità _senza agente_ possono eseguire l'aggiornamento alla _versione completa_ dopo l'aggiornamento del sistema operativo a Windows 2008 R2 e versioni successive. Non è possibile effettuare il downgrade. a tale scopo, sarà necessario [annullare la registrazione](#unregister-vm-from-resource-provider) della macchina virtuale SQL Server dal provider di risorse VM SQL eliminando la risorsa VM SQL e registrarla nuovamente con il provider di risorse VM SQL. 
 
 Per aggiornare la modalità agente a Full: 
 
@@ -281,6 +281,49 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
 ---
 
+## <a name="unregister-vm-from-resource-provider"></a>Annulla la registrazione della macchina virtuale dal provider di risorse 
+
+Per annullare la registrazione della VM SQL Server con il provider di risorse VM SQL, eliminare la *risorsa* macchina virtuale SQL usando l'interfaccia della riga di comando di portale di Azure o Azure. L'eliminazione della *risorsa* della macchina virtuale SQL non comporta l'eliminazione della VM SQL Server. Tuttavia, prestare attenzione e seguire attentamente i passaggi perché è possibile eliminare inavvertitamente la macchina virtuale quando si tenta di rimuovere la *risorsa*. 
+
+L'annullamento della registrazione della macchina virtuale SQL con il provider di risorse VM SQL è necessario per eseguire il downgrade della modalità di gestione da piena. 
+
+### <a name="azure-portal"></a>Portale di Azure
+
+Per annullare la registrazione della macchina virtuale SQL Server con il provider di risorse usando il portale di Azure, seguire questa procedura:
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Passare alla risorsa SQL Server VM. 
+  
+   ![Risorsa macchine virtuali SQL](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
+
+1. Selezionare **Elimina**. 
+
+   ![Elimina provider di risorse VM SQL](media/virtual-machines-windows-sql-register-with-rp/delete-sql-vm-resource-provider.png)
+
+1. Digitare il nome della macchina virtuale SQL e **deselezionare la casella di controllo accanto alla macchina virtuale**.
+
+   ![Elimina provider di risorse VM SQL](media/virtual-machines-windows-sql-register-with-rp/confirm-delete-of-resource-uncheck-box.png)
+
+   >[!WARNING]
+   > Se non si deseleziona la casella di controllo accanto al nome della macchina virtuale, la macchina virtuale verrà *eliminata* completamente. Deselezionare la casella di controllo per annullare la registrazione della VM SQL Server dal provider di risorse, ma *non eliminare la macchina virtuale effettiva*. 
+
+1. Selezionare **Elimina** per confermare l'eliminazione della *risorsa*della macchina virtuale SQL e non della macchina virtuale SQL Server. 
+
+
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure 
+
+Per annullare la registrazione della macchina virtuale SQL Server dal provider di risorse con l'interfaccia della riga di comando di Azure, usare il comando [AZ SQL VM Delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) . Verrà rimossa la *risorsa* della macchina virtuale SQL Server ma la macchina virtuale non verrà eliminata. 
+
+
+```azurecli-interactive
+   az sql vm delete 
+     --name <SQL VM resource name> |
+     --resource-group <Resource group name> |
+     --yes 
+```
+
+
+
 ## <a name="remarks"></a>Osservazioni
 
 - Il provider di risorse VM SQL supporta solo SQL Server macchine virtuali distribuite tramite Azure Resource Manager. SQL Server macchine virtuali distribuite con il modello classico non sono supportate. 
@@ -353,7 +396,7 @@ Sì. L'aggiornamento della modalità di gestibilità da Lightweight a Full è su
 
 No. Il downgrade del SQL Server modalità di gestione dell'estensione IaaS non è supportato. Non è possibile effettuare il downgrade della modalità di gestibilità dalla modalità completa alla modalità lightweight o senza agente e non è possibile effettuare il downgrade dalla modalità Lightweight alla modalità senza agente. 
 
-Per modificare la modalità di gestibilità dalla gestione completa, eliminare la risorsa Microsoft. SqlVirtualMachine e registrare di nuovo la macchina virtuale di SQL Server con il provider di risorse della macchina virtuale SQL.
+Per modificare la modalità di gestibilità dalla gestione completa, [annullare la registrazione](#unregister-vm-from-resource-provider) della macchina virtuale SQL Server dal provider di risorse SQL Server eliminando la *risorsa* SQL Server e registrare di nuovo la VM SQL Server con il provider di risorse VM SQL in una modalità di gestione diversa.
 
 **È possibile eseguire la registrazione con il provider di risorse VM SQL dalla portale di Azure?**
 

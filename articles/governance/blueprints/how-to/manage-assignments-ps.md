@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/30/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 297c6a51c1f902cf7b5843b2dd47b658ebc705fd
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: ef9674165533ef3e4887bba68507344406ca128c
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980999"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755935"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Come gestire le assegnazioni con PowerShell
 
@@ -42,7 +42,7 @@ Il modulo Blueprints per PowerShell è **AZ. Blueprint**.
    > [!NOTE]
    > Se **AZ. Accounts** è già installato, potrebbe essere necessario usare `-AllowClobber` per forzare l'installazione.
 
-1. Verificare che il modulo sia stato importato ed è la versione corretta (0.2.5):
+1. Verificare che il modulo sia stato importato ed è la versione corretta (0.2.6):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.Blueprint module
@@ -54,7 +54,7 @@ Il modulo Blueprints per PowerShell è **AZ. Blueprint**.
 Il primo passaggio per l'utilizzo di un'assegnazione è spesso il recupero di un riferimento a una definizione di progetto.
 Il cmdlet `Get-AzBlueprint` ottiene una o più definizioni di progetto. Il cmdlet può ottenere le definizioni del progetto da un gruppo di gestione con `-ManagementGroupId {mgId}` o una sottoscrizione con `-SubscriptionId {subId}`. Il parametro **Name** ottiene una definizione di progetto, ma deve essere utilizzata con **managementgroupid nelle** o **SubscriptionId**. La **versione** può essere usata con il **nome** per essere più esplicita sulla definizione del progetto da restituire. Invece della **versione**, l'opzione `-LatestPublished` acquisisce la versione pubblicata più di recente.
 
-Nell'esempio seguente viene usato `Get-AzBlueprint` per ottenere tutte le versioni di una definizione di progetto denominata ' 101-Blueprints-Definition-Subscription ' da una sottoscrizione specifica rappresentata come `{subId}`:
+L'esempio seguente usa `Get-AzBlueprint` per ottenere tutte le versioni di una definizione di progetto denominata ' 101-Blueprints-Definition-Subscription ' da una sottoscrizione specifica rappresentata come `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -169,9 +169,9 @@ Se l'assegnazione del progetto non esiste ancora, è possibile crearla con il cm
   - Percorso di una rappresentazione di un file JSON di un'assegnazione di progetto
   - Questo parametro fa parte di un set di parametri PowerShell che include solo **nome**, **progetto**e **SubscriptionId**, oltre ai parametri comuni.
 
-### <a name="example-1-provide-parameters"></a>Esempio 1: Specificare i parametri
+### <a name="example-1-provide-parameters"></a>Esempio 1: specificare i parametri
 
-L'esempio seguente crea una nuova assegnazione della versione ' 1,1' della definizione di progetto ' My-Blueprint ' recuperata con `Get-AzBlueprint`, imposta l'identità gestita e il percorso dell'oggetto di assegnazione su' westus2', blocca le risorse con _AllResourcesReadOnly_, e imposta le tabelle hash per il **parametro** e **ResourceGroupParameter** per una sottoscrizione specifica rappresentata come `{subId}`:
+L'esempio seguente crea una nuova assegnazione della versione ' 1,1' della definizione di progetto ' My-Blueprint ' recuperata con `Get-AzBlueprint`, imposta il percorso dell'oggetto di assegnazione e dell'identità gestita su' westus2', blocca le risorse con _AllResourcesReadOnly_, e imposta le tabelle hash per il **parametro** e **ResourceGroupParameter** per una sottoscrizione specifica rappresentata come `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -206,7 +206,7 @@ Parameters        : {storageAccount_storageAccountType}
 ResourceGroups    : ResourceGroup
 ```
 
-### <a name="example-2-use-a-json-assignment-definition-file"></a>Esempio 2 Usare un file di definizione di assegnazione JSON
+### <a name="example-2-use-a-json-assignment-definition-file"></a>Esempio 2: usare un file di definizione di assegnazione JSON
 
 Nell'esempio seguente viene creata quasi la stessa assegnazione dell' [esempio 1](#example-1-provide-parameters).
 Anziché passare parametri al cmdlet, nell'esempio viene illustrato l'uso di un file di definizione di assegnazione JSON e del parametro **AssignmentFile** . Inoltre, la proprietà **excludedPrincipals** viene configurata come parte dei **blocchi**. Non esiste un parametro di PowerShell per **excludedPrincipals** e la proprietà può essere configurata solo tramite il file di definizione dell'assegnazione JSON.

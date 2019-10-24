@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5d7665cbfdf855e194f61910f0c8ee2bce5469b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1555eb4e48a0cf43a38aa811e20ffbbed8ee87a9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311714"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755806"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Aggiungere un repository Git per archiviare elementi personalizzati e modelli di Resource Manager
 
@@ -30,7 +30,7 @@ ms.locfileid: "60311714"
 Quando si crea una macchina virtuale, è possibile salvare il modello di Resource Manager, personalizzarlo, se lo si desidera, e quindi usarlo successivamente per creare altre macchine virtuali. È necessario creare il proprio repository privato per archiviare i modelli di Resource Manager personalizzati.  
 
 * Per informazioni su come creare un archivio GitHub, vedere [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-* Per informazioni su come creare un progetto di servizi di Azure DevOps con un repository Git, vedere [connettersi a servizi di Azure DevOps](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* Per informazioni su come creare un progetto di Azure DevOps Services con un repository git, vedere [connettersi a Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 La figura seguente illustra un esempio di come potrebbe apparire un repository contenente elementi in GitHub:  
 
@@ -65,7 +65,7 @@ Per aggiungere un repository al lab, è necessario prima ottenere alcune informa
    1. Immettere una **Descrizione** per il token.
    2. Nell'elenco **Scadenza tra** selezionare **180 giorni**.
    3. Nell'elenco **Account** selezionare **Tutti gli account accessibili**.
-   4. Selezionare l'opzione **Tutti gli ambiti**.
+   4. Selezionare l'opzione di sola **lettura** .
    5. Selezionare **Crea token**.
 9. Il nuovo token verrà visualizzato nell'elenco **Token di accesso personali**. Selezionare **Copia token**e quindi salvare il valore del token da usare in un momento successivo.
 10. Passare alla sezione [Connettere il lab al repository](#connect-your-lab-to-the-repository) .

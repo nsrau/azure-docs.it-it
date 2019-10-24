@@ -1,18 +1,18 @@
 ---
 title: Presenza a livello di area con Azure Cosmos DB
 description: Questo articolo include informazioni sulla presenza a livello di area di Azure Cosmos DB e sui diversi ambienti cloud.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
 ms.custom: seodec18
-ms.openlocfilehash: 775ca8c57a9a444df2f7d0a4df4224b7eba9d677
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 95b9a9804fe1a9473d226912f178284f701a1547
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384034"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753219"
 ---
 # <a name="regional-presence-with-azure-cosmos-db"></a>Presenza a livello di area con Azure Cosmos DB
 

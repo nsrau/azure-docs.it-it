@@ -1,20 +1,20 @@
 ---
 title: Usare Key Vault per archiviare e accedere alle chiavi di Azure Cosmos DB
 description: Usare Azure Key Vault per archiviare e accedere alla stringa di connessione, alle chiavi e agli endpoint di Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 157ccd284c25cb5c7275aa942823ade2a40795cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55e6bbc338c1ac6f9ef935b4a3a05c32f2b5e9f5
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239864"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755216"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteggere le chiavi di Azure Cosmos con Azure Key Vault 
 
@@ -34,7 +34,7 @@ Per archiviare e leggere le chiavi di accesso di Azure Cosmos DB da Key Vault so
 2. Selezionare **Create a resource > Security > Key Vault** (Crea risorsa > Sicurezza > Key Vault).  
 3. Nella pagina **Crea insieme di credenziali delle chiavi** specificare le informazioni seguenti:  
    * **Nome:** specificare un nome univoco per Key Vault.  
-   * **Sottoscrizione:** scegliere la sottoscrizione da usare.  
+   * **Sottoscrizione**: scegliere la sottoscrizione da usare.  
    * In **Gruppo di risorse** scegliere **Crea nuovo** e immettere il nome del gruppo di risorse.  
    * Scegliere un percorso nel menu a discesa Percorso.  
    * Lasciare invariati i valori predefiniti delle altre opzioni.  

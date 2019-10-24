@@ -1,17 +1,17 @@
 ---
 title: Ottimizzazione del costo della velocità effettiva in Azure Cosmos DB
 description: Questo articolo illustra come ottimizzare i costi della velocità effettiva per i dati archiviati in Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.author: rimman
-ms.openlocfilehash: d874f1ba8823ceddbef378decde127cef4ff8885
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 24812b8d97080d59fd50f4dc528117b3020fd8dc
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020098"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753258"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB
 
@@ -53,19 +53,19 @@ Di seguito sono riportate alcune linee guida per scegliere una strategia di velo
 
 Come illustrato nella tabella seguente, a seconda della scelta dell'API, è possibile effettuare il provisioning della velocità effettiva con livelli diversi di granularità.
 
-|API|Per la velocità effettiva **condivisa**, configurare |Per la velocità effettiva **dedicata**, configurare |
+|API SmartBear Ready!|Per la velocità effettiva **condivisa**, configurare |Per la velocità effettiva **dedicata**, configurare |
 |----|----|----|
 |API SQL|Database|Contenitore|
-|API Azure Cosmos DB per MongoDB|Database|Collection|
-|API Cassandra|Keyspace|Tabella|
-|API Gremlin|Account del database|Grafico|
-|API di tabella|Account del database|Tabella|
+|API Azure Cosmos DB per MongoDB|Database|Raccolta|
+|API Cassandra|Keyspace|Table|
+|API Gremlin|Account di database|Grafo|
+|API di tabella|Account di database|Table|
 
 Con il provisioning della velocità effettiva a livelli diversi, è possibile ottimizzare i costi in base alle caratteristiche del carico di lavoro. Come accennato in precedenza, è possibile aumentare o ridurre la velocità effettiva con provisioning in modo programmatico e in qualsiasi momento per i singoli contenitori o in modo collettivo in un set di contenitori. Il ridimensionamento elastico della velocità effettiva con il cambiare del carico di lavoro consente di pagare solo la velocità effettiva che è stata configurata. Se il contenitore o un set di contenitori viene distribuito tra più aree, la velocità effettiva configurata nel contenitore o in un set di contenitori è garantita come disponibile in tutte le aree.
 
 ## <a name="optimize-with-rate-limiting-your-requests"></a>Ottimizzare impostando limiti di velocità per le richieste
 
-Per i carichi di lavoro che non sono sensibili alla latenza, è possibile effettuare il provisioning di una velocità effettiva inferiore e consentire all'applicazione di gestire l'impostazione di limiti quando la velocità effettiva reale supera la velocità effettiva con provisioning. Il server termina preventivamente la richiesta con `RequestRateTooLarge` (codice di stato http 429) e restituisce `x-ms-retry-after-ms` l'intestazione che indica la quantità di tempo, in millisecondi, che l'utente deve attendere prima di ritentare la richiesta. 
+Per i carichi di lavoro che non sono sensibili alla latenza, è possibile effettuare il provisioning di una velocità effettiva inferiore e consentire all'applicazione di gestire l'impostazione di limiti quando la velocità effettiva reale supera la velocità effettiva con provisioning. Il server termina preventivamente la richiesta con `RequestRateTooLarge` (codice di stato HTTP 429) e restituisce l'intestazione `x-ms-retry-after-ms` che indica la quantità di tempo, in millisecondi, che l'utente deve attendere prima di ritentare la richiesta. 
 
 ```html
 HTTP Status 429, 
@@ -77,7 +77,7 @@ HTTP Status 429,
 
 Gli SDK nativi (.NET/.NET Core, Java, Node.js e Python) intercettano implicitamente questa risposta, rispettano l'intestazione retry-after specificata dal server e ripetono la richiesta. A meno che all'account non accedano contemporaneamente più client, il tentativo successivo avrà esito positivo.
 
-Se si dispone di più client che operano complessivamente a una velocità costantemente superiore a quella della richiesta, il numero di tentativi predefinito attualmente impostato su 9 potrebbe non essere sufficiente. In tal caso, il client genera `DocumentClientException` con codice di stato 429 per l'applicazione. Il numero predefinito di ripetizioni dei tentativi può essere modificato impostando `RetryOptions` nell'istanza di ConnectionPolicy. Per impostazione predefinita, `DocumentClientException` il codice di stato 429 viene restituito dopo un periodo di attesa cumulativo di 30 secondi se la richiesta continua a funzionare al di sopra della frequenza delle richieste. Ciò si verifica anche quando il numero di ripetizioni dei tentativi corrente è inferiore al numero massimo di tentativi, indipendentemente dal fatto che si tratti del valore predefinito 9 o di un valore definito dall'utente. 
+Se si dispone di più client che operano complessivamente a una velocità costantemente superiore a quella della richiesta, il numero di tentativi predefinito attualmente impostato su 9 potrebbe non essere sufficiente. In tal caso, il client genera `DocumentClientException` con codice di stato 429 per l'applicazione. Il numero predefinito di ripetizioni dei tentativi può essere modificato impostando `RetryOptions` nell'istanza di ConnectionPolicy. Per impostazione predefinita, il `DocumentClientException` con il codice di stato 429 viene restituito dopo un tempo di attesa cumulativo di 30 secondi se la richiesta continua a funzionare al di sopra della frequenza delle richieste. Ciò si verifica anche quando il numero di ripetizioni dei tentativi corrente è inferiore al numero massimo di tentativi, indipendentemente dal fatto che si tratti del valore predefinito 9 o di un valore definito dall'utente. 
 
 [MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) è impostato su 3, quindi, in questo caso, se un'operazione di richiesta è limitata alla frequenza superando la velocità effettiva riservata per il contenitore, l'operazione di richiesta esegue tre tentativi prima di generare l'eccezione all'applicazione. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) è impostato su 60, quindi, in questo caso, se il tempo di attesa per tentativi cumulativi in secondi dalla prima richiesta supera i 60 secondi, viene generata l'eccezione.
 
@@ -177,9 +177,9 @@ La procedura seguente consente di rendere le soluzioni altamente scalabili ed ec
 
 È ora possibile passare ad altre informazioni sull'ottimizzazione dei costi in Azure Cosmos DB con gli articoli seguenti:
 
-* Altre informazioni sull'[Ottimizzazione di sviluppo e test](optimize-dev-test.md)
+* Altre informazioni sull'[ottimizzazione di sviluppo e test](optimize-dev-test.md)
 * Altre informazioni su [come comprendere la fatturazione di Azure Cosmos DB](understand-your-bill.md)
-* Altre informazioni sull'[ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
+* Altre informazioni sull'[Ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
 * Altre informazioni sull'[ottimizzazione del costo delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
 * Altre informazioni sull'[ottimizzazione del costo delle query](optimize-cost-queries.md)
 * Altre informazioni sull'[ottimizzazione dei costi degli account Azure Cosmos multiarea](optimize-cost-regions.md)

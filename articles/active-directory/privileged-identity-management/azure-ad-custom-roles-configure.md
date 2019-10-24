@@ -4,23 +4,23 @@ description: Come configurare ruoli personalizzati di Azure AD in Privileged Ide
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.assetid: ''
-ms.service: role-based-access-control
+ms.service: active-directory
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc7e52a2ef92120da60f085c0afebeb8af714203
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
-ms.translationtype: HT
+ms.openlocfilehash: e7d5a7fe20a53baa86f43703c97fb8437fbb0fcd
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947547"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756405"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configurare ruoli personalizzati di Azure AD in Privileged Identity Management
 
@@ -50,13 +50,13 @@ Quando si configurano le impostazioni per un ruolo è possibile scegliere tra du
 
 È possibile scegliere una delle opzioni seguenti per la durata dell'assegnazione *idonea*.
 
-- **Consenti le assegnazioni idonee permanenti**: Gli amministratori possono assegnare l'appartenenza idonea permanente.
-- **Scadenza delle assegnazioni idonee dopo**: Gli amministratori possono richiedere che per tutte le assegnazioni idonee venga specificata una data di inizio e fine.
+- **Consenti assegnazione permanente idonea**: gli amministratori possono assegnare l'appartenenza permanente idonea.
+- **Scadenza assegnazione idonea dopo**: gli amministratori possono richiedere che tutte le assegnazioni idonee abbiano una data di inizio e di fine specificata.
 
 Ed è anche possibile scegliere una delle opzioni di durata dell'assegnazione *attiva*:
 
-- **Consenti l'assegnazione permanente attiva**: Gli amministratori possono assegnare l'appartenenza attiva permanente.
-- **Scadenza delle assegnazioni attive dopo**: Gli amministratori possono richiedere che per tutte le assegnazioni attive venga specificata una data di inizio e fine.
+- **Consenti assegnazione attiva permanente**: gli amministratori possono assegnare l'appartenenza permanente attiva.
+- **Scadenza assegnazione attiva dopo**: gli amministratori possono richiedere che tutte le assegnazioni attive abbiano una data di inizio e di fine specificata.
 
 ### <a name="require-azure-multi-factor-authentication"></a>Richiedere Azure Multi-Factor Authentication
 
