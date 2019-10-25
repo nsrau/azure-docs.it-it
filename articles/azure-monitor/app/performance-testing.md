@@ -1,65 +1,61 @@
 ---
-title: Prestazioni e test di carico con Azure Application Insights | Microsoft Docs
-description: Configurare i test di carico con Azure Application Insights e delle prestazioni
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Test di carico e prestazioni con applicazione Azure Insights | Microsoft Docs
+description: Configurare test di carico e prestazioni con applicazione Azure Insights
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: 55d743e32f6db0828317d3764a97bcb35b104dad
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 9c86b69239bed1a15c754ce28232b97e8439942b
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67305230"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819098"
 ---
 # <a name="performance-testing"></a>Test delle prestazioni
 
 > [!NOTE]
-> Servizio di test di carico basati sul cloud è stato deprecato. Sono disponibili altre informazioni sulla deprecazione, la disponibilità del servizio e servizi alternativi [qui](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
+> Il servizio di test di carico basato sul cloud è stato deprecato. Altre informazioni sulla deprecazione, sulla disponibilità del servizio e sui servizi alternativi sono disponibili [qui](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
 
-Application Insights consente di generare i test di carico per i siti Web. Ad esempio [test di disponibilità](monitor-web-app-availability.md), è possibile inviare entrambi richieste basilare o [richieste in più passaggi](availability-multistep.md) da Azure agenti tutto il mondo di test. Test delle prestazioni consentono di simulare fino a 20.000 utenti simultanei fino a 60 minuti.
+Application Insights consente di generare test di carico per i siti Web. Analogamente ai [test di disponibilità](monitor-web-app-availability.md), è possibile inviare richieste di base o richieste in più [passaggi](availability-multistep.md) dagli agenti di test di Azure in tutto il mondo. I test delle prestazioni consentono di simulare fino a 20.000 utenti simultanei per un massimo di 60 minuti.
 
 ## <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
 
-Per creare un test delle prestazioni, è necessario creare una risorsa di Application Insights. Se già stata creata una risorsa di procedere alla sezione successiva.
+Per creare un test delle prestazioni, è prima di tutto necessario creare una risorsa Application Insights. Se è già stata creata una risorsa, procedere alla sezione successiva.
 
-Dal portale di Azure, selezionare **crea una risorsa** > **strumenti di sviluppo** > **Application Insights** e creare un Application Insights risorsa.
+Dal portale di Azure selezionare **Crea una risorsa** > **strumenti di sviluppo** > **Application Insights** e creare una risorsa Application Insights.
 
 ## <a name="configure-performance-testing"></a>Configurare il test delle prestazioni
 
-Se questa è la prima volta la creazione di selezione di test delle prestazioni **organizzazione impostare** e scegliere un'organizzazione di DevOps di Azure come origine per i test delle prestazioni.
+Se è la prima volta che si crea un test delle prestazioni, selezionare **imposta organizzazione** e scegliere un'organizzazione DevOps di Azure come origine per i test delle prestazioni.
 
-Sotto **configura**passare alla **test delle prestazioni** e fare clic su **New** per creare un test.
+In **Configura**passare a **test delle prestazioni** e fare clic su **nuovo** per creare un test.
 
 ![Fill at least the URL of your website](./media/performance-testing/new-performance-test.png)
 
-Per creare un test delle prestazioni di base, selezionare un tipo di test **Test manuale** e compilare le impostazioni desiderate per il test.
+Per creare un test delle prestazioni di base, selezionare un tipo di test **manuale** e compilare le impostazioni desiderate per il test.
 
 |Impostazione| Valore massimo
 |----------|------------|
 | Carico utente | 20.000 |
 | Durata (minuti)  | 60 |  
 
-Dopo aver creato il test, fare clic su **eseguire test**.
+Dopo aver creato il test, fare clic su **Esegui test**.
 
-Una volta completato il test, verranno visualizzati risultati simili ai risultati seguenti:
+Al termine del test, vengono visualizzati risultati simili ai risultati seguenti:
 
-![Risultati dei test](./media/performance-testing/test-results.png)
+![Risultati test](./media/performance-testing/test-results.png)
 
-## <a name="configure-visual-studio-web-test"></a>Configurare test web di Visual Studio
+## <a name="configure-visual-studio-web-test"></a>Configurare il test Web di Visual Studio
 
-I progetti di test delle prestazioni avanzate funzionalità di test si avvalgono di carico e prestazioni di Visual Studio Application Insights.
+Application Insights funzionalità avanzate di test delle prestazioni sono basate sui progetti di test di carico e prestazioni di Visual Studio.
 
 ![Visual Studio ](./media/performance-testing/visual-studio-test.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Test web in più passi](availability-multistep.md)
-* [Test di ping URL](monitor-web-app-availability.md)
+* [Test Web in più passaggi](availability-multistep.md)
+* [Test ping URL](monitor-web-app-availability.md)

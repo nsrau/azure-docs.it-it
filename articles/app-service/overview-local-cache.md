@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bfb66789df3236c096ea00bcc83ddc435e87f047
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 4dffa7dcafe4aabe3e8dcb56d4f5084d0c6ef821
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097653"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819674"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Panoramica della cache locale del servizio app di Azure
 
@@ -58,8 +58,8 @@ La funzionalità cache locale del servizio app di Azure offre una visualizzazion
 ## <a name="enable-local-cache-in-app-service"></a>Abilitare la cache locale nel servizio app
 La cache locale viene configurata mediante una combinazione di impostazioni delle app riservate. Queste impostazioni delle app possono essere configurate usando i metodi seguenti:
 
-* [Portale di Azure](#Configure-Local-Cache-Portal)
-* [Gestione risorse di Azure](#Configure-Local-Cache-ARM)
+* [Azure portal](#Configure-Local-Cache-Portal)
+* [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Configurare la cache locale tramite il portale di Azure
 <a name="Configure-Local-Cache-Portal"></a>
@@ -93,7 +93,7 @@ La cache locale viene abilitata per ogni app Web con questa impostazione dell'ap
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>Modificare l'impostazione delle dimensioni nella cache locale
-Per impostazione predefinita le dimensioni della cache locale corrispondono a **300 MB**. Sono incluse le cartelle /site e /siteextensions copiate dall'archivio del contenuto, nonché eventuali log e cartelle di dati creati in locale. Per aumentare questo limite, usare l'impostazione dell'app `WEBSITE_LOCAL_CACHE_SIZEINMB`. È possibile aumentare le dimensioni fino a **2 GB** (2000 MB) per ogni app.
+Per impostazione predefinita, le dimensioni della cache locale sono pari a **1 GB**. Sono incluse le cartelle /site e /siteextensions copiate dall'archivio del contenuto, nonché eventuali log e cartelle di dati creati in locale. Per aumentare questo limite, usare l'impostazione dell'app `WEBSITE_LOCAL_CACHE_SIZEINMB`. È possibile aumentare le dimensioni fino a **2 GB** (2000 MB) per ogni app.
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>Procedure consigliate per l'uso della cache locale del servizio app
 È consigliabile usare la cache locale insieme alla funzionalità degli [ambienti di gestione temporanea](../app-service/deploy-staging-slots.md) .
@@ -105,6 +105,7 @@ Per impostazione predefinita le dimensioni della cache locale corrispondono a **
 * Le impostazioni permanenti includono il nome e sono permanenti in uno slot. Di conseguenza, quando lo slot di staging viene scambiato con lo slot di produzione, eredita le impostazioni dell'app della cache locale. Il nuovo slot di produzione scambiato verrà eseguito nella cache locale dopo alcuni minuti e verrà preparato durante la fase di preparazione dello slot successiva allo scambio. Quando lo scambio di slot è stato completato, lo slot di produzione viene eseguito nella cache locale.
 
 ## <a name="frequently-asked-questions-faq"></a>Domande frequenti
+
 ### <a name="how-can-i-tell-if-local-cache-applies-to-my-app"></a>Come è possibile stabilire se la cache locale si applica all'app?
 Se l'app richiede un archivio del contenuto a prestazioni elevate e affidabile, non usa l'archivio del contenuto per scrivere dati critici in fase di esecuzione e ha una dimensione totale inferiore a 2 GB, è possibile usare la cache locale. Per determinare le dimensioni totali delle cartelle /site e /siteextensions è possibile usare l'estensione del sito relativa all'uso del disco delle app Web di Azure.
 

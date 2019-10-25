@@ -1,5 +1,5 @@
 ---
-title: Usare le cartelle di lavoro di monitoraggio di Azure per Azure Active Directory report | Microsoft Docs
+title: Cartelle di lavoro di monitoraggio di Azure per i report | Microsoft Docs
 description: Informazioni su come usare le cartelle di lavoro di monitoraggio di Azure per i report Azure Active Directory.
 services: active-directory
 author: cawrites
@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9bea8da4f0d694be3a39a8f5dfaca8e54ce2773d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 5e498dcb39f62fc870bc7efa989b91caeac0dedc
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255652"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819710"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Come usare le cartelle di lavoro di monitoraggio di Azure per i report Azure Active Directory
 
@@ -90,11 +90,11 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - Tutti gli accessi
 
-- Riuscito
+- Success
 
 - Azione utente in sospeso
 
-- Errore
+- Esito negativo
 
 È possibile filtrare ogni tendenza in base alle categorie seguenti:
 
@@ -109,7 +109,7 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 Per ogni tendenza si ottiene una suddivisione in base alle categorie seguenti:
 
-- Location
+- Località
 
     ![Accessi per località](./media/howto-use-azure-monitor-workbooks/45.png)
 
@@ -127,7 +127,7 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - Tutti gli accessi
 
-- Riuscito
+- Success
 
 
 È possibile filtrare ogni tendenza in base alle categorie seguenti:
@@ -224,11 +224,11 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - Tutti gli accessi
 
-- Riuscito
+- Success
 
 - Azione in sospeso
 
-- Errore
+- Esito negativo
 
 
 È possibile filtrare ogni tendenza in base alle categorie seguenti:

@@ -1,23 +1,18 @@
 ---
 title: Azure Application Insights per app Web JavaScript | Microsoft Docs
 description: Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, i dati client Web e la traccia dei modelli di utilizzo. Rilevare le eccezioni e i problemi di prestazioni nelle pagine Web JavaScript.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/20/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: b49206c677e2f1b20c154ae0c9e358e8b2b0bbd8
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.date: 09/20/2019
+ms.openlocfilehash: 17765910b379bd4212d171cce6643de561db23ad
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430205"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819372"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -178,7 +173,7 @@ Selezionare **browser** , quindi scegliere **errori** o **prestazioni**.
 
 ### <a name="analytics"></a>Analytics 
 
-Per eseguire una query sui dati di telemetria raccolti da JavaScript SDK, selezionare il pulsante **Visualizza nei log (Analytics)** . Aggiungendo un'istruzione `where` di `client_Type == "Browser"`, verranno visualizzati solo i dati di JavaScript SDK e tutti i dati di telemetria sul lato server raccolti da altri SDK verranno esclusi.
+Per eseguire una query sui dati di telemetria raccolti da JavaScript SDK, selezionare il pulsante **Visualizza nei log (Analytics)** . Con l'aggiunta di un `where` dichiarazione di `client_Type == "Browser"`, verranno visualizzati solo i dati di JavaScript SDK e tutti i dati di telemetria sul lato server raccolti da altri SDK verranno esclusi.
  
 ```kusto
 // average pageView duration by name
@@ -219,7 +214,7 @@ Per esempi eseguibili, vedere [esempi di Application Insights JavaScript SDK](ht
 Modifiche di rilievo nella versione SDK v2:
 - Per consentire una migliore firma API, alcune delle chiamate API, ad esempio trackPageView, trackexception sono state aggiornate. L'esecuzione in IE8 o versioni precedenti del browser non è supportata.
 - La busta di telemetria presenta modifiche al nome del campo e alla struttura a causa degli aggiornamenti dello schema dati.
-- Spostato `context.operation` in `context.telemetryTrace`. Sono stati modificati anche alcuni campi (`operation.id` @ no__t-1 @ no__t-2)
+- Spostato `context.operation` in `context.telemetryTrace`. Sono stati modificati anche alcuni campi (`operation.id` --> `telemetryTrace.traceID`)
   - Se si vuole aggiornare manualmente l'ID di visualizzazione corrente (ad esempio, nelle app SPA), questa operazione può essere eseguita con `appInsights.properties.context.telemetryTrace.traceID = Util.newId()`
 
 Se si usa l'SDK di produzione di Application Insights (1.0.20) corrente e si vuole verificare se il nuovo SDK funziona in fase di esecuzione, aggiornare l'URL a seconda dello scenario di caricamento dell'SDK corrente.

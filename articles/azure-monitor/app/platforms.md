@@ -1,24 +1,19 @@
 ---
 title: 'Application Insights: linguaggi, piattaforme e integrazioni | Microsoft Docs'
 description: Linguaggi, piattaforme e integrazioni disponibili per Application Insights
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 07/18/2019
 ms.reviewer: olegan
-ms.author: mbullwin
-ms.openlocfilehash: ab573d1d9ca9d9db39135ea76e555bb0720d7b68
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 35d1cf37e1df0b2714505833d40163775e3d090c
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878788"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819045"
 ---
 # <a name="supported-languages"></a>Lingue supportate
 
@@ -31,7 +26,7 @@ ms.locfileid: "68878788"
 
 ### <a name="instrumentation-for-already-deployed-applications-codeless-agent-based"></a>Strumentazione per applicazioni già distribuite (senza codice, basate su agenti)
 * [VM di Azure e set di scalabilità di macchine virtuali di Azure](../../azure-monitor/app/azure-vm-vmss-apps.md)
-* [Servizio app di Azure](../../azure-monitor/app/azure-web-apps.md)
+* [Informazioni sul servizio app di Azure](../../azure-monitor/app/azure-web-apps.md)
 * [ASP.NET - per app già attive](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Servizi cloud di Azure](../../azure-monitor/app/cloudservices.md), inclusi i ruoli Web e di lavoro
 * [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)

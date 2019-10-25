@@ -5,25 +5,20 @@ author: bharathsreenivas
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 10/23/2019
 ms.author: bharathb
-ms.openlocfilehash: 6092b3aac2b0282a795d89730266e72179b34e8a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 69b400eb7838c986ac6f275da58c7457179ebea6
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648904"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880212"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Eseguire la migrazione di centinaia di terabyte di dati ad Azure Cosmos DB 
 
-Azure Cosmos DB possibile archiviare terabyte di dati. È possibile eseguire una migrazione dei dati su larga scala per spostare il carico di lavoro di produzione in Azure Cosmos DB. Questo articolo descrive i problemi relativi allo spostare i dati su larga scala per Azure Cosmos DB e introduce lo strumento che consente di risolvere i problemi ed eseguire la migrazione dei dati al Azure Cosmos DB. In questo case study il cliente usava l'API SQL Cosmos DB.  
+Con Azure Cosmos DB è possibile archiviare terabyte di dati. È possibile eseguire una migrazione dei dati su larga scala per spostare il carico di lavoro di produzione in Azure Cosmos DB. Questo articolo descrive i problemi relativi allo spostare i dati su larga scala per Azure Cosmos DB e introduce lo strumento che consente di risolvere i problemi ed eseguire la migrazione dei dati al Azure Cosmos DB. In questo case study il cliente usava l'API SQL Cosmos DB.  
 
 Prima di eseguire la migrazione dell'intero carico di lavoro in Azure Cosmos DB, è possibile eseguire la migrazione di un subset di dati per convalidare alcuni aspetti come la scelta della chiave di partizione, le prestazioni delle query e la modellazione dei dati. Dopo aver convalidato il modello di prova, è possibile spostare l'intero carico di lavoro in Azure Cosmos DB.  
-
-È anche possibile usare il [programma Bootstrap Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/) per accelerare la compilazione o la migrazione delle applicazioni su Azure Cosmos DB. Nell'ambito di questo programma, gli ingegneri del team di Azure Cosmos DB verranno assegnati al progetto e aiuteranno a eseguire la migrazione dei dati Azure Cosmos DB. Fai clic sul pulsante seguente per iscriverti al programma Cosmos DB bootstrap:
-
-> [!div class="nextstepaction"]
-> [Programma di bootstrap Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/)
 
 ## <a name="tools-for-data-migration"></a>Strumenti per la migrazione dei dati 
 
@@ -33,11 +28,11 @@ Le strategie di migrazione Azure Cosmos DB attualmente variano in base alla scel
 
 Gli strumenti esistenti per la migrazione dei dati a Azure Cosmos DB presentano alcune limitazioni che diventano particolarmente evidenti a grandi scale:
 
- * **Funzionalità di scalabilità orizzontale limitate**: Per eseguire la migrazione di terabyte di dati in Azure Cosmos DB il più rapidamente possibile e per utilizzare efficacemente l'intera velocità effettiva con provisioning, è necessario che i client della migrazione siano in grado di eseguire la scalabilità orizzontale per un periodo illimitato.  
+ * **Funzionalità di scalabilità orizzontale limitate**: per eseguire la migrazione di terabyte di dati in Azure Cosmos DB il più rapidamente possibile e per utilizzare in modo efficace l'intera velocità effettiva con provisioning, i client di migrazione dovrebbero avere la possibilità di eseguire la scalabilità orizzontale per un tempo illimitato.  
 
-* **Mancanza di rilevamento dello stato di avanzamento e di selezione**: È importante tenere traccia dello stato di avanzamento della migrazione e selezionare il segno di spunta durante la migrazione di set di dati di grandi dimensioni. In caso contrario, qualsiasi errore che si verifica durante la migrazione arresterà la migrazione e sarà necessario avviare il processo da zero. Non sarebbe produttivo riavviare l'intero processo di migrazione quando il 99% di esso è già stato completato.  
+* **Mancanza del rilevamento e del controllo dello stato di avanzamento**: è importante tenere traccia dello stato di avanzamento della migrazione e verificare la presenza di punti di controllo durante la migrazione di set di dati di grandi dimensioni. In caso contrario, qualsiasi errore che si verifica durante la migrazione arresterà la migrazione e sarà necessario avviare il processo da zero. Non sarebbe produttivo riavviare l'intero processo di migrazione quando il 99% di esso è già stato completato.  
 
-* **Mancanza di coda di**messaggi non recapitabili: Nei set di dati di grandi dimensioni, in alcuni casi potrebbero verificarsi problemi con parti dei dati di origine. Potrebbero inoltre verificarsi problemi temporanei relativi al client o alla rete. Uno di questi casi non dovrebbe provocare l'esito negativo dell'intera migrazione. Sebbene la maggior parte degli strumenti di migrazione disponga di potenti funzionalità di ripetizione dei tentativi che proteggono da problemi intermittenti, non è sempre sufficiente. Se, ad esempio, la dimensione inferiore al 0,01% dei documenti dati di origine è superiore a 2 MB, la scrittura del documento avrà esito negativo in Azure Cosmos DB. Idealmente, è utile che lo strumento di migrazione manterrà i documenti ' non riusciti ' in un'altra coda di messaggi non recapitabili, che può essere elaborata dopo la migrazione. 
+* **Mancanza di coda di messaggi non recapitabili**: in set di dati di grandi dimensioni, in alcuni casi potrebbero verificarsi problemi con parti dei dati di origine. Potrebbero inoltre verificarsi problemi temporanei relativi al client o alla rete. Uno di questi casi non dovrebbe provocare l'esito negativo dell'intera migrazione. Sebbene la maggior parte degli strumenti di migrazione disponga di potenti funzionalità di ripetizione dei tentativi che proteggono da problemi intermittenti, non è sempre sufficiente. Se, ad esempio, la dimensione inferiore al 0,01% dei documenti dati di origine è superiore a 2 MB, la scrittura del documento avrà esito negativo in Azure Cosmos DB. Idealmente, è utile che lo strumento di migrazione manterrà i documenti ' non riusciti ' in un'altra coda di messaggi non recapitabili, che può essere elaborata dopo la migrazione. 
 
 Molti di questi limiti sono corretti per strumenti come Azure Data Factory, servizi di migrazione dei dati di Azure. 
 
@@ -154,10 +149,7 @@ Sebbene sia possibile seguire questa guida per eseguire correttamente la migrazi
 
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * Per altre informazioni, provare le applicazioni di esempio che utilizzano la libreria Executor in blocco in [.NET](bulk-executor-dot-net.md) e [Java](bulk-executor-java.md). 
 * Per altre informazioni, [Azure Cosmos DB](spark-connector.md) vedere l'articolo relativo al connettore Spark per la libreria di esecuzioni bulk in Cosmos DB.  
 * Per ulteriori informazioni sulle migrazioni su larga scala, contattare il team del prodotto Azure Cosmos DB aprendo un ticket di supporto con il tipo di problema "generale consultivo" e "migrazioni di grandi dimensioni (TB +)". 
-* Usare il [programma Bootstrap Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/) per accelerare la compilazione o la migrazione delle applicazioni su Azure Cosmos DB.
-
-> [!div class="nextstepaction"]
-> [Programma di bootstrap Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/)

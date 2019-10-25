@@ -15,14 +15,18 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: e7a99ffdd42c02e5a18dc14c4774b428232b8293
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: a546df73f316b4eb6c215a6f52d68f87ad09c1a2
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015989"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881700"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Uso delle anteprime video multimediali di Azure per creare un riepilogo video  
+
+> [!IMPORTANT]
+> Esaminare i [piani di pensionamento](media-services-analytics-overview.md#retirement-plans) di alcuni processori di contenuti multimediali.
+
 ## <a name="overview"></a>Panoramica
 Il processore multimediale delle **anteprime video multimediali di Azure** processore di contenuti multimediali (MP) consente di creare il riepilogo di un video, utile per i clienti che desiderano solo visualizzare in anteprima il riepilogo di un video di lunga durata. Ad esempio, i clienti potrebbero voler vedere un breve "riepilogo video" quando passano il mouse sull'anteprima. Modificando i parametri delle **anteprime video multimediali di Azure** con un set di impostazioni di configurazione, è possibile usare l'efficiente tecnologia di concatenazione e rilevamento delle schermate offerta dal processore multimediale per generare in modo algoritmico una sottoclip descrittiva.  
 
@@ -54,10 +58,10 @@ Quando si crea un'attività di anteprima video con **anteprime video multimedial
 
 Al momento, è possibile modificare i parametri seguenti:
 
-| Param | Descrizione |
+| Param | Description |
 | --- | --- |
-| outputAudio |Specifica se il video finale contiene audio. <br/>I valori consentiti sono i seguenti: True o False. Il valore predefinito è true. |
-| fadeInFadeOut |Specifica se vengono usate transizioni a dissolvenza tra le anteprime di movimento separate.  <br/>I valori consentiti sono i seguenti: True o False.  Il valore predefinito è true. |
+| outputAudio |Specifica se il video finale contiene audio. <br/>I valori consentiti sono: true o false. Il valore predefinito è true. |
+| fadeInFadeOut |Specifica se vengono usate transizioni a dissolvenza tra le anteprime di movimento separate.  <br/>I valori consentiti sono: true o false.  Il valore predefinito è true. |
 | maxMotionThumbnailDurationInSecs |Numero intero che specifica quanto tempo deve durare l'intero video finale.  Il valore predefinito dipende dalla durata del video originale. |
 
 La tabella seguente descrive la durata predefinita, quando **maxMotionThumbnailInSecs** non viene usato.
@@ -282,7 +286,7 @@ Configurare l'ambiente di sviluppo e popolare il file app.config con le informaz
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Collegamenti correlati

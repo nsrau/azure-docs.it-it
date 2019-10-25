@@ -1,24 +1,19 @@
 ---
 title: Configurare le impostazioni delle regole di rilevamento intelligente di Azure Application Insights con modelli di Azure Resource Manager | Microsoft Docs
 description: Automatizzare la gestione e configurazione delle regole di rilevamento intelligente di Azure Application Insights con modelli di Azure Resource Manager
-services: application-insights
-documentationcenter: ''
-author: harelbr
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: harelbr
+ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.author: harelbr
-ms.openlocfilehash: e7a54c2e207a27f3519375df09d0c930a92d52d6
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 8b55271b39bf2a65dababbef58f7389ca07d57d8
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193713"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72818838"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gestire le regole di rilevamento intelligente di Application Insights usando modelli di Azure Resource Manager
 
@@ -38,7 +33,7 @@ Per la massima flessibilità, ogni regola di rilevamento intelligente può esser
 
 ## 
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 Di seguito sono indicati alcuni esempi che illustrano come configurare le impostazioni delle regole di rilevamento intelligente tramite modelli di Azure Resource Manager.
 Tutti gli esempi fanno riferimento a una risorsa di Application Insights denominata _"myApplication"_ e alla "regola di rilevamento intelligente dipendenze con durata lunga", che è denominata internamente _"longdependencyduration"_ .
@@ -153,7 +148,7 @@ Questo modello di Azure Resource Manager illustra la configurazione di una regol
             "name": "Failure Anomalies - my-app",
             "location": "global", 
             "properties": {
-                  "description": "Detects a spike in the failure rate of requests or dependencies",
+                  "description": "Failure Anomalies notifies you of an unusual rise in the rate of failed HTTP requests or dependency calls.",
                   "state": "Enabled",
                   "severity": "2",
                   "frequency": "PT1M",

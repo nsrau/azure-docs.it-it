@@ -7,17 +7,17 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 9557923fc2228e8508acaa7e15d1729ac3d29538
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d3f5ef9d2c3359dc61c32d4971100b096b004f2f
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028369"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881554"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Inserire BLOB in Esplora dati di Azure tramite la sottoscrizione delle notifiche di Griglia di eventi
 
 > [!div class="op_single_selector"]
-> * [Portale](ingest-data-event-grid.md)
+> * [di Microsoft Azure](ingest-data-event-grid.md)
 > * [C#](data-connection-event-grid-csharp.md)
 > * [Python](data-connection-event-grid-python.md)
 
@@ -43,17 +43,17 @@ Questo articolo illustra come impostare una sottoscrizione di griglia di [eventi
 
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | NOME | *test-grid-connection* | Il nome della griglia di eventi da creare.|
+    | name | *test-grid-connection* | Il nome della griglia di eventi da creare.|
     | Schema di eventi | *Schema griglia di eventi* | Lo schema da usare per la griglia di eventi. |
     | Tipo di argomento | *Account di archiviazione* | Il tipo di argomento della griglia di eventi. |
-    | Risorsa argomento | *gridteststorage* | nome dell'account di archiviazione. |
+    | Risorsa argomento | *gridteststorage* | Nome dell'account di archiviazione. |
     | Esegui la sottoscrizione di tutti i tipi di eventi | *deselezionare* | Non si ricevono notifiche per tutti gli eventi. |
     | Tipi di evento definiti | *Blob created* (BLOB creato) | Gli eventi specifici per cui ricevere notifiche. |
     | Tipo di endpoint | *Hub eventi* | Il tipo di endpoint a cui vengono inviati gli eventi. |
     | Endpoint | *test-hub* | Hub eventi creato. |
     | | |
 
-1. Se si vuole tenere traccia dei file di uno specifico contenitore, selezionare la scheda **Funzionalità aggiuntive**. Impostare i filtri per le notifiche come segue:
+1. Selezionare la scheda **filtri** se si desidera tenere traccia dei file da un contenitore specifico. Impostare i filtri per le notifiche come segue:
     * Il campo **L'oggetto inizia con** è il prefisso *letterale* del contenitore di BLOB. Poiché il criterio applicato è *startswith*, può interessare più contenitori. I caratteri jolly non sono consentiti.
      È *necessario* impostarlo come segue: *`/blobServices/default/containers/`* [prefisso contenitore]
     * Il campo **L'oggetto termina con** è il suffisso di tipo *letterale* del BLOB. I caratteri jolly non sono consentiti.
@@ -92,9 +92,9 @@ Connettersi ora alla griglia di eventi da Azure Esplora dati, in modo che il flu
 
 1. Selezionare **Inserimento dati** > **Aggiungi connessione dati**.
 
-    ![Inserimento dati](media/ingest-data-event-grid/data-ingestion-create.png)
+    ![Inserimento di dati](media/ingest-data-event-grid/data-ingestion-create.png)
 
-1.  Selezionare il tipo di connessione: **Archiviazione BLOB**.
+1.  Selezionare il tipo di connessione: **archiviazione BLOB**.
 
 1. Compilare il modulo con le informazioni seguenti e quindi selezionare **Crea**.
 
@@ -116,8 +116,8 @@ Connettersi ora alla griglia di eventi da Azure Esplora dati, in modo che il flu
 
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | Tabella | *TestTable* | Tabella creata in **TestDatabase**. |
-    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. Opzioni di compressione supportate: Zip e GZip |
+    | Table | *TestTable* | Tabella creata in **TestDatabase**. |
+    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. Opzioni di compressione supportate: zip e GZip |
     | Mapping di colonne | *TestMapping* | Mapping creato in **TestDatabase** che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**.|
     | | |
     

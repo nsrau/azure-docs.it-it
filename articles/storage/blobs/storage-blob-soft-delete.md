@@ -5,27 +5,30 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 253f42080d7c0eab2f7b3cfc5de3d4462f63c738
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: f53bf023346c4f494de5ab50e8beb185d9f97c91
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673404"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882646"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminazione temporanea per i BLOB di Archiviazione di Azure
+
 Archiviazione di Azure offre ora l'eliminazione temporanea per gli oggetti BLOB, per consentire di ripristinare più facilmente i dati nel caso in cui vengano erroneamente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione.
 
-## <a name="how-does-it-work"></a>Come funziona?
-Se abilitata, l'eliminazione temporanea consente di salvare e ripristinare i dati quando si eliminano BLOB o snapshot di BLOB. Questa protezione si estende ai dati dei BLOB cancellati a seguito di un sovrascrittura.
+## <a name="how-soft-delete-works"></a>Funzionamento dell'eliminazione temporanea
+
+Se abilitata, l'eliminazione temporanea consente di salvare e ripristinare i dati quando vengono eliminati BLOB o snapshot BLOB. Questa protezione si estende ai dati dei BLOB cancellati a seguito di un sovrascrittura.
 
 Quando vengono eliminati, i dati passano in uno stato di eliminazione temporanea anziché essere cancellati in modo definitivo. Se l'eliminazione temporanea è abilitata e si sovrascrivono dei dati, viene generato uno snapshot eliminato temporaneamente in modo da salvare lo stato dei dati sovrascritti. Gli oggetti eliminati temporaneamente sono invisibili, a meno che non vengano elencati in modo esplicito. È possibile configurare per quanto tempo i dati eliminati temporaneamente restano recuperabili prima che scadano definitivamente.
 
-L'eliminazione temporanea è compatibile con le versioni precedenti e non è quindi necessario apportare modifiche alle applicazioni per usufruire dei meccanismi di protezione offerti da questa funzionalità. Il [ripristino dei dati](#recovery) introduce tuttavia una nuova API **Undelete Blob**.
+L'eliminazione temporanea è compatibile con le versioni precedenti, pertanto non è necessario apportare modifiche alle applicazioni per sfruttare i vantaggi offerti dalle protezioni offerte da questa funzionalità. Il [ripristino dei dati](#recovery) introduce tuttavia una nuova API **Undelete Blob**.
 
 ### <a name="configuration-settings"></a>Impostazioni di configurazione
+
 Quando si crea un nuovo account, l'eliminazione temporanea è disabilitata per impostazione predefinita. L'eliminazione temporanea è disabilitata per impostazione predefinita anche per gli account di archiviazione esistenti. È possibile abilitare e disabilitare questa funzionalità in qualsiasi momento durante il ciclo di vita di un account di archiviazione.
 
 Se la funzionalità viene disabilitata, è comunque possibile accedere e ripristinare i dati eliminati temporaneamente, purché tali dati siano stati salvati quando la funzionalità era in precedenza abilitata. Quando si abilita l'eliminazione temporanea, è necessario anche configurare il periodo di conservazione.
@@ -35,13 +38,14 @@ Il periodo di conservazione indica per quanto tempo i dati eliminati temporaneam
 È possibile modificare il periodo di conservazione dell'eliminazione temporanea in qualsiasi momento. Il periodo di conservazione aggiornato è valido solo per i nuovi dati eliminati. In dati eliminati in precedenza scadono in base al periodo di conservazione che era configurato al momento dell'eliminazione dei dati. Il tentativo di eliminare un oggetto con eliminazione temporanea non influisce sull'ora di scadenza dell'oggetto stesso.
 
 ### <a name="saving-deleted-data"></a>Salvataggio dei dati eliminati
+
 L'eliminazione temporanea preserva i dati in molte situazioni in cui i BLOB o gli snapshot dei BLOB vengono eliminati o sovrascritti.
 
 Quando un BLOB viene sovrascritto tramite **Put Blob**, **Put Block**, **Put Block List** o **Copy Blob**, viene generato automaticamente uno snapshot dello stato del BLOB prima dell'operazione di scrittura. Lo snapshot è uno snapshot eliminato temporaneamente ed è invisibile a meno che gli oggetti eliminati temporaneamente non vengano elencati in modo esplicito. Vedere la sezione [Ripristino](#recovery) per informazioni su come elencare gli oggetti eliminati temporaneamente.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-overwrite.png)
 
-*I dati eliminati temporaneamente sono di colore grigio, mentre i dati attivi sono di colore blu. I dati scritti più di recente sono al di sotto di quelli più vecchi. Quando B0 viene sovrascritto con B1, viene generato uno snapshot di B0 eliminato temporaneamente. Quando B1 viene sovrascritto con B2, viene generato uno snapshot di B1 eliminato temporaneamente.*
+*I dati eliminati temporaneamente sono di colore grigio, mentre i dati attivi sono blu. I dati scritti più di recente vengono visualizzati sotto i dati meno recenti. Quando B0 viene sovrascritto con B1, viene generato uno snapshot di B0 eliminato temporaneamente. Quando B1 viene sovrascritto con B2, viene generato uno snapshot di B1 eliminato temporaneamente.*
 
 > [!NOTE]  
 > L'eliminazione temporanea consente solo la protezione da sovrascrittura per le operazioni di copia quando è abilitata per l'account del BLOB di destinazione.
@@ -53,13 +57,13 @@ Quando viene chiamato **Delete Blob** su uno snapshot, lo snapshot viene contras
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-delete-snapshot.png)
 
-*I dati eliminati temporaneamente sono di colore grigio, mentre i dati attivi sono di colore blu. I dati scritti più di recente sono al di sotto di quelli più vecchi. Quando viene chiamato **Snapshot Blob**, B0 diventa uno snapshot e B1 rappresenta lo stato attivo del BLOB. Quando viene eliminato lo snapshot B0, viene contrassegnato come eliminato temporaneamente.*
+*I dati eliminati temporaneamente sono di colore grigio, mentre i dati attivi sono blu. I dati scritti più di recente vengono visualizzati sotto i dati meno recenti. Quando viene chiamato il **BLOB dello snapshot** , B0 diventa uno snapshot e B1 è lo stato attivo del BLOB. Quando lo snapshot B0 viene eliminato, viene contrassegnato come eliminato temporaneamente.*
 
 Quando viene chiamato **Delete Blob** su un BLOB di base (qualsiasi BLOB che non è di per sé uno snapshot), tale BLOB viene contrassegnato come eliminato temporaneamente. Coerentemente con il comportamento precedente, una chiamata **Delete Blob** su un BLOB contenente snapshot attivi restituisce un errore. Una chiamata **Delete Blob** su un BLOB con snapshot eliminati temporaneamente non restituisce un errore. Quando l'eliminazione temporanea è abilitata, è comunque possibile eliminare un BLOB e tutti i relativi snapshot in un'unica operazione. In questo modo il BLOB di base e gli snapshot vengono contrassegnati come eliminati temporaneamente.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-include.png)
 
-*I dati eliminati temporaneamente sono di colore grigio, mentre i dati attivi sono di colore blu. I dati scritti più di recente sono al di sotto di quelli più vecchi. Qui viene eseguita una chiamata **Delete Blob** per eliminare B2 e tutti gli snapshot associati. Il BLOB attivo, ovvero B2, e tutti gli snapshot associati vengono contrassegnati come eliminati temporaneamente.*
+*I dati eliminati temporaneamente sono di colore grigio, mentre i dati attivi sono blu. I dati scritti più di recente vengono visualizzati sotto i dati meno recenti. Qui viene eseguita una chiamata **Delete Blob** per eliminare B2 e tutti gli snapshot associati. Il BLOB attivo, B2 e tutti gli snapshot associati sono contrassegnati come eliminati temporaneamente.*
 
 > [!NOTE]  
 > Quando un BLOB eliminato temporaneamente viene sovrascritto, viene generato automaticamente uno snapshot eliminato temporaneamente dello stato del BLOB prima dell'operazione di scrittura. Il nuovo BLOB eredita il livello del BLOB sovrascritto.
@@ -68,7 +72,7 @@ L'eliminazione temporanea non salva i dati in caso di eliminazioni di contenitor
 
 La tabella seguente illustra il comportamento previsto quando l'eliminazione temporanea è abilitata:
 
-| Operazione API REST | Tipo di risorsa | Descrizione | Modifica del comportamento |
+| Operazione API REST | Tipo di risorsa | Description | Modifica del comportamento |
 |--------------------|---------------|-------------|--------------------|
 | [Elimina](/rest/api/storagerp/StorageAccounts/Delete) | Account | Elimina l'account di archiviazione, inclusi tutti i contenitori e i BLOB contenuti al suo interno.                           | Nessuna modifica. I contenitori e i BLOB contenuti nell'account eliminato non sono recuperabili. |
 | [Delete Container](/rest/api/storageservices/delete-container) | Contenitore | Elimina il contenitore, inclusi tutti i BLOB contenuti al suo interno. | Nessuna modifica. I BLOB contenuti nell'account eliminato non sono recuperabili. |
@@ -84,19 +88,21 @@ La tabella seguente illustra il comportamento previsto quando l'eliminazione tem
 
 È importante notare che la chiamata "Put Page" per sovrascrivere o cancellare gli intervalli di un BLOB di pagine non causerà la generazione automatica di snapshot. I dischi delle macchine virtuali sono supportati dai BLOB di pagine e usano **Put Page** per la scrittura dei dati.
 
-### <a name="recovery"></a>Recupero
-Per semplificare il ripristino dei dati eliminati, è stata introdotta una nuova API "Undelete Blob". Chiamando l'API Undelete su un BLOB di base eliminato temporaneamente, il BLOB e tutti gli snapshot eliminati temporaneamente associati ad esso vengono ripristinati come attivi. Chiamando l'API Undelete su un BLOB di base attivo, tutti gli snapshot eliminati temporaneamente associati ad esso vengono ripristinati come attivi. Quando gli snapshot vengono ripristinati come attivi, sono simili agli snapshot generati dall'utente e non sovrascrivono il BLOB di base.
+### <a name="recovery"></a>Ripristino
 
-Per ripristinare un BLOB a uno snapshot eliminato temporaneamente specifico, si può chiamare **Undelete Blob** sul BLOB di base e quindi copiare lo snapshot sul BLOB ora attivo. È anche possibile copiare lo snapshot in un nuovo BLOB.
+La chiamata dell'operazione [Undelete BLOB](/rest/api/storageservices/undelete-blob) su un BLOB di base eliminato temporaneamente li ripristina e tutti gli snapshot eliminati temporaneamente associati come attivi. La chiamata dell'operazione `Undelete Blob` su un BLOB di base attivo Ripristina tutti gli snapshot eliminati temporaneamente associati come attivi. Quando gli snapshot vengono ripristinati come attivi, sono simili agli snapshot generati dall'utente e non sovrascrivono il BLOB di base.
+
+Per ripristinare un BLOB in uno snapshot eliminato temporaneamente specifico, è possibile chiamare `Undelete Blob` sul BLOB di base. quindi copiare lo snapshot sul BLOB ora attivo. È anche possibile copiare lo snapshot in un nuovo BLOB.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-recover.png)
 
-*I dati eliminati temporaneamente sono di colore grigio, mentre i dati attivi sono di colore blu. I dati scritti più di recente sono al di sotto di quelli più vecchi. Qui viene chiamato **Undelete Blob** sul BLOB B, ripristinando quindi il BLOB di base, ovvero B1, e tutti gli snapshot associati, in questo caso solo B0, come attivi. Nel secondo passaggio, B0 viene copiato sul BLOB di base. Questa operazione di copia genera uno snapshot di B1 eliminato temporaneamente.*
+*I dati eliminati temporaneamente sono di colore grigio, mentre i dati attivi sono blu. I dati scritti più di recente vengono visualizzati sotto i dati meno recenti. Qui viene chiamato **Undelete BLOB** sul BLOB B, ripristinando in questo modo il BLOB di base, B1 e tutti gli snapshot associati, in questo caso B0, come Active. Nel secondo passaggio, B0 viene copiato sul BLOB di base. Questa operazione di copia genera uno snapshot di B1 eliminato temporaneamente.*
 
 Per visualizzare i BLOB e gli snapshot dei BOB eliminati temporaneamente, è possibile scegliere di includere i dati eliminati in **List Blobs**. Si può scegliere di visualizzare solo i BLOB di base eliminati temporaneamente o includere anche gli snapshot dei BLOB eliminati temporaneamente. Per tutti i dati eliminati temporaneamente, è possibile visualizzare l'ora di eliminazione, nonché il numero di giorni che mancano alla scadenza definitiva.
 
 ### <a name="example"></a>Esempio
-Di seguito è riportato l'output della console di uno script .NET che carica, sovrascrive, genera gli snapshot, elimina e ripristina un BLOB denominato "HelloWorld" quando l'eliminazione temporanea è abilitata:
+
+Di seguito è riportato l'output della console di uno script .NET che carica, sovrascrive, snapshot, Elimina e ripristina un BLOB denominato *HelloWorld* quando l'eliminazione temporanea è attivata:
 
 ```bash
 Upload:
@@ -131,16 +137,21 @@ Copy a snapshot over the base blob:
 Vedere la sezione [Passaggi successivi](#next-steps) per un puntatore all'applicazione che ha generato questo output.
 
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
+
 Tutti i dati eliminati temporaneamente vengono fatturati alla stessa tariffa dei dati attivi. Non si incorre in alcun addebito per i dati che vengono eliminati definitivamente al termine del periodo di conservazione configurato. Per approfondimenti sugli snapshot e sull'incremento dei costi dovuto agli snapshot, vedere [Informazioni sull'incremento dei costi dovuto agli snapshot](storage-blob-snapshots.md).
 
-Non verrà addebitato alcun costo per le transazioni relative alla generazione automatica di snapshot. Verranno invece fatturate le transazioni di **Undelete Blob** alla tariffa delle operazioni di scrittura.
+Non verrà addebitato alcun costo per le transazioni relative alla generazione automatica di snapshot. Verranno addebitate le transazioni di **annullamento dell'eliminazione dei BLOB** alla tariffa per le operazioni di scrittura.
 
 Per altri dettagli sui prezzi per Archiviazione BLOB di Azure in generale, consultare la [pagina dei prezzi di Archiviazione BLOB di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 Quando si abilita inizialmente l'eliminazione temporanea, è consigliabile usare un periodo di conservazione ridotto per comprendere meglio in che modo la funzionalità influirà sui costi.
 
-## <a name="quickstart"></a>Guida introduttiva
-### <a name="azure-portal"></a>Portale di Azure
+## <a name="get-started"></a>Inizia oggi stesso
+
+La procedura seguente illustra come iniziare a usare l'eliminazione temporanea.
+
+# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+
 Per abilitare l'eliminazione temporanea, selezionare l'opzione **Eliminazione temporanea** in **Servizio BLOB**. Quindi fare clic su **Abilitata** e immettere il numero di giorni per cui si vogliono conservare i dati eliminati temporaneamente.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
@@ -169,7 +180,7 @@ Dopo aver annullato l'eliminazione degli snapshot di un BLOB, è possibile fare 
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -187,6 +198,7 @@ $MatchingAccounts | Get-AzStorageServiceProperty -ServiceType Blob
 ```
 
 Per ripristinare i BLOB eliminati accidentalmente, chiamare Undelete su tali BLOB. Tenere presente che chiamando **Undelete Blob** sia sui BLOB attivi che su quelli eliminati temporaneamente, tutti gli snapshot eliminati temporaneamente associati ad essi verranno ripristinati come attivi. L'esempio seguente chiama Undelete su tutti i BLOB eliminati temporaneamente e attivi presenti in un contenitore:
+
 ```powershell
 # Create a context by specifying storage account name and key
 $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
@@ -205,7 +217,8 @@ Per trovare i criteri di conservazione dell'eliminazione temporanea corrente, us
    Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure 
+# <a name="clitabazure-cli"></a>[Interfaccia della riga di comando](#tab/azure-CLI)
+
 Per abilitare l'eliminazione temporanea, aggiornare le proprietà del servizio del client BLOB:
 
 ```azurecli-interactive
@@ -218,7 +231,8 @@ Per verificare se l'eliminazione temporanea è attivata, usare il comando seguen
 az storage blob service-properties delete-policy show --account-name mystorageaccount 
 ```
 
-### <a name="python-client-library"></a>Libreria client Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
 Per abilitare l'eliminazione temporanea, aggiornare le proprietà del servizio del client BLOB:
 
 ```python
@@ -235,7 +249,8 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-### <a name="net-client-library"></a>Libreria client .Net
+# <a name="nettabnet"></a>[.NET](#tab/net)
+
 Per abilitare l'eliminazione temporanea, aggiornare le proprietà del servizio del client BLOB:
 
 ```csharp
@@ -276,50 +291,70 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
 blockBlob.StartCopy(copySource);
 ```
 
-## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>Sono previste particolari considerazioni per l'uso dell'eliminazione temporanea?
-Se esiste la possibilità che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione, è consigliabile abilitare l'eliminazione temporanea. L'abilitazione dell'eliminazione temporanea per i dati sovrascritti frequentemente può comportare un aumento degli addebiti per la capacità di archiviazione e una latenza maggiore Per attenuare questo problema, è possibile archiviare i dati sovrascritti di frequente in un account di archiviazione separato con l'eliminazione temporanea disabilitata. 
+---
 
-## <a name="faq"></a>Domande frequenti
-**Per quali tipi di risorse di archiviazione è possibile usare l'eliminazione temporanea?**  
+## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>Sono previste particolari considerazioni per l'uso dell'eliminazione temporanea?
+
+Se è possibile che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un altro utente dell'account di archiviazione, è consigliabile attivare l'eliminazione temporanea. L'abilitazione dell'eliminazione temporanea per i dati sovrascritti frequentemente può comportare un aumento degli addebiti per la capacità di archiviazione e una latenza maggiore È possibile mitigare questo costo aggiuntivo archiviando i dati sovrascritti di frequente in un account di archiviazione separato in cui l'eliminazione temporanea è disabilitata. 
+
+## <a name="faq"></a>FAQ
+
+### <a name="for-which-storage-services-can-i-use-soft-delete"></a>Per quali servizi di archiviazione è possibile usare l'eliminazione temporanea?
+
 Attualmente l'eliminazione temporanea è disponibile solo per l'archiviazione BLOB (di oggetti).
 
-**L'eliminazione temporanea è disponibile per tutti i tipi di account di archiviazione?**  
-Sì, l'eliminazione temporanea è disponibile per gli account di archiviazione BLOB, oltre che per i BLOB negli account di archiviazione per utilizzo generico (sia GPv1 che GPv2). Questo vale per gli account sia Standard che Premium. L'eliminazione temporanea non è disponibile per i dischi gestiti.
+### <a name="is-soft-delete-available-for-all-storage-account-types"></a>L'eliminazione temporanea è disponibile per tutti i tipi di account di archiviazione?
 
-**L'eliminazione temporanea è disponibile per tutti i livelli di archiviazione?**  
+Sì, l'eliminazione temporanea è disponibile per gli account di archiviazione BLOB e per i BLOB negli account di archiviazione per utilizzo generico (utilizzo generico V1 e GPv2). Sono supportati entrambi i tipi di account standard e Premium. L'eliminazione temporanea è disponibile per i dischi non gestiti, ovvero i BLOB di pagine sotto le quinte. L'eliminazione temporanea non è disponibile per i dischi gestiti.
+
+### <a name="is-soft-delete-available-for-all-storage-tiers"></a>L'eliminazione temporanea è disponibile per tutti i livelli di archiviazione?
+
 Sì, l'eliminazione temporanea è disponibile per tutti i livelli di archiviazione, inclusi quelli ad accesso frequente, ad accesso sporadico e archivio. L'eliminazione temporanea non consente tuttavia la protezione da sovrascrittura per i BLOB nel livello archivio.
 
-**È possibile usare l'API Imposta livello BLOB per impostare il livello dei BLOB con gli snapshot con eliminazione temporanea?**  
+### <a name="can-i-use-the-set-blob-tier-api-to-tier-blobs-with-soft-deleted-snapshots"></a>È possibile usare l'API del livello BLOB per impostare i BLOB di livello con snapshot eliminati temporaneamente?
+
 Sì. Gli snapshot con eliminazione temporanea rimangono nel livello originale, ma il BLOB di base viene spostato nel nuovo livello. 
 
-**Gli account di archiviazione Premium hanno un limite di 100 snapshot per BLOB. Gli snapshot eliminati temporaneamente vengono considerati ai fini questo limite?**  
+### <a name="premium-storage-accounts-have-a-per-blob-snapshot-limit-of-100-do-soft-deleted-snapshots-count-toward-this-limit"></a>Gli account di archiviazione Premium hanno un limite di snapshot per BLOB di 100. Gli snapshot eliminati temporaneamente vengono conteggiati per questo limite?
+
 No, gli snapshot eliminati temporaneamente non vengono considerati ai fini questo limite.
 
-**È possibile abilitare l'eliminazione temporanea per gli account di archiviazione esistenti?**  
+### <a name="can-i-turn-on-soft-delete-for-existing-storage-accounts"></a>È possibile attivare l'eliminazione temporanea per gli account di archiviazione esistenti?
+
 Sì, l'eliminazione temporanea può essere configurata sia per gli account di archiviazione nuovi che per quelli esistenti.
 
-**Se si elimina un intero account o un intero contenitore con l'eliminazione temporanea abilitata, tutti i BLOB associati verranno salvati?**  
-No, se si elimina un intero account o un intero contenitore, tutti i BLOB associati verranno eliminati definitivamente. Per informazioni su come proteggere un account di archiviazione da eliminazioni accidentali, vedere l'articolo su Azure Resource Manager [Bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/resource-group-lock-resources.md).
+### <a name="if-i-delete-an-entire-account-or-container-with-soft-delete-turned-on-will-all-associated-blobs-be-saved"></a>Se si elimina un intero account o contenitore con l'eliminazione temporanea attivata, tutti i BLOB associati verranno salvati?
 
-**È possibile visualizzare le metriche relative alla capacità per i dati eliminati?**  
-I dati eliminati temporaneamente sono inclusi nella capacità totale dell'account di archiviazione. Per altre informazioni sulla verifica e il monitoraggio della capacità di archiviazione, vedere l'articolo [Analisi archiviazione](../common/storage-analytics.md).
+No, se si elimina un intero account o un intero contenitore, tutti i BLOB associati verranno eliminati definitivamente. Per altre informazioni sulla protezione di un account di archiviazione da eliminazioni accidentali, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/resource-group-lock-resources.md).
 
-**Se si disabilita l'eliminazione temporanea, è comunque possibile accedere ai dati eliminati temporaneamente?**  
+### <a name="can-i-view-capacity-metrics-for-deleted-data"></a>È possibile visualizzare le metriche relative alla capacità per i dati eliminati?
+
+I dati eliminati temporaneamente sono inclusi nella capacità totale dell'account di archiviazione. Per ulteriori informazioni sul rilevamento e il monitoraggio della capacità di archiviazione, vedere [analisi archiviazione](../common/storage-analytics.md).
+
+### <a name="if-i-turn-off-soft-delete-will-i-still-be-able-to-access-soft-deleted-data"></a>Se si disattiva l'eliminazione temporanea, sarà comunque possibile accedere ai dati eliminati temporaneamente?
+
 Sì, quando si disabilita l'eliminazione temporanea è comunque possibile accedere e ripristinare i dati eliminati temporaneamente.
 
-**È possibile leggere e copiare gli snapshot del BLOB eliminati temporaneamente?**  
+### <a name="can-i-read-and-copy-out-soft-deleted-snapshots-of-my-blob"></a>È possibile leggere e copiare gli snapshot eliminati temporaneamente del BLOB?  
+
 Sì, ma prima è necessario chiamare Undelete sul BLOB.
 
-**L'eliminazione temporanea è disponibile per tutti i tipi di BLOB?**  
-Sì, l'eliminazione temporanea è disponibile per i BLOB in blocchi, i BLOB di accodamento e i BLOB di pagine.
+### <a name="is-soft-delete-available-for-all-blob-types"></a>L'eliminazione temporanea è disponibile per tutti i tipi di BLOB?
 
-**L'eliminazione temporanea è disponibile per i dischi delle macchine virtuali?**  
-L'eliminazione temporanea è disponibile per i dischi non gestiti sia Standard che Premium. L'eliminazione temporanea aiuta solo a recuperare i dati eliminati tramite **Delete Blob**, **Put Blob**, **Put Block List**, **Put Block** e **Copy Blob**. I dati sovrascritti tramite una chiamata a **Put Page** non sono recuperabili.
+Sì, l'eliminazione temporanea è disponibile per i BLOB in blocchi, i BLOB di Accodamento e i BLOB di pagine.
 
-**È necessario modificare le applicazioni esistenti per usare l'eliminazione temporanea?**  
-È possibile sfruttare i vantaggi dell'eliminazione temporanea indipendentemente dalla versione dell'API in uso. Tuttavia, per elencare e ripristinare i BLOB e gli snapshot dei BLOB eliminati temporaneamente, è necessario usare la versione 2017-07-29 dell'[API REST dei servizi di archiviazione](https://docs.microsoft.com/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) o una successiva. In generale, è sempre consigliabile usare la versione più recente indipendentemente dal fatto che usi o meno questa funzionalità.
+### <a name="is-soft-delete-available-for-virtual-machine-disks"></a>L'eliminazione temporanea è disponibile per i dischi delle macchine virtuali?  
+
+L'eliminazione temporanea è disponibile per i dischi non gestiti sia Premium che standard, ovvero i BLOB di pagine sotto le quinte. L'eliminazione temporanea consente solo di ripristinare i dati eliminati dalle operazioni **Elimina BLOB**, **Put Blob**, **Put Block List**, **Put Block** e **Copy Blob** . I dati sovrascritti tramite una chiamata a **Put Page** non sono recuperabili.
+
+Una macchina virtuale di Azure scrive in un disco non gestito usando le chiamate a **Put Page**, quindi l'uso dell'eliminazione temporanea per annullare le Scritture in un disco non gestito da una macchina virtuale di Azure non è uno scenario supportato.
+
+### <a name="do-i-need-to-change-my-existing-applications-to-use-soft-delete"></a>È necessario modificare le applicazioni esistenti per usare l'eliminazione temporanea?
+
+È possibile sfruttare i vantaggi dell'eliminazione temporanea indipendentemente dalla versione dell'API in uso. Tuttavia, per elencare e ripristinare i BLOB e gli snapshot dei BLOB eliminati temporaneamente, è necessario usare la versione 2017-07-29 dell'[API REST dei servizi di archiviazione](https://docs.microsoft.com/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) o una successiva. Microsoft consiglia sempre di usare la versione più recente dell'API di archiviazione di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Codice di esempio .NET](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
 * [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api) (API REST del servizio BLOB)
 * [Replica di Archiviazione di Azure](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

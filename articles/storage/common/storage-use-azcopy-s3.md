@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 73eed48bd34a8c8d81a66872888ebf5481074648
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: b984d194c75924451a52250490b1a5590b996974
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274097"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821390"
 ---
 # <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>Copiare i dati dai bucket di Amazon S3 usando AzCopy
 
@@ -53,6 +53,9 @@ AzCopy usa il [blocco put dall'API URL](https://docs.microsoft.com/rest/api/stor
 > [!IMPORTANT]
 > Questa funzionalità è attualmente in anteprima. Se si decide di rimuovere i dati dai bucket S3 dopo un'operazione di copia, assicurarsi di verificare che i dati siano stati copiati correttamente nell'account di archiviazione prima di rimuovere i dati.
 
+> [!TIP]
+> Gli esempi in questa sezione racchiudono gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd. exe). Se si usa una shell dei comandi di Windows (cmd. exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
+
 ### <a name="copy-an-object"></a>Copia di un oggetto
 
 |    |     |
@@ -61,7 +64,7 @@ AzCopy usa il [blocco put dall'API URL](https://docs.microsoft.com/rest/api/stor
 | **Esempio** | `azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
 
 > [!NOTE]
-> Gli esempi in questo articolo usano URL di tipo percorso per i bucket di AWS s3 (ad esempio: `http://s3.amazonaws.com/<bucket-name>`). 
+> Gli esempi in questo articolo usano URL di tipo Path per i bucket di AWS S3, ad esempio `http://s3.amazonaws.com/<bucket-name>`. 
 >
 > È anche possibile usare gli URL di tipo ospitato virtuale (ad esempio: `http://bucket.s3.amazonaws.com`). 
 >
@@ -101,15 +104,15 @@ AWS S3 ha un set di convenzioni di denominazione diverso per i nomi di bucket ri
 
 AzCopy gestisce due dei problemi più comuni che possono verificarsi. Bucket contenenti punti e bucket che contengono trattini consecutivi. I nomi dei bucket di AWS S3 possono contenere punti e trattini consecutivi, ma un contenitore in Azure non può. AzCopy sostituisce i punti con trattini e trattini consecutivi con un numero che rappresenta il numero di trattini consecutivi (ad esempio, un bucket denominato `my----bucket` diventa `my-4-bucket`. 
 
-Inoltre, quando AzCopy copia sui file, verifica la presenza di conflitti di denominazione e tenta di risolverli. Se ad esempio sono presenti bucket con il nome `bucket-name` e `bucket.name`, AzCopy risolve un bucket denominato `bucket.name` prima di `bucket-name` e quindi a `bucket-name-2`.
+Inoltre, quando AzCopy copia sui file, verifica la presenza di conflitti di denominazione e tenta di risolverli. Se, ad esempio, sono presenti bucket con il nome `bucket-name` e `bucket.name`, AzCopy risolve un bucket denominato `bucket.name` primo per `bucket-name` e quindi per `bucket-name-2`.
 
 ## <a name="handle-differences-in-object-metadata"></a>Gestire le differenze nei metadati degli oggetti
 
 AWS S3 e Azure consentono diversi set di caratteri nei nomi delle chiavi degli oggetti. Per informazioni sui caratteri usati da AWS S3, vedere [qui](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys). Sul lato Azure, le chiavi degli oggetti BLOB rispettano le regole di denominazione per [ C# gli identificatori](https://docs.microsoft.com/dotnet/csharp/language-reference/).
 
-Come parte di un comando AzCopy `copy`, è possibile specificare un valore per facoltativo il flag `s2s-invalid-metadata-handle` che specifica come si desidera gestire i file in cui i metadati del file contengono nomi di chiave incompatibili. Nella tabella seguente viene descritto ogni valore di flag.
+Come parte di un comando AzCopy `copy`, è possibile specificare un valore per il flag `s2s-invalid-metadata-handle` facoltativo che specifica come si desidera gestire i file in cui i metadati del file contengono nomi di chiave incompatibili. Nella tabella seguente viene descritto ogni valore di flag.
 
-| Valore del flag | Descrizione  |
+| Valore del flag | Description  |
 |--------|-----------|
 | **ExcludeIfInvalid** | (Opzione predefinita) I metadati non sono inclusi nell'oggetto trasferito. AzCopy registra un avviso. |
 | **FailIfInvalid** | Gli oggetti non vengono copiati. AzCopy registra un errore e include tale errore nel conteggio non riuscito visualizzato nel riepilogo del trasferimento.  |

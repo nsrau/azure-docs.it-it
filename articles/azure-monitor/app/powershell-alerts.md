@@ -1,23 +1,18 @@
 ---
 title: Usare PowerShell per impostare gli avvisi in Application Insights | Microsoft Docs
 description: Automatizzare la configurazione di Application Insights per ricevere messaggi di posta elettronica sulle modifiche delle metriche.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 10/31/2016
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 5dfbc6fa18b5d1b5b3058db14eb1232be27a0c40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/31/2016
+ms.openlocfilehash: 0771079eb338c2f22cb0b1f31c48b0b9f80a3ff5
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66130977"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819085"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Usare PowerShell per impostare gli avvisi in Application Insights
 
@@ -31,14 +26,14 @@ ms.locfileid: "66130977"
 > Se si vuole creare risorse e avvisi allo stesso tempo, considerare l'[uso di un modello di Azure Resource Manager](powershell.md).
 
 ## <a name="one-time-setup"></a>Installazione singola
-Se non si è mai usato PowerShell con la sottoscrizione di Azure:
+Se non si è utilizzato prima PowerShell con la sottoscrizione di Azure:
 
 Installare il modulo Azure Powershell nel computer in cui verranno eseguiti gli script.
 
 * Installare [Installazione guidata piattaforma Web Microsoft (v5 o versione successiva)](https://www.microsoft.com/web/downloads/platform.aspx).
 * Usarla per installare Microsoft Azure PowerShell.
 
-## <a name="connect-to-azure"></a>Connect to Azure
+## <a name="connect-to-azure"></a>Connettersi ad Azure
 Avviare Azure PowerShell e [connettersi alla sottoscrizione](/powershell/azure/overview):
 
 ```powershell
@@ -98,7 +93,7 @@ Ho un'applicazione in cui uso [TrackMetric()](../../azure-monitor/app/api-custom
 La stessa regola può essere utilizzata per la metrica riportata utilizzando il [parametro misura](../../azure-monitor/app/api-custom-events-metrics.md#properties) di un altra chiamata di rilevamento come ad esempio TrackEvent o trackPageView.
 
 ## <a name="metric-names"></a>Nomi delle metriche
-| Nome metrica | Nome schermata | Descrizione |
+| Nome metrica | Nome schermata | Description |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Eccezioni del browser |Conteggio delle eccezioni non rilevate generate nel browser. |
 | `basicExceptionServer.count` |Eccezioni del server |Conteggio delle eccezioni non gestite generate dall'applicazione |
@@ -127,7 +122,7 @@ Le metriche vengono inviate da moduli di telemetria diversi:
 
 | Gruppo metrica | Modulo dell'agente di raccolta |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[JavaScript browser](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>visualizza |[JavaScript browser](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[Prestazioni](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[Dipendenza](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request,<br/>requestFailed |[Richiesta server](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
@@ -135,7 +130,7 @@ Le metriche vengono inviate da moduli di telemetria diversi:
 ## <a name="webhooks"></a>Webhook
 È possibile [automatizzare la risposta a un avviso](../../azure-monitor/platform/alerts-webhooks.md). Azure richiamerà l'indirizzo Web specificato quando viene generato un avviso.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Script per configurare Application Insights](powershell-script-create-resource.md)
 * [Creare risorse Application Insights e test web da modelli](powershell.md)
 * [Automatizzare l'accoppiamento tra Diagnostica di Microsoft Azure e Application Insights](powershell-azure-diagnostics.md)

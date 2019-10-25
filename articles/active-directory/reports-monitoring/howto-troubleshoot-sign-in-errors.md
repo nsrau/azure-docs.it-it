@@ -1,5 +1,5 @@
 ---
-title: Come risolvere gli errori di accesso usando i report di Azure Active Directory | Microsoft Docs
+title: Come risolvere i problemi relativi ai report degli errori di accesso | Microsoft Docs
 description: Informazioni su come risolvere gli errori di accesso usando i report di Azure Active Directory nel portale di Azure
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c901395436c8ed660c50b7342a804143d57db3c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 692fd2034fb70feffe02320eea5cdb9a3d163475
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988177"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819704"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Procedura: Risolvere gli errori di accesso usando i report di Azure Active Directory
 
@@ -34,9 +34,9 @@ Il report degli accessi può anche essere utile per risolvere gli errori di acce
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario:
+Sono necessari:
 
-* Un tenant di Azure AD con una licenza Premium (P1/P2). vedere [Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) per aggiornare l'edizione di Azure Active Directory in uso.
+* Un tenant di Azure AD con una licenza Premium (P1/P2). Per l'aggiornamento dell'edizione Azure Active Directory, vedere [Introduzione a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) .
 * Un utente che si trova nel ruolo **amministratore globale**, **amministratore della sicurezza**, **lettore sicurezza**o **lettore report** per il tenant. Qualsiasi utente, inoltre, può visualizzare i propri accessi. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Risolvere gli errori di accesso usando il report degli accessi
@@ -45,7 +45,7 @@ Il report degli accessi può anche essere utile per risolvere gli errori di acce
 2. Selezionare **Azure Active Directory** e quindi scegliere **Accessi** dalla sezione **Monitoraggio**. 
 3. Usare i filtri forniti per circoscrivere l'errore, in base a nome utente o identificatore di oggetto, nome dell'applicazione o data. Inoltre, selezionare **errore** nell'elenco a discesa **stato** per visualizzare solo gli accessi non riusciti. 
 
-    ![Risultati filtro](./media/howto-troubleshoot-sign-in-errors/filters.png)
+    ![Filtrare i risultati](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
 4. Identificare l'accesso non riuscito che si vuole analizzare. Selezionarla per aprire la finestra dettagli aggiuntivi con altre informazioni sull'accesso non riuscito. Annotare quanto indicato in **Codice errore di accesso** e **Motivo dell'errore**. 
 
@@ -53,7 +53,7 @@ Il report degli accessi può anche essere utile per risolvere gli errori di acce
         
 5. È anche possibile trovare queste informazioni nella scheda **Risoluzione dei problemi e supporto tecnico** nella finestra dei dettagli.
 
-    ![Risoluzione dei problemi e supporto](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
+    ![Risoluzione dei problemi e supporto tecnico](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
 6. Il motivo dell'errore descrive l'errore. Nello scenario precedente, ad esempio, il motivo dell'errore è un **nome utente o una password non valida o un nome utente o una password locale non valida**. La correzione consiste semplicemente nell'eseguire nuovamente l'accesso con nome utente e password corretti.
 

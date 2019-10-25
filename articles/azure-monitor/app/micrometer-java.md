@@ -1,23 +1,18 @@
 ---
 title: Come usare Micrometer con Azure Application Insights Java SDK | Microsoft Docs
 description: "Guida dettagliata sull'uso di Micrometer con le applicazioni Spring Boot e non Spring Boot di Application Insights. "
-services: application-insights
-documentationcenter: java
-author: lgayhardt
-manager: carmonm
-ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 11/01/2018
+author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 5bef5a6037c6eb29d0dc48e313958e2d243904eb
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 11/01/2018
+ms.openlocfilehash: 267665c97f683740c05ae6602a416225c79aa44c
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299581"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819316"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Come usare Micrometer con Azure Application Insights Java SDK
 Il monitoraggio per applicazioni Micrometer misure le metriche per il codice di applicazione basato su Java Virtual Machine e consente di esportare i dati in sistemi di monitoraggio preferito. Questo articolo illustra come usare Micrometer con Application Insights per applicazioni Spring Boot e non Spring Boot.
@@ -29,7 +24,7 @@ Aggiungere le dipendenze seguenti al file pom.xml or build.gradle:
 * [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 o versione successiva (esegue il backport del codice di autoconfigurazione nel framework Spring).
 * [Risorsa di ApplicationInsights](../../azure-monitor/app/create-new-resource.md )
 
-Passaggi
+Procedure
 
 1. Aggiornare il file pom.xml dell'applicazione Spring Boot e aggiungervi le dipendenze seguenti:
 
@@ -144,7 +139,7 @@ Passaggi:
         </dependency>
      ```
 
-2. Inserire `ApplicationInsights.xml` il file nella cartella Resources:
+2. Inserire `ApplicationInsights.xml` file nella cartella Resources:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>

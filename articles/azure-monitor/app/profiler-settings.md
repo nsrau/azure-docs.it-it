@@ -1,23 +1,19 @@
 ---
 title: Usare il riquadro delle impostazioni di Azure Application Insights Profiler | Microsoft Docs
 description: Visualizzare lo stato del Profiler e avviare sessioni di profilatura
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 12cb8e31617ee6b1e0c8515e66e265f4eccdf3df
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: b383ef8c92325b0ad6561bee9b654c78e4054338
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338038"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820480"
 ---
 # <a name="configure-application-insights-profiler"></a>Configura Application Insights Profiler
 
@@ -49,7 +45,7 @@ Questa opzione consente di avviare una sessione di profilatura su richiesta. Qua
 
 Per attivare manualmente una sessione del profiler, un utente richiede almeno l'accesso "Write" per il proprio ruolo per il componente Application Insights. Nella maggior parte dei casi, questo accesso viene eseguito automaticamente e non è necessario alcun lavoro aggiuntivo. In caso di problemi, il ruolo ambito della sottoscrizione da aggiungere sarà il ruolo "Application Insights collaboratore componente". [Vedere altre informazioni sul controllo di accesso ai ruoli con monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
 
-## <a name="trigger-settings"></a>Impostazioni trigger
+## <a name="trigger-settings"></a>Impostazioni del trigger
 ![Riquadro a comparsa Impostazioni trigger][trigger-settings-flyout]
 
 Facendo clic sul pulsante trigger sulla barra dei menu si apre la casella impostazioni trigger. È possibile configurare il trigger per avviare la profilatura quando la percentuale di utilizzo della CPU o della memoria raggiunge il livello impostato.
@@ -58,8 +54,8 @@ Facendo clic sul pulsante trigger sulla barra dei menu si apre la casella impost
 |-|-|
 Pulsante attiva/disattiva | On: Profiler può essere avviato da questo trigger. Disattivato: il profiler non verrà avviato da questo trigger.
 Soglia memoria | Quando questa percentuale di memoria è in uso, il Profiler verrà avviato.
-Durata | Imposta il periodo di tempo durante il quale il profiler viene eseguito quando viene attivato.
-Raffreddamento | Imposta il tempo di attesa del profiler prima di verificare l'utilizzo della memoria o della CPU dopo che è stato attivato.
+Duration | Imposta il periodo di tempo durante il quale il profiler viene eseguito quando viene attivato.
+Cooldown | Imposta il tempo di attesa del profiler prima di verificare l'utilizzo della memoria o della CPU dopo che è stato attivato.
 
 ## <a name="recent-profiling-sessions"></a>Sessioni di profilatura recenti
 Questa sezione della pagina Mostra informazioni sulle sessioni di profilatura recenti. Una sessione di profilatura rappresenta il periodo di tempo durante il quale l'agente del profiler sta prendendo un profilo in uno dei computer che ospitano l'applicazione. È possibile aprire i profili da una sessione facendo clic su una delle righe. Per ogni sessione, viene illustrato quanto segue:
@@ -80,7 +76,7 @@ Memoria | Percentuale di memoria utilizzata durante l'esecuzione del profiler.
 
 Le sezioni seguenti illustrano il funzionamento di questo scenario:
 
-### <a name="step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>Passaggio 1: Generare il traffico verso l'app Web avviando un test delle prestazioni Web
+### <a name="step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>Passaggio 1: generare il traffico all'app Web avviando un test delle prestazioni Web
 
 Se l'app Web include già il traffico in ingresso o se si desidera solo generare manualmente il traffico, ignorare questa sezione e procedere al passaggio 2.
 
@@ -100,7 +96,7 @@ Se l'app Web include già il traffico in ingresso o se si desidera solo generare
 
     ![Test di carico in esecuzione e in corso][load-test-in-progress]
 
-### <a name="step-2-start-a-profiler-on-demand-session"></a>Passaggio 2: Avviare una sessione di Profiler su richiesta
+### <a name="step-2-start-a-profiler-on-demand-session"></a>Passaggio 2: avviare una sessione su richiesta del profiler
 
 1. Quando il test è in esecuzione, avviare Profiler per acquisire tracce nell'app Web durante la ricezione del carico.
 

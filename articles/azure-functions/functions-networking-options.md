@@ -1,23 +1,22 @@
 ---
 title: Opzioni di rete di funzioni di Azure
 description: Panoramica di tutte le opzioni di rete disponibili in funzioni di Azure
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 9fe7147325b2e14a7ae6bb4b31aa941fb4059b11
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: bf5ce8da2ce62a5da821588c8f635bbab04dd3c1
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690821"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881560"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di funzioni di Azure
 
-Questo articolo descrive le funzionalità di rete disponibili nelle opzioni di hosting per funzioni di Azure. Tutte le seguenti opzioni di rete consentono di accedere alle risorse senza utilizzare indirizzi instradabili tramite Internet o di limitare l'accesso a Internet a un'app per le funzioni. 
+Questo articolo descrive le funzionalità di rete disponibili nelle opzioni di hosting per funzioni di Azure. Tutte le seguenti opzioni di rete consentono di accedere alle risorse senza utilizzare indirizzi instradabili tramite Internet o di limitare l'accesso a Internet a un'app per le funzioni.
 
 I modelli di hosting hanno diversi livelli di isolamento della rete disponibili. La scelta dell'opzione corretta consente di soddisfare i requisiti di isolamento rete.
 
@@ -39,7 +38,6 @@ I modelli di hosting hanno diversi livelli di isolamento della rete disponibili.
 |[connessioni ibride](#hybrid-connections)|❌No|✅Yes|✅Yes|✅Yes|
 |[Restrizioni IP in uscita](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Yes|
 
-
 ## <a name="inbound-ip-restrictions"></a>Restrizioni degli indirizzi IP in ingresso
 
 È possibile usare le restrizioni IP per definire un elenco con priorità di indirizzi IP consentiti o negati per l'accesso all'app. L'elenco può includere indirizzi IPv4 e IPv6. Quando sono presenti una o più voci, alla fine dell'elenco esiste una "Deny All" implicita. Le restrizioni IP funzionano con tutte le opzioni di hosting di funzioni.
@@ -51,8 +49,9 @@ Per altre informazioni, vedere [restrizioni di accesso statico del servizio app 
 
 ## <a name="private-site-access"></a>Accesso al sito privato
 
-L'accesso al sito privato si riferisce a rendere l'app accessibile solo da una rete privata, ad esempio dall'interno di una rete virtuale di Azure. 
-* L'accesso al sito privato è disponibile nel piano [Premium](./functions-premium-plan.md), [consumo], (Functions-scale. MD # consumo-piano) e nel [piano di servizio app](functions-scale.md#app-service-plan) quando sono configurati gli **endpoint di servizio** . 
+L'accesso al sito privato si riferisce a rendere l'app accessibile solo da una rete privata, ad esempio dall'interno di una rete virtuale di Azure.
+
+* L'accesso al sito privato è disponibile nel piano [Premium](./functions-premium-plan.md), [utilizzo](functions-scale.md#consumption-plan) e [servizio app](functions-scale.md#app-service-plan) quando sono configurati gli **endpoint di servizio** .
     * Gli endpoint di servizio possono essere configurati in base alle singole app in funzionalità della piattaforma > rete > configurare le restrizioni di accesso > Aggiungi regola. È ora possibile selezionare le reti virtuali come "tipo" di una regola.
     * Per altre informazioni, vedere [endpoint del servizio rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md)
         * Tenere presente che con gli endpoint di servizio, la funzione ha ancora l'accesso in uscita completo a Internet, anche con l'integrazione della rete virtuale configurata.
@@ -64,19 +63,19 @@ L'integrazione della rete virtuale consente all'app per le funzioni di accedere 
 
 È possibile usare l'integrazione della rete virtuale per consentire l'accesso da app a database e servizi Web in esecuzione nella rete virtuale. Con l'integrazione della rete virtuale, non è necessario esporre un endpoint pubblico per le applicazioni nella macchina virtuale. È invece possibile usare gli indirizzi instradabili non Internet privati.
 
-Esistono due moduli per la funzionalità di integrazione della rete virtuale
+Esistono due forme di integrazione della rete virtuale:
 
-1. L'integrazione della rete virtuale regionale consente l'integrazione con reti virtuali nella stessa area. Questo formato della funzionalità richiede una subnet in una rete virtuale nella stessa area. Questa funzionalità è ancora in anteprima, ma è supportata per i carichi di lavoro di produzione delle app Windows con alcune avvertenze indicate di seguito.
-2. L'integrazione della rete virtuale necessaria per il gateway consente l'integrazione con reti virtuali in aree remote o con reti virtuali classiche. Questa versione della funzionalità richiede la distribuzione di un gateway di rete virtuale nella VNet. Si tratta della funzionalità basata su VPN da punto a sito ed è supportata solo con le app di Windows.
++ **Integrazione della rete virtuale regionale (anteprima)** : consente l'integrazione con reti virtuali nella stessa area. Questo tipo di integrazione richiede una subnet in una rete virtuale nella stessa area. Questa funzionalità è ancora in anteprima, ma è supportata per le app per le funzioni in esecuzione in Windows, con le avvertenze indicate di seguito.
++ **Integrazione della rete virtuale necessaria**per il gateway: consente l'integrazione con reti virtuali in aree remote o con reti virtuali classiche. Questo tipo di integrazione richiede la distribuzione di un gateway di rete virtuale nella VNet. Si tratta di una funzionalità basata su VPN da punto a sito, supportata solo per le app per le funzioni eseguite in Windows.
 
-Un'app può usare solo un modulo della funzionalità di integrazione VNet alla volta. La domanda è la funzionalità da usare. È possibile utilizzare per molti aspetti. Tuttavia, i differenziatori chiari sono:
+Un'app può usare solo un tipo di funzionalità di integrazione VNet alla volta. Sebbene entrambi siano utili per molti scenari, nella tabella seguente viene indicato dove è necessario utilizzare ciascuno di essi:
 
-| Problema  | Soluzione | 
+| Problema  | Soluzione |
 |----------|----------|
-| Si desidera raggiungere un indirizzo RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) nella stessa area | Integrazione VNet a livello di area |
-| Si vuole raggiungere le risorse in una VNet classica o in una VNet in un'altra area | Integrazione VNet necessaria per il gateway |
-| Si vuole raggiungere gli endpoint RFC 1918 tra ExpressRoute | Integrazione VNet a livello di area |
-| Desidera raggiungere risorse tra gli endpoint del servizio | Integrazione VNet a livello di area |
+| Si desidera raggiungere un indirizzo RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) nella stessa area | integrazione VNet a livello di area |
+| Si vuole raggiungere le risorse in una VNet classica o in una VNet in un'altra area | integrazione VNet necessaria per il gateway |
+| Si vuole raggiungere gli endpoint RFC 1918 tra ExpressRoute | integrazione VNet a livello di area |
+| Desidera raggiungere risorse tra gli endpoint del servizio | integrazione VNet a livello di area |
 
 Nessuna delle due funzionalità consentirà di raggiungere indirizzi non RFC 1918 tra ExpressRoute. A tale scopo, è necessario usare un ambiente del servizio app per il momento.
 
@@ -93,10 +92,11 @@ La funzionalità Integrazione rete virtuale:
 Alcune operazioni non sono supportate da Integrazione rete virtuale:
 
 * Montaggio di un'unità
-* Integrazione di AD 
+* Integrazione di AD
 * NetBios
 
 L'integrazione della rete virtuale in funzioni usa l'infrastruttura condivisa con le app Web del servizio app. Per ulteriori informazioni sui due tipi di integrazione della rete virtuale, vedere:
+
 * [integrazione rete virtuale regionali](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
 * [Integrazione VNet necessaria per il gateway](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
@@ -104,7 +104,7 @@ Per altre informazioni sull'uso dell'integrazione della rete virtuale, vedere [i
 
 ## <a name="connecting-to-service-endpoint-secured-resources"></a>Connessione alle risorse protette dell'endpoint di servizio
 
-> [!note] 
+> [!NOTE]
 > Temporaneamente, potrebbero essere necessarie fino a 12 ore affinché i nuovi endpoint di servizio diventino disponibili per l'app per le funzioni una volta configurate le restrizioni di accesso per la risorsa downstream. Durante questo periodo, la risorsa non sarà completamente disponibile per l'app.
 
 Per garantire un livello di sicurezza più elevato, è possibile limitare un numero di servizi di Azure a una rete virtuale usando gli endpoint di servizio. Per accedere alla risorsa, è quindi necessario integrare l'app per le funzioni con tale rete virtuale. Questa configurazione è supportata in tutti i piani che supportano l'integrazione della rete virtuale.
@@ -112,10 +112,11 @@ Per garantire un livello di sicurezza più elevato, è possibile limitare un num
 [Per altre informazioni sugli endpoint del servizio rete virtuale, vedere qui.](../virtual-network/virtual-network-service-endpoints-overview.md)
 
 ### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Limitazione dell'account di archiviazione a una rete virtuale
+
 Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, di Accodamento e tabelle. Attualmente non è possibile utilizzare restrizioni della rete virtuale per questo account. Se si configura un endpoint del servizio di rete virtuale nell'account di archiviazione usato per l'app per le funzioni, l'app verrà interrotta.
 
 [Per altre informazioni sui requisiti dell'account di archiviazione, vedere qui.](./functions-create-function-app-portal.md#storage-account-requirements
-) 
+)
 
 ## <a name="virtual-network-triggers-non-http"></a>Trigger della rete virtuale (non HTTP)
 
@@ -140,6 +141,7 @@ Le restrizioni IP in uscita sono disponibili solo per le funzioni distribuite in
 Quando si integra un'app per le funzioni in un piano Premium o un piano di servizio app con una rete virtuale, l'app è ancora in grado di effettuare chiamate in uscita a Internet.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per altre informazioni su rete e funzioni di Azure: 
 
 * [Segui l'esercitazione su come iniziare a usare l'integrazione della rete virtuale](./functions-create-vnet.md)

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 10/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5a6ed66efa0f73f957c3acb048136a5328f9c264
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: HT
+ms.openlocfilehash: 5de62fd52360511fe660255dc023721a2837fe85
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750174"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819788"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e Azure PowerShell
 
@@ -156,6 +156,40 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 ## <a name="list-access"></a>Elencare l'accesso
 
 Per visualizzare le informazioni sull'accesso nel controllo degli accessi in base al ruolo, elencare le assegnazioni di ruolo.
+
+### <a name="list-all-role-assignments-in-a-subscription"></a>Elencare tutte le assegnazioni di ruolo in una sottoscrizione
+
+Il modo più semplice per ottenere un elenco di tutte le assegnazioni di ruolo nella sottoscrizione corrente (incluse le assegnazioni di ruolo ereditate dai gruppi di gestione e radice) consiste nell'usare [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) senza parametri.
+
+```azurepowershell
+Get-AzRoleAssignment
+```
+
+```Example
+PS C:\> Get-AzRoleAssignment
+
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
+DisplayName        : Alain
+SignInName         : alain@example.com
+RoleDefinitionName : Storage Blob Data Reader
+RoleDefinitionId   : 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1
+ObjectId           : 44444444-4444-4444-4444-444444444444
+ObjectType         : User
+CanDelegate        : False
+
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/providers/Microsoft.Authorization/roleAssignments/33333333-3333-3333-3333-333333333333
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
+DisplayName        : Marketing
+SignInName         :
+RoleDefinitionName : Contributor
+RoleDefinitionId   : b24988ac-6180-42a0-ab88-20f7382dd24c
+ObjectId           : 22222222-2222-2222-2222-222222222222
+ObjectType         : Group
+CanDelegate        : False
+
+...
+```
 
 ### <a name="list-role-assignments-for-a-user"></a>Elencare i ruoli assegnati a un utente
 

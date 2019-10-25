@@ -15,12 +15,12 @@ ms.date: 08/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 158222c256e3efc7ca87d7a3781ca68e1c4307b1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: HT
+ms.openlocfilehash: e8a5b8b5794687f9e3b1707fda4cbe381e277317
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750178"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819761"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Risolvere i problemi del controllo degli accessi in base al ruolo per le risorse di Azure
 
@@ -29,7 +29,7 @@ Questo articolo contiene le risposte alle domande comuni sul controllo degli acc
 ## <a name="problems-with-rbac-role-assignments"></a>Problemi con le assegnazioni di ruolo di Controllo degli accessi in base al ruolo
 
 - Se non è possibile aggiungere un'assegnazione di ruolo nel **controllo di accesso (IAM)** di portale di Azure perché l'opzione **Aggiungi**  > **Aggiungi assegnazione ruolo** è disabilitata o perché si riceve l'errore di autorizzazione "il client con ID oggetto non ha autorizzazione per eseguire l'azione ", verificare di avere eseguito l'accesso con un utente a cui è stato assegnato un ruolo con l'autorizzazione `Microsoft.Authorization/roleAssignments/write`, ad esempio [proprietario](built-in-roles.md#owner) o [amministratore accesso utenti](built-in-roles.md#user-access-administrator) , nell'ambito che si sta tentando di assegnare il ruolo.
-- Se viene ricevuto il messaggio di errore "non è più possibile creare assegnazioni di ruolo (codice: RoleAssignmentLimitExceeded)" quando si tenta di assegnare un ruolo, provare a ridurre il numero di assegnazioni di ruolo assegnando ruoli ai gruppi. Azure supporta fino a **2000** assegnazioni di ruolo per sottoscrizione.
+- Se viene ricevuto il messaggio di errore "non è più possibile creare assegnazioni di ruolo (codice: RoleAssignmentLimitExceeded)" quando si tenta di assegnare un ruolo, provare a ridurre il numero di assegnazioni di ruolo assegnando ruoli ai gruppi. Azure supporta fino a **2000** assegnazioni di ruolo per sottoscrizione. Questo limite di assegnazioni di ruolo è fisso e non può essere aumentato.
 
 ## <a name="problems-with-custom-roles"></a>Problemi con i ruoli personalizzati
 

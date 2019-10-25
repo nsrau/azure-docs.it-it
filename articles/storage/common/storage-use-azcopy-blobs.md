@@ -4,16 +4,16 @@ description: Questo articolo contiene una raccolta di comandi di esempio AzCopy 
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/22/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: c65c6b3f6f186e7821ff402eea4494fa60e9c370
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 6680efb89eddcfb1c4fa931993956ef83369b292
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598075"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817056"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Trasferire i dati con AzCopy e l'archiviazione BLOB
 
@@ -31,6 +31,9 @@ Vedere l'articolo [Introduzione a AzCopy](storage-use-azcopy-v10.md) per scarica
 > Ad esempio: `'https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>'`.
 
 ## <a name="create-a-container"></a>Creare un contenitore
+
+> [!TIP]
+> Gli esempi in questa sezione racchiudono gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd. exe). Se si usa una shell dei comandi di Windows (cmd. exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
 
 È possibile usare il comando [azcopy make](storage-ref-azcopy-make.md) per creare un contenitore. Negli esempi di questa sezione viene creato un contenitore denominato `mycontainer`.
 
@@ -54,10 +57,10 @@ Questa sezione contiene gli esempi seguenti:
 > * Caricare il contenuto di una directory 
 > * Carica file specifici
 
-> [!NOTE]
-> AzCopy non calcola e archivia automaticamente il codice hash MD5 del file. Se si vuole eseguire questa operazione, aggiungere il flag di `--put-md5` a ogni comando copy. In questo modo, quando viene scaricato il BLOB, AzCopy calcola un hash MD5 per i dati scaricati e verifica che l'hash MD5 archiviato nella proprietà `Content-md5` del BLOB corrisponda all'hash calcolato.
-
 Per informazioni dettagliate sulla documentazione di riferimento, vedere [azcopy Copy](storage-ref-azcopy-copy.md).
+
+> [!TIP]
+> Gli esempi in questa sezione racchiudono gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd. exe). Se si usa una shell dei comandi di Windows (cmd. exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
 
 ### <a name="upload-a-file"></a>Caricare un file
 
@@ -122,7 +125,6 @@ In questo esempio, AzCopy trasferisce la directory `C:\myDirectory\photos` e il 
 
 È anche possibile escludere i file utilizzando l'opzione `--exclude-path`. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
-
 #### <a name="use-wildcard-characters"></a>Usa caratteri jolly
 
 Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l'opzione `--include-pattern`. Specificare i nomi parziali che includono i caratteri jolly. Separare i nomi usando un semicolin (`;`). 
@@ -153,6 +155,9 @@ Questa sezione contiene gli esempi seguenti:
 > Se il valore della proprietà `Content-md5` di un BLOB contiene un hash, AzCopy calcola un hash MD5 per i dati scaricati e verifica che l'hash MD5 archiviato nella proprietà `Content-md5` del BLOB corrisponda all'hash calcolato. Se questi valori non corrispondono, il download ha esito negativo a meno che non si esegua l'override di questo comportamento accodando `--check-md5=NoCheck` o `--check-md5=LogOnly` al comando copy.
 
 Per informazioni dettagliate sulla documentazione di riferimento, vedere [azcopy Copy](storage-ref-azcopy-copy.md).
+
+> [!TIP]
+> Gli esempi in questa sezione racchiudono gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd. exe). Se si usa una shell dei comandi di Windows (cmd. exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
 
 ### <a name="download-a-file"></a>Scaricare un file
 
@@ -242,6 +247,9 @@ Questa sezione contiene gli esempi seguenti:
 
 Per informazioni dettagliate sulla documentazione di riferimento, vedere [azcopy Copy](storage-ref-azcopy-copy.md).
 
+> [!TIP]
+> Gli esempi in questa sezione racchiudono gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd. exe). Se si usa una shell dei comandi di Windows (cmd. exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
+
 ### <a name="copy-a-blob-to-another-storage-account"></a>Copiare un BLOB in un altro account di archiviazione
 
 |    |     |
@@ -285,6 +293,9 @@ Se si imposta il flag di `--delete-destination` su `true` AzCopy Elimina i file 
 > Per evitare eliminazioni accidentali, assicurarsi di abilitare la funzionalità di [eliminazione](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) temporanea prima di usare il flag di `--delete-destination=prompt|true`.
 
 Per informazioni dettagliate sulla documentazione di riferimento, vedere [azcopy Sync](storage-ref-azcopy-sync.md).
+
+> [!TIP]
+> Gli esempi in questa sezione racchiudono gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd. exe). Se si usa una shell dei comandi di Windows (cmd. exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Aggiornare un contenitore con modifiche a una file system locale
 

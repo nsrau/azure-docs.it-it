@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 00d49d763dedc5d86557dadd10f5d727e7893dbe
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 2e2195c61acbf39b40a7659335afff78ac03cb4b
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563069"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881439"
 ---
 # <a name="connect-azure-virtual-network-to-cloudsimple-using-expressroute"></a>Connettere la rete virtuale di Azure a CloudSimple usando ExpressRoute
 
@@ -23,22 +23,29 @@ ms.locfileid: "69563069"
 
 È necessaria una chiave di autorizzazione per la connessione ExpressRoute tra il cloud privato e la rete virtuale di Azure. Per ottenere una chiave, archiviare un ticket con <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">supporto</a>.  Usare le informazioni seguenti nella richiesta:
 
-* Tipo di problema: **Tecnico**
-* Sottoscrizione: **Selezionare la sottoscrizione in cui è distribuito il servizio CloudSimple**
-* Servizio: **Soluzione VMware per CloudSimple**
-* Tipo di problema: **Richiesta di servizio**
-* Sottotipo di problema: **Chiave di autorizzazione per la connessione di Azure VNET**
-* Soggetto: **Richiesta di chiave di autorizzazione per la connessione di Azure VNET**
+* Tipo di problema: **tecnico**
+* Sottoscrizione: **selezionare la sottoscrizione in cui è distribuito il servizio CloudSimple**
+* Servizio: **soluzione VMware di CloudSimple**
+* Tipo di problema: **richiesta di servizio**
+* Sottotipo di problema: **chiave di autorizzazione per la connessione di Azure VNET**
+* Subject: **richiesta di chiave di autorizzazione per la connessione di Azure VNET**
 
-## <a name="obtain-peering-information-for-azure-virtual-network-to-cloudsimple-connection"></a>Ottenere informazioni sul peering per la rete virtuale di Azure per la connessione a CloudSimple
+## <a name="get-peering-information-from-cloudsimple-portal"></a>Ottenere informazioni sul peering dal portale di CloudSimple
 
-Per configurare la connessione, è necessario stabilire un collegamento tra la rete virtuale di Azure e l'ambiente CloudSimple.  Come parte della procedura, è necessario fornire l'URI del circuito peer e la chiave di autorizzazione. Ottenere l'URI e la chiave di autorizzazione dal [portale di CloudSimple](access-cloudsimple-portal.md).  Selezionare **rete** dal menu laterale, quindi selezionare connessione di **rete di Azure**. In alternativa, selezionare **account** nel menu laterale, quindi selezionare **connessione di rete di Azure**.
+Per configurare la connessione, è necessario stabilire una connessione tra la rete virtuale di Azure e l'ambiente CloudSimple.  Come parte della procedura, è necessario fornire l'URI del circuito peer e la chiave di autorizzazione. Ottenere l'URI e la chiave di autorizzazione dal [portale di CloudSimple](access-cloudsimple-portal.md).  Selezionare **rete** dal menu laterale, quindi selezionare connessione di **rete di Azure**. In alternativa, selezionare **account** nel menu laterale, quindi selezionare **connessione di rete di Azure**.
 
-Si notino le icone di copia per l'URI del circuito peer e la chiave di autorizzazione per ciascuna delle aree. Per ogni cloud privato che si vuole connettere:
+Copiare l'URI del circuito peer e la chiave di autorizzazione per ognuna delle aree usando l'icona di *copia* . Per ogni area di CloudSimple che si vuole connettere:
 
-* Fare clic su **copia** per copiare l'URI. Incollarlo in un file in cui può essere disponibile per l'aggiunta all'portale di Azure.  
-* Fare clic su **copia** per copiare la chiave di autorizzazione e incollarla nel file.
+1. Fare clic su **copia** per copiare l'URI. Incollarlo in un file in cui può essere disponibile per l'aggiunta all'portale di Azure.  
+2. Fare clic su **copia** per copiare la chiave di autorizzazione e incollarla nel file.
 
-![Pagina connessione rete virtuale](media/network-virt-conn-page.png)
+Copiare la chiave di autorizzazione e l'URI del circuito peer nello stato **disponibile** .  Stato **utilizzato** indica che la chiave è già stata utilizzata per creare una connessione di rete virtuale.
+
+![Pagina connessione rete virtuale](media/virtual-network-connection.png)
 
 Per informazioni dettagliate sulla configurazione della rete virtuale di Azure per il collegamento CloudSimple, vedere [connettere l'ambiente cloud privato CloudSimple alla rete virtuale di Azure usando ExpressRoute](azure-expressroute-connection.md).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Connessione di rete virtuale di Azure al cloud privato](azure-expressroute-connection.md)
+* [Connettersi alla rete locale usando Azure ExpressRoute](on-premises-connection.md)

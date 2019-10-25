@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 10/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d374f4ddac2e4d013bab1c5e88a87af1da2c1f
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 95ea7eb470a5880bc88b3df903d33854f363e974
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667128"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881317"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Identity Protection e utenti B2B
 
@@ -33,9 +33,9 @@ Il rischio utente per gli utenti di collaborazione B2B viene valutato nella prop
 
 Esistono limitazioni nell'implementazione di Identity Protection per gli utenti di collaborazione B2B in una directory di risorse a causa dell'identità esistente nella Home Directory. Di seguito sono riportate le limitazioni principali:
 
-- Se un utente Guest attiva i criteri di rischio utente Identity Protection per forzare la reimpostazione della password, verranno bloccati. Questo blocco è dovuto all'impossibilità di reimpostare le password nella directory delle risorse.
-- Gli utenti guest non vengono visualizzati nel report utenti rischiosi. Questa perdita di visibilità è causata dalla valutazione del rischio che si verifica nella home directory dell'utente B2B.
-- Gli amministratori non possono ignorare o correggere un utente di collaborazione B2B a rischio nella propria directory delle risorse. Questa perdita di funzionalità è dovuta agli amministratori nella directory delle risorse che non hanno accesso alla Home directory dell'utente B2B.
+- Se un utente Guest attiva i criteri di rischio utente Identity Protection per forzare la reimpostazione della password, verranno **bloccati**. Questo blocco è dovuto all'impossibilità di reimpostare le password nella directory delle risorse.
+- **Gli utenti guest non vengono visualizzati nel report utenti rischiosi**. Questa perdita di visibilità è causata dalla valutazione del rischio che si verifica nella home directory dell'utente B2B.
+- Gli amministratori **non possono ignorare o correggere un utente di collaborazione B2B a rischio** nella propria directory delle risorse. Questa perdita di funzionalità è dovuta agli amministratori nella directory delle risorse che non hanno accesso alla Home directory dell'utente B2B.
 
 ### <a name="why-cant-i-remediate-risky-b2b-collaboration-users-in-my-directory"></a>Perché non è possibile correggere gli utenti di collaborazione B2B rischiosi nella mia directory?
 
@@ -54,4 +54,3 @@ Escludendo gli utenti B2B dai criteri di accesso condizionale basati sul rischio
 Vedere gli articoli seguenti su Collaborazione B2B di Azure AD:
 
 - [Che cos'è Azure AD B2B Collaboration?](../b2b/what-is-b2b.md)
-- [Che cos'è l'accesso condizionale?](../conditional-access/overview.md)

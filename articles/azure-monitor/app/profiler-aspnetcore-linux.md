@@ -1,23 +1,19 @@
 ---
 title: Profilare app Web ASP.NET Core Linux di Azure con Application Insights Profiler | Microsoft Docs
 description: Panoramica concettuale ed esercitazione dettagliata su come usare Application Insights Profiler.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.reviewer: mbullwin
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 02/23/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 35789cc1e516fb24d5e985e12b44fe3cd01b795d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 02/23/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: a300aa066bdef40c4768ac5e278537aec1a8b3b7
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306539"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820546"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profilare app Web ASP.NET Core Linux di Azure con Application Insights Profiler
 
@@ -53,7 +49,7 @@ Le istruzioni seguenti si applicano a tutti gli ambienti di sviluppo Windows, Li
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-1. Abilitare Application Insights nel file Program.cs:
+1. Abilitare Application Insights in Program.cs:
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -176,11 +172,11 @@ L'output dovrebbe essere simile all'esempio seguente:
 
 ## <a name="known-issues"></a>Problemi noti
 
-### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Pulsante del profilo ora non funziona per il Profiler di Linux
-La versione Linux del profiler di Application Insights non supporta ancora su richiesta la profilatura mediante il profilo ora pulsante.
+### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Il pulsante profilo ora non funziona per il profiler Linux
+La versione Linux del profiler di Application Insights non supporta ancora la profilatura su richiesta tramite il pulsante profile Now.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si usano contenitori personalizzati ospitati da Servizio app di Azure, seguire le istruzioni in [Enable Service Profiler for containerized ASP.NET Core application](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) (Abilitare il profiler di servizi per l'applicazione ASP.NET Core in contenitore) per abilitare Application Insights Profiler.
 
-Segnalare eventuali problemi o suggerimenti nel repository GitHub di Application Insights: [ApplicationInsights-Profiler-AspNetCore: Problemi](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).
+Segnalare eventuali problemi o suggerimenti nel repository GitHub di Application Insights: [ApplicationInsights-Profiler-AspNetCore: Issues](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues) (ApplicationInsights-Profiler-AspNetCore: Problemi).

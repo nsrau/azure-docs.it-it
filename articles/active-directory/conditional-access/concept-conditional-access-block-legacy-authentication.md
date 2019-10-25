@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dc8381fe964ce924ed37d6b7e6d22dc730eae89
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 19b29181f023b49cca7159fbbcad4a4675744a96
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72453056"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819731"
 ---
 # <a name="blocking-legacy-authentication"></a>Blocco dell'autenticazione legacy
  
@@ -33,9 +33,11 @@ Prima di poter bloccare l'autenticazione legacy nella directory, è prima di tut
 
 1. Passare alla portale di Azure > Azure Active Directory accessi >.
 1. Aggiungere la colonna app client se non viene visualizzata facendo clic su colonne > app client.
-1. Filtrare in base all'app client > altri client e fare clic su Applica.
+1. Filtrare in base all'app client > controllare tutte le altre opzioni client presentate e fare clic su Applica.
+1. Filtrare in base allo stato > operazione riuscita e fare clic su Applica. 
+1. Espandere l'intervallo di date, se necessario, usando il filtro per la data.
 
-Con il filtro vengono visualizzati solo i tentativi di accesso eseguiti dai protocolli di autenticazione legacy. Se si fa clic su ogni singolo tentativo di accesso, vengono visualizzati altri dettagli. Il campo app client nella scheda informazioni di base indicherà quale protocollo di autenticazione legacy è stato usato. Questi log indicheranno quali utenti sono ancora a seconda dell'autenticazione legacy e quali applicazioni usano protocolli legacy per eseguire richieste di autenticazione. Per gli utenti che non sono presenti in questi registri e che non usano l'autenticazione legacy, implementare criteri di accesso condizionale o abilitare i criteri di base: bloccare l'autenticazione legacy solo per questi utenti.
+Il filtro mostrerà solo i tentativi di accesso riusciti eseguiti dai protocolli di autenticazione legacy selezionati. Se si fa clic su ogni singolo tentativo di accesso, vengono visualizzati altri dettagli. La colonna app client o il campo app client nella scheda informazioni di base dopo aver selezionato una singola riga di dati indicherà quale protocollo di autenticazione legacy è stato usato. Questi log indicheranno quali utenti sono ancora a seconda dell'autenticazione legacy e quali applicazioni usano protocolli legacy per eseguire richieste di autenticazione. Per gli utenti che non sono presenti in questi registri e che non usano l'autenticazione legacy, implementare criteri di accesso condizionale o abilitare i criteri di base: bloccare l'autenticazione legacy solo per questi utenti.
 
 ## <a name="moving-away-from-legacy-authentication"></a>Allontanarsi dall'autenticazione legacy 
 
@@ -47,8 +49,8 @@ Questa sezione fornisce una panoramica dettagliata su come aggiornare l'ambiente
 
 Il primo passaggio nell'abilitazione dell'autenticazione moderna è garantire che la directory supporti l'autenticazione moderna. Per impostazione predefinita, l'autenticazione moderna è abilitata per le directory create il 1 ° agosto 2017. Se la directory è stata creata prima di questa data, è necessario abilitare manualmente l'autenticazione moderna per la directory attenendosi alla procedura seguente:
 
-1. Verificare se la directory supporta già l'autenticazione moderna eseguendo @ no__t-0 @ no__t-1from il modulo di [PowerShell per Skype for business online](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
-1. Se il comando restituisce un valore @ no__t-0 @ no__t-1property vuoto, l'autenticazione moderna è disabilitata. Aggiornare l'impostazione per abilitare l'autenticazione moderna con @ no__t-0. Se il valore di @ no__t-0 @ no__t-1property contiene una voce, si è pronti per iniziare.
+1. Verificare se la directory supporta già l'autenticazione moderna eseguendo `Get-CsOAuthConfiguration` dal [modulo di PowerShell per Skype for business online](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
+1. Se il comando restituisce una proprietà `OAuthServers` vuota, l'autenticazione moderna è disabilitata. Aggiornare l'impostazione per abilitare l'autenticazione moderna usando `Set-CsOAuthConfiguration`. Se la proprietà `OAuthServers` contiene una voce, è possibile iniziare.
 
 Assicurarsi di completare questo passaggio prima di procedere. È fondamentale che le configurazioni di directory vengano modificate per prime perché stabiliscono quale protocollo verrà usato da tutti i client di Office. Anche se si usano i client di Office che supportano l'autenticazione moderna, per impostazione predefinita verranno usati i protocolli legacy se l'autenticazione moderna è disabilitata nella directory.
 

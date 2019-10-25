@@ -1,23 +1,18 @@
 ---
 title: Esportazione continua dei dati di telemetria da Application Insights | Microsoft Docs
 description: Esportare i dati di diagnostica e di uso nella risorsa di archiviazione in Microsoft Azure e scaricarli da lì.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/25/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 3238abcbcbc4d776e3736b13d5b32149c642649c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.date: 07/25/2019
+ms.openlocfilehash: 6504661c2df66bda81af03a6364703b4b10f7485
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516954"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819544"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Esportare i dati di telemetria da Application Insights
 Si vogliono mantenere i dati di telemetria per un periodo più lungo del periodo di mantenimento standard o elaborarli in un modo particolare? A tale scopo, l'esportazione continua è ideale. Gli eventi visualizzati nel portale di Application Insights possono essere esportati nella risorsa di archiviazione di Microsoft Azure in formato JSON. Da qui è possibile scaricare i dati e scrivere il codice necessario per elaborarlo.  
@@ -39,7 +34,7 @@ L'esportazione continua non **supporta** le seguenti funzionalità/configurazion
 
 * Uso di [VNET/firewall di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security) in combinazione con l'archiviazione BLOB di Azure.
 
-* [Archiviazione](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) non modificabile per archiviazione BLOB di Azure.
+* [Archiviazione non modificabile](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) per archiviazione BLOB di Azure.
 
 * [Azure Data Lake storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
@@ -92,7 +87,7 @@ I dati includono anche i risultati di ogni [test Web di disponibilità](../../az
 ## <a name="get"></a> Esaminare i dati
 È possibile esaminare lo spazio di archiviazione direttamente nel portale. Fare clic su Home nel menu a sinistra, in alto dove "servizi di Azure" selezionare **account di archiviazione**, selezionare il nome dell'account di archiviazione, nella pagina Panoramica selezionare **BLOB** in servizi e infine selezionare il nome del contenitore.
 
-Per esaminare l'archiviazione di Azure in Visual Studio, aprire **Visualizza**, **Cloud Explorer**. Se tale comando di menu non è disponibile, è necessario installare Azure SDK: aprire la finestra di dialogo **Nuovo progetto**, espandere Visual C#/Cloud e scegliere **Get Microsoft Azure SDK for .NET** (Ottieni Microsoft Azure SDK per .NET).
+Per esaminare l'archiviazione di Azure in Visual Studio, aprire **Visualizza**, **Cloud Explorer**. (Se non si dispone di tale comando del menu, è necessario installare l’SDK di Azure: aprire la finestra di dialogo **Nuovo progetto**, espandere Visual C#/Cloud e scegliere **Ottieni Microsoft Azure SDK per .NET**).
 
 Quando si apre l'archivio BLOB, si noterà un contenitore con un set di file BLOB. L'URI di ogni file è derivato dal nome della risorsa di Application Insights, la relativa chiave di strumentazione e tipo/data/ora della telemetria. (Il nome della risorsa viene scritto in minuscolo e la chiave di strumentazione omette i trattini).
 
@@ -125,7 +120,7 @@ Gli intervalli di tempo sono espressi in tick, dove 10.000 tick = 1 ms. Questi v
 [Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>Elaborazione dei dati
-Su scala ridotta è possibile scrivere codice per separare i dati, leggerli in un foglio di calcolo e così via. Ad esempio:
+Su scala ridotta è possibile scrivere codice per separare i dati, leggerli in un foglio di calcolo e così via. ad esempio:
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -163,7 +158,7 @@ L'esportazione continua verrà riavviata.
 
 Su scala più estesa considerare la possibilità di usare cluster [HDInsight](https://azure.microsoft.com/services/hdinsight/) - Hadoop nel cloud. HDInsight offre un'ampia gamma di tecnologie per la gestione e analisi dei Big Data e può essere usato per elaborare i dati esportati da Application Insights.
 
-## <a name="q--a"></a>Domande e risposte
+## <a name="q--a"></a>Domande frequenti
 * *Si intende scaricare semplicemente un grafico.*  
 
     Questa operazione è consentita. Nella parte superiore della scheda fare clic su **Esporta dati**.
@@ -185,7 +180,7 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
   * Per le applicazioni con traffico elevato, inoltre, vengono allocate unità di partizione aggiuntive. In questo caso ogni unità crea un BLOB ogni minuto.
 * *La chiave per la risorsa di archiviazione è stata rigenerata o il nome del contenitore è stato modificato, ma l'esportazione non funziona.*
 
-    Modificare l'esportazione e aprire la scheda Esporta destinazione. Lasciare la stessa risorsa di archiviazione selezionata come in precedenza e fare clic su OK per confermare. L'esportazione verrà riavviata. Se la modifica è stata eseguita negli ultimi giorni, non si perderanno i dati.
+    Modificare l'esportazione e aprire la scheda Esporta destinazione. lasciare selezionata la stessa risorsa di archiviazione, quindi fare clic su OK per confermare. L'esportazione verrà riavviata. Se la modifica è stata eseguita negli ultimi giorni, non si perderanno i dati.
 * *È possibile sospendere l'esportazione?*
 
     Sì. Fare clic su Disabilita.

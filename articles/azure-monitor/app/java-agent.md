@@ -1,23 +1,18 @@
 ---
 title: Monitoraggio delle prestazioni per le app Web Java in Azure Application Insights | Documentazione Microsoft
 description: Estendere il monitoraggio di prestazioni e utilizzo del sito Web Java con Application Insights.
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/10/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: ff9d4bb98a79c379fda2c1a0a0ab9d5e0ec212ce
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 01/10/2019
+ms.openlocfilehash: 181a1f253157fe112d42753d6f824a327457a2fa
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338098"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819408"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorare le dipendenze, le eccezioni intercettate e i tempi di esecuzione del metodo nelle app Web Java
 
@@ -25,7 +20,7 @@ ms.locfileid: "71338098"
 Se l' [app Web Java è stata instrumentata con Application Insights][java], è possibile usare l'agente Java per ottenere informazioni più dettagliate, senza apportare modifiche al codice:
 
 * **Dipendenze:** dati sulle chiamate effettuate dall'applicazione ad altri componenti, tra cui:
-  * Le **chiamate http in uscita** effettuate tramite Apache HttpClient, OkHttp e `java.net.HttpURLConnection` vengono acquisite.
+  * Vengono acquisite le **chiamate http in uscita** effettuate tramite Apache HttpClient, OkHttp e `java.net.HttpURLConnection`.
   * Vengono acquisite le **chiamate Redis** effettuate tramite il client JEDIS.
   * **Query JDBC** : per MySQL e PostgreSQL, se la chiamata richiede più di 10 secondi, l'agente segnala il piano di query.
 
@@ -34,14 +29,14 @@ Se l' [app Web Java è stata instrumentata con Application Insights][java], è p
   * **Log4j2**
   * **Logback**
 
-* **Denominazione delle operazioni migliore:** (usato per l'aggregazione di richieste nel portale)
+* **Denominazione delle operazioni migliore:** (usata per l'aggregazione di richieste nel portale)
   * **Spring** in base a `@RequestMapping`.
-  * **JAX-RS** in base a `@Path`. 
+  * **JAX-RS** -basato su `@Path`. 
 
 Per usare l'agente Java, installarlo nel server. Le app Web devono essere instrumentate con [Application Insights Java SDK][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Installare l'agente di Application Insights per Java
-1. [Scaricare l'agente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)sul computer che esegue il server Java. Assicurarsi di scaricare la stessa versione dell'agente Java e dei pacchetti core e Web dell'SDK per Java di Application Insights.
+1. [Scaricare l'agente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) sul computer che esegue il server Java. Assicurarsi di scaricare la stessa versione dell'agente Java e dei pacchetti core e Web dell'SDK per Java di Application Insights.
 2. Modificare lo script di avvio del server applicazioni e aggiungere l'argomento JVM seguente:
    
     `-javaagent:<full path to the agent JAR file>`
@@ -93,12 +88,12 @@ Per app Azure Services, eseguire le operazioni seguenti:
 * Selezionare Impostazioni > Impostazioni applicazione
 * In Impostazioni app aggiungere una nuova coppia chiave-valore:
 
-Chiave: `JAVA_OPTS`Valore`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
+Chiave: valore `JAVA_OPTS`: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
 
 Per la versione più recente dell'agente Java, vedere [qui](https://github.com/Microsoft/ApplicationInsights-Java/releases
-) le versioni. 
+)le versioni. 
 
-L'agente deve essere incluso nel pacchetto come risorsa nel progetto, in modo che finisca nella directory D:/Home/site/wwwroot/. È possibile verificare che l'agente si trovi nella directory del servizio app corretta passando a **strumenti** > di sviluppo**avanzati strumenti** > **console di debug** ed esaminando il contenuto della directory del sito.    
+L'agente deve essere incluso nel pacchetto come risorsa nel progetto, in modo che finisca nella directory D:/Home/site/wwwroot/. È possibile verificare che l'agente si trovi nella directory del servizio app corretta passando a **strumenti di sviluppo** > **strumenti avanzati** > **console di debug** ed esaminando il contenuto della directory del sito.    
 
 * Salvare le impostazioni e riavviare l'app. Questi passaggi si applicano solo ai servizi app in esecuzione in Windows.
 
@@ -132,7 +127,7 @@ Per cercare singole istanze di dipendenze, eccezioni e report sui metodi, aprire
 [Diagnosi dei problemi di dipendenza - ulteriori informazioni](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
 
 ## <a name="questions-problems"></a>Domande? Problemi?
-* Dati non visualizzati [Impostare le eccezioni del firewall](../../azure-monitor/app/ip-addresses.md)
+* Dati non disponibili? [Impostare le eccezioni del firewall](../../azure-monitor/app/ip-addresses.md)
 * [Risoluzione dei problemi Java](java-troubleshoot.md)
 
 <!--Link references-->

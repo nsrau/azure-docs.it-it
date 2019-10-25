@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 08/20/2019
+ms.date: 10/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 85ebcc36d32b86ec2640ce7ce02190deaab19d6b
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 597cc4e03257b544187fc2bc131974954b64c84b
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997089"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819877"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Usare l'estensione CLI per Azure Machine Learning
 
@@ -32,7 +32,7 @@ L'interfaccia della riga di comando non sostituisce Azure Machine Learning SDK. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Per usare l'interfaccia della riga di comando, è necessario avere una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova subito la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree) .
+* Per usare l'interfaccia della riga di comando, è necessario avere una sottoscrizione di Azure. Se non si dispone di una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -40,7 +40,7 @@ L'interfaccia della riga di comando non sostituisce Azure Machine Learning SDK. 
 
 Trovare la [documentazione completa di riferimento per l'estensione Azure-CLI-ml dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/?view=azure-cli-latest).
 
-## <a name="install-the-extension"></a>Installa l'estensione
+## <a name="install-the-extension"></a>Installare l'estensione
 
 Per installare l'estensione dell'interfaccia della riga di comando di Azure Machine Learning, usare il comando seguente:
 
@@ -100,7 +100,7 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
 
-    Questo comando crea una `.azureml` sottodirectory che contiene i file dell'ambiente runconfig e conda di esempio. Contiene anche un `config.json` file usato per comunicare con l'area di lavoro Azure Machine Learning.
+    Questo comando crea un `.azureml` sottodirectory che contiene i file di ambiente runconfig e conda di esempio. Contiene anche un file di `config.json` usato per comunicare con l'area di lavoro di Azure Machine Learning.
 
     Per ulteriori informazioni, vedere [AZ ml Folder Connetti](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
 
@@ -138,18 +138,18 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
 
 ## <a id="experiments"></a>Eseguire esperimenti
 
-* Avviare un'esecuzione dell'esperimento. Quando si usa questo comando, specificare il nome del file runconfig (il testo precedente \*a. runconfig se si sta osservando la file System) rispetto al parametro-c.
+* Avviare un'esecuzione dell'esperimento. Quando si usa questo comando, specificare il nome del file runconfig (il testo prima di \*. runconfig se si sta esaminando il file system) rispetto al parametro-c.
 
     ```azurecli-interactive
     az ml run submit-script -c sklearn -e testexperiment train.py
     ```
 
     > [!TIP]
-    > Il `az ml folder attach` comando crea una `.azureml` sottodirectory che contiene due file runconfig di esempio. 
+    > Il comando `az ml folder attach` crea una sottodirectory `.azureml`, che contiene due file runconfig di esempio. 
     >
     > Se si dispone di uno script Python che crea un oggetto di configurazione di esecuzione a livello di codice, è possibile usare [runconfig. Save ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) per salvarlo come file runconfig.
     >
-    > Per ulteriori esempi di file runconfig, [https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml](https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml)vedere.
+    > Per altri file runconfig di esempio, vedere [https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml](https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml).
 
     Per ulteriori informazioni, vedere [AZ ml Run Submit-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
@@ -196,6 +196,40 @@ I comandi seguenti illustrano come creare, registrare ed elencare Azure Machine 
     ```
 
     Per altre informazioni, vedere [AZ ml Environment download](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-download).
+
+## <a name="ml-pipeline-management"></a>Gestione pipeline ML
+
+I comandi seguenti illustrano come usare le pipeline di Machine Learning:
+
++ Creare una pipeline di Machine Learning:
+
+    ```azurecli-interactive
+    az ml pipeline create -n mypipeline -y mypipeline.yml
+    ```
+
+    Per ulteriori informazioni, vedere [AZ ml pipeline create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/pipeline?view=azure-cli-latest#ext-azure-cli-ml-az-ml-pipeline-create).
+
+    Per altre informazioni sul file YAML della pipeline, vedere [definire pipeline di Machine Learning in YAML](reference-pipeline-yaml.md).
+
++ Eseguire una pipeline:
+
+    ```azurecli-interactive
+    az ml run submit-pipeline -n myexperiment -y mypipeline.yml
+    ```
+
+    Per ulteriori informazioni, vedere [AZ ml Run Submit-pipeline](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-pipeline).
+
+    Per altre informazioni sul file YAML della pipeline, vedere [definire pipeline di Machine Learning in YAML](reference-pipeline-yaml.md).
+
++ Pianificare una pipeline:
+
+    ```azurecli-interactive
+    az ml pipeline create-schedule -n myschedule -e myexpereiment -i mypipelineid -y myschedule.yml
+    ```
+
+    Per ulteriori informazioni, vedere [AZ ml pipeline create-Schedule](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/pipeline?view=azure-cli-latest#ext-azure-cli-ml-az-ml-pipeline-create-schedule).
+
+    Per altre informazioni sul file YAML della pianificazione della pipeline, vedere [definire pipeline di Machine Learning in YAML](reference-pipeline-yaml.md#schedules).
 
 ## <a name="model-registration-profiling-deployment"></a>Registrazione del modello, profilatura, distribuzione
 

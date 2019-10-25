@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 578904d40b1354dde99644cb2fc73e0a56223b34
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: a757ee03b8d8c7c93b191054182d077408c162db
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376278"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819815"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
@@ -178,7 +178,8 @@ Selezionare **Salva** dopo aver completato questi campi.
 Selezionare almeno uno (1) e un massimo di tre (3) categorie utilizzate per raggruppare l'offerta nelle aree di ricerca del Marketplace appropriate. Per scoprire come l'offerta supporta queste categorie nella descrizione dell'offerta. 
 
 ### <a name="industry"></a>Settore
-Selezionare un massimo di due (2) settori usati per raggruppare l'offerta nelle aree di ricerca del Marketplace appropriate. Se l'offerta non è specifica di un settore, non selezionarne una. Per scoprire come l'offerta supporta le industrie selezionate nella descrizione dell'offerta, 
+
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>Versione dell'app
 Si tratta di un campo facoltativo usato in AppSource Marketplace per identificare il numero di versione dell'offerta. 
@@ -289,12 +290,12 @@ Per rendere più accattivante la descrizione dell'offerta, è possibile usare i 
 
     **Esempio**:
 
-    `<h1>`Stanziamento è l'intestazione 1 @ no__t-1 <br>
-    `<h2>`Stanziamento è l'intestazione 2 @ no__t-1 <br>
-    `<h3>`Stanziamento è l'intestazione 3 @ no__t-1 <br>
-    `<h4>`Stanziamento è l'intestazione 4 @ no__t-1 <br>
-    `<h5>`Stanziamento è l'intestazione 5 @ no__t-1 <br>
-    `<h6>`Stanziamento è l'intestazione 6 @ no__t-1 
+    `<h1>`è l'intestazione 1`</h1>` <br>
+    `<h2>`questo è l'intestazione 2`</h2>` <br>
+    `<h3>`questo è l'intestazione 3`</h3>` <br>
+    `<h4>`questo è l'intestazione 4`</h4>` <br>
+    `<h5>`si tratta del titolo 5`</h5>` <br>
+    `<h6>`questo è l'intestazione 6`</h6>` 
 
     Il precedente avrà un aspetto simile al seguente:
 

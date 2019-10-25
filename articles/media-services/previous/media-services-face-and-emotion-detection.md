@@ -15,14 +15,18 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: 3ae2e49b812e7a9515cef81b328ceb87e1a7f017
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6fa2495ee580bb8e74a0d026533fa90f20743510
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69015470"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881775"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Rilevare volti ed emozioni con Analisi servizi multimediali di Azure
+
+> [!IMPORTANT]
+> Esaminare i [piani di pensionamento](media-services-analytics-overview.md#retirement-plans) di alcuni processori di contenuti multimediali.
+
 ## <a name="overview"></a>Panoramica
 Il processore di contenuti multimediali **Rilevamento multimediale volti di Azure** consente di contare, monitorare i movimenti e persino di valutare la partecipazione e le reazioni del pubblico in base alle espressioni del volto. Questo servizio contiene due funzionalità: 
 
@@ -43,7 +47,7 @@ Attualmente il processore multimediale **Rilevamento multimediale volti di Azure
 Questo articolo contiene informazioni dettagliate su **Azure Media Face Detector** e illustra come usare questa funzionalità con Media Services .NET SDK.
 
 ## <a name="face-detector-input-files"></a>File di input di Rilevamento volti
-File video. Attualmente sono supportati i seguenti formati: MP4, MOV e WMV.
+File video. Attualmente sono supportati i formati seguenti: MP4, MOV e WMV.
 
 ## <a name="face-detector-output-files"></a>File di output di Rilevamento volti
 L'API per il rilevamento e monitoraggio volti offre il rilevamento e il monitoraggio volti ad alta precisione ed è in grado di rilevare fino a 64 volti umani in un video. Le riprese anteriori producono i risultati migliori, mentre i profili e i volti piccoli (inferiori o uguali a 24x24 pixel) non garantiscono altrettanta precisione.
@@ -76,9 +80,9 @@ Quando si crea un'attività con **Rilevamento multimediale volti di Azure**, è 
 ```
 
 #### <a name="attribute-descriptions"></a>Descrizioni degli attributi
-| Nome attributo | Descrizione |
+| Nome attributo | Description |
 | --- | --- |
-| Modalità |Fast: velocità di elaborazione elevata, ma meno accurata (impostazione predefinita).|
+| Mode |Fast: velocità di elaborazione elevata, ma meno accurata (impostazione predefinita).|
 
 ### <a name="json-output"></a>Output JSON
 L'esempio seguente di output JSON è stato troncato.
@@ -151,9 +155,9 @@ Quando si crea un'attività con **Rilevamento multimediale volti di Azure**, è 
 
 
 #### <a name="attribute-descriptions"></a>Descrizioni degli attributi
-| Nome attributo | DESCRIZIONE |
+| Nome attributo | Description |
 | --- | --- |
-| Modalità |Faces: solo rilevamento viso.<br/>PerFaceEmotion: restituisce un'emozione in modo indipendente per ogni rilevamento viso.<br/>AggregateEmotion: restituisce dei valori medi delle emozioni per tutti i visi nel fotogramma. |
+| Mode |Faces: solo rilevamento viso.<br/>PerFaceEmotion: restituisce un'emozione in modo indipendente per ogni rilevamento viso.<br/>AggregateEmotion: restituzione dei valori medi delle emozioni per tutti i volti nel fotogramma. |
 | AggregateEmotionWindowMs |Va usato se è selezionata la modalità AggregateEmotion. Specifica la lunghezza del video usato per produrre ogni risultato aggregato, in millisecondi. |
 | AggregateEmotionIntervalMs |Va usato se è selezionata la modalità AggregateEmotion. Specifica con quale frequenza produrre risultati aggregati. |
 
@@ -517,7 +521,7 @@ namespace FaceDetection
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Collegamenti correlati

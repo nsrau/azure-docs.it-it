@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: 71f2b111c0291bc9563b12a1cdbd88ea7e9f5b5b
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e361ba4c7275a783b9211def5047a5a755f5a8b8
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376128"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882007"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -185,6 +185,9 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |EnableRestartManagement |Bool, valore predefinito: false |Dinamica|Parametro per abilitare il riavvio del server. |
 |EnableServiceFabricAutomaticUpdates |Bool, valore predefinito: false |Dinamica|Parametro per abilitare l'aggiornamento automatico di Service Fabric tramite Windows Update. |
 |EnableServiceFabricBaseUpgrade |Bool, valore predefinito: false |Dinamica|Parametro per abilitare l'aggiornamento base del server. |
+|FailureReportingExpeditedReportingIntervalEnabled | Bool, valore predefinito: true | Statica | Consente un maggiore velocità di caricamento in DCA quando FabricHost è in modalità di segnalazione errori. |
+|FailureReportingTimeout | TimeSpan, valore predefinito: Common::TimeSpan::FromSeconds(60) | Statica |Specificare l'intervallo di tempo in secondi. Timeout per la segnalazione di errori DCA nel caso in cui FabricHost riscontri un errore di avvio in fase iniziale. | 
+|RunDCAOnStartupFailure | Bool, valore predefinito: true | Statica |Determina se avviare DCA per caricare i log quando si verificano problemi di avvio in FabricHost. | 
 |StartTimeout |Tempo in secondi, il valore predefinito è 300 |Dinamica|Specificare l'intervallo di tempo in secondi. Timeout per l'avvio di fabricactivationmanager. |
 |StopTimeout |Tempo in secondi, il valore predefinito è 300 |Dinamica|Specificare l'intervallo di tempo in secondi. Il timeout per l'attivazione, la disattivazione e l'aggiornamento del servizio ospitato. |
 
@@ -279,7 +282,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |DiskSpaceHealthReportingIntervalWhenCloseToOutOfDiskSpace |TimeSpan, valore predefinito: common:: TimeSpan:: FromMinutes (5)|Dinamica|Specificare l'intervallo di tempo in secondi. Intervallo di tempo tra il controllo dello spazio su disco per l'evento di integrità del report quando lo spazio del disco è quasi esaurito. |
 |DiskSpaceHealthReportingIntervalWhenEnoughDiskSpace |TimeSpan, valore predefinito: Common::TimeSpan::FromMinutes(15)|Dinamica|Specificare l'intervallo di tempo in secondi. Intervallo di tempo tra il controllo dello spazio su disco per l'evento di integrità del report quando lo spazio su disco è sufficiente. |
 |EnableImageStoreHealthReporting |bool, valore predefinito: TRUE |Statica|Config per determinare se il servizio Archivio file deve segnalare l'integrità. |
-|FreeDiskSpaceNotificationSizeInKB|Int64, valore predefinito: 25 @ no__t-01024 |Dinamica|Dimensioni dello spazio libero su disco al di sotto del quale potrebbe verificarsi un avviso di integrità. Il valore minimo di questa configurazione e della configurazione FreeDiskSpaceNotificationThresholdPercentage vengono usati per determinare l'invio dell'avviso di integrità. |
+|FreeDiskSpaceNotificationSizeInKB|Int64, valore predefinito: 25\*1024 |Dinamica|Dimensioni dello spazio libero su disco al di sotto del quale potrebbe verificarsi un avviso di integrità. Il valore minimo di questa configurazione e della configurazione FreeDiskSpaceNotificationThresholdPercentage vengono usati per determinare l'invio dell'avviso di integrità. |
 |FreeDiskSpaceNotificationThresholdPercentage|Double, valore predefinito: 0,02 |Dinamica|Percentuale di spazio disponibile su disco al di sotto del quale potrebbe verificarsi un avviso di integrità. Il valore minimo di questa configurazione e della configurazione FreeDiskSpaceNotificationInMB vengono usati per determinare l'invio di avvisi di integrità. |
 |GenerateV1CommonNameAccount| bool, valore predefinito: TRUE|Statica|Specifica se generare un account con l'algoritmo di generazione V1 del nome utente. A partire dalla versione 6.1 di Service Fabric viene sempre creato un account con generazione V2. L'account V1 è necessario per gli aggiornamenti da/a versioni che non supportano la generazione V2 (prima della versione 6.1).|
 |MaxCopyOperationThreads | Uint, valore predefinito: 0 |Dinamica| Il numero massimo di file paralleli che il Replicator secondario può copiare da quello primario. '0' == numero di memorie centrali. |
@@ -353,6 +356,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |DeploymentRetryBackoffInterval| TimeSpan, valore predefinito: Common::TimeSpan::FromSeconds(10)|Dinamica|Specificare l'intervallo di tempo in secondi. Intervallo di backoff per l'errore di distribuzione. Per ogni errore di distribuzione continuo, il sistema ritenterà la distribuzione per il massimo di volte specificato in MaxDeploymentFailureCount. L'intervallo tra tentativi è un prodotto degli errori di distribuzione continui e dell'intervallo di backoff della distribuzione. |
 |DisableContainers|bool, valore predefinito: FALSE|Statica|Configurazione per la disabilitazione di contenitori - usata al posto di DisableContainerServiceStartOnContainerActivatorOpen, che è una configurazione deprecata |
 |DisableDockerRequestRetry|bool, valore predefinito: FALSE |Dinamica| Per impostazione predefinita, Service Fabric comunica con DD (Docker Daemon) con un timeout pari a DockerRequestTimeout per ogni richiesta HTTP inviata al daemon. Se DD non risponde entro questo periodo di tempo e l'operazione di più alto livello ha ancora tempo rimanente, Service Fabric invia nuovamente la richiesta.  Con un contenitore Hyper-V, DD richiede talvolta molto più tempo per attivare il contenitore o per disattivarlo. In casi come questo si verifica il timeout della richiesta DD dalla prospettiva di Service Fabric e Service Fabric ritenta l'operazione. Talvolta si ha l'impressione che venga esercitata una maggiore pressione su DD. Questa configurazione consente di disabilitare la ripetizione del tentativo e attendere la risposta di DD. |
+|DnsServerListTwoIps | Bool, valore predefinito: false | Statica | Questi flag aggiungono il server DNS locale due volte per attenuare i problemi di risoluzione intermittenti. |
 |EnableActivateNoWindow| bool, valore predefinito: FALSE|Dinamica| Il processo attivato viene creato in background senza alcuna console. |
 |EnableContainerServiceDebugMode|bool, valore predefinito: TRUE|Statica|Abilita/disabilita la registrazione per i contenitori Docker.  Solo Windows.|
 |EnableDockerHealthCheckIntegration|bool, valore predefinito: TRUE|Statica|Abilita l'integrazione di eventi di docker HEALTHCHECK nel report relativo all'integrità del sistema di Service Fabric. |

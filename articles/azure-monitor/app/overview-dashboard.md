@@ -1,23 +1,18 @@
 ---
 title: Dashboard panoramica di Azure Application Insights| Microsoft Docs
 description: Monitorare le applicazioni con la funzionalità Dashboard panoramica di Azure Application Insights.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 06/03/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/03/2019
+ms.openlocfilehash: 218ae158512326bcad8efd6c598f68d296fe9370
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497160"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819164"
 ---
 # <a name="application-insights-overview-dashboard"></a>Dashboard panoramica di Application Insights
 
@@ -62,7 +57,7 @@ Per tornare all'esperienza panoramica, selezionare:
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
-Se si seleziona **configurare le impostazioni di riquadro** e impostare un intervallo di tempo personalizzato che superano di 31 giorni al dashboard non verrà visualizzati oltre i 31 giorni di dati, anche con la conservazione dei dati predefinita di 90 giorni. Non è attualmente alcuna soluzione alternativa per questo comportamento.
+Se si seleziona **Configura le impostazioni del riquadro** e si imposta un intervallo di tempo personalizzato superiore a 31 giorni, il dashboard non visualizzerà oltre 31 giorni di dati, anche con la conservazione dei dati predefinita di 90 giorni. Attualmente non esiste alcuna soluzione alternativa per questo comportamento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

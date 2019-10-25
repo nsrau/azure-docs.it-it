@@ -11,12 +11,12 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 1b4ccd7742f8a84eec2d63a86e1387733d4c1864
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: e347287a6d77cdc947a79ca497fdb2ffe83ad1bc
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479687"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882478"
 ---
 # <a name="create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>CREATE TABLE come SELECT (CTAS) in Azure SQL Data Warehouse
 
@@ -26,7 +26,7 @@ Questo articolo illustra l'istruzione T-SQL CREATE TABLE AS SELECT (CTAS) in Azu
 
 L'istruzione [create table As Select](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) (CTAs) è una delle funzionalità più importanti disponibili in T-SQL. CTAS è un'operazione parallela che consente di creare una nuova tabella basata sull'output di un'istruzione SELECT. CTAS è il modo più semplice e rapido per creare e inserire dati in una tabella con un unico comando.
 
-## <a name="selectinto-vs-ctas"></a>Seleziona... IN Visual Studio CTAS
+## <a name="selectinto-vs-ctas"></a>Seleziona... IN vs. CTAS
 
 CTAS è una versione più personalizzabile di [Select... INTO](/sql/t-sql/queries/select-into-clause-transact-sql) (istruzione).
 
@@ -38,7 +38,7 @@ INTO    [dbo].[FactInternetSales_new]
 FROM    [dbo].[FactInternetSales]
 ```
 
-Seleziona... IN non consente di modificare il metodo di distribuzione o il tipo di indice come parte dell'operazione. Si crea `[dbo].[FactInternetSales_new]` usando il tipo di distribuzione predefinito di ROUND_ROBIN e la struttura di tabella predefinita dell'indice columnstore cluster.
+Seleziona... IN non consente di modificare il metodo di distribuzione o il tipo di indice come parte dell'operazione. È possibile creare `[dbo].[FactInternetSales_new]` usando il tipo di distribuzione predefinito di ROUND_ROBIN e la struttura di tabella predefinita dell'indice COLUMNStore CLUSTER.
 
 Con CTAS, d'altra parte, è possibile specificare sia la distribuzione dei dati della tabella sia il tipo di struttura della tabella. Per convertire l'esempio precedente in CTAS:
 
@@ -46,13 +46,12 @@ Con CTAS, d'altra parte, è possibile specificare sia la distribuzione dei dati 
 CREATE TABLE [dbo].[FactInternetSales_new]
 WITH
 (
-    DISTRIBUTION = ROUND_ROBIN
-   ,CLUSTERED COLUMNSTORE INDEX
+ DISTRIBUTION = ROUND_ROBIN
+ ,CLUSTERED COLUMNSTORE INDEX
 )
 AS
 SELECT  *
-FROM    [dbo].[FactInternetSales]
-;
+FROM    [dbo].[FactInternetSales];
 ```
 
 > [!NOTE]
@@ -60,9 +59,9 @@ FROM    [dbo].[FactInternetSales]
 
 ## <a name="use-ctas-to-copy-a-table"></a>Usare CTAS per copiare una tabella
 
-Probabilmente uno degli usi più comuni di CTAS è la creazione di una copia di una tabella per modificare il DDL. Supponiamo che la tabella sia stata originariamente creata `ROUND_ROBIN`come e che ora si voglia modificarla in una tabella distribuita in una colonna. CTAS è la modalità di modifica della colonna di distribuzione. È anche possibile usare CTAS per modificare il partizionamento, l'indicizzazione o i tipi di colonna.
+Probabilmente uno degli usi più comuni di CTAS è la creazione di una copia di una tabella per modificare il DDL. Supponiamo che la tabella sia stata creata in origine come `ROUND_ROBIN`e che ora si voglia modificarla in una tabella distribuita in una colonna. CTAS è la modalità di modifica della colonna di distribuzione. È anche possibile usare CTAS per modificare il partizionamento, l'indicizzazione o i tipi di colonna.
 
-Supponiamo che la tabella sia stata creata usando il tipo di `ROUND_ROBIN`distribuzione predefinito, senza specificare una colonna di distribuzione `CREATE TABLE`in.
+Si direbbe che la tabella sia stata creata usando il tipo di distribuzione predefinito di `ROUND_ROBIN`, senza specificare una colonna di distribuzione nel `CREATE TABLE`.
 
 ```sql
 CREATE TABLE FactInternetSales
@@ -89,11 +88,10 @@ CREATE TABLE FactInternetSales
     TaxAmt money NOT NULL,
     Freight money NOT NULL,
     CarrierTrackingNumber nvarchar(25),
-    CustomerPONumber nvarchar(25)
-);
+    CustomerPONumber nvarchar(25));
 ```
 
-A questo punto si vuole creare una nuova copia di questa tabella con un `Clustered Columnstore Index`, in modo da poter sfruttare le prestazioni delle tabelle columnstore cluster. Si vuole anche distribuire la tabella in `ProductKey`, perché si prevede di partecipare a questo articolo e si vuole evitare lo spostamento dei dati durante i join. `ProductKey` Infine, si vuole anche aggiungere il partizionamento in, `OrderDateKey`in modo da poter eliminare rapidamente i dati obsoleti rilasciando le partizioni obsolete. Di seguito è riportata l'istruzione CTAS, che consente di copiare la tabella precedente in una nuova tabella.
+A questo punto si vuole creare una nuova copia di questa tabella con una `Clustered Columnstore Index`, in modo da poter sfruttare le prestazioni delle tabelle columnstore cluster. Si vuole anche distribuire questa tabella in `ProductKey`, perché si prevede di partecipare a questo articolo e si vuole evitare lo spostamento dei dati durante i join `ProductKey`. Infine, si vuole anche aggiungere il partizionamento in `OrderDateKey`, in modo da poter eliminare rapidamente i dati obsoleti rilasciando le partizioni obsolete. Di seguito è riportata l'istruzione CTAS, che consente di copiare la tabella precedente in una nuova tabella.
 
 ```sql
 CREATE TABLE FactInternetSales_new
@@ -142,15 +140,14 @@ Si immagini di dover aggiornare questa tabella:
 
 ```sql
 CREATE TABLE [dbo].[AnnualCategorySales]
-(    [EnglishProductCategoryName]    NVARCHAR(50)    NOT NULL
-,    [CalendarYear]                    SMALLINT        NOT NULL
-,    [TotalSalesAmount]                MONEY            NOT NULL
+( [EnglishProductCategoryName]    NVARCHAR(50)    NOT NULL
+, [CalendarYear]                    SMALLINT        NOT NULL
+, [TotalSalesAmount]                MONEY            NOT NULL
 )
 WITH
 (
     DISTRIBUTION = ROUND_ROBIN
-)
-;
+);
 ```
 
 La query originale potrebbe avere un aspetto simile all'esempio seguente:
@@ -160,9 +157,9 @@ UPDATE    acs
 SET        [TotalSalesAmount] = [fis].[TotalSalesAmount]
 FROM    [dbo].[AnnualCategorySales]     AS acs
 JOIN    (
-        SELECT    [EnglishProductCategoryName]
-        ,        [CalendarYear]
-        ,        SUM([SalesAmount])                AS [TotalSalesAmount]
+        SELECT [EnglishProductCategoryName]
+        , [CalendarYear]
+        , SUM([SalesAmount])                AS [TotalSalesAmount]
         FROM    [dbo].[FactInternetSales]        AS s
         JOIN    [dbo].[DimDate]                    AS d    ON s.[OrderDateKey]                = d.[DateKey]
         JOIN    [dbo].[DimProduct]                AS p    ON s.[ProductKey]                = p.[ProductKey]
@@ -174,11 +171,10 @@ JOIN    (
         ,        [CalendarYear]
         ) AS fis
 ON    [acs].[EnglishProductCategoryName]    = [fis].[EnglishProductCategoryName]
-AND    [acs].[CalendarYear]                = [fis].[CalendarYear]
-;
+AND    [acs].[CalendarYear]                = [fis].[CalendarYear];
 ```
 
-SQL data warehouse non supporta i join ANSI nella `FROM` clausola di un' `UPDATE` istruzione, pertanto non è possibile usare l'esempio precedente senza modificarlo.
+SQL Data Warehouse non supporta i join ANSI nella clausola `FROM` di un'istruzione `UPDATE`, pertanto non è possibile usare l'esempio precedente senza modificarlo.
 
 È possibile usare una combinazione di CTAS e un join implicito per sostituire l'esempio precedente:
 
@@ -187,38 +183,34 @@ SQL data warehouse non supporta i join ANSI nella `FROM` clausola di un' `UPDATE
 CREATE TABLE CTAS_acs
 WITH (DISTRIBUTION = ROUND_ROBIN)
 AS
-SELECT    ISNULL(CAST([EnglishProductCategoryName] AS NVARCHAR(50)),0)    AS [EnglishProductCategoryName]
-,        ISNULL(CAST([CalendarYear] AS SMALLINT),0)                         AS [CalendarYear]
-,        ISNULL(CAST(SUM([SalesAmount]) AS MONEY),0)                        AS [TotalSalesAmount]
+SELECT    ISNULL(CAST([EnglishProductCategoryName] AS NVARCHAR(50)),0) AS [EnglishProductCategoryName]
+, ISNULL(CAST([CalendarYear] AS SMALLINT),0)  AS [CalendarYear]
+, ISNULL(CAST(SUM([SalesAmount]) AS MONEY),0)  AS [TotalSalesAmount]
 FROM    [dbo].[FactInternetSales]        AS s
 JOIN    [dbo].[DimDate]                    AS d    ON s.[OrderDateKey]                = d.[DateKey]
 JOIN    [dbo].[DimProduct]                AS p    ON s.[ProductKey]                = p.[ProductKey]
 JOIN    [dbo].[DimProductSubCategory]    AS u    ON p.[ProductSubcategoryKey]    = u.[ProductSubcategoryKey]
 JOIN    [dbo].[DimProductCategory]        AS c    ON u.[ProductCategoryKey]        = c.[ProductCategoryKey]
 WHERE     [CalendarYear] = 2004
-GROUP BY
-        [EnglishProductCategoryName]
-,        [CalendarYear]
-;
+GROUP BY [EnglishProductCategoryName]
+, [CalendarYear];
 
 -- Use an implicit join to perform the update
 UPDATE  AnnualCategorySales
 SET     AnnualCategorySales.TotalSalesAmount = CTAS_ACS.TotalSalesAmount
 FROM    CTAS_acs
 WHERE   CTAS_acs.[EnglishProductCategoryName] = AnnualCategorySales.[EnglishProductCategoryName]
-AND     CTAS_acs.[CalendarYear]               = AnnualCategorySales.[CalendarYear]
-;
+AND     CTAS_acs.[CalendarYear]  = AnnualCategorySales.[CalendarYear] ;
 
 --Drop the interim table
-DROP TABLE CTAS_acs
-;
+DROP TABLE CTAS_acs;
 ```
 
 ## <a name="ansi-join-replacement-for-delete-statements"></a>Sostituzione di join ANSI per le istruzioni delete
 
-In alcuni casi l'approccio migliore per l'eliminazione dei dati consiste nell'usare `DELETE` CTAs, in particolare per le istruzioni che usano la sintassi di join ANSI. Questo perché SQL data warehouse non supporta i `FROM` join ANSI nella clausola di un' `DELETE` istruzione. Anziché eliminare i dati, selezionare i dati che si desidera memorizzare.
+In alcuni casi l'approccio migliore per l'eliminazione dei dati consiste nell'usare CTAS, specialmente per `DELETE` istruzioni che usano la sintassi di join ANSI. Questo perché SQL Data Warehouse non supporta i join ANSI nella clausola `FROM` di un'istruzione `DELETE`. Anziché eliminare i dati, selezionare i dati che si desidera memorizzare.
 
-Di seguito è riportato un esempio di istruzione `DELETE` convertita:
+Di seguito è riportato un esempio di un'istruzione `DELETE` convertita:
 
 ```sql
 CREATE TABLE dbo.DimProduct_upsert
@@ -227,23 +219,22 @@ WITH
 ,   CLUSTERED INDEX (ProductKey)
 )
 AS -- Select Data you want to keep
-SELECT     p.ProductKey
-,          p.EnglishProductName
-,          p.Color
-FROM       dbo.DimProduct p
+SELECT p.ProductKey
+, p.EnglishProductName
+,  p.Color
+FROM  dbo.DimProduct p
 RIGHT JOIN dbo.stg_DimProduct s
-ON         p.ProductKey = s.ProductKey
-;
+ON p.ProductKey = s.ProductKey;
 
-RENAME OBJECT dbo.DimProduct        TO DimProduct_old;
+RENAME OBJECT dbo.DimProduct TO DimProduct_old;
 RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 ```
 
 ## <a name="replace-merge-statements"></a>Sostituzione delle istruzioni merge
 
-È possibile sostituire le istruzioni merge, almeno in parte, usando CTAS. È possibile combinare `INSERT` `UPDATE` e in un'unica istruzione. Tutti i record eliminati devono essere limitati dall' `SELECT` istruzione da omettere dai risultati.
+È possibile sostituire le istruzioni merge, almeno in parte, usando CTAS. È possibile combinare il `INSERT` e il `UPDATE` in un'unica istruzione. Tutti i record eliminati devono essere limitati dall'istruzione `SELECT` per omettere i risultati.
 
-L'esempio seguente è relativo a `UPSERT`:
+L'esempio seguente è relativo a un `UPSERT`:
 
 ```sql
 CREATE TABLE dbo.[DimProduct_upsert]
@@ -253,22 +244,21 @@ WITH
 )
 AS
 -- New rows and new versions of rows
-SELECT      s.[ProductKey]
-,           s.[EnglishProductName]
-,           s.[Color]
+SELECT s.[ProductKey]
+, s.[EnglishProductName]
+, s.[Color]
 FROM      dbo.[stg_DimProduct] AS s
 UNION ALL  
 -- Keep rows that are not being touched
 SELECT      p.[ProductKey]
-,           p.[EnglishProductName]
-,           p.[Color]
+, p.[EnglishProductName]
+, p.[Color]
 FROM      dbo.[DimProduct] AS p
 WHERE NOT EXISTS
 (   SELECT  *
     FROM    [dbo].[stg_DimProduct] s
     WHERE   s.[ProductKey] = p.[ProductKey]
-)
-;
+);
 
 RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
 RENAME OBJECT dbo.[DimProduct_upsert]  TO [DimProduct];
@@ -288,8 +278,7 @@ CREATE TABLE result
 WITH (DISTRIBUTION = ROUND_ROBIN)
 
 INSERT INTO result
-SELECT @d*@f
-;
+SELECT @d*@f;
 ```
 
 Si potrebbe pensare di voler eseguire la migrazione di questo codice a CTAS e di essere corretti. Tuttavia, c'è un problema nascosto qui.
@@ -298,14 +287,12 @@ Il codice seguente non produce lo stesso risultato:
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
-,       @f float(24)    = 85.455
-;
+, @f float(24)    = 85.455;
 
 CREATE TABLE ctas_r
 WITH (DISTRIBUTION = ROUND_ROBIN)
 AS
-SELECT @d*@f as result
-;
+SELECT @d*@f as result;
 ```
 
 Si noti che la colonna "result" porta avanti i valori del tipo di dati e del supporto di valori null dell'espressione. Il trasporto del tipo di dati in avanti può causare variazioni minime nei valori se non si presta attenzione.
@@ -314,12 +301,10 @@ Provare l'esempio seguente:
 
 ```sql
 SELECT result,result*@d
-from result
-;
+from result;
 
 SELECT result,result*@d
-from ctas_r
-;
+from ctas_r;
 ```
 
 Il valore archiviato per il risultato è diverso. Poiché il valore permanente nella colonna risultato viene usato in altre espressioni, l'errore diventa ancora più significativo.
@@ -337,7 +322,7 @@ Nell'esempio seguente viene illustrato come correggere il codice:
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
-,       @f float(24)    = 85.455
+, @f float(24)    = 85.455
 
 CREATE TABLE ctas_r
 WITH (DISTRIBUTION = ROUND_ROBIN)
@@ -361,11 +346,11 @@ La verifica dell'integrità dei calcoli è importante anche per il cambio della 
 CREATE TABLE [dbo].[Sales]
 (
     [date]      INT     NOT NULL
-,   [product]   INT     NOT NULL
-,   [store]     INT     NOT NULL
-,   [quantity]  INT     NOT NULL
-,   [price]     MONEY   NOT NULL
-,   [amount]    MONEY   NOT NULL
+, [product]   INT     NOT NULL
+, [store]     INT     NOT NULL
+, [quantity]  INT     NOT NULL
+, [price]     MONEY   NOT NULL
+, [amount]    MONEY   NOT NULL
 )
 WITH
 (   DISTRIBUTION = HASH([product])
@@ -374,8 +359,7 @@ WITH
                     ,20030101,20040101,20050101
                     )
                 )
-)
-;
+);
 ```
 
 Tuttavia, il campo Amount è un'espressione calcolata. Non fa parte dei dati di origine.
@@ -385,8 +369,8 @@ Per creare il set di dati partizionato, è consigliabile usare il codice seguent
 ```sql
 CREATE TABLE [dbo].[Sales_in]
 WITH
-(   DISTRIBUTION = HASH([product])
-,   PARTITION   (   [date] RANGE RIGHT FOR VALUES
+( DISTRIBUTION = HASH([product])
+, PARTITION   (   [date] RANGE RIGHT FOR VALUES
                     (20000101,20010101
                     )
                 )
@@ -400,29 +384,28 @@ SELECT
 ,   [price]
 ,   [quantity]*[price]  AS [amount]
 FROM [stg].[source]
-OPTION (LABEL = 'CTAS : Partition IN table : Create')
-;
+OPTION (LABEL = 'CTAS : Partition IN table : Create');
 ```
 
-La query verrebbe eseguita correttamente. Il problema si verifica quando si tenta di eseguire il cambio di partizione. Le definizioni di tabella non corrispondono. Per fare in modo che le definizioni di tabella corrispondano, modificare `ISNULL` CTAs per aggiungere una funzione per mantenere l'attributo di supporto dei valori null della colonna.
+La query verrebbe eseguita correttamente. Il problema si verifica quando si tenta di eseguire il cambio di partizione. Le definizioni di tabella non corrispondono. Per fare in modo che le definizioni di tabella corrispondano, modificare CTAS per aggiungere una funzione `ISNULL` per mantenere l'attributo di supporto dei valori null della colonna.
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
 WITH
-(   DISTRIBUTION = HASH([product])
-,   PARTITION   (   [date] RANGE RIGHT FOR VALUES
+( DISTRIBUTION = HASH([product])
+, PARTITION   (   [date] RANGE RIGHT FOR VALUES
                     (20000101,20010101
                     )
                 )
 )
 AS
 SELECT
-    [date]
-,   [product]
-,   [store]
-,   [quantity]
-,   [price]   
-,   ISNULL(CAST([quantity]*[price] AS MONEY),0) AS [amount]
+  [date]
+, [product]
+, [store]
+, [quantity]
+, [price]   
+, ISNULL(CAST([quantity]*[price] AS MONEY),0) AS [amount]
 FROM [stg].[source]
 OPTION (LABEL = 'CTAS : Partition IN table : Create');
 ```

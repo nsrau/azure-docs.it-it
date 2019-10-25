@@ -14,14 +14,18 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: c053e4dfc38fc0f055ec91a6622ef7f767c13a86
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: c319b3e53f550e56fbf4f655cb9cfa43326f9c72
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "69015331"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882431"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Rilevare i movimenti con Analisi servizi multimediali di Azure
+
+> [!IMPORTANT]
+> Esaminare i [piani di pensionamento](media-services-analytics-overview.md#retirement-plans) di alcuni processori di contenuti multimediali.
+
 ## <a name="overview"></a>Panoramica
 Il processore di contenuti multimediali **Rilevatore multimediale di movimento Azure** consente di identificare in modo efficace le sezioni interessanti all'interno di un video altrimenti lungo e privo di eventi. Il rilevamento di movimento può essere usato nei filmati statici della videocamera per individuare le sezioni del video in cui si verificano movimenti. Viene generato un file JSON contenente i metadati con i timestamp e l'area di delimitazione in cui si è verificato l'evento.
 
@@ -32,19 +36,19 @@ Attualmente il processore multimediale **Rilevatore multimediale di movimento Az
 Questo articolo illustra dettagliatamente **Azure Media Motion Detector** e spiega come usare questa funzionalità con Media Services SDK per .NET
 
 ## <a name="motion-detector-input-files"></a>File di input di Rilevatore di movimento
-File video. Attualmente sono supportati i seguenti formati: MP4, MOV e WMV.
+File video. Attualmente sono supportati i formati seguenti: MP4, MOV e WMV.
 
 ## <a name="task-configuration-preset"></a>Configurazione delle attività (set di impostazioni)
 Quando si crea un'attività con **Azure Media Motion Detector**è necessario specificare un set di impostazioni di configurazione. 
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 È possibile usare i parametri seguenti:
 
-| NOME | Opzioni | DESCRIZIONE | Predefinito |
+| name | Opzioni | Description | Predefinito |
 | --- | --- | --- | --- |
-| sensitivityLevel |String:'low', 'medium', 'high' |Imposta il livello di sensibilità per la segnalazione dei movimenti. Modificarla per ridurre il numero di falsi positivi. |'medium' |
+| sensitivityLevel |Stringa:'low', 'medium', 'high' |Imposta il livello di sensibilità per la segnalazione dei movimenti. Modificarla per ridurre il numero di falsi positivi. |'medium' |
 | frameSamplingValue |Intero positivo |Imposta la frequenza di esecuzione dell'algoritmo. 1 indica a ogni fotogramma, 2 a un fotogramma su due e così via. |1 |
-| detectLightChange |Boolean: 'true', 'false' |Indica se vengono segnalate le variazioni di luce nei risultati |'False' |
+| detectLightChange |Booleano: 'true', 'false' |Indica se vengono segnalate le variazioni di luce nei risultati |'False' |
 | mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>Esempio: 00:00:03 |Specifica l'intervallo di tempo tra eventi di movimento in cui 2 eventi verranno combinati e segnalati come 1 evento. |00:00:00 |
 | detectionZones |Matrice di zone di rilevamento:<br/>- La zona di rilevamento è una matrice di 3 o più punti<br/>- Il punto è una coordinata x e y da 0 a 1. |Descrive l'elenco delle zone di rilevamento poligonali da usare.<br/>I risultati sono visualizzati con le zone come ID, dove la prima è 'id':0 |Singola zona che copre l'intero fotogramma. |
 
@@ -93,7 +97,7 @@ L'API Rilevatore di movimento fornisce indicatori se sono presenti oggetti in mo
 
 La tabella seguente illustra gli elementi del file di output JSON.
 
-| Elemento | Descrizione |
+| Elemento | Description |
 | --- | --- |
 | version |Indica la versione dell'API Video. La versione corrente è 2. |
 | timescale |"Scatti" al secondo del video. |
@@ -106,10 +110,10 @@ La tabella seguente illustra gli elementi del file di output JSON.
 | eventi |Ogni frammento di evento contiene i movimenti rilevati nella durata specificata. |
 | type |Nella versione corrente questo valore è sempre "2" per il movimento generico. Questa etichetta offre alle API Video la flessibilità necessaria per classificare i movimenti nelle versioni future. |
 | regionId |Come spiegato in precedenza, in questa versione questo valore è sempre 0. Questa etichetta offre alle API Video la flessibilità necessaria per individuare i movimenti in varie aree nelle versioni future. |
-| regions |Si riferisce all'area del video in cui si presta particolare attenzione al movimento. <br/><br/>-"id" rappresenta l'area: in questa versione ne è presente una sola, ID 0. <br/>-"type" rappresenta la forma dell'area importante per il movimento. Sono attualmente supportati "rectangle" e "polygon".<br/> Se è stato specificato "rectangle", le dimensioni dell'area saranno X, Y, larghezza e altezza. Le coordinate X e Y rappresentano le coordinate XY in alto a sinistra nell'area in una scala normalizzata da 0,0 a 1,0. La larghezza e l'altezza rappresentano le dimensioni dell'area in una scala normalizzata da 0,0 a 1,0. Nella versione corrente, X, Y, larghezza e altezza sono sempre 0, 0 e 1, 1. <br/>Se è stato specificato "polygon", le dimensioni dell'area saranno in punti. <br/> |
+| aree |Si riferisce all'area del video in cui si presta particolare attenzione al movimento. <br/><br/>-"id" rappresenta l'area: in questa versione ne è presente una sola, ID 0. <br/>-"type" rappresenta la forma dell'area importante per il movimento. Sono attualmente supportati "rectangle" e "polygon".<br/> Se è stato specificato "rectangle", le dimensioni dell'area saranno X, Y, larghezza e altezza. Le coordinate X e Y rappresentano le coordinate XY in alto a sinistra nell'area in una scala normalizzata da 0,0 a 1,0. La larghezza e l'altezza rappresentano le dimensioni dell'area in una scala normalizzata da 0,0 a 1,0. Nella versione corrente, X, Y, larghezza e altezza sono sempre 0, 0 e 1, 1. <br/>Se è stato specificato "polygon", le dimensioni dell'area saranno in punti. <br/> |
 | fragments |I metadati sono suddivisi in segmenti diversi, detti frammenti. Ogni frammento contiene un inizio, una durata, un numero di intervallo e uno o più eventi. Un frammento privo di eventi significa che non è stato rilevato alcun movimento in corrispondenza dell'ora di inizio e della durata. |
 | parentesi quadre [] |Ogni parentesi rappresenta un intervallo nell'evento. Le parentesi vuote in un intervallo indicano che è non stato rilevato alcun movimento. |
-| locations |Questa nuova voce nell'elenco degli eventi indica le posizioni in cui si è verificato il movimento. È un dato più specifico delle zone di rilevamento. |
+| Località |Questa nuova voce nell'elenco degli eventi indica le posizioni in cui si è verificato il movimento. È un dato più specifico delle zone di rilevamento. |
 
 Nell'esempio JSON seguente viene descritto l'output:
 
@@ -379,7 +383,7 @@ namespace VideoMotionDetection
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Collegamenti correlati

@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: e4d961603ab0ade1bb175161fffd7f085a1f644b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 5cf4689534a813d778c25a7a712b983aafe6f5a9
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934094"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881597"
 ---
-# <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita dell'archiviazione BLOB di Azure
+# <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di Archiviazione BLOB di Azure
 
 I set di dati hanno cicli di vita specifici. All'inizio del ciclo di vita, gli utenti accedono ad alcuni dati spesso. La necessità di accesso si riduce tuttavia drasticamente con l'invecchiamento dei dati. Alcuni dati rimangono inattivi nel cloud e gli utenti vi accedono raramente dopo l'archiviazione. Alcuni dati scadono giorni o mesi dopo la creazione, mentre altri set di dati vengono letti e modificati per l'intero ciclo di vita. Gestione del ciclo di vita dell'archiviazione BLOB di Azure offre un criterio completo basato su regole per gli account di archiviazione BLOB e GPv2. Usare i criteri per trasferire i dati ai livelli di accesso appropriati o farli scadere alla fine del loro ciclo di vita.
 
@@ -46,9 +46,9 @@ La funzionalità di gestione del ciclo di vita è disponibile in tutte le aree d
 
 È possibile aggiungere, modificare o rimuovere un criterio utilizzando uno dei metodi seguenti:
 
-* [Portale di Azure](https://portal.azure.com)
+* [Azure portal](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
 
 Questo articolo illustra come gestire i criteri usando il portale e i metodi di PowerShell.  
@@ -56,7 +56,7 @@ Questo articolo illustra come gestire i criteri usando il portale e i metodi di 
 > [!NOTE]
 > Se per l'account di archiviazione si abilitano regole firewall, è possibile che le richieste di gestione del ciclo di vita vengano bloccate. È possibile sbloccare queste richieste fornendo eccezioni per i servizi Microsoft attendibili. Per altre informazioni, vedere la sezione Eccezioni in [Configurare i firewall e le reti virtuali](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
-### <a name="azure-portal"></a>Portale di Azure
+# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
 
 Esistono due modi per aggiungere un criterio tramite il portale di Azure. 
 
@@ -126,9 +126,9 @@ Esistono due modi per aggiungere un criterio tramite il portale di Azure.
 
 6. Per altre informazioni su questo esempio JSON, vedere le sezioni [criteri](#policy) e [regole](#rules) .
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Lo script di PowerShell seguente può essere usato per aggiungere un criterio all'account di archiviazione. La `$rgname` variabile deve essere inizializzata con il nome del gruppo di risorse. La `$accountName` variabile deve essere inizializzata con il nome dell'account di archiviazione.
+Lo script di PowerShell seguente può essere usato per aggiungere un criterio all'account di archiviazione. La variabile `$rgname` deve essere inizializzata con il nome del gruppo di risorse. La variabile `$accountName` deve essere inizializzata con il nome dell'account di archiviazione.
 
 ```powershell
 #Install the latest module
@@ -156,7 +156,7 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 ```
 
-## <a name="azure-resource-manager-template-with-lifecycle-management-policy"></a>Modello di Azure Resource Manager con i criteri di gestione del ciclo di vita
+# <a name="templatetabtemplate"></a>[Modello](#tab/template)
 
 È possibile definire la gestione del ciclo di vita usando Azure Resource Manager modelli. Ecco un modello di esempio per distribuire un account di archiviazione RA-GRS GPv2 con criteri di gestione del ciclo di vita.
 
@@ -198,7 +198,9 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 }
 ```
 
-## <a name="policy"></a>Criteri
+---
+
+## <a name="policy"></a>Policy
 
 I criteri di gestione del ciclo di vita sono una raccolta di regole in un documento JSON:
 
@@ -230,10 +232,10 @@ Ogni regola all'interno del criterio presenta diversi parametri:
 
 | Nome parametro | Tipo di parametro | Note | Obbligatoria |
 |----------------|----------------|-------|----------|
-| `name`         | String |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | True |
-| `enabled`      | Boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | False | 
-| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle`. | True |
-| `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | True |
+| `name`         | Stringa |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | Vero |
+| `enabled`      | boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | Falso | 
+| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle`. | Vero |
+| `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | Vero |
 
 ## <a name="rules"></a>Regole
 
@@ -241,7 +243,7 @@ La definizione di ogni regola include un set di filtri e un set di azioni. Il [s
 
 ### <a name="sample-rule"></a>Regola di esempio
 
-La regola di esempio seguente Filtra l'account per eseguire le azioni sugli oggetti presenti all' `container1` interno di e `foo`iniziare con.  
+La regola di esempio seguente Filtra l'account per eseguire le azioni sugli oggetti presenti all'interno `container1` e iniziare con `foo`.  
 
 - Impostare il BLOB sul livello di accesso sporadico 30 giorni dopo l'ultima modifica
 - Impostare il BLOB sul livello archivio 90 giorni dopo l'ultima modifica
@@ -282,12 +284,12 @@ I filtri limitano le azioni della regola a un sottoinsieme di BLOB all'interno d
 
 I filtri includono:
 
-| Nome filtro | Tipo filtro | Note | Obbligatorio |
+| Nome filtro | Tipo di filtro | Note | Obbligatorio |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Una matrice di valori di enumerazione predefiniti. | La versione corrente supporta `blockBlob`. | Sì |
-| prefixMatch | Una matrice di stringhe per i prefissi corrispondenti. Ogni regola può definire un massimo di 10 prefissi. Una stringa di prefisso deve iniziare con un nome di contenitore. Se ad esempio si desidera trovare la corrispondenza di tutti i `https://myaccount.blob.core.windows.net/container1/foo/...` BLOB in per una regola, prefixMatch `container1/foo`è. | Se non si definisce prefixMatch, la regola si applica a tutti i BLOB all'interno dell'account di archiviazione.  | No |
+| blobTypes   | Una matrice di valori di enumerazione predefiniti. | La versione corrente supporta `blockBlob`. | SÌ |
+| prefixMatch | Una matrice di stringhe per i prefissi corrispondenti. Ogni regola può definire un massimo di 10 prefissi. Una stringa di prefisso deve iniziare con un nome di contenitore. Se, ad esempio, si desidera trovare la corrispondenza di tutti i BLOB in `https://myaccount.blob.core.windows.net/container1/foo/...` per una regola, prefixMatch è `container1/foo`. | Se non si definisce prefixMatch, la regola si applica a tutti i BLOB all'interno dell'account di archiviazione.  | No |
 
-### <a name="rule-actions"></a>Azioni regola
+### <a name="rule-actions"></a>Azioni della regola
 
 Le azioni vengono applicate ai BLOB filtrati quando viene soddisfatta la condizione di esecuzione.
 
@@ -295,8 +297,8 @@ La gestione del ciclo di vita supporta la suddivisione in livelli e l'eliminazio
 
 | Azione        | BLOB di base                                   | Snapshot      |
 |---------------|---------------------------------------------|---------------|
-| tierToCool    | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente         | Non supportate |
-| tierToArchive | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente o sporadico | Non supportate |
+| tierToCool    | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente         | Supporto non disponibile |
+| tierToArchive | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente o sporadico | Supporto non disponibile |
 | delete        | Supportato                                   | Supportato     |
 
 >[!NOTE]
@@ -304,12 +306,12 @@ La gestione del ciclo di vita supporta la suddivisione in livelli e l'eliminazio
 
 Le condizioni di esecuzione sono basate sull'età. Per tenere traccia del tempo trascorso, i BLOB di base usano la data/ora dell'ultima modifica, mentre gli snapshot dei BLOB usano la data/ora di creazione dello snapshot.
 
-| Condizione di esecuzione azione             | Valore della condizione                          | Descrizione                             |
+| Condizione di esecuzione azione             | Valore della condizione                          | Description                             |
 |----------------------------------|------------------------------------------|-----------------------------------------|
 | daysAfterModificationGreaterThan | Valore intero che indica il tempo trascorso in giorni | Condizione per le azioni BLOB di base     |
 | daysAfterCreationGreaterThan     | Valore intero che indica il tempo trascorso in giorni | Condizione per le azioni snapshot BLOB |
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 Gli esempi seguenti illustrano come affrontare scenari comuni relativi alle regole dei criteri del ciclo di vita.
 
@@ -343,7 +345,10 @@ Questo esempio illustra la transizione di BLOB in blocchi con prefisso `containe
 
 ### <a name="archive-data-at-ingest"></a>Archiviare i dati al momento dell'inserimento
 
-Alcuni dati rimangono inattivi sul cloud e gli utenti vi accedono raramente, se non mai, dopo l'archiviazione. I criteri del ciclo di vita seguenti sono configurati per archiviare i dati dopo l'inserimento. Questo esempio esegue la transizione dei BLOB in blocchi nell'account di `archivecontainer` archiviazione all'interno del contenitore in un livello archivio. La transizione viene eseguita agendo sui BLOB 0 giorni dopo l'ora dell'Ultima modifica:
+Alcuni dati rimangono inattivi sul cloud e gli utenti vi accedono raramente, se non mai, dopo l'archiviazione. I criteri del ciclo di vita seguenti sono configurati per archiviare i dati dopo l'inserimento. Questo esempio esegue la transizione dei BLOB in blocchi nell'account di archiviazione all'interno del contenitore `archivecontainer` in un livello archivio. La transizione viene eseguita agendo sui BLOB 0 giorni dopo l'ora dell'Ultima modifica:
+
+> [!NOTE] 
+> È consigliabile caricare i BLOB direttamente nel livello Archivio per essere più efficienti. È possibile usare l'intestazione x-MS-Acess-Tier per [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) o [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) con la versione 2018-11-09 e successive o le librerie client di archiviazione BLOB più recenti. 
 
 ```json
 {
@@ -422,14 +427,13 @@ Per i dati che vengono modificati e usati regolarmente per tutto il loro ciclo d
 }
 ```
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>FAQ
 
 **Ho creato un nuovo criterio, perché le azioni non vengono eseguite immediatamente?**  
 La piattaforma esegue i criteri di gestione del ciclo di vita una volta al giorno. Una volta configurati i criteri, possono essere necessarie fino a 24 ore prima che alcune azioni vengano eseguite per la prima volta.  
 
-**Riattivare manualmente un BLOB archiviato. come è possibile impedire che venga spostato di nuovo nel livello di archiviazione temporaneamente?**  
-Quando un BLOB viene spostato da un livello di accesso a un altro, l'ora dell'Ultima modifica non cambia. Se si riattiva manualmente un BLOB archiviato in un livello di accesso frequente, questo verrà spostato di nuovo al livello archivio dal motore di gestione del ciclo di vita. Disabilitare temporaneamente la regola che influisca su questo BLOB per impedirne l'archiviazione. Copiare il BLOB in un altro percorso se è necessario mantenerlo in modo permanente. Abilitare nuovamente la regola quando il BLOB può essere spostato di nuovo in modo sicuro nel livello archivio. 
-
+**Ho reidratato manualmente un BLOB archiviato. come posso impedire che venga spostato di nuovo nel livello di archiviazione temporaneamente?**  
+Quando un BLOB viene spostato da un livello di accesso a un altro, l'ora dell'Ultima modifica non cambia. Se si riattiva manualmente un BLOB archiviato in un livello di accesso frequente, questo verrà spostato di nuovo al livello archivio dal motore di gestione del ciclo di vita. Disabilitare temporaneamente la regola che influisca su questo BLOB per impedirne l'archiviazione. Abilitare nuovamente la regola quando il BLOB può essere spostato di nuovo in modo sicuro nel livello archivio. È anche possibile copiare il BLOB in un altro percorso se deve rimanere in modo permanente ad accesso frequente o ad accesso sporadico.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

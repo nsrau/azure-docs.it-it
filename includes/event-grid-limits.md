@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: event-grid
 author: tfitzmac
 ms.service: event-grid
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 3f94481e6a8550479788d92c744327e1dc3b58c4
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 890095718833c90a6764d0799d2081b393b1d0bd
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "66376930"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72887790"
 ---
 I limiti seguenti si applicano agli argomenti del sistema di griglia di eventi di Azure e agli argomenti personalizzati, *non* ai domini di eventi.
 
-| Risorsa | Limite |
+| Gruppi | Limite |
 | --- | --- |
 | Argomenti personalizzati per sottoscrizione di Azure | 100 |
 | Sottoscrizioni di eventi per argomento | 500 |
@@ -27,10 +27,11 @@ I limiti seguenti si applicano agli argomenti del sistema di griglia di eventi d
 
 I limiti seguenti si applicano solo ai domini di evento.
 
-| Risorsa | Limite |
+| Gruppi | Limite |
 | --- | --- |
-| Argomenti per dominio evento | 1000 durante la fase di anteprima pubblica |
-| Sottoscrizioni di eventi per argomento all'interno di un dominio | 50 durante la fase di anteprima pubblica |
-| Sottoscrizioni di eventi ambito dominio | 50 durante la fase di anteprima pubblica |
-| Frequenza di pubblicazione per un dominio di evento (in ingresso) | 5000 eventi al secondo durante la fase di anteprima pubblica |
+| Argomenti per dominio evento | 100,000 |
+| Sottoscrizioni di eventi per argomento all'interno di un dominio | 500 |
+| Sottoscrizioni di eventi ambito dominio | 50 |
+| Frequenza di pubblicazione per un dominio di evento (in ingresso) | 5\.000 eventi al secondo |
 | Pubblica richieste | 250 al secondo |
+| Domini di eventi per ogni sottoscrizione di Azure | 100 |

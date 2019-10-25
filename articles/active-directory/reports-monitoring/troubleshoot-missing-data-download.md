@@ -1,5 +1,5 @@
 ---
-title: 'Risoluzione dei problemi: dati mancanti nei log attività scaricati di Azure Active Directory | Microsoft Docs'
+title: 'Risoluzione dei problemi: dati mancanti nei log attività scaricati | Microsoft Docs'
 description: Offre una soluzione per i dati mancanti nei log attività scaricati di Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f120c1b86efe94f4ff6316e6116b9049582b07e9
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: db96bd99a25ca7803dbdfe412e2cddbbcb57c0e4
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987991"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817516"
 ---
 # <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Non è possibile trovare tutti i dati nei log attività di Azure Active Directory scaricati
 
@@ -30,7 +30,7 @@ ms.locfileid: "68987991"
 
 I log attività (controllo o accessi) sono stati scaricati ma non vengono visualizzati tutti i record per l'orario scelto. Perché? 
 
- ![Report](./media/troubleshoot-missing-data-download/01.png)
+ ![Creazione report](./media/troubleshoot-missing-data-download/01.png)
  
 ## <a name="cause"></a>Causa
 

@@ -6,16 +6,16 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: 88f8b6a8dcce0e498a7b81b8741072bcf4cfcad8
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: b6d707fc4bbc5fa57ffb0c809d7f70efebef99e9
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259509"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881656"
 ---
 # <a name="conditional-deployment-in-resource-manager-templates"></a>Distribuzione condizionale nei modelli di Gestione risorse
 
-In alcuni casi è necessario distribuire facoltativamente una risorsa in un modello. Usare l' `condition` elemento per specificare se la risorsa viene distribuita. Il valore di questo elemento restituisce true o false. Quando il valore è true, la risorsa viene creata. Quando il valore è false, la risorsa non viene creata. Il valore può essere applicato solo all'intera risorsa.
+In alcuni casi è necessario distribuire facoltativamente una risorsa in un modello. Usare l'elemento `condition` per specificare se la risorsa viene distribuita. Il valore di questo elemento restituisce true o false. Quando il valore è true, la risorsa viene creata. Quando il valore è false, la risorsa non viene creata. Il valore può essere applicato solo all'intera risorsa.
 
 ## <a name="new-or-existing-resource"></a>Risorsa nuova o esistente
 
@@ -82,7 +82,11 @@ Se si usa una funzione di [riferimento](resource-group-template-functions-resour
 
 Usare la funzione [if](resource-group-template-functions-logical.md#if) per assicurarsi che la funzione venga valutata solo per le condizioni quando la risorsa viene distribuita. Vedere la [funzione If](resource-group-template-functions-logical.md#if) per un modello di esempio che usa if e Reference con una risorsa distribuita in modo condizionale.
 
+## <a name="condition-with-complete-mode"></a>Condizione con modalità completa
+
+Se si distribuisce un modello con la [modalità completa](deployment-modes.md) e una risorsa non viene distribuita perché la condizione restituisce false, il risultato dipende dalla versione dell'API REST usata per distribuire il modello. Se si usa una versione precedente alla 2019-05-10, la risorsa **non viene eliminata**. Con 2019-05-10 o versioni successive, la risorsa **viene eliminata**. Le versioni più recenti di Azure PowerShell e dell'interfaccia della riga di comando di Azure eliminano la risorsa quando condition è false.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per suggerimenti sulla creazione di modelli, vedere [Procedure consigliate per la creazione di modelli di Azure Resource Manager](template-best-practices.md).
+* Per altri suggerimenti sulla creazione di modelli, vedere [Procedure consigliate per la creazione di modelli di Azure Resource Manager](template-best-practices.md).
 * Per creare più istanze di una risorsa, vedere [Resource, Property o Variable iterazione in Azure Resource Manager Templates](resource-group-create-multiple.md).

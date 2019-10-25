@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/25/2019
+ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: f34695cb4a92fbed285ba8c56764606a124194a4
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 80a39151a3d40c9b9d7cb49c6ab41aab602c5991
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678226"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817381"
 ---
 # <a name="multi-step-web-tests"></a>Test Web in più passi
 
@@ -34,38 +34,12 @@ Per individuare il prerequisito degli strumenti di test. Avviare il **Programma 
 > [!NOTE]
 > Ai test Web in più passaggi sono associati costi aggiuntivi. Per ulteriori informazioni, consultare la [Guida ai prezzi ufficiale](https://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="record-a-multi-step-web-test"></a>Registrare un test Web in più passaggi
+## <a name="record-a-multi-step-web-test"></a>Registrare un test Web in più passaggi 
 
-Per creare un test in più passaggi, registrare lo scenario con Visual Studio Enterprise, quindi caricare la registrazione in Application Insights. Application Insights lo scenario viene riprodotto a intervalli prestabiliti e viene verificata la risposta.
+> [!WARNING]
+> Non è più consigliabile usare la registrazione in più passaggi. Il registratore è stato sviluppato per le pagine HTML statiche con interazioni di base e non fornisce un'esperienza funzionale per le pagine Web moderne.
 
-> [!IMPORTANT]
-> * Non è possibile usare funzioni codificate o cicli nei test. Il test deve essere interamente contenuto nello script con estensione webtest. È tuttavia possibile usare plug-in standard.
-> * I test Web in più passaggi supportano solo caratteri inglesi. Se si usa Visual Studio in altre lingue, aggiornare il file di definizione dei test Web per tradurre o escludere i caratteri non inglesi.
-
-Usare Visual Studio Enterprise per registrare una sessione Web.
-
-1. Creare un progetto di test di carico e prestazioni Web. **File**  > **nuovo** **progetto**  >   > **Visual C#**   > **test**
-
-    ![Interfaccia utente nuovo progetto di Visual Studio](./media/availability-multistep/vs-web-performance-and-load-test.png)
-
-2. Aprire il file di `.webtest` e avviare la registrazione.
-
-    ![Interfaccia utente di registrazione test di Visual Studio](./media/availability-multistep/open-web-test.png)
-
-3. Fare clic sui passaggi che si vuole simulare per il test come parte della registrazione.
-
-    ![Interfaccia utente di registrazione del browser](./media/availability-multistep/record.png)
-
-4. Modificare il test per:
-
-    * Aggiungere convalide per verificare i codici di testo e di risposta ricevuti.
-    * Rimuovere qualsiasi interazione uneccesary. È anche possibile rimuovere le richieste dipendenti per le immagini o aggiungere siti di rilevamento che non sono rilevanti per il test.
-    
-    Tenere presente che è possibile modificare solo lo script di test. è possibile aggiungere codice personalizzato o chiamare altri test Web. Non inserire cicli nel test. È possibile utilizzare i plug-in del test web standard.
-
-5. Eseguire il test in Visual Studio per convalidare e verificare che funzioni.
-
-    Il programma di esecuzione del test Web apre un browser Web e ripete le azioni registrate. Verificare che tutto funzioni come previsto.
+Per istruzioni sulla creazione di test Web di Visual Studio, vedere la [documentazione ufficiale di Visual studio 2019](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
 
 ## <a name="upload-the-web-test"></a>Caricare il test Web
 
@@ -96,7 +70,7 @@ Usare Visual Studio Enterprise per registrare una sessione Web.
 |**Classico** | Non è più consigliabile usare gli avvisi classici per i nuovi test di disponibilità.|
 |**Soglia posizione avviso**|Si consiglia un minimo di 3-5 posizioni. La relazione ottimale tra la soglia della posizione di avviso e il numero di percorsi di test è la **soglia di posizione degli avvisi**  = **numero di percorsi di test-2, con almeno cinque posizioni di test.**|
 
-## <a name="advanced-configuration"></a>Configurazione avanzata
+## <a name="configuration"></a>Configurazione
 
 ### <a name="plugging-time-and-random-numbers-into-your-test"></a>Inserimento di tempi e numeri casuali nel test
 

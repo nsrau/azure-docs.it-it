@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: fb401226e9697afb71dfa7a30f9814e07c3422c2
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 6ceed914d1c69ccdfce5d7acb6dcfc1afc9ef868
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028074"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819880"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Advanced Threat Protection con il Centro sicurezza di Azure
 
@@ -28,19 +28,19 @@ introducendo così funzionalità EDR (Endpoint Detection and Response) complete.
 
 Quando si usa Microsoft Defender ATP, si ottiene quanto segue:
 
-- **Sensori di rilevamento post-violazione avanzati**: I sensori di Microsoft Defender ATP per i server Windows raccolgono una vasta gamma di segnali comportamentali.
+- **Sensori di rilevamento post-violazione avanzati**: i sensori di Microsoft Defender ATP per i server Windows raccolgono una vasta gamma di segnali comportamentali.
 
-- **Rilevamento post-violazione basato sul cloud e sull'analisi**: Microsoft Defender ATP si adatta rapidamente alle mutevoli minacce. sfruttando strumenti di analisi avanzata e Big Data. Microsoft Defender ATP è stato amplificato dalla potenza del Intelligent Security Graph con segnali in Windows, Azure e Office per rilevare le minacce sconosciute. Fornisce avvisi interattivi e consente di reagire con tempestività.
+- **Rilevamento di violazioni post basate su analisi basate sul cloud**: Microsoft Defender ATP si adatta rapidamente alle mutevoli minacce. sfruttando strumenti di analisi avanzata e Big Data. Microsoft Defender ATP è stato amplificato dalla potenza del Intelligent Security Graph con segnali in Windows, Azure e Office per rilevare le minacce sconosciute. Fornisce avvisi interattivi e consente di reagire con tempestività.
 
-- **Intelligence per le minacce**: Microsoft Defender ATP genera avvisi quando identifica gli strumenti, le tecniche e le procedure degli utenti malintenzionati. Usa i dati generati dagli specialisti di minacce e dai team di sicurezza di Microsoft, integrati con intelligence fornita da partner.
+- **Intelligence**per le minacce: Microsoft Defender ATP genera avvisi quando identifica gli strumenti, le tecniche e le procedure per gli utenti malintenzionati. Usa i dati generati dagli specialisti di minacce e dai team di sicurezza di Microsoft, integrati con intelligence fornita da partner.
 
 Nel centro sicurezza di Azure sono ora disponibili le funzionalità seguenti:
 
-- **Onboarding automatico**: Il sensore Microsoft Defender ATP viene abilitato automaticamente per i server Windows caricati nel centro sicurezza di Azure.
+- **Onboarding automatico**: il sensore Microsoft Defender ATP viene abilitato automaticamente per i server Windows caricati nel centro sicurezza di Azure.
 
-- **Interfaccia unificata**: Nella console del Centro sicurezza di Azure vengono visualizzati gli avvisi di Microsoft Defender ATP.
+- **Riquadro singolo**: nella console del Centro sicurezza di Azure vengono visualizzati gli avvisi di Microsoft Defender ATP.
 
-- **Analisi dettagliata dei sistemi**: I clienti del Centro sicurezza di Azure possono usare la console di Microsoft Defender ATP per condurre un'indagine dettagliata per individuare l'ambito di una violazione.
+- **Analisi dettagliata del computer**: i clienti del Centro sicurezza di Azure possono usare la console di Microsoft Defender ATP per condurre un'indagine dettagliata per individuare l'ambito di una violazione.
 
 ![Il Centro sicurezza di Azure, con un elenco di avvisi e informazioni generali relative a ogni avviso](media/security-center-wdatp/image1.png)
 
@@ -50,7 +50,7 @@ Per ulteriori approfondimenti, utilizzare Microsoft Defender ATP. Microsoft Defe
 
 ## <a name="platform-support"></a>Supporto delle piattaforme
 
-Microsoft Defender ATP nel centro sicurezza supporta il rilevamento nei sistemi operativi Windows Server 2016, 2012 R2 e 2008 R2 SP1 in una sottoscrizione di servizio standard.
+Microsoft Defender ATP nel centro sicurezza supporta il rilevamento in Windows Server 2016, 2012 R2 e 2008 R2 SP1. per le macchine virtuali di Azure è necessaria una sottoscrizione di livello standard e per le macchine virtuali non di Azure è necessario un livello standard solo a livello di area di lavoro.
 
 > [!NOTE]
 > Quando si usa il Centro sicurezza di Azure per monitorare i server, viene creato automaticamente un tenant di Microsoft Defender ATP e i dati di Microsoft Defender ATP vengono archiviati in Europa per impostazione predefinita. Se è necessario spostare i dati in un'altra posizione, è necessario contattare supporto tecnico Microsoft per reimpostare il tenant. Il monitoraggio degli endpoint server che usa questa integrazione è stato disabilitato per i clienti di Office 365 GCC.
@@ -70,7 +70,7 @@ Per caricare i server nel centro sicurezza, fare clic su **Vai al centro sicurez
 
 ## <a name="enable-microsoft-defender-atp-integration"></a>Abilita l'integrazione di Microsoft Defender ATP
 
-Per visualizzare se l'integrazione di Microsoft Defender ATP è abilitata, selezionare il **Centro sicurezza** >  **& le impostazioni dei prezzi** > fare clic sulla sottoscrizione.
+Per visualizzare se l'integrazione di Microsoft Defender ATP è abilitata, selezionare **Centro sicurezza** > **prezzi & impostazioni** > fare clic sulla sottoscrizione.
 In questa schermata è possibile visualizzare le integrazioni attualmente abilitate.
 
   ![Pagina delle impostazioni di rilevamento delle minacce del Centro sicurezza di Azure con l'integrazione di Microsoft Defender ATP abilitata](media/security-center-wdatp/enable-integrations.png)
@@ -116,4 +116,4 @@ Per generare un avviso di test di Microsoft Defender ATP benigno:
 - [Funzionalità e piattaforme supportate dal Centro sicurezza di Azure](security-center-os-coverage.md)
 - [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 - [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni semplificano la protezione delle risorse di Azure.
-- [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): Informazioni su come monitorare l'integrità delle risorse di Azure.
+- [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.

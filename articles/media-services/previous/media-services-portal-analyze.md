@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26a951ffaf0253371ffe69c6df798120f0464082
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61131822"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881906"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analizzare i contenuti multimediali usando il portale di Azure 
-> [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
-> 
-> 
+
+> [!IMPORTANT]
+> Esaminare i [piani di pensionamento](media-services-analytics-overview.md#retirement-plans) di alcuni processori di contenuti multimediali.
 
 ## <a name="overview"></a>Panoramica
 Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e visione artificiale, con conformità, sicurezza e copertura globale di livello enterprise, che semplificano alle aziende e alle organizzazioni l'acquisizione di informazioni dettagliate dai file video. Per una panoramica più dettagliata di Analisi Servizi multimediali, vedere [questo](media-services-analytics-overview.md) argomento. 
@@ -63,7 +62,7 @@ Linguaggio naturale da riconoscere nel file multimediale, ad esempio l'inglese o
 I file di sottotitoli codificati con questi formati possono essere utili per rendere i file audio e video accessibili alle persone con problemi uditivi.
 
 ### <a name="aib-file"></a>File aib
-Selezionare questa opzione per generare il file Audio Index Blob per l'uso con SQL Server IFilter personalizzato. Per altre informazioni, vedere [questo](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blog.
+Selezionare questa opzione per generare il file Audio Index Blob per l'uso con SQL Server IFilter personalizzato. Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) .
 
 ### <a name="keywords"></a>Parole chiave
 Selezionare questa opzione per generare un file XML di parole chiave. Questo file contiene parole chiave estratte da contenuti vocali, con informazioni sulla frequenza e sull'offset.
@@ -136,10 +135,10 @@ Questo processore consente di rilevare contenuti potenzialmente pornografici e p
 
 ![Moderare i video](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
 
-### <a name="version"></a>Version 
+### <a name="version"></a>Versione 
 Usare "2.0".
 
-### <a name="mode"></a>Modalità
+### <a name="mode"></a>Mode
 La versione 2.0 ignora l'impostazione `Mode`.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -147,5 +146,5 @@ Visualizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6f6c656bee9d271942e74f8116e64aeb47d68d5c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: HT
+ms.openlocfilehash: b141677e60705dc4176630ee7fd195ae03bba842
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757539"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72816929"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Trasferire dati con AzCopy e archiviazione file 
 
@@ -23,6 +23,9 @@ Prima di iniziare, vedere l'articolo [Introduzione a AzCopy](storage-use-azcopy-
 ## <a name="create-file-shares"></a>Crea condivisioni file
 
 È possibile usare il comando [azcopy make](storage-ref-azcopy-make.md) per creare una condivisione file. Nell'esempio riportato in questa sezione viene creata una condivisione file denominata `myfileshare`.
+
+> [!TIP]
+> Gli esempi in questa sezione racchiudono gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd. exe). Se si usa una shell dei comandi di Windows (cmd. exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
 
 |    |     |
 |--------|-----------|
@@ -47,6 +50,9 @@ Questa sezione contiene gli esempi seguenti:
 > AzCopy non calcola e archivia automaticamente il codice hash MD5 del file. Se si vuole eseguire questa operazione, aggiungere il flag di `--put-md5` a ogni comando copy. In questo modo, quando il file viene scaricato, AzCopy calcola un hash MD5 per i dati scaricati e verifica che l'hash MD5 archiviato nella proprietà `Content-md5` del file corrisponda all'hash calcolato.
 
 Per i documenti di riferimento dettagliati, vedere [azcopy Copy](storage-ref-azcopy-copy.md).
+
+> [!TIP]
+> Gli esempi in questa sezione racchiudono gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd. exe). Se si usa una shell dei comandi di Windows (cmd. exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
 
 ### <a name="upload-a-file"></a>Caricare un file
 
@@ -133,6 +139,9 @@ Questa sezione contiene gli esempi seguenti:
 
 Per i documenti di riferimento dettagliati, vedere [azcopy Copy](storage-ref-azcopy-copy.md).
 
+> [!TIP]
+> Gli esempi in questa sezione racchiudono gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd. exe). Se si usa una shell dei comandi di Windows (cmd. exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
+
 ### <a name="download-a-file"></a>Scaricare un file
 
 |    |     |
@@ -207,6 +216,9 @@ Questa sezione contiene gli esempi seguenti:
 
 Per informazioni dettagliate sulla documentazione di riferimento, vedere [azcopy Copy](storage-ref-azcopy-copy.md).
 
+> [!TIP]
+> Gli esempi in questa sezione racchiudono gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd. exe). Se si usa una shell dei comandi di Windows (cmd. exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
+
 ### <a name="copy-a-file-to-another-storage-account"></a>Copiare un file in un altro account di archiviazione
 
 |    |     |
@@ -247,6 +259,9 @@ Il comando di [sincronizzazione](storage-ref-azcopy-sync.md) Confronta i nomi di
 Se si imposta il flag di `--delete-destination` su `true` AzCopy Elimina i file senza fornire un prompt. Se si desidera che venga visualizzato un messaggio prima che AzCopy elimini un file, impostare il flag `--delete-destination` su `prompt`.
 
 Per informazioni dettagliate sulla documentazione di riferimento, vedere [azcopy Sync](storage-ref-azcopy-sync.md).
+
+> [!TIP]
+> Gli esempi in questa sezione racchiudono gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd. exe). Se si usa una shell dei comandi di Windows (cmd. exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
 
 ### <a name="update-a-file-share-with-changes-to-another-file-share"></a>Aggiornare una condivisione file con le modifiche apportate a un'altra condivisione file
 

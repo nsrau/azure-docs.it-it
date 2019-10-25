@@ -7,12 +7,12 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 9376493cdd1a8a9790f4de8ee3769acf8dca5ade
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 16b75a98a5a42c9acf6d9a68330cbf8e005f7179
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595580"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819807"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Crea una nuova offerta di Dynamics 365 business Central
 
@@ -101,7 +101,7 @@ Selezionare un minimo di una e un massimo di tre categorie, che verranno usate p
 
 ### <a name="industry"></a>Settore
 
-Facoltativamente, è possibile selezionare fino a due settori per categorizzare l'offerta nel Marketplace. Se l'offerta non è specifica di un settore, lasciare vuota questa sezione. Assicurarsi di richiamare il modo in cui l'offerta supporta le industrie selezionate nella descrizione dell'offerta. 
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>Versione dell'app
 
@@ -300,7 +300,7 @@ Microsoft può rimuovere la complessità della configurazione di un test drive o
 
 - **URL istanza** (obbligatorio): URL da cui il cliente inizierà a test drive. In genere l'URL dell'istanza di Dynamics 365 che esegue l'app con i dati di esempio installati, ad esempio https://testdrive.crm.dynamics.com).
 
-- **URL dell'API Web dell'istanza** (obbligatorio): recuperare l'URL dell'API Web per l'istanza di Dynamics 365 accedendo all'account Microsoft 365 e passando alle **Impostazioni** \&gt; @No__t_4gt di **personalizzazione** ; **Risorse** per gli sviluppatori \&gt; **API Web dell'istanza (URL radice del servizio)** , copiare l'URL trovato qui, ad esempio https://testdrive.crm.dynamics.com/api/data/v9.0).
+- **URL dell'API Web dell'istanza** (obbligatorio): recuperare l'URL dell'API Web per l'istanza di Dynamics 365 accedendo all'account Microsoft 365 e passando alle **Impostazioni** \&gt; **Personalizzazione** \&gt; **Risorse per sviluppatori** \&gt; **API Web dell'istanza (URL radice del servizio)** , copiare l'URL trovato qui, ad esempio https://testdrive.crm.dynamics.com/api/data/v9.0).
 
 - **Nome ruolo** (obbligatorio): specificare il nome del ruolo di sicurezza definito nell'test drive Dynamics 365 personalizzato, che verrà assegnato all'utente durante la relativa Test Drive, ad esempio test-drive-Role.
 

@@ -1,23 +1,18 @@
 ---
 title: Cosa fare in Azure Application Insights | Microsoft Docs
 description: Domande frequenti in Application Insights
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/04/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 9f80edf18a531d6c2850658ddef9c7007edb350f
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 04/04/2017
+ms.openlocfilehash: 28881403e4938376cc1912227bdff51aa5f069cf
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795517"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817378"
 ---
 # <a name="how-do-i--in-application-insights"></a>Cosa fare in Application Insights?
 ## <a name="get-an-email-when-"></a>Per ricevere un messaggio di posta elettronica quando...
@@ -82,9 +77,9 @@ Alcune informazioni da considerare:
 
 ## <a name="separate-telemetry-from-different-versions"></a>Separare la telemetria da diverse versioni
 
-* Più ruoli in un'app: usare una singola risorsa di Application Insights e filtrare per [cloud_Rolename](../../azure-monitor/app/app-map.md).
-* Separazione delle versioni di sviluppo, test e rilascio: usare risorse di Application Insights diverse. Acquisire le chiavi di strumentazione da web.config. [Altre informazioni](../../azure-monitor/app/separate-resources.md)
-* Creazione di report sulle versioni della build: aggiungere una proprietà usando un inizializzatore di telemetria. [Altre informazioni](../../azure-monitor/app/separate-resources.md)
+* Più ruoli in un'app: usare una singola risorsa Application Insights e filtrare in [cloud_Rolename](../../azure-monitor/app/app-map.md).
+* Separazione di sviluppo, test e versioni di rilascio: usare diverse risorse di Application Insights. Preleva le chiavi di strumentazione da Web. config. [Altre informazioni](../../azure-monitor/app/separate-resources.md)
+* Creazione di rapporti sulle versioni di compilazione: aggiungere una proprietà usando un inizializzatore di telemetria. [Ulteriori informazioni](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Monitorare i server back-end e le app desktop
 [Usare il modulo di Windows Server SDK](../../azure-monitor/app/windows-desktop.md).
@@ -103,7 +98,7 @@ Oppure
 <a name="search-specific-users"></a>
 
 ### <a name="filter-out-anonymous-or-authenticated-users"></a>Filtrare gli utenti anonimi o autenticati
-Se gli utenti effettuano l'accesso, è possibile impostare l' [ID dell'utente autenticato](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). Questa operazione non viene eseguita automaticamente.
+Se gli utenti effettuano l'accesso, è possibile impostare l' [ID utente autenticato](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). Non viene eseguita automaticamente.
 
 È quindi possibile:
 
@@ -137,7 +132,7 @@ Altre informazioni su [prezzi e quote](../../azure-monitor/app/pricing.md).
 ## <a name="disable-telemetry"></a>Disabilitare telemetria
 Per **avviare e arrestare in modo dinamico** la raccolta e la trasmissione di dati di telemetria dal server:
 
-### <a name="aspnet-classic-applications"></a>Applicazioni ASP.NET classiche
+### <a name="aspnet-classic-applications"></a>Applicazioni classiche ASP.NET
 
 ```csharp
     using  Microsoft.ApplicationInsights.Extensibility;
@@ -146,16 +141,16 @@ Per **avviare e arrestare in modo dinamico** la raccolta e la trasmissione di da
 ```
 
 ### <a name="other-applications"></a>Altre applicazioni
-Non è consigliabile usare `TelemetryConfiguration.Active` singleton nella console o le applicazioni ASP.NET Core.
-Se è stata creata `TelemetryConfiguration` istanza manualmente, impostare `DisableTelemetry` a `true`.
+Non è consigliabile usare `TelemetryConfiguration.Active` singleton nella console o nelle applicazioni ASP.NET Core.
+Se è stato creato `TelemetryConfiguration` istanza, impostare `DisableTelemetry` `true`.
 
-Per le applicazioni ASP.NET Core è possibile accedere `TelemetryConfiguration` istanza utilizzando [inserimento delle dipendenze di ASP.NET Core](/aspnet/core/fundamentals/dependency-injection/). Per trovare altre informazioni, vedere [Application Insights per applicazioni ASP.NET Core](../../azure-monitor/app/asp-net-core.md) articolo.
+Per ASP.NET Core le applicazioni, è possibile accedere `TelemetryConfiguration` istanza tramite l' [inserimento ASP.NET Core dipendenze](/aspnet/core/fundamentals/dependency-injection/). Per ulteriori informazioni, vedere l'articolo [ApplicationInsights per applicazioni ASP.NET Core](../../azure-monitor/app/asp-net-core.md) .
 
 ## <a name="disable-selected-standard-collectors"></a>Disabilitare gli agenti di raccolta standard selezionati
-È possibile disabilitare gli agenti di raccolta standard (ad esempio, i contatori delle prestazioni, le richieste HTTP o dipendenze)
+È possibile disabilitare gli agenti di raccolta standard, ad esempio i contatori delle prestazioni, le richieste HTTP o le dipendenze.
 
-* **Le applicazioni ASP.NET** : eliminare o impostare come commento le righe pertinenti in [applicationinsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
-* **Le applicazioni ASP.NET Core** -seguire le opzioni di configurazione i moduli di telemetria in [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
+* **Applicazioni ASP.NET** : eliminare o impostare come commento le righe pertinenti in [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+* **Applicazioni ASP.NET Core** : seguire le opzioni di configurazione per i moduli di telemetria in [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## <a name="view-system-performance-counters"></a>Visualizzare i contatori delle prestazioni di sistema
 Tra le metriche che è possibile visualizzare in Esplora metriche è disponibile un set di contatori delle prestazioni di sistema. Esiste un pannello predefinito denominato **Server** in cui sono visualizzati alcuni set.

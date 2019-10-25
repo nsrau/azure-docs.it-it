@@ -1,20 +1,18 @@
 ---
 title: Tracce di OpenCensus Go con Azure Application Insights | Microsoft Docs
 description: Fornisce istruzioni su come integrare tracce di OpenCensus Go con il servizio di inoltro locale e Application Insights
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/15/2018
-ms.service: application-insights
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 56e66f17e9ce1d2482463f619e82dfd29d48f191
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 99f26bb2b89ef9642a36aa2be2037d04aafcdcd4
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67990292"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819272"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Raccogliere tracce distribuite da Go (anteprima)
 
@@ -34,22 +32,22 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-application-insights-resource"></a>Creare una risorsa di Application Insights
 
-Prima di tutto, è necessario creare una risorsa di Application Insights, che genererà una chiave di strumentazione (iKey). La chiave di strumentazione verrà quindi usata per configurare il servizio d'inoltro locale per inviare tracce distribuite dall'applicazione OpenCensus instrumentata ad Application Insights.   
+Prima di tutto, è necessario creare una risorsa di Application Insights, che genererà una chiave di strumentazione (iKey). La chiave di strumentazione viene quindi usata per configurare l'agente d'inoltro locale per inviare tracce distribuite dall'applicazione OpenCensus instrumentata ad Application Insights.   
 
 1. Selezionare **Crea una risorsa** > **Strumenti di sviluppo** > **Application Insights**.
 
    ![Aggiunta di una risorsa di Application Insights](./media/opencensus-Go/0001-create-resource.png)
 
  > [!NOTE]
-   >Se è la prima volta che si crea una risorsa Application Insights è possibile ottenere altre informazioni visitando l'articolo [creare una risorsa Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) .
+   >Se è la prima volta che si crea una risorsa di Application Insights, vedere l'articolo [Creare una risorsa di Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) per altre informazioni.
 
    Verrà visualizzata una casella di configurazione. Usare la tabella seguente per completare i campi di input.
 
-    | Impostazioni        | Valore           | DESCRIZIONE  |
+    | Impostazioni        | Value           | Description  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore globalmente univoco | Nome che identifica l'app da monitorare |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per l'hosting dei dati di Application Insights |
-   | **Location** | East US | Scegliere una località nelle vicinanze o vicina a quella in cui è ospitata l'app |
+   | **Località** | Stati Uniti Orientali | Scegliere una località nelle vicinanze o vicina a quella in cui è ospitata l'app |
 
 2. Fare clic su **Create**(Crea).
 
@@ -76,7 +74,7 @@ Prima di tutto, è necessario creare una risorsa di Application Insights, che ge
     </LocalForwarderConfiguration>
     ```
 
-3. Riavviare il **servizio d'inoltro locale** dell'applicazione.
+3. Riavviare il **servizio di inoltro locale** dell'applicazione.
 
 ## <a name="opencensus-go-packages"></a>Pacchetti OpenCensus Go
 

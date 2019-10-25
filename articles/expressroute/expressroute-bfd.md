@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 8/17/2018
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 14f65851e50ed25024524f6d988ba2b2f2b3aeba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e33e90d988251afde630401bed165a4d3614d2cd
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367669"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881457"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurare il rilevamento dell'inoltro bidirezionale su ExpressRoute
 
-ExpressRoute supporta il rilevamento dell'inoltro bidirezionale su peering privato. Abilitando questa funzionalità su ExpressRoute, è possibile accelerare il rilevamento degli errori di collegamento tra i dispositivi Microsoft Enterprise Edge (MSEE) e i router su cui termina il circuito ExpressRoute (PE). È possibile terminare ExpressRoute sui dispositivi di routing Edge di clienti o partner (se si è usato il servizio di connessione gestita di livello 3). Questo documento illustra i vantaggi offerti dal rilevamento dell'inoltro bidirezionale e mostra come abilitare questa funzionalità su ExpressRoute.
+ExpressRoute supporta il rilevamento dell'inoltro bidirezionale su peering privato. Abilitando BFD su ExpressRoute, è possibile velocizzare il rilevamento degli errori di collegamento tra i dispositivi Microsoft Enterprise Edge (MSEE) e i router in cui si termina il circuito ExpressRoute (PE/CE). È possibile terminare ExpressRoute sui dispositivi di routing Edge di clienti o partner (se si è usato il servizio di connessione gestita di livello 3). Questo documento illustra i vantaggi offerti dal rilevamento dell'inoltro bidirezionale e mostra come abilitare questa funzionalità su ExpressRoute.
 
 ## <a name="need-for-bfd"></a>Vantaggi del rilevamento dell'inoltro bidirezionale
 
@@ -34,9 +34,9 @@ In questo scenario, il rilevamento dell'inoltro bidirezionale può essere di aiu
 
 ## <a name="enabling-bfd"></a>Abilitazione del rilevamento dell'inoltro bidirezionale
 
-Il rilevamento dell'inoltro bidirezionale è configurato per impostazione predefinita in tutte le nuove interfacce di peering privato ExpressRoute create sui dispositivi MSEE. Pertanto, per abilitare il rilevamento dell'inoltro bidirezionale, è sufficiente configurarlo nei router PE. Il processo di configurazione del rilevamento dell'inoltro bidirezionale prevede due passaggi: è necessario eseguire la configurazione nell'interfaccia e quindi creare un collegamento alla sessione BGP.
+Il rilevamento dell'inoltro bidirezionale è configurato per impostazione predefinita in tutte le nuove interfacce di peering privato ExpressRoute create sui dispositivi MSEE. Per abilitare BFD, quindi, è necessario configurare BFD solo in PEs/CEs (sia nei dispositivi primari che secondari). La configurazione di BFD è un processo in due passaggi: è necessario configurare BFD sull'interfaccia e quindi collegarlo alla sessione BGP.
 
-Di seguito è riportato un esempio di configurazione di router PE in cui è usato Cisco IOS XE. 
+Di seguito è riportata una configurazione di esempio PE/CE (usando Cisco IOS XE). 
 
     interface TenGigabitEthernet2/0/0.150
       description private peering to Azure
@@ -56,7 +56,7 @@ Di seguito è riportato un esempio di configurazione di router PE in cui è usat
       exit-address-family
 
 >[!NOTE]
->Per abilitare il rilevamento dell'inoltro bidirezionale per un peering privato già esistente è necessario reimpostare il peering. Vedere [Reimpostare i peering ExpressRoute][ResetPeering].
+>Per abilitare il rilevamento dell'inoltro bidirezionale per un peering privato già esistente è necessario reimpostare il peering. Vedere [reimpostare i peering ExpressRoute][ResetPeering]
 >
 
 ## <a name="bfd-timer-negotiation"></a>Negoziazione dei timer di rilevamento dell'inoltro bidirezionale

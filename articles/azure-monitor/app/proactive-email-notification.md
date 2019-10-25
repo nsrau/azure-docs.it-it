@@ -1,20 +1,19 @@
 ---
 title: Rilevamento intelligente di Azure Application Insights - Modifica imminente dei destinatari predefiniti delle notifiche | Microsoft Docs
 description: Monitorare le tracce delle applicazioni con Azure Application Insights per individuare i modelli anomali nei dati di telemetria relativi alle tracce.
-services: application-insights
-author: harelbr
-manager: carmonm
-ms.service: application-insights
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 03/13/2019
+author: harelbr
 ms.author: harelbr
-ms.openlocfilehash: f984a34be1c5d5fdd18a00812107318df8f5d9bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/13/2019
+ms.reviewer: mbullwin
+ms.openlocfilehash: fa1f98b5a9ee592a4c702e87e365eff7941194d4
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61299002"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820616"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Modifica delle notifiche tramite posta elettronica della funzionalità di rilevamento intelligente
 
@@ -34,7 +33,7 @@ Questa modifica interesserà tutte le regole di rilevamento intelligente, ad ecc
 
 ## <a name="how-to-prepare-for-this-change"></a>Come è possibile prepararsi per questa modifica?
 
-Per garantire che vengano inviate notifiche di posta elettronica dal rilevamento intelligente per gli utenti interessati, devono essere assegnati agli utenti per il [lettore di monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) oppure [collaboratore al monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) ruoli della sottoscrizione.
+Per assicurarsi che le notifiche tramite posta elettronica dal rilevamento intelligente vengano inviate agli utenti rilevanti, questi utenti devono essere assegnati ai ruoli di [lettore monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) o [collaboratore monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) della sottoscrizione.
 
 Per assegnare gli utenti al ruolo con autorizzazioni di lettura dei dati di monitoraggio o al ruolo di collaboratore per il monitoraggio tramite il portale di Azure, seguire i passaggi descritti nell'articolo [Aggiungere un'assegnazione di ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). Assicurarsi di selezionare _Ruolo con autorizzazioni di lettura dei dati di monitoraggio_ o _Collaboratore per il monitoraggio_ come ruolo a cui sono assegnati gli utenti.
 

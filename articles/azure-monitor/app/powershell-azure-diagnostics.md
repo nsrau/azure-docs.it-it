@@ -1,22 +1,18 @@
 ---
 title: Uso di PowerShell per la configurazione di Application Insights in Azure | Microsoft Docs
 description: Automatizzare la configurazione di Diagnostica di Azure per inviare i dati al Application Insights.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 4ac803a8-f424-4c0c-b18f-4b9c189a64a5
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/06/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 0c963e4cd7befffe69fef159542eabd29059e3d9
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 08/06/2019
+ms.openlocfilehash: 0e1fd048b855473c1d7978e2a908c45360a1ed2a
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035201"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819027"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>Uso di PowerShell per configurare Application Insights per i servizi cloud di Azure
 
@@ -46,7 +42,7 @@ Se l'app Web è in Azure e si creano le risorse usando un modello di Azure Resou
 * `myWebAppName`: ID dell'app Web
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Abilitare l'estensione delle funzionalità di diagnostica come parte della distribuzione di un servizio Cloud
-Il cmdlet `New-AzureDeployment` ha un parametro `ExtensionConfiguration`, che accetta una matrice di configurazioni di diagnostica. Queste possono essere create con il cmdlet `New-AzureServiceDiagnosticsExtensionConfig` . Esempio:
+Il cmdlet `New-AzureDeployment` ha un parametro `ExtensionConfiguration`, che accetta una matrice di configurazioni di diagnostica. Queste possono essere create con il cmdlet `New-AzureServiceDiagnosticsExtensionConfig` . ad esempio:
 
 ```ps
 
@@ -133,7 +129,7 @@ Per rimuovere l'estensione della diagnostica da ogni singolo ruolo:
 ```
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Monitorare le app dei Servizi cloud di Azure con Application Insights](../../azure-monitor/app/cloudservices.md)
 * [Inviare i dati del servizio Diagnostica di Azure ad Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Automatizzare la configurazione degli avvisi](powershell-alerts.md)

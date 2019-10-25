@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/14/2019
+ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 591cc7a4b84f75536446abbcbe32a69a122ddf5a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 0b7eaaf68c1b0907b6d687b823ef71a7c9bd0102
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392670"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882407"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Prerequisiti comuni per la distribuzione di OpenShift container Platform 3,11 in Azure
 
@@ -113,14 +113,16 @@ az group create -l eastus -n openshiftrg
 Creare un'entità servizio:
 
 ```azurecli
-scope=`az group show --name openshiftrg --query id`
-az ad sp create-for-rbac --name openshiftsp \
-      --role Contributor --password {Strong Password} \
-      --scopes $scope \
+az group show --name openshiftrg --query id
 ```
-Se si usa Windows, eseguire ```az group show --name openshiftrg --query id``` e usare l'output al posto di $scope.
+Salva l'output del comando e USA al posto di $scope nel comando successivo
 
-Prendere nota della proprietà appId restituita dal comando:
+```azurecli
+az ad sp create-for-rbac --name openshiftsp \
+      --role Contributor --scopes $scope \
+```
+
+Prendere nota della proprietà appId e della password restituite dal comando:
 ```json
 {
   "appId": "11111111-abcd-1234-efgh-111111111111",
@@ -131,7 +133,7 @@ Prendere nota della proprietà appId restituita dal comando:
 }
 ```
  > [!WARNING] 
- > Creare una password sicura. Attenersi alle istruzioni relative a [regole e limitazioni sulle password di Azure AD](/azure/active-directory/active-directory-passwords-policy).
+ > Assicurarsi di annotare la password sicura perché non sarà possibile recuperarla nuovamente.
 
 Per altre informazioni sulle entità servizio, vedere [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 

@@ -1,35 +1,31 @@
 ---
 title: Profilare i servizi cloud di Azure attivi con Application Insights | Microsoft Docs
 description: Abilitare Application Insights Profiler per i servizi cloud.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 93392e379cbb03508fefc1877d5d50e04436b79c
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: 682711d7681e3646ae14686b01542bc5d7432179
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737225"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820506"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profilare i servizi cloud di Azure attivi con Application Insights
 
 È anche possibile distribuire Application Insights Profiler in questi servizi:
-* [Servizio app di Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Informazioni sul servizio app di Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Applicazioni Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Macchine virtuali di Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler viene installato con l'estensione Diagnostica di Microsoft Azure. È sufficiente configurare Diagnostica di Azure per installare Profiler e inviare i profili alla risorsa di Application Insights.
 
 ## <a name="enable-profiler-for-azure-cloud-services"></a>Abilitare Profiler per il servizio cloud di Azure
-1. Assicurarsi di usare [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) o versione successiva. Se si usa la famiglia di sistemi operativi 4, è necessario installare .NET Framework 4.6.1 o versione successiva con un' [attività di avvio](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-install-dotnet). La famiglia di sistemi operativi 5 include una versione compatibile di .NET Framework per impostazione predefinita. 
+1. Assicurarsi di usare [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) o versione successiva. Se si usa la famiglia di sistemi operativi 4, è necessario installare .NET Framework 4.6.1 o versione successiva con un' [attività di avvio](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-install-dotnet). La famiglia di sistemi operativi 5 include una versione compatibile di .NET Framework per impostazione predefinita. 
 
 1. Aggiungere [Application Insights SDK ai servizi cloud di Azure](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 

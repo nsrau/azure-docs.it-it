@@ -1,22 +1,18 @@
 ---
 title: Filtrare i dati di telemetria di Azure Application Insights nell'App Web Java | Microsoft Docs
 description: Ridurre il traffico di telemetria escludendo gli eventi che non è necessario monitorare.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 3/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 9cf939b241da01be55c1b2ba5f00a5131ab94c06
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 3/14/2019
+ms.openlocfilehash: de2a7c73b87254a6fd2e6c5dc942a9c93d28c2d4
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061166"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819352"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrare i dati di telemetria nell'App Web Java
 
@@ -196,7 +192,7 @@ Esclude le tracce di log (registrate tramite [TrackTrace()](../../azure-monitor/
 
 ## <a name="custom-filters"></a>Filtri personalizzati
 
-### <a name="1-code-your-filter"></a>1. Codificare il filtro
+### <a name="1-code-your-filter"></a>1. codificare il filtro
 
 Nel codice creare una classe che implementa `TelemetryProcessor`:
 
@@ -235,7 +231,7 @@ Nel codice creare una classe che implementa `TelemetryProcessor`:
 ```
 
 
-### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. Richiamare il filtro nel file di configurazione
+### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. richiamare il filtro nel file di configurazione
 
 In ApplicationInsights.xml:
 
@@ -254,9 +250,9 @@ In ApplicationInsights.xml:
 
 ```
 
-### <a name="3-invoke-your-filter-java-spring"></a>3. Richiamare il filtro (Java Spring)
+### <a name="3-invoke-your-filter-java-spring"></a>3. richiamare il filtro (Spring Java)
 
-Per le applicazioni basate su Spring framework, i processori di telemetria personalizzata devono essere registrati nella classe principale dell'applicazione come un bean. Saranno quindi connessi automaticamente all'avvio dell'applicazione.
+Per le applicazioni basate sul framework Spring, i processori di telemetria personalizzati devono essere registrati nella classe principale dell'applicazione come fagiolo. Verranno quindi automaticamente cablate all'avvio dell'applicazione.
 
 ```Java
 @Bean
@@ -265,7 +261,7 @@ public TelemetryProcessor successFilter() {
 }
 ```
 
-È necessario creare i propri parametri di filtro in `application.properties` e sfrutta framework configurazione esternalizzati di Spring Boot per passare i parametri in al filtro personalizzato. 
+È necessario creare parametri di filtro personalizzati in `application.properties` e sfruttare il Framework di configurazione esternalizzato di Spring boot per passare tali parametri al filtro personalizzato. 
 
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi

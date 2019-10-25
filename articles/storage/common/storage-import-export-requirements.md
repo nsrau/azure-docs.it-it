@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 448d416ce4915aeae048639f6021197ed8c1d334
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: b6dffb46d8c0fd7201079de3e8509ece516d2f8f
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967864"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821405"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisiti di sistema per Importazione/Esportazione di Azure
 
@@ -24,14 +24,14 @@ Questo articolo descrive i requisiti essenziali per il servizio Importazione/Esp
 Per preparare i dischi rigidi tramite lo strumento WAImportExport, sono supportati i **sistemi operativi a 64 bit seguenti che supportano Crittografia unità BitLocker**.
 
 
-|Piattaforma |Version |
+|Piattaforma |Versione |
 |---------|---------|
-|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
+|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Altri software obbligatori per il client Windows
 
-|Piattaforma |Version |
+|Piattaforma |Versione |
 |---------|---------|
 |.NET Framework    | 4.5.1       |
 | BitLocker        |  _          |
@@ -57,10 +57,10 @@ Ogni processo può essere usato per trasferire dati da o verso un solo account d
 Con il servizio Importazione/Esportazione di Azure sono supportati i tipi di archiviazione inclusi nell'elenco seguente.
 
 
-|Processo  |Servizio di archiviazione |Supportato  |Non supportate  |
+|Processo  |Servizio di archiviazione |Supportato  |Supporto non disponibile  |
 |---------|---------|---------|---------|
-|Import     |  Archivio BLOB di Azure <br><br> Archiviazione file di Azure       | BLOB in blocchi e BLOB di pagine supportati <br><br> File supportati          |
-|Esportazione     |   Archivio BLOB di Azure       | BLOB in blocchi, BLOB di pagine e BLOB di aggiunta supportati         | File di Azure non supportato
+|Importa     |  Archiviazione BLOB di Azure <br><br> Archiviazione file di Azure       | BLOB in blocchi e BLOB di pagine supportati <br><br> File supportati          |
+|Esportazione     |   Archiviazione BLOB di Azure       | BLOB in blocchi, BLOB di pagine e BLOB di aggiunta supportati         | File di Azure non supportato
 
 
 ## <a name="supported-hardware"></a>Hardware supportato 
@@ -72,10 +72,10 @@ Per il servizio Importazione/Esportazione di Azure è necessario usare dischi pe
 Con il servizio Importazione/Esportazione sono supportati i dischi inclusi nell'elenco seguente.
 
 
-|Tipo di disco  |Dimensione  |Supportato |
+|Tipo di disco  |Dimensioni  |Supportato |
 |---------|---------|---------|
-|SSD    |   2,5"      |SATA III          | 
-|HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |
+|Unità SSD    |   2,5"      |SATA III          | 
+|Unità disco rigido     |  2,5"<br>3,5"       |SATA II, SATA III         |
 
 I tipi di dischi seguenti non sono supportati:
 - USBs.
@@ -95,5 +95,5 @@ Per la preparazione dei dischi rigidi e la copia dei dati tramite lo strumento W
 
 * [Configurare lo strumento WAImportExport](storage-import-export-tool-how-to.md)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
-* [Esempio di API REST del servizio Importazione/Esportazione di Azure](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+* [Esempio di API REST del servizio Importazione/Esportazione di Azure](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)
 

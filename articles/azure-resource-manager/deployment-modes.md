@@ -4,14 +4,14 @@ description: Viene descritto come specificare se usare una modalità di distribu
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: c82d8b90d9da44ab8f4b8ea0aa0e063ea70350e2
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 10a9917d8ed763b133fbd33aedd16da399a224b2
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258970"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881646"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modelli di distribuzione Azure Resource Manager
 
@@ -21,7 +21,9 @@ Per entrambe le modalità, Resource Manager prova a creare tutte le risorse spec
 
 ## <a name="complete-mode"></a>Modalità completa
 
-Nella modalità di completamento, Resource Manager **elimina** le risorse esistenti nel gruppo di risorse che non sono specificate nel modello. Le risorse specificate nel modello, ma non distribuite in quanto una [condizione](conditional-resource-deployment.md) restituisce false, non vengono eliminate.
+Nella modalità di completamento, Resource Manager **elimina** le risorse esistenti nel gruppo di risorse che non sono specificate nel modello.
+
+Se il modello include una risorsa che non viene distribuita perché la [condizione](conditional-resource-deployment.md) restituisce false, il risultato dipende dalla versione dell'API REST usata per distribuire il modello. Se si usa una versione precedente alla 2019-05-10, la risorsa **non viene eliminata**. Con 2019-05-10 o versioni successive, la risorsa **viene eliminata**. Le versioni più recenti di Azure PowerShell e dell'interfaccia della riga di comando di Azure Elimina la risorsa.
 
 Prestare attenzione usando la modalità completa con i [cicli di copia](resource-group-create-multiple.md). Tutte le risorse non specificate nel modello dopo la risoluzione del ciclo di copia verranno eliminate.
 

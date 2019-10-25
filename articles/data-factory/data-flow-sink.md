@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 124b52d920ef36b373eef895187727499068f3eb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: da8dc332794cadc0eb6677390c566e67a6df6f3f
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72596538"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882438"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Trasformazione sink per un flusso di dati
 
@@ -53,8 +53,8 @@ Selezionare **convalida schema** per interrompere il sink in caso di modifica de
 
 Selezionare **Cancella la cartella** per troncare il contenuto della cartella sink prima di scrivere i file di destinazione nella cartella di destinazione.
 
-## <a name="rule-based-mapping"></a>Mapping basato su regole
-Quando si disattiva il mapping automatico, sarà possibile aggiungere il mapping basato su colonne (mapping fisso) o il mapping basato su regole. Il mapping basato su regole consente di scrivere espressioni con criteri di ricerca. 
+## <a name="fixed-mapping-vs-rule-based-mapping"></a>Mapping fisso rispetto al mapping basato su regole
+Quando si disattiva il mapping automatico, sarà possibile aggiungere il mapping basato su colonne (mapping fisso) o il mapping basato su regole. Il mapping basato su regole consente di scrivere espressioni con criteri di ricerca, mentre il mapping fisso eseguirà il mapping dei nomi delle colonne logiche e fisiche.
 
 ![Mapping basato su regole](media/data-flow/rules4.png "Mapping basato su regole")
 
@@ -65,6 +65,12 @@ Per informazioni dettagliate sui criteri di ricerca, fare riferimento alla [docu
 È anche possibile immettere modelli di espressione regolare quando si usa la corrispondenza basata su regole espandendo la riga e immettendo un'espressione regolare accanto a "nome corrisponde:".
 
 ![Mapping Regex](media/data-flow/scdt1g4.png "Mapping Regex")
+
+Un esempio comune molto semplice per un mapping basato su regole rispetto a un mapping fisso è il caso in cui si desidera eseguire il mapping di tutti i campi in ingresso allo stesso nome nella destinazione. Nel caso dei mapping fissi, è necessario elencare ogni singola colonna nella tabella. Per il mapping basato su regole, si disporrà di una singola regola che esegue il mapping di tutti i campi utilizzando ```true()``` allo stesso nome di campo in entrata rappresentato da ```$$```.
+
+### <a name="sink-association-with-dataset"></a>Associazione di sink con DataSet
+
+Il set di dati selezionato per il sink potrebbe avere o meno uno schema definito nella definizione del set di dati. Se non dispone di uno schema definito, è necessario consentire la deriva dello schema. Quando è stato definito un mapping fisso, il mapping del nome logico a fisico viene mantenuto nella trasformazione sink. Se si modifica la definizione dello schema del set di dati, si potrebbe interrompere il mapping del sink. Per evitare questo problema, usare il mapping basato sulle regole. I mapping basati su regole sono generalizzati, pertanto le modifiche dello schema nel set di dati non interromperanno il mapping.
 
 ## <a name="file-name-options"></a>Opzioni di nomi di file
 

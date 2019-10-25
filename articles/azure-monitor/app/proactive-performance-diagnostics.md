@@ -1,24 +1,19 @@
 ---
 title: Rilevamento intelligente - prestazioni anomale | Microsoft Docs
 description: Application Insights esegue un'analisi intelligente dei dati di telemetria dell'app e segnala potenziali problemi. Questa funzionalità non richiede alcuna configurazione.
-services: application-insights
-documentationcenter: windows
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.author: mbullwin
-ms.openlocfilehash: 5ccff22a74b0cb1edcbae40fca087fe3197cb6ca
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: b9a95bb2ee6ab137e974b46e24738ca5194f3bd2
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867722"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820560"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Rilevamento intelligente - anomalie nelle prestazioni
 
@@ -43,7 +38,7 @@ Una notifica non significa che l'app ha sicuramente un problema. Invita semplice
 
 ## <a name="how-do-i-fix-it"></a>Risoluzione
 
-Le notifiche includono informazioni di diagnostica. Di seguito è riportato un esempio:
+Le notifiche includono informazioni di diagnostica. Ecco un esempio:
 
 
 ![Di seguito è riportato un esempio di rilevamento della riduzione del tempo di risposta del server](media/proactive-performance-diagnostics/server_response_time_degradation.png)
@@ -66,7 +61,7 @@ Le notifiche di rilevamento intelligente sono abilitate per impostazione predefi
 
 I messaggi di posta elettronica sulle anomalie delle prestazioni dei rilevamenti intelligenti sono limitati a un messaggio di posta elettronica al giorno per ogni risorsa di Application Insights. Il messaggio di posta elettronica verrà inviato solo se è presente almeno un nuovo problema rilevato per quella giornata. senza alcuna ripetizione dello stesso messaggio. 
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>FAQ
 
 * *È vero che il personale Microsoft ha accesso ai dati personali?*
   * No. Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](../../azure-monitor/app/data-retention-privacy.md).
@@ -116,8 +111,8 @@ Aprire il pannello delle metriche del browser. La visualizzazione segmentata del
 ### <a name="improve-slow-pages"></a>Migliorare le pagine lente
 Sul Web sono disponibili molti suggerimenti per migliorare le risposte del server e i tempi di caricamento delle pagine, quindi non occorre riportarli in questo articolo. Ecco alcuni suggerimenti probabilmente già noti, ma che possono risultare utili:
 
-* Caricamento lento a causa di file di grandi dimensioni: caricare gli script e le altre parti in modo asincrono. Usare la creazione di bundle di script. Suddividere la pagina principale in widget che caricano separatamente i rispettivi dati. Non inviare semplice codice HTML per tabelle lunghe. Usare invece uno script per richiedere i dati come JSON o un altro formato compatto, quindi compilare la tabella sul posto. Per semplificare queste operazioni, sono disponibili utili framework, che ovviamente includono script di grandi dimensioni.
-* Dipendenze lente del server: esaminare le località geografiche dei componenti. Ad esempio, se si usa Azure, assicurarsi che il server Web e il database si trovino nella stessa area geografica. Le query recuperano una quantità di informazioni superiore al necessario? La memorizzazione nella cache o l'invio in batch possono essere utili?
+* Caricamento lento a causa di file di grandi dimensioni: caricare gli script e altre parti in modo asincrono. Usare la creazione di bundle di script. Suddividere la pagina principale in widget che caricano separatamente i rispettivi dati. Non inviare semplice codice HTML per tabelle lunghe. Usare invece uno script per richiedere i dati come JSON o un altro formato compatto, quindi compilare la tabella sul posto. Per semplificare queste operazioni, sono disponibili utili framework, che ovviamente includono script di grandi dimensioni.
+* Dipendenze lente del server: esaminare le posizioni geografiche dei componenti. Ad esempio, se si usa Azure, assicurarsi che il server Web e il database si trovino nella stessa area geografica. Le query recuperano una quantità di informazioni superiore al necessario? La memorizzazione nella cache o l'invio in batch possono essere utili?
 * Problemi di capacità: esaminare le metriche del server relative ai tempi di risposta e al numero delle richieste. Se i picchi dei tempi di risposta non sono proporzionati ai picchi del numero di richieste, è probabile che le capacità dei server siano insufficienti.
 
 

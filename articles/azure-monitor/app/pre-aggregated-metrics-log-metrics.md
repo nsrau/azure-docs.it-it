@@ -1,21 +1,19 @@
 ---
 title: Metriche basate su log e metriche preaggregate in Azure Application Insights | Microsoft Docs
 description: Perché e quando usare metriche basate su log o metriche preaggregate in Azure Application Insights
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: vgorbenko
 ms.author: vitalyg
-ms.reviewer: mbullwin
 ms.date: 09/18/2018
-ms.service: application-insights
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 9520cbb9973071bf1c52266d7718837607c1d10f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.reviewer: mbullwin
+ms.openlocfilehash: e0a0784c6331bdf4575f5c044c67cf9b4df3152f
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66256138"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820665"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Metriche basate su log e metriche preaggregate in Azure Application Insights
 
@@ -23,7 +21,7 @@ Questo articolo spiega la differenza tra le metriche "tradizionali" di Applicati
 
 ## <a name="log-based-metrics"></a>Metriche basate su log
 
-Fino a poco tempo fa, il modello di dati di telemetria per il monitoraggio delle applicazioni in Application Insights era unicamente basato su un numero ridotto di tipi predefiniti di eventi, tra cui richieste, eccezioni, chiamate di dipendenza, visualizzazioni pagina e così via. Gli sviluppatori possono usare l'SDK per generare questi eventi manualmente (scrivendo codice che richiama in modo esplicito l'SDK) o possono affidarsi alla raccolta automatica di eventi tramite la strumentazione automatica. In entrambi i casi, il back-end di Application Insights archivia tutti gli eventi raccolti sotto forma di log e i pannelli di Application Insights nel portale di Azure fungono da strumento di analisi e diagnostica per la visualizzazione dei dati basati su eventi dai log.
+Fino a poco tempo fa, il modello di dati di telemetria per il monitoraggio dell'applicazione in Application Insights era basato esclusivamente su un numero ridotto di tipi di eventi predefiniti, ad esempio richieste, eccezioni, chiamate di dipendenza, visualizzazioni di pagina e così via. Gli sviluppatori possono usare l'SDK per emettere manualmente questi eventi (scrivendo codice che richiama in modo esplicito l'SDK) oppure possono basarsi sulla raccolta automatica di eventi dalla strumentazione automatica. In entrambi i casi, il back-end di Application Insights archivia tutti gli eventi raccolti sotto forma di log e i pannelli di Application Insights nel portale di Azure fungono da strumento di analisi e diagnostica per la visualizzazione dei dati basati su eventi dai log.
 
 L'uso di log per mantenere un set completo di eventi può offrire eccezionali vantaggi in termini di analisi e diagnostica. Ad esempio, è possibile ottenere un conteggio esatto delle richieste a un URL specifico con il numero di utenti distinti che hanno effettuato queste chiamate. In alternativa, è possibile ottenere tracce di diagnostica dettagliate, incluse le eccezioni e le chiamate di dipendenza per qualsiasi sessione utente. La disponibilità di questo tipo di informazioni può migliorare significativamente la visibilità riguardo all'integrità e all'utilizzo dell'applicazione, riducendo il tempo necessario per diagnosticare problemi relativi a un'app. 
 
@@ -63,7 +61,7 @@ La raccolta di dimensioni di metriche personalizzate è disattivata per impostaz
 
 ## <a name="creating-charts-and-exploring-log-based-and-standard-pre-aggregated-metrics"></a>Creazione di grafici ed esplorazione di metriche basate su log e preaggregate standard
 
-Uso [Esplora metriche di monitoraggio di Azure](../platform/metrics-getting-started.md) per tracciare i grafici dalla metrica preaggregata e basato su log, nonché creare dashboard con i grafici. Dopo aver selezionato la risorsa di Application Insights desiderata, usare il selettore dello spazio dei nomi per passare tra metriche standard (anteprima) e metriche basate su log oppure selezionare uno spazio dei nomi delle metriche personalizzate:
+Usare [monitoraggio di Azure Esplora metriche](../platform/metrics-getting-started.md) per tracciare i grafici dalle metriche pre-aggregate e basate su log e per creare dashboard con grafici. Dopo aver selezionato la risorsa di Application Insights desiderata, usare il selettore dello spazio dei nomi per passare tra metriche standard (anteprima) e metriche basate su log oppure selezionare uno spazio dei nomi delle metriche personalizzate:
 
 ![Spazio dei nomi delle metriche](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
