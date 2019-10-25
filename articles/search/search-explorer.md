@@ -1,24 +1,23 @@
 ---
-title: Usare lo strumento Esplora ricerche per eseguire query sui dati in portale di Azure-ricerca di Azure
-description: Esplora ricerche è integrato nella portale di Azure, utile per l'esplorazione del contenuto e la convalida delle query in ricerca di Azure. Immettere stringhe per la ricerca di termini o frasi o espressioni di ricerca complete con sintassi avanzata.
+title: Usare lo strumento Esplora ricerche per eseguire query sui dati in portale di Azure
+titleSuffix: Azure Cognitive Search
+description: Esplora ricerche è integrato nella portale di Azure, utile per l'esplorazione del contenuto e la convalida delle query in Azure ricerca cognitiva. Immettere stringhe per la ricerca di termini o frasi o espressioni di ricerca complete con sintassi avanzata.
 manager: nitinme
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/20/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: fe66787ea82a8f97470199e99faadb72b85c83b2
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 0bb50bd50c58b85f1d5de100c34d00d114a9ed77
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178143"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792956"
 ---
-# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-search"></a>Usare Esplora ricerche nell'portale di Azure per eseguire query sui documenti in ricerca di Azure 
+# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-cognitive-search"></a>Usare Esplora ricerche nella portale di Azure per eseguire query sui documenti in Azure ricerca cognitiva 
 
-Questo articolo illustra come eseguire query in un indice di Ricerca di Azure esistente usando **Esplora ricerche** nel portale di Azure. È possibile avviare Esplora ricerche dalla barra dei comandi per inviare espressioni di query Lucene semplici o complete a qualsiasi indice esistente nel servizio. 
+Questo articolo illustra come eseguire una query su un indice di Azure ricerca cognitiva esistente usando **Esplora ricerche** nel portale di Azure. È possibile avviare Esplora ricerche dalla barra dei comandi per inviare espressioni di query Lucene semplici o complete a qualsiasi indice esistente nel servizio. 
 
    ![Comando Esplora ricerche nel portale](./media/search-explorer/search-explorer-cmd2.png "Comando Esplora ricerche nel portale")
 
@@ -38,11 +37,11 @@ La sintassi equivalente per una ricerca vuota è `*` o `search=*`.
 
    **Risultati**
    
-   ![Esempio di query vuota](./media/search-explorer/search-explorer-example-empty.png "Esempio di query vuota o non qualificata")
+   ![Esempio di query vuota](./media/search-explorer/search-explorer-example-empty.png "Esempio di query non qualificata o vuota")
 
 ### <a name="example-2---free-text-search"></a>Esempio 2: ricerca di testo libero
 
-Le query in formato libero, con o senza operatori, sono utili per la simulazione di query definite dall'utente inviate da un'app personalizzata a Ricerca di Azure. Si noti che quando si specificano i termini o le espressioni di query, entra in gioco la classificazione della ricerca. L'esempio seguente illustra una ricerca di testo libero.
+Le query in formato libero, con o senza operatori, sono utili per simulare query definite dall'utente inviate da un'app personalizzata ad Azure ricerca cognitiva. Si noti che quando si specificano i termini o le espressioni di query, entra in gioco la classificazione della ricerca. L'esempio seguente illustra una ricerca di testo libero.
 
    ```Input
    Seattle apartment "Lake Washington" miele OR thermador appliance
@@ -52,7 +51,7 @@ Le query in formato libero, con o senza operatori, sono utili per la simulazione
 
    È possibile usare CTRL-F per cercare nei risultati determinati termini a cui si è interessati.
 
-   ![Esempio di query in formato testo libero](./media/search-explorer/search-explorer-example-freetext.png "Esempio di query in formato testo libero")
+   ![Esempio di query di testo libero](./media/search-explorer/search-explorer-example-freetext.png "Esempio di query di testo libero")
 
 ### <a name="example-3---count-of-matching-documents"></a>Esempio 3: numero di documenti corrispondenti 
 
@@ -75,11 +74,11 @@ Aggiungere **$select** per limitare i risultati ai campi denominati in modo espl
 
    **Risultati**
 
-   ![Esempio di limitazione dei campi](./media/search-explorer/search-explorer-example-selectfield.png "Limitazione dei campi nei risultati della ricerca")
+   ![Esempio di campi limite](./media/search-explorer/search-explorer-example-selectfield.png "Limitare i campi nei risultati della ricerca")
 
 ### <a name="example-5---return-next-batch-of-results"></a>Esempio 5: restituzione del batch di risultati successivo
 
-Ricerca di Azure restituisce le prime 50 corrispondenze in base ai criteri di classificazione della ricerca. Per ottenere il set successivo di documenti corrispondenti, aggiungere **$top=100,&$skip=50** per portare il set di risultati a 100 documenti (il valore predefinito è 50 e il valore massimo è 1000), ignorando i primi 50 documenti. Ricordare che è necessario specificare i criteri di ricerca, ad esempio un termine o un'espressione di query, per ottenere risultati classificati. Si noti che i punteggi di ricerca diminuiscono man mano che si scorre l'elenco dei risultati della ricerca.
+Azure ricerca cognitiva restituisce le prime 50 corrispondenze in base al rango di ricerca. Per ottenere il set successivo di documenti corrispondenti, aggiungere **$top=100,&$skip=50** per portare il set di risultati a 100 documenti (il valore predefinito è 50 e il valore massimo è 1000), ignorando i primi 50 documenti. Ricordare che è necessario specificare i criteri di ricerca, ad esempio un termine o un'espressione di query, per ottenere risultati classificati. Si noti che i punteggi di ricerca diminuiscono man mano che si scorre l'elenco dei risultati della ricerca.
 
    ```Input
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100&$skip=50
@@ -87,7 +86,7 @@ Ricerca di Azure restituisce le prime 50 corrispondenze in base ai criteri di cl
 
    **Risultati**
 
-   ![Batch di risultati della ricerca](./media/search-explorer/search-explorer-example-topskip.png "Successivo batch di risultati della ricerca")
+   ![Risultati della ricerca batch](./media/search-explorer/search-explorer-example-topskip.png "Restituisce il batch successivo di risultati della ricerca")
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>Espressioni di filtro (maggiore di, minore di, uguale a)
 
@@ -99,7 +98,7 @@ Usare il parametro **$filter** quando si vogliono specificare criteri precisi an
    
    **Risultati**
 
-   ![Espressione di filtro](./media/search-explorer/search-explorer-example-filter.png "Criteri in base ai quali applicare il filtro")
+   ![Espressione filtro](./media/search-explorer/search-explorer-example-filter.png "Filtra per criterio")
 
 ## <a name="order-by-expressions"></a>Espressioni order-by
 
@@ -111,7 +110,7 @@ Aggiungere **$orderby** per ordinare i risultati in base a un campo in più risp
    
    **Risultati**
 
-   ![Espressione order-by](./media/search-explorer/search-explorer-example-ordery.png "Modificare l'ordinamento")
+   ![Espressione OrderBy](./media/search-explorer/search-explorer-example-ordery.png "Modificare il tipo di ordinamento")
 
 Le espressioni **$filter** e **$orderby** sono entrambe strutture OData. Per altre informazioni, vedere l'articolo relativo alla [sintassi OData per i filtri](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
@@ -127,13 +126,13 @@ Le espressioni **$filter** e **$orderby** sono entrambe strutture OData. Per alt
 
 3. Selezionare l'indice su cui eseguire una query.
 
-   ![Selezionare l'indice per la query](./media/search-explorer/search-explorer-changeindex-se2.png "Selezionare l'indice")
+   ![Selezionare l'indice su cui eseguire la query](./media/search-explorer/search-explorer-changeindex-se2.png "Selezionare l'indice")
 
 4. Facoltativamente, impostare la versione dell'API. Per impostazione predefinita, è selezionata la versione corrente dell'API disponibile a livello generale, ma è possibile scegliere un'anteprima o un'API precedente se la sintassi da usare dipende dalla versione.
 
 5. Dopo aver selezionato l'indice e la versione dell'API, immettere termini di ricerca o espressioni di query complete nella barra di ricerca e fare clic su **Cerca** per eseguire la query.
 
-   ![Immettere termini di ricerca e fare clic su Cerca](./media/search-explorer/search-explorer-query-string-example.png "Immettere termini di ricerca e fare clic su Cerca")
+   ![Immettere i termini di ricerca e fare clic su Cerca](./media/search-explorer/search-explorer-query-string-example.png "Immettere i termini di ricerca e fare clic su Cerca")
 
 Suggerimenti per la ricerca in **Esplora ricerche**:
 
@@ -143,7 +142,7 @@ Suggerimenti per la ricerca in **Esplora ricerche**:
 
 + Le query in formato libero, simili alle stringhe che è possibile immettere in un Web browser commerciale, sono utili per testare un'esperienza utente finale. Si supponga ad esempio di usare l'indice realestate predefinito. È possibile immettere "Seattle apartment lake washington" e quindi premere CTRL-F per trovare i termini nei risultati della ricerca. 
 
-+ Le espressioni di query e filtro devono essere riportate in una sintassi supportata da Ricerca di Azure. Per impostazione predefinita viene usata una [sintassi semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), ma è possibile usare la sintassi [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) per eseguire query più avanzate. Le [espressioni di filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) sono scritte usando la sintassi OData.
++ Le espressioni di query e di filtro devono essere articolate in una sintassi supportata da Azure ricerca cognitiva. Per impostazione predefinita viene usata una [sintassi semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), ma è possibile usare la sintassi [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) per eseguire query più avanzate. Le [espressioni di filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) sono scritte usando la sintassi OData.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
