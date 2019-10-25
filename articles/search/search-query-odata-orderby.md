@@ -1,13 +1,13 @@
 ---
-title: Guida di riferimento per l'ordine di OData-ricerca di Azure
-description: Informazioni di riferimento sul linguaggio OData per la sintassi order-by nelle query di ricerca di Azure.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: Brjohnstmsft
-ms.author: brjohnst
+title: Riferimento order-by OData
+titleSuffix: Azure Cognitive Search
+description: Informazioni di riferimento sul linguaggio OData per la sintassi order-by in Azure ricerca cognitiva query.
 manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8ee44549931100a1affa5e2bb9e5cda904c05ed1
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: e3ca19b5696b9a7ad9b68b180313753a5c9de912
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647530"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793309"
 ---
-# <a name="odata-orderby-syntax-in-azure-search"></a>Sintassi di $orderby OData in ricerca di Azure
+# <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Sintassi di $orderby OData in Azure ricerca cognitiva
 
- È possibile usare il [parametro OData **$OrderBy** ](query-odata-filter-orderby-syntax.md) per applicare un ordinamento personalizzato per i risultati della ricerca in ricerca di Azure. Questo articolo descrive in dettaglio la sintassi dei **$OrderBy** . Per informazioni più generali su come usare **$OrderBy** quando si presentano i risultati della ricerca, vedere [come usare i risultati della ricerca in ricerca di Azure](search-pagination-page-layout.md).
+ È possibile usare il [parametro OData **$OrderBy** ](query-odata-filter-orderby-syntax.md) per applicare un ordinamento personalizzato per i risultati della ricerca in ricerca cognitiva di Azure. Questo articolo descrive in dettaglio la sintassi dei **$OrderBy** . Per informazioni generali su come usare **$OrderBy** quando si presentano i risultati della ricerca, vedere [come usare i risultati della ricerca in Azure ricerca cognitiva](search-pagination-page-layout.md).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -45,22 +45,22 @@ sortable_function ::= geo_distance_call | 'search.score()'
 È disponibile anche un diagramma della sintassi interattiva:
 
 > [!div class="nextstepaction"]
-> [Diagramma della sintassi OData per ricerca di Azure](https://azuresearch.github.io/odata-syntax-diagram/#order_by_clause)
+> [Diagramma della sintassi OData per ricerca cognitiva di Azure](https://azuresearch.github.io/odata-syntax-diagram/#order_by_clause)
 
 > [!NOTE]
-> Vedere informazioni di [riferimento sulla sintassi di espressioni OData per ricerca di Azure](search-query-odata-syntax-reference.md) per il EBNF completo.
+> Per la EBNF completa, vedere informazioni [di riferimento sulla sintassi delle espressioni OData per Azure ricerca cognitiva](search-query-odata-syntax-reference.md) .
 
-Ogni clausola ha criteri di ordinamento, seguiti facoltativamente da una direzione`asc` di ordinamento (per `desc` l'ordine crescente o decrescente). Se non si specifica una direzione, il valore predefinito è Ascending. I criteri di ordinamento possono essere il percorso di un `sortable` campo o una chiamata alle [`geo.distance`](search-query-odata-geo-spatial-functions.md) [`search.score`](search-query-odata-search-score-function.md) funzioni o.
+Ogni clausola ha criteri di ordinamento, seguiti facoltativamente da una direzione di ordinamento (`asc` per l'ordine crescente o `desc` per la decrescente). Se non si specifica una direzione, il valore predefinito è Ascending. I criteri di ordinamento possono essere il percorso di un campo `sortable` o una chiamata alle funzioni [`geo.distance`](search-query-odata-geo-spatial-functions.md) o [`search.score`](search-query-odata-search-score-function.md) .
 
-Se più documenti hanno gli stessi criteri di ordinamento e `search.score` la funzione non viene usata (ad esempio, se si ordina in `Rating` base a un campo numerico e tre documenti hanno una classificazione pari a 4), i vincoli verranno interrotti dal punteggio del documento in ordine decrescente. Quando i punteggi dei documenti sono uguali, ad esempio quando nella richiesta non è specificata una query di ricerca full-text, l'ordine relativo dei documenti collegati è indeterminato.
+Se più documenti hanno gli stessi criteri di ordinamento e la funzione `search.score` non viene utilizzata (ad esempio, se si ordina in base a un campo numerico `Rating` e tre documenti hanno una classificazione pari a 4), i vincoli verranno interrotti dal punteggio del documento in ordine decrescente. Quando i punteggi dei documenti sono uguali, ad esempio quando nella richiesta non è specificata una query di ricerca full-text, l'ordine relativo dei documenti collegati è indeterminato.
 
-È possibile specificare più criteri di ordinamento. L'ordine delle espressioni determina l'ordinamento finale. Ad esempio, per eseguire l'ordinamento decrescente in base al punteggio, seguito dalla classificazione, `$orderby=search.score() desc,Rating desc`la sintassi è.
+È possibile specificare più criteri di ordinamento. L'ordine delle espressioni determina l'ordinamento finale. Ad esempio, per eseguire l'ordinamento decrescente in base al punteggio, seguito dalla classificazione, la sintassi viene `$orderby=search.score() desc,Rating desc`.
 
 La sintassi per `geo.distance` in **$orderby** è la stessa che in **$filter**. Quando si usa `geo.distance` in **$orderby**, il campo a cui si applica deve essere di tipo `Edm.GeographyPoint` e deve anche essere `sortable`.
 
 La sintassi per `search.score` in **$orderby** è `search.score()`. La funzione `search.score` non accetta parametri.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 Ordinare gli alberghi per tariffa di base crescente:
 
@@ -80,7 +80,7 @@ Ordinare gli hotel in ordine decrescente in base alla ricerca. Punteggio e class
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
-- [Come usare i risultati della ricerca in ricerca di Azure](search-pagination-page-layout.md)
-- [Panoramica del linguaggio di espressioni OData per ricerca di Azure](query-odata-filter-orderby-syntax.md)
-- [Guida di riferimento alla sintassi delle espressioni OData per ricerca di Azure](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Cercare documenti - API REST per il servizio Ricerca di Azure)
+- [Come usare i risultati della ricerca in Azure ricerca cognitiva](search-pagination-page-layout.md)
+- [Cenni preliminari sul linguaggio di espressioni OData per ricerca cognitiva di Azure](query-odata-filter-orderby-syntax.md)
+- [Informazioni di riferimento sulla sintassi delle espressioni OData per ricerca cognitiva di Azure](search-query-odata-syntax-reference.md)
+- [Eseguire ricerche &#40;nei documenti ricerca cognitiva API REST di Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

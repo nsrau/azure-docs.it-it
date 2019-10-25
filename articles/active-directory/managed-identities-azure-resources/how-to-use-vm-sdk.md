@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00c86562e0fdb4e6d62d44088b7aba08e45e22a4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c66bb2b4e9af6f4b79b0ead98b8d18fc56cb467
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60293235"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809195"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-with-azure-sdks"></a>Come usare le identità gestite per le risorse di Azure in una macchina virtuale di Azure con Azure SDK 
 
@@ -42,7 +42,7 @@ Questo articolo fornisce un elenco di esempi di SDK, che illustrano l'uso del su
 | .NET Core       | [Call Azure services from a Linux VM using managed identities for Azure resources](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) (Chiamare servizi Azure da una macchina virtuale Linux usando identità gestite per le risorse di Azure) |
 | Node.js         | [Manage resources using managed identities for Azure resources](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) (Gestione delle risorse usando le identità gestite per le risorse di Azure) |
 | Python          | [Use managed identities for Azure resources to authenticate simply from inside a VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) (Uso delle identità gestite per le risorse di Azure per l'autenticazione semplice da una macchina virtuale) |
-| Ruby            | [Manage resources from a VM with managed identities for Azure resources enabled](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) (Gestione delle risorse da una macchina virtuale con identità gestite per le risorse di Azure abilitate) |
+| Ruby            | [Manage resources from a VM with managed identities for Azure resources enabled](https://github.com/Azure-Samples/resources-ruby-manage-resources-with-msi/) (Gestione delle risorse da una macchina virtuale con identità gestite per le risorse di Azure abilitate) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

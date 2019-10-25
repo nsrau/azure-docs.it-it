@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/22/2019
 ms.author: mayg
-ms.openlocfilehash: 2f6f865f019b8b2a403865db4e59a7e86f59e509
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: cf1ccdf953781ca9b9bd17152f2cf32677997d12
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331067"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791809"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Ristabilire la protezione ed eseguire il failback su macchine in un sito locale dopo il failover in Azure
 
@@ -34,6 +34,7 @@ Se è stato usato un modello per creare le macchine virtuali, assicurarsi che og
 - Se le macchine virtuali in cui si vuole eseguire il failback sono gestite da un server vCenter, verificare di avere le [autorizzazioni necessarie](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) per l'individuazione di macchine virtuali nei server vCenter.
 - Eliminare gli snapshot nel server di destinazione master prima di abilitare la riprotezione. Se nella destinazione master o nella macchina virtuale locale sono presenti snapshot, la riprotezione avrà esito negativo. Durante il processo di riprotezione, gli snapshot nella macchina virtuale vengono uniti automaticamente.
 - Le macchine virtuali di un gruppo di replica devono avere tutte lo stesso tipo di sistema operativo, ovvero devono essere tutte Windows o tutte Linux. Non è attualmente previsto il supporto per la riprotezione e il failback in locale di un gruppo di replica con sistemi operativi misti. Questo perché la destinazione master deve avere lo stesso sistema operativo della macchina virtuale. Tutte le macchine virtuali di un gruppo di replica devono avere la stessa destinazione master. 
+- La destinazione master deve avere una versione del sistema operativo uguale o superiore a quella delle versioni del sistema operativo degli elementi replicati.
 - Quando si esegue un failback, è necessario un server di configurazione locale. Durante il failback, la macchina virtuale deve esistere nel database del server di configurazione. In caso contrario, il failback ha esito negativo. Assicurarsi di pianificare backup regolari del server di configurazione. In caso di emergenza, ripristinare il server con lo stesso indirizzo IP in modo che il failback funzioni. 
 - Per la replica dei dati, la riprotezione e il failback richiedono una VPN da sito a sito (S2S) o un peering privato ExpressRoute. La rete deve essere configurata per consentire alle macchine virtuali con failover in Azure di raggiungere (ping) il server di configurazione locale. È necessario distribuire un server di elaborazione nella rete di Azure delle macchine virtuali sottoposte a failover. Questo server di elaborazione deve anche essere in grado di comunicare con il server di configurazione locale e il server di destinazione master.
 - Se gli indirizzi IP degli elementi replicati sono stati conservati in caso di failover, è necessario stabilire la connettività S2S o ExpressRoute tra macchine virtuali di Azure e la scheda di interfaccia di rete di failback del server di configurazione. Si noti che la conservazione degli indirizzi IP richiede un server di configurazione con due schede di rete, una per la connettività dei computer di origine e una per la connettività di failback di Azure Questo consente di evitare la sovrapposizione degli intervalli di indirizzi di subnet dell'origine e le macchine virtuali di cui è stato eseguito il failover.

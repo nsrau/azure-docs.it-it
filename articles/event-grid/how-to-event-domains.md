@@ -1,18 +1,18 @@
 ---
-title: Gestire set di argomenti di grandi dimensioni in Griglia di eventi di Azure con Domini eventi
+title: Pubblicare eventi con domini eventi con griglia di eventi di Azure
 description: Mostra come gestire set di argomenti di grandi dimensioni in Griglia di eventi di Azure e pubblicarvi eventi con Domini eventi.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.openlocfilehash: 9d7cef35ef6d1138b037f7c520f21bee86567aa8
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.date: 10/22/2019
+ms.openlocfilehash: 1d07227249806b7d54523af66817a170c19354ee
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842572"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786547"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gestire argomenti e pubblicare eventi con Domini eventi
 
@@ -35,7 +35,7 @@ Per informazioni su Domini eventi, vedere [Informazioni sui domini eventi per la
 
 Per gestire set di argomenti di grandi dimensioni, creare un dominio eventi.
 
-# <a name="azure-clitabazurecli"></a>[Interfaccia della riga di comando di Azure](#tab/azurecli)
+# <a name="azure-clitabazurecli"></a>[interfaccia della riga di comando di Azure](#tab/azurecli)
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.
@@ -86,7 +86,7 @@ Per gestire l'accesso agli argomenti, si usa l'[assegnazione di ruolo](https://d
 
 In Griglia di eventi sono disponibili due ruoli predefiniti che è possibile usare per assegnare agli utenti l'accesso ai diversi argomenti in un dominio. Questi ruoli sono `EventGrid EventSubscription Contributor (Preview)`, che consente di creare ed eliminare le sottoscrizioni, e `EventGrid EventSubscription Reader (Preview)`, che consente solo di visualizzare l'elenco delle sottoscrizioni di eventi.
 
-# <a name="azure-clitabazurecli"></a>[Interfaccia della riga di comando di Azure](#tab/azurecli)
+# <a name="azure-clitabazurecli"></a>[interfaccia della riga di comando di Azure](#tab/azurecli)
 Il comando seguente dell'interfaccia della riga di comando di Azure consente all'utente `alice@contoso.com` di creare ed eliminare le sottoscrizioni di eventi solo per l'argomento `demotopic1`:
 
 ```azurecli-interactive
@@ -117,7 +117,7 @@ La procedura di sottoscrizione di un argomento in un dominio è identica a quell
 
 In genere, l'utente a cui è stato concesso l'accesso nella sezione precedente creerà la sottoscrizione. Per semplificare questo articolo, creare la sottoscrizione. 
 
-# <a name="azure-clitabazurecli"></a>[Interfaccia della riga di comando di Azure](#tab/azurecli)
+# <a name="azure-clitabazurecli"></a>[interfaccia della riga di comando di Azure](#tab/azurecli)
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -175,7 +175,7 @@ La procedura di pubblicazione di eventi in un dominio è identica a quella di [p
 }]
 ```
 
-# <a name="azure-clitabazurecli"></a>[Interfaccia della riga di comando di Azure](#tab/azurecli)
+# <a name="azure-clitabazurecli"></a>[interfaccia della riga di comando di Azure](#tab/azurecli)
 Per ottenere l'endpoint di dominio con l'interfaccia della riga di comando di Azure, usare
 
 ```azurecli-interactive

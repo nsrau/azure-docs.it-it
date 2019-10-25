@@ -1,31 +1,31 @@
 ---
-title: Come pianificare gli indicizzatori-ricerca di Azure
-description: Pianificare gli indicizzatori di ricerca di Azure per indicizzare il contenuto periodicamente o in momenti specifici.
-ms.date: 05/31/2019
+title: Come pianificare gli indicizzatori
+titleSuffix: Azure Cognitive Search
+description: Pianificare gli indicizzatori di Azure ricerca cognitiva per indicizzare il contenuto periodicamente o in momenti specifici.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
-services: search
-ms.service: search
-ms.devlang: ''
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.openlocfilehash: d30c4532c43c5df568cf32a1025b796b3be9ee8e
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: e9d4f49bd0aec1a04b4839b2084a81fb538f7890
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72533615"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793701"
 ---
-# <a name="how-to-schedule-indexers-for-azure-search"></a>Come pianificare gli indicizzatori per ricerca di Azure
+# <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Come pianificare gli indicizzatori in Azure ricerca cognitiva
+
 Un indicizzatore viene in genere eseguito una volta, subito dopo la creazione. È possibile eseguirlo di nuovo su richiesta tramite il portale, l'API REST o .NET SDK. È anche possibile configurare un indicizzatore per l'esecuzione periodica in base a una pianificazione.
 
 Di seguito sono riportate alcune situazioni in cui è utile pianificare l'indicizzatore:
 
-* I dati di origine cambieranno nel tempo e si vuole che gli indicizzatori di ricerca di Azure elaborino automaticamente i dati modificati.
+* I dati di origine cambieranno nel tempo e si vuole che gli indicizzatori di Azure ricerca cognitiva elaborino automaticamente i dati modificati.
 * L'indice verrà popolato da più origini dati e si desidera verificare che gli indicizzatori vengano eseguiti in momenti diversi per ridurre i conflitti.
-* I dati di origine sono molto grandi e si vuole distribuire l'elaborazione dell'indicizzatore nel tempo. Per altre informazioni sull'indicizzazione di grandi volumi di dati, vedere [come indicizzare set di dati di grandi dimensioni in ricerca di Azure](search-howto-large-index.md).
+* I dati di origine sono molto grandi e si vuole distribuire l'elaborazione dell'indicizzatore nel tempo. Per altre informazioni sull'indicizzazione di grandi volumi di dati, vedere [come indicizzare set di dati di grandi dimensioni in ricerca cognitiva di Azure](search-howto-large-index.md).
 
-L'utilità di pianificazione è una funzionalità predefinita di ricerca di Azure. Non è possibile usare un'utilità di pianificazione esterna per controllare gli indicizzatori di ricerca.
+L'utilità di pianificazione è una funzionalità predefinita di Azure ricerca cognitiva. Non è possibile usare un'utilità di pianificazione esterna per controllare gli indicizzatori di ricerca.
 
 ## <a name="define-schedule-properties"></a>Definire le proprietà della pianificazione
 
@@ -88,7 +88,7 @@ Il **StartTime** facoltativo indica quando devono iniziare le esecuzioni pianifi
 
 ## <a name="schedule-using-the-net-sdk"></a>Pianificare l'uso di .NET SDK
 
-È possibile definire la pianificazione per un indicizzatore usando Azure search .NET SDK. A tale scopo, includere la proprietà **Schedule** durante la creazione o l'aggiornamento di un indicizzatore.
+È possibile definire la pianificazione per un indicizzatore usando Azure ricerca cognitiva .NET SDK. A tale scopo, includere la proprietà **Schedule** durante la creazione o l'aggiornamento di un indicizzatore.
 
 Nell'esempio C# seguente viene creato un indicizzatore utilizzando un'origine dati e un indice predefiniti e viene impostata la pianificazione per l'esecuzione una volta al giorno a partire da 30 minuti da ora:
 

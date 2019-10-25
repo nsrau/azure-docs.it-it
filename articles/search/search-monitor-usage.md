@@ -1,24 +1,24 @@
 ---
-title: Monitorare l'utilizzo delle risorse e le metriche di query per un servizio di ricerca - Ricerca di Azure
-description: Abilitare la registrazione e ottenere metriche per le attività di query, l'utilizzo delle risorse e altri dati di sistema da un servizio di ricerca di Azure.
-author: HeidiSteen
+title: Monitorare l'utilizzo delle risorse e le metriche delle query
+titleSuffix: Azure Cognitive Search
+description: Abilitare la registrazione, ottenere le metriche dell'attività di query, l'utilizzo delle risorse e altri dati di sistema da un servizio ricerca cognitiva di Azure.
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/16/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: fe8061f8e99742f9dc5c1181235c4203aaad82ca
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+tags: azure-portal
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c4b8b03394eee6dffb79b0e40a22dd49880dee88
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72331219"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793493"
 ---
-# <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorare l'utilizzo delle risorse e l'attività di query in ricerca di Azure
+# <a name="monitor-resource-consumption-and-query-activity-in-azure-cognitive-search"></a>Monitorare l'utilizzo delle risorse e le attività di query in Azure ricerca cognitiva
 
-Nella pagina Panoramica del servizio Ricerca di Azure, è possibile visualizzare i dati di sistema sull'utilizzo delle risorse, le metriche di query e la parte di quota disponibile per creare altri indici, indicizzatori e origini dati. È anche possibile usare il portale per configurare Log Analytics o un'altra risorsa per la raccolta di dati persistenti. 
+Nella pagina Panoramica del servizio ricerca cognitiva di Azure è possibile visualizzare i dati di sistema sull'utilizzo delle risorse, le metriche di query e la quantità di quota disponibile per creare più indici, indicizzatori e origini dati. È anche possibile usare il portale per configurare Log Analytics o un'altra risorsa per la raccolta di dati persistenti. 
 
 La configurazione di log è utile per attività di autodiagnostica e per conservare la cronologia operativa. Internamente, i log esistono nel back-end per un breve periodo di tempo, sufficiente per indagini e analisi se si crea un ticket di supporto. Se si vuole avere il controllo delle informazioni dei log e potervi accedere, è necessario configurare una delle soluzioni descritte in questo articolo.
 
@@ -52,7 +52,7 @@ Per le attività interne al servizio, come la creazione di un indice o l'elimina
 
 ## <a name="add-on-monitoring-solutions"></a>Soluzioni di monitoraggio aggiuntive
 
-Ricerca di Azure non archivia dati, oltre agli oggetti gestiti, e questo significa che i dati dei log devono essere archiviati esternamente. Per salvare in modo permanente i dati dei log, è possibile configurare le risorse seguenti. 
+Azure ricerca cognitiva non archivia i dati oltre gli oggetti gestiti, il che significa che i dati di log devono essere archiviati esternamente. Per salvare in modo permanente i dati dei log, è possibile configurare le risorse seguenti. 
 
 La tabella seguente confronta le opzioni per l'archiviazione dei log e l'aggiunta di funzionalità di monitoraggio approfondite per le operazioni del servizio e i carichi di lavoro di query tramite Application Insights.
 
@@ -64,17 +64,17 @@ La tabella seguente confronta le opzioni per l'archiviazione dei log e l'aggiunt
 
 I log di monitoraggio di Azure e l'archiviazione BLOB sono disponibili come servizio gratuito, in modo che sia possibile provarli senza costi aggiuntivi per la durata della sottoscrizione di Azure. L'iscrizione e l'uso di Application Insights sono gratuiti purché le dimensioni dei dati dell'applicazione non superino determinati limiti (vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/monitor/) per informazioni dettagliate).
 
-La sezione successiva illustra la procedura per l'abilitazione e l'uso dell'archiviazione BLOB di Azure per raccogliere i dati di log creati dalle operazioni di Ricerca di Azure e accedervi.
+La sezione successiva illustra i passaggi per l'abilitazione e l'uso dell'archiviazione BLOB di Azure per la raccolta e l'accesso ai dati di log creati dalle operazioni di ricerca cognitiva di Azure.
 
 ## <a name="enable-logging"></a>Abilitazione della registrazione
 
-La registrazione per i carichi di lavoro di indicizzazione e query è disattivata per impostazione predefinita e dipende da soluzioni aggiuntive sia per l'infrastruttura di registrazione che per l'archiviazione esterna a lungo termine. Gli unici dati salvati in modo permanente in Ricerca di Azure sono gli oggetti creati e gestiti dal servizio, quindi i log devono essere archiviati altrove.
+La registrazione per i carichi di lavoro di indicizzazione e query è disattivata per impostazione predefinita e dipende da soluzioni aggiuntive sia per l'infrastruttura di registrazione che per l'archiviazione esterna a lungo termine. Di per sé, gli unici dati persistenti in Azure ricerca cognitiva sono gli oggetti che crea e gestisce, quindi i log devono essere archiviati altrove.
 
 In questa sezione si apprenderà come usare l'archiviazione BLOB per archiviare gli eventi registrati e i dati di metrica.
 
-1. Se non ne è già disponibile uno, [creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). È possibile inserirlo nello stesso gruppo di risorse di Ricerca di Azure per semplificare la pulizia, se in un secondo momento si vogliono eliminare tutte le risorse usate in questo esercizio.
+1. Se non ne è già disponibile uno, [creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). È possibile inserirlo nello stesso gruppo di risorse di Azure ricerca cognitiva per semplificare la pulizia in un secondo momento se si desidera eliminare tutte le risorse usate in questo esercizio.
 
-   L'account di archiviazione deve esistere nella stessa area di ricerca di Azure.
+   L'account di archiviazione deve esistere nella stessa area del ricerca cognitiva di Azure.
 
 2. Aprire la pagina Panoramica del servizio di ricerca. Nel riquadro di spostamento a sinistra scorrere verso il basso fino a **Monitoraggio** e fare clic su **Abilita monitoraggio**.
 
@@ -158,14 +158,14 @@ Per ThrottledSearchQueriesPercentage, i valori minimo, massimo, medio e totale c
 
 1. Nel portale di Azure aprire l'account di archiviazione. 
 
-2. Nel riquadro di spostamento a sinistra fare clic su **BLOB**. Dovrebbero essere disponibili i contenitori **insights-logs-operationlogs** e **insights-metrics-pt1m**. Questi contenitori vengono creati da Ricerca di Azure quando i dati di log vengono esportati nell'archiviazione BLOB.
+2. Nel riquadro di spostamento a sinistra fare clic su **BLOB**. Dovrebbero essere disponibili i contenitori **insights-logs-operationlogs** e **insights-metrics-pt1m**. Questi contenitori vengono creati da Azure ricerca cognitiva quando i dati di log vengono esportati nell'archivio BLOB.
 
 3. Scorrere la gerarchia di cartelle verso il basso fino a raggiungere il file con estensione JSON.  Usare il menu di scelta rapida per scaricare il file.
 
 Dopo aver scaricato il file, aprirlo in un editor JSON per visualizzare il contenuto.
 
 ## <a name="use-system-apis"></a>Usare le API del sistema
-Sia l'API REST di Ricerca di Azure che .NET SDK consentono l'accesso a livello di codice alle metriche del servizio, a informazioni su indice e indicizzatore e ai conteggi di documenti.
+Sia l'API REST di Azure ricerca cognitiva che .NET SDK forniscono l'accesso a livello di codice alle metriche dei servizi, alle informazioni sugli indici e agli indicizzatori e ai conteggi dei documenti.
 
 * [Ottenere le statistiche del servizio](/rest/api/searchservice/get-service-statistics)
 * [Ottenere le statistiche di indice](/rest/api/searchservice/get-index-statistics)

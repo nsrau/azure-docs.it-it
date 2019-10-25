@@ -1,5 +1,6 @@
 ---
-title: Web browser in Microsoft Authentication Library per .NET | Azure
+title: Web browser in Microsoft Authentication Library per .NET
+titleSuffix: Microsoft identity platform
 description: Per informazioni su considerazioni specifiche, vedere l'articolo relativo all'uso di Novell Android con Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,15 +18,15 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1285c5c61cee25e387ca5fb598f0e062088e549
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2446166aa8078040c06d7cb54ce01666d9931727
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532492"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802684"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Uso di Web browser in MSAL.NET
-I Web browser sono necessari per l'autenticazione interattiva. Per impostazione predefinita, MSAL.NET supporta il [Web browser di sistema](#system-web-browser-on-xamarinios-xamarinandroid) in Novell. iOS e Novell. Android. Tuttavia, [è anche possibile abilitare la Web browser incorporata](#enable-embedded-webviews-on-ios-and-android) in base alle esigenze (esperienza utente, necessità di accesso Single Sign-on (SSO), sicurezza) nelle app [Novell. iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) e [Novell. Android](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) . È anche possibile [scegliere dinamicamente](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) il Web browser da usare in base alla presenza di Chrome o un browser che supporta le schede personalizzate Chrome in Android. MSAL.NET supporta solo il browser di sistema nelle applicazioni desktop .NET Core.
+I Web browser sono necessari per l'autenticazione interattiva. Per impostazione predefinita, MSAL.NET supporta il [Web browser di sistema](#system-web-browser-on-xamarinios-xamarinandroid) in Novell. iOS e Novell. Android. Tuttavia, [è anche possibile abilitare la Web browser incorporata](#enable-embedded-webviews-on-ios-and-android) in base ai propri requisiti (UX, need for Single Sign-on (SSO), Security) nelle app [Novell. iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) e [Novell. Android](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) . È anche possibile [scegliere dinamicamente](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) il Web browser da usare in base alla presenza di Chrome o un browser che supporta le schede personalizzate Chrome in Android. MSAL.NET supporta solo il browser di sistema nelle applicazioni desktop .NET Core.
 
 ## <a name="web-browsers-in-msalnet"></a>Web browser in MSAL.NET
 
@@ -42,23 +43,23 @@ Quando si acquisisce un token in modo interattivo, è importante comprendere che
 
 ### <a name="embedded-vs-system-web-ui"></a>Interfaccia utente Web di Visual Studio System incorporato
 
-MSAL.NET è una libreria multiframework e contiene codice specifico del Framework per ospitare un browser in un controllo dell'interfaccia utente (ad esempio, in .NET classico USA WinForms, in Novell usa controlli mobili nativi e così via). Questo controllo è denominato `embedded` interfaccia utente Web. In alternativa, MSAL.NET è anche in grado di avviare il browser sistema operativo.
+MSAL.NET è una libreria multiframework e contiene codice specifico del Framework per ospitare un browser in un controllo dell'interfaccia utente (ad esempio, in .NET classico USA WinForms, in Novell usa controlli mobili nativi e così via). Questo controllo viene chiamato `embedded` interfaccia utente Web. In alternativa, MSAL.NET è anche in grado di avviare il browser sistema operativo.
 
-In genere, è consigliabile usare il valore predefinito della piattaforma, che in genere è il browser del sistema. Il browser di sistema è migliore per ricordare gli utenti che hanno eseguito l'accesso in precedenza. Se è necessario modificare questo comportamento, usare`WithUseEmbeddedWebView(bool)`
+In genere, è consigliabile usare il valore predefinito della piattaforma, che in genere è il browser del sistema. Il browser di sistema è migliore per ricordare gli utenti che hanno eseguito l'accesso in precedenza. Se è necessario modificare questo comportamento, usare `WithUseEmbeddedWebView(bool)`
 
-### <a name="at-a-glance"></a>Riepilogo
+### <a name="at-a-glance"></a>Panoramica
 
 | Framework        | Embedded | Sistema | Predefinito |
 | ------------- |-------------| -----| ----- |
-| .NET classico     | Yes | Sì ^ | Embedded |
+| .NET classico     | SÌ | Sì ^ | Embedded |
 | .NET Core     | No | Sì ^ | Sistema |
 | .NET Standard | No | Sì ^ | Sistema |
-| UWP | Sì | No | Embedded |
-| Xamarin.Android | Yes | Sì  | Sistema |
-| Xamarin.iOS | Yes | Yes  | Sistema |
-| Xamarin.Mac| Sì | No | Embedded |
+| UWP | SÌ | No | Embedded |
+| Xamarin.Android | SÌ | SÌ  | Sistema |
+| Xamarin.iOS | SÌ | SÌ  | Sistema |
+| Novell. Mac| SÌ | No | Embedded |
 
-^ Richiede l'http://localhost URI di reindirizzamento ""
+^ Richiede l'URI di reindirizzamento "http://localhost"
 
 ## <a name="system-web-browser-on-xamarinios-xamarinandroid"></a>Web browser di sistema in Novell. iOS, Novell. Android
 
@@ -77,15 +78,15 @@ await pca.AcquireTokenInteractive(s_scopes)
          .WithUseEmbeddedWebView(false)
 ```
 
-MSAL.NET non è in grado di rilevare se l'utente si sposta o semplicemente chiude il browser. Le app che usano questa tecnica sono consigliate per definire un `CancellationToken`timeout (via). Si consiglia un timeout di almeno pochi minuti per tenere conto dei casi in cui all'utente viene richiesto di modificare la password o di eseguire l'autenticazione a più fattori.
+MSAL.NET non è in grado di rilevare se l'utente si sposta o semplicemente chiude il browser. Le app che usano questa tecnica sono consigliate per definire un timeout (tramite `CancellationToken`). Si consiglia un timeout di almeno pochi minuti per tenere conto dei casi in cui all'utente viene richiesto di modificare la password o di eseguire l'autenticazione a più fattori.
 
 ### <a name="how-to-use-the-default-os-browser"></a>Come usare il browser del sistema operativo predefinito
 
-MSAL.NET deve restare in ascolto `http://localhost:port` e intercettare il codice inviato da AAD quando l'utente esegue l'autenticazione (vedere il [codice di autorizzazione](v2-oauth2-auth-code-flow.md) per i dettagli)
+MSAL.NET deve restare in attesa su `http://localhost:port` e intercettare il codice inviato da AAD quando l'utente esegue l'autenticazione (vedere il [codice di autorizzazione](v2-oauth2-auth-code-flow.md) per i dettagli)
 
 Per abilitare il browser di sistema:
 
-1. Durante la registrazione dell'app `http://localhost` , configurare come URI di reindirizzamento (attualmente non supportato da B2C)
+1. Durante la registrazione dell'app, configurare `http://localhost` come URI di reindirizzamento (attualmente non supportato da B2C)
 2. Quando si crea la PublicClientApplication, specificare questo URI di reindirizzamento:
 
 ```csharp
@@ -101,8 +102,8 @@ IPublicClientApplication pca = PublicClientApplicationBuilder
 
 ### <a name="linux-and-mac"></a>Linux e MAC
 
-In Linux MSAL.NET aprirà il browser del sistema operativo predefinito usando lo strumento xdg-open. Per risolvere i problemi, eseguire lo strumento da un terminale, ad esempio`xdg-open "https://www.bing.com"`  
-Sul Mac, il browser viene aperto richiamando`open <url>`
+In Linux MSAL.NET aprirà il browser del sistema operativo predefinito usando lo strumento xdg-open. Per risolvere i problemi, eseguire lo strumento da un terminale, ad esempio `xdg-open "https://www.bing.com"`  
+Sul Mac, il browser viene aperto richiamando `open <url>`
 
 ### <a name="customizing-the-experience"></a>Personalizzazione dell'esperienza
 
@@ -141,11 +142,11 @@ Per le applicazioni desktop, tuttavia, l'avvio di un sistema WebView conduce a u
 
 ## <a name="enable-embedded-webviews-on-ios-and-android"></a>Abilitare WebView incorporati in iOS e Android
 
-È anche possibile abilitare le visualizzazioni Web incorporate nelle app Novell. iOS e Novell. Android. A partire da MSAL.NET 2.0.0-Preview, MSAL.NET supporta anche l' uso dell'opzione Embedded WebView. Per ADAL.NET, embedded WebView è l'unica opzione supportata.
+È anche possibile abilitare le visualizzazioni Web incorporate nelle app Novell. iOS e Novell. Android. A partire da MSAL.NET 2.0.0-Preview, MSAL.NET supporta anche l'uso dell'opzione **Embedded** WebView. Per ADAL.NET, embedded WebView è l'unica opzione supportata.
 
 Gli sviluppatori che usano MSAL.NET con destinazione Novell possono scegliere di usare Webviews o browser di sistema incorporati. Questa è la scelta a seconda dell'esperienza utente e dei problemi di sicurezza che si vuole usare come destinazione.
 
-Attualmente, MSAL.NET non supporta ancora i broker Android e iOS. Pertanto, se è necessario fornire l'accesso Single Sign-on (SSO), il browser di sistema potrebbe essere ancora un'opzione migliore. Il supporto di broker con il Web browser incorporato si trova nel backlog MSAL.NET.
+Attualmente, MSAL.NET non supporta ancora i broker Android e iOS. Se pertanto è necessario fornire Single Sign-On (SSO), il browser di sistema potrebbe essere ancora un'opzione migliore. Il supporto di broker con il Web browser incorporato si trova nel backlog MSAL.NET.
 
 ### <a name="differences-between-embedded-webview-and-system-browser"></a>Differenze tra WebView incorporato e browser di sistema
 Esistono alcune differenze visive tra WebView incorporato e browser di sistema in MSAL.NET.
@@ -163,7 +164,7 @@ Esistono alcune differenze visive tra WebView incorporato e browser di sistema i
 Gli sviluppatori che usano MSAL.NET sono disponibili diverse opzioni per la visualizzazione della finestra di dialogo interattiva da STS:
 
 - **Browser del sistema.** Il browser di sistema è impostato per impostazione predefinita nella libreria. Se si usa Android, vedere [browser di sistema](msal-net-system-browser-android-considerations.md) per informazioni specifiche sui browser supportati per l'autenticazione. Quando si usa il browser di sistema in Android, è consigliabile che il dispositivo disponga di un browser che supporta le schede personalizzate Chrome.  In caso contrario, l'autenticazione potrebbe non riuscire.
-- **Visualizzazione WebView incorporata.** Per usare solo WebView incorporato in MSAL.NET, il `AcquireTokenInteractively` generatore di parametri contiene `WithUseEmbeddedWebView()` un metodo.
+- **Visualizzazione WebView incorporata.** Per usare solo WebView incorporato in MSAL.NET, il generatore di parametri `AcquireTokenInteractively` contiene un metodo di `WithUseEmbeddedWebView()`.
 
     iOS
 
@@ -185,7 +186,7 @@ Gli sviluppatori che usano MSAL.NET sono disponibili diverse opzioni per la visu
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinios"></a>Scelta tra browser incorporato o browser di sistema in Novell. iOS
 
-Nell'app iOS in `AppDelegate.cs` è possibile inizializzare il `ParentWindow` su `null`. Non viene usato in iOS
+Nell'app iOS, in `AppDelegate.cs` è possibile inizializzare la `ParentWindow` per `null`. Non viene usato in iOS
 
 ```csharp
 App.ParentWindow = null; // no UI parent on iOS
@@ -193,13 +194,13 @@ App.ParentWindow = null; // no UI parent on iOS
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid"></a>Scelta tra browser incorporato o browser di sistema in Novell. Android
 
-Nell'app Android, in è `MainActivity.cs` possibile impostare l'attività padre, in modo che il risultato dell'autenticazione torni a esso:
+Nell'app Android, in `MainActivity.cs` è possibile impostare l'attività padre, in modo che il risultato dell'autenticazione torni a questo:
 
 ```csharp
  App.ParentWindow = this;
 ```
 
-Quindi nel `MainPage.xaml.cs`:
+Quindi, nella `MainPage.xaml.cs`:
 
 ```csharp
 authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
@@ -210,11 +211,11 @@ authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
 
 #### <a name="detecting-the-presence-of-custom-tabs-on-xamarinandroid"></a>Rilevamento della presenza di schede personalizzate in Novell. Android
 
-Se si vuole usare il Web browser di sistema per abilitare l'accesso SSO con le app in esecuzione nel browser, ma si è preoccupati dell'esperienza utente per i dispositivi Android che non dispongono di un browser con supporto per le schede personalizzato, è possibile `IsSystemWebViewAvailable()` scegliere di decidere chiamando il metodo in < c 2 `IPublicClientApplication` . Questo metodo restituisce `true` se il PackageManager rileva schede personalizzate e `false` se non vengono rilevate nel dispositivo.
+Se si vuole usare il Web browser di sistema per abilitare l'accesso SSO con le app in esecuzione nel browser, ma si è preoccupati dell'esperienza utente per i dispositivi Android che non dispongono di un browser con supporto per le schede personalizzato, è possibile scegliere di decidere chiamando il metodo `IsSystemWebViewAvailable()` in `IPublicClientApplication`. Questo metodo restituisce `true` se il PackageManager rileva schede personalizzate e `false` se non vengono rilevate nel dispositivo.
 
 In base al valore restituito da questo metodo e ai requisiti, è possibile prendere una decisione:
 
-- È possibile restituire all'utente un messaggio di errore personalizzato. Ad esempio:  "Per continuare l'autenticazione, installare Chrome"-o-
+- È possibile restituire all'utente un messaggio di errore personalizzato. Ad esempio: "installare Chrome per continuare con l'autenticazione"-o-
 - È possibile eseguire il fallback all'opzione Embedded WebView e avviare l'interfaccia utente come WebView incorporata.
 
 Il codice seguente mostra l'opzione incorporata WebView:

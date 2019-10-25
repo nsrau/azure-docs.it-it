@@ -1,25 +1,24 @@
 ---
-title: Come monitorare lo stato e i risultati dell'indicizzatore-ricerca di Azure
-description: Monitorare lo stato, lo stato di avanzamento e i risultati degli indicizzatori di ricerca di Azure nella portale di Azure, usando l'API REST o .NET SDK.
-ms.date: 06/28/2019
-author: RobDixon22
+title: Come monitorare lo stato e i risultati dell'indicizzatore
+titleSuffix: Azure Cognitive Search
+description: Monitorare lo stato, lo stato di avanzamento e i risultati degli indicizzatori di Azure ricerca cognitiva nel portale di Azure, usando l'API REST o .NET SDK.
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: 0096334e06051b9ff474543384febb37bdf1c8e2
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: c7f688c96576f660795becaf318c3b0677a24542
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72533709"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793793"
 ---
-# <a name="how-to-monitor-azure-search-indexer-status-and-results"></a>Come monitorare lo stato e i risultati dell'indicizzatore di ricerca di Azure
+# <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Come monitorare lo stato e i risultati dell'indicizzatore ricerca cognitiva di Azure
 
-Ricerca di Azure offre informazioni sullo stato e sul monitoraggio sulle esecuzioni correnti e cronologiche di ogni indicizzatore.
+Azure ricerca cognitiva fornisce informazioni sullo stato e sul monitoraggio delle esecuzioni correnti e cronologiche di ogni indicizzatore.
 
 Il monitoraggio dell'indicizzatore è utile quando si desidera:
 
@@ -75,7 +74,7 @@ Se durante l'esecuzione si sono verificati problemi specifici del documento, que
 
 Gli avvisi sono comuni ad alcuni tipi di indicizzatori e non sempre indicano un problema. Ad esempio, gli indicizzatori che usano servizi cognitivi possono segnalare avvisi quando i file di immagine o PDF non contengono testo da elaborare.
 
-Per ulteriori informazioni sull'analisi degli errori e degli avvisi dell'indicizzatore, vedere [risoluzione dei problemi comuni dell'indicizzatore in ricerca di Azure](search-indexer-troubleshooting.md).
+Per ulteriori informazioni sull'analisi degli errori e degli avvisi dell'indicizzatore, vedere [risoluzione dei problemi comuni dell'indicizzatore in ricerca cognitiva di Azure](search-indexer-troubleshooting.md).
 
 <a name="restapi"></a>
 
@@ -128,7 +127,7 @@ Per ulteriori informazioni sui codici di stato e sui dati di monitoraggio dell'i
 
 ## <a name="monitor-using-the-net-sdk"></a>Monitorare con .NET SDK
 
-È possibile definire la pianificazione per un indicizzatore usando Azure search .NET SDK. A tale scopo, includere la proprietà **Schedule** durante la creazione o l'aggiornamento di un indicizzatore.
+È possibile definire la pianificazione per un indicizzatore usando Azure ricerca cognitiva .NET SDK. A tale scopo, includere la proprietà **Schedule** durante la creazione o l'aggiornamento di un indicizzatore.
 
 Nell'esempio C# seguente vengono scritte informazioni sullo stato di un indicizzatore e sui risultati dell'esecuzione più recente (o in corso) della console.
 

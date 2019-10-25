@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 38a9f3a7020e866ccb000ed0c54499258f5e651a
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 63d1213a2dded41df3f462722b354b03fe9f6e33
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734666"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72801889"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Approccio e processo per l'adozione di Azure Data Catalog
 
@@ -125,7 +125,7 @@ Per altre informazioni sullo strumento di registrazione delle origini dati, vede
 Nell'ambito del progetto pilota, il team di Nancy usa anche le origini dati descritte in una cartella di lavoro di Excel gestita da David e dai suoi colleghi. Poiché anche altri team dell'azienda usano cartelle di lavoro di Excel per descrivere le origini dati, il team IT decide di creare uno strumento per eseguire la migrazione della cartella di lavoro di Excel a Catalogo dati. Usando l'API REST di Catalogo dati per importare le annotazioni esistenti, il team del progetto pilota può ottenere un catalogo dati completo costituito dai metadati estratti dalle origini dati usando lo strumento di registrazione delle origini dati, che include anche le informazioni documentate in precedenza dai produttori e dagli utilizzatori dei dati, senza bisogno di immetterli di nuovo manualmente. Man mano che il catalogo dati cresce, l'organizzazione può usare lo strumento di registrazione per le origini dati comuni e l'API di Catalogo dati per le origini personalizzate e gli scenari non comuni.
 
 > [!NOTE]
-> Abbiamo scritto uno strumento di esempio che usa l'API di **Catalogo dati di Azure** per eseguire la migrazione di una cartella di lavoro di Excel a Catalogo dati. Per informazioni sull'API di Data Catalog e sullo strumento di esempio, [scaricare l'esempio di codice della cartella di lavoro ad hoc](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) e vedere la documentazione sull'[API REST di Azure Data Catalog](/rest/api/datacatalog/).
+> Abbiamo scritto uno strumento di esempio che usa l'API di **Catalogo dati di Azure** per eseguire la migrazione di una cartella di lavoro di Excel a Catalogo dati. Per informazioni sull'API di Data Catalog e sullo strumento di esempio, [scaricare l'esempio di codice della cartella di lavoro ad hoc](https://github.com/Azure-Samples/data-catalog-dotnet-excel-register-data-assets) e vedere la documentazione sull'[API REST di Azure Data Catalog](/rest/api/datacatalog/).
 
 Una volta completato il progetto pilota, è ora di eseguire il piano di adozione di Catalogo dati.
 

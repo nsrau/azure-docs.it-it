@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 408c9fb58b428c1671794c6e4e5cc890a153813f
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 541039c82d5ea21c43a847da2710bef4162a2bc7
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003946"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804033"
 ---
 # <a name="azure-encryption-overview"></a>Panoramica della crittografia di Azure
 
@@ -59,11 +59,11 @@ I tre modelli di crittografia lato server offrono caratteristiche differenti di 
 
 ### <a name="azure-disk-encryption"></a>Crittografia dischi di Azure
 
-È possibile proteggere le macchine virtuali Linux e Windows usando [Crittografia dischi di Azure](/azure/security/azure-security-disk-encryption) che usa la tecnologia [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) e Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) per proteggere sia i dischi del sistema operativo sia i dischi di dati con la crittografia dell'intero volume.
+È possibile proteggere le macchine virtuali Linux e Windows usando [Crittografia dischi di Azure](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) che usa la tecnologia [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) e Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) per proteggere sia i dischi del sistema operativo sia i dischi di dati con la crittografia dell'intero volume.
 
 Le chiavi e i segreti di crittografia vengono protetti nella sottoscrizione di [Azure Key Vault](../../key-vault/key-vault-overview.md). È possibile eseguire il backup e il ripristino delle macchine virtuali crittografate con configurazione KEK usando il servizio Backup di Microsoft Azure.
 
-### <a name="azure-storage-service-encryption"></a>Crittografia del servizio di archiviazione di Azure
+### <a name="azure-storage-service-encryption"></a>Crittografia del servizio Archiviazione di Azure
 
 I dati inattivi negli archivi BLOB di Azure e nelle condivisioni di file di Azure possono essere crittografati sia in scenari lato server che in quelli lato client.
 
@@ -79,7 +79,7 @@ Per altre informazioni sul pacchetto della Libreria client di archiviazione di A
 
 Quando si usa la crittografia lato client con Key Vault, i dati vengono crittografati usando una chiave di crittografia del contenuto (CEK) simmetrica unica generata dall'SDK client di Archiviazione di Azure. La chiave di crittografia del contenuto viene crittografata usando una chiave di crittografia della chiave, che può essere una chiave simmetrica o una coppia di chiavi asimmetriche. È possibile gestirla in locale o archiviarla in Key Vault. I dati crittografati vengono quindi caricati nel servizio Archiviazione di Microsoft Azure.
 
-Per altre informazioni sulla crittografia lato client con Key Vault e per iniziare con le istruzioni procedurali, vedere [Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Azure tramite Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md).
+Per altre informazioni sulla crittografia lato client con Key Vault e per iniziare con le istruzioni procedurali, vedere [Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 
 È infine possibile usare anche la Libreria client di archiviazione di Azure per Java per eseguire la crittografia lato client prima di caricare i dati in Archiviazione di Azure e decrittografare i dati durante il download nel client. Questa libreria supporta anche l'integrazione con [Key Vault](https://azure.microsoft.com/services/key-vault/) per la gestione delle chiavi dell'account di archiviazione.
 
@@ -181,7 +181,7 @@ Per altre informazioni sulle connessioni VPN da punto a sito per reti virtuali d
 
 È possibile configurare una connessione VPN da sito a sito a una rete virtuale usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
 
-Per altre informazioni, vedere:
+Per scoprire di più, vedi:
 
 [Creare una connessione da sito a sito nel portale di Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 

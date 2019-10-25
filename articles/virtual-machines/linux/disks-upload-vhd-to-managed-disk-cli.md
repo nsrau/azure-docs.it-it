@@ -9,18 +9,18 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: dfcf9ea61a1f0fb5fd2d3b613c2449480753b3a1
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 5215a7d899af15dc028189aee5760a6ec5b6577d
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595104"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803981"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Caricare un VHD in Azure usando l'interfaccia della riga di comando di Azure
 
 Questo articolo illustra come caricare un disco rigido virtuale dal computer locale a un disco gestito di Azure. In precedenza era necessario seguire un processo più impegnativo che includeva la gestione temporanea dei dati in un account di archiviazione e la gestione dell'account di archiviazione. A questo punto, non è più necessario gestire un account di archiviazione o organizzare i dati per il caricamento di un disco rigido virtuale. Viene invece creato un disco gestito vuoto e viene caricato direttamente un disco rigido virtuale. Questo semplifica il caricamento di macchine virtuali locali in Azure e consente di caricare un disco rigido virtuale fino a 32 TiB direttamente in un disco gestito di grandi dimensioni.
 
-Se si fornisce una soluzione di backup per le macchine virtuali IaaS in Azure, si consiglia di usare il caricamento diretto per ripristinare i backup dei clienti a Managed Disks. Se si sta caricando un disco rigido virtuale da un computer esterno ad Azure, la velocità con dipende dalla larghezza di banda locale. Se si usa una macchina virtuale di Azure, la larghezza di banda sarà identica a quella degli HDD standard.
+Se si fornisce una soluzione di backup per le macchine virtuali IaaS in Azure, si consiglia di usare il caricamento diretto per ripristinare i backup dei clienti a Managed Disks. Se si sta caricando un disco rigido virtuale da un computer esterno ad Azure, le velocità variano a seconda della larghezza di banda locale. Se si usa una macchina virtuale di Azure, la larghezza di banda sarà identica a quella degli HDD standard.
 
 Attualmente, il caricamento diretto è supportato per HDD standard, unità SSD standard e Managed disks SSD Premium. Non è ancora supportata per le unità SSD ultra.
 
@@ -29,7 +29,7 @@ Attualmente, il caricamento diretto è supportato per HDD standard, unità SSD s
 - Scaricare la versione più recente [di AzCopy V10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
 - Un file VHD, archiviato localmente
-- Se si intende caricare un disco rigido virtuale da un disco rigido virtuale che [è stato preparato per Azure](../windows/prepare-for-upload-vhd-image.md), archiviato localmente.
+- Se si intende caricare un disco rigido virtuale da locale: un disco rigido virtuale [preparato per Azure](../windows/prepare-for-upload-vhd-image.md), archiviato localmente.
 - In alternativa, un disco gestito in Azure, se si intende eseguire un'azione di copia.
 
 ## <a name="create-an-empty-managed-disk"></a>Creare un disco gestito vuoto
@@ -124,6 +124,5 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che è stato caricato correttamente un disco rigido virtuale in un disco gestito, è possibile collegarlo a una macchina virtuale e iniziare a usarlo.
+Ora che è stato caricato correttamente un disco rigido virtuale in un disco gestito, è possibile aggiungere il disco come [disco dati a una macchina virtuale esistente](add-disk.md) o [connetterlo a una macchina virtuale come disco del sistema operativo](upload-vhd.md#create-the-vm), per creare una nuova macchina virtuale. 
 
-Per informazioni su come aggiungere un disco a una macchina virtuale, vedere l'articolo sull'argomento: [aggiungere un disco a una VM Linux](add-disk.md).

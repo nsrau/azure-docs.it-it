@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65f3490e9cb62aa2d5c18b8fd564796dd6d3946c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: a312c39352f0d13b4354e7b0dfcd897bf4cc0992
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162426"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808458"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registrazione di informazioni di sicurezza combinate (anteprima)
 
@@ -34,7 +34,10 @@ Azure AD registrazione di informazioni di sicurezza combinata non è attualmente
 |     |
 
 > [!IMPORTANT]
-> Gli utenti abilitati per l'anteprima originale e per l'esperienza di registrazione combinata migliorata vedranno il nuovo comportamento. Gli utenti abilitati per entrambe le esperienze vedranno solo la nuova esperienza profilo personale. Il nuovo profilo è allineato all'aspetto della registrazione combinata e offre un'esperienza uniforme per gli utenti. Per visualizzare il profilo, gli utenti possono [https://myprofile.microsoft.com](https://myprofile.microsoft.com)passare a.
+> Gli utenti abilitati per l'anteprima originale e per l'esperienza di registrazione combinata migliorata vedranno il nuovo comportamento. Gli utenti abilitati per entrambe le esperienze vedranno solo la nuova esperienza profilo personale. Il nuovo profilo è allineato all'aspetto della registrazione combinata e offre un'esperienza uniforme per gli utenti. Per visualizzare il profilo, gli utenti possono passare a [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
+
+> [!NOTE] 
+> È possibile che venga visualizzato un messaggio di errore durante il tentativo di accedere all'opzione Info di sicurezza. Ad esempio, "spiacenti, non è possibile accedere". In questo caso, verificare che non sia presente alcun oggetto Criteri di gruppo o di configurazione che blocca i cookie di terze parti nel Web browser. 
 
 Le pagine del profilo sono localizzate in base alle impostazioni della lingua del computer che accede alla pagina. Microsoft archivia il linguaggio più recente usato nella cache del browser, quindi i tentativi successivi di accesso alle pagine continueranno a essere visualizzati nell'ultima lingua usata. Se si cancella la cache, viene eseguito nuovamente il rendering delle pagine. Se si vuole forzare una lingua specifica, è possibile aggiungere `?lng=<language>` alla fine dell'URL, dove `<language>` è il codice della lingua di cui si vuole eseguire il rendering.
 
@@ -44,17 +47,17 @@ Le pagine del profilo sono localizzate in base alle impostazioni della lingua de
 
 La registrazione combinata supporta le azioni e i metodi di autenticazione seguenti:
 
-|   | Registra | Cambia | Eliminare |
+|   | Iscriviti | Modifica | Eliminazione |
 | --- | --- | --- | --- |
-| Autenticatore Microsoft | Sì (massimo 5) | No | Sì |
-| Altra app di autenticazione | Sì (massimo 5) | No | Sì |
-| Token hardware | No | No | Yes |
-| Telefono | Yes | Sì | Yes |
-| Telefono alternativo | Sì | Sì | Yes |
+| Microsoft Authenticator | Sì (massimo 5) | No | SÌ |
+| Altra app di autenticazione | Sì (massimo 5) | No | SÌ |
+| Token hardware | No | No | SÌ |
+| Telefono | SÌ | SÌ | SÌ |
+| Telefono alternativo | SÌ | SÌ | SÌ |
 | Telefono ufficio | No | No | No |
-| Email | Sì | Sì | Sì |
-| Domande di sicurezza | Sì | No | Sì |
-| Password dell'app | Sì | No | Yes |
+| Indirizzo di posta elettronica | SÌ | SÌ | SÌ |
+| Domande di sicurezza | SÌ | No | SÌ |
+| Password app | SÌ | No | SÌ |
 
 > [!NOTE]
 > Le password dell'app sono disponibili solo per gli utenti che sono stati applicati per Multi-Factor Authentication. Le password dell'app non sono disponibili per gli utenti abilitati per Multi-Factor Authentication tramite criteri di accesso condizionale.
@@ -84,15 +87,15 @@ La registrazione combinata rispetta i criteri Multi-Factor Authentication e SSPR
 
 Di seguito sono riportati diversi scenari in cui agli utenti potrebbe essere richiesto di registrare o aggiornare le informazioni di sicurezza:
 
-- Registrazione Multi-Factor Authentication applicata tramite Identity Protection: Agli utenti viene richiesto di effettuare la registrazione durante l'accesso. Registrano Multi-Factor Authentication metodi e metodi SSPR (se l'utente è abilitato per SSPR).
-- Multi-Factor Authentication registrazione applicata tramite Multi-Factor Authentication per utente: Agli utenti viene richiesto di effettuare la registrazione durante l'accesso. Registrano Multi-Factor Authentication metodi e metodi SSPR (se l'utente è abilitato per SSPR).
-- Multi-Factor Authentication registrazione applicata tramite l'accesso condizionale o altri criteri: Agli utenti viene richiesto di effettuare la registrazione quando usano una risorsa che richiede Multi-Factor Authentication. Registrano Multi-Factor Authentication metodi e metodi SSPR (se l'utente è abilitato per SSPR).
-- Registrazione SSPR applicata: Agli utenti viene richiesto di effettuare la registrazione durante l'accesso. Registrano solo metodi SSPR.
-- Aggiornamento di SSPR applicato: Agli utenti viene richiesto di esaminare le informazioni di sicurezza a intervalli impostati dall'amministratore. Gli utenti visualizzano le informazioni e possono confermare le informazioni correnti o apportare modifiche, se necessario.
+- Multi-Factor Authentication registrazione applicata tramite Identity Protection: agli utenti viene richiesto di effettuare la registrazione durante l'accesso. Registrano Multi-Factor Authentication metodi e metodi SSPR (se l'utente è abilitato per SSPR).
+- Multi-Factor Authentication registrazione applicata tramite Multi-Factor Authentication per utente: agli utenti viene richiesto di effettuare la registrazione durante l'accesso. Registrano Multi-Factor Authentication metodi e metodi SSPR (se l'utente è abilitato per SSPR).
+- Multi-Factor Authentication registrazione applicata tramite l'accesso condizionale o altri criteri: agli utenti viene richiesto di effettuare la registrazione quando usano una risorsa che richiede Multi-Factor Authentication. Registrano Multi-Factor Authentication metodi e metodi SSPR (se l'utente è abilitato per SSPR).
+- Registrazione SSPR applicata: agli utenti viene richiesto di effettuare la registrazione durante l'accesso. Registrano solo metodi SSPR.
+- Aggiornamento di SSPR applicato: gli utenti devono esaminare le informazioni di sicurezza a intervalli impostati dall'amministratore. Gli utenti visualizzano le informazioni e possono confermare le informazioni correnti o apportare modifiche, se necessario.
 
 Quando viene applicata la registrazione, agli utenti viene mostrato il numero minimo di metodi necessari per essere conformi ai criteri di Multi-Factor Authentication e SSPR, dal più sicuro al meno sicuro.
 
-Ad esempio:
+ad esempio:
 
 - Un utente è abilitato per SSPR. Il criterio SSPR ha richiesto due metodi per reimpostare e ha abilitato il codice dell'app mobile, la posta elettronica e il telefono.
    - Questo utente è necessario per registrare due metodi.
@@ -109,7 +112,7 @@ Se il criterio SSPR richiede agli utenti di esaminare le info di sicurezza a int
 
 ### <a name="manage-mode"></a>Modalità di gestione
 
-Gli utenti possono accedere alla [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) modalità di gestione selezionando o selezionando Info di **sicurezza** da profilo personale. Da qui, gli utenti possono aggiungere metodi, eliminare o modificare metodi esistenti, modificare il metodo predefinito e altro ancora.
+Gli utenti possono accedere alla modalità di gestione passando a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) o selezionando **info di sicurezza** da profilo personale. Da qui, gli utenti possono aggiungere metodi, eliminare o modificare metodi esistenti, modificare il metodo predefinito e altro ancora.
 
 ## <a name="key-usage-scenarios"></a>Scenari di utilizzo chiave
 
@@ -123,7 +126,7 @@ Un utente non ha configurato tutte le informazioni di sicurezza necessarie e pas
 
 Un amministratore non ha applicato la registrazione.
 
-Un utente che non ha ancora configurato tutte le informazioni di sicurezza necessarie [https://myprofile.microsoft.com](https://myprofile.microsoft.com)passa a. L'utente seleziona **info di sicurezza** nel riquadro sinistro. Da qui, l'utente sceglie di aggiungere un metodo, seleziona uno dei metodi disponibili e segue i passaggi per la configurazione di tale metodo. Al termine, l'utente vedrà il metodo appena configurato nella pagina info di sicurezza.
+Un utente che non ha ancora configurato tutte le informazioni di sicurezza necessarie passa a [https://myprofile.microsoft.com](https://myprofile.microsoft.com). L'utente seleziona **info di sicurezza** nel riquadro sinistro. Da qui, l'utente sceglie di aggiungere un metodo, seleziona uno dei metodi disponibili e segue i passaggi per la configurazione di tale metodo. Al termine, l'utente vedrà il metodo appena configurato nella pagina info di sicurezza.
 
 ### <a name="delete-security-info-from-my-profile"></a>Elimina le informazioni di sicurezza dal profilo personale
 

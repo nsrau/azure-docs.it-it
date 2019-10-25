@@ -1,5 +1,6 @@
 ---
-title: Considerazioni sulla piattaforma UWP (Universal Windows Platform) (Microsoft Authentication Library per .NET) | Azure
+title: Considerazioni sulla piattaforma UWP (Universal Windows Platform) (Microsoft Authentication Library per .NET)
+titleSuffix: Microsoft identity platform
 description: Per informazioni su considerazioni specifiche, vedere l'articolo relativo all'uso di piattaforma UWP (Universal Windows Platform) con Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,22 +18,22 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 263264742088a0012ea844946e13cffbab634b29
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 27a41ad084d21c7623011b5678fb84ed27d68325
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532487"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802655"
 ---
 # <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>Considerazioni specifiche di piattaforma UWP (Universal Windows Platform) con MSAL.NET
 In UWP è necessario tenere conto di diverse considerazioni quando si usa MSAL.NET.
 
 ## <a name="the-usecorporatenetwork-property"></a>Proprietà UseCorporateNetwork
-Nella piattaforma WinRT, `PublicClientApplication` presenta la seguente proprietà ``UseCorporateNetwork``booleana. Questa proprietà consente alle applicazioni Win 8.1 e UWP di trarre vantaggio dall'autenticazione integrata di Windows (e pertanto SSO con l'utente connesso con il sistema operativo) se l'utente è connesso con un account in un tenant di Azure AD federato. Quando si imposta questa proprietà, MSAL.NET utilizza WAB (Web Authentication Broker).
+Nella piattaforma WinRT `PublicClientApplication` la proprietà booleana seguente ``UseCorporateNetwork``. Questa proprietà consente alle applicazioni Win 8.1 e UWP di trarre vantaggio dall'autenticazione integrata di Windows (e pertanto SSO con l'utente connesso con il sistema operativo) se l'utente è connesso con un account in un tenant di Azure AD federato. Quando si imposta questa proprietà, MSAL.NET utilizza WAB (Web Authentication Broker).
 
 > [!IMPORTANT]
 > Se si imposta questa proprietà su true, si presuppone che lo sviluppatore dell'applicazione abbia abilitato l'autenticazione integrata di Windows (IWA) nell'applicazione. Per questo:
-> - Nella scheda **funzionalità** del perl'applicazioneUWPabilitarelefunzionalitàseguenti:``Package.appxmanifest``
+> - Nel ``Package.appxmanifest`` per l'applicazione UWP, nella scheda **funzionalità** abilitare le funzionalità seguenti:
 >   - Autenticazione aziendale
 >   - Reti private (client e server)
 >   - Certificato utente condiviso
@@ -46,7 +47,7 @@ L'implementazione sottostante sulla piattaforma UWP (WAB) non funziona correttam
 
 Una soluzione alternativa consiste nell'usare un metodo alternativo (nome utente/password e autenticazione telefono), ma l'esperienza non è ottimale.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Alcuni clienti hanno segnalato che in alcuni ambienti aziendali specifici si è verificato il seguente errore di accesso:
 
@@ -67,7 +68,7 @@ Per informazioni dettagliate, vedere [Web Authentication broker-Fiddler](https:/
 ## <a name="next-steps"></a>Passaggi successivi
 Altri dettagli sono disponibili negli esempi seguenti:
 
-Esempio | Piattaforma | Descrizione 
+Esempio | Piattaforma | Description 
 |------ | -------- | -----------|
-|[active-directory-dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Un piattaforma UWP (Universal Windows Platform) applicazione client che utilizza msal.net, accedendo al Microsoft Graph per un utente che esegue l'autenticazione con l'endpoint Azure AD v 2.0. <br>![Topologia](media/msal-net-uwp-considerations/topology-native-uwp.png)|
+|[Active-Directory-DotNet-native-UWP-V2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Un piattaforma UWP (Universal Windows Platform) applicazione client che utilizza msal.net, accedendo al Microsoft Graph per un utente che esegue l'autenticazione con l'endpoint Azure AD v 2.0. <br>![Topologia](media/msal-net-uwp-considerations/topology-native-uwp.png)|
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, piattaforma UWP | Una semplice app Novell Forms che illustra come usare MSAL per autenticare MSA e Azure AD tramite l'endpoint di AAD v 2.0 e accedere al Microsoft Graph con il token risultante. <br>![Topologia](media/msal-net-uwp-considerations/topology-xamarin-native.png)|

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: e79d9be6b893184bd615fbc569893e53a2c72861
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9796b41d0df091bc6eb23ba525a79da278e00bbd
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555599"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802314"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -184,9 +184,9 @@ Il consumo e la gestione delle istanze di avviso richiedono che l'utente dispong
 
 Potrebbe essere necessario eseguire una query a livello di codice per gli avvisi generati per la sottoscrizione. Potrebbe trattarsi di creare visualizzazioni personalizzate al di fuori della portale di Azure o di analizzare gli avvisi per identificare modelli e tendenze.
 
-È possibile eseguire una query per gli avvisi generati per le sottoscrizioni usando l' [API REST di gestione avvisi](https://aka.ms/alert-management-api) o l' [API REST di Azure Resource Graph per gli avvisi](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources).
+È possibile eseguire una query per gli avvisi generati per le sottoscrizioni usando l' [API REST di gestione avvisi](https://aka.ms/alert-management-api) o l' [API REST di Azure Resource Graph per gli avvisi](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)).
 
-L' [API REST di Azure Resource Graph per gli avvisi](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) consente di eseguire una query per le istanze di avviso su larga scala. Questa operazione è consigliata quando è necessario gestire gli avvisi generati in molte sottoscrizioni. 
+L' [API REST di Azure Resource Graph per gli avvisi](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)consente di eseguire una query per le istanze di avviso su larga scala. Questa operazione è consigliata quando è necessario gestire gli avvisi generati in molte sottoscrizioni. 
 
 La richiesta di esempio seguente all'API restituisce il numero di avvisi all'interno di una sottoscrizione:
 

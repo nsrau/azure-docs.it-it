@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b0c91357e5ab15b88c92b04fd0896b989e83953
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 18eba93661d9c418a230ced8f9970047a869a7e3
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051439"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808421"
 ---
 # <a name="what-are-authentication-methods"></a>Cosa si intende per metodi di autenticazione?
 
@@ -30,18 +30,18 @@ Si consiglia agli amministratori di consentire agli utenti la selezione di un nu
 | --- | --- |
 | Password | Autenticazione a più fattori e SSPR |
 | Domande di sicurezza | Solo SSPR |
-| Indirizzo di posta elettronica | Solo SSPR |
+| Indirizzo e-mail | Solo SSPR |
 | App Microsoft Authenticator | Autenticazione a più fattori e SSPR |
 | Token hardware OATH | Anteprima pubblica per autenticazione a più fattori e SSPR |
-| sms | Autenticazione a più fattori e SSPR |
+| SMS | Autenticazione a più fattori e SSPR |
 | Chiamata vocale | Autenticazione a più fattori e SSPR |
-| Password dell'app | Autenticazione a più fattori solo in alcuni casi |
+| Password app | Autenticazione a più fattori solo in alcuni casi |
 
 ![Metodi di autenticazione in uso nella schermata di accesso](media/concept-authentication-methods/overview-login.png)
 
 |     |
 | --- |
-| I token hardware per multi-factor authentication e SSPR sono funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| I token hardware per multi-factor authentication e SSPR sono funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzionalità in anteprima, vedere [Condizioni Supplementari per l'Utilizzo delle Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="password"></a>Password
@@ -113,7 +113,7 @@ La lunghezza massima di una domanda di sicurezza personalizzata è di 200 caratt
 * È possibile usare qualsiasi set di caratteri per definire domande e risposte, compresi i caratteri Unicode.
 * Il numero di domande definite deve essere maggiore o uguale al numero di domande necessarie per la registrazione.
 
-## <a name="email-address"></a>Indirizzo di posta elettronica
+## <a name="email-address"></a>Indirizzo e-mail
 
 L'indirizzo di posta elettronica è disponibile **solo per la reimpostazione della password di Azure AD in modalità self-service**.
 
@@ -123,13 +123,13 @@ Microsoft consiglia l'uso di un account di posta elettronica che non richiede la
 
 L'app Microsoft Authenticator offre un livello di sicurezza aggiuntivo a un account aziendale o dell'istituto di istruzione.
 
-L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
+L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
 
 > [!NOTE]
 > Gli utenti non avranno la possibilità di registrare l'app per dispositivi mobili quando ci si registra per la reimpostazione della password in modalità self-service. Al contrario, gli utenti possono registrare l'app per dispositivi mobili al link [https://aka.ms/mfasetup](https://aka.ms/mfasetup) o nell'anteprima di registrazione delle informazioni di sicurezza alla pagina [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 >
 
-### <a name="notification-through-mobile-app"></a>Notifica tramite l'app per dispositivi mobili
+### <a name="notification-through-mobile-app"></a>Notifica tramite app per dispositivi mobili
 
 L'app Microsoft Authenticator consente di impedire l'accesso non autorizzato agli account e di arrestare le transazioni illecite eseguendo il push di una notifica allo smartphone o al tablet dell'utente. Gli utenti visualizzano la notifica e, se legittima, selezionano Verifica. In caso contrario, è possibile selezionare Nega.
 
@@ -160,7 +160,7 @@ OATH è uno standard aperto che specifica come vengono generati i codici per pas
 
 ![Caricamento dei token del GIURAmento nel pannello token del GIURAmento server di autenticazione a più fattori](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
-I token hardware OATH sono supportati come parte di un'anteprima pubblica. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+I token hardware OATH sono supportati come parte di un'anteprima pubblica. Per altre informazioni sulle funzionalità in anteprima, vedere [Condizioni Supplementari per l'Utilizzo delle Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 Dopo aver acquisito i token, è necessario caricarli in un formato di file con valori delimitati da virgole (CSV) includendo nome dell'entità utente, numero di serie, chiave privata, intervallo di tempo, produttore e modello come illustrato nell'esempio seguente.
 
@@ -201,7 +201,7 @@ Microsoft non garantisce l'invio coerente di prompt Multi-Factor Authentication 
 
 Viene inviato un SMS contenente un codice di verifica al numero di telefono cellulare. Immettere il codice di verifica fornito nell'interfaccia di accesso per continuare.
 
-#### <a name="phone-call"></a>Telefonata
+#### <a name="phone-call"></a>Chiamata telefonica
 
 Viene inviata una chiamata vocale automatizzata al numero di telefono fornito. Per l'autenticazione, rispondere alla chiamata e premere # sul tastierino telefonico
 

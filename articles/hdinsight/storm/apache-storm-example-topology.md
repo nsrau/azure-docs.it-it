@@ -8,25 +8,25 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 42819749b019b4b1db77942e22e09ea31a137fe7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 831d3a187a4388a429c6fabb1bb0e0ec6dd584cc
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813862"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800051"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Esempi di topologie e componenti Apache Storm per Apache Storm in HDInsight
 
 Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'uso con [Apache Storm](https://storm.apache.org/) in HDInsight. Questi esempi riguardano numerosi argomenti, dalla creazione di topologie C# e Java di base, all'uso dei servizi di Azure come Hub eventi, Cosmos DB, database SQL, [Apache HBase](https://hbase.apache.org/) in HDInsight e Archiviazione di Azure. Alcuni esempi illustrano anche come usare le tecnologie non Azure o addirittura non Microsoft, quali SignalR e Socket.IO.
 
-| Descrizione | Dimostra | Linguaggio/framework |
+| Description | Dimostra | Linguaggio/framework |
 |:--- |:--- |:--- |
 | [Scrivere in Azure Data Lake Storage da Apache Storm](apache-storm-write-data-lake-store.md) |Scrittura in Azure Data Lake Storage |Java |
 | [Origine per Spout e Bolt dell'hub eventi](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |Origine per Spout e Bolt dell'hub eventi |Java |
 | [Sviluppare topologie basate su Java per Apache Storm in HDInsight][5797064f] |Maven |Java |
-| [Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio][16fce2d1] |Strumenti HDInsight per Visual Studio |C#, Java |
+| [Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio][16fce2d1] |HDInsight Tools per Visual Studio |C#, Java |
 | [Elaborare eventi di Hub eventi di Azure con Apache Storm in HDInsight (C#)][844d1d81] |Hub eventi |C# e Java |
-| [Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) |Hub eventi |Java |
+| [Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) |Hub eventi |Java |
 | [Elaborare i dati del sensore veicolo da Hub eventi di Azure usando Apache Storm in HDInsight][246ee964] |Hub eventi, Cosmos DB, BLOB del servizio di archiviazione di Azure (WASB) |C#, Java |
 | [Estrarre, trasformare e caricare (ETL) da Hub eventi di Azure ad Apache HBase usando Apache Storm in HDInsight][b4b68194] |Hub eventi, HBase |C# |
 | [Progetto C# di topologia Storm modello per l'uso dei servizi di Azure da Apache Storm in HDInsight][ce0c02a2] |Hub eventi, Cosmos DB, database SQL, HBase, SignalR |C#, Java |

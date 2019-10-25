@@ -1,13 +1,13 @@
 ---
-title: Sintassi di query semplice - Ricerca di Azure
-description: Informazioni di riferimento sulla sintassi di query semplice usata per le query di ricerca full-text in Ricerca di Azure.
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
+title: Sintassi di query semplice
+titleSuffix: Azure Cognitive Search
+description: Informazioni di riferimento per la sintassi di query semplice utilizzata per le query di ricerca full-text in Azure ricerca cognitiva.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,18 +19,19 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e6c5ea86534001e0e5de2b02c4151af70631e4ef
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: fb98be9975de38ec9f65e723e078a1db8755b4ed
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650019"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792561"
 ---
-# <a name="simple-query-syntax-in-azure-search"></a>Sintassi di query semplice in Ricerca di Azure
-Ricerca di Azure implementa due linguaggi di query basate su Lucene: il [parser di query semplice](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) e il [parser di query Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). In Ricerca di Azure la sintassi di query semplice esclude le opzioni fuzzy/inclinazione.  
+# <a name="simple-query-syntax-in-azure-cognitive-search"></a>Sintassi di query semplice in Azure ricerca cognitiva
+
+Azure ricerca cognitiva implementa due linguaggi di query basati su Lucene: il parser di query [semplice](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) e il [parser di query Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). In ricerca cognitiva di Azure, la sintassi di query semplice esclude le opzioni fuzzy/slop.  
 
 > [!NOTE]  
->  Ricerca di Azure offre come alternativa per le query più complesse la [sintassi di query Lucene](query-lucene-syntax.md). Per altre informazioni sull'architettura di analisi delle query e i vantaggi di ogni sintassi, vedere [Funzionamento della ricerca full-text in Ricerca di Azure](search-lucene-query-architecture.md).
+>  Azure ricerca cognitiva offre una [sintassi di query Lucene](query-lucene-syntax.md) alternativa per query più complesse. Per altre informazioni sull'architettura di analisi delle query e sui vantaggi di ogni sintassi, vedere funzionamento della [ricerca full-text in Azure ricerca cognitiva](search-lucene-query-architecture.md).
 
 ## <a name="how-to-invoke-simple-parsing"></a>Come richiamare l'analisi semplice
 
@@ -38,9 +39,9 @@ La sintassi semplice è quella predefinita. La chiamata è necessaria solo se si
 
 ## <a name="query-behavior-anomalies"></a>Anomalie di comportamento delle query
 
-Qualsiasi testo con uno o più termini è considerato un valido punto di partenza per l'esecuzione di una query. Ricerca di Azure troverà le corrispondenze con i documenti contenenti uno o tutti i termini, incluse eventuali varianti trovate durante l'analisi del testo. 
+Qualsiasi testo con uno o più termini è considerato un valido punto di partenza per l'esecuzione di una query. Azure ricerca cognitiva corrisponderà ai documenti che contengono uno o tutti i termini, incluse eventuali variazioni trovate durante l'analisi del testo. 
 
-Per quanto possa sembrare semplice, esiste un aspetto dell'esecuzione delle query in Ricerca di Azure che *potrebbe* generare risultati imprevisti, aumentando invece di ridurre i risultati della ricerca quando altri termini e operatori vengono aggiunti alla stringa di input. Che questa espansione si verifichi o meno dipende dall'inclusione di un operatore NOT, combinato con un'impostazione del parametro `searchMode` che determina come NOT viene interpretato dal punto di vista dei comportamenti di AND o OR. Con l'impostazione predefinita `searchMode=Any` e un operatore NOT, l'operazione viene calcolata come azione OR e quindi `"New York" NOT Seattle` restituisce tutte le città diverse da Seattle.  
+Con la stessa semplicità di questa operazione, esiste un aspetto dell'esecuzione di query in Azure ricerca cognitiva che *potrebbe* produrre risultati imprevisti, aumentando invece di diminuire i risultati della ricerca, perché vengono aggiunti altri termini e operatori alla stringa di input. Che questa espansione si verifichi o meno dipende dall'inclusione di un operatore NOT, combinato con un'impostazione del parametro `searchMode` che determina come NOT viene interpretato dal punto di vista dei comportamenti di AND o OR. Con l'impostazione predefinita `searchMode=Any` e un operatore NOT, l'operazione viene calcolata come azione OR e quindi `"New York" NOT Seattle` restituisce tutte le città diverse da Seattle.  
 
 In genere, è più probabile osservare questi comportamenti nei modelli di interazione utente per le applicazioni che eseguono ricerche sul contenuto, dove è più probabile che gli utenti includano un operatore in una query, a differenza dei siti di e-commerce che hanno strutture di esplorazione più integrate. Per altre informazioni, vedere [Operatore NOT](#not-operator). 
 
@@ -67,7 +68,7 @@ L'operatore NOT è un segno meno. Ad esempio, `wifi –luxury` cercherà i docum
 
 ## <a name="suffix-operator"></a>Operatore suffisso
 
-L'operatore suffisso è un `*`asterisco. `lux*`, ad esempio, cercherà i documenti contenenti un termine che inizia con `lux`, ignorando le lettere maiuscole/minuscole.  
+L'operatore suffisso è un asterisco `*`. `lux*`, ad esempio, cercherà i documenti contenenti un termine che inizia con `lux`, ignorando le lettere maiuscole/minuscole.  
 
 ## <a name="phrase-search-operator"></a>Operatore di ricerca frasi
 
@@ -75,7 +76,7 @@ L'operatore phrase racchiude una frase tra virgolette `" "`. Ad esempio, mentre 
 
 ## <a name="precedence-operator"></a>Operatore di precedenza
 
-L'operatore di precedenza racchiude la stringa tra parentesi `( )`. Ad esempio, `motel+(wifi | luxury)` cercherà i documenti che contengono il termine del Motel `wifi` e `luxury` o (o entrambi).  
+L'operatore di precedenza racchiude la stringa tra parentesi `( )`. `motel+(wifi | luxury)`, ad esempio, cercherà i documenti che contengono il termine del Motel e `wifi` o `luxury` (o entrambi).  
 
 ## <a name="escaping-search-operators"></a>Escape degli operatori di ricerca  
 
@@ -85,10 +86,10 @@ L'operatore di precedenza racchiude la stringa tra parentesi `( )`. Ad esempio, 
 - L'operatore suffisso `*` deve essere preceduto da un carattere di escape solo se è l'ultimo carattere prima dello spazio vuoto, non se è all'interno di un termine. `wi*fi`, ad esempio, viene considerato come un singolo token.
 
 > [!NOTE]  
->  Anche se i caratteri di escape mantengono uniti i token, l'analisi del testo potrebbe dividerli, a seconda della modalità di analisi. Per informazioni dettagliate, vedere [Supporto per la lingua &#40;API REST per il servizio Ricerca di Azure&#41;](index-add-language-analyzers.md).  
+>  Anche se i caratteri di escape mantengono uniti i token, l'analisi del testo potrebbe dividerli, a seconda della modalità di analisi. Per informazioni dettagliate, vedere [supporto &#40;per&#41; la lingua di Azure ricerca cognitiva API REST](index-add-language-analyzers.md) .  
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 
-+ [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Cercare documenti - API REST per il servizio Ricerca di Azure) 
++ [Eseguire ricerche &#40;nei documenti ricerca cognitiva API REST di Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
 + [Sintassi di query Lucene](query-lucene-syntax.md)
 + [Sintassi delle espressioni OData](query-odata-filter-orderby-syntax.md) 

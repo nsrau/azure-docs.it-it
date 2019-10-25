@@ -1,26 +1,23 @@
 ---
-title: Anteprima dell'API REST per ricerca di Azure 2019-05-06-anteprima-ricerca di Azure
-description: L'API REST di Azure servizio di ricerca versione 2019-05-06-Preview include funzionalità sperimentali, ad esempio l'archivio delle informazioni e le chiavi di crittografia gestite dal cliente.
-services: search
-author: HeidiSteen
+title: API REST versione 2019-05-06-Preview
+titleSuffix: Azure Cognitive Search
+description: L'API REST di Azure ricerca cognitiva Service versione 2019-05-06-Preview include funzionalità sperimentali come l'archivio delle informazioni e le chiavi di crittografia gestite dal cliente.
 manager: nitinme
-ms.service: search
-ms.devlang: rest-api
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: search
-ms.date: 05/02/2019
-ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 7fa280742556b7bc42d2c7fb30c880f836eef62b
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 11/04/2019
+ms.openlocfilehash: a4daaac6abababcedb5d6dd7eb2122ef29846ef4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649988"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792540"
 ---
-# <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>API REST di Azure servizio di ricerca-versione 2019-05-06-Preview
-Questo articolo descrive la versione `api-version=2019-05-06-Preview` dell'API REST per il servizio Ricerca di Azure, che fornisce funzionalità sperimentali non ancora disponibili a livello generale.
+# <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>API REST del servizio ricerca cognitiva di Azure-versione 2019-05-06-Preview
+
+Questo articolo descrive la versione `api-version=2019-05-06-Preview` dell'API REST del servizio di ricerca, che offre funzionalità sperimentali non ancora disponibili a livello generale.
 
 > [!NOTE]
 > Le funzionalità di anteprima sono disponibili per i test e la sperimentazione allo scopo di raccogliere commenti e suggerimenti e sono soggette a modifiche. È consigliabile evitare l'uso delle API di anteprima in applicazioni di produzione.
@@ -37,7 +34,7 @@ Anche le [**chiavi di crittografia gestite dal cliente**](search-security-manage
 Le funzionalità annunciate nelle anteprime precedenti sono ancora in anteprima pubblica. Se si chiama un'API con una versione di anteprima precedente, è possibile continuare a usare tale versione o passare a `2019-05-06-Preview` senza modifiche al comportamento previsto.
 
 + Il [parametro di query moreLikeThis](search-more-like-this.md) trova i documenti pertinenti a un documento specifico. Questa funzionalità è stata presente nelle anteprime precedenti. 
-* L'indicizzazione di [BLOB CSV](search-howto-index-csv-blobs.md) crea un documento per riga, anziché un documento per ogni BLOB di testo.
+* L' [indicizzazione di BLOB CSV](search-howto-index-csv-blobs.md) crea un documento per riga, anziché un documento per ogni BLOB di testo.
 * Il [supporto dell'API MongoDB per Cosmos DB indicizzatori](search-howto-index-cosmosdb.md) è in anteprima.
 
 
@@ -49,11 +46,11 @@ La sintassi di esempio seguente viene illustra una chiamata per la versione dell
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2019-05-06-Preview
 
-Ricerca di Azure è disponibile in più versioni. Per altre informazioni, vedere le [versioni API](search-api-versions.md).
+Il servizio ricerca cognitiva di Azure è disponibile in più versioni. Per altre informazioni, vedere le [versioni API](search-api-versions.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere la documentazione di riferimento dell'API REST di Azure servizio di ricerca. Se si verificano problemi, richiedere assistenza in [StackOverflow](https://stackoverflow.com/) o [contattare il supporto tecnico](https://azure.microsoft.com/support/community/?product=search).
+Vedere la documentazione di riferimento dell'API REST di ricerca. Se si verificano problemi, richiedere assistenza in [StackOverflow](https://stackoverflow.com/) o [contattare il supporto tecnico](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
 > [Informazioni di riferimento sull'API REST del servizio di ricerca](https://docs.microsoft.com/rest/api/searchservice/)

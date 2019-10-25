@@ -1,5 +1,6 @@
 ---
-title: Considerazioni su Novell Android (Microsoft Authentication Library per .NET) | Azure
+title: Considerazioni su Novell Android (Microsoft Authentication Library per .NET)
+titleSuffix: Microsoft identity platform
 description: Per informazioni su considerazioni specifiche, vedere l'articolo relativo all'uso di Novell Android con Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 465902cf6ef6db1d867f7cc986da8c9e06e4fbbf
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2d6af9753887ffa593a44fba9faa3376066417a8
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532458"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802641"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>Novell considerazioni specifiche per Android con MSAL.NET
 Questo articolo illustra alcune considerazioni specifiche quando si usa Novell Android con Microsoft Authentication Library per .NET (MSAL.NET).
@@ -58,7 +59,7 @@ var pca = PublicClientApplicationBuilder
 
 
 ## <a name="ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends"></a>Assicurando che il controllo torni a MSAL una volta terminata la parte interattiva del flusso di autenticazione
-In Android è necessario eseguire l'override del `OnActivityResult` metodo `Activity` di e chiamare il metodo SetAuthenticationContinuationEventArgs della classe MSAL di AuthenticationContinuationHelper.
+In Android è necessario eseguire l'override del metodo `OnActivityResult` della `Activity` e chiamare il metodo SetAuthenticationContinuationEventArgs della classe MSAL di AuthenticationContinuationHelper.
 
 ```csharp
 protected override void OnActivityResult(int requestCode, 
@@ -74,7 +75,7 @@ protected override void OnActivityResult(int requestCode,
 Questa riga garantisce che il controllo torni a MSAL una volta terminata la parte interattiva del flusso di autenticazione.
 
 ## <a name="update-the-android-manifest"></a>Aggiornare il manifesto Android
-`AndroidManifest.xml` Deve contenere i valori seguenti:
+Il `AndroidManifest.xml` deve contenere i valori seguenti:
 ```csharp
 <activity android:name="microsoft.identity.client.BrowserTabActivity">
     <intent-filter>
@@ -99,7 +100,7 @@ var authResult = AcquireTokenInteractive(scopes)
  .ExecuteAsync();
 ```
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 Se si crea una nuova applicazione Novell. Forms e si aggiunge un riferimento al pacchetto NuGet MSAL.Net, questo funzionerà semplicemente.
 Tuttavia, se si desidera aggiornare un'applicazione Novell. Forms esistente a MSAL.NET Preview 1.1.2 o versione successiva, è possibile che si verifichino problemi di compilazione.
 
@@ -113,9 +114,9 @@ Per risolvere questi problemi, è necessario:
 - In alternativa, se si esegue la compilazione dalla riga di comando, provare a rimuovere/m dal comando se lo si sta usando.
 
 
-### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>Errore: Il nome ' AuthenticationContinuationHelper ' non esiste nel contesto corrente
+### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>Errore: il nome ' AuthenticationContinuationHelper ' non esiste nel contesto corrente
 
-Questa operazione è probabilmente dovuta al fatto che Visual Studio non ha aggiornato correttamente il file Android. csproj *. A volteHintPath > FilePath contiene erroneamente netstandard13 anziché monoandroid90.  **\<**
+Questa operazione è probabilmente dovuta al fatto che Visual Studio non ha aggiornato correttamente il file Android. csproj *. In alcuni casi il **\<HintPath >** FilePath contiene erroneamente netstandard13 anziché **monoandroid90**.
 
 ```xml
 <Reference Include="Microsoft.Identity.Client, Version=3.0.4.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae,
@@ -128,6 +129,6 @@ Questa operazione è probabilmente dovuta al fatto che Visual Studio non ha aggi
 
 Altre informazioni ed esempi sono disponibili nel paragrafo [considerazioni specifiche per Android](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations) del file Readme.MD dell'esempio seguente:
 
-| Esempio | Piattaforma | Descrizione |
+| Esempio | Piattaforma | Description |
 | ------ | -------- | ----------- |
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, piattaforma UWP | Una semplice app Novell Forms che illustra come usare MSAL per autenticare MSA e Azure AD tramite l'endpoint aggiungere v 2.0 e accedere al Microsoft Graph con il token risultante. <br>![Topologia](media/msal-net-xamarin-android-considerations/topology.png) |

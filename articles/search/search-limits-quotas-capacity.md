@@ -1,22 +1,23 @@
 ---
-title: Limiti del servizio per piani e SKU |Ricerca di Azure
-description: Limiti del servizio utilizzati per la pianificazione della capacità e limiti massimi per richieste e risposte in Ricerca di Azure.
-author: HeidiSteen
+title: Limiti dei servizi per i livelli e gli SKU
+titleSuffix: Azure Cognitive Search
+description: Limiti di servizio usati per la pianificazione della capacità e limiti massimi per richieste e risposte per ricerca cognitiva di Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/03/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 2d3b74476def5bdf46a6292996f0af9162b20b43
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: d70812779d392cc4555c91599fad37c2d2c68ba5
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947773"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793572"
 ---
-# <a name="service-limits-in-azure-search"></a>Limiti dei servizi in Ricerca di Azure
-I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, documenti e altri oggetti variano a seconda che venga effettuato il [provisioning di ricerca di Azure](search-create-service-portal.md) in base ai piani tariffari **gratuiti**, **Basic**, **standard**o **ottimizzati** per l'archiviazione.
+# <a name="service-limits-in-azure-cognitive-search"></a>Limiti dei servizi in Azure ricerca cognitiva
+
+I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, documenti e altri oggetti variano a seconda che venga effettuato il [provisioning di Azure ricerca cognitiva](search-create-service-portal.md) ai piani tariffari **gratuito**, **Basic**, **standard**o **ottimizzato** per l'archiviazione .
 
 + **gratuito** è un servizio condiviso multi-tenant fornito con la sottoscrizione di Azure. Le richieste di indicizzazione e query vengono eseguite su repliche e partizioni utilizzate da altri tenant.
 
@@ -45,7 +46,7 @@ I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, doc
 
 ## <a name="index-limits"></a>Limiti per gli indici
 
-| Resource | Gratuito | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Gruppi | Gratis | Base&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Numero massimo di indici |3 |5 o 15 |50 |200 |200 |1000 per partizione o 3000 per servizio |10 |10 |
 | Numero massimo di campi semplici per indice |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
@@ -68,11 +69,11 @@ Per determinare se il servizio dispone di limiti per i documenti, controllare il
 
   ![Riquadro Utilizzo](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
-<sup>1</sup> anche se non sono previsti limiti per i documenti specifici dello SKU, ogni indice è ancora soggetto a un limite massimo sicuro per garantire la stabilità del servizio. Questo limite deriva da Lucene. Ogni documento di ricerca di Azure viene indicizzato internamente come uno o più documenti Lucene. Il numero di documenti Lucene per ogni documento di ricerca di Azure dipende dal numero totale di elementi nei campi di raccolta complessi. Ogni elemento viene indicizzato come documento Lucene separato. Un documento con 3 elementi in un campo di raccolta complesso, ad esempio, verrà indicizzato come 4 documenti Lucene-1 per il documento stesso e 3 per gli elementi. Il numero massimo di documenti Lucene è approssimativamente 25 miliardi per indice.
+<sup>1</sup> anche se non sono previsti limiti per i documenti specifici dello SKU, ogni indice è ancora soggetto a un limite massimo sicuro per garantire la stabilità del servizio. Questo limite deriva da Lucene. Ogni documento di ricerca cognitiva di Azure viene indicizzato internamente come uno o più documenti Lucene. Il numero di documenti Lucene per ogni documento di ricerca dipende dal numero totale di elementi nei campi di raccolta complessi. Ogni elemento viene indicizzato come documento Lucene separato. Un documento con 3 elementi in un campo di raccolta complesso, ad esempio, verrà indicizzato come 4 documenti Lucene-1 per il documento stesso e 3 per gli elementi. Il numero massimo di documenti Lucene è approssimativamente 25 miliardi per indice.
 
 ### <a name="regions-previously-having-document-limits"></a>Aree che in precedenza avevano limiti sui documenti
 
-Se il portale indica un limite sui documenti, il servizio è stato creato prima della fine del 2017 o è stato creato in un data center con cluster con capacità ridotte per ospitare i servizi di Ricerca di Azure:
+Se il portale indica un limite di documenti, il servizio è stato creato prima della fine del 2017 o è stato creato in un data center usando cluster con capacità inferiore per l'hosting dei servizi ricerca cognitiva di Azure:
 
 + Australia orientale
 + Asia orientale
@@ -82,9 +83,9 @@ Se il portale indica un limite sui documenti, il servizio è stato creato prima 
 
 Per i servizi soggetti a limiti per i documenti, si applicano i limiti massimi seguenti:
 
-|  Gratuito | Basic | S1 | S2 | S3 | S3&nbsp;HD |
+|  Gratis | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10,000 |1 @ no__t-0million |15 milioni per partizione o 180 milioni per servizio |60 milioni per partizione o 720 milioni per servizio |120 milioni per partizione o 1,4 miliardi per servizio |1 milione per indice o 200 milioni per partizione |
+|  10,000 |1 @ no__t_0_ milioni |15 milioni per partizione o 180 milioni per servizio |60 milioni per partizione o 720 milioni per servizio |120 milioni per partizione o 1,4 miliardi per servizio |1 milione per indice o 200 milioni per partizione |
 
 Se il servizio ha dei limiti che costituiscono un blocco, creare un nuovo servizio e pubblicarvi nuovamente tutti i contenuti. Non è previsto alcun meccanismo automatico per eseguire nuovamente il provisioning del servizio nel nuovo hardware in background.
 
@@ -105,17 +106,17 @@ Per limitare la dimensione del documento, è necessario escludere dalla richiest
 Sono disponibili tempi di esecuzione massimi per fornire bilanciamento e stabilità al servizio nel suo complesso, ma i set di dati di dimensioni maggiori potrebbero richiedere più tempo di indicizzazione rispetto al massimo consentito. Se un processo di indicizzazione non può essere completato nel tempo massimo consentito, provare a eseguirlo in una pianificazione. L'utilità di pianificazione tiene traccia dello stato di indicizzazione. Se un processo di indicizzazione pianificato viene interrotto per qualsiasi motivo, alla successiva esecuzione pianificata l'indicizzatore può riprendere dall'ultima interruzione.
 
 
-| Resource | Gratuito&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| Gruppi | Gratuito&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | Numero massimo di indicizzatori |3 |5 o 15|50 |200 |200 |N/D |10 |10 |
 | Numero massimo di origini dati |3 |5 o 15 |50 |200 |200 |N/D |10 |10 |
 | Numero massimo di set di competenze <sup>4</sup> |3 |5 o 15 |50 |200 |200 |N/D |10 |10 |
-| Carico di indicizzazione massimo per chiamata |10.000 documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |N/D |Nessun limite |Nessun limite |
+| Carico di indicizzazione massimo per chiamata |10.000 documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |N/D |Senza limiti |Senza limiti |
 | Pianificazione minima | 5 minuti |5 minuti |5 minuti |5 minuti |5 minuti |5 minuti |5 minuti | 5 minuti |
 | Tempo massimo di esecuzione <sup>5</sup> | 1-3 minuti |24 ore |24 ore |24 ore |24 ore |N/D  |24 ore |24 ore |
 | Tempo massimo di esecuzione per set di competenze di ricerca cognitiva o indicizzazione BLOB con analisi delle immagini <sup>5</sup> | 3-10 minuti |2 ore |2 ore |2 ore |2 ore |N/D  |2 ore |2 ore |
 | Indicizzatore BLOB: dimensioni massime per un BLOB, MB |16 |16 |128 |256 |256 |N/D  |256 |256 |
-| Indicizzatore BLOB: numero massimo di caratteri di contenuto estratti da un BLOB |32.000 |64.000 |4 @ no__t-0million |4 @ no__t-0million |4 @ no__t-0million |N/D |4 @ no__t-0million |4 @ no__t-0million |
+| Indicizzatore BLOB: numero massimo di caratteri di contenuto estratti da un BLOB |32.000 |64.000 |4 @ no__t_0_ milioni |4 @ no__t_0_ milioni |4 @ no__t_0_ milioni |N/D |4 @ no__t_0_ milioni |4 @ no__t_0_ milioni |
 
 <sup>1</sup> I servizi del livello Gratuito hanno un tempo massimo di esecuzione degli indicizzatori di 3 minuti per le origini BLOB e di 1 minuto per tutte le altre origini dati. Per l'indicizzazione di intelligenza artificiale che effettua chiamate in Servizi cognitivi, i servizi gratuiti sono limitati a 20 transazioni gratuite al giorno, in cui una transazione viene definita come documento che passa correttamente attraverso la pipeline di arricchimento.
 
@@ -131,7 +132,7 @@ Sono disponibili tempi di esecuzione massimi per fornire bilanciamento e stabili
 
 Il numero massimo di mappe sinonime consentite varia in base al piano tariffario. Ogni regola può avere fino a 20 espansioni, dove un'espansione è un termine equivalvent. Ad esempio, se si specifica "Cat", l'associazione con "Kitty", "Feline" e "Felis" (il genere per Cats) viene conteggiata come 3 espansioni.
 
-| Resource | Gratuito | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
+| Gruppi | Gratis | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
 | Mappe sinonimo massime |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Numero massimo di regole per mappa |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
@@ -140,13 +141,13 @@ Il numero massimo di mappe sinonime consentite varia in base al piano tariffario
 
 Le stime di query al secondo devono essere sviluppate in modo indipendente da ogni cliente. Le dimensioni e la complessità dell'indice, le dimensioni e la complessità della query e la quantità di traffico sono i fattori principali in base ai quali è possibile determinare il numero di query al secondo. Non è possibile fornire stime significative se questi fattori sono sconosciuti.
 
-Le stime sono più prevedibili se vengono calcolate su servizi in esecuzione su risorse dedicate (livelli Basic e Standard). In questo caso, infatti, è possibile stimare in modo più preciso il numero di query al secondo, poiché si ha il controllo di un numero maggiore di parametri. Per informazioni su come eseguire la stima, vedere [Considerazioni sulle prestazioni e sull'ottimizzazione di Ricerca di Azure](search-performance-optimization.md).
+Le stime sono più prevedibili se vengono calcolate su servizi in esecuzione su risorse dedicate (livelli Basic e Standard). In questo caso, infatti, è possibile stimare in modo più preciso il numero di query al secondo, poiché si ha il controllo di un numero maggiore di parametri. Per istruzioni su come approcciare la stima, vedere l'articolo relativo alle [prestazioni e all'ottimizzazione di Azure ricerca cognitiva](search-performance-optimization.md).
 
 Per i livelli ottimizzati per l'archiviazione è necessario prevedere una velocità effettiva delle query inferiore e una latenza superiore rispetto ai livelli standard.  La metodologia per stimare le prestazioni delle query che si verificheranno è identica a quella dei livelli standard.
 
-## <a name="data-limits-cognitive-search"></a>Limiti dei dati (ricerca cognitiva)
+## <a name="data-limits-ai-enrichment"></a>Limiti dei dati (arricchimento AI)
 
-Una [pipeline di ricerca cognitiva](cognitive-search-concept-intro.md) che effettua chiamate a una risorsa di Analisi del testo per il [riconoscimento di entità](cognitive-search-skill-entity-recognition.md), l'[estrazione di frasi chiave](cognitive-search-skill-keyphrases.md), l'[analisi della valutazione ](cognitive-search-skill-sentiment.md) e il [rilevamento della lingua](cognitive-search-skill-language-detection.md) è soggetta a limiti dei dati. La dimensione massima di un record deve essere di 50.000 caratteri misurata da [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, usare la [competenza cognitiva di divisione del testo](cognitive-search-skill-textsplit.md).
+Una [pipeline di arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) che effettua chiamate a una risorsa analisi del testo per il [riconoscimento di entità](cognitive-search-skill-entity-recognition.md), l' [estrazione di frasi chiave](cognitive-search-skill-keyphrases.md), l' [analisi dei sentimenti](cognitive-search-skill-sentiment.md)e il [rilevamento della lingua](cognitive-search-skill-language-detection.md) sono soggetti a limiti di dati. La dimensione massima di un record deve essere di 50.000 caratteri misurata da [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, usare la [competenza cognitiva di divisione del testo](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Limiti di limitazione
 
@@ -155,7 +156,7 @@ Le richieste di ricerca e di indicizzazione sono limitate perché il sistema si 
 Limiti di richieste di frequenza statica per le operazioni correlate a un indice:
 
 + Elenca gli indici (GET/indexes): 5 al secondo per unità di ricerca
-+ Ottenere l'indice (GET/Indexes/myIndex): 10 al secondo per unità di ricerca
++ Get index (GET/Indexes/myIndex): 10 al secondo per unità di ricerca
 + Create index (POST/indexes): 12 al minuto per unità di ricerca
 + Crea o Aggiorna indice (PUT/Indexes/myIndex): 6 al secondo per unità di ricerca
 + Elimina indice (Elimina/Indexes/myIndex): 12 al minuto per unità di ricerca 
@@ -167,7 +168,7 @@ Limiti di richieste di frequenza statica per le operazioni correlate a un indice
 * 32 campi al massimo nella clausola $orderby
 * 32.766 byte (32 KB meno 2 byte) di testo con codifica UTF-8 per la dimensione massima del termine di ricerca
 
-<sup>1</sup> In Ricerca di Azure il corpo di una richiesta è soggetto a un limite massimo di 16 MB, che impone un limite pratico ai contenuti di singoli campi o raccolte non vincolati a limiti teorici. Per altre informazioni sulla composizione dei campi e sulle relative restrizioni, vedere [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) (Tipi di dati supportati).
+<sup>1</sup> In Azure ricerca cognitiva, il corpo di una richiesta è soggetto a un limite massimo di 16 MB, imponendo un limite pratico sul contenuto di singoli campi o raccolte che non sono altrimenti vincolati da limiti teorici (vedere [tipi di dati supportati). ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)per ulteriori informazioni sulla composizione e sulle restrizioni dei campi.
 
 ## <a name="api-response-limits"></a>Limiti di risposta API
 * 1000 documenti al massimo restituiti per pagina di risultati della ricerca

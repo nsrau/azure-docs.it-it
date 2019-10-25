@@ -1,13 +1,13 @@
 ---
-title: Riferimento di selezione OData-ricerca di Azure
-description: Informazioni di riferimento sul linguaggio OData per la sintassi SELECT nelle query di ricerca di Azure.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: Brjohnstmsft
-ms.author: brjohnst
+title: Riferimento di selezione OData
+titleSuffix: Azure Cognitive Search
+description: Informazioni di riferimento sul linguaggio OData per la sintassi SELECT in Azure ricerca cognitiva query.
 manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 64e9ad75d88f595ab5def6fe8b63fee9407ae0fe
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7786974f3d39f9cbc81e1ffea955156d623f1476
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647881"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793255"
 ---
-# <a name="odata-select-syntax-in-azure-search"></a>Sintassi di $select OData in ricerca di Azure
+# <a name="odata-select-syntax-in-azure-cognitive-search"></a>Sintassi di $select OData in Azure ricerca cognitiva
 
- È possibile usare il [parametro OData **$Select** ](query-odata-filter-orderby-syntax.md) per scegliere i campi da includere nei risultati della ricerca di ricerca di Azure. Questo articolo descrive in dettaglio la sintassi dei **$Select** . Per informazioni più generali su come usare **$Select** quando si presentano i risultati della ricerca, vedere [come usare i risultati della ricerca in ricerca di Azure](search-pagination-page-layout.md).
+ È possibile usare il [parametro OData **$Select** ](query-odata-filter-orderby-syntax.md) per scegliere i campi da includere nei risultati della ricerca da Azure ricerca cognitiva. Questo articolo descrive in dettaglio la sintassi dei **$Select** . Per informazioni generali su come usare **$Select** quando si presentano i risultati della ricerca, vedere [come usare i risultati della ricerca in Azure ricerca cognitiva](search-pagination-page-layout.md).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -45,23 +45,23 @@ field_path ::= identifier('/'identifier)*
 È disponibile anche un diagramma della sintassi interattiva:
 
 > [!div class="nextstepaction"]
-> [Diagramma della sintassi OData per ricerca di Azure](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
+> [Diagramma della sintassi OData per ricerca cognitiva di Azure](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
 
 > [!NOTE]
-> Vedere informazioni di [riferimento sulla sintassi di espressioni OData per ricerca di Azure](search-query-odata-syntax-reference.md) per il EBNF completo.
+> Per la EBNF completa, vedere informazioni [di riferimento sulla sintassi delle espressioni OData per Azure ricerca cognitiva](search-query-odata-syntax-reference.md) .
 
 Il parametro **$Select** viene visualizzato in due formati:
 
-1. Una singola stella (`*`) che indica che devono essere restituiti tutti i campi recuperabili oppure
+1. Una singola stella (`*`), che indica che devono essere restituiti tutti i campi recuperabili.
 1. Elenco delimitato da virgole dei percorsi dei campi, che identificano i campi da restituire.
 
 Quando si usa il secondo form, è possibile specificare solo i campi recuperabili nell'elenco.
 
-Se si elenca un campo complesso senza specificare i campi secondari in modo esplicito, tutti i campi secondari recuperabili verranno inclusi nel set di risultati della query. Si supponga, ad esempio, che l' `Address` indice includa `City`un campo `Country` con `Street`i campi, e che possono essere recuperati. Se si specifica `Address` in **$Select**, i risultati della query includeranno tutti e tre i campi secondari.
+Se si elenca un campo complesso senza specificare i campi secondari in modo esplicito, tutti i campi secondari recuperabili verranno inclusi nel set di risultati della query. Si supponga, ad esempio, che l'indice includa un campo `Address` con `Street`, `City`e `Country` campi secondari che possono essere recuperati. Se si specifica `Address` in **$Select**, i risultati della query includeranno tutti e tre i campi secondari.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
-Includere i `HotelId`campi `HotelName`di primo `Rating` livello, e nei risultati, nonché il `City` campo secondario di `Address`:
+Includere i campi `HotelId`, `HotelName`e `Rating` di primo livello nei risultati, nonché il campo secondario `City` di `Address`:
 
     $select=HotelId, HotelName, Rating, Address/City
 
@@ -78,7 +78,7 @@ Un risultato di esempio può essere simile al seguente:
 }
 ```
 
-Includere il `HotelName` campo di primo livello nei risultati, nonché tutti i sottocampi di `Address`e i `Type` sottocampi e `BaseRate` di ogni oggetto `Rooms` della raccolta:
+Includere il `HotelName` campo di primo livello nei risultati, nonché tutti i sottocampi di `Address`e i sottocampi di `Type` e `BaseRate` di ogni oggetto nella raccolta di `Rooms`:
 
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
 
@@ -110,7 +110,7 @@ Un risultato di esempio può essere simile al seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
-- [Come usare i risultati della ricerca in ricerca di Azure](search-pagination-page-layout.md)
-- [Panoramica del linguaggio di espressioni OData per ricerca di Azure](query-odata-filter-orderby-syntax.md)
-- [Guida di riferimento alla sintassi delle espressioni OData per ricerca di Azure](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Cercare documenti - API REST per il servizio Ricerca di Azure)
+- [Come usare i risultati della ricerca in Azure ricerca cognitiva](search-pagination-page-layout.md)
+- [Cenni preliminari sul linguaggio di espressioni OData per ricerca cognitiva di Azure](query-odata-filter-orderby-syntax.md)
+- [Informazioni di riferimento sulla sintassi delle espressioni OData per ricerca cognitiva di Azure](search-query-odata-syntax-reference.md)
+- [Eseguire ricerche &#40;nei documenti ricerca cognitiva API REST di Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

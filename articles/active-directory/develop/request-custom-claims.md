@@ -1,5 +1,6 @@
 ---
-title: Come richiedere attestazioni personalizzate usando MSAL per iOS e macOS | Piattaforma di identità Microsoft
+title: Come richiedere attestazioni personalizzate usando MSAL per iOS e macOS
+titleSuffix: Microsoft identity platform
 description: Informazioni su come richiedere attestazioni personalizzate.
 services: active-directory
 documentationcenter: ''
@@ -17,28 +18,28 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6e09d58742bffd74f07f79b3ec55c1e81533632
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 6c34da9e8faa8c2c2e24e7f00569e2b7c8af674f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268986"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802602"
 ---
-# <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Procedura: Richiedere attestazioni personalizzate usando MSAL per iOS e macOS
+# <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Procedura: richiedere attestazioni personalizzate usando MSAL per iOS e macOS
 
 OpenID Connect consente di richiedere facoltativamente la restituzione di singole attestazioni dall'endpoint UserInfo e/o nel token ID. Una richiesta di attestazioni viene rappresentata come un oggetto JSON che contiene un elenco di attestazioni richieste. Per altri dettagli, vedere [OpenID Connect Core 1,0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter) .
 
-Microsoft Authentication Library (MSAL) per iOS e macOS consente di richiedere attestazioni specifiche negli scenari di acquisizione di token interattivi e invisibili. Questa operazione viene eseguita tramite `claimsRequest` il parametro.
+Microsoft Authentication Library (MSAL) per iOS e macOS consente di richiedere attestazioni specifiche negli scenari di acquisizione di token interattivi e invisibili. Questa operazione viene eseguita tramite il parametro `claimsRequest`.
 
-Sono disponibili più scenari in cui è necessario. Esempio:
+Sono disponibili più scenari in cui è necessario. ad esempio:
 
 - Richiesta di attestazioni al di fuori del set standard per l'applicazione.
 - Richiesta di combinazioni specifiche delle attestazioni standard che non possono essere specificate usando gli ambiti per l'applicazione. Se ad esempio un token di accesso viene rifiutato a causa di attestazioni mancanti, l'applicazione può richiedere le attestazioni mancanti usando MSAL.
 
 > [!NOTE]
-> MSAL ignora la cache dei token di accesso ogni volta che viene specificata una richiesta di attestazione. È importante specificare `claimsRequest` solo il parametro quando sono necessarie attestazioni aggiuntive (invece di fornire sempre lo stesso `claimsRequest` parametro in ogni chiamata all'API MSAL).
+> MSAL ignora la cache dei token di accesso ogni volta che viene specificata una richiesta di attestazione. È importante fornire solo `claimsRequest` parametro quando sono necessarie attestazioni aggiuntive (invece di fornire sempre lo stesso parametro di `claimsRequest` in ogni chiamata all'API MSAL).
 
-`claimsRequest`può essere specificato in `MSALSilentTokenParameters` e `MSALInteractiveTokenParameters`:
+è possibile specificare `claimsRequest` in `MSALSilentTokenParameters` e `MSALInteractiveTokenParameters`:
 
 ```objc
 /*!
@@ -54,7 +55,7 @@ Sono disponibili più scenari in cui è necessario. Esempio:
 
 @end
 ```
-`MSALClaimsRequest`può essere costruito da una rappresentazione NSString della richiesta di attestazioni JSON. 
+`MSALClaimsRequest` possibile costruire da una rappresentazione NSString della richiesta di attestazioni JSON. 
 
 Objective-C:
 
@@ -63,7 +64,7 @@ NSError *claimsError = nil;
 MSALClaimsRequest *request = [[MSALClaimsRequest alloc] initWithJsonString:@"{\"id_token\":{\"auth_time\":{\"essential\":true},\"acr\":{\"values\":[\"urn:mace:incommon:iap:silver\"]}}}" error:&claimsError];
 ```
 
-Swift
+Swift:
 
 ```swift
 var requestError: NSError? = nil
@@ -85,7 +86,7 @@ individualClaimRequest.additionalInfo.value = @"myvalue";
 [request requestClaim:individualClaimRequest forTarget:MSALClaimsRequestTargetIdToken error:&claimsError];
 ```
 
-Swift
+Swift:
 
 ```swift
 let individualClaimRequest = MSALIndividualClaimRequest(name: "custom-claim")
@@ -103,7 +104,7 @@ do {
 
 
 
-`MSALClaimsRequest`deve quindi essere impostato nei parametri del token e fornito a una delle API di acquisizione di token MSAL:
+`MSALClaimsRequest` deve essere impostato nei parametri del token e fornito a una delle API di acquisizione di token MSAL:
 
 Objective-C:
 
@@ -118,7 +119,7 @@ parameters.claimsRequest = request;
 [application acquireTokenWithParameters:parameters completionBlock:completionBlock];
 ```
 
-Swift
+Swift:
 
 ```swift
 let application: MSALPublicClientApplication!
@@ -135,4 +136,4 @@ application.acquireToken(with: parameters) { (result: MSALResult?, error: Error?
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sui [flussi di autenticazione e sugli scenari di applicazione](authentication-flows-app-scenarios.md)
+Altre informazioni su [Flussi di autenticazione e scenari di applicazioni](authentication-flows-app-scenarios.md)

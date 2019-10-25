@@ -1,5 +1,5 @@
 ---
-title: Come configurare il writeback delle password per Azure AD SSPR - Azure Active Directory
+title: 'Procedura: configurare il writeback delle password per Azure AD SSPR-Azure Active Directory'
 description: Usare Azure AD e Azure AD Connect per eseguire il writeback delle password in una directory locale
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17a2661883dd069e8cb719672f6b92442f1a8a0a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 71a16ad3c571086a73a2aae192fb2d00bce4d5f9
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60357504"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808164"
 ---
 # <a name="how-to-configure-password-writeback"></a>Procedura: Configurare il writeback delle password
 
@@ -37,7 +37,7 @@ Per le attività di risoluzione dei problemi comuni correlate al writeback delle
 > [!WARNING]
 > Per i clienti che usano Azure AD Connect 1.0.8641.0 e versioni precedenti, il writeback delle password non funzionerà più dopo il [ritiro del Servizio di controllo di accesso di Azure in data 7 novembre 2018](../develop/active-directory-acs-migration.md). A partire da tale data, Azure AD Connect 1.0.8641.0 e versioni precedenti non consentiranno più il writeback delle password perché per questa funzionalità dipendono dal Servizio di controllo di accesso di Azure.
 >
-> Per evitare un'interruzione del servizio, eseguire l'aggiornamento da una versione precedente di Azure AD Connect a una più recente. Vedere l'articolo [Azure AD Connect: Eseguire l'aggiornamento da una versione precedente alla versione più recente](../hybrid/how-to-upgrade-previous-version.md)
+> Per evitare un'interruzione del servizio, eseguire l'aggiornamento da una versione precedente di Azure AD Connect a una più recente. Vedere l'articolo [Azure AD Connect: Eseguire l'aggiornamento da una versione precedente alla versione più recente](../hybrid/how-to-upgrade-previous-version.md).
 >
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisiti di licenza per il writeback delle password
@@ -46,7 +46,7 @@ Per le attività di risoluzione dei problemi comuni correlate al writeback delle
 
 Per usare il writeback delle password, è necessario disporre una delle licenze seguenti assegnate nel tenant:
 
-* Azure AD Premium P1
+* Azure AD P1 Premium
 * Azure AD P2 Premium
 * Enterprise Mobility + Security E3 o A3
 * Enterprise Mobility + Security E5 o A5
@@ -59,7 +59,7 @@ Per usare il writeback delle password, è necessario disporre una delle licenze 
 > I piani di licenza Office 365 autonomi *non supportano "Reimpostazione/modifica/sblocco con writeback in locale delle password in modalità self-service"* e richiedono uno dei piani precedenti per l'uso della funzionalità.
 >
 
-## <a name="active-directory-permissions"></a>Autorizzazioni di Active Directory
+## <a name="active-directory-permissions-and-on-premises-password-complexity-policies"></a>Autorizzazioni Active Directory e criteri di complessità delle password locali 
 
 L'account specificato nell'utilità di Azure AD Connect deve avere i seguenti elementi impostati se si vuole essere nell'ambito per SSPR:
 
@@ -98,6 +98,8 @@ Per impostare le autorizzazioni appropriate per l'esecuzione del writeback delle
     * **Scrittura di lockoutTime**
     * **Scrittura di pwdLastSet**
 9. Selezionare **Applica/OK** per applicare le modifiche e chiudere le finestre di dialogo aperte.
+
+Poiché l'origine dell'autorità è locale, i criteri di complessità delle password si applicano dalla stessa origine dati connessa. Assicurarsi di aver modificato i criteri di gruppo esistenti per "lunghezza minima password". I criteri di gruppo non devono essere impostati su 1, il che significa che la password deve essere almeno un giorno prima di poter essere aggiornata. È necessario assicurarsi che sia impostato su 0. Queste impostazioni sono disponibili in `gpmc.msc` in **Configurazione Computer > criteri > impostazioni di Windows > impostazioni di sicurezza > criteri account**. Eseguire `gpupdate /force` per assicurarsi che la modifica venga applicata. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

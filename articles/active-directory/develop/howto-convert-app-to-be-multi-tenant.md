@@ -1,5 +1,6 @@
 ---
 title: Come compilare un'app che può consentire l'accesso a qualsiasi utente di Azure AD
+titleSuffix: Microsoft identity platform
 description: Viene illustrato come compilare un'applicazione multi-tenant che può accedere a un utente da qualsiasi tenant Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d53ed0c9a8ae63c2cb0ced635c6f0a8e8a3222fd
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 4f7f31e0254ad4963ce6946a108d84c97027f30b
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67482736"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803945"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedura: Come consentire l'accesso a qualsiasi utente di Azure Active Directory usando il modello di applicazione multi-tenant
 
@@ -60,7 +61,7 @@ In un'applicazione single-tenant le richieste di accesso vengono inviate all'end
 
 Con un'applicazione multi-tenant, l'applicazione non determina in anticipo il tenant di provienienza dell'utente, pertanto non è possibile inviare richieste all'endpoint del tenant. Al contrario, le richieste vengono inviate a un endpoint che esegue il multiplexing tra tutti i tenant di Azure Active Directory: `https://login.microsoftonline.com/common`
 
-Quando la piattaforma di identità Microsoft riceve una richiesta per l'endpoint/Common, firma l'utente in e, di conseguenza, individua il tenant da cui l'utente fa parte. L'endpoint/Common funziona con tutti i protocolli di autenticazione supportati dal Azure AD:  OpenID Connect, OAuth 2.0, SAML 2.0 e WS-Federation.
+Quando la piattaforma di identità Microsoft riceve una richiesta per l'endpoint/Common, firma l'utente in e, di conseguenza, individua il tenant da cui l'utente fa parte. L'endpoint/Common funziona con tutti i protocolli di autenticazione supportati dal Azure AD: OpenID Connect, OAuth 2,0, SAML 2,0 e WS-Federation.
 
 La risposta di accesso all'applicazione di accesso contiene un token che rappresenta l'utente. Il valore dell'autorità di certificazione nel token indica a un'applicazione il tenant di provenienza dell'utente. Quando l'endpoint /common restituisce una risposta, il valore dell'autorità di certificazione nel token corrisponde al tenant dell'utente.
 
@@ -138,7 +139,7 @@ L'applicazione può avere più livelli, ognuno rappresentato dalla propria regis
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Più livelli in un singolo tenant
 
-Può trattarsi di un problema se l'applicazione logica è costituita da due o più registrazioni di applicazioni, ad esempio un client e una risorsa separati. Come ottenere prima la risorsa nel tenant del cliente? Azure AD si occupa di questo caso, concedendo al client e alla risorsa l'autorizzazione in un unico passaggio. L'utente visualizza la somma totale delle autorizzazioni richieste dal client e dalla risorsa nella pagina del consenso. Per abilitare questo comportamento, la registrazione dell'applicazione della risorsa deve includere l'ID app del client come `knownClientApplications` nel [manifesto dell'applicazione][AAD-App-Manifest]. Ad esempio:
+Può trattarsi di un problema se l'applicazione logica è costituita da due o più registrazioni di applicazioni, ad esempio un client e una risorsa separati. Come ottenere prima la risorsa nel tenant del cliente? Azure AD si occupa di questo caso, concedendo al client e alla risorsa l'autorizzazione in un unico passaggio. L'utente visualizza la somma totale delle autorizzazioni richieste dal client e dalla risorsa nella pagina del consenso. Per abilitare questo comportamento, la registrazione dell'applicazione della risorsa deve includere l'ID app del client come `knownClientApplications` nel [manifesto dell'applicazione][AAD-App-Manifest]. ad esempio:
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
@@ -150,7 +151,7 @@ Ciò viene illustrato in un client nativo multilivello che esegue la chiamata al
 
 Un caso simile si verifica se i diversi livelli di un'applicazione vengono registrati in tenant diversi. Ad esempio, si consideri il caso della creazione di un'applicazione client nativa che esegue la chiamata all'API di Office 365 Exchange Online. Per sviluppare l'applicazione nativa e successivamente eseguire l'applicazione nativa nel tenant del cliente, è necessario che sia presente l'entità servizio Exchange Online. In questo caso lo sviluppatore e il cliente devono acquistare Exchange Online per creare l'entità servizio nei tenant.
 
-Se si tratta di un'API creata da un'organizzazione diversa da Microsoft, lo sviluppatore dell'API deve fornire un modo per consentire ai clienti di fornire il consenso dell'applicazione ai tenant dei clienti. La progettazione consigliata è destinata allo sviluppatore di terze parti a compilare l'API in modo che possa fungere anche da client Web per implementare l'iscrizione. A tale scopo, effettuare le seguenti operazioni:
+Se si tratta di un'API creata da un'organizzazione diversa da Microsoft, lo sviluppatore dell'API deve fornire un modo per consentire ai clienti di fornire il consenso dell'applicazione ai tenant dei clienti. La progettazione consigliata è destinata allo sviluppatore di terze parti a compilare l'API in modo che possa fungere anche da client Web per implementare l'iscrizione. A tale scopo, effettuare l'operazione seguente:
 
 1. Seguire le sezioni precedenti per verificare che l'API implementi i requisiti del codice/registrazione dell'applicazione multi-tenant.
 2. Oltre ad esporre gli ambiti o i ruoli dell'API, assicurarsi che la registrazione includa l'autorizzazione "Accedi e leggi profilo utente" (fornita per impostazione predefinita).

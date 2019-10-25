@@ -1,6 +1,7 @@
 ---
-title: L'accesso Single sign-on (Microsoft Authentication Library per JavaScript) | Azure
-description: Informazioni sulla creazione di esperienze single sign-on usando Microsoft Authentication Library per JavaScript (msal).
+title: Single Sign-on (Microsoft Authentication Library per JavaScript)
+titleSuffix: Microsoft identity platform
+description: Informazioni sulla creazione di Single Sign-On esperienze usando Microsoft Authentication Library per JavaScript (MSAL. js).
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -17,24 +18,24 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f1f102307256852ac92616c7fb707e0e2739e5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4f1b79e1694d759682833bf6022dbc9cd0a0977f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544146"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802996"
 ---
-# <a name="single-sign-on-with-msaljs"></a>Single sign-on con msal. js
+# <a name="single-sign-on-with-msaljs"></a>Single Sign-On con MSAL.js
 
-Single Sign-On (SSO) consente agli utenti di immettere le credenziali una sola volta per accedere e stabilire una sessione che può essere riutilizzata in più applicazioni senza la necessità di ripetere l'autenticazione. Ciò garantisce un'esperienza all'utente e riduce le ripetute richieste di credenziali.
+Single Sign-on (SSO) consente agli utenti di immettere le credenziali una sola volta per accedere e stabilire una sessione che può essere riutilizzata tra più applicazioni senza che sia necessario eseguire di nuovo l'autenticazione. In questo modo si offre un'esperienza uniforme all'utente e si riducono le richieste ripetute per le credenziali.
 
-Azure AD offre le funzionalità SSO per applicazioni impostando un cookie di sessione quando l'utente autentica la prima volta. La libreria msal. js consente alle applicazioni di sfruttare questa in diversi modi.
+Azure AD fornisce funzionalità SSO alle applicazioni impostando un cookie di sessione quando l'utente esegue l'autenticazione per la prima volta. La libreria MSAL. js consente alle applicazioni di sfruttare questo in diversi modi.
 
 ## <a name="sso-between-browser-tabs"></a>SSO tra le schede del browser
 
-Quando l'applicazione è aperta in più schede e prima di tutto l'accesso dell'utente in una scheda, l'utente viene anche effettuato nelle altre schede senza che venga richiesto. Msal. js vengono memorizzati nella cache il token ID per l'utente nel browser `localStorage` e si connetterà l'utente all'applicazione nelle altre schede aperte.
+Quando l'applicazione è aperta in più schede e l'utente accede per la prima volta a una scheda, l'utente è anche connesso alle altre schede senza che venga richiesto. MSAL. js memorizza nella cache il token ID per l'utente nel browser `localStorage` e consente di accedere all'applicazione nelle altre schede aperte.
 
-Per impostazione predefinita, Usa msal. js `sessionStorage` che non consente la sessione devono essere condivisi tra le schede. Per ottenere l'accesso SSO tra le schede, assicurarsi di impostare il `cacheLocation` di msal. js per `localStorage` come illustrato di seguito.
+Per impostazione predefinita, MSAL. js USA `sessionStorage` che non consente la condivisione della sessione tra le schede. Per ottenere l'accesso SSO tra le schede, assicurarsi di impostare il `cacheLocation` in MSAL. js su `localStorage`, come illustrato di seguito.
 
 ```javascript
 const config = {
@@ -49,27 +50,27 @@ const config = {
 const myMSALObj = new UserAgentApplication(config);
 ```
 
-## <a name="sso-between-apps"></a>SSO tra App
+## <a name="sso-between-apps"></a>SSO tra le app
 
-Quando un utente esegue l'autenticazione, un cookie di sessione viene impostato sul dominio di Azure AD nel browser. Msal. js si basa su questo cookie di sessione per fornire l'accesso SSO per l'utente tra diverse applicazioni. Msal. js inoltre memorizza nella cache il token ID e token di accesso dell'utente nell'archivio del browser per ogni dominio dell'applicazione. Di conseguenza, il comportamento SSO varia per diversi casi:  
+Quando un utente esegue l'autenticazione, un cookie di sessione viene impostato sul dominio Azure AD nel browser. MSAL. js si basa su questo cookie di sessione per fornire l'accesso SSO per l'utente tra applicazioni diverse. MSAL. js memorizza anche nella cache i token ID e i token di accesso dell'utente nello spazio di archiviazione del browser per ogni dominio dell'applicazione. Di conseguenza, il comportamento SSO varia in base ai diversi casi:  
 
 ### <a name="applications-on-the-same-domain"></a>Applicazioni nello stesso dominio
 
-Quando le applicazioni sono ospitate nello stesso dominio, l'utente potrà accedere una sola volta a un'app e quindi ottenere autenticato alle altre App senza un prompt dei comandi. Msal. js Usa i token memorizzati nella cache per l'utente nel dominio fornire l'accesso SSO.
+Quando le applicazioni sono ospitate nello stesso dominio, l'utente può accedere a un'app una sola volta e quindi essere autenticato per le altre app senza una richiesta. MSAL. js utilizza i token memorizzati nella cache per l'utente nel dominio per fornire SSO.
 
 ### <a name="applications-on-different-domain"></a>Applicazioni in un dominio diverso
 
-Quando le applicazioni sono ospitate in domini diversi, i token memorizzati nella cache in un dominio non sono accessibile da msal. js nel dominio B.
+Quando le applicazioni sono ospitate in domini diversi, non è possibile accedere ai token memorizzati nella cache nel dominio A da MSAL. js nel dominio B.
 
-Ciò significa che quando gli utenti connessi a dominio passare a un'applicazione nel dominio B, si verrà reindirizzati o richiesto con la pagina di Azure AD. Poiché Azure AD ha ancora il cookie di sessione utente, eseguiranno l'accesso utente e non dovranno immettere nuovamente le credenziali. Se l'utente ha più account utente nella sessione con Azure AD, richiederà all'utente di selezionare l'account pertinente per l'accesso.
+Ciò significa che quando gli utenti connessi al dominio a passano a un'applicazione nel dominio B, verranno reindirizzati o richiesti con la pagina Azure AD. Poiché Azure AD ha ancora il cookie della sessione utente, effettuerà l'accesso dell'utente e non sarà necessario immettere di nuovo le credenziali. Se l'utente dispone di più account utente in sessione con Azure AD, all'utente verrà richiesto di selezionare l'account pertinente per l'accesso.
 
-### <a name="automatically-select-account-on-azure-ad"></a>Selezionare automaticamente l'account in Azure AD
+### <a name="automatically-select-account-on-azure-ad"></a>Seleziona automaticamente l'account Azure AD
 
-In alcuni casi, l'applicazione abbia accesso al contesto di autenticazione dell'utente e vuole evitare la richiesta di selezione account di Azure AD quando più account hanno eseguito l'accesso.  Questa operazione può essere eseguita alcuni modi diversi:
+In alcuni casi, l'applicazione ha accesso al contesto di autenticazione dell'utente e desidera evitare il Azure AD richiesta di selezione dell'account quando più account sono connessi.  Questa operazione può essere eseguita in diversi modi:
 
-**Usando un ID di sessione (SID)**
+**Utilizzo dell'ID sessione (SID)**
 
-ID sessione è un [attestazione facoltativa](active-directory-optional-claims.md) che può essere configurato nei token ID. Questa attestazione consente all'applicazione per l'identificazione Azure dell'utente AD sessione indipendentemente dal nome dell'account dell'utente o un nome utente. È possibile passare i parametri della richiesta per il SID di `acquireTokenSilent` chiamare. Ciò consente ad Azure AD ignorare la selezione account. SID associato al cookie di sessione e non supera i contesti del browser.
+ID sessione è un' [attestazione facoltativa](active-directory-optional-claims.md) che può essere configurata nei token ID. Questa attestazione consente all'applicazione di identificare la sessione di Azure AD dell'utente indipendentemente dal nome dell'account utente o dal nome utente. È possibile passare il SID nei parametri della richiesta alla chiamata `acquireTokenSilent`. Ciò consentirà Azure AD di ignorare la selezione dell'account. Il SID è associato al cookie di sessione e non verrà incrociato tra i contesti del browser.
 
 ```javascript
 var request = {
@@ -86,12 +87,12 @@ userAgentApplication.acquireTokenSilent(request).then(function(response) {
 ```
 
 > [!Note]
-> SID può essere utilizzato solo con le richieste di autenticazione invisibile all'utente effettuate da `acquireTokenSilent` chiamare in msal. js.
-È possibile trovare la procedura per configurare le attestazioni facoltative nel manifesto dell'applicazione [qui](active-directory-optional-claims.md).
+> SID può essere usato solo con le richieste di autenticazione invisibile all'utente effettuate da `acquireTokenSilent` chiamata in MSAL. js.
+[Qui](active-directory-optional-claims.md)è possibile trovare i passaggi per configurare attestazioni facoltative nel manifesto dell'applicazione.
 
-**Utilizzo di Hint di account di accesso**
+**Utilizzo dell'hint di accesso**
 
-Se non è SID attestazione configurato o è necessario ignorare la richiesta di selezione account nelle chiamate di autenticazione interattiva, è possibile farlo, fornendo una `login_hint` nei parametri di richiesta e, facoltativamente, una `domain_hint` come `extraQueryParameters` in di msal. js metodi interattivi (`loginPopup`, `loginRedirect`, `acquireTokenPopup` e `acquireTokenRedirect`). Ad esempio:
+Se non si dispone di un'attestazione SID configurata o se è necessario ignorare la richiesta di selezione dell'account nelle chiamate di autenticazione interattiva, è possibile eseguire questa operazione fornendo un `login_hint` nei parametri della richiesta e, facoltativamente, una `domain_hint` come `extraQueryParameters` nei metodi interattivi MSAL. js (@no __t_3_, `loginRedirect`, `acquireTokenPopup` e `acquireTokenRedirect`). ad esempio:
 
 ```javascript
 var request = {
@@ -105,26 +106,26 @@ userAgentApplication.loginRedirect(request);
 
 È possibile ottenere i valori per login_hint e domain_hint leggendo le attestazioni restituite nel token ID per l'utente.
 
-* **loginHint** deve essere impostato sul `preferred_username` attestazione nel token ID.
+* **loginHint** deve essere impostato sull'attestazione `preferred_username` nel token ID.
 
-* **domain_hint** è richiesto solo per essere passato quando si usa l'endpoint /common autorità. L'hint di dominio è determinato dal tenant ID(tid).  Se il `tid` attestazione nel token ID è `9188040d-6c67-4c5b-b112-36a304b66dad` è consumer. È in caso contrario, le organizzazioni.
+* è necessario passare **domain_hint** solo quando si usa l'autorità/Common. L'hint di dominio è determinato dall'ID tenant (TID).  Se il `tid` attestazione nel token ID è `9188040d-6c67-4c5b-b112-36a304b66dad` è consumer. In caso contrario, si tratta di organizzazioni.
 
-Lettura [qui](v2-oauth2-implicit-grant-flow.md) per altre informazioni sui valori per l'hint di account di accesso e hint di dominio.
+Leggere [qui](v2-oauth2-implicit-grant-flow.md) per altre informazioni sui valori per l'hint di accesso e l'hint di dominio.
 
 > [!Note]
-> È possibile passare SID e login_hint nello stesso momento. Questo comporta in risposta a un errore.
+> Non è possibile passare contemporaneamente a SID e a login_hint. Si otterrà quindi una risposta di errore.
 
-## <a name="sso-without-msaljs-login"></a>Accesso SSO senza account di accesso di msal. js
+## <a name="sso-without-msaljs-login"></a>SSO senza accesso a MSAL. js
 
-Per impostazione predefinita, msal. js richiede che viene chiamato un metodo di accesso per stabilire un contesto utente prima di ottenere i token per le API. Poiché i metodi di accesso sono interattivi, l'utente visualizza un prompt dei comandi.
+Per impostazione predefinita, MSAL. js richiede che venga chiamato un metodo di accesso per stabilire un contesto utente prima di ottenere i token per le API. Poiché i metodi di accesso sono interattivi, l'utente visualizza un messaggio di richiesta.
 
-Esistono casi in cui le applicazioni hanno accesso al contesto dell'utente autenticato o token ID tramite l'autenticazione ha avviato in un'altra applicazione e si desidera utilizzare SSO per acquisire i token senza prima effettuare l'accesso tramite msal. js.
+Ci sono alcuni casi in cui le applicazioni hanno accesso al contesto o al token ID dell'utente autenticato tramite l'autenticazione avviata in un'altra applicazione e vogliono sfruttare SSO per acquisire i token senza prima accedere tramite MSAL. js.
 
-Un esempio è: Un utente è connesso a un'applicazione web padre che ospita un'altra applicazione di JavaScript in esecuzione come un componente aggiuntivo o plug-in.
+Un esempio è: un utente ha eseguito l'accesso a un'applicazione Web padre che ospita un'altra applicazione JavaScript che viene eseguita come componente aggiuntivo o plug-in.
 
-L'esperienza SSO in questo scenario può essere ottenuta nel modo seguente:
+L'esperienza SSO in questo scenario può essere eseguita come indicato di seguito:
 
-Passare il `sid` se disponibile (o `login_hint` e facoltativamente `domain_hint`) come parametri per il msal. js della richiesta `acquireTokenSilent` chiamare come indicato di seguito:
+Passare il `sid` se disponibile (o `login_hint` ed eventualmente `domain_hint`) come parametri della richiesta alla chiamata a MSAL. js `acquireTokenSilent` come indicato di seguito:
 
 ```javascript
 var request = {
@@ -141,11 +142,11 @@ userAgentApplication.acquireTokenSilent(request).then(function(response) {
 });
 ```
 
-## <a name="sso-in-adaljs-to-msaljs-update"></a>Accesso SSO di adal. js a update msal. js
+## <a name="sso-in-adaljs-to-msaljs-update"></a>SSO in ADAL. js per l'aggiornamento di MSAL. js
 
-Msal. js offre parità delle funzionalità con adal. js per scenari di autenticazione di Azure AD. Per facilitare la migrazione da adal. js per msal. js per evitare di richiedere agli utenti di accedere di nuovo, la libreria legge il token ID che rappresenta la sessione utente nella cache adal. js e perfettamente accede l'utente di msal. js.  
+MSAL. js offre la parità di funzionalità con ADAL. js per gli scenari di autenticazione Azure AD. Per semplificare la migrazione da ADAL. js a MSAL. js e per evitare che gli utenti eseguano di nuovo l'accesso, la libreria legge il token ID che rappresenta la sessione dell'utente nella cache ADAL. js e firma facilmente l'utente in MSAL. js.  
 
-Per sfruttare i vantaggi del comportamento di single sign-on (SSO) durante l'aggiornamento da adal. js, è necessario assicurarsi che usano le librerie `localStorage` per la memorizzazione nella cache i token. Impostare il `cacheLocation` a `localStorage` nella configurazione di msal. js sia adal. js in fase di inizializzazione come segue:
+Per sfruttare i vantaggi del comportamento del Single Sign-On (SSO) quando si esegue l'aggiornamento da ADAL. js, è necessario assicurarsi che le librerie utilizzino `localStorage` per la memorizzazione nella cache dei token. Impostare il `cacheLocation` su `localStorage` nella configurazione MSAL. js e ADAL. js in fase di inizializzazione, come indicato di seguito:
 
 
 ```javascript
@@ -171,8 +172,8 @@ const config = {
 const myMSALObj = new UserAgentApplication(config);
 ```
 
-Dopo la configurazione, msal. js sarà in grado di leggere lo stato memorizzato nella cache dell'utente autenticato in adal. js e usarla per fornire l'accesso SSO di msal. js.
+Una volta configurata la configurazione, MSAL. js potrà leggere lo stato memorizzato nella cache dell'utente autenticato in ADAL. js e usarlo per fornire l'accesso SSO in MSAL. js.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sul [l'accesso single sign-on di sessione e durata dei token](active-directory-configurable-token-lifetimes.md) valori in Azure AD.
+Per ulteriori informazioni sui valori di [durata Single Sign-on sessione e token,](active-directory-configurable-token-lifetimes.md) vedere Azure ad.

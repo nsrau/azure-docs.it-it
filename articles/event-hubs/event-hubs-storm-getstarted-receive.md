@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 75a96127c48186befc48b2240f78e49cd5914239
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eaa461dd0c4ef6bd9ed0ae4379a710ee100929d2
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343419"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800190"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Ricevere eventi da Hub eventi di Azure usando Apache Storm
 
@@ -29,7 +29,7 @@ ms.locfileid: "60343419"
 Per altre informazioni sui modelli di ricezione di Hub eventi, vedere [Panoramica di Hub eventi][Event Hubs overview].
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di iniziare con la Guida introduttiva **creare uno spazio dei nomi di hub eventi e un hub eventi**. Usare la [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo hub eventi e ottenere le credenziali di gestione dell'applicazione necessarie per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md). 
+Prima di iniziare con la Guida introduttiva, **creare uno spazio dei nomi di hub eventi e un hub eventi**. Usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo hub eventi e ottenere le credenziali di gestione richieste dall'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md). 
 
 ## <a name="create-project-and-add-code"></a>Creare il progetto e aggiungere il codice
 
@@ -252,7 +252,7 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[Esempio di HDInsight Storm con Hub eventi]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
+[Esempio di HDInsight Storm con Hub eventi]: https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
 
 <!-- Images -->
 

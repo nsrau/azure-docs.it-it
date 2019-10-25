@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 7c4aeef07d34159e01f188effae77926895e2857
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 6f3f0e0b8b5098784359e7703c4a165654ff9894
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179198"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808185"
 ---
 # <a name="create-a-simple-query-in-azure-search"></a>Creare una query semplice in ricerca di Azure
 
@@ -29,7 +29,7 @@ Una sintassi di query alternativa è [Lucene completa](https://docs.microsoft.co
 
 Negli esempi seguenti viene usato l'indice di ricerca NYC Jobs contenente le opportunità di lavoro disponibili in base a un set di dati fornito dall'iniziativa [City of New York OpenData](https://nycopendata.socrata.com/). Questi dati non devono essere considerati attuali o completi. L'indice si trova in un servizio sandbox fornito da Microsoft, il che significa che non è necessario disporre di una sottoscrizione di Azure o di Ricerca di Azure per provare queste query.
 
-È necessario disporre di Postman o di uno strumento equivalente per rilasciare una richiesta HTTP su GET. Per altre informazioni, vedere [Avvio rapido: Esplorare l'API REST di ricerca di Azure](search-get-started-postman.md)con il post.
+È necessario disporre di Postman o di uno strumento equivalente per rilasciare una richiesta HTTP su GET. Per altre informazioni, vedere [Guida introduttiva: esplorare l'API REST di ricerca di Azure con il post](search-get-started-postman.md).
 
 ### <a name="set-the-request-header"></a>Impostare l'intestazione della richiesta
 
@@ -73,7 +73,7 @@ Se lo si desidera, è possibile aggiungere **`$count=true`** all'URL per restitu
 
 Per le query interattive, non è necessario specificare nulla: la sintassi semplice è quella predefinita. Nel codice, se è stato richiamato **queryType=full** per la sintassi di query completa, è possibile tornare al valore predefinito con **queryType=simple**.
 
-## <a name="example-1-field-scoped-query"></a>Esempio 1: Query con ambito campo
+## <a name="example-1-field-scoped-query"></a>Esempio 1: query con ambito campo
 
 Questo primo esempio non è specifico del parser, ma viene presentato per primo come introduzione al primo concetto fondamentale delle query: l'indipendenza. Questo esempio limita l'ambito dell'esecuzione di query e della risposta a un numero ridotto di campi specifici. È importante sapere come strutturare una risposta JSON leggibile quando lo strumento usato è Postman o Esplora ricerche. 
 
@@ -103,7 +103,7 @@ La risposta per questa query dovrebbe essere simile alla seguente schermata.
 
 Si sarà notato il punteggio di ricerca nella risposta. Si ottengono punteggi uniformi pari a 1 in assenza di classificazione perché la ricerca non è una ricerca full-text o perché non sono stati applicati criteri. Per ricerche Null senza criteri le righe vengono restituite in ordine arbitrario. Se si includono criteri effettivi, i punteggi di ricerca si convertono in valori significativi.
 
-## <a name="example-2-look-up-by-id"></a>Esempio 2 Ricerca per ID
+## <a name="example-2-look-up-by-id"></a>Esempio 2: ricerca per ID
 
 Questo esempio è un po' atipico, ma quando si valutano i comportamenti di ricerca è possibile ispezionare l'intero contenuto di un documento specifico per capire perché è stato incluso o escluso dai risultati. Per restituire un intero documento, usare un'[operazione di ricerca](https://docs.microsoft.com/rest/api/searchservice/lookup-document) per passare l'ID documento.
 
@@ -119,7 +119,7 @@ L'esempio seguente è una query di ricerca che restituisce un documento in base 
 https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2019-05-06&$count=true&search=*
 ```
 
-## <a name="example-3-filter-queries"></a>Esempio 3: Query filtro
+## <a name="example-3-filter-queries"></a>Esempio 3: query filtro
 
 La [sintassi del filtro](https://docs.microsoft.com/azure/search/search-query-odata-filter) è un'espressione OData che si può usare con **search** o in modo autonomo. Un filtro autonomo, senza un parametro di ricerca, è utile quando l'espressione filtro è in grado di specificare il nome completo dei documenti di interesse. Senza una stringa di query, non ci sono un'analisi lessicale o linguistica, un'assegnazione del punteggio (tutti i punteggi corrispondono a 1) e una classificazione. Si noti che la stringa di ricerca è vuota.
 
@@ -128,7 +128,7 @@ POST /indexes/nycjobs/docs/search?api-version=2019-05-06
     {
       "search": "",
       "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
-      "select": "select=job_id, business_title, agency, salary_range_from",
+      "select": "job_id, business_title, agency, salary_range_from",
       "count": "true"
     }
 ```
@@ -151,7 +151,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 Per altre informazioni sulla funzione, vedere [search.ismatch in "Esempi di filtro"](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples).
 
-## <a name="example-4-range-filters"></a>Esempio 4: Filtri di intervallo
+## <a name="example-4-range-filters"></a>Esempio 4: filtri di intervallo
 
 Il filtro di intervallo è supportato tramite le espressioni **`$filter`** per qualsiasi tipo di dati. Gli esempi seguenti eseguono la ricerca nei campi numerici e nei campi stringa. 
 
@@ -198,7 +198,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 > [!NOTE]
 > L'esplorazione in base a facet su intervalli di valori è un requisito comune delle applicazioni di ricerca. Per altre informazioni ed esempi sulla creazione dei filtri per le strutture di navigazione facet, vedere ["Filtro basato su un intervallo" in *Come implementare l'esplorazione in base a facet*](search-faceted-navigation.md#filter-based-on-a-range).
 
-## <a name="example-5-geo-search"></a>Esempio 5: Ricerca geografica
+## <a name="example-5-geo-search"></a>Esempio 5: ricerca geografica
 
 L'indice degli esempi include un campo geo_location con le coordinate di latitudine e longitudine. Questo esempio usa la [funzione geo.distance](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples) che applica il filtro ai documenti all'interno della circonferenza di un punto di partenza, fino a una distanza arbitraria (in chilometri) specificata. È possibile modificare l'ultimo valore nella query (4) per ridurre o aumentare l'area della query.
 
@@ -221,7 +221,7 @@ Per ottenere risultati più leggibili, i risultati della ricerca vengono rimossi
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=&$select=job_id, business_title, work_location&$filter=geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4
 ```
 
-## <a name="example-6-search-precision"></a>Esempio 6: Precisione della ricerca
+## <a name="example-6-search-precision"></a>Esempio 6: precisione della ricerca
 
 Le query basate su termini sono composte da singoli termini valutati separatamente. Le query basate su frasi sono racchiuse tra virgolette e vengono valutate come stringhe verbatim. La precisione della corrispondenza è controllata da operatori e searchMode.
 
@@ -243,7 +243,7 @@ Esempio 3: **`&search="fire department"`** restituisce 82 risultati. Racchiudend
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search="fire department"
 ```
 
-## <a name="example-7-booleans-with-searchmode"></a>Esempio 7: Valori booleani con searchMode
+## <a name="example-7-booleans-with-searchmode"></a>Esempio 7: valori booleani con searchMode
 
 La sintassi semplice supporta gli operatori booleani sotto forma di caratteri (`+, -, |`). Il parametro searchMode indica compromessi tra la precisione e il richiamo, con `searchMode=any` che favorisce il richiamo (la corrispondenza su qualsiasi criterio rende idoneo un documento al set di risultati) e `searchMode=all` che favorisce la precisione (deve esistere una corrispondenza per tutti i criteri). Il valore predefinito è `searchMode=any`, che può creare confusione se si impila una query con più operatori e si ottengono risultati più ampi anziché limitati. Questo è particolarmente vero con NOT, dove i risultati includono tutti i documenti che "non contengono" un termine specifico.
 
@@ -262,7 +262,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ```
   ![modalità di ricerca = tutto](media/search-query-simple-examples/searchmodeall.png)
 
-## <a name="example-8-structuring-results"></a>Esempio 8: Strutturazione dei risultati
+## <a name="example-8-structuring-results"></a>Esempio 8: strutturazione dei risultati
 
 Più parametri determinano i campi presenti nei risultati di ricerca, il numero di documenti restituiti in ciascun batch e l'ordinamento. In questo esempio riaffiorano alcuni degli esempi precedenti, limitando i risultati a campi specifici usando l'istruzione **$select** e i criteri di ricerca verbatim, restituendo 82 corrispondenze 
 
@@ -293,7 +293,7 @@ Provare a specificare le query nel codice. I collegamenti seguenti illustrano co
 * [Eseguire query su un indice di Ricerca di Azure con .NET SDK](search-query-dotnet.md)
 * [Eseguire query su un indice di Ricerca di Azure con l'API REST](search-create-index-rest-api.md)
 
-Un riferimento alla sintassi aggiuntivo, l'architettura di query ed esempi sono disponibili nei collegamenti seguenti:
+Un riferimento alla sintassi aggiuntivo, l'architettura di query e gli esempi sono disponibili nei seguenti collegamenti:
 
 + [Esempi di query con sintassi Lucene per la compilazione di query avanzate](search-query-lucene-examples.md)
 + [Funzionamento della ricerca full-text in Ricerca di Azure](search-lucene-query-architecture.md)

@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 11924b44a51767df68372cd94c581b2feaa8ac25
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 984b6aed6ae1b36432b932afb7d0f9dfb0b2dc15
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72247105"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72783577"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>Numero di domini di errore per area
 
-| Region              | Numero massimo di domini di errore  |
+| Area geografica              | Numero massimo di domini di errore  |
 |---------------------|-------------------------|
-| East US             | 3                       |
+| Stati Uniti Orientali             | 3                       |
 | Stati Uniti orientali 2           | 3                       |
 | Stati Uniti occidentali             | 3                       |
 | Stati Uniti occidentali 2           | 2                       |
@@ -38,15 +38,15 @@ ms.locfileid: "72247105"
 | India meridionale         | 2                       |
 | India centrale       | 2                       |
 | India occidentale          | 2                       |
-| Corea del Sud centrale       | 2                       |
-| Corea del Sud meridionale         | 2                       |
+| Corea centrale       | 2                       |
+| Corea meridionale         | 2                       |
 | Emirati Arabi Uniti settentrionali           | 2                       |
 |                     |                         |
 | Cina orientale          | 2                       |
 | Cina orientale 2        | 2                       |
 | Cina settentrionale         | 2                       |
 | Cina settentrionale 2       | 2                       |
-|
+|                     |                         |
 | Australia orientale      | 2                       |
 | Australia sud-orientale | 2                       |
 | Australia centrale   | 2                       |

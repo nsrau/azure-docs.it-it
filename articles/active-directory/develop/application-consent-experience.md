@@ -1,5 +1,6 @@
 ---
-title: Informazioni sulle esperienze di consenso per le applicazioni di Azure AD | Microsoft Docs
+title: Informazioni sulle esperienze di consenso per le applicazioni di Azure AD
+titleSuffix: Microsoft identity platform
 description: Altre informazioni sulle esperienze di consenso di Azure AD per sapere come sfruttarne le potenzialità per la gestione e lo sviluppo di applicazioni in Azure AD
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 012a79969f2fa72589ba6b70aa5398b6f4e7e811
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 4356a0a26aa586f99766cc5166c17d301a9a194d
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835242"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803911"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Informazioni sulle esperienze di consenso per le applicazioni di Azure AD
 
@@ -45,15 +46,15 @@ La figura e la tabella seguenti includono informazioni sui blocchi predefiniti d
 
 ![Blocchi predefiniti della richiesta di consenso](./media/application-consent-experience/consent_prompt.png)
 
-| # | Componente | Scopo |
+| # | Componente | Finalità |
 | ----- | ----- | ----- |
-| 1 | Identificatore utente | Questo ID rappresenta l'utente per conto del quale l'applicazione client sta richiedendo di accedere a risorse protette. |
-| 2 | Titolo | Il titolo varia a seconda che gli utenti siano inseriti nel flusso di consenso utente o nel flusso di consenso amministratore. Nel flusso di consenso utente il titolo sarà "Autorizzazioni richieste", mentre nel flusso di consenso amministratore conterrà la riga aggiuntiva "Accetta per l'organizzazione". |
+| 1 | ID utente | Questo ID rappresenta l'utente per conto del quale l'applicazione client sta richiedendo di accedere a risorse protette. |
+| 2 | Title | Il titolo varia a seconda che gli utenti siano inseriti nel flusso di consenso utente o nel flusso di consenso amministratore. Nel flusso di consenso utente il titolo sarà "Autorizzazioni richieste", mentre nel flusso di consenso amministratore conterrà la riga aggiuntiva "Accetta per l'organizzazione". |
 | 3 | Logo dell'app | Questa immagine deve consentire agli utenti di avere un'indicazione visiva se l'app in questione è quella a cui intendevano accedere. L'immagine viene fornita dagli sviluppatori dell'applicazione e la relativa proprietà non è convalidata. |
 | 4 | Nome app | Questo valore deve comunicare agli utenti il nome dell'applicazione che sta richiedendo l'accesso ai dati. Si noti che il nome dell'app viene fornito dagli sviluppatori e la relativa proprietà non è convalidata. |
 | 5 | Dominio dell'entità di pubblicazione | Questo valore deve fornire agli utenti un dominio di cui possano essere in grado di valutare il livello di affidabilità. Il dominio dell'entità di pubblicazione viene fornito dagli sviluppatori e la relativa proprietà è convalidata. |
-| 6 | Autorizzazioni | Questo elenco contiene le autorizzazioni richieste dall'applicazione client. Gli utenti devono sempre valutare i tipi di autorizzazioni richieste per comprendere, in caso di accettazione, a quali dati l'applicazione client sarà autorizzata ad accedere per loro conto. Si consiglia agli sviluppatori di applicazioni di richiedere l'accesso alle autorizzazioni con privilegi minimi. |
-| 7 | Descrizione autorizzazione | Questo valore viene fornito dal servizio che espone le autorizzazioni. Per visualizzare le descrizioni delle autorizzazioni, è necessario attivare o disattivare la freccia di espansione accanto all'autorizzazione. |
+| 6 | autorizzazioni | Questo elenco contiene le autorizzazioni richieste dall'applicazione client. Gli utenti devono sempre valutare i tipi di autorizzazioni richieste per comprendere, in caso di accettazione, a quali dati l'applicazione client sarà autorizzata ad accedere per loro conto. Si consiglia agli sviluppatori di applicazioni di richiedere l'accesso alle autorizzazioni con privilegi minimi. |
+| 7 | Descrizione dell'autorizzazione | Questo valore viene fornito dal servizio che espone le autorizzazioni. Per visualizzare le descrizioni delle autorizzazioni, è necessario attivare o disattivare la freccia di espansione accanto all'autorizzazione. |
 | 8 | Condizioni dell'app | Queste condizioni includono collegamenti alle condizioni d'uso e all'informativa sulla privacy dell'applicazione. L'entità di pubblicazione è responsabile della definizione delle regole nelle condizioni d'uso. Inoltre, deve dichiarare nell'informativa sulla privacy in che modo intende usare e condividere i dati utente. Se l'entità di pubblicazione non fornisce i collegamenti a questi valori per le applicazioni multi-tenant, verrà visualizzato un avviso in grassetto nella richiesta di consenso. |
 | 9 | https://myapps.microsoft.com | Questo collegamento consente agli utenti di controllare e rimuovere le applicazioni non Microsoft che attualmente hanno accesso ai dati. |
 

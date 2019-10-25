@@ -1,5 +1,6 @@
 ---
-title: Azure AD B2C (Microsoft Authentication Library per Android) | Azure
+title: Azure AD B2C (Microsoft Authentication Library per Android)
+titleSuffix: Microsoft identity platform
 description: Informazioni su considerazioni specifiche quando si usa Azure AD B2C con Microsoft Authentication Library per Android (MSAL. Android
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c55356b19c8150c76858efb4edc593406c1722a4
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 8b5061f1ab341e5872dfa82c9f5c5b133ae40bdf
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679737"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803246"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Usare MSAL per Android con B2C
 
@@ -38,7 +39,7 @@ Data un'applicazione B2C con due criteri:
 - Modifica profilo
     * Chiamata `B2C_1_EditProfile`
 
-Il file di configurazione per l'app dichiara due `authorities`. Uno per ogni criterio. La proprietà `type` di ogni autorità è `B2C`.
+Il file di configurazione per l'app dichiara due `authorities`. Uno per ogni criterio. Il `type` proprietà di ogni autorità è `B2C`.
 
 ### `app/src/main/res/raw/msal_config.json`
 ```json
@@ -58,7 +59,7 @@ Il file di configurazione per l'app dichiara due `authorities`. Uno per ogni cri
 }
 ```
 
-Per supportare il reindirizzamento durante il [flusso di concessione del codice di autorizzazione](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code), è necessario registrare `redirect_uri` nella configurazione dell'app e anche in `AndroidManifest.xml`.
+Il `redirect_uri` deve essere registrato nella configurazione dell'app e anche in `AndroidManifest.xml` per supportare il reindirizzamento durante il flusso di [concessione del codice di autorizzazione](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
 
 ## <a name="initialize-ipublicclientapplication"></a>Inizializzare IPublicClientApplication
 
@@ -85,7 +86,7 @@ PublicClientApplication.createMultipleAccountPublicClientApplication(
 
 ## <a name="interactively-acquire-a-token"></a>Acquisire un token in modo interattivo
 
-Per acquisire un token in modo interattivo con MSAL, compilare un'istanza `AcquireTokenParameters` e fornirla al metodo `acquireToken`. La richiesta di token seguente usa l'autorità `default`.
+Per acquisire un token in modo interattivo con MSAL, compilare un'istanza di `AcquireTokenParameters` e fornirla al metodo `acquireToken`. La richiesta di token seguente usa l'autorità di `default`.
 
 ```java
 IMultipleAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -116,7 +117,7 @@ pca.acquireToken(parameters);
 
 ## <a name="silently-renew-a-token"></a>Rinnovare automaticamente un token
 
-Per acquisire un token in modo invisibile all'utente con MSAL, compilare un'istanza `AcquireTokenSilentParameters` e fornirla al metodo `acquireTokenSilentAsync`. A differenza del metodo `acquireToken`, è necessario specificare il `authority` per acquisire un token in modo invisibile all'utente.
+Per acquisire un token in modo invisibile all'utente con MSAL, compilare un'istanza di `AcquireTokenSilentParameters` e fornirla al metodo `acquireTokenSilentAsync`. A differenza del metodo `acquireToken`, è necessario specificare il `authority` per acquisire un token in modo invisibile all'utente.
 
 ```java
 IMultilpeAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -143,7 +144,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>Specificare un criterio
 
-Poiché i criteri in B2C sono rappresentati come autorità separate, il richiamo di un criterio diverso da quello predefinito viene ottenuto specificando una clausola `fromAuthority` quando si costruiscono parametri `acquireToken` o `acquireTokenSilent`.  Esempio:
+Poiché i criteri in B2C sono rappresentati come autorità separate, il richiamo di un criterio diverso da quello predefinito viene ottenuto specificando una clausola `fromAuthority` quando si costruiscono parametri `acquireToken` o `acquireTokenSilent`.  ad esempio:
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
@@ -219,7 +220,7 @@ String id = account.getId();
 // Get the IdToken Claims
 //
 // For more information about B2C token claims, see reference documentation
-// https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-tokens
+// https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens
 Map<String, ?> claims = account.getClaims();
 
 // Get the 'preferred_username' claim through a convenience function
@@ -231,15 +232,15 @@ String tenantId = account.getTenantId();
 
 ### <a name="idtoken-claims"></a>Attestazioni IdToken
 
-Le attestazioni restituite in IdToken vengono popolate dal servizio token di sicurezza (STS), non da MSAL. A seconda del provider di identità (IdP) usato, alcune attestazioni potrebbero essere assenti. Alcuni IDP attualmente non forniscono l'attestazione `preferred_username`. Poiché questa attestazione viene utilizzata da MSAL per la memorizzazione nella cache, al suo posto viene utilizzato un valore segnaposto, `MISSING FROM THE TOKEN RESPONSE`. Per altre informazioni sulle attestazioni IdToken B2C, vedere [Cenni preliminari sui token in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
+Le attestazioni restituite in IdToken vengono popolate dal servizio token di sicurezza (STS), non da MSAL. A seconda del provider di identità (IdP) usato, alcune attestazioni potrebbero essere assenti. Alcuni IDP attualmente non forniscono il `preferred_username` attestazione. Poiché questa attestazione viene utilizzata da MSAL per la memorizzazione nella cache, al suo posto viene utilizzato un valore segnaposto `MISSING FROM THE TOKEN RESPONSE`. Per altre informazioni sulle attestazioni IdToken B2C, vedere [Cenni preliminari sui token in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
 
 ## <a name="managing-accounts-and-policies"></a>Gestione di account e criteri
 
 B2C considera ogni criterio come un'autorità separata. Pertanto, i token di accesso, i token di aggiornamento e i token ID restituiti da ogni criterio non sono intercambiabili. Questo significa che ogni criterio restituisce un oggetto `IAccount` separato i cui token non possono essere usati per richiamare altri criteri.
 
-Ogni criterio aggiunge un `IAccount` alla cache per ogni utente. Se un utente accede a un'applicazione e richiama due criteri, avranno due `IAccount`. Per rimuovere l'utente dalla cache, è necessario chiamare `removeAccount()` per ogni criterio.
+Ogni criterio consente di aggiungere una `IAccount` alla cache per ogni utente. Se un utente accede a un'applicazione e richiama due criteri, avranno due `IAccount`s. Per rimuovere l'utente dalla cache, è necessario chiamare `removeAccount()` per ogni criterio.
 
-Quando si rinnovano i token per un criterio con `acquireTokenSilent`, fornire lo stesso `IAccount` restituito dalle chiamate precedenti del criterio a `AcquireTokenSilentParameters`. Se si specifica un account restituito da un altro criterio, verrà generato un errore.
+Quando si rinnovano i token per un criterio con `acquireTokenSilent`, fornire lo stesso `IAccount` restituito dalle chiamate precedenti del criterio al `AcquireTokenSilentParameters`. Se si specifica un account restituito da un altro criterio, verrà generato un errore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

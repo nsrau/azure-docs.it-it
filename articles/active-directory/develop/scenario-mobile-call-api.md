@@ -1,5 +1,6 @@
 ---
-title: App per dispositivi mobili che chiama API Web-chiamata a un'API Web | Piattaforma di identità Microsoft
+title: App per dispositivi mobili che chiama API Web-chiamata a un'API Web
+titleSuffix: Microsoft identity platform
 description: Informazioni su come creare un'app per dispositivi mobili che chiama API Web (chiamando un'API Web)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,33 +17,33 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ada6ee6247deb3d4c72edb8237a40a0f47f96be
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 9e70b828219fc497fc07e2bc128eb480a532a176
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268323"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802559"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>App per dispositivi mobili che chiama API Web-chiamare un'API Web
 
 Dopo che l'app ha eseguito l'accesso a un utente e ricevuto i token, MSAL espone diverse informazioni sull'utente, l'ambiente dell'utente e i token emessi. L'app può usare questi valori per chiamare un'API Web o visualizzare un messaggio di benvenuto all'utente.
 
-In primo luogo, si esaminerà il risultato di MSAL. Si esaminerà quindi come usare un token di accesso da `AuthenticationResult` o `result` per chiamare un'API Web protetta.
+In primo luogo, si esaminerà il risultato di MSAL. Si esaminerà quindi come usare un token di accesso dal `AuthenticationResult` o `result` per chiamare un'API Web protetta.
 
 ## <a name="msal-result"></a>Risultato di MSAL
 MSAL fornisce i valori seguenti: 
 
-- `AccessToken`: Usato per chiamare le API Web protette in una richiesta di portatore HTTP.
-- `IdToken`: Contiene informazioni utili sull'utente che ha eseguito l'accesso, ad esempio il nome dell'utente, il tenant principale e un identificatore univoco per l'archiviazione.
-- `ExpiresOn`: Data di scadenza del token. MSAL gestisce l'aggiornamento automatico per le app.
-- `TenantId`: Identificatore del tenant con cui l'utente ha eseguito l'accesso. Per gli utenti Guest (Azure Active Directory B2B), questo valore identificherà il tenant con cui l'utente ha eseguito l'accesso, non il tenant principale dell'utente.  
-- `Scopes`: Gli ambiti concessi con il token. Gli ambiti concessi possono essere un subset degli ambiti richiesti.
+- `AccessToken`: usato per chiamare le API Web protette in una richiesta di portatore HTTP.
+- `IdToken`: contiene informazioni utili sull'utente che ha eseguito l'accesso, ad esempio il nome dell'utente, il tenant principale e un identificatore univoco per l'archiviazione.
+- `ExpiresOn`: ora di scadenza del token. MSAL gestisce l'aggiornamento automatico per le app.
+- `TenantId`: identificatore del tenant con cui l'utente ha eseguito l'accesso. Per gli utenti Guest (Azure Active Directory B2B), questo valore identificherà il tenant con cui l'utente ha eseguito l'accesso, non il tenant principale dell'utente.  
+- `Scopes`: gli ambiti concessi con il token. Gli ambiti concessi possono essere un subset degli ambiti richiesti.
 
-MSAL fornisce anche un'astrazione per `Account`un oggetto. Un `Account` oggetto rappresenta l'account di accesso dell'utente corrente.
+MSAL fornisce anche un'astrazione per un `Account`. Una `Account` rappresenta l'account di accesso dell'utente corrente.
 
-- `HomeAccountIdentifier`: Identificatore del tenant Home dell'utente.
-- `UserName`: Nome utente preferito dell'utente. Questa operazione potrebbe essere vuota per Azure Active Directory B2C utenti.
-- `AccountIdentifier`: Identificatore dell'utente che ha eseguito l'accesso. Questo valore sarà uguale `HomeAccountIdentifier` al valore nella maggior parte dei casi, a meno che l'utente non sia un guest in un altro tenant.
+- `HomeAccountIdentifier`: identificatore del tenant Home dell'utente.
+- `UserName`: il nome utente preferito dell'utente. Questa operazione potrebbe essere vuota per Azure Active Directory B2C utenti.
+- `AccountIdentifier`: identificatore dell'utente che ha eseguito l'accesso. Questo valore sarà uguale al valore `HomeAccountIdentifier` nella maggior parte dei casi, a meno che l'utente non sia un guest in un altro tenant.
 
 ## <a name="call-an-api"></a>Chiamare un'API
 
@@ -88,9 +89,9 @@ Dopo aver avuto il token di accesso, è facile chiamare un'API Web. L'app userà
         queue.add(request);
 ```
 
-### <a name="msal-for-ios-and-macos"></a>MSAL per iOS e macOS
+### <a name="msal-for-ios-and-macos"></a>MSAL per iOS e MacOS
 
-I metodi per acquisire i token restituiscono `MSALResult` un oggetto. `MSALResult`espone una `accessToken` proprietà che può essere usata per chiamare un'API Web. Il token di accesso deve essere aggiunto all'intestazione di autorizzazione HTTP, prima di effettuare la chiamata per accedere all'API Web protetta.
+I metodi per acquisire i token restituiscono un oggetto `MSALResult`. `MSALResult` espone una proprietà `accessToken` che può essere usata per chiamare un'API Web. Il token di accesso deve essere aggiunto all'intestazione di autorizzazione HTTP, prima di effettuare la chiamata per accedere all'API Web protetta.
 
 Objective-C:
 
@@ -106,7 +107,7 @@ NSURLSessionDataTask *task =
 [task resume];
 ```
 
-Swift
+Swift:
 
 ```swift
 let urlRequest = NSMutableURLRequest()
@@ -126,12 +127,12 @@ task.resume()
 
 Se è necessario chiamare la stessa API più volte o se è necessario chiamare più API, tenere in considerazione quanto segue quando si compila l'app:
 
-- **Consenso incrementale**: Microsoft Identity Platform consente alle app di ottenere il consenso dell'utente in quanto le autorizzazioni sono obbligatorie, anziché tutte all'inizio. Ogni volta che l'app è pronta per chiamare un'API, deve richiedere solo gli ambiti che deve usare.
-- **Accesso condizionale**: In alcuni scenari, è possibile ottenere ulteriori requisiti di accesso condizionale quando si effettuano diverse richieste API. Questo problema può verificarsi se alla prima richiesta non sono applicati criteri di accesso condizionale e l'app tenta di accedere automaticamente a una nuova API che richiede l'accesso condizionale. Per gestire questo scenario, assicurarsi di intercettare gli errori dalle richieste automatiche e prepararsi a eseguire una richiesta interattiva.  Per altre informazioni, vedere [linee guida per l'accesso condizionale](conditional-access-dev-guide.md).
+- **Consenso incrementale**: la piattaforma di identità Microsoft consente alle app di ottenere il consenso dell'utente perché sono necessarie le autorizzazioni, anziché tutte all'inizio. Ogni volta che l'app è pronta per chiamare un'API, deve richiedere solo gli ambiti che deve usare.
+- **Accesso condizionale**: in alcuni scenari è possibile ottenere ulteriori requisiti di accesso condizionale quando si effettuano diverse richieste API. Questo problema può verificarsi se alla prima richiesta non sono applicati criteri di accesso condizionale e l'app tenta di accedere automaticamente a una nuova API che richiede l'accesso condizionale. Per gestire questo scenario, assicurarsi di intercettare gli errori dalle richieste automatiche e prepararsi a eseguire una richiesta interattiva.  Per altre informazioni, vedere [linee guida per l'accesso condizionale](conditional-access-dev-guide.md).
 
 ## <a name="calling-several-apis-in-xamarin-or-uwp---incremental-consent-and-conditional-access"></a>Chiamata di diverse API in Novell o UWP-consenso incrementale e accesso condizionale
 
-Se è necessario chiamare diverse API per lo stesso utente, dopo aver acquisito un token per un utente, è possibile evitare di `AcquireTokenSilent` chiedere ripetutamente le credenziali dell'utente chiamando per ottenere un token.
+Se è necessario chiamare diverse API per lo stesso utente, dopo aver acquisito un token per un utente, è possibile evitare di chiedere ripetutamente le credenziali dell'utente chiamando in seguito `AcquireTokenSilent` per ottenere un token.
 
 ```CSharp
 var result = await app.AcquireTokenXX("scopeApi1")

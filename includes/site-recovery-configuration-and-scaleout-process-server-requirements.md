@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,53 +9,70 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 3b4992a16061bef782f012aa7887b248e3423234
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 0156ab3acd2f4c629b0263356f61c22e62b424d1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67568337"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792330"
 ---
 **Requisiti del server di configurazione/elaborazione**
 
+
+## <a name="hardware-requirements"></a>Requisiti hardware
+
 **Componente** | **Requisito** 
 --- | ---
-**IMPOSTAZIONI HARDWARE** | 
 Core CPU | 8 
 RAM | 16 GB
 Numero di dischi | 3, inclusi disco del sistema operativo, disco della cache del server di elaborazione e unità di conservazione per il failback 
 Spazio libero su disco (cache del server di elaborazione) | 600 GB
 Spazio libero su disco (disco di conservazione) | 600 GB
  | 
-**IMPOSTAZIONI SOFTWARE** | 
+
+## <a name="software-requirements"></a>Requisiti software
+
+**Componente** | **Requisito** 
+--- | ---
 Sistema operativo | Windows Server 2012 R2 <br> Windows Server 2016
 Impostazioni locali del sistema operativo | Inglese (en-us)
 Ruoli di Windows Server | Non abilitare questi ruoli: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
-Criteri di gruppo | Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Altre informazioni](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+Criteri di gruppo | Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Ulteriori informazioni](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | - Nessun sito Web predefinito preesistente <br> - Nessun sito Web o applicazione preesistente in ascolto sulla porta 443 <br>- Abilitare l'[autenticazione anonima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Abilitare l'impostazione di [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 
 | 
-**IMPOSTAZIONI DI RETE** | 
-Tipo di indirizzo IP | statico 
+
+## <a name="network-requirements"></a>Requisiti di rete
+
+**Componente** | **Requisito** 
+--- | --- 
+Tipo di indirizzo IP | Statica 
 Porte | 443 (orchestrazione del canale di controllo)<br>9443 (trasporto dei dati) 
 Tipo di scheda di interfaccia di rete | VMXNET3 (se il server di configurazione è una macchina virtuale VMware)
  |
 **Accesso a Internet** (Il server deve poter accedere agli  URL seguenti, direttamente o tramite proxy):|
 \*.backup.windowsazure.com | Usato per il coordinamento e il trasferimento dei dati di replica
-\*.store.core.windows.net | Usato per il coordinamento e il trasferimento dei dati replicati
+\*.store.core.windows.net | Usato per il coordinamento e il trasferimento dei dati di replica
 \*.blob.core.windows.net | Usato per accedere all'account di archiviazione in cui sono archiviati i dati replicati
 \*.hypervrecoverymanager.windowsazure.com | Usato per il coordinamento e le operazioni di gestione della replica
 https:\//management.azure.com | Usato per il coordinamento e le operazioni di gestione della replica 
 *.services.visualstudio.com | Utilizzato per scopi di telemetria (Facoltativo)
 time.nist.gov | Usati per controllare la sincronizzazione tra ora di sistema e ora globale.
 time.windows.com | Usati per controllare la sincronizzazione tra ora di sistema e ora globale.
-| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | La configurazione OVF deve poter accedere a questi URL. Vengono usati per la gestione di identità e controllo di accesso da Azure Active Directory
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Per completare il download di MySQL. </br> In alcune aree, il download potrebbe essere reindirizzato all'URL della rete CDN. Verificare che l'URL della rete CDN sia nell'elenco elementi consentiti, se necessario.
+| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | La configurazione OVF richiede l'accesso a questi URL. Vengono usati per la gestione di identità e controllo di accesso da Azure Active Directory
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Per completare il download di MySQL. </br> In poche aree, il download potrebbe essere reindirizzato all'URL della rete CDN. Verificare che anche l'URL della rete CDN sia incluso nell'elenco elementi consentiti, se necessario.
 |
-**SOFTWARE DA INSTALLARE** | 
+
+## <a name="required-software"></a>Requisiti software
+
+**Componente** | **Requisito** 
+--- | ---
 VMware vSphere PowerCLI | [PowerCLI versione 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) deve essere installato se il server di configurazione è in esecuzione in una macchina virtuale VMware.
 MYSQL | MySQL deve essere installato. È possibile eseguire l'installazione manualmente o con Site Recovery. (Per altre informazioni, fare riferimento a [Configurazione delle impostazioni](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings))
 
-**Requisiti di dimensione del server di configurazione/elaborazione**
+## <a name="sizing-and-capacity-requirements"></a>Requisiti di dimensioni e capacità
+
+La tabella seguente riepiloga i requisiti di capacità del server di configurazione. Se si esegue la replica di più macchine virtuali VMware, è necessario rivedere le [considerazioni sulla pianificazione della capacità](../articles/site-recovery/site-recovery-plan-capacity-vmware.md) ed eseguire lo [strumento Azure Site Recovery Deployment Planner](../articles/site-recovery/site-recovery-deployment-planner.md).
+
 
 **CPU** | **Memoria** | **Disco cache** | **Frequenza di modifica dei dati** | **Computer replicati**
 --- | --- | --- | --- | ---

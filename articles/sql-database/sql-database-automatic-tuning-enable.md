@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 67a05d065cba8286c837487e21fc2f5be54e2c0b
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: c9339b5c7c35378fb85daeae19a6daa01d54f350
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162336"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809639"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Abilitare l'ottimizzazione automatica monitorare le query e migliorare le prestazioni del carico di lavoro
 
@@ -104,9 +104,15 @@ Per altre informazioni sulle opzioni di T-SQL per configurare l'ottimizzazione a
 
 L'ottimizzazione automatica esegue il monitoraggio di tutte le azioni eseguite a livello di database e in alcuni casi potrebbe non funzionare correttamente nel database. In questo caso, l'opzione di ottimizzazione viene disabilitata dal sistema. Nella maggior parte dei casi ciò accade perché Query Store non è abilitato o è in stato di sola lettura in un database specifico.
 
+## <a name="permissions"></a>autorizzazioni
+
+Poiché l'ottimizzazione automatica è la funzionalità di Azure, per usarla è necessario usare i ruoli RBAC predefiniti di Azure. L'utilizzo dell'autenticazione SQL non sarà sufficiente per utilizzare la funzionalità da portale di Azure.
+
+Per usare l'ottimizzazione automatica, l'autorizzazione minima necessaria per concedere all'utente è il ruolo di [collaboratore database SQL](../role-based-access-control/built-in-roles.md#sql-db-contributor) predefinito di Azure. È inoltre possibile considerare l'utilizzo di ruoli con privilegi più elevati, ad esempio SQL Server collaboratore, collaboratore e proprietario.
+
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurare notifiche tramite posta elettronica per l'ottimizzazione automatica
 
-Vedere la guida [Notifiche tramite posta elettronica per l'ottimizzazione automatica](sql-database-automatic-tuning-email-notifications.md).
+Vedere la Guida all' [ottimizzazione automatica delle notifiche tramite posta elettronica](sql-database-automatic-tuning-email-notifications.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

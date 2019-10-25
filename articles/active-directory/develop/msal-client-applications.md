@@ -1,5 +1,6 @@
 ---
-title: Applicazioni client (Microsoft Authentication Library) | Azure
+title: Applicazioni client (Microsoft Authentication Library)
+titleSuffix: Microsoft identity platform
 description: Informazioni sulle applicazioni client pubbliche e riservate in Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c854cc34a1ea50f37428cfc18146618d516de7d
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 76c57d3a13f9f03fa635c6c9425e2049e2a2c885
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69532970"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803207"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Client pubblici e applicazioni client riservate
 Microsoft Authentication Library (MSAL) definisce due tipi di client: client pubblici e client riservati. I due tipi di client sono distinti dalla loro capacità di eseguire l'autenticazione in modo sicuro con il server di autorizzazione e di mantenere la riservatezza delle proprie credenziali client. Al contrario, Autenticazione di Azure AD Library (ADAL) usa il cosiddetto *contesto di autenticazione* , ovvero una connessione a Azure ad.
@@ -30,12 +31,12 @@ Microsoft Authentication Library (MSAL) definisce due tipi di client: client pub
 - **Le applicazioni client riservate** sono app eseguite su server (app Web, app per le API Web o anche app di servizio/daemon). Sono considerati difficili da accedere e per questo motivo è in grado di mantenere un segreto dell'applicazione. I client riservati possono conservare i segreti in fase di configurazione. Ogni istanza del client ha una configurazione distinta (inclusi ID client e segreto client). Questi valori sono difficili da estrarre per gli utenti finali. Un'app Web è il client riservato più comune. L'ID client viene esposto tramite il Web browser, ma il segreto viene passato solo nel canale indietro e mai esposto direttamente.
 
     App client riservate: <BR>
-    ![Web app ](media/msal-client-applications/web-app.png) ![Web API ](media/msal-client-applications/web-api.png) ![Daemon/Service ](media/msal-client-applications/daemon-service.png)
+    ![Web App](media/msal-client-applications/web-app.png) ![API Web](media/msal-client-applications/web-api.png) ![daemon/service](media/msal-client-applications/daemon-service.png)
 
 - **Le applicazioni client pubbliche** sono app eseguite su dispositivi o computer desktop o in un Web browser. Non sono attendibili per la conservazione sicura dei segreti dell'applicazione, quindi accedono solo alle API Web per conto dell'utente. Supportano solo i flussi client pubblici. I client pubblici non possono contenere segreti in fase di configurazione, quindi non hanno segreti client.
 
     App client pubbliche: <BR>
-    ![Desktop app ](media/msal-client-applications/desktop-app.png) ![Browserless API ](media/msal-client-applications/browserless-app.png) ![Mobile app ](media/msal-client-applications/mobile-app.png)
+    ![app desktop](media/msal-client-applications/desktop-app.png) ![API browser](media/msal-client-applications/browserless-app.png) ![app per dispositivi mobili](media/msal-client-applications/mobile-app.png)
 
 > [!NOTE]
 > In MSAL. js non esiste alcuna separazione tra app client pubbliche e riservate.  MSAL. js rappresenta le app client come app basate su agenti utente, client pubblici in cui il codice client viene eseguito in un agente utente come un Web browser. Questi client non archiviano i segreti perché il contesto del browser è accessibile apertamente.

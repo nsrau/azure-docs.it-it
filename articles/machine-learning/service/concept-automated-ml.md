@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: e80d79c16b0748e25e549365001990fb014b5f14
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 895425232dabc78650b6ee7ed035048471084237
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030546"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793903"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -39,7 +39,7 @@ I data scientist, gli analisti e gli sviluppatori di tutti i settori possono usa
 
 La tabella seguente elenca i casi d'uso di Machine Learning automatizzati comuni. 
 
-classificazione| Regressione | Previsione delle serie temporali
+Classificazione| regressione | Previsione delle serie temporali
 ---|---|---
 [Rilevamento di frodi](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)|[Stima delle prestazioni della CPU](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance/auto-ml-regression-hardware-performance.ipynb) |[Previsione della domanda](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)|
 [Previsione marketing](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing/auto-ml-classification-bank-marketing.ipynb)|[Stima della durabilità del materiale](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-concrete-strength/auto-ml-regression-concrete-strength.ipynb)|[Previsioni di vendita](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)
@@ -50,7 +50,7 @@ Con **Azure Machine Learning**è possibile progettare ed eseguire gli esperiment
 
 1. **Identificare il problema di ml** da risolvere: classificazione, previsione o regressione
 
-1. **Specificare l'origine e il formato dei dati di training con etichetta**: Matrici numpy o dataframe Pandas
+1. **Specificare l'origine e il formato dei dati di training con etichetta**: matrici numpy o Dataframe Pandas
 
 1. **Configurare la destinazione di calcolo per il training del modello**, ad esempio il [computer locale, Azure Machine Learning calcoli, le macchine virtuali remote o Azure Databricks](how-to-set-up-training-targets.md).  Informazioni sulla formazione automatica [su una risorsa remota](how-to-auto-train-remote.md).
 
@@ -62,7 +62,7 @@ Con **Azure Machine Learning**è possibile progettare ed eseguire gli esperiment
 
 Durante il training, Azure Machine Learning crea alcune pipeline parallele che tentano algoritmi e parametri diversi. Si arresterà quando si raggiungeranno i criteri di uscita definiti nell'esperimento.
 
-È anche possibile esaminare le informazioni sull'esecuzione registrata, che [contengono le metriche](how-to-understand-automated-ml.md) raccolte durante l'esecuzione. L'esecuzione del training produce un oggetto serializzato Python (file `.pkl`) che contiene il modello e la pre-elaborazione dei dati.
+È anche possibile esaminare le informazioni sull'esecuzione registrata, che [contengono le metriche](how-to-understand-automated-ml.md) raccolte durante l'esecuzione. L'esecuzione del training produce un oggetto serializzato Python (file`.pkl`) che contiene la pre-elaborazione dei dati e del modello.
 
 Sebbene la creazione di modelli sia automatizzata, è anche possibile [scoprire quanto siano importanti o rilevanti le funzionalità](how-to-configure-auto-train.md#explain) dei modelli generati.
 
@@ -81,7 +81,7 @@ In ogni esperimento di Machine Learning automatizzato, i dati vengono pre-elabor
 
 In ogni esperimento di Machine Learning automatizzato, i dati vengono ridimensionati o normalizzati automaticamente per consentire agli algoritmi di ottenere risultati ottimali.  Durante il training del modello, viene applicata una delle tecniche di ridimensionamento o di normalizzazione seguenti a ogni modello.
 
-|Ridimensionamento di @ no__t-0 @ no__t-1 @ no__t-2normalization| Descrizione |
+|Ridimensionamento di&nbsp;&la normalizzazione&nbsp;| Description |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Standardizzare le funzionalità rimuovendo la media e il ridimensionamento in varianza unità  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Trasforma le funzionalità ridimensionando ogni funzionalità in base al valore minimo e massimo della colonna  |
@@ -95,9 +95,9 @@ In ogni esperimento di Machine Learning automatizzato, i dati vengono ridimensio
 
 Sono disponibili anche funzionalità avanzate di pre-elaborazione e conteggi, ad esempio la mancata imputazione, la codifica e le trasformazioni dei valori mancanti. [Scopri di più su cosa è incluso conteggi](how-to-create-portal-experiments.md#preprocess). Abilitare questa impostazione con:
 
-+ Portale di Azure: Selezionare la casella di controllo **pre-elaborazione** nelle **Impostazioni avanzate** [con questi passaggi](how-to-create-portal-experiments.md).
++ Portale di Azure: selezionare la casella di controllo **pre-elaborazione** nelle **Impostazioni avanzate** [con questi passaggi](how-to-create-portal-experiments.md).
 
-+ SDK per Python: Specifica `"preprocess": True` per la [classe `AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
++ Python SDK: specifica `"preprocess": True` per la [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 
 ## <a name="time-series-forecasting"></a>Previsione di serie temporali
@@ -108,6 +108,8 @@ Un esperimento di serie temporali automatizzato viene considerato un problema di
 Per altre informazioni, vedere un esempio di [Machine Learning automatizzato per la previsione delle serie temporali](how-to-auto-train-forecast.md). In alternativa, vedere il [notebook della domanda di energia](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) per esempi di codice dettagliati sulla configurazione di previsione avanzata, tra cui:
 
 * rilevamento festività e conteggi
+* serie temporali e DNN Learner (ARIMA automatico, profeta, ForecastTCN)
+* supporto di molti modelli tramite raggruppamento
 * convalida incrociata di origine in sequenza
 * ritardi configurabili
 * funzionalità di aggregazione della finestra in sequenza
@@ -139,7 +141,7 @@ Poiché gli algoritmi di classificazione vengono in genere valutati in base all'
 
 Inoltre, le esecuzioni automatiche di ML generano automaticamente i grafici seguenti, che consentono di comprendere la correttezza delle classificazioni del modello e di identificare i modelli potenzialmente interessati da dati sbilanciati.
 
-Grafico| Descrizione
+Grafico| Description
 ---|---
 [Matrice di confusione](how-to-understand-automated-ml.md#confusion-matrix)| Valuta le etichette classificate correttamente rispetto alle etichette effettive dei dati. 
 [Precisione-richiamo](how-to-understand-automated-ml.md#precision-recall-chart)| Valuta il rapporto tra le etichette corrette e il rapporto tra le istanze di etichette trovate dei dati 
@@ -161,7 +163,7 @@ Con Azure Machine Learning, è possibile usare il Machine Learning automatico pe
 
 Il Machine Learning automatico è disponibile anche in altre soluzioni Microsoft, ad esempio:
 
-|Integrazioni|Descrizione|
+|Integrazioni|Description|
 |------------|-----------|
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Selezione e training automatici dei modelli nelle app .NET con Visual Studio e Visual Studio Code con ML.NET Automatic Machine Learning (anteprima).|
 |[HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Ridimensionare i processi di training di Machine Learning automatici in Spark nei cluster HDInsight in parallelo.|
@@ -172,7 +174,7 @@ Il Machine Learning automatico è disponibile anche in altre soluzioni Microsoft
 
 Vedere gli esempi e informazioni su come creare modelli usando Machine Learning automatico:
 
-+ Seguire il [Tutorial: Eseguire automaticamente il training di un modello di regressione con Azure Automatic Machine Learning @ no__t-0
++ Seguire l' [esercitazione: eseguire automaticamente il training di un modello di regressione con Azure automatic machine learning](tutorial-auto-train-models.md)
 
 + Configurare le impostazioni per l'esperimento di training automatico:
   + In portale di Azure interfaccia o nella pagina di destinazione dell'area di lavoro (anteprima) [usare questi passaggi](how-to-create-portal-experiments.md).

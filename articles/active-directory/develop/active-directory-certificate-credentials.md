@@ -1,5 +1,6 @@
 ---
-title: Credenziali del certificato in Azure AD | Microsoft Docs
+title: Credenziali del certificato in Azure AD
+titleSuffix: Microsoft identity platform
 description: Questo articolo illustra la registrazione e l'uso delle credenziali del certificato per l'autenticazione dell'applicazione
 services: active-directory
 documentationcenter: .net
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aa63a8f06b71455b7f00d2ce5842f0da851789b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1184d210f5b7ea25b9f73cbd70b5f960402126a1
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835463"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803528"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenziali del certificato per l'autenticazione dell'applicazione
 
@@ -44,9 +45,9 @@ Per calcolare l'asserzione, è possibile usare una delle numerose librerie di [t
 
 ### <a name="claims-payload"></a>Attestazioni (payload)
 
-| Parametro |  Note |
+| Parametro |  Osservazioni |
 | --- | --- |
-| `aud` | Audience: Deve essere **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
+| `aud` | Destinatari: deve essere **https://login.microsoftonline.com/*id_tenant*/oauth2/token** |
 | `exp` | Data di scadenza: la data di scadenza del token. L'ora è rappresentata come numero di secondi dal 1° gennaio 1970 (1970-01-01T0:0:0Z) UTC fino all'ora in cui scade la validità del token.|
 | `iss` | Autorità di certificazione: deve essere il parametro client_id (ID applicazione del servizio client) |
 | `jti` | GUID: l'ID token JWT |

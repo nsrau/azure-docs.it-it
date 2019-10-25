@@ -1,29 +1,28 @@
 ---
-title: Come gestire le scritture simultanee nelle risorse - Ricerca di Azure
-description: Usare la concorrenza ottimistica per evitare conflitti a livello di aggiornamento o di eliminazione in indici, indicizzatori e origini dati di Ricerca di Azure.
-author: HeidiSteen
+title: Come gestire le scritture simultanee nelle risorse
+titleSuffix: Azure Cognitive Search
+description: Usare la concorrenza ottimistica per evitare collisioni a metà di aggiornamenti o eliminazioni in Azure ricerca cognitiva indici, indicizzatori e origini dati.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 07/21/2017
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 67f2dad016d3958dc10ba87e785d31694a1c94f5
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: edfb2fe5cc37a00335ca7b5be851a88825b03eb1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656728"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792206"
 ---
-# <a name="how-to-manage-concurrency-in-azure-search"></a>Come gestire la concorrenza in Ricerca di Azure
+# <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Come gestire la concorrenza in Azure ricerca cognitiva
 
-Quando si gestiscono le risorse di Ricerca di Azure, ad esempio indici e origini dati, è importante aggiornare le risorse in modo sicuro, soprattutto se componenti diversi dell'applicazione accedono simultaneamente alle risorse. Quando due client aggiornano simultaneamente un risorsa senza coordinazione, si possono verificare race condition. Per evitare questo problema, Ricerca di Azure offre un *modello di concorrenza ottimistica*. Non sono presenti blocchi su una risorsa, ma per ogni risorsa esiste un ETag che identifica la versione della risorsa in modo che sia possibile creare richieste che evitano sovrascritture accidentali.
+Quando si gestiscono risorse ricerca cognitiva di Azure, ad esempio indici e origini dati, è importante aggiornare le risorse in modo sicuro, soprattutto se si accede simultaneamente alle risorse da componenti diversi dell'applicazione. Quando due client aggiornano simultaneamente un risorsa senza coordinazione, si possono verificare race condition. Per evitare questo problema, Azure ricerca cognitiva offre un *modello di concorrenza ottimistica*. Non sono presenti blocchi su una risorsa, ma per ogni risorsa esiste un ETag che identifica la versione della risorsa in modo che sia possibile creare richieste che evitano sovrascritture accidentali.
 
 > [!Tip]
-> Il codice concettuale in una [soluzione C# di esempio](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) illustra come funziona il controllo della concorrenza in Ricerca di Azure. Il codice crea le condizioni che richiamano il controllo della concorrenza. La lettura del [frammento di codice riportato più avanti](#samplecode) è probabilmente sufficiente per la maggior parte degli sviluppatori, ma, se lo si vuole eseguire, modificare appsettings.json per aggiungere il nome del servizio e una chiave API di amministrazione. Dato un URL del servizio `http://myservice.search.windows.net`, il nome del service è `myservice`.
+> Il codice concettuale in una [soluzione di esempio C# ](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) illustra il funzionamento del controllo della concorrenza in Azure ricerca cognitiva. Il codice crea le condizioni che richiamano il controllo della concorrenza. La lettura del [frammento di codice riportato più avanti](#samplecode) è probabilmente sufficiente per la maggior parte degli sviluppatori, ma, se lo si vuole eseguire, modificare appsettings.json per aggiungere il nome del servizio e una chiave API di amministrazione. Dato un URL del servizio `http://myservice.search.windows.net`, il nome del service è `myservice`.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 La concorrenza ottimistica viene implementata tramite i controlli delle condizioni di accesso nelle chiamate API che scrivono in indici, indicizzatori, origini dati e risorse synonymMap.
 
@@ -51,7 +50,7 @@ Il codice seguente illustra i controlli accessCondition per le principali operaz
     class Program
     {
         // This sample shows how ETags work by performing conditional updates and deletes
-        // on an Azure Search index.
+        // on an Azure Cognitive Search index.
         static void Main(string[] args)
         {
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
@@ -62,14 +61,14 @@ Il codice seguente illustra i controlli accessCondition per le principali operaz
             Console.WriteLine("Deleting index...\n");
             DeleteTestIndexIfExists(serviceClient);
 
-            // Every top-level resource in Azure Search has an associated ETag that keeps track of which version
+            // Every top-level resource in Azure Cognitive Search has an associated ETag that keeps track of which version
             // of the resource you're working on. When you first create a resource such as an index, its ETag is
             // empty.
             Index index = DefineTestIndex();
             Console.WriteLine(
                 $"Test index hasn't been created yet, so its ETag should be blank. ETag: '{index.ETag}'");
 
-            // Once the resource exists in Azure Search, its ETag will be populated. Make sure to use the object
+            // Once the resource exists in Azure Cognitive Search, its ETag will be populated. Make sure to use the object
             // returned by the SearchServiceClient! Otherwise, you will still have the old object with the
             // blank ETag.
             Console.WriteLine("Creating index...\n");
@@ -129,9 +128,9 @@ Il codice seguente illustra i controlli accessCondition per le principali operaz
             serviceClient.Indexes.Delete("test", accessCondition: AccessCondition.GenerateIfExistsCondition());
 
             // This is slightly better than using the Exists method since it makes only one round trip to
-            // Azure Search instead of potentially two. It also avoids an extra Delete request in cases where
+            // Azure Cognitive Search instead of potentially two. It also avoids an extra Delete request in cases where
             // the resource is deleted concurrently, but this doesn't matter much since resource deletion in
-            // Azure Search is idempotent.
+            // Azure Cognitive Search is idempotent.
 
             // And we're done! Bye!
             Console.WriteLine("Complete.  Press any key to end application...\n");
@@ -170,7 +169,7 @@ Il codice seguente illustra i controlli accessCondition per le principali operaz
 
 Uno schema progettuale per l'implementazione della concorrenza ottimistica deve includere un ciclo che recupera il controllo della condizione di accesso, un test per la condizione di accesso e, facoltativamente, una risorsa aggiornata prima di provare ad applicare di nuovo le modifiche.
 
-Questo frammento di codice illustra l'aggiunta di synonymMap a un indice già esistente. Questo codice è riportato nell' [esempio C# di sinonimo di ricerca di Azure](search-synonyms-tutorial-sdk.md).
+Questo frammento di codice illustra l'aggiunta di synonymMap a un indice già esistente. Questo codice è riportato nell' [esempio C# di sinonimo per ricerca cognitiva di Azure](search-synonyms-tutorial-sdk.md).
 
 Il frammento ottiene l'indice "hotels", controlla la versione dell'oggetto in un'operazione di aggiornamento, genera un'eccezione se la condizione ha esito negativo e quindi esegue un nuovo tentativo di operazione (fino a tre volte), iniziando con il recupero dell'indice dal server per ottenere la versione più recente.
 
@@ -215,7 +214,7 @@ Provare a modificare uno dei due esempi seguenti per includere ETag o oggetti Ac
 + [Esempio di API REST in GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
 + [Esempio di .NET SDK in GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). Questa soluzione include il progetto "DotNetEtagsExplainer" contenente il codice presentato in questo articolo.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Common HTTP request and response headers (Intestazioni di richiesta e risposta HTTP comuni)](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
 [HTTP status codes (Codici di stato HTTP)](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)

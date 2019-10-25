@@ -1,5 +1,6 @@
 ---
-title: API Web protetta-registrazione app | Azure
+title: API Web protetta-registrazione app
+titleSuffix: Microsoft identity platform
 description: Informazioni su come creare un'API Web protetta e le informazioni necessarie per registrare l'app.
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,18 +17,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbccfc38a4e5e4b31cb625c614e838a3c92e7429
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0c905dfd86fd80b9e55aa7bd5a9b9b03f277570c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562296"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802550"
 ---
-# <a name="protected-web-api-app-registration"></a>API Web protetta: Registrazione delle app
+# <a name="protected-web-api-app-registration"></a>API Web protetta: registrazione dell'app
 
 Questo articolo illustra le specifiche della registrazione dell'app per un'API Web protetta.
 
-Vedere [Avvio rapido: Registrare un'applicazione con la piattaforma](quickstart-register-app.md) di identità Microsoft per i passaggi comuni per la registrazione di un'app.
+Per la procedura comune per la registrazione di un'app, vedere [Guida introduttiva: registrare un'applicazione con la piattaforma di identità Microsoft](quickstart-register-app.md) .
 
 ## <a name="accepted-token-version"></a>Versione del token accettata
 
@@ -55,7 +56,7 @@ Un'altra impostazione specifica per le API Web è l'API esposta e gli ambiti esp
 
 ### <a name="resource-uri-and-scopes"></a>URI di risorsa e ambiti
 
-Gli ambiti sono in genere nel `resourceURI/scopeName`formato. Per Microsoft Graph, gli ambiti hanno tasti di `User.Read`scelta rapida quali. Questa stringa è un tasto di `https://graph.microsoft.com/user.read`scelta rapida per.
+Gli ambiti sono in genere nel formato `resourceURI/scopeName`. Per Microsoft Graph, gli ambiti hanno tasti di scelta rapida, ad esempio `User.Read`. Questa stringa è un tasto di scelta rapida per `https://graph.microsoft.com/user.read`.
 
 Durante la registrazione dell'app, è necessario definire i parametri seguenti:
 
@@ -72,7 +73,7 @@ Gli ambiti vengono visualizzati anche nella schermata di consenso presentata agl
 
 1. Selezionare la sezione **esporre un'API** nella registrazione dell'applicazione.
 1. Selezionare **Aggiungi un ambito**.
-1. Se richiesto, accettare l'URI dell'ID applicazione proposto`api://{clientId}`() selezionando **Salva e continua**.
+1. Se richiesto, accettare l'URI dell'ID applicazione (`api://{clientId}`) proposto selezionando **Salva e continua**.
 1. Immettere i parametri seguenti:
       - Per **nome ambito**usare **access_as_user**.
       - Per **chi può acconsentire**, assicurarsi che **gli amministratori e gli utenti** siano selezionati.
@@ -95,10 +96,10 @@ In questa sezione si apprenderà come registrare l'API Web protetta per poterla 
 Per esporre le autorizzazioni dell'applicazione, è necessario modificare il manifesto.
 
 1. Nella registrazione dell'applicazione per l'applicazione selezionare **manifesto**.
-1. Modificare il manifesto individuando l' `appRoles` impostazione e aggiungendo uno o più ruoli applicazione. La definizione del ruolo viene fornita nel blocco JSON di esempio seguente. Lasciare impostato su `"Application"`only. `allowedMemberTypes` Verificare che sia un GUID univoco e che `displayName` noncontenganospazi.`value` `id`
+1. Modificare il manifesto individuando l'impostazione `appRoles` e aggiungendo uno o più ruoli applicazione. La definizione del ruolo viene fornita nel blocco JSON di esempio seguente. Lasciare il `allowedMemberTypes` impostato solo su `"Application"`. Verificare che il `id` sia un GUID univoco e che `displayName` e `value` non contengano spazi.
 1. Salvare il manifesto.
 
-Nell'esempio seguente viene illustrato il contenuto `appRoles`di. `id` Può essere un GUID univoco.
+Nell'esempio seguente viene illustrato il contenuto di `appRoles`. Il `id` può essere un GUID univoco.
 
 ```JSon
 "appRoles": [
@@ -130,9 +131,9 @@ L'API Web verifica il ruolo app. Questo è il modo per sviluppatori di esporre l
 
    > [!IMPORTANT]
    >
-   > Se si imposta l' **assegnazione utente obbligatoria?** su **Sì**, Azure ad verificherà le assegnazioni di ruolo dell'app dei client quando richiedono un token di accesso per l'API Web. Se il client non è assegnato ad alcun ruolo app, Azure AD restituirà l' `invalid_client: AADSTS501051: Application <application name> is not assigned to a role for the <web API>`errore.
+   > Se si imposta l' **assegnazione utente obbligatoria?** su **Sì**, Azure ad verificherà le assegnazioni di ruolo dell'app dei client quando richiedono un token di accesso per l'API Web. Se il client non è assegnato ad alcun ruolo app, Azure AD restituirà l'errore `invalid_client: AADSTS501051: Application <application name> is not assigned to a role for the <web API>`.
    >
-   > Se si mantiene l' **assegnazione utente obbligatoria?** impostare su **No**, *Azure ad non verificherà le assegnazioni di ruolo dell'app quando un client richiede un token di accesso per l'API Web*. Qualsiasi client daemon, ovvero qualsiasi client che utilizza il flusso di credenziali client, sarà in grado di ottenere un token di accesso per l'API semplicemente specificandone i destinatari. Qualsiasi applicazione sarà in grado di accedere all'API senza dover richiedere le autorizzazioni. Tuttavia, l'API Web può sempre, come illustrato nella sezione precedente, verificare che l'applicazione disponga del ruolo corretto (autorizzato dall'amministratore del tenant). L'API esegue questa verifica convalidando che il token di accesso disponga di un'attestazione Roles e che il valore di questa attestazione sia corretto. (In questo caso, il valore è `access_as_application`.)
+   > Se si mantiene l' **assegnazione utente obbligatoria?** impostare su **No**, *Azure ad non verificherà le assegnazioni di ruolo dell'app quando un client richiede un token di accesso per l'API Web*. Qualsiasi client daemon, ovvero qualsiasi client che utilizza il flusso di credenziali client, sarà in grado di ottenere un token di accesso per l'API semplicemente specificandone i destinatari. Qualsiasi applicazione sarà in grado di accedere all'API senza dover richiedere le autorizzazioni. Tuttavia, l'API Web può sempre, come illustrato nella sezione precedente, verificare che l'applicazione disponga del ruolo corretto (autorizzato dall'amministratore del tenant). L'API esegue questa verifica convalidando che il token di accesso disponga di un'attestazione Roles e che il valore di questa attestazione sia corretto. (In questo caso, il valore è `access_as_application`).
 
 1. Selezionare **Salva**.
 

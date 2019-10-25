@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: eb9d803bcc9667c26acecbfd098a3022b7421478
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 6ae1792d9ef3f07ef7258451be79b587692a1694
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177655"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809436"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -131,7 +131,7 @@ Utilizzare la procedura seguente:
     ![Dettagli dei gruppi di azioni](media/itsmc-overview/action-groups-details.png)
 
 4. Nell'elenco Azioni selezionare **Gestione dei servizi IT** dal menu a discesa **Tipo di azione**. Specificare un **nome** per l'azione e fare clic su **Modifica dettagli**.
-5. Selezionare la **sottoscrizione** in cui si trova l'area di lavoro Log Analytics. Selezionare il nome della **Connessione**, ovvero il nome del Connettore di Gestione dei servizi IT, seguito dal nome dell'area di lavoro. ad esempio "MyITSMMConnector(MyWorkspace)".
+5. Selezionare la **sottoscrizione** in cui si trova l'area di lavoro Log Analytics. Selezionare il nome della **Connessione**, ovvero il nome del Connettore di Gestione dei servizi IT, seguito dal nome dell'area di lavoro. Ad esempio, "MyITSMMConnector (area di lavoro)".
 
     ![Informazioni dettagliate sulle azioni ITSM](media/itsmc-overview/itsm-action-details.png)
 
@@ -158,13 +158,13 @@ Il dashboard fornisce anche informazioni sullo stato del connettore, che è poss
 
 È anche possibile visualizzare gli eventi imprevisti sincronizzati in relazione ai computer interessati, all'interno della soluzione Mapping dei servizi.
 
-Elenco dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente. [Altre informazioni](../../azure-monitor/insights/service-map.md)
+Elenco dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente. [Altre informazioni](../../azure-monitor/insights/service-map.md).
 
 Se si usa anche la soluzione Mapping dei servizi, è possibile visualizzare gli elementi del service desk creati nelle soluzioni di Gestione dei servizi IT, come illustrato nell'esempio seguente:
 
 ![Schermata di Log Analytics](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-Altre informazioni: [Elenco dei servizi](../../azure-monitor/insights/service-map.md)
+Altre informazioni: [Mapping dei servizi](../../azure-monitor/insights/service-map.md)
 
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
@@ -185,19 +185,19 @@ ServiceDeskWorkItemType_s="Incident"
 
 - ServiceDeskConnectionName
 - ID Service Desk
-- State
+- Statale
 - Urgenza
 - Impatto
-- Priority
+- Priorità
 - Riassegnazione
 - Created By (Creato da)
 - Resolved By (Risolto da)
 - Closed By (Chiuso da)
-- Source
+- Source (Sorgente)
 - Assegnato a
-- Category
-- Titolo
-- Descrizione
+- Categoria
+- Title
+- Description
 - Data di creazione
 - Data di chiusura
 - Data di risoluzione
@@ -214,16 +214,16 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - ID Service Desk
 - Created By (Creato da)
 - Closed By (Chiuso da)
-- Source
+- Source (Sorgente)
 - Assegnato a
-- Titolo
+- Title
 - Type
-- Category
-- Stato
+- Categoria
+- Statale
 - Riassegnazione
 - Conflict Status (Stato di conflitto)
 - Urgenza
-- Priority
+- Priorità
 - Rischio
 - Impatto
 - Assegnato a
@@ -235,24 +235,24 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Planned End Date (Data di fine pianificata)
 - Work Start Date (Data di inizio lavoro)
 - Work End Date (Data di fine pianificata)
-- Descrizione
+- Description
 - Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dati di output per un evento imprevisto ServiceNow
 
 | Campo Log Analytics | Campo di ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| NUMBER |
-| IncidentState_s | State |
+| ServiceDeskId_s| Numero |
+| IncidentState_s | Statale |
 | Urgency_s |Urgenza |
 | Impact_s |Impatto|
-| Priority_s | Priority |
+| Priority_s | Priorità |
 | CreatedBy_s | Aperto da |
 | ResolvedBy_s | Risolto da|
 | ClosedBy_s  | Chiuso da |
 | Source_s| Tipo di contatto |
 | AssignedTo_s | Assegnato a  |
-| Category_s | Category |
+| Category_s | Categoria |
 | Title_s|  Breve descrizione |
 | Description_s|  Note |
 | CreatedDate_t|  Aperto |
@@ -264,16 +264,16 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 | Log Analytics | Campo di ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| NUMBER |
+| ServiceDeskId_s| Numero |
 | CreatedBy_s | Richiesto da |
 | ClosedBy_s | Chiuso da |
 | AssignedTo_s | Assegnato a  |
 | Title_s|  Breve descrizione |
 | Type_s|  Type |
-| Category_s|  Category |
-| CRState_s|  State|
+| Category_s|  Categoria |
+| CRState_s|  Statale|
 | Urgency_s|  Urgenza |
-| Priority_s| Priority|
+| Priority_s| Priorità|
 | Risk_s| Rischio|
 | Impact_s| Impatto|
 | RequestedDate_t  | Data richiesta |
@@ -282,7 +282,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Data di fine pianificata |
 | WorkStartDate_t  | Data di inizio effettiva |
 | WorkEndDate_t | Data di fine effettiva|
-| Description_s | Descrizione |
+| Description_s | Description |
 | Computer  | Elemento di configurazione |
 
 
@@ -296,7 +296,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 2. Se i dati provenienti da ServiceNow non vengono sincronizzati con Log Analytics, assicurarsi che l'istanza del servizio ServiceNow non sia sospesa. Le istanze di sviluppo di ServiceNow a volte vanno in sospensione se rimangono inattive a lungo. In caso contrario, segnalare il problema.
 3. Se vengono generati avvisi di Log Analytics, ma gli elementi di lavoro non vengono creati nel prodotto di Gestione dei servizi IT o gli elementi di configurazione non vengono creati o collegati a elementi di lavoro o per qualsiasi altra informazione generica, fare riferimento a quanto segue:
-   -  Gestione dei servizi IT: la soluzione mostra un riepilogo delle connessioni/elementi di lavoro/computer e così via. Fare clic sul riquadro contenente **Stato connettore** per passare a **Ricerca log** con la query pertinente. Esaminare i record di log con ERROR LogType_S per altre informazioni.
+   -  CONNETTORE: la soluzione Mostra un riepilogo delle connessioni/elementi di lavoro/computer e così via. Fare clic sul riquadro che mostra **lo stato del connettore**, che consente di eseguire la **ricerca nei log** con la query pertinente. Esaminare i record di log con ERROR LogType_S per altre informazioni.
    - Pagina **Ricerca log**: consente di visualizzare gli errori o le informazioni correlate direttamente usando la query `*`ServiceDeskLog_CL`*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Risolvere i problemi di distribuzione dell’app Web Service Manager
@@ -305,7 +305,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 3.  Se non è possibile creare lo spazio dei nomi di inoltro del bus di servizio, assicurarsi che il provider di risorse richiesto sia registrato nella sottoscrizione. Qualora non fosse registrato, creare manualmente lo spazio dei nomi di inoltro del bus di servizio dal portale di Azure. È inoltre possibile crearlo durante [la creazione della connessione ibrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) dal portale di Azure.
 
 
-## <a name="contact-us"></a>Contatti
+## <a name="contact-us"></a>Contattaci
 
 Per eventuali domande o commenti e suggerimenti su IT Service Management Connector, è possibile contattare [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 

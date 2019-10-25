@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: df856e0d76dbd5903964bc80aa01b97b7461128a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 4f585778808b133fe5c731ab6a3189594cbfc0f9
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122706"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804222"
 ---
 # <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Inviare chiamate in uscita agli endpoint HTTP o HTTPS usando app per la logica di Azure
 
@@ -23,7 +23,7 @@ Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e l'az
 
 Ad esempio, è possibile monitorare l'endpoint del servizio per il sito Web controllando l'endpoint in base a una pianificazione specificata. Quando si verifica un evento specifico in corrispondenza di tale endpoint, ad esempio quando il sito Web si arresta, l'evento attiva il flusso di lavoro dell'app per la logica ed esegue le azioni specificate.
 
-Per controllare o eseguire il polling di un endpoint in base a una pianificazione regolare, è possibile usare il trigger http come primo passaggio del flusso di lavoro. In ogni controllo, il trigger invia una chiamata o una *richiesta* all'endpoint. La risposta dell'endpoint determina se il flusso di lavoro dell'app per la logica è in esecuzione. Il trigger passa da qualsiasi contenuto, dalla risposta alle azioni, nell'app per la logica.
+Per controllare o eseguire il *polling* di un endpoint in base a una pianificazione regolare, è possibile usare il trigger http come primo passaggio del flusso di lavoro. In ogni controllo, il trigger invia una chiamata o una *richiesta* all'endpoint. La risposta dell'endpoint determina se il flusso di lavoro dell'app per la logica è in esecuzione. Il trigger passa da qualsiasi contenuto, dalla risposta alle azioni, nell'app per la logica.
 
 È possibile usare l'azione HTTP come qualsiasi altro passaggio nel flusso di lavoro per chiamare l'endpoint quando si desidera. La risposta dell'endpoint determina l'esecuzione delle azioni rimanenti del flusso di lavoro.
 
@@ -35,7 +35,7 @@ In base alla funzionalità dell'endpoint di destinazione, il connettore HTTP sup
 
 * URL per l'endpoint di destinazione che si desidera chiamare
 
-* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 * App per la logica da cui si vuole chiamare l'endpoint di destinazione. Per iniziare con il trigger HTTP, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare l'azione HTTP, avviare l'app per la logica con tutti i trigger desiderati. Questo esempio usa il trigger HTTP come primo passaggio.
 
@@ -45,7 +45,7 @@ Questo trigger incorporato esegue una chiamata HTTP all'URL specificato per un e
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Aprire l'app per la logica vuota in progettazione app per la logica.
 
-1. Nella casella di ricerca della finestra di progettazione immettere "http" come filtro. Dall'elenco **trigger** selezionare il trigger **http** .
+1. In **scegliere un'azione**, nella casella di ricerca, immettere "http" come filtro. Dall'elenco **trigger** selezionare il trigger **http** .
 
    ![Selezionare HTTP Trigger](./media/connectors-native-http/select-http-trigger.png)
 
@@ -53,9 +53,9 @@ Questo trigger incorporato esegue una chiamata HTTP all'URL specificato per un e
 
 1. Specificare i valori per i [parametri del trigger http](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) che si desidera includere nella chiamata all'endpoint di destinazione. Impostare la ricorrenza per la frequenza con cui si desidera che il trigger verifichi l'endpoint di destinazione.
 
-   ![Immettere i parametri del trigger HTTP](./media/connectors-native-http/http-trigger-parameters.png)
+   Se si seleziona un tipo di autenticazione diverso da **None**, le impostazioni di autenticazione variano in base alla selezione effettuata. Per altre informazioni, vedere [aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-   Per altre informazioni sui tipi di autenticazione disponibili per HTTP, vedere eseguire l'autenticazione di [trigger e azioni http](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   ![Immettere i parametri del trigger HTTP](./media/connectors-native-http/http-trigger-parameters.png)
 
 1. Per aggiungere altri parametri disponibili, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri desiderati.
 
@@ -75,7 +75,7 @@ Questa azione predefinita esegue una chiamata HTTP all'URL specificato per un en
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più ( **+** ) visualizzato, quindi selezionare **Aggiungi un'azione**.
 
-1. Nella casella di ricerca della finestra di progettazione immettere "http" come filtro. Nell'elenco **azioni** selezionare l'azione **http** .
+1. In **scegliere un'azione**, nella casella di ricerca, immettere "http" come filtro. Nell'elenco **azioni** selezionare l'azione **http** .
 
    ![Selezionare l'azione HTTP](./media/connectors-native-http/select-http-action.png)
 
@@ -83,9 +83,9 @@ Questa azione predefinita esegue una chiamata HTTP all'URL specificato per un en
 
 1. Specificare i valori per i [parametri dell'azione http](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) che si desidera includere nella chiamata all'endpoint di destinazione.
 
-   ![Immettere i parametri dell'azione HTTP](./media/connectors-native-http/http-action-parameters.png)
+   Se si seleziona un tipo di autenticazione diverso da **None**, le impostazioni di autenticazione variano in base alla selezione effettuata. Per altre informazioni, vedere [aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-   Per altre informazioni sui tipi di autenticazione disponibili per HTTP, vedere eseguire l'autenticazione di [trigger e azioni http](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   ![Immettere i parametri dell'azione HTTP](./media/connectors-native-http/http-action-parameters.png)
 
 1. Per aggiungere altri parametri disponibili, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri desiderati.
 
@@ -93,7 +93,7 @@ Questa azione predefinita esegue una chiamata HTTP all'URL specificato per un en
 
 ## <a name="content-with-multipartform-data-type"></a>Contenuto con tipo di dati multipart/form
 
-Per gestire il contenuto `multipart/form-data` con tipo nelle richieste HTTP, è possibile aggiungere un oggetto JSON che `$content-type` includa gli `$multipart` attributi e al corpo della richiesta HTTP usando questo formato.
+Per gestire il contenuto con `multipart/form-data` tipo nelle richieste HTTP, è possibile aggiungere un oggetto JSON che includa gli attributi `$content-type` e `$multipart` al corpo della richiesta HTTP usando questo formato.
 
 ```json
 "body": {
@@ -109,7 +109,7 @@ Per gestire il contenuto `multipart/form-data` con tipo nelle richieste HTTP, è
 }
 ```
 
-Si supponga, ad esempio, di avere un'app per la logica che invia una richiesta HTTP post per un file di Excel a un sito Web usando l'API del `multipart/form-data` sito, che supporta il tipo. Ecco come può sembrare questa azione:
+Si supponga, ad esempio, di avere un'app per la logica che invia una richiesta HTTP POST per un file di Excel a un sito Web usando l'API del sito, che supporta il tipo di `multipart/form-data`. Ecco come può sembrare questa azione:
 
 ![Dati in formato multipart](./media/connectors-native-http/http-action-multipart.png)
 
@@ -144,24 +144,24 @@ Per ulteriori informazioni sui parametri trigger e Action, vedere le sezioni seg
 * [Parametri del trigger HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)
 * [Parametri azione HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)
 
-### <a name="output-details"></a>Dettagli output
+### <a name="output-details"></a>Dettagli dell'output
 
 Di seguito sono riportate altre informazioni sugli output di un trigger o un'azione HTTP, che restituisce queste informazioni:
 
-| Nome proprietà | Type | Descrizione |
+| Nome proprietà | Type | Description |
 |---------------|------|-------------|
-| headers | object | Intestazioni della richiesta |
+| Headers | object | Intestazioni della richiesta |
 | body | object | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
-| status code | int | Codice di stato della richiesta |
+| Codice di stato | int | Codice di stato della richiesta |
 |||
 
-| status code | Descrizione |
+| Codice di stato | Description |
 |-------------|-------------|
 | 200 | OK |
-| 202 | Accettato |
+| 202 | Accepted |
 | 400 | Richiesta non valida |
 | 401 | Non autorizzato |
-| 403 | Non consentito |
+| 403 | Accesso negato |
 | 404 | Non trovato |
 | 500 | Errore interno del server. Si è verificato un errore sconosciuto. |
 |||

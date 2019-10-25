@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: b952763378de562f35c2e1ecaf49c56f0145c559
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 128a2e8b200f1323b88aad635f27c1b686ecbed2
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180261"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789735"
 ---
-# <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Sicurezza di Internet delle cose (IoT) sin dall'inizio
-
 L'Internet of Things (IoT) pone numerose difficoltà in termini di sicurezza, privacy e conformità per le aziende di tutto il mondo. A differenza delle tecnologie informatiche tradizionali in cui questi problemi riguardano il software e la relativa implementazione, l'IoT riguarda le sfide poste dalla convergenza tra il mondo fisico e quello informatico. Per proteggere le soluzioni IoT, è necessario garantire il provisioning sicuro dei dispositivi, la connettività protetta tra questi dispositivi e il cloud e la protezione dei dati nel cloud durante l'elaborazione e l'archiviazione. A sfavore di queste funzionalità, tuttavia, giocano fattori quali dispositivi con risorse limitate, la distribuzione geografica delle implementazioni e un numero elevato di dispositivi all'interno di un'unica soluzione.
 
 Questo articolo descrive come Solution Accelerator di IoT offre una soluzione cloud di Internet delle cose sicura e privata. Solution Accelerator offre una soluzione end-to-end completa con protezione integrata in ogni fase, dall'inizio alla fine. In Microsoft, lo sviluppo di software protetti è integrato nelle prassi di progettazione del software e trova origine nella decennale esperienza di sviluppo di software protetti. In quest'ambito, Security Development Lifecycle (SDL) costituisce la metodologia di sviluppo di base, associata a un host di servizi di sicurezza a livello di infrastruttura tra cui Operational Security Assurance (OSA) e Microsoft Digital Crimes Unit, nonché Microsoft Security Response Center e Microsoft Malware Protection Center.
@@ -33,7 +31,7 @@ Considerati i problemi di sicurezza, privacy, trasparenza e conformità, sceglie
 
 ## <a name="secure-infrastructure-from-the-ground-up"></a>Proteggere l'infrastruttura fin dall'inizio
 
-Il [Cloud Microsoft](https://azure.microsoft.com) infrastruttura supporta più di un miliardo di clienti in 127 paesi/aree geografiche. Grazie alla decennale esperienza nella creazione di software aziendali e nell'offerta di alcuni dei servizi online più ampi al mondo, Microsoft Cloud è in grado di garantire livelli più elevati di sicurezza, privacy, conformità e procedure per la mitigazione delle minacce che la maggior parte dei clienti può raggiungere in modo autonomo.
+L'infrastruttura [Microsoft Cloud](https://azure.microsoft.com) supporta più di 1 miliardo clienti in 127 paesi/aree geografiche. Grazie alla decennale esperienza nella creazione di software aziendali e nell'offerta di alcuni dei servizi online più ampi al mondo, Microsoft Cloud è in grado di garantire livelli più elevati di sicurezza, privacy, conformità e procedure per la mitigazione delle minacce che la maggior parte dei clienti può raggiungere in modo autonomo.
 
 Il [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/) fornisce una procedura di sviluppo aziendale obbligatoria che comprende i requisiti di protezione per l'intero ciclo di vita del software. Per garantire che le attività operative rispettino lo stesso livello di procedure di sicurezza, SDL ha sviluppato rigorose linee guida per la sicurezza, delineate nel processo Microsoft Operational Security Assurance (OSA). Microsoft collabora anche con società di controllo di terze parti per la verifica continua del rispetto degli obblighi di conformità e abbraccia il tema della sicurezza tramite la creazione di centri di eccellenza, tra cui Microsoft Digital Crimes Unit, Microsoft Security Response Center e Microsoft Malware Protection Center.
 
@@ -49,7 +47,7 @@ L'[hub IoT di Azure](../articles/iot-hub/about-iot-hub.md), compreso in [Solutio
 
 Per descrivere al meglio le funzionalità di sicurezza e privacy incorporate in Solution Accelerator di Azure IoT, in questo articolo la soluzione è stata scomposta nelle tre principali aree di sicurezza.
 
-![Solution Accelerator di Azure IoT](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
+![Acceleratori di soluzioni di Azure IoT](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
 
 ### <a name="secure-device-provisioning-and-authentication"></a>Proteggere il provisioning dei dispositivi e l'autenticazione
 
@@ -93,7 +91,7 @@ Una volta che i dati si trovano nel cloud, possono essere elaborati e archiviati
 
 Tutte le chiavi usate dall'infrastruttura IoT vengono archiviate nel cloud in un archivio protetto, con la possibilità di eseguire il rollover nel caso in cui le chiavi debbano essere sottoposte a nuovo provisioning. I dati possono essere archiviati in [Azure Cosmos DB](../articles/cosmos-db/introduction.md) o nei [database SQL](../articles/sql-database/sql-database-faq.md), consentendo la definizione del livello di protezione desiderato. In aggiunta, Azure offre un modo per monitorare e controllare tutti gli accessi ai dati, ricevendo avvertenze su qualsiasi intrusione o accesso non autorizzato.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 L'Internet of Things inizia dagli elementi più importanti per le aziende. L'IoT può offrire all'azienda un valore incredibile riducendo i costi, aumentando i ricavi e trasformando l'azienda stessa. Il successo di questa trasformazione dipende in larga misura dalla scelta del provider giusto per il software e i servizi IoT. Ciò significa che la ricerca di un provider non solo catalizza questa trasformazione per comprendere le esigenze e i requisiti dell'azienda, ma fornisce anche servizi e software realizzati tenendo conto di aspetti di importanza fondamentale quali sicurezza, privacy, trasparenza e conformità. Microsoft vanta una grande esperienza nello sviluppo e nella distribuzione di servizi e software protetti e continua ad attestarsi leader in questa nuova era dell'Internet of Things.
 
@@ -103,14 +101,14 @@ Solution Accelerator include misure di sicurezza per impostazione predefinita e 
 
 Ciascun Solution Accelerator crea istanze dei servizi di Azure, ad esempio:
 
-* [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): Il gateway che connette il cloud ai dispositivi. È possibile arrivare a milioni di connessioni per hub ed elaborare grandi volumi di dati con supporto per l'autenticazione specifica per dispositivo che aiuta a proteggere la soluzione.
+* [**Hub IoT di Azure**](https://azure.microsoft.com/services/iot-hub/): il gateway che connette i dispositivi al cloud. È possibile arrivare a milioni di connessioni per hub ed elaborare grandi volumi di dati con supporto per l'autenticazione specifica per dispositivo che aiuta a proteggere la soluzione.
 
-* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): Un servizio di database scalabile e completamente indicizzato per i dati semistrutturati che gestiscono metadati per i dispositivi che effettua il provisioning, ad esempio attributi, configurazione e le proprietà di sicurezza. Azure Cosmos DB offre elaborazione ad alte prestazioni e velocità effettiva elevata, indicizzazione dei dati senza schema e un'interfaccia avanzata di query SQL.
+* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): un servizio di database scalabile e completamente indicizzato per i dati semistrutturati che gestiscono metadati per i dispositivi di cui si effettua il provisioning, ad esempio attributi, configurazione e proprietà di sicurezza. Azure Cosmos DB offre elaborazione ad alte prestazioni e velocità effettiva elevata, indicizzazione dei dati senza schema e un'interfaccia avanzata di query SQL.
 
-* [**Azure Stream Analitica**](https://azure.microsoft.com/services/stream-analytics/): Elaborazione nel cloud che consente di sviluppare e distribuire una soluzione analitica basso costo per ottenere informazioni approfondite in tempo reale da dispositivi, sensori, infrastruttura e applicazioni rapidamente flussi in tempo reale. I dati di questo servizio completamente gestito possono raggiungere qualsiasi volume anche in condizioni di velocità effettiva elevata, bassa latenza e resilienza.
+* [**Analisi di flusso di Azure**](https://azure.microsoft.com/services/stream-analytics/): elaborazione del flusso in tempo reale nel cloud per sviluppare e distribuire rapidamente una soluzione di analisi a basso costo che consenta di rilevare informazioni approfondite in tempo reale da dispositivi, sensori, infrastruttura e applicazioni. I dati di questo servizio completamente gestito possono raggiungere qualsiasi volume anche in condizioni di velocità effettiva elevata, bassa latenza e resilienza.
 
-* [**Servizi App di Azure**](https://azure.microsoft.com/services/app-service/): Una piattaforma cloud per creare potenti App web e per dispositivi mobili che si connettono ai dati in qualsiasi punto. nel cloud o in locale. Creare app per dispositivi mobili coinvolgenti per iOS, Android e Windows. Eseguire l'integrazione con applicazioni Software as a Service (SaaS) e aziendali, grazie a connettività integrata a dozzine di applicazioni aziendali e servizi basati sul cloud. Scrivere codice usando IDE e il linguaggio preferito, .NET, Node.js, PHP, Python o Java, per creare app Web e API più rapidamente che mai.
+* [**Servizi app di Azure**](https://azure.microsoft.com/services/app-service/): il servizio app è una piattaforma cloud per la creazione di potenti app Web e per dispositivi mobili che si connettono ai dati ovunque si trovino, nel cloud o in locale. Crea app per dispositivi mobili coinvolgenti per iOS, Android e Windows. Eseguire l'integrazione con applicazioni Software as a Service (SaaS) e aziendali, grazie a connettività integrata a dozzine di applicazioni aziendali e servizi basati sul cloud. Scrivere codice usando IDE e il linguaggio preferito, .NET, Node.js, PHP, Python o Java, per creare app Web e API più rapidamente che mai.
 
-* [**App per la logica**](https://azure.microsoft.com/services/app-service/logic/): La funzionalità App per la logica del servizio App di Azure consente di integrare la soluzione IoT i sistemi line-of-business esistenti e automatizzare i processi del flusso di lavoro. App per la logica consente agli sviluppatori di progettare flussi di lavoro che vengono avviati da un trigger e quindi di eseguire una serie di passaggi, regole e azioni che usano potenti connettori per l'integrazione con i processi aziendali. App per la logica offre connettività integrata per un vasto ecosistema di applicazioni SaaS, basate sul cloud e locali.
+* [**App per la logica**](https://azure.microsoft.com/services/app-service/logic/): la funzionalità App per la logica del servizio app di Azure consente di integrare la soluzione IoT con i sistemi line-of-business esistenti e automatizzare i processi del flusso di lavoro. App per la logica consente agli sviluppatori di progettare flussi di lavoro che vengono avviati da un trigger e quindi di eseguire una serie di passaggi, regole e azioni che usano potenti connettori per l'integrazione con i processi aziendali. App per la logica offre connettività integrata per un vasto ecosistema di applicazioni SaaS, basate sul cloud e locali.
 
-* [**Archiviazione Blob di Azure**](https://azure.microsoft.com/services/storage/): Archiviazione cloud affidabile ed economica per i dati che i dispositivi inviano al cloud.
+* [**Archiviazione BLOB di Azure**](https://azure.microsoft.com/services/storage/): archiviazione cloud affidabile ed economica per i dati che i dispositivi inviano al cloud.

@@ -1,31 +1,31 @@
 ---
-title: Connessione della macchina virtuale SQL di Azure per l'indicizzazione della ricerca - Ricerca di Azure
-description: Abilitare connessioni crittografate e configurare il firewall per consentire connessioni a SQL Server in una macchina virtuale (VM) Azure da un indicizzatore in Ricerca di Azure.
-author: HeidiSteen
+title: Connessione VM macchina virtuale SQL di Azure per l'indicizzazione della ricerca
+titleSuffix: Azure Cognitive Search
+description: Abilitare le connessioni crittografate e configurare il firewall per consentire le connessioni a SQL Server in una macchina virtuale (VM) di Azure da un indicizzatore in Azure ricerca cognitiva.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 02/04/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 7629750da8f58c2c62f15102b60b5b562689f087
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 57bea41d95b8859af55be777b17189861a445a12
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656711"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792140"
 ---
-# <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurare una connessione da un indicizzatore di Ricerca di Azure a SQL Server in una VM Azure
-Come indicato in [Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la creazione di indici per **SQL Server in macchine virtuali di Azure** (o in breve **VM di SQL Azure**) è supportata da Ricerca di Azure, ma prima è necessario occuparsi di alcuni prerequisiti riguardanti la sicurezza. 
+# <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurare una connessione da un indicizzatore di Azure ricerca cognitiva per SQL Server in una macchina virtuale di Azure
 
-Le connessioni da Ricerca di Azure a SQL Server in una VM costituiscono una connessione Internet pubblica. Tutte le misure di sicurezza da seguire in genere per queste connessioni, sono applicabili anche per:
+Come indicato nella pagina relativa [alla connessione del database SQL di Azure ad azure ricerca cognitiva usando gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la creazione di indicizzatori rispetto a **SQL Server in macchine virtuali di azure** (o **SQL Azure VM** in breve) è supportata da Azure ricerca cognitiva, ma sono disponibili alcuni prerequisiti relativi alla sicurezza da gestire prima. 
+
+Le connessioni da Azure ricerca cognitiva a SQL Server in una macchina virtuale sono una connessione Internet pubblica. Tutte le misure di sicurezza da seguire in genere per queste connessioni, sono applicabili anche per:
 
 + Ottenere un certificato da un [provider dell'autorità di certificazione](https://en.wikipedia.org/wiki/Certificate_authority#Providers) per il nome di dominio completo dell'istanza di SQL Server nella VM di Azure.
 + Installare il certificato nella macchina virtuale, abilitare e configurare le connessioni crittografate nella VM seguendo le istruzioni riportate in questo articolo.
 
 ## <a name="enable-encrypted-connections"></a>Abilitare le connessioni crittografate
-Ricerca di Azure richiede un canale crittografato per tutte le richieste di indicizzatori su una connessione Internet pubblica. Questa sezione elenca i passaggi necessari per eseguire questa operazione.
+Azure ricerca cognitiva richiede un canale crittografato per tutte le richieste di indicizzatore tramite una connessione Internet pubblica. Questa sezione elenca i passaggi necessari per eseguire questa operazione.
 
 1. Controllare le proprietà del certificato per verificare che il nome del soggetto sia il nome di dominio completo (FQDN) della VM di Azure. È possibile usare uno strumento come CertUtils o lo snap-in Certificati per visualizzare le proprietà. È possibile ottenere il nome FQDN dalla sezione Informazioni di base del pannello dei servizi della VM nel campo **Etichetta Indirizzo IP pubblico/Nome DNS** del [portale di Azure](https://portal.azure.com/).
    
@@ -50,7 +50,7 @@ Ricerca di Azure richiede un canale crittografato per tutte le richieste di indi
 4. Riavviare il servizio SQL Server.
 
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>Configurare la connettività di SQL Server nella VM
-Dopo avere configurato la connessione crittografata da Ricerca di Azure, è necessario eseguire altri passaggi di configurazione intrinseci di SQL Server nelle VM di Azure. Se non è già stato fatto, il passaggio successivo prevede di completare la configurazione seguendo le istruzioni contenute in uno di questi articoli:
+Dopo aver configurato la connessione crittografata richiesta da Azure ricerca cognitiva, è necessario eseguire altri passaggi di configurazione intrinseci per SQL Server nelle VM di Azure. Se non è già stato fatto, il passaggio successivo prevede di completare la configurazione seguendo le istruzioni contenute in uno di questi articoli:
 
 * Per una VM di **Resource Manager** , vedere [Connettersi a una macchina virtuale di SQL Server in Azure (Gestione risorse)](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
 * Per una VM **classica** , vedere [Connettersi a una macchina virtuale di SQL Server in Azure (distribuzione classica)](../virtual-machines/windows/classic/sql-connect.md).
@@ -58,9 +58,9 @@ Dopo avere configurato la connessione crittografata da Ricerca di Azure, è nece
 In particolare, vedere in ogni articolo la sezione relativa alla "connessione via Internet".
 
 ## <a name="configure-the-network-security-group-nsg"></a>Configurare il gruppo di sicurezza di rete
-Non è insolito configurare il gruppo di sicurezza di rete e il corrispondente endpoint o elenco di controllo di accesso (ACL) di Azure in modo da rendere accessibile la VM di Azure ad altri soggetti. Probabilmente questa operazione è stata eseguita prima per consentire alla logica applicativa di connettersi alla VM di SQL Azure. Non è diverso per una connessione di Ricerca di Azure alla VM di SQL Azure. 
+Non è insolito configurare il gruppo di sicurezza di rete e il corrispondente endpoint o elenco di controllo di accesso (ACL) di Azure in modo da rendere accessibile la VM di Azure ad altri soggetti. Probabilmente questa operazione è stata eseguita prima per consentire alla logica applicativa di connettersi alla VM di SQL Azure. Non è diverso per una connessione di Azure ricerca cognitiva alla VM SQL Azure. 
 
-I collegamenti seguenti forniscono istruzioni sulla configurazione del gruppo di sicurezza di rete per le distribuzioni VM. Usare queste istruzioni per inserire nell'elenco di controllo di accesso un endpoint di Ricerca di Azure in base all'indirizzo IP.
+I collegamenti seguenti forniscono istruzioni sulla configurazione del gruppo di sicurezza di rete per le distribuzioni VM. Usare queste istruzioni per l'ACL di un endpoint di Azure ricerca cognitiva in base al relativo indirizzo IP.
 
 > [!NOTE]
 > Per informazioni, vedere [Che cos'è un gruppo di sicurezza di rete](../virtual-network/security-overview.md)
@@ -78,15 +78,15 @@ Si consiglia di limitare l'accesso all'indirizzo IP del servizio di ricerca nell
 #### <a name="managing-ip-address-fluctuations"></a>Gestire le fluttuazioni degli indirizzi IP
 Se il servizio di ricerca ha solo un'unità di ricerca (vale a dire una replica e una partizione), l'indirizzo IP cambierà durante il riavvio del servizio di routine, invalidando un elenco di controllo di accesso esistente con l'indirizzo IP del servizio di ricerca.
 
-Per evitare il conseguente errore di connettività, è possibile usare più di una replica e di una partizione in Ricerca di Azure. In questo modo, pur aumentando il costo, viene risolto il problema degli indirizzi IP. In Ricerca di Azure gli indirizzi IP non vengono modificati quando si ha più di un'unità di ricerca.
+Un modo per evitare l'errore di connettività successivo consiste nell'usare più di una replica e una partizione in Azure ricerca cognitiva. In questo modo, pur aumentando il costo, viene risolto il problema degli indirizzi IP. In Azure ricerca cognitiva gli indirizzi IP non cambiano quando sono presenti più unità di ricerca.
 
 Un altro approccio è quello di consentire che la connessione non riesca e quindi di riconfigurare gli elenchi di controllo di accesso nel gruppo di sicurezza di rete. In media, gli indirizzi IP vengono modificati a distanza di alcune settimane. Per i clienti che hanno controllato l'indicizzazione raramente, questo potrebbe essere un approccio valido.
 
 Un terzo approccio valido (ma non particolarmente sicuro) consiste nello specificare l'intervallo di indirizzi IP dell'area di Azure in cui viene effettuato il provisioning del servizio di ricerca. L'elenco degli intervalli IP da cui gli indirizzi IP pubblici vengono allocati alle risorse di Azure è pubblicato negli [intervalli IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). 
 
-#### <a name="include-the-azure-search-portal-ip-addresses"></a>Includere gli indirizzi IP del portale di Ricerca di Azure
-Se si usa il portale di Azure per creare un indicizzatore, anche la logica del portale di Ricerca di Azure deve poter accedere alla VM di SQL Azure durante la fase di creazione. Gli indirizzi IP del portale di Ricerca di Azure sono reperibili eseguendo il ping di `stamp2.search.ext.azure.com`.
+#### <a name="include-the-azure-cognitive-search-portal-ip-addresses"></a>Includere gli indirizzi IP del portale di Azure ricerca cognitiva
+Se si usa il portale di Azure per creare un indicizzatore, la logica del portale di Azure ricerca cognitiva deve anche accedere alla VM SQL Azure durante la fase di creazione. Per trovare gli indirizzi IP del portale di Azure ricerca cognitiva è possibile effettuare il ping `stamp2.search.ext.azure.com`.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo avere eseguito la configurazione, è possibile specificare un'istanza di SQL Server nella VM di Azure come origine dati per un indicizzatore di Ricerca di Azure. Per altre informazioni, vedere [Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) .
+Con la configurazione, è ora possibile specificare una SQL Server nella macchina virtuale di Azure come origine dati per un indicizzatore di Azure ricerca cognitiva. Per altre informazioni, vedere [connessione del database SQL di Azure ad azure ricerca cognitiva usando gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) .
 

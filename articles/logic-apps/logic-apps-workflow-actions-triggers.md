@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: 9bee329953a1f39720b054ed90e1d56c6743862e
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: a6789f409e26d1310d9e583ac2934e0bae462b21
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679868"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72799440"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guida di riferimento allo schema per i tipi di trigger e azione in app per la logica di Azure
 
@@ -273,19 +273,21 @@ Questa definizione di trigger sottoscrive l'API Outlook di Office 365, fornisce 
 
 ### <a name="http-trigger"></a>Trigger HTTP
 
-Questo trigger verifica o esegue il polling dell'endpoint specificato in base alla pianificazione della ricorrenza specificata. La risposta dell'endpoint determina se il flusso di lavoro è in esecuzione.
+Questo trigger invia una richiesta all'endpoint HTTP o HTTPS specificato in base alla pianificazione di ricorrenza specificata. Il trigger controlla quindi la risposta per determinare se il flusso di lavoro viene eseguito.
 
 ```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "<method-type>",
-      "uri": "<endpoint-URL>",
+      "uri": "<HTTP-or-HTTPS-endpoint-URL>",
       "headers": { "<header-content>" },
+      "queries": "<query-parameters>",
       "body": "<body-content>",
-      "authentication": { "<authentication-method>" },
-      "retryPolicy": { "<retry-behavior>" },
-      "queries": "<query-parameters>"
+      "authentication": { "<authentication-type-and-property-values>" },
+      "retryPolicy": {
+         "type": "<retry-behavior>"
+      }
    },
    "recurrence": {
       "frequency": "<time-unit>",
@@ -303,27 +305,27 @@ Questo trigger verifica o esegue il polling dell'endpoint specificato in base al
 
 *Obbligatorio*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
-| <*method-type*> | Stringa | Il metodo HTTP da usare per il polling dell'endpoint specificato: "GET", "PUT", "POST", "PATCH", "DELETE" | 
-| <*endpoint-URL*> | Stringa | L'URL HTTP o HTTPS per l'endpoint di cui eseguire il polling <p>Dimensione massima della stringa: 2 KB | 
-| <*time-unit*> | Stringa | Unità di tempo che descrive la frequenza con cui viene attivato il trigger: "Second" (Secondo), "Minute" (Minuto), "Hour" (Ora), "Day" (Giorno), "Week" (Settimana), "Month" (Mese) | 
-| <*number-of-time-units*> | Integer | Valore che specifica quanto spesso il trigger viene attivato in base alla frequenza, ovvero il numero di unità di tempo di attesa fino alla successiva attivazione del trigger <p>Ecco gli intervalli minimo e massimo: <p>- Mese: 1-16 mesi </br>- Giorno: 1-500 giorni </br>- Ora: 1-12.000 ore </br>- Minuto: 1-72.000 minuti </br>- Secondo: 1-9.999.999 secondi<p>Ad esempio, se l'intervallo è 6 e la frequenza è "Month", la ricorrenza è ogni 6 mesi. | 
-|||| 
+| Proprietà | Value | Type | Description |
+|----------|-------|------|-------------|
+| `method` | <*method-type*> | Stringa | Metodo da usare per l'invio della richiesta in uscita: "GET", "PUT", "POST", "PATCH" o "DELETE" |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | Stringa | URL dell'endpoint HTTP o HTTPS a cui si desidera inviare la richiesta in uscita. Dimensione massima della stringa: 2 KB <p>Per una risorsa o un servizio di Azure, questa sintassi URI include l'ID risorsa e il percorso della risorsa a cui si vuole accedere. |
+| `frequency` | <*time-unit*> | Stringa | Unità di tempo che descrive la frequenza con cui viene attivato il trigger: "Second" (Secondo), "Minute" (Minuto), "Hour" (Ora), "Day" (Giorno), "Week" (Settimana), "Month" (Mese) |
+| `interval` | <*number-of-time-units*> | Integer | Valore che specifica quanto spesso il trigger viene attivato in base alla frequenza, ovvero il numero di unità di tempo di attesa fino alla successiva attivazione del trigger <p>Ecco gli intervalli minimo e massimo: <p>- Mese: 1-16 mesi </br>- Giorno: 1-500 giorni </br>- Ora: 1-12.000 ore </br>- Minuto: 1-72.000 minuti </br>- Secondo: 1-9.999.999 secondi<p>Ad esempio, se l'intervallo è 6 e la frequenza è "Month", la ricorrenza è ogni 6 mesi. |
+|||||
 
 *Facoltativo*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
-| <*header-content*> | Oggetto JSON | Le intestazioni da inviare con la richiesta <p>Ad esempio, per impostare il linguaggio e il tipo per una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*body-content*> | Stringa | Il contenuto del messaggio da inviare come payload con la richiesta | 
-| <*authentication-method*> | Oggetto JSON | Il metodo usato dalla richiesta per l'autenticazione. Per altre informazioni, vedere [Autenticazione in uscita dell'Utilità di pianificazione](../scheduler/scheduler-outbound-authentication.md). Oltre all'Utilità di pianificazione, la proprietà `authority` è supportata. Quando non è specificato, il valore predefinito è `https://login.windows.net`, ma è possibile usare un valore diverso, ad esempio `https://login.windows\-ppe.net`. |
-| <*retry-behavior*> | Oggetto JSON | Consente di personalizzare il comportamento per la ripetizione degli errori intermittenti, che hanno il codice di stato 408, 429 e 5XX e tutte le eccezioni di connettività. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md#retry-policies). |  
- <*query-parameters*> | Oggetto JSON | Tutti i parametri di query da includere nella richiesta <p>Ad esempio, l'oggetto `"queries": { "api-version": "2018-01-01" }` aggiunge `?api-version=2018-01-01` alla richiesta. | 
-| <*max-runs*> | Integer | Per impostazione predefinita, le istanze del flusso di lavoro vengono eseguite allo stesso tempo o in parallelo fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare questo limite impostando un nuovo valore <*count*>, vedere [Modificare la concorrenza dei trigger](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | Quando il flusso di lavoro sta già eseguendo il numero massimo di istanze che è possibile modificare in base alla proprietà `runtimeConfiguration.concurrency.runs`, tutte le nuove esecuzioni vengono inserite in questa coda fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](#change-waiting-runs). | 
-| <*operation-option*> | Stringa | È possibile modificare il comportamento predefinito impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). | 
-|||| 
+| Proprietà | Value | Type | Description |
+|----------|-------|------|-------------|
+| `headers` | <*header-content*> | Oggetto JSON | Tutte le intestazioni che è necessario includere con la richiesta <p>Ad esempio, per impostare il linguaggio e il tipo: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| `queries` | <*query-parameters*> | Oggetto JSON | Tutti i parametri di query che è necessario usare nella richiesta <p>Ad esempio, l'oggetto `"queries": { "api-version": "2018-01-01" }` aggiunge `?api-version=2018-01-01` alla richiesta. |
+| `body` | <*body-content*> | Oggetto JSON | Il contenuto del messaggio da inviare come payload con la richiesta |
+| `authentication` | <*Authentication-Type-and-property-values*> | Oggetto JSON | Modello di autenticazione usato dalla richiesta per autenticare le richieste in uscita. Per altre informazioni, vedere [aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Oltre all'Utilità di pianificazione, la proprietà `authority` è supportata. Quando non è specificato, il valore predefinito è `https://management.azure.com/`, ma è possibile usare un valore diverso. |
+| `retryPolicy` > `type` | <*retry-behavior*> | Oggetto JSON | Consente di personalizzare il comportamento per la ripetizione degli errori intermittenti, che hanno il codice di stato 408, 429 e 5XX e tutte le eccezioni di connettività. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
+| `runs` | <*max-runs*> | Integer | Per impostazione predefinita, le istanze del flusso di lavoro vengono eseguite allo stesso tempo o in parallelo fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare questo limite impostando un nuovo valore <*count*>, vedere [Modificare la concorrenza dei trigger](#change-trigger-concurrency). |
+| `maximumWaitingRuns` | <*max-runs-queue*> | Integer | Quando il flusso di lavoro sta già eseguendo il numero massimo di istanze che è possibile modificare in base alla proprietà `runtimeConfiguration.concurrency.runs`, tutte le nuove esecuzioni vengono inserite in questa coda fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](#change-waiting-runs). |
+| `operationOptions` | <*operation-option*> | Stringa | È possibile modificare il comportamento predefinito impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). |
+|||||
 
 *Outputs*
 
@@ -374,7 +376,7 @@ Il comportamento del trigger dipende dalle sezioni usate o omesse.
          "uri": "<endpoint-subscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "retryPolicy": { "<retry-behavior>" }
          },
       },
@@ -383,7 +385,7 @@ Il comportamento del trigger dipende dalle sezioni usate o omesse.
          "url": "<endpoint-unsubscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" }
+         "authentication": { "<authentication-type>" }
       }
    },
    "runTimeConfiguration": {
@@ -413,7 +415,7 @@ Alcuni valori, ad esempio <*method-type*>, sono disponibili per gli oggetti `"su
 | <*method-type*> | Stringa | Metodo HTTP da usare per la richiesta di annullamento: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
 | <*endpoint-unsubscribe-URL*> | Stringa | URL dell'endpoint a cui inviare la richiesta di annullamento | 
 | <*body-content*> | Stringa | Qualsiasi contenuto di messaggio da inviare nella richiesta di sottoscrizione o di annullamento | 
-| <*authentication-method*> | Oggetto JSON | Il metodo usato dalla richiesta per l'autenticazione. Per altre informazioni, vedere [Autenticazione in uscita dell'Utilità di pianificazione](../scheduler/scheduler-outbound-authentication.md). |
+| *tipo di autenticazione* <> | Oggetto JSON | Modello di autenticazione usato dalla richiesta per autenticare le richieste in uscita. Per altre informazioni, vedere [aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). |
 | <*retry-behavior*> | Oggetto JSON | Consente di personalizzare il comportamento per la ripetizione degli errori intermittenti, che hanno il codice di stato 408, 429 e 5XX e tutte le eccezioni di connettività. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*max-runs*> | Integer | Per impostazione predefinita, tutte le istanze del flusso di lavoro vengono eseguite contemporaneamente o in parallelo fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare questo limite impostando un nuovo valore <*count*>, vedere [Modificare la concorrenza dei trigger](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Quando il flusso di lavoro sta già eseguendo il numero massimo di istanze che è possibile modificare in base alla proprietà `runtimeConfiguration.concurrency.runs`, tutte le nuove esecuzioni vengono inserite in questa coda fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](#change-waiting-runs). | 
@@ -950,7 +952,7 @@ Questa azione invia una richiesta di sottoscrizione su HTTP a un endpoint usando
          "uri": "<api-subscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "retryPolicy": "<retry-behavior>",
          "queries": { "<query-parameters>" },
          "<other-action-specific-input-properties>"
@@ -960,7 +962,7 @@ Questa azione invia una richiesta di sottoscrizione su HTTP a un endpoint usando
          "uri": "<api-unsubscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "<other-action-specific-properties>"
       },
    },
@@ -986,7 +988,7 @@ Alcuni valori, ad esempio <*method-type*>, sono disponibili per gli oggetti `"su
 | <*api-unsubscribe-URL*> | Stringa | L'URI da usare per annullare la sottoscrizione all'API | 
 | <*header-content*> | Oggetto JSON | Le eventuali intestazioni da inviare nella richiesta <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Oggetto JSON | Gli eventuali messaggi da inviare nella richiesta | 
-| <*authentication-method*> | Oggetto JSON | Il metodo usato dalla richiesta per l'autenticazione. Per altre informazioni, vedere [Autenticazione in uscita dell'Utilità di pianificazione](../scheduler/scheduler-outbound-authentication.md). |
+| *tipo di autenticazione* <> | Oggetto JSON | Modello di autenticazione usato dalla richiesta per autenticare le richieste in uscita. Per altre informazioni, vedere [aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). |
 | <*retry-behavior*> | Oggetto JSON | Consente di personalizzare il comportamento per la ripetizione degli errori intermittenti, che hanno il codice di stato 408, 429 e 5XX e tutte le eccezioni di connettività. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Oggetto JSON | Tutti i parametri di query da includere nella chiamata API <p>Ad esempio, l'oggetto `"queries": { "api-version": "2018-01-01" }` aggiunge `?api-version=2018-01-01` alla chiamata. | 
 | <*other-action-specific-input-properties*> | Oggetto JSON | Altre proprietà di input che si applicano a questa azione specifica | 
@@ -1105,9 +1107,9 @@ Questa azione esegue il codice che ottiene il nome dell'app per la logica e rest
 
 *Esempio 2*
 
-Questa azione esegue il codice in un'app per la logica che viene attivata quando arriva un nuovo messaggio di posta elettronica in un account Office 365 Outlook. L'app per la logica usa anche un'azione Invia messaggio di posta elettronica di approvazione che inoltra il contenuto del messaggio di posta elettronica ricevuto insieme a una richiesta di approvazione. 
+Questa azione esegue il codice in un'app per la logica che viene attivata quando arriva un nuovo messaggio di posta elettronica in un account Office 365 Outlook. L'app per la logica usa anche un'azione Invia messaggio di posta elettronica di approvazione che inoltra il contenuto del messaggio di posta elettronica ricevuto insieme a una richiesta di approvazione.
 
-Il codice estrae gli indirizzi di posta elettronica dalla proprietà `Body` del trigger e restituisce gli indirizzi di posta elettronica insieme al valore della proprietà `SelectedOption` dall'azione di approvazione. L'azione include in modo esplicito l'azione Invia messaggio di posta elettronica di approvazione come dipendenza nell'attributo `explicitDependencies`  >  `actions`.
+Il codice estrae gli indirizzi di posta elettronica dalla proprietà `Body` del trigger e restituisce gli indirizzi insieme al valore della proprietà `SelectedOption` dall'azione di approvazione. L'azione include in modo esplicito l'azione Invia messaggio di posta elettronica di approvazione come dipendenza nell'attributo `explicitDependencies`  >  `actions`.
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1206,14 +1208,21 @@ Questa definizione di azione chiama la funzione "GetProductID" creata in precede
 
 ### <a name="http-action"></a>Azione HTTP
 
-Questa azione invia una richiesta all'endpoint specificato e controlla la risposta per determinare se il flusso di lavoro debba o meno essere eseguito. 
+Questa azione Invia una richiesta all'endpoint HTTP o HTTPS specificato e controlla la risposta per determinare se il flusso di lavoro viene eseguito.
 
 ```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "<method-type>",
-      "uri": "<HTTP-or-HTTPS-endpoint-URL>"
+      "uri": "<HTTP-or-HTTPS-endpoint-URL>",
+      "headers": { "<header-content>" },
+      "queries": { "<query-parameters>" },
+      "body": "<body-content>",
+      "authentication": { "<authentication-type-and-property-values>" },
+      "retryPolicy": {
+         "type": "<retry-behavior>"
+      },
    },
    "runAfter": {}
 }
@@ -1221,23 +1230,24 @@ Questa azione invia una richiesta all'endpoint specificato e controlla la rispos
 
 *Obbligatorio*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
-| <*method-type*> | Stringa | Il metodo da usare per l'invio della richiesta: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
-| <*HTTP-or-HTTPS-endpoint-URL*> | Stringa | Endpoint HTTP o HTTPS da chiamare. Dimensione massima della stringa: 2 KB | 
-|||| 
+| Proprietà | Value | Type | Description |
+|----------|-------|------|-------------|
+| `method` | <*method-type*> | Stringa | Metodo da usare per l'invio della richiesta in uscita: "GET", "PUT", "POST", "PATCH" o "DELETE" |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | Stringa | URL dell'endpoint HTTP o HTTPS a cui si desidera inviare la richiesta in uscita. Dimensione massima della stringa: 2 KB <p>Per una risorsa o un servizio di Azure, questa sintassi URI include l'ID risorsa e il percorso della risorsa a cui si vuole accedere. |
+|||||
 
 *Facoltativo*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
-| <*header-content*> | Oggetto JSON | Le eventuali intestazioni da inviare con la richiesta <p>Ad esempio, per impostare il linguaggio e il tipo: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*body-content*> | Oggetto JSON | Gli eventuali messaggi da inviare nella richiesta | 
-| <*retry-behavior*> | Oggetto JSON | Consente di personalizzare il comportamento per la ripetizione degli errori intermittenti, che hanno il codice di stato 408, 429 e 5XX e tutte le eccezioni di connettività. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*query-parameters*> | Oggetto JSON | Tutti i parametri di query da includere nella richiesta <p>Ad esempio, l'oggetto `"queries": { "api-version": "2018-01-01" }` aggiunge `?api-version=2018-01-01` alla chiamata. | 
-| <*other-action-specific-input-properties*> | Oggetto JSON | Altre proprietà di input che si applicano a questa azione specifica | 
-| <*other-action-specific-properties*> | Oggetto JSON | Le altre proprietà che si applicano a questa azione specifica | 
-|||| 
+| Proprietà | Value | Type | Description |
+|----------|-------|------|-------------|
+| `headers` | <*header-content*> | Oggetto JSON | Tutte le intestazioni che è necessario includere con la richiesta <p>Ad esempio, per impostare il linguaggio e il tipo: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| `queries` | <*query-parameters*> | Oggetto JSON | Tutti i parametri di query che è necessario usare nella richiesta <p>Ad esempio, l'oggetto `"queries": { "api-version": "2018-01-01" }` aggiunge `?api-version=2018-01-01` alla chiamata. |
+| `body` | <*body-content*> | Oggetto JSON | Il contenuto del messaggio da inviare come payload con la richiesta |
+| `authentication` | <*Authentication-Type-and-property-values*> | Oggetto JSON | Modello di autenticazione usato dalla richiesta per autenticare le richieste in uscita. Per altre informazioni, vedere [aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Oltre all'Utilità di pianificazione, la proprietà `authority` è supportata. Quando non è specificato, il valore predefinito è `https://management.azure.com/`, ma è possibile usare un valore diverso. |
+| `retryPolicy` > `type` | <*retry-behavior*> | Oggetto JSON | Consente di personalizzare il comportamento per la ripetizione degli errori intermittenti, che hanno il codice di stato 408, 429 e 5XX e tutte le eccezioni di connettività. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
+| <*other-action-specific-input-properties*> | <*input-property*> | Oggetto JSON | Altre proprietà di input che si applicano a questa azione specifica |
+| <*other-action-specific-properties*> | <*proprietà-valore*> | Oggetto JSON | Le altre proprietà che si applicano a questa azione specifica |
+|||||
 
 *Esempio*
 
@@ -2665,134 +2675,11 @@ Per una singola definizione di app per la logica, il numero di azioni eseguite o
 }
 ```
 
-<a name="connector-authentication"></a>
+<a name="authenticate-triggers-actions"></a>
 
-## <a name="authenticate-http-triggers-and-actions"></a>Eseguire l'autenticazione di trigger e azioni HTTP
+## <a name="authenticate-triggers-and-actions"></a>Autenticare trigger e azioni
 
-Gli endpoint HTTP supportano diversi tipi di autenticazione. È possibile configurare l'autenticazione per tali trigger e azioni HTTP:
-
-* [HTTP](../connectors/connectors-native-http.md)
-* [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
-* [Webhook HTTP](../connectors/connectors-native-webhook.md)
-
-Ecco i tipi di autenticazione che è possibile configurare:
-
-* [Autenticazione di base](#basic-authentication)
-* [Autenticazione con certificato client](#client-certificate-authentication)
-* [Autenticazione OAuth di Azure Active Directory (Azure AD)](#azure-active-directory-oauth-authentication)
-
-> [!IMPORTANT]
-> Assicurarsi di proteggere eventuali informazioni riservate gestite dalla definizione del flusso di lavoro dell'app per la logica. Usare i parametri protetti e codificare i dati in base alle esigenze. Per altre informazioni sull'uso e sulla protezione dei parametri, vedere [Proteggere l'app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-<a name="basic-authentication"></a>
-
-### <a name="basic-authentication"></a>Autenticazione di base
-
-Per l'[autenticazione di base](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) usando Azure Active Directory, la definizione di trigger o azione può includere un oggetto JSON `authentication`, che dispone delle proprietà specificate nella tabella seguente. Per accedere ai valori dei parametri durante il runtime, si può usare l'espressione `@parameters('parameterName')` fornita dal [linguaggio di definizione del flusso di lavoro](https://aka.ms/logicappsdocs). 
-
-| Proprietà | Obbligatoria | Value | Description | 
-|----------|----------|-------|-------------| 
-| **type** | SÌ | "Basic" | Il tipo di autenticazione da usare, in questo caso, "Basic" | 
-| **username** | SÌ | "@parameters('userNameParam')" | Il nome utente per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
-| **password** | SÌ | "@parameters('passwordParam')" | La password per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
-||||| 
-
-In questa definizione dell'azione HTTP di esempio, la sezione `authentication` specifica l'autenticazione `Basic`. Per altre informazioni sull'uso e sulla protezione dei parametri, vedere [Proteggere l'app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-```json
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET",
-      "uri": "https://www.microsoft.com",
-      "authentication": {
-         "type": "Basic",
-         "username": "@parameters('userNameParam')",
-         "password": "@parameters('passwordParam')"
-      }
-  },
-  "runAfter": {}
-}
-```
-
-> [!IMPORTANT]
-> Assicurarsi di proteggere eventuali informazioni riservate gestite dalla definizione del flusso di lavoro dell'app per la logica. Usare i parametri protetti e codificare i dati in base alle esigenze. Per altre informazioni sulla protezione dei parametri, vedere [Proteggere l'app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-<a name="client-certificate-authentication"></a>
-
-### <a name="client-certificate-authentication"></a>Autenticazione con certificato client
-
-Per l'[autenticazione basata sul certificato](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) usando Azure Active Directory, la definizione di trigger o azione può includere un oggetto JSON `authentication`, che ha le proprietà specificate nella tabella seguente. Per accedere ai valori dei parametri durante il runtime, si può usare l'espressione `@parameters('parameterName')` fornita dal [linguaggio di definizione del flusso di lavoro](https://aka.ms/logicappsdocs). Per i limiti sul numero di certificati client che è possibile usare, vedere [Limiti e configurazione per App per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md).
-
-| Proprietà | Obbligatoria | Value | Description |
-|----------|----------|-------|-------------|
-| **type** | SÌ | "ClientCertificate" | Il tipo di autenticazione da usare per i certificati client di Secure Sockets Layer (SSL). Benché siano supportati i certificati autofirmati, non sono supportati i certificati autofirmati per SSL. |
-| **pfx** | SÌ | "@parameters('pfxParam') | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) |
-| **password** | SÌ | "@parameters('passwordParam')" | Password per accedere al file PFX. |
-||||| 
-
-In questa definizione dell'azione HTTP di esempio, la sezione `authentication` specifica l'autenticazione `ClientCertificate`. Per altre informazioni sull'uso e sulla protezione dei parametri, vedere [Proteggere l'app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-```json
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET",
-      "uri": "https://www.microsoft.com",
-      "authentication": {
-         "type": "ClientCertificate",
-         "pfx": "@parameters('pfxParam')",
-         "password": "@parameters('passwordParam')"
-      }
-   },
-   "runAfter": {}
-}
-```
-
-> [!IMPORTANT]
-> Assicurarsi di proteggere eventuali informazioni riservate gestite dalla definizione del flusso di lavoro dell'app per la logica. Usare i parametri protetti e codificare i dati in base alle esigenze. Per altre informazioni sulla protezione dei parametri, vedere [Proteggere l'app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-<a name="azure-active-directory-oauth-authentication"></a>
-
-### <a name="azure-active-directory-ad-oauth-authentication"></a>Autenticazione OAuth di Azure Active Directory (AD)
-
-Per l'[autenticazione OAuth di Azure Active Directory](../active-directory/develop/authentication-scenarios.md), la definizione di trigger o azione può includere un oggetto JSON `authentication`, che dispone delle proprietà specificate nella tabella seguente. Per accedere ai valori dei parametri durante il runtime, si può usare l'espressione `@parameters('parameterName')` fornita dal [linguaggio di definizione del flusso di lavoro](https://aka.ms/logicappsdocs).
-
-| Proprietà | Obbligatoria | Value | Description |
-|----------|----------|-------|-------------|
-| **type** | SÌ | `ActiveDirectoryOAuth` | Il tipo di autenticazione da usare, ovvero "ActiveDirectoryOAuth" per OAuth di Azure AD |
-| **authority** | No | <*URL-for-authority-token-issuer*> | L'URL per l'autorità che fornisce il token di autenticazione |
-| **tenant** | SÌ | <*tenant-ID*> | L'ID tenant per il tenant di Azure AD |
-| **audience** | SÌ | <*resource-to-authorize*> | La risorsa che si vuole usare per l'autorizzazione, ad esempio `https://management.core.windows.net/` |
-| **clientId** | SÌ | <*client-ID*> | L'ID client per l'app richiedente l'autorizzazione |
-| **credentialType** | SÌ | "Certificate" o "Secret" | Il tipo di credenziale client utilizzata per la richiesta di autorizzazione. Tale proprietà e valore non viene visualizzata nella definizione sottostante, ma determina i parametri obbligatori per il tipo di credenziale. |
-| **pfx** | Sì, solo per il tipo di credenziale "Certificato" | "@parameters('pfxParam') | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) |
-| **password** | Sì, solo per il tipo di credenziale "Certificato" | "@parameters('passwordParam')" | Password per accedere al file PFX. |
-| **secret** | Sì, solo per il tipo di credenziale "Segreto" | "@parameters('secretParam')" | Il segreto client per la richiesta dell'autorizzazione |
-|||||
-
-In questa definizione dell'azione HTTP di esempio, la sezione `authentication` specifica l'autenticazione `ActiveDirectoryOAuth` e il tipo di credenziale "Secret". Per altre informazioni sull'uso e sulla protezione dei parametri, vedere [Proteggere l'app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-```json
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET",
-      "uri": "https://www.microsoft.com",
-      "authentication": {
-         "type": "ActiveDirectoryOAuth",
-         "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-         "audience": "https://management.core.windows.net/",
-         "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-         "secret": "@parameters('secretParam')"
-     }
-   },
-   "runAfter": {}
-}
-```
-
-> [!IMPORTANT]
-> Assicurarsi di proteggere eventuali informazioni riservate gestite dalla definizione del flusso di lavoro dell'app per la logica. Usare i parametri protetti e codificare i dati in base alle esigenze. Per altre informazioni sulla protezione dei parametri, vedere [Proteggere l'app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
+Gli endpoint HTTP e HTTPS supportano tipi diversi di autenticazione. In base al trigger o all'azione che si utilizza per effettuare chiamate in uscita o richieste per accedere a questi endpoint, è possibile scegliere tra diversi intervalli di tipi di autenticazione. Per altre informazioni, vedere [aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c897d52c10efdb8824f676d7640dcc7275915a9e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: dc5c85aaa3c2128b10ba2e6f9c45a66b44593202
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851784"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809218"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Convalida controllata dell'aggiunta ad Azure AD ibrido
 
@@ -42,7 +42,7 @@ Utilizzare l'editor interfacce Active Directory Services (ADSI Edit) per modific
 
 1. Avviare l'applicazione desktop **ADSI Edit** da e dalla workstation amministrativa o da un controller di dominio come amministratore dell'organizzazione.
 1. Connettersi al **contesto dei nomi di configurazione** del dominio.
-1. Passare a **CN = Configuration, DC = contoso, DC = com** > **CN = Services** > **CN = Device Registration Configuration**
+1. Passare a **CN = Configuration, DC = contoso, DC = com** > **cn = Services** > **CN = Device Registration Configuration**
 1. Fare clic con il pulsante destro del mouse sull'oggetto foglia in **CN = Device Registration Configuration** e selezionare **Properties**
    1. Selezionare **parole chiave** dalla finestra **Editor attributi** e fare clic su **modifica** .
    1. Selezionare i valori di **azureADId** e **azureADName** (uno alla volta) e fare clic su **Rimuovi** .
@@ -55,24 +55,24 @@ Usare l'esempio seguente per creare un oggetto Criteri di gruppo (GPO) per distr
 
 1. Aprire una console di gestione di Criteri di gruppo e creare un nuovo oggetto Criteri di gruppo nel dominio.
    1. Specificare un nome per l'oggetto Criteri di gruppo appena creato, ad esempio ClientSideSCP.
-1. Modificare l'oggetto Criteri di gruppo e individuare il percorso seguente: > **Preferenze** >  configurazionecomputerregistrodisistemaimpostazionidiWindows > 
-1. Fare clic con il pulsante destro del mouse sul Registro di sistema e selezionare **nuovo** > **elemento del registro**
+1. Modificare l'oggetto Criteri di gruppo e individuare il percorso seguente: **Configurazione Computer** > **Preferenze** > **impostazioni di Windows** > **Registro di sistema**
+1. Fare clic con il pulsante destro del mouse sul registro e scegliere **nuovo** > **elemento del registro di sistema**
    1. Nella scheda **generale** configurare quanto segue:
-      1. Azione: **Aggiornamento**
-      1. Alveare **HKEY_LOCAL_MACHINE**
-      1. Percorso chiave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. Azione: **aggiornamento**
+      1. Hive: **HKEY_LOCAL_MACHINE**
+      1. Percorso della chiave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nome valore: **TenantId**
-      1. Tipo valore: **REG_SZ**
-      1. Dati valore: GUID o **ID directory** dell'istanza di Azure ad (questo valore è disponibile nell'**ID directory**delle**Proprietà** >  **portale di Azure** > **Azure Active Directory** > )
+      1. Tipo di valore: **REG_SZ**
+      1. Dati valore: il GUID o **l'ID di directory** dell'istanza di Azure ad (questo valore è disponibile nella **portale di Azure** > **Azure Active Directory** **Proprietà** >  > **ID directory**)
    1. Fare clic su **OK**.
-1. Fare clic con il pulsante destro del mouse sul Registro di sistema e selezionare **nuovo** > **elemento del registro**
+1. Fare clic con il pulsante destro del mouse sul registro e scegliere **nuovo** > **elemento del registro di sistema**
    1. Nella scheda **generale** configurare quanto segue:
-      1. Azione: **Aggiornamento**
-      1. Alveare **HKEY_LOCAL_MACHINE**
-      1. Percorso chiave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. Azione: **aggiornamento**
+      1. Hive: **HKEY_LOCAL_MACHINE**
+      1. Percorso della chiave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nome valore: **TenantName**
-      1. Tipo valore: **REG_SZ**
-      1. Dati valore: Il **nome di dominio** verificato se si utilizza un ambiente federato, ad esempio ad FS. Il **nome di dominio** verificato o il nome di dominio onmicrosoft.com, `contoso.onmicrosoft.com` ad esempio, se si usa l'ambiente gestito
+      1. Tipo di valore: **REG_SZ**
+      1. Dati valore: il **nome di dominio** verificato se si usa un ambiente federato, ad esempio ad FS. Il **nome di dominio** verificato o il nome di dominio onmicrosoft.com, ad esempio `contoso.onmicrosoft.com` se si usa l'ambiente gestito
    1. Fare clic su **OK**.
 1. Chiudere l'editor per l'oggetto Criteri di gruppo appena creato
 1. Collegare l'oggetto Criteri di gruppo appena creato all'unità organizzativa desiderata contenente i computer aggiunti a un dominio che appartengono al popolamento di implementazione controllato
@@ -82,7 +82,7 @@ Usare l'esempio seguente per creare un oggetto Criteri di gruppo (GPO) per distr
 Se si utilizza AD FS, è necessario innanzitutto configurare SCP sul lato client utilizzando le istruzioni indicate sopra, ma collegando l'oggetto Criteri di gruppo ai server di AD FS. L'oggetto SCP definisce l'origine dell'autorità per gli oggetti dispositivo. Può essere locale o Azure AD. Quando viene configurato per AD FS, l'origine per gli oggetti dispositivo viene stabilita come Azure AD.
 
 > [!NOTE]
-> Se non è stato possibile configurare SCP sul lato client nei server AD FS, l'origine per le identità del dispositivo verrebbe considerata locale e AD FS inizierà a eliminare gli oggetti dispositivo dalla directory locale dopo un periodo di tempo stabilito.
+> Se non è stato possibile configurare SCP sul lato client nei server AD FS, l'origine per le identità del dispositivo verrebbe considerata locale e, in caso di writeback dei dispositivi, AD FS inizierà a eliminare gli oggetti dispositivo dal contenitore di dispositivi registrati in locale dopo un periodo stabilito.
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Convalida controllata del join di Azure AD ibrido nei dispositivi Windows di livello inferiore
 
@@ -98,7 +98,7 @@ Per controllare la registrazione del dispositivo, è necessario distribuire il p
 > Se una SCP non è configurata in Active Directory, è necessario seguire lo stesso approccio descritto in [configurare l'impostazione del registro di sistema sul lato client per SCP](#configure-client-side-registry-setting-for-scp)sui computer aggiunti a un dominio usando un oggetto Criteri di gruppo (GPO).
 
 
-Dopo aver verificato che tutto funzioni come previsto, è possibile registrare automaticamente il resto dei dispositivi Windows correnti e di livello inferiore con Azure AD configurando [SCP usando Azure ad Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
+Dopo aver verificato che tutto funzioni come previsto, è possibile registrare automaticamente il resto dei dispositivi Windows correnti e di livello inferiore con Azure AD [configurando SCP usando Azure ad Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

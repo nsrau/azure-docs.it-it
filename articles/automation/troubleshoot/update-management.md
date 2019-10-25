@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 952bcb85484e885d45876de1e4cf3326db0a146a
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: 2aebcf05cbc818997943ed3bab19fb1fd8a83592
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693402"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786050"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Risoluzione dei problemi con Gestione aggiornamenti
 
@@ -163,7 +163,7 @@ Windows Update possono essere modificate da diverse chiavi del registro di siste
 
 ### <a name="resolution"></a>Risoluzione
 
-Esaminare le chiavi del registro di sistema elencate in [configurazione aggiornamenti automatici modificando il registro](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-rej7uijui7jgistry) di sistema e le [chiavi del registro di sistema usate per gestire il riavvio](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) per assicurarsi che i computer siano configurati correttamente.
+Esaminare le chiavi del registro di sistema elencate in [configurazione aggiornamenti automatici modificando il registro](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) di sistema e le [chiavi del registro di sistema usate per gestire il riavvio](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) per assicurarsi che i computer siano configurati correttamente.
 
 ## <a name="failed-to-start"></a>Scenario: il computer Mostra "Impossibile avviare" in una distribuzione di aggiornamenti
 
@@ -334,7 +334,7 @@ La revisione del file windowsupdate. log consente inoltre di determinare le poss
 > [!NOTE]
 > La documentazione per la [risoluzione dei problemi Windows Update](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) indica che è destinata all'uso nei client Windows, ma funziona anche in Windows Server.
 
-## <a name="scenario-update-run-returns-failed-status"></a>Scenario: l'esecuzione dell'aggiornamento restituisce lo stato "non riuscito"
+## <a name="scenario-update-run-returns-failed-status-linux"></a>Scenario: l'esecuzione dell'aggiornamento restituisce lo stato "non riuscito" (Linux)
 
 ### <a name="issue"></a>Problema
 
@@ -367,7 +367,7 @@ Se non è possibile risolvere un problema di applicazione di patch, effettuare u
 ### <a name="machines-dont-install-updates"></a>I computer non installano gli aggiornamenti
 
 * Provare a eseguire gli aggiornamenti direttamente nel computer. Se il computer non può applicare gli aggiornamenti, consultare l' [elenco di potenziali errori nella Guida alla risoluzione dei problemi](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
-* Se gli aggiornamenti vengono eseguiti localmente, provare a rimuovere e reinstallare l'agente nel computer seguendo le istruzioni riportate in [rimuovere una macchina virtuale da Gestione aggiornamenti](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-from-update-management).
+* Se gli aggiornamenti vengono eseguiti localmente, provare a rimuovere e reinstallare l'agente nel computer seguendo le istruzioni riportate in [rimuovere una macchina virtuale da Gestione aggiornamenti](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-browse#clean-up-resources).
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>Sono consapevole che gli aggiornamenti sono disponibili, ma non vengono visualizzati come disponibile nei computer
 

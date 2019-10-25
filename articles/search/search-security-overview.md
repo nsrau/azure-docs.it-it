@@ -1,30 +1,29 @@
 ---
-title: Sicurezza e privacy dei dati - Ricerca di Azure
-description: Ricerca di Azure è conforme alle certificazioni SOC 2, HIPAA e altre. Connessione, crittografia dei dati, autenticazione e accesso all'identità tramite gli ID di sicurezza di utenti e gruppi nei filtri di Ricerca di Azure.
-author: HeidiSteen
+title: Sicurezza e privacy dei dati
+titleSuffix: Azure Cognitive Search
+description: Azure ricerca cognitiva è conforme a SOC 2, HIPAA e ad altre certificazioni. Connessione e crittografia dei dati, autenticazione e accesso alle identità tramite gli identificatori di sicurezza di utenti e gruppi nelle espressioni di filtro.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 3a6ac7ff22c04bff5948193c163a7071cf2c2ff5
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 2e509535473fa50fd3150965e1513e056ead18a6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71320400"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794340"
 ---
-# <a name="security-and-data-privacy-in-azure-search"></a>Sicurezza e privacy dei dati in Ricerca di Azure
+# <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Sicurezza e privacy dei dati in Azure ricerca cognitiva
 
-Funzionalità di sicurezza complete e controlli di accesso sono integrati in Ricerca di Azure per continuare a garantire la riservatezza del contenuto privato. Questo articolo enumera le funzionalità di sicurezza e la conformità agli standard integrati in Ricerca di Azure.
+Le funzionalità di sicurezza complete e i controlli di accesso sono incorporati in Azure ricerca cognitiva per garantire che il contenuto privato rimanga in questo modo. Questo articolo enumera le funzionalità di sicurezza e la conformità agli standard incorporati in Azure ricerca cognitiva.
 
-L'architettura di sicurezza di Ricerca di Azure include sicurezza fisica, trasmissioni crittografate, spazio di archiviazione crittografato e conformità agli standard a livello di piattaforma. Dal punto di vista operativo, Ricerca di Azure accetta solo richieste autenticate. Facoltativamente, è possibile aggiungere controlli di accesso per utente sul contenuto tramite i filtri di sicurezza. Questo articolo descrive la sicurezza a ogni livello e in particolare illustra come vengono protetti i dati e le operazioni in Ricerca di Azure.
+L'architettura di sicurezza di Azure ricerca cognitiva si estende sulla sicurezza fisica, le trasmissioni crittografate, l'archiviazione crittografata e la conformità agli standard a livello di piattaforma. Dal ricerca cognitiva operativo Azure accetta solo le richieste autenticate. Facoltativamente, è possibile aggiungere controlli di accesso per utente sul contenuto tramite i filtri di sicurezza. Questo articolo illustra la sicurezza a ogni livello, ma si concentra principalmente sul modo in cui i dati e le operazioni vengono protetti in Azure ricerca cognitiva.
 
 ## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>Conformità agli standard: ISO 27001, SOC 2, HIPAA
 
-Ricerca di Azure è certificata per gli standard seguenti, come [annunciato a giugno 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/):
+Azure ricerca cognitiva è certificato per gli standard seguenti, come [annunciato nel 2018 giugno](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/):
 
 + [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html) 
 + [SOC 2 Type 2 compliance](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) (Conformità SOC 2 Type 2) Per il report completo, andare a [Azure - and Azure Government SOC 2 Type II Report](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports) (Report SOC 2 Type II per Azure e Azure per enti pubblici). 
@@ -38,17 +37,17 @@ La conformità agli standard si applica alle funzionalità disponibili a livello
 
 ## <a name="encrypted-transmission-and-storage"></a>Trasmissione e risorsa di archiviazione crittografate
 
-La crittografia viene applicata all'intera pipeline di indicizzazione: dalle connessioni alla trasmissione fino ai dati indicizzati archiviati in Ricerca di Azure.
+La crittografia si estende nell'intera pipeline di indicizzazione: dalle connessioni, tramite trasmissione e fino ai dati indicizzati archiviati in Azure ricerca cognitiva.
 
-| Livello di sicurezza | Descrizione |
+| Livello di sicurezza | Description |
 |----------------|-------------|
-| Crittografia in transito <br>(HTTPS/SSL/TLS) | Ricerca di Azure è in ascolto sulla porta HTTPS 443. In tutta la piattaforma le connessioni ai servizi di Azure vengono crittografate. <br/><br/>Tutte le interazioni Ricerca di Azure da client a servizio supportano SSL/TLS 1.2.  Assicurarsi di usare TLSv1.2 per le connessioni SSL al servizio.|
-| Crittografia di dati inattivi <br>Chiavi gestite da Microsoft | La crittografia è completamente incorporata nel processo di indicizzazione, senza impatti significativi sul tempo necessario per il completamento dell'indicizzazione o sulle dimensioni dell'indice. Viene applicata automaticamente a tutta l'indicizzazione, inclusi gli aggiornamenti incrementali di un indice non completamente crittografato (creato prima di gennaio 2018).<br><br>Internamente la crittografia si basa su [Crittografia del servizio di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), con la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit.<br><br> La crittografia è interna in Ricerca di Azure, con certificati e chiavi di crittografia gestiti internamente da Microsoft e applicati universalmente. Non è possibile attivare o disattivare la crittografia, gestire o sostituire le proprie chiavi oppure visualizzare le impostazioni di crittografia nel portale o a livello di codice.<br><br>La crittografia dei servizi inattivi è stata annunciata il 24 gennaio 2018 e si applica a tutti i livelli di servizio, incluso il livello gratuito, in tutte le aree. Per la crittografia completa, gli indici creati prima di tale data devono essere eliminati e ricompilati per poter applicare la crittografia. In caso contrario, vengono crittografati solo i nuovi dati aggiunti dopo il 24 gennaio.|
-| Crittografia di dati inattivi <br>Chiavi gestite dal cliente | La crittografia con chiavi gestite dal cliente è una funzionalità di **Anteprima** non disponibile per i servizi gratuiti. Per i servizi a pagamento, è disponibile solo per i servizi di ricerca creati il o dopo il 2019 gennaio, usando la versione più recente dell'API di anteprima (API-Version = 2019-05-06-Preview).<br><br>Gli indici di ricerca di Azure e le mappe sinonimi possono ora essere crittografati a riposo con chiavi del cliente chiavi gestite in Azure Key Vault. Per altre informazioni, vedere [gestire le chiavi di crittografia in ricerca di Azure](search-security-manage-encryption-keys.md).<br>Questa funzionalità non sostituisce la crittografia predefinita inattiva, ma è invece applicata in aggiunta.<br>L'abilitazione di questa funzionalità aumenterà le dimensioni degli indici e diminuirà le prestazioni delle query. In base alle osservazioni date, è possibile prevedere un aumento del 30%-60% nei tempi di esecuzione delle query, anche se le prestazioni effettive variano a seconda della definizione dell'indice e dei tipi di query. A causa di questo effetto sulle prestazioni, si consiglia di abilitare questa funzionalità solo negli indici che lo richiedono effettivamente.
+| Crittografia in transito <br>(HTTPS/SSL/TLS) | Azure ricerca cognitiva è in ascolto sulla porta HTTPS 443. In tutta la piattaforma le connessioni ai servizi di Azure vengono crittografate. <br/><br/>Tutte le interazioni ricerca cognitiva di Azure da client a servizio sono compatibili con SSL/TLS 1,2.  Assicurarsi di usare TLSv1.2 per le connessioni SSL al servizio.|
+| Crittografia di dati inattivi <br>Chiavi gestite da Microsoft | La crittografia è completamente incorporata nel processo di indicizzazione, senza impatti significativi sul tempo necessario per il completamento dell'indicizzazione o sulle dimensioni dell'indice. Viene applicata automaticamente a tutta l'indicizzazione, inclusi gli aggiornamenti incrementali di un indice non completamente crittografato (creato prima di gennaio 2018).<br><br>Internamente la crittografia si basa su [Crittografia del servizio di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), con la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit.<br><br> La crittografia è interna all'ricerca cognitiva di Azure, con certificati e chiavi di crittografia gestite internamente da Microsoft e applicati universalmente. Non è possibile attivare o disattivare la crittografia, gestire o sostituire le proprie chiavi oppure visualizzare le impostazioni di crittografia nel portale o a livello di codice.<br><br>La crittografia dei servizi inattivi è stata annunciata il 24 gennaio 2018 e si applica a tutti i livelli di servizio, incluso il livello gratuito, in tutte le aree. Per la crittografia completa, gli indici creati prima di tale data devono essere eliminati e ricompilati per poter applicare la crittografia. In caso contrario, vengono crittografati solo i nuovi dati aggiunti dopo il 24 gennaio.|
+| Crittografia di dati inattivi <br>Chiavi gestite dal cliente | La crittografia con chiavi gestite dal cliente è una funzionalità di **Anteprima** non disponibile per i servizi gratuiti. Per i servizi a pagamento, è disponibile solo per i servizi di ricerca creati il o dopo il 2019 gennaio, usando la versione più recente dell'API di anteprima (API-Version = 2019-05-06-Preview).<br><br>Gli indici di ricerca cognitiva e le mappe sinonimi di Azure possono ora essere crittografati a riposo con chiavi gestite da chiavi personalizzate in Azure Key Vault. Per altre informazioni, vedere [gestire le chiavi di crittografia in Azure ricerca cognitiva](search-security-manage-encryption-keys.md).<br>Questa funzionalità non sostituisce la crittografia predefinita inattiva, ma è invece applicata in aggiunta.<br>L'abilitazione di questa funzionalità aumenterà le dimensioni degli indici e diminuirà le prestazioni delle query. In base alle osservazioni date, è possibile prevedere un aumento del 30%-60% nei tempi di esecuzione delle query, anche se le prestazioni effettive variano a seconda della definizione dell'indice e dei tipi di query. A causa di questo effetto sulle prestazioni, si consiglia di abilitare questa funzionalità solo negli indici che lo richiedono effettivamente.
 
 ## <a name="azure-wide-user-access-controls"></a>Controlli di accesso utente a livello di Azure
 
-In Azure sono disponibili diversi meccanismi di sicurezza che sono automaticamente disponibili anche per le risorse di Ricerca di Azure create.
+Diversi meccanismi di sicurezza sono disponibili in Azure e pertanto sono automaticamente disponibili per le risorse di Azure ricerca cognitiva create.
 
 + [Blocchi a livello di sottoscrizione o di risorsa per evitare l'eliminazione](../azure-resource-manager/resource-group-lock-resources.md)
 + [Controllo degli accessi in base al ruolo per controllare l'accesso alle informazioni e alle operazioni amministrative](../role-based-access-control/overview.md)
@@ -59,7 +58,7 @@ Tutti i servizi di Azure supportano i controlli degli accessi in base al ruolo p
 
 ## <a name="service-access-and-authentication"></a>Accesso al servizio e autenticazione
 
-Ricerca di Azure non solo eredita le misure di sicurezza della piattaforma Azure, ma fornisce anche la propria autenticazione basata su chiavi. Una chiave API è una stringa composta da lettere e numeri generati casualmente. Il tipo di chiave (amministratore o di query) determina il livello di accesso. L'invio di una chiave valida è considerato come prova che la richiesta ha origine da un'entità attendibile. 
+Sebbene ricerca cognitiva di Azure erediti le misure di sicurezza della piattaforma Azure, fornisce anche la propria autenticazione basata su chiavi. Una chiave API è una stringa composta da lettere e numeri generati casualmente. Il tipo di chiave (amministratore o di query) determina il livello di accesso. L'invio di una chiave valida è considerato come prova che la richiesta ha origine da un'entità attendibile. 
 
 Esistono due livelli di accesso al servizio di ricerca, abilitati da due tipi di chiavi:
 
@@ -74,17 +73,17 @@ L'autenticazione è necessaria per ogni richiesta, dove ogni richiesta è costit
 
 ## <a name="index-access"></a>Accesso all'indice
 
-In Ricerca di Azure un singolo indice non è un oggetto a protezione diretta. L'accesso a un indice è invece determinato a livello di servizio (accesso in lettura o scrittura), con il contesto di un'operazione.
+In ricerca cognitiva di Azure, un singolo indice non è un oggetto a protezione diretta. L'accesso a un indice è invece determinato a livello di servizio (accesso in lettura o scrittura), con il contesto di un'operazione.
 
 Per l'accesso utente finale, è possibile strutturare le richieste di query per la connessione tramite una chiave di query, che imposta qualsiasi richiesta come di sola lettura, e includere l'indice specifico usato dall'app. In una richiesta di query non è previsto il join degli indici o l'accesso a più indici simultaneamente, quindi tutte le richiesta specificano come destinazione un solo indice per definizione. Di conseguenza, la costruzione della richiesta della query (una chiave più un singolo indice di destinazione) definisce di per sé il limite di sicurezza.
 
-L'accesso amministratore e sviluppatore agli indici è indifferenziato: entrambi richiedono l'accesso in scrittura per creare, eliminare e aggiornare gli oggetti gestiti dal servizio. Chiunque abbia una chiave amministratore per il servizio può leggere, modificare o eliminare qualsiasi indice nello stesso servizio. Per proteggersi dall'eliminazione accidentale o intenzionale degli indici, il controllo del codice sorgente interno per gli asset del codice è la risoluzione che consente di invertire l'eliminazione o la modifica indesiderata di un indice. In Ricerca di Azure è disponibile il failover nel cluster per assicurare la disponibilità, ma il codice proprietario usato per creare o caricare gli indici non viene archiviato o eseguito.
+L'accesso amministratore e sviluppatore agli indici è indifferenziato: entrambi richiedono l'accesso in scrittura per creare, eliminare e aggiornare gli oggetti gestiti dal servizio. Chiunque abbia una chiave amministratore per il servizio può leggere, modificare o eliminare qualsiasi indice nello stesso servizio. Per proteggersi dall'eliminazione accidentale o intenzionale degli indici, il controllo del codice sorgente interno per gli asset del codice è la risoluzione che consente di invertire l'eliminazione o la modifica indesiderata di un indice. Azure ricerca cognitiva dispone di failover all'interno del cluster per garantire la disponibilità, ma non archivia o esegue il codice proprietario usato per creare o caricare gli indici.
 
-Le soluzioni multi-tenancy che richiedono limiti di sicurezza a livello di indice includono in genere un livello intermedio, che i clienti usano per gestire l'isolamento degli indici. Per altre informazioni sul caso d'uso multi-tenant, vedere [Modelli di progettazione per le applicazioni SaaS multi-tenant e Ricerca di Azure](search-modeling-multitenant-saas-applications.md).
+Le soluzioni multi-tenancy che richiedono limiti di sicurezza a livello di indice includono in genere un livello intermedio, che i clienti usano per gestire l'isolamento degli indici. Per altre informazioni sul caso d'uso multi-tenant, vedere [modelli di progettazione per applicazioni SaaS multi-tenant e ricerca cognitiva di Azure](search-modeling-multitenant-saas-applications.md).
 
 ## <a name="admin-access"></a>Accesso amministratore
 
-[L'accesso in base al ruolo (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) determina se è possibile accedere ai controlli sul servizio e il relativo contenuto. Se si è un proprietario o un collaboratore in un servizio di ricerca di Azure, è possibile usare il portale o il modulo di PowerShell **AZ. search** per creare, aggiornare o eliminare oggetti nel servizio. È anche possibile usare l' [API REST di gestione di ricerca di Azure](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+[L'accesso in base al ruolo (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) determina se è possibile accedere ai controlli sul servizio e il relativo contenuto. Se si è un proprietario o un collaboratore in un servizio ricerca cognitiva di Azure, è possibile usare il portale o il modulo di PowerShell **AZ. search** per creare, aggiornare o eliminare oggetti nel servizio. È anche possibile usare l' [API REST di gestione di Azure ricerca cognitiva](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
 ## <a name="user-access"></a>Accesso utente
 
@@ -92,16 +91,16 @@ Per impostazione predefinita, l'accesso utente a un indice è determinato dalla 
 
 Se è necessario il controllo per utente granulare sul contenuto, è possibile creare filtri di sicurezza sulle query, che restituiscono i documenti associati a una determinata identità di sicurezza. Invece di ruoli e assegnazioni di ruolo predefiniti, il controllo di accesso basato sull'identità viene implementato come un *filtro* che limita i risultati della ricerca di documenti e contenuto in base alle identità. La tabella seguente descrive due approcci per limitare i risultati della ricerca di contenuto non autorizzato.
 
-| Approccio | Descrizione |
+| Approccio | Description |
 |----------|-------------|
 |[Limitazione per motivi di sicurezza in base ai filtri delle identità](search-security-trimming-for-azure-search.md)  | Documenta il flusso di lavoro di base per implementare il controllo di accesso dell'identità utente. Illustra l'aggiunta di ID di sicurezza a un indice e quindi illustra l'applicazione di filtri a tale campo per limitare i risultati di contenuto non consentito. |
 |[Limitazione per motivi di sicurezza in base alle identità di Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)  | Questo articolo è un approfondimento dell'articolo precedente e contiene la procedura per recuperare le identità da Azure Active Directory (AAD), uno dei [servizi gratuiti](https://azure.microsoft.com/free/) della piattaforma cloud Azure. |
 
 ## <a name="table-permissioned-operations"></a>Tabella: operazioni con autorizzazione
 
-La tabella seguente riepiloga le operazioni consentite in Ricerca di Azure e la chiave che sblocca l'accesso a una determinata operazione.
+Nella tabella seguente sono riepilogate le operazioni consentite in Azure ricerca cognitiva e la chiave che sblocca l'accesso a una determinata operazione.
 
-| Operazione | Permissions |
+| Operazione | autorizzazioni |
 |-----------|-------------------------|
 | Creare un servizio | Titolare della sottoscrizione di Azure|
 | Ridimensionare un servizio | Chiave amministratore, proprietario di Controllo degli accessi in base al ruolo o Collaboratore nella sottoscrizione  |
@@ -119,10 +118,10 @@ I data center Microsoft garantiscono la sicurezza fisica leader di settore e son
 > [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 + [Introduzione a .NET (illustra l'uso di una chiave amministratore per creare un indice)](search-create-index-dotnet.md)
 + [Introduzione a REST (illustra l'uso di una chiave amministratore per creare un indice)](search-create-index-rest-api.md)
-+ [Controllo degli accessi in base all'identità tramite i filtri di Ricerca di Azure](search-security-trimming-for-azure-search.md)
-+ [Controllo degli accessi in base all'identità di Active Directory tramite i filtri di Ricerca di Azure](search-security-trimming-for-azure-search-with-aad.md)
-+ [Filtri in Ricerca di Azure](search-filters.md)
++ [Controllo degli accessi in base all'identità con i filtri ricerca cognitiva di Azure](search-security-trimming-for-azure-search.md)
++ [Active Directory il controllo degli accessi in base all'identità usando i filtri ricerca cognitiva di Azure](search-security-trimming-for-azure-search-with-aad.md)
++ [Filtri in ricerca cognitiva di Azure](search-filters.md)

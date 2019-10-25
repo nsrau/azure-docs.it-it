@@ -1,5 +1,5 @@
 ---
-title: Connettersi a file System locali - App per la logica di Azure
+title: Connettersi ai file system locali-app per la logica di Azure
 description: Automatizzare le attività e i flussi di lavoro che si collegano ai file system locali con il connettore File System tramite il gateway dati locale in App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: 5a6a57fb05d59e70df13f6800c8fa7bf87df91c6
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 1b5cf27c49a003042086cd9452f288c7f348d343
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295870"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72799710"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Connettersi a file system locali dalle App per la logica di Azure
 
@@ -24,7 +24,7 @@ Con il connettore File System e le App per la logica di Azure, è possibile crea
 - Elencare i file in cartelle o in cartelle radice.
 - Leggere contenuti e metadati dei file.
 
-Questo articolo illustra come connettersi a un file system locale come descritto in questo scenario di esempio: copiare un file caricato in Dropbox in una condivisione file e quindi inviare un messaggio di posta elettronica. Per connettersi e accedere ai sistemi locali, le app per la logica usano il [gateway dati locale](../logic-apps/logic-apps-gateway-connection.md). Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md). Per informazioni tecniche specifiche del connettore, vedere la [riferimento al connettore File System](/connectors/filesystem/).
+Questo articolo illustra come connettersi a un file system locale come descritto in questo scenario di esempio: copiare un file caricato in Dropbox in una condivisione file e quindi inviare un messaggio di posta elettronica. Per connettersi e accedere ai sistemi locali, le app per la logica usano il [gateway dati locale](../logic-apps/logic-apps-gateway-connection.md). Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md). Per informazioni tecniche specifiche del connettore, vedere il [riferimento al connettore del file System](/connectors/filesystem/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,9 +32,9 @@ Questo articolo illustra come connettersi a un file system locale come descritto
 
 * Prima di poter connettere le app per la logica a sistemi locali, ad esempio il server del file system, è necessario [installare e configurare un gateway dati locale](../logic-apps/logic-apps-gateway-install.md). In questo modo, è possibile specificare di usare l'installazione del gateway quando si crea la connessione al file system dall'app per la logica.
 
-* Oggetto [account Dropbox](https://www.dropbox.com/), che è possibile iscriversi gratuitamente. Le credenziali dell'account sono necessarie per la creazione di una connessione tra l'app per la logica e all'account Dropbox.
+* Un [account Dropbox](https://www.dropbox.com/), che è possibile iscriversi gratuitamente. Le credenziali dell'account sono necessarie per creare una connessione tra l'app per la logica e l'account Dropbox.
 
-* Accesso al computer con file system da usare. Ad esempio, se si installa il gateway dati nello stesso computer come file system, le credenziali dell'account è necessario per il computer.
+* Accedere al computer in cui è presente il file system che si desidera utilizzare. Se, ad esempio, si installa il gateway dati nello stesso computer del file system, sono necessarie le credenziali dell'account per tale computer.
 
 * Un account di posta elettronica da un provider supportato da App per la logica, ad esempio Office 365 Outlook, Outlook.com o Gmail. Per altri provider, [vedere qui l'elenco dei connettori](https://docs.microsoft.com/connectors/). Questa app per la logica usa un account Office 365 Outlook. Se si usa un altro account di posta elettronica, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa.
 
@@ -46,7 +46,7 @@ Questo articolo illustra come connettersi a un file system locale come descritto
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire l'app per la logica in Progettazione app per la logica, se non è già aperta.
 
-1. Nella casella di ricerca immettere "dropbox" come filtro. Nell'elenco di trigger selezionare questo trigger: **Quando viene creato un file**
+1. Nella casella di ricerca immettere "dropbox" come filtro. Nell'elenco di trigger selezionare questo trigger: **When a file is created** (Quando viene creato un file)
 
    ![Selezionare un trigger Dropbox](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
@@ -58,7 +58,7 @@ Questo articolo illustra come connettersi a un file system locale come descritto
 
 ## <a name="add-actions"></a>Aggiunta di azioni
 
-1. Nel trigger scegliere **Passaggio successivo**. Nella casella di ricerca immettere "file system" come filtro. Nell'elenco di azioni selezionare questa azione: **Crea file**
+1. Nel trigger scegliere **Passaggio successivo**. Nella casella di ricerca immettere "file system" come filtro. Nell'elenco azioni selezionare questa azione: **Crea file**
 
    ![Trovare il connettore File System](media/logic-apps-using-file-connector/find-file-system-action.png)
 
@@ -66,14 +66,14 @@ Questo articolo illustra come connettersi a un file system locale come descritto
 
    ![Creare la connessione](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | Proprietà | Obbligatorio | Value | Descrizione |
+   | Proprietà | Obbligatoria | Value | Description |
    | -------- | -------- | ----- | ----------- |
-   | **Connection Name** (Nome connessione) | Yes | <*nome connessione*> | Il nome da assegnare alla connessione |
-   | **Cartella radice** | Yes | <*root-folder-name*> | La cartella radice del file system, ad esempio se installato un gateway dati locale, una cartella locale nel computer in cui è installato il gateway dati locale o la cartella per una condivisione di rete a cui il computer possa accedere. <p>Ad esempio: `\\PublicShare\\DropboxFiles` <p>La cartella radice è la cartella principale che verrà usata per i percorsi relativi di tutte le azioni correlate ai file. |
+   | **Connection Name** (Nome connessione) | SÌ | <*nome connessione*> | Il nome da assegnare alla connessione |
+   | **Cartella radice** | SÌ | <*root-folder-name*> | La cartella radice del file system, ad esempio se installato un gateway dati locale, una cartella locale nel computer in cui è installato il gateway dati locale o la cartella per una condivisione di rete a cui il computer possa accedere. <p>Ad esempio: `\\PublicShare\\DropboxFiles` <p>La cartella radice è la cartella principale che verrà usata per i percorsi relativi di tutte le azioni correlate ai file. |
    | **Tipo di autenticazione** | No | <*auth-type*> | Il tipo di autenticazione usato dal file system, ad esempio **Windows** |
-   | **Nome utente** | Yes | <*domain*>\\<*username*> | Il nome utente per il computer in cui è presente il file system |
-   | **Password** | Yes | <*your-password*> | La password per il computer in cui è presente il file system |
-   | **gateway** | Yes | <*installed-gateway-name*> | Il nome del gateway installato in precedenza |
+   | **Nome utente** | SÌ | <*domain*>\\<*username*> | Il nome utente per il computer in cui è presente il file system |
+   | **Password** | SÌ | <*your-password*> | La password per il computer in cui è presente il file system |
+   | **gateway** | SÌ | <*installed-gateway-name*> | Il nome del gateway installato in precedenza |
    |||||
 
 1. Al termine dell'operazione, scegliere **Crea**.

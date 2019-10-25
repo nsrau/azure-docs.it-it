@@ -9,18 +9,18 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5738161e88c42f4d4033fab091d8e8c8d7162042
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9eba76d78c2070f03ed835cdf2bf303ed72b1f7f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301724"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72801857"
 ---
 # <a name="developers-guide-to-durable-entities-in-net-preview"></a>Guida per gli sviluppatori di entità durevoli in .NET (anteprima)
 
 In questo articolo vengono descritte in dettaglio le interfacce disponibili per lo sviluppo di entità durevoli con .NET, inclusi esempi e consigli generali. 
 
-Le funzioni di entità offrono agli sviluppatori di applicazioni senza server un modo pratico per organizzare lo stato delle applicazioni come una raccolta di entità con granularità fine. Per informazioni più dettagliate sui concetti sottostanti, vedere le entità [Durable: Concetti @ no__t-0.
+Le funzioni di entità offrono agli sviluppatori di applicazioni senza server un modo pratico per organizzare lo stato delle applicazioni come una raccolta di entità con granularità fine. Per informazioni più dettagliate sui concetti sottostanti, vedere l'articolo relativo alle [entità durevoli: concetti](durable-functions-entities.md) .
 
 Sono attualmente disponibili due API per la definizione delle entità:
 
@@ -35,7 +35,7 @@ Questo articolo è incentrato principalmente sulla sintassi basata su classi, pe
  
 ## <a name="defining-entity-classes"></a>Definizione delle classi di entità
 
-Nell'esempio seguente viene illustrata un'implementazione di un'entità `Counter` che archivia un solo valore di tipo integer e offre quattro operazioni `Add`, `Reset`, `Get` e `Delete`.
+Nell'esempio seguente viene illustrata un'implementazione di un'entità `Counter` che archivia un solo valore di tipo integer e offre quattro operazioni `Add`, `Reset`, `Get`e `Delete`.
 
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]
@@ -97,7 +97,7 @@ Le operazioni possono anche accedere alle funzionalità fornite dal contesto `En
 
 * `EntityName`: nome dell'entità attualmente in esecuzione.
 * `EntityKey`: chiave dell'entità attualmente in esecuzione.
-* `EntityId`: ID dell'entità attualmente in esecuzione (include il nome e la chiave).
+* `EntityId`: l'ID dell'entità attualmente in esecuzione (include il nome e la chiave).
 * `SignalEntity`: Invia un messaggio unidirezionale a un'entità.
 * `CreateNewOrchestration`: avvia una nuova orchestrazione.
 * `DeleteState`: Elimina lo stato di questa entità.
@@ -120,7 +120,7 @@ Ad esempio, è possibile modificare l'entità contatore in modo da avviare un'or
 È possibile accedere direttamente alle entità basate su classi, usando nomi di stringa espliciti per l'entità e le relative operazioni. Di seguito vengono forniti alcuni esempi. per una spiegazione più approfondita dei concetti sottostanti (ad esempio, i segnali e le chiamate), vedere l'argomento relativo all' [accesso alle entità](durable-functions-entities.md#accessing-entities). 
 
 > [!NOTE]
-> Laddove possibile, è consigliabile [accedere alle entità tramite le interfacce](), perché fornisce maggiore controllo dei tipi.
+> Laddove possibile, è consigliabile [accedere alle entità tramite le interfacce](#accessing-entities-through-interfaces), perché fornisce maggiore controllo dei tipi.
 
 ### <a name="example-client-signals-entity"></a>Esempio: entità Signals client
 
@@ -157,7 +157,7 @@ public static async Task<HttpResponseMessage> GetCounter(
 ```
 
 > [!NOTE]
-> L'oggetto restituito da `ReadEntityStateAsync` è semplicemente una copia locale, ovvero uno snapshot dello stato dell'entità da un punto precedente nel tempo. In particolare, può essere obsoleto e la modifica di questo oggetto non ha alcun effetto sull'entità effettiva. 
+> L'oggetto restituito da `ReadEntityStateAsync` è semplicemente una copia locale, ovvero uno snapshot dello stato dell'entità a partire da un punto precedente nel tempo. In particolare, può essere obsoleto e la modifica di questo oggetto non ha alcun effetto sull'entità effettiva. 
 
 ### <a name="example-orchestration-first-signals-then-calls-entity"></a>Esempio: orchestrazione First Signals, then calls Entity
 
@@ -206,7 +206,7 @@ Oltre a fornire il controllo dei tipi, le interfacce sono utili per una migliore
 
 ### <a name="example-client-signals-entity-through-interface"></a>Esempio: l'entità segnala il client tramite l'interfaccia
 
-Il codice client può usare `SignalEntityAsync<TEntityInterface>` per inviare segnali a entità che implementano `TEntityInterface`. Esempio:
+Il codice client può usare `SignalEntityAsync<TEntityInterface>` per inviare segnali a entità che implementano `TEntityInterface`. ad esempio:
 
 ```csharp
 [FunctionName("DeleteCounter")]
@@ -221,11 +221,11 @@ public static async Task<HttpResponseMessage> DeleteCounter(
 }
 ```
 
-In questo esempio, il parametro `proxy` è un'istanza generata dinamicamente di `ICounter`, che converte internamente la chiamata a `Delete` in un segnale.
+In questo esempio, il `proxy` parametro è un'istanza generata dinamicamente di `ICounter`, che converte internamente la chiamata a `Delete` in un segnale.
 
 > [!NOTE]
 > Le API `SignalEntityAsync` possono essere utilizzate solo per le operazioni unidirezionali. Anche se un'operazione restituisce `Task<T>`, il valore del parametro `T` sarà sempre null o `default`, non il risultato effettivo.
-Ad esempio, non ha senso segnalare l'operazione `Get`, in quanto non viene restituito alcun valore. I client possono invece usare `ReadStateAsync` per accedere direttamente allo stato del contatore oppure può avviare una funzione dell'agente di orchestrazione che chiama l'operazione `Get`. 
+Ad esempio, non ha senso segnalare l'operazione di `Get`, in quanto non viene restituito alcun valore. I client possono invece usare `ReadStateAsync` per accedere direttamente allo stato del contatore oppure può avviare una funzione dell'agente di orchestrazione che chiama l'operazione di `Get`. 
 
 ### <a name="example-orchestration-first-signals-then-calls-entity-through-proxy"></a>Esempio: orchestrazione per primo segnale, quindi chiama l'entità tramite il proxy
 
@@ -249,7 +249,7 @@ public static async Task<int> Run(
 }
 ```
 
-In modo implicito, tutte le operazioni che restituiscono `void` vengono segnalate e vengono chiamate tutte le operazioni che restituiscono `Task` o `Task<T>`. È possibile modificare questo comportamento predefinito e le operazioni di segnalazione anche se restituiscono un'attività, usando il metodo `SignalEntity<IInterfaceType>` in modo esplicito.
+In modo implicito, qualsiasi operazione che restituisce `void` viene segnalata e vengono chiamate tutte le operazioni che restituiscono `Task` o `Task<T>`. È possibile modificare questo comportamento predefinito e le operazioni di segnalazione anche se restituiscono un'attività, usando il metodo `SignalEntity<IInterfaceType>` in modo esplicito.
 
 ### <a name="shorter-option-for-specifying-the-target"></a>Opzione più breve per specificare la destinazione
 
@@ -270,7 +270,7 @@ Vengono inoltre applicate alcune regole aggiuntive:
 * Le interfacce di entità devono definire solo metodi.
 * Le interfacce di entità non devono contenere parametri generici.
 * I metodi dell'interfaccia di entità non devono avere più di un parametro.
-* I metodi dell'interfaccia di entità devono restituire `void`, `Task` o `Task<T>` 
+* I metodi dell'interfaccia di entità devono restituire `void`, `Task`o `Task<T>` 
 
 Se una di queste regole viene violata, viene generata un'`InvalidOperationException` in fase di esecuzione quando l'interfaccia viene usata come argomento di tipo per `SignalEntity` o `CreateProxy`. Il messaggio di eccezione spiega quale regola è stata interrotta.
 
@@ -316,7 +316,7 @@ Nell'esempio precedente si è scelto di includere diversi attributi per rendere 
 - Viene annotata la classe con `[JsonObject(MemberSerialization.OptIn)]` per ricordare che la classe deve essere serializzabile e per salvare in modo permanente solo i membri contrassegnati in modo esplicito come proprietà JSON.
 -  Si annotano i campi da salvare in modo permanente con `[JsonProperty("name")]` per ricordare che un campo fa parte dello stato dell'entità permanente e per specificare il nome della proprietà da usare nella rappresentazione JSON.
 
-Tuttavia, questi attributi non sono obbligatori. sono consentite altre convenzioni o attributi purché funzionino con Json.NET. Ad esempio, è possibile usare gli attributi `[DataContract]` oppure nessun attributo:
+Tuttavia, questi attributi non sono obbligatori. sono consentite altre convenzioni o attributi purché funzionino con Json.NET. Ad esempio, è possibile usare `[DataContract]` attributi o nessun attributo:
 
 ```csharp
 [DataContract]
@@ -338,7 +338,7 @@ Per impostazione predefinita, il nome della classe *non* è archiviato come part
 
 ### <a name="making-changes-to-class-definitions"></a>Apportare modifiche alle definizioni delle classi
 
-È necessario prestare attenzione quando si apportano modifiche a una definizione di classe dopo l'esecuzione di un'applicazione, perché l'oggetto JSON archiviato potrebbe non corrispondere più alla nuova definizione di classe. Tuttavia, spesso è possibile gestire correttamente i formati di dati modificabili purché si conosca il processo di deserializzazione usato da `JsonConvert.PopulateObject`.
+È necessario prestare attenzione quando si apportano modifiche a una definizione di classe dopo l'esecuzione di un'applicazione, perché l'oggetto JSON archiviato potrebbe non corrispondere più alla nuova definizione di classe. Tuttavia, spesso è possibile gestire correttamente i formati di dati modificabili purché uno conosca il processo di deserializzazione usato da `JsonConvert.PopulateObject`.
 
 Ad esempio, di seguito sono riportati alcuni esempi di modifiche e il relativo effetto:
 
@@ -482,13 +482,13 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 
 ### <a name="the-entity-context-object"></a>Oggetto contesto dell'entità
 
-È possibile accedere alla funzionalità specifica dell'entità tramite un oggetto di contesto di tipo `IDurableEntityContext`. Questo oggetto context è disponibile come parametro per la funzione dell'entità e tramite la proprietà async-local `Entity.Current`.
+È possibile accedere a funzionalità specifiche dell'entità tramite un oggetto di contesto di tipo `IDurableEntityContext`. Questo oggetto di contesto è disponibile come parametro per la funzione dell'entità e tramite la proprietà asincrona-local `Entity.Current`.
 
 I membri seguenti forniscono informazioni sull'operazione corrente e consentono di specificare un valore restituito. 
 
 * `EntityName`: nome dell'entità attualmente in esecuzione.
 * `EntityKey`: chiave dell'entità attualmente in esecuzione.
-* `EntityId`: ID dell'entità attualmente in esecuzione (include il nome e la chiave).
+* `EntityId`: l'ID dell'entità attualmente in esecuzione (include il nome e la chiave).
 * `OperationName`: il nome dell'operazione corrente.
 * `GetInput<TInput>()`: Ottiene l'input per l'operazione corrente.
 * `Return(arg)`: restituisce un valore all'orchestrazione che ha chiamato l'operazione.
@@ -500,7 +500,7 @@ I membri seguenti gestiscono lo stato dell'entità (creazione, lettura, aggiorna
 * `SetState(arg)`: crea o aggiorna lo stato dell'entità.
 * `DeleteState()`: Elimina lo stato dell'entità, se esistente. 
 
-Se lo stato restituito da `GetState` è un oggetto, può essere modificato direttamente dal codice dell'applicazione. Non è necessario chiamare di nuovo `SetState` alla fine, ma anche senza danni. Se `GetState<TState>` viene chiamato più volte, è necessario utilizzare lo stesso tipo.
+Se lo stato restituito da `GetState` è un oggetto, può essere modificato direttamente dal codice dell'applicazione. Non è necessario chiamare di nuovo `SetState` alla fine, ma anche senza danni. Se `GetState<TState>` viene chiamato più volte, è necessario usare lo stesso tipo.
 
 Infine, i membri seguenti vengono utilizzati per segnalare altre entità o avviare nuove orchestrazioni:
 

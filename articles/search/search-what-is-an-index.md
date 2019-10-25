@@ -1,26 +1,25 @@
 ---
-title: Creare una definizione di indice e concetti - Ricerca di Azure
-description: Introduzione all'indicizzazione di termini e concetti in Ricerca di Azure, incluse le parti dei componenti e la struttura fisica.
-author: HeidiSteen
+title: Creare una definizione di indice e i concetti
+titleSuffix: Azure Cognitive Search
+description: Introduzione ai termini e ai concetti relativi agli indici in ricerca cognitiva di Azure, incluse le parti componenti e la struttura fisica.
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.custom: seodec2018
-ms.openlocfilehash: 0a26cfc578f12044cb5834f202a0fed5d0a30274
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: 30fffa6264411238c3ff0a5e829e1567c00f4f97
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69647361"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794203"
 ---
-# <a name="create-a-basic-index-in-azure-search"></a>Creare un indice di base in Ricerca di Azure
+# <a name="create-a-basic-index-in-azure-cognitive-search"></a>Creare un indice di base in Azure ricerca cognitiva
 
-In Ricerca di Azure un *indice* è un archivio persistente di *documenti* e altri costrutti usati per la ricerca filtrata e full-text in un servizio di Ricerca di Azure. A livello concettuale, un documento è un singola unità di dati ricercabili nell'indice. Ad esempio, un rivenditore di e-commerce può avere un documento per ogni elemento in vendita, un'agenzia di stampa può avere un documento per ogni articolo e così via. Applicando questi concetti ai più familiari elementi di database equivalenti, un *indice* è concettualmente analogo a una *tabella* e i *documenti* equivalgono in linea di massima alle *righe* di una tabella.
+In ricerca cognitiva di Azure, un *Indice* è un archivio persistente di *documenti* e altri costrutti usati per la ricerca filtrata e full-text in un servizio ricerca cognitiva di Azure. A livello concettuale, un documento è un singola unità di dati ricercabili nell'indice. Ad esempio, un rivenditore di e-commerce può avere un documento per ogni elemento in vendita, un'agenzia di stampa può avere un documento per ogni articolo e così via. Applicando questi concetti ai più familiari elementi di database equivalenti, un *indice* è concettualmente analogo a una *tabella* e i *documenti* equivalgono in linea di massima alle *righe* di una tabella.
 
-Quando si aggiunge o si carica un indice, Ricerca di Azure crea strutture fisiche basate sullo schema fornito dall'utente. Ad esempio, se un campo nell'indice è contrassegnato come ricercabile, viene creato un indice invertito per il campo. Successivamente, quando si aggiungono o caricano documenti o si inviano le query di ricerca in Ricerca di Azure, si inviano le richieste a un indice specifico nel servizio di ricerca. Il caricamento di campi con valori di documenti viene chiamato *indicizzazione* o inserimento dati.
+Quando si aggiunge o si carica un indice, Azure ricerca cognitiva crea strutture fisiche basate sullo schema fornito. Ad esempio, se un campo nell'indice è contrassegnato come ricercabile, viene creato un indice invertito per il campo. In seguito, quando si aggiungono o si caricano documenti o si inviano query di ricerca ad Azure ricerca cognitiva, si inviano richieste a un indice specifico nel servizio di ricerca. Il caricamento di campi con valori di documenti viene chiamato *indicizzazione* o inserimento dati.
 
 È possibile creare un indice nel portale, [API REST](search-create-index-rest-api.md), o [.NET SDK](search-create-index-dotnet.md).
 
@@ -40,7 +39,7 @@ Il raggiungimento di una corretta progettazione degli indici si ottiene in gener
 
    A questo punto si passa a un approccio basato sul codice. Poiché non è possibile modificare un indice creato in precedenza, il portale non è particolarmente adatto per l'iterazione. È tuttavia possibile usare Postman e REST per le attività rimanenti.
 
-4. [Caricare l'indice con i dati](search-what-is-data-import.md). Ricerca di Azure accetta i documenti JSON. Per caricare i dati a livello di codice, è possibile usare Postman con i documenti JSON nel payload della richiesta. Se i dati non possono essere facilmente espressi in JSON, questo passaggio sarà più laborioso.
+4. [Caricare l'indice con i dati](search-what-is-data-import.md). Azure ricerca cognitiva accetta documenti JSON. Per caricare i dati a livello di codice, è possibile usare Postman con i documenti JSON nel payload della richiesta. Se i dati non possono essere facilmente espressi in JSON, questo passaggio sarà più laborioso.
 
 5. Eseguire query sull'indice, esaminare i risultati ed eseguire ulteriormente l'iterazione sullo schema dell'indice fino a quando non si visualizzano i risultati previsti. È possibile usare [**Esplora ricerche**](search-explorer.md) o Postman per eseguire query sull'indice.
 
@@ -52,7 +51,7 @@ Per la progettazione iterativa è consigliabile un codice anziché un approccio 
 
 ## <a name="components-of-an-index"></a>Componenti di un indice
 
-In modo schematico, un indice Ricerca di Azure è costituito dagli elementi seguenti. 
+Schematicamente, un indice ricerca cognitiva di Azure è costituito dagli elementi seguenti. 
 
 La [*raccolta campi*](#fields-collection) in genere costituisce la maggior parte di un indice, in cui ogni campo è denominato, tipizzato e attribuito con comportamenti consentiti che determinano la modalità di utilizzo. Altri elementi includono [suggerimenti](#suggesters), [profili di Punteggio](#scoring-profiles)e [analizzatori](#analyzers) con parti componente per supportare le opzioni di personalizzazione, [CORS](#cors) e [chiave di crittografia](#encryption-key) .
 
@@ -157,7 +156,7 @@ Quando si definisce lo schema, è necessario specificare il nome, tipo e gli att
 | *Edm.DateTimeOffset* |Valori di ora rappresentati in formato OData V4 (ad esempio `yyyy-MM-ddTHH:mm:ss.fffZ` o `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Punto che rappresenta una località geografica del mondo. |
 
-È possibile trovare altre informazioni sui [tipi di dati supportati di Ricerca di Azure qui](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
+Qui è possibile trovare informazioni più dettagliate sui tipi di [dati supportati](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types)da Azure ricerca cognitiva.
 
 ### <a name="index-attributes"></a>Attributi dell'indice
 
@@ -190,7 +189,7 @@ Sebbene queste varianti di indice siano artificiali, è possibile farvi riferime
 Gli indici che supportano filtro e ordinamento sono proporzionalmente più grandi rispetto agli indici che supportano soltanto la ricerca full-text. Questo avviene perché filtro e ordinamento eseguono query su corrispondenze esatte in modo che i documenti siano archiviati senza alterazioni. Al contrario, i campi ricercabili che supportano la ricerca full-text e fuzzy usano indici invertiti, popolati con termini in formato token che consumano meno spazio rispetto a documenti interi.
 
 > [!Note]
-> L'architettura di archiviazione è considerata un dettaglio di implementazione di Ricerca di Azure e può essere soggetta a modifiche senza preavviso. Non è garantito che il comportamento attuale verrà mantenuto in futuro.
+> L'architettura di archiviazione è considerata un dettaglio di implementazione di Azure ricerca cognitiva e può cambiare senza preavviso. Non è garantito che il comportamento attuale verrà mantenuto in futuro.
 
 ## <a name="suggesters"></a>Suggerimenti
 Un componente di suggerimento è una sezione dello schema che definisce quali campi in un indice vengono utilizzati per supportare le query con completamento automatico nelle ricerche. In genere, le stringhe di ricerca parziale vengono inviate ai [Suggerimenti (API REST)](https://docs.microsoft.com/rest/api/searchservice/suggestions) mentre l'utente digita la query di ricerca e l'API restituisce un set di espressioni suggerite. 
@@ -205,7 +204,7 @@ Un profilo di punteggio predefinito viene eseguito in background al fine di calc
 
 ## <a name="analyzers"></a>Analizzatori
 
-L'elemento analizzatori imposta il nome dell'analizzatore di lingua da usare per il campo. Per altre informazioni sull'intervallo degli analizzatori disponibili, vedere [Aggiungere analizzatori del linguaggio a un indice di Ricerca di Azure](search-analyzers.md). Gli analizzatori possono essere usati solo con campi ricercabili. Dopo aver assegnato l'analizzatore a un campo sarà possibile modificarlo solo ricompilando l'indice.
+L'elemento analizzatori imposta il nome dell'analizzatore di lingua da usare per il campo. Per altre informazioni sull'intervallo di analizzatori disponibili, vedere [aggiunta di analizzatori a un indice di ricerca cognitiva di Azure](search-analyzers.md). Gli analizzatori possono essere usati solo con campi ricercabili. Dopo aver assegnato l'analizzatore a un campo sarà possibile modificarlo solo ricompilando l'indice.
 
 ## <a name="cors"></a>CORS
 
@@ -221,7 +220,7 @@ Per CORS è possibile impostare le opzioni seguenti:
 
 ## <a name="encryption-key"></a>Chiave di crittografia
 
-Sebbene tutti gli indici di ricerca di Azure siano crittografati per impostazione predefinita usando chiavi gestite da Microsoft, è possibile configurare gli indici per la crittografia con **chiavi gestite dal cliente** in Key Vault. Per altre informazioni, vedere [gestire le chiavi di crittografia in ricerca di Azure](search-security-manage-encryption-keys.md).
+Sebbene tutti gli indici di Azure ricerca cognitiva siano crittografati per impostazione predefinita tramite chiavi gestite da Microsoft, è possibile configurare gli indici per la crittografia con **chiavi gestite dal cliente** in Key Vault. Per altre informazioni, vedere [gestire le chiavi di crittografia in Azure ricerca cognitiva](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,22 +1,21 @@
 ---
-title: Impostare i ruoli RBAC per l'accesso amministrativo di Azure nel portale - Ricerca di Azure
-description: Controllo amministrativo basato sui ruoli nel portale di Azure per il controllo e la delega di attività amministrative per la gestione di Ricerca di Azure.
-author: HeidiSteen
+title: Impostare i ruoli RBAC per l'accesso amministrativo di Azure nel portale
+titleSuffix: Azure Cognitive Search
+description: Controllo amministrativo basato su ruoli (RBAC) nell'portale di Azure per il controllo e la delega delle attività amministrative per la gestione ricerca cognitiva di Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 04/05/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 924d2529e3477c299d4a90c076fe9e6c8faf11f3
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 321aabb26d5929f7587dd61e7d4059701f7ad526
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647400"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794331"
 ---
-# <a name="set-rbac-roles-for-administrative-access"></a>Impostare i ruoli RBAC per l'accesso amministrativo
+# <a name="set-rbac-roles-for-administrative-access-to-azure-cognitive-search"></a>Impostare i ruoli RBAC per l'accesso amministrativo ad Azure ricerca cognitiva
 
 Azure offre un [modello di autorizzazione basata sui ruoli globali](../role-based-access-control/role-assignments-portal.md) per tutti i servizi gestiti tramite il portale o le API di Resource Manager. I ruoli Proprietario, Collaboratore e Lettore determinano il livello di *amministrazione del servizio* per gli utenti, i gruppi e le entità di sicurezza di Active Directory assegnati a ogni ruolo. 
 
@@ -25,9 +24,9 @@ Azure offre un [modello di autorizzazione basata sui ruoli globali](../role-base
 
 ## <a name="management-tasks-by-role"></a>Attività di gestione in base al ruolo
 
-Per la Ricerca di Azure, i ruoli sono associati ai livelli di autorizzazione che supportano le attività di gestione seguenti:
+Per ricerca cognitiva di Azure, i ruoli sono associati ai livelli di autorizzazione che supportano le seguenti attività di gestione:
 
-| Role | Attività |
+| Ruolo | Attività |
 | --- | --- |
 | Proprietario |Creare o eliminare il servizio o qualsiasi oggetto nel servizio, inclusi chiavi API, indici, indicizzatori, origini dati di un indicizzatore e pianificazioni di indicizzatore.<p>Visualizzare lo stato del servizio, inclusi conteggi e dimensioni.<p>Aggiunta o eliminazione dell'appartenenza al ruolo, che può essere gestita solo da un Proprietario.<p>Gli amministratori delle sottoscrizioni e i proprietari del servizio vengono aggiunti automaticamente al ruolo proprietario. |
 | Collaboratore |Stesso livello di accesso del Proprietario, tranne la gestione dei ruoli Controllo degli accessi in base al ruolo. Ad esempio, un Collaboratore può creare o eliminare un oggetto o visualizzare e rigenerare [chiavi API](search-security-api-keys.md), ma non può modificare le appartenenze ai ruoli. |
@@ -36,8 +35,8 @@ Per la Ricerca di Azure, i ruoli sono associati ai livelli di autorizzazione che
 
 I ruoli non concedono diritti di accesso all'endpoint di servizio. Le operazioni del servizio di ricerca, ad esempio la gestione e il popolamento degli indici e le query sui dati di ricerca, sono controllate tramite le chiavi API, non tramite i ruoli. Per altre informazioni, vedere [Gestire le chiavi API](search-security-api-keys.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 + [Gestire usando PowerShell](search-manage-powershell.md) 
-+ [Prestazioni e ottimizzazione in Ricerca di Azure](search-performance-optimization.md)
++ [Prestazioni e ottimizzazione in Azure ricerca cognitiva](search-performance-optimization.md)
 + [Introduzione al Controllo degli accessi in base al ruolo di Azure nel portale di Azure](../role-based-access-control/overview.md).

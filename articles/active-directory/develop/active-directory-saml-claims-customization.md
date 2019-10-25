@@ -1,5 +1,6 @@
 ---
-title: Personalizzare le attestazioni del token SAML per le app aziendali in Azure AD | Microsoft Docs
+title: Personalizzare le attestazioni del token SAML per le app aziendali in Azure AD
+titleSuffix: Microsoft identity platform
 description: Informazioni su come personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4f26c82d4cda6ce3d8bf01c7fd52fa579e86dcf
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
-ms.translationtype: MT
+ms.openlocfilehash: a9994d5f882e7bf27ac822a69c4310bc7c6fabe1
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240238"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803469"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -31,7 +32,7 @@ Attualmente, Azure Active Directory (Azure AD) supporta la Single Sign-On (SSO) 
 
 Un'*attestazione* è un insieme di informazioni relative ad un utente dichiarate da un provider di identità all'interno del token rilasciato per tale utente. Nel [token SAML](https://en.wikipedia.org/wiki/SAML_2.0) questi dati sono in genere contenuti nell'istruzione degli attributi SAML. L'ID univoco dell'utente viene in genere rappresentato nel soggetto SAML definito anche identificatore del nome.
 
-Per impostazione predefinita, Azure AD rilascia un token SAML all'applicazione che contiene un'attestazione `NameIdentifier` con un valore del nome utente dell'utente (noto anche come nome dell'entità utente) in Azure AD, che può identificare in modo univoco l'utente. Il token SAML contiene inoltre ulteriori attestazioni contenenti indirizzo di posta elettronica, nome e cognome dell'utente.
+Per impostazione predefinita, Azure AD rilascia un token SAML all'applicazione che contiene un'attestazione `NameIdentifier` con un valore del nome utente dell'utente (noto anche come nome dell'entità utente) in Azure AD, che può identificare in modo univoco l'utente. Il token SAML contiene inoltre ulteriori attestazioni contenenti indirizzo di posta elettronica, nome e cognome dell’utente.
 
 Per visualizzare o modificare le attestazioni generate nel token SAML per l'applicazione, aprire l'applicazione nel portale di Azure. Aprire quindi la sezione **attributi utente & attestazioni** .
 
@@ -59,7 +60,7 @@ Se la richiesta SAML non contiene un elemento per NameIDPolicy, Azure AD emetter
 
 Dall'elenco a discesa **Scegli formato identificatore nome** è possibile selezionare una delle opzioni seguenti.
 
-| Formato NameID | Descrizione |
+| Formato NameID | Description |
 |---------------|-------------|
 | **Default** | Azure AD utilizzerà il formato di origine predefinito. |
 | **Persistente** | Azure AD utilizzerà il formato persistente come NameID. |
@@ -72,9 +73,9 @@ Il NameID temporaneo è anche supportato, ma non è disponibile nell'elenco a di
 
 Selezionare l'origine desiderata per l'attestazione `NameIdentifier` (o NameID). Si può scegliere fra le opzioni seguenti.
 
-| NOME | Descrizione |
+| name | Description |
 |------|-------------|
-| Email | Indirizzo di posta elettronica dell'utente |
+| Indirizzo di posta elettronica | Indirizzo di posta elettronica dell'utente |
 | userprincipalName | Nome dell'entità utente (UPN) dell'utente |
 | onpremisessamaccount | Il nome dell'account SAM che è stato sincronizzato da Azure AD locale |
 | objectId | ObjectId dell'utente in Azure AD |
@@ -82,7 +83,7 @@ Selezionare l'origine desiderata per l'attestazione `NameIdentifier` (o NameID).
 | Estensioni della directory | Estensioni di directory [sincronizzate da Active Directory locale mediante la sincronizzazione di Azure AD Connect](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Attributi di estensione 1-15 | Attributi di estensione utilizzati per estendere lo schema di Azure AD locale |
 
-Per altre informazioni, vedere [Table 3: Valori ID validi per origine @ no__t-0.
+Per altre informazioni, vedere [tabella 3: valori ID validi per origine](active-directory-claims-mapping.md#table-3-valid-id-values-per-source).
 
 È anche possibile assegnare qualsiasi valore costante (statico) a tutte le attestazioni definite in Azure AD. Attenersi ai passaggi seguenti per assegnare un valore costante:
 
@@ -102,10 +103,10 @@ Per altre informazioni, vedere [Table 3: Valori ID validi per origine @ no__t-0.
 
 È inoltre possibile utilizzare le funzioni di trasformazioni delle attestazioni.
 
-| Funzione | Descrizione |
+| Funzione | Description |
 |----------|-------------|
 | **ExtractMailPrefix()** | Rimuove il suffisso di dominio dall'indirizzo di posta elettronica o dal nome dell'entità utente. In questo modo viene estratta solo la prima parte del nome utente passata, ad esempio "joe_smith" anziché joe_smith@contoso.com. |
-| **Join()** | Aggiunge un attributo a un dominio verificato. Se il valore dell'ID utente selezionato ha un dominio, estrarrà il nome utente per accodare il dominio verificato selezionato. Ad esempio, se si seleziona l'indirizzo e-mail (joe_smith@contoso.com) come valore dell'ID utente e si seleziona contoso.onmicrosoft.com come dominio verificato, si avrà come risultato joe_smith@contoso.onmicrosoft.com. |
+| **Join ()** | Aggiunge un attributo a un dominio verificato. Se il valore dell'ID utente selezionato ha un dominio, estrarrà il nome utente per accodare il dominio verificato selezionato. Ad esempio, se si seleziona l'indirizzo e-mail (joe_smith@contoso.com) come valore dell'ID utente e si seleziona contoso.onmicrosoft.com come dominio verificato, si avrà come risultato joe_smith@contoso.onmicrosoft.com. |
 | **ToLower()** | Converte i caratteri dell'attributo selezionato in minuscole. |
 | **ToUpper()** | Converte i caratteri dell'attributo selezionato in maiuscole. |
 
@@ -121,23 +122,23 @@ Per aggiungere attestazioni specifiche dell'applicazione:
 
 È inoltre possibile utilizzare le funzioni di trasformazioni delle attestazioni.
 
-| Funzione | Descrizione |
+| Funzione | Description |
 |----------|-------------|
 | **ExtractMailPrefix()** | Rimuove il suffisso di dominio dall'indirizzo di posta elettronica o dal nome dell'entità utente. In questo modo viene estratta solo la prima parte del nome utente passata, ad esempio "joe_smith" anziché joe_smith@contoso.com. |
-| **Join()** | Crea un nuovo valore creando un join tra due attributi. Facoltativamente, è possibile utilizzare un separatore tra i due attributi. |
+| **Join ()** | Crea un nuovo valore creando un join tra due attributi. Facoltativamente, è possibile utilizzare un separatore tra i due attributi. |
 | **ToLower()** | Converte i caratteri dell'attributo selezionato in minuscole. |
 | **ToUpper()** | Converte i caratteri dell'attributo selezionato in maiuscole. |
-| **Contains()** | Restituisce un attributo o una costante se l'input corrisponde al valore specificato. In caso contrario, è possibile specificare un altro output se non esiste alcuna corrispondenza.<br/>Ad esempio, se si desidera emettere un'attestazione in cui il valore è l'indirizzo di posta elettronica dell'utente se contiene il dominio "@contoso.com", in caso contrario si desidera restituire il nome dell'entità utente. A tale scopo, è necessario configurare i valori seguenti:<br/>*Parametro 1 (input)* : User. email<br/>*Valore*: "@contoso.com"<br/>Parametro 2 (output): User. email<br/>Parametro 3 (output se non esiste alcuna corrispondenza): User. userPrincipalName |
-| **EndWith()** | Restituisce un attributo o una costante se l'input termina con il valore specificato. In caso contrario, è possibile specificare un altro output se non esiste alcuna corrispondenza.<br/>Ad esempio, se si desidera emettere un'attestazione in cui il valore è il valore EmployeeID dell'utente se EmployeeID termina con "000"; in caso contrario, si desidera restituire un attributo di estensione. A tale scopo, è necessario configurare i valori seguenti:<br/>*Parametro 1 (input)* : User. EmployeeID<br/>*Value*: 000<br/>Parametro 2 (output): User. EmployeeID<br/>Parametro 3 (output se non esiste alcuna corrispondenza): User. extensionAttribute1 |
-| **StartWith()** | Restituisce un attributo o una costante se l'input inizia con il valore specificato. In caso contrario, è possibile specificare un altro output se non esiste alcuna corrispondenza.<br/>Ad esempio, se si desidera emettere un'attestazione in cui il valore è EmployeeID dell'utente se il paese inizia con "US"; in caso contrario, si desidera restituire un attributo di estensione. A tale scopo, è necessario configurare i valori seguenti:<br/>*Parametro 1 (input)* : User. Country<br/>*Value*: NOI<br/>Parametro 2 (output): User. EmployeeID<br/>Parametro 3 (output se non esiste alcuna corrispondenza): User. extensionAttribute1 |
+| **Contains ()** | Restituisce un attributo o una costante se l'input corrisponde al valore specificato. In caso contrario, è possibile specificare un altro output se non esiste alcuna corrispondenza.<br/>Ad esempio, se si desidera emettere un'attestazione in cui il valore è l'indirizzo di posta elettronica dell'utente se contiene il dominio "@contoso.com"; in caso contrario, si desidera restituire il nome dell'entità utente. A tale scopo, è necessario configurare i valori seguenti:<br/>*Parametro 1 (input)* : User. email<br/>*Valore*: "@contoso.com"<br/>Parametro 2 (output): User. email<br/>Parametro 3 (output se non esiste alcuna corrispondenza): User. userPrincipalName |
+| **EndWith()** | Restituisce un attributo o una costante se l'input termina con il valore specificato. In caso contrario, è possibile specificare un altro output se non esiste alcuna corrispondenza.<br/>Ad esempio, se si desidera emettere un'attestazione in cui il valore è il valore EmployeeID dell'utente se EmployeeID termina con "000"; in caso contrario, si desidera restituire un attributo di estensione. A tale scopo, è necessario configurare i valori seguenti:<br/>*Parametro 1 (input)* : User. EmployeeID<br/>*Valore*: "000"<br/>Parametro 2 (output): User. EmployeeID<br/>Parametro 3 (output se non esiste alcuna corrispondenza): User. extensionAttribute1 |
+| **Cominciamo ()** | Restituisce un attributo o una costante se l'input inizia con il valore specificato. In caso contrario, è possibile specificare un altro output se non esiste alcuna corrispondenza.<br/>Ad esempio, se si desidera emettere un'attestazione in cui il valore è EmployeeID dell'utente se il paese inizia con "US"; in caso contrario, si desidera restituire un attributo di estensione. A tale scopo, è necessario configurare i valori seguenti:<br/>*Parametro 1 (input)* : User. Country<br/>*Valore*: "US"<br/>Parametro 2 (output): User. EmployeeID<br/>Parametro 3 (output se non esiste alcuna corrispondenza): User. extensionAttribute1 |
 | **Estrai ()-dopo la corrispondenza** | Restituisce la sottostringa dopo che corrisponde al valore specificato.<br/>Se, ad esempio, il valore di input è "Finance_BSimon", il valore corrispondente è "Finance_", l'output dell'attestazione è "BSimon". |
 | **Estrai ()-prima della corrispondenza** | Restituisce la sottostringa finché non corrisponde al valore specificato.<br/>Se, ad esempio, il valore di input è "BSimon_US", il valore corrispondente è "US", l'output dell'attestazione è "BSimon". |
 | **Estrai ()-tra la corrispondenza** | Restituisce la sottostringa finché non corrisponde al valore specificato.<br/>Se, ad esempio, il valore di input è "Finance_BSimon_US", il primo valore corrispondente è "Finance_", il secondo valore corrispondente è "US", quindi l'output dell'attestazione è "BSimon". |
-| **ExtractAlpha() - Prefix** | Restituisce la parte alfabetica del prefisso della stringa.<br/>Se, ad esempio, il valore di input è "BSimon_123", viene restituito "BSimon". |
-| **ExtractAlpha() - Suffix** | Restituisce la parte alfabetica del suffisso della stringa.<br/>Se, ad esempio, il valore di input è "123_Simon", viene restituito "Simon". |
+| **ExtractAlpha ()-prefisso** | Restituisce la parte alfabetica del prefisso della stringa.<br/>Se, ad esempio, il valore di input è "BSimon_123", viene restituito "BSimon". |
+| **ExtractAlpha ()-suffisso** | Restituisce la parte alfabetica del suffisso della stringa.<br/>Se, ad esempio, il valore di input è "123_Simon", viene restituito "Simon". |
 | **ExtractNumeric ()-prefisso** | Restituisce la parte numerica del prefisso della stringa.<br/>Se, ad esempio, il valore di input è "123_BSimon", viene restituito "123". |
 | **ExtractNumeric ()-suffisso** | Restituisce la parte numerica del suffisso della stringa.<br/>Se, ad esempio, il valore di input è "BSimon_123", viene restituito "123". |
-| **IfEmpty()** | Restituisce un attributo o una costante se l'input è null o vuoto.<br/>Ad esempio, se si desidera restituire un attributo archiviato in un ExtensionAttribute se EmployeeID per un determinato utente è vuoto. A tale scopo, è necessario configurare i valori seguenti:<br/>Parametro 1 (input): User. EmployeeID<br/>Parametro 2 (output): User. extensionAttribute1<br/>Parametro 3 (output se non esiste alcuna corrispondenza): User. EmployeeID |
+| **IfEmpty ()** | Restituisce un attributo o una costante se l'input è null o vuoto.<br/>Ad esempio, se si desidera restituire un attributo archiviato in un ExtensionAttribute se EmployeeID per un determinato utente è vuoto. A tale scopo, è necessario configurare i valori seguenti:<br/>Parametro 1 (input): User. EmployeeID<br/>Parametro 2 (output): User. extensionAttribute1<br/>Parametro 3 (output se non esiste alcuna corrispondenza): User. EmployeeID |
 | **IfNotEmpty()** | Restituisce un attributo o una costante se l'input non è null o vuoto.<br/>Ad esempio, se si desidera restituire un attributo archiviato in un ExtensionAttribute se EmployeeID per un determinato utente non è vuoto. A tale scopo, è necessario configurare i valori seguenti:<br/>Parametro 1 (input): User. EmployeeID<br/>Parametro 2 (output): User. extensionAttribute1 |
 
 Se sono necessarie altre trasformazioni, inviare un'idea nel [Forum dei commenti e suggerimenti in Azure ad](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599) sotto la categoria di *applicazioni SaaS* .

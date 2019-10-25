@@ -1,22 +1,21 @@
 ---
-title: Competenza Unione del testo della ricerca cognitiva - Ricerca di Azure
-description: Unire testo da una raccolta di campi in un unico campo consolidato. Usare questa competenza cognitiva in una pipeline di arricchimento di Ricerca di Azure.
-services: search
+title: Competenza cognitiva di unione testi
+titleSuffix: Azure Cognitive Search
+description: Unire testo da una raccolta di campi in un unico campo consolidato. Usare questa competenza cognitiva in una pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 1e88fcc13d97d92cf9b35616ecb7d71c2d24db1f
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c44f37c37bff2ddeb0fbba83d170054bf21129a6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265265"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791847"
 ---
-#    <a name="text-merge-cognitive-skill"></a>Competenza cognitiva di unione testi
+#   <a name="text-merge-cognitive-skill"></a>Competenza cognitiva di unione testi
 
 La competenza **unione testi** consolida il testo da una raccolta di campi in un unico campo. 
 
@@ -30,7 +29,7 @@ Microsoft.Skills.Text.MergeSkill
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Nome parametro     | Descrizione |
+| Nome parametro     | Description |
 |--------------------|-------------|
 | insertPreTag  | Stringa da includere prima di ogni inserimento. Il valore predefinito è `" "`. Per omettere lo spazio, impostare il valore su `""`.  |
 | insertPostTag | Stringa da includere prima di ogni inserimento. Il valore predefinito è `" "`. Per omettere lo spazio, impostare il valore su `""`.  |
@@ -141,8 +140,8 @@ Nell'esempio precedente si suppone l'esistenza di un campo di immagini normalizz
 }
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
-+ [Come definire un set di competenze](cognitive-search-defining-skillset.md)
++ [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
 + [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Creare un indicizzatore - REST)

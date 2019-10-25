@@ -1,26 +1,25 @@
 ---
-title: Elaborare ed estrarre testo da immagini nella ricerca cognitiva - Ricerca di Azure
-description: Elaborare ed estrarre testo e altre informazioni da immagini in pipeline di ricerca cognitiva all'interno di Ricerca di Azure.
-services: search
+title: Elaborare ed estrarre il testo dalle immagini in una pipeline di arricchimento
+titleSuffix: Azure Cognitive Search
+description: Elaborare ed estrarre testo e altre informazioni dalle immagini in pipeline di ricerca cognitiva di Azure.
 manager: nitinme
-author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: LuisCabrer
 ms.author: luisca
-ms.openlocfilehash: c1fd5c4e5a3ac054a85bdcc11d95bc3c338ee3c2
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 5006bf5bc7eafd464861a3570654539386c5f837
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265859"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787746"
 ---
-#  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Come elaborare ed estrarre informazioni da immagini in scenari di ricerca cognitiva
+# <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Come elaborare ed estrarre informazioni dalle immagini negli scenari di arricchimento di intelligenza artificiale
 
-La ricerca cognitiva presenta varie funzionalità per l'interazione con immagini e file di immagine. Durante l'individuazione dei documenti, è possibile usare il parametro *imageAction* per estrarre testo da foto o immagini contenenti testo alfanumerico, come la parola "STOP" in un segnale di arresto. Altri scenari includono la generazione della rappresentazione testuale di un'immagine, ad esempio "tarassaco" per una foto di un tarassaco o del colore "giallo". È possibile anche estrarre i metadati relativi all'immagine, ad esempio le dimensioni.
+Azure ricerca cognitiva offre diverse funzionalità per l'uso di immagini e file di immagine. Durante l'individuazione dei documenti, è possibile usare il parametro *imageAction* per estrarre testo da foto o immagini contenenti testo alfanumerico, come la parola "STOP" in un segnale di arresto. Altri scenari includono la generazione della rappresentazione testuale di un'immagine, ad esempio "tarassaco" per una foto di un tarassaco o del colore "giallo". È possibile anche estrarre i metadati relativi all'immagine, ad esempio le dimensioni.
 
-Questo articolo illustra nel dettaglio il processo di elaborazione delle immagini e fornisce indicazioni su come usare le immagini in una pipeline di ricerca cognitiva.
+Questo articolo illustra l'elaborazione di immagini in modo più dettagliato e fornisce indicazioni per l'uso di immagini in una pipeline di arricchimento di intelligenza artificiale.
 
 <a name="get-normalized-images"></a>
 
@@ -30,14 +29,14 @@ Nell'ambito del processo di individuazione dei documenti, è disponibile un nuov
 
 Non è possibile disattivare la normalizzazione delle immagini. Le competenze che prevedono l'iterazione sulle immagini richiedono immagini normalizzate. Per abilitare la normalizzazione delle immagini in un indicizzatore, è necessario associare un skillt a tale indicizzatore.
 
-| Parametro di configurazione | Descrizione |
+| Parametro di configurazione | Description |
 |--------------------|-------------|
-| imageAction   | Impostare su "none" se non deve essere eseguita alcuna operazione quando vengono rilevate immagini incorporate o file di immagine. <br/>Impostare su "generateNormalizedImages" per generare una matrice di immagini durante l'individuazione dei documenti.<br/>Impostare su "generateNormalizedImagePerPage" per generare una matrice di immagini normalizzate in cui, per i file PDF nell'origine dati, per ogni pagina viene eseguito il rendering in una sola immagine di output.  Per i tipi di file diversi da PDF, la funzionalità è la stessa di "generateNormalizedImages".<br/>Per qualsiasi opzione diversa da "none", le immagini verranno esposte nel campo *normalized_images*. <br/>Il valore predefinito è "none". Questa configurazione è pertinente solo alle origini dati BLOB, quando "dataToExtract" è impostato su "contentAndMetadata". <br/>Verrà estratto un massimo di 1000 immagini da un documento specifico. Se sono presenti più di 1000 immagini in un documento, il primo 1000 verrà estratto e verrà generato un avviso. |
+| imageAction   | Impostare su "none" se non deve essere eseguita alcuna operazione quando vengono rilevate immagini incorporate o file di immagine. <br/>Impostare su "generateNormalizedImages" per generare una matrice di immagini durante l'individuazione dei documenti.<br/>Impostare su "generateNormalizedImagePerPage" per generare una matrice di immagini normalizzate dove, per i file PDF nell'origine dati, viene eseguito il rendering di ogni pagina in un'unica immagine di output.  Per i tipi di file diversi da PDF, la funzionalità è la stessa di "generateNormalizedImages".<br/>Per qualsiasi opzione diversa da "none", le immagini verranno esposte nel campo *normalized_images*. <br/>Il valore predefinito è "none". Questa configurazione è pertinente solo alle origini dati BLOB, quando "dataToExtract" è impostato su "contentAndMetadata". <br/>Verrà estratto un massimo di 1000 immagini da un documento specifico. Se sono presenti più di 1000 immagini in un documento, il primo 1000 verrà estratto e verrà generato un avviso. |
 |  normalizedImageMaxWidth | La larghezza massima (in pixel) per le immagini normalizzate generate. Il valore predefinito è 2000. Il valore massimo consentito è 10000. | 
 |  normalizedImageMaxHeight | L'altezza massima (in pixel) per le immagini normalizzate generate. Il valore predefinito è 2000. Il valore massimo consentito è 10000.|
 
 > [!NOTE]
-> Se si imposta la proprietà *imageAction* su un valore diverso da "none", non sarà possibile impostare la proprietà *parsingMode* su un valore diverso da "default".  Nella configurazione dell'indicizzatore è possibile impostare solo una di queste due proprietà su un valore non predefinito.
+> Se si imposta la proprietà *imageAction* su un valore diverso da "None", non sarà possibile impostare la proprietà *parsingMode* su un valore diverso da "default".  Nella configurazione dell'indicizzatore è possibile impostare solo una di queste due proprietà su un valore non predefinito.
 
 Impostare il parametro **parsingMode** su `json`, per indicizzare ogni BLOB come un singolo documento, oppure su `jsonArray`, se i BLOB contengono matrici JSON ed è necessario trattare ogni elemento di una matrice come un documento separato.
 
@@ -61,9 +60,9 @@ Specificare imageAction nella [definizione dell'indicizzatore](https://docs.micr
 
 Se *imageAction* è impostato su un valore diverso da "none", il nuovo campo *normalized_images* conterrà una matrice di immagini. Ogni immagine è un tipo complesso che contiene i membri seguenti:
 
-| Membro immagine       | Descrizione                             |
+| Membro immagine       | Description                             |
 |--------------------|-----------------------------------------|
-| dati               | Stringa con codifica Base64 dell'immagine normalizzata in formato JPEG.   |
+| data               | Stringa con codifica Base64 dell'immagine normalizzata in formato JPEG.   |
 | width              | Larghezza dell'immagine normalizzata in pixel. |
 | height             | Altezza dell'immagine normalizzata in pixel. |
 | originalWidth      | Larghezza originale dell'immagine prima della normalizzazione. |
@@ -214,10 +213,10 @@ Se si preferisce trasformare le coordinate normalizzate nello spazio delle coord
         }
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 + [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Creare un'indicizzatore - REST)
 + [Competenza di Analisi delle immagini](cognitive-search-skill-image-analysis.md)
 + [OCR skill](cognitive-search-skill-ocr.md) (Competenza OCR)
 + [Text merge skill](cognitive-search-skill-textmerger.md) (Competenza di unione del testo)
-+ [Come definire un set di competenze](cognitive-search-defining-skillset.md)
++ [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
 + [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)

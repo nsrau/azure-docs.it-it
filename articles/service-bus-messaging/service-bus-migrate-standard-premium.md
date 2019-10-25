@@ -1,10 +1,9 @@
 ---
-title: Eseguire la migrazione degli spazi dei nomi standard del bus di servizio di Azure esistenti al livello Premium | Microsoft Docs
+title: Eseguire la migrazione degli spazi dei nomi del bus di servizio di Azure-standard a Premium
 description: Guida per consentire la migrazione degli spazi dei nomi standard del bus di servizio di Azure esistenti a Premium
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
-manager: darosa
 editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: f7cbee13416c090e59c82c928946b512af1c620b
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 610c3aa486b48b2d29df48d98e93b37cfec4854c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69611912"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790372"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Eseguire la migrazione degli spazi dei nomi standard del bus di servizio di Azure esistenti al livello Premium
 In precedenza, il bus di servizio di Azure offriva gli spazi dei nomi solo nel livello standard. Gli spazi dei nomi sono configurazioni multi-tenant ottimizzate per la velocità effettiva bassa e gli ambienti di sviluppo. Il livello Premium offre risorse dedicate per spazio dei nomi per la latenza prevedibile e una maggiore velocità effettiva a un prezzo fisso. Il livello Premium è ottimizzato per ambienti di produzione e velocità effettiva elevata che richiedono funzionalità aziendali aggiuntive.
@@ -94,30 +93,30 @@ Per eseguire la migrazione dello spazio dei nomi standard del bus di servizio a 
 La migrazione tramite il portale di Azure ha lo stesso flusso logico della migrazione mediante i comandi. Attenersi alla seguente procedura per eseguire la migrazione tramite il portale di Azure.
 
 1. Nel menu di **spostamento** nel riquadro sinistro selezionare **migrazione a Premium**. Fare clic sul pulsante **Get Started (inizia** ) per passare alla pagina successiva.
-    ![Migration pagina di destinazione ][]
+    Pagina di destinazione della migrazione ![][]
 
 1. Completare l' **installazione**.
-   spazio dei nomi ![Setup ][]
+   spazio dei nomi di installazione ![][]
    1. Creare e assegnare lo spazio dei nomi premium per la migrazione dello spazio dei nomi standard esistente a.
-        ![Setup spazio dei nomi-crea spazio dei nomi Premium ][]
+        ![spazio dei nomi di installazione-crea spazio dei nomi Premium][]
    1. Scegliere un **nome post-migrazione**. Questo nome verrà usato per accedere allo spazio dei nomi standard al termine della migrazione.
-        ![Setup spazio dei nomi: selezionare il nome della migrazione post ][]
+        spazio dei nomi di installazione ![: selezionare il nome della migrazione post][]
    1. Selezionare **' avanti '** per continuare.
 1. Sincronizzare le entità tra gli spazi dei nomi standard e Premium.
-    spazio dei nomi ![Setup-entità di sincronizzazione-iniziare ][]
+    ![di installazione dello spazio dei nomi-entità di sincronizzazione-avviare][]
 
    1. Selezionare **Avvia sincronizzazione** per avviare la sincronizzazione delle entità.
    1. Selezionare **Sì** nella finestra di dialogo per confermare e avviare la sincronizzazione.
    1. Attendere il completamento della sincronizzazione. Lo stato è disponibile sulla barra di stato.
-        entità di sincronizzazione dello spazio dei nomi ![Setup-stato ][]
+        ![impostazione spazio dei nomi-Sincronizza entità-stato][]
         >[!IMPORTANT]
         > Se è necessario interrompere la migrazione per qualsiasi motivo, vedere il flusso di interruzione nella sezione Domande frequenti di questo documento.
    1. Al termine della sincronizzazione, selezionare **Avanti** nella parte inferiore della pagina.
 
 1. Esaminare le modifiche nella pagina di riepilogo. Selezionare **completa migrazione** per cambiare spazio dei nomi e completare la migrazione.
-    ![Switch menu opzioni spazio dei nomi ][]  
+    ![opzioni del menu cambia spazio dei nomi][]  
     La pagina di conferma viene visualizzata al termine della migrazione.
-    spazio dei nomi ![Switch-operazione riuscita ][]
+    ![spazio dei nomi switch-Success][]
 
 ## <a name="caveats"></a>Avvertenze
 
@@ -179,8 +178,8 @@ az servicebus migration abort --resource-group $resourceGroup --name $standardNa
 
 #### <a name="azure-portal"></a>Portale di Azure
 
-![Abort Flow-Abort Sync ][]
- ![Abort Flow-Abort complete ][]
+![Abort Flow-Abort Sync][]
+![Abort Flow-Abort complete][]
 
 Quando il processo di migrazione viene interrotto, interrompe il processo di copia delle entità (argomenti, sottoscrizioni e filtri) dallo spazio dei nomi standard allo spazio dei nomi premium e interrompe l'associazione.
 

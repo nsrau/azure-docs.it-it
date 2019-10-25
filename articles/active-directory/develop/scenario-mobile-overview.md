@@ -1,5 +1,6 @@
 ---
-title: App per dispositivi mobili che chiama API Web-Panoramica | Piattaforma di identità Microsoft
+title: App per dispositivi mobili che chiama API Web-Panoramica
+titleSuffix: Microsoft identity platform
 description: Informazioni su come creare un'app per dispositivi mobili che chiama API Web (panoramica)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,14 +17,14 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f67f063ab374dec8bac3905ea46f1dfa9d8ed1fb
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 98f05470a07bad82a1e51517a787fb98c78f92ce
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852596"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803754"
 ---
-# <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: Applicazione per dispositivi mobili che chiama API Web
+# <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: applicazione mobile che chiama le API Web
 
 Scopri tutte le informazioni necessarie per creare un'app per dispositivi mobili che chiama le API Web.
 
@@ -31,16 +32,16 @@ Scopri tutte le informazioni necessarie per creare un'app per dispositivi mobili
 
 [!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 Creare la prima applicazione per dispositivi mobili e provare una guida introduttiva.
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Acquisire un token e chiamare Microsoft Graph API da un'app Android](./quickstart-v2-android.md)
+> [Guida introduttiva: acquisire un token e chiamare Microsoft Graph API da un'app Android](./quickstart-v2-android.md)
 >
-> [Avvio rapido: Acquisire un token e chiamare Microsoft Graph API da un'app iOS](./quickstart-v2-ios.md)
+> [Guida introduttiva: acquisire un token e chiamare Microsoft Graph API da un'app iOS](./quickstart-v2-ios.md)
 >
-> [Avvio rapido: Acquisire un token e chiamare Microsoft Graph API da un'app Novell iOS & Android](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
+> [Guida introduttiva: acquisire un token e chiamare Microsoft Graph API da un'app Novell iOS & Android](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
 
 ## <a name="overview"></a>Panoramica
 
@@ -50,9 +51,9 @@ Un'esperienza utente personalizzata e trasparente è essenziale per le app per d
 
 Considerazioni per le app per dispositivi mobili:
 
-- L' **esperienza utente è chiave**: Consentire agli utenti di visualizzare il valore dell'app prima di richiedere l'accesso e richiedere solo le autorizzazioni necessarie.
-- **Supporto per tutte le configurazioni utente**: Molti utenti di business per dispositivi mobili sono sotto l'accesso condizionale e i criteri di conformità dei dispositivi. Assicurarsi di supportare questi scenari chiave.
-- **Implementare l'accesso Single Sign-on (SSO)** : MSAL e la piattaforma di identità Microsoft rendono semplice l'abilitazione dell'accesso Single Sign-on tramite il browser del dispositivo o la Microsoft Authenticator (e Portale aziendale Intune in Android).
+- L' **esperienza utente è chiave**: consentire agli utenti di visualizzare il valore dell'app prima di richiedere l'accesso e richiedere solo le autorizzazioni necessarie.
+- **Supporto per tutte le configurazioni utente**: molti utenti di business per dispositivi mobili sono sotto l'accesso condizionale e criteri di conformità dei dispositivi. Assicurarsi di supportare questi scenari chiave.
+- **Implementare Single Sign-on (SSO)** : MSAL e la piattaforma di identità Microsoft rendono l'abilitazione Single Sign-on semplice tramite il browser del dispositivo o la Microsoft Authenticator (e portale aziendale Intune in Android).
 
 ## <a name="specifics"></a>Specifiche
 

@@ -1,5 +1,6 @@
 ---
-title: Configurare SSO in macOS e iOS | Piattaforma di identità Microsoft
+title: Configurare SSO in macOS e iOS
+titleSuffix: Microsoft identity platform
 description: Informazioni su come configurare l'accesso Single Sign-on (SSO) in macOS e iOS.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +18,14 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a407b57a380d059703383b02e37decb8761786f4
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: b43319f3a456c7ea56ee3c6d5b3f9a1a4526bbe0
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268934"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802500"
 ---
-# <a name="how-to-configure-sso-on-macos-and-ios"></a>Procedura: Configurare SSO in macOS e iOS
+# <a name="how-to-configure-sso-on-macos-and-ios"></a>Procedura: configurare l'accesso SSO in macOS e iOS
 
 Microsoft Authentication Library (MSAL) per macOS e iOS supporta l'accesso Single Sign-on (SSO) tra le app e i browser macOS/iOS. In questo articolo vengono illustrati gli scenari SSO seguenti:
 
@@ -69,9 +70,9 @@ Per abilitare l'accesso SSO tra le applicazioni, è necessario eseguire i passag
 
 Per individuare le applicazioni che possono condividere i token da parte della piattaforma Microsoft Identity, è necessario che le applicazioni condividano lo stesso ID client o ID applicazione. Si tratta dell'identificatore univoco fornito al momento della registrazione della prima applicazione nel portale.
 
-Il modo in cui la piattaforma di identità Microsoft comunica alle app che usano lo stesso ID applicazione a parte gli **URI di reindirizzamento**. Ogni applicazione può avere più URI di reindirizzamento registrati nel portale di caricamento. Ogni app della suite avrà un URI di reindirizzamento diverso. Esempio:
+Il modo in cui la piattaforma di identità Microsoft comunica alle app che usano lo stesso ID applicazione a parte gli **URI di reindirizzamento**. Ogni applicazione può avere più URI di reindirizzamento registrati nel portale di caricamento. Ogni app della suite avrà un URI di reindirizzamento diverso. ad esempio:
 
-URI di reindirizzamento App1: `msauth.com.contoso.mytestapp1://auth`URI di reindirizzamento App2: `msauth.com.contoso.mytestapp2://auth`URI di reindirizzamento App3:`msauth.com.contoso.mytestapp3://auth`
+URI di reindirizzamento App1: `msauth.com.contoso.mytestapp1://auth` URI di reindirizzamento App2: `msauth.com.contoso.mytestapp2://auth` URI di reindirizzamento App3: `msauth.com.contoso.mytestapp3://auth`
 
 > [!IMPORTANT]
 > Il formato degli URI di reindirizzamento deve essere compatibile con il formato supportato da MSAL, descritto in [requisiti del formato dell'URI di reindirizzamento di MSAL](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
@@ -80,7 +81,7 @@ URI di reindirizzamento App1: `msauth.com.contoso.mytestapp1://auth`URI di reind
 
 Per abilitare la condivisione keychain, vedere l'articolo relativo all' [aggiunta di funzionalità](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html) di Apple. Ciò che è importante è che si decida cosa si vuole chiamare il keychain e aggiungere tale funzionalità a tutte le applicazioni che saranno necessarie per l'accesso SSO.
 
-Quando i diritti sono configurati correttamente, verrà visualizzato un file nella directory `entitlements.plist` del progetto che contiene un elemento simile a questo esempio:
+Quando i diritti sono configurati correttamente, nella directory del progetto verrà visualizzato un file di `entitlements.plist` che contiene qualcosa di simile a questo esempio:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -108,7 +109,7 @@ configuration.cacheConfig.keychainSharingGroup = @"my.keychain.group";
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:configuration error:&error];
 ```
 
-Swift
+Swift:
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<my-client-id>")
@@ -129,7 +130,7 @@ do {
 > Questa operazione è particolarmente utile se sono presenti applicazioni che si basano su token per eseguire operazioni in background.
 > La condivisione di un keychain significa che è necessario prestare molta attenzione quando l'app usa le operazioni di rimozione di Microsoft Identity SDK.
 
-La procedura è terminata. Microsoft Identity SDK ora condividerà le credenziali tra tutte le applicazioni. L'elenco di account verrà inoltre condiviso tra le istanze dell'applicazione.
+L'operazione è terminata. Microsoft Identity SDK ora condividerà le credenziali tra tutte le applicazioni. L'elenco di account verrà inoltre condiviso tra le istanze dell'applicazione.
 
 ## <a name="sso-through-authentication-broker-on-ios"></a>SSO tramite il broker di autenticazione in iOS
 
@@ -137,7 +138,7 @@ MSAL fornisce il supporto per l'autenticazione negoziata con Microsoft Authentic
 
 La procedura seguente illustra come abilitare SSO usando un broker di autenticazione per l'app:
 
-1. Registrare un formato URI di reindirizzamento compatibile con Service Broker per l'applicazione nel file INFO. plist dell'app. Il formato dell'URI di reindirizzamento compatibile `msauth.<app.bundle.id>://auth`con Service Broker è. Sostituire ' < app. bundle. ID >'' con l'ID bundle dell'applicazione. Esempio:
+1. Registrare un formato URI di reindirizzamento compatibile con Service Broker per l'applicazione nel file INFO. plist dell'app. Il formato dell'URI di reindirizzamento compatibile con Service Broker è `msauth.<app.bundle.id>://auth`. Sostituire ' < app. bundle. ID >'' con l'ID bundle dell'applicazione. ad esempio:
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -146,7 +147,7 @@ La procedura seguente illustra come abilitare SSO usando un broker di autenticaz
     </array>
     ```
 
-1. Aggiungere gli schemi seguenti al file INFO. plist dell'app `LSApplicationQueriesSchemes`in:
+1. Aggiungere gli schemi seguenti al file INFO. plist dell'app in `LSApplicationQueriesSchemes`:
 
     ```xml
     <key>LSApplicationQueriesSchemes</key>
@@ -156,7 +157,7 @@ La procedura seguente illustra come abilitare SSO usando un broker di autenticaz
     </array>
     ```
 
-1. Aggiungere il codice seguente al `AppDelegate.m` file per gestire i callback:
+1. Aggiungere quanto segue al file di `AppDelegate.m` per gestire i callback:
 
     Objective-C:
     
@@ -167,7 +168,7 @@ La procedura seguente illustra come abilitare SSO usando un broker di autenticaz
     }
     ```
     
-    Swift
+    Swift:
     
     ```swift
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -175,8 +176,8 @@ La procedura seguente illustra come abilitare SSO usando un broker di autenticaz
     }
     ```
     
-**Se si usa Xcode 11**, è necessario inserire invece il `SceneDelegate` callback di MSAL nel file.
-Se si supportano sia UISceneDelegate che UIApplicationDelegate per la compatibilità con i dispositivi iOS precedenti, è necessario inserire il callback di MSAL in entrambi i file.
+**Se si usa Xcode 11**, è necessario inserire il callback di MSAL nel file di `SceneDelegate`.
+Se si supportano sia UISceneDelegate che UIApplicationDelegate per la compatibilità con le versioni precedenti di iOS, il callback MSAL deve essere inserito in entrambi i file.
 
 Objective-C:
 
@@ -191,7 +192,7 @@ Objective-C:
  }
 ```
 
-Swift
+Swift:
 
 ```swift
 func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -209,4 +210,4 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
     
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sui [flussi di autenticazione e sugli scenari di applicazione](authentication-flows-app-scenarios.md)
+Altre informazioni su [Flussi di autenticazione e scenari di applicazioni](authentication-flows-app-scenarios.md)

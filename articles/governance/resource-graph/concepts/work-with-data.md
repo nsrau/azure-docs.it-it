@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: c78f2e37fa29fa1cdcb9acc6a4600688750b6d74
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: bcc272a8189ebb175f546f6a50c2c117a7975216
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387584"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800176"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilizzo di set di dati della risorsa di Azure di grandi dimensioni
 
@@ -36,7 +36,7 @@ az graph query -q "Resources | project name | order by name asc" --first 200 --o
 Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-Nell'[API REST](/rest/api/azureresourcegraph/resources/resources) il controllo è **$top** e fa parte di **QueryRequestOptions**.
+Nell'[API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) il controllo è **$top** e fa parte di **QueryRequestOptions**.
 
 Ha la priorità il controllo _più restrittivo_. Ad esempio, se la query usa l'operatore **top** o **limit** e la sua esecuzione restituirebbe più record rispetto a **First**, il numero massimo di record restituiti sarebbe uguale a **First**. Analogamente, se il valore di **top** o **limit** è inferiore a **First**, il set di record restituito sarebbe il valore più piccolo configurato da **top** o **limit**.
 
@@ -59,11 +59,11 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-Nell'[API REST](/rest/api/azureresourcegraph/resources/resources) il controllo è **$skip** e fa parte di **QueryRequestOptions**.
+Nell'[API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) il controllo è **$skip** e fa parte di **QueryRequestOptions**.
 
 ## <a name="paging-results"></a>Risultati di paging
 
-Quando è necessario suddividere un set di risultati in set di record più piccoli per l'elaborazione o perché un set di risultati supera il valore massimo consentito di _1000_ record restituiti, utilizzare il paging. L'[API REST](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** fornisce i valori **resultTruncated** e **$skipToken** per indicare se un set di risultati è stato suddiviso.
+Quando è necessario suddividere un set di risultati in set di record più piccoli per l'elaborazione o perché un set di risultati supera il valore massimo consentito di _1000_ record restituiti, utilizzare il paging. L'[API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse** fornisce i valori **resultTruncated** e **$skipToken** per indicare se un set di risultati è stato suddiviso.
 **resultTruncated** è un valore booleano che informa il consumer se sono presenti record aggiuntivi non restituiti nella risposta. Questa condizione può essere identificata anche quando il valore della proprietà **count** è inferiore a quello della proprietà **totalRecords**. **totalRecords** definisce il numero di record che soddisfano la query.
 
 Quando **resultTruncated** è **true**, la proprietà **$skipToken** è impostata nella risposta. Questo valore viene usato con gli stessi valori di query e sottoscrizione per ottenere il set di record successivo che soddisfa la query.
@@ -81,7 +81,7 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 > [!IMPORTANT]
 > Affinché la paginazione funzioni, la query deve **proiettare** il campo **ID**. Se non è presente nella query, la risposta non includerà il **$skipToken**.
 
-Per un esempio, vedere [Next page query](/rest/api/azureresourcegraph/resources/resources#next-page-query) (Query della pagina successiva) nella documentazione dell'API REST.
+Per un esempio, vedere [Next page query](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources#next-page-query) (Query della pagina successiva) nella documentazione dell'API REST.
 
 ## <a name="formatting-results"></a>Formattazione dei risultati
 

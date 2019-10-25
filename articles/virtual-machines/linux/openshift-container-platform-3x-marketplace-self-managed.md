@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 721d4dae2c05c252b863b7cea2589deca8404602
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d5028ff6378fec5939aee3218071fe6f4eb1e843
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392696"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791622"
 ---
 # <a name="configure-prerequisites"></a>Configurazione dei prerequisiti
 
-Prima di usare l'offerta Marketplace per distribuire un cluster OpenShift container Platform 3,11 autonomo in Azure, è necessario configurare alcuni prerequisiti.  Per istruzioni su come creare una chiave SSH (senza passphrase), l'insieme di credenziali delle chiavi di Azure, il segreto dell'insieme di credenziali delle chiavi e un'entità servizio, vedere l'articolo relativo ai [prerequisiti di OpenShift](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-prerequisites) .
+Prima di usare l'offerta Marketplace per distribuire un cluster OpenShift container Platform 3,11 autonomo in Azure, è necessario configurare alcuni prerequisiti.  Per istruzioni su come creare una chiave SSH (senza passphrase), l'insieme di credenziali delle chiavi di Azure, il segreto dell'insieme di credenziali delle chiavi e un'entità servizio, vedere l'articolo relativo ai [prerequisiti di OpenShift](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites) .
 
  
 ## <a name="deploy-using-the-marketplace-offer"></a>Eseguire la distribuzione usando l'offerta Marketplace

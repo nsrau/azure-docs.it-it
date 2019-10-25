@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f01d4a3a53ac9acf1350e4eea0526cf8584140a4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180805"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789078"
 ---
-# <a name="internet-of-things-iot-security-architecture"></a>Architettura della sicurezza di Internet delle cose (IoT)
-
 Quando si progetta un sistema, è importante comprendere le potenziali minacce e aggiungere le difese appropriate di conseguenza, perché il sistema è definito da una progettazione e un'architettura specifiche. È importante progettare il prodotto tenendo conto della sicurezza, perché comprendere in che modo un utente malintenzionato potrebbe compromettere un sistema aiuta ad implementare le misure appropriate fin dall'inizio.
 
 ## <a name="security-starts-with-a-threat-model"></a>La sicurezza inizia con un modello di rischio
@@ -165,17 +163,17 @@ Questa sezione illustra l'architettura descritta in precedenza attraverso l'obie
 * Comunicazione (o flusso di dati)
 * Archiviazione (o archivi di dati)
 
-#### <a name="processes"></a>Processi
+#### <a name="processes"></a>Procedure
 
 In ognuna delle categorie descritte nell'architettura IoT di Azure, in questo esempio si prova ad attenuare una serie di diverse minacce nelle varie fasi in cui esistono dati e/o informazioni: processo, comunicazione e archiviazione. Di seguito viene fornita una panoramica delle minacce più comuni per la categoria "processo", seguita da una panoramica su come sia possibile attenuarle:
 
-**Spoofing (S)** : un utente malintenzionato potrebbe estrarre materiale della chiave crittografica da un dispositivo, a livello di software o hardware, e successivamente accedere al sistema con un diverso dispositivo fisico o virtuale che assume l'identità del dispositivo da cui è stata estratta la chiave. Un buon esempio sono i telecomandi che possono accendere qualsiasi televisore e sono popolari strumenti per burloni.
+**Spoofing (S)** : un utente malintenzionato potrebbe estrarre materiale della chiave crittografica da un dispositivo, a livello di software o di hardware, e successivamente accedere al sistema con un diverso dispositivo fisico o virtuale che assume l'identità del dispositivo da cui è stata estratta la chiave. Un buon esempio sono i telecomandi che possono accendere qualsiasi televisore e sono popolari strumenti per burloni.
 
 **Denial of Service (D)** : un dispositivo potrebbe essere messo fuori uso o reso incapace di comunicare tramite interferenza con le frequenze radio o taglio dei cavi. Ad esempio, una videocamera di sorveglianza a cui sia stata intenzionalmente interrotta l'alimentazione o la connessione di rete non segnala alcun dato.
 
-**Manomissione (T)** : un utente malintenzionato potrebbe sostituire interamente o in parte il software in esecuzione sul dispositivo, consentendo potenzialmente al software sostituito di sfruttare l'autentica identità del dispositivo se il materiale della chiave o le strutture crittografiche che lo contengono sono disponibili per il programma illecito. Ad esempio, un utente malintenzionato potrebbe sfruttare il materiale della chiave estratto per intercettare ed eliminare i dati dal dispositivo nel percorso di comunicazione e sostituirli con dati falsi che sono stati autenticati con il materiale della chiave trafugato.
+**Manomissione (T)** : un utente malintenzionato potrebbe sostituire interamente o in parte il software in esecuzione sul dispositivo, consentendo potenzialmente al software sostituito di sfruttare l'autentica identità del dispositivo se il materiale della chiave o le strutture che lo contengono erano disponibili per il programma illecito. Ad esempio, un utente malintenzionato potrebbe sfruttare il materiale della chiave estratto per intercettare ed eliminare i dati dal dispositivo nel percorso di comunicazione e sostituirli con dati falsi che sono stati autenticati con il materiale della chiave trafugato.
 
-**Diffusione di informazioni (I)** : se nel dispositivo viene eseguito software manipolato, questo potrebbe potenzialmente far trapelare dati a parti non autorizzate. Ad esempio, un utente malintenzionato potrebbe sfruttare il materiale della chiave estratto per inserirsi automaticamente nel percorso di comunicazione tra il dispositivo e un controller o un gateway sul campo o un gateway di cloud per trafugare informazioni.
+**Diffusione di informazioni (I)** : se sul dispositivo viene eseguito un software manipolato, questo potrebbe potenzialmente far trapelare dati a parti non autorizzate. Ad esempio, un utente malintenzionato potrebbe sfruttare il materiale della chiave estratto per inserirsi automaticamente nel percorso di comunicazione tra il dispositivo e un controller o un gateway sul campo o un gateway di cloud per trafugare informazioni.
 
 **Elevazione dei privilegi (E)** : è possibile forzare un dispositivo che esegue una funzione specifica a eseguire un'altra operazione. Ad esempio, una valvola che è programmata per aprirsi a metà può essere indotta ad aprirsi completamente.
 
@@ -194,17 +192,17 @@ Ecco alcuni esempi di minacce in questa categoria:
 
 **Denial of Service**: un dispositivo potrebbe essere messo fuori uso o reso incapace di comunicare tramite interferenza con le frequenze radio o taglio dei cavi. Ad esempio, una videocamera di sorveglianza a cui sia stata intenzionalmente interrotta l'alimentazione o la connessione di rete non segnala alcun dato.
 
-**Manomissione**: un utente malintenzionato potrebbe sostituire interamente o in parte il software in esecuzione sul dispositivo, consentendo potenzialmente al software sostituito di sfruttare l'autentica identità del dispositivo se il materiale della chiave o le strutture crittografiche che lo contengono sono disponibili per il programma illecito.
+**Manomissione**: un utente malintenzionato potrebbe sostituire interamente o in parte il software in esecuzione sul dispositivo, consentendo potenzialmente al software sostituito di sfruttare l'autentica identità del dispositivo se il materiale della chiave o le strutture che lo contengono sono disponibili per il programma illecito.
 
 **Manomissione**: una telecamera di sorveglianza che mostra l'immagine dello spettro visibile di un corridoio vuoto potrebbe essere puntata su una foto dello stesso corridoio. Un sensore di fumo o antincendio potrebbe segnalare una persona che tiene un accendino acceso al di sotto dello stesso. In entrambi i casi, è possibile che il dispositivo sia totalmente attendibile dal punto di vista tecnico nei confronti del sistema, ma segnali informazioni manipolate.
 
-**Manomissione**: un utente malintenzionato potrebbe sfruttare il materiale della chiave estratto per intercettare ed eliminare i dati dal dispositivo nel percorso di comunicazione e sostituirli con dati falsi che vengono autenticati con il materiale della chiave trafugato.
+**Manomissione**: ad esempio, un utente malintenzionato potrebbe sfruttare il materiale della chiave estratto per intercettare ed eliminare i dati dal dispositivo nel percorso di comunicazione e sostituirli con dati falsi che sono stati autenticati con il materiale della chiave trafugato.
 
-**Manomissione**: un utente malintenzionato potrebbe sostituire completamente o in parte il software in esecuzione nel dispositivo, consentendo potenzialmente al software sostituito di sfruttare l'autentica identità del dispositivo se il materiale della chiave o le strutture crittografiche che lo contengono sono disponibili per il programma illecito.
+**Manomissione**: un utente malintenzionato potrebbe sostituire completamente o in parte il software in esecuzione nel dispositivo, consentendo potenzialmente al software sostituito di sfruttare l'autentica identità del dispositivo se il materiale della chiave o le strutture che lo contengono sono disponibili per il programma illecito.
 
-**Diffusione di informazioni**: se nel dispositivo viene eseguito software manipolato, questo potrebbe potenzialmente far trapelare dati a parti non autorizzate.
+**Diffusione di informazioni**: se nel dispositivo viene eseguito un software manipolato, questo potrebbe potenzialmente far trapelare dati a parti non autorizzate.
 
-**Diffusione di informazioni**: un utente malintenzionato potrebbe sfruttare il materiale della chiave estratto per inserirsi nel percorso di comunicazione tra il dispositivo e un controller o un gateway sul campo o un gateway del cloud per trafugare informazioni.
+**Diffusione di informazioni**: un utente malintenzionato potrebbe sfruttare il materiale della chiave estratto per inserirsi automaticamente nel percorso di comunicazione tra il dispositivo e un controller oppure un gateway sul campo o un gateway cloud per trafugare informazioni.
 
 **Denial of Service**: il dispositivo potrebbe essere spento oppure commutato in una modalità in cui la comunicazione non è possibile, il che è intenzionale in molti macchinari industriali.
 
@@ -216,7 +214,7 @@ Ecco alcuni esempi di minacce in questa categoria:
 
 **Manomissione**: il dispositivo può essere riconfigurato in modo da operare in uno stato sconosciuto al sistema di controllo, al di fuori dei parametri di calibrazione noti, e quindi offrire dati che possono essere interpretati erroneamente.
 
-**Spoofing/manomissione/ripudio**: se un dispositivo non è protetto, condizione che si verifica assai raramente con i telecomandi di consumo, un utente malintenzionato può manipolarne lo stato in maniera anonima. Un buon esempio sono i telecomandi che possono accendere qualsiasi televisore e sono popolari strumenti per burloni.
+**Spoofing/Manomissione/Ripudio**: se un dispositivo non è protetto, condizione che si verifica assai raramente con i telecomandi di consumo, un utente malintenzionato può manipolarne lo stato in maniera anonima. Un buon esempio sono i telecomandi che possono accendere qualsiasi televisore e sono popolari strumenti per burloni.
 
 #### <a name="communication"></a>Comunicazione
 
@@ -234,7 +232,7 @@ Ecco alcuni esempi di minacce in questa categoria:
 
 **Denial of Service**: i dispositivi limitati sono in genere a rischio Denial of Service quando restano attivamente in attesa di connessioni in ingresso o datagrammi non richiesti in una rete, perché un utente malintenzionato può aprire molte connessioni in parallelo non rendendole disponibili oppure rallentandole o ancora il dispositivo può essere inondato da traffico non richiesto. In entrambi i casi, il dispositivo può essere effettivamente reso inutilizzabile sulla rete.
 
-**Spoofing, diffusione di informazioni**: i dispositivi limitati e con scopi specifici spesso prevedono funzionalità di sicurezza universali, come la protezione con PIN o password, oppure dipendono interamente dall'attendibilità della rete, ovvero consentono l'accesso alle informazioni quando un dispositivo si trova nella stessa rete, che spesso è protetta solo da una chiave condivisa. Ciò significa che quando viene divulgato il segreto condiviso al dispositivo o alla rete, è possibile controllare il dispositivo oppure osservare i dati inviati dal dispositivo.  
+**Spoofing, Diffusione di informazioni**: i dispositivi limitati e con scopi specifici spesso prevedono funzionalità di sicurezza universali, come la protezione con PIN o password, oppure dipendono interamente dall'attendibilità della rete, ovvero consentono l'accesso alle informazioni quando un dispositivo si trova nella stessa rete, che spesso è protetta solo da una chiave condivisa. Ciò significa che quando viene divulgato il segreto condiviso al dispositivo o alla rete, è possibile controllare il dispositivo oppure osservare i dati inviati dal dispositivo.  
 
 **Spoofing**: un utente malintenzionato potrebbe intercettare o parzialmente sostituire la trasmissione e rubare l'identità dell'iniziatore (attacco man in the middle)
 

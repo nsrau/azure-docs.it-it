@@ -1,5 +1,6 @@
 ---
-title: Configurare il dominio di pubblicazione di un'applicazione | Azure
+title: Configurare il dominio di pubblicazione di un'applicazione
+titleSuffix: Microsoft identity platform
 description: Informazioni su come configurare il dominio del server di pubblicazione di un'applicazione per consentire agli utenti di sapere dove vengono inviate le informazioni.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +18,14 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28021c0b8512ca12ead92b0b78541fce690b1f80
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 26ef28be328e01f8edcf898f123db55f262f286c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257926"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803335"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Procedura: Configurare il dominio di pubblicazione di un'applicazione (anteprima)
+# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Procedura: configurare un dominio di pubblicazione di un'applicazione (anteprima)
 
 Il dominio di pubblicazione di un'applicazione viene visualizzato agli utenti nella [richiesta di consenso dell'applicazione](application-consent-experience.md) per consentire agli utenti di stabilire dove vengono inviate le informazioni. Le applicazioni multi-tenant registrate dopo il 21 maggio 2019 che non hanno un dominio di pubblicazione vengono visualizzate come non **verificate**. Le applicazioni multi-tenant sono applicazioni che supportano account esterni a una singola directory organizzativa; ad esempio, supporta tutti gli account Azure AD o supporta tutti gli account Azure AD e gli account Microsoft personali.
 
@@ -69,7 +70,7 @@ Per impostare il dominio del server di pubblicazione dell'applicazione, atteners
    - Selezionare **configura un dominio** se non è già stato configurato un dominio.
    - Selezionare **Aggiorna dominio** se è già stato configurato un dominio.
 
-Se l'app è registrata in un tenant, verranno visualizzate due schede per la selezione: **Selezionare un dominio verificato** e **verificare un nuovo dominio**.
+Se l'app è registrata in un tenant, verranno visualizzate due schede da selezionare: **selezionare un dominio verificato** e **verificare un nuovo dominio**.
 
 Se l'app non è registrata in un tenant, verrà visualizzata solo l'opzione per verificare un nuovo dominio per l'applicazione.
 
@@ -98,7 +99,7 @@ Se l'app non è registrata in un tenant, verrà visualizzata solo l'opzione per 
 - Se il tenant ha verificato domini, selezionare uno dei domini dall'elenco **a discesa selezionare un dominio verificato** .
 
 >[!Note]
-> L'intestazione ' Content-Type ' prevista restituita è `application/json`. È possibile che venga ricevuto un errore come indicato di seguito se si usa qualsiasi altra operazione, ad esempio`application/json; charset=utf-8` 
+> L'intestazione ' Content-Type ' prevista restituita è `application/json`. È possibile che venga ricevuto un errore come indicato di seguito se si usa qualsiasi altra operazione, ad esempio `application/json; charset=utf-8` 
 > 
 >``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
 >

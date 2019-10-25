@@ -1,6 +1,7 @@
 ---
-title: Protected Web API - spostamento nell'ambiente di produzione | Azure
-description: Informazioni su come compilare un'API Web protetta (autonomamente passare alla produzione).
+title: "API Web protetta: passa all'ambiente di produzione"
+titleSuffix: Microsoft identity platform
+description: Informazioni su come creare un'API Web protetta (passare alla produzione).
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,16 +16,16 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e78cb712501b86f98d3459cac6280d0484f41a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: deb5a04f23268edc112c38c993b190827fa65061
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65833102"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802513"
 ---
-# <a name="protected-web-api---move-to-production"></a>API - spostamento nell'ambiente di produzione web protetta
+# <a name="protected-web-api---move-to-production"></a>API Web protetta: passa all'ambiente di produzione
 
-Ora che sai come proteggere l'API web, ecco come è possibile spostarlo nell'ambiente di produzione.
+Ora che si è appreso come proteggere l'API Web, ecco come è possibile spostarla nell'ambiente di produzione.
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
@@ -33,12 +34,12 @@ Ora che sai come proteggere l'API web, ecco come è possibile spostarlo nell'amb
 Informazioni su come chiamare le API downstream:
 
 > [!div class="nextstepaction"]
-> [Scenario - API Web chiama le API downstream](scenario-web-api-call-api-overview.md)
+> [Scenario-API Web chiama API downstream](scenario-web-api-call-api-overview.md)
 
-Scopri di più con esercitazioni ed esempi:
-
-> [!div class="nextstepaction"]
-> [Esercitazione sull'API web di ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
+Per altre informazioni, vedere Esercitazioni ed esempi:
 
 > [!div class="nextstepaction"]
-> [Esempio di API web ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
+> [Esercitazione sull'API Web di ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
+
+> [!div class="nextstepaction"]
+> [Esempio di API Web ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)

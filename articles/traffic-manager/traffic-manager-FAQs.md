@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 86376983f98abd241783f456cb9b41ab5d93ae51
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: f08915c07db6759a03fc9bd0695523dead6dcb7f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69511012"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784825"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -172,7 +172,7 @@ Un altro uso del metodo di routing multivalore è se un endpoint è "dual-homed"
 
 Non è possibile garantire che in ogni query venga restituito lo stesso set di endpoint. Questo dipende anche dal fatto che alcuni degli endpoint potrebbero non essere più integri e per questo non verranno inclusi nella risposta
 
-## <a name="real-user-measurements"></a>Misurazioni utente reale
+## <a name="real-user-measurements"></a>Misurazioni utente effettive
 
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Quali sono i vantaggi offerti dall'utilizzo di Misurazioni utente reale?
 
@@ -300,7 +300,7 @@ Durante il periodo di anteprima, Visualizzazione traffico è stato abilitato a l
 
 La determinazione dei prezzi di Visualizzazione traffico è basata sul numero di punti dati usati per creare l'output. L'unico tipo di dati supportato al momento sono le query che vengono ricevute dal proprio profilo. Viene addebitata inoltre solo l'elaborazione eseguita quando Visualizzazione traffico è abilitata. Ciò significa che, se si abilita Visualizzazione traffico per un periodo di tempo specifico in un mese e la si disabilita in altri periodi, vengono considerati per la fatturazione solo i punti dati elaborati mentre la funzionalità era abilitata.
 
-## <a name="traffic-manager-endpoints"></a>Endpoint Gestione traffico
+## <a name="traffic-manager-endpoints"></a>Endpoint di Gestione traffico
 
 ### <a name="can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions"></a>È possibile usare Gestione traffico con endpoint di più sottoscrizioni?
 
@@ -385,10 +385,10 @@ Per i profili con metodo di routing diverso da Multivalore:
 |Richiesta query in ingresso|    Tipo di endpoint|  Risposta specificata|
 |--|--|--|
 |ANY |  A / AAAA / CNAME |  Endpoint di destinazione| 
-|Una |    A / CNAME | Endpoint di destinazione|
-|Una |    AAAA |  NODATA |
+|A |    A / CNAME | Endpoint di destinazione|
+|A |    AAAA |  NODATA |
 |AAAA | AAAA / CNAME |  Endpoint di destinazione|
-|AAAA | Una | NODATA |
+|AAAA | A | NODATA |
 |CNAME |    CNAME | Endpoint di destinazione|
 |CNAME  |A / AAAA | NODATA |
 |
@@ -398,7 +398,7 @@ Per i profili con metodo di routing impostato su Multivalore:
 |Richiesta query in ingresso|    Tipo di endpoint | Risposta specificata|
 |--|--|--|
 |ANY |  Combinazione di A e AAAA | Endpoint di destinazione|
-|Una |    Combinazione di A e AAAA | Solo endpoint di destinazione di tipo A|
+|A |    Combinazione di A e AAAA | Solo endpoint di destinazione di tipo A|
 |AAAA   |Combinazione di A e AAAA|     Solo endpoint di destinazione di tipo AAAA|
 |CNAME |    Combinazione di A e AAAA | NODATA |
 
@@ -416,7 +416,10 @@ Sì. Specificando TCP come protocollo di monitoraggio, Gestione traffico può av
 
 ### <a name="what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring"></a>Quali sono le risposte specifiche richieste dall'endpoint quando si usa il monitoraggio TCP?
 
-Se si usa il monitoraggio TCP, Gestione traffico avvia un handshake TCP a tre vie, inviando una richiesta SYN all'endpoint sulla porta specificata. Quindi attende la risposta dall'endpoint per il periodo di tempo specificato nelle impostazioni di timeout. Se l'endpoint risponde alla richiesta SYN con una risposta SYN-ACK entro il periodo di timeout specificato nelle impostazioni di monitoraggio, tale endpoint viene considerato integro. Se viene ricevuta la risposta SYN-ACK, Gestione traffico reimposta la connessione inviando in risposta un RST.
+Se si usa il monitoraggio TCP, Gestione traffico avvia un handshake TCP a tre vie, inviando una richiesta SYN all'endpoint sulla porta specificata. Quindi attende una risposta SYN-ACK dall'endpoint per un periodo di tempo specificato nelle impostazioni di timeout.
+
+- Se viene ricevuta una risposta SYN-ACK entro il periodo di timeout specificato nelle impostazioni di monitoraggio, l'endpoint viene considerato integro. Una pinna o FIN-ACK è la risposta prevista da Gestione traffico quando termina regolarmente un socket.
+- Se viene ricevuta una risposta SYN-ACK dopo il timeout specificato, gestione traffico risponderà con un RST per reimpostare la connessione.
 
 ### <a name="how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint"></a>Con quale velocità Gestione traffico sposta gli utenti da un endpoint considerato non integro?
 
@@ -496,11 +499,11 @@ La tabella seguente descrive il comportamento dei controlli dell'integrità di G
 
 | Stato di monitoraggio del profilo figlio | Stato di monitoraggio dell'endpoint padre | Note |
 | --- | --- | --- |
-| Disabilitato. Il profilo figlio è stato disabilitato. |Arrestato |Lo stato dell'endpoint padre è Stopped, non Disabled. Lo stato Disabled è usato esclusivamente per indicare che l'utente ha disabilitato l'endpoint nel profilo padre. |
+| Disabilitato. Il profilo figlio è stato disabilitato. |Arrestata |Lo stato dell'endpoint padre è Stopped, non Disabled. Lo stato Disabled è usato esclusivamente per indicare che l'utente ha disabilitato l'endpoint nel profilo padre. |
 | Danneggiato. Almeno uno degli endpoint del profilo figlio è nello stato Danneggiato. |Online: il numero di endpoint Online nel profilo figlio è pari almeno al valore di MinChildEndpoints.<BR>CheckingEndpoint: il numero di endpoint Online e CheckingEndpoint nel profilo figlio è pari almeno al valore di MinChildEndpoints.<BR>Danneggiato: negli altri casi. |Il traffico viene indirizzato a un endpoint con stato CheckingEndpoint. Se il valore di MinChildEndpoints è troppo elevato, l'endpoint risulta sempre danneggiato. |
 | Online. Almeno uno degli endpoint del profilo figlio è nello stato Online. Nessun endpoint è nello stato Danneggiato. |Vedere sopra. | |
 | CheckingEndpoints. Almeno uno degli endpoint del profilo figlio è nello stato CheckingEndpoint. Nessun endpoint è nello stato Online o Danneggiato. |Come sopra. | |
-| Inattivo. Tutti gli endpoint del profilo figlio sono nello stato Disabilitato o Arrestato oppure si tratta di un profilo senza endpoint. |Arrestato | |
+| Inattivo. Tutti gli endpoint del profilo figlio sono nello stato Disabilitato o Arrestato oppure si tratta di un profilo senza endpoint. |Arrestata | |
 
 ## <a name="next-steps"></a>Passaggi successivi:
 

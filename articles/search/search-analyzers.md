@@ -1,25 +1,25 @@
 ---
-title: Analizzatori per elaborazione linguistica e del testo - Ricerca di Azure
+title: Analizzatori per l'elaborazione linguistica e del testo
+titleSuffix: Azure Cognitive Search
 description: Assegnare degli analizzatori ai campi di testo di ricerca in un indice per sostituire lo standard Lucene predefinito con alternative specifiche per lingua, predefinite o personalizzate.
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
-ms.author: heidist
-manager: nitinme
 author: HeidiSteen
-ms.openlocfilehash: 387248b2dac7c10ec0e96454f26964ca7f15c56e
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+manager: nitinme
+ms.author: heidist
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 67ee2790cbf0f9e147222c5cf3ea4448362d9f87
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650001"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791208"
 ---
-# <a name="analyzers-for-text-processing-in-azure-search"></a>Analizzatori per elaborazione del testo in Ricerca di Azure
+# <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analizzatori per l'elaborazione del testo in Azure ricerca cognitiva
 
 Un *analizzatore* è un componente del [motore di ricerca full-text](search-lucene-query-architecture.md) responsabile dell'elaborazione di testo in stringhe di query e documenti indicizzati. Analizzatori diversi modificano il testo in modi diversi a seconda dello scenario. Gli analizzatori del linguaggio elaborano il testo usando le regole linguistiche per migliorare la qualità della ricerca, mentre altri analizzatori eseguono attività più semplici, ad esempio la conversione dei caratteri in lettere minuscole. 
 
-Gli analizzatori del linguaggio sono quelli usati più frequentemente; vi è un analizzatore del linguaggio predefinito assegnato a ogni campo ricercabile in un indice di Ricerca di Azure. Le trasformazioni del linguaggio seguenti sono tipiche durante l'analisi del testo:
+Gli analizzatori di linguaggio vengono usati più di frequente ed è disponibile l'analizzatore del linguaggio predefinito assegnato a ogni campo ricercabile in un indice di ricerca cognitiva di Azure. Le trasformazioni del linguaggio seguenti sono tipiche durante l'analisi del testo:
 
 + Parole non essenziali (parole non significative) e punteggiatura vengono rimosse.
 + Frasi e parole sillabate vengono divise in parti diverse.
@@ -30,19 +30,19 @@ Gli analizzatori linguistici convertono un input di testo nella forma primitiva 
 
 ## <a name="default-analyzer"></a>Analizzatore predefinito  
 
-Ricerca di Azure usa l'[analizzatore Apache Lucene Standard (lucene standard)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), come impostazione predefinita, che suddivide il testo in elementi sulla base delle regole di ["segmentazione del testo Unicode"](https://unicode.org/reports/tr29/). L'analizzatore standard, inoltre, converte tutti i caratteri nel rispettivo formato minuscolo. I documenti indicizzati e i termini di ricerca vengono sottoposti ad analisi durante l'indicizzazione e l'elaborazione delle query.  
+Azure ricerca cognitiva usa l' [analizzatore standard di Apache Lucene (Lucene standard)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) come valore predefinito, che suddivide il testo in elementi che seguono le regole ["segmentazione di testo Unicode"](https://unicode.org/reports/tr29/) . L'analizzatore standard, inoltre, converte tutti i caratteri nel rispettivo formato minuscolo. I documenti indicizzati e i termini di ricerca vengono sottoposti ad analisi durante l'indicizzazione e l'elaborazione delle query.  
 
 Viene usato automaticamente in ogni campo ricercabile. È possibile eseguire l'override del valore predefinito nei singoli campi. In alternativa, si può usare un [analizzatore del linguaggio](index-add-language-analyzers.md), un [analizzatore personalizzato](index-add-custom-analyzers.md) o un analizzatore predefinito incluso nell'[elenco di analizzatori disponibili](index-add-custom-analyzers.md#AnalyzerTable).
 
 
 ## <a name="types-of-analyzers"></a>Tipi di analizzatori
 
-Nell'elenco seguente sono descritti gli analizzatori disponibili in Ricerca di Azure.
+Nell'elenco seguente vengono descritti gli analizzatori disponibili in Azure ricerca cognitiva.
 
-| Category | DESCRIZIONE |
+| Categoria | Description |
 |----------|-------------|
 | [Analizzatore Lucene standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. Non è necessaria alcun specifica o configurazione. Questo uso generale funziona correttamente per la maggior parte dei linguaggi e degli scenari.|
-| Analizzatori predefiniti | Offerto come prodotto finito, da usare così com'è. <br/>Ne esistono due tipi: specializzato e del linguaggio. Ciò che li rende "predefiniti" è il fatto di farvi riferimento in base al nome, senza alcuna configurazione né personalizzazione. <br/><br/>Gli [analizzatori specializzati (indipendenti dal linguaggio)](index-add-custom-analyzers.md#AnalyzerTable) vengono usati quando gli input di testo richiedono un'elaborazione minima o specializzata. Gli analizzatori predefiniti indipendenti dal linguaggio includono **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop** e **Whitespace**.<br/><br/>Gli [analizzatori del linguaggio](index-add-language-analyzers.md) vengono usati quando è necessario un supporto linguistico avanzato per i singoli linguaggi. Ricerca di Azure supporta 35 analizzatori di linguaggi Lucene e 50 analizzatori di elaborazione del linguaggio naturale Microsoft. |
+| Analizzatori predefiniti | Offerto come prodotto finito, da usare così com'è. <br/>Ne esistono due tipi: specializzato e del linguaggio. Ciò che li rende "predefiniti" è il fatto di farvi riferimento in base al nome, senza alcuna configurazione né personalizzazione. <br/><br/>Gli [analizzatori specializzati (indipendenti dal linguaggio)](index-add-custom-analyzers.md#AnalyzerTable) vengono usati quando gli input di testo richiedono un'elaborazione minima o specializzata. Gli analizzatori predefiniti indipendenti dal linguaggio includono **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop** e **Whitespace**.<br/><br/>Gli [analizzatori del linguaggio](index-add-language-analyzers.md) vengono usati quando è necessario un supporto linguistico avanzato per i singoli linguaggi. Azure ricerca cognitiva supporta gli analizzatori del linguaggio 35 Lucene e 50 gli analizzatori di elaborazione del linguaggio naturale Microsoft. |
 |[Analizzatori personalizzati](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Si riferisce a una configurazione definita dall'utente di una combinazione di elementi esistenti, costituiti da un tokenizer (obbligatorio) e da filtri facoltativi (char o token).|
 
 Alcuni analizzatori predefiniti, ad esempio, **Pattern** o **Stop**, supportano un insieme limitato di opzioni di configurazione. Per impostare queste opzioni, creare un analizzatore personalizzato, costituito dall'analizzatore predefinito e una delle opzioni alternative documentate nelle [Informazioni di riferimento sugli analizzatori predefiniti](index-add-custom-analyzers.md#AnalyzerTable). Come per qualsiasi configurazione personalizzata, attribuire un nome alla nuova configurazione, ad esempio *myPatternAnalyzer*, per distinguerla dall'analizzatore Pattern Lucene.
@@ -57,7 +57,7 @@ Alcuni analizzatori predefiniti, ad esempio, **Pattern** o **Stop**, supportano 
 
 Non è consentita l'assegnazione di **analizzatore** oppure **indexAnalyzer** a un campo che è già stato creato fisicamente. Per eventuali chiarimenti, esaminare la tabella seguente per una suddivisione di quali azioni richiedono la ricompilazione e perché.
  
- | Scenario | Impatto | Passaggi |
+ | Scenario | Impatto | Procedure |
  |----------|--------|-------|
  | Aggiungere un nuovo campo | Minimo | Se il campo non esiste ancora nello schema, non occorre alcuna revisione perché il campo non è ancora presente fisicamente nell'indice. È possibile usare [Aggiornare un indice](https://docs.microsoft.com/rest/api/searchservice/update-index) per aggiungere un nuovo campo a un indice esistente, e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) per compilarlo.|
  | Aggiungere un **analizzatore** o **indexAnalyzer** a un campo indicizzato esistente. | [rebuild](search-howto-reindex.md) | L'indice invertito per il campo deve essere ricreato da zero e il contenuto per questi campi deve essere reindicizzato. <br/> <br/>Per gli indici in fase di sviluppo, [eliminare](https://docs.microsoft.com/rest/api/searchservice/delete-index) e [creare](https://docs.microsoft.com/rest/api/searchservice/create-index) l'indice per selezionare la nuova definizione di campo. <br/> <br/>Per gli indici nell'ambiente di produzione, è possibile posticipare la ricompilazione mediante la creazione di un nuovo campo per fornire la definizione modificata e iniziare a usarla al posto di quella precedente. Usare [Aggiornare un indice](https://docs.microsoft.com/rest/api/searchservice/update-index) per incorporare il nuovo campo e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) per compilarlo. In un secondo momento, nell'ambito della manutenzione pianificata dell'indice, sarà possibile pulire l'indice per rimuovere i campi obsoleti. |
@@ -68,7 +68,7 @@ Il momento migliore per aggiungere e assegnare gli analizzatori è durante lo sv
 
 Durante la solidificazione di una definizione di indice, è possibile aggiungere nuovi costrutti di analisi a un indice, ma è necessario passare il flag **allowIndexDowntime** a [Aggiornare un indice](https://docs.microsoft.com/rest/api/searchservice/update-index) se si desidera evitare questo errore:
 
-*"L'aggiornamento dell'indice non è consentito perché causa tempi di inattività. Per aggiungere nuovi analizzatori, tokenizer, filtri di token o filtri di caratteri per un indice esistente, impostare il parametro di query "allowIndexDowntime" su "true" nella richiesta di aggiornamento dell'indice. Si noti che questa operazione metterà l'indice offline almeno per alcuni secondi, causando la mancata riuscita dell'indicizzazione e delle richieste di query. Le prestazioni e la disponibilità alla scrittura dell'indice possono risultare inferiori per vari minuti dopo che l'indice è stato aggiornato o più a lungo per gli indici molto grandi."*
+*"L'aggiornamento dell'indice non è consentito perché potrebbe causare tempi di inattività. Per aggiungere nuovi analizzatori, tokenizer, filtri di token o filtri di tipo carattere a un indice esistente, impostare il parametro di query ' allowIndexDowntime ' su' true ' nella richiesta di aggiornamento dell'indice. Si noti che questa operazione inserirà l'indice in modalità offline per almeno alcuni secondi, causando un errore di indicizzazione e richieste di query. Le prestazioni e la disponibilità di scrittura dell'indice possono essere compromesse per alcuni minuti dopo l'aggiornamento dell'indice o più a lungo per gli indici di grandi dimensioni.*
 
 Lo stesso vale quando si assegna un analizzatore a un campo. Un analizzatore è parte integrante della definizione del campo, pertanto è possibile aggiungerlo solo quando viene creato il campo. Se si desidera aggiungere gli analizzatori ai campi esistenti, si dovrà [rilasciare e ricompilare](search-howto-reindex.md) l'indice, oppure aggiungere un nuovo campo con l'analizzatore da usare.
 
@@ -80,7 +80,7 @@ Questa sezione offre consigli su come usare gli analizzatori.
 
 ### <a name="one-analyzer-for-read-write-unless-you-have-specific-requirements"></a>Usare un unico analizzatore in lettura-scrittura, a meno che non si disponga di requisiti specifici
 
-Ricerca di Azure consente di specificare diversi analizzatori per l'indicizzazione e la ricerca tramite i parametri di campo aggiuntivi **indexAnalyzer** e **searchAnalyzer**. Se non è specificato, l'analizzatore impostato con la proprietà **analizzatore** viene usato per l'indicizzazione e la ricerca. Se il parametro `analyzer` non è specificato, verrà usato l'analizzatore Lucene standard.
+Ricerca cognitiva di Azure consente di specificare analizzatori diversi per l'indicizzazione e la ricerca tramite parametri di campo **indexAnalyzer** e **searchAnalyzer** aggiuntivi. Se non è specificato, l'analizzatore impostato con la proprietà **analizzatore** viene usato per l'indicizzazione e la ricerca. Se il parametro `analyzer` non è specificato, verrà usato l'analizzatore Lucene standard.
 
 Una regola generale consiste nell'usare lo stesso analizzatore sia per l'indicizzazione che per l'esecuzione di query, salvo diversamente indicato da requisiti specifici. Assicurarsi di eseguire test approfonditi. Quando l'elaborazione del testo è diversa in fase di indicizzazione e ricerca, si corre il rischio che i termini di query e i termini indicizzati non corrispondano quando le configurazioni degli analizzatori di ricerca e indicizzazione non sono allineate.
 
@@ -286,7 +286,7 @@ Qualsiasi analizzatore usato così com'è, senza configurazione, viene specifica
 
 Questo esempio Mostra come assegnare gli analizzatori di Microsoft inglese e francese ai campi di descrizione. Si tratta di un frammento di codice tratto da una definizione più ampia dell'indice degli alberghi, creando usando la classe dell'hotel nel file hotels.cs dell'esempio [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) .
 
-Call [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), che specifica il tipo [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) che fornisce un analizzatore di testo supportato in ricerca di Azure.
+Call [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), che specifica il tipo [analyzername](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) che fornisce un analizzatore di testo supportato in Azure ricerca cognitiva.
 
 ```csharp
     public partial class Hotel
@@ -336,7 +336,7 @@ Creare un oggetto [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microso
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-+ Esaminare la descrizione dettagliata contenuta in [Funzionamento della ricerca full-text in Ricerca di Azure](search-lucene-query-architecture.md). Questo articolo usa alcuni esempi per illustrare i comportamenti che potrebbero sembrare poco plausibili in un primo momento.
++ Esaminare la spiegazione completa del [funzionamento della ricerca full-text in Azure ricerca cognitiva](search-lucene-query-architecture.md). Questo articolo usa alcuni esempi per illustrare i comportamenti che potrebbero sembrare poco plausibili in un primo momento.
 
 + Provare la sintassi di query aggiuntiva dalla sezione di esempio [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) (Ricerca di documenti) o da [Sintassi di query semplice](query-simple-syntax.md) in Esplora ricerche nel portale.
 
@@ -344,7 +344,7 @@ Creare un oggetto [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microso
 
 + [Configurare gli analizzatori personalizzati](index-add-custom-analyzers.md) per un'elaborazione minima o specializzata per settori specifici.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
  [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti) 
 

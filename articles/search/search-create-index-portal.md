@@ -1,23 +1,23 @@
 ---
-title: Creare un indice di Ricerca di Azure nel portale di Azure - Ricerca di Azure
-description: Informazioni su come creare un indice per ricerca di Azure usando una finestra di progettazione dell'indice del portale incorporata.
+title: Creare un indice di ricerca cognitiva di Azure in portale di Azure
+titleSuffix: Azure Cognitive Search
+description: Informazioni su come creare un indice per ricerca cognitiva di Azure usando una finestra di progettazione dell'indice del portale incorporata.
 manager: nitinme
-author: heidisteen
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 4abef5a3030643d4c7b91d2911f350190972f1eb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a9340b9c058ba780b8d74587f21c1b9fbe59576d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71937272"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792448"
 ---
-# <a name="create-an-azure-search-index-in-the-portal"></a>Creare un indice di Ricerca di Azure nel portale
+# <a name="create-an-azure-cognitive-search-index-in-the-portal"></a>Creare un indice di ricerca cognitiva di Azure nel portale
 
-Ricerca di Azure include una finestra di progettazione degli indici nel portale utile per i prototipi o per creare un [indice di ricerca](search-what-is-an-index.md) ospitato nel servizio Ricerca di Azure. Lo strumento viene usato per la costruzione degli schemi. Quando si salva la definizione, viene reso disponibile un indice vuoto in Ricerca di Azure. Il modo in cui viene caricato con contenuto ricercabile dipende dall'utente.
+Azure ricerca cognitiva include una finestra di progettazione indici incorporata nel portale utile per i prototipi o la creazione di un [indice di ricerca](search-what-is-an-index.md) ospitato nel servizio ricerca cognitiva di Azure. Lo strumento viene usato per la costruzione degli schemi. Quando si salva la definizione, un indice vuoto diventa completamente espresso in ricerca cognitiva di Azure. Il modo in cui viene caricato con contenuto ricercabile dipende dall'utente.
 
 La finestra di progettazione degli indici rappresenta solo uno degli approcci per la creazione di un indice. In alternativa, è possibile creare e caricare un indice usando la [procedura guidata Importa dati](search-get-started-portal.md). La procedura guidata funziona solo con gli indici creati automaticamente. A livello di codice, è possibile creare un indice usando le API [.NET](search-create-index-dotnet.md) o [REST](search-create-index-rest-api.md).
 
@@ -29,7 +29,7 @@ La finestra di progettazione degli indici rappresenta solo uno degli approcci pe
 
    ![Aggiungi collegamento Indice nella barra dei comandi](media/search-create-index-portal/add-index.png "Aggiungi collegamento Indice nella barra dei comandi")
 
-3. Assegnare un nome all'indice di Ricerca di Azure. Il riferimento ai nomi di indice è previsto nelle operazioni di indicizzazione e creazione di query. Il nome dell'indice diventa parte dell'URL dell'endpoint usato per le connessioni all'indice e per l'invio di richieste HTTP nell'API REST di Ricerca di Azure.
+3. Assegnare un nome all'indice ricerca cognitiva di Azure. Il riferimento ai nomi di indice è previsto nelle operazioni di indicizzazione e creazione di query. Il nome dell'indice diventa parte dell'URL dell'endpoint usato per le connessioni all'indice e per l'invio di richieste HTTP nell'API REST di Azure ricerca cognitiva.
 
    * Deve iniziare con una lettera.
    * Usare solo lettere minuscole, numeri o trattini ("-").
@@ -43,11 +43,11 @@ La composizione dell'indice include un *insieme di campi* che definisce i dati s
 
 1. Se i dati in ingresso sono di natura gerarchica, nello schema devono essere inclusi [tipi complessi](search-howto-complex-data-types.md) per rappresentare le strutture nidificate. Il set di dati di esempio predefinito, Hotels, illustra i tipi complessi usando un indirizzo (contiene più sottocampi) che presenta una relazione uno-a-uno con ogni hotel e una raccolta complessa di chat, in cui più stanze sono associate a ogni hotel. 
 
-1. Specificare un campo *chiave* di tipo Edm.String. Per ogni indice di Ricerca di Azure è obbligatorio un campo chiave che deve essere una stringa. I valori per questo campo devono identificare in modo univoco ogni documento. Per impostazione predefinita, il campo viene denominato *id* ma è possibile rinominarlo, purché la stringa soddisfi le [regole di denominazione](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Se ad esempio la raccolta di campi include *ID hotel*, sceglierlo come chiave. 
+1. Specificare un campo *chiave* di tipo Edm.String. Un campo chiave è obbligatorio per ogni indice di ricerca cognitiva di Azure ed è necessario che sia una stringa. I valori per questo campo devono identificare in modo univoco ogni documento. Per impostazione predefinita, il campo viene denominato *id* ma è possibile rinominarlo, purché la stringa soddisfi le [regole di denominazione](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Se ad esempio la raccolta di campi include *ID hotel*, sceglierlo come chiave. 
 
 1. Impostare gli attributi in ogni campo. La finestra di progettazione degli indici esclude tutti gli attributi non validi per il tipo di dati, ma non suggerisce che cosa includere. Esaminare le indicazioni fornite nella sezione successiva per comprendere la funzione degli attributi.
 
-    La documentazione API di Ricerca di Azure include esempi di codice che presentano un semplice indice *hotel*. Nello screenshot seguente è possibile vedere la definizione dell'indice, che include l'analizzatore di lingua francese specificato durante la definizione dell'indice, che è possibile ricreare come esercitazione nel portale.
+    La documentazione dell'API di Azure ricerca cognitiva include esempi di codice con un semplice indice degli *Hotel* . Nello screenshot seguente è possibile vedere la definizione dell'indice, che include l'analizzatore di lingua francese specificato durante la definizione dell'indice, che è possibile ricreare come esercitazione nel portale.
 
     ![Indice demo degli Alberghi](media/search-create-index-portal/field-definitions.png "Indice demo degli Alberghi")
 
@@ -76,7 +76,7 @@ Gli attributi del campo determinano le modalità in cui un campo viene usato, ad
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver creato un indice di Ricerca di Azure, è possibile passare al passaggio successivo: [caricare i dati ricercabili nell'indice](search-what-is-data-import.md).
+Dopo aver creato un indice di ricerca cognitiva di Azure, è possibile passare al passaggio successivo: [caricare i dati disponibili per la ricerca nell'indice](search-what-is-data-import.md).
 
 In alternativa, è anche possibile [analizzare in modo approfondito gli indici](search-what-is-an-index.md). Oltre alla raccolta di campi, un indice specifica anche gli analizzatori, gli strumenti suggerimenti, i profili di punteggio e le impostazioni CORS. Il portale offre pagine a schede per definire gli elementi più comuni: i campi, gli analizzatori e gli strumenti di suggerimento. Per creare o modificare altri elementi, è possibile usare l'API REST o .NET SDK.
 

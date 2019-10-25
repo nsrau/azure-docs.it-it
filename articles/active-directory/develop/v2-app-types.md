@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6799e604b9e5e2acc3af35e4038ea6f14271d5c8
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e07136eed9c14eb4b6eda49ef635171aaf543445
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834724"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809281"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipi di applicazioni per la piattaforma di identità Microsoft
 
@@ -122,9 +122,9 @@ In questo flusso, l'app riceve un codice di autorizzazione dall'endpoint della p
 
 ## <a name="daemons-and-server-side-apps"></a>App daemon e lato server
 
-Anche le app che contengono processi a esecuzione prolungata o che non prevedono l'interazione con l'utente necessitano di un modo per accedere alle risorse protette, ad esempio le API Web. Queste app possono autenticarsi e ottenere i token usando l'identità dell'app, anziché un'identità delegata dell'utente, con il flusso delle credenziali client di OAuth 2.0. È possibile dimostrare l'identità dell'app usando un certificato o un segreto client. Per altre informazioni, vedere [autenticazione alla piattaforma di identità Microsoft nelle app daemon con certificati](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
+Anche le app che contengono processi a esecuzione prolungata o che non prevedono l'interazione con l'utente necessitano di un modo per accedere alle risorse protette, ad esempio le API Web. Queste app possono autenticarsi e ottenere i token usando l'identità dell'app, anziché un'identità delegata dell'utente, con il flusso delle credenziali client di OAuth 2.0. È possibile dimostrare l'identità dell'app usando un certificato o un segreto client. Per altre informazioni, vedere [autenticazione alla piattaforma di identità Microsoft nelle app daemon con certificati](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/).
 
-In questo flusso, l'app interagisce direttamente con l' `/token` endpoint per ottenere l'accesso:
+In questo flusso, l'app interagisce direttamente con l'endpoint `/token` per ottenere l'accesso:
 
 ![Mostra il flusso di autenticazione dell'app daemon](./media/v2-app-types/convergence-scenarios-daemon.svg)
 

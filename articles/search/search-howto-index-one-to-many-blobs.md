@@ -1,20 +1,19 @@
 ---
 title: Indicizzare un BLOB in molti documenti dell'indice di ricerca dall'indicizzatore BLOB di Azure per la ricerca full-text
-description: Eseguire l'indicizzazione dei BLOB di Azure per il contenuto di testo usando l'indicizzatore di BLOB di ricerca Ogni BLOB può restituire uno o più documenti dell'indice di ricerca di Azure.
-ms.date: 05/02/2019
-author: arv100kri
+description: Eseguire l'indicizzazione di BLOB di Azure per contenuti di testo usando l'indicizzatore di BLOB di ricerca di Azure Ogni BLOB può restituire uno o più documenti dell'indice di ricerca.
 manager: nitinme
+author: arv100kri
 ms.author: arjagann
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.openlocfilehash: 585d1e64ae124dce8cb0d4165ecbf0f503560405
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.date: 11/04/2019
+ms.openlocfilehash: ec7796f19df8d58831b442adeae02b54223799c1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533692"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793721"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indicizzazione di BLOB per produrre più documenti di ricerca
 Per impostazione predefinita, un indicizzatore BLOB considererà il contenuto di un BLOB come singolo documento di ricerca. Alcuni valori **parsingMode** supportano scenari in cui un singolo BLOB può produrre più documenti di ricerca. I diversi tipi di **parsingMode** che consentono a un indicizzatore di estrarre più di un documento di ricerca da un BLOB sono:
@@ -23,11 +22,11 @@ Per impostazione predefinita, un indicizzatore BLOB considererà il contenuto di
 + `jsonLines`
 
 ## <a name="one-to-many-document-key"></a>Chiave documento uno-a-molti
-Ogni documento visualizzato in un indice di ricerca di Azure viene identificato in modo univoco da una chiave del documento. 
+Ogni documento visualizzato in un indice di ricerca cognitiva di Azure viene identificato in modo univoco da una chiave del documento. 
 
-Quando non viene specificata alcuna modalità di analisi e non esiste alcun mapping esplicito per il campo chiave nell'indice, ricerca di Azure [esegue](search-indexer-field-mappings.md) automaticamente il mapping della proprietà `metadata_storage_path` come chiave. Questo mapping garantisce che ogni BLOB venga visualizzato come documento di ricerca distinto.
+Quando non viene specificata alcuna modalità di analisi e non esiste alcun mapping esplicito per il campo chiave nell'indice Azure ricerca cognitiva esegue automaticamente il [mapping](search-indexer-field-mappings.md) della proprietà `metadata_storage_path` come chiave. Questo mapping garantisce che ogni BLOB venga visualizzato come documento di ricerca distinto.
 
-Quando si usa una delle modalità di analisi sopra elencate, un BLOB viene mappato a "molti" documenti di ricerca, rendendo una chiave del documento esclusivamente basata sui metadati del BLOB non idonei. Per ovviare a questo vincolo, ricerca di Azure è in grado di generare una chiave di documento "uno-a-molti" per ogni singola entità estratta da un BLOB. Questa proprietà è denominata `AzureSearch_DocumentKey` e viene aggiunta a ogni singola entità estratta dal BLOB. Il valore di questa proprietà è sicuramente univoco per ogni singola entità _nei BLOB_ e le entità verranno visualizzate come documenti di ricerca distinti.
+Quando si usa una delle modalità di analisi sopra elencate, un BLOB viene mappato a "molti" documenti di ricerca, rendendo una chiave del documento esclusivamente basata sui metadati del BLOB non idonei. Per ovviare a questo vincolo, Azure ricerca cognitiva è in grado di generare una chiave di documento "uno-a-molti" per ogni singola entità estratta da un BLOB. Questa proprietà è denominata `AzureSearch_DocumentKey` e viene aggiunta a ogni singola entità estratta dal BLOB. Il valore di questa proprietà è sicuramente univoco per ogni singola entità _nei BLOB_ e le entità verranno visualizzate come documenti di ricerca distinti.
 
 Per impostazione predefinita, quando non viene specificato alcun mapping esplicito dei campi per il campo indice chiave, viene eseguito il mapping del `AzureSearch_DocumentKey` a tale campo, usando la funzione di mapping dei campi `base64Encode`.
 
@@ -58,7 +57,7 @@ Quando si crea un indicizzatore e si imposta **parsingMode** su `jsonLines`, sen
         "mappingFunction": { "name" : "base64Encode" }
     }
 
-Questa installazione determinerà l'indice di ricerca di Azure contenente le informazioni seguenti (ID con codifica Base64 abbreviato per brevità)
+Questa installazione determinerà l'indice del ricerca cognitiva di Azure contenente le informazioni seguenti (ID con codifica Base64 abbreviato per brevità)
 
 | id | temperatura | pressure | timestamp |
 |----|-------------|----------|-----------|
@@ -99,7 +98,7 @@ Se si vuole impostare un mapping di campi esplicito, assicurarsi che _campoOrigi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se non si ha già familiarità con la struttura di base e il flusso di lavoro di indicizzazione BLOB, è necessario prima esaminare l' [indicizzazione dell'archiviazione BLOB di Azure con ricerca di Azure](search-howto-index-json-blobs.md) . Per altre informazioni sulle modalità di analisi per i diversi tipi di contenuto BLOB, vedere gli articoli seguenti.
+Se non si ha già familiarità con la struttura di base e il flusso di lavoro di indicizzazione BLOB, è necessario prima esaminare l' [indicizzazione dell'archiviazione BLOB di Azure con la ricerca di Azure cognitivi](search-howto-index-json-blobs.md) . Per altre informazioni sulle modalità di analisi per i diversi tipi di contenuto BLOB, vedere gli articoli seguenti.
 
 > [!div class="nextstepaction"]
 > [Indicizzazione di BLOB CSV](search-howto-index-csv-blobs.md) 

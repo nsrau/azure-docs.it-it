@@ -1,5 +1,6 @@
 ---
-title: Guida del portale di registrazione delle app | Microsoft Docs
+title: Argomenti della guida del portale di registrazione delle app
+titleSuffix: Microsoft identity platform
 description: Descrizione delle varie funzionalità disponibili nel portale di registrazione delle app di Microsoft.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49675d8b18020c73a27a41fedff47697e29d829e
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 61787e7a86a1c40ec04fb7a3d605158c85782d94
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988499"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803400"
 ---
 # <a name="app-registration-reference"></a>Riferimento alla registrazione delle app
 Questo documento fornisce il contesto e le descrizioni delle varie funzionalità disponibili nell' [registrazioni app](https://aka.ms/appregistrations) esperienza nel portale di Azure.
@@ -35,7 +36,7 @@ Questo elenco contiene tutte le applicazioni registrate per l'uso con l'endpoint
 Questo elenco include tutte le applicazioni registrate per essere usate con l'endpoint Azure AD v1.0. A tali possono accedere solo gli utenti con account aziendale o dell'istituto di istruzione di Azure Active Directory. Questo elenco include le applicazioni registrate con l'esperienza **registrazioni app** nel [portale di Azure](https://portal.azure.com).
 
 ## <a name="live-sdk-applications"></a>Applicazioni Live SDK
-Questo elenco include tutte le applicazioni registrate per l'uso solo con l'account Microsoft. Non sono abilitate per l'uso con Azure Active Directory. Qui è possibile trovare tutte le applicazioni registrate in precedenza con il portale per sviluppatori di account del servizio gestito, all'indirizzo `https://account.live.com/developers/applications`. Tutte le funzioni precedentemente eseguite `https://account.live.com/developers/applications` in possono ora essere eseguite in [registrazioni app](https://aka.ms/appregistrations).
+Questo elenco include tutte le applicazioni registrate per l'uso solo con l'account Microsoft. Non sono abilitate per l'uso con Azure Active Directory. Qui è possibile trovare tutte le applicazioni registrate in precedenza con il portale per sviluppatori di account del servizio gestito, all'indirizzo `https://account.live.com/developers/applications`. È ora possibile eseguire in [registrazioni app](https://aka.ms/appregistrations)tutte le funzioni eseguite in precedenza in `https://account.live.com/developers/applications`.
 
 ## <a name="application-secrets"></a>Segreti applicazione
 I segreti applicazione sono credenziali che consentono all'applicazione di eseguire [l'autenticazione client](https://tools.ietf.org/html/rfc6749#section-2.3) in modo affidabile con Azure AD. In OAuth e OpenID Connect il segreto dell'applicazione è noto come `client_secret`. Nel protocollo della versione 2.0, qualsiasi applicazione che riceve un token di sicurezza in una posizione con indirizzo Web, usando uno schema `https` , deve fare uso di un segreto applicazione per identificarsi in Azure AD al momento del riscatto del token di sicurezza. Inoltre i client nativi che ricevono i token in un dispositivo non possono usare un segreto dell'applicazione per eseguire l'autenticazione client. Questo scoraggia l'archiviazione dei segreti in ambienti non protetti.
@@ -46,7 +47,7 @@ Al momento nel portale di registrazione delle app sono consentiti solo due tipi 
 È necessario caricare un certificato che contiene una chiave pubblica.
 
 ## <a name="profile"></a>Profilo
-È possibile usare la sezione relativa al profilo del portale di registrazione delle app per personalizzare la pagina di accesso dell'applicazione. Attualmente si può modificare il logo dell'applicazione della pagina di accesso, l'URL delle condizioni del servizio e quello dell'informativa sulla privacy. Il logo deve essere un'immagine trasparente di 48 x 48 o 50 x 50 pixel in un file in formato GIF, PNG o JPEG e con dimensione massima di 15 KB. Provare a modificare i valori e a visualizzare la pagina di accesso risultante!
+È possibile usare la sezione relativa al profilo del portale di registrazione delle app per personalizzare la pagina di accesso dell'applicazione. Attualmente si può modificare il logo dell'applicazione della pagina di accesso, l'URL delle condizioni del servizio e quello dell'informativa sulla privacy. Il logo deve essere un'immagine trasparente da 48 x 48 o 50 x 50 pixel in un file GIF, PNG o JPEG di dimensioni non superiori a 15 KB. Provare a modificare i valori e a visualizzare la pagina di accesso risultante!
 
 ## <a name="live-sdk-support"></a>Supporto Live SDK
 Quando si abilita il supporto Live SDK, per qualsiasi segreto applicazione creato viene eseguito il provisioning sia in Azure AD che negli archivi dati dell'account Microsoft. In questo modo l'applicazione può integrarsi direttamente con il servizio account Microsoft (login.live.com). Se si vuole creare un'app usando direttamente un account Microsoft (invece di usare l'endpoint 2.0), è necessario assicurarsi che il supporto Live SDK sia abilitato.

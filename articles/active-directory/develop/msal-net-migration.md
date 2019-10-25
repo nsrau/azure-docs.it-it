@@ -1,5 +1,6 @@
 ---
-title: Eseguire la migrazione a MSAL.NET | Azure
+title: Migrazione a MSAL.NET
+titleSuffix: Microsoft identity platform
 description: Informazioni sulle differenze tra Microsoft Authentication Library per .NET (MSAL.NET) e Azure AD Authentication Library per .NET (ADAL.NET) e su come eseguire la migrazione a MSAL.NET.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a132834952d2654f400217bd6eed1a3745efbf9
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 6d9f178df5e5fd9d2b70b7791588cfdc0652b217
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264263"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802775"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrazione di applicazioni a MSAL.NET
 
@@ -63,7 +64,7 @@ In MSAL.NET è anche possibile accedere alle risorse v1.0. Per informazioni dett
 
 - ADAL.NET usa [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD) come rappresentazione della connessione al Servizio token di sicurezza (STS) o al server di autorizzazione, tramite un'autorità. Al contrario, MSAL.NET è basato sulle [applicazioni client](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications). Fornisce due classi distinte: `PublicClientApplication` e `ConfidentialClientApplication`
 
-- Acquisizione dei token: ADAL.NET e MSAL.NET hanno le stesse chiamate di autenticazione (`AcquireTokenAsync` e `AcquireTokenSilentAsync` per ADAL.NET e `AcquireTokenInteractive` e `AcquireTokenSilent` in MSAL.NET), ma con diversi parametri richiesti. Una differenza è il fatto che, in MSAL.NET, è non è più necessario passare il `ClientID` dell'applicazione in ogni chiamata AcquireTokenXX. Di fatto, `ClientID` viene impostato una sola volta durante la creazione di `IPublicClientApplication` o `IConfidentialClientApplication`.
+- Acquisizione di token: ADAL.NET e MSAL.NET hanno le stesse chiamate di autenticazione (`AcquireTokenAsync` e `AcquireTokenSilentAsync` per ADAL.NET e `AcquireTokenInteractive` e `AcquireTokenSilent` in MSAL.NET) ma con parametri diversi necessari. Una differenza è il fatto che, in MSAL.NET, è non è più necessario passare il `ClientID` dell'applicazione in ogni chiamata AcquireTokenXX. Di fatto, `ClientID` viene impostato una sola volta durante la creazione di `IPublicClientApplication` o `IConfidentialClientApplication`.
 
 ### <a name="iaccount-not-iuser"></a>IAccount invece di IUser
 
@@ -122,20 +123,20 @@ Non tutte le concessioni sono ancora supportate in MSAL.NET e nell'endpoint v2.0
 
 Ecco le concessioni supportate in ADAL.NET e MSAL.NET per le applicazioni desktop e per dispositivi mobili
 
-Concedi | ADAL.NET | MSAL.NET
+Concessione | ADAL.NET | MSAL.NET
 ----- |----- | -----
-Interattivo | [Autenticazione interattiva](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Acquisizione dei token in modo interattivo in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
-Autenticazione di Windows integrata | [Autenticazione integrata di Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Autenticazione integrata di Windows](msal-authentication-flows.md#integrated-windows-authentication)
+Interattività | [Autenticazione interattiva](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Acquisizione dei token in modo interattivo in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
+Autenticazione integrata di Windows | [Autenticazione integrata di Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Autenticazione integrata di Windows](msal-authentication-flows.md#integrated-windows-authentication)
 Nome utente/password | [Acquisizione di token con nome utente e password](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)| [Autenticazione con nome utente e password](msal-authentication-flows.md#usernamepassword)
-Flusso di codice del dispositivo | [Profilo di dispositivo per i dispositivi senza Web browser](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [Flusso del codice del dispositivo](msal-authentication-flows.md#device-code)
+Flusso del codice del dispositivo | [Profilo di dispositivo per i dispositivi senza Web browser](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [Flusso del codice del dispositivo](msal-authentication-flows.md#device-code)
 
 #### <a name="confidential-client-applications"></a>Applicazioni client riservate
 
 Ecco le concessioni supportate in ADAL.NET e MSAL.NET per applicazioni Web, API Web e applicazioni daemon:
 
-Tipo di app | Concedi | ADAL.NET | MSAL.NET
+Tipo di app | Concessione | ADAL.NET | MSAL.NET
 ----- | ----- | ----- | -----
-App Web, API Web, daemon | Credenziali client | [Flussi di credenziali client in ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [Flussi di credenziali client in MSAL.NET](msal-authentication-flows.md#client-credentials))
+App Web, API Web, daemon | Client Credentials | [Flussi di credenziali client in ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [Flussi di credenziali client in MSAL.NET](msal-authentication-flows.md#client-credentials))
 API Web | On-Behalf-Of | [Chiamate da servizio a servizio per conto dell'utente con ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [On-Behalf-Of in MSAL.NET](msal-authentication-flows.md#on-behalf-of)
 App Web | Codice di autenticazione | [Acquisizione di token con codici di autorizzazione nelle app Web con ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-authorization-codes-on-web-apps) | [Acquisizione di token con codici di autorizzazione nelle app Web con MSAL.NET](msal-authentication-flows.md#authorization-code)
 
@@ -184,7 +185,7 @@ ResourceId = "https://graph.windows.net/";
 var scopes = new [] { ResourceId + “Directory.Read”, ResourceID + “Directory.Write”}
 ```
 
-#### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>Avviso: devono essere presenti una o due barre nell'ambito corrispondente a un'API Web v1.0
+#### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>Avviso: è necessario avere una o due barre nell'ambito corrispondente a un'API Web v 1.0
 
 Per eseguire operazioni di scrittura nell'ambito corrispondente all'API di Azure Resource Manager (https://management.core.windows.net/) , è necessario richiedere l'ambito seguente (si notino le due barre) 
 
@@ -200,7 +201,7 @@ Questo perché l'API di Resource Manager prevede una barra nell'attestazione dei
 La logica usata da Azure AD è la seguente:
 - Per l'endpoint ADAL (v1.0) con un token di accesso v1.0 (l'unico possibile), aud=resource
 - Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa che accetta i token v2.0, aud=resource.AppId
-- Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa che accetta un token di accesso v1.0 (come nel caso precedente), Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutto ciò che precede l'ultima barra e usandolo come identificatore della risorsa. Di conseguenza, se https:\//database.windows.net prevede un gruppo di destinatari "https://database.windows.net/ ", è necessario richiedere un ambito di https:\/ /database.windows.net//.default. Vedere anche il problema n. [747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): se la barra finale dell'URL della risorsa viene omessa, si verifica un errore di autenticazione SQL n. 747
+- Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa che accetta un token di accesso v1.0 (come nel caso precedente), Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutto ciò che precede l'ultima barra e usandolo come identificatore della risorsa. Di conseguenza, se https:\//database.windows.net prevede un gruppo di destinatari "https://database.windows.net/ ", è necessario richiedere un ambito di https:\/ /database.windows.net//.default. Vedere anche il problema #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): la barra finale dell'URL della risorsa è stata omessa, causando un errore di autenticazione SQL #747
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Ambiti per richiedere l'accesso a tutte le autorizzazioni di un'applicazione v1.0
@@ -224,7 +225,7 @@ In ADAL.NET v2.x sono stati esposti i token di aggiornamento, consentendo di svi
 
 MSAL.NET non espone i token di aggiornamento per motivi di sicurezza: MSAL gestisce automaticamente i token di aggiornamento. 
 
-Fortunatamente, MSAL.NET dispone ora di un'API che consente di eseguire la migrazione dei `IConfidentialClientApplication`token di aggiornamento precedenti (acquisiti con adal) in:
+Fortunatamente, MSAL.NET dispone ora di un'API che consente di migrare i token di aggiornamento precedenti (acquisiti con ADAL) nel `IConfidentialClientApplication`:
 
 ```CSharp
 /// <summary>

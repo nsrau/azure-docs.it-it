@@ -4,19 +4,19 @@ description: Questo documento illustra l'architettura di connettività SQL di Az
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
+ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: f15fb46568f4ad062605b51600d3c61870b48645
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: f26eb44dd407e379d0bf3291eb890d2e451c919e
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828860"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72807924"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 
@@ -38,9 +38,9 @@ I passaggi seguenti descrivono come viene stabilita una connessione a un databas
 
 Il database SQL di Azure supporta le tre opzioni seguenti per l'impostazione dei criteri di connessione di un server di database SQL.
 
-- **Redirect (scelta consigliata):** i client stabiliscono connessioni dirette al nodo che ospita il database. Per abilitare la connettività, i client devono consentire le regole del firewall in uscita a tutti gli indirizzi IP di Azure nell'area usando i gruppi di sicurezza di rete (NSG) con [tag di servizio](../virtual-network/security-overview.md#service-tags)) per le porte 11000-11999, non solo gli indirizzi IP del gateway del database SQL di Azure sulla porta 1433. I pacchetti vengono inviati direttamente al database e si verifica quindi un miglioramento di prestazioni in termini latenza e velocità effettiva.
+- **Reindirizzamento (scelta consigliata):** i client stabiliscono connessioni dirette al nodo che ospita il database. Per abilitare la connettività, i client devono consentire le regole del firewall in uscita a tutti gli indirizzi IP di Azure nell'area usando i gruppi di sicurezza di rete (NSG) con i [tag di servizio](../virtual-network/security-overview.md#service-tags) per le porte 11000-11999, non solo gli indirizzi IP del gateway del database SQL di Azure sulla porta 1433. I pacchetti vengono inviati direttamente al database e si verifica quindi un miglioramento di prestazioni in termini latenza e velocità effettiva.
 - **Proxy:** in questa modalità, tutte le connessioni vengono trasmesse tramite proxy ai gateway del database SQL di Azure. Per abilitare la connettività, il client deve avere regole del firewall in uscita che consentano solo gli indirizzi IP dei gateway del database SQL di Azure (in genere due indirizzi IP per ogni area). Se si sceglie questa modalità, è possibile che si riscontri un aumento della latenza e una riduzione della velocità effettiva, a seconda della natura del carico di lavoro. Se si preferisce la minor latenza e la maggiore velocità effettiva possibili, quindi, si consiglia di scegliere i criteri di connessione `Redirect` anziché `Proxy`.
-- **Default:** i criteri di connessione applicati in tutti i server dopo la creazione, se non esplicitamente impostati su `Proxy` o `Redirect`. I criteri applicati dipendono dall'origine delle connessioni, ossia se provengono dall'interno di Azure (`Redirect`) o dall'esterno di Azure (`Proxy`).
+- **Impostazione predefinita:** Si tratta dei criteri di connessione attivati in tutti i server dopo la creazione, a meno che i criteri di connessione non vengano modificati in modo esplicito in `Proxy` o `Redirect`. I criteri applicati dipendono dall'origine delle connessioni, ossia se provengono dall'interno di Azure (`Redirect`) o dall'esterno di Azure (`Proxy`).
 
 ## <a name="connectivity-from-within-azure"></a>Connettività dall'interno di Azure
 
@@ -58,7 +58,7 @@ Se ci si connette dall'esterno di Azure, le connessioni usano un criterio di con
 
 La tabella seguente elenca gli indirizzi IP dei gateway per area. Per connettersi a un database SQL di Azure, è necessario consentire al traffico di rete di & da **tutti** i gateway per l'area.
 
-Nell'articolo seguente sono riportati i dettagli del modo in cui verrà eseguita la migrazione del traffico ai nuovi gateway in aree specifiche: [Migrazione del traffico del database SQL di Azure ai gateway più recenti](sql-database-gateway-migration.md)
+Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del traffico ai nuovi gateway in aree specifiche, fare quanto segue: [migrazione del traffico del database SQL di Azure ai gateway più recenti](sql-database-gateway-migration.md)
 
 
 | Nome area          | Indirizzi IP del gateway |
@@ -76,7 +76,7 @@ Nell'articolo seguente sono riportati i dettagli del modo in cui verrà eseguita
 | Cina settentrionale          | 139.219.15.17      |
 | Cina settentrionale 2        | 40.73.50.0         |
 | Asia orientale            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
-| East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| Stati Uniti Orientali              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | Stati Uniti orientali 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
 | Francia centrale       | 40.79.137.0, 40.79.129.1 |
 | Germania centrale      | 51.4.144.100       |
@@ -93,7 +93,7 @@ Nell'articolo seguente sono riportati i dettagli del modo in cui verrà eseguita
 | Sudafrica settentrionale   | 102.133.152.0      |
 | Sudafrica occidentale    | 102.133.24.0       |
 | Stati Uniti centro-meridionali     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
-| Asia sud-orientale      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
+| Asia sudorientale      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | Emirati Arabi Uniti centrali          | 20.37.72.64        |
 | Emirati Arabi Uniti settentrionali            | 65.52.248.0        |
 | Regno Unito meridionale             | 51.140.184.11      |

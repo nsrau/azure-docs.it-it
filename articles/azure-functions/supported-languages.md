@@ -1,21 +1,18 @@
 ---
 title: Linguaggi supportati in Funzioni di Azure
 description: Informazioni sui linguaggi supportati a livello generale, su quelli sperimentali e su quelli in anteprima.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: dotnet
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 8839fc0fb9f19a1cfa95a4191213503dba7602c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eac67c43915edb0aed273df40e7b08ca846062bf
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148805"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802464"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Linguaggi supportati in Funzioni di Azure
 
@@ -29,7 +26,7 @@ Sono disponibili tre livelli di supporto:
 * **Anteprima** - Il linguaggio non è ancora supportato ma si prevede che in futuro diventi disponibile a livello generale.
 * **Sperimentale** - Il linguaggio non è supportato e potrebbe venire abbandonato in futuro. Non viene data garanzia che diventi disponibile in anteprima o a livello generale.
 
-## <a name="languages-in-runtime-1x-and-2x"></a>Linguaggi nelle versioni 1.x e 2.x del runtime
+## <a name="languages-by-runtime-version"></a>Linguaggi per versione runtime 
 
 Sono disponibili [due versioni del runtime di Funzioni di Azure](functions-versions.md). Nella tabella seguente sono indicati i linguaggi supportati in ogni versione del runtime.
 
@@ -45,23 +42,16 @@ La versione 2.x del runtime non supporta i linguaggi sperimentali. Il supporto p
 
 ### <a name="language-extensibility"></a>Estendibilità di un linguaggio
 
-La versione 2.x del runtime offre l'[estendibilità di un linguaggio](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). I linguaggi JavaScript e Java nel runtime 2.x sono costruiti con questa estendibilità.
+A partire dalla versione 2. x, il runtime è progettato per offrire l' [estendibilità del linguaggio](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). I linguaggi JavaScript e Java nel runtime 2.x sono costruiti con questa estendibilità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'uso dei linguaggi disponibili a livello generale o in anteprima in Funzioni di Azure, vedere le risorse seguenti:
+Per ulteriori informazioni sullo sviluppo di funzioni nelle lingue supportate, vedere le risorse seguenti:
 
-> [!div class="nextstepaction"]
-> [C#](functions-reference-csharp.md)
-
-> [!div class="nextstepaction"]
-> [F#](functions-reference-fsharp.md)
-
-> [!div class="nextstepaction"]
-> [JavaScript](functions-reference-node.md)
-
-> [!div class="nextstepaction"]
-> [Java](functions-reference-java.md)
-
-> [!div class="nextstepaction"]
-> [Python](functions-reference-python.md)
++ [C#riferimenti per sviluppatori della libreria di classi](functions-dotnet-class-library.md)
++ [C#Guida di riferimento per sviluppatori](functions-reference-csharp.md)
++ [Riferimenti per sviluppatori Java](functions-reference-java.md)
++ [Riferimenti per sviluppatori JavaScript](functions-reference-node.md)
++ [Guida di riferimento per gli sviluppatori di PowerShell](functions-reference-powershell.md)
++ [Guida di riferimento per sviluppatori Python](functions-reference-python.md)
++ [Informazioni di riferimento per gli sviluppatori TypeScript](functions-reference-node.md#typescript)

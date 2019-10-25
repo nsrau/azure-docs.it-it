@@ -1,22 +1,23 @@
 ---
-title: Connessione Istanza gestita SQL di Azure per l'indicizzazione di ricerca-ricerca di Azure
-description: Abilitare l'endpoint pubblico per consentire le connessioni alle istanze gestite di SQL da un indicizzatore in ricerca di Azure.
-author: vl8163264128
+title: Connessione Istanza gestita SQL di Azure per l'indicizzazione di ricerca
+titleSuffix: Azure Cognitive Search
+description: Abilitare l'endpoint pubblico per consentire le connessioni alle istanze gestite di SQL da un indicizzatore in ricerca cognitiva di Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 07/01/2019
+author: vl8163264128
 ms.author: victliu
-ms.openlocfilehash: 07bc1a55c0222fda87b28acbaa8bfe552fb8e6ed
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 16daf4a79252134703715ccd88f0b10dda7f4fa6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186629"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792163"
 ---
-# <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-managed-instance"></a>Configurare una connessione da un indicizzatore di ricerca di Azure a SQL Istanza gestita
-Come indicato nella pagina relativa [alla connessione del database SQL di Azure a ricerca di Azure tramite](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)gli indicizzatori, la creazione di indicizzatori in **istanze gestite da SQL** è supportata da ricerca di Azure tramite l'endpoint pubblico.
+# <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Configurare una connessione da un indicizzatore di Azure ricerca cognitiva a SQL Istanza gestita
+
+Come indicato nella pagina relativa [alla connessione del database SQL di Azure ad azure ricerca cognitiva usando gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la creazione di indicizzatori in **istanze gestite da SQL** è supportata da Azure ricerca cognitiva tramite l'endpoint pubblico.
 
 ## <a name="create-azure-sql-managed-instance-with-public-endpoint"></a>Creare Istanza gestita SQL di Azure con l'endpoint pubblico
 Creare un Istanza gestita SQL con l'opzione **Abilita endpoint pubblico** selezionato.
@@ -24,7 +25,7 @@ Creare un Istanza gestita SQL con l'opzione **Abilita endpoint pubblico** selezi
    ![Abilita endpoint pubblico](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/enable-public-endpoint.png "Abilita endpoint pubblico")
 
 ## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>Abilitare l'endpoint pubblico di Istanza gestita SQL di Azure
-È anche possibile abilitare l'endpoint pubblico in un istanza gestita SQL esistente in**rete** > virtuale di **sicurezza** > **abilitare**l'**endpoint** > pubblico.
+È anche possibile abilitare l'endpoint pubblico in un Istanza gestita SQL esistente in **sicurezza** > **rete virtuale** > **endpoint pubblico** > **abilitare**.
 
    ![Abilita endpoint pubblico](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Abilita endpoint pubblico")
 
@@ -39,4 +40,4 @@ Assicurarsi di usare la stringa di connessione per l' **endpoint pubblico** (por
    ![Stringa di connessione dell'endpoint pubblico](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-connection-string.png "Stringa di connessione dell'endpoint pubblico")
 
 ## <a name="next-steps"></a>Passaggi successivi
-Con la configurazione, è ora possibile specificare un Istanza gestita SQL come origine dati per un indicizzatore di ricerca di Azure usando il portale o l'API REST. Per altre informazioni, vedere [Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) .
+Con la configurazione, è ora possibile specificare un Istanza gestita SQL come origine dati per un indicizzatore di Azure ricerca cognitiva usando il portale o l'API REST. Per altre informazioni, vedere [connessione del database SQL di Azure ad azure ricerca cognitiva usando gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) .

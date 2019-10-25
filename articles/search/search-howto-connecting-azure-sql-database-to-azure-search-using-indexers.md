@@ -1,29 +1,28 @@
 ---
-title: Connettere e indicizzare il contenuto del database SQL di Azure usando gli indicizzatori - Ricerca di Azure
-description: Informazioni su come ricercare per indicizzazione i dati nel database SQL di Azure usando gli indicizzatori di ricerca full-text in Ricerca di Azure. Questo articolo illustra le connessioni, la configurazione dell'indicizzatore e l'inserimento di dati.
-ms.date: 05/02/2019
-author: mgottein
+title: Connettere e indicizzare il contenuto del database SQL di Azure tramite gli indicizzatori
+titleSuffix: Azure Cognitive Search
+description: Importa i dati dal database SQL di Azure usando gli indicizzatori per la ricerca full-text in Azure ricerca cognitiva. Questo articolo illustra le connessioni, la configurazione dell'indicizzatore e l'inserimento di dati.
 manager: nitinme
+author: mgottein
 ms.author: magottei
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: 4ed218fdc1c6580e9b92364d123b081a1f34b441
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 11/04/2019
+ms.openlocfilehash: 012f555f3837086946eb4581dadc74011a3acc09
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656226"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792200"
 ---
-# <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Effettuare la connessione a e indicizzare il contenuto del database SQL di Azure usando gli indicizzatori di Ricerca di Azure
+# <a name="connect-to-and-index-azure-sql-database-content-using-azure-cognitive-search-indexers"></a>Connettersi e indicizzare il contenuto del database SQL di Azure usando gli indicizzatori di Azure ricerca cognitiva
 
-Prima di poter eseguire una query nell'[indice di Ricerca di Azure](search-what-is-an-index.md), è necessario inserirvi i propri dati. Se i dati si trovano in un database SQL di Azure, l'**Indicizzatore di Ricerca di Azure per il database SQL di Azure**, o in breve **Indicizzatore SQL di Azure**, è in grado di automatizzare il processo di indicizzazione. Questo implica che la quantità di codice da scrivere è inferiore, così come l'infrastruttura di cui occuparsi.
+Prima di poter eseguire una query su un [indice ricerca cognitiva di Azure](search-what-is-an-index.md), è necessario popolarlo con i dati. Se i dati si trovano in un database SQL di Azure, un **indicizzatore di azure ricerca cognitiva per il database SQL di** Azure (o l' **indicizzatore SQL di Azure** per brevità) può automatizzare il processo di indicizzazione, il che significa meno codice da scrivere e meno infrastruttura di cui preoccuparsi.
 
 In questo articolo vengono illustrati i meccanismi di uso degli [indicizzatori](search-indexer-overview.md), ma vengono anche descritte le funzionalità disponibili solo con i database SQL di Azure, ad esempio, il rilevamento delle modifiche integrato. 
 
-Oltre ai database SQL di Azure, Ricerca di Azure offre indicizzatori per [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Archivio BLOB di Azure](search-howto-indexing-azure-blob-storage.md) e [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md). Per richiedere il supporto per altre origini dati, inviare commenti e suggerimenti nel [forum relativo a commenti e suggerimenti di Ricerca di Azure](https://feedback.azure.com/forums/263029-azure-search/).
+Oltre ai database SQL di Azure, Azure ricerca cognitiva fornisce indicizzatori per [Azure Cosmos DB](search-howto-index-cosmosdb.md), [archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)e [archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md). Per richiedere supporto per altre origini dati, fornire commenti e suggerimenti nel [Forum di commenti e suggerimenti su Azure ricerca cognitiva](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indicizzatori e origini dati
 
@@ -40,8 +39,8 @@ Un singolo indicizzatore può usare solo una tabella o una vista, ma è possibil
 È possibile impostare e configurare un indicizzatore SQL di Azure usando:
 
 * Importazione guidata dati nel [portale di Azure](https://portal.azure.com)
-* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) Ricerca di Azure
-* [API REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) Ricerca di Azure
+* Azure ricerca cognitiva [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
+* [API REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) di Azure ricerca cognitiva
 
 In questo articolo si userà l'API REST per creare gli **indicizzatori** e le **origini dati**.
 
@@ -51,12 +50,12 @@ In base a diversi fattori relativi ai dati, l'utilizzo dell'indicizzatore di SQL
 | Criteri | Dettagli |
 |----------|---------|
 | I dati provengono da una singola tabella o vista | Se i dati sono sparsi tra più tabelle, è possibile creare un'unica vista dei dati. Tuttavia, se si usa una vista, non sarà possibile usare il rilevamento delle modifiche integrato di SQL Server per aggiornare un indice con le modifiche incrementali. Per altre informazioni, vedere [Acquisizione delle righe modificate ed eliminate](#CaptureChangedRows) di seguito. |
-| Tipi di dati compatibili | Nell'indice di Ricerca di Azure è supportata la maggior parte dei tipi SQL, ma non tutti. Per un elenco, vedere [Elenco dei tipi di dati](#TypeMapping). |
+| Tipi di dati compatibili | La maggior parte ma non tutti i tipi SQL sono supportati in un indice ricerca cognitiva di Azure. Per un elenco, vedere [Elenco dei tipi di dati](#TypeMapping). |
 | La sincronizzazione dei dati in tempo reale non è necessaria | Un indicizzatore può reindicizzare la tabella al massimo ogni 5 minuti. Se i dati vengono modificati di frequente ed è necessario riflettere le modifiche nell’indice entro pochi secondi o pochi minuti, è consigliabile usare l'[API REST](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) o [l'SDK .NET](search-import-data-dotnet.md) per eseguire direttamente il push delle righe aggiornate. |
-| L'indicizzazione incrementale è possibile | Se si dispone di un set di dati di grandi dimensioni e si prevede di eseguire l'indicizzatore in una pianificazione, Ricerca di Azure deve essere in grado di identificare in modo efficiente le righe modificate, nuove ed eliminate. L'indicizzazione incrementale è consentito solo se si esegue l'indicizzazione su richiesta, non programmata, o se la si esegue per meno di 100.000 righe. Per altre informazioni, vedere [Acquisizione delle righe modificate ed eliminate](#CaptureChangedRows) di seguito. |
+| L'indicizzazione incrementale è possibile | Se si dispone di un set di dati di grandi dimensioni e si prevede di eseguire l'indicizzatore in base a una pianificazione, Azure ricerca cognitiva deve essere in grado di identificare in modo efficiente le righe nuove, modificate o eliminate. L'indicizzazione incrementale è consentito solo se si esegue l'indicizzazione su richiesta, non programmata, o se la si esegue per meno di 100.000 righe. Per altre informazioni, vedere [Acquisizione delle righe modificate ed eliminate](#CaptureChangedRows) di seguito. |
 
 > [!NOTE] 
-> Ricerca di Azure supporta solo l'autenticazione di SQL Server. Se è necessario il supporto per l'autenticazione della password di Azure Active Directory, votare per questo [suggerimento di UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica).
+> Azure ricerca cognitiva supporta solo l'autenticazione SQL Server. Se è necessario il supporto per l'autenticazione della password di Azure Active Directory, votare per questo [suggerimento di UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica).
 
 ## <a name="create-an-azure-sql-indexer"></a>Creare un indicizzatore SQL di Azure
 
@@ -77,7 +76,7 @@ In base a diversi fattori relativi ai dati, l'utilizzo dell'indicizzatore di SQL
 
    È possibile ottenere la stringa di connessione dal [portale di Azure](https://portal.azure.com). Usare l'opzione `ADO.NET connection string`.
 
-2. Creare un indice di Ricerca di Azure di destinazione, se non ne è già disponibile uno. È possibile creare un indice usando il [portale](https://portal.azure.com) o [l'API Crea indice](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo schema della tabella di origine. Per informazioni dettagliate, vedere [Mapping tra tipi di dati SQL e tipi di dati di Ricerca di Azure](#TypeMapping).
+2. Creare l'indice di Azure ricerca cognitiva di destinazione se non ne è già presente uno. È possibile creare un indice usando il [portale](https://portal.azure.com) o [l'API Crea indice](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo schema della tabella di origine. vedere [mapping tra tipi di dati SQL e ricerca cognitiva di Azure](#TypeMapping).
 
 3. Creare l'indicizzatore assegnandogli un nome e il riferimento all’origine dati e all'indice di destinazione:
 
@@ -158,16 +157,16 @@ Sono disponibili informazioni aggiuntive relative alla risposta [Ottenere lo sta
 
 È richiesto il parametro **interval** . L'intervallo fa riferimento al tempo tra l'inizio di due esecuzioni consecutive dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Il modello è: `P(nD)(T(nH)(nM))`. Esempi: `PT15M` ogni 15 minuti, `PT2H` ogni due ore.
 
-Per altre informazioni sulla definizione delle pianificazioni degli indicizzatori [, vedere come pianificare gli indicizzatori per ricerca di Azure](search-howto-schedule-indexers.md).
+Per ulteriori informazioni sulla definizione delle pianificazioni degli indicizzatori [, vedere How to Schedule Indexers for Azure ricerca cognitiva](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 
 ## <a name="capture-new-changed-and-deleted-rows"></a>Acquisire righe nuove, modificate ed eliminate
 
-Ricerca di Azure usa l'**indicizzazione incrementale** per evitare di reindicizzare l'intera tabella o vista ogni volta che viene eseguito un indicizzatore. Ricerca di Azure offre che due criteri per il rilevamento delle modifiche per supportare l'indicizzazione incrementale. 
+Azure ricerca cognitiva usa l' **indicizzazione incrementale** per evitare di dover reindicizzare l'intera tabella o vista ogni volta che viene eseguito un indicizzatore. Azure ricerca cognitiva fornisce due criteri di rilevamento delle modifiche per supportare l'indicizzazione incrementale. 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>Criteri di rilevamento delle modifiche integrati di SQL
-Se il database SQL supporta il [rilevamento delle modifiche](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), è consigliabile usare i **criteri di rilevamento delle modifiche integrati di SQL**. Questo è il criterio più efficiente. Inoltre consente a Ricerca di Azure di identificare le righe eliminate senza dover aggiungere allo schema una colonna di "eliminazione temporanea" esplicita.
+Se il database SQL supporta il [rilevamento delle modifiche](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), è consigliabile usare i **criteri di rilevamento delle modifiche integrati di SQL**. Questo è il criterio più efficiente. Consente inoltre ad Azure ricerca cognitiva di identificare le righe eliminate senza dover aggiungere alla tabella una colonna "eliminazione temporanea" esplicita.
 
 #### <a name="requirements"></a>Requisiti 
 
@@ -229,7 +228,7 @@ Per usare questo criterio di limite massimo, creare o aggiornare l'origine dati 
     }
 
 > [!WARNING]
-> Se la tabella di origine non dispone di un indice nella colonna del limite massimo, le query usate dall'indicizzatore SQL possono scadere. In particolare, la clausola `ORDER BY [High Water Mark Column]` richiede l'esecuzione efficiente di un indice nel caso in cui la tabella contenga numerose righe.
+> Se la tabella di origine non dispone di un indice nella colonna limite massimo, è possibile che si verifichi il timeout delle query utilizzate dall'indicizzatore SQL. In particolare, la clausola `ORDER BY [High Water Mark Column]` richiede che un indice venga eseguito in modo efficiente quando la tabella contiene molte righe.
 >
 >
 
@@ -250,9 +249,9 @@ La clausola `ORDER BY [High Water Mark Column]` può anche essere disabilitata. 
     }
 
 ### <a name="soft-delete-column-deletion-detection-policy"></a>Criteri di rilevamento eliminazione colonna di eliminazione temporanea
-Quando le righe vengono eliminate dalla tabella di origine, è probabile che si desideri eliminarle anche dall’indice di ricerca. Se si utilizzano i criteri di rilevamento delle modifiche integrati di SQL, questa operazione è automatica. Tuttavia, i criteri di rilevamento delle modifiche limite massimo non sono di supporto all’utente con le righe eliminate. Cosa fare?
+Quando le righe vengono eliminate dalla tabella di origine, è probabile che si desideri eliminarle anche dall’indice di ricerca. Se si utilizzano i criteri di rilevamento delle modifiche integrati di SQL, questa operazione è automatica. Tuttavia, i criteri di rilevamento delle modifiche limite massimo non sono di supporto all’utente con le righe eliminate. Come fare?
 
-Se le righe vengono rimosse fisicamente dalla tabella, la Ricerca di Azure non può dedurre in alcun modo la presenza di record che non esistono più.  Tuttavia, è possibile usare la tecnica di "eliminazione temporanea" per eliminare in modo logico le righe senza rimuoverle dalla tabella. Aggiungere una colonna alla tabella o alla vista e contrassegnare le righe come eliminate tramite la colonna.
+Se le righe vengono rimosse fisicamente dalla tabella, Azure ricerca cognitiva non ha alcun modo per dedurre la presenza di record che non esistono più.  Tuttavia, è possibile usare la tecnica di "eliminazione temporanea" per eliminare in modo logico le righe senza rimuoverle dalla tabella. Aggiungere una colonna alla tabella o alla vista e contrassegnare le righe come eliminate tramite la colonna.
 
 Quando si utilizza la tecnica dell’eliminazione temporanea, è possibile specificare la modalità di eliminazione temporanea come segue se si crea o si aggiorna l’origine dati:
 
@@ -269,25 +268,25 @@ Quando si utilizza la tecnica dell’eliminazione temporanea, è possibile speci
 
 <a name="TypeMapping"></a>
 
-## <a name="mapping-between-sql-and-azure-search-data-types"></a>Mapping tra tipi di dati SQL e tipi di dati di Ricerca di Azure
+## <a name="mapping-between-sql-and-azure-cognitive-search-data-types"></a>Mapping tra tipi di dati SQL e ricerca cognitiva di Azure
 | Tipo di dati SQL | Tipi di campi dell'indice di destinazione consentiti | Note |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
 | bigint |Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
-| smallmoney, money decimal numeric |Edm.String |Ricerca di Azure non supporta la conversione di tipi decimali in Edm.Double, perché in tal caso si perderebbe la precisione |
+| smallmoney, money decimal numeric |Edm.String |Il ricerca cognitiva di Azure non supporta la conversione di tipi decimali in EDM. Double perché questo potrebbe perdere la precisione |
 | char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |Una stringa SQL può essere usata per popolare un campo Collection(Edm.String) se la stringa rappresenta una matrice JSON di stringhe: `["red", "white", "blue"]` |
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | geography |Edm.GeographyPoint |Sono supportate solo le istanze geografiche di tipo POINT con SRID 4326 (ossia l'impostazione predefinita) |
 | rowversion |N/D |Le colonne di versione di riga non possono essere archiviate nell'indice di ricerca, ma possono essere usate per il rilevamento modifiche |
-| time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/D |Non supportate |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/D |Supporto non disponibile |
 
 ## <a name="configuration-settings"></a>Impostazioni di configurazione
 L'indicizzatore SQL espone diverse impostazioni di configurazione:
 
-| Impostazione | Tipo di dati | Scopo | Valore predefinito |
+| Impostazione | Tipo di dati | Finalità | Valore predefinito |
 | --- | --- | --- | --- |
 | queryTimeout |string |Imposta il timeout per l'esecuzione di una query SQL |5 minuti ("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |Fa in modo che la query SQL usata dai criteri di limite massimo ometta la clausola ORDER BY. Vedere [Criteri di limite massimo](#HighWaterMarkPolicy) |false |
@@ -300,15 +299,15 @@ Queste impostazioni vengono usate nell'oggetto `parameters.configuration` nella 
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>FAQ
 
 **D: Posso usare l'indicizzatore di Azure SQL con i database SQL in esecuzione sulle macchine virtuali IaaS in Azure?**
 
-Sì. Tuttavia, è necessario consentire al servizio di ricerca di connettersi al database. Per altre informazioni, vedere l'articolo [Configurare una connessione da un indicizzatore di Ricerca di Azure a SQL Server in una VM Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) .
+Sì. Tuttavia, è necessario consentire al servizio di ricerca di connettersi al database. Per altre informazioni, vedere [configurare una connessione da un indicizzatore di azure ricerca cognitiva per SQL Server in una macchina virtuale di Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
 **D: Posso usare l'indicizzatore di Azure SQL con i database SQL in esecuzione locale?**
 
-Non direttamente. La connessione diretta non è consigliata né supportata, in quanto richiederebbe l’apertura dei database al traffico Internet. I clienti hanno avuto esito positivo in questo scenario grazie all'uso delle tecnologie bridge come Azure Data Factory. Per altre informazioni vedere [Push dei dati in un indice di Ricerca di Azure con Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
+Non direttamente. La connessione diretta non è consigliata né supportata, in quanto richiederebbe l’apertura dei database al traffico Internet. I clienti hanno avuto esito positivo in questo scenario grazie all'uso delle tecnologie bridge come Azure Data Factory. Per altre informazioni, vedere [eseguire il push dei dati in un indice di ricerca cognitiva di Azure usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
 
 **D: Posso usare l'indicizzatore di Azure SQL con database diversi da SQL Server in esecuzione in IaaS in Azure?**
 
@@ -318,15 +317,15 @@ No. Questo scenario non è supportato, in quanto non è stato eseguito il test d
 
 Sì. Tuttavia, è possibile eseguire un solo indicizzatore per volta in un nodo. Se è necessario eseguire più indicizzatori contemporaneamente, considerare il ridimensionamento del servizio di ricerca a più unità di ricerca.
 
-**D: L'esecuzione di un indicizzatore influisce sul carico di lavoro della query?**
+**D: L’esecuzione di un indicizzatore influisce sul carico di lavoro della query?**
 
 Sì. L'indicizzatore viene eseguito in uno dei nodi del servizio di ricerca e le risorse di tale nodo vengono condivise tra l'indicizzazione e la gestione del traffico di query e altre richieste API. Se si eseguono un'indicizzazione e carichi di lavoro di query intensivi e si verifica una frequenza elevata di errori 503 o un aumento dei tempi di risposta, considerare il [ridimensionamento del servizio di ricerca](search-capacity-planning.md).
 
 **D: Posso usare una replica secondaria in un [cluster di failover](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) come origine dati?**
 
-Dipende. Per l'indicizzazione completa di una tabella o vista, è possibile usare una replica secondaria. 
+Dipende, Per l'indicizzazione completa di una tabella o vista, è possibile usare una replica secondaria. 
 
-Per l'indicizzazione incrementale, Ricerca di Azure supporta due criteri per il rilevamento delle modifiche: Limite massimo e rilevamento delle modifiche integrato in SQL.
+Per l'indicizzazione incrementale, Azure ricerca cognitiva supporta due criteri di rilevamento delle modifiche: rilevamento delle modifiche integrato di SQL e limite massimo.
 
 Nelle repliche di sola lettura il database SQL non supporta il rilevamento delle modifiche integrato. Pertanto, è necessario usare il criterio del livello più alto. 
 
@@ -340,6 +339,6 @@ Se si tenta di usare rowversion su una replica di sola lettura, si visualizzerà
 
 Non è consigliabile. Solo **rowversion** consente una sincronizzazione dei dati affidabile. Tuttavia, a seconda della logica dell'applicazione, potrebbe essere sicuro:
 
-+ Accertarsi che, durante l'esecuzione dell'indicizzatore, non siano presenti transazioni in sospeso nella tabella che si sta indicizzando. Ad esempio, tutti gli aggiornamenti della tabella vengono eseguiti come batch in una pianificazione e la pianificazione dell'indicizzatore di Ricerca di Azure è impostato per evitare la sovrapposizione con la pianificazione dell'aggiornamento della tabella.  
++ È possibile assicurarsi che durante l'esecuzione dell'indicizzatore non siano presenti transazioni in attesa nella tabella da indicizzare. ad esempio, tutti gli aggiornamenti delle tabelle vengono eseguiti come batch in base a una pianificazione e la pianificazione dell'indicizzatore ricerca cognitiva di Azure è impostata in modo da evitare sovrapposizioni con la tabella pianificazione degli aggiornamenti).  
 
 + Eseguire periodicamente una reindicizzazione completa per prelevare le righe mancanti. 

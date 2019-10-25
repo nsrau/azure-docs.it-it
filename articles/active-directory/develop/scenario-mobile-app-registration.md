@@ -1,5 +1,6 @@
 ---
-title: App per dispositivi mobili che chiama le API Web-configurazione del codice dell'app | Piattaforma di identità Microsoft
+title: App per dispositivi mobili che chiama le API Web-configurazione del codice dell'app
+titleSuffix: Microsoft identity platform
 description: Informazioni su come creare un'app per dispositivi mobili che chiama le API Web (configurazione del codice dell'app)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bebaa5d35876d562e567a8398cc7a9ce7e6f488
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 5f55e73fa1a73908d7e77bacc6af24ea1a40ba92
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413590"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803731"
 ---
 # <a name="mobile-app-that-calls-web-apis---app-registration"></a>App per dispositivi mobili che chiama le API Web-registrazione app
 
@@ -48,21 +49,21 @@ Per un quadro generale, vedere [scenari e flussi di autenticazione supportati](a
 
 Quando si compila un'app per dispositivi mobili usando l'autenticazione interattiva, il passaggio di registrazione più critico è l'URI di reindirizzamento. Questa impostazione può essere configurata tramite la [configurazione della piattaforma nel pannello autenticazione](https://aka.ms/MobileAppReg).
 
-Questa esperienza consente all'app di ottenere l'accesso Single Sign-on (SSO) tramite il Microsoft Authenticator (e Portale aziendale Intune in Android), oltre a supportare i criteri di gestione dei dispositivi.
+Questa esperienza consente all'app di ottenere Single Sign-On (SSO) tramite i Microsoft Authenticator (e Portale aziendale Intune in Android), oltre a supportare i criteri di gestione dei dispositivi.
 
 Si noti che nel portale di registrazione delle app è disponibile un'esperienza di anteprima che consente di calcolare l'URI di risposta negoziato per le applicazioni iOS e Android:
 
-1. Nella registrazione dell'app scegliere **autenticazione** e selezione **prova la nuova immagine dell'esperienza**
-   ![](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
+1. Nella registrazione dell'app scegliere **autenticazione** e selezione **prova la nuova esperienza**
+   ![immagine](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
-2. Selezionare **Aggiungi**
-   immagine della piattaforma![](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
+2. Selezionare **Aggiungi piattaforma**
+   ![immagine](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
-3. Quando l'elenco delle piattaforme è supportato, selezionare l'immagine **iOS**
-   ![](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
+3. Quando l'elenco delle piattaforme è supportato, selezionare **iOS**
+   ![immagine](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-4. Immettere l'ID bundle come richiesto e quindi premere **registra**
-   ![immagine](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
+4. Immettere l'ID bundle come richiesto e quindi premere **Register**
+   ![image](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
 5. L'URI di reindirizzamento viene calcolato per l'utente.
    ![image](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
@@ -70,14 +71,14 @@ Si noti che nel portale di registrazione delle app è disponibile un'esperienza 
 Se si preferisce configurare manualmente l'URI di reindirizzamento, è possibile farlo tramite il manifesto dell'applicazione. Il formato consigliato è il seguente:
 
 - ***iOS***: `msauth.<BUNDLE_ID>://auth` (ad esempio "msauth. com. impresa. AppName://auth")
-- ***Android***:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+- ***Android***: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - L'hash della firma Android può essere generato usando le chiavi di rilascio o di debug tramite il comando di chiave.
 
 ### <a name="username-password"></a>Password nome utente
 
 Se l'app usa solo nome utente/password, non è necessario registrare un URI di reindirizzamento per l'applicazione. Questo flusso esegue effettivamente una round trip all'endpoint Microsoft Identity Platform 2.0 e l'applicazione non verrà richiamata su un URI specifico. Tuttavia, è necessario esprimere che l'applicazione è un'applicazione client pubblica. Questa configurazione viene eseguita selezionando la sezione **Authentication (autenticazione** ) per l'applicazione e nella **sottosezione impostazioni avanzate** , scegliere **Sì**, per l'applicazione question **treat come client pubblico** (nell' **impostazione predefinita paragrafo tipo client** )
 
-## <a name="api-permissions"></a>Autorizzazioni API
+## <a name="api-permissions"></a>Autorizzazioni delle API
 
 Le applicazioni per dispositivi mobili chiamano le API per conto dell'utente che ha eseguito l'accesso. L'app deve richiedere autorizzazioni delegate, denominate anche ambiti. A seconda dell'esperienza desiderata, questa operazione può essere eseguita in modo statico tramite il portale di Azure o dinamicamente in fase di esecuzione. La registrazione statica delle autorizzazioni consente agli amministratori di approvare facilmente l'app ed è consigliata.
 

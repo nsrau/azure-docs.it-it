@@ -13,16 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: fc8cc4834997033203376cd33670cc907e2911e7
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 3fdac123ee7bda9d91d96940aebd6bddf4ea00f8
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170288"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790890"
 ---
 # <a name="generic-performance-troubleshooting-for-azure-virtual-machine-running-linux-or-windows"></a>Risoluzione dei problemi di prestazioni generici per macchine virtuali di Azure che eseguono Linux o Windows
 
-Questo articolo descrive la risoluzione dei problemi di prestazioni generiche della macchina virtuale (VM) tramite il monitoraggio e l'osservazione dei colli di bottiglia e fornisce la possibile correzione per i problemi che possono verificarsi.
+Questo articolo descrive la risoluzione dei problemi di prestazioni generiche della macchina virtuale (VM) tramite il monitoraggio e l'osservazione dei colli di bottiglia e fornisce la possibile correzione per i problemi che possono verificarsi. Oltre al monitoraggio, è anche possibile usare Perfinsights che può fornire un report con le procedure consigliate e i colli di bottiglia delle chiavi per l'IO/CPU/memoria. Perfinsights è disponibile per le macchine virtuali [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) e [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) in Azure.
+
+In questo articolo viene illustrato come usare il monitoraggio per diagnosticare i colli di bottiglia delle prestazioni.
 
 ## <a name="enabling-monitoring"></a>Abilitazione del monitoraggio
 
@@ -34,32 +36,55 @@ Per monitorare la macchina virtuale Guest, usare il monitoraggio delle VM di Azu
  
 ### <a name="enable-vm-diagnostics-through-microsoft-azure-portal"></a>Abilitare la diagnostica delle macchine virtuali tramite Microsoft portale di Azure
 
-Per abilitare la diagnostica della macchina virtuale, passare alla macchina virtuale, fare clic su **Impostazioni**e quindi fare clic su **diagnostica**.
+Per abilitare la diagnostica della macchina virtuale:
 
-![Fare clic su impostazioni, quindi su diagnostica](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
- 
+1. Passa alla macchina virtuale
+2. Fare clic su **impostazioni di diagnostica**
+3. Selezionare l'account di archiviazione e fare clic su **Abilita monitoraggio a livello di Guest**.
+
+   ![Fare clic su impostazioni, quindi su diagnostica](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
+
+È possibile controllare l'account di archiviazione usato per la configurazione della diagnostica dalla scheda **agente** in **impostazioni di diagnostica**.
+
+![Verifica account di archiviazione](media/troubleshoot-performance-virtual-machine-linux-windows/3-check-storage-account.png)
+
 ### <a name="enable-storage-account-diagnostics-through-azure-portal"></a>Abilitare la diagnostica dell'account di archiviazione tramite portale di Azure
 
-Per prima cosa, identificare l'account di archiviazione (o gli account) usato dalla VM selezionando la macchina virtuale. Fare clic su **Impostazioni**e quindi su **dischi**:
+L'archiviazione è un livello molto importante quando si prevede di analizzare le prestazioni di i/o per una macchina virtuale in Azure. Per la metrica relativa all'archiviazione è necessario abilitare la diagnostica come passaggio aggiuntivo. Questa operazione può anche essere abilitata se si desidera analizzare solo i contatori correlati all'archiviazione.
 
-![Fare clic su impostazioni, quindi su dischi](media/troubleshoot-performance-virtual-machine-linux-windows/3-storage-disks-disks-selection.png)
+1. Identificare l'account di archiviazione (o gli account) usato dalla VM selezionando la macchina virtuale. Fare clic su **Impostazioni**e quindi su **dischi**:
 
-Nel portale passare all'account di archiviazione (o agli account) per la macchina virtuale ed eseguire i passaggi seguenti:
+   ![Fare clic su impostazioni, quindi su dischi](media/troubleshoot-performance-virtual-machine-linux-windows/4-storage-disks-disks-selection.png)
 
-![Selezionare le metriche BLOB](media/troubleshoot-performance-virtual-machine-linux-windows/4-select-blob-metrics.png)
- 
-1. Selezionare **tutte le impostazioni**.
-2. Attivare la diagnostica.
-3. Selezionare *metrica *BLOB** * e impostare conservazione su **30** giorni.
-4. Salvare le modifiche.
+2. Nel portale passare all'account di archiviazione (o agli account) per la macchina virtuale ed eseguire i passaggi seguenti:
+
+   1. Fare clic su Panoramica per l'account di archiviazione trovato nel passaggio precedente.
+   2. Verranno visualizzate le metriche predefinite. 
+
+    ![Metriche predefinite](media/troubleshoot-performance-virtual-machine-linux-windows/5-default-metrics.png)
+
+3. Fare clic su una delle metriche, che mostra un altro pannello con più opzioni per la configurazione e l'aggiunta di metriche.
+
+   ![Aggiungi Metriche](media/troubleshoot-performance-virtual-machine-linux-windows/6-add-metrics.png)
+
+Per configurare queste opzioni:
+
+1.  Selezionare **Metriche**.
+2.  Selezionare la **risorsa** (account di archiviazione).
+3.  Selezionare lo **spazio dei nomi**
+4.  Selezionare **metrica**.
+5.  Consente di selezionare il tipo di **aggregazione**
+6.  È possibile aggiungere questa visualizzazione al dashboard.
 
 ## <a name="observing-bottlenecks"></a>Osservazione di colli di bottiglia
+
+Una volta completato il processo di configurazione iniziale per le metriche necessarie e dopo aver abilitato la diagnostica per la macchina virtuale e l'account di archiviazione correlato, è possibile passare alla fase di analisi.
 
 ### <a name="accessing-the-monitoring"></a>Accesso al monitoraggio
 
 Selezionare la macchina virtuale di Azure che si vuole analizzare e selezionare **monitoraggio**.
 
-![Seleziona monitoraggio](media/troubleshoot-performance-virtual-machine-linux-windows/5-observe-monitoring.png)
+![Seleziona monitoraggio](media/troubleshoot-performance-virtual-machine-linux-windows/7-select-monitoring.png)
  
 ### <a name="timelines-of-observation"></a>Sequenze temporali di osservazione
 
@@ -67,11 +92,11 @@ Per individuare eventuali colli di bottiglia delle risorse, esaminare i dati. Se
 
 ### <a name="check-for-cpu-bottleneck"></a>Verificare il collo di bottiglia della CPU
 
-![Verificare il collo di bottiglia della CPU](media/troubleshoot-performance-virtual-machine-linux-windows/6-cpu-bottleneck-time-range.png)
+![Verificare il collo di bottiglia della CPU](media/troubleshoot-performance-virtual-machine-linux-windows/8-cpu-bottleneck-time-range.png)
 
 1. Modificare il grafico.
 2. Impostare l'intervallo di tempo.
-3. È quindi necessario aggiungere il contatore: Percentuale CPU sistema operativo guest
+3. È quindi necessario aggiungere nel contatore: percentuale CPU sistema operativo guest
 4. Salvare.
 
 ### <a name="cpu-observe-trends"></a>Tendenze di osservazione CPU
@@ -95,6 +120,8 @@ Se l'applicazione o il processo non è in esecuzione con il livello di prestazio
 
 Se la macchina virtuale è stata aumentata e la CPU è ancora in esecuzione 95%, determinare se questa impostazione offre prestazioni migliori o una velocità effettiva delle applicazioni superiore a un livello accettabile. In caso contrario, risolvere i problemi relativi a application\process. singoli
 
+È possibile usare Perfinsights per [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) o [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) per analizzare il processo che determina il consumo della CPU. 
+
 ## <a name="check-for-memory-bottleneck"></a>Verifica il collo di bottiglia della memoria
 
 Per visualizzare le metriche:
@@ -112,7 +139,7 @@ Picco e costante/costante consumo costante: un utilizzo elevato della memoria po
 
 Aumento del consumo costante: un'applicazione possibile "riscaldamento", questo consumo è comune tra l'avvio dei motori di database. Tuttavia, potrebbe anche essere un segno di una perdita di memoria in un'applicazione. Identificare l'applicazione e comprendere se il comportamento è previsto.
 
-Utilizzo file di paging o di scambio: controllare se si sta utilizzando il file di paging di Windows (che si trova nel file di scambio D: \) o Linux (che si trova su `/dev/sdb`). Se non è presente alcun elemento in questi volumi, ad eccezione di questi file, verificare la presenza di letture/scritture elevate su tali dischi. Questo problema è indicativo di condizioni di memoria insufficiente.
+Utilizzo file di paging o di scambio: controllare se si sta utilizzando il file di paging di Windows (che si trova nel file di scambio D:\) o Linux (che si trova in `/dev/sdb`). Se non è presente alcun elemento in questi volumi, ad eccezione di questi file, verificare la presenza di letture/scritture elevate su tali dischi. Questo problema è indicativo di condizioni di memoria insufficiente.
 
 ### <a name="high-memory-utilization-remediation"></a>Correzione dell'utilizzo elevato della memoria
 
@@ -124,9 +151,13 @@ Per risolvere un utilizzo elevato della memoria, eseguire una delle attività se
 
 Se dopo l'aggiornamento a una macchina virtuale di dimensioni maggiori si scopre che è ancora presente un aumento costante costante fino al 100%, identificare l'applicazione, il processo e la risoluzione dei problemi.
 
+È possibile usare Perfinsights per [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) o [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) per analizzare il processo che determina il consumo di memoria. 
+
 ## <a name="check-for-disk-bottleneck"></a>Verifica il collo di bottiglia del disco
 
 Per controllare il sottosistema di archiviazione per la macchina virtuale, controllare la diagnostica a livello di macchina virtuale di Azure usando i contatori nella diagnostica della macchina virtuale e anche la diagnostica dell'account di archiviazione.
+
+Per la risoluzione dei problemi specifici della macchina virtuale, è possibile usare Perfinsights per [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) o [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux), che consente di analizzare il processo che guida i/o. 
 
 Si noti che non sono presenti contatori per gli account di archiviazione Premium e con ridondanza della zona. Per i problemi correlati a questi contatori, generare un caso di supporto.
 
@@ -134,7 +165,7 @@ Si noti che non sono presenti contatori per gli account di archiviazione Premium
 
 Per usare gli elementi seguenti, passare all'account di archiviazione per la macchina virtuale nel portale:
 
-![Visualizzazione della diagnostica dell'account di archiviazione nel monitoraggio](media/troubleshoot-performance-virtual-machine-linux-windows/7-virtual-machine-storage-account.png)
+![Visualizzazione della diagnostica dell'account di archiviazione nel monitoraggio](media/troubleshoot-performance-virtual-machine-linux-windows/9-virtual-machine-storage-account.png)
 
 1. Modificare il grafico di monitoraggio.
 2. Impostare l'intervallo di tempo.
@@ -175,6 +206,10 @@ Con questa metrica non è possibile stabilire quale BLOB causa la limitazione de
 
 Per determinare se si sta raggiungendo il limite di IOPS, passare alla diagnostica dell'account di archiviazione e controllare TotalRequests, cercando di vedere se si sta per raggiungere 20000 TotalRequests. Identificare una modifica nel modello, se il limite viene visualizzato per la prima volta o se questo limite si verifica a un certo momento.
 
+Con le nuove offerte di disco in archiviazione standard, i limiti di IOPS e velocità effettiva possono variare, ma il limite cumulativo dell'account di archiviazione standard è 20000 IOPS (archiviazione Premium presenta limiti diversi a livello di account o di disco). Scopri di più sulle diverse offerte di dischi di archiviazione standard e sui limiti per disco:
+
+* [Obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali in Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
+
 #### <a name="references"></a>Riferimenti
 
 * [Obiettivi di scalabilità per i dischi delle macchine virtuali](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks)
@@ -187,7 +222,9 @@ Controllare TotalIngress e TotalEgress in base ai limiti di ingresso e uscita pe
 
 Controllare i limiti di velocità effettiva dei dischi rigidi virtuali collegati alla macchina virtuale. Aggiungere il disco della metrica VM lettura e scrittura.
 
-Ogni disco rigido virtuale può supportare fino a 60 MB/s (IOPS non sono esposti per ogni disco rigido virtuale). Esaminare i dati per verificare se si stanno raggiungendo i limiti della velocità effettiva combinata di MB dei dischi rigidi virtuali a livello di macchina virtuale usando la lettura e la scrittura su disco, quindi ottimizzare la configurazione dell'archiviazione delle macchine virtuali per ridimensionare i limiti del disco rigido virtuale precedenti.
+Le nuove offerte di dischi con archiviazione standard hanno limiti di IOPS e velocità effettiva diversi (i IOPS non sono esposti per ogni disco rigido virtuale). Esaminare i dati per verificare se si stanno raggiungendo i limiti della velocità effettiva combinata di MB dei dischi rigidi virtuali a livello di macchina virtuale usando la lettura e la scrittura su disco, quindi ottimizzare la configurazione dell'archiviazione delle macchine virtuali per ridimensionare i limiti del disco rigido virtuale precedenti. Scopri di più sulle diverse offerte di dischi di archiviazione standard e sui limiti per disco:
+
+* [Obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali in Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>Monitoraggio e aggiornamento latenza elevata del disco
 
@@ -215,4 +252,4 @@ Questi articoli illustrano gli scenari specifici:
 
 Per ulteriori informazioni in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/).
 
-In alternativa, archiviare un evento imprevisto del supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.
+In alternativa, archiviare un evento imprevisto del supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Richiedi supporto**.

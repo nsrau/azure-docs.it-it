@@ -1,29 +1,29 @@
 ---
-title: Indicizzatori per la ricerca per indicizzazione delle origini dati durante l'indicizzazione - Ricerca di Azure
-description: Effettuare una ricerca per indicizzazione in un database SQL di Azure, in Azure Cosmos DB o in Archiviazione di Azure per estrarre dati ricercabili e popolare un indice di Ricerca di Azure.
-author: HeidiSteen
+title: Indicizzatori per la ricerca per indicizzazione delle origini dati durante l'indicizzazione
+titleSuffix: Azure Cognitive Search
+description: Eseguire la ricerca per indicizzazione di database SQL di Azure, Azure Cosmos DB o archiviazione di Azure per estrarre dati ricercabili e popolare un indice di ricerca cognitiva di Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 55a9e06ad09c4c3635a2925956cac75c24b2c3c6
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 5e5d43909dc0e65c12c053515ba534ce5cfa121f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376390"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793652"
 ---
-# <a name="indexers-in-azure-search"></a>Indicizzatori in Ricerca di Azure
+# <a name="indexers-in-azure-cognitive-search"></a>Indicizzatori in Azure ricerca cognitiva
 
-Un *indicizzatore* in Ricerca di Azure è un crawler che estrae dati e metadati ricercabili da un'origine dati Azure esterna e popola un indice in base a mapping dei campi tra l'indice e l'origine dati dell'utente. Questo approccio viene talvolta definito "modello pull" perché il servizio estrae i dati senza che sia necessario scrivere codice che aggiunga dati a un indice.
+Un *indicizzatore* in ricerca cognitiva di Azure è un crawler che estrae i dati e i metadati ricercabili da un'origine dati di Azure esterna e popola un indice in base ai mapping da campo a campo tra l'indice e l'origine dati. Questo approccio viene talvolta definito "modello pull" perché il servizio estrae i dati senza che sia necessario scrivere codice che aggiunga dati a un indice.
 
 Gli indicizzatori sono basati su piattaforme o tipi di origini dati, con singoli indicizzatori per SQL Server in Azure, Cosmos DB, archiviazione tabelle di Azure e archiviazione BLOB. Gli indicizzatori di archiviazione BLOB hanno proprietà aggiuntive specifiche per i tipi di contenuto BLOB.
 
 È possibile usare un indicizzatore come unico mezzo per l'inserimento di dati o una combinazione di tecniche, tra cui l'uso di un indicizzatore per caricare solo alcuni dei campi nell'indice.
 
-È possibile eseguire gli indicizzatori su richiesta o in base a una pianificazione di aggiornamento dati ricorrente che viene eseguita ogni cinque minuti. Aggiornamenti più frequenti richiedono un modello push che aggiorna contemporaneamente i dati sia in Ricerca di Azure che nell'origine dati esterna.
+È possibile eseguire gli indicizzatori su richiesta o in base a una pianificazione di aggiornamento dati ricorrente che viene eseguita ogni cinque minuti. Gli aggiornamenti più frequenti richiedono un modello push che Aggiorna contemporaneamente i dati sia in ricerca cognitiva di Azure che nell'origine dati esterna.
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>Approcci per la creazione e la gestione degli indicizzatori
 
@@ -61,13 +61,13 @@ Un indicizzatore ottiene una connessione all'origine dati da un oggetto *origine
 Le origini dati vengono configurate e gestite indipendentemente dagli indicizzatori che le usano. Ciò significa che un'origine dati può essere usata da più indicizzatori per caricare più di un indice alla volta.
 
 ### <a name="step-2-create-an-index"></a>Passaggio 2: Creare un indice
-Un indicizzatore consente di automatizzare alcune attività relative all'inserimento dei dati, ma la creazione di un indice in genere non fa parte di esse. Uno dei prerequisiti prevede che sia disponibile un indice predefinito con campi corrispondenti a quelli dell'origine dati esterna. I campi devono corrispondere per nome e tipo di dati. Per altre informazioni su come strutturare un indice, vedere [Creare l'indice (API REST di Ricerca di Azure)](https://docs.microsoft.com/rest/api/searchservice/Create-Index) o [classe Index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index). Per una guida alle associazioni dei campi, vedere [Mapping dei campi negli indicizzatori di Ricerca di Azure](search-indexer-field-mappings.md).
+Un indicizzatore consente di automatizzare alcune attività relative all'inserimento dei dati, ma la creazione di un indice in genere non fa parte di esse. Uno dei prerequisiti prevede che sia disponibile un indice predefinito con campi corrispondenti a quelli dell'origine dati esterna. I campi devono corrispondere per nome e tipo di dati. Per altre informazioni sulla strutturazione di un indice, vedere [creare un indice (API REST di Azure ricerca cognitiva) o una](https://docs.microsoft.com/rest/api/searchservice/Create-Index) [classe di indice](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index). Per informazioni sulle associazioni di campi, vedere [mapping dei campi in Azure ricerca cognitiva Indexers](search-indexer-field-mappings.md).
 
 > [!Tip]
 > Anche se gli indicizzatori non possono generare automaticamente un indice, la procedura guidata **Importa dati** nel portale può risultare utile. Nella maggior parte dei casi, la procedura guidata può dedurre uno schema di indice dai metadati esistenti nell'origine, presentando uno schema dell'indice preliminare che è possibile modificare inline mentre la procedura guidata è attiva. Dopo la creazione dell'indice nel servizio, le ulteriori modifiche nel portale sono per lo più limitate all'aggiunta di nuovi campi. Prendere in considerazione la procedura guidata per la creazione, ma non per la revisione di un indice. Per un'esperienza di apprendimento pratico, seguire le indicazioni della [procedura dettagliata per il portale](search-get-started-portal.md).
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>Passaggio 3: Creare e pianificare l'indicizzatore
-La definizione dell'indicizzatore è un costrutto che riunisce tutti gli elementi correlati all'inserimento di dati. Gli elementi necessari includono un'origine dati e un indice. Gli elementi facoltativi includono una pianificazione e mapping dei campi. Il mapping dei campi è facoltativo solo se i campi di origine e di indice corrispondono chiaramente. Un indicizzatore può fare riferimento a un'origine dati di un altro servizio, purché tale origine dati appartenga alla stessa sottoscrizione. Per altre informazioni su come strutturare un indicizzatore, vedere [Creare un indicizzatore (API REST di Ricerca di Azure)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
+La definizione dell'indicizzatore è un costrutto che riunisce tutti gli elementi correlati all'inserimento di dati. Gli elementi necessari includono un'origine dati e un indice. Gli elementi facoltativi includono una pianificazione e mapping dei campi. Il mapping dei campi è facoltativo solo se i campi di origine e di indice corrispondono chiaramente. Un indicizzatore può fare riferimento a un'origine dati di un altro servizio, purché tale origine dati appartenga alla stessa sottoscrizione. Per altre informazioni sulla struttura di un indicizzatore, vedere [creare un indicizzatore (API REST di Azure ricerca cognitiva)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
 <a id="RunIndexer"></a>
 
@@ -130,5 +130,5 @@ Dopo aver acquisito queste informazioni di base, il passaggio successivo prevede
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Archivio BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
 * [Archivio tabelle di Azure](search-howto-indexing-azure-tables.md)
-* [Indicizzazione di BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure](search-howto-index-csv-blobs.md)
-* [Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure](search-howto-index-json-blobs.md)
+* [Indicizzazione di BLOB CSV con l'indicizzatore BLOB di Azure ricerca cognitiva](search-howto-index-csv-blobs.md)
+* [Indicizzazione di BLOB JSON con l'indicizzatore BLOB di Azure ricerca cognitiva](search-howto-index-json-blobs.md)

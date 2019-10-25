@@ -1,24 +1,26 @@
 ---
-title: Indicizzare il contenuto dell'Archiviazione BLOB di Azure per la ricerca full-text - Ricerca di Azure
-description: Informazioni su come indicizzare Archiviazione BLOB di Azure ed estrarre il testo dai documenti con Ricerca di Azure.
-ms.date: 05/02/2019
-author: mgottein
+title: Indicizzare il contenuto dell'archivio BLOB di Azure per la ricerca full-text
+titleSuffix: Azure Cognitive Search
+description: Informazioni su come indicizzare l'archivio BLOB di Azure ed estrarre il testo dai documenti con ricerca cognitiva di Azure.
 manager: nitinme
+author: mgottein
 ms.author: magottei
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: 03f828be603720871672b9b5d90eb87dd283c002
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.date: 11/04/2019
+ms.openlocfilehash: b093525fcabc31074b398444a2fceffd0f6d3493
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842537"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791781"
 ---
-# <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indicizzazione di documenti in Archiviazione BLOB di Azure con Ricerca di Azure
-Questo articolo illustra come usare Ricerca di Azure per indicizzare documenti (ad esempio PD, documenti di Microsoft Office e numerosi altri formati comuni) salvati nell'archivio BLOB di Azure. In primo luogo, vengono illustrate le nozioni di base per l'impostazione e la configurazione di un indicizzatore BLOB. Vengono inoltre descritti in modo più dettagliato i comportamenti e gli scenari che possono verificarsi.
+# <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Come indicizzare i documenti nell'archivio BLOB di Azure con Azure ricerca cognitiva
+
+Questo articolo illustra come usare ricerca cognitiva di Azure per indicizzare i documenti, ad esempio i file PDF, i documenti Microsoft Office e diversi altri formati comuni, archiviati nell'archivio BLOB di Azure. In primo luogo, vengono illustrate le nozioni di base per l'impostazione e la configurazione di un indicizzatore BLOB. Vengono inoltre descritti in modo più dettagliato i comportamenti e gli scenari che possono verificarsi.
+
+<a name="SupportedFormats"></a>
 
 ## <a name="supported-document-formats"></a>Formati di documento supportati
 L'indicizzatore BLOB può estrarre il testo dai formati di documento seguenti:
@@ -28,9 +30,9 @@ L'indicizzatore BLOB può estrarre il testo dai formati di documento seguenti:
 ## <a name="setting-up-blob-indexing"></a>Configurazione dell'indicizzazione BLOB
 È possibile impostare un indicizzatore dell'Archiviazione BLOB di Azure usando:
 
-* [Portale di Azure](https://ms.portal.azure.com)
-* [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) Ricerca di Azure
-* [.NET SDK](https://aka.ms/search-sdk) Ricerca di Azure
+* [Azure portal](https://ms.portal.azure.com)
+* [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) di Azure ricerca cognitiva
+* Azure ricerca cognitiva [.NET SDK](https://aka.ms/search-sdk)
 
 > [!NOTE]
 > Alcune funzionalità (ad esempio, i mapping dei campi) non sono ancora disponibili nel portale e devono essere usate in modo programmatico.
@@ -68,9 +70,9 @@ Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare u
 
 Per specificare le credenziali per il contenitore BLOB, sono disponibili questi modi:
 
-- **Stringa di connessione dell'account di archiviazione per accesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`È possibile ottenere la stringa di connessione dal portale di Azure passando al pannello dell'account di archiviazione > Impostazioni > chiavi (per gli account di archiviazione classici) o Impostazioni > chiavi di accesso (per Azure Resource Manager account di archiviazione).
-- Stringa di connessione della **firma di accesso condiviso dell'account di archiviazione**: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` la firma di accesso condiviso deve avere le autorizzazioni per le operazioni di elenco e lettura per i contenitori e gli oggetti (BLOB).
--  **Firma di accesso condiviso per il contenitore**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` la firma di accesso condiviso deve avere le autorizzazioni per le operazioni di elenco e lettura sul contenitore.
+- **Stringa di connessione dell'account di archiviazione con accesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` è possibile ottenere la stringa di connessione dal portale di Azure passando al pannello dell'account di archiviazione > Impostazioni > chiavi (per gli account di archiviazione classici) o Impostazioni > chiavi di accesso (per Azure Gestione risorse account di archiviazione).
+- **Stringa di connessione della firma di accesso condiviso (SAS) dell'account di archiviazione**: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` la SAS deve avere le autorizzazioni per le operazioni di elenco e lettura per i contenitori e gli oggetti (oggetti binario di grandi dimensioni).
+-  **Firma di accesso condiviso**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`la firma di accesso condiviso (SAS) deve avere le autorizzazioni per le operazioni di elenco e lettura sul contenitore.
 
 Per altre informazioni sulle firme di accesso condiviso per l'archiviazione, vedere [Uso delle firme di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -96,7 +98,7 @@ Di seguito viene illustrato come creare un indice con un campo `content` ricerca
 
 Per altre informazioni sulla creazione di indici, vedere [Creare un indice](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
-### <a name="step-3-create-an-indexer"></a>Passaggio 3: Crea un indicizzatore
+### <a name="step-3-create-an-indexer"></a>Passaggio 3: Creare un indicizzatore
 Un indicizzatore si connette a un'origine dati con un indice di ricerca di destinazione e consente di pianificare l'automatizzazione dell'aggiornamento dei dati.
 
 Dopo aver creato l'indice e l'origine dati, è possibile creare l'indicizzatore:
@@ -116,9 +118,11 @@ Questo indicizzatore verrà eseguito ogni due ore (l'intervallo di pianificazion
 
 Per altre informazioni sull'API di creazione di un indicizzatore, vedere [Creare un indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-Per altre informazioni sulla definizione delle pianificazioni degli indicizzatori [, vedere come pianificare gli indicizzatori per ricerca di Azure](search-howto-schedule-indexers.md).
+Per ulteriori informazioni sulla definizione delle pianificazioni degli indicizzatori [, vedere How to Schedule Indexers for Azure ricerca cognitiva](search-howto-schedule-indexers.md).
 
-## <a name="how-azure-search-indexes-blobs"></a>Indicizzazione dei BLOB con Ricerca di Azure
+<a name="how-azure-search-indexes-blobs"></a>
+
+## <a name="how-azure-cognitive-search-indexes-blobs"></a>Modalità di indicizzazione di BLOB in Azure ricerca cognitiva
 
 A seconda della relativa [configurazione](#PartsOfBlobToIndex), l'indicizzatore BLOB può indicizzare solo i metadati di archiviazione, opzione utile quando si è interessati solo ai metadati e non è necessario indicizzare il contenuto dei BLOB, indicizzare i metadati del contenuto e di archiviazione o indicizzare sia i metadati che il contenuto di testo. Per impostazione predefinita, l'indicizzatore estrae sia i metadati che il contenuto.
 
@@ -130,7 +134,7 @@ A seconda della relativa [configurazione](#PartsOfBlobToIndex), l'indicizzatore 
 * Il contenuto di testo del documento viene estratto in un campo di tipo stringa denominato `content`.
 
 > [!NOTE]
-> Ricerca di Azure limita il testo estratto in base al piano tariffario: 32.000 caratteri per il livello gratuito, 64.000 per il livello Basic e 4 milioni per i livelli Standard, Standard S2 e Standard S3. Un avviso è incluso nella risposta dello stato dell'indicizzatore per i documenti troncati.  
+> Azure ricerca cognitiva limita la quantità di testo da estrarre a seconda del piano tariffario: 32.000 caratteri per il livello gratuito, 64.000 per Basic e 4 milioni per i livelli standard, standard S2 e S3 standard. Un avviso è incluso nella risposta dello stato dell'indicizzatore per i documenti troncati.  
 
 * Le proprietà dei metadati specificate dall'utente eventualmente presenti nel BLOB vengono estratte letteralmente.
 * Le proprietà dei metadati BLOB standard vengono estratte nei campi seguenti:
@@ -138,23 +142,23 @@ A seconda della relativa [configurazione](#PartsOfBlobToIndex), l'indicizzatore 
   * **metadata\_storage\_name** (Edm.String): nome file del BLOB. Se, ad esempio, è presente un BLOB /my-container/my-folder/subfolder/resume.pdf, il valore di questo campo è `resume.pdf`.
   * **metadata\_storage\_path** (Edm.String): URI completo del BLOB, incluso l'account di archiviazione. Ad esempio: `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
   * **metadata\_storage\_content\_type** (Edm.String): tipo di contenuto specificato dal codice usato per caricare il BLOB. Ad esempio `application/octet-stream`.
-  * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset): ultimo timestamp modificato per il BLOB. Ricerca di Azure usa questo timestamp per identificare i BLOB modificati, in modo da evitare di reindicizzare tutto dopo l'indicizzazione iniziale.
+  * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset): ultimo timestamp modificato per il BLOB. Azure ricerca cognitiva usa questo timestamp per identificare i BLOB modificati, in modo da evitare di reindicizzare tutto dopo l'indicizzazione iniziale.
   * **metadata\_storage\_size** (Edm.Int64): dimensioni del BLOB in byte.
   * **metadata\_storage\_content\_md5** (Edm.String): hash MD5 dei contenuti del BLOB, se disponibile.
-  * **metadata\_storage\_sas\_token** (Edm.String): token di firma di accesso condiviso temporaneo che può essere usato dalle[competenze personalizzate](cognitive-search-custom-skill-interface.md) per ottenere l'accesso al BLOB. Questo token non deve essere archiviato per un uso successivo, perché potrebbe scadere.
+  * **metadata\_storage\_sas\_token** (EDM. String): un token di firma di accesso condiviso temporaneo che può essere usato dalle [competenze personalizzate](cognitive-search-custom-skill-interface.md) per ottenere l'accesso al BLOB. Questo token non deve essere archiviato per un uso successivo, perché potrebbe scadere.
 
 * Le proprietà dei metadati specifiche di ogni formato di documento vengono estratte nei campi elencati [qui](#ContentSpecificMetadata).
 
 Non è necessario definire i campi per tutte le proprietà precedenti nell'indice di ricerca, ma solo acquisire le proprietà necessarie per l'applicazione.
 
 > [!NOTE]
-> I nomi dei campi nell'indice esistente saranno spesso diversi da quelli generati durante l'estrazione della documentazione. È possibile usare i **mapping dei campi** per eseguire il mapping dei nomi di proprietà forniti da Ricerca di Azure ai nomi di campo nell'indice di ricerca. Di seguito verrà visualizzato un esempio di mapping dei campi.
+> I nomi dei campi nell'indice esistente saranno spesso diversi da quelli generati durante l'estrazione della documentazione. È possibile usare i **mapping dei campi** per eseguire il mapping dei nomi di proprietà forniti da Azure ricerca cognitiva ai nomi dei campi nell'indice di ricerca. Di seguito verrà visualizzato un esempio di mapping dei campi.
 >
 >
 
 <a name="DocumentKeys"></a>
 ### <a name="defining-document-keys-and-field-mappings"></a>Definizione di chiavi di documento e dei mapping dei campi
-In Ricerca di Azure la chiave del documento identifica un documento in modo univoco. Ogni indice di ricerca deve avere esclusivamente un campo chiave di tipo Edm.String. Il campo chiave è necessario per ogni documento da aggiungere all'indice (è di fatto l'unico campo obbligatorio).  
+In Azure ricerca cognitiva la chiave del documento identifica un documento in modo univoco. Ogni indice di ricerca deve avere esclusivamente un campo chiave di tipo Edm.String. Il campo chiave è necessario per ogni documento da aggiungere all'indice (è di fatto l'unico campo obbligatorio).  
 
 È necessario valutare attentamente di quale campo estratto eseguire il mapping al campo chiave per l'indice. I candidati sono:
 
@@ -163,7 +167,7 @@ In Ricerca di Azure la chiave del documento identifica un documento in modo univ
 * Se nessuna delle opzioni elencate è appropriata, è possibile aggiungere una proprietà di metadati personalizzati ai BLOB. Questa opzione, tuttavia, richiede che il processo di caricamento del BLOB aggiunga la proprietà dei metadati a tutti i BLOB. Poiché la chiave è una proprietà obbligatoria, tutti i BLOB privi di tale proprietà non potranno essere indicizzati.
 
 > [!IMPORTANT]
-> Se non esiste alcun mapping esplicito per il campo chiave nell'indice, Ricerca di Azure usa automaticamente `metadata_storage_path` come chiave e codifica i valori delle chiavi in base 64 (la seconda opzione illustrata sopra).
+> Se non è presente alcun mapping esplicito per il campo chiave nell'indice, Azure ricerca cognitiva usa automaticamente `metadata_storage_path` come chiave e la base 64 codifica i valori di chiave (seconda opzione precedente).
 >
 >
 
@@ -223,7 +227,7 @@ Per unire il tutto, ecco come è possibile aggiungere i mapping di campo e abili
       "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
     }
 
-Se sono presenti entrambi i parametri `indexedFileNameExtensions` e `excludedFileNameExtensions`, Ricerca di Azure esamina in primo luogo `indexedFileNameExtensions`, quindi `excludedFileNameExtensions`. Ciò significa che se la stessa estensione di file è presente in entrambi gli elenchi, verrà esclusa dall'indicizzazione.
+Se sono presenti sia `indexedFileNameExtensions` che `excludedFileNameExtensions` parametri, Azure ricerca cognitiva esamina prima di tutto `indexedFileNameExtensions`, quindi in `excludedFileNameExtensions`. Ciò significa che se la stessa estensione di file è presente in entrambi gli elenchi, verrà esclusa dall'indicizzazione.
 
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Controllo delle parti di BLOB da indicizzare
@@ -232,7 +236,7 @@ Il parametro di configurazione `dataToExtract` permette di controllare quali par
 
 * `storageMetadata`: specifica che vengono indicizzati solo [i metadati specificati dall'utente e le proprietà BLOB standard](../storage/blobs/storage-properties-metadata.md).
 * `allMetadata`: specifica che vengono indicizzati i metadati di archiviazione e i [metadati specifici del tipo di contenuto](#ContentSpecificMetadata) estratti dal contenuto BLOB.
-* `contentAndMetadata`: specifica che vengono indicizzati tutti i metadati e il contenuto di testo estratti dal BLOB. Rappresenta il valore predefinito.
+* `contentAndMetadata`: specifica che vengono indicizzati tutti i metadati e il contenuto di testo estratti dal BLOB. Si tratta del valore predefinito.
 
 Ad esempio, per indicizzare solo i metadati di archiviazione, usare:
 
@@ -268,15 +272,15 @@ Per impostazione predefinita, l'indicizzatore BLOB viene arrestato non appena vi
       "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
     }
 
-Per alcuni BLOB, Ricerca di Azure non è in grado di determinare il tipo di contenuto o di elaborare il documento di un tipo di contenuto altrimenti supportato. Per ignorare la modalità di errore, impostare il parametro di configurazione `failOnUnprocessableDocument` su False:
+Per alcuni BLOB, Azure ricerca cognitiva non è in grado di determinare il tipo di contenuto o non è in grado di elaborare un documento di tipo di contenuto altrimenti supportato. Per ignorare la modalità di errore, impostare il parametro di configurazione `failOnUnprocessableDocument` su False:
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 
-Ricerca di Azure limita le dimensioni dei BLOB indicizzati. Questi limiti sono documentati in [Limiti dei servizi in Ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). I BLOB sovradimensionati vengono gestiti come errori per impostazione predefinita. È comunque possibile indicizzare i metadati di archiviazione dei BLOB sovradimensionati se si imposta il parametro di configurazione `indexStorageMetadataOnlyForOversizedDocuments` su true: 
+Azure ricerca cognitiva limita le dimensioni dei BLOB indicizzati. Questi limiti sono documentati in [limiti di servizio in Azure ricerca cognitiva](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). I BLOB sovradimensionati vengono gestiti come errori per impostazione predefinita. È comunque possibile indicizzare i metadati di archiviazione dei BLOB sovradimensionati se si imposta il parametro di configurazione `indexStorageMetadataOnlyForOversizedDocuments` su true: 
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
-È anche possibile continuare l'indicizzazione se si verificano errori in qualsiasi momento dell'elaborazione, durante l'analisi dei BLOB o durante l'aggiunta di documenti a un indice. Per ignorare un determinato numero di errori, impostare i parametri di configurazione `maxFailedItems` e `maxFailedItemsPerBatch` sui valori desiderati. Esempio:
+È anche possibile continuare l'indicizzazione se si verificano errori in qualsiasi momento dell'elaborazione, durante l'analisi dei BLOB o durante l'aggiunta di documenti a un indice. Per ignorare un determinato numero di errori, impostare i parametri di configurazione `maxFailedItems` e `maxFailedItemsPerBatch` sui valori desiderati. ad esempio:
 
     {
       ... other parts of indexer definition
@@ -291,7 +295,7 @@ Quando si configura un indicizzatore BLOB per l'esecuzione in base a una pianifi
 
 Per supportare l'eliminazione di documenti, usare un approccio di "eliminazione temporanea". Se si eliminano completamente i BLOB, i documenti corrispondenti non verranno rimossi dall'indice della ricerca. Seguire invece questa procedura:  
 
-1. Aggiungere al BLOB una proprietà di metadati personalizzata per indicare a Ricerca di Azure che viene eliminato in modo logico
+1. Aggiungere una proprietà dei metadati personalizzata al BLOB per indicare ad Azure ricerca cognitiva che è stata eliminata logicamente
 2. Configurare un criterio di rilevamento eliminazione temporanea nell'origine dati
 3. Dopo che l'indicizzatore ha elaborato il BLOB (come indicato dall'API di stato dell'indicizzatore), è possibile eliminare fisicamente il BLOB
 
@@ -318,7 +322,7 @@ Il criterio illustrato sotto, ad esempio, considera l'eliminazione di un BLOB se
 L'indicizzazione di BLOB può richiedere molto tempo. Quando si hanno milioni di BLOB da indicizzare, è possibile velocizzare l'operazione partizionando i dati e usando più indicizzatori per elaborare i dati in parallelo. A tale scopo, è possibile procedere come segue:
 
 - Partizionare i dati in più contenitori BLOB o cartelle virtuali.
-- Impostare diverse origini dati di Ricerca di Azure, una per ogni contenitore o cartella. Per puntare a una cartella BLOB, usare il parametro `query`:
+- Configurare diverse origini dati di Azure ricerca cognitiva, una per ogni contenitore o cartella. Per puntare a una cartella BLOB, usare il parametro `query`:
 
     ```
     {
@@ -331,13 +335,13 @@ L'indicizzazione di BLOB può richiedere molto tempo. Quando si hanno milioni di
 
 - Creare un indicizzatore corrispondente per ogni origine dati. Tutti gli indicizzatori possono puntare allo stesso indice di ricerca di destinazione.  
 
-- Un'unità di ricerca del servizio permette di eseguire un indicizzatore in qualsiasi momento. La creazione di più indicizzatori come descritto in precedenza è utile solo se effettivamente eseguiti in parallelo. Per eseguire più indicizzatori in parallelo, scalare orizzontalmente il servizio di ricerca mediante la creazione di un numero appropriato di partizioni e repliche. Ad esempio, se il servizio di ricerca dispone di 6 unità di ricerca (ad esempio 2 partizioni x 3 repliche), con 6 indicizzatori che possono quindi essere eseguiti contemporaneamente, viene determinato un aumento della velocità effettiva di indicizzazione pari a sei volte. Per ulteriori informazioni sulla scalabilità e la pianificazione della capacità, vedere [Ridimensionare i livelli di risorse per i carichi di lavoro di indicizzazione e query in Ricerca di Azure](search-capacity-planning.md).
+- Un'unità di ricerca del servizio permette di eseguire un indicizzatore in qualsiasi momento. La creazione di più indicizzatori come descritto in precedenza è utile solo se effettivamente eseguiti in parallelo. Per eseguire più indicizzatori in parallelo, scalare orizzontalmente il servizio di ricerca mediante la creazione di un numero appropriato di partizioni e repliche. Ad esempio, se il servizio di ricerca dispone di 6 unità di ricerca (ad esempio 2 partizioni x 3 repliche), con 6 indicizzatori che possono quindi essere eseguiti contemporaneamente, viene determinato un aumento della velocità effettiva di indicizzazione pari a sei volte. Per altre informazioni sulla scalabilità e sulla pianificazione della capacità, vedere [ridimensionare i livelli di risorse per i carichi di lavoro di query e indicizzazione in Azure ricerca cognitiva](search-capacity-planning.md).
 
 ## <a name="indexing-documents-along-with-related-data"></a>Indicizzazione di documenti con dati correlati
 
 Si consiglia di "comporre" i documenti da più origini nell'indice. Ad esempio, è possibile unire testo dagli oggetti binari di grandi dimensioni con altri metadati archiviati in Cosmos DB. È anche possibile utilizzare l'API di indicizzazione push insieme a diversi indicizzatori per compilare i documenti di ricerca da più parti. 
 
-Per funzionare, tutti gli indicizzatori e altri componenti devono concordare sulla chiave del documento. Per altri dettagli su questo argomento, vedere [indicizzare più origini dati di Azure](https://docs.microsoft.com/azure/search/tutorial-multiple-data-sources). Per una procedura dettagliata, vedere questo articolo esterno: [Combinare documenti con altri dati in ricerca di Azure](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Per funzionare, tutti gli indicizzatori e altri componenti devono concordare sulla chiave del documento. Per altri dettagli su questo argomento, vedere [indicizzare più origini dati di Azure](https://docs.microsoft.com/azure/search/tutorial-multiple-data-sources). Per una procedura dettagliata, vedere questo articolo esterno: [combinare documenti con altri dati in Azure ricerca cognitiva](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indicizzazione di testo normale 
@@ -363,7 +367,7 @@ Per impostazione predefinita, verrà utilizzata la codifica `UTF-8`. Per specifi
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>Proprietà di metadati specifiche del tipo di contenuto
-La tabella seguente riepiloga l'elaborazione eseguita per ogni formato di documento e descrive le proprietà dei metadati estratte da Ricerca di Azure.
+La tabella seguente riepiloga l'elaborazione eseguita per ogni formato di documento e descrive le proprietà dei metadati estratte da Azure ricerca cognitiva.
 
 | Formato documento/tipo di contenuto | Proprietà di metadati specifiche del tipo di contenuto | Dettagli elaborazione |
 | --- | --- | --- |
@@ -388,11 +392,11 @@ La tabella seguente riepiloga l'elaborazione eseguita per ogni formato di docume
 | GZ (applicazione/gzip) |`metadata_content_type` |Estrazione del testo da tutti i documenti nell'archivio |
 | EPUB (applicazione/EPUB + zip) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_title`<br/>`metadata_description`<br/>`metadata_language`<br/>`metadata_keywords`<br/>`metadata_identifier`<br/>`metadata_publisher` |Estrazione del testo da tutti i documenti nell'archivio |
 | XML (application/xml) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> |Rimozione del markup XML ed estrazione del testo |
-| JSON (application/json) |`metadata_content_type`<br/>`metadata_content_encoding` |Estrazione del testo<br/>NOTA:  per conoscere i dettagli su come estrarre più campi documento da un BLOB JSON, vedere [Indicizzazione di BLOB JSON](search-howto-index-json-blobs.md) |
+| JSON (application/json) |`metadata_content_type`<br/>`metadata_content_encoding` |Estrazione del testo<br/>NOTA: per conoscere i dettagli su come estrarre più campi documento da un BLOB JSON, vedere [Indicizzazione di BLOB JSON](search-howto-index-json-blobs.md) |
 | EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Estrazione del testo, inclusi gli allegati |
 | RTF (application/rtf) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_page_count`<br/>`metadata_word_count`<br/> | Estrazione del testo|
 | Testo normale (text/plain) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | Estrazione del testo|
 
 
-## <a name="help-us-make-azure-search-better"></a>Come contribuire al miglioramento di Ricerca di Azure
+## <a name="help-us-make-azure-cognitive-search-better"></a>Aiutaci a migliorare Azure ricerca cognitiva
 Per richieste di funzionalità o idee su miglioramenti da apportare, è possibile usare il [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

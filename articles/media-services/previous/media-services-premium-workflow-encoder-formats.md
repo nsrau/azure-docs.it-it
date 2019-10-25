@@ -14,18 +14,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 9ec8e2df8befa28fc023edb30889f177b60939f9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015036"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792596"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codec e formati del flusso di lavoro Premium del codificatore multimediale
 
 > [!NOTE]
-> Per domande relative al codificatore Premium, inviare un messaggio di posta elettronica a mepd@microsoft.com.
-> 
 > Il processore di contenuti multimediali del flusso di lavoro Premium del codificatore multimediale descritto in questo argomento non è disponibile in Cina. 
 
 Questo documento include un elenco dei codec e dei formati di file di input e output supportati nella versione di anteprima pubblica del codificatore per il **flusso di lavoro Premium del codificatore multimediale**.
@@ -100,8 +98,6 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 * Creazione anteprime JPEG
 * HEVC (H.265; 8 bit e 10 bit, Main e Main 10 Profile)
 
-  Il supporto per HDR 10 è disponibile solo in determinati scenari, contattare mepd@microsoft.com per altre informazioni
-
 
 ### <a name="output-audio-codecs"></a>Codec audio di output
 
@@ -141,11 +137,14 @@ In uscita, sono disponibili le seguenti opzioni:
 
 Se il video di input non contiene i sottotitoli codificati, l'asset di output conterrà comunque un file TTML vuoto. 
 
+## <a name="need-help"></a>Opzioni per
+
+È possibile aprire un ticket di supporto passando alla [nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

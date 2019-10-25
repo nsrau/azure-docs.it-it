@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5812cc73fb1da58c591d0593e079851e05bd0940
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: f5fe49130742d116775b75f17c726b56150c574f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331968"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792342"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
 
@@ -28,7 +28,7 @@ Il server di configurazione deve essere configurato come macchina virtuale VMwar
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-I requisiti hardware minimi per un server di configurazione sono riepilogati nella tabella seguente.
+Nelle sezioni seguenti sono riepilogati i requisiti hardware minimi per un server di configurazione.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -37,31 +37,19 @@ I requisiti hardware minimi per un server di configurazione sono riepilogati nel
 È necessario che un utente disponga **di una delle autorizzazioni seguenti** impostate in AAD (Azure Active Directory) per registrare il server di configurazione con Azure Site Recovery Services.
 
 1. Per creare un'applicazione, l'utente deve disporre del ruolo "Sviluppatore applicazioni".
-   1. Per verificare, accedere a portale di Azure</br>
-   1. Passare a Azure Active Directory > ruoli e amministratori</br>
-   1. Verificare se all'utente è assegnato il ruolo "Sviluppatore applicazioni". In caso contrario, usare un utente con questa autorizzazione oppure contattare [l'amministratore per abilitare l'autorizzazione](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+    - Per verificare, accedere a portale di Azure</br>
+    - Passare a Azure Active Directory > ruoli e amministratori</br>
+    - Verificare se all'utente è assegnato il ruolo "Sviluppatore applicazioni". In caso contrario, usare un utente con questa autorizzazione oppure contattare [l'amministratore per abilitare l'autorizzazione](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
     
-1. Se non è possibile assegnare il ruolo "sviluppatore di applicazioni", assicurarsi che il flag "utente possa registrare l'applicazione" sia impostato su true per consentire all'utente di creare l'identità. Per abilitare le autorizzazioni sopra indicate,
-   1. Accedi al portale di Azure
-   1. Passare a Azure Active Directory > impostazioni utente
-   1. In * * Registrazioni app "," gli utenti possono registrare le applicazioni "devono essere scelti come" Sì ".
+2. Se non è possibile assegnare il ruolo "sviluppatore di applicazioni", assicurarsi che il flag "utente possa registrare l'applicazione" sia impostato su true per consentire all'utente di creare l'identità. Per abilitare le autorizzazioni sopra indicate,
+    - Accedi al portale di Azure
+    - Passare a Azure Active Directory > impostazioni utente
+    - In * * Registrazioni app "," gli utenti possono registrare le applicazioni "devono essere scelti come" Sì ".
 
       ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
 > Active Directory Federation Services (ADFS) **non è supportato**. Usare un account gestito tramite [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
-
-## <a name="capacity-planning"></a>pianificazione della capacità
-
-I requisiti di ridimensionamento del server di configurazione dipendono dalla frequenza potenziale di modifica dei dati. Usare questa tabella come riferimento.
-
-| **CPU** | **Memoria** | **Dimensione disco cache** | **Frequenza di modifica dei dati** | **Computer protetti** |
-| --- | --- | --- | --- | --- |
-| 8 vCPU (2 socket * 4 core \@ 2,5 GHz) |16 GB |300 GB |500 GB o inferiore |Replicare meno di 100 computer. |
-| 12 vCPU (2 socket * 6 core \@ 2,5 GHz) |18 GB |600 GB |Da 500 GB a 1 TB |Replicare da 100 a 150 computer. |
-| 16 vCPU (2 socket * 8 core \@ 2,5 GHz) |32 GB |1 TB |Da 1 TB a 2 TB |Replicare da 150 a 200 computer. |
-
-Se si esegue la replica di più macchine virtuali VMware, leggere le [considerazioni sulla pianificazione della capacità](site-recovery-plan-capacity-vmware.md). Eseguire lo [strumento di pianificazione della distribuzione](site-recovery-deployment-planner.md) per la replica VMware.
 
 ## <a name="download-the-template"></a>Scaricare il modello
 
@@ -149,7 +137,7 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 
 ## <a name="upgrade-the-configuration-server"></a>Aggiornare il server di configurazione
 
-Per aggiornare il server di configurazione alla versione più recente, eseguire i seguenti [passaggi](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Per istruzioni dettagliate su come aggiornare tutti i componenti di Site Recovery, fare clic [qui](service-updates-how-to.md).
+Per aggiornare il server di configurazione alla versione più recente, eseguire i seguenti [passaggi](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Per istruzioni dettagliate su come aggiornare tutti i componenti di Site Recovery, vedere [gestione degli aggiornamenti del servizio](service-updates-how-to.md).
 
 ## <a name="manage-the-configuration-server"></a>Gestire il server di configurazione
 
@@ -157,9 +145,9 @@ Per evitare interruzioni nella replica in corso, verificare che l'indirizzo IP d
 
 ## <a name="faq"></a>FAQ
 
-1. Per quanto tempo è valida la licenza fornita sul server di configurazione distribuito tramite OVF? Cosa accade se non si riattiva la licenza?
+1. Per quanto tempo è valida la licenza fornita nel server di configurazione distribuito tramite OVF? Cosa accade se non si riattiva la licenza?
 
-    La licenza fornita con il modello OVA è una licenza di valutazione valida per 180 giorni. Prima della scadenza, è necessario attivare la licenza. In caso contrario, questo può comportare l'arresto frequente del server di configurazione, pregiudicando le attività di replica.
+    La licenza fornita con il modello OVA è una licenza di valutazione valida per 180 giorni. Prima della scadenza, è necessario attivare la licenza. In caso contrario, può comportare un arresto frequente del server di configurazione e causare quindi un ostacolo per le attività di replica. Per ulteriori informazioni, vedere l'articolo sulla [gestione della licenza del server di configurazione](vmware-azure-manage-configuration-server.md#update-windows-license).
 
 2. È possibile usare la macchina virtuale, in cui è installato il server di configurazione, per scopi diversi?
 

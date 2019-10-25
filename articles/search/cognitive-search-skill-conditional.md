@@ -1,24 +1,23 @@
 ---
-title: Abilità di ricerca cognitiva condizionale (ricerca di Azure) | Microsoft Docs
-description: L'abilità condizionale consente di filtrare, creare valori predefiniti e unire i valori.
-services: search
+title: Competenza cognitiva condizionale
+titleSuffix: Azure Cognitive Search
+description: Le competenze condizionali in Azure ricerca cognitiva consentono di filtrare, creare valori predefiniti e unire valori in una definizione di competenze.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/01/2019
 ms.author: luisca
-ms.openlocfilehash: ea6113b96e2acf70a877e170651be3daa578e518
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265803"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792038"
 ---
-#   <a name="conditional-skill"></a>Competenza condizionale
+# <a name="conditional-cognitive-skill"></a>Competenza cognitiva condizionale
 
-La *competenza condizionale* consente agli scenari di ricerca di Azure che richiedono un'operazione booleana di determinare i dati da assegnare a un output. Questi scenari includono l'applicazione di filtri, l'assegnazione di un valore predefinito e l'Unione di dati in base a una condizione.
+La competenza **condizionale** consente agli scenari di ricerca cognitiva di Azure che richiedono un'operazione booleana di determinare i dati da assegnare a un output. Questi scenari includono l'applicazione di filtri, l'assegnazione di un valore predefinito e l'Unione di dati in base a una condizione.
 
 Lo pseudocodice seguente illustra il risultato della competenza condizionale:
 
@@ -33,7 +32,7 @@ else
 > Questa competenza non è associata a un'API servizi cognitivi di Azure e non viene addebitata l'utilizzo. Tuttavia, è comunque necessario [alleghi una risorsa di servizi cognitivi](cognitive-search-attach-cognitive-services.md) per sostituire l'opzione della risorsa "gratuita" che limita l'utente a un numero ridotto di arricchimenti al giorno.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Util.ConditionalSkill
+Microsoft. Skills. util. ConditionalSkill
 
 
 ## <a name="evaluated-fields"></a>Campi valutati
@@ -73,7 +72,7 @@ Gli elementi seguenti sono valori validi di un'espressione:
         "= !true"
     ```
 
--   Espressioni che usano operatori numerici (+,- \*,,/,%) <br/>
+-   Espressioni che usano operatori numerici (+,-, \*,/,%) <br/>
     Esempi: 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
@@ -86,18 +85,18 @@ Poiché la competenza condizionale supporta la valutazione, è possibile utilizz
 ## <a name="skill-inputs"></a>Input competenze
 Gli input fanno distinzione tra maiuscole e minuscole.
 
-| Input   | Descrizione |
+| Input   | Description |
 |-------------|-------------|
-| condizione   | Questo input è un [campo valutato](#evaluated-fields) che rappresenta la condizione da valutare. Questa condizione deve restituire un valore booleano (*true* o *false*).   <br/>  Esempi: <br/> "= true" <br/> "= $ (/Document/Language) = =' fr '" <br/> "= $ (/Document/pages/\*/Language) = = $ (/Document/expectedLanguage)" <br/> |
+| condition   | Questo input è un [campo valutato](#evaluated-fields) che rappresenta la condizione da valutare. Questa condizione deve restituire un valore booleano (*true* o *false*).   <br/>  Esempi: <br/> "= true" <br/> "= $ (/Document/Language) = =' fr '" <br/> "= $ (/Document/pages/\*/Language) = = $ (/document/expectedLanguage)" <br/> |
 | whenTrue    | Questo input è un [campo valutato](#evaluated-fields) che rappresenta il valore da restituire se la condizione viene valutata come *true*. Le stringhe delle costanti devono essere restituite tra virgolette singole (' and '). <br/>Valori di esempio: <br/> "=" contratto ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/\*)" <br/> |
 | whenFalse   | Questo input è un [campo valutato](#evaluated-fields) che rappresenta il valore da restituire se la condizione viene valutata come *false*. <br/>Valori di esempio: <br/> "=" contratto ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/\*)" <br/>
 
 ## <a name="skill-outputs"></a>Output competenze
 C'è un singolo output denominato semplicemente "output". Restituisce il valore *whenFalse* se la condizione è false o *whenTrue* se la condizione è true.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
-### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>Esempio di definizione di competenze 1: Filtrare i documenti per restituire solo i documenti in francese
+### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>Esempio di definizione di competenze 1: filtrare i documenti per restituire solo documenti in francese
 
 L'output seguente restituisce una matrice di frasi ("/document/frenchSentences") se la lingua del documento è francese. Se la lingua non è francese, il valore viene impostato su *null*.
 
@@ -116,7 +115,7 @@ L'output seguente restituisce una matrice di frasi ("/document/frenchSentences")
 Se si usa "/document/frenchSentences" come *contesto* di un'altra competenza, questa skill viene eseguita solo se "/Document/frenchSentences" non è impostato su *null*.
 
 
-### <a name="sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist"></a>Esempio di definizione di competenze 2: Imposta un valore predefinito per un valore che non esiste
+### <a name="sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist"></a>Esempio di definizione di competenze 2: impostare un valore predefinito per un valore che non esiste
 
 L'output seguente crea un'annotazione ("/document/languageWithDefault") impostata sulla lingua del documento o su "es" se la lingua non è impostata.
 
@@ -133,7 +132,7 @@ L'output seguente crea un'annotazione ("/document/languageWithDefault") impostat
 }
 ```
 
-### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Definizione di competenze di esempio 3: Unire i valori di due campi in uno
+### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Esempio di definizione di competenze 3: unire i valori di due campi in uno
 
 In questo esempio alcune frasi hanno una proprietà *frenchSentiment* . Quando la proprietà *frenchSentiment* è null, si vuole usare il valore *englishSentiment* . L'output viene assegnato a un membro denominato *sentimentalità* ("/Document/sentiment/*/sentiment").
 
@@ -151,7 +150,7 @@ In questo esempio alcune frasi hanno una proprietà *frenchSentiment* . Quando l
 ```
 
 ## <a name="transformation-example"></a>Esempio di trasformazione
-### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>Esempio di definizione di competenze 4: Trasformazione dei dati in un singolo campo
+### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>Esempio di definizione di competenze 4: trasformazione dei dati in un singolo campo
 
 In questo esempio si riceve un *sentimento* compreso tra 0 e 1. Si vuole trasformarla in modo che sia compresa tra-1 e 1. Per eseguire questa trasformazione secondaria, è possibile usare l'abilità condizionale.
 
@@ -177,4 +176,4 @@ Alcuni parametri vengono valutati, pertanto è necessario prestare particolare a
 ## <a name="next-steps"></a>Passaggi successivi
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
-+ [Come definire un set di competenze](cognitive-search-defining-skillset.md)
++ [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: 36b0ea7233b449584bd83450b45276da5baa135b
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: ee86f53795b1b3e7bd61480a490d4e18c844d4c2
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264333"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804253"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Creare ed eseguire flussi di lavoro automatizzati basati su eventi usando webhook HTTP in app per la logica di Azure
 
@@ -53,7 +53,7 @@ Per altre informazioni, vedere gli argomenti seguenti:
 
 * URL per un endpoint o un'API già distribuita che supporta il modello di sottoscrizione e annullamento della sottoscrizione webhook per i [trigger di Webhook in app](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) per la logica o [azioni webhook nelle app](../logic-apps/logic-apps-create-api-app.md#webhook-actions) per la logica in base alle esigenze
 
-* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
 
 * App per la logica in cui si vuole attendere eventi specifici nell'endpoint di destinazione. Per iniziare con il trigger HTTP webhook, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare l'azione HTTP webhook, avviare l'app per la logica con tutti i trigger desiderati. Questo esempio usa il trigger HTTP come primo passaggio.
 
@@ -75,7 +75,7 @@ Questo trigger predefinito registra un URL di callback con il servizio specifica
 
 1. Per aggiungere altri parametri disponibili, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri desiderati.
 
-   Per altre informazioni sui tipi di autenticazione disponibili per il webhook HTTP, vedere eseguire l'autenticazione di [trigger e azioni http](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   Per altre informazioni sui tipi di autenticazione disponibili per il webhook HTTP, vedere [aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Proseguire con la creazione del flusso di lavoro dell'app per la logica con azioni da eseguire all'attivazione del trigger.
 
@@ -83,7 +83,7 @@ Questo trigger predefinito registra un URL di callback con il servizio specifica
 
    Il salvataggio dell'app per la logica chiama l'endpoint di sottoscrizione e registra l'URL di callback per l'attivazione dell'app per la logica.
 
-1. A questo punto, ogni volta che il servizio di destinazione Invia una richiesta `HTTP POST` all'URL di callback, l'app per la logica viene attivata e include i dati passati attraverso la richiesta.
+1. A questo punto, ogni volta che il servizio di destinazione Invia una richiesta di `HTTP POST` all'URL di callback, l'app per la logica viene attivata e include i dati passati attraverso la richiesta.
 
 ## <a name="add-an-http-webhook-action"></a>Aggiungere un'azione HTTP webhook
 
@@ -111,7 +111,7 @@ Questa azione predefinita registra un URL di callback con il servizio specificat
 
 1. Per aggiungere altri parametri disponibili, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri desiderati.
 
-   Per altre informazioni sui tipi di autenticazione disponibili per il webhook HTTP, vedere eseguire l'autenticazione di [trigger e azioni http](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   Per altre informazioni sui tipi di autenticazione disponibili per il webhook HTTP, vedere [aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Al termine, ricordarsi di salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 
@@ -123,19 +123,19 @@ Per altre informazioni sui parametri trigger e Action, che sono simili tra loro,
 
 Di seguito sono riportate altre informazioni sugli output di un trigger o un'azione HTTP webhook che restituisce queste informazioni:
 
-| Nome proprietà | Type | Descrizione |
+| Nome proprietà | Type | Description |
 |---------------|------|-------------|
-| headers | object | Intestazioni della richiesta |
+| Headers | object | Intestazioni della richiesta |
 | body | object | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
-| status code | int | Codice di stato della richiesta |
+| Codice di stato | int | Codice di stato della richiesta |
 |||
 
-| status code | Descrizione |
+| Codice di stato | Description |
 |-------------|-------------|
 | 200 | OK |
 | 202 | Accepted |
 | 400 | Richiesta non valida |
-| 401 | Non autorizzata |
+| 401 | Non autorizzato |
 | 403 | Accesso negato |
 | 404 | Non trovato |
 | 500 | Errore interno del server. Si è verificato un errore sconosciuto. |

@@ -1,23 +1,22 @@
 ---
-title: Eseguire l'aggiornamento a .NET SDK Ricerca di Azure versione 1.1 - Ricerca di Azure
+title: Eseguire l'aggiornamento a .NET SDK di ricerca di Azure versione 1,1
+titleSuffix: Azure Cognitive Search
 description: Eseguire la migrazione di codice a .NET SDK Ricerca di Azure versione 1.1 da versioni API precedenti. Informazioni sulle novità e sulle modifiche al codice necessarie.
-author: brjohnstmsft
 manager: nitinme
-services: search
-ms.service: search
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/15/2018
-ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: 8227e1b372af1eee43db59da2cfad165d67be9ae
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: 159aaa8424c3d7a711b587464b80696929f02186
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183279"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792389"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>Aggiornamento ad Azure Search .NET SDK versione 1.1
+# <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Eseguire l'aggiornamento a .NET SDK di ricerca di Azure versione 1,1
 
 Se si usa la versione 1.0.2 di anteprima o precedente di [.NET SDK Ricerca di Azure](https://aka.ms/search-sdk), questo articolo include informazioni utili per aggiornare l'applicazione per l'uso della versione 1.1.
 
@@ -174,7 +173,7 @@ Se il codice è simile a questo:
         };
 
 ### <a name="model-class-changes"></a>Modifiche alle classi di modelli
-In seguito alle modifiche apportate alle firme descritte in [Modifiche ai metodi delle operazioni](#OperationMethodChanges), molte classi nello spazio dei nomi `Microsoft.Azure.Search.Models` sono state rinominate o rimosse. Ad esempio:
+In seguito alle modifiche apportate alle firme descritte in [Modifiche ai metodi delle operazioni](#OperationMethodChanges), molte classi nello spazio dei nomi `Microsoft.Azure.Search.Models` sono state rinominate o rimosse. ad esempio:
 
 * `IndexDefinitionResponse` è stata sostituita da `AzureOperationResponse<Index>`
 * `DocumentSearchResponse` è stata rinominata `DocumentSearchResult`
@@ -345,7 +344,7 @@ Questo problema è stato risolto nella versione 1.1 dell'SDK. Se è presente una
 
 e si imposta `IntValue` su 0, tale valore ora viene serializzato correttamente come 0 durante il transito e archiviato come 0 nell'indice. Anche il round trip funziona come previsto.
 
-Con l'approccio dinamico potrebbe verificarsi un problema: Se si usa un tipo di modello con una proprietà che non ammette i valori Null, è necessario **garantire** che nessun documento nell'indice contenga un valore Null per il campo corrispondente. Né l'SDK né l'API REST per Ricerca di Azure consentiranno di applicare questo valore.
+Questo approccio presenta un potenziale problema che è opportuno tenere presente: se si usa un tipo di modello con una proprietà che non ammette i valori null, è necessario **garantire** che nessun documento nell'indice contenga un valore null per il campo corrispondente. Né l'SDK né l'API REST per Ricerca di Azure consentiranno di applicare questo valore.
 
 Non è solo un problema ipotetico: si pensi a uno scenario in cui si aggiunge un nuovo campo a un indice esistente di tipo `Edm.Int32`. Dopo l'aggiornamento della definizione dell'indice, tutti i documenti avranno un valore Null per il nuovo campo (perché tutti i tipi sono nullable in Ricerca di Azure). Se quindi si usa una classe di modelli con una proprietà `int` che non ammette i valori Null per tale campo, verrà restituita un'eccezione `JsonSerializationException`, come questa, quando si cercherà di recuperare i documenti:
 

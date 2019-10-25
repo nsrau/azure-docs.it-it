@@ -1,25 +1,25 @@
 ---
-title: Creare un set di competenze in una pipeline di ricerca cognitiva - Ricerca di Azure
-description: Definire le procedure di estrazione dei dati, di elaborazione del linguaggio naturale o di analisi delle immagini per completare ed estrarre informazioni strutturate dai dati a disposizione da usare in Ricerca di Azure.
+title: Creare un skillt in una pipeline di arricchimento
+titleSuffix: Azure Cognitive Search
+description: Definire i passaggi per l'estrazione dei dati, l'elaborazione del linguaggio naturale o l'analisi delle immagini per arricchire ed estrarre informazioni strutturate dai dati da usare in ricerca cognitiva di Azure.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: f78b8c3b9619b7eea92b6a4f04ed4f6543916efe
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a60298b02b02e375d7241acf15852a19f814d59a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71265522"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787476"
 ---
-# <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Come creare un set di competenze in una pipeline di arricchimento
+# <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Come creare un oggetto di competenze in una pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva 
 
-La ricerca cognitiva estrae e arricchisce i dati per consentirne la ricerca in Ricerca di Azure. I passaggi di estrazione e arricchimento vengono definiti *competenze cognitive*, combinate in un *set di competenze* a cui viene fatto riferimento durante l'indicizzazione. Un skillt può utilizzare competenze [predefinite](cognitive-search-predefined-skills.md) o competenze personalizzate (vedere [esempio: creazione di un'abilità personalizzata per la ricerca cognitiva](cognitive-search-create-custom-skill-example.md) per ulteriori informazioni).
+L'arricchimento di intelligenza artificiale estrae e arricchisce i dati per renderli disponibili per la ricerca in Azure ricerca cognitiva. I passaggi di estrazione e arricchimento vengono definiti *competenze cognitive*, combinate in un *set di competenze* a cui viene fatto riferimento durante l'indicizzazione. Un skillt può usare le competenze [predefinite](cognitive-search-predefined-skills.md) o le competenze personalizzate (vedere [esempio: creazione di un'abilità personalizzata in una pipeline di arricchimento intelligenza artificiale](cognitive-search-create-custom-skill-example.md) per ulteriori informazioni).
 
-Questo articolo descrive come creare una pipeline di arricchimento per le competenze che si vuole usare. Un set di competenze è collegato all'[indicizzatore](search-indexer-overview.md) di Ricerca di Azure. Una parte della progettazione della pipeline, trattata in questo articolo, consiste nella costruzione del set di competenze stesso. 
+Questo articolo descrive come creare una pipeline di arricchimento per le competenze che si vuole usare. Un skillt è associato a un [indicizzatore](search-indexer-overview.md)di Azure ricerca cognitiva. Una parte della progettazione della pipeline, trattata in questo articolo, consiste nella costruzione del set di competenze stesso. 
 
 > [!NOTE]
 > L'altra parte della progettazione della pipeline prevede la specifica di un indicizzatore e viene descritta nel [prossimo passaggio](#next-step). Una definizione di indicizzatore include un riferimento al set di competenze, nonché i mapping dei campi usati per connettere gli input agli output nell'indice di destinazione.
@@ -45,10 +45,10 @@ Il diagramma seguente illustra una pipeline di arricchimento ipotetica:
 ![Una pipeline di arricchimento ipotetica](media/cognitive-search-defining-skillset/sample-skillset.png "Una pipeline di arricchimento ipotetica")
 
 
-Quando si ha un'idea chiara del contenuto che si desidera includere nella pipeline, si può specificare il set di competenze per eseguire questi passaggi. A livello funzionale, il set di competenze viene specificato quando si carica la definizione dell'indicizzatore in Ricerca di Azure. Per altre informazioni su come caricare l'indicizzatore, vedere la [documentazione relativa all'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Quando si ha un'idea chiara del contenuto che si desidera includere nella pipeline, si può specificare il set di competenze per eseguire questi passaggi. Dal punto di vista funzionale, il livello di competenze viene espresso quando si carica la definizione dell'indicizzatore in Azure ricerca cognitiva. Per altre informazioni su come caricare l'indicizzatore, vedere la [documentazione relativa all'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 
-Nel diagramma il passaggio di *individuazione del documento* avviene automaticamente. Ricerca di Azure sa fondamentalmente come aprire i file noti e crea un campo di *contenuto* in cui inserisce il testo estratto da ogni documento. Le caselle bianche sono arricchitori integrati e la casella punteggiata "Ricerca entità di Bing" rappresenta un arricchitore personalizzato che si sta creando. Come illustrato, il set di competenze contiene tre competenze.
+Nel diagramma il passaggio di *individuazione del documento* avviene automaticamente. In pratica, Azure ricerca cognitiva sa come aprire file noti e crea un campo *contenuto* contenente il testo Estratto da ogni documento. Le caselle bianche sono arricchitori integrati e la casella punteggiata "Ricerca entità di Bing" rappresenta un arricchitore personalizzato che si sta creando. Come illustrato, il set di competenze contiene tre competenze.
 
 ## <a name="skillset-definition-in-rest"></a>Definizione del set di competenze in REST
 
@@ -243,11 +243,11 @@ Un probabile risultato può essere una struttura generata simile a quella nella 
 
 ![Esempio di struttura di output](media/cognitive-search-defining-skillset/enriched-doc.png "Esempio di struttura di output")
 
-Fino ad ora, questa struttura è stata solo interna, solo di memoria e usata solo negli indici di ricerca di Azure. L'aggiunta di un archivio informazioni consente di salvare gli arricchimenti a forme da usare all'esterno della ricerca.
+Fino ad ora, questa struttura è stata solo interna, solo di memoria e usata solo negli indici ricerca cognitiva di Azure. L'aggiunta di un archivio informazioni consente di salvare gli arricchimenti a forme da usare all'esterno della ricerca.
 
 ## <a name="add-a-knowledge-store"></a>Aggiungere un archivio informazioni
 
-[Archivio informazioni](knowledge-store-concept-intro.md) è una funzionalità di anteprima di ricerca di Azure che consente di salvare il documento arricchito. Un archivio informazioni creato, supportato da un account di archiviazione di Azure, è il repository in cui i dati arricchiti vengono archiviati. 
+[Archivio informazioni](knowledge-store-concept-intro.md) è una funzionalità di anteprima di Azure ricerca cognitiva per il salvataggio del documento arricchito. Un archivio informazioni creato, supportato da un account di archiviazione di Azure, è il repository in cui i dati arricchiti vengono archiviati. 
 
 Una definizione dell'archivio informazioni viene aggiunta a un oggetto di competenze. Per una procedura dettagliata dell'intero processo, vedere [come iniziare a usare l'archivio informazioni](knowledge-store-howto.md).
 

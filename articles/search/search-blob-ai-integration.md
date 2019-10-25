@@ -5,15 +5,15 @@ description: Aggiungere un'analisi semantica, di elaborazione del linguaggio nat
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 1a8840aca71daacc08cf85b178668e42ff9f796c
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5f65667ac8ffacdd12e57ae0d46e25c586624a31
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678424"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792463"
 ---
 # <a name="use-ai-to-understand-blob-storage-data"></a>Usare l'intelligenza artificiale per comprendere i dati di archiviazione BLOB
 
@@ -68,7 +68,7 @@ L'arricchimento di intelligenza artificiale si riferisce a moduli che cercano mo
 
 In ricerca di Azure le *competenze* sono i singoli componenti dell'elaborazione di intelligenza artificiale che è possibile usare autonomamente o in combinazione con altre competenze. 
 
-+ Le competenze predefinite sono supportate da servizi cognitivi, con analisi delle immagini basate su Visione artificiale e elaborazione del linguaggio naturale basata su Analisi del testo. È possibile esaminare l'elenco completo delle competenze predefinite in competenze predefinite [per l'arricchimento del contenuto](cognitive-search-predefined-skills.md).
++ Le competenze predefinite sono supportate da servizi cognitivi, con analisi delle immagini basate su Visione artificiale e elaborazione del linguaggio naturale basata su Analisi del testo. Per l'elenco completo, vedere [competenze predefinite per l'arricchimento del contenuto](cognitive-search-predefined-skills.md).
 
 + Le competenze personalizzate sono codice personalizzato, racchiuso in una [definizione di interfaccia](cognitive-search-custom-skill-interface.md) che consente l'integrazione nella pipeline. Nelle soluzioni dei clienti, è prassi comune usare entrambi i moduli, con competenze personalizzate che forniscono moduli open source, di terze parti o della prima parte.
 

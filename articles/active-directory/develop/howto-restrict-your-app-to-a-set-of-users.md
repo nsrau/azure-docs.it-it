@@ -1,5 +1,6 @@
 ---
-title: Come limitare un'app registrata in Azure Active Directory a un set di utenti
+title: Limitare l'app registrata Azure Active Directory a un set di utenti
+titleSuffix: Microsoft identity platform
 description: Informazioni su come limitare l'accesso alle app registrate in Azure AD a un set di utenti.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a51c49633e68fdc5f9afd4bf0205adaa625940ff
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: c768730a00d424333e735bb4f6a385d294f38513
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812965"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803960"
 ---
 # <a name="how-to-restrict-your-app-to-a-set-of-users"></a>Procedura: Limitare l'app a un set di utenti
 

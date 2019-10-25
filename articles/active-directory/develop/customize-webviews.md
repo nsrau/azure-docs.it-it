@@ -1,5 +1,6 @@
 ---
-title: Personalizzare browser e visualizzazioni WebView | Piattaforma di identità Microsoft
+title: Personalizzare browser e visualizzazioni Web
+titleSuffix: Microsoft identity platform
 description: Informazioni su come personalizzare l'esperienza del browser usata da MSAL per iOS e macOS per l'accesso degli utenti
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +18,14 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dd5be3944bdff459f6d920b358ae08efedcc431
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: fcb314e46094bb6c283a17508c35b7fc17e010e5
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264193"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803371"
 ---
-# <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Procedura: Personalizzare browser e WebView per iOS/macOS
+# <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Procedura: personalizzare browser e WebView per iOS/macOS
 
 Per l'autenticazione interattiva è necessario un Web browser. In iOS, Microsoft Authentication Library (MSAL) usa il Web browser di sistema per impostazione predefinita (che potrebbe apparire sopra l'app) per eseguire l'autenticazione interattiva per l'accesso degli utenti. L'utilizzo del browser di sistema offre il vantaggio di condividere lo stato di Single Sign-ON (SSO) con altre applicazioni e con applicazioni Web.
 
@@ -44,9 +45,9 @@ MSAL per macOS supporta solo `WKWebView`.
 
 ## <a name="system-browsers"></a>Browser di sistema
 
-Per iOS, `ASWebAuthenticationSession`, `SFAuthenticationSession` e `SFSafariViewController` sono considerati browser di sistema. In generale, i browser di sistema condividono i cookie e altri dati del sito Web con l'applicazione Safari browser.
+Per iOS, `ASWebAuthenticationSession`, `SFAuthenticationSession`e `SFSafariViewController` sono considerati browser di sistema. In generale, i browser di sistema condividono i cookie e altri dati del sito Web con l'applicazione Safari browser.
 
-Per impostazione predefinita, MSAL rileverà in modo dinamico la versione di iOS e selezionerà il browser di sistema consigliato disponibile in tale versione. In iOS 12 + sarà `ASWebAuthenticationSession`. 
+Per impostazione predefinita, MSAL rileverà in modo dinamico la versione di iOS e selezionerà il browser di sistema consigliato disponibile in tale versione. In iOS 12 + verrà `ASWebAuthenticationSession`. 
 
 | Versione | Web browser |
 |:-------------:|:-------------:|
@@ -56,7 +57,7 @@ Per impostazione predefinita, MSAL rileverà in modo dinamico la versione di iOS
 
 Gli sviluppatori possono anche selezionare un browser di sistema diverso per le app MSAL:
 
-- `SFAuthenticationSession` è la versione iOS 11 di `ASWebAuthenticationSession`.
+- `SFAuthenticationSession` è la versione di `ASWebAuthenticationSession`iOS 11.
 - `SFSafariViewController` è più generico e fornisce un'interfaccia per l'esplorazione del Web e può essere usato anche per scopi di accesso. In iOS 9 e 10 i cookie e altri dati del sito Web vengono condivisi con Safari, ma non in iOS 11 e versioni successive.
 
 ## <a name="in-app-browser"></a>Browser in-app
@@ -69,10 +70,10 @@ Il browser utilizzato influisca sull'esperienza SSO grazie alla modalità di con
 
 | Tecnologia    | Tipo di browser  | disponibilità di iOS | disponibilità di macOS | Condivide i cookie e altri dati  | Disponibilità MSAL | SSO |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
-| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | Sistema | iOS12 | macOS 10,15 e su | Yes | solo iOS | istanze di w/Safari
-| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | Sistema | iOS11 | N/D | Yes | solo iOS |  istanze di w/Safari
+| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | Sistema | iOS12 | macOS 10,15 e su | SÌ | solo iOS | istanze di w/Safari
+| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | Sistema | iOS11 | N/D | SÌ | solo iOS |  istanze di w/Safari
 | [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | Sistema | iOS11 | N/D | No | solo iOS | No * *
-| **SFSafariViewController** | Sistema | iOS10 | N/D | Yes | solo iOS |  istanze di w/Safari
+| **SFSafariViewController** | Sistema | iOS10 | N/D | SÌ | solo iOS |  istanze di w/Safari
 | **WKWebView**  | In-app | iOS 8 | macOS 10,10 e su | No | iOS e macOS | No * *
 
 \* * Per il funzionamento dell'accesso SSO, è necessario condividere i token tra le app. Questa operazione richiede una cache di token o un'applicazione broker, ad esempio Microsoft Authenticator per iOS.
@@ -91,7 +92,7 @@ Ogni richiesta può essere configurata in modo da eseguire l'override del browse
 
 Inoltre, MSAL supporta il passaggio di un `WKWebView` personalizzato impostando la proprietà `MSALInteractiveTokenParameters.webviewParameters.customWebView`.
 
-Esempio:
+ad esempio:
 
 Objective-C
 ```objc

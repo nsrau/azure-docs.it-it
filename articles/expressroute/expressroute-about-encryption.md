@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 650e45ca9092b9c81b2127eb995a0297745410a4
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b452fccf2ae0915592420bdda3a47fef43eba9a8
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244148"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72788702"
 ---
 # <a name="expressroute-encryption"></a>Crittografia ExpressRoute
  
@@ -31,7 +31,7 @@ No. Se MACsec è configurato e si verifica una mancata corrispondenza della chia
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>L'abilitazione di MACsec in ExpressRoute Direct diminuisce le prestazioni di rete?
 La crittografia e la decrittografia MACsec si verificano nell'hardware dei router usati. Non ci sono effetti sulle prestazioni. Tuttavia, è consigliabile rivolgersi al fornitore di rete per i dispositivi usati e verificare se MACsec presenta implicazioni sulle prestazioni.
 ### <a name="which-cipher-suites-are-supported-for-encryption"></a>quali pacchetti di crittografia sono supportati per la crittografia?
-Sono supportati AES128 (GCM-AES-128) e AES256 (GCM – AES-256).
+Sono supportati AES128 e AES256.
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>Domande frequenti sulla crittografia end-to-end tramite IPsec
 IPsec è uno [standard IETF](https://tools.ietf.org/html/rfc6071). Esegue la crittografia dei dati a livello di protocollo IP (Internet Protocol) o rete 3. È possibile usare IPsec per crittografare una connessione end-to-end tra la rete locale e la rete virtuale (VNET) in Azure. Vedere le domande frequenti più avanti.

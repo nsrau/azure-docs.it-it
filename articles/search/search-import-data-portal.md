@@ -1,24 +1,23 @@
 ---
-title: Importare i dati nell'indice di ricerca usando il portale di Azure - Ricerca di Azure
+title: Importare dati in un indice di ricerca usando portale di Azure
+titleSuffix: Azure Cognitive Search
 description: Informazioni su come usare la procedura guidata Importa dati nel portale di Azure per inserire i dati di Azure da Cosmos DB, archiviazione BLOB, archiviazione tabelle, database SQL e SQL Server in macchine virtuali di Azure.
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/03/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 89f43227cfca3519a4985c5c961cf0b3c5774177
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 6b4ae076ba08af5514caa09a2e8027a1cbc909dc
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71936915"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793685"
 ---
-# <a name="import-data-wizard-for-azure-search"></a>Procedura guidata Importa dati per Ricerca di Azure
+# <a name="import-data-wizard-for-azure-cognitive-search"></a>Importazione guidata dati per Azure ricerca cognitiva
 
-Il portale di Azure fornisce una procedura guidata **Importa dati** nel dashboard di ricerca di Azure per la creazione di prototipi e il caricamento di un indice. In questo articolo vengono illustrati i vantaggi e le limitazioni dell'utilizzo della procedura guidata, degli input e degli output e alcune informazioni sull'utilizzo. Per istruzioni pratiche nell'esecuzione della procedura guidata con i dati di esempio incorporati, vedere [creare un indice di ricerca di Azure usando la](search-get-started-portal.md) Guida introduttiva portale di Azure.
+Il portale di Azure fornisce una procedura guidata **Importa dati** nel dashboard di Azure ricerca cognitiva per la creazione di prototipi e il caricamento di un indice. In questo articolo vengono illustrati i vantaggi e le limitazioni dell'utilizzo della procedura guidata, degli input e degli output e alcune informazioni sull'utilizzo. Per istruzioni pratiche nell'esecuzione della procedura guidata con i dati di esempio incorporati, vedere [creare un indice di Azure ricerca cognitiva usando la](search-get-started-portal.md) Guida introduttiva di portale di Azure.
 
 Le operazioni eseguite dalla procedura guidata includono:
 
@@ -34,7 +33,7 @@ La procedura guidata restituisce un numero di oggetti salvati nel servizio di ri
 
 ## <a name="advantages-and-limitations"></a>Vantaggi e limitazioni
 
-Prima di scrivere il codice, è possibile usare la procedura guidata per la creazione di prototipi e il test del modello di prova. La procedura guidata si connette a origini dati esterne, esegue il campionamento dei dati per creare un indice iniziale e quindi importa i dati come documenti JSON in un indice in ricerca di Azure. 
+Prima di scrivere il codice, è possibile usare la procedura guidata per la creazione di prototipi e il test del modello di prova. La procedura guidata si connette a origini dati esterne, esegue il campionamento dei dati per creare un indice iniziale e quindi importa i dati come documenti JSON in un indice in ricerca cognitiva di Azure. 
 
 Il campionamento è il processo mediante il quale viene dedotto uno schema dell'indice e presenta alcune limitazioni. Quando viene creata l'origine dati, la procedura guidata seleziona un campione di documenti per decidere quali colonne fanno parte dell'origine dati. Non tutti i file vengono letti, in quanto questa operazione potrebbe richiedere ore per origini dati di dimensioni molto grandi. Data la selezione di documenti, i metadati di origine, ad esempio il nome o il tipo di campo, vengono usati per creare una raccolta di campi in uno schema di indice. A seconda della complessità dei dati di origine, potrebbe essere necessario modificare lo schema iniziale per l'accuratezza oppure estenderlo per completezza. È possibile apportare le modifiche inline nella pagina definizione indice.
 
@@ -56,7 +55,7 @@ Le limitazioni note sono riepilogate come segue:
 
 ## <a name="data-source-input"></a>Input origine dati
 
-La procedura guidata **Importa dati** si connette a un'origine dati esterna usando la logica interna fornita dagli indicizzatori di ricerca di Azure, che sono disponibili per campionare l'origine, leggere i metadati, craccare i documenti per leggere il contenuto e la struttura e serializzare il contenuto come JSON per importazione successiva in ricerca di Azure.
+La procedura guidata **Importa dati** si connette a un'origine dati esterna usando la logica interna fornita dagli indicizzatori ricerca cognitiva di Azure, che sono disponibili per campionare l'origine, leggere i metadati, craccare i documenti per leggere il contenuto e la struttura e serializzare il contenuto come JSON per l'importazione successiva in Azure ricerca cognitiva.
 
 È possibile importare solo da una singola tabella, da una vista di database o da una struttura di dati equivalente, tuttavia la struttura può includere sottostrutture gerarchiche o nidificate. Per ulteriori informazioni, vedere [come modellare tipi complessi](search-howto-complex-data-types.md).
 
@@ -64,10 +63,10 @@ La procedura guidata **Importa dati** si connette a un'origine dati esterna usan
 
 |  Selezione | Description |
 | ---------- | ----------- |
-| **Origine dati esistente** |Se nel servizio di ricerca sono già definiti indicizzatori, potrebbe essere presente una definizione dell'origine dati che è possibile riutilizzare. In Ricerca di Azure, gli oggetti origine dati vengono usati solo dagli indicizzatori. È possibile creare un oggetto origine dati a livello di codice o tramite la procedura guidata **Importa dati** e riutilizzarli in base alle esigenze.|
-| **Esempi**| Ricerca di Azure offre due origini dati di esempio predefinite che vengono usate nelle esercitazioni e nelle guide introduttive: un database SQL immobiliare e un database di hotel ospitato in Cosmos DB. Per una procedura dettagliata basata sull'esempio di Hotel, vedere l'articolo relativo alla [creazione di un indice nella portale di Azure](search-get-started-portal.md) Guida introduttiva. |
+| **Origine dati esistente** |Se nel servizio di ricerca sono già definiti indicizzatori, potrebbe essere presente una definizione dell'origine dati che è possibile riutilizzare. In Azure ricerca cognitiva gli oggetti origine dati vengono utilizzati solo dagli indicizzatori. È possibile creare un oggetto origine dati a livello di codice o tramite la procedura guidata **Importa dati** e riutilizzarli in base alle esigenze.|
+| **Esempi**| Azure ricerca cognitiva offre due origini dati di esempio predefinite che vengono usate nelle esercitazioni e nelle guide introduttive: un database SQL immobiliare e un database di hotel ospitato su Cosmos DB. Per una procedura dettagliata basata sull'esempio di Hotel, vedere l'articolo relativo alla [creazione di un indice nella portale di Azure](search-get-started-portal.md) Guida introduttiva. |
 | [**Database SQL di Azure**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Il nome del servizio, le credenziali per un utente di database con autorizzazione di lettura e un nome di database possono essere specificati nella pagina o tramite una stringa di connessione ADO.NET. Per visualizzare o personalizzare le proprietà, scegliere l'opzione relativa alla stringa di connessione. <br/><br/>È necessario specificare nella pagina la tabella o la vista che fornisce il set di righe. Questa opzione viene visualizzata quando la connessione ha esito positivo, con un elenco a discesa che permette di effettuare una selezione.|
-| **Macchine virtuali SQL Server in Azure** |Specificare un nome completo del servizio, un ID utente, una password e un database come stringa di connessione. Per usare questa origine dati, è necessario avere già installato un certificato nell'archivio locale che esegue la crittografia della connessione. Per istruzioni, vedere [Connessione di una macchina virtuale SQL a Ricerca di Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>È necessario specificare nella pagina la tabella o la vista che fornisce il set di righe. Questa opzione viene visualizzata quando la connessione ha esito positivo, con un elenco a discesa che permette di effettuare una selezione. |
+| **Macchine virtuali SQL Server in Azure** |Specificare un nome completo del servizio, un ID utente, una password e un database come stringa di connessione. Per usare questa origine dati, è necessario avere già installato un certificato nell'archivio locale che esegue la crittografia della connessione. Per istruzioni, vedere [connessione di una macchina virtuale SQL ad Azure ricerca cognitiva](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>È necessario specificare nella pagina la tabella o la vista che fornisce il set di righe. Questa opzione viene visualizzata quando la connessione ha esito positivo, con un elenco a discesa che permette di effettuare una selezione. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|Tra i requisiti: l'account, il database e la raccolta. Tutti i documenti nella raccolta verranno inclusi nell'indice. È possibile definire una query per rendere flat o filtrare il set di righe oppure lasciare vuota la query. Una query non è obbligatoria in questa procedura guidata.|
 | [**Archiviazione BLOB di Azure**](search-howto-indexing-azure-blob-storage.md) |Tra i requisiti: l'account di archiviazione e un contenitore. Facoltativamente, se i nomi dei BLOB seguono una convenzione di denominazione virtuale a scopo di raggruppamento, è possibile specificare la porzione directory virtuale del nome come una cartella nel contenitore. Per altre informazioni, vedere [Indicizzazione di documenti nell'archivio BLOB di Azure con Ricerca di Azure](search-howto-indexing-azure-blob-storage.md). |
 | [**Archiviazione tabelle di Azure**](search-howto-indexing-azure-tables.md) |Tra i requisiti: l'account di archiviazione e un nome di tabella. Facoltativamente, è possibile specificare una query per recuperare un subset delle tabelle. Per altre informazioni, vedere [Indicizzazione nell'archivio tabelle di Azure con Ricerca di Azure](search-howto-indexing-azure-tables.md). |
@@ -94,7 +93,7 @@ La procedura guidata Importa dati viene avviata dalla barra dei comandi della pa
 
    ![Comando Importa dati nel portale](./media/search-import-data-portal/import-data-cmd2.png "Avviare la procedura guidata Importa dati")
 
-È anche possibile avviare l' **importazione dei dati** da altri servizi di Azure, tra cui Azure Cosmos DB, il database SQL di Azure e l'archiviazione BLOB di Azure. Cercare **Aggiungi Ricerca di Azure** nel riquadro di spostamento a sinistra nella pagina di panoramica del servizio.
+È anche possibile avviare l' **importazione dei dati** da altri servizi di Azure, tra cui Azure Cosmos DB, il database SQL di Azure e l'archiviazione BLOB di Azure. Cercare **aggiungi ricerca cognitiva di Azure** nel riquadro di spostamento a sinistra della pagina Panoramica del servizio.
 
 <a name="index-definition"></a>
 
@@ -104,7 +103,7 @@ La procedura guidata genera un indice incompleto, che verrà popolato con i docu
 
 1. L'elenco dei campi è completo? Aggiungere nuovi campi che campionano mancanti e rimuovere quelli che non aggiungono valore a un'esperienza di ricerca o che non verranno usati in un' [espressione di filtro](search-query-odata-filter.md) o un [profilo di Punteggio](index-add-scoring-profiles.md).
 
-1. Il tipo di dati è appropriato per i dati in ingresso? Ricerca di Azure supporta i [tipi di dati EDM (Entity Data Model)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). Per i dati SQL di Azure è presente un [grafico di mapping](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-between-sql-and-azure-search-data-types) che definisce valori equivalenti. Per ulteriori informazioni, vedere [mapping dei campi e trasformazioni](search-indexer-field-mappings.md).
+1. Il tipo di dati è appropriato per i dati in ingresso? Azure ricerca cognitiva supporta i [tipi di dati EDM (Entity Data Model)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). Per i dati SQL di Azure è presente un [grafico di mapping](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) che definisce valori equivalenti. Per ulteriori informazioni, vedere [mapping dei campi e trasformazioni](search-indexer-field-mappings.md).
 
 1. Si dispone di un campo che può fungere da *chiave*? Questo campo deve essere Edm. String e deve identificare in modo univoco un documento. Per i dati relazionali, è possibile eseguirne il mapping a una chiave primaria. Per i BLOB, potrebbe essere il `metadata-storage-path`. Se i valori dei campi includono spazi o trattini, è necessario impostare l'opzione **Chiavi di codifica Base 64** nel passaggio **Crea un indicizzatore**, in **Opzioni avanzate**, per evitare il controllo di convalida per questi caratteri.
 
@@ -134,4 +133,4 @@ La procedura guidata genera un indice incompleto, che verrà popolato con i docu
 Il modo migliore per comprendere i vantaggi e le limitazioni della procedura guidata è eseguire un'istruzione alla volta. La Guida introduttiva seguente illustra ogni passaggio.
 
 > [!div class="nextstepaction"]
-> [Creare un indice di ricerca di Azure usando il portale di Azure](search-get-started-portal.md)
+> [Creare un indice di Azure ricerca cognitiva usando il portale di Azure](search-get-started-portal.md)

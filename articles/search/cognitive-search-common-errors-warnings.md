@@ -1,24 +1,23 @@
 ---
-title: Errori e avvisi comuni-ricerca di Azure
-description: Questo articolo fornisce informazioni e soluzioni per gli errori e gli avvisi comuni che possono verificarsi durante l'arricchimento di intelligenza artificiale in ricerca di Azure.
-services: search
-manager: heidist
+title: Errori e avvisi comuni
+titleSuffix: Azure Cognitive Search
+description: Questo articolo fornisce informazioni e soluzioni per gli errori e gli avvisi comuni che possono verificarsi durante l'arricchimento di intelligenza artificiale in Azure ricerca cognitiva.
+manager: nitinme
 author: amotley
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 09/18/2019
 ms.author: abmotley
-ms.openlocfilehash: a8d5fc30299dbb16373b1cfbbd89563bad471f39
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 08d15f20f69c0c42d8b4dd4bac72e7d9f367a957
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553617"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787985"
 ---
-# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Errori e avvisi comuni della pipeline di arricchimento di intelligenza artificiale in ricerca di Azure
+# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Errori e avvisi comuni della pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva
 
-Questo articolo fornisce informazioni e soluzioni per gli errori e gli avvisi comuni che possono verificarsi durante l'arricchimento di intelligenza artificiale in ricerca di Azure.
+Questo articolo fornisce informazioni e soluzioni per gli errori e gli avvisi comuni che possono verificarsi durante l'arricchimento di intelligenza artificiale in Azure ricerca cognitiva.
 
 ## <a name="errors"></a>Errors
 L'indicizzazione viene arrestata quando il numero di errori supera [' maxFailedItems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
@@ -210,3 +209,14 @@ Per assicurarsi che tutto il testo venga analizzato, valutare la possibilità di
 
 ### <a name="web-api-skill-response-contains-warnings"></a>La risposta di competenza dell'API Web contiene avvisi
 L'indicizzatore è stato in grado di eseguire una competenza nel grado di competenze, ma la risposta dalla richiesta dell'API Web indicava la presenza di avvisi durante l'esecuzione. Esaminare gli avvisi per comprendere in che modo i dati sono interessati e se è necessaria un'azione.
+
+### <a name="the-current-indexer-configuration-does-not-support-incremental-progress"></a>La configurazione dell'indicizzatore corrente non supporta lo stato incrementale
+Questo avviso viene generato solo per le origini dati Cosmos DB.
+
+L'avanzamento incrementale durante l'indicizzazione assicura che, in caso di interruzione dell'esecuzione dell'indicizzatore a causa di errori temporanei o del limite del tempo di esecuzione, l'indicizzatore possa riprendere dal punto in cui è stato interrotto all'esecuzione successiva, invece di dovere ripetere dall'inizio l'indicizzazione dell'intera raccolta. Questo approccio risulta particolarmente importante in caso di indicizzazione di raccolte di grandi dimensioni.
+
+La possibilità di riprendere un processo di indicizzazione non completata si basa sul fatto che i documenti siano ordinati in base alla colonna `_ts`. L'indicizzatore usa il timestamp per determinare quale documento scegliere successivamente. Se la colonna `_ts` è mancante o se l'indicizzatore non è in grado di determinare se una query personalizzata è ordinata, l'indicizzatore inizia all'inizio e verrà visualizzato questo avviso.
+
+È possibile eseguire l'override di questo comportamento, abilitando lo stato incrementale ed eliminando questo avviso utilizzando la proprietà di configurazione `assumeOrderByHighWatermarkColumn`.
+
+[Ulteriori informazioni su Cosmos DB l'avanzamento incrementale e le query personalizzate.](https://go.microsoft.com/fwlink/?linkid=2099593)

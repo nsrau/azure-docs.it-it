@@ -1,27 +1,27 @@
 ---
-title: 'Esempio: facet a più livelli-ricerca di Azure'
+title: 'Esempio: facet a più livelli'
+titleSuffix: Azure Cognitive Search
 description: Informazioni su come creare strutture di facet per tassonomie multilivello, realizzando così una struttura di esplorazione nidificata che è possibile includere nelle pagine delle applicazioni.
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 9a56bba55f9b3a59126168bc2bbbd50927c3fc78
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 8672fa0911d1a031205bb3340fa0c03ab9492a28
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70274093"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792949"
 ---
-# <a name="example-multi-level-facets-in-azure-search"></a>Esempio: facet multilivello in ricerca di Azure
+# <a name="example-multi-level-facets-in-azure-cognitive-search"></a>Esempio: facet a più livelli in Azure ricerca cognitiva
 
-Gli schemi di Ricerca di Azure non supportano esplicitamente le categorie tassonomiche multilivello, ma è possibile creare un'approssimazione di tali categorie modificando il contenuto prima di eseguire l'indicizzazione e quindi applicando alcune modifiche particolari ai risultati. 
+Gli schemi di ricerca cognitiva di Azure non supportano in modo esplicito le categorie di tassonomia a più livelli, ma è possibile approssimarli modificando il contenuto prima dell'indicizzazione e quindi applicando una gestione speciale ai risultati. 
 
 ## <a name="start-with-the-data"></a>Partire dai dati
 
-L'esempio riportato in questo articolo si basa su un esempio precedente, disponibile in [Modellazione del database di inventario di AdventureWorks](search-example-adventureworks-modeling.md), per illustrare l'uso di facet multilivello in Ricerca di Azure.
+L'esempio in questo articolo si basa su un esempio precedente, [modellare il database di inventario AdventureWorks](search-example-adventureworks-modeling.md), per illustrare il facet multilivello in Azure ricerca cognitiva.
 
 In AdventureWorks i dati sono classificati in base a una tassonomia semplice a due livelli, con una relazione di tipo padre-figlio. Per la profondità della tassonomia a lunghezza fissa di questa struttura, è possibile usare una semplice query join SQL per raggruppare la tassonomia:
 
@@ -39,7 +39,7 @@ LEFT JOIN
 
 ## <a name="indexing-to-a-collection-field"></a>Indicizzazione in base a un campo Collection
 
-Nell'indice contenente questa struttura, creare un campo **Collection(Edm.String)** nello schema di Ricerca di Azure per archiviare questi dati, verificando che per il campo siano definiti gli attributi searchable, filterable, facetable e retrievable.
+Nell'indice che contiene questa struttura creare un campo **Collection (EDM. String)** nello schema del ricerca cognitiva di Azure per archiviare questi dati, assicurandosi che gli attributi di campo includano ricercabile, filtrabile, facet e recuperabile.
 
 A questo punto, quando si indicizza contenuto che fa riferimento a una specifica categoria tassonomica, presentare la tassonomia sotto forma di matrice contenente testo da ogni livello della tassonomia. Ad esempio, per un'entità con `ProductCategoryId = 5 (Mountain Bikes)`, presentare il campo come `[ "Bikes", "Bikes|Mountain Bikes"]`
 
@@ -99,4 +99,4 @@ Questa tecnica può essere adattata per gestire scenari più complessi come albe
 
 ## <a name="see-also"></a>Vedi anche
 
-[Esempio: modellare il database di inventario AdventureWorks per ricerca di Azure](search-example-adventureworks-modeling.md)
+[Esempio: modellare il database di inventario AdventureWorks per Azure ricerca cognitiva](search-example-adventureworks-modeling.md)

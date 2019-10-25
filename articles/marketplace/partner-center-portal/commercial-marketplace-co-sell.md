@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: f021ac0a7c9c46592f7969dd0df10f76aec88cb7
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 7364bc41a67d8651c91745a8763fff62fee722fe
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773229"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784805"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opzione di co-selling nel centro per i partner
 
@@ -34,12 +34,12 @@ Selezionare il tipo di offerta:
 | :------------------- | :-------------------|
 | Dispositivo | Offerta che prevede la creazione o la vendita di hardware da un produttore di dispositivi. |
 | IP | App o altro materiale con copyright concesso in licenza per l'uso da parte del cliente. Ad esempio, un programma CRM che può essere concesso in licenza e installato in locale. |
-| Service | Esperienza pratica per uno specifico progetto monouso, spesso fornito tramite consulenti. Ad esempio: configurazione di un database del cliente per un client (con il client che assume la responsabilità di gestire il database dopo il recapito). |
-| Servizio gestito | Esperienza pratica per un progetto basato sul cloud, in genere su base continuativa. Ad esempio:  Fornisce una piattaforma e strumenti per l'esecuzione di un database online, con una gestione continuativa fornita dal provider di servizi gestiti. |
+| Servizio | Esperienza pratica per uno specifico progetto monouso, spesso fornito tramite consulenti. Ad esempio: configurazione di un database del cliente per un client (con il client che assume la responsabilità di gestire il database dopo il recapito). |
+| Servizio gestito | Esperienza pratica per un progetto basato sul cloud, in genere su base continuativa. Ad esempio: fornire una piattaforma e strumenti per l'esecuzione di un database online, con una gestione continuativa fornita dal provider di servizi gestiti. |
 
 ## <a name="solution-areas"></a>Aree della soluzione
 
-È possibile aggiungere fino a tre aree della soluzione per l'offerta.  Per ogni area della soluzione è possibile scegliere fino a due sottoaree della soluzione. Per selezionare più sottocategorie, utilizzare il `Ctrl` tasto (in Windows) o il tasto di comando (in Mac OS).
+È possibile aggiungere fino a tre aree della soluzione per l'offerta.  Per ogni area della soluzione è possibile scegliere fino a due sottoaree della soluzione. Per selezionare più sottocategorie, usare la chiave di `Ctrl` (in Windows) o il tasto di comando (Mac OS).
 
 Le aree della soluzione consentono di definire gli scenari in cui l'offerta è progettata per l'indirizzo.
 
@@ -65,17 +65,17 @@ In questo documento vengono fornite indicazioni sui diversi ruoli per i partner 
 
 È anche possibile esportare l'elenco di contatti di un'offerta esistente e quindi apportare modifiche a tale file.
 
-* *Nome (obbligatorio)* : Nome del contatto.
-* *Indirizzo di posta elettronica (obbligatorio)* : Indirizzo di posta elettronica del contatto.
-* *Titolo processo (obbligatorio)* : Titolo del processo.
-* *Ruolo (obbligatorio)* : Usare uno dei ruoli seguenti in questo campo nel modello.
+* *Nome (obbligatorio)* : nome del contatto.
+* *Indirizzo di posta elettronica (obbligatorio)* : indirizzo di posta elettronica del contatto.
+* *Titolo processo (obbligatorio)* : titolo processo.
+* *Role (obbligatorio)* : usare uno dei ruoli seguenti in questo campo nel modello.
 
     | **Ruolo**    | **Descrizione**  |
     | :------------------- | :-------------------|
-    | *Marketing partner* | Questo ruolo è incentrato sul marketing della soluzione e sulla collaborazione con le attività di marketing dei team di vendita e dei rivenditori di canale Microsoft. Il punto principale di contatto per gli impegni di marketing e l'offerta di contenuti, ad esempio descrizioni di prodotti, immagini e video. |
-    | *Vendite partner* | Questo ruolo è incentrato sulla vendita della soluzione e sulla collaborazione delle vendite con i team di vendita Microsoft e i rivenditori di canali. Per le soluzioni di co-selling, indicare almeno un contatto per le vendite partner per ogni area in cui si vuole essere co-selling pronto. Lo stesso contatto per le vendite partner può coprire più aree. |
-    | *Vendite tecniche partner* | Supporta l'architettura tecnica e le considerazioni sulla distribuzione durante il ciclo di vendita, l'integrazione post-vendita e i periodi di distribuzione. |
-    | *Responsabile del successo dei clienti partner* | In genere, supporta la post-distribuzione dei clienti, per consentire loro di sfruttare al meglio la soluzione e di aumentarne il footprint all'interno dell'organizzazione del cliente. |
+    | *:::no-loc text="Partner marketing":::* | Questo ruolo è incentrato sul marketing della soluzione e sulla collaborazione con le attività di marketing dei team di vendita e dei rivenditori di canale Microsoft. Il punto principale di contatto per gli impegni di marketing e l'offerta di contenuti, ad esempio descrizioni di prodotti, immagini e video. |
+    | *:::no-loc text="Partner sales":::* | Questo ruolo è incentrato sulla vendita della soluzione e sulla collaborazione delle vendite con i team di vendita Microsoft e i rivenditori di canali. Per le soluzioni di co-selling, indicare almeno un contatto per le vendite partner per ogni area in cui si vuole essere co-selling pronto. Lo stesso contatto per le vendite partner può coprire più aree. |
+    | *:::no-loc text="Partner technical sales":::* | Supporta l'architettura tecnica e le considerazioni sulla distribuzione durante il ciclo di vendita, l'integrazione post-vendita e i periodi di distribuzione. |
+    | *:::no-loc text="Partner customer success manager":::* | In genere, supporta la post-distribuzione dei clienti, per consentire loro di sfruttare al meglio la soluzione e di aumentarne il footprint all'interno dell'organizzazione del cliente. |
 
 * *Paesi/aree geografiche (obbligatorio):*  Quando si compila il modello, usare i [due codici di paese/area geografica elencati](./commercial-marketplace-co-sell-countries.md). Se il contatto copre tutti i paesi o le aree geografiche, usare il codice "OOO" di tre lettere. Se un contatto copre più di un paese/area geografica, immettere ognuno dei due codici letterali separati da una virgola (ad esempio, immettere "US, CA, FR" senza virgolette nel modello).
 

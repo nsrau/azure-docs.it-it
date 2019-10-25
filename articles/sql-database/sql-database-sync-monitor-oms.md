@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: d1461a1bb026d478d51a5f79cc02b34172524db6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 26dc1ebef1c627ed2b20eb0fda68b2ca2d01b82a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566412"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791752"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitorare sincronizzazione dati SQL con i log di monitoraggio di Azure 
 
@@ -27,7 +27,7 @@ Per controllare il registro attività di sincronizzazione dati SQL e rilevare gl
 Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> Al momento, la sincronizzazione dati SQL di Azure **non** supporta Istanza gestita di database SQL di Azure.
+> Al momento la sincronizzazione dati SQL di Azure **non** supporta Istanza gestita di database SQL di Azure.
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Dashboard di monitoraggio per tutti i gruppi di sincronizzazione 
 
@@ -85,7 +85,7 @@ Per altre informazioni sulla creazione di un runbook, vedere [Il primo runbook P
 
 4.  In **File di runbook** usare il file `DataSyncLogPowerShellRunbook` specifico. Impostare il **tipo di runbook** come `PowerShell`. Assegnare un nome al runbook.
 
-5.  Selezionare **Create**. È ora disponibile un runbook.
+5.  Selezionare **Create** (Crea). È ora disponibile un runbook.
 
 6.  In Account di Automazione di Azure selezionare la scheda**Variabili** in Risorse condivise.
 
@@ -123,7 +123,7 @@ Per pianificare il runbook:
 
 5.  Impostare **Ricorrenza** su Ricorrente e impostare l'intervallo desiderato. Usare lo stesso intervallo qui, nello script e nei log di monitoraggio di Azure.
 
-6.  Selezionare **Create**.
+6.  Selezionare **Create** (Crea).
 
 ### <a name="check-the-automation"></a>Controllare l'automazione
 
@@ -135,9 +135,9 @@ Per creare un avviso che usa i log di monitoraggio di Azure, eseguire le operazi
 
 1.  Nel portale di Azure selezionare **Ricerca log**.
 
-2.  Creare una query per selezionare gli errori e gli avvisi per gruppo di sincronizzazione entro l'intervallo selezionato. Ad esempio:
+2.  Creare una query per selezionare gli errori e gli avvisi per gruppo di sincronizzazione entro l'intervallo selezionato. ad esempio:
 
-    `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
+    `DataSyncLog_CL | where TimeGenerated > ago(60m) | where LogLevel_s != "Success" | summarize count() by SyncGroupName_s`
 
 3.  Dopo avere eseguito la query, selezionare l'icona a forma di campanello indicante **Avviso**.
 
@@ -149,7 +149,7 @@ Per creare un avviso che usa i log di monitoraggio di Azure, eseguire le operazi
 
 5.  In **Azioni** impostare **Notifica di posta elettronica** su "Sì". Immettere i destinatari di posta elettronica desiderati.
 
-6.  Fare clic su **Save**. I destinatari specificati ora ricevono notifiche tramite e-mail in caso di errori.
+6.  Fare clic su **Salva** I destinatari specificati ora ricevono notifiche tramite e-mail in caso di errori.
 
 ## <a name="create-an-azure-monitor-view-for-monitoring"></a>Creare una visualizzazione di monitoraggio di Azure per il monitoraggio
 
@@ -185,7 +185,7 @@ Per configurare la visualizzazione di monitoraggio di Azure, eseguire le operazi
 
 Nella maggior parte dei casi questa soluzione è gratuita.
 
-**Automazione di Azure:** potrebbe essere addebitato un costo associato all'account di Automazione di Azure, in base all'utilizzo. I primi 500 minuti al mese del tempo di esecuzione processo sono gratuiti. Nella maggior parte dei casi l'utilizzo previsto per questa soluzione è inferiore a 500 minuti al mese. Per evitare costi, pianificare l'esecuzione del runbook a un intervallo di due o più ore. Per altre informazioni, vedere [Prezzi di Automazione](https://azure.microsoft.com/pricing/details/automation/).
+**Automazione di Azure:** è possibile che venga addebitato un costo con l'account di Automazione di Azure, in base all'utilizzo. I primi 500 minuti al mese del tempo di esecuzione processo sono gratuiti. Nella maggior parte dei casi l'utilizzo previsto per questa soluzione è inferiore a 500 minuti al mese. Per evitare costi, pianificare l'esecuzione del runbook a un intervallo di due o più ore. Per altre informazioni, vedere [Prezzi di Automazione](https://azure.microsoft.com/pricing/details/automation/).
 
 **Log di monitoraggio di Azure:** I log di monitoraggio di Azure possono avere un costo associato a seconda dell'utilizzo. Il livello gratuito include 500 MB di dati inseriti al giorno. Nella maggior parte dei casi l'inserimento previsto per questa soluzione è inferiore a 500 MB al mese. Per ridurre l'utilizzo, usare i filtri solo in base all'errore inclusi nel runbook. Se si usano più di 500 MB al giorno, eseguire l'aggiornamento al piano a pagamento per evitare il rischio di interruzione dell'analisi al raggiungimento del limite. Per altre informazioni, vedere [prezzi dei log di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/log-analytics/).
 
@@ -202,7 +202,7 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 
 -   Panoramica: [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md)
 -   Configurare la sincronizzazione dati
-    - Nel portale - [Esercitazione: Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale](sql-database-get-started-sql-data-sync.md)
+    - Nel portale: [Esercitazione: Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale](sql-database-get-started-sql-data-sync.md)
     - Con PowerShell
         -  [Usare PowerShell per sincronizzare più database SQL di Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Usare PowerShell per la sincronizzazione tra un database SQL di Azure e un database locale di SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)

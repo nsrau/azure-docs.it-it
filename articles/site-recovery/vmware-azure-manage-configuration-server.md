@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 66022b5e4885c515bd6117f9a44b8108ff84ae5c
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 42e1e283736d8a1e3d4ece33c861185df2d72da7
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250108"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791831"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di macchine virtuali VMware
 
@@ -21,12 +21,16 @@ Un server di configurazione locale viene impostato quando si usa [Azure Site Rec
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+## <a name="update-windows-license"></a>Aggiornare la licenza di Windows
+
+La licenza fornita con il modello OVF è una licenza di valutazione valida per 180 giorni. Per un utilizzo senza interruzioni, è necessario attivare Windows con una licenza acquistata. L'aggiornamento delle licenze può essere eseguito tramite una chiave autonoma o una chiave standard del servizio di gestione delle chiavi. Informazioni aggiuntive sono disponibili nella [riga di comando di Windows DISM per l'esecuzione del sistema operativo](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). Per ottenere le chiavi, fare riferimento alla [configurazione del client KMS](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys).
+
 ## <a name="access-configuration-server"></a>Accedere al server di configurazione
 
 È possibile accedere al server di configurazione come indicato di seguito:
 
 * Accedere alla macchina virtuale in cui è distribuito e avviare **Gestione configurazione di Azure Site Recovery** dal collegamento sul desktop.
-* In alternativa, è possibile accedere al server di configurazione in modalità remota da https://*NomeServerConfigurazione*/:44315/ Accedere con le credenziali di amministratore.
+* In alternativa, è possibile accedere al server di configurazione in modalità remota da https://*ConfigurationServerName*/: 44315/. Accedere con le credenziali di amministratore.
 
 ## <a name="modify-vmware-server-settings"></a>Modificare le impostazioni del server VMware
 
@@ -58,7 +62,7 @@ Modificare le credenziali usate per installare automaticamente il servizio Mobil
 
 È possibile modificare le credenziali anche tramite CSPSConfigtool.exe.
 
-1. Accedere al server di configurazione e avviare CSPSConfigtool.exe.
+1. Accedere al server di configurazione e avviare CSPSConfigtool. exe
 2. Scegliere l'account che si vuole modificare e fare clic su **Modifica**.
 3. Immettere le nuove credenziali e fare clic su **OK**.
 
@@ -73,7 +77,7 @@ Se non si sono aggiunte le credenziali durante la distribuzione OVF del server d
 
 È possibile aggiungere le credenziali anche tramite CSPSConfigtool.exe.
 
-1. Accedere al server di configurazione e avviare CSPSConfigtool.exe.
+1. Accedere al server di configurazione e avviare CSPSConfigtool. exe
 2. Fare clic su **Aggiungi**, immettere le nuove credenziali e fare clic su **OK**.
 
 ## <a name="modify-proxy-settings"></a>Modificare le impostazioni proxy
@@ -109,7 +113,7 @@ Il modello OVF (Open Virtualization Format) distribuisce la macchina virtuale de
    ```
 
     >[!NOTE]
-    >Per eseguire il **pull dei certificati più recenti** dal server di configurazione al server di elaborazione con scalabilità orizzontale, eseguire il comando *\<"installazione Drive\Microsoft Azure site Recovery\agent\cdpcli.exe >"--registermt*
+    >Per eseguire il **pull dei certificati più recenti** dal server di configurazione al server di elaborazione con scalabilità orizzontale, eseguire il comando *"\<installazione Drive\Microsoft Azure site Recovery\agent\cdpcli.exe >"--registermt*
 
 8. Infine, riavviare obengine eseguendo il comando seguente.
    ```
@@ -135,7 +139,7 @@ Il modello OVF (Open Virtualization Format) distribuisce la macchina virtuale de
 
 ## <a name="upgrade-the-configuration-server"></a>Aggiornare il server di configurazione
 
-Per aggiornare il server di configurazione si eseguono aggiornamenti cumulativi. È possibile applicare gli aggiornamenti a un massimo di N-4 versioni. Ad esempio:
+Per aggiornare il server di configurazione si eseguono aggiornamenti cumulativi. È possibile applicare gli aggiornamenti a un massimo di N-4 versioni. ad esempio:
 
 - Se si esegue la versione 9.7, 9.8, 9.9 o 9.10, è possibile eseguire l'aggiornamento direttamente alla versione 9.11.
 - Se si esegue la versione 9.6 o una versione precedente e si desidera eseguire l'aggiornamento alla 9.11, è necessario prima eseguire l'aggiornamento alla versione 9.7 e poi alla 9.11.
@@ -154,13 +158,13 @@ Per aggiornare il server, seguire questa procedura:
     ![Aggiornamento](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Scaricare il file del programma di installazione dell'aggiornamento nel server di configurazione.
 
-    ![Aggiorna](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Aggiornare](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Fare doppio clic per eseguire il programma di installazione.
 5. Il programma di installazione rileva la versione corrente in esecuzione nel computer. Fare clic su **Sì** per avviare l'aggiornamento.
 6. Al termine dell'aggiornamento viene convalidata la configurazione del server.
 
-    ![Aggiorna](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Aggiornare](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Fare clic su **Fine** per chiudere il programma di installazione.
 8. Per eseguire l'aggiornamento degli altri componenti di Site Recovery, vedere le [indicazioni sugli aggiornamenti](https://aka.ms/asr_vmware_upgrades).
@@ -181,9 +185,9 @@ Eseguire il file di installazione come segue:
   ```
 
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
-|Nome parametro| Type | DESCRIZIONE| Valori|
+|Nome parametro| Type | Description| Valori|
 |-|-|-|-|
 | /Modalità server|Obbligatoria|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
 |/InstallLocation|Obbligatoria|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
@@ -211,7 +215,7 @@ MySQLRootPassword = "Password>"
 MySQLUserPassword = "Password"
 ```
 ### <a name="create-file-input-for-proxysettingsfilepath"></a>Creare il file di input per ProxySettingsFilePath
-Il parametro ProxySettingsFilePath prende un file come input. Creare il file usando il formato seguente e passarlo come parametro ProxySettingsFilePath di input.
+Il parametro ProxySettingsFilePath usa un file come input. Creare il file usando il formato seguente e passarlo come parametro ProxySettingsFilePath di input.
 
 ```ini
 [ProxySettings]
@@ -291,10 +295,6 @@ Per le distribuzioni del server di configurazione precedenti maggio 2016, la sca
 2. Fare clic sul server di configurazione che si vuole aggiornare.
 3. Nel pannello con i dettagli del server di configurazione scelto fare clic su **Altro** > **Aggiorna server**.
 4. Monitorare lo stato del processo in **Insieme di credenziali di Servizi di ripristino** > **Monitoraggio** > **Processi di Site Recovery**.
-
-## <a name="update-windows-license"></a>Aggiornare la licenza di Windows
-
-La licenza fornita con il modello OVF è una licenza di valutazione valida per 180 giorni. Per un utilizzo senza interruzioni, è necessario attivare Windows con una licenza acquistata.
 
 ## <a name="failback-requirements"></a>Requisiti di failback
 

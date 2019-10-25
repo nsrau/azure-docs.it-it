@@ -1,5 +1,6 @@
 ---
 title: Autenticazione con Azure Active Directory nei cloud nazionali
+titleSuffix: Microsoft identity platform
 description: Informazioni sugli endpoint di registrazione e autenticazione delle app per i cloud nazionali.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: negoe
 ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca82efbd4e26ccb8a169c84332e3d24196fae95e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 70f1f80744043893dd7206bc6388b8e080c07d0f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135864"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803895"
 ---
 # <a name="national-clouds"></a>Cloud nazionali
 
@@ -30,7 +31,7 @@ I cloud nazionali sono istanze fisicamente isolate di Azure. Queste aree di Azur
 
 Incluso il cloud globale, Azure Active Directory (Azure AD) viene distribuito nei cloud nazionali seguenti:  
 
-- Azure Government
+- Azure per enti pubblici
 - Azure Germania
 - 21Vianet per Azure Cina
 

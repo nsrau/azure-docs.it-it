@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 12ac5c44a0ee479d84616b138f9e2369a195c275
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 69afe2aab3c10707f7160d727b970ad73d59a952
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976473"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791554"
 ---
-# <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Avvio rapido: Creare un'area di lavoro Azure Databricks in una rete virtuale
+# <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Guida introduttiva: creare un'area di lavoro Azure Databricks in una rete virtuale
 
 Questa Guida introduttiva illustra come creare un'area di lavoro Azure Databricks in una rete virtuale. Si creerà anche un cluster Apache Spark all'interno di tale area di lavoro.
 
@@ -27,17 +27,17 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 > [!Note]
 > Questa esercitazione non può essere eseguita usando una **sottoscrizione di valutazione gratuita di Azure**.
-> Se l'utente ha un account gratuito, andare al proprio profilo e modificare la sottoscrizione a **con pagamento in base al consumo**. Per altre informazioni, vedere [Account gratuito di Azure](https://azure.microsoft.com/free/). Quindi [rimuovere il limite di spesa](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center) e [richiedere un aumento della quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) per le vCPU nell'area dell'utente. Quando si crea l'area di lavoro Azure Databricks, è possibile selezionare il piano tariffario **Versione di valutazione (Premium - Unità Databricks gratuite per 14 giorni)** per concedere l'accesso gratuito Premium per 14 giorni dell'area di lavoro alle Unità Databricks di Azure.
+> Se l'utente ha un account gratuito, andare al proprio profilo e modificare la sottoscrizione a **con pagamento in base al consumo**. Per altre informazioni, vedere [Account gratuito di Azure](https://azure.microsoft.com/free/). Quindi [rimuovere il limite di spesa](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) e [richiedere un aumento della quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) per le vCPU nell'area dell'utente. Quando si crea l'area di lavoro Azure Databricks, è possibile selezionare il piano tariffario **Versione di valutazione (Premium - Unità Databricks gratuite per 14 giorni)** per concedere l'accesso gratuito Premium per 14 giorni dell'area di lavoro alle Unità Databricks di Azure.
 
-## <a name="create-a-virtual-network"></a>Crea rete virtuale
+## <a name="create-a-virtual-network"></a>Crea una rete virtuale
 
-1. Nella portale di Azure > selezionare **Crea una risorsa** > **rete rete virtuale**.
+1. Nella portale di Azure selezionare **Crea una risorsa** ** > rete** **rete virtuale** > .
 
 2. In **Crea rete virtuale**applicare le impostazioni seguenti: 
 
-    |Impostazione|Valore consigliato|DESCRIZIONE|
+    |Impostazione|Valore consigliato|Description|
     |-------|---------------|-----------|
-    |NOME|databricks-avvio rapido|Selezionare un nome per la rete virtuale.|
+    |name|databricks-avvio rapido|Selezionare un nome per la rete virtuale.|
     |Spazio degli indirizzi|10.1.0.0/16|Intervallo di indirizzi della rete virtuale nella notazione CIDR.|
     |Sottoscrizione|\<Sottoscrizione in uso\>|Selezionare la sottoscrizione di Azure da usare.|
     |Gruppo di risorse|databricks-avvio rapido|Selezionare **Crea nuovo** e immettere un nuovo nome per il gruppo di risorse per l'account.|
@@ -53,18 +53,18 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Creare un'area di lavoro di Azure Databricks
 
-1. Nella portale di Azure selezionare **Crea una risorsa** > **Analytics** > databricks.
+1. Nella portale di Azure selezionare **Crea una risorsa** > **Analytics** > **databricks**.
 
 2. In **Azure Databricks servizio**applicare le impostazioni seguenti:
 
-    |Impostazione|Valore consigliato|DESCRIZIONE|
+    |Impostazione|Valore consigliato|Description|
     |-------|---------------|-----------|
     |Nome dell'area di lavoro|databricks-avvio rapido|Selezionare un nome per l'area di lavoro Azure Databricks.|
     |Sottoscrizione|\<Sottoscrizione in uso\>|Selezionare la sottoscrizione di Azure da usare.|
     |Gruppo di risorse|databricks-avvio rapido|Selezionare lo stesso gruppo di risorse usato per la rete virtuale.|
     |Località|\<Selezionare l'area più vicina agli utenti\>|Scegliere lo stesso percorso della rete virtuale.|
-    |Piano tariffario|Scegliere tra standard o Premium.|Per altre informazioni sui piani tariffari, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/databricks/)di databricks.|
-    |Distribuire Azure Databricks area di lavoro nella rete virtuale|Sì|Questa impostazione consente di distribuire un'area di lavoro Azure Databricks nella rete virtuale.|
+    |Piano tariffario|Scegliere tra standard o Premium.|Per altre informazioni sui piani tariffari, vedere la [pagina dei prezzi di databricks](https://azure.microsoft.com/pricing/details/databricks/).|
+    |Distribuire Azure Databricks area di lavoro nella rete virtuale|SÌ|Questa impostazione consente di distribuire un'area di lavoro Azure Databricks nella rete virtuale.|
     |Rete virtuale|databricks-avvio rapido|Selezionare la rete virtuale creata nella sezione precedente.|
     |Nome della subnet pubblica|subnet pubblica|Usare il nome predefinito della subnet pubblica.|
     |Intervallo CIDR della subnet pubblica|10.179.64.0/18|L'intervallo CIDR per questa subnet deve essere compreso tra/18 e/26.|
@@ -88,7 +88,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. Tornare al servizio Azure Databricks e selezionare **Avvia area di lavoro** nella pagina **Panoramica** .
 
-2. Selezionare **cluster** >  **+ Crea cluster**. Creare quindi un nome di cluster, ad esempio databricks *-QuickStart-cluster*, e accettare le impostazioni predefinite rimanenti. Selezionare **Crea cluster**.
+2. Selezionare **cluster** >  **+ Crea cluster**. Creare quindi un nome di cluster, ad esempio *databricks-QuickStart-cluster*, e accettare le impostazioni predefinite rimanenti. Selezionare **Crea cluster**.
 
     ![Crea cluster Azure Databricks](./media/quickstart-create-databricks-workspace-vnet-injection/create-cluster.png)
 
@@ -96,7 +96,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
     ![Azure Databricks gruppo di risorse gestito dopo la creazione del cluster](./media/quickstart-create-databricks-workspace-vnet-injection/managed-resource-group2.png)
 
-4. Tornare all'area di lavoro Azure Databricks e selezionare il cluster creato. Passare quindi alla scheda **eXecutors** (esecutori) nella pagina dell' **interfaccia utente di Spark** . Si noti che gli indirizzi del driver e degli esecutori si trovano nell'intervallo della subnet privata. In questo esempio, il driver è 10.179.0.6 ed eXecutors sono 10.179.0.4 e 10.179.0.5. Gli indirizzi IP potrebbero essere diversi.
+4. Tornare all'area di lavoro Azure Databricks e selezionare il cluster creato. Passare quindi alla scheda **eXecutors (esecutori** ) nella pagina dell' **interfaccia utente di Spark** . Si noti che gli indirizzi del driver e degli esecutori si trovano nell'intervallo della subnet privata. In questo esempio, il driver è 10.179.0.6 ed eXecutors sono 10.179.0.4 e 10.179.0.5. Gli indirizzi IP potrebbero essere diversi.
 
     ![Azure Databricks Executor dell'interfaccia utente Spark](./media/quickstart-create-databricks-workspace-vnet-injection/databricks-sparkui-executors.png)
 

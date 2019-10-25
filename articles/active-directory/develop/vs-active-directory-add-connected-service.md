@@ -1,5 +1,5 @@
 ---
-title: Aggiunta di Azure Active Directory mediante servizi connessi in Visual Studio
+title: Aggiungere un Azure Active Directory usando Servizi connessi in Visual Studio | Azure
 description: Aggiungere un'istanza di Azure Active Directory usando la finestra di dialogo Aggiungi Servizi connessi di Visual Studio
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c02821a41faa976f8f35984ecf48f425239e6fd
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 04c8b6bfeaabfa20b9b9b884584d40de7f09e9ac
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881186"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802484"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Aggiunta di Azure Active Directory mediante servizi connessi in Visual Studio
 
@@ -46,7 +46,7 @@ Al momento, il servizio connesso di Active Directory non supporta applicazioni A
 
     ![Pagina Introduzione](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
 
-1. Nella pagina **Single-Sign On** selezionare un dominio nell’elenco a discesa **Dominio**. L'elenco di domini contiene tutti i domini accessibili dagli account elencati nella finestra di dialogo Impostazioni account di Visual Studio (**File > Impostazioni account**). In alternativa, è possibile immettere un nome di dominio se non è possibile trovare quello che si sta cercando, ad esempio `mydomain.onmicrosoft.com`. È possibile scegliere l'opzione per creare una nuova app di Azure Active Directory o usare le impostazioni di un'app di Azure Active Directory esistente. Al termine scegliere **Avanti**.
+1. Nella pagina **Single-Sign On** selezionare un dominio nell’elenco a discesa **Dominio**. L'elenco contiene tutti i domini accessibili dagli account elencati nella finestra di dialogo Impostazioni account di Visual Studio (**File > impostazioni account...** ). In alternativa, è possibile immettere un nome di dominio se non si trova quello che si sta cercando, ad esempio `mydomain.onmicrosoft.com`. È possibile scegliere l'opzione per creare una nuova app di Azure Active Directory o usare le impostazioni di un'app di Azure Active Directory esistente. Al termine scegliere **Avanti**.
 
     ![Pagina Single Sign-On](./media/vs-azure-active-directory/configure-azure-ad-wizard-2.png)
 

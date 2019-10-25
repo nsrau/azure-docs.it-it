@@ -1,5 +1,6 @@
 ---
 title: App a tenant singolo e multi-tenant in Azure Active Directory
+titleSuffix: Microsoft identity platform
 description: Informazioni sulle funzionalità e le differenze tra le app a tenant singolo e multi-tenant in Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9035cc629a11c125c1b6351bd4bff9f5576f7baf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6aa8f63b6e7355ae387a321acf77683fac22e028
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111076"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803641"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Tenancy in Azure Active Directory
 
@@ -36,7 +37,7 @@ In fase di sviluppo delle app, gli sviluppatori possono scegliere di configurare
 
 Nel portale di Azure è possibile configurare l'app come multi-tenant o a tenant singolo impostando i destinatari come indicato di seguito.
 
-| Audience | Tenant singolo/multi-tenant | Utenti autorizzati a effettuare l'accesso | 
+| Destinatari | Tenant singolo/multi-tenant | Utenti autorizzati a effettuare l'accesso | 
 |----------|--------| ---------|
 | Account solo in questa directory | Tenant singolo | Tutti gli account utente e guest della directory possono usare l'applicazione o l'API.<br>*Usare questa opzione se i destinatari sono interni all'organizzazione.* |
 | Account in qualsiasi directory di Azure AD | Multi-tenant | Tutti gli utenti e gli utenti guest con un account Microsoft aziendale o dell'istituto di istruzione possono usare l'applicazione o l'API. Sono inclusi gli istituti di istruzione e le aziende che usano Office 365.<br>*Usare questa opzione se i destinatari sono clienti aziendali o di istituti di istruzione.* |
@@ -46,7 +47,7 @@ Nel portale di Azure è possibile configurare l'app come multi-tenant o a tenant
 
 Creare ottime app multi-tenant può risultare difficile a causa del numero di diversi criteri che gli amministratori IT possono impostare nei tenant. Se si sceglie di creare un'app multi-tenant, seguire queste procedure consigliate:
 
-* Testare l'app in un tenant che ha configurato [criteri di accesso condizionale](conditional-access-dev-guide.md).
+* Testare l'app in un tenant con criteri di [accesso condizionale](conditional-access-dev-guide.md)configurati.
 * Seguire il principio dell'accesso utente con privilegi minimi per assicurarsi che l'app richieda solo le autorizzazioni effettivamente necessarie. Evitare di richiedere autorizzazioni che necessitino del consenso amministratore, perché in alcune organizzazioni potrebbe comportare il mancato acquisto dell'app. 
 * Specificare nomi e descrizioni appropriati per tutte le autorizzazioni esposte come parte dell'app. In questo modo, utenti e amministratori sanno esattamente quello che stanno accettando quando tentano di usare le API dell'app. Per altre informazioni, vedere la sezione delle procedure consigliate nella [guida alle autorizzazioni](v1-permissions-and-consent.md).
 

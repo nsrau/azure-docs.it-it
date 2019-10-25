@@ -1,5 +1,5 @@
 ---
-title: Code di archiviazione di Azure e code del bus di servizio - Analogie e differenze | Microsoft Docs
+title: Confrontare le code di archiviazione di Azure e le code del bus di servizio
 description: Analizza i punti in comune e le differenze tra i due tipi di code offerti da Azure.
 services: service-bus-messaging
 documentationcenter: na
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: df9a7325d3ffc2362ff14b9a618ca0db7928b337
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: a1e75416db34514425436bc3ceae9f27b156b557
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376326"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792697"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Analogie e differenze tra le code di archiviazione e le code del bus di servizio
-Questo articolo analizza le analogie e le differenze tra i due tipi di code offerti attualmente da Microsoft Azure: Code di archiviazione e code del bus di servizio. Grazie a queste informazioni, è possibile confrontare e contrapporre le rispettive tecnologie ed essere quindi in grado di fare una scelta più oculata riguardo alla soluzione che soddisfa meglio le proprie esigenze.
+Questo articolo analizza le differenze e le analogie presenti tra i due tipi di code offerte attualmente da Microsoft Azure: code di archiviazione e code del bus di servizio. Grazie a queste informazioni sarà possibile mettere a confronto le rispettive tecnologie per prendere una decisione più consapevole in merito alla soluzione adatta alle proprie esigenze.
 
 ## <a name="introduction"></a>Introduzione
-Azure supporta due tipi di meccanismi di code: **Code di archiviazione** e **code del bus di servizio**.
+Azure supporta due tipi di meccanismi di code: **code di archiviazione** e **code del bus di servizio**.
 
 Le **code di archiviazione**, che fanno parte dell'infrastruttura di [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), offrono una semplice interfaccia per operazioni di ricezione/inserimento/visualizzazione basata su REST, che determina una messaggistica affidabile e persistente all'interno di un servizio e tra i servizi.
 
@@ -52,7 +52,7 @@ Gli architetti e gli sviluppatori di soluzioni **dovrebbero considerare l'uso de
 * L'applicazione deve elaborare i messaggi come flussi paralleli a esecuzione prolungata (i messaggi sono associati a un flusso tramite la proprietà [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) del messaggio). In questo modello ogni nodo dell'applicazione che utilizza il servizio entra in competizione con gli altri nodi per l'acquisizione dei flussi anziché dei messaggi. Quando un flusso viene assegnato a un nodo basato sul servizio, tale nodo può esaminare lo stato del flusso dell'applicazione mediante transazioni.
 * Per la soluzione sono necessari atomicità e comportamento transazionale in caso di invio o ricezione di più messaggi da una coda.
 * L'applicazione gestisce messaggi che possono superare i 64 KB ma che probabilmente non si avvicineranno al limite dei 256 KB
-* È necessario fornire un modello di accesso basato sui ruoli alle code e autorizzazioni/diritti diversi per mittenti e destinatari. Per altre informazioni, vedere i seguenti articoli:
+* È necessario fornire un modello di accesso basato sui ruoli alle code e autorizzazioni/diritti diversi per mittenti e destinatari. Per altre informazioni, vedere gli articoli seguenti:
     - [Eseguire l'autenticazione con identità gestite](service-bus-managed-service-identity.md)
     - [Eseguire l'autenticazione da un'applicazione](authenticate-application.md)
 * Le dimensioni della coda non supereranno gli 80 GB.
@@ -70,7 +70,7 @@ Questa sezione confronta alcune delle funzionalità di accodamento fondamentali 
 | Criteri di confronto | Code di archiviazione | Code del bus di servizio |
 | --- | --- | --- |
 | Garanzia di ordinamento |**No** <br/><br>Per altre informazioni, vedere la prima nota della sezione "Informazioni aggiuntive".</br> |**Sì - First-In-First-Out (FIFO)**<br/><br>(tramite l'uso di sessioni di messaggistica) |
-| Garanzia di recapito |**At-Least-Once** |**At-least-once** (usando la modalità di ricezione PeekLock-impostazione predefinita) <br/><br/>**At-most-once** (utilizzo della modalità di ricezione ReceiveAndDelete) <br/> <br/> Altre informazioni sulle diverse [modalità di ricezione](service-bus-queues-topics-subscriptions.md#receive-modes)  |
+| Garanzia di recapito |**At-Least-Once** |**At-least-once** (usando la modalità di ricezione PeekLock-impostazione predefinita) <br/><br/>**At-most-once** (usando la modalità di ricezione ReceiveAndDelete) <br/> <br/> Altre informazioni sulle diverse [modalità di ricezione](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Supporto per l'operazione atomica |**No** |**Sì**<br/><br/> |
 | Comportamento di ricezione |**Non-blocking**<br/><br/>(viene completata immediatamente se non vengono trovati altri messaggi) |**Blocking with/without timeout**<br/><br/>(offre disponibilità di polling prolungato o la ["Tecnica Comet"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non-blocking**<br/><br/>(solo tramite l'uso di interfaccia API gestita di .NET) |
 | API di tipo push |**No** |**Sì**<br/><br/>Interfaccia API di .NET per sessioni [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) e **OnMessage**. |
@@ -133,7 +133,7 @@ Questa sezione confronta le code di Azure e le code del bus di servizio in termi
 | Criteri di confronto | Code di archiviazione | Code del bus di servizio |
 | --- | --- | --- |
 | Dimensioni massime della coda |**500 TB**<br/><br/>(limitate alla [capacità di un singolo account di archiviazione](../storage/common/storage-introduction.md#queue-storage)) |**Da 1 GB a 80 GB**<br/><br/>(valori definiti al momento della creazione della coda e dell'[abilitazione del partizionamento](service-bus-partitioning.md). Vedere la sezione "Informazioni aggiuntive"). |
-| Dimensioni massime del messaggio |**64 KB**<br/><br/>(48 KB quando si usa una codifica **Base64**)<br/><br/>Azure supporta messaggi di grandi dimensioni combinando code e BLOB. È quindi possibile accodare fino a 200 GB per un unico elemento. |**256 KB** o **1 MB**<br/><br/>(inclusi l'intestazione e il corpo, dimensioni massime dell'intestazione: 64 kB).<br/><br/>Dipende dal [livello di servizio](service-bus-premium-messaging.md). |
+| Dimensioni massime del messaggio |**64 KB**<br/><br/>(48 KB quando si usa una codifica **Base64**)<br/><br/>Azure supporta messaggi di grandi dimensioni combinando code e BLOB. È quindi possibile accodare fino a 200 GB per un unico elemento. |**256 KB** o **1 MB**<br/><br/>(inclusi l'intestazione e il corpo, dimensioni massime dell'intestazione: 64 KB).<br/><br/>Dipende dal [livello di servizio](service-bus-premium-messaging.md). |
 | Durata TTL massima del messaggio |**Infinito** (a partire da api-version 2017-07-27) |**TimeSpan.Max** |
 | Numero massimo di code |**Illimitato** |**10.000**<br/><br/>(per spazio dei nomi del servizio) |
 | Numero massimo di client concorrenti |**Illimitato** |**Illimitato**<br/><br/>(limite di 100 connessioni simultanee applicato solo alla comunicazione basata su protocollo TCP) |
@@ -176,7 +176,7 @@ Questa sezione illustra le funzionalità di autenticazione e autorizzazione supp
 | Criteri di confronto | Code di archiviazione | Code del bus di servizio |
 | --- | --- | --- |
 | Authentication |**Chiave simmetrica** |**Chiave simmetrica** |
-| Modello di protezione |Accesso delegato tramite token di firma di accesso condiviso. |SAS |
+| Modello di sicurezza |Accesso delegato tramite token di firma di accesso condiviso. |SAS |
 | Federazione del provider di identità |**No** |**Sì** |
 
 ### <a name="additional-information"></a>Informazioni aggiuntive

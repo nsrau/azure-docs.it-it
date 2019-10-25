@@ -1,5 +1,6 @@
 ---
-title: Asserzioni client in Microsoft Authentication Library per .NET | Azure
+title: Asserzioni client in Microsoft Authentication Library per .NET
+titleSuffix: Microsoft identity platform
 description: Informazioni sul supporto delle asserzioni client firmate per le applicazioni client riservate in Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: jmprieur
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1ea75499334f3f6eb2f5d3c15526067fcef4eb8
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: fcf11ac8dc39dcb1d70b932dbe870687f5446a52
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442500"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802844"
 ---
 # <a name="confidential-client-assertions"></a>Asserzioni client riservate
 Per dimostrare la propria identità, le applicazioni client riservate scambiano un segreto con Azure AD. Il segreto può essere:
@@ -50,7 +51,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Le attestazioni previste da Azure AD sono:
 
-Tipo di attestazione | Valore | DESCRIZIONE
+Tipo di attestazione | Value | Description
 ---------- | ---------- | ----------
 aud | https://login.microsoftonline.com/{tenantId}/v2.0 | L'attestazione "AUD" (audience) identifica i destinatari a cui è destinato il JWT (qui Azure AD) vedere [RFC 7519, sezione 4.1.3]
 exp | Gio giu 27 2019 15:04:17 GMT + 0200 (Romance Daylight Time) | L'attestazione "exp" (expiration time) identifica l'ora di scadenza a partire dalla quale o successivamente alla quale il token JWT non deve essere accettato per l'elaborazione. Vedere [RFC 7519, sezione 4.1.4]
@@ -135,7 +136,7 @@ string GetAssertion()
 
 ### <a name="withclientclaims"></a>WithClientClaims
 
-`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)`per impostazione predefinita, produrrà un'asserzione firmata contenente le attestazioni previste da Azure AD più le attestazioni client aggiuntive che si desidera inviare. Ecco un frammento di codice per eseguire questa operazione.
+`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)` per impostazione predefinita produrrà un'asserzione firmata contenente le attestazioni previste da Azure AD e altre attestazioni client che si desidera inviare. Ecco un frammento di codice per eseguire questa operazione.
 
 ```CSharp
 string ipAddress = "192.168.1.2";
@@ -150,4 +151,4 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Se una delle attestazioni nel dizionario passato è uguale a una delle attestazioni obbligatorie, verrà considerato il valore dell'attestazione aggiuntiva. Eseguirà l'override delle attestazioni calcolate da MSAL.NET.
 
-Se si desidera fornire attestazioni personalizzate, incluse le attestazioni obbligatorie previste da Azure ad, passare `false` per il `mergeWithDefaultClaims` parametro.
+Se si desidera fornire attestazioni personalizzate, incluse le attestazioni obbligatorie previste da Azure AD, passare `false` per il parametro `mergeWithDefaultClaims`.

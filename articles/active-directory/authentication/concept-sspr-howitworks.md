@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c31867f4de0e49e2c82733dc859f17ba060bdaa
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 9fcac058a510b8b7fed5b3967bbbf439dd4c0f71
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69561324"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786742"
 ---
-# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Come funziona: reimpostazione self-service della password di Azure AD
+# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
 
 Come funziona la reimpostazione della password self-service? Cosa comporta questa opzione per l'interfaccia? Continuare la lettura per ottenere altre informazioni sulla reimpostazione della password self-service di Azure Active Directory (Azure AD).
 
@@ -57,8 +57,8 @@ Leggere i passaggi seguenti per informazioni sulla logica alla base della pagina
 Se è abilitata la reimpostazione della password self-service, è necessario selezionare almeno una delle opzioni seguenti per i metodi di autenticazione. Queste opzioni sono a volte denominate "attività di controllo". È consigliabile **scegliere due o più metodi di autenticazione** in modo che gli utenti abbiano una maggiore flessibilità nel caso in cui non siano in grado di accedere a uno di questi in un dato momento. Altre informazioni sui metodi elencati di seguito sono disponibili nell'articolo informazioni sui [metodi di autenticazione](concept-authentication-methods.md).
 
 * Notifica dell'app per dispositivi mobili
-* Codice app per dispositivi mobili
-* Email
+* Codice dell'app per dispositivi mobili
+* Indirizzo di posta elettronica
 * Cellulare
 * Telefono ufficio
 * Domande di sicurezza
@@ -96,6 +96,12 @@ Gli utenti non hanno la possibilità di registrare l'app per dispositivi mobili 
 
 > [!WARNING]
 > È necessario abilitare la [registrazione convergente per la reimpostazione password self-service e Azure Multi-Factor Authentication (anteprima pubblica)](concept-registration-mfa-sspr-converged.md) prima che gli utenti siano in grado di accedere alla nuova esperienza in [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+
+> [!IMPORTANT]
+> Non è possibile selezionare l'app Authenticator come unico metodo di autenticazione durante la configurazione di un criterio a 1 Gate. Analogamente, non è possibile selezionare l'app Authenticator e un solo metodo aggiuntivo durante la configurazione di un criterio a 2 porte.
+> Quindi, quando si configurano i criteri di SSPR che includono l'app Authenticator come metodo, è necessario selezionare almeno un metodo aggiuntivo durante la configurazione di un criterio a 1 Gate ed è necessario selezionare almeno due metodi aggiuntivi durante la configurazione di un criterio a 2 porte.
+> Il motivo di questo requisito è dovuto al fatto che l'esperienza di registrazione SSPR corrente non include l'opzione per registrare l'app di autenticazione. L'opzione per registrare l'app Authenticator è inclusa nella nuova [registrazione convergente per la reimpostazione della password self-service e multi-factor authentication di Azure (anteprima pubblica)](concept-registration-mfa-sspr-converged.md).
+> Consentendo ai criteri che usano solo l'app Authenticator (per i criteri a 1 Gate) o l'app Authenticator e un solo metodo aggiuntivo (per i criteri a 2 Gate), potrebbe impedire agli utenti di registrarsi per SSPR fino a quando non sono stati configurati per l'uso del nuovo Esperienza di registrazione.
 
 ### <a name="change-authentication-methods"></a>Modifica dei metodi di autenticazione
 
@@ -188,8 +194,8 @@ Reimpostazione della password self-service di Azure AD esegue l'equivalente di u
 
 La modifica e la reimpostazione della password sono completamente supportate in tutte le configurazioni B2B. La reimpostazione della password di utenti B2B è supportata nei tre casi seguenti:
 
-* **Utenti di un'organizzazione partner con un tenant di Azure AD esistente**: se l'organizzazione partner ha un tenant di Azure AD esistente, verranno *rispettati i criteri di reimpostazione della password abilitati nel tenant*. Per garantire il corretto funzionamento della reimpostazione della password, l'organizzazione partner deve assicurarsi che sia abilitata la reimpostazione delle password self-service di Azure AD. Non sono previsti costi aggiuntivi per i clienti di Office 365. Per abilitare questa funzionalità, seguire i passaggi descritti in [Guida introduttiva: Reimpostazione password self-service di Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
-* **Utenti che hanno usato** l'iscrizione self-service: se l'organizzazione partner ha usato la funzionalità di [iscrizione self-service](../users-groups-roles/directory-self-service-signup.md) per accedere a un tenant, gli utenti possono eseguire la reimpostazione con l'indirizzo di posta elettronica registrato.
+* **Utenti di un'organizzazione partner con un tenant di Azure AD esistente**: se l'organizzazione partner ha un tenant di Azure AD esistente, verranno *rispettati i criteri di reimpostazione della password abilitati in tale tenant*. Per garantire il corretto funzionamento della reimpostazione della password, l'organizzazione partner deve assicurarsi che sia abilitata la reimpostazione delle password self-service di Azure AD. Non sono previsti costi aggiuntivi per i clienti di Office 365. Per abilitare questa funzionalità, seguire i passaggi descritti in [Guida introduttiva: Reimpostazione password self-service di Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
+* **Utenti che hanno usato l'iscrizione self-service**: se l'organizzazione partner ha usato la funzionalità di [iscrizione self-service](../users-groups-roles/directory-self-service-signup.md) per accedere a un tenant, gli utenti possono eseguire la reimpostazione con l'indirizzo di posta elettronica registrato.
 * **Utenti B2B**: tutti i nuovi utenti B2B creati usando le nuove [funzionalità B2B di Azure AD](../active-directory-b2b-what-is-azure-ad-b2b.md) potranno anche reimpostare le password con l'indirizzo di posta elettronica registrato durante il processo di invito.
 
 Per testare questo scenario, passare a https://passwordreset.microsoftonline.com con uno di questi utenti partner. Se l'utente ha un indirizzo di posta elettronica alternativo o un indirizzo di posta elettronica per l'autenticazione, la reimpostazione della password funziona come previsto.
@@ -211,7 +217,7 @@ Gli articoli seguenti forniscono altre informazioni sull'uso della reimpostazion
 * [Panoramica del writeback delle password](howto-sspr-writeback.md)
 * [Come creare un report sull'attività relativa alla reimpostazione della password self-service](howto-sspr-reporting.md)
 * [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
-* [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
+* [Credo che qualcosa sia rotto. Ricerca per categorie risolvere i problemi di SSPR?](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/concept-sspr-howitworks/sspr-authentication-methods.png "Metodi di autenticazione di Azure AD disponibili e quantità necessaria"

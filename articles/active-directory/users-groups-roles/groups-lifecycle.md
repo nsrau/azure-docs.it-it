@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56bfe92de24b9386252ee8719af66cc658948565
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b3cef2bd16907de6e60db2678516f70346a20285
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844306"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803602"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurare i criteri di scadenza per i gruppi di Office 365
 
@@ -28,9 +28,16 @@ Questo articolo descrive come gestire il ciclo di vita dei gruppi di Office 365 
 
 Dopo l'impostazione della scadenza di un gruppo:
 
-- Quando la scadenza si avvicina, i proprietari del gruppo ricevono la notifica della necessità di rinnovare il gruppo
+- I gruppi con attività utente vengono rinnovati automaticamente in prossimità della scadenza
+- I proprietari del gruppo ricevono una notifica per rinnovare il gruppo, se il gruppo non viene rinnovato automaticamente
 - I gruppi che non vengono rinnovati vengono eliminati
 - I gruppi di Office 365 eliminati possono essere ripristinati entro 30 giorni dai proprietari o dall'amministratore.
+
+Le azioni all'comporteranno il rinnovo automatico di un gruppo:
+
+- SharePoint-visualizzare, modificare, scaricare, spostare, condividere e caricare file
+- Outlook-join gruppo, lettura/scrittura gruppo messaggio e come un messaggio
+- Team-visita un canale Teams
 
 Attualmente può essere configurato un solo criterio di scadenza per i gruppi di Office 365 di un tenant.
 
@@ -43,7 +50,7 @@ Per informazioni su come scaricare e installare i cmdlet di Azure AD PowerShell,
 
 Di seguito sono elencati i ruoli che possono configurare e usare la scadenza per i gruppi di Office 365 in Azure AD.
 
-Role | Autorizzazioni
+Ruolo | autorizzazioni
 -------- | --------
 Amministratore globale o Amministratore utenti | Questo ruolo consente di creare, leggere, aggiornare o eliminare le impostazioni dei criteri di scadenza per i gruppi di Office 365<br>Questo ruolo consente di rinnovare qualsiasi gruppo di Office 365
 Utente | Questo ruolo consente di rinnovare un gruppo di Office 365 di cui è proprietario<br>Questo ruolo consente di ripristinare un gruppo di Office 365 di cui è proprietario<br>Questo ruolo consente di leggere le impostazioni dei criteri di scadenza
@@ -69,7 +76,7 @@ Per altre informazioni sulle autorizzazioni per ripristinare un gruppo eliminato
   - Al termine salvare le impostazioni facendo clic su **Salva**.
 
 > [!NOTE]
-> Quando si configura per la prima volta la scadenza, tutti i gruppi antecedenti all'intervallo di scadenza vengono impostati su 30 giorni fino alla scadenza, a meno che il proprietario non lo rinnovi. La prima notifica di rinnovo viene inviata tramite posta elettronica entro un giorno.
+> Quando si configura per la prima volta la scadenza, tutti i gruppi antecedenti all'intervallo di scadenza vengono impostati su 35 giorni fino alla scadenza, a meno che il gruppo non venga rinnovato automaticamente o il proprietario lo rinnovi. 
 >
 > Quando un gruppo dinamico viene eliminato e ripristinato, viene considerato come un nuovo gruppo e popolato nuovamente in base alla regola. Questo processo può richiedere fino a 24 ore.
 >
@@ -77,7 +84,7 @@ Per altre informazioni sulle autorizzazioni per ripristinare un gruppo eliminato
 
 ## <a name="email-notifications"></a>Notifiche tramite posta elettronica
 
-Le notifiche tramite posta elettronica di questo tipo vengono inviate ai proprietari del gruppo di Office 365 30 giorni, 15 giorni e 1 giorno prima della scadenza del gruppo. La lingua del messaggio di posta elettronica è determinata dalla lingua preferita del proprietario dei gruppi o dall'impostazione della lingua Azure AD. Se il proprietario del gruppo ha definito una lingua preferita o più proprietari hanno la stessa lingua preferita, viene utilizzata tale lingua. Per tutti gli altri casi, viene utilizzata l'impostazione della lingua Azure AD.
+Se i gruppi non vengono rinnovati automaticamente, le notifiche di posta elettronica come questa vengono inviate ai proprietari del gruppo di Office 365 30 giorni, 15 giorni e 1 giorno prima della scadenza del gruppo. La lingua del messaggio di posta elettronica è determinata dalla lingua preferita del proprietario dei gruppi o dall'impostazione della lingua Azure AD. Se il proprietario del gruppo ha definito una lingua preferita o più proprietari hanno la stessa lingua preferita, viene utilizzata tale lingua. Per tutti gli altri casi, viene utilizzata l'impostazione della lingua Azure AD.
 
 ![Notifiche di posta elettronica scadenza](./media/groups-lifecycle/expiration-notification.png)
 
@@ -119,7 +126,7 @@ Di seguito sono riportati alcuni esempi di come è possibile usare i cmdlet di P
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
    ```
 
-1. Recuperare il criterio Get-AzureADMSGroupLifecyclePolicy esistente: Questo cmdlet recupera le impostazioni di scadenza dei gruppi di Office 365 correnti configurate. Questo esempio contiene gli elementi seguenti:
+1. Recuperare i criteri esistenti Get-AzureADMSGroupLifecyclePolicy. Questo cmdlet recupera le impostazioni di scadenza correnti dei gruppi di Office 365 che sono state configurate. Questo esempio contiene gli elementi seguenti:
 
    - ID dei criteri
    - La durata di tutti i gruppi di Office 365 nell'organizzazione Azure AD è impostata su 365 giorni
@@ -133,19 +140,19 @@ Di seguito sono riportati alcuni esempi di come è possibile usare i cmdlet di P
    26fcc232-d1c3-4375-b68d-15c296f1f077  365                 All               emailaddress@contoso.com
    ```
 
-1. Aggiornare il criterio Set-AzureADMSGroupLifecyclePolicy esistente: Questo cmdlet viene usato per aggiornare un criterio esistente. Nell'esempio seguente la durata del gruppo nei criteri esistenti viene modificata da 365 giorni a 180 giorni.
+1. Aggiornare i criteri esistenti Set-AzureADMSGroupLifecyclePolicy. Questo cmdlet consente di aggiornare un criterio esistente. Nell'esempio seguente la durata del gruppo nei criteri esistenti viene modificata da 365 giorni a 180 giorni.
   
    ```powershell
    Set-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
    ```
   
-1. Aggiungere gruppi specifici al criterio Add-AzureADMSLifecyclePolicyGroup: Questo cmdlet aggiunge un gruppo di criteri di ciclo di vita. Ad esempio:
+1. Aggiungere gruppi specifici al criterio Add-AzureADMSLifecyclePolicyGroup. Questo cmdlet aggiunge un gruppo ai criteri del ciclo di vita. Ad esempio:
   
    ```powershell
    Add-AzureADMSLifecyclePolicyGroup -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
    ```
   
-1. Rimuovere il criterio Remove-AzureADMSGroupLifecyclePolicy esistente: Questo cmdlet elimina le impostazioni di scadenza dei gruppi di Office 365, ma richiede l'ID del criterio. Verrà così disabilitata la scadenza per i gruppi di Office 365.
+1. Rimuovere il criterio esistente Remove-AzureADMSGroupLifecyclePolicy. Questo cmdlet elimina le impostazioni di scadenza dei gruppi di Office 365, ma richiede l'ID di tali criteri. Verrà così disabilitata la scadenza per i gruppi di Office 365.
   
    ```powershell
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"

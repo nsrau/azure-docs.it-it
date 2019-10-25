@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 10/22/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61efc9d9d12cb67ea9c22e44ba0060db0f224f73
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 5ad03e69df4ca03d58bba98b912ade354f90042e
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554302"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809208"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Assegnare ruoli di Azure AD in Privileged Identity Management
 
@@ -38,25 +38,25 @@ Seguire questa procedura per rendere un utente idoneo per un ruolo di amministra
 
     Se non è ancora stato avviato Privileged Identity Management nella portale di Azure, vedere [iniziare a usare Privileged Identity Management](pim-getting-started.md).
 
-1. Fare clic su **Ruoli di Azure AD**.
+1. Selezionare **Azure ad ruoli**.
 
-1. Fare clic su **Ruoli** o **Membri**.
+1. Selezionare **ruoli** o **membri**.
 
     ![Azure AD ruoli con le opzioni di menu ruoli e membri evidenziato](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
-1. Fare clic su **Aggiungi membro** per aprire Aggiungi membri gestiti.
+1. Selezionare **Aggiungi membro** per aprire Aggiungi membri gestiti.
 
-1. Fare clic su **Selezionare un ruolo**, su un ruolo da gestire e quindi su **Seleziona**.
+1. Selezionare **selezionare un ruolo**, selezionare un ruolo che si vuole gestire e quindi selezionare **Seleziona**.
 
     ![Selezionare un riquadro del ruolo che elenca Azure AD ruoli](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
 
-1. Fare clic su **Selezione membri**, selezionare gli utenti da assegnare al ruolo, quindi fare clic su **Seleziona**.
+1. Selezionare **Seleziona membri**, selezionare gli utenti che si desidera assegnare al ruolo, quindi selezionare **Seleziona**.
 
     ![Riquadro Seleziona membri in cui è possibile selezionare un utente](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
-1. Nella finestra Aggiungi membri gestiti fare clic su **OK** per aggiungere l'utente al ruolo.
+1. In Aggiungi membri gestiti selezionare **OK** per aggiungere l'utente al ruolo.
 
-1. Nell'elenco dei ruoli predefiniti fare clic sul ruolo assegnato per visualizzare l'elenco dei membri.
+1. Nell'elenco dei ruoli selezionare il ruolo appena assegnato per visualizzare l'elenco dei membri.
 
      Quando il ruolo è stato assegnato, l'utente selezionato verrà visualizzato nell'elenco dei membri con il valore **Idoneo** per il ruolo.
 
@@ -72,15 +72,15 @@ Per impostazione predefinita, i nuovi utenti sono idonei solo per un ruolo di am
 
 1. Aprire **Azure AD Privileged Identity Management**.
 
-1. Fare clic su **Ruoli di Azure AD**.
+1. Selezionare **Azure ad ruoli**.
 
-1. Fare clic su **Membri**.
+1. Selezionare **Membri**.
 
     ![Azure AD Roles-elenco membri che mostra lo stato del ruolo e dell'attivazione](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
-1. Fare clic su un ruolo **idoneo** che si vuole rendere permanente.
+1. Selezionare un ruolo **idoneo** che si desidera rendere permanente.
 
-1. Fare clic su **Altro**, quindi su **Rendi permanente**.
+1. Selezionare **altro** e quindi fare clic su **Rendi Perm**.
 
     ![Riquadro che elenca un utente idoneo per un ruolo con altre opzioni di menu aperte](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
 
@@ -116,7 +116,9 @@ Seguire questa procedura per rimuovere un utente specifico da un ruolo di ammini
 
 ## <a name="authorization-error-when-assigning-roles"></a>Errore di autorizzazione durante l'assegnazione di ruoli
 
-Se è stata abilitata di recente Privileged Identity Management per una sottoscrizione di Azure e si riceve un errore di autorizzazione quando si tenta di rendere un utente idoneo per un ruolo di amministratore di Azure AD, il problema potrebbe essere dovuto al fatto che l'entità servizio MS-PIM non ha ancora l'oggetto appropriato autorizzazioni. Per assegnare i ruoli, all'entità servizio MS-PIM deve essere assegnato il [ruolo amministratore accesso utenti](../../role-based-access-control/built-in-roles.md#user-access-administrator) nel controllo degli accessi in base al ruolo di Azure per l'accesso alle risorse di Azure (in contrapposizione ai ruoli di amministrazione di Azure ad). Anziché attendere l'assegnazione automatica di questo ruolo a MS-PIM, è possibile assegnarlo manualmente.
+Scenario: un proprietario attivo o un amministratore di accesso utente per una risorsa di Azure può visualizzare la risorsa all'interno Privileged Identity Management ma non può eseguire alcuna azione, ad esempio la creazione di un'assegnazione idonea o la visualizzazione di un elenco di assegnazioni di ruolo dal pagina Panoramica risorse. Ognuna di queste azioni comporta un errore di autorizzazione.
+
+Per assegnare i ruoli, all'entità servizio MS-PIM deve essere assegnato il [ruolo amministratore accesso utenti](../../role-based-access-control/built-in-roles.md#user-access-administrator) nel controllo degli accessi in base al ruolo di Azure per l'accesso alle risorse di Azure (in contrapposizione ai ruoli di amministrazione di Azure ad). Anziché attendere l'assegnazione automatica di questo ruolo a MS-PIM, è possibile assegnarlo manualmente.
 
 La procedura seguente consente di assegnare il ruolo amministratore accesso utenti all'entità servizio MS-PIM per una sottoscrizione.
 
@@ -147,7 +149,6 @@ La procedura seguente consente di assegnare il ruolo amministratore accesso uten
    Dopo qualche istante, all'entità servizio MS-PIM viene assegnato il ruolo Amministratore Accesso utenti nell'ambito della sottoscrizione.
 
    ![Pannello controllo di accesso (IAM) che mostra l'assegnazione del ruolo amministratore accesso utenti per MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

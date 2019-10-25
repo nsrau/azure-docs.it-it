@@ -1,5 +1,6 @@
 ---
-title: Creare un'istanza di un'app client riservata con opzioni (Microsoft Authentication Library per .NET) | Azure
+title: Creare un'istanza di un'app client riservata con opzioni (Microsoft Authentication Library per .NET)
+titleSuffix: Microsoft identity platform
 description: Informazioni su come creare un'istanza di un'applicazione client riservata con le opzioni di configurazione utilizzando Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47a05959311b7f62f88a7b474b907982e005b98b
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: e382a8d0b5d6f08eafc5621d0e7591111a5e286b
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532622"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802824"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Creare un'istanza di un'applicazione client riservata con le opzioni di configurazione usando MSAL.NET
 
@@ -37,7 +38,7 @@ Prima di inizializzare un'applicazione, è prima necessario [registrarla](quicks
 - Per le app Web e talvolta per le app client pubbliche (in particolare quando l'app deve usare un broker), è anche possibile impostare il redirectUri in cui il provider di identità contatterà l'applicazione con i token di sicurezza.
 
 ## <a name="configure-the-application-from-the-config-file"></a>Configurare l'applicazione dal file di configurazione
-Il nome delle proprietà delle opzioni in MSAL.NET corrisponde al nome delle proprietà del `AzureADOptions` in ASP.NET Core, quindi non è necessario scrivere codice Glue.
+Il nome delle proprietà delle opzioni in MSAL.NET corrisponde al nome delle proprietà del `AzureADOptions` in ASP.NET Core, quindi non è necessario scrivere alcun codice Glue.
 
 Una configurazione dell'applicazione ASP.NET Core viene descritta in un file *appSettings. JSON* :
 
@@ -64,7 +65,7 @@ Una configurazione dell'applicazione ASP.NET Core viene descritta in un file *ap
 
 A partire da MSAL.NET V3. x, è possibile configurare l'applicazione client riservata dal file di configurazione.
 
-Nella classe in cui si desidera configurare e creare un'istanza dell'applicazione, è necessario dichiarare un `ConfidentialClientApplicationOptions` oggetto.  Associare la configurazione letta dall'origine (incluso il file AppConfig. Json) all'istanza delle opzioni dell'applicazione, usando il `IConfigurationRoot.Bind()` metodo dal [pacchetto NuGet Microsoft. Extensions. Configuration. Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
+Nella classe in cui si desidera configurare e creare un'istanza dell'applicazione, è necessario dichiarare un oggetto `ConfidentialClientApplicationOptions`.  Associare la configurazione letta dall'origine (incluso il file AppConfig. Json) all'istanza delle opzioni dell'applicazione, usando il metodo `IConfigurationRoot.Bind()` dal [pacchetto NuGet Microsoft. Extensions. Configuration. Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -74,7 +75,7 @@ _applicationOptions = new ConfidentialClientApplicationOptions();
 configuration.Bind("AzureAD", _applicationOptions);
 ```
 
-Ciò consente di associare il contenuto della sezione "AzureAD" del file *appSettings. JSON* alle proprietà corrispondenti dell' `ConfidentialClientApplicationOptions` oggetto.  Successivamente, compilare un `ConfidentialClientApplication` oggetto:
+Ciò consente di associare il contenuto della sezione "AzureAD" del file *appSettings. JSON* alle proprietà corrispondenti dell'oggetto `ConfidentialClientApplicationOptions`.  Successivamente, compilare un oggetto `ConfidentialClientApplication`:
 
 ```csharp
 IConfidentialClientApplication app;

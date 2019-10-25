@@ -10,20 +10,20 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/10/2019
+ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3547ff218e9a15151e4abe2ceff53292d3f01ac0
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 9aa1c5121c723148884584ca3f00522c1c459859
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804313"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809007"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Visualizzare la cronologia di controllo per i ruoli Azure AD in PIM
 
-È possibile usare la cronologia di controllo di Azure Active Directory (Azure AD) Privileged Identity Management (PIM) per visualizzare tutte le assegnazioni di ruolo e le attivazioni negli ultimi 30 giorni per tutti i ruoli con privilegi. Se si desidera visualizzare la cronologia di controllo completa dell'attività nella directory, tra cui l'amministratore, l'utente finale e l'attività di sincronizzazione, è possibile utilizzare i [report di sicurezza e attività Azure Active Directory](../reports-monitoring/overview-reports.md).
+È possibile usare la cronologia di controllo Privileged Identity Management (PIM) per visualizzare tutte le assegnazioni di ruolo e le attivazioni negli ultimi 30 giorni per tutti i ruoli con privilegi. Se si desidera visualizzare la cronologia di controllo completa dell'attività nell'organizzazione Azure Active Directory (Azure AD), tra cui l'amministratore, l'utente finale e l'attività di sincronizzazione, è possibile utilizzare i [report di sicurezza e attività di Azure Active Directory](../reports-monitoring/overview-reports.md).
 
 ## <a name="view-audit-history"></a>Visualizzare la cronologia di controllo
 
@@ -43,14 +43,14 @@ Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi a
 
     Nella parte inferiore della pagina viene visualizzata una tabella con informazioni su ogni azione nella cronologia di controllo disponibile. Le colonne hanno i significati seguenti:
 
-    | Colonna | Descrizione |
+    | Colonna | Description |
     | --- | --- |
-    | Time | Quando si è verificata l'azione. |
+    | Durata | Quando si è verificata l'azione. |
     | Richiedente | Utente che ha richiesto l'attivazione o la modifica del ruolo. Se il valore è **Azure System**, controllare la cronologia di controllo di Azure per altre informazioni. |
     | Azione | Azioni eseguite dal richiedente. Le azioni possono includere Assign, Unassign, Activate, disactivate o AddedOutsidePIM. |
-    | Member | Utente che sta attivando o assegnata a un ruolo. |
-    | Role | Ruolo assegnato o attivato dall'utente. |
-    | Motivo | Testo immesso nel campo motivo durante l'attivazione. |
+    | Membro | Utente che sta attivando o assegnata a un ruolo. |
+    | Ruolo | Ruolo assegnato o attivato dall'utente. |
+    | Ragionamento | Testo immesso nel campo motivo durante l'attivazione. |
     | Scadenza | Quando un ruolo attivato scade. Si applica solo alle assegnazioni di ruolo idonee. |
 
 1. Per ordinare la cronologia di controllo, fare clic sui pulsanti **ora**, **azione**e **ruolo** .
@@ -63,7 +63,7 @@ Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi a
 
 1. In **intervallo di tempo**selezionare un intervallo di tempo.
 
-1. In **ruoli**aggiungere i segni di spunta per i ruoli che si desidera visualizzare.
+1. In **ruoli**selezionare le caselle di controllo per indicare i ruoli che si desidera visualizzare.
 
     ![Riquadro Aggiorna parametri grafico](media/pim-how-to-use-audit-log/update-chart-parameters.png)
 
@@ -71,4 +71,4 @@ Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Visualizzare la cronologia delle attività e dei controlli per i ruoli delle risorse di Azure in PIM](azure-pim-resource-rbac.md)
+- [Visualizzare la cronologia delle attività e dei controlli per i ruoli delle risorse di Azure in Privileged Identity Management](azure-pim-resource-rbac.md)

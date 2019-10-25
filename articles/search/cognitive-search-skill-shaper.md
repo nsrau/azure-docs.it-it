@@ -1,22 +1,21 @@
 ---
-title: Competenza Shaper della ricerca cognitiva - Ricerca di Azure
-description: Estrarre metadati e informazioni strutturate da dati non strutturati e modellarli come tipo complesso in una pipeline di arricchimento di Ricerca di Azure.
-services: search
+title: Competenza cognitiva Shaper
+titleSuffix: Azure Cognitive Search
+description: Estrarre i metadati e le informazioni strutturate dai dati non strutturati e informarli come tipi complessi in una pipeline di arricchimento AI in Azure ricerca cognitiva.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 84814c317a945fd22ada580dcc3f64ed2adcff7c
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: e9ba540ee0eda2be50c88a89a139032d8d99752d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265359"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791871"
 ---
-#   <a name="shaper-cognitive-skill"></a>Competenza cognitiva Shaper
+# <a name="shaper-cognitive-skill"></a>Competenza cognitiva Shaper
 
 L'abilità **shaper** consolida diversi input in un [tipo complesso](search-howto-complex-data-types.md) a cui è possibile fare riferimento in un secondo momento nella pipeline di arricchimento. La competenza **Shaper** consente essenzialmente di creare una struttura, definire il nome dei membri di tale struttura e assegnare valori a ciascun membro. Esempi di campi consolidati utili negli scenari di ricerca includono la combinazione di un nome e un cognome in una singola struttura, città e stato in una singola struttura oppure nome e data di nascita in una singola struttura per stabilire un'identità univoca.
 
@@ -25,14 +24,14 @@ Inoltre, l'abilità **shaper** illustrata nello [scenario 3](#nested-complex-typ
 Il nome dell'output è sempre "output". Internamente, la pipeline può eseguire il mapping di un nome diverso, ad esempio "analyzedText", come illustrato negli esempi riportati di seguito, ma la capacità di **shaper** restituisce "output" nella risposta. Questo potrebbe essere importante se si esegue il debug di documenti approfonditi e si nota la discrepanza nella denominazione oppure se si compila una competenza personalizzata e si esegue la struttura della risposta manualmente.
 
 > [!NOTE]
-> L'abilità dell' **shaper** non è associata a un'API servizi cognitivi e non viene addebitata l'utilizzo. È tuttavia necessario [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) per eseguire l'override dell'opzione di risorsa **Gratuito**, che consente solo un numero ridotto di arricchimenti al giorno.
+> L'abilità dell' **shaper** non è associata a un'API servizi cognitivi e non viene addebitata l'utilizzo. È tuttavia necessario [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) per eseguire l'override dell'opzione di risorsa **Gratuito**, che consente solo un numero ridotto di miglioramenti al giorno.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="scenario-1-complex-types"></a>Scenario 1: tipi complessi
 
-Si consideri uno scenario in cui si desidera creare una struttura denominata *analyzedText* dotata di due membri: rispettivamente *testo* e *valutazione*. In un indice di ricerca di Azure, un campo ricercabile multiparte è denominato *tipo complesso* e viene spesso creato quando i dati di origine hanno una struttura complessa corrispondente che esegue il mapping.
+Si consideri uno scenario in cui si desidera creare una struttura denominata *analyzedText* dotata di due membri: rispettivamente *testo* e *valutazione*. In un indice un campo ricercabile multiparte è denominato *tipo complesso* e viene spesso creato quando i dati di origine hanno una struttura complessa corrispondente a cui viene eseguito il mapping.
 
 Tuttavia, un altro approccio per la creazione di tipi complessi è costituito dall'abilità **shaper** . Grazie all'inclusione di questa competenza in un insieme di competenze, le operazioni in memoria durante l'elaborazione delle competenze possono restituire forme di dati con strutture annidate, che possono quindi essere mappate a un tipo complesso nell'indice. 
 
@@ -110,7 +109,7 @@ Un documento JSON in arrivo che fornisce un input utilizzabile per questa skill 
 
 ### <a name="skill-output"></a>Output delle competenze
 
-La competenza **Shaper** genera un nuovo elemento denominato *analyzedText* con gli elementi combinati di *testo* e *valutazione*. Questo output è conforme allo schema dell'indice. Che verrà importato e indicizzato in un indice di ricerca di Azure.
+La competenza **Shaper** genera un nuovo elemento denominato *analyzedText* con gli elementi combinati di *testo* e *valutazione*. Questo output è conforme allo schema dell'indice. Che verrà importato e indicizzato in un indice ricerca cognitiva di Azure.
 
 ```json
 {
@@ -247,10 +246,10 @@ In questo caso, lo **shaper** crea un tipo complesso. Questa struttura esiste in
 }
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
-+ [Come definire un set di competenze](cognitive-search-defining-skillset.md)
++ [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
 + [Come usare i tipi complessi](search-howto-complex-data-types.md)
-+ [Panoramica su Knowledge Store](knowledge-store-concept-intro.md)
++ [Archivio informazioni (anteprima)](knowledge-store-concept-intro.md)
 + [Come iniziare a usare l'archivio informazioni](knowledge-store-howto.md)

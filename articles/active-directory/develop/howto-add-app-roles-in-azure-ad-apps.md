@@ -1,5 +1,6 @@
 ---
-title: Come aggiungere ruoli dell'app in un'applicazione registrata in Azure Active Directory e riceverli nel token
+title: Aggiungere i ruoli dell'app nell'app registrata Azure Active Directory e riceverli nel token
+titleSuffix: Microsoft identity platform
 description: Informazioni su come aggiungere ruoli dell'app in un'applicazione registrata in Azure Active Directory, assegnare utenti e gruppi a questi ruoli e riceverli nell'attestazione `roles` del token.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24e933399454942f4ee50440cffd791599679074
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87660c6ef8266d3ebfbad1b7a8a7cb98b936e9c6
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299156"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803368"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedura: Aggiungere ruoli dell'app in un'applicazione e riceverli nel token
 
@@ -51,13 +52,13 @@ Questi ruoli applicazione sono definiti nel [portale di Azure](https://portal.az
 1. Modificare il manifesto dell'app individuando l'impostazione `appRoles` e aggiungendo tutti i ruoli applicazione desiderati.
 
      > [!NOTE]
-     > Ogni definizione di ruolo app nel manifesto deve avere un GUID valido diverso per il `id` proprietà. 
+     > Ogni definizione di ruolo app in questo manifesto deve avere un GUID valido diverso per la proprietà `id`. 
      > 
-     > Il `value` proprietà di ogni definizione di ruolo app deve corrispondere esattamente a quelle utilizzate nel codice dell'applicazione. Il `value` proprietà non può contenere spazi. In caso affermativo, si riceverà un errore quando si salva il manifesto.
+     > La proprietà `value` di ogni definizione di ruolo app deve corrispondere esattamente alle stringhe utilizzate nel codice dell'applicazione. La proprietà `value` non può contenere spazi. In caso contrario, si riceverà un errore quando si salva il manifesto.
      
 1. Salvare il manifesto.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>esempi
 
 L'esempio seguente mostra gli `appRoles` che è possibile assegnare agli `users`.
 
@@ -103,7 +104,7 @@ L'esempio seguente mostra gli `appRoles` che è possibile assegnare agli `users`
 "availableToOtherTenants": false,
 ```
 
-Il numero di ruoli definiti interessa i limiti che contiene il manifesto dell'applicazione. Sono stati trattati in dettaglio nel [manifesto limiti](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) pagina.
+Il numero di ruoli definito influiscono sui limiti del manifesto dell'applicazione. Sono stati descritti in dettaglio nella pagina relativa ai [limiti dei manifesti](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) .
 
 ### <a name="assign-users-and-groups-to-roles"></a>Assegnare i ruoli a utenti e gruppi
 
@@ -129,7 +130,7 @@ Dopo aver aggiunto i ruoli dell'app nell'applicazione, è possibile assegnarli a
 
 ## <a name="more-information"></a>Altre informazioni
 
-- [Authorization in a web app using Azure AD application roles &amp; role claims (Sample)](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-roleclaims/) (Autorizzazione in un'app Web tramite le attestazioni di ruolo e i ruoli applicazione di Azure AD - Esempio)
+- [Authorization in a web app using Azure AD application roles &amp; role claims (Sample)](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) (Autorizzazione in un'app Web tramite le attestazioni di ruolo e i ruoli applicazione di Azure AD - Esempio)
 - [Using Security Groups and Application Roles in your apps (Video)](https://www.youtube.com/watch?v=V8VUPixLSiM) (Utilizzo dei gruppi di sicurezza e dei ruoli applicazione nelle app - Video)
 - [Azure Active Directory, now with Group Claims and Application Roles](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles) (Azure Active Directory, ora con attestazioni di gruppo e ruoli applicazione)
 - [Manifesto dell'app Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)

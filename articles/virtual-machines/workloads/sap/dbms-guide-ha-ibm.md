@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 7ca6f1bda2dff9a8a9e54cb9d9ce5fd2d34c7245
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e7de3e8026b15342c06eff9718242c08d33a53a4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428083"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72783772"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -341,11 +341,15 @@ Gli elementi seguenti sono preceduti da uno dei seguenti elementi:
 - **[2]** : applicabile solo al nodo 2
 
 **[A]** prerequisiti per la configurazione di pacemaker:
-1. Arrestare entrambi i server di database con l'utente DB2 @ no__t-0sid > con db2stop.
-1. Modificare l'ambiente della Shell per DB2 @ no__t-0sid > utente a */bin/ksh*. Si consiglia di usare lo strumento YaST. 
+1. Arrestare entrambi i server di database con l'utente DB2\<SID > con db2stop.
+1. Modificare l'ambiente della Shell per DB2\<SID > utente in */bin/ksh*. Si consiglia di usare lo strumento YaST. 
 
 
 ### <a name="pacemaker-configuration"></a>Configurazione pacemaker
+
+> [!IMPORTANT]
+> Sono state rilevate situazioni di test recenti, in cui netcat smette di rispondere alle richieste dovute al backlog e alla limitazione della gestione di una sola connessione. La risorsa netcat smette di restare in ascolto delle richieste del servizio di bilanciamento del carico di Azure e l'IP mobile diventa non disponibile.  
+> Per i cluster Pacemaker esistenti, è consigliabile sostituire Netcat con socat, seguendo le istruzioni riportate in [protezione avanzata del rilevamento](https://www.suse.com/support/kb/doc/?id=7024128)del servizio di bilanciamento del carico di Azure. Si noti che la modifica richiederà un breve tempo di inattività.  
 
 **[1]** configurazione pacemaker specifica di IBM DB2 HADR:
 <pre><code># Put Pacemaker into maintenance mode
@@ -371,7 +375,7 @@ sudo crm configure primitive rsc_ip_db2ptr_<b>PTR</b> IPaddr2 \
 
 # Configure probe port for Azure load Balancer
 sudo crm configure primitive rsc_nc_db2ptr_<b>PTR</b> anything \
-        params binfile="/usr/bin/nc" cmdline_options="-l -k <b>62500</b>" \
+        params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:<b>62500</b>,backlog=10,fork,reuseaddr /dev/null" \
         op monitor timeout="20s" interval="10" depth="0"
 
 sudo crm configure group g_ip_db2ptr_<b>PTR</b> rsc_ip_db2ptr_<b>PTR</b> rsc_nc_db2ptr_<b>PTR</b>
@@ -558,7 +562,7 @@ Lo stato originale in un sistema SAP è documentato in Transaction DBACOCKPIT > 
 > Prima di iniziare il test, assicurarsi che:
 > * Pacemaker non ha azioni non riuscite (stato CRM).
 > * Nessun vincolo di posizione (avanzi del test di migrazione)
-> * La sincronizzazione IBM DB2 HADR funziona. Verificare con l'utente DB2 @ no__t-0sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> * La sincronizzazione IBM DB2 HADR funziona. Verificare con l'utente DB2\<SID > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Eseguire la migrazione del nodo che esegue il database DB2 primario eseguendo il comando seguente:
@@ -767,7 +771,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb01
      Masters: [ azibmdb01 ]
      Slaves: [ azibmdb02 ]</code></pre>
 
-Poiché l'utente DB2 @ no__t-0sid > Execute Command db2stop Force:
+Come utente DB2\<SID > Execute Command db2stop Force:
 <pre><code>azibmdb01:~ # su - db2ptr
 azibmdb01:db2ptr> db2stop force</code></pre>
 

@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2017
+ms.date: 10/22/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ef64a43cbed7f033a938351506b7f78142ff044c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0bac6f9105d505bdfc1492b6966c2352771e73b0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097629"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791299"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Controllo delle versioni in Funzioni permanenti (Funzioni di Azure)
 
@@ -24,11 +24,11 @@ Nella durata di un'applicazione è comune che vengano aggiunte, rimosse e modifi
 
 Sono disponibili alcuni esempi di modifiche di rilievo che è necessario tenere presenti. Questo articolo illustra i più comuni, basati tutti sul fatto che tutte le funzioni di orchestrazione, sia nuove che esistenti, sono interessate dalle modifiche apportate al codice di funzione.
 
-### <a name="changing-activity-function-signatures"></a>Modifica delle firme delle funzioni di attività
+### <a name="changing-activity-or-entity-function-signatures"></a>Modifica delle firme delle funzioni di entità o attività
 
-Una modifica della firma fa riferimento a una modifica di nome, input oppure output di una funzione. Se questo tipo di modifica viene apportato a una funzione di attività, potrebbe interrompere la funzione dell'agente di orchestrazione dipendente. Se si aggiorna la funzione dell'agente di orchestrazione per gestire questa modifica, si potrebbero interrompere le istanze esistenti in corso.
+Una modifica della firma fa riferimento a una modifica di nome, input oppure output di una funzione. Se questo tipo di modifica viene apportato a un'attività o a una funzione di entità, potrebbe interrompere qualsiasi funzione dell'agente di orchestrazione che dipende da essa. Se si aggiorna la funzione dell'agente di orchestrazione per gestire questa modifica, si potrebbero interrompere le istanze esistenti in corso.
 
-Si supponga ad esempio di disporre della funzione seguente.
+Si supponga, ad esempio, che sia presente la funzione dell'agente di orchestrazione seguente.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -85,7 +85,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-Questa modifica aggiunge una chiamata di funzione a **SendNotification** tra **Foo** e **Bar**. Non sono presenti modifiche della firma. Il problema si verifica quando un'istanza esistente riprende dopo la chiamata a **Bar**. Durante la riesecuzione, se la chiamata originale a **Foo** ha restituito `true` la riesecuzione dell'agente di orchestrazione eseguirà la chiamata a **SendNotification** che non si trova nella cronologia di esecuzione. Di conseguenza, il framework di attività permanenti ha esito negativo e genera un'eccezione `NonDeterministicOrchestrationException` perché ha rilevato una chiamata a **SendNotification** quando era prevista la visualizzazione di una chiamata a **Bar**.
+Questa modifica aggiunge una chiamata di funzione a **SendNotification** tra **Foo** e **Bar**. Non sono presenti modifiche della firma. Il problema si verifica quando un'istanza esistente riprende dopo la chiamata a **Bar**. Durante la riesecuzione, se la chiamata originale a **Foo** ha restituito `true` la riesecuzione dell'agente di orchestrazione eseguirà la chiamata a **SendNotification** che non si trova nella cronologia di esecuzione. Di conseguenza, il framework di attività permanenti ha esito negativo e genera un'eccezione `NonDeterministicOrchestrationException` perché ha rilevato una chiamata a **SendNotification** quando era prevista la visualizzazione di una chiamata a **Bar**. È possibile che si verifichi lo stesso tipo di problema quando si aggiungono chiamate a API "durevoli", tra cui `CreateTimer`, `WaitForExternalEvent`e così via.
 
 ## <a name="mitigation-strategies"></a>Strategie di mitigazione
 
@@ -95,7 +95,7 @@ Di seguito vengono indicate alcune strategie per affrontare le problematiche di 
 * Arrestare tutte le istanze in corso
 * Eseguire distribuzioni side-by-side
 
-### <a name="do-nothing"></a>Non intervenire
+### <a name="do-nothing"></a>Non eseguire alcuna operazione
 
 Il modo più semplice per gestire una modifica di rilievo è quello di consentire che le istanze di orchestrazione in corso abbiano esito negativo. Le nuove istanze eseguono correttamente il codice modificato.
 
@@ -112,9 +112,9 @@ Un'altra opzione è quella di arrestare tutte le istanze in corso. Questa operaz
 
 Il modo migliore per garantire che le modifiche di rilievo vengano distribuite in modo sicuro è quello di eseguire una distribuzione side-by-side con le versioni precedenti. Questa operazione può essere eseguita tramite una delle tecniche seguenti:
 
-* Distribuire tutti gli aggiornamenti come funzioni completamente nuove (nuovi nomi).
+* Distribuire tutti gli aggiornamenti come funzioni completamente nuove, lasciando le funzioni esistenti così come sono. Questa operazione può risultare complessa perché i chiamanti delle nuove versioni della funzione devono essere aggiornati anche seguendo le stesse linee guida.
 * Distribuire tutti gli aggiornamenti come una nuova app per le funzioni con un account di archiviazione diverso.
-* Distribuire una nuova copia dell'app per le funzioni, ma con un nome `TaskHub` aggiornato. Questa è la tecnica consigliata.
+* Distribuire una nuova copia dell'app per le funzioni con lo stesso account di archiviazione ma con un nome `taskHub` aggiornato. Questa è la tecnica consigliata.
 
 ### <a name="how-to-change-task-hub-name"></a>Come modificare il nome dell'hub attività
 
@@ -125,21 +125,31 @@ L'hub attività può essere configurato nel file *host.json* come indicato di se
 ```json
 {
     "durableTask": {
-        "HubName": "MyTaskHubV2"
+        "hubName": "MyTaskHubV2"
     }
 }
 ```
 
 #### <a name="functions-2x"></a>Funzioni 2.x
 
-Il valore predefinito è `DurableFunctionsHub`.
+```json
+{
+    "extensions": {
+        "durableTask": {
+            "hubName": "MyTaskHubV2"
+        }
+    }
+}
+```
 
-Tutte le entità di Archiviazione di Azure sono denominate in base al valore di configurazione `HubName`. Se si assegna un nuovo nome all'hub attività, verificare che per la nuova versione dell'applicazione vengano create code separate e la tabella di cronologia.
+Il valore predefinito per Durable Functions V1. x è `DurableFunctionsHub`. A partire da Durable Functions v 2.0, il nome predefinito dell'hub attività è lo stesso nome dell'app per le funzioni in Azure o `TestHubName` se viene eseguito all'esterno di Azure.
 
-È consigliabile distribuire la nuova versione dell'app per le funzioni a un nuovo [slot di distribuzione](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/). Gli slot di distribuzione consentono di eseguire side-by-side più copie dell'app per le funzioni con un solo slot come slot di *produzione* attivo. Quando è possibile esporre la nuova logica di orchestrazione all'infrastruttura esistente, l'operazione può essere semplice come la sostituzione della nuova versione nello slot di produzione.
+Tutte le entità di Archiviazione di Azure sono denominate in base al valore di configurazione `hubName`. Se si assegna un nuovo nome all'hub attività, verificare che per la nuova versione dell'applicazione vengano create code separate e la tabella di cronologia. L'app per le funzioni, tuttavia, arresterà l'elaborazione degli eventi per le orchestrazioni o le entità create con il nome dell'hub attività precedente.
+
+È consigliabile distribuire la nuova versione dell'app per le funzioni a un nuovo [slot di distribuzione](../functions-deployment-slots.md). Gli slot di distribuzione consentono di eseguire side-by-side più copie dell'app per le funzioni con un solo slot come slot di *produzione* attivo. Quando è possibile esporre la nuova logica di orchestrazione all'infrastruttura esistente, l'operazione può essere semplice come la sostituzione della nuova versione nello slot di produzione.
 
 > [!NOTE]
-> Questa strategia funziona meglio quando si usano trigger HTTP e di webhook per le funzioni dell'agente di orchestrazione. Per i trigger non HTTP, ad esempio le code o gli hub eventi, la definizione del trigger deve derivare [da un'impostazione dell'app](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) che viene aggiornata come parte dell'operazione di scambio.
+> Questa strategia funziona meglio quando si usano trigger HTTP e di webhook per le funzioni dell'agente di orchestrazione. Per i trigger non HTTP, ad esempio le code o gli hub eventi, la definizione del trigger deve [derivare da un'impostazione dell'app](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) che viene aggiornata come parte dell'operazione di scambio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

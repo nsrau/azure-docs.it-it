@@ -1,26 +1,25 @@
 ---
-title: Esempio C# di sinonimi-ricerca di Azure
-description: In questo C# esempio viene illustrato come aggiungere la funzionalità sinonimi a un indice in ricerca di Azure. Un mapping dei sinonimi è un elenco di termini equivalenti. I campi con supporto dei sinonimi espandono le query in modo da includere il termine fornito dall'utente e tutti i relativi sinonimi.
+title: Esempio C# di sinonimi
+titleSuffix: Azure Cognitive Search
+description: In questo C# esempio viene illustrato come aggiungere la funzionalità sinonimi a un indice in ricerca cognitiva di Azure. Un mapping dei sinonimi è un elenco di termini equivalenti. I campi con supporto dei sinonimi espandono le query in modo da includere il termine fornito dall'utente e tutti i relativi sinonimi.
 manager: nitinme
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: ad71a6ab5090e601ef075617edf08c421abebdb0
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 8cc085fd27004928babd7df305a4452d1b068f6e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647760"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794247"
 ---
-# <a name="example-add-synonyms-for-azure-search-in-c"></a>Esempio: Aggiungere sinonimi per Ricerca di Azure in C#
+# <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Esempio: aggiungere sinonimi per ricerca cognitiva di Azure inC#
 
 I sinonimi espandono una query tramite la corrispondenza con termini considerati semanticamente uguali al termine di input. È ad esempio possibile che si voglia che il termine "auto" consenta di rilevare corrispondenze con documenti contenenti i termini "automobile" o "veicolo". 
 
-In Ricerca di Azure i sinonimi sono definiti in una *mappa di sinonimi* tramite *regole di mapping* che associano termini equivalenti. In questo esempio vengono illustrati i passaggi essenziali per l'aggiunta e l'utilizzo di sinonimi con un indice esistente. Si apprenderà come:
+In ricerca cognitiva di Azure, i sinonimi vengono definiti in una *mappa di sinonimi*tramite *regole di mapping* che associano termini equivalenti. In questo esempio vengono illustrati i passaggi essenziali per l'aggiunta e l'utilizzo di sinonimi con un indice esistente. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare una mappa di sinonimi usando la classe [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) . 
@@ -28,7 +27,7 @@ In Ricerca di Azure i sinonimi sono definiti in una *mappa di sinonimi* tramite 
 
 È possibile eseguire una query su un campo abilitato per sinonimi come in genere. Non è necessaria alcuna sintassi di query aggiuntiva per accedere ai sinonimi.
 
-È possibile creare più mappe di sinonimi, inserirle come risorse a livello di servizio disponibili per qualsiasi indice e quindi fare riferimento alla mappa da usare a livello di campo. In fase di query, oltre a eseguire ricerche in un indice, Ricerca di Azure esegue una ricerca in una mappa di sinonimi, se tale mappa viene specificata nei campi usati nella query.
+È possibile creare più mappe di sinonimi, inserirle come risorse a livello di servizio disponibili per qualsiasi indice e quindi fare riferimento alla mappa da usare a livello di campo. In fase di query, oltre a eseguire ricerche in un indice, Azure ricerca cognitiva esegue una ricerca in una mappa di sinonimi, se ne viene specificata una nei campi utilizzati nella query.
 
 > [!NOTE]
 > I sinonimi possono essere creati a livello di codice, ma non nel portale. Se l'utente considera utile il supporto dei sinonimi del portale di Azure, può fornire un feedback tramite [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
@@ -38,9 +37,9 @@ In Ricerca di Azure i sinonimi sono definiti in una *mappa di sinonimi* tramite 
 I requisiti per l'esercitazione includono i seguenti:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
-* [Servizio Ricerca di Azure](search-create-service-portal.md)
+* [Servizio ricerca cognitiva di Azure](search-create-service-portal.md)
 * [Libreria Microsoft.Azure.Search .NET](https://aka.ms/search-sdk)
-* [Come usare Ricerca di Azure da un'applicazione .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+* [Come usare ricerca cognitiva di Azure da un'applicazione .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Panoramica
 
@@ -78,7 +77,7 @@ Le query di tipo "prima e dopo" illustrano il valore dei sinonimi. In questo ese
       Console.ReadKey();
   }
 ```
-Per informazioni sulla procedura per la creazione e il popolamento dell'indice di esempio, vedere [Come utilizzare Ricerca di Azure da un'applicazione .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+I passaggi per creare e popolare l'indice di esempio sono illustrati in [come usare ricerca cognitiva di Azure da un'applicazione .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
 ## <a name="before-queries"></a>Query di tipo "prima"
 
@@ -129,7 +128,7 @@ L'abilitazione dei sinonimi è un processo in due passaggi. Vengono prima di tut
 
     serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
    ```
-   Una mappa di sinonimi deve essere conforme al formato `solr` dello standard open source. Il formato viene illustrato in [Synonyms in Azure Search](search-synonyms.md) (Sinonimi in Ricerca di Azure) nella sezione `Apache Solr synonym format`.
+   Una mappa di sinonimi deve essere conforme al formato `solr` dello standard open source. Il formato è illustrato in [sinonimi in Azure ricerca cognitiva](search-synonyms.md) nella sezione `Apache Solr synonym format`.
 
 2. Configurare i campi disponibili per la ricerca per l'uso della mappa di sinonimi nella definizione dell'indice. In `EnableSynonymsInHotelsIndex` vengono abilitati i sinonimi in due campi, `category` e `tags`, tramite l'impostazione della proprietà `synonymMaps` sul nome della mappa di sinonimi appena caricata.
    ```csharp
@@ -170,11 +169,11 @@ Il codice sorgente completo dell'applicazione di esempio utilizzata è disponibi
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Il modo più rapido per eseguire la pulizia dopo un esempio consiste nell'eliminare il gruppo di risorse che contiene il servizio ricerca di Azure. È possibile eliminare ora il gruppo di risorse per eliminare definitivamente tutti gli elementi in esso contenuti. Nel portale, il nome del gruppo di risorse è indicato nella pagina Panoramica del servizio Ricerca di Azure.
+Il modo più rapido per eseguire la pulizia dopo un esempio consiste nell'eliminare il gruppo di risorse che contiene il servizio ricerca cognitiva di Azure. È possibile eliminare ora il gruppo di risorse per eliminare definitivamente tutti gli elementi in esso contenuti. Nel portale il nome del gruppo di risorse si trova nella pagina Panoramica del servizio ricerca cognitiva di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo esempio è stata illustrata C# la funzionalità sinonimi nel codice per creare e inserire regole di mapping e quindi chiamare la mappa dei sinonimi in una query. Altre informazioni sono disponibili nella documentazione di riferimento per [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e [API REST](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
-> [Come usare i sinonimi in Ricerca di Azure](search-synonyms.md)
+> [Come usare i sinonimi in Azure ricerca cognitiva](search-synonyms.md)

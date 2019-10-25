@@ -8,18 +8,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 77d900844705bb86ce4bcfeda31d6ee765cb8d45
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 8b74621f2c5a9c91ece58c8118cd2bc952c3a464
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535001"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809704"
 ---
-# <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>Esercitazione: Uso degli arricchimenti di messaggi dell'hub Azure (anteprima)
+# <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>Esercitazione: uso degli arricchimenti di messaggi dell'hub Azure Internet (anteprima)
 
-I miglioramenti apportati ai messaggi sono la possibilità dell'hub Internet di *contrassegnare* i messaggi con informazioni aggiuntive prima che i messaggi vengano inviati all'endpoint designato. Un motivo per utilizzare gli arricchimenti dei messaggi consiste nell'includere dati che possono essere utilizzati per semplificare l'elaborazione downstream. Ad esempio, l'arricchimento dei messaggi di telemetria del dispositivo con un tag del dispositivo gemello può ridurre il carico sui clienti per effettuare chiamate API dei dispositivi gemelli per queste informazioni. Per ulteriori informazioni, vedere la [Panoramica degli arricchimenti dei messaggi](iot-hub-message-enrichments-overview.md).
+I miglioramenti apportati ai *messaggi sono la* possibilità dell'hub Internet di *contrassegnare* i messaggi con informazioni aggiuntive prima che i messaggi vengano inviati all'endpoint designato. Un motivo per utilizzare gli arricchimenti dei messaggi consiste nell'includere dati che possono essere utilizzati per semplificare l'elaborazione downstream. Ad esempio, l'arricchimento dei messaggi di telemetria del dispositivo con un tag del dispositivo gemello può ridurre il carico sui clienti per effettuare chiamate API dei dispositivi gemelli per queste informazioni. Per ulteriori informazioni, vedere la [Panoramica degli arricchimenti dei messaggi](iot-hub-message-enrichments-overview.md).
 
-In questa esercitazione si userà l'interfaccia della riga di comando di Azure per configurare le risorse, inclusi due endpoint che puntano a due contenitori di archiviazione diversi, arricchiti e **originali**. Quindi si usa il [portale di Azure](https://portal.azure.com) per configurare gli arricchimenti dei messaggi da applicare solo ai messaggi inviati all'endpoint con il contenitore di archiviazione arricchito. Si inviano messaggi all'hub Internet, che vengono instradati a entrambi i contenitori di archiviazione. Verranno arricchiti solo i messaggi inviati all'endpoint per il contenitore di archiviazione arricchito.
+In questa esercitazione si userà l'interfaccia della riga di comando di Azure per configurare le risorse, inclusi due endpoint che puntano a due contenitori di archiviazione diversi, **arricchiti** e **originali**. Quindi si usa il [portale di Azure](https://portal.azure.com) per configurare gli arricchimenti dei messaggi da applicare solo ai messaggi inviati all'endpoint con il contenitore di archiviazione **arricchito** . Si inviano messaggi all'hub Internet, che vengono instradati a entrambi i contenitori di archiviazione. Verranno arricchiti solo i messaggi inviati all'endpoint per il contenitore di archiviazione **arricchito** .
 
 Ecco le attività che verranno eseguite per completare questa esercitazione:
 
@@ -65,15 +65,15 @@ Oltre a creare le risorse necessarie, lo script dell'interfaccia della riga di c
 
 Diversi nomi di risorse devono essere univoci globali, come il nome dell'hub IoT e il nome dell'account di archiviazione. Per semplificare l'esecuzione dello script, i nomi delle risorse vengono aggiunti con un valore alfanumerico casuale chiamato *randomValue*. Il valore randomValue viene generato una sola volta all'inizio dello script e viene aggiunto ai nomi delle risorse, se necessario, nell'intero script. Se non si vuole che il valore sia casuale, è possibile impostarlo su una stringa vuota o su un valore specifico.
 
-Se non è già stato fatto, aprire una [finestra di cloud Shell per bash.](https://shell.azure.com) Aprire lo script nel repository decompresso, premere CTRL + a per selezionarlo, quindi premere CTRL + C per copiarlo. In alternativa, è possibile copiare il seguente script dell'interfaccia della riga di comando o aprirlo direttamente in cloud Shell. Incollare lo script nella finestra di Azure cloud Shell facendo clic con il pulsante destro del mouse sulla riga di comando e scegliendo **Incolla**. Lo script viene eseguito un'istruzione alla volta. Dopo l'arresto dell'esecuzione dello script, premere **invio** per assicurarsi che esegua l'ultimo comando. Il blocco di codice seguente mostra lo script usato, con commenti che spiegano cosa sta facendo.
+Se non è già stato fatto, aprire una [finestra cloud Shell](https://shell.azure.com) e verificare che sia impostata su bash. Aprire lo script nel repository decompresso, premere CTRL + a per selezionarlo, quindi premere CTRL + C per copiarlo. In alternativa, è possibile copiare il seguente script dell'interfaccia della riga di comando o aprirlo direttamente in Cloud Shell. Incollare lo script nella finestra di Cloud Shell facendo clic con il pulsante destro del mouse sulla riga di comando e scegliendo **Incolla**. Lo script viene eseguito un'istruzione alla volta. Dopo l'arresto dell'esecuzione dello script, premere **invio** per assicurarsi che esegua l'ultimo comando. Il blocco di codice seguente mostra lo script usato, con commenti che spiegano cosa sta facendo.
 
 Di seguito sono riportate le risorse create dallo script. **Arricchito** significa che la risorsa è destinata ai messaggi con arricchimenti. **Originale** significa che la risorsa è per i messaggi che non sono arricchiti.
 
-| NOME | Value |
+| name | Value |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
-| nome del contenitore | Originale  |
-| nome del contenitore | Arricchito  |
+| Nome del contenitore | Originale  |
+| Nome del contenitore | Arricchito  |
 | Nome del dispositivo Internet delle cose | Contoso-test-dispositivo |
 | Nome dell'hub IoT | ContosoTestHubMsgEn |
 | Nome dell'account di archiviazione | contosostorage |
@@ -168,10 +168,10 @@ az iot hub device-identity show --device-id $iotDeviceName \
 ##### ROUTING FOR STORAGE #####
 
 # You're going to have two routes and two endpoints.
-# One points to container1 in the storage account
-#   and includes all messages.
-# The other points to container2 in the same storage account
-#   and only includes enriched messages.
+# One route points to the first container ("original") in the storage account
+#   and includes the original messages.
+# The other points to the second container ("enriched") in the same storage account
+#   and includes the enriched versions of the messages.
 
 endpointType="azurestoragecontainer"
 endpointName1="ContosoStorageEndpointOriginal"
@@ -190,7 +190,7 @@ storageConnectionString=$(az storage account show-connection-string \
 # Create the routing endpoints and routes.
 # Set the encoding format to either avro or json.
 
-# This is the endpoint for container 1, for endpoint messages that are not enriched.
+# This is the endpoint for the first container, for endpoint messages that are not enriched.
 az iot hub routing-endpoint create \
   --connection-string $storageConnectionString \
   --endpoint-name $endpointName1 \
@@ -202,7 +202,7 @@ az iot hub routing-endpoint create \
   --resource-group $resourceGroup \
   --encoding json
 
-# This is the endpoint for container 2, for endpoint messages that are enriched.
+# This is the endpoint for the second container, for endpoint messages that are enriched.
 az iot hub routing-endpoint create \
   --connection-string $storageConnectionString \
   --endpoint-name $endpointName2 \
@@ -225,7 +225,8 @@ az iot hub route create \
   --enabled \
   --condition $condition
 
-# This is the route for messages that are not enriched.
+# This is the route for messages that are enriched.
+# Create the route for the second storage endpoint.
 az iot hub route create \
   --name $routeName2 \
   --hub-name $iotHubName \
@@ -236,25 +237,25 @@ az iot hub route create \
   --condition $condition
 ```
 
-A questo punto, tutte le risorse sono impostate e il routing è configurato. È possibile visualizzare la configurazione del routing dei messaggi nel portale e configurare gli arricchimenti dei messaggi per i messaggi che passano al contenitore di archiviazione arricchito.
+A questo punto, tutte le risorse sono impostate e il routing è configurato. È possibile visualizzare la configurazione del routing dei messaggi nel portale e configurare gli arricchimenti dei messaggi per i messaggi che passano al contenitore di archiviazione **arricchito** .
 
 ### <a name="view-routing-and-configure-the-message-enrichments"></a>Visualizzazione del routing e configurazione degli arricchimenti dei messaggi
 
-1. Per accedere all'hub Internet delle cose, selezionare **gruppi di risorse**e quindi selezionare il gruppo di risorse configurato per questa esercitazione (**ContosoResources_MsgEn**). Trovare l'hub Internet delle cose nell'elenco e selezionarlo. Selezionare *routing messaggi** per l'hub Internet delle cose.
+1. Per accedere all'hub Internet delle cose, selezionare **gruppi di risorse**e quindi selezionare il gruppo di risorse configurato per questa esercitazione (**ContosoResources_MsgEn**). Trovare l'hub Internet delle cose nell'elenco e selezionarlo. Selezionare **routing messaggi** per l'hub Internet.
 
    ![Selezionare il routing del messaggio](./media/tutorial-message-enrichments/select-iot-hub.png)
 
-   Il riquadro routing messaggi include tre schede: **Route**, **endpoint personalizzati**e **arricchimento dei messaggi**. È possibile esplorare le prime due schede per visualizzare la configurazione configurata dallo script. Utilizzare la terza scheda per aggiungere gli arricchimenti dei messaggi. Verranno ora arricchiti i messaggi inviati all'endpoint per il contenitore diarchiviazione denominato arricchito. Immettere il nome e il valore, quindi selezionare l'endpoint **ContosoStorageEndpointEnriched** nell'elenco a discesa. Di seguito è riportato un esempio di configurazione di un arricchimento che aggiunge il nome dell'hub Internet al messaggio:
+   Il riquadro routing messaggi include tre schede: **Route**, **endpoint personalizzati**e **arricchimento dei messaggi**. È possibile esplorare le prime due schede per visualizzare la configurazione configurata dallo script. Utilizzare la terza scheda per aggiungere gli arricchimenti dei messaggi. Verranno ora arricchiti i messaggi inviati all'endpoint per il contenitore di archiviazione denominato **arricchito**. Immettere il nome e il valore, quindi selezionare l'endpoint **ContosoStorageEndpointEnriched** nell'elenco a discesa. Di seguito è riportato un esempio di configurazione di un arricchimento che aggiunge il nome dell'hub Internet al messaggio:
 
    ![Aggiungi primo arricchimento](./media/tutorial-message-enrichments/add-message-enrichments.png)
 
 2. Aggiungere questi valori all'elenco per l'endpoint ContosoStorageEndpointEnriched.
 
-   | Name | Value | Endpoint (elenco a discesa) |
+   | name | Value | Endpoint (elenco a discesa) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
-   | DeviceLocation | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
-   |customerID | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
+   | deviceLocation | $twin. Tags. location | AzureStorageContainers > ContosoStorageEndpointEnriched |
+   |CustomerID | 6ce345b8-1e4a-411E-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
 
    > [!NOTE]
    > Se il dispositivo non ha un gemello, il valore inserito qui verrà timbrato come stringa per il valore negli arricchimenti dei messaggi. Per visualizzare le informazioni sul dispositivo gemello, passare all'hub nel portale, selezionare **dispositivi**Internet, selezionare il dispositivo e quindi selezionare **dispositivo gemello** nella parte superiore della pagina.
@@ -271,22 +272,22 @@ A questo punto, tutte le risorse sono impostate e il routing è configurato. È 
 
 Ora che gli arricchimenti dei messaggi sono configurati per l'endpoint, eseguire l'applicazione del dispositivo simulato per inviare i messaggi all'hub. L'hub è stato configurato con le impostazioni che eseguono le operazioni seguenti:
 
-* I messaggi indirizzati all'endpoint di archiviazione ContosoStorageEndpointOriginal non verranno arricchiti e verranno archiviati nel contenitore `original`di archiviazione.
+* I messaggi indirizzati all'endpoint di archiviazione ContosoStorageEndpointOriginal non verranno arricchiti e verranno archiviati nel contenitore di archiviazione `original`.
 
-* I messaggi indirizzati all'endpoint di archiviazione ContosoStorageEndpointEnriched verranno arricchiti e archiviati nel contenitore `enriched`di archiviazione.
+* I messaggi indirizzati all'endpoint di archiviazione ContosoStorageEndpointEnriched verranno arricchiti e archiviati nel contenitore di archiviazione `enriched`.
 
 L'applicazione del dispositivo simulato è una delle applicazioni nel download decompresso. L'applicazione invia messaggi per ognuno dei diversi metodi di routing del messaggio nell' [esercitazione di routing](tutorial-routing.md). Questo include archiviazione di Azure.
 
-Fare doppio clic sul file di soluzione (IoT_SimulatedDevice.sln) per aprire il codice in Visual Studio, quindi aprire Program.cs. Sostituire `{your hub name}` con il nome dell'hub Internet. Il formato del nome host dell'hub Internet è **{nome dell'hub}. Azure-Devices.NET**. Per questa esercitazione, il nome host dell'hub è **ContosoTestHubMsgEn.Azure-Devices.NET**. Sostituire `{device key}` quindi con la chiave del dispositivo salvata in precedenza durante l'esecuzione dello script per creare le risorse.
+Fare doppio clic sul file di soluzione (IoT_SimulatedDevice.sln) per aprire il codice in Visual Studio, quindi aprire Program.cs. Sostituire il nome dell'hub Internet per il marcatore `{your hub name}`. Il formato del nome host dell'hub Internet è **{nome dell'hub}. Azure-Devices.NET**. Per questa esercitazione, il nome host dell'hub è **ContosoTestHubMsgEn.Azure-Devices.NET**. Sostituire quindi la chiave del dispositivo salvata in precedenza durante l'esecuzione dello script per creare le risorse per il marcatore `{your device key}`.
 
 Se non si ha la chiave del dispositivo, è possibile recuperarla dal portale. Dopo aver eseguito l'accesso, passare a **gruppi di risorse**, selezionare il gruppo di risorse e quindi selezionare l'hub Internet. Esaminare i **dispositivi** per il dispositivo di test e selezionare il dispositivo. Selezionare l'icona di copia accanto a **chiave primaria** per copiarla negli Appunti.
 
    ```csharp
-        static string myDeviceId = "contoso-test-device";
-        static string iotHubUri = "ContosoTestHubMsgEn.azure-devices.net";
+        private readonly static string s_myDeviceId = "Contoso-Test-Device";
+        private readonly static string s_iotHubUri = "ContosoTestHubMsgEn.azure-devices.net";
         // This is the primary key for the device. This is in the portal.
         // Find your IoT hub in the portal > IoT devices > select your device > copy the key.
-        static string deviceKey = "{your device key here}";
+        private readonly static string s_deviceKey = "{your device key}";
    ```
 
 ## <a name="run-and-test"></a>Esecuzione e test
@@ -315,7 +316,7 @@ Quando si esaminano i messaggi che sono stati arricchiti, viene visualizzato il 
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage","my IoT Hub":"contosotesthubmsgen3276","devicelocation":"$twin.tags.location","customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
-Di seguito è riportato un messaggio non arricchito. "I miei hub di cose", "devicelocation" e "customerID" non vengono visualizzati qui, perché questo endpoint non presenta miglioramenti.
+Di seguito è riportato un messaggio non arricchito. "My cose hub", "devicelocation" e "customerID" non vengono visualizzati qui, perché si tratta dei campi che verrebbero aggiunti dagli arricchimenti e questo endpoint non ha arricchimenti.
 
 ```json
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
@@ -350,4 +351,4 @@ Per ulteriori informazioni sul routing dei messaggi, vedere i seguenti articoli:
 
 * [Usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a endpoint diversi](iot-hub-devguide-messages-d2c.md)
 
-* [Esercitazione: Routing dell'hub Internet](tutorial-routing.md)
+* [Esercitazione: routing dell'hub Internet](tutorial-routing.md)

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 04753ca4c9b14d7ccc265cfcf971b3fd63c861ae
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 11cd90da1b1ca85893dbdad2ced191326af51238
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72384149"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793877"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di Machine Learning automatici in Python
 
@@ -56,8 +56,9 @@ Classificazione | regressione | Previsione delle serie temporali
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
 [Classificatore DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[Regressore DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [Regressore DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
 [Classificatore lineare DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Regressore lineare](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[Regressore lineare](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
-[Bayesiano naif](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
-[Discesa stocastica del gradiente (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
+[Bayesiano naif](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)||[ARIMA automatico](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Discesa stocastica del gradiente (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)||[Profeta](https://facebook.github.io/prophet/docs/quick_start.html)
+|||ForecastTCN
 
 Usare il parametro `task` nel costruttore `AutoMLConfig` per specificare il tipo di esperimento.
 
@@ -70,28 +71,24 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## <a name="data-source-and-format"></a>Origine dati e formato
 
-Il processo di Machine Learning automatizzato supporta dati presenti nel desktop locale o nel cloud, ad esempio Archiviazione BLOB di Azure. I dati possono essere letti in un dataframe Pandas o in un set di dati Azure Machine Learning. Negli esempi di codice seguenti viene illustrato come archiviare i dati in questi formati. [Altre informazioni su datatsets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
+Il processo di Machine Learning automatizzato supporta dati presenti nel desktop locale o nel cloud, ad esempio Archiviazione BLOB di Azure. I dati possono essere letti in un **Dataframe Pandas** o in un **Azure Machine Learning TabularDataset**.  [Altre informazioni su datatsets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
+
+Requisiti per i dati di training:
+- I dati devono essere in formato tabulare.
+- Il valore da stimare, ovvero la colonna di destinazione, deve trovarsi nei dati.
+
+Negli esempi di codice seguenti viene illustrato come archiviare i dati in questi formati.
 
 * TabularDataset
+  ```python
+  from azureml.core.dataset import Dataset
+  
+  tabular_dataset = Dataset.Tabular.from_delimited_files("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv")
+  train_dataset, test_dataset = tabular_dataset.random_split(percentage = 0.1, seed = 42)
+  label = "Label"
+  ```
+
 * Dataframe Pandas
-
->[!Important]
-> Requisiti per i dati di training:
->* I dati devono essere in formato tabulare.
->* Il valore che si desidera stimare (colonna di destinazione) deve essere presente nei dati.
-
-Esempi:
-
-* TabularDataset
-```python
-    from azureml.core.dataset import Dataset
-
-    tabular_dataset = Dataset.Tabular.from_delimited_files("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv")
-    train_dataset, test_dataset = tabular_dataset.random_split(percentage = 0.1, seed = 42)
-    label = "Label"
-```
-
-*   Dataframe Pandas
 
     ```python
     import pandas as pd
@@ -242,7 +239,7 @@ I modelli di ensemble sono abilitati per impostazione predefinita e vengono visu
 
 Sono disponibili più argomenti predefiniti che possono essere forniti come `kwargs` in un oggetto `AutoMLConfig` per modificare il comportamento predefinito dell'insieme dello stack.
 
-* `stack_meta_learner_type`: il meta-Learning è un modello sottoposto a training per l'output dei singoli modelli di eterogeneo. I meta-Learning predefiniti sono `LogisticRegression` per le attività di classificazione (oppure `LogisticRegressionCV` se la convalida incrociata è abilitata) e `ElasticNet` per le attività di regressione/previsione (oppure `ElasticNetCV` Se la convalida incrociata è abilitata). Questo parametro può essere una delle seguenti stringhe: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor` o `LinearRegression`.
+* `stack_meta_learner_type`: il metaapprendimento è un modello di cui è stato eseguito il training sull'output dei singoli modelli di eterogeneo. I meta-Learning predefiniti sono `LogisticRegression` per le attività di classificazione (oppure `LogisticRegressionCV` se la convalida incrociata è abilitata) e `ElasticNet` per le attività di regressione/previsione (oppure `ElasticNetCV` Se la convalida incrociata è abilitata). Questo parametro può essere una delle seguenti stringhe: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor` o `LinearRegression`.
 * `stack_meta_learner_train_percentage`: specifica la proporzione del set di training (quando si sceglie il tipo di training di training e di convalida) da riservare per il training del meta-Learning. Il valore predefinito è `0.2`.
 * `stack_meta_learner_kwargs`: parametri facoltativi da passare all'inizializzatore del meta-Learning. Questi parametri e tipi di parametro eseguono il mirroring di quelli del costruttore del modello corrispondente e vengono trasmessi al costruttore del modello.
 
@@ -272,7 +269,7 @@ automl_classifier = AutoMLConfig(
         )
 ```
 
-Il training di ensemble è abilitato per impostazione predefinita, ma può essere disabilitato usando i parametri booleani `enable_voting_ensemble` e `enable_stack_ensemble`.
+Il training di ensemble è abilitato per impostazione predefinita, ma può essere disabilitato usando il `enable_voting_ensemble` e `enable_stack_ensemble` i parametri booleani.
 
 ```python
 automl_classifier = AutoMLConfig(
@@ -317,8 +314,8 @@ run = experiment.submit(automl_config, show_output=True)
 Sono disponibili alcune opzioni che è possibile definire per terminare l'esperimento.
 1. Nessun criterio: se non si definiscono parametri di uscita, l'esperimento continuerà fino a quando non verrà effettuato ulteriore avanzamento sulla metrica primaria.
 1. Numero di iterazioni: è possibile definire il numero di iterazioni per l'esecuzione dell'esperimento. Facoltativamente, è possibile aggiungere `iteration_timeout_minutes` per definire un limite di tempo in minuti per ogni iterazione.
-1. Uscire dopo un periodo di tempo: se si usa `experiment_timeout_minutes` nelle impostazioni, è possibile definire per quanto tempo, in minuti, un esperimento continuerà a essere eseguito.
-1. Esci dopo il raggiungimento di un punteggio: se si usa `experiment_exit_score`, l'esperimento viene completato dopo il raggiungimento di un punteggio della metrica primario.
+1. Uscire dopo un periodo di tempo: l'uso di `experiment_timeout_minutes` nelle impostazioni consente di definire per quanto tempo, in minuti, un esperimento continuerà a essere eseguito.
+1. Uscire dopo che è stato raggiunto un punteggio: se si usa `experiment_exit_score` l'esperimento viene completato dopo il raggiungimento di un punteggio della metrica primario.
 
 ### <a name="explore-model-metrics"></a>Esplorare le metriche del modello
 

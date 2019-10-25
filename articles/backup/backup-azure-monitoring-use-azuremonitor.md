@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2d460688392ae017c0d87ce60fa980701e5d47d3
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 2b951c6660143b1bd2f6502a5441aec3ba8d71e1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528201"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792845"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorare su larga scala tramite monitoraggio di Azure
 
@@ -29,7 +29,7 @@ Backup di Azure offre [funzionalità di monitoraggio e avviso predefinite](backu
 ## <a name="using-log-analytics-workspace"></a>Uso di Log Analytics area di lavoro
 
 > [!NOTE]
-> I dati dei backup delle macchine virtuali di Azure, dell'agente di backup di Azure, di System Center Data Protection Manager, dei backup SQL in macchine virtuali di Azure e dei backup di condivisione File di Azure vengono pompati nell'area di lavoro Log Analytics tramite le impostazioni di diagnostica.
+> I dati dei backup delle macchine virtuali di Azure, dell'agente di backup di Azure, di System Center Data Protection Manager, dei backup SQL in macchine virtuali di Azure e dei backup di condivisione File di Azure vengono pompati nell'area di lavoro Log Analytics tramite le impostazioni di diagnostica. Il supporto per Backup di Microsoft Azure Server (MAB) verrà aggiunto a breve
 
 Per monitorare/creare report su larga scala, è necessario disporre delle funzionalità di due servizi di Azure. *Le impostazioni di diagnostica* inviano dati da più risorse Azure Resource Manager a un'altra risorsa. *Log Analytics* genera avvisi personalizzati in cui è possibile usare i gruppi di azioni per definire altri canali di notifica.
 

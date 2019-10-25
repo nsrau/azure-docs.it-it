@@ -10,26 +10,26 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/27/2019
+ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2069f0161ea2600a62ab123206d0ebe3c00642c3
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 72d9f0c7df12bd6746cd5cf0336e7bd58b6cc88d
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804376"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809031"
 ---
-# <a name="create-an-access-review-of-azure-ad-roles-in-pim"></a>Creare una verifica di accesso dei ruoli Azure AD in PIM
+# <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Creare una verifica di accesso dei ruoli Azure AD in Privileged Identity Management
 
-Accesso ai ruoli di Azure AD con privilegi per i dipendenti cambiano nel tempo. Per ridurre i rischi associati alle assegnazioni di ruolo obsolete, è necessario esaminare periodicamente l'accesso. È possibile usare Azure Active Directory (Azure AD) Privileged Identity Management (PIM) per creare verifiche di accesso per i ruoli di Azure AD con privilegi. È anche possibile configurare le verifiche di accesso periodiche che vengono eseguite automaticamente.
+I requisiti per consentire agli utenti di ottenere l'accesso ai ruoli di Azure Active Directory privilegiati (Azure AD) possono cambiare nel tempo. Per ridurre i rischi associati alle assegnazioni di ruolo obsolete, è necessario esaminare periodicamente l'accesso. È possibile usare Azure AD Privileged Identity Management (PIM) per creare verifiche di accesso per i ruoli Azure AD con privilegi. È anche possibile configurare le verifiche di accesso periodiche che vengono eseguite automaticamente.
 
 Questo articolo descrive come creare una o più verifiche di accesso per i ruoli di Azure AD con privilegi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Amministratore del ruolo con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+[Amministratore del ruolo con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
 ## <a name="open-access-reviews"></a>Apri verifiche di accesso
 
@@ -37,19 +37,17 @@ Questo articolo descrive come creare una o più verifiche di accesso per i ruoli
 
 1. Aprire **Azure AD Privileged Identity Management**.
 
-1. Nel menu a sinistra fare clic su **Azure ad ruoli** e quindi su verifiche di **accesso**.
+1. Nel menu a sinistra selezionare **Azure ad ruoli** e quindi selezionare verifiche di **accesso**.
 
-1. In Gestisci fare clic su verifiche di **accesso**.
+1. In Gestisci selezionare verifiche di **accesso**.
 
     ![Azure AD Roles-elenco di verifiche di accesso che mostra lo stato di tutte le revisioni](./media/pim-how-to-start-security-review/access-reviews.png)
 
-
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
-
 
 ## <a name="start-the-access-review"></a>Avviare la verifica di accesso
 
-Una volta specificate le impostazioni per una verifica di accesso, fare clic su **Avvia**. La verifica di accesso verrà visualizzata nell'elenco con un indicatore dello stato.
+Dopo aver specificato le impostazioni per una verifica di accesso, selezionare **Avvia**. La verifica di accesso verrà visualizzata nell'elenco con un indicatore dello stato.
 
 ![Elenco di verifiche di accesso che mostra lo stato delle revisioni avviate](./media/pim-how-to-start-security-review/access-reviews-list.png)
 

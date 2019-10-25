@@ -1,5 +1,6 @@
 ---
-title: Evitare ricaricamenti di pagine (Microsoft Authentication Library per JavaScript) | Azure
+title: Evitare ricaricamenti di pagine (Microsoft Authentication Library per JavaScript)
+titleSuffix: Microsoft identity platform
 description: Informazioni su come evitare il ricaricamento delle pagine quando si acquisisce e si rinnovano i token in modo invisibile all'utente usando Microsoft Authentication Library per JavaScript (MSAL. js).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,29 +18,29 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c382c78cf631def74272768b78ee489e49820d04
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 29edafdc27a3835653f82ec36d576a4871e66155
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532822"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803111"
 ---
 # <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Evitare il ricaricamento delle pagine quando si acquisisce e si rinnovano i token in modo invisibile all'utente con MSAL. js
-Microsoft Authentication Library per JavaScript (MSAL. js) USA gli `iframe` elementi nascosti per acquisire e rinnovare i token in modo invisibile all'utente in background. Azure AD restituisce il token al redirect_uri registrato specificato nella richiesta di token (per impostazione predefinita, si tratta della pagina radice dell'app). Poiché la risposta è 302, viene restituito il codice HTML corrispondente al `redirect_uri` caricamento `iframe`in. In genere, l' `redirect_uri` app è la pagina radice e ne comporta il ricaricamento.
+Microsoft Authentication Library per JavaScript (MSAL. js) usa elementi `iframe` nascosti per acquisire e rinnovare i token in modo invisibile all'utente in background. Azure AD restituisce il token al redirect_uri registrato specificato nella richiesta di token (per impostazione predefinita, si tratta della pagina radice dell'app). Poiché la risposta è 302, il codice HTML corrispondente al `redirect_uri` viene caricato nel `iframe`. In genere, il `redirect_uri` dell'app è la pagina radice e questo ne comporta il ricaricamento.
 
-In altri casi, se la navigazione alla pagina radice dell'app richiede l'autenticazione, potrebbe causare errori o `iframe` `X-Frame-Options: deny` elementi annidati.
+In altri casi, se si passa alla pagina radice dell'app è necessaria l'autenticazione, potrebbero verificarsi elementi annidati `iframe` o `X-Frame-Options: deny` errore.
 
-Poiché MSAL. js non è in grado di eliminare il 302 emesso dal Azure ad ed è necessario per elaborare il token restituito, `redirect_uri` non può impedire che il `iframe`venga caricato in.
+Poiché MSAL. js non è in grado di eliminare il 302 emesso dal Azure AD ed è necessario per elaborare il token restituito, non può impedire il caricamento del `redirect_uri` nel `iframe`.
 
 Per evitare di ricaricare l'intera app o altri errori causati da questo problema, seguire queste soluzioni alternative.
 
 ## <a name="specify-different-html-for-the-iframe"></a>Specificare codice HTML diverso per l'iframe
 
-Impostare la `redirect_uri` proprietà in config su una pagina semplice che non richiede l'autenticazione. È necessario assicurarsi che corrisponda `redirect_uri` al portale di Azure registrato in. Questa operazione non influirà sull'esperienza di accesso dell'utente, perché MSAL salva la pagina iniziale quando l'utente inizia il processo di accesso e reindirizza al percorso esatto dopo il completamento dell'accesso.
+Impostare la proprietà `redirect_uri` in config su una pagina semplice che non richiede l'autenticazione. È necessario assicurarsi che corrisponda al `redirect_uri` registrato in portale di Azure. Questa operazione non influirà sull'esperienza di accesso dell'utente, perché MSAL salva la pagina iniziale quando l'utente inizia il processo di accesso e reindirizza al percorso esatto dopo il completamento dell'accesso.
 
 ## <a name="initialization-in-your-main-app-file"></a>Inizializzazione nel file dell'app principale
 
-Se l'app è strutturata in modo che sia presente un file JavaScript centrale che definisce l'inizializzazione dell'app, il routing e altri elementi, è possibile caricare in modo `iframe` condizionale i moduli dell'app a seconda che l'app venga caricata o meno. Esempio:
+Se l'app è strutturata in modo che sia presente un file JavaScript centrale che definisce l'inizializzazione dell'app, il routing e altri elementi, è possibile caricare in modo condizionale i moduli dell'app a seconda che l'app venga caricata o meno in un `iframe`. ad esempio:
 
 In AngularJS: app. js
 

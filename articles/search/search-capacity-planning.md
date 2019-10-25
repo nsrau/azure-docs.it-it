@@ -1,22 +1,22 @@
 ---
-title: Ridimensionare le partizioni e le repliche per le query e l'indicizzazione-ricerca di Azure
-description: Regolare le risorse di calcolo, ovvero partizioni e repliche, dove il prezzo di ogni risorsa è definito in unità di ricerca fatturabili, in Ricerca di Azure.
-author: HeidiSteen
+title: Ridimensionare le partizioni e le repliche per aggiungere capacità per carichi di lavoro di query e indici
+titleSuffix: Azure Cognitive Search
+description: Modificare le risorse del computer di replica e di partizione in ricerca cognitiva di Azure, in cui ogni risorsa viene addebitata in unità di ricerca fatturabili.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 07/01/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: c048dcf31d8f434f742d2da9351ef9b46f0a71d4
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 8613ddc668df338c4f96a9d37f32120718513925
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69650072"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792510"
 ---
-# <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Ridimensionare le partizioni e le repliche per i carichi di lavoro di query e indicizzazione in ricerca di Azure
+# <a name="scale-up-partitions-and-replicas-to-add-capacity-for-query-and-index-workloads-in-azure-cognitive-search"></a>Ridimensionare le partizioni e le repliche per aggiungere capacità per carichi di lavoro di query e indici in Azure ricerca cognitiva
+
 Dopo aver [scelto un piano tariffario](search-sku-tier.md) ed [eseguito il provisioning di un servizio di ricerca](search-create-service-portal.md), il passaggio successivo consente di aumentare il numero di repliche o partizioni usate dal servizio. Ogni livello offre un numero fisso di unità di fatturazione. Questo articolo illustra come assegnare le unità per ottenere una configurazione ottimale che bilanci i requisiti per l'esecuzione di query, indicizzazione e archiviazione.
 
 La configurazione delle risorse è disponibile quando si configura un servizio al [livello Basic](https://aka.ms/azuresearchbasic) o a uno dei [livelli standard o ottimizzati](search-limits-quotas-capacity.md)per l'archiviazione. Per tutti i servizi di questi livelli è possibile acquistare capacità a incrementi di *unità di ricerca* (SU). Le singole partizioni e repliche vengono considerate come una unità di ricerca. 
@@ -24,7 +24,7 @@ La configurazione delle risorse è disponibile quando si configura un servizio a
 Usando un numero minore di risultati SU in una fattura proporzionalmente inferiore. La fatturazione è attiva per l'intera durata impostata per il servizio. Se temporaneamente non si usa un servizio, l'unico modo per evitare la fatturazione è eliminare il servizio e quindi ricrearlo quando sarà necessario.
 
 > [!Note]
-> Eliminando un servizio si elimina tutto il suo contenuto. Non sono disponibili funzionalità all'interno di Ricerca di Azure per eseguire il backup e il ripristino dei dati di ricerca permanenti. Per ridistribuire un indice esistente in un nuovo servizio è necessario eseguire il programma utilizzato in origine per crearlo e caricarlo. 
+> Eliminando un servizio si elimina tutto il suo contenuto. Non è disponibile alcuna funzionalità in Azure ricerca cognitiva per il backup e il ripristino dei dati di ricerca salvati in permanenza. Per ridistribuire un indice esistente in un nuovo servizio è necessario eseguire il programma utilizzato in origine per crearlo e caricarlo. 
 
 ## <a name="terminology-replicas-and-partitions"></a>Terminologia: repliche e partizioni
 Le repliche e le partizioni sono le risorse primarie che eseguono il backup di un servizio di ricerca.
@@ -40,7 +40,7 @@ Le repliche e le partizioni sono le risorse primarie che eseguono il backup di u
 
 
 ## <a name="how-to-allocate-replicas-and-partitions"></a>Come allocare repliche e partizioni
-In Ricerca di Azure viene allocato inizialmente a un servizio un livello minimo di risorse costituito da una partizione e una replica. Per i livelli che lo supportano, è possibile regolare in modo incrementale le risorse di elaborazione aumentando le partizioni se si ha bisogno di maggiore spazio di archiviazione e I/O o aggiungendo più repliche per volumi di query maggiori o migliori prestazioni. Un singolo servizio deve disporre di risorse sufficienti per gestire tutti i carichi di lavoro (indicizzazione e query). Non è possibile suddividere i carichi di lavoro tra più servizi.
+In Azure ricerca cognitiva un servizio viene inizialmente allocato a un livello minimo di risorse costituito da una partizione e una replica. Per i livelli che lo supportano, è possibile regolare in modo incrementale le risorse di elaborazione aumentando le partizioni se si ha bisogno di maggiore spazio di archiviazione e I/O o aggiungendo più repliche per volumi di query maggiori o migliori prestazioni. Un singolo servizio deve disporre di risorse sufficienti per gestire tutti i carichi di lavoro (indicizzazione e query). Non è possibile suddividere i carichi di lavoro tra più servizi.
 
 Per aumentare o modificare l'allocazione delle repliche e delle partizioni, è consigliabile usare il portale di Azure. Il portale impone limiti per le combinazioni consentite che sono inferiori ai limiti massimi. Se è necessario un approccio di provisioning basato su script o basato sul codice, l' [Azure PowerShell](search-manage-powershell.md) o l' [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/services) sono soluzioni alternative.
 
@@ -72,7 +72,7 @@ In generale le applicazioni di ricerca richiedono più repliche che partizioni, 
 
 
 > [!NOTE]
-> Dopo aver effettuato il provisioning di un servizio, non è possibile aggiornarlo passando a uno SKU superiore. È necessario creare un servizio di ricerca a un nuovo livello e ricaricare gli indici. Per assistenza sul provisioning del servizio, vedere [Creare un servizio Ricerca di Azure nel portale](search-create-service-portal.md) .
+> Dopo aver effettuato il provisioning di un servizio, non è possibile aggiornarlo passando a uno SKU superiore. È necessario creare un servizio di ricerca a un nuovo livello e ricaricare gli indici. Per informazioni sul provisioning del servizio, vedere [creare un servizio ricerca cognitiva di Azure nel portale](search-create-service-portal.md) .
 >
 >
 
@@ -97,7 +97,7 @@ Tutti i servizi di ricerca standard e ottimizzati per l'archiviazione possono pr
 Le unità di ricerca, i prezzi e le capacità sono illustrati in dettaglio nel sito web di Azure. Per altre informazioni, vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/search/).
 
 > [!NOTE]
-> Il numero di repliche e partizioni divide equamente per 12 (in particolare 1, 2, 3, 4, 6, 12). In questo modo Ricerca di Azure divide preventivamente ogni indice in 12 partizioni in modo che possa essere distribuito ugualmente tra tutte le partizioni. Ad esempio, se il servizio ha tre partizioni e si crea un indice, ogni partizione conterrà quattro partizioni dell'indice. Il modo in cui Ricerca di Azure suddivide un indice in partizioni è un dettaglio di implementazione ed è soggetto a modifiche nelle versioni successive. Sebbene il numero attualmente sia 12, tale numero potrebbe non essere 12 in futuro.
+> Il numero di repliche e partizioni divide equamente per 12 (in particolare 1, 2, 3, 4, 6, 12). Questo perché Azure ricerca cognitiva suddivide ogni indice in 12 partizioni in modo che sia possibile distribuirlo in parti uguali tra tutte le partizioni. Ad esempio, se il servizio ha tre partizioni e si crea un indice, ogni partizione conterrà quattro partizioni dell'indice. La modalità di partizionamento di un indice in Azure ricerca cognitiva è un dettaglio di implementazione, soggetta a modifiche nelle versioni future. Sebbene il numero attualmente sia 12, tale numero potrebbe non essere 12 in futuro.
 >
 
 
@@ -112,16 +112,16 @@ Le indicazioni generali per la disponibilità elevata sono:
 
 * Tre o più repliche per la disponibilità elevata dei carichi di lavoro di lettura e scrittura, vale a dire query e indicizzazione man mano che singoli documenti vengono aggiunti, aggiornati o eliminati.
 
-I contratti di servizio per Ricerca di Azure sono associati a operazioni di query e aggiornamenti di indici che consistono nell'aggiunta, l'aggiornamento o l'eliminazione di documenti.
+I contratti di servizio per Azure ricerca cognitiva sono destinati a operazioni di query e a aggiornamenti degli indici che includono l'aggiunta, l'aggiornamento o l'eliminazione di documenti.
 
 Il livello Basic prevede una partizione e fino a tre repliche. Se si vuole avere la flessibilità necessaria per rispondere immediatamente alle fluttuazioni della richiesta di indicizzazione e velocità effettiva di query, prendere in considerazione uno dei piani Standard.  Se i requisiti di archiviazione aumentano molto più rapidamente rispetto alla velocità effettiva delle query, prendere in considerazione uno dei livelli ottimizzati per l'archiviazione.
 
 ### <a name="index-availability-during-a-rebuild"></a>Disponibilità degli indici durante la ricompilazione
 
-La disponibilità elevata per Ricerca di Azure riguarda gli aggiornamenti di query e indici che non comportano la ricompilazione di un indice. Se si elimina o si rinomina un campo oppure si modifica il tipo di dati, sarà necessario ricompilare l'indice. A tale scopo, è necessario eliminare l'indice, ricrearlo e ricaricare i dati.
+La disponibilità elevata per Azure ricerca cognitiva riguarda le query e gli aggiornamenti degli indici che non implicano la ricompilazione di un indice. Se si elimina o si rinomina un campo oppure si modifica il tipo di dati, sarà necessario ricompilare l'indice. A tale scopo, è necessario eliminare l'indice, ricrearlo e ricaricare i dati.
 
 > [!NOTE]
-> È possibile aggiungere nuovi campi a un indice di Ricerca di Azure senza ricompilare l'indice. Il valore del nuovo campo sarà null per tutti i documenti già presenti nell'indice.
+> È possibile aggiungere nuovi campi a un indice di ricerca cognitiva di Azure senza ricompilare l'indice. Il valore del nuovo campo sarà null per tutti i documenti già presenti nell'indice.
 
 Per mantenere la disponibilità degli indici durante la ricompilazione, è necessario avere una copia dell'indice con un nome diverso nelle stesso servizio oppure una copia dell'indice con lo stesso nome in un servizio diverso e quindi specificare la logica di reindirizzamento o di failover nel codice.
 
@@ -133,7 +133,7 @@ La latenza delle query indica che sono necessarie repliche aggiuntive. In genere
 
 Non è possibile fornire stime precise sulle query al secondo. Le prestazioni, infatti, dipendono dalla complessità della query e dai carichi di lavoro concorrenti. Sebbene l'aggiunta di repliche consenta certamente di migliorare le prestazioni, il risultato non è strettamente lineare. L'aggiunta di tre repliche, infatti, non garantisce una velocità effettiva triplicata.
 
-Per informazioni su come stimare il numero di query al secondo per i carichi di lavoro, vedere [Considerazioni sulle prestazioni e sull'ottimizzazione di Ricerca di Azure](search-performance-optimization.md).
+Per informazioni aggiuntive sulla stima di query al secondo per i carichi di lavoro, vedere [considerazioni sulle prestazioni e sull'ottimizzazione di Azure ricerca cognitiva](search-performance-optimization.md).
 
 ## <a name="increase-indexing-performance-with-partitions"></a>Aumentare le prestazioni dell'indicizzazione con le partizioni
 Le applicazioni di ricerca che richiedono l'aggiornamento dei dati quasi in tempo reale avranno bisogno in proporzione di più partizioni che repliche. L'aggiunta di partizioni distribuisce le operazioni di lettura/scrittura su un numero più ampio di risorse di calcolo. Offre inoltre più spazio su disco per l'archiviazione di documenti e indici aggiuntivi.
@@ -143,4 +143,4 @@ L'esecuzione di query su indici di dimensioni maggiori può richiedere tempi pi�
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Scegliere un piano tariffario per ricerca di Azure](search-sku-tier.md)
+[Scegliere un piano tariffario per Azure ricerca cognitiva](search-sku-tier.md)

@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti su Azure Multifactor Authentication-Azure Active Directory
+title: Domande frequenti su Azure Multi-Factor Authentication-Azure Active Directory
 description: Domande frequenti e risposte su Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46abe367c9047616174a1e43dffd57861e6278e8
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 23ecec4d0701f6f55385937f872151a373b2f62e
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68811825"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808102"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Domande frequenti su Azure Multi-Factor Authentication
 
 Queste domande frequenti offrono risposte su Azure Multi-Factor Authentication e sull'uso del servizio Multi-Factor Authentication. Le domande sono suddivise fra servizio in generale, modelli di fatturazione, esperienze utente e risoluzione dei problemi.
 
-## <a name="general"></a>Generale
+## <a name="general"></a>Informazioni di carattere generale
 
 **D: In che modo il server Azure Multi-Factor Authentication gestisce i dati utente?**
 
@@ -65,7 +65,7 @@ Microsoft non garantisce l'invio coerente di prompt Multi-Factor Authentication 
 
 È possibile rispondere alla maggior parte delle domande sulla fatturazione facendo riferimento alla pagina [Multi-Factor Authentication Prezzi](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) o alla documentazione relativa a [Come ottenere Azure Multi-Factor Authentication](concept-mfa-licensing.md).
 
-**D: Alla mia organizzazione vengono addebitati i costi delle telefonate e degli SMS usati per l'autenticazione?**
+**D: Alla mia organizzazione vengono addebitati i costi delle telefonate e degli SMS utilizzati per l'autenticazione?**
 
 No, alle aziende non vengono addebitati i costi delle singole telefonate o SMS inviati agli utenti tramite Azure Multi-Factor Authentication. Se si usa un provider di autenticazione MFA con un accordo basato sul numero di autenticazioni, verrà fatturata ciascuna autenticazione ma non il metodo utilizzato.
 
@@ -75,7 +75,7 @@ Potrebbero essere addebitate agli utenti le chiamate telefoniche o gli SMS che r
 
 La fatturazione si basa sul numero di utenti configurati per usare Multi-Factor Authentication, indipendentemente dal fatto che abbiano eseguito la verifica in due passaggi in quel mese.
 
-**D: Come funziona la modalità di fatturazione di autenticazione a più fattori?**
+**D: Come funziona la fatturazione per Multi-Factor Authentication?**
 
 Quando si crea un provider di MFA per utente o per autenticazione, la sottoscrizione di Azure dell'organizzazione viene fatturata mensilmente in base all'utilizzo. Questo modello di fatturazione è simile a quello applicato da Azure per l'uso delle macchine virtuali e dei siti Web.
 
@@ -87,7 +87,7 @@ Per altre informazioni sulle opzioni, vedere [Come ottenere Azure Multi-Factor A
 
 In alcuni casi, sì.
 
-Multi-factor authentication per gli amministratori di Azure offre un subset di funzionalità di autenticazione a più fattori di Azure senza costi aggiuntivi per l'accesso a Microsoft Servizi online, tra cui il [portale di Azure](https://portal.azure.com) e Microsoft 365 interfaccia di [Amministrazione](https://admin.microsoft.com). Questa offerta è valida solo per gli amministratori globali nelle istanze di Azure Active Directory che non dispongono della versione completa di Azure MFA tramite una licenza MFA, un bundle o un provider autonomo in base al consumo. Se gli amministratori usano la versione gratuita e quindi si acquista una versione completa di Azure MFA, tutti gli amministratori globali vengono passati automaticamente alla versione a pagamento.
+Multi-Factor Authentication per gli amministratori di Azure offre un subset di funzionalità di autenticazione a più fattori di Azure senza costi aggiuntivi per l'accesso a Microsoft Servizi online, tra cui l'interfaccia di amministrazione di [portale di Azure](https://portal.azure.com) e [Microsoft 365](https://admin.microsoft.com). Questa offerta è valida solo per gli amministratori globali nelle istanze di Azure Active Directory che non dispongono della versione completa di Azure MFA tramite una licenza MFA, un bundle o un provider autonomo in base al consumo. Se gli amministratori usano la versione gratuita e quindi si acquista una versione completa di Azure MFA, tutti gli amministratori globali vengono passati automaticamente alla versione a pagamento.
 
 Multi-Factor Authentication per utenti di Office 365 offre un sottoinsieme delle funzionalità di Azure MFA senza costi aggiuntivi per l'accesso ai servizi Office 365, inclusi Exchange Online e SharePoint Online. Questa offerta è valida per gli utenti con una licenza Office 365 assegnata quando l'istanza corrispondente di Azure Active Directory non dispone della versione completa di Azure MFA tramite una licenza MFA, un bundle o un provider autonomo in base al consumo.
 
@@ -99,7 +99,7 @@ Se invece il provider di MFA *non* è collegato a un tenant di Azure AD o si col
 
 Per altre informazioni sui provider di MFA, vedere [Introduzione all'uso di un provider di Azure Multi-Factor Authentication](concept-mfa-authprovider.md).
 
-**D: L'organizzazione può passare dal modello di fatturazione in base al consumo alla sottoscrizione (modello basato su licenza) in qualsiasi momento?**
+**D: L'organizzazione può passare dal modello di fatturazione in base al consumo e la sottoscrizione (modello basato su licenza) in qualsiasi momento?**
 
 In alcuni casi, sì.
 
@@ -115,7 +115,7 @@ Quando si usa il modello di licenza, è necessario usare Azure Active Directory 
 
 ## <a name="manage-and-support-user-accounts"></a>Gestire e supportare gli account utente
 
-**D: Cosa dire agli utenti di fare se non ricevono una risposta al telefono?**
+**D: cosa si può fare se gli utenti non ricevono una risposta sul telefono?**
 
 Chiedere agli utenti di provare fino a 5 volte in 5 minuti per ottenere una telefonata o un SMS per l'autenticazione. Microsoft usa più provider per la distribuzione di chiamate e messaggi SMS. Se il problema persiste, aprire un caso di supporto con Microsoft per altre informazioni sulla risoluzione dei problemi.
 
@@ -127,7 +127,7 @@ Se i passaggi precedenti non restituiscono i risultati sperati, è auspicabile c
 
 È possibile reimpostare l'account utente chiedendo all'utente stesso di ripetere il processo di registrazione. Altre informazioni sulla [gestione delle impostazioni utente e dispositivo con Azure Multi-Factor Authentication nel cloud](howto-mfa-userdevicesettings.md).
 
-**D: Cosa fare se uno degli utenti perde un telefono che usa le password dell'app?**
+**D: Cosa fare se uno degli utenti perde un telefono che usa le password di app?**
 
 L'amministratore può eliminare tutte le password di app dell'utente per impedire eventuali accessi non autorizzati. Dopo aver sostituito il dispositivo, l'utente potrà ricrearle. Altre informazioni sulla [gestione delle impostazioni utente e dispositivo con Azure Multi-Factor Authentication nel cloud](howto-mfa-userdevicesettings.md).
 
@@ -142,11 +142,11 @@ Se l'organizzazione non ha client legacy, non è consigliabile consentire agli u
 >
 > Le password di app sono necessarie solo per le app che non supportano l'autenticazione moderna. I client Office 2013 supportano i protocolli dell'autenticazione moderna, ma devono essere configurati. L'autenticazione moderna è ora disponibile per tutti i clienti che eseguono l'aggiornamento di marzo 2015 o versione successiva per Office 2013. Per altre informazioni, vedere il post di Blog [aggiornato sull'autenticazione moderna di Office 365](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/).
 
-**D: Gli utenti sostengono che talvolta non ricevono l'SMS o che rispondono agli SMS bidirezionali ma la verifica scade.**
+**D: Gli utenti sostengono che talvolta non ricevono l'SMS o che rispondono agli SMS bidirezionale ma la verifica scade.**
 
 Il recapito degli SMS e la ricezione di risposte SMS bidirezionale non sono garantiti in quanto sussistono fattori non controllabili che possono influire sull'affidabilità del servizio. Questi fattori includono il paese di destinazione, il gestore di telefonia mobile e il livello di attendibilità del segnale.
 
-Se agli utenti capita spesso di non ricevere in modo affidabile gli SMS, suggerire loro di usare il metodo dell'app per dispositivi mobili o della chiamata telefonica. L'app per dispositivi mobili può ricevere notifiche sia su rete cellulare che Wi-Fi. L'app per dispositivi mobili può generare codici di verifica anche in caso di totale assenza di segnale. L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073) e [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
+Se agli utenti capita spesso di non ricevere in modo affidabile gli SMS, suggerire loro di usare il metodo dell'app per dispositivi mobili o della chiamata telefonica. L'app per dispositivi mobili può ricevere notifiche sia su rete cellulare che Wi-Fi. L'app per dispositivi mobili può generare codici di verifica anche in caso di totale assenza di segnale. L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073) e [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
 
 Se è necessario usare gli SMS, è consigliabile usare SMS unidirezionali anziché bidirezionali, Un SMS unidirezionale è più affidabile e impedisce agli utenti di sostenere gli addebiti SMS globali dalla risposta a un messaggio di testo inviato da un altro paese/area geografica.
 

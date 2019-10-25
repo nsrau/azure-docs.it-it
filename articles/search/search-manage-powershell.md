@@ -1,22 +1,22 @@
 ---
-title: Script di PowerShell con il modulo AZ. search-ricerca di Azure
-description: Creare e configurare un servizio di ricerca di Azure con PowerShell. È possibile aumentare o ridurre le prestazioni di un servizio, gestire chiavi API di amministrazione e query ed eseguire query su informazioni sul sistema.
-author: HeidiSteen
+title: Script di PowerShell con il modulo AZ. search
+titleSuffix: Azure Cognitive Search
+description: Creare e configurare un servizio ricerca cognitiva di Azure con PowerShell. È possibile aumentare o ridurre le prestazioni di un servizio, gestire chiavi API di amministrazione e query ed eseguire query per ottenere informazioni sul sistema.
 manager: nitinme
-services: search
-ms.service: search
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/28/2019
-ms.author: heidist
-ms.openlocfilehash: d56ddcd48f6a1907bed865d391e1d4e64da2999d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 11/04/2019
+ms.openlocfilehash: efc61f7dc8e9d2caa53c4cbd7d932af9e1a206d1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331250"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793532"
 ---
-# <a name="manage-your-azure-search-service-with-powershell"></a>Gestire il servizio Ricerca di Azure con PowerShell
+# <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Gestire il servizio ricerca cognitiva di Azure con PowerShell
 > [!div class="op_single_selector"]
 > * [di Microsoft Azure](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
@@ -24,7 +24,7 @@ ms.locfileid: "72331250"
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-È possibile eseguire i cmdlet e gli script di PowerShell in Windows, Linux o in [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) per creare e configurare ricerca di Azure. Il modulo **AZ. search** estende Azure PowerShell] con la parità completa alle [API REST di gestione di ricerca di Azure](https://docs.microsoft.com/rest/api/searchmanagement). Con Azure PowerShell e **AZ. search**, è possibile eseguire le attività seguenti:
+È possibile eseguire i cmdlet e gli script di PowerShell in Windows, Linux o in [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) per creare e configurare Azure ricerca cognitiva. Il modulo **AZ. search** estende Azure PowerShell] con la parità completa per le [API REST di gestione di Azure ricerca cognitiva](https://docs.microsoft.com/rest/api/searchmanagement). Con Azure PowerShell e **AZ. search**, è possibile eseguire le attività seguenti:
 
 > [!div class="checklist"]
 > * [Elencare tutti i servizi di ricerca nella sottoscrizione](#list-search-services)
@@ -92,7 +92,7 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 <a name="list-search-services"></a>
 
-## <a name="list-all-azure-search-services-in-your-subscription"></a>Elencare tutti i servizi di ricerca di Azure nella sottoscrizione
+## <a name="list-all-azure-cognitive-search-services-in-your-subscription"></a>Elencare tutti i servizi ricerca cognitiva di Azure nella sottoscrizione
 
 I comandi seguenti sono da [**AZ. resources**](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources), restituendo informazioni sulle risorse e i servizi esistenti già sottoposti a provisioning nella sottoscrizione. Se non si conosce il numero di servizi di ricerca già creati, questi comandi restituiscono tali informazioni, salvando un viaggio nel portale.
 
@@ -201,7 +201,7 @@ Tags
 
 Come si può immaginare, se si rigenerano le chiavi senza aggiornare il codice client, le richieste che usano la chiave precedente avranno esito negativo. La rigenerazione di tutte le nuove chiavi non blocca definitivamente il servizio ed è comunque possibile accedere al servizio tramite il portale. Dopo la rigenerazione delle chiavi primarie e secondarie, è possibile aggiornare il codice client per l'uso delle nuove chiavi e le operazioni riprenderanno di conseguenza.
 
-I valori per le chiavi API vengono generati dal servizio. Non è possibile fornire una chiave personalizzata per l'uso di ricerca di Azure. Analogamente, non esiste alcun nome definito dall'utente per le chiavi API di amministrazione. I riferimenti alla chiave sono stringhe fisse, ovvero `primary` o `secondary`. 
+I valori per le chiavi API vengono generati dal servizio. Non è possibile fornire una chiave personalizzata per l'uso di ricerca cognitiva di Azure. Analogamente, non esiste alcun nome definito dall'utente per le chiavi API di amministrazione. I riferimenti alla chiave sono stringhe fisse, ovvero `primary` o `secondary`. 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary
@@ -217,9 +217,9 @@ Primary                    Secondary
 
 ## <a name="create-or-delete-query-keys"></a>Creare o eliminare chiavi di query
 
-[**New-AzSearchQueryKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchquerykey?view=azps-1.4.0) viene usato per creare [chiavi API](search-security-api-keys.md) di query per l'accesso in sola lettura dalle app client a un indice di ricerca di Azure. Le chiavi di query vengono usate per eseguire l'autenticazione a un indice specifico allo scopo di recuperare i risultati della ricerca. Le chiavi di query non concedono l'accesso in sola lettura ad altri elementi nel servizio, ad esempio un indice, un'origine dati o un indicizzatore.
+[**New-AzSearchQueryKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchquerykey?view=azps-1.4.0) viene usato per creare [chiavi API](search-security-api-keys.md) di query per l'accesso in sola lettura dalle app client a un indice ricerca cognitiva di Azure. Le chiavi di query vengono usate per eseguire l'autenticazione a un indice specifico allo scopo di recuperare i risultati della ricerca. Le chiavi di query non concedono l'accesso in sola lettura ad altri elementi nel servizio, ad esempio un indice, un'origine dati o un indicizzatore.
 
-Non è possibile fornire una chiave per l'uso di ricerca di Azure. Le chiavi API vengono generate dal servizio.
+Non è possibile fornire una chiave per l'uso di ricerca cognitiva di Azure. Le chiavi API vengono generate dal servizio.
 
 ```azurepowershell-interactive
 New-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <query-key-name> 
@@ -257,7 +257,7 @@ Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resource
 
 Compilare un [Indice](search-what-is-an-index.md), [eseguire una query su un indice](search-query-overview.md) usando il portale, le API REST o .NET SDK.
 
-* [Creare un indice di Ricerca di Azure nel portale di Azure](search-create-index-portal.md)
+* [Creare un indice di Azure ricerca cognitiva nel portale di Azure](search-create-index-portal.md)
 * [Configurare un indicizzatore per caricare i dati da altri servizi](search-indexer-overview.md)
-* [Eseguire query in un indice di Ricerca di Azure con Esplora ricerche nel portale di Azure](search-explorer.md)
-* [Come utilizzare Ricerca di Azure in .NET](search-howto-dotnet-sdk.md)
+* [Eseguire query su un indice di ricerca cognitiva di Azure usando Esplora ricerche nella portale di Azure](search-explorer.md)
+* [Come usare ricerca cognitiva di Azure in .NET](search-howto-dotnet-sdk.md)
