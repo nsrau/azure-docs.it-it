@@ -6,33 +6,33 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/5/2019
+ms.date: 10/23/2019
 ms.author: dapine
-ms.openlocfilehash: 52d8e1355558b197b193a50c7cde571799541268
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ecb172aec37fdab21bed8373ac7484dc52a54829
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717199"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821998"
 ---
-## <a name="create-a-luis-resource"></a>Crea una risorsa di LUIS
+## <a name="create-a-luis-resource"></a>Creare una risorsa LUIS
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
-1. Fare clic su [creare **Language Understanding Intelligent Service**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUIS)
-1. Immettere tutte le impostazioni necessarie:
+1. Fare clic su [crea **Language Understanding** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+1. Immettere tutte le impostazioni obbligatorie:
 
-    |Impostazione|Valore|
+    |Impostazione|Value|
     |--|--|
-    |Name|Nome desiderato (2-64 caratteri)|
+    |name|Nome desiderato (2-64 caratteri)|
     |Sottoscrizione|Selezionare la sottoscrizione appropriata|
-    |Location|Selezionare qualsiasi località nelle vicinanze e disponibile|
-    |Piano tariffario|`F0` -il livello di prezzo minimo|
-    |Gruppo di risorse|Selezionare un gruppo di risorse disponibili|
+    |Località|Selezionare una località vicina e disponibile|
+    |Piano tariffario|`F0`-piano tariffario minimo|
+    |Gruppo di risorse|Selezionare un gruppo di risorse disponibile|
 
-1. Fare clic su **Create** e attendere che la risorsa da creare. Dopo averlo creato, passare alla pagina di risorse
-1. Raccolta configurata `endpoint` e una chiave API:
+1. Fare clic su **Crea** e attendere la creazione della risorsa. Al termine della creazione, passare alla pagina delle risorse
+1. Raccogli `endpoint` configurati e una chiave API:
 
-    |Scheda risorse nel portale|Impostazione|Value|
+    |Scheda risorsa nel portale|Impostazione|Value|
     |--|--|--|
-    |**Panoramica**|Endpoint|Copiare l'endpoint. È simile a `https://luis.cognitiveservices.azure.com/luis/v2.0`|
-    |**Chiavi**|API key|Copiare 1 delle due chiavi. È una stringa di caratteri alfanumerici 32 senza spazi o trattini, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |**Panoramica**|Endpoint|Copiare l'endpoint. L'aspetto è simile a `https://luis.cognitiveservices.azure.com/luis/v2.0`|
+    |**Chiavi**|API key|Copiare 1 delle due chiavi. Si tratta di una stringa di caratteri alfanumerici 32 senza spazi o trattini, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|

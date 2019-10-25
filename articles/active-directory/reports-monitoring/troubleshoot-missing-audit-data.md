@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi relativi ai dati mancanti nei log attività di Azure Active Directory | Microsoft Docs
+title: Risolvere i problemi relativi ai dati mancanti nei log attività | Microsoft Docs
 description: Offre una risoluzione per i dati mancanti nei log attività di Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.date: 01/15/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a04de319a17255e3b61378cbd716828a237317b3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 7aeac1180292ea5200e9eabc30ee01db05b67e75
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989510"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820862"
 ---
-# <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Risoluzione dei problemi: dati mancanti nei log attività di Azure Active Directory 
+# <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Risolvere i problemi relativi ai dati mancanti nei log attività di Azure Active Directory 
 
 ## <a name="i-cant-find-audit-logs-for-recent-actions-in-the-azure-portal"></a>Non è possibile trovare i log di controllo per le azioni recenti nel portale di Azure
 
@@ -32,13 +32,13 @@ ms.locfileid: "68989510"
 
 Sono state eseguite alcune azioni nel portale di Azure e si prevedeva la visualizzazione dei log di controllo per tali azioni nel pannello `Activity logs > Audit Logs`, ma non è possibile trovarli.
 
- ![Creazione di report](./media/troubleshoot-missing-audit-data/01.png)
+ ![Creazione report](./media/troubleshoot-missing-audit-data/01.png)
  
 ### <a name="cause"></a>Causa
 
 Le azioni non vengono visualizzate immediatamente nei log attività. La tabella seguente elenca i numeri di latenza per i log attività. 
 
-| Report | &nbsp; | Latenza (P95) | Latenza (P99) |
+| Documentazione | &nbsp; | Latenza (P95) | Latenza (P99) |
 |--------|--------|---------------|---------------|
 | Directory Audit (Controllo directory) | &nbsp; | 2 min | 5 min |
 | Attività di accesso | &nbsp; | 2 min | 5 min | 
@@ -53,13 +53,13 @@ Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate
 
 Di recente si è eseguito l'accesso al portale di Azure e si prevedeva la visualizzazione dei log di accesso per tali azioni nel pannello `Activity logs > Sign-ins`, ma non è possibile trovarli.
 
- ![Report](./media/troubleshoot-missing-audit-data/02.png)
+ ![Creazione report](./media/troubleshoot-missing-audit-data/02.png)
  
 ### <a name="cause"></a>Causa
 
 Le azioni non vengono visualizzate immediatamente nei log attività. La tabella seguente elenca i numeri di latenza per i log attività. 
 
-| Report | &nbsp; | Latenza (P95) | Latenza (P99) |
+| Documentazione | &nbsp; | Latenza (P95) | Latenza (P99) |
 |--------|--------|---------------|---------------|
 | Directory Audit (Controllo directory) | &nbsp; | 2 min | 5 min |
 | Attività di accesso | &nbsp; | 2 min | 5 min | 
@@ -74,13 +74,13 @@ Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate
 
 Non è possibile visualizzare più di 30 giorni di dati di accesso e controllo nel portale di Azure. Perché? 
 
- ![Report](./media/troubleshoot-missing-audit-data/03.png)
+ ![Creazione report](./media/troubleshoot-missing-audit-data/03.png)
 
 ### <a name="cause"></a>Causa
 
 In base alla licenza, Azioni di Azure Active Directory archivia i report delle attività per le durate seguenti:
 
-| Report           | &nbsp; |  Azure AD Gratuito | Azure AD P1 Premium | Azure AD P2 Premium |
+| Documentazione           | &nbsp; |  Azure AD Free | Azure AD P1 Premium | Azure AD P2 Premium |
 | ---              | ----   |  ---           | ---                 | ---                 |
 | Directory Audit (Controllo directory)  | &nbsp; |   7 giorni     | 30 giorni             | 30 giorni             |
 | Attività di accesso | &nbsp; | Non disponibile. È possibile accedere alle informazioni di accesso per 7 giorni dal pannello del singolo profilo utente | 30 giorni | 30 giorni             |

@@ -1,26 +1,21 @@
 ---
 title: Esaminare le metriche in Azure Application Insights | Microsoft Docs
 description: Come interpretare i grafici in Esplora metriche e come personalizzare i pannelli di Esplora metriche.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/22/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 5c659ca2f40d47450227d16963499a6b27c9e313
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/22/2019
+ms.openlocfilehash: b0831ff500ba4cbe71dae6251fd960f6c96c0fe5
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60700897"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820783"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Esaminare le metriche in Application Insights
-Le metriche in [Application Insights][start] sono valori e conteggi di eventi misurati, inviati nei dati di telemetria dall'applicazione. Consentono di rilevare problemi di prestazioni e osservare le tendenze nella modalità di uso dell'applicazione. Esiste una vasta gamma di metriche standard ed è anche possibile creare metriche ed eventi personalizzati.
+Le metriche in [Application Insights][start] sono valori misurati e conteggi degli eventi inviati nei dati di telemetria dall'applicazione. Consentono di rilevare problemi di prestazioni e osservare le tendenze nella modalità di uso dell'applicazione. Esiste una vasta gamma di metriche standard ed è anche possibile creare metriche ed eventi personalizzati.
 
 > [!NOTE]
 > Questo articolo descrive l'esperienza di Esplora metriche classica, che è attualmente deprecata e verrà infine ritirata. È consigliabile provare la nuova esperienza, descritta in [questo articolo](../platform/metrics-charts.md).
@@ -75,7 +70,7 @@ Selezionare **Modifica** su un grafico nuovo o esistente per modificare il conte
 
 È possibile visualizzare più metriche in un grafico, anche se sono presenti restrizioni sulle combinazioni che è possibile visualizzare insieme. Non appena si sceglie una metrica, alcune vengono disabilitate.
 
-Eventuali [metriche personalizzate][track] codificate nell'app (chiamate a TrackMetric e TrackEvent) vengono elencate qui.
+Se si codificano [metriche personalizzate][track] nell'app (chiamate a TrackMetric e TrackEvent), saranno elencate qui.
 
 ## <a name="segment-your-data"></a>Segmentare i dati
 È possibile suddividere una metrica per la proprietà, ad esempio eseguire un confronto delle visualizzazioni di una pagina sui client con sistemi operativi differenti.
@@ -89,7 +84,7 @@ Selezionare un grafico o una griglia, attivare il raggruppamento e scegliere una
 >
 >
 
-Se si codificano [metriche personalizzate][track] nell'app e si includono valori di proprietà, sarà possibile selezionare le proprietà da questo elenco.
+Se si codificano [metriche personalizzate][track] nell'app e includono valori di proprietà, sarà possibile selezionare la proprietà nell'elenco.
 
 Il grafico è troppo piccolo per dati segmentati? modificarne l'altezza:
 
@@ -170,7 +165,7 @@ Se si modifica un pannello ma poi si vuole tornare a quello salvato in origine, 
 
 Per una visualizzazione molto più immediata dei dati di telemetria, aprire [flusso live](live-stream.md). La visualizzazione della maggior parte delle metriche richiede alcuni minuti, a causa del processo di aggregazione. Al contrario, le metriche attive sono ottimizzate per bassa latenza. 
 
-## <a name="set-alerts"></a>Impostazione di avvisi
+## <a name="set-alerts"></a>Impostare avvisi
 Per ricevere tramite posta elettronica una notifica relativa a valori insoliti di una metrica, aggiungere un avviso. È possibile scegliere di inviare il messaggio di posta elettronica agli amministratori di account o a indirizzi di posta elettronica specifici.
 
 ![In Esplora metriche scegliere Regole di avviso, Aggiungi avviso](./media/metrics-explorer/appinsights-413setMetricAlert.png)

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 1fb57a7c6cc694c56667d589eae39442ee9e82ac
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: acda549ffc03679de43b4e5956e65ccada766c15
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984372"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819959"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>Uso delle chiavi di creazione e di risorsa di runtime
 
@@ -28,7 +28,7 @@ Le risorse di creazione e di runtime forniscono l'autenticazione per l'app LUIS 
 Quando si accede al portale LUIS, è possibile scegliere di continuare con:
 
 * una [chiave di valutazione](#trial-key) gratuita, che fornisce la creazione e alcune query sugli endpoint di stima.
-* una nuova risorsa di creazione di Azure LUIS-crea una nuova risorsa. Non corrisponde a una risorsa dell'endpoint di stima. 
+* una risorsa di creazione di Azure [Luis](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) . 
 
 
 <a name="starter-key"></a>
@@ -52,19 +52,16 @@ Quando si è pronti per pubblicare l'endpoint di stima, creare e assegnare chiav
 
 ## <a name="create-resources-in-the-azure-portal"></a>Creare risorse nel portale di Azure
 
-1. Accedere al [portale di Azure](https://azure.microsoft.com/free/). 
-1. Selezionare **+ Crea una risorsa**.
-1. Nella casella di ricerca immettere `Language understanding`.
-1. Selezionare **Crea** per avviare il processo di creazione. 
+1. Usare [questo collegamento](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) per aprire il portale di Azure in per la creazione di risorse.
 1. Selezionare **entrambi** per creare una chiave di runtime per la creazione e l'endpoint di stima. 
 1. Immettere le informazioni necessarie per creare la risorsa e quindi selezionare **Crea** per terminare il processo.
 
     ![Creare la risorsa di comprensione della lingua](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
-    |Name|Scopo|
+    |name|Finalità|
     |--|--|
     |Nome risorsa| Nome personalizzato scelto, usato come parte dell'URL per le query dell'endpoint di creazione e di stima.|
-    |Nome sottoscrizione| sottoscrizione che verrà fatturata per la risorsa.|
+    |Nome della sottoscrizione| sottoscrizione che verrà fatturata per la risorsa.|
     |Gruppo di risorse| Nome del gruppo di risorse personalizzato scelto o creato. I gruppi di risorse consentono di raggruppare le risorse di Azure per l'accesso e la gestione nella stessa area.|
     |Posizione di creazione|Area associata al modello.|
     |Piano tariffario per la creazione|Il piano tariffario determina il numero massimo di transazioni al secondo e al mese.|
@@ -77,10 +74,10 @@ Quando si è pronti per pubblicare l'endpoint di stima, creare e assegnare chiav
 
 Usare l' [interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure per creare ogni risorsa singolarmente. 
 
-Risorsa `kind`:
+`kind`di risorse:
 
-* Authoring`LUIS.Authoring`
-* Stima`LUIS` 
+* Creazione e modifica: `LUIS.Authoring`
+* Stima: `LUIS` 
 
 1. Accedere all'interfaccia della riga di comando di Azure:
 
@@ -90,13 +87,13 @@ Risorsa `kind`:
 
     Verrà visualizzato un browser che consente di selezionare l'account corretto e di fornire l'autenticazione.
 
-1. Creare una **risorsa Luis authoring**, di tipo `LUIS.Authoring`, denominata `my-luis-authoring-resource` nel gruppo di risorse _esistente_ denominato `my-resource-group` per l' `westus` area. 
+1. Creare una **risorsa Luis authoring**, di tipo `LUIS.Authoring`, denominata `my-luis-authoring-resource` nel gruppo di risorse _esistente_ denominato `my-resource-group` per l'area `westus`. 
 
     ```console
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. Creare una **risorsa dell'endpoint di stima Luis**, di `LUIS`tipo, `my-luis-prediction-resource` denominata nel gruppo di risorse esistente `my-resource-group` denominato per `westus` l'area. Se si desidera una velocità effettiva superiore a quella del livello gratuito `F0` , `S0`modificare in. Altre informazioni sui [piani tariffari e la velocità effettiva](luis-boundaries.md#key-limits).
+1. Creare una **risorsa dell'endpoint di stima Luis**, di tipo `LUIS`, denominata `my-luis-prediction-resource` nel gruppo di risorse _esistente_ denominato `my-resource-group` per l'area `westus`. Se si desidera una velocità effettiva superiore a quella del livello gratuito, modificare `F0` in `S0`. Altre informazioni sui [piani tariffari e la velocità effettiva](luis-boundaries.md#key-limits).
 
     ```console
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
@@ -154,7 +151,7 @@ Per scopi di automazione, ad esempio una pipeline di integrazione continua/recap
     |Intestazione|`Ocp-Apim-Subscription-Key`|Chiave di creazione.|
     |Intestazione|`Content-type`|`application/json`|
     |QueryString|`appid`|L'ID dell'app LUIS. 
-    |Body||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
+    |Corpo||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
     Quando l'API ha esito positivo, restituisce 201 - stato creato. 
 
@@ -176,11 +173,11 @@ Quando si annulla l'assegnazione di una risorsa, questa non viene eliminata da A
 
 Rigenerare le chiavi di Azure dalla portale di Azure, nella pagina **chiavi** .
 
-## <a name="delete-account"></a>Elimina account
+## <a name="delete-account"></a>Eliminare l'account
 
 Per informazioni sui dati che vengono eliminati quando viene eliminato l'account, vedere [Data storage and removal](luis-concept-data-storage.md#accounts) (Archiviazione e rimozione dei dati).
 
-## <a name="change-pricing-tier"></a>Modifica piano tariffario
+## <a name="change-pricing-tier"></a>Modificare il piano tariffario
 
 1.  In [Azure](https://portal.azure.com), trova la sottoscrizione LUIS. Selezionare la sottoscrizione LUIS.
     ![Trova la sottoscrizione LUIS](./media/luis-usage-tiers/find.png)

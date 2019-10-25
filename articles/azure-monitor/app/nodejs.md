@@ -1,27 +1,22 @@
 ---
 title: Monitorare i servizi Node.js con Azure Application Insights | Microsoft Docs
 description: Monitorare le prestazioni e diagnosticare i problemi dei servizi Node.js con Application Insights.
-services: application-insights
-documentationcenter: nodejs
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: f2a30d5a040c2713f04173e83732cea5fa19af3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/14/2019
+ms.openlocfilehash: 81f63380c041ae743a2b38e6ba89558b83e7497a
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255276"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820716"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorare servizi e app Node.js con Application Insights
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitora i componenti e i servizi back-end dopo la distribuzione, che consentono di individuare e diagnosticare rapidamente le prestazioni e altri problemi. È possibile usare Azure Application Insights per i servizi Node.js ospitati nel data center locale, in app Web, in VM di Azure e anche in altri cloud pubblici.
+[Applicazione Azure Insights](../../azure-monitor/app/app-insights-overview.md) monitora i servizi e i componenti back-end dopo la distribuzione, per facilitare l'individuazione e la diagnosi rapida delle prestazioni e di altri problemi. È possibile usare Azure Application Insights per i servizi Node.js ospitati nel data center locale, in app Web, in VM di Azure e anche in altri cloud pubblici.
 
 Per ricevere, archiviare ed esplorare i dati di monitoraggio, includere l'SDK nel codice e quindi configurare una risorsa di Application Insights corrispondente in Azure. L'SDK invia i dati a tale risorsa per ulteriori attività di analisi ed esplorazione.
 
@@ -29,13 +24,13 @@ Node.js SDK può monitorare automaticamente le richieste HTTP in ingresso e in u
 
 È possibile usare l'API TelemetryClient per instrumentare e monitorare manualmente altri aspetti dell'app e del sistema. L'API TelemetryClient viene descritta in modo più dettagliato più avanti nell'articolo.
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Inizia oggi stesso
 
 Completare le attività seguenti per configurare il monitoraggio per un'app o un servizio.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, verificare di avere una sottoscrizione di Azure oppure [ottenerne una nuova gratuitamente][azure-free-offer]. Se l'organizzazione ha già una sottoscrizione di Azure, un amministratore può aggiungere l'utente alla sottoscrizione seguendo [queste istruzioni][add-aad-user].
+Prima di iniziare, verificare di avere una sottoscrizione di Azure oppure [ottenerne una nuova gratuitamente][azure-free-offer]. Se l'organizzazione ha già una sottoscrizione di Azure, un amministratore può seguire [queste istruzioni][add-aad-user] per aggiungerle.
 
 [azure-free-offer]: https://azure.microsoft.com/free/
 [add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
@@ -83,7 +78,7 @@ Includere l'SDK nell'app affinché possa raccogliere i dati.
 
 L'SDK raccoglie automaticamente dati di telemetria sul runtime Node.js e su alcuni moduli comuni di terze parti. Usare l'applicazione per generare alcuni di questi dati.
 
-Nel [portale di Azure][portal] passare quindi alla risorsa di Application Insights creata in precedenza. In **Panoramica sequenza temporale** cercare i primi punti dati. Per visualizzare altri dati dettagliati, selezionare diversi componenti nei grafici.
+Quindi, nella [portale di Azure][portal] passare alla risorsa Application Insights creata in precedenza. In **Panoramica sequenza temporale** cercare i primi punti dati. Per visualizzare altri dati dettagliati, selezionare diversi componenti nei grafici.
 
 Per visualizzare la topologia individuata per l'app, fare clic sul pulsante **Mappa delle applicazioni**. Selezionare i componenti nella mappa per vedere altri dettagli.
 
@@ -93,7 +88,7 @@ Per altre informazioni sull'app e per risolvere i problemi, nella sezione **RICE
 
 ![Sezione Analisi](./media/nodejs/007-investigate-pane.png)
 
-#### <a name="no-data"></a>Dati non visualizzati
+#### <a name="no-data"></a>Dati non disponibili?
 
 Dato che l'SDK esegue l'invio dei dati in batch, potrebbe verificarsi un ritardo nella visualizzazione degli elementi nel portale. Se i dati non sono visibili nella risorsa, provare alcune delle correzioni seguenti:
 

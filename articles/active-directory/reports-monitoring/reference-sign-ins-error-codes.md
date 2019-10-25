@@ -1,5 +1,5 @@
 ---
-title: Codici di errore del report delle attività di accesso nel portale di Azure Active Directory | Microsoft Docs
+title: Codici di errore nel portale di Azure Active Directory | Microsoft Docs
 description: Informazioni di riferimento sui codici di errore del report delle attività di accesso.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b5aedd5c9bde7689df14c7efdf8d58692680c13
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 931f2fbe5798966c41378d9b401dcd59cafc5cca
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383181"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820866"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codici di errore del report delle attività di accesso 
 
@@ -50,10 +50,10 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 
 È anche possibile accedere a livello di codice ai dati di accesso usando l'[API di creazione report](concept-reporting-api.md).
 
-## <a name="error-codes"></a>Codici di errore
+## <a name="error-codes"></a>Codici errore
 
 
-|Errore|Descrizione|
+|Errore|Description|
 |---|---|
 |16000|Questo è un dettaglio di implementazione interno e non una condizione di errore. È possibile ignorare questo messaggio di errore.|
 |20001|Si è verificato un problema con il provider di identità federato. Contattare l'IDP per risolvere il problema.|
@@ -107,7 +107,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |50128|Nome di dominio non valido. Non sono state trovate informazioni di identificazione del tenant nella richiesta o incluse in modo implicito nelle credenziali fornite.|
 |50129|Il dispositivo non è aggiunto all'area di lavoro: per registrare il dispositivo è necessaria l'**aggiunta alla rete aziendale**.|
 |50130|Il valore attestazione non può essere interpretato come metodo di autenticazione noto.|
-|50131|Utilizzato in diversi errori di accesso condizionale. ad esempio Stato del dispositivo Windows non valido, richiesta bloccata a causa di un'attività sospetta oppure a causa di decisioni relative a criteri di accesso e criteri di sicurezza.|
+|50131|Utilizzato in diversi errori di accesso condizionale. Ad esempio, Stato del dispositivo Windows non valido, richiesta bloccata a causa di un'attività sospetta oppure a causa di decisioni relative a criteri di accesso e criteri di sicurezza.|
 |50132|Le credenziali sono state revocate per i motivi seguenti:<ul><li>L'elemento SSO non è valido o è scaduto</li><li>La sessione non è sufficientemente aggiornata per l'applicazione</li><li>È stata inviata una richiesta di accesso automatico, ma la sessione dell'utente con Azure AD non è valida o è scaduta.</li></ul>|
 |50133|La sessione non è valida perché è scaduta o la password è stata modificata di recente.|
 |50135|È richiesta la modifica della password a causa di rischi per l'account.|
@@ -162,7 +162,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |75011|Il metodo di autenticazione usato dall'utente per il servizio non corrisponde al metodo di autenticazione richiesto. Contattare il proprietario dell'applicazione.|
 |75016|La richiesta di autenticazione SAML2 ha un elemento NameIdPolicy non valido. Contattare il proprietario dell'applicazione.|
 |80001|L'agente di autenticazione non è in grado di connettersi ad Active Directory. Verificare che l'agente di autenticazione sia installato in un computer aggiunto al dominio che dispone di visibilità su un controller di dominio che può servire la richiesta di accesso dell'utente.|
-|80002|Errore interno. Si è verificato il timeout della richiesta di convalida della password. Non è stato possibile inviare la richiesta di autenticazione al servizio di gestione delle identità ibride interno. [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) per ottenere altri dettagli sull'errore.|
+|80002|Errore interno. Timeout della richiesta di convalida della password. Non è stato possibile inviare la richiesta di autenticazione al servizio di identità ibrido interno. [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) per ottenere altri dettagli sull'errore.|
 |80003|Risposta non valida ricevuta dall'agente di autenticazione. Si è verificato un errore sconosciuto durante il tentativo di autenticazione nell'istanza locale di Active Directory. [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) per ottenere altri dettagli sull'errore.|
 |80005|Agente di autenticazione: si è verificato un errore sconosciuto durante l'elaborazione della risposta dall'agente di autenticazione. [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) per ottenere altri dettagli sull'errore.|
 |80007|L'agente di autenticazione non riesce a convalidare la password dell'utente.|
@@ -170,7 +170,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |80011|L'agente di autenticazione non è in grado di recuperare la chiave di crittografia.|
 |80012|Gli utenti hanno cercato di eseguire l'accesso al di fuori delle ore consentite (specificate in AD).|
 |80013|Il tentativo di autenticazione non è stato completato a causa di uno sfasamento dell'ora tra il computer che esegue l'agente di autenticazione e AD. Correggere i problemi di sincronizzazione dell'ora.|
-|80014|Si è verificato il timeout dell'agente di autenticazione. [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) con codice errore, ID di correlazione e valore datetime per ottenere altri dettagli su questo errore.|
+|80014|Timeout dell'agente di autenticazione. Per ulteriori informazioni su questo errore, [aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) con il codice di errore, l'ID di correlazione e DateTime.|
 |81001|Il ticket Kerberos dell'utente è troppo grande. Ciò può verificarsi se l'utente è incluso in un numero eccessivo di gruppi e quindi il ticket Kerberos contiene troppe appartenenze ai gruppi. Ridurre l'appartenenza a gruppi dell'utente e riprovare.|
 |81005|Il pacchetto di autenticazione non è supportato.|
 |81007|Il tenant non è abilitato per l'accesso Seamless SSO.|
