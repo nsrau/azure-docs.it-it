@@ -285,6 +285,8 @@
     - name: Interfaccia della riga di comando di Machine Learning
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
+    - name: Informazioni di riferimento sulla pipeline di Machine Learning in YAML
+      href: reference-pipeline-yaml.md
     - name: Moduli dell'interfaccia visiva
       displayName: 'module, reference, algorithm, studio'
       items:
