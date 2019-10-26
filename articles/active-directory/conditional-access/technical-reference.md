@@ -4,19 +4,19 @@ description: Ottenere una panoramica delle impostazioni supportate in un Azure A
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: reference
 ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 834b13c512bca1b7c43c3c8e93a72383a82db198
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 5a3518dfcad3678dc298ba8529e731d48ec1d195
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274178"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893466"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Informazioni di riferimento sulle impostazioni di accesso condizionale Azure Active Directory
 
@@ -115,9 +115,9 @@ Nel criterio di accesso condizionale è possibile selezionare **browser** come a
 
 Questa impostazione funziona con tutti i browser. Tuttavia, per soddisfare un criterio dei dispositivi, ad esempio un requisito di un dispositivo conforme, sono supportati i sistemi operativi e browser seguenti:
 
-| OS                     | Browser                                        |
+| Sistema operativo                     | Browser                                        |
 | :--                    | :--                                             |
-| Windows 10             | Microsoft Edge, Internet Explorer, Chrome       |
+| Windows 10             | Microsoft Edge, Internet Explorer, Chrome       |
 | Windows 8/8.1        | Internet Explorer, Chrome                       |
 | Windows 7              | Internet Explorer, Chrome                       |
 | iOS                    | Microsoft Edge, Intune Managed Browser, Safari  |
@@ -142,19 +142,19 @@ Per distribuire automaticamente questa estensione ai browser Chrome, creare la c
 
 |    |    |
 | --- | --- |
-| `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| NOME | 1 |
+| path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| name | 1 |
 | Type | REG_SZ (String) |
-| Data | ppnbnpeolgkicgegkbkbjmhlideopiji; HTTPS @ no__t-0//clients2. Google. com/service/update2/crx |
+| Dati | ppnbnpeolgkicgegkbkbjmhlideopiji; HTTPS\://clients2.google.com/service/update2/crx |
 
 Per il supporto di Chrome in **Windows 8.1 e 7**, creare la chiave del Registro di sistema seguente:
 
 |    |    |
 | --- | --- |
-| `Path` | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| NOME | 1 |
+| path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| name | 1 |
 | Type | REG_SZ (String) |
-| Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+| Dati | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 Questi browser supportano l'autenticazione del dispositivo, consentendo al dispositivo di essere identificato e convalidato rispetto a un criterio. Il controllo del dispositivo ha esito negativo se il browser è in esecuzione in modalità privata.
 
@@ -169,11 +169,11 @@ Questa impostazione interessa i tentativi di accesso eseguiti dalle app per disp
 | App client | Servizio di destinazione | Piattaforma |
 | --- | --- | --- |
 | Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS e Android |
-| App Posta/Calendario/Contatti, Outlook 2016, Outlook 2013 (con autenticazione moderna)| Office 365 Exchange Online | Windows 10 |
+| App Posta/Calendario/Contatti, Outlook 2016, Outlook 2013 (con autenticazione moderna)| Office 365 Exchange Online | Windows 10 |
 | MFA e criteri relativi alle applicazioni. I criteri basati su dispositivo non sono supportati.| Qualsiasi servizio app Mie app| Android e iOS |
 | Microsoft Team Services consente di controllare tutti i servizi che supportano Microsoft Teams e tutte le app client: Windows Desktop, iOS, Android, WP e Web Client | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
 | App di Office 2016, Office 2013 (con autenticazione moderna), client sincronizzazione OneDrive (vedere le [note](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
-| App di Office 2016, app di Office universale, Office 2013 (con autenticazione moderna), client sincronizzazione OneDrive (vedere le [note](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), supporto per i gruppi di Office pianificato per il futuro, supporto per l'app SharePoint pianificato per il futuro | Office 365 SharePoint Online | Windows 10 |
+| App di Office 2016, app di Office universale, Office 2013 (con autenticazione moderna), client sincronizzazione OneDrive (vedere le [note](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), supporto per i gruppi di Office pianificato per il futuro, supporto per l'app SharePoint pianificato per il futuro | Office 365 SharePoint Online | Windows 10 |
 | Office 2016 (solo Word, Excel, PowerPoint e OneNote). OneDrive per il supporto Business pianificato in futuro| Office 365 SharePoint Online| macOS|
 | Office 2019| Office 365 SharePoint Online | Windows 10, macOS |
 | App Office per dispositivi mobili | Office 365 SharePoint Online | Android, iOS |
@@ -183,7 +183,7 @@ Questa impostazione interessa i tentativi di accesso eseguiti dalle app per disp
 | Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
 | App Outlook Mobile | Office 365 Exchange Online | Android, iOS |
 | App Power BI | servizio Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
-| Skype for Business Online | Office 365 Exchange Online| Android, iOS |
+| Skype for Business | Office 365 Exchange Online| Android, iOS |
 | App Visual Studio Team Services | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS e Android |
 
 ## <a name="support-for-legacy-authentication"></a>Supporto per l'autenticazione legacy
@@ -230,7 +230,7 @@ Questa impostazione è valida solo per le app client seguenti:
 - Microsoft Word
 - Microsoft Yammer
 
-**Osservazioni:**
+**Osservazioni**
 
 - Le app client approvate supportano la funzionalità di gestione di applicazioni mobili di Intune.
 - Il requisito **Richiedi app client approvata**:
@@ -249,7 +249,7 @@ Questa impostazione è valida solo per le app client seguenti:
 - Microsoft Outlook
 - Microsoft Planner
 
-**Osservazioni:**
+**Osservazioni**
 
 - Le app per i criteri di protezione delle app supportano la funzionalità di gestione delle applicazioni mobili di Intune con protezione dei criteri.
 - Richiede i requisiti dei **criteri di protezione delle app** :
