@@ -251,6 +251,10 @@
           items:
             - name: Portale di Azure
               href: howto-hyperscale-manage-firewall-using-portal.md
+        - name: Risolvere problemi
+          items:
+            - name: Risolvere gli errori di connessione
+              href: howto-hyperscale-troubleshoot-common-connection-issues.md
 - name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
