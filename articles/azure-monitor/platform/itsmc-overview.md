@@ -1,24 +1,18 @@
 ---
 title: IT Service Management Connector in Azure Log Analytics | Microsoft Docs
 description: Questo articolo fornisce una panoramica di Connettore di Gestione dei servizi IT e informazioni su come usare questa soluzione per monitorare e gestire da una posizione centrale gli elementi di lavoro di Gestione dei servizi IT in Azure Log Analytics e risolvere rapidamente eventuali problemi.
-services: log-analytics
-documentationcenter: ''
-author: jyothirmaisuri
-manager: riyazp
-editor: ''
-ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/24/2018
+author: JYOTHIRMAISURI
 ms.author: v-jysur
-ms.openlocfilehash: 6ae1792d9ef3f07ef7258451be79b587692a1694
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.date: 05/24/2018
+ms.openlocfilehash: 54f3d76704a1f9bf7fec2f3c6c68c88fffd993b6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809436"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932260"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -131,7 +125,7 @@ Utilizzare la procedura seguente:
     ![Dettagli dei gruppi di azioni](media/itsmc-overview/action-groups-details.png)
 
 4. Nell'elenco Azioni selezionare **Gestione dei servizi IT** dal menu a discesa **Tipo di azione**. Specificare un **nome** per l'azione e fare clic su **Modifica dettagli**.
-5. Selezionare la **sottoscrizione** in cui si trova l'area di lavoro Log Analytics. Selezionare il nome della **Connessione**, ovvero il nome del Connettore di Gestione dei servizi IT, seguito dal nome dell'area di lavoro. Ad esempio, "MyITSMMConnector (area di lavoro)".
+5. Selezionare la **sottoscrizione** in cui si trova l'area di lavoro Log Analytics. Selezionare il nome della **Connessione**, ovvero il nome del Connettore di Gestione dei servizi IT, seguito dal nome dell'area di lavoro. ad esempio "MyITSMMConnector(MyWorkspace)".
 
     ![Informazioni dettagliate sulle azioni ITSM](media/itsmc-overview/itsm-action-details.png)
 

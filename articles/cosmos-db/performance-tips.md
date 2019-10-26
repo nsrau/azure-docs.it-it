@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.openlocfilehash: 27f39af480db8c0a044489a2efe6d2e4447b6db1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/25/2019
 ms.locfileid: "71261315"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET
@@ -46,8 +46,8 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
      |Modalità di connessione  |Protocollo supportato  |SDK supportati  |API/porta servizio  |
      |---------|---------|---------|---------|
-     |Gateway  |   HTTPS    |  Tutti gli SDK    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
-     |Diretto    |     TCP    |  .NET SDK    | Porte nell'intervallo da 10.000 a 20.000 |
+     |Gateway  |   HTTPS    |  Tutti gli SDK    |   SQL (443), Mongo (10250, 10255, 10256), tabella (443), Cassandra (10350), Graph (443)    |
+     |Direct    |     TCP    |  .NET SDK    | Porte nell'intervallo da 10.000 a 20.000 |
 
      Azure Cosmos DB offre un modello di programmazione RESTful su HTTPS semplice e aperto. DocumentDB offre anche un protocollo TCP efficiente, con un modello di comunicazione di tipo RESTful disponibile tramite .NET SDK per client. Sia il protocollo TCP diretto che il protocollo HTTPS usano SSL per l'autenticazione iniziale e la crittografia del traffico. Per prestazioni ottimali, usare il protocollo TCP quando possibile.
 
@@ -128,7 +128,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
      SQL .NET SDK versione 1.9.0 e versioni successive supportano le query parallele, che consentono di eseguire query su una raccolta partizionata in parallelo. Per altre informazioni, vedere [esempi di codice](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) correlati all'utilizzo con gli SDK. Le query parallele sono state concepite per migliorare la velocità e la latenza delle query sulle loro controparti seriali. Mettono a disposizione due parametri che gli utenti possono ottimizzare in funzione dei requisiti, ovvero (a) MaxDegreeOfParallelism per definire il numero massimo di partizioni sulle quali è possibile eseguire query in parallelo e (b) MaxBufferedItemCount per definire il numero di risultati di prelettura.
 
-    (a) l' ***ottimizzazione del grado di\: parallelismo della*** query parallela funziona eseguendo query su più partizioni in parallelo. Tuttavia, i dati di una singola partizione vengono recuperati in modo seriale rispetto alla query. L'impostazione di `MaxDegreeOfParallelism` in [SDK V2](sql-api-sdk-dotnet.md) o `MaxConcurrency` in [SDK V3](sql-api-sdk-dotnet-standard.md) sul numero di partizioni ha la possibilità massima di ottenere la query più efficiente, purché tutte le altre condizioni del sistema rimangano invariate. Se non si conosce il numero di partizioni, è possibile impostare il grado di parallelismo su un numero elevato e il sistema sceglie il numero minimo (numero di partizioni, input fornito dall'utente) come grado di parallelismo.
+    (a) ***ottimizzazione del grado di parallelismo\:*** query parallele funziona eseguendo query su più partizioni in parallelo. Tuttavia, i dati di una singola partizione vengono recuperati in modo seriale rispetto alla query. L'impostazione del `MaxDegreeOfParallelism` in [SDK v2](sql-api-sdk-dotnet.md) o `MaxConcurrency` in [SDK V3](sql-api-sdk-dotnet-standard.md) sul numero di partizioni ha la possibilità massima di ottenere la query più efficiente, purché tutte le altre condizioni del sistema rimangano invariate. Se non si conosce il numero di partizioni, è possibile impostare il grado di parallelismo su un numero elevato e il sistema sceglie il numero minimo (numero di partizioni, input fornito dall'utente) come grado di parallelismo.
 
     È importante notare che le query parallele producono i vantaggi migliori se i dati sono distribuiti uniformemente tra tutte le partizioni per quanto riguarda la query. Se la raccolta è partizionata in modo tale che tutti o la maggior parte dei dati restituiti da una query siano concentrati in alcune partizioni (una sola partizione nel peggiore dei casi), le prestazioni della query potrebbero essere limitate da tali partizioni.
 
@@ -165,13 +165,13 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
    > [!NOTE] 
    > La proprietà maxItemCount non deve essere usata solo per finalità di impaginazione. Si tratta di un utilizzo principale per migliorare le prestazioni delle query riducendo il numero massimo di elementi restituiti in una singola pagina.  
 
-   È anche possibile impostare le dimensioni della pagina usando gli SDK Azure Cosmos DB disponibili. La proprietà [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) in FeedOptions consente di impostare il numero massimo di elementi da restituire nell'operazione di enumerazione. Quando `maxItemCount` è impostato su-1, l'SDK rileva automaticamente il valore ottimale a seconda delle dimensioni del documento. Esempio:
+   È anche possibile impostare le dimensioni della pagina usando gli SDK Azure Cosmos DB disponibili. La proprietà [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) in FeedOptions consente di impostare il numero massimo di elementi da restituire nell'operazione di enumerazione. Quando `maxItemCount` è impostato su-1, l'SDK rileva automaticamente il valore ottimale a seconda delle dimensioni del documento. ad esempio:
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
    ```
     
-   Quando viene eseguita una query, i dati risultanti vengono inviati all'interno di un pacchetto TCP. Se si specifica un valore troppo basso `maxItemCount`per, il numero di corse necessarie per inviare i dati all'interno del pacchetto TCP è elevato, che influisca negativamente sulle prestazioni. Se non si è certi del valore da impostare per `maxItemCount` la proprietà, è consigliabile impostarlo su-1 e consentire all'SDK di scegliere il valore predefinito. 
+   Quando viene eseguita una query, i dati risultanti vengono inviati all'interno di un pacchetto TCP. Se si specifica un valore troppo basso per `maxItemCount`, il numero di corse necessarie per inviare i dati all'interno del pacchetto TCP è elevato, che influisca negativamente sulle prestazioni. Se non si è certi del valore da impostare per `maxItemCount` proprietà, è consigliabile impostarlo su-1 e consentire all'SDK di scegliere il valore predefinito. 
 
 11. **Aumentare il numero di thread/attività**
 
@@ -189,7 +189,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
     - Per le applicazioni Web ASP.NET distribuite in Azure questa operazione può essere eseguita selezionando **Platform as 64-bit** (Piattaforma 64 bit) in **Impostazioni applicazione** nel Portale di Azure.
 
-## <a name="indexing-policy"></a>Criteri di indicizzazione
+## <a name="indexing-policy"></a>Criterio di indicizzazione
  
 1. **Escludere i percorsi non usati dall'indicizzazione per scritture più veloci**
 

@@ -1,24 +1,18 @@
 ---
 title: Splunk in query di log di Monitoraggio di Azure | Microsoft Docs
 description: Guida per gli utenti che hanno familiarità con Splunk nell'apprendimento delle query di log di Monitoraggio di Azure.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/21/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 03a0d755cf6d099f07a7c6d853e1d747908eec05
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 08/21/2018
+ms.openlocfilehash: e16bf152e739a6145bfabaf8546fa71199f8d732
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177629"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932955"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk in query di log di Monitoraggio di Azure
 
@@ -35,7 +29,7 @@ La tabella seguente confronta i concetti e le strutture di dati tra Splunk e i l
  | Partizione logica dei dati  |  index  |  database  |  Consente la separazione logica dei dati. Entrambe le implementazioni consentono unioni e join tra le partizioni. |
  | Metadati degli eventi strutturati | N/D | table |  Splunk non dispone del concetto espresso nel linguaggio di ricerca di metadati dell'evento. I log di Monitoraggio di Azure presentano il concetto di una tabella che contiene colonne. Ogni istanza dell'evento è mappata a una riga. |
  | Record dei dati | event | riga |  Solo modifica terminologica. |
- | Attributo di record di dati | campo |  column |  In Monitoraggio di Azure, questo è già definito come parte della struttura della tabella. In Splunk, ogni evento ha un proprio set di campi. |
+ | Attributo di record di dati | campo |  colonna |  In Monitoraggio di Azure, questo è già definito come parte della struttura della tabella. In Splunk, ogni evento ha un proprio set di campi. |
  | Tipi | tipo di dati |  tipo di dati |  I tipi di dati di Monitoraggio di Azure sono più espliciti poiché vengono impostati nelle colonne. Entrambi sono in grado di lavorare in modo dinamico con i tipi di dati e con i set quasi equivalenti ai tipi di dati che includono il supporto JSON. |
  | Query e ricerca  | ricerca | query |  I concetti sono essenzialmente uguali tra Monitoraggio di Azure e Splunk. |
  | Tempo di inserimento evento | Ora di sistema | ingestion_time() |  In Splunk, ogni evento ottiene un timestamp di sistema del momento in cui l'evento è stato indicizzato. In Monitoraggio di Azure, è possibile definire un criterio denominato ingestion_time che espone una colonna di sistema a cui è possibile fare riferimento tramite la funzione ingestion_time(). |
@@ -59,7 +53,7 @@ La tabella seguente specifica le funzioni in Monitoraggio di Azure equivalenti a
 | regex | corrisponde a regex | In Splunk, `regex` è un operatore. In Monitoraggio di Azure, è un operatore relazionale. |
 | searchmatch | == | In Splunk, `searchmatch` consente di cercare la stringa esatta.
 | random | rand()<br>rand(n) | La funzione di Splunk restituisce un numero compreso tra zero e 2<sup>31</sup>-1. Monitoraggio di Azure restituisce un numero compreso tra 0,0 e 1,0, o se un parametro specificato, compreso tra 0 e n-1.
-| now | now() | (1)
+| adesso | now() | (1)
 | relative_time | totimespan() | (1)<br>In Monitoraggio di Azure, l'equivalente di Splunk di relative_time (datetimeVal, offsetVal) è datetimeVal + totimespan(offsetVal).<br>Ad esempio: <code>search &#124; eval n=relative_time(now(), "-1d@d")</code> diventa <code>...  &#124; extend myTime = now() - totimespan("1d")</code>.
 
 (1) in Splunk, viene richiamata la funzione con l'operatore `eval`. In Monitoraggio di Azure, viene usato come parte di `extend` o `project`.<br>(2) in Splunk, viene richiamata la funzione con l'operatore `eval`. In Monitoraggio di Azure, può essere usato con l'operatore `where`.
@@ -72,7 +66,7 @@ Nelle sezioni seguenti vengono illustrati esempi dell'uso di diversi operatori t
 > [!NOTE]
 > Ai fini di questo esempio, la _regola_ del campo Splunk esegue il mapping a una tabella in Monitoraggio di Azure, e il timestamp predefinito di Splunk esegue il mapping alla colonna di Log Analytics _ingestion_time()_ .
 
-### <a name="search"></a>Cerca
+### <a name="search"></a>Ricerca
 In Splunk, è possibile omettere la parola chiave `search` e specificare una stringa senza virgolette. In Monitoraggio di Azure è necessario avviare ogni query con `find`, una stringa senza virgolette è un nome di colonna e il valore di ricerca deve essere una stringa tra virgolette. 
 
 | |  | |
@@ -81,7 +75,7 @@ In Splunk, è possibile omettere la parola chiave `search` e specificare una str
 | Monitoraggio di Azure | **find** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 | | |
 
-### <a name="filter"></a>Filtro
+### <a name="filter"></a>Filtra
 Le query di Monitoraggio di Azure iniziano da un risultato tabulare in cui è impostato il filtro. In Splunk, il filtro è l'operazione predefinita per l'indice corrente. È anche possibile usare l'operatore `where` in Splunk, ma non è consigliato.
 
 | |  | |
@@ -124,8 +118,8 @@ Splunk ha anche una funzione `eval` che non deve essere confrontabile con l'oper
 | | |
 
 
-### <a name="rename"></a>Rinominare 
-Monitoraggio di Azure usa l'operatore `project-rename` per rinominare un campo. `project-rename` consente alla query di sfruttare i vantaggi di tutti gli indici predefiniti per un campo. Splunk ha un operatore `rename` per eseguire la stessa operazione.
+### <a name="rename"></a>Rinomina 
+Monitoraggio di Azure usa l'operatore `project-rename` per rinominare un campo. `project-rename` consente alla query di sfruttare i vantaggi di tutti gli indici predefiniti per un campo. Splunk dispone di un operatore `rename` per eseguire la stessa operazione.
 
 | |  | |
 |:---|:---|:---|

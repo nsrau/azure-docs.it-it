@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: e7f08c175972826a8b226d7e80f563ac71ba23db
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 78482b5d7013ffa3bbb0a34dd04c8c48626dc77a
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514768"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72926661"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -150,7 +150,7 @@ Per comprendere meglio il segnaposto [cartella], vedere https://docs.aws.amazon.
 
 Copiare tutti i bucket nell'archiviazione BLOB da Amazon Web Services (AWS) usando una chiave di accesso e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY per l'origine AWS s3.
 
-- azcopy CP "https://s3.amazonaws.com/" "https:///[destaccount]. blob. Core. Windows. NET? [SAS] "--ricorsivo = true
+- azcopy CP "https://s3.amazonaws.com/ " "https:///[destaccount]. blob. Core. Windows. NET? [SAS] "--ricorsivo = true
 
 Copiare tutti i bucket nell'archiviazione BLOB da un'area Amazon Web Services (AWS) usando una chiave di accesso e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY per l'origine AWS s3.
 
@@ -172,7 +172,7 @@ Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket. C
 
 **--Check-length**                         Controllare la lunghezza di un file nella destinazione dopo il trasferimento. In caso di mancata corrispondenza tra origine e destinazione, il trasferimento viene contrassegnato come non riuscito. (valore predefinito true)
 
-**--Check-MD5** stringa specifica il modo in cui devono essere convalidati gli hash MD5 durante il download. Disponibile solo durante il download. Opzioni disponibili: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (valore predefinito ' FailIfDifferent ') (valore predefinito "FailIfDifferent")
+**--Check-MD5** stringa specifica il modo in cui devono essere convalidati gli hash MD5 durante il download. Disponibile solo durante il download. Opzioni disponibili: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (valore predefinito "FailIfDifferent")
 
 **--Content-Disposition** stringa ha impostato l'intestazione Content-Disposition. Restituito durante il download.
 
@@ -204,15 +204,15 @@ Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket. C
 
 **--include-pattern** String include solo questi file durante la copia. Questa opzione supporta i caratteri jolly (*). Separare i file usando ';'.
 
-**--** la stringa a livello di log definisce il livello di dettaglio del log per il file di log, i livelli disponibili: info (tutte le richieste/risposte), avviso (risposte lente), errore (solo richieste non riuscite) e nessuno (nessun log di output). (valore predefinito "INFO"). (impostazione predefinita "INFO")
+**--** la stringa a livello di log definisce il livello di dettaglio del log per il file di log, i livelli disponibili: info (tutte le richieste/risposte), avviso (risposte lente), errore (solo richieste non riuscite) e nessuno (nessun log di output). (impostazione predefinita "INFO")
 
 **--** la stringa di metadati carica in archiviazione di Azure con queste coppie chiave-valore come metadati.
 
 **--No-gues-MIME-Type**                   Impedisce a AzCopy di rilevare il tipo di contenuto in base all'estensione o al contenuto del file.
 
-**--Sovrascrivi** stringa sovrascrive i file e i BLOB in conflitto nella destinazione se questo flag è impostato su true. (valore predefinito ' true ') I valori possibili sono ' true ',' false ' è prompt '. (valore predefinito "true")
+**--Sovrascrivi** stringa sovrascrive i file e i BLOB in conflitto nella destinazione se questo flag è impostato su true. I valori possibili sono ' true ',' false ' è prompt '. (valore predefinito "true")
 
-**--page-blob** caricare il BLOB di pagine in archiviazione di Azure usando questo livello BLOB. (valore predefinito ' none '). (valore predefinito "None")
+**--page-blob** caricare il BLOB di pagine in archiviazione di Azure usando questo livello BLOB. (valore predefinito "None")
 
 **--Preserve-Ultima modifica-ora**          Disponibile solo quando la destinazione è file system.
 
@@ -222,9 +222,9 @@ Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket. C
 
 **--S2S-Detect-source-modificato**           Controllare se l'origine è stata modificata dopo l'enumerazione.
 
-**--S2S-handle-non valido-la stringa di metadati** specifica il modo in cui vengono gestite le chiavi di metadati non valide. Opzioni disponibili: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (valore predefinito ' ExcludeIfInvalid '). (valore predefinito "ExcludeIfInvalid")
+**--S2S-handle-non valido-la stringa di metadati** specifica il modo in cui vengono gestite le chiavi di metadati non valide. Opzioni disponibili: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (valore predefinito "ExcludeIfInvalid")
 
-**--S2S-Preserve-livello di accesso**             Mantenere il livello di accesso durante la copia da servizio a servizio. Per verificare che l'account di archiviazione di destinazione supporti l'impostazione del livello di accesso, vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) . Nei casi in cui l'impostazione del livello di accesso non è supportata, usare s2sPreserveAccessTier = false per ignorare la copia del livello di accesso. (valore predefinito true).  (valore predefinito true)
+**--S2S-Preserve-livello di accesso**             Mantenere il livello di accesso durante la copia da servizio a servizio. Per verificare che l'account di archiviazione di destinazione supporti l'impostazione del livello di accesso, vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) . Nei casi in cui l'impostazione del livello di accesso non è supportata, usare s2sPreserveAccessTier = false per ignorare la copia del livello di accesso. (valore predefinito true)
 
 **--S2S-Preserve-proprietà**              Mantieni le proprietà complete durante la copia da servizio a servizio. Per AWS S3 e l'origine file non singolo file di Azure, l'operazione list non restituisce proprietà complete di oggetti e file. Per mantenere le proprietà complete, AzCopy deve inviare un'altra richiesta per oggetto o file. (valore predefinito true)
 

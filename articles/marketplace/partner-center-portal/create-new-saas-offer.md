@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: a757ee03b8d8c7c93b191054182d077408c162db
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: da6fee7158344d331c6c2a68f0fab1b13cc3a291
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819815"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934107"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
@@ -196,7 +196,7 @@ Il contratto standard è disponibile qui: https://go.microsoft.com/fwlink/?linki
 
 #### <a name="terms-of-use"></a>Condizioni per l'utilizzo
 
-Se le condizioni di licenza sono diverse da quelle del contratto standard, è possibile scegliere di immettere le condizioni legali per l'utilizzo qui. In questo campo è anche possibile immettere fino a 10.000 caratteri di testo. Se le condizioni per l'utilizzo richiedono una descrizione più lunga, immettere un solo collegamento URL in questo campo in cui è possibile trovare le condizioni di licenza aggiuntive. Verrà visualizzato come collegamento attivo ai clienti.
+Se le condizioni di licenza sono diverse da quelle del contratto standard, è possibile scegliere di immettere le condizioni legali per l'utilizzo qui. Questi possono essere immessi come testo normale o come singolo URL che si collega alle condizioni di licenza.
 
 Per ottenere la versione di prova dell'app, i clienti devono accettare tali condizioni. 
 

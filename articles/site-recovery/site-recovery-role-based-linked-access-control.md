@@ -6,12 +6,12 @@ ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 33fc2cd19152fb6cbbffb106aa058948d39555f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51c0d832a6d6d9b1cd148f765e68cb77c4679819
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61471435"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72929227"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gestire l'accesso a Site Recovery con il controllo degli accessi in base al ruolo
 
@@ -38,9 +38,12 @@ Per completare la replica di una nuova macchina virtuale, un utente deve avere l
 > [!IMPORTANT]
 >Assicurarsi che vengano aggiunte le autorizzazioni appropriate per il modello di distribuzione (Resource Manager/classica) usato per la distribuzione delle risorse.
 
+> [!NOTE]
+> Se si Abilita la replica per una macchina virtuale di Azure e si vuole consentire Site Recovery di gestire gli aggiornamenti, durante l'abilitazione della replica è anche possibile creare un nuovo account di automazione. in questo caso, è necessario disporre dell'autorizzazione per creare un account di automazione nello stesso sottoscrizione come insieme di credenziali.
+
 | **Tipo di risorsa** | **Modello di distribuzione** | **Autorizzazione** |
 | --- | --- | --- |
-| Calcolo | Gestione risorse | Microsoft.Compute/availabilitySets/read |
+| Calcolo | Azure Resource Manager | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
 |  |  | Microsoft.Compute/virtualMachines/write |
 |  |  | Microsoft.Compute/virtualMachines/delete |
@@ -50,7 +53,7 @@ Per completare la replica di una nuova macchina virtuale, un utente deve avere l
 |  |  | Microsoft.ClassicCompute/virtualMachines/read |
 |  |  | Microsoft.ClassicCompute/virtualMachines/write |
 |  |  | Microsoft.ClassicCompute/virtualMachines/delete |
-| Rete | Gestione risorse | Microsoft.Network/networkInterfaces/read |
+| Rete | Azure Resource Manager | Microsoft.Network/networkInterfaces/read |
 |  |  | Microsoft.Network/networkInterfaces/write |
 |  |  | Microsoft.Network/networkInterfaces/delete |
 |  |  | Microsoft.Network/networkInterfaces/join/action |
@@ -59,11 +62,11 @@ Per completare la replica di una nuova macchina virtuale, un utente deve avere l
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | Classico | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Archiviazione | Gestione risorse | Microsoft.Storage/storageAccounts/read |
+| Archiviazione | Azure Resource Manager | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | Classico | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
-| Gruppo di risorse | Gestione risorse | Microsoft.Resources/deployments/* |
+| Gruppo di risorse | Azure Resource Manager | Microsoft.Resources/deployments/* |
 |  |  | Microsoft.Resources/subscriptions/resourceGroups/read |
 
 È consigliabile usare i [ruoli predefiniti](../role-based-access-control/built-in-roles.md) "Collaboratore Macchina virtuale" e "Collaboratore Macchina virtuale classica", rispettivamente per il modello di distribuzione Resource Manager e il modello di distribuzione classica.
@@ -72,6 +75,6 @@ Per completare la replica di una nuova macchina virtuale, un utente deve avere l
 * [Controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md): introduzione al controllo degli accessi in base al ruolo nel portale di Azure.
 * Informazioni su come gestire l'accesso con:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
-  * [Interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md)
-  * [API REST](../role-based-access-control/role-assignments-rest.md)
-* [Risoluzione dei problemi del controllo degli accessi in base al ruolo](../role-based-access-control/troubleshooting.md): suggerimenti per la risoluzione dei problemi comuni.
+  * [interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md)
+  * [REST API](../role-based-access-control/role-assignments-rest.md)
+* [Risoluzione dei problemi del controllo degli accessi in base al ruolo](../role-based-access-control/troubleshooting.md): suggerimenti per la risoluzione di problemi comuni.

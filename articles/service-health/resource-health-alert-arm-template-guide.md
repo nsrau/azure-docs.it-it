@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 7ccd84042d11b586d524d4eb76eba03111e0b3c5
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 0948edec05b97dd604393218e3eeb3302548af82
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71099017"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933563"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurare avvisi di integrità risorse di Azure tramite modelli di Gestione risorse
 
@@ -143,7 +143,7 @@ Tuttavia, un ampio avviso come questo è in genere sconsigliato. Di seguito, inf
 
 Gli avvisi di Integrità risorse di Azure possono essere configurati per monitorare gli eventi in tre ambiti diversi:
 
- * Livello di sottoscrizione
+ * Livello di abbonamento
  * Il livello Gruppo di risorse
  * Il livello Risorsa
 
@@ -198,7 +198,7 @@ Gli avvisi a livello di gruppo di risorse o sottoscrizione possono avere diversi
 Qui viene usata la wrapper `anyOf` per consentire l'avviso di integrità risorse in modo che corrisponda a una delle condizioni specificate, consentendo di inviare avvisi destinati a tipi di risorse specifiche.
 
 ### <a name="adjusting-the-resource-health-events-that-alert-you"></a>Modifica gli eventi di Integrità risorse di Azure che inviano un avviso
-Se le risorse sono sottoposte a un evento di integrità, possono passare attraverso una serie di fasi che rappresentano lo stato dell'evento di integrità: `Active`, `InProgress`, `Updated`, e `Resolved`.
+Se le risorse sono sottoposte a un evento di integrità, possono passare attraverso una serie di fasi che rappresentano lo stato dell'evento di integrità: `Active`, `In Progress`, `Updated`, e `Resolved`.
 
 È possibile ricevere una notifica quando una risorsa diventa non integra, in questo caso si configura l'avviso per inviare notifiche solo quando `status` è `Active`. Tuttavia se si vuole essere avvisati anche su tutte le altre fasi, è possibile aggiungere dettagli come illustrato di seguito:
 
@@ -214,7 +214,7 @@ Se le risorse sono sottoposte a un evento di integrità, possono passare attrave
                 },
                 {
                     "field": "status",
-                    "equals": "InProgress"
+                    "equals": "In Progress"
                 },
                 {
                     "field": "status",
@@ -409,7 +409,7 @@ Utilizzando le diverse regolazioni descritte nella sezione precedente, di seguit
                                 },
                                 {
                                     "field": "status",
-                                    "equals": "InProgress",
+                                    "equals": "In Progress",
                                     "containsAny": null
                                 },
                                 {

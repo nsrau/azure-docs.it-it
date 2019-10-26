@@ -1,24 +1,18 @@
 ---
 title: Raccogliere e analizzare log eventi di Windows in Monitoraggio di Azure | Microsoft Docs
 description: Descrive come configurare la raccolta di log di Eventi Windows tramite il Monitoraggio di Azure e i dettagli dei record creati.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: cc81a8d8023d0724f4ecb71c157e8f575aa9edc8
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.date: 11/28/2018
+ms.openlocfilehash: dd8f1e0e79f85c5d91966bcba13052f297422e67
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997483"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932396"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Origini dei dati del registro eventi di Windows in Monitoraggio di Azure
 I log eventi di Windows rappresentano una delle più comuni [origini dati](agent-data-sources.md) per raccogliere i dati tramite gli agenti di Windows, dal momento che molte applicazioni scrivono nel log eventi di Windows.  È possibile raccogliere gli eventi dai log standard, ad esempio sistema e applicazioni, oltre a specificare qualsiasi log personalizzato creato dalle applicazioni da monitorare.
@@ -47,7 +41,7 @@ Monitoraggio di Azure raccoglie ogni evento corrispondente a un livello di gravi
 ## <a name="windows-event-records-properties"></a>Proprietà dei record eventi di Windows
 I record eventi di Windows sono di tipo **Evento** ; nella tabella seguente vengono riportate le loro proprietà:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
 | Computer |Nome del computer da cui è stato raccolto l'evento. |
 | EventCategory |Categoria dell'evento. |
@@ -57,7 +51,7 @@ I record eventi di Windows sono di tipo **Evento** ; nella tabella seguente veng
 | EventLevelName |Gravità dell'evento in formato di testo. |
 | EventLog |Nome del registro eventi da cui è stato raccolto l'evento. |
 | ParameterXml |Valori dei parametri dell'evento in formato XML. |
-| ManagementGroupName |Nome del gruppo di gestione per gli agenti di System Center Operations Manager.  Per gli altri agenti, questo valore è`AOI-<workspace ID>` |
+| ManagementGroupName |Nome del gruppo di gestione per gli agenti di System Center Operations Manager.  Per gli altri agenti, questo valore è `AOI-<workspace ID>` |
 | RenderedDescription |Descrizione dell'evento con i valori dei parametri. |
 | Source (Sorgente) |Origine dell'evento. |
 | SourceSystem |Tipo di agente da cui è stato raccolto l'evento. <br> OpsManager: agente Windows, con connessione diretta o gestita da Operations Manager <br> Linux – Tutti gli agenti Linux  <br> AzureStorage: Diagnostica di Azure |
@@ -67,7 +61,7 @@ I record eventi di Windows sono di tipo **Evento** ; nella tabella seguente veng
 ## <a name="log-queries-with-windows-events"></a>Query di log con Eventi Windows
 La tabella seguente mostra alcuni esempi di query di log che recuperano i record di Eventi Windows.
 
-| Query | DESCRIZIONE |
+| Query | Description |
 |:---|:---|
 | Event |Tutti gli eventi di Windows. |
 | Event &#124; where EventLevelName == "error" |Tutti gli eventi di Windows con livello di gravità dell'errore. |

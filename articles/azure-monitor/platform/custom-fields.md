@@ -1,24 +1,18 @@
 ---
 title: Campi personalizzati in monitoraggio di Azure | Microsoft Docs
 description: La funzionalità campi personalizzati di monitoraggio di Azure consente di creare campi ricercabili personalizzati dai record in un'area di lavoro Log Analytics che aggiungono le proprietà di un record raccolto.  Questo articolo descrive il processo di creazione di un campo personalizzato e illustra una procedura dettagliata con un evento di esempio.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: jwhit
-editor: tysonn
-ms.assetid: 31572b51-6b57-4945-8208-ecfc3b5304fc
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/23/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: f6b9c21a3d65e75abe11e705eba058b1d1fb17ff
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.date: 08/23/2019
+ms.openlocfilehash: 1fa8fb8ee944103626966839def358e68a55d8ac
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012723"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932601"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Creare campi personalizzati in un'area di lavoro Log Analytics in monitoraggio di Azure
 
@@ -105,7 +99,7 @@ Evidenziare il nome del servizio nella proprietà **RenderedDescription** e usar
 
 Si noti che il nome del servizio viene identificato in modo corretto per alcuni record ma non per altri.   I **risultati della ricerca** mostrano che parte del nome di **Scheda delle prestazioni WMI** non è stato selezionato.  Il **Riepilogo** Mostra un **programma di installazione dei moduli** identificato al posto del programma di installazione dei moduli di **Windows**.  
 
-![Search Results](media/custom-fields/search-results-01.png)
+![Risultati della ricerca](media/custom-fields/search-results-01.png)
 
 Iniziare dal record della **scheda delle prestazioni WMI** .  Fare clic sulla relativa icona di modifica e quindi su **Modify this highlight**.  
 
@@ -117,7 +111,7 @@ Espandere l'evidenziazione per includere la parola **WMI** e quindi eseguire di 
 
 Ora le voci relative a **Scheda delle prestazioni WMI** risultano corrette e Log Analytics ha anche usato tali informazioni per correggere i record relativi a **Programma di installazione dei moduli di Windows**.
 
-![Search Results](media/custom-fields/search-results-02.png)
+![Risultati della ricerca](media/custom-fields/search-results-02.png)
 
 È ora possibile eseguire una query per verificare che **Service_CF** sia stato creato, ma non è ancora stato aggiunto a nessun record. Questo perché il campo personalizzato non funziona con i record esistenti, quindi è necessario attendere che vengano raccolti nuovi record.
 

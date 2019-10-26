@@ -1,5 +1,5 @@
 ---
-title: Sviluppare funzioni .NET Standard per i processi Edge di Analisi di flusso di Azure (anteprima)
+title: Sviluppare funzioni di .NET Standard per i processi Edge di analisi di flusso di Azure
 description: Informazioni su come sviluppare funzioni .NET definite dall'utente per i processi di analisi di flusso di Azure con codebehind, un pacchetto esistente o un progetto locale.
 services: stream-analytics
 author: mamccrea
@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 287ee2d84ea3d5c6f1568edb1636191f509681e0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
-ms.translationtype: HT
+ms.openlocfilehash: cdfe4d2ccc39385b4020f60905b12c4683b1758c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901622"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935015"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Sviluppare funzioni .NET Standard definite dall'utente per i processi di Analisi di flusso di Azure in IoT Edge (anteprima)
 

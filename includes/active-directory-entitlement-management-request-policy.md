@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: aba3dd34383edbfb555adcc2063e4a2b76af1959
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 78a0dafeedc9aac4db69903b9f1193574cbd39c7
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389384"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934674"
 ---
 ## <a name="for-users-in-your-directory"></a>Per gli utenti nella directory
 
 Seguire questa procedura se si desidera consentire agli utenti della directory di richiedere questo pacchetto di accesso. Quando si definiscono i criteri di richiesta, è possibile specificare singoli utenti o più gruppi di utenti in genere. Ad esempio, è possibile che l'organizzazione disponga già di un gruppo come **tutti i dipendenti**.  Se tale gruppo viene aggiunto nei criteri per gli utenti che possono richiedere l'accesso, qualsiasi membro del gruppo potrà richiedere l'accesso.
 
-1. Negli **utenti che possono richiedere l'** elenco di accesso selezionare **per gli utenti nella directory**.
+1. Nella sezione **Utenti che possono richiedere l'accesso** fare clic su **Per gli utenti nella directory**.
 
     Quando si seleziona questa opzione, vengono visualizzate le nuove opzioni per definire ulteriormente chi nella directory può richiedere questo pacchetto di accesso.
 
@@ -52,7 +52,7 @@ Seguire questa procedura se si desidera consentire agli utenti non inclusi nella
 > [!NOTE]
 > Verrà creato un account utente Guest per un utente non ancora presente nella directory la cui richiesta è approvata o approvata automaticamente. Il Guest verrà invitato ma non riceverà un messaggio di posta elettronica di invito. Riceveranno invece un messaggio di posta elettronica quando viene recapitata l'assegnazione del pacchetto di accesso. Per impostazione predefinita, in un secondo momento, quando tale utente Guest non dispone più di assegnazioni di pacchetti di accesso, perché l'ultima assegnazione è scaduta o annullata, l'account utente guest verrà bloccato dall'accesso e successivamente eliminato. Se si desidera che gli utenti Guest rimangano per la directory a tempo indeterminato, anche se non dispongono di assegnazioni di pacchetti di accesso, è possibile modificare le impostazioni per la configurazione di gestione dei diritti. Per ulteriori informazioni sull'oggetto utente Guest, vedere [proprietà di un utente di collaborazione B2B di Azure Active Directory](../articles/active-directory/b2b/user-properties.md).
 
-1. Negli **utenti che possono richiedere l'** elenco di accesso selezionare **per gli utenti non presenti nella directory**.
+1. Nella sezione **utenti che possono richiedere l'accesso** fare clic su **per gli utenti non presenti nella directory**.
 
     Quando si seleziona questa opzione, vengono visualizzate le nuove opzioni.
 
@@ -65,20 +65,20 @@ Seguire questa procedura se si desidera consentire agli utenti non inclusi nella
     | **Organizzazioni connesse specifiche** | Scegliere questa opzione se si desidera effettuare una selezione da un elenco di organizzazioni che l'amministratore ha aggiunto in precedenza. Tutti gli utenti delle organizzazioni selezionate saranno in grado di richiedere questo pacchetto di accesso. |
     | **Tutte le organizzazioni connesse** | Scegliere questa opzione se si desidera che tutti gli utenti di tutte le organizzazioni connesse siano in grado di richiedere questo pacchetto di accesso. |
 
-    Un'organizzazione connessa è una directory o un dominio di Azure AD esterno con cui si collabora di frequente.
+    Un'organizzazione connessa è una directory o un dominio di Azure AD esterno a cui è associata una relazione.
 
 1. Se sono state selezionate **organizzazioni connesse specifiche**, fare clic su **Aggiungi directory** per selezionare da un elenco di organizzazioni connesse che l'amministratore ha aggiunto in precedenza.
 
-1. Immettere un nome di dominio per cercare un'organizzazione connessa con tale nome di dominio.
+1. Digitare il nome o il nome di dominio in cui eseguire la ricerca di un'organizzazione precedentemente connessa.
 
     ![Accedere ai pacchetti-richieste-selezionare le directory](./media/active-directory-entitlement-management-request-policy/select-directories.png)
 
-    Se l'organizzazione con cui si vuole collaborare non è presente nell'elenco, è possibile richiedere all'amministratore di aggiungerla come organizzazione connessa. 
+    Se l'organizzazione con cui si vuole collaborare non è presente nell'elenco, è possibile richiedere all'amministratore di aggiungerla come organizzazione connessa. Per altre informazioni, vedere [aggiungere un'organizzazione connessa](../articles/active-directory/governance/entitlement-management-organization.md).
 
 1. Dopo aver selezionato tutte le organizzazioni connesse, fare clic su **Seleziona**.
 
     > [!NOTE]
-    > Tutti gli utenti delle organizzazioni connesse selezionate saranno in grado di richiedere questo pacchetto di accesso. Sono inclusi gli utenti di tutti i sottodomini associati alle organizzazioni connesse.
+    > Tutti gli utenti delle organizzazioni connesse selezionate saranno in grado di richiedere questo pacchetto di accesso. Sono inclusi gli utenti in Azure AD da tutti i sottodomini associati all'organizzazione, a meno che tali domini non siano bloccati dall'elenco Consenti o nega di Azure B2B. Per altre informazioni, consultare [Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche](../articles/active-directory/b2b/allow-deny-list.md).
 
 1. Passare alla sezione [approvazione](#approval) .
 
@@ -86,11 +86,11 @@ Seguire questa procedura se si desidera consentire agli utenti non inclusi nella
 
 Seguire questa procedura se si vuole ignorare le richieste di accesso e consentire agli amministratori di assegnare direttamente utenti specifici a questo pacchetto di accesso. Gli utenti non dovranno richiedere il pacchetto di accesso. È comunque possibile impostare le impostazioni del ciclo di vita, ma non sono disponibili impostazioni della richiesta.
 
-1. Negli **utenti che possono richiedere l'** elenco di accesso selezionare **nessuno (solo assegnazioni dirette all'amministratore**.
+1. Nella sezione **utenti che possono richiedere l'accesso** fare clic su **None (solo assegnazioni dirette all'amministratore**).
 
     ![Access Package-requests-None solo assegnazioni dirette all'amministratore](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
-    Dopo aver creato il pacchetto di accesso, è possibile assegnare direttamente utenti interni ed esterni specifici al pacchetto di accesso. Se si specifica un utente esterno, nella directory verrà creato un account utente Guest. Per informazioni sull'assegnazione diretta di un utente, vedere [visualizzare e modificare le assegnazioni per un pacchetto di accesso](../articles/active-directory/governance/entitlement-management-access-package-assignments.md).
+    Dopo aver creato il pacchetto di accesso, è possibile assegnare direttamente utenti interni ed esterni specifici al pacchetto di accesso. Se si specifica un utente esterno, nella directory verrà creato un account utente Guest. Per informazioni sull'assegnazione diretta di un utente, vedere [visualizzare, aggiungere e rimuovere assegnazioni per un pacchetto di accesso](../articles/active-directory/governance/entitlement-management-access-package-assignments.md).
 
 1. Passare alla sezione [Enable requests](#enable-requests) .
 
@@ -100,6 +100,8 @@ Nella sezione approvazione specificare se è necessaria un'approvazione quando g
 
 - Solo uno dei responsabili approvazione o i responsabili approvazione del fallback selezionati deve approvare una richiesta. L'approvazione da tutti i responsabili approvazione non è obbligatoria.
 - La decisione di approvazione si basa su qualsiasi revisore che esamina prima la richiesta.
+
+Seguire questa procedura per specificare le impostazioni di approvazione per gli utenti selezionati in precedenza.
 
 1. Per richiedere l'approvazione per le richieste degli utenti selezionati, impostare l'interruttore **Richiedi approvazione** su **Sì**. Per approvare automaticamente le richieste, impostare l'interruttore su **No**.
 

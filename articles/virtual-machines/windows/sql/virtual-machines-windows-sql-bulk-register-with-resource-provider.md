@@ -13,18 +13,18 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8498346c5623913cb68c63e95a787f31c7d90cc0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
-ms.translationtype: HT
+ms.openlocfilehash: 90c9d9be6f5a255a4ddd4f7fae7cf410e5b1f80d
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901950"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934957"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrare in blocco le macchine virtuali SQL in Azure con il provider di risorse VM SQL
 
-Questo articolo descrive come registrare in blocco il SQL Server macchina virtuale (VM) in Azure con il provider di risorse VM SQL usando il cmdlet di PowerShell ' Register-SqlVMs '.
+Questo articolo descrive come registrare in blocco il SQL Server macchina virtuale (VM) in Azure con il provider di risorse VM SQL usando il cmdlet `Register-SqlVMs` PowerShell.
 
-Il cmdlet ' Register-SqlVMs ' può essere usato per registrare tutte le macchine virtuali in un elenco specifico di sottoscrizioni, gruppi di risorse o un elenco di macchine virtuali specifiche. Il cmdlet registrerà le macchine virtuali in modalità di gestione _Lightweight_ , quindi genererà un [report e un file di log](#output-description). 
+Il cmdlet `Register-SqlVMs` può essere usato per registrare tutte le macchine virtuali in un elenco specifico di sottoscrizioni, gruppi di risorse o un elenco di macchine virtuali specifiche. Il cmdlet registrerà le macchine virtuali in modalità di gestione _Lightweight_ , quindi genererà un [report e un file di log](#output-description). 
 
 Il processo di registrazione non comporta alcun rischio, non ha tempi di inattività e non riavvia SQL Server o la macchina virtuale. 
 

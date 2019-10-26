@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 59e6bbbca982d428d4e590cb647f186e1c3fec3a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: f686a02e363025daa5d0c3b3d4e53e07da636544
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813777"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933827"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurare il ripristino di emergenza in Azure di macchine virtuali Hyper-V locali di cloud VMM
 
@@ -20,7 +20,7 @@ Questo articolo descrive come abilitare la replica per le VM Hyper-V locali gest
 
 Questa è la terza esercitazione di una serie che mostra come configurare il ripristino di emergenza in Azure per macchine virtuali VMware locali. Nell'esercitazione precedente è stato [preparato l'ambiente Hyper-V locale per il](hyper-v-prepare-on-premises-tutorial.md) ripristino di emergenza in Azure.
 
-In questa esercitazione si imparerà a:
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Selezionare l'origine e la destinazione della replica.
@@ -30,7 +30,11 @@ In questa esercitazione si imparerà a:
 > * Abilitare la replica per una macchina virtuale.
 
 > [!NOTE]
-> Le esercitazioni mostrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, esaminare gli articoli nella sezione **Guide pratiche** della [documentazione di Site Recovery](https://docs.microsoft.com/azure/site-recovery).
+> Le esercitazioni illustrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, esaminare gli articoli nella sezione **Guide pratiche** della [documentazione di Site Recovery](https://docs.microsoft.com/azure/site-recovery).
+
+> [!WARNING]
+> Si noti che il supporto di ASR per l'uso della configurazione SCVMM sarà presto deprecato e pertanto si consiglia di leggere i dettagli relativi alla [deprecazione](scvmm-site-recovery-deprecation.md) prima di procedere.
+
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -63,7 +67,7 @@ Quando si configura l'ambiente di origine, è necessario installare il provider 
 1. In **preparare l'infrastruttura**selezionare **origine**.
 2. In **prepara origine**selezionare **+ VMM** per aggiungere un server VMM. In **Aggiungi server** verificare che **System Center VMM server** compaia in **Tipo server**.
 3. Scaricare il programma di installazione del provider di Microsoft Azure Site Recovery.
-4. Scaricare la chiave di registrazione dell'insieme di credenziali. Questa chiave è necessaria quando si esegue l'installazione del provider. La chiave è valida per cinque giorni dal momento in cui viene generata.
+4. Scaricare la chiave di registrazione dell'insieme di credenziali, Questa chiave è necessaria quando si esegue l'installazione del provider. La chiave è valida per cinque giorni dal momento in cui viene generata.
 5. Scaricare il programma di installazione per l'agente di Servizi di ripristino di Microsoft Azure.
 
     ![Download del provider, della chiave di registrazione e dell'agente](./media/hyper-v-vmm-azure-tutorial/download-vmm.png)
@@ -101,7 +105,7 @@ Site Recovery verifica la disponibilità di uno o più account di archiviazione 
 
 ## <a name="configure-network-mapping"></a>Configurare il mapping di rete
 
-1. In **Site Recovery infrastruttura** >  mapping di rete mapping di rete selezionare l'icona + mapping di rete. > 
+1. In **Site Recovery infrastruttura** > **mapping di rete** > **mapping**di rete, selezionare l'icona **+ mapping di rete** .
 2. In **Aggiungi mapping di rete**, selezionare il server VMM di origine. Selezionare **Azure** come destinazione.
 3. Verificare la sottoscrizione e il modello di distribuzione dopo il failover.
 4. In **Rete di origine**, selezionare la rete VM di origine locale.
@@ -121,7 +125,7 @@ Site Recovery verifica la disponibilità di uno o più account di archiviazione 
     - **Crittografare i dati archiviati in Azure** è impostato sul valore predefinito (disattivato) e indica che i dati**inattivi**in Azure non sono crittografati.
 4. Dopo aver creato i criteri, selezionare **OK**. Quando si creano nuovi criteri, questi vengono associati automaticamente al cloud VMM.
 
-## <a name="enable-replication"></a>Abilita replica
+## <a name="enable-replication"></a>Abilitare la replica
 
 1. In **Eseguire la replica dell'applicazione** selezionare **Origine**.
 2. In **Origine** selezionare il cloud VMM. Quindi selezionare **OK**.
@@ -133,4 +137,4 @@ Site Recovery verifica la disponibilità di uno o più account di archiviazione 
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Eseguire un'esercitazione sul ripristino di emergenza](tutorial-dr-drill-azure.md)
+> [Eseguire un'analisi del ripristino di emergenza](tutorial-dr-drill-azure.md)

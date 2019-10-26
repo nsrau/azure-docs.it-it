@@ -1,24 +1,18 @@
 ---
 title: Domande frequenti su Log Analytics | Documentazione Microsoft
 description: Risposte alle domande frequenti sul servizio Log Analytics di Azure.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/13/2018
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 08e915354df4f4aa1d9a183e78cbad47460b8d37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/13/2018
+ms.openlocfilehash: e3ebb87a7a5f6200d860c1c79591719c32313e11
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356217"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932220"
 ---
 # <a name="log-analytics-faq"></a>Domande frequenti su Log Analytics
 
@@ -33,7 +27,7 @@ Le Domande frequenti Microsoft sono un elenco di domande frequenti su Log Analyt
 
 R: Sono la stessa cosa. [Log Analytics è una funzionalità integrata in Monitoraggio di Azure](../../azure-monitor/azure-monitor-rebrand.md) per offrire un'esperienza di monitoraggio più uniforme. La nuova esperienza Log di Monitoraggio di Azure corrisponde esattamente alle query di Log Analytics già usate da molti clienti.
 
-### <a name="q-can-i-still-use-log-search"></a>D: È ancora possibile usare Ricerca log? 
+### <a name="q-can-i-still-use-log-search"></a>D: È ancora possibile usare Ricerca Log? 
 
 R: Ricerca log attualmente è ancora disponibile nel portale di OMS e nel portale di Azure con il nome **Log (versione classica)** . Il portale di OMS verrà ritirato ufficialmente il 15 gennaio 2019. L'esperienza Log classica nel portale di Azure classico sarà ritirata gradualmente e sostituita con la nuova esperienza Log. 
 
@@ -54,9 +48,9 @@ R: La visualizzazione elenco non è disponibile nella nuova esperienza Log. È p
 
 ### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>D: Dopo aver eseguito una query, è disponibile un elenco di filtri suggeriti. Come è possibile visualizzare i filtri? 
 
-R: Fare clic su "Filtri" nel riquadro sinistro per visualizzare un'anteprima dell'implementazione dei nuovi filtri. Ora i filtri si basano sul set di risultati completo anziché essere vincolati dal limite di 10.000 record dell'interfaccia utente. Al momento questo è un elenco dei filtri più popolari e dei 10 valori più comuni per ogni filtro. 
+R: fare clic su' filtri ' nel riquadro a sinistra per visualizzare un'anteprima della nuova implementazione dei filtri. Ora i filtri si basano sul set di risultati completo anziché essere vincolati dal limite di 10.000 record dell'interfaccia utente. Al momento questo è un elenco dei filtri più popolari e dei 10 valori più comuni per ogni filtro. 
 
-### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>D: Perché viene visualizzato l'errore "Registrare il provider di risorse 'Microsoft.Insights' per questa sottoscrizione per abilitare questa query" in Log, dopo l'esplorazione dalla macchina virtuale? 
+### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>D: Perché viene visualizzato l'errore "Registrare il provider di risorse 'Microsoft.Insights' per questa sottoscrizione per abilitare questa query" in Log, dopo l'eplorazione dalla macchina virtuale? 
 
 R: Per impostazione predefinita, molti provider di risorse sono registrati automaticamente. Tuttavia, potrebbe essere necessario registrare alcuni provider di risorse manualmente. La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. L'ambito per la registrazione è sempre la sottoscrizione. Per altre informazioni, vedere [Provider e tipi di risorse](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
@@ -69,14 +63,14 @@ R: Per visualizzare i log della macchina virtuale, è necessario disporre dell'a
 R: Per accedere a un'area di lavoro in Azure, è necessario disporre delle autorizzazioni di Azure. In alcuni casi è possibile che non si disponga delle autorizzazioni di accesso appropriate. In questi casi, l'amministratore deve concedere all'utente le autorizzazioni in Azure. Per altre informazioni, vedere [Passaggio del portale di OMS in Azure](oms-portal-transition.md).
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>D: Perché non è presente la voce Progettazione viste in Log? 
-R: Progettazione viste è disponibile in Log solo per gli utenti con autorizzazioni di collaboratore o superiori.
+R: Progettazione viste è disponibile in Log solo per gli utenti che dispongono di autorizzazioni di collaboratore o superiori.
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>D: È possibile usare il portale di Log Analytics all'esterno di Azure?
-R. Sì, la pagina Log in Azure e il portale di analisi avanzato si basano sullo stesso codice. È in corso l'integrazione di Log Analytics come funzionalità di Monitoraggio di Azure per offrire un'esperienza di monitoraggio unificata. È comunque possibile accedere al portale Analitica usando l'URL: https:\/\/portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+R. Sì, la pagina Log in Azure e il portale di analisi avanzato si basano sullo stesso codice. È in corso l'integrazione di Log Analytics come funzionalità di Monitoraggio di Azure per offrire un'esperienza di monitoraggio unificata. È comunque possibile accedere al portale di Analytics usando l'URL: https:\/\/Portal. loganalytics. io/subscriptions/{subscriptionId}/ResourceGroups/{resourceGroupName}/Workspaces/{WorkspaceName}.
 
 
 
-## <a name="general"></a>Generale
+## <a name="general"></a>Informazioni di carattere generale
 
 ### <a name="q-how-can-i-see-my-views-and-solutions-in-azure-portal"></a>D: Come è possibile visualizzare le proprie viste e soluzioni nel portale di Azure? 
 
@@ -84,7 +78,7 @@ R: L'elenco delle viste e delle soluzioni installate è disponibile nel portale 
 
 ### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>D: Perché non è possibile creare aree di lavoro nella regione Stati Uniti centro-occidentali? 
 
-R: Questa area è al limite della capacità temporanea. Questo limite è pianificato per essere risolti dalla fine del mese di settembre 2019.
+R: Questa regione è al limite della capacità temporanea. Questo limite è pianificato per essere risolto entro la fine di settembre 2019.
 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>D: Log Analytics usa lo stesso agente del Centro sicurezza di Azure?
@@ -109,7 +103,7 @@ L'aggiornamento della stringa di testo a *OMS* è incluso in un Management Pack,
 
 ### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>D: Esiste una versione locale di Log Analytics?
 
-R:  No. Log Analytics è un servizio cloud scalabile che elabora e archivia grandi quantità di dati. 
+R: No. Log Analytics è un servizio cloud scalabile che elabora e archivia grandi quantità di dati. 
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>D: Come si verifica se Log Analytics non sta più raccogliendo dati?
 
@@ -140,13 +134,13 @@ R: Per ricevere una notifica quando la raccolta dati si interrompe, seguire la p
 
 Quando si crea l'avviso per l'interruzione della raccolta dati, applicare le seguenti impostazioni:
 
-- Per **Definire la condizione dell'avviso**, specificare l'area di lavoro di Log Analytics come destinazione della risorsa.
+- Per **Definire la condizione dell'avviso**, specificare l'area di lavoro Log Analytics come destinazione della risorsa.
 - **Criteri di avviso** consente di specificare quanto segue:
    - **Nome segnale** selezionare **Ricerca log personalizzata**.
    - **Query di ricerca** su `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
    - **Logica avvisi** è **In base a** *numero di risultati* e **Condizione** è *Maggiore di* una **Soglia** pari a *0*
    - **Periodo di tempo** di *30* minuti e **Frequenza di avviso** ogni *10* minuti
-- Per **Definire i dettagli dell'avviso** specificare quanto segue:
+- **Definire i dettagli dell'avviso** consente di specificare quanto segue:
    - **Nome** su *Data collection stopped* (Raccolta dati interrotta)
    - **Gravità** su *Avviso*
 
@@ -171,7 +165,7 @@ Il traffico verso Log Analytics usa il circuito ExpressRoute di peer pubblico.
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>D: Esiste un modo semplice per spostare un'area di lavoro Log Analytics esistente in un'altra area di lavoro Log Analytics/della sottoscrizione di Azure?
 
-R. Il cmdlet `Move-AzResource` consente di spostare un'area di lavoro Log Analytics e anche un account di Automazione da una sottoscrizione di Azure a un'altra. Per altre informazioni, vedere [Move-AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
+R. Il cmdlet `Move-AzResource` consente di spostare un'area di lavoro Log Analytics e anche un account di Automazione da una sottoscrizione di Azure a un'altra. Per ulteriori informazioni, vedere [Move-AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 Questa modifica può essere apportata anche nel portale di Azure.
 
@@ -179,7 +173,7 @@ Non è possibile spostare dati da un'area di lavoro Log Analytics a un'altra o c
 
 ### <a name="q-how-do-i-add-log-analytics-to-system-center-operations-manager"></a>D: Come aggiungere Log Analytics a System Center Operations Manager?
 
-R:  Il passaggio all'aggiornamento cumulativo più recente e l'importazione dei Management Pack consente di connettere Operations Manager a Log Analytics.
+R: Il passaggio all'aggiornamento cumulativo più recente e l'importazione dei Management Pack consente di connettere Operations Manager a Log Analytics.
 
 >[!NOTE]
 >La connessione di Operations Manager a Log Analytics è disponibile solo per System Center Operations Manager 2012 SP1 e versioni successive.

@@ -7,12 +7,12 @@ ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 0363f2d8da1ca1371fd55107c6487c3d96f6d00e
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1b270663a83461ecd777599fead9d717e93482c0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091465"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72930896"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Eseguire la migrazione di carichi di lavoro hive di Azure HDInsight 3,6 a HDInsight 4,0
 
@@ -30,14 +30,14 @@ In questo articolo vengono trattati gli argomenti seguenti:
 Un vantaggio di hive è la possibilità di esportare metadati in un database esterno (denominato Metastore hive). Il **Metastore hive** è responsabile dell'archiviazione delle statistiche della tabella, inclusi il percorso di archiviazione delle tabelle, i nomi delle colonne e le informazioni sull'indice della tabella. Lo schema del database del Metastore è diverso tra le versioni di hive. Eseguire le operazioni seguenti per aggiornare un Metastore hive HDInsight 3,6 in modo che sia compatibile con HDInsight 4,0.
 
 1. Creare una nuova copia del Metastore esterno. HDInsight 3,6 e HDInsight 4,0 richiedono schemi di Metastore diversi e non possono condividere un singolo Metastore. Vedere [usare gli archivi di metadati esterni in Azure HDInsight](../hdinsight-use-external-metadata-stores.md) per altre informazioni sul fissaggio di un Metastore esterno a un cluster HDInsight. 
-2. Avviare un'azione script sul cluster HDI 3,6, con "nodi head" come tipo di nodo per l'esecuzione. Incollare l'URI seguente nella casella di testo contrassegnata come "bash script https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh URI":. Nella casella di testo contrassegnata con "Arguments" immettere il nome del database, il nome utente e la password per il metastore Hive **copiato** , separati da spazi. Non includere ". database.windows.net" quando si specifica servername.
+2. Avviare un'azione script sul cluster HDI 3,6, con "nodi head" come tipo di nodo per l'esecuzione. Incollare l'URI seguente nella casella di testo contrassegnata come "bash script URI": https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh. Nella casella di testo contrassegnata con "Arguments" immettere il nome del database, il nome utente e la password per il metastore Hive **copiato** , separati da spazi. Non includere ". database.windows.net" quando si specifica servername.
 
 > [!Warning]
 > L'aggiornamento che converte lo schema di metadati HDInsight 3,6 nello schema HDInsight 4,0 non può essere annullato.
 
 ## <a name="migrate-hive-tables-to-hdinsight-40"></a>Eseguire la migrazione di tabelle hive a HDInsight 4,0
 
-Dopo aver completato il set di passaggi precedente per eseguire la migrazione del Metastore hive a HDInsight 4,0, le tabelle e i database registrati nel Metastore saranno visibili all'interno del cluster HDInsight 4,0 eseguendo `show tables` o `show databases` dall'interno del cluster. . Per informazioni sull'esecuzione di query nei cluster HDInsight 4,0, vedere [esecuzione di query tra versioni di HDInsight](#query-execution-across-hdinsight-versions) .
+Dopo aver completato il set di passaggi precedente per eseguire la migrazione del Metastore hive a HDInsight 4,0, le tabelle e i database registrati nel Metastore saranno visibili dall'interno del cluster HDInsight 4,0 eseguendo `show tables` o `show databases` dal cluster. Per informazioni sull'esecuzione di query nei cluster HDInsight 4,0, vedere [esecuzione di query tra versioni di HDInsight](#query-execution-across-hdinsight-versions) .
 
 Tuttavia, i dati effettivi delle tabelle non sono accessibili fino a quando il cluster non ha accesso agli account di archiviazione necessari. Per assicurarsi che il cluster HDInsight 4,0 possa accedere agli stessi dati del cluster HDInsight 3,6 precedente, completare i passaggi seguenti:
 
@@ -66,8 +66,8 @@ Prima di eseguire la migrazione, potrebbe essere necessario modificare le propri
 Una volta impostate correttamente le proprietà della tabella, eseguire lo strumento di migrazione del warehouse di hive da uno dei nodi head del cluster usando la shell SSH:
 
 1. Connettersi al cluster nodo head usando SSH. Per istruzioni, vedere [connettersi a HDInsight tramite SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
-1. Aprire una shell di accesso come utente hive eseguendo`sudo su - hive`
-1. Determinare la versione `ls /usr/hdp`dello stack della piattaforma dati Hortonworks eseguendo. Verrà visualizzata una stringa di versione da usare nel comando successivo.
+1. Aprire una shell di accesso come utente hive eseguendo `sudo su - hive`
+1. Determinare la versione dello stack della piattaforma dati eseguendo `ls /usr/hdp`. Verrà visualizzata una stringa di versione da usare nel comando successivo.
 1. Eseguire il comando seguente dalla Shell. Sostituire `${{STACK_VERSION}}` con la stringa di versione del passaggio precedente:
 
 ```bash

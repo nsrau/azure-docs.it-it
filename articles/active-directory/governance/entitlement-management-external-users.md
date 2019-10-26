@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 419970985b9531ffab348491730aaf6c00e143b1
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: d3794f409b2cdc11373dc330099e5ff93d65a2a1
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527108"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934405"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management-preview"></a>Governare l'accesso per gli utenti esterni in Azure AD gestione dei diritti (anteprima)
 
@@ -50,11 +50,13 @@ Nel diagramma e nei passaggi seguenti viene fornita una panoramica del modo in c
 
 ![Diagramma che mostra il ciclo di vita degli utenti esterni](./media/entitlement-management-external-users/external-users-lifecycle.png)
 
+1. Si [aggiunge un'organizzazione connessa](entitlement-management-organization.md) per la directory Azure ad o il dominio con cui si vuole collaborare.
+
 1. Si crea un pacchetto di accesso nella directory che include un criterio [per gli utenti non inclusi nella directory](entitlement-management-access-package-create.md#for-users-not-in-your-directory).
 
 1. Si invia un [collegamento del portale di accesso personale](entitlement-management-access-package-settings.md) al contatto dell'organizzazione esterna che può condividere con gli utenti per richiedere il pacchetto di accesso.
 
-1. Un utente esterno (**richiedente** in questo esempio) usa il collegamento portale di accesso personale per [richiedere l'accesso](entitlement-management-request-access.md) al pacchetto di accesso.
+1. Un utente esterno (**richiedente** in questo esempio) usa il collegamento portale di accesso personale per [richiedere l'accesso](entitlement-management-request-access.md) al pacchetto di accesso. La modalità di accesso dell'utente dipende dal tipo di autenticazione della directory o del dominio definito nell'organizzazione connessa.
 
 1. Un responsabile approvazione [approva la richiesta](entitlement-management-request-approve.md) (oppure la richiesta viene approvata automaticamente).
 
@@ -116,6 +118,6 @@ Quando si crea un [nuovo catalogo](entitlement-management-catalog-create.md), è
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- [Aggiungere un'organizzazione connessa](entitlement-management-organization.md)
 - [Per gli utenti che non si trovino nella directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
 - [Creare e gestire un catalogo di risorse](entitlement-management-catalog-create.md)
-- [Delega e ruoli](entitlement-management-delegate.md)

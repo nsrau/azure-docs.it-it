@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 9c3a19d44a4ac0fba37f4815b65b17c26d257dbc
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 46d6cba1d702773639420a3bc5ac74b9c16ce706
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813614"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933823"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali Hyper-V in un sito secondario
 
@@ -21,7 +21,9 @@ Questo articolo riepiloga gli elementi supportati quando si usa il servizio [Azu
 > [!NOTE]
 > È possibile eseguire la replica in un sito secondario solo quando gli host Hyper-V sono gestiti nei cloud VMM.
 
-  
+> [!WARNING]
+> Si noti che il supporto di ASR per l'uso della configurazione SCVMM sarà presto deprecato e pertanto si consiglia di leggere i dettagli relativi alla [deprecazione](scvmm-site-recovery-deprecation.md) prima di procedere.
+
 
 ## <a name="host-servers"></a>Server host
 
@@ -54,15 +56,15 @@ Windows Server 2012 R2 | Qualsiasi sistema operativo guest [supportato da Hyper-
 
 **Configurazione** | **Supportato**  
 --- | --- 
-Host - Gruppo NIC | Sì 
-Host - VLAN | Sì 
-Host - IPv4 | Sì 
+Host - Gruppo NIC | SÌ 
+Host - VLAN | SÌ 
+Host - IPv4 | SÌ 
 Host - IPv6 | No 
 VM guest - Gruppo NIC | No
-VM guest - IPv4 | Sì
+VM guest - IPv4 | SÌ
 VM guest - IPv6 | No
-VM guest - Windows/Linux - Indirizzo IP statico | Sì
-VM guest - Più NIC | Yes
+VM guest - Windows/Linux - Indirizzo IP statico | SÌ
+VM guest - Più NIC | SÌ
 
 
 ## <a name="storage"></a>Archiviazione
@@ -72,9 +74,9 @@ VM guest - Più NIC | Yes
 **Archiviazione (host)** | **Supportato**
 --- | --- 
 NFS | N/D
-SMB 3.0 |  Sì
-SAN (iSCSI) | Sì
-Percorsi multipli (MPIO) | Sì
+SMB 3.0 |  SÌ
+SAN (iSCSI) | SÌ
+Percorsi multipli (MPIO) | SÌ
 
 ### <a name="guest-or-physical-server-storage"></a>Archiviazione su server fisico o guest
 
@@ -82,19 +84,19 @@ Percorsi multipli (MPIO) | Sì
 --- | --- | 
 VMDK |  N/D
 VHD/VHDX | Sì (fino a 16 dischi)
-VM di seconda generazione | Yes
+VM di seconda generazione | SÌ
 Disco cluster condiviso | No
 Disco crittografato | No
 UEFI| N/D
 NFS | No
 SMB 3.0 | No
 RDM | N/D
-Disco superiore a 1 TB | Sì
-Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Sì
-Spazi di archiviazione | Yes
+Disco superiore a 1 TB | SÌ
+Volume con disco con striping superiore a 1 TB<br/><br/> LVM | SÌ
+Spazi di archiviazione | SÌ
 Aggiunta/rimozione a caldo disco | No
-Esclusione disco | Sì
-Percorsi multipli (MPIO) | Yes
+Esclusione disco | SÌ
+Percorsi multipli (MPIO) | SÌ
 
 ## <a name="vaults"></a>Insiemi di credenziali
 

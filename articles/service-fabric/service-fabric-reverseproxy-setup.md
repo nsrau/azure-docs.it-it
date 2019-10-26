@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: 3fd1716fa7b9c32bb5b5e49598139b6a5e728692
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: a80eb1ba341a1b15da7ad59203a1d25284d03fd0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166587"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933906"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Configurare il proxy inverso in Azure Service Fabric
 Il proxy inverso è un servizio facoltativo di Azure Service Fabric che consente ai microservizi in esecuzione in un cluster di Service Fabric di rilevare e comunicare con altri servizi che hanno endpoint HTTP. Per altre informazioni, vedere [Proxy inverso in Azure Service Fabric](service-fabric-reverseproxy.md). Questo articolo illustra come configurare il proxy inverso nel cluster. 
@@ -44,7 +44,7 @@ Per i cluster in Azure è possibile usare il modello di Azure Resource Manager p
 
 Per un nuovo cluster è possibile [creare un modello di Resource Manager personalizzato](service-fabric-cluster-creation-via-arm.md) oppure usare un modello di esempio. 
 
-I modelli di Resource Manager di esempio, che semplificano la configurazione del proxy inverso sicuro per un cluster di Azure, sono disponibili nella pagina relativa ai [modelli di esempio del proxy inverso sicuro](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) in GitHub. Vedere [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) (Configurare il proxy inverso HTTPS in un cluster sicuro) nel file LEGGIMI per istruzioni e per i modelli da usare per configurare il proxy inverso sicuro con un certificato e per gestire il rollover dei certificati.
+I modelli di Resource Manager di esempio, che semplificano la configurazione del proxy inverso sicuro per un cluster di Azure, sono disponibili nella pagina relativa ai [modelli di esempio del proxy inverso sicuro](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample) in GitHub. Vedere [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) (Configurare il proxy inverso HTTPS in un cluster sicuro) nel file LEGGIMI per istruzioni e per i modelli da usare per configurare il proxy inverso sicuro con un certificato e per gestire il rollover dei certificati.
 
 Per un cluster esistente è possibile esportare il modello di Resource Manager per il gruppo di risorse cluster usando il [portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
 
@@ -167,7 +167,7 @@ Per i cluster autonomi è necessario abilitare il proxy inverso nel file Cluster
 
 La procedura seguente illustra le impostazioni da usare per abilitare il proxy inverso e, facoltativamente, per proteggere il proxy inverso con un certificato X.509. 
 
-1. Per abilitare il proxy inverso, impostare il valore **reverseProxyEndpointPort** per il tipo di nodo in **properties** nel file di configurazione del cluster. Il codice JSON seguente mostra l'impostazione della porta dell'endpoint del proxy inverso su 19081 per i nodi con tipo "NodeType0":
+1. Per abilitare il proxy inverso, impostare il valore **reverseProxyEndpointPort** per il tipo di nodo in **Proprietà** nella configurazione del cluster. Il codice JSON seguente mostra l'impostazione della porta dell'endpoint del proxy inverso su 19081 per i nodi con un tipo di "Nodetype0 e":
 
    ```json
        "properties": {

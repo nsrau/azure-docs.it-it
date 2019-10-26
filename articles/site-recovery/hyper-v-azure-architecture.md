@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 4035746772b44d7267d6a9cd90c7bdc02c804a8a
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 20f325ff64581396f5f7ab2ce05a2479cdb45118
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147065"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933536"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Hyper-V ad Azure
 
@@ -36,9 +36,11 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 
 **Architettura della replica da Hyper-V ad Azure (senza VMM)**
 
-![Architettura](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
+![Architecture](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
+> [!WARNING]
+> Si noti che il supporto di ASR per l'uso della configurazione SCVMM sarà presto deprecato e pertanto si consiglia di leggere i dettagli relativi alla [deprecazione](scvmm-site-recovery-deprecation.md) prima di procedere.
 
 ## <a name="architectural-components---hyper-v-with-vmm"></a>Componenti dell'architettura - Hyper-V con VMM
 
@@ -65,12 +67,12 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 **Processo di replica e ripristino**
 
 
-### <a name="enable-protection"></a>Abilita protezione
+### <a name="enable-protection"></a>Abilitare la protezione
 
 1. Dopo aver abilitato la protezione per una macchina virtuale Hyper-V, nel portale di Azure o in locale, viene avviato **Abilita protezione**.
 2. Il processo controlla se il computer è conforme ai prerequisiti, prima di richiamare [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), per impostare la replica con le impostazioni configurate.
 3. Il processo avvia la replica iniziale richiamando il metodo [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), per inizializzare una replica della macchina virtuale completa e inviare i dischi virtuali della VM ad Azure.
-4. Il processo può essere monitorato nella scheda **Processi**.      ![Elenco dei processi](media/hyper-v-azure-architecture/image1.png) ![Abilitare protezione in dettaglio](media/hyper-v-azure-architecture/image2.png)
+4. È possibile monitorare il processo nella scheda **processi** .      elenco dei processi di ![](media/hyper-v-azure-architecture/image1.png) ![abilitare il drill-down della protezione](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Replica iniziale dei dati
@@ -133,7 +135,7 @@ Quando l'infrastruttura locale è di nuovo operativa, è possibile eseguire il f
 1. Aviare un failover pianificato da Azure al sito primario:
     - **Ridurre al minimo il tempo di inattività**: se si usa questa opzione, Site Recovery sincronizza i dati prima del failover. Il servizio verifica la presenza di blocchi di dati modificati e li scarica nel sito locale, mentre la macchina virtuale di Azure resta in esecuzione, riducendo al minimo il tempo di inattività. Quando si specifica manualmente che è necessario completare il failover, la macchina virtuale di Azure viene arrestata, vengono copiate tutte le modifiche differenziali finali e viene avviato il failover.
     - **Download completo**: con questa opzione i dati vengono sincronizzati durante il failover. Questa opzione scarica l'intero disco. Questa opzione è più veloce, perché non viene calcolato alcun checksum, ma il tempo di inattività è maggiore. Usare questa opzione se le macchine virtuali di Azure di replica sono state eseguite per un certo tempo o se la macchina virtuale locale è stata eliminata.
-    - **Crea macchina virtuale**: È possibile scegliere di eseguire il failback nella stessa macchina virtuale o in una alternativa. È possibile specificare che Site Recovery deve creare la macchina virtuale, se non esiste già.
+    - **Crea macchina virtuale**: è possibile scegliere di eseguire il failback nella stessa macchina virtuale o in una alternativa. È possibile specificare che Site Recovery deve creare la macchina virtuale, se non esiste già.
 
 2. Al termine della sincronizzazione iniziale, scegliere di completare il failover. Al termine, è possibile accedere alla macchina virtuale locale per verificare che funzioni tutto come previsto. Nel portale di Azure si noterà che le macchine virtuali di Azure sono state arrestate.
 3.  Eseguire quindi il commit del failover per completare il processo e iniziare ad accedere di nuovo al carico di lavoro dalla macchina virtuale locale.

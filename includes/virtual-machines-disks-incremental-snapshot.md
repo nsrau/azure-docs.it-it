@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ee8a711a867f8abdc831b0d1d9d0b504b1104955
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 72e94b864b15d5c4872ebf6ba9f0d1a00a0e92b0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310117"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924856"
 ---
 # <a name="creating-an-incremental-snapshot-preview-for-managed-disks"></a>Creazione di uno snapshot incrementale (anteprima) per Managed Disks
 
@@ -23,11 +23,11 @@ Esistono alcune differenze tra uno snapshot incrementale e uno snapshot regolare
 
 Gli snapshot incrementali offrono inoltre una funzionalità differenziale, disponibile in modo univoco per i dischi gestiti. Consentono di ottenere le modifiche tra due snapshot incrementali degli stessi dischi gestiti, fino al livello di blocco. È possibile usare questa funzionalità per ridurre il footprint dei dati durante la copia degli snapshot tra le aree.
 
-Se non è ancora stata effettuata l'iscrizione per l'anteprima e si vuole iniziare a usare gli snapshot incrementali, inviare un AzureDisks@microsoft.com messaggio di posta elettronica all'indirizzo per ottenere l'accesso all'anteprima pubblica.
+Se non è ancora stata effettuata l'iscrizione per l'anteprima e si vuole iniziare a usare gli snapshot incrementali, inviare un messaggio di posta elettronica all'AzureDisks@microsoft.com per ottenere l'accesso all'anteprima pubblica.
 
 ## <a name="restrictions"></a>Restrizioni
 
-- Gli snapshot incrementali sono attualmente disponibili solo negli Stati Uniti centro-occidentali.
+- Gli snapshot incrementali sono attualmente disponibili solo negli Stati Uniti centro-occidentali e in Europa settentrionale.
 - Attualmente non è possibile creare snapshot incrementali dopo aver modificato le dimensioni di un disco.
 - Non è attualmente possibile spostare gli snapshot incrementali tra le sottoscrizioni.
 - Attualmente, è possibile generare solo URI SAS di un massimo di cinque snapshot di una particolare famiglia di snapshot in un determinato momento.
@@ -45,9 +45,9 @@ Install-Module -Name Az -AllowClobber -Scope CurrentUser
 
 Una volta installato, accedere alla sessione di PowerShell con `az login`.
 
-Per creare uno snapshot incrementale con Azure PowerShell, impostare la configurazione con [New-AzSnapShotConfig](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) con il `-Incremental` parametro e quindi passarlo come variabile a [New-AzSnapshot](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) tramite il `-Snapshot` parametro.
+Per creare uno snapshot incrementale con Azure PowerShell, impostare la configurazione con [New-AzSnapShotConfig](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) con il parametro `-Incremental` e quindi passarlo come variabile a [New-AzSnapshot](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) tramite il parametro `-Snapshot`.
 
-Sostituire `<yourDiskNameHere>`, `<yourResourceGroupNameHere>` e`<yourDesiredSnapShotNameHere>` con i valori, è possibile usare lo script seguente per creare uno snapshot incrementale:
+Sostituire `<yourDiskNameHere>`, `<yourResourceGroupNameHere>`e `<yourDesiredSnapShotNameHere>` con i valori, quindi è possibile usare lo script seguente per creare uno snapshot incrementale:
 
 ```PowerShell
 # Get the disk that you need to backup by creating an incremental snapshot
@@ -58,9 +58,9 @@ $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk
 New-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere> -SnapshotName <yourDesiredSnapshotNameHere> -Snapshot $snapshotConfig 
 ```
 
-È possibile identificare gli snapshot incrementali dallo stesso disco con `SourceResourceId` e le `SourceUniqueId` proprietà degli snapshot. `SourceResourceId`ID della risorsa Azure Resource Manager del disco padre. `SourceUniqueId`valore ereditato dalla `UniqueId` proprietà del disco. Se si elimina un disco e quindi si crea un nuovo disco con lo stesso nome, il valore della `UniqueId` proprietà cambia.
+È possibile identificare gli snapshot incrementali dallo stesso disco con le proprietà `SourceResourceId` e `SourceUniqueId` degli snapshot. `SourceResourceId` è l'ID di risorsa Azure Resource Manager del disco padre. `SourceUniqueId` è il valore ereditato dalla proprietà `UniqueId` del disco. Se si elimina un disco e quindi si crea un nuovo disco con lo stesso nome, viene modificato il valore della proprietà `UniqueId`.
 
-È possibile utilizzare `SourceResourceId` e `SourceUniqueId` per creare un elenco di tutti gli snapshot associati a un disco specifico. Sostituire `<yourResourceGroupNameHere>` con il valore, quindi è possibile usare l'esempio seguente per elencare gli snapshot incrementali esistenti:
+È possibile usare `SourceResourceId` e `SourceUniqueId` per creare un elenco di tutti gli snapshot associati a un disco specifico. Sostituire `<yourResourceGroupNameHere>` con il valore, quindi è possibile usare l'esempio seguente per elencare gli snapshot incrementali esistenti:
 
 ```PowerShell
 $snapshots = Get-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere>
@@ -86,9 +86,9 @@ $incrementalSnapshots
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
 ```
 
-Per creare uno snapshot incrementale, usare [AZ snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) con il `--incremental` parametro.
+Per creare uno snapshot incrementale, usare [AZ snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) con il parametro `--incremental`.
 
-Nell'esempio seguente viene creato uno snapshot incrementale, `<yourDesiredSnapShotNameHere>`vengono `<yourResourceGroupNameHere>`sostituiti`<exampleDiskName>`, `<exampleLocation>` , e con valori personalizzati, quindi viene eseguito l'esempio:
+Nell'esempio seguente viene creato uno snapshot incrementale, viene sostituito `<yourDesiredSnapShotNameHere>`, `<yourResourceGroupNameHere>`,`<exampleDiskName>`e `<exampleLocation>` con valori personalizzati, quindi viene eseguito l'esempio:
 
 ```bash
 sourceResourceId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[id]' -o tsv)
@@ -100,13 +100,13 @@ az snapshot create -g <yourResourceGroupNameHere> \
 --incremental
 ```
 
-È possibile identificare gli snapshot incrementali dallo stesso disco con `SourceResourceId` e le `SourceUniqueId` proprietà degli snapshot. `SourceResourceId`ID della risorsa Azure Resource Manager del disco padre. `SourceUniqueId`valore ereditato dalla `UniqueId` proprietà del disco. Se si elimina un disco e quindi si crea un nuovo disco con lo stesso nome, il valore della `UniqueId` proprietà cambia.
+È possibile identificare gli snapshot incrementali dallo stesso disco con le proprietà `SourceResourceId` e `SourceUniqueId` degli snapshot. `SourceResourceId` è l'ID di risorsa Azure Resource Manager del disco padre. `SourceUniqueId` è il valore ereditato dalla proprietà `UniqueId` del disco. Se si elimina un disco e quindi si crea un nuovo disco con lo stesso nome, viene modificato il valore della proprietà `UniqueId`.
 
-È possibile utilizzare `SourceResourceId` e `SourceUniqueId` per creare un elenco di tutti gli snapshot associati a un disco specifico. Nell'esempio seguente vengono elencati tutti gli snapshot incrementali associati a un disco specifico, ma è necessario un certo programma di installazione.
+È possibile usare `SourceResourceId` e `SourceUniqueId` per creare un elenco di tutti gli snapshot associati a un disco specifico. Nell'esempio seguente vengono elencati tutti gli snapshot incrementali associati a un disco specifico, ma è necessario un certo programma di installazione.
 
 Questo esempio USA JQ per eseguire query sui dati. Per eseguire l'esempio, è necessario [installare JQ](https://stedolan.github.io/jq/download/).
 
-Sostituire `<yourResourceGroupNameHere>` e`<exampleDiskName>` con i valori, quindi è possibile usare l'esempio seguente per elencare gli snapshot incrementali esistenti, purché sia stato installato anche JQ:
+Sostituire `<yourResourceGroupNameHere>` e `<exampleDiskName>` con i valori, è possibile usare l'esempio seguente per elencare gli snapshot incrementali esistenti, purché sia stato installato anche JQ:
 
 ```bash
 sourceUniqueId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[uniqueId]' -o tsv)
@@ -156,4 +156,4 @@ az snapshot list -g <yourResourceGroupNameHere> -o json \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se non è ancora stata effettuata l'iscrizione per l'anteprima e si vuole iniziare a usare gli snapshot incrementali, inviare un AzureDisks@microsoft.com messaggio di posta elettronica all'indirizzo per ottenere l'accesso all'anteprima pubblica.
+Se non è ancora stata effettuata l'iscrizione per l'anteprima e si vuole iniziare a usare gli snapshot incrementali, inviare un messaggio di posta elettronica all'AzureDisks@microsoft.com per ottenere l'accesso all'anteprima pubblica.

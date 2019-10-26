@@ -1,5 +1,5 @@
 ---
-title: Comprendere e regolare le unità di streaming in Analisi di flusso di Azure
+title: Unità di streaming in analisi di flusso di Azure
 description: Questo articolo descrive l'impostazione di unità di streaming e altri fattori che influiscono sulle prestazioni in Analisi di flusso di Azure.
 services: stream-analytics
 author: JSeb225
@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 54296f0b4aed22457a5218154111a42ad01ec262
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: a4811da398fde869d8eb5457db11a592006c59a9
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329346"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934282"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
-Le unità di streaming rappresenta le risorse di calcolo allocate per l'esecuzione di un processo di Stream Analitica. Più alto è il numero di unità di streaming, maggiori sono le risorse di memoria e CPU allocate per il processo. Questa capacità consente di concentrarsi sulla logica di query, senza doversi preoccupare di gestire l'hardware, per eseguire il processo di Analisi di flusso nei tempi previsti.
+Unità di streaming (SUs) rappresenta le risorse di calcolo allocate per l'esecuzione di un processo di analisi di flusso. Più alto è il numero di unità di streaming, maggiori sono le risorse di memoria e CPU allocate per il processo. Questa capacità consente di concentrarsi sulla logica di query, senza doversi preoccupare di gestire l'hardware, per eseguire il processo di Analisi di flusso nei tempi previsti.
 
 Per ottenere l'elaborazione di flussi a bassa latenza, i processi di Analisi di flusso di Azure eseguono tutta l'elaborazione in memoria. Quando la memoria viene esaurita, il processo di streaming non riesce. Di conseguenza, per un processo di produzione è importante monitorare l'utilizzo delle risorse di un processo di streaming e assicurarsi che siano state allocate risorse sufficienti per mantenere il processo in esecuzione 24 ore su 24, 7 giorni su 7.
 
@@ -51,7 +51,7 @@ In generale la procedura consigliata consiste nell'iniziare con 6 unità di stre
 Per altre informazioni sulla scelta del numero corretto di unità di streaming, vedere questa pagina: [Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva dell'elaborazione dei flussi di dati](stream-analytics-scale-jobs.md)
 
 > [!Note]
-> Il numero di unità di streaming necessarie per un particolare processo dipende dalla configurazione delle partizioni per gli input e dalla query definita per il processo. È prevista una quota massima di unità di streaming che è possibile selezionare per un processo. Per impostazione predefinita, ogni sottoscrizione di Azure ha una quota di unità di streaming fino a 500 per tutti i processi di analitica in un'area specifica. Per superare la quota massima di unità di streaming per le sottoscrizioni, contattare il [supporto tecnico Microsoft](https://support.microsoft.com). I valori validi di unità di streaming per processo sono 1, 3, 6 e poi a salire, con incrementi di 6.
+> Il numero di unità di streaming necessarie per un particolare processo dipende dalla configurazione delle partizioni per gli input e dalla query definita per il processo. È prevista una quota massima di unità di streaming che è possibile selezionare per un processo. Per impostazione predefinita, ogni sottoscrizione di Azure ha una quota fino a 500 SUs per tutti i processi di analisi in un'area specifica. Per superare la quota massima di unità di streaming per le sottoscrizioni, contattare il [supporto tecnico Microsoft](https://support.microsoft.com). I valori validi di unità di streaming per processo sono 1, 3, 6 e poi a salire, con incrementi di 6.
 
 ## <a name="factors-that-increase-su-utilization"></a>Fattori che determinano un maggiore utilizzo in percentuale delle unità di streaming 
 
@@ -59,13 +59,13 @@ Gli elementi di query temporali costituiscono il set principale degli operatori 
 
 Si noti che un processo con logica di query complessa potrebbe presentare un'elevata percentuale di utilizzo delle unità di streaming anche quando non riceve eventi di input in modo continuo. Questa situazione può verificarsi dopo un picco improvviso negli eventi di input e output. Se la query è complessa, il processo potrebbe continuare a mantenere lo stato in memoria.
 
-La percentuale di utilizzo dell'unità di archiviazione può improvvisamente scendere a 0 per un breve periodo di tempo prima di tornare ai livelli previsti. Ciò si verifica a causa di errori temporanei o dell'avvio di aggiornamenti di sistema. Aumentare il numero di unità di streaming per un processo non può ridurre la percentuale di unità di streaming utilizzo se la query non è [perfettamente parallelo](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
+La percentuale di utilizzo dell'unità di archiviazione può improvvisamente scendere a 0 per un breve periodo di tempo prima di tornare ai livelli previsti. Ciò si verifica a causa di errori temporanei o dell'avvio di aggiornamenti di sistema. L'aumento del numero di unità di streaming per un processo potrebbe non ridurre l'utilizzo di SU% se la query non è [completamente parallela](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Logica di query con stato negli elementi temporali
-Una delle esclusive funzionalità dei processi di Analisi di flusso di Azure è l'esecuzione dell'elaborazione con stato, ad esempio per funzioni di aggregazione finestra, join temporali e funzioni di analisi temporali. Ognuno di questi operatori mantiene le informazioni sullo stato. La dimensione massima della finestra temporale per questi elementi di query è sette giorni. 
+Una delle esclusive funzionalità dei processi di Analisi di flusso di Azure è l'esecuzione dell'elaborazione con stato, ad esempio per funzioni di aggregazione finestra, join temporali e funzioni di analisi temporali. Ognuno di questi operatori mantiene le informazioni sullo stato. La dimensione massima della finestra per questi elementi della query è di sette giorni. 
 
 Il concetto di finestra temporale è presente in diversi elementi di query di Analisi di flusso:
-1. Funzioni di aggregazione in modalità finestra: GROUP BY di finestre a cascata, finestre di salto e finestre temporali scorrevoli
+1. Funzioni di aggregazione finestra: GROUP BY di finestre temporali scorrevoli, di salto e a cascata
 
 2. Join temporali: JOIN con funzione DATEDIFF
 
@@ -85,7 +85,7 @@ Ad esempio, nella query seguente il numero associato a `clusterid` è la cardina
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-Per attenuare eventuali problemi causati dalla cardinalità elevata nella query precedente, è possibile inviare eventi a Hub eventi partizionati in base alla `clusterid`e scalare orizzontalmente la query, consentendo al sistema elaborare ogni partizione di input separatamente usando **partizione DA** come illustrato nell'esempio seguente:
+Per attenuare i problemi causati dalla cardinalità elevata nella query precedente, è possibile inviare eventi a hub eventi partizionati in base `clusterid`e scalare la query consentendo al sistema di elaborare ogni partizione di input separatamente usando **Partition by** , come illustrato Nell'esempio seguente:
 
    ```sql
    SELECT count(*) 
@@ -122,7 +122,7 @@ Per risolvere questo problema, inviare gli eventi a Hub eventi partizionandoli i
 In seguito al partizionamento, la query viene distribuita su più nodi. Di conseguenza, il numero di eventi in arrivo in ogni nodo diminuisce, riducendo a sua volta le dimensioni dello stato mantenuto nell'intervallo di join. 
 
 ## <a name="temporal-analytic-functions"></a>Funzioni di analisi temporale
-La memoria utilizzata (dimensione dello stato) per una funzione di analisi temporale è proporzionale alla frequenza degli eventi moltiplicata per la durata. La memoria utilizzata dalle funzioni di analisi non è proporzionale alla dimensione della finestra, ma piuttosto al numero di partizioni in ogni finestra temporale.
+La memoria utilizzata (dimensione dello stato) per una funzione di analisi temporale è proporzionale alla frequenza degli eventi moltiplicata per la durata. La memoria utilizzata dalle funzioni analitiche non è proporzionale alle dimensioni della finestra, bensì al numero di partizioni in ogni intervallo di tempo.
 
 La correzione è simile a quella per il join temporale. È possibile scalare orizzontalmente la query usando **PARTITION BY**. 
 

@@ -1,17 +1,17 @@
 ---
-title: Comprendere il livello di compatibilità per i processi di Analisi di flusso di Azure
+title: Livelli di compatibilità di analisi di flusso di Azure
 description: Informazioni su come impostare un livello di compatibilità per un processo di Analisi di flusso di Azure e modifiche sostanziali nel livello di compatibilità più recente
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: d6d31506a13656a954c48dfee00f14d8ab381fd5
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 888c1f0bb38a5317cc27790ea47917c182d49593
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173237"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925632"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Livello di compatibilità per i processi di Analisi di flusso di Azure
 
@@ -81,7 +81,7 @@ Il comportamento di Upsert è *Insert o Replace*.
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset durante la scrittura nell'output SQL
 
-**Livelli precedenti:** I tipi [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) sono stati modificati in formato UTC.
+**Livelli precedenti:** i tipi [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) sono stati adattati all'ora UTC.
 
 **livello 1,2:** DateTimeOffset non viene più modificato.
 
@@ -119,15 +119,15 @@ Nel livello di compatibilità 1.1 sono state introdotte le modifiche sostanziali
 
 ### <a name="service-bus-xml-format"></a>Formato XML del bus di servizio
 
-**livello 1,0:** Analisi di flusso di Azure usava DataContractSerializer e nel contenuto del messaggio erano quindi inclusi i tag XML. Esempio:
+**livello 1,0:** Analisi di flusso di Azure usava DataContractSerializer, quindi il contenuto del messaggio includeva tag XML. ad esempio:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
-**livello 1,1:** il contenuto del messaggio contiene direttamente il flusso, senza tag aggiuntivi. Ad esempio: `{ "SensorId":"1", "Temperature":64}`
+**livello 1,1:** Il contenuto del messaggio contiene direttamente il flusso senza tag aggiuntivi. Ad esempio: `{ "SensorId":"1", "Temperature":64}`
 
 ### <a name="persisting-case-sensitivity-for-field-names"></a>Mantenimento della distinzione tra maiuscole e minuscole per i nomi dei campi
 
-**livello 1,0:** i nomi dei campi venivano modificati in lettere minuscole quando venivano elaborati dal motore di Analisi di flusso di Azure.
+**livello 1,0:** I nomi dei campi sono stati modificati in lettere minuscole quando vengono elaborati dal motore di analisi di flusso di Azure.
 
 **1,1 Level:** la distinzione tra maiuscole e minuscole viene mantenute per i nomi di campo quando vengono elaborati dal motore di analisi di flusso di Azure.
 
@@ -136,15 +136,15 @@ Nel livello di compatibilità 1.1 sono state introdotte le modifiche sostanziali
 
 ### <a name="floatnandeserializationdisabled"></a>FloatNaNDeserializationDisabled
 
-**livello 1,0:** il comando CREATE TABLE non filtrava gli eventi contrassegnati con NaN (Not a Number, ad esempio: Infinity, -Infinity) in una colonna di tipo FLOAT, poiché non erano inclusi nell'intervallo documentato per questi numeri.
+**livello 1,0:** CREATE TABLE comando non ha filtrato gli eventi con NaN (non un numero. ad esempio: Infinity, -Infinity) in una colonna di tipo FLOAT, poiché non erano inclusi nell'intervallo documentato per questi numeri.
 
 **livello 1,1:** CREATE TABLE consente di specificare uno schema sicuro. Il motore di Analisi di flusso convalida la conformità dei dati a questo schema e, con questo modello, il comando può filtrare anche eventi contrassegnati con valori NaN.
 
 ### <a name="disable-automatic-upcast-for-datetime-strings-in-json"></a>Disabilitare il multicast automatico per le stringhe DateTime in JSON
 
-**livello 1,0:** il parser JSON eseguiva automaticamente l'upcast dei valori di stringa con le informazioni di data/ora/fuso orario su un tipo DateTime e li convertiva in formato UTC. Questo comportamento ha causato la perdita delle informazioni sul fuso orario.
+**livello 1,0:** Il parser JSON esegue automaticamente il cast dei valori stringa con le informazioni di data/ora/fuso orario nel tipo DateTime e quindi lo converte in formato UTC. Questo comportamento ha causato la perdita delle informazioni sul fuso orario.
 
-**livello 1,1:** non viene più eseguito l'upcast automatico dei valori di stringa con le informazioni di data/ora/fuso orario su un tipo DateTime. Le informazioni sul fuso orario vengono quindi mantenute.
+**livello 1,1:** Non viene eseguito alcun cast automatico dei valori stringa con le informazioni di data/ora/fuso orario nel tipo DateTime. Le informazioni sul fuso orario vengono quindi mantenute.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

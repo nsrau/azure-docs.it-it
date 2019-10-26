@@ -19,12 +19,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 208c644c26006fb99139abe1b05c63f90eff448d
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 514a74ed0ae52fb7f2a7b7d7f19c0b364dc2ba91
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803268"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934870"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Eseguire la migrazione di applicazioni a MSAL per iOS e macOS
 
@@ -73,7 +73,7 @@ Esistono due modi per specificare gli ambiti in MSAL:
 
 * Fornire un elenco di tutte le autorizzazioni necessarie per le app. ad esempio: 
 
-    `@[@"https://graph.microsot.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
+    `@[@"https://graph.microsoft.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
     In questo caso, l'app richiede le autorizzazioni `directory.read` e `directory.write`. All'utente verrà richiesto di fornire il consenso per le autorizzazioni se tali autorizzazioni non sono state consentite prima di questa app. L'applicazione potrebbe inoltre ricevere autorizzazioni aggiuntive che l'utente ha già acconsentito per l'applicazione. All'utente verrà richiesto di fornire il consenso solo per le nuove autorizzazioni o per le autorizzazioni che non sono state concesse.
 

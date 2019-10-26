@@ -1,5 +1,5 @@
 ---
-title: Implementare CI/CD per Analisi di flusso di Azure in IoT Edge usando le API REST
+title: Usare le API REST per eseguire CI/CD per Analisi di flusso di Azure in IoT Edge
 description: Informazioni su come implementare una pipeline di integrazione e distribuzione continua per Analisi di flusso di Azure usando le API REST.
 services: stream-analytics
 author: mamccrea
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: 40beb620e037061b189762a51e3c29d0fd251b27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 94f124a1b2571a685de9da7f37b2ed50a2860da7
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61362077"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925661"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementare CI/CD per Analisi di flusso in IoT Edge usando le API
 

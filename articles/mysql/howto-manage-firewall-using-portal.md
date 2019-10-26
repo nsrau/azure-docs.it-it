@@ -5,18 +5,18 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/09/2018
-ms.openlocfilehash: 017266fd28fb31b4509957560a042abf74314453
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/24/2019
+ms.openlocfilehash: 823226da671671eaf6380d48a35c20298ec6bf9d
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61458841"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933627"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Creare e gestire regole del firewall di Database di Azure per MySQL con il portale di Azure
-Le regole del firewall a livello di server sono utilizzabile per gestire l'accesso a un Database di Azure per il MySQL Server da un indirizzo IP specificato o un intervallo di indirizzi IP. 
+Le regole del firewall a livello di server possono essere usate per gestire l'accesso a un database di Azure per il server MySQL da un indirizzo IP specificato o da un intervallo di indirizzi IP. 
 
-Le regole della rete virtuale sono anche utilizzabile per proteggere l'accesso al server. Altre informazioni sulle [creazione e gestione di rete virtuale del servizio endpoint e le regole nel portale di Azure](howto-manage-vnet-using-portal.md).
+Le regole della rete virtuale (VNet) possono essere usate anche per proteggere l'accesso al server. Altre informazioni sulla [creazione e la gestione di endpoint e regole del servizio rete virtuale usando il portale di Azure](howto-manage-vnet-using-portal.md).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Creare una regola del firewall a livello di server nel portale di Azure
 
@@ -30,9 +30,7 @@ Le regole della rete virtuale sono anche utilizzabile per proteggere l'accesso a
 
 3. Verificare l'indirizzo IP prima di salvare la configurazione. In alcuni casi, l'indirizzo IP individuato dal portale di Azure è diverso da quello usato per l'accesso a Internet e ai server Azure, quindi potrebbe essere necessario modificare l'indirizzo IP iniziale e l'indirizzo IP finale per fare in modo che la regola funzioni come previsto.
 
-   Usare un motore di ricerca o un altro strumento online per controllare l'indirizzo IP. Ad esempio, cercare qual è l'indirizzo IP in uso. 
-
-   ![Ricerca del proprio indirizzo IP in Bing](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
+   Usare un motore di ricerca o un altro strumento online per controllare l'indirizzo IP. Ad esempio, cercare qual è l'indirizzo IP in uso.
 
 4. Aggiungere altri intervalli di indirizzi. Nelle regole del firewall per Database di Azure per MySQL è possibile specificare un singolo indirizzo IP o un intervallo di indirizzi. Per limitare la regola a un solo indirizzo IP, digitare lo stesso indirizzo nei campi Indirizzo IP iniziale e Indirizzo IP finale. L'apertura del firewall consente agli amministratori, agli utenti e all'applicazione di accedere a qualsiasi database del server MySQL per cui dispongono di credenziali valide.
 
@@ -59,5 +57,5 @@ Ripetere i passaggi per gestire le regole del firewall.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Analogamente, è possibile generare uno script per [creare e gestire regole del firewall di Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure](howto-manage-firewall-using-cli.md).
-- Proteggere ulteriormente l'accesso al server dal [creazione e gestione di rete virtuale del servizio endpoint e le regole nel portale di Azure](howto-manage-vnet-using-portal.md).
-- Per informazioni sulla connessione a un Database di Azure per il server MySQL, vedere [raccolte di connessioni per Database di Azure per MySQL](./concepts-connection-libraries.md).
+- Proteggere ulteriormente l'accesso al server [creando e gestendo gli endpoint e le regole del servizio rete virtuale usando il portale di Azure](howto-manage-vnet-using-portal.md).
+- Per informazioni sulla connessione a un database di Azure per il server MySQL, vedere [raccolte di connessioni per database di Azure per MySQL](./concepts-connection-libraries.md).

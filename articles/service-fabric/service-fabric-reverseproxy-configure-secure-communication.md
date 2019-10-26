@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.openlocfilehash: d8a11a3289037602535d1b5727d041e376012bd8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e915e689f09ba7f5c92958ebf8531aa67eef4493
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837843"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933944"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Connettersi a un servizio protetto con il proxy inverso
 
@@ -35,14 +35,14 @@ Il proxy inverso si autoidentifica per i servizi usando il relativo certificato.
 I servizi possono implementare la logica per verificare il certificato presentato dal proxy inverso. I servizi possono specificare i dettagli del certificato client accettati come impostazioni di configurazione nel pacchetto di configurazione. Questo può essere letto in fase di runtime e usato per convalidare il certificato presentato dal proxy inverso. Fare riferimento a [Gestire i parametri dell'applicazione](service-fabric-manage-multiple-environment-app-configuration.md) per aggiungere le impostazioni di configurazione. 
 
 ### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>Verifica dell'identità del servizio da parte del proxy inverso tramite il certificato presentato dal servizio:
-Il proxy inverso supporta i criteri seguenti per eseguire la convalida del certificato server dei certificati presentati dai servizi: None, ServiceCommonNameAndIssuer e ServiceCertificateThumbprints.
+Per eseguire la convalida del certificato del server per i certificati presentati dai servizi, il proxy inverso supporta i criteri seguenti: None, ServiceCommonNameAndIssuer e ServiceCertificateThumbprints.
 Per selezionare i criteri da usare per il proxy inverso, specificare **ApplicationCertificateValidationPolicy** nella sezione **ApplicationGateway/Http** in [fabricSettings](service-fabric-cluster-fabric-settings.md).
 
 La prossima sezione illustra i dettagli di configurazione per ognuna di queste opzioni.
 
 ### <a name="service-certificate-validation-options"></a>Opzioni di convalida dei certificati del servizio 
 
-- **Nessuna**: Proxy inverso ignora la verifica del certificato del servizio di proxy e stabilisce la connessione sicura. Questo è il comportamento predefinito.
+- **None**: il proxy inverso ignora la verifica del certificato del servizio di proxy e stabilisce la connessione sicura. Questo è il comportamento predefinito.
 Specificare **ApplicationCertificateValidationPolicy** con il valore **None** nella sezione [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
 
    ```json
@@ -63,7 +63,7 @@ Specificare **ApplicationCertificateValidationPolicy** con il valore **None** ne
    }
    ```
 
-- **ServiceCommonNameAndIssuer**: Il proxy inverso verifica il certificato presentato dal servizio in base al nome comune del certificato e l'identificazione personale dell'autorità di certificazione immediata: Specificare il **ApplicationCertificateValidationPolicy** con il valore **ServiceCommonNameAndIssuer** nel [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) sezione.
+- **ServiceCommonNameAndIssuer**: il proxy inverso verifica il certificato presentato dal servizio in base al nome comune del certificato e all'identificazione personale immediata dell'autorità di certificazione: specificare **ApplicationCertificateValidationPolicy** con il valore **ServiceCommonNameAndIssuer** nella sezione [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
 
    ```json
    {
@@ -110,7 +110,7 @@ Specificare **ApplicationCertificateValidationPolicy** con il valore **None** ne
    }
    ```
 
-- **ServiceCertificateThumbprints**: Il proxy inverso verifica il certificato di servizio del proxy in base all'identificazione personale. È possibile scegliere di passare questa strada quando i servizi vengono configurati con certificati autofirmati: Specificare il **ApplicationCertificateValidationPolicy** con il valore **ServiceCertificateThumbprints** nel [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) sezione.
+- **ServiceCertificateThumbprints**: il proxy inverso consente di verificare il certificato del servizio del proxy in base all'identificazione personale. Se i servizi sono configurati con certificati autofirmati, è possibile scegliere di intraprendere questa strada: specificare **ApplicationCertificateValidationPolicy** con il valore **ServiceCertificateThumbprints** nella sezione [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
 
    ```json
    {
@@ -196,7 +196,7 @@ Se il client non presenta un certificato, il proxy inverso inoltra un'intestazio
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Configurare il proxy inverso in un cluster](service-fabric-reverseproxy-setup.md).
-* Fare riferimento a [Configure reverse proxy to connect to secure services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) (Configurare il proxy inverso per la connessione ai servizi protetti) per il modello di Azure Resource Manager per configurare il proxy inverso protetto con le diverse opzioni di convalida del certificato del servizio .
+* Vedere [configurare il proxy inverso per la connessione ai servizi protetti](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services)
 * Vedere un esempio di comunicazione HTTP tra i servizi in un [progetto di esempio in GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Chiamate di procedura remota con i Reliable Services remoti](service-fabric-reliable-services-communication-remoting.md)
 * [Web API che usa OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)

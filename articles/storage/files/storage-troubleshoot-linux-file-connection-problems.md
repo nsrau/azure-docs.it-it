@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 5c501e6c2bc1a30273682352a68565ccc897ff50
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: cc0539462fad0a73d5fc7eb75d2078e513df4e5d
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699197"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72926544"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
 
@@ -37,7 +37,7 @@ Le cause comuni di questo problema sono le seguenti:
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
-- Le utilità CIFS (cfs-utils) non sono installate nel client.
+- Le utilità CIFS (CIFS-utils) non sono installate nel client.
 - La versione SMB/CIFS minima, ossia la 2.1, non è installata nel client.
 - La crittografia SMB 3.0 non è supportata nel client. La tabella precedente fornisce un elenco di distribuzioni Linux che supportano il montaggio dall'ambiente locale e tra più aree usando la crittografia. Altre distribuzioni richiedono il kernel 4.11 e versioni successive.
 - Si sta tentando di connettersi a un account di archiviazione tramite la porta TCP 445, che non è supportata.
@@ -54,7 +54,7 @@ Per risolvere il problema, usare lo [strumento di risoluzione dei problemi per g
 * Raccoglie le tracce di diagnostica.
 
 <a id="mounterror13"></a>
-## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>"Errore di montaggio (13): Accesso negato" quando si monta una condivisione file di Azure
+## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>"Errore di montaggio (13): autorizzazione negata" quando si monta una condivisione file di Azure
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Causa 1: canale di comunicazione non crittografato
 
@@ -67,7 +67,7 @@ Per altre informazioni, vedere [Prerequisiti per il montaggio di una condivision
 1. Eseguire la connessione da un client che supporta la crittografia SMB o da una macchina virtuale nello stesso data center dell'account di archiviazione di Azure usato per la condivisione file di Azure.
 2. Se il client non supporta la crittografia SMB, verificare che l'opzione [Trasferimento sicuro obbligatorio](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) sia disabilitata nell'account di archiviazione.
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: nell'account di archiviazione sono abilitate regole di rete virtuale o del firewall. 
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: la rete virtuale o le regole del firewall sono abilitate nell'account di archiviazione 
 
 Se nell'account di archiviazione sono configurate regole di rete virtuale o del firewall, verrà negato l'accesso al traffico di rete a meno che all'indirizzo IP o alla rete virtuale client sia consentito l'accesso.
 
@@ -80,7 +80,7 @@ Verificare che le regole di rete virtuale e di firewall siano configurate corret
 
 In Linux si riceve un messaggio di errore simile al seguente:
 
-**\<nome file > [autorizzazione negata] quota disco superata**
+**\<filename > [autorizzazione negata] quota disco superata**
 
 ### <a name="cause"></a>Causa
 
@@ -107,15 +107,15 @@ Per chiudere gli handle aperti per una condivisione file, una directory o un fil
     - Usare [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) per i trasferimenti tra due condivisioni file.
     - L'uso di CP o DD con Parallel può migliorare la velocità di copia, il numero di thread dipende dal caso d'uso e dal carico di lavoro. Gli esempi seguenti usano sei: 
     - esempio CP (CP utilizzerà la dimensione del blocco predefinita del file system come dimensione del blocco): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
-    - esempio di dd (questo comando imposta in modo esplicito le dimensioni del blocco su 1 MiB):`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
+    - esempio di dd (questo comando imposta in modo esplicito le dimensioni del blocco su 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - Strumenti di terze parti open source, ad esempio:
         - [Parallelo GNU](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) : Ordina i file e li comprime in partizioni.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) : USA fpart e uno strumento di copia per generare più istanze per la migrazione dei dati da src_dir a dst_url.
-        - [Multi](https://github.com/pkolano/mutil) CP e md5sum multithread multithreading basati su coreutils GNU.
-- Impostando in anticipo le dimensioni del file, invece di creare ogni scrittura di un'estensione di scrittura, contribuisce a migliorare la velocità di copia negli scenari in cui le dimensioni del file sono note. Se è necessario evitare l'estensione delle Scritture, è possibile impostare le dimensioni del `truncate - size <size><file>` file di destinazione con il comando. Successivamente, `dd if=<source> of=<target> bs=1M conv=notrunc`tramite il comando viene copiato un file di origine senza dover aggiornare ripetutamente le dimensioni del file di destinazione. Ad esempio, è possibile impostare le dimensioni del file di destinazione per ogni file che si desidera copiare (si supponga che una condivisione sia montata in/mnt/share):
+        - CP e [md5sum multithread](https://github.com/pkolano/mutil) multithreading basati su coreutils GNU.
+- Impostando in anticipo le dimensioni del file, invece di creare ogni scrittura di un'estensione di scrittura, contribuisce a migliorare la velocità di copia negli scenari in cui le dimensioni del file sono note. Se è necessario evitare l'estensione delle Scritture, è possibile impostare le dimensioni del file di destinazione con `truncate - size <size><file>` comando. Successivamente, `dd if=<source> of=<target> bs=1M conv=notrunc`comando copierà un file di origine senza dover aggiornare ripetutamente le dimensioni del file di destinazione. Ad esempio, è possibile impostare le dimensioni del file di destinazione per ogni file che si desidera copiare (si supponga che una condivisione sia montata in/mnt/share):
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
-    - e quindi copiare i file senza estendere le Scritture in parallelo:`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
+    - e quindi copiare i file senza estendere le Scritture in parallelo: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Errore di montaggio (115): L'operazione è in corso" quando si esegue il montaggio di File di Azure usando SMB 3.0
@@ -144,7 +144,7 @@ L'utente non è autorizzato ad accedere
 
 Passare all'account di archiviazione in cui si trova la condivisione file di Azure, fare clic su **Controllo di accesso (IAM)** e verificare che l'account utente abbia accesso all'account di archiviazione. Per altre informazioni, vedere [Come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: nell'account di archiviazione sono abilitate regole di rete virtuale o del firewall.
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: la rete virtuale o le regole del firewall sono abilitate nell'account di archiviazione
 
 ### <a name="solution-for-cause-2"></a>Soluzione per la causa 2
 
@@ -170,7 +170,7 @@ Se i client SMB hanno chiuso tutti gli handle aperti e il problema continua a ve
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Rallentamento delle prestazioni in una condivisione file di Azure montata in una VM Linux
 
-### <a name="cause-1-caching"></a>Causa 1: Memorizzazione nella cache
+### <a name="cause-1-caching"></a>Cause 1: memorizzazione nella cache
 
 Una possibile causa del rallentamento delle prestazioni è la disattivazione della memorizzazione nella cache. La memorizzazione nella cache può essere utile se si accede ripetutamente a un file. in caso contrario, può essere un sovraccarico. Controllare se si sta usando la cache prima di disattivarla.
 
@@ -192,7 +192,7 @@ In alcuni scenari, l'opzione di montaggio **serverino** può far sì che il coma
 
 Se l'opzione **cache=strict** o **serverino** non è presente, smontare e montare nuovamente File di Azure eseguendo il comando di montaggio dalla [documentazione](../storage-how-to-use-files-linux.md). Verificare quindi di nuovo che la voce **/etc/fstab** disponga delle opzioni corrette.
 
-### <a name="cause-2-throttling"></a>Causa 2: Limitazione
+### <a name="cause-2-throttling"></a>Cause 2: limitazione
 
 È possibile che si verifichino limitazioni e che le richieste vengano inviate a una coda. Per verificarlo, è possibile sfruttare le [metriche di archiviazione di Azure in monitoraggio di Azure](../common/storage-metrics-in-azure-monitor.md).
 
@@ -218,11 +218,11 @@ Usare l'account utente di archiviazione per copiare i file:
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
 
-## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: cannot access '&lt;path&gt;': Input/output error (IS: non è possibile accedere a 'percorso': errore di input/output)
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: non è possibile accedere a '&lt;percorso&gt;': errore di input/output
 
 Quando si prova a elencare i file in una condivisione file di Azure tramite il comando ls, questo si blocca durante la generazione dell'elenco. Viene visualizzato l'errore seguente:
 
-**ls: cannot access'&lt;path&gt;': Input/output error** (IS: non è possibile accedere a 'percorso': errore di input/output)
+**ls: cannot access '&lt;percorso&gt;': Input/output error** (IS: non è possibile accedere a 'percorso': errore di input/output)
 
 
 ### <a name="solution"></a>Soluzione
@@ -289,6 +289,6 @@ Questo problema di riconnessione nel kernel Linux è stato corretto nell'ambito 
 
 Se non è possibile eseguire l'aggiornamento alle versioni del kernel più recenti, si può ovviare a questo problema conservando un file nella condivisione file di Azure in cui scrivere ogni 30 secondi o meno. Deve trattarsi di un'operazione di scrittura, ad esempio la riscrittura della data di creazione o di modifica del file. In caso contrario, i risultati verrebbero memorizzati nella cache e l'operazione potrebbe non attivare la riconnessione.
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
+## <a name="need-help-contact-support"></a>Opzioni per Contattare il supporto tecnico.
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

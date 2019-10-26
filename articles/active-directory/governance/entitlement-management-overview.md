@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a467856550bf2deaab931b3fe2f54b7986f12f8a
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 136a9994415b42c456ebdb0caa8ed6edcc7b4534
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430305"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934383"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Cos'è Gestione entitlement di Azure AD? (Anteprima)
 
@@ -121,6 +121,7 @@ Per comprendere meglio la gestione dei diritti e la relativa documentazione, è 
 | Tipo di risorsa | Tipo di risorsa, che include i gruppi, le applicazioni e i siti di SharePoint Online. |
 | ruolo risorsa | Raccolta di autorizzazioni associate a una risorsa. |
 | Directory delle risorse | Una directory che dispone di una o più risorse da condividere. |
+| organizzazione connessa | Una directory o un dominio di Azure AD esterno con una relazione. |
 | utenti assegnati | Assegnazione di un pacchetto di accesso a un utente, in modo che l'utente disponga di tutti i ruoli delle risorse del pacchetto di accesso. |
 | enable | Il processo di creazione di un pacchetto di accesso disponibile per gli utenti da richiedere. |
 

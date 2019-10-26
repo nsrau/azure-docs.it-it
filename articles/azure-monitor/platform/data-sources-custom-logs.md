@@ -1,24 +1,18 @@
 ---
 title: Raccogliere log personalizzati in Monitoraggio di Azure | Microsoft Docs
 description: Monitoraggio di Azure può raccogliere gli eventi dai file di testo nei computer Windows e Linux.  Questo articolo descrive come definire un nuovo log personalizzato e i dettagli dei record creati in Monitoraggio di Azure.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/26/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 957df2d03352756c74a5450de240afde2615e50b
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 09/26/2019
+ms.openlocfilehash: 3bd40e9a266305ac94ed53806bf394891e89c125
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177625"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932502"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Log personalizzati in Monitoraggio di Azure
 
@@ -69,10 +63,10 @@ Per iniziare, caricare un esempio del log personalizzato.  La procedura guidata 
 Se viene usato un delimitatore Timestamp, la proprietà TimeGenerated di ogni record archiviato in Monitoraggio di Azure viene popolata con il valore di data/ora specificato per quella voce nel file di log.  Se viene usato un delimitatore nuova riga, TimeGenerated viene popolata con la data e l'ora in cui Monitoraggio di Azure ha raccolto la voce.
 
 1. Fare clic su **Sfoglia** e passare a un file di esempio.  In alcuni browser, questo pulsante potrebbe essere denominato **Scegli file** .
-2. Fare clic su **Avanti**.
+2. Fare clic su **Next** (Avanti).
 3. La procedura guidata per i log personalizzati carica il file ed elenca i record identificati.
 4. Modificare il delimitatore usato per identificare un nuovo record e selezionare il delimitatore che identifica meglio i record nel file di log.
-5. Fare clic su **Avanti**.
+5. Fare clic su **Next** (Avanti).
 
 ### <a name="step-3-add-log-collection-paths"></a>Passaggio 3. Aggiungere percorsi di raccolta di log
 È necessario definire uno o più percorsi nell'agente in cui è possibile individuare il log personalizzato.  È possibile fornire un percorso specifico e un nome per il file di log oppure specificare un percorso con un carattere jolly per il nome. Questa opzione è utile per le applicazioni che creano un nuovo file ogni giorno o quando un file raggiunge una determinata dimensione. È anche possibile fornire più percorsi per un singolo file di log.
@@ -81,7 +75,7 @@ Ad esempio, un'applicazione potrebbe creare un file di log ogni giorno con la da
 
 La tabella seguente fornisce esempi di percorsi validi per specificare file di log diversi.
 
-| Descrizione | `Path` |
+| Description | path |
 |:--- |:--- |
 | Tutti i file in *C:\Logs* con estensione txt nell'agente Windows |C:\Logs\\\*.txt |
 | Tutti i file in *C:\Logs* il cui nome inizia con log e aventi un'estensione txt nell'agente Windows |C:\Logs\log\*.txt |
@@ -124,7 +118,7 @@ L'intero contenuto della voce di log viene scritto in una singola proprietà den
 ## <a name="custom-log-record-properties"></a>Proprietà dei record del log personalizzato
 Il tipo dei record del log personalizzato corrisponde al nome del log specificato e le proprietà sono indicate nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 |:--- |:--- |
 | TimeGenerated |Data e ora di raccolta del record con Monitoraggio di Azure.  Se il log usa un delimitatore basato sul tempo, questa proprietà indica la data e l'ora raccolte dalla voce. |
 | SourceSystem |Tipo di agente da cui è stato raccolto il record. <br> OpsManager: agente Windows, con connessione diretta o System Center Operations Manager <br> Linux – Tutti gli agenti Linux |

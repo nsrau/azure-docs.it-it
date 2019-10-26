@@ -7,26 +7,28 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: raynew
-ms.openlocfilehash: 784bf15a58e25ba4cba18494adc295343d0c175a
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: e34140f9e014cfd41b0c14e980ca74e4d07d0c85
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098886"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933853"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
 
 Questo articolo riepiloga i componenti supportati e le impostazioni per il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure con [Azure Site Recovery](site-recovery-overview.md).
 
+> [!WARNING]
+> Si noti che il supporto di ASR per l'uso della configurazione SCVMM sarà presto deprecato e pertanto si consiglia di leggere i dettagli relativi alla [deprecazione](scvmm-site-recovery-deprecation.md) prima di procedere.
+
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
 **Scenario** | **Dettagli**
 --- | ---
-Hyper-V con Virtual Machine Manager | È possibile eseguire il ripristino di emergenza in Azure per le macchine virtuali in esecuzione in host Hyper-V gestiti nell'infrastruttura di System Center Virtual Machine Manager.<br/><br/> Si può distribuire questo scenario con il portale di Azure o tramite PowerShell.<br/><br/> Se gli host Hyper-V vengono gestiti da Virtual Machine Manager, è anche possibile eseguire il ripristino di emergenza in un sito locale secondario. Per altre informazioni su questo scenario, vedere [questa esercitazione](hyper-v-vmm-disaster-recovery.md).
+Hyper-V con Virtual Machine Manager <br> **Questo scenario si trova nel percorso di deprecazione.** <br>| È possibile eseguire il ripristino di emergenza in Azure per le macchine virtuali in esecuzione in host Hyper-V gestiti nell'infrastruttura di System Center Virtual Machine Manager.<br/><br/> Si può distribuire questo scenario con il portale di Azure o tramite PowerShell.<br/><br/> Se gli host Hyper-V vengono gestiti da Virtual Machine Manager, è anche possibile eseguire il ripristino di emergenza in un sito locale secondario. Per altre informazioni su questo scenario, vedere [questa esercitazione](hyper-v-vmm-disaster-recovery.md).
 Hyper-V senza Virtual Machine Manager | È possibile eseguire il ripristino di emergenza in Azure per le macchine virtuali in esecuzione in host Hyper-V non gestiti da Virtual Machine Manager.<br/><br/> Si può distribuire questo scenario con il portale di Azure o tramite PowerShell.
-
 
 ## <a name="on-premises-servers"></a>Server locali
 
@@ -47,7 +49,7 @@ Configurazione della macchina virtuale | Le VM che eseguono la replica in Azure 
 Sistema operativo guest | Qualsiasi sistema operativo guest [supportato per Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases).<br/><br/> Windows Server 2016 Nano Server non è supportato.
 
 
-## <a name="vmdisk-management"></a>Gestione della macchina virtuale e del disco
+## <a name="vmdisk-management"></a>Gestione della macchina virtuale/del disco
 
 **Azione** | **Dettagli**
 --- | ---
@@ -58,16 +60,16 @@ Aggiungere il disco nella macchina virtuale Hyper-V replicata | Non supportati. 
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Rete host: gruppo NIC | Yes | Yes
-Rete host: VLAN | Yes | Sì
-Rete host: IPv4 | Sì | Yes
-Rete host: IPv6 | No | No
-Rete macchine virtuali guest: gruppo NIC | No | No
-Rete macchine virtuali guest: IPv4 | Sì | Yes
-Rete macchine virtuali guest: IPv6 | No | Sì
-Rete macchine virtuali guest: IP statico (Windows) | Sì | Sì
-Rete macchine virtuali guest: IP statico (Linux) | No | No
-Rete macchine virtuali guest: Più NIC | Sì | Sì
+Rete host: gruppo NIC | SÌ | SÌ
+Rete host: VLAN | SÌ | SÌ
+Rete host: IPv4 | SÌ | SÌ
+Rest host: IPv6 | No | No
+Rete delle macchine virtuali guest: gruppo NIC | No | No
+Rete delle macchine virtuali guest: IPv4 | SÌ | SÌ
+Rete delle macchine virtuali guest: IPv6 | No | SÌ
+Rete delle macchine virtuali guest: IP statico (Windows) | SÌ | SÌ
+Rete delle macchine virtuali guest: IP statico (Linux) | No | No
+Rete delle macchine virtuali guest: più NIC | SÌ | SÌ
 
 
 
@@ -75,15 +77,15 @@ Rete macchine virtuali guest: Più NIC | Sì | Sì
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Azure ExpressRoute | Sì | Yes
-ILB | Sì | Yes
-ELB | Sì | Sì
-Gestione traffico di Azure | Sì | Sì
-Più NIC | Sì | Sì
-IP riservato | Sì | Sì
-IPv4 | Sì | Yes
-Conservazione indirizzo IP di origine | Sì | Yes
-Endpoint servizio di rete virtuale di Azure<br/> (senza firewall di Archiviazione di Azure) | Sì | Sì
+ExpressRoute di Azure | SÌ | SÌ
+ILB | SÌ | SÌ
+ELB | SÌ | SÌ
+Gestione traffico di Azure | SÌ | SÌ
+Più NIC | SÌ | SÌ
+IP riservato | SÌ | SÌ
+IPv4 | SÌ | SÌ
+Conservazione indirizzo IP di origine | SÌ | SÌ
+Endpoint servizio di rete virtuale di Azure<br/> (senza firewall di Archiviazione di Azure) | SÌ | SÌ
 Rete accelerata | No | No
 
 
@@ -92,45 +94,45 @@ Rete accelerata | No | No
 **Archiviazione** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | --- 
 NFS | ND | ND
-SMB 3.0 | Yes | Sì
-SAN (iSCSI) | Sì | Sì
-Percorsi multipli (MPIO). Testato con:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | Yes | Sì
+SMB 3.0 | SÌ | SÌ
+SAN (iSCSI) | SÌ | SÌ
+Percorsi multipli (MPIO). Testato con:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | SÌ | SÌ
 
 ## <a name="hyper-v-vm-guest-storage"></a>Archiviazione VM guest Hyper-V
 
 **Archiviazione** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
 VMDK | ND | ND
-VHD/VHDX | Sì | Yes
-VM Gen 2 | Sì | Sì
-EFI/UEFI| Sì | Sì
+VHD/VHDX | SÌ | SÌ
+VM Gen 2 | SÌ | SÌ
+EFI/UEFI| SÌ | SÌ
 Disco cluster condiviso | No | No
 Disco crittografato | No | No
 NFS | ND | ND
 SMB 3.0 | No | No
 RDM | ND | ND
 Disco superiore a 1 TB | Sì, fino a 4.095 GB | Sì, fino a 4.095 GB
-Disco: dimensioni logiche e fisiche di settore a 4 KB | Non supportato: Gen 1/Gen 2 | Non supportato: Gen 1/Gen 2
-Disco: dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 byte | Sì |  Sì
-Gestione volumi logici (LVM). LVM è supportata solo nei dischi dati. Azure ha un solo disco di sistema operativo. | Yes | Sì
-Volume con disco con striping superiore a 1 TB | Yes | Sì
+Disco: dimensioni logiche di settore e dimensioni fisiche a 4 KB | Non supportato: Gen 1/Gen 2 | Non supportato: Gen 1/Gen 2
+Disco: dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 byte | SÌ |  SÌ
+Gestione volumi logici (LVM). LVM è supportata solo nei dischi dati. Azure ha un solo disco di sistema operativo. | SÌ | SÌ
+Volume con disco con striping superiore a 1 TB | SÌ | SÌ
 Spazi di archiviazione | No | No
 Aggiunta/rimozione a caldo disco | No | No
-Esclusione disco | Sì | Sì
-Percorsi multipli (MPIO) | Sì | Yes
+Esclusione disco | SÌ | SÌ
+Percorsi multipli (MPIO) | SÌ | SÌ
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Archiviazione con ridondanza locale | Sì | Sì
-Archiviazione con ridondanza geografica | Yes | Sì
-Archiviazione con ridondanza geografica e accesso in lettura | Sì | Sì
+Archiviazione con ridondanza locale | SÌ | SÌ
+Archiviazione con ridondanza geografica | SÌ | SÌ
+Archiviazione con ridondanza geografica e accesso in lettura | SÌ | SÌ
 Archiviazione ad accesso sporadico | No | No
 Archiviazione ad accesso frequente| No | No
 BLOB in blocchi | No | No
-Crittografia per dati inattivi (SSE)| Yes | Sì
-Archiviazione Premium | Sì | Yes
+Crittografia per dati inattivi (SSE)| SÌ | SÌ
+Archiviazione Premium | SÌ | SÌ
 Servizio di importazione/esportazione | No | No
 Account di archiviazione di Azure con firewall abilitato | Sì. Per l'archiviazione e la cache di destinazione. | Sì. Per l'archiviazione e la cache di destinazione.
 Modifica account di archiviazione | No. L'account di archiviazione di Azure di destinazione non può essere modificato dopo l'abilitazione della replica. Per modificare, disabilitare e quindi riabilitare il ripristino di emergenza. | No
@@ -140,9 +142,9 @@ Modifica account di archiviazione | No. L'account di archiviazione di Azure di d
 
 **Funzionalità** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Set di disponibilità | Sì | Yes
-HUB | Sì | Sì  
-Dischi gestiti | Sì, per il failover.<br/><br/> Non è supportato il failback di dischi gestiti. | Sì, per il failover.<br/><br/> Non è supportato il failback di dischi gestiti.
+Set di disponibilità | SÌ | SÌ
+HUB | SÌ | SÌ  
+Managed Disks | Sì, per il failover.<br/><br/> Non è supportato il failback di dischi gestiti. | Sì, per il failover.<br/><br/> Non è supportato il failback di dischi gestiti.
 
 ## <a name="azure-vm-requirements"></a>Requisiti per le VM di Azure
 
@@ -157,12 +159,12 @@ Conteggio dischi del sistema operativo | 1 | Il controllo dei prerequisiti ha es
 Conteggio dischi dati | Fino a 16  | Il controllo dei prerequisiti ha esito negativo se non supportato.
 Dimensioni VHD dischi dati | Fino a 4.095 GB | Il controllo dei prerequisiti ha esito negativo se non supportato.
 Schede di rete | Sono supportate più schede |
-VHD condiviso | Non supportate | Il controllo dei prerequisiti ha esito negativo se non supportato.
-Disco FC | Non supportate | Il controllo dei prerequisiti ha esito negativo se non supportato.
+VHD condiviso | Supporto non disponibile | Il controllo dei prerequisiti ha esito negativo se non supportato.
+Disco FC | Supporto non disponibile | Il controllo dei prerequisiti ha esito negativo se non supportato.
 Formato disco rigido | VHD <br/><br/> VHDX | In Site Recovery VHDX viene convertito automaticamente in VHD quando si esegue il failover in Azure. Quando si esegue il failback in locale, le macchine virtuali continuano a usare il formato VHDX.
-BitLocker | Non supportate | Prima di abilitare la replica per una macchina virtuale occorre disabilitare BitLocker.
+BitLocker | Supporto non disponibile | Prima di abilitare la replica per una macchina virtuale occorre disabilitare BitLocker.
 Nome della VM. | Tra 1 e 63 caratteri. Limitato a lettere, numeri e trattini. Il nome della macchina virtuale deve iniziare e terminare con una lettera o un numero. | Aggiornare il valore nelle proprietà della VM in Site Recovery.
-Tipo di macchina virtuale | Prima generazione<br/><br/> Seconda generazione - Windows | Sono supportate le macchine virtuali di seconda generazione con disco del sistema operativo di base che include uno o più volumi di dati in formato VHDX e inferiori a 300 GB di spazio su disco.<br></br>Le macchine virtuali Linux di seconda generazione non sono supportate. [Altre informazioni](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
+Tipo di macchina virtuale | Prima generazione<br/><br/> Seconda generazione - Windows | Sono supportate le macchine virtuali di seconda generazione con disco del sistema operativo di base che include uno o più volumi di dati in formato VHDX e inferiori a 300 GB di spazio su disco.<br></br>Le macchine virtuali Linux di seconda generazione non sono supportate. [Altre informazioni](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
 
 ## <a name="recovery-services-vault-actions"></a>Azioni dell'insieme di credenziali dei Servizi di ripristino
 

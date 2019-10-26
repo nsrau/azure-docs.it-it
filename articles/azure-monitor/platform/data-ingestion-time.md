@@ -1,23 +1,18 @@
 ---
 title: Tempo di inserimento dei dati di log in Monitoraggio di Azure | Microsoft Docs
 description: Illustra i diversi fattori che influiscono sulla latenza nella raccolta dei dati in Monitoraggio di Azure.
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: tysonn
-ms.service: log-analytics
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: 5947c4c28736f8488ea0e48941214df42c6af72a
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 07/18/2019
+ms.openlocfilehash: 8b40d89920208eaf15e01b3519b667a77baf8671
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639494"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932573"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo di inserimento dei dati di log in Monitoraggio di Azure
 Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Spesso sono state poste domande sul tempo necessario affinché i dati di log diventino disponibili dopo la raccolta. Questo articolo illustra i diversi fattori che influiscono su questa latenza.
@@ -101,7 +96,7 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
 
-I controlli percentile precedenti sono ideali per individuare le tendenze generali nella latenza. Per identificare un picco a breve termine nella latenza, l'utilizzo del`max()`valore massimo () potrebbe essere più efficace.
+I controlli percentile precedenti sono ideali per individuare le tendenze generali nella latenza. Per identificare un picco a breve termine nella latenza, l'utilizzo del valore massimo (`max()`) potrebbe essere più efficace.
 
 Se si desidera eseguire il drill-down del tempo di inserimento per un computer specifico in un periodo di tempo, utilizzare la query seguente, che visualizza anche i dati del giorno precedente in un grafico: 
 

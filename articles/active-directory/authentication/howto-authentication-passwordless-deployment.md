@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea4b8ea98365ec13f7f027215a75b9d79ea5c54e
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 6996b6163c1d5a2a4747093743a937dfd9eb7d4f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72453134"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933112"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Completare una distribuzione di autenticazione non con password
 
@@ -185,7 +185,7 @@ Di seguito sono riportati i test case di esempio per l'autenticazione senza pass
 | L'utente può accedere con il dispositivo FIDO2 (1809) | L'utente può selezionare la chiave di sicurezza dalla finestra di accesso e accedere correttamente. |
 | L'utente può registrare il dispositivo FIDO2 (1903) | L'utente può registrare il dispositivo FIDO2 in Impostazioni > account > Opzioni di accesso > chiave di sicurezza |
 | L'utente può reimpostare il dispositivo FIDO2 (1903) | L'utente può reimpostare il dispositivo FIDO2 in Impostazioni > account > Opzioni di accesso > chiave di sicurezza |
-| L'utente può accedere con il dispositivo FIDO2 (1809) | L'utente può selezionare la chiave di sicurezza dalla finestra di accesso e accedere correttamente. |
+| L'utente può accedere con il dispositivo FIDO2 (1903) | L'utente può selezionare la chiave di sicurezza dalla finestra di accesso e accedere correttamente. |
 
 **Accesso FIDO senza password ad app Web Azure AD**
 

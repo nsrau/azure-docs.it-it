@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 318014ec10bda0fa0ead9787067bb30f57707930
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 24ff711fcd27d59c555a53a910065e19f7298131
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008582"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931068"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiare dati da e in Oracle usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -57,7 +57,7 @@ In particolare, questo connettore Oracle supporta:
 
 Il runtime di integrazione fornisce un driver Oracle incorporato. Non è pertanto necessario installare manualmente un driver quando si copiano dati da e in Oracle.
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Inizia oggi stesso
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -67,14 +67,20 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà usate pe
 
 Il servizio collegato Oracle supporta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **Oracle**. | Yes |
-| connectionString | Specifica le informazioni necessarie per la connessione all'istanza del database Oracle. <br/>Contrassegnare questo campo come `SecureString` per archiviarlo in modo sicuro in data factory. È anche possibile inserire una password in Azure Key Vault ed estrarre la `password` configurazione dalla stringa di connessione. Per informazioni dettagliate, vedere gli esempi seguenti e [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) . <br><br>**Tipo di connessione supportato**: per identificare il database, è possibile usare il **SID Oracle** o il **nome del servizio Oracle**:<br>- Se si usa il SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Se si usa il nome del servizio: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Sì |
+| type | La proprietà type deve essere impostata su **Oracle**. | SÌ |
+| connectionString | Specifica le informazioni necessarie per la connessione all'istanza del database Oracle. <br/>Contrassegnare questo campo come `SecureString` per archiviarlo in modo sicuro nel Data Factory. È anche possibile inserire una password in Azure Key Vault ed estrarre la configurazione `password` dalla stringa di connessione. Per informazioni dettagliate, vedere gli esempi seguenti e [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) . <br><br>**Tipo di connessione supportato**: è possibile usare l'**ID di sicurezza Oracle** o il **nome del servizio Oracle** per identificare il database:<br>- Se si usa il SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Se si usa il nome del servizio: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | SÌ |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No |
 
 >[!TIP]
->Se viene ricevuto un errore, "ORA-01025: Parametro UPI non compreso nell'intervallo "e la versione Oracle è 8i, aggiungere `WireProtocolMode=1` alla stringa di connessione. Quindi riprovare.
+>Se viene ricevuto un errore, "ORA-01025: parametro UPI non compreso nell'intervallo" e la versione di Oracle è 8i, aggiungere `WireProtocolMode=1` alla stringa di connessione. Quindi riprovare.
+
+Ulteriori proprietà di connessione che è possibile impostare nella stringa di connessione in base al caso:
+
+| Proprietà | Description | Valori consentiti |
+|:--- |:--- |:--- |
+| ArraySize |Numero di byte che il connettore può recuperare in una singola rete round trip. Ad esempio, `ArraySize=‭10485760‬`.<br/><br/>I valori più grandi aumentano la velocità effettiva riducendo il numero di volte in cui recuperare i dati attraverso la rete. I valori più piccoli aumentano il tempo di risposta, poiché si verificano meno ritardi in attesa del server per la trasmissione dei dati. | Numero intero compreso tra 1 e 4294967296 (4 GB). Il valore predefinito è `60000`. Il valore 1 non definisce il numero di byte, ma indica l'allocazione dello spazio per esattamente una riga di dati. |
 
 Per abilitare la crittografia sulla connessione di Oracle, sono disponibili due opzioni:
 
@@ -102,20 +108,20 @@ Per abilitare la crittografia sulla connessione di Oracle, sono disponibili due 
         -----END CERTIFICATE-----
         ```
     
-    2.  `keystore` Compilare o .`truststore` Il comando che segue crea `truststore` il file, con o senza una password, in formato PKCS-12.
+    2.  Compilare il `keystore` o `truststore`. Il comando che segue crea il file di `truststore`, con o senza una password, in formato PKCS-12.
 
         ```
         openssl pkcs12 -in [Path to the file created in the previous step] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -nokeys -export
         ```
 
-        **Esempio:** Creare un file `truststore` PKCS12, denominato MyTrustStoreFile, con una password.
+        **Esempio:** Creare un file PKCS12 `truststore`, denominato MyTrustStoreFile, con una password.
 
         ```
         openssl pkcs12 -in cert.txt -out MyTrustStoreFile -passout pass:ThePWD -nokeys -export  
         ```
 
-    3.  Inserire il `truststore` file nel computer IR indipendente. Inserire, ad esempio, il file in C:\MyTrustStoreFile.
-    4.  In Azure Data Factory configurare la stringa di connessione Oracle con `EncryptionMethod=1` e il valore `TrustStore`corrispondente /. `TrustStorePassword` Ad esempio `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
+    3.  Inserire il file di `truststore` nel computer IR indipendente. Inserire, ad esempio, il file in C:\MyTrustStoreFile.
+    4.  In Azure Data Factory configurare la stringa di connessione Oracle con `EncryptionMethod=1` e il valore di`TrustStorePassword`/`TrustStore`corrispondente. Ad esempio `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
 
 **Esempio:**
 
@@ -168,16 +174,16 @@ Per abilitare la crittografia sulla connessione di Oracle, sono disponibili due 
 ```
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Questa sezione presenta un elenco delle proprietà supportate dal set di dati Oracle. Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere [Datasets](concepts-datasets-linked-services.md). 
+Questa sezione presenta un elenco delle proprietà supportate dal set di dati Oracle. Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere [DataSets](concepts-datasets-linked-services.md). 
 
-Per copiare dati da e in Oracle, impostare la proprietà Type del set di dati `OracleTable`su. Sono supportate le proprietà seguenti.
+Per copiare dati da e in Oracle, impostare la proprietà Type del set di dati su `OracleTable`. Sono supportate le proprietà seguenti.
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata `OracleTable`su. | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su `OracleTable`. | SÌ |
 | schema | Nome dello schema. |No per l'origine, Sì per il sink  |
 | table | Nome della tabella o della vista. |No per l'origine, Sì per il sink  |
-| tableName | Nome della tabella o della vista con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Per il nuovo carico di `schema` lavoro `table`, utilizzare e. | No per l'origine, Sì per il sink |
+| tableName | Nome della tabella o della vista con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Per il nuovo carico di lavoro, usare `schema` e `table`. | No per l'origine, Sì per il sink |
 
 **Esempio:**
 
@@ -209,18 +215,18 @@ Questa sezione presenta un elenco delle proprietà supportate dall'origine e dal
 >[!TIP]
 >Per caricare in modo efficiente i dati da Oracle usando il partizionamento dei dati, vedere la [copia parallela da Oracle](#parallel-copy-from-oracle).
 
-Per copiare dati da Oracle, impostare il tipo di origine nell'attività di copia `OracleSource`su. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti.
+Per copiare dati da Oracle, impostare il tipo di origine nell'attività di copia su `OracleSource`. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti.
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata `OracleSource`su. | Sì |
+| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su `OracleSource`. | SÌ |
 | oracleReaderQuery | Usare la query SQL personalizzata per leggere i dati. Un esempio è `"SELECT * FROM MyTable"`.<br>Quando si Abilita il caricamento partizionato, è necessario associare tutti i parametri di partizione predefiniti corrispondenti nella query. Per esempi, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
-| partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per caricare dati da Oracle. <br>I valori consentiti sono i seguenti: **Nessuna** (impostazione predefinita), **PhysicalPartitionsOfTable** e **DynamicRange**.<br>Quando è abilitata un'opzione di partizione (ovvero non `None`), il grado di parallelismo per caricare simultaneamente i dati da un database Oracle è controllato [`parallelCopies`](copy-activity-performance.md#parallel-copy) dall'impostazione dell'attività di copia. | No |
-| partitionSettings | Consente di specificare il gruppo di impostazioni per il partizionamento dei dati. <br>Applicare quando l'opzione partition non `None`è. | No |
-| partitionNames | Elenco di partizioni fisiche che devono essere copiate. <br>Applicare quando l'opzione di partizione `PhysicalPartitionsOfTable`è. Se si utilizza una query per recuperare i dati di origine, `?AdfTabularPartitionName` associare la clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
-| partitionColumnName | Specificare il nome della colonna di origine **nel tipo Integer** che verrà utilizzato dal partizionamento dell'intervallo per la copia parallela. Se non è specificato, la chiave primaria della tabella viene rilevata automaticamente e utilizzata come colonna della partizione. <br>Applicare quando l'opzione di partizione `DynamicRange`è. Se si utilizza una query per recuperare i dati di origine, `?AdfRangePartitionColumnName` associare la clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
-| partitionUpperBound | Valore massimo della colonna di partizione in cui copiare i dati. <br>Applicare quando l'opzione di partizione `DynamicRange`è. Se si utilizza una query per recuperare i dati di origine, `?AdfRangePartitionUpbound` associare la clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
-| partitionLowerBound | Valore minimo della colonna di partizione in cui copiare i dati. <br>Applicare quando l'opzione di partizione `DynamicRange`è. Se si utilizza una query per recuperare i dati di origine, `?AdfRangePartitionLowbound` associare la clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
+| partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per caricare dati da Oracle. <br>I valori consentiti sono: **None** (impostazione predefinita), **PhysicalPartitionsOfTable** e **DynamicRange**.<br>Quando è abilitata un'opzione di partizione (ovvero non `None`), il grado di parallelismo per caricare simultaneamente i dati da un database Oracle è controllato dall'impostazione [`parallelCopies`](copy-activity-performance.md#parallel-copy) sull'attività di copia. | No |
+| partitionSettings | Consente di specificare il gruppo di impostazioni per il partizionamento dei dati. <br>Applicare quando l'opzione partition non è `None`. | No |
+| partitionNames | Elenco di partizioni fisiche che devono essere copiate. <br>Applicare quando l'opzione di partizione è `PhysicalPartitionsOfTable`. Se si utilizza una query per recuperare i dati di origine, associare `?AdfTabularPartitionName` nella clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
+| partitionColumnName | Specificare il nome della colonna di origine **nel tipo Integer** che verrà utilizzato dal partizionamento dell'intervallo per la copia parallela. Se non è specificato, la chiave primaria della tabella viene rilevata automaticamente e utilizzata come colonna della partizione. <br>Applicare quando l'opzione di partizione è `DynamicRange`. Se si utilizza una query per recuperare i dati di origine, associare `?AdfRangePartitionColumnName` nella clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
+| partitionUpperBound | Valore massimo della colonna di partizione in cui copiare i dati. <br>Applicare quando l'opzione di partizione è `DynamicRange`. Se si utilizza una query per recuperare i dati di origine, associare `?AdfRangePartitionUpbound` nella clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
+| partitionLowerBound | Valore minimo della colonna di partizione in cui copiare i dati. <br>Applicare quando l'opzione di partizione è `DynamicRange`. Se si utilizza una query per recuperare i dati di origine, associare `?AdfRangePartitionLowbound` nella clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
 
 **Esempio: copiare i dati usando una query di base senza partizione**
 
@@ -256,12 +262,12 @@ Per copiare dati da Oracle, impostare il tipo di origine nell'attività di copia
 
 ### <a name="oracle-as-sink"></a>Oracle come sink
 
-Per copiare dati in Oracle, impostare il tipo di sink nell'attività di copia `OracleSink`su. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti.
+Per copiare dati in Oracle, impostare il tipo di sink nell'attività di copia su `OracleSink`. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti.
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del sink dell'attività di copia deve essere impostata `OracleSink`su. | Yes |
-| writeBatchSize | Inserisce i dati nella tabella SQL quando la dimensione del buffer `writeBatchSize`raggiunge.<br/>I valori consentiti sono integer (numero di righe). |No (il valore predefinito è 10.000) |
+| type | La proprietà Type del sink dell'attività di copia deve essere impostata su `OracleSink`. | SÌ |
+| writeBatchSize | Inserisce i dati nella tabella SQL quando la dimensione del buffer raggiunge `writeBatchSize`.<br/>I valori consentiti sono integer (numero di righe). |No (il valore predefinito è 10.000) |
 | writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono un intervallo di tempo. Ad esempio "00:30:00" (30 minuti). | No |
 | preCopyScript | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in Oracle a ogni esecuzione. È possibile usare questa proprietà per pulire i dati precaricati. | No |
 
@@ -302,16 +308,16 @@ Il Data Factory connettore Oracle fornisce il partizionamento dei dati predefini
 
 ![Screenshot delle opzioni di partizione](./media/connector-oracle/connector-oracle-partition-options.png)
 
-Quando si Abilita la copia partizionata, Data Factory esegue query parallele sull'origine Oracle per caricare i dati in base alle partizioni. Il grado parallelo è controllato dall' [`parallelCopies`](copy-activity-performance.md#parallel-copy) impostazione dell'attività di copia. Se, ad esempio, si `parallelCopies` imposta su quattro, data factory genera ed esegue contemporaneamente quattro query in base all'opzione di partizione specificata e alle impostazioni e ogni query recupera una porzione di dati dal database Oracle.
+Quando si Abilita la copia partizionata, Data Factory esegue query parallele sull'origine Oracle per caricare i dati in base alle partizioni. Il grado parallelo è controllato dall'impostazione del [`parallelCopies`](copy-activity-performance.md#parallel-copy) sull'attività di copia. Se, ad esempio, si imposta `parallelCopies` su quattro, Data Factory genera ed esegue quattro query in base all'opzione di partizione specificata e alle impostazioni e ogni query recupera una porzione di dati dal database Oracle.
 
 Si consiglia di abilitare la copia parallela con il partizionamento dei dati, specialmente quando si caricano grandi quantità di dati dal database Oracle. Di seguito sono elencate le configurazioni consigliate per diversi scenari. Quando si copiano dati in un archivio dati basato su file, viene riordinata la scrittura in una cartella come più file (specifica solo il nome della cartella), nel qual caso le prestazioni sono migliori rispetto alla scrittura in un singolo file.
 
 | Scenario                                                     | Impostazioni consigliate                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Caricamento completo da tabelle di grandi dimensioni, con partizioni fisiche.          | **Opzione partizione**: Partizioni fisiche della tabella. <br><br/>Durante l'esecuzione, Data Factory rileva automaticamente le partizioni fisiche e copia i dati in base alle partizioni. |
-| Caricamento completo da tabelle di grandi dimensioni, senza partizioni fisiche, mentre con una colonna di tipo integer per il partizionamento dei dati. | **Opzioni partizione**: Partizione a intervalli dinamici.<br>**Colonna partizione**: Specificare la colonna utilizzata per partizionare i dati. Se non è specificato, viene utilizzata la colonna chiave primaria. |
-| Caricare una grande quantità di dati tramite una query personalizzata con partizioni fisiche. | **Opzione partizione**: Partizioni fisiche della tabella.<br>**Query**: `SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>`.<br>**Nome partizione**: Specificare i nomi di partizione da cui copiare i dati. Se non specificato, Data Factory rileva automaticamente le partizioni fisiche nella tabella specificata nel set di dati Oracle.<br><br>Durante l'esecuzione, data factory `?AdfTabularPartitionName` sostituisce con il nome effettivo della partizione e invia a Oracle. |
-| Caricare una grande quantità di dati tramite una query personalizzata, senza partizioni fisiche, mentre con una colonna integer per il partizionamento dei dati. | **Opzioni partizione**: Partizione a intervalli dinamici.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Colonna partizione**: Specificare la colonna utilizzata per partizionare i dati. È possibile partizionare la colonna con il tipo di dati Integer.<br>Limite **superiore della partizione** e **limite inferiore della partizione**: Specificare se si desidera filtrare in base alla colonna di partizione per recuperare i dati solo tra l'intervallo inferiore e quello superiore.<br><br>Durante l'esecuzione, data factory `?AdfRangePartitionColumnName`sostituisce `?AdfRangePartitionUpbound`, e `?AdfRangePartitionLowbound` con il nome della colonna e gli intervalli di valori effettivi per ogni partizione e invia a Oracle. <br>Se ad esempio la colonna di partizione "ID" è impostata con il limite inferiore 1 e il limite superiore come 80, con la copia parallela impostata su 4, Data Factory recupera i dati di 4 partizioni. I rispettivi ID sono rispettivamente compresi tra [1, 20], [21, 40], [41, 60] e [61, 80]. |
+| Caricamento completo da tabelle di grandi dimensioni, con partizioni fisiche.          | **Opzione partition**: partizioni fisiche della tabella. <br><br/>Durante l'esecuzione, Data Factory rileva automaticamente le partizioni fisiche e copia i dati in base alle partizioni. |
+| Caricamento completo da tabelle di grandi dimensioni, senza partizioni fisiche, mentre con una colonna di tipo integer per il partizionamento dei dati. | **Opzioni di partizione**: partizione a intervalli dinamici.<br>**Colonna partizione**: specificare la colonna utilizzata per partizionare i dati. Se non è specificato, viene utilizzata la colonna chiave primaria. |
+| Caricare una grande quantità di dati tramite una query personalizzata con partizioni fisiche. | **Opzione partition**: partizioni fisiche della tabella.<br>**Query**: `SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>`.<br>**Nome partizione**: specificare i nomi di partizione da cui copiare i dati. Se non specificato, Data Factory rileva automaticamente le partizioni fisiche nella tabella specificata nel set di dati Oracle.<br><br>Durante l'esecuzione, Data Factory sostituisce `?AdfTabularPartitionName` con il nome effettivo della partizione e invia a Oracle. |
+| Caricare una grande quantità di dati tramite una query personalizzata, senza partizioni fisiche, mentre con una colonna integer per il partizionamento dei dati. | **Opzioni di partizione**: partizione a intervalli dinamici.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Colonna partizione**: specificare la colonna utilizzata per partizionare i dati. È possibile partizionare la colonna con il tipo di dati Integer.<br>Limite **superiore** della partizione e **limite inferiore della partizione**: specificare se si desidera filtrare in base alla colonna di partizione per recuperare i dati solo tra l'intervallo inferiore e quello superiore.<br><br>Durante l'esecuzione, Data Factory sostituisce `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound`e `?AdfRangePartitionLowbound` con il nome della colonna e gli intervalli di valori effettivi per ogni partizione e invia a Oracle. <br>Se ad esempio la colonna di partizione "ID" è impostata con il limite inferiore 1 e il limite superiore come 80, con la copia parallela impostata su 4, Data Factory recupera i dati di 4 partizioni. I rispettivi ID sono rispettivamente compresi tra [1, 20], [21, 40], [41, 60] e [61, 80]. |
 
 **Esempio: query con partizione fisica**
 
@@ -352,25 +358,25 @@ Quando si copiano dati da e in Oracle, vengono applicati i mapping seguenti. Per
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(supportato solo in Oracle 10g e versioni successive) |
-| CHAR |String |
-| CLOB |String |
-| DATE |DateTime |
+| CHAR |Stringa |
+| CLOB |Stringa |
+| DATE |Data e ora |
 | FLOAT |Decimal, String (se la precisione > 28) |
 | INTEGER |Decimal, String (se la precisione > 28) |
-| LONG |String |
+| LONG |Stringa |
 | LONG RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
+| NCHAR |Stringa |
+| NCLOB |Stringa |
 | NUMBER |Decimal, String (se la precisione > 28) |
-| NVARCHAR2 |String |
+| NVARCHAR2 |Stringa |
 | RAW |Byte[] |
-| ROWID |String |
-| TIMESTAMP |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |String |
-| TIMESTAMP WITH TIME ZONE |String |
-| UNSIGNED INTEGER |NUMBER |
-| VARCHAR2 |String |
-| XML |String |
+| ROWID |Stringa |
+| TIMESTAMP |Data e ora |
+| TIMESTAMP WITH LOCAL TIME ZONE |Stringa |
+| TIMESTAMP WITH TIME ZONE |Stringa |
+| UNSIGNED INTEGER |Numero |
+| VARCHAR2 |Stringa |
+| XML |Stringa |
 
 > [!NOTE]
 > I tipi di dati INTERVAL YEAR TO MONTH e INTERVAL DAY TO SECOND non sono supportati.

@@ -1,24 +1,18 @@
 ---
 title: Connettersi Configuration Manager a monitoraggio di Azure | Microsoft Docs
 description: Questo articolo illustra i passaggi per connettere Configuration Manager all'area di lavoro in monitoraggio di Azure e iniziare ad analizzare i dati.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/28/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: b4e6cc32b1d4392c63b7b236ab0df297849224c8
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 08/28/2019
+ms.openlocfilehash: fee6f09ba8e290ae6599f07d4ed831fb89427f76
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141118"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932647"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Connetti Configuration Manager a monitoraggio di Azure
 È possibile connettere l'ambiente System Center Configuration Manager a monitoraggio di Azure per sincronizzare i dati della raccolta dispositivi e fare riferimento a tali raccolte in monitoraggio di Azure e automazione di Azure.  
@@ -115,7 +109,7 @@ Vedere l'articolo [connettere computer Windows a monitoraggio di Azure in Azure]
 
     8. Selezionare **Verifica** e a destra i risultati dovrebbero essere visualizzati **correttamente**.
 
-8. Nella pagina **configurazione** esaminare le informazioni per verificare che i campi **sottoscrizioni di Azure**, gruppo di **risorse di Azure**e area di **lavoro di Operations Management Suite** siano pre-popolati indicando che l'applicazione Azure ad ha autorizzazioni sufficienti nel gruppo di risorse. Se i campi sono vuoti, significa che l'applicazione non dispone dei diritti necessari. Selezionare le raccolte di dispositivi da raccogliere e trasmettere all'area di lavoro, quindi selezionare **Aggiungi**.
+8. Nella pagina **configurazione** esaminare le informazioni per verificare che i campi **sottoscrizioni di Azure**, **gruppo di risorse di Azure**e area di lavoro di **Operations Management Suite** siano pre-popolati indicando che l'applicazione Azure ad ha autorizzazioni sufficienti nel gruppo di risorse. Se i campi sono vuoti, significa che l'applicazione non dispone dei diritti necessari. Selezionare le raccolte di dispositivi da raccogliere e trasmettere all'area di lavoro, quindi selezionare **Aggiungi**.
 
 9. Esaminare le opzioni nella pagina **Conferma impostazioni** e selezionare **Avanti** per iniziare a creare e configurare la connessione.
 

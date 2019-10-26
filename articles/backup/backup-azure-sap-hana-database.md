@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: 50fbd0a2169fb120424d76e786a6269243eeb3e1
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 8d99ff6f2d8a21a501631a3a062be6b05130c05b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273940"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931812"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Eseguire il backup di un database di SAP HANA in Azure
 
@@ -53,6 +53,9 @@ Prima di configurare i backup, assicurarsi di eseguire le operazioni seguenti:
     sudo zypper update
     sudo zypper install unixODBC
     ```
+
+    > [!NOTE]
+    > Se non si aggiornano i repository, verificare che la versione di unixODBC sia min 2.3.4. Per informazioni sulla versione di uniXODBC, eseguire ```odbcinst -j``` come radice
 
 2. Consentire la connettività dalla macchina virtuale a Internet, in modo che possa raggiungere Azure, come descritto nella procedura [seguente](#set-up-network-connectivity).
 
@@ -116,13 +119,13 @@ Specificare le impostazioni dei criteri come indicato di seguito:
 
 1. In **Nome criterio** immettere un nome per il nuovo criterio.
 2. Nel criterio **Backup completo** selezionare una **frequenza di backup** scegliendo **Giornaliero** o **Settimanale**.
-   - **Giornaliera**: Consente di selezionare l'ora e il fuso orario in cui inizia il processo di backup.
+   - **Giornaliero**: selezionare l'ora e il fuso orario in cui inizia il processo di backup.
    
        - È necessario eseguire un backup completo. Non è possibile disattivare questa opzione.
        - Fare clic su **Backup completo** per visualizzare il criterio.
        - Se si sceglie di eseguire backup completi giornalieri, non è possibile creare backup differenziali.
        
-   - **Ogni settimana**: Selezionare il giorno della settimana, l'ora e il fuso orario in cui viene eseguito il processo di backup.
+   - **Settimanale**: selezionare il giorno della settimana, l'ora e il fuso orario in cui viene eseguito il processo di backup.
 3. In periodo di **mantenimento**dati configurare le impostazioni di conservazione per il backup completo.
     - Per impostazione predefinita, tutte le opzioni sono selezionate. Cancellare i limiti del periodo di mantenimento dati che non si vuole usare e impostarli.
     - Il periodo di memorizzazione minimo per qualsiasi tipo di backup (completo/differenziale/log) è di sette giorni.

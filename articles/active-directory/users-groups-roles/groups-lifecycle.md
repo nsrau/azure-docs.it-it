@@ -10,41 +10,51 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 10/24/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3cef2bd16907de6e60db2678516f70346a20285
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 5dd8858786d59563542c95d43d4e480ab1c11383
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803602"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933788"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurare i criteri di scadenza per i gruppi di Office 365
 
-Questo articolo descrive come gestire il ciclo di vita dei gruppi di Office 365 impostando i criteri di scadenza. È possibile impostare i criteri di scadenza dei soli gruppi di Office 365 in Azure Active Directory (Azure AD).
+Questo articolo descrive come gestire il ciclo di vita dei gruppi di Office 365 impostando i criteri di scadenza. È possibile impostare i criteri di scadenza solo per i gruppi di Office 365 in Azure Active Directory (Azure AD).
 
 Dopo l'impostazione della scadenza di un gruppo:
 
-- I gruppi con attività utente vengono rinnovati automaticamente in prossimità della scadenza
+- I gruppi con attività utente vengono rinnovati automaticamente in prossimità della scadenza (anteprima)
 - I proprietari del gruppo ricevono una notifica per rinnovare il gruppo, se il gruppo non viene rinnovato automaticamente
 - I gruppi che non vengono rinnovati vengono eliminati
 - I gruppi di Office 365 eliminati possono essere ripristinati entro 30 giorni dai proprietari o dall'amministratore.
 
-Le azioni all'comporteranno il rinnovo automatico di un gruppo:
-
-- SharePoint-visualizzare, modificare, scaricare, spostare, condividere e caricare file
-- Outlook-join gruppo, lettura/scrittura gruppo messaggio e come un messaggio
-- Team-visita un canale Teams
-
-Attualmente può essere configurato un solo criterio di scadenza per i gruppi di Office 365 di un tenant.
+Attualmente è possibile configurare solo un criterio di scadenza per tutti i gruppi di Office 365 in un'organizzazione Azure AD.
 
 > [!NOTE]
 > Per la configurazione e l'uso dei criteri di scadenza per i gruppi di Office 365 è necessario disporre delle licenze Azure AD Premium per i membri di tutti i gruppi a cui vengono applicati i criteri di scadenza.
 
 Per informazioni su come scaricare e installare i cmdlet di Azure AD PowerShell, vedere [Azure Active Directory PowerShell for Graph 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) (Azure Active Directory PowerShell per Graph 2.0.0.137).
+
+## <a name="activity-based-automatic-renewal-preview"></a>Rinnovo automatico basato sulle attività (anteprima)
+
+Con Azure AD Intelligence, i gruppi vengono ora rinnovati automaticamente a seconda che siano stati usati più di recente. Questa funzionalità Elimina la necessità di azioni manuali da parte dei proprietari del gruppo, perché si basa sull'attività dell'utente in gruppi tra i servizi di Office 365 come Outlook, SharePoint, teams o Yammer. Se, ad esempio, un proprietario o un membro del gruppo esegue un'operazione come caricare un documento in SharePoint, visitare un canale teams o inviare un messaggio di posta elettronica al gruppo in Outlook, il gruppo viene rinnovato automaticamente e il proprietario non riceve alcuna notifica di rinnovo.
+
+### <a name="activities-that-automatically-renew-group-expiration"></a>Attività che rinnovano automaticamente la scadenza del gruppo
+
+Le azioni dell'utente seguenti provocano il rinnovo automatico del gruppo:
+
+- SharePoint: visualizzare, modificare, scaricare, spostare, condividere o caricare file
+- Outlook: gruppo di join, lettura/scrittura del messaggio del gruppo dallo spazio del gruppo, ad esempio un messaggio (in Outlook Accesso Web)
+- Teams: visitare un canale Teams
+
+### <a name="auditing-and-reporting"></a>Controllo e creazione di report
+
+Gli amministratori possono ottenere un elenco di gruppi rinnovati automaticamente dai log di controllo delle attività in Azure AD.
 
 ## <a name="roles-and-permissions"></a>Ruoli e autorizzazioni
 
@@ -67,16 +77,16 @@ Per altre informazioni sulle autorizzazioni per ripristinare un gruppo eliminato
 
 3. Nella pagina **scadenza** è possibile:
 
-  - Impostare la durata del gruppo in giorni. È possibile selezionare uno dei valori predefiniti oppure un valore personalizzato (che deve essere di 31 giorni o più).
-  - Specificare un indirizzo e-mail per l'invio delle notifiche di rinnovo e di scadenza quando un gruppo non ha un proprietario.
-  - Selezionare i gruppi di Office 365 che scadono. È possibile impostare la scadenza per:
-    - **Tutto** Gruppi di Office 365
-    - Elenco di gruppi di Office 365 **selezionati**
-    - **Nessuno** per limitare la scadenza per tutti i gruppi
-  - Al termine salvare le impostazioni facendo clic su **Salva**.
+    - Impostare la durata del gruppo in giorni. È possibile selezionare uno dei valori predefiniti oppure un valore personalizzato (che deve essere di 31 giorni o più).
+    - Specificare un indirizzo e-mail per l'invio delle notifiche di rinnovo e di scadenza quando un gruppo non ha un proprietario.
+    - Selezionare i gruppi di Office 365 che scadono. È possibile impostare la scadenza per:
+      - **Tutto** Gruppi di Office 365
+      - Elenco di gruppi di Office 365 **selezionati**
+      - **Nessuno** per limitare la scadenza per tutti i gruppi
+    - Al termine salvare le impostazioni facendo clic su **Salva**.
 
 > [!NOTE]
-> Quando si configura per la prima volta la scadenza, tutti i gruppi antecedenti all'intervallo di scadenza vengono impostati su 35 giorni fino alla scadenza, a meno che il gruppo non venga rinnovato automaticamente o il proprietario lo rinnovi. 
+> Quando si configura per la prima volta la scadenza, tutti i gruppi antecedenti all'intervallo di scadenza vengono impostati su 35 giorni fino alla scadenza, a meno che il gruppo non venga rinnovato automaticamente o il proprietario lo rinnovi.
 >
 > Quando un gruppo dinamico viene eliminato e ripristinato, viene considerato come un nuovo gruppo e popolato nuovamente in base alla regola. Questo processo può richiedere fino a 24 ore.
 >
@@ -99,18 +109,22 @@ Il gruppo può essere ripristinato entro 30 giorni dalla relativa eliminazione s
 Se il gruppo che si sta ripristinando contiene documenti, siti di SharePoint o altri oggetti persistenti, potrebbero essere necessarie fino a 24 ore per ripristinare completamente il gruppo e il relativo contenuto.
 
 ## <a name="how-to-retrieve-office-365-group-expiration-date"></a>Come recuperare la data di scadenza del gruppo di Office 365
+
 Oltre al pannello di accesso in cui gli utenti possono visualizzare i dettagli dei gruppi, tra cui la data di scadenza e l'ultima data di rinnovo, è possibile recuperare la data di scadenza di un gruppo di Office 365 dall'API REST beta di Microsoft Graph expirationDateTime come proprietà del gruppo è stato abilitato in Microsoft Graph beta. Può essere recuperato con una richiesta GET. Per altri dettagli, vedere [questo esempio](https://docs.microsoft.com/graph/api/group-get?view=graph-rest-beta#example).
 
 > [!NOTE]
 > Per gestire le appartenenze ai gruppi nel pannello di accesso, è necessario impostare "limita l'accesso ai gruppi nel pannello di accesso" su "No" nell'impostazione generale gruppi Azure Active Directory.
 
 ## <a name="how-office-365-group-expiration-works-with-a-mailbox-on-legal-hold"></a>Come funziona la scadenza dei gruppi di Office 365 con una cassetta postale in blocco a fini giudiziari
-Quando un gruppo scade e viene eliminato, 30 giorni i dati del gruppo presenti in app come Planner, Siti o Teams vengono eliminati definitivamente, mentre la cassetta postale del gruppo che è in blocco a fini giudiziari viene mantenuta. L'amministratore può usare i cmdlet di Exchange per ripristinare la cassetta postale e recuperare i dati. 
+
+Quando un gruppo scade e viene eliminato, 30 giorni i dati del gruppo presenti in app come Planner, Siti o Teams vengono eliminati definitivamente, mentre la cassetta postale del gruppo che è in blocco a fini giudiziari viene mantenuta. L'amministratore può usare i cmdlet di Exchange per ripristinare la cassetta postale e recuperare i dati.
 
 ## <a name="how-office-365-group-expiration-works-with-retention-policy"></a>Come funziona la scadenza dei gruppi di Office 365 con i criteri di conservazione
+
 I criteri di conservazione vengono configurati tramite il Centro sicurezza e conformità. Se per i gruppi di Office 365 sono stati configurati criteri di conservazione, quando un gruppo scade e viene eliminato le conversazioni presenti nella cassetta postale del gruppo e i file presenti nel sito del gruppo vengono mantenuti nell'apposito contenitore per uno specifico numero di giorni definito nei criteri di conservazione. Dopo la scadenza gli utenti non potranno vedere il gruppo o i relativi contenuti, ma potranno recuperare i dati del sito e della cassetta postale tramite e-discovery.
 
 ## <a name="powershell-examples"></a>Esempi di PowerShell
+
 Di seguito sono riportati alcuni esempi di come è possibile usare i cmdlet di PowerShell per configurare le impostazioni di scadenza per i gruppi di Office 365 nell'organizzazione Azure AD:
 
 1. Installare il modulo PowerShell v 2.0 e accedere al prompt di PowerShell:
@@ -152,7 +166,7 @@ Di seguito sono riportati alcuni esempi di come è possibile usare i cmdlet di P
    Add-AzureADMSLifecyclePolicyGroup -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
    ```
   
-1. Rimuovere il criterio esistente Remove-AzureADMSGroupLifecyclePolicy. Questo cmdlet elimina le impostazioni di scadenza dei gruppi di Office 365, ma richiede l'ID di tali criteri. Verrà così disabilitata la scadenza per i gruppi di Office 365.
+1. Rimuovere il criterio esistente Remove-AzureADMSGroupLifecyclePolicy. Questo cmdlet elimina le impostazioni di scadenza dei gruppi di Office 365, ma richiede l'ID di tali criteri. Questo cmdlet disabilita la scadenza per i gruppi di Office 365.
   
    ```powershell
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"

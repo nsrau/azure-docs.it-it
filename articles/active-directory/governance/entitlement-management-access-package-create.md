@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a278fdd194b841cbb8620999fe79c3affb4e0b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 70273a45bb60fca57292275ea0bb564e17a6f4e9
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389249"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934794"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Creare un nuovo pacchetto di accesso in Azure AD gestione dei diritti (anteprima)
 
@@ -68,9 +68,9 @@ Ecco i passaggi di alto livello per creare un nuovo pacchetto di accesso.
 
 1. Nel menu a sinistra fare clic su **Pacchetti di accesso**.
 
-    ![Gestione entitlement nel portale di Azure](./media/entitlement-management-shared/elm-access-packages.png)
-
 1. Fare clic su **Nuovo pacchetto di accesso**.
+
+    ![Gestione entitlement nel portale di Azure](./media/entitlement-management-shared/access-packages-list.png)
 
 ## <a name="basics"></a>Nozioni di base
 
@@ -104,7 +104,7 @@ Nella scheda **ruoli risorsa** selezionare le risorse da includere nel pacchetto
 
     Se si sta creando il pacchetto di accesso in un catalogo esistente, è possibile selezionare qualsiasi risorsa già presente nel catalogo senza possederla.
 
-    Se si è un amministratore globale, un amministratore utente o un proprietario del catalogo, è possibile selezionare le risorse di cui si è proprietari e che non sono ancora presenti nel catalogo. Se si selezionano risorse non presenti nel catalogo selezionato, queste risorse verranno aggiunte anche al catalogo per consentire ad altri amministratori del catalogo di compilare pacchetti di accesso con. Se si desidera solo selezionare le risorse attualmente presenti nel catalogo selezionato, selezionare la casella di controllo **Visualizza solo** nella parte superiore del riquadro di selezione.
+    Se si è un amministratore globale, un amministratore utente o un proprietario del catalogo, è possibile selezionare le risorse di cui si è proprietari e che non sono ancora presenti nel catalogo. Se si selezionano risorse non presenti nel catalogo selezionato, queste risorse verranno aggiunte anche al catalogo per consentire ad altri amministratori del catalogo di compilare pacchetti di accesso con. Se si desidera solo selezionare le risorse attualmente presenti nel catalogo selezionato, selezionare la casella di controllo **Visualizza solo** nella parte superiore del riquadro Seleziona.
 
 1. Dopo aver selezionato le risorse, nell'elenco **ruolo** selezionare il ruolo che si desidera assegnare agli utenti per la risorsa.
 
@@ -118,7 +118,7 @@ Nella scheda **richieste** creare il primo criterio per specificare gli utenti c
 
 ![Scheda Access Package-requests](./media/entitlement-management-access-package-create/requests.png)
 
-Eseguire i passaggi in una delle sezioni seguenti.
+A seconda di chi desidera essere in grado di richiedere questo pacchetto di accesso, eseguire i passaggi in una delle sezioni seguenti.
 
 [!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
 

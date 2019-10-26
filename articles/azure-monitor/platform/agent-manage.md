@@ -1,24 +1,18 @@
 ---
 title: Gestione dell'agente di Azure Log Analytics | Microsoft Docs
 description: Questo articolo descrive le diverse attività di gestione che in genere vengono eseguite durante il ciclo di vita del Log Analytics agente Windows o Linux distribuito in un computer.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/14/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 0c128aaf8102b3072b6a63c80ea860ceefbf5124
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.date: 06/14/2019
+ms.openlocfilehash: 8dec91a3987aed978bb088d1aeab48a6fd0f9fb4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67146299"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932798"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gestione e manutenzione dell'agente di Log Analytics per Windows e Linux
 
@@ -36,7 +30,7 @@ L'agente di Log Analytics per Windows e Linux può essere aggiornato alla versio
 
 ### <a name="upgrade-windows-agent"></a>Aggiornare l'agente Windows 
 
-Per aggiornare l'agente in una macchina virtuale Windows alla versione più recente non installata con l'estensione log Analytics VM, eseguire dal prompt dei comandi, dallo script o da un'altra soluzione di automazione oppure usando l'installazione\<di\>MMASetup-Platform. msi Procedura guidata.  
+Per aggiornare l'agente in una macchina virtuale Windows alla versione più recente non installata usando l'estensione Log Analytics VM, è possibile eseguire dal prompt dei comandi, dallo script o da un'altra soluzione di automazione oppure tramite l'installazione guidata della piattaforma MMASetup-\<\>. msi.  
 
 È possibile scaricare la versione più recente dell'agente Windows dall'area di lavoro di Log Analytics, eseguendo i passaggi seguenti.
 
@@ -58,11 +52,11 @@ Per aggiornare l'agente in una macchina virtuale Windows alla versione più rece
 
 1. Accedere al computer con un account con diritti amministrativi.
 
-2. Eseguire **MMASetup-\<Platform\>. exe** per avviare l'installazione guidata.
+2. Eseguire **MMASetup-\<platform\>. exe** per avviare l'installazione guidata.
 
 3. Nella prima pagina dell'installazione guidata, fare clic su **Avanti**.
 
-4. Nella finestra di dialogo **Microsoft Monitoring Agent installazione** fare clic su Accetto il contratto di licenza.
+4. Nella finestra di dialogo **Microsoft Monitoring Agent installazione** **fare clic su Accetto il** contratto di licenza.
 
 5. Nella finestra di dialogo **Microsoft Monitoring Agent installazione** fare clic su **Aggiorna**. Nella pagina stato viene visualizzato lo stato di avanzamento dell'aggiornamento.
 

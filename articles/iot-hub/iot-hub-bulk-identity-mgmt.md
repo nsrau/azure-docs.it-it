@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/11/2019
 ms.author: robinsh
-ms.openlocfilehash: 5dd93af7deec2b0c8c90f6a8586de905207ad0a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32c7a2a79c8d6a35008255b3c117f20d04ad7749
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796351"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72927410"
 ---
-# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importare ed esportare le identità dei dispositivi dell'IoT Hub in blocco
+# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importare ed esportare le identità dei dispositivi dell'hub Internet in blocco
 
 Ogni hub IoT ha un registro delle identità che è possibile usare per creare le risorse per ogni dispositivo nel servizio. e per consentire di controllare gli accessi agli endpoint per il dispositivo. Questo articolo descrive come importare ed esportare in blocco le identità del dispositivo in/da un registro delle identità.
 
@@ -85,13 +85,13 @@ while(true)
 }
 ```
 
-## <a name="device-importexport-job-limits"></a>Limiti di processo di importazione/esportazione di dispositivo
+## <a name="device-importexport-job-limits"></a>Limiti dei processi di importazione/esportazione del dispositivo
 
-Importare solo 1 dispositivi attivi o processo di esportazione è consentito in un momento per tutti i livelli di IoT Hub. L'IoT Hub ha anche i limiti di frequenza delle operazioni dei processi. Per altre informazioni, vedere [informazioni di riferimento - quote dell'IoT Hub e la limitazione delle richieste](iot-hub-devguide-quotas-throttling.md).
+Sono consentiti solo 1 processo di importazione o esportazione di un dispositivo attivo alla volta per tutti i livelli di hub Internet. L'hub Internet delle cose presenta anche limiti per le operazioni di frequenza dei processi. Per altre informazioni, vedere [quote e limitazioni dell'hub di riferimento](iot-hub-devguide-quotas-throttling.md).
 
 ## <a name="export-devices"></a>Esportare dispositivi
 
-Usare il metodo **ExportDevicesAsync** per esportare un intero registro delle identità di un hub IoT in un contenitore BLOB di [Archiviazione di Azure](../storage/index.yml) con una [firma di accesso condiviso](../storage/common/storage-security-guide.md#data-plane-security).
+Usare il metodo **ExportDevicesAsync** per esportare un intero registro delle identità di un hub IoT in un contenitore BLOB di [Archiviazione di Azure](../storage/index.yml) con una [firma di accesso condiviso](../storage/common/storage-security-guide.md#authorization).
 
 Questo metodo consente di creare backup affidabili delle informazioni sui dispositivi in un contenitore BLOB che si controlla.
 
@@ -257,15 +257,15 @@ Se il file di importazione include metadati gemelli, questi metadati sovrascrivo
 
 Usare la proprietà facoltativa **importMode** nei dati di serializzazione dell'importazione per ogni dispositivo per controllare il processo di importazione per dispositivo. La proprietà **importMode** include le opzioni seguenti:
 
-| importMode | Descrizione |
+| importMode | Description |
 | --- | --- |
-| **createOrUpdate** |Se non esiste un dispositivo con l'oggetto specificato **ID**, viene registrato di nuovo. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input specificati senza tener conto del valore **ETag** . <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. L'ETag del gemello, se specificato, viene elaborato in modo indipendente dal valore etag del dispositivo. Se è presente una mancata corrispondenza con l'etag del gemello esistente, viene scritto un errore nel file di log. |
-| **create** |Se non esiste un dispositivo con l'oggetto specificato **ID**, viene registrato di nuovo. <br/>Se il dispositivo esiste già, viene scritto un errore nel file di log. <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. L'ETag del gemello, se specificato, viene elaborato in modo indipendente dal valore etag del dispositivo. Se è presente una mancata corrispondenza con l'etag del gemello esistente, viene scritto un errore nel file di log. |
-| **update** |Se esiste già un dispositivo con l'oggetto specificato **ID**, le informazioni esistenti vengono sovrascritte con i dati di input specificati senza tener conto per il **ETag** valore. <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. |
-| **updateIfMatchETag** |Se esiste già un dispositivo con l'oggetto specificato **ID**, le informazioni esistenti vengono sovrascritte con i dati di input specificati solo se è presente un' **ETag** corrispondono. <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. <br/>In caso di mancata corrispondenza con **ETag** , viene scritto un errore nel file di log. |
-| **createOrUpdateIfMatchETag** |Se non esiste un dispositivo con l'oggetto specificato **ID**, viene registrato di nuovo. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input specificati solo se viene rilevata una corrispondenza con **ETag** . <br/>In caso di mancata corrispondenza con **ETag** , viene scritto un errore nel file di log. <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. L'ETag del gemello, se specificato, viene elaborato in modo indipendente dal valore etag del dispositivo. Se è presente una mancata corrispondenza con l'etag del gemello esistente, viene scritto un errore nel file di log. |
-| **delete** |Se esiste già un dispositivo con l'oggetto specificato **ID**, viene eliminato senza tener conto per il **ETag** valore. <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. |
-| **deleteIfMatchETag** |Se esiste già un dispositivo con l'oggetto specificato **ID**, viene eliminato solo se è presente un' **ETag** corrispondono. Se il dispositivo non esiste, viene scritto un errore nel file di log. <br/>In caso di mancata corrispondenza con ETag, viene scritto un errore nel file di log. |
+| **createOrUpdate** |Se un dispositivo non esiste con l' **ID**specificato, viene appena registrato. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input specificati senza tener conto del valore **ETag** . <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. L'ETag del gemello, se specificato, viene elaborato in modo indipendente dal valore etag del dispositivo. Se è presente una mancata corrispondenza con l'etag del gemello esistente, viene scritto un errore nel file di log. |
+| **create** |Se un dispositivo non esiste con l' **ID**specificato, viene appena registrato. <br/>Se il dispositivo esiste già, viene scritto un errore nel file di log. <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. L'ETag del gemello, se specificato, viene elaborato in modo indipendente dal valore etag del dispositivo. Se è presente una mancata corrispondenza con l'etag del gemello esistente, viene scritto un errore nel file di log. |
+| **update** |Se esiste già un dispositivo con l' **ID**specificato, le informazioni esistenti vengono sovrascritte con i dati di input forniti senza considerare il valore **ETag** . <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. |
+| **updateIfMatchETag** |Se esiste già un dispositivo con l' **ID**specificato, le informazioni esistenti vengono sovrascritte con i dati di input forniti solo se è presente una corrispondenza con **ETag** . <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. <br/>In caso di mancata corrispondenza con **ETag** , viene scritto un errore nel file di log. |
+| **createOrUpdateIfMatchETag** |Se un dispositivo non esiste con l' **ID**specificato, viene appena registrato. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input specificati solo se viene rilevata una corrispondenza con **ETag** . <br/>In caso di mancata corrispondenza con **ETag** , viene scritto un errore nel file di log. <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. L'ETag del gemello, se specificato, viene elaborato in modo indipendente dal valore etag del dispositivo. Se è presente una mancata corrispondenza con l'etag del gemello esistente, viene scritto un errore nel file di log. |
+| **delete** |Se esiste già un dispositivo con l' **ID**specificato, viene eliminato senza considerare il valore **ETag** . <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. |
+| **deleteIfMatchETag** |Se esiste già un dispositivo con l' **ID**specificato, viene eliminato solo se è presente una corrispondenza con **ETag** . Se il dispositivo non esiste, viene scritto un errore nel file di log. <br/>In caso di mancata corrispondenza con ETag, viene scritto un errore nel file di log. |
 
 > [!NOTE]
 > Se i dati di serializzazione non definiscono in modo esplicito un flag **importMode** per un dispositivo, durante l'operazione di importazione l'impostazione predefinita è **createOrUpdate**.
@@ -424,7 +424,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 In questo articolo si è appreso come eseguire operazioni in blocco sul registro delle identità in un hub IoT. Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare questi collegamenti:
 
 * [Metriche di hub IoT](iot-hub-metrics.md)
-* [Log dell'IoT Hub](iot-hub-monitor-resource-health.md)
+* [Log dell'hub Internet](iot-hub-monitor-resource-health.md)
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 

@@ -1,5 +1,5 @@
 ---
-title: Usare il pacchetto NuGet CI/CD di analisi di flusso di Azure per l'integrazione e lo sviluppo
+title: Usare il pacchetto NuGet CI/CD di analisi di flusso di Azure
 description: Questo articolo descrive come usare il pacchetto NuGet CI/CD di analisi di flusso di Azure per configurare un processo di integrazione e distribuzione continua.
 services: stream-analytics
 author: su-jie
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 47bcd29ca8a1da0c42f7bc39aeb4ffc1ad8e8571
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 6f5ba06841af580cd80b3b46bec972f717ded044
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172910"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934235"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Usare il pacchetto NuGet CI/CD di analisi di flusso di Azure per l'integrazione e lo sviluppo 
 Questo articolo descrive come usare il pacchetto NuGet CI/CD di analisi di flusso di Azure per configurare un processo di integrazione e distribuzione continua.
@@ -93,6 +93,6 @@ Esempio:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Avvio rapido: Creare un processo cloud di analisi di flusso di Azure in Visual Studio](stream-analytics-quick-create-vs.md)
+* [Guida introduttiva: creare un processo cloud di analisi di flusso di Azure in Visual Studio](stream-analytics-quick-create-vs.md)
 * [Eseguire test locali delle query di Analisi di flusso con Visual Studio](stream-analytics-vs-tools-local-run.md)
 * [Esplorare i processi di analisi di flusso di Azure con Visual Studio](stream-analytics-vs-tools.md)

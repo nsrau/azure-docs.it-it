@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/21/2019
+ms.date: 10/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bcd27378039d539e36c72cf6e8fec7e8a1425e54
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 1faf6e4c9124d494507a124013d5fd8588f4b41b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750345"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934926"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurazioni dell'archiviazione di macchine virtuali di Azure in SAP HANA
 
@@ -40,7 +40,7 @@ Le condizioni minime SAP HANA certificate per i diversi tipi di archiviazione so
 
 - Azure SSD Premium-/Hana/log deve essere memorizzato nella cache con [acceleratore di scrittura](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)di Azure. Il volume/Hana/data potrebbe essere inserito in SSD Premium senza acceleratore di scrittura di Azure o su disco Ultra
 - Azure ultra disk almeno per il volume/Hana/log. Il volume/Hana/data può essere inserito in SSD Premium senza acceleratore di scrittura di Azure o per ottenere tempi di riavvio più rapidi.
-- Volumi **NFS v 4.1** sopra Azure NetApp files per/Hana/log **e** /Hana/data
+- Volumi **NFS v 4.1** sopra Azure NetApp files per/Hana/log **e** /Hana/data. Il volume di/Hana/Shared può utilizzare il protocollo NFS v3 o NFS v 4.1. Il protocollo NFS v 4.1 è obbligatorio per i volumi/Hana/data e/Hana/log.
 
 È possibile combinare alcuni tipi di archiviazione. Ad esempio, è possibile inserire/Hana/data nell'archiviazione Premium e/Hana/log può essere posizionato in archiviazione su disco Ultra per ottenere la bassa latenza richiesta. Tuttavia, non è consigliabile combinare volumi NFS, ad esempio/Hana/data, e usare uno degli altri tipi di archiviazione certificati per/Hana/log
 
@@ -230,10 +230,10 @@ In questa configurazione, i volumi/Hana/data e/Hana/log sullo stesso disco. I va
 I tipi di VM M416xx_v2 non sono ancora resi disponibili da Microsoft al pubblico. I valori elencati sono intesi come punto di partenza e devono essere valutati in base alle effettive esigenze. Il vantaggio di Azure ultra disk è che i valori per IOPS e velocità effettiva possono essere adattati senza la necessità di arrestare la macchina virtuale o di arrestare il carico di lavoro applicato al sistema.  
 
 ## <a name="nfs-v41-volumes-on-azure-netapp-files"></a>Volumi NFS v 4.1 in Azure NetApp Files
-Azure NetApp Files fornisce condivisioni NFS native che possono essere usate per i volumi/Hana/Shared,/Hana/data e/Hana/log. L'uso di condivisioni NFS basate su e per questi volumi richiede l'utilizzo del protocollo NFS v 4.1. il protocollo NFS v3 non è supportato per l'utilizzo di volumi correlati a HANA quando si basano le condivisioni in e. 
+Azure NetApp Files fornisce condivisioni NFS native che possono essere usate per i volumi/Hana/Shared,/Hana/data e/Hana/log. L'uso di condivisioni NFS basate su e per i volumi/Hana/data e/Hana/log richiede l'utilizzo del protocollo NFS v 4.1. Il protocollo NFS v3 non è supportato per l'utilizzo di volumi/Hana/data e/Hana/log quando si basano le condivisioni su e. 
 
 > [!IMPORTANT]
-> il protocollo NFS v3 implementato in Azure NetApp Files non è supportato per l'uso di/Hana/Shared,/Hana/data e/Hana/log
+> Il protocollo NFS v3 implementato in Azure NetApp Files non è supportato per l'uso di/Hana/data e/Hana/log. L'utilizzo di NFS 4,1 è obbligatorio per i volumi/Hana/data e/Hana/log da un punto di vista funzionale. Mentre per il volume/Hana/Shared il protocollo NFS v3 o NFS v 4.1 può essere utilizzato da un punto di vista funzionale.
 
 ### <a name="important-considerations"></a>Considerazioni importanti
 Quando si prendono in considerazione Azure NetApp Files per SAP NetWeaver e SAP HANA, tenere presente le considerazioni importanti seguenti:
@@ -270,21 +270,21 @@ I [limiti di velocità effettiva Azure NetApp files](https://docs.microsoft.com/
 
 Per soddisfare i requisiti di velocità effettiva minima SAP per dati e log e in base alle linee guida per `/hana/shared`, le dimensioni consigliate sono le seguenti:
 
-| Volume | Dimensioni<br /> Livello di archiviazione Premium | Dimensioni<br /> Livello di archiviazione Ultra |
+| Volume | Dimensioni<br /> Livello di archiviazione Premium | Dimensioni<br /> Livello di archiviazione Ultra | Protocollo NFS supportato |
 | --- | --- | --- |
-| /Hana/log | 4 TiB | 2 TiB |
-| /hana/data | 6,3 TiB | 3,2 TiB |
-| /hana/shared | Massimo (512 GB, 1xRAM) per 4 nodi di lavoro | Massimo (512 GB, 1xRAM) per 4 nodi di lavoro |
+| /Hana/log | 4 TiB | 2 TiB | v 4.1 |
+| /hana/data | 6,3 TiB | 3,2 TiB | v 4.1 |
+| /hana/shared | Massimo (512 GB, 1xRAM) per 4 nodi di lavoro | Massimo (512 GB, 1xRAM) per 4 nodi di lavoro | V3 o v 4.1 |
 
 La configurazione SAP HANA per il layout presentato in questo articolo, usando Azure NetApp Files livello di archiviazione Ultra sarà simile a quanto segue:
 
-| Volume | Dimensioni<br /> Livello di archiviazione Ultra |
+| Volume | Dimensioni<br /> Livello di archiviazione Ultra | Protocollo NFS supportato |
 | --- | --- |
-| /hana/log/mnt00001 | 2 TiB |
-| /hana/log/mnt00002 | 2 TiB |
-| /hana/data/mnt00001 | 3,2 TiB |
-| /hana/data/mnt00002 | 3,2 TiB |
-| /hana/shared | 2 TiB |
+| /hana/log/mnt00001 | 2 TiB | v 4.1 |
+| /hana/log/mnt00002 | 2 TiB | v 4.1 |
+| /hana/data/mnt00001 | 3,2 TiB | v 4.1 |
+| /hana/data/mnt00002 | 3,2 TiB | v 4.1 |
+| /hana/shared | 2 TiB | V3 o v 4.1 |
 
 > [!NOTE]
 > Le indicazioni relative al ridimensionamento del Azure NetApp Files indicate di seguito sono destinate a soddisfare i requisiti minimi che SAP esprime per i provider di infrastruttura. Nelle distribuzioni reali dei clienti e negli scenari di carico di lavoro, questo potrebbe non essere sufficiente. Usare queste indicazioni come punto di partenza e adattarle, in base ai requisiti del carico di lavoro specifico.  
