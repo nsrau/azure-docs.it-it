@@ -3,33 +3,34 @@ title: Interfaccia della riga di comando Azure Service Fabric - sfctl replica | 
 description: Descrive i comandi dell'interfaccia della riga di comando Service Fabric sfctl replica.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: d5563dc2d1b2caaa85645b037d6bf93426cc0b23
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 34e53311e5338e540c1d987896112de39890de3b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035273"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901044"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Consente di gestire le repliche che appartengono alle partizioni del servizio.
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|DESCRIZIONE|
+|Comando|Description|
 | --- | --- |
 | deployed | Recupera i dettagli della replica distribuita in un nodo di Service Fabric. |
 | deployed-list | Recupera l'elenco della replica distribuita in un nodo di Service Fabric. |
-| health | Recupera l'integrità di una replica di un servizio con stato o di un'istanza di un servizio senza stato di Service Fabric. |
+| settore sanitario | Recupera l'integrità di una replica di un servizio con stato o di un'istanza di un servizio senza stato di Service Fabric. |
 | info | Recupera le informazioni su una replica di una partizione di Service Fabric. |
 | list | Recupera le informazioni sulle repliche di una partizione del servizio Service Fabric. |
 | remove | Rimuove una replica del servizio in esecuzione in un nodo. |
@@ -43,16 +44,16 @@ Recupera i dettagli della replica distribuita in un nodo di Service Fabric. Le i
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|DESCRIZIONE|
+|Argomento|Description|
 | --- | --- |
 | --node-name [Obbligatorio] | Il nome del nodo. |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
 | --replica-id [Obbligatorio] | Identificatore della replica. |
-| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
@@ -67,17 +68,17 @@ Recupera l'elenco contenente le informazioni relative alle repliche distribuite 
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --node-name [obbligatorio] | Il nome del nodo. |
 | --partition-id | L'identità della partizione. |
 | --service-manifest-name | Nome di un manifesto del servizio registrato come parte di un tipo di applicazione in un cluster di Service Fabric. |
-| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
@@ -92,16 +93,16 @@ Recupera l'integrità di una replica di Service Fabric. Usare EventsHealthStateF
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|DESCRIZIONE|
+|Argomento|Description|
 | --- | --- |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
 | --replica-id [Obbligatorio] | Identificatore della replica. |
-| --events-health-state-filter | Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
-| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
+| --events-health-state-filter | Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
@@ -116,15 +117,15 @@ La risposta include l'ID, il ruolo, lo stato, l'integrità, il nome del nodo, il
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|DESCRIZIONE|
+|Argomento|Description|
 | --- | --- |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
 | --replica-id [Obbligatorio] | Identificatore della replica. |
-| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
@@ -139,15 +140,15 @@ L'endpoint GetReplicas restituisce le informazioni sulle repliche della partizio
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|DESCRIZIONE|
+|Argomento|Description|
 | --- | --- |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
 | --continuation-token | Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati del sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL. |
-| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
@@ -162,17 +163,17 @@ Questa API consente di simulare un errore di replica di Service Fabric rimuovend
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|DESCRIZIONE|
+|Argomento|Description|
 | --- | --- |
 | --node-name [Obbligatorio] | Il nome del nodo. |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
 | --replica-id [Obbligatorio] | Identificatore della replica. |
 | --force-remove | Consente di rimuovere un servizio o un'applicazione di Service Fabric in modo forzato senza passare attraverso la sequenza di arresto normale. Questo parametro può essere usato per eliminare in modo forzato un'applicazione o un servizio per il quale l'operazione di eliminazione è prossima al timeout a causa di problemi nel codice del servizio che impediscono la normale chiusura delle repliche. |
-| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
@@ -187,24 +188,24 @@ Segnala lo stato di integrità della replica di Service Fabric specificata. Il r
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|DESCRIZIONE|
+|Argomento|Description|
 | --- | --- |
 | --health-property [obbligatorio] | Proprietà delle informazioni sull'integrità. <br><br> Un'entità può avere report sull'integrità per proprietà diverse. La proprietà è una stringa e non un'enumerazione fissa, che assicura al reporter la flessibilità necessaria per definire la categoria della condizione di stato che attiva il report. Ad esempio, un reporter con SourceId "LocalWatchdog" può monitorare lo stato del disco disponibile in un nodo e può quindi segnalare la proprietà "AvailableDisk" in tale nodo. Lo stesso reporter può monitorare la connettività del nodo e può quindi segnalare una proprietà "Connectivity" nello stesso nodo. Entrambi questi report vengono considerati come eventi di integrità separati nell'archivio integrità per il nodo specificato. Insieme a SourceId, la proprietà identifica in modo univoco le informazioni sull'integrità. |
 | --health-state    [obbligatorio] | I valori possibili sono\: "Invalid", "Ok", "Warning", "Error", "Unknown". |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
 | --replica-id [Obbligatorio] | L'identità della partizione. |
-| --source-id       [obbligatorio] | Nome di origine che identifica il componente client/watchdog/sistema che ha generato le informazioni sull'integrità. |
+| --source-id [Obbligatorio] | Nome di origine che identifica il componente client/watchdog/sistema che ha generato le informazioni sull'integrità. |
 | --description | Descrizione delle informazioni sull'integrità. <br><br> Rappresenta il testo libero usato per aggiungere informazioni leggibili sul report. La lunghezza massima della stringa per la descrizione è pari a 4096 caratteri. Se la stringa immessa è più lunga, verrà automaticamente troncata. Quando viene troncata, gli ultimi caratteri della descrizione contengono un marcatore "[Truncated]" e la dimensione totale della stringa è pari a 4096 caratteri. La presenza del marcatore indica agli utenti che si è verificato un troncamento. Si noti che quando viene troncata, la descrizione contiene meno di 4096 caratteri della stringa originale. |
 | --immediate | Flag che indica se il report deve essere inviato immediatamente. <br><br> Un report sull'integrità viene inviato a un'applicazione del gateway di Service Fabric, che lo inoltra all'archivio integrità. Se Immediate è impostato su True, il report viene inviato immediatamente dal gateway HTTP all'archivio integrità, indipendentemente dalle impostazioni del client Fabric usate dall'applicazione gateway HTTP. Questo è utile per i report critici che devono essere inviati appena possibile. A seconda della tempistica e di altre condizioni, l'invio del report può tuttavia avere esito negativo, ad esempio se il gateway HTTP è chiuso o il messaggio non raggiunge il gateway. Se Immediate è impostato su False, il report viene inviato in base alle impostazioni del client di integrità dal gateway HTTP. Verrà quindi inviato in batch in base alla configurazione di HealthReportSendInterval. Questa è l'impostazione consigliata perché consente al client di integrità di ottimizzare la segnalazione di messaggi sull'integrità all'archivio integrità e l'elaborazione di report sull'integrità. Per impostazione predefinita, i report non vengono inviati immediatamente. |
 | --remove-when-expired | Valore che indica se il report viene rimosso dall'archivio integrità quando scade. <br><br> Se impostato su True, il report viene rimosso dall'archivio integrità dopo la scadenza. Se impostato su False, il report viene considerato come errore quando è scaduto. Il valore di questa proprietà è False per impostazione predefinita. Quando i client creano report periodicamente, RemoveWhenExpired sarà impostato su False (valore predefinito). In questo modo, se il reporter presenta problemi (ad esempio, un deadlock) e non può creare report, l'entità viene considerata in stato di errore quando scade il report sull'integrità. L'entità viene quindi contrassegnata con lo stato di integrità di errore. |
 | --sequence-number | Numero di sequenza per questo report sull'integrità come stringa numerica. <br><br> Il numero di sequenza del report viene usato dall'archivio integrità per rilevare i report non aggiornati. Se non specificato, un numero di sequenza viene generato automaticamente dal client di integrità quando viene aggiunto un report. |
 | --service-kind | Tipo di replica del servizio (senza stato o con stato) per cui viene segnalata l'integrità. I valori possibili sono i seguenti\: "Stateless", "Stateful".  Impostazione predefinita\: Stateful. |
-| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Valore predefinito\: 60. |
 | --ttl | Durata in cui questo report sull'integrità è valido. Questo campo usa il formato ISO8601 per specificare la durata. <br><br> Quando i client creano report periodicamente, devono inviare i report con una frequenza maggiore della durata (TTL). Se i client inviano report in caso di transizione, possono impostare la durata (TTL) come infinita. Quando la durata (TTL) scade, l'evento di integrità che contiene le informazioni sull'integrità viene rimosso dall'archivio integrità, se RemoveWhenExpired è True, o considerato in stato di errore, se RemoveWhenExpired è False. Se non è specificato, la durata (TTL) viene impostata su un valore infinito. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
@@ -219,16 +220,16 @@ Riavvia una replica del servizio di un servizio persistente in esecuzione in un 
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|DESCRIZIONE|
+|Argomento|Description|
 | --- | --- |
 | --node-name [Obbligatorio] | Il nome del nodo. |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
 | --replica-id [Obbligatorio] | Identificatore della replica. |
-| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |

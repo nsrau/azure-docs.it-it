@@ -14,21 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/28/2019
 ms.author: atsenthi
-ms.openlocfilehash: 6c195357c4a037534307571a53589b2ae861d88b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 77814d04daca0ebb649ffa2e8ff46becddec4f0f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67486013"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901512"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurare Azure Active Directory per l'autenticazione client
 
-Per i cluster in esecuzione in Azure, è consigliabile proteggere l'accesso agli endpoint di gestione tramite Azure Active Directory (Azure AD).  Questo articolo descrive come configurare Azure AD per l'autenticazione dei client per un cluster di Service Fabric. Tale configurazione deve essere eseguita prima della [creazione del cluster](service-fabric-cluster-creation-via-arm.md).  Azure AD consente alle organizzazioni (note come tenant) di gestire l'accesso degli utenti alle applicazioni. Alcune applicazioni sono caratterizzate da un'interfaccia utente di accesso basata sul Web, altre invece da un'esperienza client nativa. 
+Per i cluster in esecuzione in Azure, è consigliabile proteggere l'accesso agli endpoint di gestione tramite Azure Active Directory (Azure AD). Questo articolo descrive come configurare Azure AD per autenticare i client per un cluster di Service Fabric.
 
-Un cluster di Service Fabric offre diversi punti di accesso alle proprie funzionalità di gestione, tra cui [Service Fabric Explorer][service-fabric-visualizing-your-cluster] e [Visual Studio][service-fabric-manage-application-in-visual-studio] basati sul Web. Si creano quindi due applicazioni Azure AD per controllare l'accesso al cluster: un'applicazione Web e un'applicazione nativa.  Dopo aver creato le applicazioni, si assegnano gli utenti ai ruoli di sola lettura e di amministratore.
+In questo articolo viene usato il termine "applicazione" per fare riferimento alle [applicazioni Azure Active Directory](../active-directory/develop/developer-glossary.md#client-application), non Service Fabric le applicazioni; la distinzione verrà fatta laddove necessario. Azure AD consente alle organizzazioni (note come tenant) di gestire l'accesso degli utenti alle applicazioni.
+
+Un cluster di Service Fabric offre diversi punti di accesso alle proprie funzionalità di gestione, tra cui [Service Fabric Explorer][service-fabric-visualizing-your-cluster] e [Visual Studio][service-fabric-manage-application-in-visual-studio] basati sul Web. Si creeranno quindi due Azure AD applicazioni per controllare l'accesso al cluster: un'applicazione Web e un'applicazione nativa. Una volta create le applicazioni, gli utenti verranno assegnati ai ruoli di amministratore e di sola lettura.
 
 > [!NOTE]
-> È necessario completare i passaggi seguenti prima di creare il cluster. Poiché per gli script sono previsti nomi ed endpoint dei cluster, i valori devono essere pianificati e non quelli già creati.
+> In Linux è necessario completare i passaggi seguenti prima di creare il cluster. In Windows è inoltre possibile [configurare l'autenticazione Azure ad per un cluster esistente](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/Configure%20Azure%20Active%20Directory%20Authentication%20for%20Existing%20Cluster.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 In questo articolo si presuppone che sia già stato creato un tenant. In caso contrario, vedere prima di tutto [Come ottenere un tenant di Azure Active Directory][active-directory-howto-tenant].
@@ -42,7 +44,7 @@ Per semplificare alcuni dei passaggi richiesti per la configurazione di Azure AD
 
 Verranno usati gli script per creare due Azure AD applicazioni per controllare l'accesso al cluster: un'applicazione Web e un'applicazione nativa. Dopo aver creato le applicazioni per rappresentare il cluster, verranno creati utenti per i [ruoli supportati da Service Fabric](service-fabric-cluster-security-roles.md): sola lettura e amministratore.
 
-Eseguire `SetupApplications.ps1` e indicare l'ID tenant, il nome del cluster e l'URL di risposta dell'applicazione Web come parametri.  Specificare anche i nomi utente e le password per gli utenti. Ad esempio:
+Eseguire `SetupApplications.ps1` e indicare l'ID tenant, il nome del cluster e l'URL di risposta dell'applicazione Web come parametri.  Specificare anche i nomi utente e le password per gli utenti. ad esempio:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -57,7 +59,7 @@ $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9
 
 *ClusterName* viene usato come prefisso per le applicazioni Azure AD create dallo script. Non è necessario che corrisponda esattamente al nome effettivo del cluster. Ha solo lo scopo di facilitare il mapping degli elementi di Azure AD al cluster di Service Fabric con cui vengono usati.
 
-*WebApplicationReplyUrl* è l'endpoint predefinito che Azure AD restituisce agli utenti dopo che hanno completato l'accesso. Impostare questo endpoint come endpoint di Service Fabric Explorer per il cluster, che per impostazione predefinita è:
+*WebApplicationReplyUrl* è l'endpoint predefinito che Azure AD restituisce agli utenti dopo che hanno completato l'accesso. Impostare questo endpoint come endpoint Service Fabric Explorer per il cluster. Se si sta creando Azure AD applicazioni per rappresentare un cluster esistente, assicurarsi che l'URL corrisponda all'endpoint del cluster esistente. Se si creano applicazioni per un nuovo cluster, pianificare l'endpoint che avrà il cluster e assicurarsi di non usare l'endpoint di un cluster esistente. Per impostazione predefinita, l'endpoint Service Fabric Explorer è:
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
@@ -66,7 +68,7 @@ Verrà richiesto di accedere a un account con privilegi amministrativi per il te
    * *ClusterName*\_Cluster
    * *ClusterName*\_Client
 
-È consigliabile tenere aperta la finestra di PowerShell perché, durante la [creazione del cluster](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access), lo script visualizza il codice JSON richiesto dal modello di Azure Resource Manager.
+Lo script stampa il codice JSON richiesto dal modello di Azure Resource Manager quando si [Crea il cluster AAD abilitato](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access), quindi è consigliabile lasciare aperta la finestra di PowerShell.
 
 ```json
 "azureActiveDirectory": {
@@ -85,13 +87,13 @@ Dopo avere eseguito l'accesso ad Azure AD in Service Fabric Explorer, il browser
 
 ![Finestra di dialogo del certificato di SFX][sfx-select-certificate-dialog]
 
-#### <a name="reason"></a>`Reason`
+#### <a name="reason"></a>Motivo
 All'utente non è assegnato un ruolo nell'applicazione cluster Azure AD. Di conseguenza, l'autenticazione di Azure AD non riesce nel cluster di Service Fabric. Service Fabric Explorer ritorna all'autenticazione del certificato.
 
 #### <a name="solution"></a>Soluzione
 Seguire le istruzioni per la configurazione di Azure AD e assegnare i ruoli utente. È anche consigliabile attivare "Assegnazione utente obbligatoria per l'accesso all'app", come in `SetupApplications.ps1`.
 
-### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>La connessione a PowerShell ha esito negativo con un errore: "Le credenziali specificate non sono valide"
+### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>La connessione a PowerShell non riesce con un errore: "Le credenziali specificate non sono valide"
 #### <a name="problem"></a>Problema
 Quando si usa PowerShell per connettersi al cluster con la modalità di sicurezza "AzureActiveDirectory", eseguito l'accesso ad Azure AD, la connessione ha esito negativo con un errore: "Le credenziali specificate non sono valide".
 
@@ -100,11 +102,11 @@ Questa soluzione è identica a quella precedente.
 
 ### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>Service Fabric Explorer restituisce un errore durante l'accesso: "AADSTS50011"
 #### <a name="problem"></a>Problema
-Quando si tenta di accedere ad Azure AD in Service Fabric Explorer, la pagina restituisce un errore: "AADSTS50011: L'indirizzo per la risposta &lt;url&gt; non corrisponde agli indirizzi per le risposte configurati per l'applicazione: &lt;guid&gt;."
+Quando si prova a eseguire l'accesso ad Azure AD in Service Fabric Explorer, la pagina restituisce l'errore AADSTS50011, che indica che l'&lt;URL&gt; dell'indirizzo di risposta non corrisponde agli indirizzi configurati per l'applicazione: &lt;GUID&gt;.
 
 ![Indirizzo di risposta di SFX non corrispondente][sfx-reply-address-not-match]
 
-#### <a name="reason"></a>`Reason`
+#### <a name="reason"></a>Motivo
 L'applicazione cluster (Web) che rappresenta Service Fabric Explorer prova a eseguire l'autenticazione per Azure AD e come parte della richiesta indica l'URL di reindirizzamento restituito. L'URL non è presente nell'elenco degli **URL DI RISPOSTA** dell'applicazione Azure AD.
 
 #### <a name="solution"></a>Soluzione
@@ -125,7 +127,7 @@ Per altre informazioni, vedere il [cmdlet Connect-ServiceFabricCluster](https://
 Sì. Ricordarsi però di aggiungere l'URL di Service Fabric Explorer all'applicazione cluster (Web). In caso contrario, Service Fabric Explorer non funzionerà.
 
 ### <a name="why-do-i-still-need-a-server-certificate-while-azure-ad-is-enabled"></a>Perché è ancora necessario un certificato del server se Azure AD è abilitato?
-FabricClient e FabricGateway eseguono un'autenticazione reciproca. Durante l'autenticazione di Azure AD, l'integrazione di Azure AD consente di assegnare un'identità del client al server e il certificato del server viene usato per verificare l'identità del server. Per ulteriori informazioni sui certificati Service Fabric, vedere [certificati X. 509 e Service Fabric][x509-certificates-and-service-fabric].
+FabricClient e FabricGateway eseguono un'autenticazione reciproca. Durante l'autenticazione Azure AD, Azure AD integrazione fornisce un'identità client al server e il certificato del server viene utilizzato dal client per verificare l'identità del server. Per ulteriori informazioni sui certificati Service Fabric, vedere [certificati X. 509 e Service Fabric][x509-certificates-and-service-fabric].
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver configurato le applicazioni Azure Active Directory e aver impostato i ruoli per gli utenti, [configurare e distribuire un cluster](service-fabric-cluster-creation-via-arm.md).

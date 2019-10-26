@@ -5,22 +5,22 @@ keywords: servizio app, servizio app di azure, ridimensionare, piano di servizio
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: gwallace
 editor: ''
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 10/24/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a5e69209c30eae816837ce8f00a065231a5fd821
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e8bdc749ee354e75a6043dbd6dac3f93a606f79e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067214"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898995"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gestire un piano di servizio app in Azure
 
@@ -33,23 +33,17 @@ Un [piano di servizio app di Azure](overview-hosting-plans.md) fornisce le risor
 
 È possibile creare un piano di servizio app vuoto, o creare un piano come parte della creazione di app.
 
-1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Nuovo** > **Web e dispositivi mobili** e quindi selezionare **App Web** o un altro tipo di app del servizio app.
-
-2. Selezionare un piano di servizio app esistente o creare un piano per la nuova app.
+1. Nella [portale di Azure](https://portal.azure.com)selezionare **nuovo** > **app Web** o un altro tipo di app del servizio app.
 
    ![Creare un'app nel portale di Azure.][createWebApp]
 
-   Per creare un piano:
+2. Configurare la sezione **Dettagli istanza** prima di configurare il piano di servizio app. Impostazioni quali la **pubblicazione** e i **sistemi operativi** possono modificare i piani tariffari disponibili per il piano di servizio app. **Region** determina la posizione in cui viene creato il piano di servizio app.
+   
+3. Nella sezione **piano di servizio app** selezionare un piano esistente o creare un piano selezionando **Crea nuovo**.
 
-   a. Selezionare **[+] Create New** ([+] Crea nuovo).
+   ![Creare un piano di servizio app.][createASP] 
 
-      ![Creare un piano di servizio app.][createASP] 
-
-   b. Immettere il nome del piano in **Piano di servizio app**.
-
-   c. In **Percorso** selezionare un percorso appropriato.
-
-   d. In **Piano tariffario** selezionare un piano tariffario appropriato per il servizio. Selezionare **Visualizza tutto** per visualizzare altre opzioni sui prezzi, ad esempio **Gratuito** e **Condiviso**. Dopo aver scelto il piano tariffario, fare clic sul pulsante **Seleziona** .
+4. Quando si crea un piano, è possibile selezionare il piano tariffario del nuovo piano. In **SKU e dimensioni**selezionare **modifica dimensioni** per modificare il piano tariffario. 
 
 <a name="move"></a>
 
@@ -65,25 +59,20 @@ Un [piano di servizio app di Azure](overview-hosting-plans.md) fornisce le risor
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare l'app che si intende spostare.
 
-1. Nel menu cercare la sezione **Piano di servizio app**.
+2. Nel menu a sinistra selezionare **modifica piano di servizio app**.
 
-1. Selezionare **Change App Service plan** (Cambia il piano di servizio app) per aprire il selettore **Piano di servizio app**.
+3. Nell'elenco a discesa **piano di servizio app** selezionare un piano esistente in cui spostare l'app. L'elenco a discesa Mostra solo i piani che si trovano nello stesso gruppo di risorse e area geografica del piano di servizio app corrente. Se non esiste alcun piano di questo tipo, è possibile creare un piano per impostazione predefinita. È anche possibile creare manualmente un nuovo piano selezionando **Crea nuovo**.
 
+4. Se si crea un piano, è possibile selezionare il piano tariffario del nuovo piano. In piano **tariffario**selezionare il livello esistente per modificarlo. 
+   
+   > [!IMPORTANT]
+   > Se si sta migrando un'app da un piano a più livelli a un piano di livello inferiore, ad esempio da **D1** a **F1**, l'app potrebbe perdere determinate funzionalità nel piano di destinazione. Ad esempio, se l'app usa i certificati SSL, è possibile che venga visualizzato questo messaggio di errore:
+   >
+   > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
+
+5. Al termine selezionare **OK**.
+   
    ![Pannello di selezione Piano di servizio app.][change] 
-
-1. Nel selettore **Piano di servizio App** selezionare un piano esistente in cui spostare l'app.   
-
-La pagina **Selezionare un piano di servizio app** mostra solo i piani che si trovano nello stesso gruppo di risorse e nella stessa area geografica del piano di servizio app dell'app corrente.
-
-È previsto un piano tariffario diverso per ogni piano. Quando si sposta un sito dal livello **Gratuito** al livello **Standard**, ad esempio, tutte le app assegnate ad esso possono usare le funzionalità e le risorse del livello **Standard**. Tuttavia, spostando un'app da un piano a più livelli superiore a un piano a più livelli inferiore non si ha più accesso a determinate funzionalità. Se l'app usa una funzionalità non presente nel piano di destinazione, viene visualizzato un errore che mostra quale funzionalità in uso non è disponibile. 
-
-Ad esempio, se una delle app usa i certificati SSL, si può visualizzare questo messaggio di errore:
-
-`Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
-
-In questo caso, prima di poter spostare l'app nel piano di destinazione, è necessario:
-- Portare il piano tariffario del piano di destinazione al livello **Basic** o superiore, oppure
-- Rimuovere tutte le connessioni SSL dell'app.
 
 ## <a name="move-an-app-to-a-different-region"></a>Spostare un'app in un'area diversa
 

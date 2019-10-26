@@ -1,29 +1,23 @@
 ---
-title: Advanced query in Monitoraggio di Azure | Microsoft Docs
+title: Query avanzate in monitoraggio di Azure | Microsoft Docs
 description: Questa esercitazione illustra l'uso del portale di analisi per la scrittura di query in Monitoraggio di Azure.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/15/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 65713ed9c2d0635e776a7a7e5f205b6d55438ed4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/15/2018
+ms.openlocfilehash: 8895224bef037c8c3f8b28a6085359837478d924
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589585"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894510"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Scrittura di query avanzate in Monitoraggio di Azure
 
 > [!NOTE]
-> È consigliabile completare [Introduzione a Azure Monitor Log Analitica](get-started-portal.md) e [Introduzione alle query](get-started-queries.md) prima di completare questa lezione.
+> È necessario completare Introduzione [a monitoraggio di Azure log Analytics](get-started-portal.md) e [iniziare a usare le query](get-started-queries.md) prima di completare questa lezione.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -76,7 +70,7 @@ Event
 ```
 
 ## <a name="print"></a>Print
-`print` restituisce una tabella con una sola colonna e una sola riga, che mostra il risultato di un calcolo. Viene spesso utilizzato nei casi in cui è necessario un semplice calcolo. Ad esempio, per trovare l'ora corrente in PST e aggiungere una colonna con EST:
+`print` restituisce una tabella con una sola colonna e una sola riga, che mostra il risultato di un calcolo. Questa operazione viene spesso usata nei casi in cui è necessario un calcolo semplice. Ad esempio, per trovare l'ora corrente in PST e aggiungere una colonna con EST:
 
 ```Kusto
 print nowPst = now()-8h

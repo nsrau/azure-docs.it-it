@@ -1,24 +1,19 @@
 ---
 title: Coorti di utilizzo di Azure Application Insights | Microsoft Docs
 description: Analizzare set diversi di utenti, sessioni, eventi o operazioni con elementi in comune
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 263316028e7b35a1a515322dddc4ee867011dcac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6762ac9253c838f715588451441aa9aa467f673
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604110"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899503"
 ---
 # <a name="application-insights-cohorts"></a>Coorti di Application Insights
 
@@ -35,13 +30,13 @@ Le coorti vengono usate in modo simile ai filtri, ma le definizioni delle coorti
 > [!NOTE]
 > Dopo essere state create, le coorti sono disponibili dagli strumenti Utenti, Sessioni, Eventi e Flussi utente.
 
-## <a name="example-engaged-users"></a>Esempio: Utenti attivi
+## <a name="example-engaged-users"></a>Esempio: utenti attivi
 
 In base alla definizione elaborata dal team, un utente attivo è chi usa l'app cinque o più volte in un determinato mese. In questa sezione si definisce una coorte di questi utenti attivi.
 
 1. Aprire lo strumento Coorti.
 
-2. Selezionare la scheda **Raccolta modelli**, dove è visibile una raccolta di modelli per diverse coorti.
+2. Selezionare la scheda **raccolta modelli** . Viene visualizzata una raccolta di modelli per varie coorti.
 
 3. Selezionare **Engaged Users -- by Days Used** (Utenti attivi - Per giorni di utilizzo).
 
@@ -76,15 +71,15 @@ Alcuni aspetti importanti da notare:
 * Non è possibile creare questo set con i normali filtri. La logica della data è più avanzata.
 * È possibile filtrare ulteriormente questa coorte usando i normali filtri nello strumento Utenti, quindi, anche se la coorte è definita in una finestra di 28 giorni, è tuttavia possibile impostare l'intervallo di tempo nello strumento Utenti su 30, 60 o 90 giorni.
 
-Questi filtri supportano domande più sofisticate, impossibili da esprimere con il generatore di query. Un esempio è costituito dalle _persone che sono state attive negli ultimi 28 giorni. Come si sono comportate le stesse persone negli ultimi 60 giorni?_
+Questi filtri supportano domande più sofisticate, impossibili da esprimere con il generatore di query. Un esempio è _quello degli utenti coinvolti negli ultimi 28 giorni. In che modo le stesse persone si comportano negli ultimi 60 giorni?_
 
-## <a name="example-events-cohort"></a>Esempio: Coorte eventi
+## <a name="example-events-cohort"></a>Esempio: coorte di eventi
 
 È anche possibile creare coorti di eventi. In questa sezione si definisce una coorte degli eventi e delle visualizzazioni pagina, quindi si vedrà come usarli dagli altri strumenti. Questa coorte potrebbe definire un set di eventi che il team considera _utilizzo attivo_ o impostare un set correlato a una nuova funzionalità.
 
 1. Aprire lo strumento Coorti.
 
-2. Selezionare la scheda **Raccolta modelli**, dove sarà visibile una raccolta di modelli per diverse coorti.
+2. Selezionare la scheda **raccolta modelli** . Verrà visualizzata una raccolta di modelli per varie coorti.
 
 3. Selezionare **Events Picker** (Selezione eventi).
 
@@ -123,20 +118,20 @@ Le due coorti precedenti sono state definite usando caselle di riepilogo a disce
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. Selezionare **Esegui query**. Se non vengono visualizzati gli ID utente vengono visualizzati nella tabella, modificare in un paese/area geografica in cui l'applicazione include gli utenti.
+3. Selezionare **Esegui query**. Se nella tabella non vengono visualizzati gli ID utente, passare a un paese/area geografica in cui l'applicazione dispone di utenti.
 
 4. Salvare la coorte e assegnarle un nome.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-_È stata definita una coorte di utenti da un determinato paese/regione. Quando si Confronta questa coorte nello strumento utenti per l'impostazione di un filtro per tale paese/area geografica, ottenere risultati diversi. Perché?_
+_Ho definito una coorte di utenti di un determinato paese/area geografica. Quando si confronta questa coorte nello strumento utenti per impostare semplicemente un filtro su tale paese/area geografica, vengono visualizzati risultati diversi. Perché?_
 
 Le coorti e i filtri sono diversi. Si supponga di avere una coorte di utenti del Regno Unito (definita come l'esempio precedente) e di confrontarne i risultati con l'impostazione del filtro "Country or region = United Kingdom" (Paese o area geografica = Regno Unito).
 
 * La versione della coorte visualizza tutti gli eventi degli utenti che hanno inviato uno o più eventi dal regno Unito nell'intervallo di tempo corrente. Se si divide per paese o area geografica, si notano probabilmente diversi paesi e aree geografiche.
 * La versione dei filtri mostra solo gli eventi del Regno Unito, ma, se si divide per paese o area geografica, viene visualizzato solo il Regno Unito.
 
-## <a name="learn-more"></a>Altre informazioni
+## <a name="learn-more"></a>Altre informazioni.
 
 * [Linguaggio di query di Analytics](https://go.microsoft.com/fwlink/?linkid=856587)
 * [Utenti, sessioni ed eventi](usage-segmentation.md)

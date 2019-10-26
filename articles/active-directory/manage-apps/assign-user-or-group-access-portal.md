@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15f7e830079c224e9e15dd45d14c1741376f8762
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6d28b9c31b8fbad8a565ff8cbdf717bfb3bc1309
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851704"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72896465"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory
 
-Per assegnare un utente o un gruppo a un'app aziendale, è necessario avere le autorizzazioni appropriate per gestire l'app aziendale ed essere l'amministratore globale per la directory. Per le applicazioni Microsoft, come le app di Office 365, usare PowerShell per assegnare utenti a un'app aziendale.
+Per assegnare un utente o un gruppo a un'app aziendale, è necessario avere assegnato uno dei seguenti ruoli di amministratore: amministratore globale, amministratore applicazione, amministratore applicazione cloud o essere assegnato come proprietario dell'app aziendale.  Per le applicazioni Microsoft, come le app di Office 365, usare PowerShell per assegnare utenti a un'app aziendale.
 
 > [!NOTE]
 > Per i requisiti di licenza per le funzionalità descritte in questo articolo, vedere la [pagina dei prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory).
@@ -57,7 +57,7 @@ L'opzione **Assegnazione utenti obbligatoria**:
 - Se questa opzione è impostata su Sì, gli utenti devono prima essere assegnati a questa applicazione prima di potervi accedere.
 - Se questa opzione è impostata su No, a tutti gli utenti che accedono all'URL di collegamento diretto o all'URL dell'applicazione verrà concesso l'accesso
 - Non influisce sull'eventuale visualizzazione di un'applicazione nel pannello di accesso dell'applicazione. Per visualizzare l'applicazione nel pannello di accesso, assegnare un utente o un gruppo appropriato all'applicazione.
-- Solo le funzioni con le applicazioni cloud configurate per l'accesso Single Sign-On SAML, le applicazioni proxy di applicazione che usano Azure Active Directory la pre-autenticazione o le applicazioni compilate direttamente nella piattaforma di applicazione Azure AD che usano OAuth 2,0/ Autenticazione OpenID Connect dopo che un utente o un amministratore ha acconsentito a tale applicazione. Vedere [Accesso Single Sign-On alle applicazioni](what-is-single-sign-on.md). Vedere [Configurare il consenso utente in un'applicazione](configure-user-consent.md).
+- Solo le funzioni con le applicazioni cloud configurate per Single Sign-On SAML, le applicazioni proxy di applicazione che usano Azure Active Directory pre-autenticazione o le applicazioni compilate direttamente nella piattaforma di applicazioni Azure AD che usano OAuth 2,0/ Autenticazione OpenID Connect dopo che un utente o un amministratore ha acconsentito a tale applicazione. Vedere [Accesso Single Sign-On alle applicazioni](what-is-single-sign-on.md). Vedere [Configurare il consenso utente in un'applicazione](configure-user-consent.md).
 - Questa opzione non ha alcun effetto quando un'applicazione viene configurata per le altre modalità Single Sign-on.
 
 ## <a name="assign-a-user-to-an-app---powershell"></a>Assegnare un utente a un'app - PowerShell

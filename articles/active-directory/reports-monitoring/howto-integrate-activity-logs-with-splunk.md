@@ -1,5 +1,5 @@
 ---
-title: Integrare i log di Azure Active Directory con Splunk usando monitoraggio di Azure | Microsoft Docs
+title: Integrare Splunk con monitoraggio di Azure | Microsoft Docs
 description: Informazioni su come integrare i log di Azure Active Directory con SumoLogic usando monitoraggio di Azure
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.date: 05/13/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a26df2b37a249f808cc044b41960ca1e210a311a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: c083ba97fc2f2b1d53458c2fb1176c0ebf1024ec
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988230"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895172"
 ---
-# <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Procedura: Integrare i log di Azure Active Directory con Splunk usando monitoraggio di Azure
+# <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Procedura: integrare log di Azure Active Directory con Splunk usando monitoraggio di Azure
 
 Questo articolo illustra come integrare i log di Azure Active Directory (Azure AD) con Splunk tramite Monitoraggio di Azure. Innanzitutto indirizzare i log a un hub eventi di Azure e quindi integrare l'hub eventi con Splunk.
 
@@ -54,6 +54,6 @@ Per usare questa funzionalità, sono necessari:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Interpretare lo schema dei log di controllo in Monitoraggio di Azure](reference-azure-monitor-audit-log-schema.md)
+* [Interpretare lo schema del log di controllo in Monitoraggio di Azure](reference-azure-monitor-audit-log-schema.md)
 * [Interpretare lo schema dei log di accesso in Monitoraggio di Azure](reference-azure-monitor-sign-ins-log-schema.md)
 * [Domande frequenti e problemi noti](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

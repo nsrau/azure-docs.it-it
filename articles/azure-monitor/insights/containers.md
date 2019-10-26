@@ -1,24 +1,18 @@
 ---
 title: Soluzione di monitoraggio del contenitore in monitoraggio di Azure | Microsoft Docs
 description: La soluzione di monitoraggio dei contenitori in monitoraggio di Azure consente di visualizzare e gestire gli host del contenitore Docker e Windows in un'unica posizione.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 07/22/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 5f48b1b1c8568c4f60d012797634b844a276b1bb
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.date: 07/22/2019
+ms.openlocfilehash: b71818d5d840a0466b5ff6f271df117043341f7b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951968"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899104"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Soluzione di monitoraggio del contenitore in monitoraggio di Azure
 
@@ -31,7 +25,7 @@ Questo articolo descrive come configurare e usare la soluzione di monitoraggio d
 La soluzione indica quali contenitori sono in esecuzione, quale immagine del contenitore eseguono e dove vengono eseguiti i contenitori. È possibile visualizzare informazioni di controllo dettagliate che indicano i comandi usati con i contenitori. È anche possibile risolvere i problemi dei contenitori visualizzando i log centralizzati ed eseguendo ricerche al loro interno senza dover visualizzare gli host Docker o Windows in remoto. È possibile trovare contenitori che consumano una quantità eccessiva di risorse in un host. È anche possibile visualizzare informazioni centralizzate su utilizzo di CPU, memoria, archiviazione e rete e sulle prestazioni dei contenitori. Nei computer che eseguono Windows, è possibile centralizzare e confrontare i log dai contenitori Windows Server, Hyper-V e Docker. La soluzione supporta gli agenti di orchestrazione dei contenitori seguenti:
 
 - Docker Swarm
-- Controller di dominio/sistema operativo
+- DC/OS
 - kubernetes
 - Service Fabric
 - Red Hat OpenShift
@@ -52,12 +46,12 @@ Prima di iniziare, esaminare i dettagli seguenti per verificare che i prerequisi
 
 La tabella seguente illustra il supporto per l'orchestrazione e il monitoraggio del sistema operativo di Docker per l'inventario, le prestazioni e i log del contenitore con monitoraggio di Azure.   
 
-| | ACS | Linux | Windows | Contenitore<br>Inventario | Image<br>Inventario | Nodo<br>Inventario | Contenitore<br>Prestazioni | Contenitore<br>Event | Event<br>Log | Contenitore<br>Log |
+| | ACS | Linux | Windows | Contenitore<br>Inventario | Image<br>Inventario | Nodo<br>Inventario | Contenitore<br>Performance | Contenitore<br>Event | Event<br>Log | Contenitore<br>Log |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
-| Mesosphere<br>Controller di dominio/sistema operativo | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
+| Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
-| Service<br>Infrastruttura | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Servizio<br>Infrastruttura | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Red Hat Open<br>MAIUSC | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(autonomo) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Server Linux<br>(autonomo) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |

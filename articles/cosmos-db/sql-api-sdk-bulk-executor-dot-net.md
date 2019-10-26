@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/11/2019
+ms.date: 10/24/2019
 ms.author: ramkris
-ms.openlocfilehash: 9da994550609b0be44362e0f0059844b288aabbd
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 0ff281e54df0273cc4c72d1780f4a99fe9719aec
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388075"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900177"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Libreria dell'executor bulk .NET: informazioni sul download 
 
@@ -69,6 +69,10 @@ ms.locfileid: "72388075"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
 
 * Aggiunta di .NET Standard 2,0 come uno dei framework di destinazione supportati per far funzionare la libreria dell'executor bulk con le applicazioni .NET Core.
+
+### <a name="a-name185185"></a><a name="1.8.5"/>1.8.5
+
+* Il blocco è stato rimosso nella versione dell'SDK. Il pacchetto è ora dipendente dall'SDK > = 2.5.1.
 
 ### <a name="a-name184184"></a><a name="1.8.4"/>1.8.4
 

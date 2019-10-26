@@ -1,23 +1,19 @@
 ---
 title: Diagnostica delle transazioni in Azure Application Insights | Microsoft Docs
 description: Diagnostica della transazioni end-to-end in Application Insights
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: c6c44525018e2115f1df8ed2d3f15432b95490c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ed3713fe4a6c9403be13f444d0409af459a1e70
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60783723"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899563"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostica unificata delle transazioni tra componenti
 
@@ -64,23 +60,23 @@ Questo riquadro comprimibile mostra i dettagli di qualsiasi elemento selezionato
 
 ![Dettagli dell'eccezione](media/transaction-diagnostics/exceptiondetail.png)
 
-## <a name="search-results"></a>Search Results
+## <a name="search-results"></a>Risultati della ricerca
 
 Questo riquadro comprimibile mostra altri risultati che soddisfano i criteri del filtro. Fare clic su qualsiasi risultato per aggiornare i rispettivi dettagli delle 3 sezioni elencate in precedenza. Tentiamo di trovare gli esempi con le maggiori possibilità di ottenere dettagli disponibili da tutti i componenti, anche se il campionamento è attivo in ognuno di essi. Questi vengono visualizzati come esempi "consigliati".
 
-![Search Results](media/transaction-diagnostics/searchResults.png)
+![Risultati della ricerca](media/transaction-diagnostics/searchResults.png)
 
 ## <a name="profiler-and-snapshot-debugger"></a>Profiler e Snapshot Debugger
 
 [Application Insights Profiler](../../azure-monitor/app/profiler.md) o [Snapshot Debugger](snapshot-debugger.md) consentono di eseguire la diagnostica a livello di codice dei problemi di prestazioni e degli errori. Grazie a questa esperienza è possibile visualizzare le tracce del profiler o gli snapshot di un componente con un solo clic.
 
-Se non si è stato possibile ottenere Profiler funziona, contattare **serviceprofilerhelp\@microsoft.com**
+Se non è stato possibile ottenere il funzionamento del profiler, contattare **serviceprofilerhelp\@Microsoft.com**
 
-Se non si è stato possibile ottenere lavoro Snapshot Debugger, contattare **snapshothelp\@microsoft.com**
+Se non è stato possibile ottenere Snapshot Debugger funzionante, contattare **snapshothelp\@Microsoft.com**
 
 ![Integrazione profiler](media/transaction-diagnostics/profilerTraces.png)
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>FAQ
 
 *Nel grafico viene visualizzato un solo componente, mentre gli altri vengono visualizzati solo come dipendenze esterne senza mostrare alcun dettaglio sulle operazioni eseguite all'interno di tali componenti.*
 
@@ -92,7 +88,7 @@ Possibili motivi:
 
 Se si dispone dell'accesso e i componenti sono instrumentati con gli SDK di Application Insights più recenti, segnalare il problema tramite il canale di feedback in alto a destra.
 
-*Il grafico mostra righe duplicate per le dipendenze. È normale?*
+*Vengono visualizzate righe duplicate per le dipendenze. È previsto?*
 
 In questa fase la chiamata di dipendenza in uscita viene mostrata separatamente dalla richiesta in ingresso. In genere, le due chiamate hanno lo stesso aspetto, cambia solo il valore della durata a causa del round trip della rete. L'icona iniziale e lo stile diverso delle barre della durata consentono di distinguere le chiamate tra loro. Questa organizzazione dei dati crea confusione? Inviare i propri commenti.
 

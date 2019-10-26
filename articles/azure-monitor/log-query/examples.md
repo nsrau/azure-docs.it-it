@@ -1,24 +1,18 @@
 ---
 title: Esempi di query di log in Monitoraggio di Azure | Microsoft Docs
 description: Esempi di query di log in Monitoraggio di Azure usando il linguaggio di query Kusto.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 10/01/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 7cdd471e6618e83483f6cc304f284a1669f3b67b
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
-ms.translationtype: MT
+ms.date: 10/01/2019
+ms.openlocfilehash: 2ded97e427c8ecf4584ee486408de14a26f014eb
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718907"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900376"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Esempi di query di log in Monitoraggio di Azure
 Questo articolo include vari esempi di [query](log-query-overview.md) che usano il [linguaggio di query Kusto](/azure/kusto/query/) per recuperare tipi diversi di dati da Monitoraggio di Azure. Poiché vengono usati metodi diversi per consolidare e analizzare i dati, è possibile usare questi esempi per identificare strategie diverse che si possono applicare in base alle necessità.  
@@ -158,7 +152,7 @@ AzureDiagnostics
 | summarize arg_max(TimeGenerated, *) by Category
 ```
 
-## <a name="network-monitoring"></a>Monitoraggio rete
+## <a name="network-monitoring"></a>Monitoraggio della rete
 
 ### <a name="computers-with-unhealthy-latency"></a>Computer con latenza dannosa
 Questo esempio crea un elenco di computer distinti con latenza dannosa.
@@ -170,7 +164,7 @@ NetworkMonitoring
 | distinct Computer
 ```
 
-## <a name="performance"></a>Prestazioni
+## <a name="performance"></a>Performance
 
 ### <a name="join-computer-perf-records-to-correlate-memory-and-cpu"></a>Aggiungere i record delle prestazioni di un computer per correlare memoria e CPU
 Questo esempio correla i record delle **prestazioni** di un computer specifico e crea due diagrammi temporali, uno relativo all'utilizzo medio della CPU e l'altro per l'utilizzo massimo della memoria.

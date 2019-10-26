@@ -9,16 +9,18 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 16ac8ef9e0fb876103b57b1cc463bdae5b2362b7
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 5842d6fcb5f03754fc8f5922e299d0d9c30d21db
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828102"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900824"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge simulato con un TPM virtuale in Windows
 
 È possibile effettuare il provisioning automatico di dispositivi Azure IoT Edge tramite il [servizio Device Provisioning](../iot-dps/index.yml) esattamente come per i dispositivi non abilitati per Edge. Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](../iot-dps/concepts-auto-provisioning.md) prima di continuare.
+
+DPS supporta l'attestazione della chiave simmetrica per i dispositivi IoT Edge sia nella registrazione singola che nella registrazione di gruppo. Per la registrazione di gruppo, se si seleziona l'opzione "IoT Edge dispositivo" come true nell'attestazione della chiave simmetrica, tutti i dispositivi registrati nel gruppo di registrazioni verranno contrassegnati come IoT Edge dispositivi. 
 
 Questo articolo illustra come testare il provisioning automatico in un dispositivo IoT Edge simulato con i passaggi seguenti:
 
@@ -96,7 +98,7 @@ Per informazioni più dettagliate sull'installazione di IoT Edge in Windows, inc
 
 1. A questo punto, i dispositivi core per le cose possono riavviarsi automaticamente. Altri dispositivi Windows 10 o Windows Server possono richiedere il riavvio. In tal caso, riavviare il dispositivo ora. Quando il dispositivo è pronto, eseguire di nuovo PowerShell come amministratore.
 
-1. Il comando **Initialize-IoTEdge** configura il runtime IoT Edge nel computer. L'impostazione predefinita del comando è provisioning manuale con i contenitori di Windows. Usare il `-Dps` flag per usare il servizio Device provisioning anziché il provisioning manuale.
+1. Il comando **Initialize-IoTEdge** configura il runtime IoT Edge nel computer. L'impostazione predefinita del comando è provisioning manuale con i contenitori di Windows. Usare il flag `-Dps` per usare il servizio Device provisioning anziché il provisioning manuale.
 
    Sostituire i valori segnaposto per `{scope_id}` e `{registration_id}` con i dati raccolti in precedenza.
 

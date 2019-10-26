@@ -3,29 +3,30 @@ title: Interfaccia della riga di comando di Azure Service Fabric - sfctl mesh co
 description: Descrive i comandi sfctl mesh code-package-log dell'interfaccia della riga di comando di Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: b1949f87dcdb1e3d9fe8e7fd08d8d8ba3b8203a0
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: d1f0e34389a48b79c049f26e8b04c870f0f1a9a7
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036440"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901271"
 ---
 # <a name="sfctl-mesh-code-package-log"></a>sfctl mesh code-package-log
 Consente di ottenere i log per il contenitore del pacchetto di codice specificato per la replica del servizio specificata.
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|DESCRIZIONE|
+|Comando|Description|
 | --- | --- |
 | get | Ottiene i log dal contenitore. |
 
@@ -36,7 +37,7 @@ Ottiene i log per il contenitore del pacchetto di codice specificato per la repl
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|DESCRIZIONE|
+|Argomento|Description|
 | --- | --- |
 | --app-name --application-name [obbligatorio] | Il nome dell'applicazione. |
 | --code-package-name           [obbligatorio] | Nome del pacchetto di codice del servizio. |
@@ -46,7 +47,7 @@ Ottiene i log per il contenitore del pacchetto di codice specificato per la repl
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |

@@ -1,30 +1,25 @@
 ---
 title: Risolvere i problemi relativi agli strumenti di analisi del comportamento degli utenti in Azure Application Insights
 description: Guida alla risoluzione dei problemi relativi all'analisi dell'utilizzo di siti e app con Application Insights.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: eabc47c2acb33d8c6ee03477b5e8c7783edebbb7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9222f4611f87869c1bacf3084035c0ab9322fa40
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371853"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899342"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Risolvere i problemi relativi agli strumenti di analisi del comportamento degli utenti in Application Insights
-Domande relative agli [strumenti di analisi del comportamento degli utenti in Application Insights](usage-overview.md): [Utenti, sessioni ed eventi](usage-segmentation.md), [Grafici a imbuto](usage-funnels.md), [Flussi utente](usage-flows.md), [Conservazione](usage-retention.md) oppure Coorte. offrendo alcune utili risposte.
+Questo articolo prende in esame le domande degli utenti sugli [strumenti di analisi del comportamento degli utenti in Application Insights](usage-overview.md), ad esempio [Utenti, Sessioni, Eventi](usage-segmentation.md), [Imbuti](usage-funnels.md), [Flussi utente](usage-flows.md), [Conservazione](usage-retention.md) e Coorti, offrendo alcune utili risposte.
 
 ## <a name="counting-users"></a>Conteggio degli utenti
-**Dagli strumenti di analisi del comportamento degli utenti risulta che l'app ha un solo utente e una sola sessione, mentre in realtà ha molti utenti e molte sessioni. Come si possono correggere questi errori nei conteggi?**
+**Gli strumenti di analisi del comportamento dell'utente mostrano che l'app dispone di un utente/sessione, ma è noto che l'app ha molti utenti/sessioni. Come è possibile risolvere questi conteggi non corretti?**
 
 Tutti gli eventi di telemetria in Application Insights hanno un [ID utente anonimo](../../azure-monitor/app/data-model-context.md) e un [ID di sessione](../../azure-monitor/app/data-model-context.md) come proprietà standard. Per impostazione predefinita, tutti gli strumenti di analisi dell'utilizzo eseguono il conteggio degli utenti e delle sessioni in base a questi ID. Se in queste proprietà standard non vengono inseriti ID univoci per ogni utente e sessione dell'app, negli strumenti di analisi dell'utilizzo si vedrà un conteggio errato degli utenti e delle sessioni.
 
@@ -37,9 +32,9 @@ Se l'app invia [ID utente autenticati](../../azure-monitor/app/api-custom-events
 Gli strumenti di analisi del comportamento degli utenti non supportano attualmente il conteggio di utenti o sessioni in base a proprietà diverse da ID utente anonimo, ID utente autenticato o ID di sessione.
 
 ## <a name="naming-events"></a>Denominazione degli eventi
-**Nell'app sono presenti migliaia di nomi diversi di visualizzazione pagina e di evento personalizzato. È difficile distinguere tra questi nomi e gli strumenti di analisi del comportamento degli utenti spesso smettono di rispondere. Come si possono risolvere questi problemi di denominazione?**
+**L'app dispone di migliaia di visualizzazioni pagina e di nomi di eventi personalizzati diversi. È difficile distinguere tra di essi e gli strumenti di analisi del comportamento degli utenti spesso non rispondono. Come è possibile risolvere questi problemi di denominazione?**
 
-I nomi di visualizzazione pagina e quelli di evento personalizzato vengono usati in tutti gli strumenti di analisi del comportamento degli utenti. La corretta denominazione degli eventi è essenziale per poter ottenere risultati ottimali da questi strumenti. L'obiettivo è un equilibrio tra con un numero troppo ridotto nomi eccessivamente generici ("pulsante selezionato") e avere troppi nomi eccessivamente specifici ("fatto clic sul pulsante Modifica su http:\//www.contoso.com/index").
+I nomi di visualizzazione pagina e quelli di evento personalizzato vengono usati in tutti gli strumenti di analisi del comportamento degli utenti. La corretta denominazione degli eventi è essenziale per poter ottenere risultati ottimali da questi strumenti. L'obiettivo è un equilibrio tra un numero troppo basso di nomi generici ("pulsante selezionato") e con troppi nomi eccessivamente specifici ("pulsante Modifica selezionato in http:\//www.contoso.com/index").
 
 Per apportare modifiche ai nomi di visualizzazione pagina e a quelli di evento personalizzato inviati dall'app, è necessario modificare il codice sorgente dell'app ed eseguire nuovamente la distribuzione. **Tutti i dati di telemetria disponibili in Application Insights vengono archiviati per 90 giorni e non possono essere eliminati**. Di conseguenza, le eventuali modifiche apportate ai nomi di evento saranno completamente visibili dopo 90 giorni. Per i 90 giorni successivi alle operazioni di modifica, nei dati di telemetria verranno visualizzati sia i nomi di evento precedenti sia quelli nuovi. Sarà pertanto opportuno modificare le query e comunicare all'interno dei team tenendo presente questo aspetto.
 
@@ -55,6 +50,6 @@ Se l'app invia troppi nomi di evento personalizzato, modificare il nome nel codi
 
 * [Panoramica sugli strumenti di analisi del comportamento degli utenti](usage-overview.md)
 
-## <a name="get-help"></a>Ottenere aiuto
+## <a name="get-help"></a>Ottenere supporto
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 

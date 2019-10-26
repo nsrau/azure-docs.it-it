@@ -3,29 +3,30 @@ title: Interfaccia della riga di comando Azure Service Fabric - sfctl is | Docum
 description: Descrive i comandi dell'interfaccia della riga di comando Service Fabric sfctl is.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 998a94350250402d4face64f64e12f32cf5b2a36
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 9a09d8c36fd282450767880a9ad144e1192dcd2e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036499"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901576"
 ---
 # <a name="sfctl-is"></a>sfctl is
 Consente di eseguire query e inviare comandi al servizio di infrastruttura.
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|DESCRIZIONE|
+|Comando|Description|
 | --- | --- |
 | command | Richiama un comando amministrativo sull'istanza del servizio di infrastruttura specificato. |
 | query | Richiama una query di sola lettura sull'istanza del servizio di infrastruttura specificato. |
@@ -37,15 +38,15 @@ Per i cluster che dispongono di una o più istanze del servizio di infrastruttur
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|DESCRIZIONE|
+|Argomento|Description|
 | --- | --- |
 | --command [Obbligatorio] | Il testo del comando da richiamare. Il contenuto del comando è specifico dell'infrastruttura. |
 | --service-id | L'identità del servizio di infrastruttura. <br><br> Si tratta del nome completo del servizio di infrastruttura senza lo schema URI "fabric\:". Questo parametro è obbligatorio solo per il cluster con più di un'istanza del servizio di infrastruttura in esecuzione. |
-| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Valore predefinito\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
@@ -60,15 +61,15 @@ Per i cluster che dispongono di una o più istanze del servizio di infrastruttur
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|DESCRIZIONE|
+|Argomento|Description|
 | --- | --- |
 | --command [Obbligatorio] | Il testo del comando da richiamare. Il contenuto del comando è specifico dell'infrastruttura. |
 | --service-id | L'identità del servizio di infrastruttura. <br><br> Si tratta del nome completo del servizio di infrastruttura senza lo schema URI "fabric\:". Questo parametro è obbligatorio solo per il cluster con più di un'istanza del servizio di infrastruttura in esecuzione. |
-| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Valore predefinito\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |

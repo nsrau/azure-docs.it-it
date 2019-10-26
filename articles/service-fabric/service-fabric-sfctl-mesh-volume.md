@@ -3,33 +3,34 @@ title: Interfaccia della riga di comando di Azure Service Fabric - volume mesh s
 description: Descrive i comandi sfctl mesh volume dell'interfaccia della riga di comando di Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 4e2413a152048e08d6218783891c20b66ac2e618
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: cc26a0a3170f6cd75f5a1cbb3981044d28d9aba3
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034994"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901139"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
-Ottenere ed eliminare le risorse di volume.
+Consente di ottenere ed eliminare le risorse di volume.
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|DESCRIZIONE|
+|Comando|Description|
 | --- | --- |
 | delete | Elimina la risorsa di volume. |
 | list | Elenca tutte le risorse di volume. |
-| show | Ottiene la risorsa di volume con il nome specificato. |
+| mostra | Ottiene la risorsa di volume con il nome specificato. |
 
 ## <a name="sfctl-mesh-volume-delete"></a>sfctl mesh volume delete
 Elimina la risorsa di volume.
@@ -38,13 +39,13 @@ Elimina la risorsa di volume identificata dal nome.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|DESCRIZIONE|
+|Argomento|Description|
 | --- | --- |
 | --name -n [Obbligatorio] | Il nome del volume. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
@@ -59,7 +60,7 @@ Ottiene le informazioni su tutte le risorse di volume in un determinato gruppo d
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
@@ -74,13 +75,13 @@ Ottiene le informazioni sulla risorsa di volume con il nome specificato. Le info
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|DESCRIZIONE|
+|Argomento|Description|
 | --- | --- |
 | --name -n [Obbligatorio] | Il nome del volume. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |

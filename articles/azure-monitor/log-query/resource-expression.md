@@ -1,24 +1,18 @@
 ---
 title: espressione Resource () nella query del log di monitoraggio di Azure | Microsoft Docs
 description: L'espressione di risorsa viene usata in una query di log di monitoraggio di Azure incentrata sulle risorse per recuperare dati da più risorse.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 09/10/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: deca6e7ef1c231a82a73067971d86a6e9cdd0599
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
-ms.translationtype: MT
+ms.date: 09/10/2018
+ms.openlocfilehash: 4787dc8a8cc06e0ad0be88597dab3481284fb58b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71817410"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900222"
 ---
 # <a name="resource-expression-in-azure-monitor-log-query"></a>espressione Resource () nella query del log di monitoraggio di Azure
 
@@ -33,9 +27,9 @@ L'espressione `resource` viene usata in una query di monitoraggio di Azure con [
 
 - *Identificatore*: ID risorsa di una risorsa.
 
-| Identificatore | Descrizione | Esempio
+| Identificatore | Description | Esempio
 |:---|:---|:---|
-| Resource | Include i dati per la risorsa. | risorsa ("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/Providers/Microsoft.Compute/VirtualMachines/MyVM") |
+| Gruppi | Include i dati per la risorsa. | risorsa ("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/Providers/Microsoft.Compute/VirtualMachines/MyVM") |
 | Gruppo di risorse o sottoscrizione | Include i dati per la risorsa e tutte le risorse in esso contenute.  | risorsa ("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup) |
 
 
@@ -44,7 +38,7 @@ L'espressione `resource` viene usata in una query di monitoraggio di Azure con [
 * È necessario avere accesso in lettura alla risorsa.
 
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 ```Kusto
 union (Heartbeat),(resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm").Heartbeat) | summarize count() by _ResourceId, TenantId

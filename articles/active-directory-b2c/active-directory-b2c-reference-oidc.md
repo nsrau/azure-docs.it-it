@@ -11,12 +11,12 @@ ms.date: 08/22/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 45ecfc896132eace3ca0babde509e82896c9a394
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: b3f3727fe3705d686f25faedf1871e5aacb74352
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533117"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893256"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Accesso Web con OpenID Connect in Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Parametro | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | inquilino | SÌ | Nome del tenant di Azure AD B2C |
-| politica | SÌ | Flusso utente da eseguire. Specificare il nome di un flusso utente creato nel tenant del Azure AD B2C. Ad esempio: `b2c_1_sign_in`, `b2c_1_sign_up` o `b2c_1_edit_profile`. |
+| politica | SÌ | Flusso utente da eseguire. Specificare il nome di un flusso utente creato nel tenant del Azure AD B2C. Ad esempio: `b2c_1_sign_in`, `b2c_1_sign_up`o `b2c_1_edit_profile`. |
 | client_id | SÌ | ID applicazione assegnato dall' [portale di Azure](https://portal.azure.com/) all'applicazione. |
 | nonce | SÌ | Valore incluso nella richiesta, generato dall'applicazione, incluso nel token ID risultante come attestazione. L'applicazione può quindi verificare questo valore per attenuare gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. |
 | response_type | SÌ | Deve includere un token ID per OpenID Connect. Se l'applicazione Web richiede anche token per chiamare un'API Web, è possibile usare `code+id_token`. |
@@ -149,7 +149,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | inquilino | SÌ | Nome del tenant di Azure AD B2C |
 | politica | SÌ | Flusso utente usato per acquisire il codice di autorizzazione. Non è possibile usare un flusso utente diverso in questa richiesta. Aggiungere questo parametro alla stringa di query, non al corpo del POST. |
 | client_id | SÌ | ID applicazione assegnato dall' [portale di Azure](https://portal.azure.com/) all'applicazione. |
-| client_secret | SÌ | Segreto dell'applicazione generato nel [portale di Azure](https://portal.azure.com/). La chiave privata dell'applicazione è un elemento di sicurezza importante. È necessario archiviarla in modo sicuro nel server. Modificare periodicamente questo segreto client. |
+| client_secret | Sì, nelle app Web | Segreto dell'applicazione generato nel [portale di Azure](https://portal.azure.com/). I segreti client vengono usati in questo flusso per gli scenari di app Web, in cui il client può archiviare in modo sicuro un segreto client. Per gli scenari di app native (client pubblico), i segreti client non possono essere archiviati in modo sicuro, threfore non usati in questo flusso. Se si usa un segreto client, modificarlo periodicamente. |
 | code | SÌ | Codice di autorizzazione acquisito all'inizio del flusso utente. |
 | grant_type | SÌ | Tipo di concessione, che deve essere `authorization_code` per il flusso del codice di autorizzazione. |
 | redirect_uri | SÌ | Parametro `redirect_uri` dell'applicazione dove è stato ricevuto il codice di autorizzazione. |
@@ -218,7 +218,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | inquilino | SÌ | Nome del tenant di Azure AD B2C |
 | politica | SÌ | Flusso utente usato per acquisire il token di aggiornamento originale. Non è possibile usare un flusso utente diverso in questa richiesta. Aggiungere questo parametro alla stringa di query, non al corpo del POST. |
 | client_id | SÌ | ID applicazione assegnato dall' [portale di Azure](https://portal.azure.com/) all'applicazione. |
-| client_secret | SÌ | Segreto dell'applicazione generato nel [portale di Azure](https://portal.azure.com/). La chiave privata dell'applicazione è un elemento di sicurezza importante. È necessario archiviarla in modo sicuro nel server. Modificare periodicamente questo segreto client. |
+| client_secret | Sì, nelle app Web | Segreto dell'applicazione generato nel [portale di Azure](https://portal.azure.com/). I segreti client vengono usati in questo flusso per gli scenari di app Web, in cui il client può archiviare in modo sicuro un segreto client. Per gli scenari di app native (client pubblico), i segreti client non possono essere archiviati in modo sicuro, threfore non usato in questa chiamata. Se si usa un segreto client, modificarlo periodicamente. |
 | grant_type | SÌ | Tipo di concessione, che deve essere un token di aggiornamento per questa parte del flusso del codice di autorizzazione. |
 | refresh_token | SÌ | Token di aggiornamento originale acquisito nella seconda parte del flusso. Per ricevere un token di aggiornamento, è necessario usare l'ambito `offline_access` nelle richieste di autorizzazione e di token. |
 | redirect_uri | No | Parametro `redirect_uri` dell'applicazione dove è stato ricevuto il codice di autorizzazione. |

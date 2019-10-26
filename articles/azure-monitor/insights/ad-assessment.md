@@ -1,24 +1,18 @@
 ---
 title: Ottimizzare l'ambiente Active Directory con Monitoraggio di Azure|Microsoft Docs
 description: È possibile usare la soluzione Controllo integrità Active Directory per valutare i rischi e l'integrità degli ambienti a intervalli regolari.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 09/10/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: a0ffe7b8726ee78ca81751687bebd3c435365576
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 09/10/2019
+ms.openlocfilehash: bdc84a9213bd98981040775d3fec90f45edac54f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883078"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899194"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Ottimizzare l'ambiente Active Directory con la soluzione Controllo integrità Active Directory in Monitoraggio di Azure
 
@@ -145,7 +139,7 @@ Ecco una schermata che mostra la query di log: <
 
 ![raccomandazioni non riuscite](media/ad-assessment/ad-failed-recommendations.png)
 
-Scegliere le raccomandazioni che si vogliono ignorare. Nella procedura successiva verranno usati i valori per ID raccomandazione.
+Scegliere le raccomandazioni da ignorare. Nella procedura successiva verranno usati i valori per ID raccomandazione.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Per creare e usare un file di testo IgnoreRecommendations.txt
 
@@ -169,7 +163,7 @@ Dopo l'esecuzione del controllo integrità successivo pianificato, per impostazi
     ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
 
-2. Se in seguito si decide che si vogliono vedere le raccomandazioni ignorate, rimuovere eventuali file IgnoreRecommendations.txt oppure rimuovere gli ID raccomandazione dagli stessi.
+2. Se in seguito si decide che si vogliono vedere le raccomandazioni ignorate, rimuovere eventuali file IgnoreRecommendations.txt oppure è possibile rimuovere gli ID raccomandazione dagli stessi.
 
 ## <a name="ad-health-check-solutions-faq"></a>Domande frequenti sulla soluzione Controllo integrità AD
 
@@ -179,7 +173,7 @@ Dopo l'esecuzione del controllo integrità successivo pianificato, per impostazi
 
 *È possibile configurare la frequenza di esecuzione del controllo integrità?*
 
-* Attualmente non è possibile.
+* Non attualmente.
 
 *Se viene rilevato un altro server dopo l'aggiunta di una soluzione di controllo integrità, il server verrà controllato?*
 
@@ -199,7 +193,7 @@ Dopo l'esecuzione del controllo integrità successivo pianificato, per impostazi
 
 *È possibile definire l'orario per la raccolta di dati?*
 
-* Attualmente non è possibile.
+* Non attualmente.
 
 *Perché vengono visualizzate solo le prime 10 raccomandazioni?*
 

@@ -3,22 +3,23 @@ title: Interfaccia della riga di comando Azure Service Fabric - telemetria delle
 description: Descrive i comandi della telemetria delle impostazioni sfctl dell'interfaccia della riga di comando Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: cf5ebbeb4d9b4757e0c55eeb1a9268065efb2c7c
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: d926c71ae8fd9e196b86c14c7fb96cc65b587b65
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035192"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900988"
 ---
 # <a name="sfctl-settings-telemetry"></a>sfctl settings telemetry
 Configura le impostazioni di telemetria locali per questa istanza di sfctl.
@@ -27,7 +28,7 @@ La telemetria sfctl raccoglie il nome del comando senza i parametri forniti o i 
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|DESCRIZIONE|
+|Comando|Description|
 | --- | --- |
 | set-telemetry | Attiva o disattiva la telemetria. |
 
@@ -36,14 +37,14 @@ Attiva o disattiva la telemetria.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|DESCRIZIONE|
+|Argomento|Description|
 | --- | --- |
 | --off | Disattiva la telemetria. |
 | --on | Attiva la telemetria. Si tratta del valore predefinito. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
@@ -51,7 +52,7 @@ Attiva o disattiva la telemetria.
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>esempi
 
 Disattiva la telemetria.
 

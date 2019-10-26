@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b38779681dfe612369fefb9d752389395965e7b4
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: c32045c6d68a813eaeb6e4e5de433160c2a30634
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285778"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901451"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Guida introduttiva-configurare un ambiente cloud privato
 
@@ -23,7 +23,7 @@ Questo articolo illustra come creare un cloud privato CloudSimple e come configu
 
 Verificare i [prerequisiti di rete](cloudsimple-network-checklist.md).
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
+## <a name="sign-in-to-azure"></a>Accedere a Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
@@ -42,12 +42,12 @@ I cloud privati vengono gestiti tramite il portale CloudSimple. Hanno il proprio
 
 5. Nel portale di CloudSimple specificare un nome per il cloud privato.
 6. Selezionare la **località** del cloud privato.
-7. Selezionare il **tipo di nodo**, coerente con quello acquistato in Azure.
+7. Selezionare il **tipo di nodo**, coerente con quello di cui è stato effettuato il provisioning in Azure.
 8. Specificare il **numero di nodi**.  Per creare un cloud privato sono necessari almeno tre nodi.
 
     ![Creare un cloud privato-informazioni di base](media/create-private-cloud-basic-info.png)
 
-9. Fare clic su **Avanti: Opzioni avanzate @ no__t-0.
+9. Fare clic su **Avanti: opzioni avanzate**.
 10. Immettere l'intervallo CIDR per le subnet vSphere/rete VSAN. Verificare che l'intervallo CIDR non si sovrappongano con le subnet di Azure locali o altre (reti virtuali) o con la subnet del gateway.
 
     **Opzioni di intervallo CIDR:** /24,/23,/22 o/21. Un intervallo CIDR/24 supporta fino a 26 nodi, un intervallo CIDR/23 supporta fino a 58 nodi e un intervallo CIDR/22 e/21 supporta 64 nodi (il numero massimo di nodi in un cloud privato).  Per altre informazioni e VLAN e subnet, vedere [Panoramica di VLAN e subnet](cloudsimple-vlans-subnets.md).
@@ -55,7 +55,7 @@ I cloud privati vengono gestiti tramite il portale CloudSimple. Hanno il proprio
       > [!IMPORTANT]
       > Gli indirizzi IP nell'intervallo CIDR vSphere/rete VSAN sono riservati per l'uso da parte dell'infrastruttura di cloud privato.  Non usare l'indirizzo IP in questo intervallo in una macchina virtuale.
 
-11. Fare clic su **Avanti: Esaminare e creare @ no__t-0.
+11. Fare clic su **Avanti: esaminare e creare**.
 12. Esaminare le impostazioni. Se è necessario modificare le impostazioni, fare clic su **indietro**.
 13. Fare clic su **Create**(Crea).
 
@@ -108,7 +108,7 @@ Una connessione VPN da punto a sito è il modo più semplice per connettersi al 
 
 ### <a name="connect-to-cloudsimple-using-point-to-site-vpn"></a>Connettersi a CloudSimple tramite una VPN da punto a sito
 
-Il client VPN è necessario per la connessione a CloudSimple dal computer.  Scaricare il [client OpenVPN](https://openvpn.net/community-downloads/) per Windows o [la viscosità](https://www.sparklabs.com/viscosity/download/) per MacOS e OS X.
+Il client VPN è necessario per la connessione a CloudSimple dal computer.  Scaricare il [client OpenVPN](https://openvpn.net/community-downloads/) per Windows o la [viscosità](https://www.sparklabs.com/viscosity/download/) per MacOS e OS X.
 
 1. Avviare il portale di CloudSimple e selezionare **rete**.
 2. Selezionare **gateway VPN**.
@@ -116,7 +116,7 @@ Il client VPN è necessario per la connessione a CloudSimple dal computer.  Scar
 4. Selezionare **Utenti**.
 5. Fare clic su **Scarica configurazione VPN**.
 
-    ![Scarica configurazione VPN](media/download-p2s-vpn-configuration.png)
+    ![Scaricare la configurazione della VPN](media/download-p2s-vpn-configuration.png)
 
 6. Importare la configurazione nel client VPN.
 
@@ -139,7 +139,7 @@ Dopo aver creato un cloud privato, creare una VLAN in cui distribuire il carico 
 5. Selezionare un ID VLAN nell'elenco.  
 6. Immettere il nome di una subnet per identificare la subnet.
 7. Specificare l'intervallo CIDR della subnet e la maschera.  Questo intervallo non deve sovrapporsi ad alcuna subnet esistente.
-8. Fare clic su **Invia**.
+8. Fare clic su **Submit** (Invia).
 
     ![Crea dettagli VLAN/subnet](media/create-new-vlan-subnet-details.png)
 
@@ -168,13 +168,13 @@ Le schermate di vCenter nelle procedure successive sono riportate nel client vSp
 CloudSimple consiglia di modificare la password la prima volta che si accede a vCenter.  
 La password impostata deve soddisfare i requisiti seguenti:
 
-* Durata massima: La password deve essere modificata ogni 365 giorni
-* Limita riutilizzo: Gli utenti non possono riutilizzare una delle cinque password precedenti
-* Durata: 8-20 caratteri
-* Carattere speciale: Almeno un carattere speciale
-* Caratteri alfabetici: Almeno un carattere maiuscolo, A-Z e almeno un carattere minuscolo, a-z
-* Numeri Almeno un carattere numerico, 0-9
-* Numero massimo di caratteri adiacenti identici: Tre
+* Durata massima: la password deve essere modificata ogni 365 giorni
+* Limita riutilizzo: gli utenti non possono riutilizzare una delle cinque password precedenti
+* Lunghezza: 8-20 caratteri
+* Carattere speciale: almeno un carattere speciale
+* Caratteri alfabetici: almeno un carattere maiuscolo, A-Z e almeno un carattere minuscolo, a-z
+* Numeri: almeno un carattere numerico, 0-9
+* Numero massimo di caratteri adiacenti identici: tre
 
     Esempio: CC o CCC è accettabile come parte della password, ma ciari non è.
 

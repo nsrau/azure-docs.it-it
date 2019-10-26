@@ -1,30 +1,25 @@
 ---
 title: Analisi della conservazione degli utenti per applicazioni Web con Azure Application Insights | Microsoft Docs
 description: Quanti utenti tornano all'app?
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/03/2017
-ms.pm_owner: daviste;NumberByColors
-ms.reviewer: mbullwin
+author: NumberByColors
 ms.author: daviste
-ms.openlocfilehash: bda79520dd86cc14161f6f22cd24feb2e35849ab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 05/03/2017
+ms.reviewer: mbullwin
+ms.openlocfilehash: 5f5f6235354adc565815ac2eab0a1c774267102d
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60372635"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899409"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analisi della conservazione degli utenti per applicazioni Web con Application Insights
 
 La funzionalità di conservazione in [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) consente di analizzare il numero di utenti che tornano all'app e la frequenza con cui si eseguono attività specifiche o si raggiungono determinati obiettivi. Ad esempio, se si esegue un sito di giochi, è possibile confrontare il numero di utenti che ritornano sul sito dopo aver perso una partita con il numero di utenti che ritornano dopo averla vinta. Queste informazioni consentono di migliorare sia l'esperienza per l'utente che la strategia aziendale.
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Inizia oggi stesso
 
 Se nello strumento Conservazione nel portale di Application Insights non vengono ancora visualizzati i dati, leggere le [informazioni su come iniziare a usare gli strumenti di utilizzo](usage-overview.md).
 
@@ -34,7 +29,7 @@ Se nello strumento Conservazione nel portale di Application Insights non vengono
 
 1. La barra degli strumenti consente agli utenti di creare nuovi report di conservazione, aprire i report di conservazione esistenti, salvare il report di conservazione corrente o salvarlo con un altro nome, ripristinare le modifiche apportate al report salvati, aggiornare i dati del report, condividere un report tramite posta elettronica o un collegamento diretto e accedere alla pagina della documentazione. 
 2. Per impostazione predefinita, il report di conservazione mostra tutti gli utenti che non hanno fatto alcuna operazione, poi sono tornati e non hanno fatto altro per un periodo. È possibile selezionare una diversa combinazione di eventi per restringere l'ambito ad attività specifiche degli utenti.
-3. Aggiungere uno o più filtri alle proprietà. Ad esempio, è possibile concentrarsi sugli utenti di un determinato paese o area. Fare clic su **Aggiorna** sopo aver impostato i filtri. 
+3. Aggiungere uno o più filtri alle proprietà. Ad esempio, è possibile concentrarsi sugli utenti di un determinato paese o area geografica. Fare clic su **Aggiorna** sopo aver impostato i filtri. 
 4. Il grafico generale della conservazione mostra un riepilogo degli utenti conservati per il periodo di tempo selezionato. 
 5. Nella griglia viene visualizzato il numero di utenti conservati secondo il generatore di query al numero 2. Ogni riga rappresenta una coorte di utenti che hanno eseguito qualsiasi evento nel periodo di tempo indicato. Ogni cella nella riga mostra il numero di utenti della coorte che sono ritornati almeno una volta nel periodo successivo. Alcuni utenti potrebbero ritornare in periodi diversi. 
 6. Le schede dei dettagli mostrano i primi 5 eventi di avvio e i primi 5 eventi restituiti per consentire agli utenti una migliore comprensione del report di conservazione. 

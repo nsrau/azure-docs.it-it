@@ -1,29 +1,23 @@
 ---
 title: Aggregazioni nelle query dei log di Monitoraggio di Azure | Microsoft Docs
 description: Descrive le funzioni di aggregazione disponibili per le query dei log di Monitoraggio di Azure che offrono soluzioni utili per analizzare i dati.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/16/2018
+ms.openlocfilehash: 86b84e76b4716c1fddda23a6d52c65c0700c5663
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602723"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900423"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Aggregazioni nelle query dei log di Monitoraggio di Azure
 
 > [!NOTE]
-> Prima di seguire questa lezione, è consigliabile completare [Introduzione al portale di Analytics](get-started-portal.md) e [Introduzione alle query](get-started-queries.md).
+> Prima di seguire questa lezione, è consigliabile completare [Introduzione al portale di analisi](get-started-portal.md) e [Introduzione alle query](get-started-queries.md).
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -96,7 +90,7 @@ Heartbeat
 |Paesi Bassi      | 2                   |
 
 
-Per analizzare sottogruppi ancora più piccoli dei dati, aggiungere altri nomi di colonna nella sezione `by`. Ad esempio, si potrebbe voler contare i computer da ogni paese/area geografica per OSType distinti:
+Per analizzare sottogruppi ancora più piccoli dei dati, aggiungere altri nomi di colonna nella sezione `by`. Ad esempio, potrebbe essere necessario contare i computer distinti da ogni paese/area geografica per OSType:
 
 ```Kusto
 Heartbeat 

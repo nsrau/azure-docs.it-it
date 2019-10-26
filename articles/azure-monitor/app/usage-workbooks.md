@@ -1,24 +1,19 @@
 ---
 title: Creare report interattivi con cartelle di lavoro di Monitoraggio di Azure | Microsoft Docs
 description: Semplificare la creazione di report complessi con cartelle di lavoro con parametri predefinite e personalizzate
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbbf511286c63acf4a939e0a0e7d9c3dc9efa75b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569610"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899381"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Creare report interattivi con cartelle di lavoro di Monitoraggio di Azure
 
@@ -26,7 +21,7 @@ Le cartelle di lavoro combinano testo,  [query di Analytics](https://docs.micr
 
 Le cartelle di lavoro sono utili per scenari simili ai seguenti:
 
-* Esplorazione dell'utilizzo dell'app quando non si conoscono le metriche di interesse in anticipo, ovvero il numero di utenti, i tassi di fidelizzazione, i tassi di conversione e così via. A differenza di altri strumenti di analisi dell'utilizzo, le cartelle di lavoro consentono di combinare più tipi di visualizzazioni e analisi, risultando ideali per questo tipo di esplorazione in formato libero.
+* Esplorazione dell'utilizzo dell'applicazione quando non si conoscono le metriche di interesse in anticipo: numero di utenti, tassi di conservazione, tassi di conversione e così via. A differenza di altri strumenti di analisi dell'utilizzo, le cartelle di lavoro consentono di combinare più tipi di visualizzazioni e analisi, rendendoli eccezionali per questo tipo di esplorazione in formato libero.
 * Descrizione al proprio team delle prestazioni di una nuova funzionalità rilasciata visualizzando i conteggi degli utenti per le interazioni chiave e altre metriche.
 * Condivisione dei risultati di un esperimento A/B nell'app con altri membri del team. È possibile descrivere gli obiettivi dell'esperimento usando testo e visualizzare ogni metrica di utilizzo e query di Analisi usate per valutare l'esperimento con callout chiari che indicano se la singola metrica è al di sopra o al di sotto del target.
 * Segnalazione dell'impatto di un'interruzione nell'utilizzo dell'app, combinazione dei dati, spiegazione del testo e descrizione dei passaggi successivi per impedire interruzioni future.
@@ -206,7 +201,7 @@ Genera il risultato:
 
 ![Controlli di modifica delle sezioni delle cartelle di controllo di Application Insights](./media/usage-workbooks/011-data-table.png)
 
-Un esempio più appropriato consiste nell'usare un elenco a discesa per selezionare da un set di paesi/aree geografiche in base al nome:
+Un esempio più applicabile consiste nell'usare un elenco a discesa per selezionare un set di paesi/aree geografiche per nome:
 
 ```
 customEvents

@@ -1,24 +1,18 @@
 ---
 title: Introduzione alle query di log in Monitoraggio di Azure | Microsoft Docs
 description: Questo articolo include un'esercitazione per iniziare a scrivere query di log in Monitoraggio di Azure.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/09/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 6eb066e04cfa561a4fa443b8c8f9582e286a4d7b
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
-ms.translationtype: MT
+ms.date: 05/09/2019
+ms.openlocfilehash: d9116ba1b43959402223e0cbd1e4f729e053b9b6
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076750"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894294"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introduzione alle query di log in monitoraggio di Azure
 
@@ -112,7 +106,7 @@ SecurityEvent
 
 Quando si scrivono le condizioni di filtro, è possibile usare le espressioni seguenti:
 
-| Expression | Descrizione | Esempio |
+| Expression | Description | Esempio |
 |:---|:---|:---|
 | == | Controllo dell'uguaglianza<br>(fa distinzione tra maiuscole e minuscole) | `Level == 8` |
 | =~ | Controllo dell'uguaglianza<br>(non fa distinzione tra maiuscole e minuscole) | `EventSourceName =~ "microsoft-windows-security-auditing"` |

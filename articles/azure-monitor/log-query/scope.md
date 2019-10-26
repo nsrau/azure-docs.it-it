@@ -1,19 +1,18 @@
 ---
 title: Ambito della query di log in monitoraggio di Azure Log Analytics | Microsoft Docs
 description: Descrive l'ambito e l'intervallo di tempo per una query di log in monitoraggio di Azure Log Analytics.
-services: log-analytics
-author: bwren
-manager: carmonm
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/25/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: e67dcb1236fd5ef113835dfe99de444fc2594481
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.date: 06/25/2019
+ms.openlocfilehash: 03e5e1bc79702a979be352095bb4833a7f5fe1c6
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405719"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900227"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Ambito della query di log e intervallo di tempo in monitoraggio di Azure Log Analytics
 Quando si esegue una [query di log](log-query-overview.md) in [log Analytics nel portale di Azure](get-started-portal.md), il set di dati valutato dalla query dipende dall'ambito e dall'intervallo di tempo selezionato. Questo articolo descrive l'ambito e l'intervallo di tempo e il modo in cui è possibile impostarli in base alle esigenze. Viene inoltre descritto il comportamento di diversi tipi di ambiti.
@@ -24,7 +23,7 @@ L'ambito della query definisce i record valutati dalla query. In genere, tutti i
 
 L'ambito viene sempre visualizzato in alto a sinistra della finestra di Log Analytics. Un'icona indica se l'ambito è un'area di lavoro Log Analytics o un'applicazione Application Insights. Nessuna icona indica un'altra risorsa di Azure.
 
-![Ambito](media/scope/scope.png)
+![Scope](media/scope/scope.png)
 
 L'ambito è determinato dal metodo usato per avviare Log Analytics e in alcuni casi è possibile modificare l'ambito facendo clic su di esso. Nella tabella seguente sono elencati i diversi tipi di ambito usati e i diversi dettagli per ognuno di essi.
 
@@ -50,7 +49,7 @@ Non è possibile usare i comandi seguenti in una query se l'ambito è una risors
 - [workspace](workspace-expression.md)
  
 
-## <a name="query-limits"></a>Limiti di query
+## <a name="query-limits"></a>Limiti delle query
 Per la scrittura di dati in più aree di lavoro Log Analytics è possibile che si disponga di requisiti aziendali per una risorsa di Azure. L'area di lavoro non deve trovarsi nella stessa area della risorsa e una singola area di lavoro può raccogliere dati da risorse in un'ampia gamma di aree.  
 
 L'impostazione dell'ambito su una risorsa o un set di risorse è una funzionalità particolarmente efficace di Log Analytics perché consente di consolidare automaticamente i dati distribuiti in un'unica query. Questo può influire significativamente sulle prestazioni, anche se i dati devono essere recuperati dalle aree di lavoro in più aree di Azure.
@@ -67,7 +66,7 @@ L'esecuzione della query verrà bloccata se l'ambito include aree di lavoro in 2
 ## <a name="time-range"></a>Intervallo di tempo
 L'intervallo di tempo specifica il set di record che vengono valutati per la query in base al momento in cui è stato creato il record. Questa operazione viene definita da una proprietà standard per ogni record nell'area di lavoro o nell'applicazione come specificato nella tabella seguente.
 
-| Location | Proprietà |
+| Località | Proprietà |
 |:---|:---|
 | Area di lavoro Log Analytics          | TimeGenerated |
 | Applicazione Application Insights | timestamp     |

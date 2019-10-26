@@ -1,37 +1,33 @@
 ---
 title: Profilare le app Web in esecuzione in una macchina virtuale di Azure con Application Insights Profiler | Microsoft Docs
 description: Profilare le app Web in esecuzione in una macchina virtuale di Azure con Application Insights Profiler.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: ab30351bfff9c5bbf070a1e8a54a4919e4d2231a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: 44f45c53a12c7ac73c3de3f2734f024cb9bc6dd5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66226257"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899991"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profilare le app Web in esecuzione in una macchina virtuale di Azure o un set di scalabilità di macchine virtuali usando Application Insights Profiler
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 È anche possibile distribuire Azure Application Insights Profiler in questi servizi:
-* [Servizio app di Azure](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Informazioni sul servizio app di Azure](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Servizi cloud di Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Distribuire Profiler in una macchina virtuale o un set di scalabilità di macchine virtuali
 Questo articolo illustra come eseguire Application Insights Profiler nella macchina virtuale di Azure o nel set di scalabilità di macchine virtuali di Azure. Profiler viene installato con l'estensione Diagnostica di Azure per le macchine virtuali. Configurare l'estensione per l'esecuzione di Profiler e compilare Application Insights SDK nell'applicazione.
 
-1. Aggiungere Application Insights SDK per le [applicazione ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
+1. Aggiungere il Application Insights SDK all' [applicazione ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
 
    Per visualizzare i profili per le richieste, è necessario inviare i dati di telemetria delle richieste ad Application Insights.
 
@@ -60,7 +56,7 @@ Questo articolo illustra come eseguire Application Insights Profiler nella macch
 
    Per applicare le modifiche, in genere è necessaria una distribuzione completa del modello o una pubblicazione basata su servizi cloud tramite i cmdlet di PowerShell o Visual Studio.  
 
-   I comandi PowerShell seguenti sono un approccio alternativo per le macchine virtuali esistenti che interessano solo l'estensione diagnostica di Azure. Aggiungere il ProfilerSink menzionati in precedenza per la configurazione che viene restituita dal comando Get-AzVMDiagnosticsExtension. Per il comando Set-AzVMDiagnosticsExtension quindi passare la configurazione aggiornata.
+   I comandi di PowerShell seguenti rappresentano un approccio alternativo per le macchine virtuali esistenti che toccano solo l'estensione Diagnostica di Azure. Aggiungere il ProfilerSink indicato in precedenza alla configurazione restituita dal comando Get-AzVMDiagnosticsExtension. Passare quindi la configurazione aggiornata al comando set-AzVMDiagnosticsExtension.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()
@@ -86,24 +82,24 @@ Questo articolo illustra come eseguire Application Insights Profiler nella macch
 
 1. Distribuire l'applicazione.
 
-## <a name="set-profiler-sink-using-azure-resource-explorer"></a>Set di Profiler Sink usando Esplora risorse di Azure
-Non abbiamo ancora un modo per impostare il sink di Application Insights Profiler dal portale. Invece di usare powershell come descritto in precedenza, è possibile usare Esplora inventario risorse di Azure per impostare il sink. Ma si noti che se si distribuisce la macchina virtuale anche in questo caso, il sink andranno perso. È necessario aggiornare la configurazione che usano quando si distribuisce la macchina virtuale per mantenere questa impostazione.
+## <a name="set-profiler-sink-using-azure-resource-explorer"></a>Imposta sink Profiler con Azure Resource Explorer
+Non è ancora possibile impostare il sink Application Insights Profiler dal portale. Invece di usare PowerShell come descritto in precedenza, è possibile usare Azure Resource Explorer per impostare il sink. Si noti tuttavia che se si distribuisce di nuovo la macchina virtuale, il sink andrà perso. È necessario aggiornare la configurazione usata quando si distribuisce la macchina virtuale per mantenere questa impostazione.
 
-1. Verificare che sia installato l'estensione diagnostica di Azure visualizzando le estensioni installate per la macchina virtuale.  
+1. Verificare che l'estensione Windows Diagnostica di Azure sia installata visualizzando le estensioni installate per la macchina virtuale.  
 
-    ![Controllare se è installato l'estensione diagnostica di Microsoft AZURE][wadextension]
+    ![Controllare se l'estensione WAD è installata][wadextension]
 
-1. Trovare l'estensione di diagnostica della macchina virtuale per la macchina virtuale. Espandere il gruppo di risorse Microsoft. COMPUTE virtualMachines, nome della macchina virtuale e le estensioni.  
+1. Trovare l'estensione diagnostica VM per la VM. Espandere il gruppo di risorse Microsoft. Compute virtualMachines, il nome della macchina virtuale e le estensioni.  
 
-    ![Passare alla configurazione WAD in Esplora risorse di Azure][azureresourceexplorer]
+    ![Passare alla configurazione di WAD in Azure Resource Explorer][azureresourceexplorer]
 
-1. Aggiungere il sink di Application Insights Profiler per il nodo SinksConfig WadCfg. Se non si ha già una sezione SinksConfig, si potrebbe essere necessario aggiungerne uno. Assicurarsi di specificare la chiave di strumentazione di Application Insights corretta nelle impostazioni. È necessario attivare la modalità di strumenti di esplorazione di lettura/scrittura in alto a destra e fare clic sul pulsante 'Modifica' blu.
+1. Aggiungere il sink Application Insights Profiler al nodo SinksConfig in WadCfg. Se non si dispone già di una sezione SinksConfig, potrebbe essere necessario aggiungerne una. Assicurarsi di specificare il Application Insights corretto iKey nelle impostazioni. È necessario impostare la modalità esploratori su lettura/scrittura nell'angolo superiore destro e premere il pulsante blu "modifica".
 
-    ![Aggiungere Application Insights Profiler Sink][resourceexplorersinksconfig]
+    ![Aggiungi Application Insights Profiler sink][resourceexplorersinksconfig]
 
-1. Dopo aver completato la modifica la configurazione, premere 'Put'. Se il caricamento ha esito positivo, verrà visualizzato un segno di spunta verde al centro della schermata.
+1. Al termine della modifica della configurazione, premere ' Put '. Se il put ha esito positivo, al centro dello schermo verrà visualizzato un segno di spunta verde.
 
-    ![Inviare richieste put per applicare le modifiche][resourceexplorerput]
+    ![Inviare una richiesta PUT per applicare le modifiche][resourceexplorerput]
 
 
 

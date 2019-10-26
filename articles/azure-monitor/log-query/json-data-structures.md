@@ -1,29 +1,23 @@
 ---
 title: Uso di stringhe nelle query di log di Monitoraggio di Azure | Microsoft Docs
-description: Questo articolo fornisce un'esercitazione per l'uso di Analitica di Log di monitoraggio di Azure nel portale di Azure per eseguire query e analizzare i dati di log in Monitoraggio di Azure.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+description: Questo articolo fornisce un'esercitazione per l'uso di monitoraggio di Azure Log Analytics nel portale di Azure per eseguire query e analizzare i dati di log in monitoraggio di Azure.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 718b12c8a66d66a75796f88ef31b5f0f62abbbc4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/16/2018
+ms.openlocfilehash: 82ac27e10a74dc99adb7615d604502e696aa9edb
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60519624"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894316"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Uso di JSON e strutture dei dati nelle query di log di Monitoraggio di Azure
 
 > [!NOTE]
-> È consigliabile completare [Introduzione a Azure Monitor Log Analitica](get-started-portal.md) e [Introduzione alle query di log di monitoraggio di Azure](get-started-queries.md) prima di completare questa lezione.
+> Prima di completare questa lezione, è necessario completare l'introduzione a [monitoraggio di azure log Analytics](get-started-portal.md) e [iniziare a usare le query di log di monitoraggio di Azure](get-started-queries.md) .
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

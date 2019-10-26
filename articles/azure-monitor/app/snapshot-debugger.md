@@ -1,23 +1,19 @@
 ---
 title: Snapshot Debugger di Azure Application Insights per app .NET | Microsoft Docs
 description: Gli snapshot di debug vengono raccolti automaticamente quando vengono generate eccezioni nelle app di produzione .NET
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: brahmnes
-ms.date: 10/23/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: c0d90d4eed7efb5c82ca9d61565bfe3f49e8aaa1
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
-ms.translationtype: HT
+ms.date: 10/23/2019
+ms.reviewer: brahmnes
+ms.openlocfilehash: 33a9db5fa9f31a0c4548ecdeb6c0ca2f12ac8246
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809503"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899788"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Snapshot di debug per le eccezioni nelle app .NET
 Quando si verifica un'eccezione, è possibile raccogliere automaticamente uno snapshot di debug dall'applicazione Web live. Lo snapshot mostra lo stato del codice sorgente e delle variabili nel momento in cui è stata generata l'eccezione. Snapshot Debugger (anteprima) di [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitora la telemetria delle eccezioni dall'app Web. Raccoglie snapshot per le eccezioni generate più frequentemente in modo che l'utente possa avere le informazioni necessarie per diagnosticare i problemi nell'ambiente di produzione. Includere il [pacchetto NuGet snapshot Collector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'applicazione e, facoltativamente, configurare i parametri di raccolta in [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Gli snapshot vengono visualizzati nelle [eccezioni](../../azure-monitor/app/asp-net-exceptions.md) nel portale di Application Insights.

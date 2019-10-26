@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 45207eb1cdc62f2468d8b0c052723337c18d5021
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 2de24d36d78ebf5edf6ef65471e85b53d954486e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350557"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900737"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Crea, Esplora e Distribuisci esperimenti di Machine Learning automatici con la pagina di destinazione dell'area di lavoro di Azure Machine Learning (anteprima)
 
@@ -26,11 +26,11 @@ ms.locfileid: "71350557"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
+* Una sottoscrizione di Azure. Se non si dispone di una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Un'area di lavoro di Azure Machine Learning. Vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Inizia oggi stesso
 
 1. Accedere alla [pagina di destinazione dell'area di lavoro](https://ml.azure.com/workspaceportal/). 
 
@@ -38,7 +38,7 @@ ms.locfileid: "71350557"
 
 1. Passare al riquadro sinistro. Selezionare **automatizzato ml** nella sezione **autore** .
 
-[![Riquadro di spostamento portale di Azure](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+[riquadro di spostamento![portale di Azure](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
  Se è la prima volta che si esegue un esperimento, verrà **visualizzata la schermata iniziale.** 
 
@@ -54,16 +54,16 @@ In caso contrario, verrà visualizzato il dashboard di **Machine Learning automa
 
 1. Selezionare **Crea nuovo calcolo** per configurare il contesto di calcolo per questo esperimento.
 
-    Campo|Descrizione
+    Campo|Description
     ---|---
-    Nome dell'ambiente di calcolo| Immettere un nome univoco che identifichi il contesto di calcolo.
-    Dimensioni delle macchine virtuali| Selezionare le dimensioni della macchina virtuale per il contesto di calcolo.
-    Nodi min/max (in impostazioni avanzate)| Per profilare i dati, è necessario specificare uno o più nodi. Immettere il numero massimo di nodi per il calcolo. Il valore predefinito è 6 nodi per un calcolo AML.
+    Nome del calcolo| Immettere un nome univoco che identifichi il contesto di calcolo.
+    Dimensioni della macchina virtuale| Selezionare le dimensioni della macchina virtuale per il contesto di calcolo.
+    Numero minimo/massimo di nodi (in Impostazioni avanzate)| Per profilare i dati, è necessario specificare almeno un nodo. Immettere il numero massimo di nodi per il calcolo. Il valore predefinito è 6 nodi per un calcolo AML.
     
-    Selezionare **Create**. La creazione di un nuovo calcolo può richiedere alcuni minuti.
+    Selezionare **Create** (Crea). La creazione di un nuovo calcolo può richiedere alcuni minuti.
 
     >[!NOTE]
-    > Il nome di calcolo indicherà se la profilatura del calcolo selezionato/creato è abilitata. Per altri dettagli, vedere la sezione [profiling dei dati](#profile) .
+    > Il nome di calcolo indicherà se la *profilatura*del calcolo selezionato/creato è abilitata. Per altri dettagli, vedere la sezione [profiling dei dati](#profile) .
 
 1. Selezionare un set di dati dal contenitore di archiviazione oppure crearne uno caricando un file dal computer locale al contenitore. L'anteprima pubblica supporta solo i caricamenti di file locali e gli account di archiviazione BLOB di Azure.
 
@@ -80,13 +80,13 @@ In caso contrario, verrà visualizzato il dashboard di **Machine Learning automa
 
     1. Esaminare le **Impostazioni e** il modulo di anteprima per verificarne l'accuratezza. Il modulo viene popolato in modo intelligente in base al tipo di file. 
 
-        Campo| Descrizione
+        Campo| Description
         ----|----
         Formato file| Definisce il layout e il tipo di dati archiviati in un file.
         Delimitatore| Uno o più caratteri per specificare il limite tra aree separate indipendenti in testo normale o altri flussi di dati.
-        Codifica| Identifica la tabella dello schema da utilizzare per la lettura del set di dati.
-        Intestazioni di colonna| Indica il modo in cui verranno gestite le intestazioni del set di dati.
-        Ignora righe | Indica il numero di righe, se presenti, ignorate nel set di dati.
+        Codifica| Identifica la tabella dello schema bit-carattere da usare per leggere il set di dati.
+        Intestazioni di colonna| Indica come verranno considerate le intestazioni del set di dati, se presenti.
+        Ignora righe | Indica quante righe vengono eventualmente ignorate nel set di dati.
     
         Selezionare **Avanti**.
 
@@ -99,18 +99,18 @@ In caso contrario, verrà visualizzato il dashboard di **Machine Learning automa
 1. Selezionare la colonna di destinazione. si tratta della colonna su cui si desidera eseguire stime.
 
 1. Per la previsione:
-    1. Selezionare la colonna Time: Questa colonna contiene i dati relativi all'ora da usare.
+    1. Seleziona colonna temporale: questa colonna contiene i dati relativi all'ora da usare.
 
-    1. Selezionare l'orizzonte di previsione: Indica il numero di unità di tempo (minuti/ore/giorni/settimane/mesi/anni) che il modello sarà in grado di stimare in futuro. Maggiore è il modello necessario per prevedere il futuro, minore sarà il livello di precisione. [Altre informazioni sulla previsione e sull'orizzonte di previsione](how-to-auto-train-forecast.md).
+    1. Select Forecast Horizon: indica il numero di unità di tempo (minuti/ore/giorni/settimane/mesi/anni) che il modello sarà in grado di stimare in futuro. Maggiore è il modello necessario per prevedere il futuro, minore sarà il livello di precisione. [Altre informazioni sulla previsione e sull'orizzonte di previsione](how-to-auto-train-forecast.md).
 
-1. Opzionale Impostazioni avanzate: impostazioni aggiuntive che è possibile usare per controllare meglio il processo di training. In caso contrario, vengono applicati i valori predefiniti in base alla selezione dell'esperimento e ai dati. 
+1. Opzionale Impostazioni avanzate: impostazioni aggiuntive che è possibile usare per controllare meglio il processo di training. Altrimenti, vengono applicate le impostazioni predefinite in base alla selezione dell'esperimento e ai dati. 
 
-    Impostazioni avanzate|Descrizione
+    Impostazioni avanzate|Description
     ------|------
     Primary metric (Metrica principale)| Metrica principale usata per assegnare un punteggio al modello. [Altre informazioni sulle metriche del modello](how-to-configure-auto-train.md#explore-model-metrics).
-    Criteri uscita| Quando uno di questi criteri viene soddisfatto, il processo di training viene arrestato. <br> *Training job time (minutes)* (Durata processo di training - minuti): Per quanto tempo consentire l'esecuzione del processo di training.  <br> *Max number of iterations* (Numero max di iterazioni): Numero massimo di pipeline (iterazioni) da testare nel processo di training. Il processo non viene eseguito più del numero specificato di iterazioni. <br> *Soglia Punteggio metrica*:  Punteggio di metrica minimo per tutte le pipeline. In questo modo si garantisce che, se si dispone di una metrica di destinazione definita che si desidera raggiungere, non si dedica più tempo al processo di training del necessario.
+    Criteri uscita| Quando uno di questi criteri viene soddisfatto, il processo di training viene arrestato. <br> *Tempo del processo di training (minuti)* : per quanto tempo consentire l'esecuzione del processo di training.  <br> *Numero massimo di iterazioni*: numero massimo di pipeline (iterazioni) da testare nel processo di training. Il processo non viene eseguito più del numero specificato di iterazioni. <br> *Soglia Punteggio metrica*: Punteggio metrica minimo per tutte le pipeline. In questo modo si garantisce che, se si dispone di una metrica di destinazione definita che si desidera raggiungere, non si dedica più tempo al processo di training del necessario.
     Pre-elaborazione| Selezionare questa impostazione per abilitare o disabilitare la pre-elaborazione eseguita da Automatic Machine Learning. La pre-elaborazione include la pulizia automatica dei dati, la preparazione e la trasformazione per generare funzionalità sintetiche. [Altre informazioni sulla pre-elaborazione](#preprocess).
-    Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. [Altre informazioni sulla convalida](how-to-configure-auto-train.md)incrociata.
+    Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. [Altre informazioni sulla convalida incrociata](how-to-configure-auto-train.md).
     Concorrenza| Selezionare i limiti multicore da usare quando si usa il calcolo multicore.
     Algoritmo bloccato| Selezionare gli algoritmi che si desidera escludere dal processo di training.
 
@@ -123,7 +123,7 @@ In caso contrario, verrà visualizzato il dashboard di **Machine Learning automa
 >[!NOTE]
 > Vengono visualizzate voci vuote per le funzionalità con tipi irrilevanti.
 
-Statistica|Descrizione
+Statistica|Description
 ------|------
 Funzionalità| Nome della colonna riepilogata.
 Profilo| Visualizzazione inline basata sul tipo dedotto. Ad esempio, le stringhe, i valori booleani e le date avranno conteggi dei valori, mentre i decimali (numerici) hanno istogrammi approssimati. In questo modo è possibile acquisire una rapida conoscenza della distribuzione dei dati.
@@ -131,26 +131,26 @@ Distribuzione del tipo| Conteggio dei valori in linea di tipi all'interno di una
 Type|Tipo dedotto della colonna. I valori possibili sono: stringhe, valori booleani, date e decimali.
 Min| Valore minimo della colonna. Vengono visualizzate voci vuote per le funzionalità il cui tipo non ha un ordinamento intrinseco, ad esempio i valori booleani.
 Max| Valore massimo della colonna. 
-Count| Numero totale di voci mancanti e non mancanti nella colonna.
+Conteggio| Numero totale di voci mancanti e non mancanti nella colonna.
 Totale non mancanti| Numero di voci nella colonna mancanti. Le stringhe e gli errori vuoti vengono considerati come valori, quindi non contribuiscono al "conteggio mancante".
 Quantili| Valori approssimati in ogni quantile per fornire un senso della distribuzione dei dati.
 Media| Media aritmetica o media della colonna.
 Deviazione standard| Misura della quantità di dispersione o variazione dei dati di questa colonna.
-Varianza| Misura della diffusione dei dati di questa colonna dal relativo valore medio. 
-Indice di asimmetria| Misura del modo in cui i dati della colonna sono diversi da una distribuzione normale.
+Variance| Misura della diffusione dei dati di questa colonna dal relativo valore medio. 
+Asimmetria| Misura del modo in cui i dati della colonna sono diversi da una distribuzione normale.
 Curtosi| Misura della quantità di dati di questa colonna rispetto a una distribuzione normale.
 
 <a name="preprocess"></a>
 
 ## <a name="advanced-preprocessing-options"></a>Opzioni di pre-elaborazione avanzate
 
-Quando si configurano gli esperimenti, è possibile abilitare `Preprocess`l'impostazione avanzate. In questo modo, vengono eseguiti automaticamente i passaggi di pre-elaborazione e di conteggi dei dati seguenti.
+Quando si configurano gli esperimenti, è possibile abilitare l'impostazione avanzata `Preprocess`. In questo modo, vengono eseguiti automaticamente i passaggi di pre-elaborazione e di conteggi dei dati seguenti.
 
-|&nbsp;Passaggi di pre-elaborazione| Descrizione |
+|Pre-elaborazione di&nbsp;passaggi| Description |
 | ------------- | ------------- |
 |Eliminazione delle caratteristiche con elevata cardinalità o senza varianza|Eliminarli dai set di training e di convalida, incluse le funzionalità con tutti i valori mancanti, lo stesso valore in tutte le righe o con cardinalità estremamente elevata (ad esempio, hash, ID o GUID).|
 |Attribuire i valori mancanti|Per le funzionalità numeriche, imputare alla media dei valori nella colonna.<br/><br/>Per le funzionalità categoriche, imputare il valore più frequente.|
-|Generazione di caratteristiche aggiuntive|Per le caratteristiche di tipo DateTime: anno, mese, giorno, giorno della settimana, giorno dell'anno, trimestre, settimana dell'anno, ora, minuti, secondi.<br/><br/>Per le caratteristiche di tipo Text: Frequenza termini basata su unigrammi, bi-grammi e Tri-caratteri-grammi.|
+|Generazione di caratteristiche aggiuntive|Per le funzionalità DateTime: anno, mese, giorno, giorno della settimana, giorno dell'anno, trimestre, settimana dell'anno, ora, minuto, secondo.<br/><br/>Per le funzionalità di testo: frequenza dei termini basata su unigrammi, bi-grammi e Tri-caratteri-grammi.|
 |Trasformare e codificare |Le funzionalità numeriche con pochi valori univoci vengono trasformate in funzionalità categoriche.<br/><br/>La codifica One-Hot viene eseguita per una cardinalità categorica bassa; per la cardinalità elevata, codifica One-Hot-hash.|
 |Incorporamenti di Word|Featurizer di testo che converte i vettori di token di testo in vettori di frase usando un modello con training preliminare. Il vettore di incorporamento di ogni parola in un documento viene aggregato insieme per produrre un vettore di funzionalità del documento.|
 |Codifiche di destinazione|Per le funzionalità categoriche, esegue il mapping di ogni categoria con il valore di destinazione medio per i problemi di regressione e la probabilità della classe per ogni classe per i problemi di classificazione. Viene applicata la ponderazione basata sulla frequenza e la convalida incrociata k-fold per ridurre l'adattamento del mapping e del rumore causato da categorie di dati di tipo sparse.|
@@ -174,7 +174,7 @@ Per completare l'esecuzione di ogni pipeline, i processi di training possono ric
 
 Eseguire il drill-down su uno dei modelli di output per visualizzare i dettagli delle esecuzioni di training, come le metriche delle prestazioni e i grafici di distribuzione. [Altre informazioni sui grafici](how-to-understand-automated-ml.md).
 
-[![Dettagli iterazione](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
+[Dettagli iterazione![](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
 
 ## <a name="deploy-your-model"></a>Distribuire il modello
 
@@ -184,9 +184,9 @@ Automatizzato ML semplifica la distribuzione del modello senza scrivere codice:
 
 1. Sono disponibili due opzioni per la distribuzione. 
 
-    + Opzione 1: Per distribuire il modello migliore (in base ai criteri di metrica definiti), selezionare Distribuisci modello migliore dalla pagina Dettagli esecuzione.
+    + Opzione 1: per distribuire il modello migliore (in base ai criteri della metrica definiti), selezionare Distribuisci modello migliore dalla pagina Dettagli esecuzione.
 
-    + Opzione 2: Per distribuire un'iterazione del modello specifica da questo esperimento, eseguire il drill-down sul modello per aprire la pagina dei dettagli dell'esecuzione e selezionare Distribuisci modello.
+    + Opzione 2: per distribuire un'iterazione del modello specifica da questo esperimento, eseguire il drill-down sul modello per aprire la pagina dei dettagli dell'esecuzione e selezionare Distribuisci modello.
 
 1. Popolare il riquadro **Distribuisci modello** .
 
@@ -205,11 +205,11 @@ Automatizzato ML semplifica la distribuzione del modello senza scrivere codice:
 
     ![Distribuzione completata](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png) 
 
-A questo punto si dispone di un servizio Web operativo per generare stime.
+A questo punto si dispone di un servizio Web operativo per generare stime. È possibile testare le stime eseguendo una query sul servizio dal [supporto Azure Machine Learning incorporato Power bi](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Provare l'esercitazione end-to-end [per creare il primo esperimento di Machine Learning automatizzato con Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
-* [Scopri di più su Machine Learning](concept-automated-ml.md) e Azure Machine Learning automatizzati.
+* [Scopri di più su Machine Learning e Azure Machine Learning automatizzati](concept-automated-ml.md) .
 * [Informazioni sui risultati automatici di Machine Learning](how-to-understand-automated-ml.md).
 * [Informazioni su come utilizzare un servizio Web](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

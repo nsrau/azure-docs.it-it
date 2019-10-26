@@ -1,24 +1,18 @@
 ---
 title: Soluzione Azure Key Vault in monitoraggio di Azure | Microsoft Docs
 description: Per esaminare Azure Key Vault log, è possibile usare la soluzione Azure Key Vault in monitoraggio di Azure.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 03/27/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 1e0e9a0d76e644ec48ecd423a105dd89629d290c
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.date: 03/27/2019
+ms.openlocfilehash: 8863280407de5d02b53a203b2b6385477aa9f8ae
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997698"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899219"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Soluzione Azure Key Vault Analytics in monitoraggio di Azure
 
@@ -76,7 +70,7 @@ La tabella seguente illustra i metodi di raccolta dei dati e altri dettagli sull
 
 | Piattaforma | Agente diretto | Agente di Systems Center Operations Manager | Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | Frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- |
-| Azure |  |  |&#8226; |  |  | all'arrivo |
+| Azure |  |  |&#8226; |  |  | All'arrivo |
 
 ## <a name="use-azure-key-vault"></a>Usare l'Insieme di credenziali delle chiavi di Azure
 Dopo aver [installato la soluzione](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), visualizzare i dati Key Vault facendo clic sul riquadro **analisi insieme di credenziali delle chiavi** dalla pagina **Panoramica** di monitoraggio di Azure. Aprire questa pagina dal menu **Monitoraggio di Azure** facendo clic su **Altro** sotto la sezione **Informazioni dettagliate**. 
@@ -103,7 +97,7 @@ Dopo aver fatto clic sul riquadro **analisi insieme di credenziali delle chiavi*
 ## <a name="azure-monitor-log-records"></a>Record di log di Monitoraggio di Azure
 La soluzione Insieme di credenziali delle chiavi di Azure analizza i record con tipo **KeyVaults**, raccolti dai [log AuditEvent](../../key-vault/key-vault-logging.md) in Diagnostica di Azure.  Le proprietà per questi record sono disponibili nella tabella seguente:  
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 |:--- |:--- |
 | `Type` |*AzureDiagnostics* |
 | `SourceSystem` |*Azure* |
@@ -138,9 +132,9 @@ Per utilizzare la soluzione aggiornata:
 1. [Configurare la diagnostica da inviare direttamente a un'area di lavoro di Log Analytics da Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
 2. Abilitare la soluzione Azure Key Vault usando la procedura descritta in [aggiungere soluzioni di monitoraggio di Azure dalla raccolta di soluzioni](../../azure-monitor/insights/solutions.md)
 3. Aggiornare tutte le query salvate, i dashboard o gli avvisi per utilizzare il nuovo tipo di dati
-   + Il tipo è cambiato da KeyVaults ad AzureDiagnostics. È possibile utilizzare ResourceType per filtrare i log di Key Vault.
+   + Il tipo è cambiato da KeyVaults a AzureDiagnostics. È possibile utilizzare ResourceType per filtrare i log di Key Vault.
    + Invece di: `KeyVaults`, utilizzare i campi `AzureDiagnostics | where ResourceType'=="VAULTS"`:
-   + Campi: (per i nomi degli attributi viene fatta distinzione tra maiuscole e minuscole)
+   + I nomi dei campi distinguono tra maiuscole e minuscole
    + Per ogni campo con suffisso \_s, \_d o \_g nel nome, modificare il primo carattere in lettere minuscole
    + Per ogni campo con suffisso \_o nel nome, i dati sono suddivisi in singoli campi in base ai nomi dei campi nidificati. Ad esempio, il nome UPN del chiamante viene archiviato in un campo `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
    + Il campo CallerIpAddress viene modificato in CallerIPAddress

@@ -1,24 +1,18 @@
 ---
 title: Differenze nel linguaggio di query di log di Monitoraggio di Azure | Microsoft Docs
 description: Informazioni di riferimento per il linguaggio di query Kusto usato da Monitoraggio di Azure. Include elementi aggiuntivi specifici di Monitoraggio di Azure e gli elementi non supportati nelle query di log di Monitoraggio di Azure.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 08/13/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 9892b8884d901033a80fae4168f25da97edb5a68
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.date: 08/13/2019
+ms.openlocfilehash: 6d3c2daafc9116d23d837e86e60ca628bbe34647
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990173"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900381"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Differenze nel linguaggio di query di log di Monitoraggio di Azure
 

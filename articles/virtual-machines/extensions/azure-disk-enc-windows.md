@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 00891122015bb3e6adb500b6f6c30fa031161b92
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 056bd1293e0593a7fb7f9909cfd85043577686c4
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598007"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901341"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Crittografia dischi di Azure per Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -36,11 +36,11 @@ Per un elenco completo dei prerequisiti, vedere [crittografia dischi di Azure pe
 
 ## <a name="extension-schemata"></a>Estensione schemi
 
-Sono disponibili due schemi per crittografia dischi di Azure: v 1.1, uno schema più recente e consigliato che non usa le proprietà Azure Active Directory (AAD) e v 0.1, uno schema precedente che richiede proprietà di AAD. È necessario usare la versione dello schema corrispondente all'estensione in uso: Schema v 1.1 per l'estensione AzureDiskEncryption versione 1,1, schema v 0.1 per la versione dell'estensione AzureDiskEncryption 0,1.
+Sono disponibili due schemi per l'estensione AzureDiskEncryption di Windows: v 2.2, uno schema più recente e consigliato che non usa le proprietà Azure Active Directory (AAD) e v 1.1, uno schema meno recente che richiede proprietà di AAD. È necessario utilizzare la versione dello schema corrispondente all'estensione in uso: Schema v 2.2 per la versione 2,2 dell'estensione AzureDiskEncryption, schema v 1.1 per la versione 1,1 dell'estensione AzureDiskEncryption.
 
-### <a name="schema-v11-no-aad-recommended"></a>Schema v 1.1: nessun AAD (consigliato)
+### <a name="schema-v22-no-aad-recommended"></a>Schema v 2.2: nessun AAD (consigliato)
 
-Lo schema v 1.1 è consigliato e non richiede proprietà Azure Active Directory.
+Lo schema v 2.2 è consigliato per tutte le nuove macchine virtuali e non richiede proprietà Azure Active Directory.
 
 ```json
 {
@@ -67,9 +67,9 @@ Lo schema v 1.1 è consigliato e non richiede proprietà Azure Active Directory.
 ```
 
 
-### <a name="schema-v01-with-aad"></a>Schema v 0.1: con AAD 
+### <a name="schema-v11-with-aad"></a>Schema v 1.1: con AAD 
 
-Lo schema 0,1 richiede `aadClientID` e `aadClientSecret` o `AADClientCertificate`.
+Lo schema 1,1 richiede `aadClientID` e `aadClientSecret` o `AADClientCertificate` ed è sconsigliato per le nuove macchine virtuali.
 
 Utilizzo di `aadClientSecret`:
 
@@ -139,10 +139,10 @@ Utilizzo di `AADClientCertificate`:
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 0,1, 1,1 | int |
-| (schema 0,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (schema 0,1) AADClientSecret | password | string |
-| (schema 0,1) AADClientCertificate | thumbprint | string |
+| typeHandlerVersion | 1,1, 2,2 | string |
+| (schema 1,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
+| (schema 1,1) AADClientSecret | password | string |
+| (schema 1,1) AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dizionario JSON |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
 | KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | string |

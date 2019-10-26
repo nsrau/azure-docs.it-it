@@ -1,59 +1,58 @@
 ---
-title: Aggiornamento del Debugger di Snapshot di Application Insights di Azure per le app .NET | Microsoft Docs
-description: Come eseguire l'aggiornamento di Snapshot Debugger per la versione più recente in servizi App di Azure o tramite pacchetti Nuget
-services: application-insights
-author: MarioHewardt
-manager: carmonm
-ms.service: application-insights
+title: Applicazione Azure Insights Snapshot Debugger aggiornamento per le app .NET | Microsoft Docs
+description: Come aggiornare Snapshot Debugger alla versione più recente nei servizi app Azure o tramite pacchetti NuGet
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/28/2019
+author: MarioHewardt
 ms.author: marioh
+ms.date: 03/28/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2dcf719e6c276c5641dc4c0040d8d7a808eeb3f2
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e2b21b7cbb6b04da0c93e73c0cacb8a05c338bde
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706375"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899845"
 ---
-# <a name="upgrading-the-snapshot-debugger"></a>L'aggiornamento di Snapshot Debugger
+# <a name="upgrading-the-snapshot-debugger"></a>Aggiornamento del Snapshot Debugger
 
-Per garantire la migliore sicurezza possibile per i tuoi dati, Microsoft è in movimento lontano da TLS 1.0 e TLS 1.1, che hanno dimostrato di essere esposti a utenti malintenzionati determinati. Se si usa una versione precedente dell'estensione del sito, richiesto un aggiornamento per continuare a lavorare. Questo documento descrive i passaggi necessari per aggiornare il debugger di Snapshot per la versione più recente. Esistono due percorsi di aggiornamento primari a seconda se è stato abilitato il Debugger di Snapshot con un'estensione del sito o se è stato usato un SDK/Nuget aggiunti all'applicazione. Entrambi i percorsi di aggiornamento sono descritte di seguito. 
+Per fornire la migliore sicurezza possibile per i dati, Microsoft si allontana da TLS 1,0 e TLS 1,1, che risultano vulnerabili a utenti malintenzionati determinati. Se si usa una versione precedente dell'estensione del sito, sarà necessario un aggiornamento per continuare a funzionare. Questo documento illustra i passaggi necessari per aggiornare snapshot debugger alla versione più recente. Esistono due percorsi di aggiornamento principali a seconda che sia stato abilitato il Snapshot Debugger usando un'estensione del sito o se è stato usato un SDK/NuGet aggiunto all'applicazione. Entrambi i percorsi di aggiornamento sono descritti di seguito. 
 
-## <a name="upgrading-the-site-extension"></a>Aggiornamento dell'estensione di sito
+## <a name="upgrading-the-site-extension"></a>Aggiornamento dell'estensione del sito
 
-Se è abilitato il debugger di Snapshot usando l'estensione del sito, è possibile aggiornare facilmente mediante la procedura seguente:
+Se è stato abilitato snapshot debugger usando l'estensione del sito, è possibile eseguire facilmente l'aggiornamento usando la procedura seguente:
 
 1. Accedere al portale di Azure.
-2. Passare alla risorsa con Application Insights e Snapshot debugger abilitato. Ad esempio, per un'App Web, passare alla risorsa del servizio App:
+2. Passare alla risorsa in cui è abilitato Application Insights e snapshot debugger. Per un'app Web, ad esempio, passare alla risorsa del servizio app:
 
-   ![Screenshot della singola risorsa di servizio App denominato DiagService01](./media/snapshot-debugger-upgrade/app-service-resource.png)
+   ![Screenshot delle singole risorse del servizio App denominate DiagService01](./media/snapshot-debugger-upgrade/app-service-resource.png)
 
-3. Dopo essere passati alla risorsa, fare clic su Application Insights nel pannello Panoramica:
+3. Dopo aver eseguito la navigazione alla risorsa, fare clic su Application Insights nel pannello Panoramica:
 
-   ![Screenshot dei tre pulsanti. Pulsante Centra con nome Application Insights è selezionato](./media/snapshot-debugger-upgrade/application-insights-button.png)
+   ![Screenshot di tre pulsanti. Il pulsante centrale con nome Application Insights è selezionato](./media/snapshot-debugger-upgrade/application-insights-button.png)
 
-4. Verrà visualizzato un nuovo pannello con le impostazioni correnti. A meno che non vuoi sfruttare l'opportunità di modificare le impostazioni, è possibile lasciarli inalterati. Il **applica** pulsante nella parte inferiore del pannello non è abilitato per impostazione predefinita e sarà necessario attivare o disattivare un'impostazione per attivare il pulsante. Non è necessario modificare alcuna impostazione effettive, ma è possibile modificare l'impostazione e quindi immediatamente tale modifica. Si consiglia di attivare e disattivare il Profiler di impostazione e quindi selezionando **applica**.
+4. Viene aperto un nuovo pannello con le impostazioni correnti. A meno che non si desideri modificare le impostazioni, è possibile lasciarle invariate. Il pulsante **applica** nella parte inferiore del pannello non è abilitato per impostazione predefinita e sarà necessario attivare o disattivare una delle impostazioni per attivare il pulsante. Non è necessario modificare le impostazioni effettive, ma è possibile modificare l'impostazione e quindi modificarla immediatamente. Si consiglia di abilitare o disabilitare l'impostazione del profiler e quindi di selezionare **applica**.
 
-   ![Pagina di schermata dell'App del servizio configurazione di Application Insights con il pulsante Applica evidenziato in rosso](./media/snapshot-debugger-upgrade/view-application-insights-data.png)
+   ![Screenshot della pagina di configurazione del servizio app Application Insights con il pulsante Applica evidenziato in rosso](./media/snapshot-debugger-upgrade/view-application-insights-data.png)
 
-5. Dopo aver fatto clic **applica**, verrà richiesto di confermare le modifiche.
+5. Quando si fa clic su **applica**, verrà chiesto di confermare le modifiche.
 
     > [!NOTE]
     > Il sito verrà riavviato come parte del processo di aggiornamento.
 
-   ![Schermata del servizio App si applicano monitoraggio prompt dei comandi. Casella di testo verrà visualizzato: "Abbiamo verrà ora applicare le modifiche alle impostazioni dell'app e installazione degli strumenti per la risorsa di Application Insights collegata all'app web. Il sito verrà riavviato. Continuare?"](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
+   ![Screenshot del prompt dei comandi applica monitoraggio del servizio app. Nella casella di testo viene visualizzato il messaggio: "verranno apportate modifiche alle impostazioni dell'app e verranno installati gli strumenti per collegare la risorsa Application Insights all'app Web. Il sito verrà riavviato. Continuare?"](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
 
-6. Fare clic su **Sì** per applicare le modifiche. Durante il processo verrà visualizzata una notifica che mostra che le modifiche vengano applicate:
+6. Fare clic su **Sì** per applicare le modifiche. Durante il processo verrà visualizzata una notifica che indica che sono state applicate le modifiche:
 
-   ![Schermata di applicazione delle modifiche - aggiornamento di messaggio di estensioni che viene visualizzato in alto a destra](./media/snapshot-debugger-upgrade/updating-extensions.png)
+   ![Screenshot del messaggio Apply Changes-aggiornamento delle estensioni visualizzato nell'angolo superiore destro](./media/snapshot-debugger-upgrade/updating-extensions.png)
 
-Una volta completata, una **"Vengono applicate modifiche"** verrà visualizzata la notifica.
+Al termine, verrà visualizzata la notifica **"modifiche applicate"** .
 
-   ![Screenshot del messaggio che indica che le modifiche vengono applicate](./media/snapshot-debugger-upgrade/changes-are-applied.png)
+   ![Screenshot del messaggio che indica che le modifiche sono state applicate](./media/snapshot-debugger-upgrade/changes-are-applied.png)
 
 Il sito è stato aggiornato ed è pronto per l'uso.
 
-## <a name="upgrading-snapshot-debugger-using-sdknuget"></a>L'aggiornamento di Snapshot Debugger usando Nuget o SDK
+## <a name="upgrading-snapshot-debugger-using-sdknuget"></a>Aggiornamento Snapshot Debugger mediante SDK/NuGet
 
-Se l'applicazione usa una versione di `Microsoft.ApplicationInsights.SnapshotCollector` precedente versione 1.3.1, dovranno essere aggiornati a una [versione più recente](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) continuerà a lavorare.
+Se l'applicazione usa una versione di `Microsoft.ApplicationInsights.SnapshotCollector` sotto la versione 1.3.1, sarà necessario aggiornarla a una versione più [recente](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) per continuare a funzionare.

@@ -1,22 +1,18 @@
 ---
 title: Analisi dell'utilizzo con Azure Application Insights | Documentazione Microsoft
 description: Informazioni sugli utenti e le operazioni eseguite con l'app.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/19/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 77aa39ae68800128409beb17ce3eb636ddcf28d1
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/19/2019
+ms.openlocfilehash: 7131cf1902cc92fed66ae4db59449700973c6913
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128954"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899441"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Uso dell'analisi con Application Insights
 
@@ -28,9 +24,9 @@ La migliore esperienza viene ottenuta tramite l'installazione di Application Ins
 
 1. **Codice server:** installare il modulo appropriato per l'app [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../azure-monitor/app/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md) o per [altre](../../azure-monitor/app/platforms.md) app.
 
-    * *Non si vuole installare il codice server? [Creare una risorsa di Azure Application Insights](../../azure-monitor/app/create-new-resource.md ).*
+    * *Non si vuole installare il codice server? È sufficiente [creare una risorsa applicazione Azure Insights](../../azure-monitor/app/create-new-resource.md ).*
 
-2. **Codice della pagina Web:** aggiungere lo script seguente nella pagina Web prima del tag ``</head>`` di chiusura. Sostituire la chiave di strumentazione con il valore appropriato della risorsa di Application Insights:
+2. **Codice della pagina Web:** Aggiungere lo script seguente alla pagina Web prima del ``</head>``di chiusura. Sostituire la chiave di strumentazione con il valore appropriato della risorsa di Application Insights:
     
     ```html
     <script type="text/javascript">
@@ -44,9 +40,9 @@ La migliore esperienza viene ottenuta tramite l'installazione di Application Ins
 
     Per informazioni sulle configurazioni più avanzate per il monitoraggio dei siti Web, vedere l' [articolo di riferimento per JavaScript SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
-3. **Codice app per dispositivi mobili:** usare App Center SDK per raccogliere gli eventi dall'app, quindi inviare copie di questi eventi ad Application Insights per l'analisi [seguendo le istruzioni in questa guida](../../azure-monitor/learn/mobile-center-quickstart.md).
+3. **Codice dell'app per dispositivi mobili:** usare App Center SDK per raccogliere gli eventi dall'app, quindi inviare copie di questi eventi ad Application Insights per l'analisi [seguendo le istruzioni in questa guida](../../azure-monitor/learn/mobile-center-quickstart.md).
 
-4. **Ottenere i dati di telemetria:** eseguire il progetto in modalità di debug per alcuni minuti e quindi cercare i risultati nel pannello Panoramica in Application Insights.
+4. **Ottenere dati di telemetria:** eseguire il progetto in modalità di debug per alcuni minuti e quindi cercare i risultati nel pannello Panoramica in Application Insights.
 
     Pubblicare l'app per monitorare le prestazioni dell'app ed esaminare le operazioni eseguite dagli utenti con l'app.
 
@@ -77,7 +73,7 @@ La conservazione consente di comprendere la frequenza con cui gli utenti tornano
 - Fare ipotesi in base a dati utente reali 
 - Determinare se la conservazione è un problema per il prodotto 
 
-![Fidelizzazione](./media/usage-overview/retention.png) 
+![Conservazione](./media/usage-overview/retention.png) 
 
 I controlli di conservazione nella parte superiore consentono di definire l'intervallo di tempo e gli eventi specifici per il calcolo della conservazione. Il grafico nella parte centrale offre una rappresentazione visiva della percentuale della conservazione generale in base all'intervallo di tempo specificato. Il grafico nella parte inferiore rappresenta la singola conservazione in un determinato periodo di tempo. Questo livello di dettagli consente di capire le operazioni eseguite dagli utenti e le possibili motivazioni per cui un utente sceglie di ritornare con una granularità più dettagliata.  
 
@@ -159,9 +155,9 @@ Nell'inizializzatore dell'app Web, ad esempio Global.asax.cs:
 **App ASP.NET Core**
 
 > [!NOTE]
-> L'aggiunta di `ApplicationInsights.config` un inizializzatore tramite o utilizzando `TelemetryConfiguration.Active` non è valida per le applicazioni ASP.NET Core. 
+> L'aggiunta di un inizializzatore utilizzando `ApplicationInsights.config` o l'utilizzo di `TelemetryConfiguration.Active` non è valida per ASP.NET Core applicazioni. 
 
-Per [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applicazioni, l'aggiunta di `TelemetryInitializer` un nuovo viene eseguita aggiungendola al contenitore di inserimento delle dipendenze, come illustrato di seguito. Questa operazione viene eseguita `ConfigureServices` nel metodo `Startup.cs` della classe.
+Per [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applicazioni, l'aggiunta di una nuova `TelemetryInitializer` viene eseguita aggiungendola al contenitore di inserimento delle dipendenze, come illustrato di seguito. Questa operazione viene eseguita nel metodo `ConfigureServices` della classe `Startup.cs`.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;

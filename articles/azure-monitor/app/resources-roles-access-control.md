@@ -1,30 +1,25 @@
 ---
 title: Risorse, ruoli e controllo di accesso in Azure Application Insights | Microsoft Docs
 description: Proprietari, collaboratori e lettori di informazioni dell'organizzazione.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 02/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 0f348e3e7dc2812bf354d1f8ec86330b0742439a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 02/14/2019
+ms.openlocfilehash: eea991b553d69fce5c177c1eee48633484dc19db
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60373693"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899955"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Risorse, ruoli e controllo di accesso in Application Insights
 
-È possibile controllare chi ha eseguito la lettura e aggiornare l'accesso ai dati in Azure [Application Insights][start] mediante il [controllo degli accessi in base al ruolo in Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
+È possibile controllare chi ha accesso in lettura e aggiornamento ai dati in Azure [Application Insights][start], usando il [controllo degli accessi in base al ruolo in Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
-> Assegnare l'accesso agli utenti nella **sottoscrizione o nel gruppo di risorse** a cui la risorsa dell'applicazione appartiene, non nella risorsa stessa. Assegnare il ruolo **collaboratore componente di Application Insights** . In tal modo si garantisce un controllo di accesso uniforme ai test Web e agli avvisi nonché alla risorsa dell'applicazione. [Altre informazioni](#access)
+> Assegnare l'accesso agli utenti nella **sottoscrizione o nel gruppo di risorse** a cui la risorsa dell'applicazione appartiene, non nella risorsa stessa. Assegnare il ruolo **collaboratore componente di Application Insights** . In tal modo si garantisce un controllo di accesso uniforme ai test Web e agli avvisi nonché alla risorsa dell'applicazione. [Altre informazioni](#access).
 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -35,20 +30,20 @@ Innanzitutto prendere nota di alcune definizioni:
 
 * **Risorse** : un'istanza di un servizio di Microsoft Azure. La risorsa di Application Insights raccoglie, analizza e visualizza i dati di telemetria inviati dall'applicazione.  Altri tipi di risorse di Azure includono app Web, database e macchine virtuali.
   
-    Per visualizzare le risorse, aprire il [portale di Azure][portal], eseguire l'accesso e fare clic su Tutte le risorse. Per trovare una risorsa, digitare parte del nome nel campo del filtro.
+    Per visualizzare le risorse, aprire il [portale di Azure][portal], accedere e fare clic su tutte le risorse. Per trovare una risorsa, digitare parte del nome nel campo del filtro.
   
     ![Elenco di risorse di Azure](./media/resources-roles-access-control/10-browse.png)
 
 <a name="resource-group"></a>
 
-* [**Gruppo di risorse**][group]: ogni risorsa appartiene a un gruppo. Un gruppo è un modo pratico per gestire risorse correlate, in particolare per il controllo di accesso. In un gruppo di risorse, ad esempio, è possibile inserire un'app Web, una risorsa di Application Insights per monitorare l'app e una risorsa di archiviazione per conservare i dati esportati.
+* [**Gruppo di risorse**][group] : ogni risorsa appartiene a un gruppo. Un gruppo è un modo pratico per gestire risorse correlate, in particolare per il controllo di accesso. In un gruppo di risorse, ad esempio, è possibile inserire un'app Web, una risorsa di Application Insights per monitorare l'app e una risorsa di archiviazione per conservare i dati esportati.
 
 * [**Sottoscrizione**](https://portal.azure.com): per usare Application Insights o altre risorse di Azure, si accede a una sottoscrizione di Azure. Ogni gruppo di risorse appartiene a una sottoscrizione di Azure, dove si sceglie il pacchetto di prezzo e, se è la sottoscrizione di un'organizzazione, si scelgono i membri e le relative autorizzazioni di accesso.
-* [**Account Microsoft**][account]: il nome utente e la password usati per accedere alle sottoscrizioni di Microsoft Azure, XBox Live, Outlook.com e altri servizi Microsoft.
+* [**Account Microsoft**][account] : nome utente e password usati per accedere a sottoscrizioni Microsoft Azure, Xbox Live, Outlook.com e altri servizi Microsoft.
 
 ## <a name="access"></a> Controllare l'accesso nel gruppo di risorse
 
-È importante comprendere che oltre la risorsa creata per l'applicazione, sono disponibili anche risorse nascoste distinte per avvisi e i test Web. Sono collegate alla stessa [gruppo di risorse](#resource-group) come risorsa di Application Insights. È anche possibile che siano stati inseriti altri servizi di Azure in tale posizione, ad esempio siti Web o risorsa di archiviazione.
+È importante comprendere che oltre la risorsa creata per l'applicazione, sono disponibili anche risorse nascoste distinte per avvisi e i test Web. Sono collegati allo stesso gruppo di [risorse](#resource-group) della risorsa Application Insights. È anche possibile che siano stati inseriti altri servizi di Azure in tale posizione, ad esempio siti Web o risorsa di archiviazione.
 
 Per controllare l'accesso a queste risorse, è quindi consigliabile:
 
@@ -59,7 +54,7 @@ Per controllare l'accesso a queste risorse, è quindi consigliabile:
 
 È necessario disporre dei diritti di proprietario per la sottoscrizione o per il gruppo di risorse.
 
-L'utente deve avere un [account Microsoft][account] o l'accesso all'[account Microsoft aziendale](../../active-directory/fundamentals/sign-up-organization.md). È possibile fornire l'accesso a utenti e anche a gruppi di utenti definiti in Azure Active Directory.
+L'utente deve avere un [account Microsoft][account]o accedere al proprio [account Microsoft aziendale](../../active-directory/fundamentals/sign-up-organization.md). È possibile fornire l'accesso a utenti e anche a gruppi di utenti definiti in Azure Active Directory.
 
 #### <a name="navigate-to-resource-group-or-directly-to-the-resource-itself"></a>Passare al gruppo di risorse o direttamente alla risorsa stessa
 
@@ -103,7 +98,7 @@ Dove applicabile sarà presente un collegamento alla documentazione di riferimen
 
 'Modifica' include la creazione, l'eliminazione e l'aggiornamento:
 
-* Risorse
+* resources
 * Test Web
 * Avvisi
 * Esportazione continua

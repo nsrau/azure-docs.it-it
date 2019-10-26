@@ -1,24 +1,18 @@
 ---
 title: Scrittura di query di log efficienti in Monitoraggio di Azure | Microsoft Docs
 description: Riferimenti alle risorse per l'apprendimento di come scrivere query in Log Analytics.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/17/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 25d6b582ed4d4e24df3841f4191471296e25abd8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/17/2019
+ms.openlocfilehash: a5ee03f6c42f076549856161a6ebe0b1888fe4aa
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60519374"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894125"
 ---
 # <a name="writing-efficient-log-queries-in-azure-monitor"></a>Scrittura di query di log efficienti in Monitoraggio di Azure
 Questo articolo fornisce indicazioni per la scrittura di query di log efficienti in Monitoraggio di Azure. Queste strategie garantiscono infatti che le query vengano eseguite rapidamente e con un sovraccarico minimo.

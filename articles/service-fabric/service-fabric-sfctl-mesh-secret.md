@@ -3,33 +3,34 @@ title: Interfaccia della riga di comando di Azure Service Fabric - sfctl mesh se
 description: Descrive i comandi sfctl mesh secret dell'interfaccia della riga di comando di Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 5e58e6a401cc166c176dc465d58ba9e8a8ed83b0
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 706f3250236bf7cab591530c1cefba8e503225fe
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035969"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901194"
 ---
 # <a name="sfctl-mesh-secret"></a>sfctl mesh secret
 Consente di ottenere ed eliminare le risorse di tipo segreto mesh.
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|DESCRIZIONE|
+|Comando|Description|
 | --- | --- |
 | delete | Elimina la risorsa di tipo segreto. |
 | list | Elenca tutte le risorse di tipo segreto. |
-| show | Ottiene la risorsa di tipo segreto con il nome specificato. |
+| mostra | Ottiene la risorsa di tipo segreto con il nome specificato. |
 
 ## <a name="sfctl-mesh-secret-delete"></a>sfctl mesh secret delete
 Elimina la risorsa di tipo segreto.
@@ -38,13 +39,13 @@ Elimina la risorsa di tipo segreto specificata e tutti i relativi valori denomin
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|DESCRIZIONE|
+|Argomento|Description|
 | --- | --- |
-| --name -n [Obbligatorio] | Nome del segreto. |
+| --name -n [Obbligatorio] | Nome della risorsa di segreto. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
@@ -59,7 +60,7 @@ Ottiene le informazioni su tutte le risorse di tipo segreto in un determinato gr
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
@@ -74,13 +75,13 @@ Ottiene le informazioni sulla risorsa di tipo segreto con il nome specificato. L
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|DESCRIZIONE|
+|Argomento|Description|
 | --- | --- |
-| --name -n [Obbligatorio] | Nome del segreto. |
+| --name -n [Obbligatorio] | Nome della risorsa di segreto. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |

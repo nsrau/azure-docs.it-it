@@ -1,24 +1,18 @@
 ---
 title: Creare un'area di lavoro Log Analytics nel portale di Azure | Microsoft Docs
 description: Informazioni su come creare un'area di lavoro Log Analytics per abilitare soluzioni di gestione e la raccolta dei dati dagli ambienti cloud e locali nel portale di Azure.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 03/12/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: a9775ce071b6d64d535560a567dcae078900c692
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.date: 03/12/2019
+ms.openlocfilehash: 6dd4486d52cc5c2fb568241ebaefad454e50cb2c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838734"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894902"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Creare un'area di lavoro Log Analytics nel portale di Azure
 Usare il menu **Aree di lavoro Log Analytics** per creare un'area di lavoro Log Analytics tramite il portale di Azure. Un'area di lavoro Log Analytics è un ambiente univoco per i dati di log di Monitoraggio di Azure. Ogni area di lavoro ha un proprio repository di dati e una propria configurazione, mentre le origini dati e le soluzioni sono configurate per l'archiviazione dei dati in un'area di lavoro specifica. È necessaria un'area di lavoro Log Analytics se si intende raccogliere dati dalle origini seguenti:
@@ -36,10 +30,10 @@ Per altre origini, ad esempio macchine virtuali di Azure e macchine virtuali di 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="sign-in-to-azure-portal"></a>Accedere al portale di Azure
+## <a name="sign-in-to-azure-portal"></a>Accedi al portale di Azure
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com). 
 
-## <a name="create-a-workspace"></a>Crea un'area di lavoro
+## <a name="create-a-workspace"></a>Creare un'area di lavoro
 1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Aree di lavoro di Log Analytics**.
 
     ![Portale di Azure](media/quick-create-workspace/azure-portal-01.png)

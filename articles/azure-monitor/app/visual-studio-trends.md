@@ -1,26 +1,20 @@
 ---
 title: Analisi delle tendenze in Visual Studio | Microsoft Docs
 description: Analizzare, visualizzare ed esaminare le tendenze nei dati di telemetria di Application Insights in Visual Studio.
-services: application-insights
-documentationcenter: .net
-author: NumberByColors
-manager: carmonm
-ms.assetid: 3150c6fc-2691-44f6-a290-fc5cd68e692a
-ms.service: application-insights
-ms.custom: vs-azure
-ms.workload: azure-vs
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 2b08dfd87910cbb9f23f6b108a970d160612e1a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: vs-azure
+ms.openlocfilehash: da1cd3ed9d07b1eb1304f6b26999af92d2704537
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255898"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899311"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analisi delle tendenze in Visual Studio
 Lo strumento Tendenze di Application Insights visualizza la variazione nel tempo degli eventi di telemetria importanti dell'app Web, consentendo di identificare rapidamente problemi e anomalie. Collegando l'utente a informazioni di diagnostica più dettagliate, Tendenze consente di migliorare le prestazioni dell'app, ricostruire le cause delle eccezioni e individuare informazioni utili dagli eventi personalizzati.
@@ -77,8 +71,8 @@ Per esplorare le bolle nella visualizzazione:
 > 
 > 
 
-## <a name="filter"></a>Filtro
-I controlli di filtro nella parte inferiore della finestra consentono di individuare tendenze più specifiche. Per applicare un filtro, fare clic sul relativo nome. È possibile passare rapidamente da un filtro all'altro per individuare tendenze eventualmente nascoste in una determinata dimensione della telemetria. Se si applica un filtro in una dimensione, ad esempio Tipo di eccezione, i filtri nelle altre dimensioni rimangono selezionabili anche se visualizzati in grigio. Per annullare l'applicazione di un filtro, fare clic di nuovo su di esso. Fare clic tenendo premuto CTRL per selezionare più filtri nella stessa dimensione.
+## <a name="filter"></a>Filtra
+I controlli di filtro nella parte inferiore della finestra consentono di individuare tendenze più specifiche. Per applicare un filtro, fare clic sul relativo nome. È possibile passare rapidamente da un filtro all'altro per individuare tendenze eventualmente nascoste in una determinata dimensione della telemetria. Se si applica un filtro in una dimensione, ad esempio tipo di eccezione, i filtri nelle altre dimensioni rimangono selezionabili anche se visualizzati in grigio. Per annullare l'applicazione di un filtro, fare di nuovo clic su di esso. Fare clic tenendo premuto CTRL per selezionare più filtri nella stessa dimensione.
 
 ![Filtri delle tendenze](./media/visual-studio-trends/TrendsFiltering-750.png)
 

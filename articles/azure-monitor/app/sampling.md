@@ -1,24 +1,19 @@
 ---
 title: Campionamento della telemetria in Azure Application Insights | Documentazione Microsoft
 description: Come tenere sotto controllo il volume della telemetria.
-services: application-insights
-documentationcenter: windows
-author: cijothomas
-manager: carmonm
-ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: cijothomas
+ms.author: cithomas
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
-ms.author: cithomas
-ms.openlocfilehash: 83243ba7df48db5cd7757a464f0818ef69c4559e
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 82c0855e3ea3b6a89c1b20569971b0dc6b3d449c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372570"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899853"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -105,7 +100,7 @@ In [ApplicationInsights.config](../../azure-monitor/app/configuration-with-appli
 
 Invece di impostare il parametro di campionamento nel file con estensione config è possibile impostare questi valori a livello di codice.
 
-1. Rimuovere tutti i nodi @no__t 0 dal file config.
+1. Rimuovere tutti i nodi `AdaptiveSamplingTelemetryProcessor` dal file config.
 2. Usare il frammento di codice seguente per configurare il campionamento adattivo.
 
 *C#*

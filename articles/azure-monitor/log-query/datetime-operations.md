@@ -1,29 +1,23 @@
 ---
 title: Uso dei valori di data e ora nelle query di log di Monitoraggio di Azure | Microsoft Docs
 description: Descrive come usare i valori di data e ora nelle query di log di Monitoraggio di Azure.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 402511ba3c45e8bd12cb7f92ecd54f6084c8ada2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/16/2018
+ms.openlocfilehash: 6ff095d674a11d95ed4fd2d008c3e664dd595fef
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62112358"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894223"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Uso dei valori di data e ora nelle query di log di Monitoraggio di Azure
 
 > [!NOTE]
-> Prima di seguire questa lezione, è consigliabile completare [Introduzione al portale di Analytics](get-started-portal.md) e [Introduzione alle query](get-started-queries.md).
+> Prima di seguire questa lezione, è consigliabile completare [Introduzione al portale di analisi](get-started-portal.md) e [Introduzione alle query](get-started-queries.md).
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -38,7 +32,7 @@ I valori timespan sono espressi come numero decimale seguito da un'unità di tem
 |sintassi abbreviata   | unità di tempo    |
 |:---|:---|
 |d           | day          |
-|h           | hour         |
+|h           | ora         |
 |m           | minuto       |
 |s           | secondo       |
 |ms          | millisecondo  |
@@ -91,7 +85,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-La colonna `timeAgo` contiene valori come "00:09:31.5118992", che indica l'applicazione del formato hh:mm:ss.fffffff. Se si vogliono formattare questi valori con il valore `numver` di minuti dall'ora di inizio, dividere tale valore per "1 minuto":
+Nella colonna `timeAgo` sono contenuti valori come: "00:09:31.5118992", vale a dire che sono formattati come HH: mm: SS. fffffff. Se si vogliono formattare questi valori con il valore `numver` di minuti dall'ora di inizio, dividere tale valore per "1 minuto":
 
 ```Kusto
 Event
@@ -137,9 +131,9 @@ Questa query genera i risultati seguenti:
 |timestamp|count_|
 |--|--|
 |2018-07-28T00:00:00.000|7\.136|
-|2018-07-29T00:00:00.000|12\.315|
-|2018-07-30T00:00:00.000|16\.847|
-|2018-07-31T00:00:00.000|12\.616|
+|2018-07-29T00:00:00.000|12.315|
+|2018-07-30T00:00:00.000|16.847|
+|2018-07-31T00:00:00.000|12.616|
 |2018-08-01T00:00:00.000|5\.416|
 
 
@@ -153,7 +147,7 @@ Event
 
 ## <a name="related-functions"></a>Funzioni correlate
 
-| Category | Funzione |
+| Categoria | Funzione |
 |:---|:---|
 | Convertire tipi di dati | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
 | Arrotondare il valore alle dimensioni del contenitore | [bin](/azure/kusto/query/binfunction) |

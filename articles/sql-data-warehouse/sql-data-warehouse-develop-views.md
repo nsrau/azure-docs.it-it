@@ -10,34 +10,39 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 8a770e66120e69271744942899186ece39b2a3c3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 1fd406243f0f2f5339c4170c4ec17286fcf2ef6d
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479516"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901717"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Viste in Azure SQL Data Warehouse
-Suggerimenti per l'uso di viste T-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni. 
+Le viste risultano utili in molti modi diversi per migliorare la qualità della soluzione. 
 
-## <a name="why-use-views"></a>Perché usare le viste?
-Le viste risultano utili in molti modi diversi per migliorare la qualità della soluzione.  Questo articolo contiene alcuni esempi che illustrano come migliorare la soluzione con le viste e le limitazioni da prendere in considerazione.
+Azure SQL Data Warehouse supporta le viste standard e materializzate. Entrambe sono tabelle virtuali create con espressioni SELECT e presentate alle query come tabelle logiche. Le visualizzazioni incapsulano la complessità del calcolo comune dei dati e aggiungono un livello di astrazione alle modifiche di calcolo, pertanto non è necessario riscrivere le query.
 
+## <a name="standard-view"></a>Vista standard
+Una vista standard calcola i dati ogni volta che viene utilizzata la vista. Non sono presenti dati archiviati su disco. Le persone utilizzano in genere viste standard come uno strumento che consente di organizzare gli oggetti logici e le query in un database. Per utilizzare una vista standard, è necessario eseguire un riferimento diretto a una query. Per altre informazioni, vedere la documentazione per [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql).
 
-> [!IMPORTANT]
-> Per la nuova sintassi della vista materializzata [, vedere creare una vista materializzata come SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  Per ulteriori informazioni, vedere le [Note sulla versione](/azure/sql-data-warehouse/release-notes-10-0-10106-0).
->
+Le viste in SQL Data Warehouse sono archiviate solo come metadati. Di conseguenza, le opzioni seguenti non sono disponibili:
+* Non esiste alcuna opzione di binding dello schema
+* Le tabelle di base non possono essere aggiornate tramite la vista
+* Non è possibile creare visualizzazioni sulle tabelle temporanee
+* Non è disponibile alcun supporto per gli hint EXPAND/NOEXPAND
+* Non sono disponibili viste indicizzate in SQL Data Warehouse
 
+È possibile utilizzare le visualizzazioni standard per applicare join ottimizzati per le prestazioni tra le tabelle. Ad esempio, una vista può incorporare una chiave di distribuzione ridondante come parte dei criteri di join per ridurre al minimo lo spostamento dei dati. Un altro vantaggio delle viste potrebbe essere l'applicazione di una query specifica o di un hint di join. Usando le viste in questo modo, i join vengono sempre eseguiti in modo ottimale senza che gli utenti debbano ricordare il costrutto corretto per i relativi join.
 
-> [!NOTE]
-> La sintassi per CREATE VIEW non viene illustrata in questo articolo. Per altre informazioni, vedere la documentazione per [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql).
-> 
+## <a name="materialized-view"></a>Vista materializzata
+Una vista materializzata consente di pre-calcolare, archiviare e mantenere i dati in Azure SQL Data Warehouse esattamente come una tabella. Non è necessario ricalcolare ogni volta quando viene usata una vista materializzata. Quando i dati vengono caricati in tabelle di base, Azure SQL Data Warehouse aggiorna in modo sincrono le viste materializzate.  Il Query Optimizer utilizza automaticamente viste materializzate distribuite per migliorare le prestazioni di esecuzione delle query anche se nella query non viene fatto riferimento alle viste.  Le query che sfruttano la maggior parte delle viste materializzate sono query complesse, in genere query con join e aggregazioni, in tabelle di grandi dimensioni che producono un set di risultati di piccole dimensioni.  
 
-## <a name="architectural-abstraction"></a>Astrazione dell'architettura
+Per informazioni dettagliate sulla sintassi di visualizzazione materializzata e su altri requisiti, vedere [creare una vista materializzata come SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  
 
-Un modello di applicazione comune consiste nel ricreare le tabelle usando CREATE TABLE AS SELECT (CTAS) seguito da un modello di ridenominazione di oggetti durante il caricamento dei dati.
+Per informazioni aggiuntive sull'ottimizzazione delle query, vedere [ottimizzazione delle prestazioni con viste materializzate](https://docs.microsoft.com/azure/sql-data-warehouse/performance-tuning-materialized-views). 
 
-L'esempio seguente aggiunge nuovi record di data a una dimensione data. Si noti come viene creata prima di tutto una nuova tabella, DimDate_New, che viene poi rinominata per sostituire la versione originale della tabella.
+## <a name="example"></a>Esempio
+Un modello di applicazione comune consiste nel ricreare le tabelle usando CREATE TABLE AS SELECT (CTAS) seguito da un modello di ridenominazione di oggetti durante il caricamento dei dati.  L'esempio seguente aggiunge nuovi record di data a una dimensione data. Si noti come viene creata prima di tutto una nuova tabella, DimDate_New, che viene poi rinominata per sostituire la versione originale della tabella.
 
 ```sql
 CREATE TABLE dbo.DimDate_New
@@ -49,27 +54,13 @@ SELECT *
 FROM   dbo.DimDate  AS prod
 UNION ALL
 SELECT *
-FROM   dbo.DimDate_stg AS stg
-;
+FROM   dbo.DimDate_stg AS stg;
 
 RENAME OBJECT DimDate TO DimDate_Old;
 RENAME OBJECT DimDate_New TO DimDate;
 
 ```
-
 Tuttavia, usando questo approccio la visualizzazione delle tabelle nella vista dell'utente potrebbe non essere costante e potrebbero essere restituiti messaggi di errore di tabella non esistente. Le viste possono essere usate per garantire agli utenti un livello di presentazione coerente mentre vengono rinominati gli oggetti sottostanti. Fornendo l'accesso ai dati tramite le viste, gli utenti non devono avere visibilità sulle tabelle sottostanti. Questo livello offre un'esperienza utente coerente, assicurando allo stesso tempo che i progettisti del data warehouse possano sviluppare il modello di dati. La possibilità di sviluppare le tabelle sottostanti implica che i progettisti possono usare CTAS per ottimizzare le prestazioni durante il processo di caricamento dei dati.   
-
-## <a name="performance-optimization"></a>Ottimizzazione delle prestazioni
-Le viste possono anche essere usate per creare join ottimizzati per le prestazioni tra le tabelle. Ad esempio, una vista può incorporare una chiave di distribuzione ridondante come parte dei criteri di join per ridurre al minimo lo spostamento dei dati. Un altro vantaggio delle viste potrebbe essere l'applicazione di una query specifica o di un hint di join. Usando le viste in questo modo, i join vengono sempre eseguiti in modo ottimale senza che gli utenti debbano ricordare il costrutto corretto per i relativi join.
-
-## <a name="limitations"></a>Limitazioni
-Le viste in SQL Data Warehouse sono archiviate solo come metadati. Di conseguenza, le opzioni seguenti non sono disponibili:
-
-* Non esiste alcuna opzione di binding dello schema
-* Le tabelle di base non possono essere aggiornate tramite la vista
-* Non è possibile creare visualizzazioni sulle tabelle temporanee
-* Non è disponibile alcun supporto per gli hint EXPAND/NOEXPAND
-* Non sono disponibili viste indicizzate in SQL Data Warehouse
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse](sql-data-warehouse-overview-develop.md).

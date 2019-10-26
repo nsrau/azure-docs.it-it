@@ -1,23 +1,18 @@
 ---
 title: Separazione della telemetria da sviluppo, test e rilascio in Azure Application Insights | Microsoft Docs
 description: Telemetria diretta a risorse diverse per indicatori di sviluppo, test e produzione.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/15/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 2e9c599c12ed10327d352baee02500d2284d98d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/15/2017
+ms.openlocfilehash: bcf741e82e247a5b79a478ef1015a70cccb4d274
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60713467"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899902"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Separazione della telemetria da sviluppo, test e produzione
 
@@ -55,7 +50,7 @@ Impostare la chiave in un metodo di inizializzazione, ad esempio global.aspx.cs 
 
 In questo esempio i valori ikey per le diverse risorse vengono inseriti in versioni diverse del file di configurazione Web. Lo scambio del file di configurazione Web, che è possibile eseguire nell'ambito dello script di rilascio, consente di scambiare la risorsa di destinazione.
 
-### <a name="web-pages"></a>Pagina Web
+### <a name="web-pages"></a>Pagine Web
 Il valore iKey viene usato anche nelle pagine Web dell'app, nello [script ottenuto dal pannello Avvio rapido](../../azure-monitor/app/javascript.md). Invece di codificarlo letteralmente nello script, generarlo dallo stato del server. Ad esempio, in un'app ASP.NET:
 
 *JavaScript in Razor*
@@ -132,7 +127,7 @@ Esistono diversi metodi di impostazione della proprietà della versione dell'app
     </PropertyGroup>
     ```
 
-    Viene generato un file denominato *NomeProgetto*.BuildInfo.config. Il processo di pubblicazione rinomina il file in BuildInfo.config.
+    Verrà generato un file denominato *yourProjectName*. BuildInfo. config. il processo di pubblicazione lo rinomina in BuildInfo. config.
 
     L'etichetta di compilazione contiene un segnaposto (AutoGen_) se la compilazione viene eseguita in Visual Studio. Se la compilazione viene eseguita con MSBuild, viene inserito il numero di versione corretto.
 

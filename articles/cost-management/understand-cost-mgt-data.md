@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 10/23/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 6870297eea194b89a84a89e1e8ef8decf5c1788e
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 0b93f898924d73636c31826b6b63a228f75fc8ba
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374537"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900173"
 ---
 # <a name="understand-cost-management-data"></a>Informazioni sui dati di Gestione costi
 
 Questo articolo aiuta a comprendere meglio i dati di utilizzo e i costi di Azure inclusi in gestione costi di Azure. Spiega la frequenza con cui i dati vengono elaborati, raccolti, mostrati e chiusi. L'uso di Azure viene addebitato su base mensile. Sebbene i cicli di fatturazione siano periodi mensili, le date di inizio e fine del ciclo variano in base al tipo di sottoscrizione. La frequenza con cui Gestione costi riceve i dati sull'utilizzo varia a seconda di diversi fattori. Tali fattori includono il tempo necessario per l'elaborazione dei dati e la frequenza con cui i servizi di Azure generano i dati sull'utilizzo per il sistema di fatturazione.
 
-Gestione costi include tutti gli acquisti e l'utilizzo, incluse le prenotazioni e le offerte di terze parti per gli account Enterprise Agreement (EA). Gli account di Microsoft Customer Agreement (MCA) e le singole sottoscrizioni con tariffe a consumo includono solo i servizi di Azure e del Marketplace. Il supporto e altri costi non sono inclusi. I costi vengono stimati fino a quando non viene generata una fattura e non vengono calcolati nei crediti.
+Gestione costi include tutti gli acquisti e l'utilizzo, incluse le prenotazioni e le offerte di terze parti per gli account Enterprise Agreement (EA). Gli account del contratto clienti Microsoft e le singole sottoscrizioni con tariffe con pagamento in base al consumo includono solo i servizi di Azure e del Marketplace. Il supporto e altri costi non sono inclusi. I costi vengono stimati fino a quando non viene generata una fattura e non vengono calcolati nei crediti.
 
 ## <a name="supported-microsoft-azure-offers"></a>Offerte di Microsoft Azure supportate
 
@@ -32,9 +32,9 @@ Le informazioni seguenti mostrano le [offerte di Microsoft Azure](https://azure.
 | **Azure Government** | Azure per enti pubblici Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | 2014 maggio<sup>1</sup> |
 | **Contratto Enterprise** | Sviluppo/test Enterprise                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | 2014 maggio<sup>1</sup> |
 | **Contratto Enterprise** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | 2014 maggio<sup>1</sup> |
-| **Contratto per i clienti Microsoft** | [Piano di Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/D | 2019 marzo<sup>3</sup> |
-| **Contratto per i clienti Microsoft** | [Piano di Microsoft Azure per sviluppo/test](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | N/D | 2019 marzo<sup>3</sup> |
-| **Contratto per i partner Microsoft** | Piano di Microsoft Azure | CSP_2015-05-01, CSP_MG_2017-12-01, CSPDEVTEST_2018-05-01 | N/D | 2019 ottobre |
+| **Contratto del cliente Microsoft** | [Piano di Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/D | 2019 marzo<sup>3</sup> |
+| **Contratto del cliente Microsoft** | [Piano di Microsoft Azure per sviluppo/test](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | N/D | 2019 marzo<sup>3</sup> |
+| **Contratto clienti Microsoft supportato dai partner** | Piano di Microsoft Azure | CSP_2015-05-01, CSP_MG_2017-12-01 e CSPDEVTEST_2018-05-01<br><br>L'ID quota viene riutilizzato per il contratto cliente Microsoft e per le sottoscrizioni CSP legacy. Attualmente sono supportate solo le sottoscrizioni ai contratti cliente Microsoft. | N/D | 2019 ottobre |
 | **Microsoft Developer Network (MSDN)** | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 ottobre 2018<sup>2</sup> |
 | **Pagamento in base al consumo** | [Pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 ottobre 2018<sup>2</sup> |
 | **Pagamento in base al consumo** | [Sviluppo/test con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 ottobre 2018<sup>2</sup> |

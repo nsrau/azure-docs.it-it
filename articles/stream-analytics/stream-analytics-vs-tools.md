@@ -1,6 +1,6 @@
 ---
 title: Visualizzare i processi di Analisi di flusso di Azure in Visual Studio
-description: Questo articolo descrive come visualizzare e gestire i processi di analisi di flusso di Azure in Visual Studio.
+description: Informazioni su come visualizzare, avviare e arrestare, testare le connessioni, controllare i risultati ed esportare i processi di analisi di flusso di Azure con Visual Studio.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: ae532ed19c2273e43aa739e84d5a68cadb717b86
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: d73955436e651dfdb9db9d602481213fcc2cf502
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173018"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893544"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Usare Visual Studio per visualizzare i processi di Analisi di flusso di Azure
 
@@ -38,8 +38,6 @@ Vedere le istruzioni per [installare gli strumenti di Analisi di flusso di Azure
 
     ![Elenco di Esplora server per Analisi di flusso](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-list-jobs-01.png)
 
-
-
 2. Espandere il nodo del processo e fare doppio clic sul nodo **Vista processi** per aprire la visualizzazione del processo.
     
    ![Nodo del processo espanso](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-job-view-01.png)
@@ -50,13 +48,11 @@ I processi di Analisi di flusso di Azure possono essere gestiti completamente da
     
    ![Controlli dei processi di Analisi di flusso](./media/stream-analytics-vs-tools/azure-stream-analytics-job-view-controls.png)
 
-
 ## <a name="check-job-results"></a>Verificare i risultati di un processo
 
 Gli strumenti di Analisi di flusso per Visual Studio supportano attualmente l'anteprima di output per l'archiviazione BLOB e Azure Data Lake Storage. Per visualizzare i risultati, è sufficiente fare doppio clic sul nodo di output del diagramma del processo nella **visualizzazione del processo** e immettere le credenziali appropriate.
 
    ![Output di archiviazione BLOB del processo di Analisi di flusso](./media/stream-analytics-vs-tools/stream-analytics-blob-preview.png)
-
 
 ## <a name="export-jobs-to-a-project"></a>Esportare i processi in un progetto
 
@@ -87,6 +83,6 @@ I risultati di **Test connessione** verranno visualizzati nella finestra **Outpu
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Monitorare e gestire i processi di Analisi di flusso di Azure con Visual Studio](stream-analytics-monitor-jobs-use-vs.md)
-* [Avvio rapido: Creare un processo di analisi di flusso con Visual Studio](stream-analytics-quick-create-vs.md)
-* [Esercitazione: Distribuire un processo di analisi di flusso di Azure con CI/CD usando Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [Guida introduttiva: Creare un processo di Analisi di flusso con Visual Studio](stream-analytics-quick-create-vs.md)
+* [Esercitazione: Distribuire un processo di Analisi di flusso di Azure con CI/CD tramite Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Eseguire integrazione e sviluppo in modo continuo con gli strumenti di Analisi di flusso](stream-analytics-tools-for-visual-studio-cicd.md)

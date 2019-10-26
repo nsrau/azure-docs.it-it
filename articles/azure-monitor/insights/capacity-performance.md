@@ -1,33 +1,27 @@
 ---
-title: Soluzione Capacity and Performance in Monitoraggio di Azure | Microsoft Docs
-description: Usare la soluzione Capacity and Performance Monitor che aiutano a comprendere le capacità dei server Hyper-V.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Soluzione Capacità e prestazioni in monitoraggio di Azure | Microsoft Docs
+description: Utilizzare la soluzione Capacità e prestazioni in monitoraggio per comprendere la capacità dei server Hyper-V.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 07/13/2017
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: fcf71bf144b559c4867303988d4c1f08b7aa5605
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/13/2017
+ms.openlocfilehash: 8b130b800b53afadc40e0c9b9a2b730f24da396e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101915"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899068"
 ---
-# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Pianificare la capacità di macchina virtuale Hyper-V con la soluzione Capacity and Performance (deprecata)
+# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Pianificare la capacità delle macchine virtuali Hyper-V con la soluzione Capacità e prestazioni (deprecata)
 
 ![Simbolo di Capacità e prestazioni](./media/capacity-performance/capacity-solution.png)
 
 > [!NOTE]
 > La Soluzione Capacity and Performance è stata deprecata.  I clienti che hanno già installato la soluzione possono continuare a usarla, anche se Capacità e prestazioni non può essere aggiunta ad alcuna nuova area di lavoro.
 
-È possibile utilizzare la soluzione Capacity and Performance Monitor che aiutano a comprendere le capacità dei server Hyper-V. La soluzione fornisce informazioni approfondite sull'ambiente Hyper-V illustrando l'utilizzo generale (CPU, memoria e disco) dell'host e delle macchine virtuali in esecuzione negli host Hyper-V. Vengono acquisite le metriche relative a CPU, memoria e dischi di tutti gli host e delle macchine virtuali in esecuzione su tali server.
+È possibile utilizzare la soluzione Capacità e prestazioni in monitoraggio per comprendere la capacità dei server Hyper-V. La soluzione fornisce informazioni approfondite sull'ambiente Hyper-V illustrando l'utilizzo generale (CPU, memoria e disco) dell'host e delle macchine virtuali in esecuzione negli host Hyper-V. Vengono acquisite le metriche relative a CPU, memoria e dischi di tutti gli host e delle macchine virtuali in esecuzione su tali server.
 
 La soluzione:
 
@@ -46,11 +40,11 @@ La soluzione:
 
 La tabella seguente descrive le origini connesse che sono supportate da questa soluzione.
 
-| Origine connessa | Supporto | DESCRIZIONE |
+| Origine connessa | Supporto | Description |
 |---|---|---|
-| [Agenti Windows](../../azure-monitor/platform/agent-windows.md) | Sì | La soluzione raccoglie informazioni su capacità e prestazioni dagli agenti Windows. |
+| [Agenti di Windows](../../azure-monitor/platform/agent-windows.md) | SÌ | La soluzione raccoglie informazioni su capacità e prestazioni dagli agenti Windows. |
 | [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No    | La soluzione non raccoglie informazioni su capacità e prestazioni dagli agenti Linux diretti.|
-| [Gruppo di gestione SCOM](../../azure-monitor/platform/om-agents.md) | Sì |La soluzione raccoglie dati su capacità e prestazioni dagli agenti in un gruppo di gestione SCOM connesso. Non è necessaria una connessione diretta dall'agente SCOM a Log Analytics.|
+| [Gruppo di gestione SCOM](../../azure-monitor/platform/om-agents.md) | SÌ |La soluzione raccoglie dati su capacità e prestazioni dagli agenti in un gruppo di gestione SCOM connesso. Non è necessaria una connessione diretta dall'agente SCOM a Log Analytics.|
 | [Account di archiviazione di Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | No | Archiviazione di Azure non include dati di capacità e prestazioni.|
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -79,7 +73,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 Quando la soluzione Capacity and Performance viene aggiornata, il numero di versione viene modificato.
 
-Per maggiori informazioni sulla modalità di aggiornamento dei Management Pack, vedere [Connettere Operations Manager a Log Analytics](../../azure-monitor/platform/om-agents.md).
+Per altre informazioni sulla modalità di aggiornamento dei Management Pack, vedere [Connettere Operations Manager a Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="using-the-solution"></a>Uso della soluzione
 
@@ -124,7 +118,7 @@ In sintesi, la soluzione raccogli i dati su capacità e prestazioni da svariate 
 La tabella seguente presenta ricerche log di esempio per i dati su capacità e prestazioni raccolti e calcolati da questa soluzione.
 
 
-| Query | DESCRIZIONE |
+| Query | Description |
 |:--- |:--- |
 | Tutte le configurazioni di memoria degli host | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "Host Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
 | Tutte le configurazioni di memoria delle macchine virtuali | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "VM Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |

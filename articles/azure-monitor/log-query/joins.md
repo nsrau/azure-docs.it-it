@@ -1,29 +1,23 @@
 ---
 title: Join nelle query di log di Monitoraggio di Azure | Microsoft Docs
 description: Questo articolo include una lezione sull'utilizzo dei join nelle query di log di Monitoraggio di Azure.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/16/2018
+ms.openlocfilehash: 526c359367271c69ccd461e4421c3223b00fbc36
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60520099"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900278"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Join nelle query di log di Monitoraggio di Azure
 
 > [!NOTE]
-> È consigliabile completare [Introduzione a Azure Monitor Log Analitica](get-started-portal.md) e [query di log di monitoraggio di Azure](get-started-queries.md) prima di completare questa lezione.
+> Prima di completare questa lezione, è necessario completare [Introduzione all'log Analytics di monitoraggio di Azure e alle](get-started-portal.md) [query di log di monitoraggio di Azure](get-started-queries.md) .
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -86,7 +80,7 @@ SecurityEvent
 ## <a name="join-kinds"></a>Tipi di join
 Specificare il tipo di join con l'argomento _kind_. Ogni tipo esegue una diversa corrispondenza tra i record di determinate tabelle, come descritto nella tabella seguente.
 
-| Tipo di join | Descrizione |
+| Tipo di join | Description |
 |:---|:---|
 | innerunique | Questa è la modalità di join predefinita. Prima vengono trovati i valori della colonna corrispondente nella tabella di sinistra e vengono rimossi i valori duplicati  e dopo il set di valori univoci viene confrontato con la tabella di destra. |
 | interno | Nei risultati vengono inclusi solo i record corrispondenti in entrambe le tabelle. |

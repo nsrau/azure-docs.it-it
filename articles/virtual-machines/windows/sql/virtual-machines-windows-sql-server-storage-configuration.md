@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: mathoma
-ms.openlocfilehash: 57a325dd297955296a94db134b6a2a6d58a37f03
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a91098d06f481afaae75eb497d5a076c3eb42c07
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828604"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72896945"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configurazione dell'archiviazione per le VM di SQL Server
 
@@ -111,7 +111,7 @@ Per modificare le impostazioni di archiviazione, selezionare **Configura** in **
 
 
 
-## <a name="storage-configuration"></a>Configurazione archiviazione
+## <a name="storage-configuration"></a>Configurazione dell'archiviazione
 
 Questa sezione fornisce un riferimento per le modifiche di configurazione dell'archiviazione eseguite automaticamente da Azure durante il provisioning o la configurazione di macchine virtuali SQL nel portale di Azure.
 
@@ -127,26 +127,23 @@ Azure usa le impostazioni seguenti per creare il pool di archiviazione nelle VM 
 | Impostazione | Value |
 | --- | --- |
 | Dimensioni di striping |256 KB (data warehousing); 64 KB (transazionale) |
-| Dimensione disco |1 TB ciascuno |
-| Cache |Leggi |
+| Dimensioni dei dischi |1 TB ciascuno |
+| Cache |Lettura |
 | Dimensioni allocazione |Dimensioni delle unità di allocazione NTFS = 64 KB |
-| Inizializzazione file immediata |Enabled |
-| Blocco di pagine in memoria |Enabled |
-| Ripristino |Recupero con registrazione minima (nessuna resilienza) |
-| Numero di colonne |Numero di dischi dati<sup>1</sup> |
-| Percorso TempDB |Archiviato sui dischi dati<sup>2</sup> |
+| Ripristino | Recupero con registrazione minima (nessuna resilienza) |
+| Numero di colonne |Numero di dischi dati fino a 8<sup>1</sup> |
+
 
 <sup>1</sup> Dopo aver creato il pool di archiviazione non è possibile modificare il numero di colonne nel pool.
 
-<sup>2</sup> Questa impostazione si applica solo alla prima unità creata usando la funzionalità di configurazione dell'archiviazione.
 
 ## <a name="workload-optimization-settings"></a>Impostazioni di ottimizzazione del carico di lavoro
 
 La tabella seguente descrive le tre opzioni disponibili per il tipo di carico di lavoro e le ottimizzazioni corrispondenti:
 
-| Tipo di carico di lavoro | Descrizione | Ottimizzazioni |
+| Tipo di carico di lavoro | Description | Ottimizzazioni |
 | --- | --- | --- |
-| **Generale** |Impostazione predefinita che supporta la maggior parte dei carichi di lavoro |Nessuna |
+| **Generale** |Impostazione predefinita che supporta la maggior parte dei carichi di lavoro |Nessuno |
 | **Elaborazione transazionale** |Ottimizza l'archiviazione per carichi di lavoro OLTP di database tradizionali |Flag di traccia 1117<br/>Flag di traccia 1118 |
 | **Data warehousing** |Ottimizza l'archiviazione per i carichi di lavoro di analisi e creazione di report |Flag di traccia 610<br/>Flag di traccia 1117 |
 

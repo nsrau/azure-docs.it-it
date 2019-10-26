@@ -1,26 +1,20 @@
 ---
 title: Funzionalità Performance Monitor nella soluzione Monitoraggio prestazioni rete in Azure Log Analytics | Microsoft Docs
 description: La funzionalità Performance Monitor in Monitoraggio prestazioni rete consente di monitorare la connettività tra vari punti della rete. È possibile monitorare distribuzioni cloud e sedi locali, diversi data center e succursali e applicazioni o microservizi multilivello di importanza cruciale.
-services: log-analytics
-documentationcenter: ''
-author: abshamsft
-manager: carmonm
-editor: ''
-ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/20/2018
+author: abshamsft
 ms.author: absha
-ms.openlocfilehash: bb99689409ddff311e556250083b99842bc59927
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/20/2018
+ms.openlocfilehash: 745ec6ee8e69ad911e42b6360b3408d79d660718
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963517"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898843"
 ---
-# <a name="network-performance-monitor-solution-performance-monitoring"></a>Soluzione Monitoraggio prestazioni rete: Monitoraggio delle prestazioni
+# <a name="network-performance-monitor-solution-performance-monitoring"></a>Soluzione Monitoraggio prestazioni rete - Monitoraggio delle prestazioni
 
 La funzionalità Performance Monitor in [Monitoraggio prestazioni rete](network-performance-monitor.md) consente di monitorare la connettività tra vari punti della rete. È possibile monitorare distribuzioni cloud e sedi locali, diversi data center e succursali e applicazioni o microservizi multilivello di importanza cruciale. La funzionalità Performance Monitor consente di rilevare tempestivamente i problemi a livello di rete. I principali vantaggi offerti sono i seguenti: 
 

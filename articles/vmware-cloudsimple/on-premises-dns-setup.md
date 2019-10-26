@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 52f86f85ec303d23a78fd942276bfe46d0f12832
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: f00e7663c4ed2211927f5c8d1c131d85bc6c96dd
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030406"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900893"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurare DNS per la risoluzione dei nomi per il cloud privato accesso vCenter da workstation locali
 
@@ -23,7 +23,7 @@ Per accedere al server vCenter in un cloud privato CloudSimple dalle workstation
 
 1. Accedere al portale di [CloudSimple](access-cloudsimple-portal.md).
 
-2. Passare a **risorse** >  Cloud**privati** e selezionare il cloud privato a cui si vuole connettersi.
+2. Passare a **risorse** > Cloud **privati** e selezionare il cloud privato a cui si vuole connettersi.
 
 3. Nella pagina **Riepilogo** del cloud privato in informazioni di **base**copiare l'indirizzo IP del server DNS del cloud privato.
 
@@ -80,7 +80,7 @@ zone “cloudsimple.io”
 
 Un server d'avanzamento condizionale Invia tutte le richieste di risoluzione dei nomi DNS al server designato. Con questa configurazione, qualsiasi richiesta a *. cloudsimple.io viene trasmessa ai server DNS che si trovano nel cloud privato. Gli esempi seguenti illustrano come configurare i server d'avanzamento su diversi tipi di server DNS.
 
-### <a name="create-a-conditional-forwarded-on-a-bind-dns-server"></a>Creare un'associazione condizionale in un server DNS di binding
+### <a name="create-a-conditional-forwarder-on-a-bind-dns-server"></a>Creazione di un server d'avanzamento condizionale in un server DNS di binding
 
 Il file e i parametri specifici da configurare possono variare in base alla configurazione del singolo DNS.
 

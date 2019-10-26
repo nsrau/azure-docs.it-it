@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Ottenere i dati usando l'API di creazione report di Azure AD con i certificati | Microsoft Docs"
+title: Esercitazione per l'API di creazione report di Active Directory con certificati | Microsoft Docs
 description: Questa esercitazione spiega come usare l'API di creazione report di Azure AD con le credenziali del certificato per ottenere i dati provenienti da directory senza intervento dell'utente.
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdab5bc4be366f778213127a307fb4fcf7cf38a3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 3fe5f2a6d1957a544c63cb8a7c223ba9734786f8
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989472"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895136"
 ---
-# <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Esercitazione: Ottenere dati con l'API di creazione report di Azure Active Directory con certificati
+# <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Esercitazione: Ottenere i dati usando l'API di creazione report di Azure Active Directory con i certificati
 
 Le [API di creazione report di Azure Active Directory (Azure AD)](concept-reporting-api.md) forniscono l'accesso ai dati dal codice tramite un set di API basate su REST. È possibile chiamare le API da numerosi linguaggi di programmazione e strumenti. Se si vuole accedere all'API di creazione report di Azure AD senza l'intervento dell'utente, è necessario configurare l'accesso per l'uso di certificati.
 
@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà come usare un certificato di test per acc
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. Per accedere a dati di accesso, assicurarsi di avere un tenant di Azure Active Directory con una licenza Premium (P1/P2). vedere [Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) per aggiornare l'edizione di Azure Active Directory in uso. Si noti che se i dati sulle attività non fossero disponibili prima dell'aggiornamento, saranno necessari un paio di giorni per visualizzare i dati nei report dopo aver eseguito l'aggiornamento a una licenza Premium. 
+1. Per accedere a dati di accesso, assicurarsi di avere un tenant di Azure Active Directory con una licenza Premium (P1/P2). Per l'aggiornamento dell'edizione Azure Active Directory, vedere [Introduzione a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) . Si noti che se i dati sulle attività non fosseso disponibili prima dell'aggiornamento, saranno necessari un paio di giorni per visualizzare i dati nei report dopo aver eseguito l'aggiornamento a una licenza Premium. 
 
 2. Creare o passare a un account utente nel ruolo **Amministratore globale**, **Amministratore della sicurezza**, **Ruolo con autorizzazioni di lettura per la sicurezza** o **Ruolo con autorizzazioni di lettura per i report** per il tenant. 
 
@@ -44,7 +44,7 @@ In questa esercitazione si apprenderà come usare un certificato di test per acc
     - Token di accesso dell'utente, chiavi dell'applicazione e certificati con ADAL
     - API Graph che gestisce i risultati di paging
 
-6. Se è la prima volta che si usa il modulo, eseguire **Install-MSCloudIdUtilsModule**; in caso contrario, è possibile importarlo tramite il comando **Import-Module** di Powershell. La sessione avrà un aspetto simile a questa schermata: ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. Se è la prima volta che si usa il modulo, eseguire **Install-MSCloudIdUtilsModule**; in caso contrario, è possibile importarlo tramite il comando **Import-Module** di Powershell. La sessione dovrebbe essere simile a questa schermata: ![Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
 7. Usare il cmdlet **New-SelfSignedCertificate** di Powershell per creare un certificato di test.
 
@@ -92,10 +92,10 @@ In questa esercitazione si apprenderà come usare un certificato di test per acc
 8. Usare il token di accesso nello script di PowerShell per eseguire una query sull'API Graph. Usare il cmdlet **Invoke-MSCloudIdMSGraphQuery** da MSCloudIDUtils per enumerare l'endpoit Signins e directoryAudits. Questo cmdlet gestisce i risultati di multi-paging e li invia alla pipeline di PowerShell.
 
 9. Eseguire una query sull'endpoint directoryAudits per recuperare i log di controllo. 
-   ![Portale di Azure](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+   ![Azure portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
 10. Eseguire una query dell'endpoint Signins per recuperare i log di accesso.
-    ![Portale di Azure](./media/tutorial-access-api-with-certificates/query-signins.png)
+    ![Azure portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
 11. È ora possibile scegliere di esportare i dati in un file CSV e salvarlo in un sistema SIEM. È anche possibile eseguire il wrapping dello script in un'attività pianificata per ottenere periodicamente i dati di Azure AD dal tenant senza dover archiviare le chiavi dell'applicazione nel codice sorgente. 
 

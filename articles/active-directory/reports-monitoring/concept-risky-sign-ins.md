@@ -1,5 +1,5 @@
 ---
-title: Report degli accessi a rischio nel portale di Azure Active Directory | Microsoft Docs
+title: Report degli accessi a rischio nel portale | Microsoft Docs
 description: Informazioni sul report degli accessi a rischio nel portale di Azure Active Directory
 services: active-directory
 author: cawrites
@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72493400ba20ef3c838a636b66afdf26aa00ff62
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 31a002af32ac6c07e6358a3ccd0f1420d3e8c9ef
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127428"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895178"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Report degli accessi a rischio nel portale di Azure Active Directory
 
@@ -42,7 +42,7 @@ Per informazioni su come configurare i criteri per l'attivazione di questi rilev
 
 I report sugli accessi a rischio sono disponibili agli utenti nei seguenti ruoli:
 
-- Amministratore della protezione
+- Amministratore della sicurezza
 - Amministratore globale
 - Ruolo con autorizzazioni di lettura per la sicurezza
 
@@ -90,9 +90,9 @@ Questo report offre anche la possibilità di:
 
 Il report degli accessi a rischio nelle edizioni Azure AD Premium fornisce:
 
-- Informazioni aggregate sui [tipi di rilevamento dei rischi](concept-risk-events.md) rilevati. Con l' **edizione Azure ad Premium P1**, i rilevamenti che non sono coperti dalla licenza vengono visualizzati come l'accesso al rilevamento dei rischi **con rischi aggiuntivi**rilevati. Con l'**edizione Azure AD Premium P2**, si ottengono le informazioni più dettagliate su tutti i rilevamenti sottostanti.
+- Informazioni aggregate sui [tipi di rilevamento dei rischi](concept-risk-events.md) rilevati. Con l' **edizione Azure ad Premium P1**, i rilevamenti che non sono coperti dalla licenza vengono visualizzati come l'accesso al rilevamento dei rischi **con rischi aggiuntivi rilevati**. Con l'**edizione Azure AD Premium P2**, si ottengono le informazioni più dettagliate su tutti i rilevamenti sottostanti.
 
-- un'opzione per scaricare il report
+- Un'opzione per scaricare il report
 
 ![Accessi a rischio](./media/concept-risky-sign-ins/456.png)
 
@@ -109,7 +109,7 @@ Quando si seleziona un rilevamento del rischio, si ottiene una visualizzazione d
 ![Accessi a rischio](./media/concept-risky-sign-ins/457.png)
 
 > [!IMPORTANT]
-> In alcuni casi, è possibile che si verifichi un rilevamento dei rischi senza una voce di accesso corrispondente nel [report](concept-sign-ins.md)degli accessi. Questo avviene perché Identity Protection valuta il rischio per gli accessi sia **interattivi** che **non interattivi** mentre il report sugli accessi mostra solo gli accessi interattivi.
+> In alcuni casi, è possibile che si verifichi un rilevamento dei rischi senza una voce di accesso corrispondente nel [report degli accessi](concept-sign-ins.md). Questo avviene perché Identity Protection valuta il rischio per gli accessi sia **interattivi** che **non interattivi** mentre il report sugli accessi mostra solo gli accessi interattivi.
 
 Quando si seleziona un utente, si ottiene la visualizzazione di un report dettagliato per questo utente che consente di:
 
@@ -117,7 +117,7 @@ Quando si seleziona un utente, si ottiene la visualizzazione di un report dettag
 
 - Reimpostare la password dell'utente
 
-- Elimina tutti gli eventi
+- eliminare tutti gli eventi
 
 - Esaminare i rilevamenti dei rischi segnalati per l'utente. 
 

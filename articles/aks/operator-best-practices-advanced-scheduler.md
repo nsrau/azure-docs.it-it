@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: a31f839b4bad79a52f5cab386d17e3084314784b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: f260e019ffa6eb89e8a2c1e17d2bf239e74290c2
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026116"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900118"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 
@@ -179,7 +179,7 @@ Un buon esempio è un'applicazione Web che usa anche una cache Redis di Azure. �
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-Questo esempio è una distribuzione più complessa rispetto all'uso dei selettori di nodo o dell'affinità tra nodi. La distribuzione garantisce il controllo sul modo in cui Kubernetes pianifica i pod sui nodi e isola in modo logico le risorse. Per un esempio completo di questa applicazione Web con cache di Azure per l'esempio Redis, vedere [la pagina relativa alla condivisione dei Pod nello stesso nodo][k8s-pod-affinity].
+Questo esempio è una distribuzione più complessa rispetto all'uso dei selettori di nodo o dell'affinità tra nodi. La distribuzione garantisce il controllo sul modo in cui Kubernetes pianifica i pod sui nodi e isola in modo logico le risorse. Per un esempio completo di questa applicazione Web con cache di Azure per l'esempio Redis, vedere [la pagina relativa alla condivisione percorso di Pod nello stesso nodo][k8s-pod-affinity].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -187,7 +187,7 @@ Questo articolo ha illustrato le funzionalità avanzate dell'utilità di pianifi
 
 * [Multi-tenant e isolamento del cluster][aks-best-practices-scheduler]
 * [Funzionalità dell'utilità di pianificazione di Kubernetes di base][aks-best-practices-scheduler]
-* [Autenticazione e autorizzazione][aks-best-practices-identity]
+* [Authentication and authorization][aks-best-practices-identity] (Autenticazione e autorizzazione)
 
 <!-- EXTERNAL LINKS -->
 [k8s-taints-tolerations]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/

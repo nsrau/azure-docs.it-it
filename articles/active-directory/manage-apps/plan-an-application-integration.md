@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11453ad9132664313df2b56cb3664512628a16ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1291db8cd895a1104183ae2b5388eb6a23305874
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108231"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895927"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guida introduttiva all'integrazione di Azure Active Directory con le applicazioni
 
@@ -77,7 +77,7 @@ Gli articoli seguenti illustrano i diversi modi in cui le applicazioni si integr
 Con il proxy di applicazione di Microsoft Azure AD è possibile garantire l'accesso ad applicazioni che si trovano all'interno della rete privata in modo sicuro da qualsiasi posizione e su qualsiasi dispositivo. Dopo aver installato un connettore del proxy di applicazione all'interno dell'ambiente, è possibile configurarlo facilmente con Azure AD.
 
 ### <a name="integrating-custom-applications"></a>Integrazione di applicazioni personalizzate
-Se si sviluppa una nuova applicazione e si vuole aiutare gli sviluppatori a sfruttare i vantaggi di Azure AD, vedere [Guida per gli sviluppatori](../active-directory-applications-guiding-developers-for-lob-applications.md).
+Se si scrive una nuova applicazione e si vuole aiutare gli sviluppatori a sfruttare la potenza di Azure AD, vedere [Guida per gli sviluppatori](../active-directory-applications-guiding-developers-for-lob-applications.md).
 
 Per aggiungere un'applicazione personalizzata alla raccolta di applicazioni di Azure, vedere il post di blog su ["Bring your own app" con la configurazione SAML Self-Service di Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 
@@ -91,7 +91,7 @@ Gli articoli seguenti illustrano i modi in cui è possibile gestire l'accesso al
 * [Condivisione di account](../active-directory-sharing-accounts.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni dettagliate, è possibile scaricare i piani di distribuzione di Azure Active Directory da [GitHub](https://aka.ms/deploymentplans). Per le applicazioni della raccolta, è possibile scaricare i piani di distribuzione per l'accesso single sign-on, l'accesso condizionale e utente, il provisioning tramite il [portale di Azure](https://portal.azure.com). 
+Per informazioni dettagliate, è possibile scaricare i piani di distribuzione di Azure Active Directory da [GitHub](https://aka.ms/deploymentplans). Per le applicazioni della raccolta, è possibile scaricare i piani di distribuzione per Single Sign-On, l'accesso condizionale e il provisioning degli utenti tramite l' [portale di Azure](https://portal.azure.com). 
 
 Per scaricare un piano di distribuzione dal portale di Azure:
 

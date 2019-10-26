@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 53daa634374c10d48c42f5985459db7e068f293d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 43c4b363f223c61bac3d3f7dbd272519a0cd014d
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301893"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899037"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Estensione di macchina virtuale Key Vault per Windows
 
@@ -59,13 +59,13 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 ```
 
 > [!NOTE]
-> Il formato degli URL dei certificati osservati deve essere `https://myVaultName.vault.azure.net/secrets/myCertName`.
+> Gli URL dei certificati osservati devono essere nel formato `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
-> Questo perché il percorso `/secrets` restituisce il certificato completo, inclusa la chiave privata, mentre il percorso `/certificates` non lo è. Altre informazioni sui certificati sono disponibili qui: [Certificati Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Questo è dovuto al fatto che il percorso di `/secrets` restituisce il certificato completo, inclusa la chiave privata, mentre il percorso di `/certificates` non lo è. Altre informazioni sui certificati sono disponibili qui: [Key Vault Certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| NOME | Valore/Esempio | Tipo di dati |
+| name | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault.Edp | string |
@@ -83,7 +83,7 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli sono uno strumento ideale per distribuire una o più macchine virtuali per cui è necessario l'aggiornamento dei certificati successivamente alla distribuzione. L'estensione può essere distribuita a singole macchine virtuali o a set di scalabilità di macchine virtuali. Lo schema e la configurazione sono comuni a entrambi i tipi di modello. 
 
-La configurazione JSON per un'estensione della macchina virtuale deve essere annidata all'interno del frammento di risorse della macchina virtuale del modello, in particolare @no__t oggetto-0 per il modello di macchina virtuale e in caso di set di scalabilità di macchine virtuali in un oggetto `"virtualMachineProfile":"extensionProfile":{"extensions" :[]`.
+La configurazione JSON per un'estensione della macchina virtuale deve essere annidata all'interno del frammento di risorse della macchina virtuale del modello, in particolare `"resources": []` oggetto per il modello di macchina virtuale e in caso di set di scalabilità di macchine virtuali in `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` oggetto.
 
 ```json
     {
@@ -168,7 +168,7 @@ L'interfaccia della riga di comando di Azure può essere usata per distribuire l
          az vm extension set -n "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
          -g "<resourcegroup>" `
-         --vm-name "<vmName>" `
+         --vmss-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\ <observedCerts>\"] }}'
     ```
 
@@ -179,7 +179,7 @@ L'interfaccia della riga di comando di Azure può essere usata per distribuire l
         az vmss extension set -n "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
          -g "<resourcegroup>" `
-         --vm-name "<vmName>" `
+         --vmss-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\ <observedCerts>\"] }}'
     ```
 
@@ -214,4 +214,4 @@ L'output dell'esecuzione dell'estensione viene registrato nel file seguente:
 
 ### <a name="support"></a>Supporto
 
-Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).

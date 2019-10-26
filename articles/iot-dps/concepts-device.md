@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 8ea1be02dee0e0ef00010e8ac7a4dfb75eadbe96
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: dc4ffc4965d6a3c05693c7566a2c51538584f372
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173391"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72897573"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Concetti relativi ai dispositivi del servizio Device Provisioning in hub IoT
 
@@ -31,7 +31,7 @@ Il meccanismo di attestazione è il metodo usato per verificare l'identità di u
 Il servizio Device Provisioning supporta i seguenti tipi di attestazione:
 * **Certificati X.509** basati sul flusso di autenticazione del certificato X.509 standard.
 * **Trusted Platform Module (TPM)** basato su una richiesta di verifica nonce, che usa lo standard TPM relativo alle chiavi per presentare un token di firma di accesso condiviso (SAS). Non è necessario un modulo TPM fisico nel dispositivo, ma il servizio prevede di eseguire l'attestazione usando la chiave di verifica dell'autenticità in base alle [specifiche TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
-* **Chiave simmetrica** basata sui [Token di autenticazione](../iot-hub/iot-hub-devguide-security.md#security-tokens) della sulla firma di accesso condiviso (SAS), che include una firma con hash e una scadenza incorporata. Per altre informazioni, vedere [Attestazione con chiave simmetrica](concepts-symmetric-key-attestation.md).
+* **Chiave simmetrica** basata sui [Token di autenticazione](../iot-hub/iot-hub-devguide-security.md#security-tokens) della sulla firma di accesso condiviso (SAS), che include una firma con hash e una scadenza incorporata. Per maggiori informazioni, vedere [Attestazione con chiave simmetrica](concepts-symmetric-key-attestation.md).
 
 ## <a name="hardware-security-module"></a>Modulo di protezione hardware
 
@@ -44,7 +44,7 @@ I segreti dei dispositivi possono essere archiviati anche nel software (memoria)
 
 ## <a name="registration-id"></a>ID di registrazione
 
-L'ID di registrazione viene usato per identificare in modo univoco un dispositivo nel servizio Device Provisioning. L'ID di registrazione deve essere univoco nell' [ambito dell'ID](#id-scope)del servizio di provisioning. Ogni dispositivo deve avere un ID di registrazione. L'ID di registrazione è alfanumerico, con caratteri minuscoli e può contenere trattini.
+L'ID di registrazione viene usato per identificare in modo univoco un dispositivo nel servizio Device Provisioning. L'ID dispositivo deve essere univoco nell'[ambito ID](#id-scope) del servizio di provisioning. Ogni dispositivo deve avere un ID di registrazione. L'ID registrazione è alfanumerico, senza distinzione tra maiuscole e minuscole e può contenere caratteri speciali, tra cui due punti, punto, carattere di sottolineatura e trattino
 
 * Nel caso di un TPM, l'ID di registrazione viene fornito dal TPM stesso.
 * Nel caso dell'attestazione basata su X.509, l'ID di registrazione viene fornito come nome soggetto del certificato.

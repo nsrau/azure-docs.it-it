@@ -1,24 +1,18 @@
 ---
 title: Creare un'area di lavoro Log Analytics usando l'interfaccia della riga di comando di Azure| Microsoft Docs
 description: Informazioni su come creare un'area di lavoro Log Analytics per abilitare soluzioni di gestione e la raccolta dei dati dagli ambienti cloud e locali con l'interfaccia della riga di comando di Azure.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 03/12/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 7ee8302a026cf7584996bca481e79190586b77b3
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.date: 03/12/2019
+ms.openlocfilehash: 18bfc99ded6e3e9171fbb20fbf329700817829de
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838844"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894990"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Creare un'area di lavoro Log Analytics con l'interfaccia della riga di comando di Azure 2.0
 
@@ -41,7 +35,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo avvio rapido richiede la versione 2.0.30 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="create-a-workspace"></a>Crea un'area di lavoro
+## <a name="create-a-workspace"></a>Creare un'area di lavoro
 Creare un'area di lavoro con [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). Nell'esempio seguente viene creata un'area di lavoro nella località *eastus* usando un modello di gestione risorse dal computer locale. Il modello JSON è configurato in modo da richiedere solo il nome dell'area di lavoro e specifica un valore predefinito per gli altri parametri che potrebbero essere usati come configurazione standard nell'ambiente in uso. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione. Per altre informazioni sull'uso dei modelli, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e interfaccia della riga di comando di Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 Per informazioni sulle aree supportate, vedere [aree log Analytics è disponibile in](https://azure.microsoft.com/regions/services/) e cercare monitoraggio di Azure dal campo **ricerca di un prodotto** . 

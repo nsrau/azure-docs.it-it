@@ -1,28 +1,23 @@
 ---
 title: Monitorare un sito di SharePoint con Application Insights
 description: Avviare il monitoraggio di una nuova applicazione con una nuova chiave di strumentazione
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/11/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 027d5485b29deb434953470023d8a290cc0af58a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/11/2018
+ms.openlocfilehash: 271ef590d7cdbefc824a7f80aef110b0c08b6d6d
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60784599"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899876"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorare un sito di SharePoint con Application Insights
 Azure Application Insights consente di monitorare disponibilità, prestazioni e utilizzo delle app. Di seguito verrà illustrato come impostarlo per un sito di SharePoint.
 
-## <a name="create-an-application-insights-resource"></a>Creare una risorsa Application Insights
+## <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
 Nel [portale di Azure](https://portal.azure.com)creare una nuova risorsa di Application Insights. Scegliere ASP.NET come tipo di applicazione.
 
 ![Fare clic su Proprietà, selezionare il tasto e premere CTRL+C](./media/sharepoint/001.png)
@@ -50,7 +45,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 </script>
 ```
 
-Inserire lo script immediatamente prima del tag &lt;/head&gt; di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\Shared\_Layout.cshtml.
+Inserire lo script immediatamente prima del &lt;/Head&gt; tag di ogni pagina di cui si vuole tenere traccia. Se il sito Web dispone di una pagina master, è possibile inserire lo script in tale pagina. Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\Shared\_Layout.cshtml.
 
 Lo script contiene la chiave di strumentazione che indirizza i dati di telemetria alla risorsa di Application Insights.
 

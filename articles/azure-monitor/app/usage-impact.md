@@ -1,24 +1,19 @@
 ---
 title: Impatto sull'utilizzo di Azure Application Insights | Microsoft Docs
 description: Analizzare in che modo diverse proprietà influiscono potenzialmente sui tassi di conversione di parti delle app.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: a1ff700bece2d64451294e72ebdf3c771ee644f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fffe71cb80be7795201ab672ca632788f4f18e5c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604187"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899458"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Analisi di impatto con Application Insights
 
@@ -63,7 +58,7 @@ Lo strumento Impatto supporta proprietà e misure sia standard che personalizzat
 2. Scegliere "Country or region" (Paese o area geografica) nell'elenco a discesa **analyze how its** (analizza come l'elemento).
 3. Nell'elenco a discesa **impacts the usage of** (influisce sull'utilizzo di) selezionare un evento personalizzato corrispondente a un elemento dell'interfaccia utente nella visualizzazione pagina scelta nel passaggio 1.
 
-In questo caso i risultati non rientrano più in un modello di asse x continuo come nel primo esempio. Al contrario, viene presentata una visualizzazione simile a un grafico a imbuto segmentato. Per ordinare **utilizzo** per visualizzare la variazione di conversione dell'evento personalizzato di base a paese/area geografica.
+In questo caso i risultati non rientrano più in un modello di asse x continuo come nel primo esempio. Al contrario, viene presentata una visualizzazione simile a un grafico a imbuto segmentato. Ordina in base all' **utilizzo** per visualizzare la variazione della conversione in un evento personalizzato in base al paese o all'area geografica.
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Come vengono calcolati questi tassi di conversione dallo strumento Impatto?

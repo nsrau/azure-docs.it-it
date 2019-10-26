@@ -1,24 +1,18 @@
 ---
 title: Soluzione di monitoraggio delle prestazioni di rete in Azure Log Analytics | Microsoft Docs
 description: Usare la funzionalità Monitoraggio di ExpressRoute in Monitoraggio prestazioni rete per monitorare la connettività end-to-end e le prestazioni tra le proprie succursali e Azure tramite Azure ExpressRoute.
-services: log-analytics
-documentationcenter: ''
-author: abshamsft
-manager: carmonm
-editor: ''
-ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/27/2018
+author: abshamsft
 ms.author: absha
-ms.openlocfilehash: 7f9c0d905a7b2bc81063e59229d78a1200894d47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/27/2018
+ms.openlocfilehash: 5383402816eddba4c631c240585723b7c7119cef
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963832"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898888"
 ---
 # <a name="expressroute-monitor"></a>Monitoraggio di ExpressRoute
 
@@ -55,7 +49,7 @@ Per altre informazioni sui gruppi di sicurezza di rete, vedere  [Gruppi di sic
 
     ![Configurazione del monitoraggio di ExpressRoute](media/network-performance-monitor-expressroute/expressroute-configure.png)
  
-   Al termine dell'individuazione, le connessioni peering private individuate sono elencate in una tabella. Il monitoraggio di questi peering è inizialmente disabilitato. 
+   Al termine dell'individuazione, le connessioni peering private individuate sono elencate in una tabella. Il monitoraggio di questi peering è inizialmente in stato disabilitato. 
 
 ### <a name="enable-monitoring-of-the-expressroute-peering-connections"></a>Abilitare il monitoraggio delle connessioni peering ExpressRoute 
 
@@ -116,7 +110,7 @@ Monitoraggio prestazioni rete consente di diagnosticare diversi tipi di problemi
 
 È possibile visualizzare i codici di notifica e impostare avvisi corrispondenti tramite **Log Analytics**. Nella pagina **NPM Diagnostics** (Diagnostica NPM) è possibile visualizzare le descrizioni per ogni messaggio di diagnostica attivato.
 
-| Codice di notifica (log) | DESCRIZIONE |
+| Codice di notifica (log) | Description |
 | --- | --- |
 | 5501 | Non è possibile attraversare la connessione secondaria del circuito ExpressRoute |
 | 5502 | Non è possibile attraversare la connessione primaria del circuito ExpressRoute |

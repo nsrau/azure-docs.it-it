@@ -1,24 +1,19 @@
 ---
 title: Gestire l'utilizzo e i costi per Azure Application Insights | Microsoft Docs
 description: Gestire volumi di dati di telemetria e monitorare i costi in Application Insights.
-services: application-insights
-documentationcenter: ''
-author: DaleKoetke
-manager: carmonm
-ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 10/03/2019
+author: DaleKoetke
 ms.author: dalek
-ms.openlocfilehash: f9d92f03b1f55ad9d1f1e272886095ae48033266
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: HT
+ms.date: 10/03/2019
+ms.reviewer: mbullwin
+ms.openlocfilehash: 5d8c0420f680371ab63a2ddd09071769586a42ca
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750388"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900031"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -77,13 +72,15 @@ Azure fornisce una grande quantità di funzionalità utili in [Gestione costi di
 
 Una maggiore comprensione dell'utilizzo può essere ottenuta [scaricando l'utilizzo dal portale di Azure](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). Nel foglio di calcolo scaricato è possibile visualizzare l'utilizzo per ogni risorsa di Azure al giorno. In questo foglio di calcolo di Excel, l'utilizzo delle risorse del Application Insights è disponibile per primo, applicando un filtro alla colonna "categoria contatore" per visualizzare "Application Insights" e "Log Analytics", quindi aggiungendo un filtro alla colonna "ID istanza" che contiene Microsoft. Insights/Components ".  La maggior parte delle Application Insights utilizzo viene segnalata in contatori con la categoria di contatori di Log Analytics, dal momento che è disponibile un unico back-end per tutti i componenti di monitoraggio di Azure.  Solo Application Insights risorse sui piani tariffari legacy e i test Web in più passaggi vengono segnalati con una categoria di contatori di Application Insights.  L'utilizzo viene visualizzato nella colonna "quantità utilizzata" e l'unità per ogni voce viene visualizzata nella colonna "unità di misura".  Sono disponibili altre informazioni che consentono di [comprendere la fattura Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
 
-## <a name="managing-your-data-volume"></a>Gestione del volume di dati 
+## <a name="understanding-ingested-data-volume"></a>Informazioni sul volume di dati inseriti
 
-Per conoscere la quantità di dati inviati dall'app, è possibile:
+Per comprendere la quantità di dati da inserire in Application Insights, è possibile:
 
-* Aprire il riquadro **Usage and estimated cost** (Uso e costi stimati) per visualizzare il grafico dei volumi di dati giornalieri. 
-* In Esplora metriche aggiungere un nuovo grafico. Per la metrica del grafico, selezionare **Volume dei punti dati**. Attivare **Raggruppamento** e quindi raggruppare in base al **Tipo di dati**.
-* Utilizzare il tipo di dati `systemEvents`. Ad esempio, per visualizzare il volume di dati inserito nell'ultimo giorno, la query è:
+1. Passare al riquadro **utilizzo e costo stimato** per visualizzare il grafico dei volumi di dati giornalieri come descritto in precedenza.
+2. In Esplora metriche aggiungere un nuovo grafico. Per la metrica del grafico, selezionare **Volume dei punti dati**. Attivare **Raggruppamento** e quindi raggruppare in base al **Tipo di dati**.
+3. Usare la tabella `systemEvents` come illustrato di seguito. 
+
+Ad esempio, è possibile usare la tabella `systemEvents` per visualizzare il volume di dati inserito nelle ultime 24 ore con la query:
 
 ```kusto
 systemEvents 
@@ -94,7 +91,20 @@ systemEvents
 | summarize sum(BillingTelemetrySizeInBytes)
 ```
 
+In alternativa, per visualizzare un grafico del volume di dati in base al tipo di dati per gli ultimi 30 giorni, è possibile usare:
+
+```kusto
+systemEvents 
+| where timestamp >= ago(30d)
+| where type == "Billing" 
+| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
+| extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
+| summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
+```
+
 Questa query può essere usata in un [Avviso del log di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) per impostare avvisi sui volumi di dati. 
+
+## <a name="managing-your-data-volume"></a>Gestione del volume di dati 
 
 Il volume dei dati inviati può essere gestito con le tecniche seguenti:
 
@@ -172,8 +182,6 @@ Per modificare il periodo di conservazione, dalla risorsa Application Insights p
 
 Il periodo di conservazione può anche essere [impostato a livello usando PowerShell](powershell.md#set-the-data-retention) usando il parametro `retentionInDays`. Inoltre, se si imposta la conservazione dei dati su 30 giorni, è possibile attivare un'eliminazione immediata dei dati meno recenti utilizzando il parametro `immediatePurgeDataOn30Days`, che può essere utile per gli scenari correlati alla conformità. Questa funzionalità di ripulitura viene esposta solo tramite Azure Resource Manager e deve essere usata con estrema attenzione. 
 
-Quando la fatturazione ha inizio per un periodo di conservazione più lungo entro il 2019 dicembre, i dati conservati per più di 90 giorni verranno fatturati con la stessa tariffa attualmente addebitata per la conservazione dei dati di Azure Log Analytics. Per altre informazioni, vedere la [pagina dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/). Rimanere sempre aggiornati sullo stato di conservazione [delle variabili votando questo suggerimento](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
-
 ## <a name="data-transfer-charges-using-application-insights"></a>Addebiti per il trasferimento dei dati tramite Application Insights
 
 L'invio di dati a Application Insights potrebbe influire sulla larghezza di banda dei dati. Come descritto nella pagina dei prezzi per la [larghezza di banda di Azure](https://azure.microsoft.com/pricing/details/bandwidth/), il trasferimento dei dati tra i servizi di Azure si trova in due aree addebitate come trasferimento di dati in uscita alla tariffa normale. Il trasferimento dei dati in ingresso è gratuito. Tuttavia, questo importo è molto ridotto (pochi%) rispetto ai costi per l'inserimento dei dati di Application Insights log. Di conseguenza, il controllo dei costi per Log Analytics deve concentrarsi sul volume di dati inserito e sono disponibili indicazioni utili per comprendere [questo comportamento.](https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume)   
@@ -250,4 +258,5 @@ Poiché questo livello è applicabile solo ai clienti con una sottoscrizione di 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: ../../azure-monitor/app/app-insights-overview.md
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/

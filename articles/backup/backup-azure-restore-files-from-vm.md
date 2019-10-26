@@ -1,5 +1,5 @@
 ---
-title: 'Backup di Azure: Ripristinare file e cartelle da un backup di macchine virtuali di Azure'
+title: 'Backup di Azure: ripristinare file e cartelle da un backup di macchine virtuali di Azure'
 description: Ripristinare i file da un punto di ripristino della macchina virtuale di Azure
 ms.reviewer: pullabhk
 author: dcurwin
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5ff4f1ff8a3d6143285b2842c351e1d26bd356ea
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 1c0d470f12cf54c900fec3c453b7e5f07d0b2325
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210362"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900299"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -67,16 +67,16 @@ Per ripristinare file o cartelle dal punto di recupero, passare alla macchina vi
 
     - download.microsoft.com
     - URL di servizi di ripristino (il nome geografico si riferisce all'area in cui si trova l'insieme di credenziali di servizi di ripristino)
-        - https:\//pod01-rec2.Geo-Name.backup.WindowsAzure.com (per GEOS pubblico di Azure)
-        - https:\//pod01-rec2.Geo-Name.backup.WindowsAzure.cn (per Azure Cina 21ViaNet)
-        - https:\//pod01-rec2.Geo-Name.backup.WindowsAzure.US (per il governo degli Stati Uniti di Azure)
-        - https:\//pod01-rec2.Geo-Name.backup.WindowsAzure.de (per Azure Germania)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (per GEOS pubblico di Azure)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (per Azure Cina 21Vianet)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (per il governo degli Stati Uniti di Azure)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (per Azure Germania)
     - porta in uscita 3260
 
 > [!Note]
 > 
-> * Il nome del file script scaricato avrà il **nome geografico** da compilare nell'URL. Per esempio: Il nome dello script scaricato inizia \'con\'VMName\_\'\'geoname\'_GUID\', ad esempio ContosoVM_wcus_12345678....<br><br>
-> * L'URL è "https:\//pod01-rec2.wcus.backup.WindowsAzure.com"
+> * Il nome del file script scaricato avrà il **nome geografico** da compilare nell'URL. Per esempio: il nome dello script scaricato inizia con \'VMname\'\_\'geoname\'_\'GUID\', ad esempio ContosoVM_wcus_12345678....<br><br>
+> * L'URL è "https:\//pod01-rec2.wcus.backup.windowsazure.com"
 
 
    Per Linux, lo script richiede i componenti "open-iscsi" e "lshw" per la connessione al punto di ripristino. Se i componenti non sono presenti nel computer in cui viene eseguito, lo script chiede l'autorizzazione per installarli. Acconsentire all'installazione dei componenti necessari.
@@ -187,7 +187,7 @@ La tabella seguente illustra la compatibilità tra i sistemi operativi del serve
 
 |Sistema operativo del server | Sistema operativo compatibile del client  |
 | --------------- | ---- |
-| Windows Server 2016    | Windows 10 |
+| Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
@@ -219,21 +219,50 @@ Per l'esecuzione e la connessione sicura al punto di ripristino, lo script richi
 | python | 2.6.6 e versioni successive  |
 | TLS | 1.2 dovrebbe essere supportata  |
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Ripristino di file dai backup di macchine virtuali con dischi di grandi dimensioni
+
+Questa sezione illustra come eseguire il ripristino di file da backup di macchine virtuali di Azure il cui numero di dischi è > 16 e ogni dimensione del disco è > 4 TB.
+
+Poiché il processo di recupero file connette tutti i dischi dal backup, in caso di un numero elevato di dischi (> 16) o dischi di grandi dimensioni (> 4 TB ognuno), sono consigliati i punti di azione seguenti.
+
+- Per il ripristino dei file, è necessario usare un server di ripristino separato (VM D2v3 VM di Azure). È possibile utilizzare questo solo ripristino di file e quindi arrestarlo quando non è necessario. Il ripristino nel computer originale non è consigliato perché avrà un impatto significativo sulla macchina virtuale stessa.
+- Eseguire quindi lo script una volta per verificare se l'operazione di ripristino del file riesce.
+- Se il processo di ripristino file si blocca (i dischi non vengono mai montati o montati ma i volumi non vengono visualizzati), seguire questa procedura.
+  - Se il server di ripristino è una macchina virtuale Windows
+    - Verificare che il sistema operativo sia WS 2012 +.
+    - Verificare che le chiavi del registro di sistema siano impostate come indicato di seguito nel server di ripristino e assicurarsi di riavviare il server. Il numero accanto al GUID può essere compreso tra 0001-0005. Nell'esempio seguente è 0004. Spostarsi nel percorso della chiave del registro di sistema fino alla sezione Parameters.
+
+    ![iSCSI-reg-key-changes. png](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+
+```registry
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\EnableNOPOut – change this from 0 to 1
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200
+```
+
+- Se il server di ripristino è una macchina virtuale Linux
+  - Nel file/etc/iSCSI/iscsid.conf modificare l'impostazione da
+    - node. Conn [0]. Timeo. noop_out_timeout = 5 a node. Conn [0]. Timeo. noop_out_timeout = 30
+- Dopo aver eseguito le operazioni seguenti, eseguire di nuovo lo script. Con queste modifiche, è molto probabile che il ripristino dei file abbia esito positivo.
+- Ogni volta che un utente Scarica uno script, backup di Azure avvia il processo di preparazione del punto di ripristino per il download. In caso di dischi di grandi dimensioni, l'operazione può richiedere molto tempo. Se sono presenti picchi di richieste successivi, la preparazione di destinazione entra in una spirale di download. È quindi consigliabile scaricare uno script da portale/PowerShell/CLI, attendere 20-30 minuti (euristica) e quindi eseguirlo. A questo punto, è previsto che la destinazione sia pronta per la connessione dallo script.
+- Dopo il ripristino del file, assicurarsi di tornare al portale per fare clic su "smontare i dischi" per i punti di ripristino in cui non è stato possibile montare i volumi. In pratica, questo passaggio eliminerà eventuali processi/sessioni esistenti e aumenterà la probabilità di ripristino.
+
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se si verificano problemi durante il ripristino di file dalle macchine virtuali, controllare la tabella seguente per informazioni aggiuntive.
 
 | Messaggio di errore/scenario | Possibile causa | Azione consigliata |
 | ------------------------ | -------------- | ------------------ |
-| Output del file EXE: *Eccezione di connessione alla destinazione* |Lo script non è in grado di accedere al punto di ripristino    | Controllare se il computer soddisfa i requisiti di accesso indicati in precedenza. |  
-| Output del file EXE: *Accesso alla destinazione già eseguito mediante una sessione iSCSI.* | Lo script è stato già eseguito nella stessa macchina virtuale e le unità sono state associate | I volumi del punto di ripristino sono già stati associati. È possibile che NON siano installati con le stesse lettere di unità della VM originale. Esplorare tutti i volumi disponibili in Esplora file per il file |
-| Output del file EXE: *Questo script non è valido perché è stato necessario smontare i dischi tramite il portale o è stato superato il limite di 12 ore. Scaricare un nuovo script dal portale.* |    I dischi sono stati smontati dal portale o è stato superato il limite di 12 ore | Non è possibile eseguire questo specifico file con estensione exe perché non è più valido. Se si vuole accedere ai file di questo punto di ripristino, visitare il portale per ottenere un nuovo file con estensione exe|
-| Nella macchina virtuale in cui viene eseguito il file con estensione EXE: i nuovi volumi non vengono smontati dopo avere selezionato il pulsante di disinstallazione | L'iniziatore iSCSI nella macchina non sta rispondendo/aggiornando la connessione alla destinazione ed eseguendo la manutenzione della cache. |  Dopo aver fatto clic **Smontare**, attendere qualche minuto. Se i nuovi volumi non sono stati smontati, sfogliare tutti i volumi. In questo modo l'iniziatore deve aggiornare la connessione e il volume viene smontato con un messaggio di errore indicante che il disco non è disponibile.|
-| Output del file EXE: lo script viene eseguito correttamente ma l'output indicante nuovi volumi associati non viene visualizzato nell'output dello script |    Si tratta di un errore temporaneo    | I volumi sono stata già associati. Aprire Explorer per visualizzare lo stato. Se si sta usando la stessa macchina virtuale per eseguire gli script ogni volta, è consigliabile riavviare la macchina; l'elenco verrà visualizzato nelle successive esecuzioni del file eseguibile. |
+| Output del file exe: *Eccezione di connessione alla destinazione.* |Lo script non è in grado di accedere al punto di ripristino    | Controllare se il computer soddisfa i requisiti di accesso indicati in precedenza. |  
+| Output del file exe: *Accesso alla destinazione già eseguito mediante una sessione iSCSI.* | Lo script è stato già eseguito nella stessa macchina virtuale e le unità sono state associate | I volumi del punto di ripristino sono già stati associati. È possibile che NON siano installati con le stesse lettere di unità della VM originale. Esplorare tutti i volumi disponibili in Esplora file per il file |
+| Output del file exe: lo *script non è valido perché i dischi sono stati smontati tramite il portale o hanno superato il limite di 12 ore. Scaricare un nuovo script dal portale.* |    I dischi sono stati smontati dal portale o è stato superato il limite di 12 ore | Non è possibile eseguire questo specifico file con estensione exe perché non è più valido. Se si vuole accedere ai file di questo punto di ripristino, visitare il portale per ottenere un nuovo file con estensione exe|
+| Nella macchina virtuale in cui viene eseguito il file con estensione exe: i nuovi volumi non vengono smontati dopo avere selezionato il pulsante di disinstallazione | L'iniziatore iSCSI nella macchina non sta rispondendo/aggiornando la connessione alla destinazione ed eseguendo la manutenzione della cache. |  Dopo aver fatto clic **Smontare**, attendere qualche minuto. Se i nuovi volumi non sono stati smontati, sfogliare tutti i volumi. In questo modo l'iniziatore deve aggiornare la connessione e il volume viene smontato con un messaggio di errore indicante che il disco non è disponibile.|
+| Output del file exe: lo script viene eseguito correttamente ma l'output indicante nuovi volumi associati non viene visualizzato nell'output dello script |    Si tratta di un errore temporaneo    | I volumi sono stata già associati. Aprire Explorer per visualizzare lo stato. Se si sta usando la stessa macchina virtuale per eseguire gli script ogni volta, è consigliabile riavviare la macchina; l'elenco verrà visualizzato nelle successive esecuzioni del file eseguibile. |
 | Specifico per Linux: non è possibile visualizzare i volumi desiderati | Il sistema operativo del computer in cui viene eseguito lo script potrebbe non riconoscere il file system sottostante della VM protetta | Controllare se il punto di ripristino è coerente con l'arresto anomalo del sistema o è coerente a livello di file. Se è coerente a livello di file, eseguire lo script in un altro computer il cui sistema operativo riconosce il file system della VM protetta |
 | Specifico per Windows: non è possibile visualizzare i volumi desiderati | I dischi possono essere stati collegati, ma i volumi non sono stati configurati | Dalla schermata Gestione disco, identificare i dischi aggiuntivi correlati al punto di recupero. Se uno di questi dischi è in stato offline, provare a renderli online facendo clic con il pulsante destro del mouse sul disco e scegliendo ' online '|
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 Questa sezione illustra le varie misure di sicurezza adottate per l'implementazione del ripristino di file dai backup di macchine virtuali di Azure, in modo che gli utenti siano a conoscenza degli aspetti di sicurezza della funzionalità.
 

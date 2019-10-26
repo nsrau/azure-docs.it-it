@@ -1,26 +1,20 @@
 ---
 title: Ottimizzare l'ambiente di SQL Server con monitoraggio di Azure | Microsoft Docs
 description: Con monitoraggio di Azure è possibile usare la soluzione controllo integrità SQL per valutare i rischi e l'integrità degli ambienti a intervalli regolari.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 03/28/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 94b23bc29c3c986e6a0cd74e0805b5d47ce35849
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/28/2019
+ms.openlocfilehash: 7808ead7ec4191bdf17e3ab225aeaa909abd7d08
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62120632"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900672"
 ---
-# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Ottimizzare l'ambiente di SQL con la soluzione controllo integrità SQL Server in Monitoraggio di Azure
+# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Ottimizzare l'ambiente SQL con la soluzione controllo integrità SQL Server in monitoraggio di Azure
 
 ![Simbolo di Controllo integrità SQL](./media/sql-assessment/sql-assessment-symbol.png)
 
@@ -28,7 +22,7 @@ ms.locfileid: "62120632"
 
 La soluzione offre un elenco con priorità di raccomandazioni specifiche per l'infrastruttura distribuita dei server, classificate in sei aree di interesse che consentono di comprendere rapidamente il rischio e agire in maniera appropriata.
 
-Le raccomandazioni si basano sulla conoscenza e sull'esperienza acquisite dai tecnici Microsoft in base a migliaia di visite dei clienti. Ogni raccomandazione offre informazioni aggiuntive sui motivi per cui un problema può essere rilevante per l'utente e su come implementare le modifiche suggerite.
+Le raccomandazioni si basano sulla conoscenza e sull'esperienza acquisite dai tecnici Microsoft in base a migliaia di visite dei clienti. Ogni raccomandazione fornisce informazioni aggiuntive sui motivi per cui un problema può essere rilevante per l'utente e su come implementare le modifiche suggerite.
 
 Si possono scegliere le aree di interesse più importanti per l'organizzazione e tenere traccia dello stato di avanzamento verso la realizzazione di un ambiente integro ed esente da rischi.
 
@@ -49,15 +43,15 @@ Dopo aver aggiunto la soluzione e completato una valutazione, nel dashboard di *
   >
   >
 
-Per eseguire il controllo integrità dei server SQL Server, sono necessari un agente e la connettività a monitoraggio di Azure usando uno dei metodi supportati seguenti:
+Per eseguire il controllo dell'integrità sui server SQL Server, richiedono un agente e la connettività a monitoraggio di Azure usando uno dei metodi supportati seguenti:
 
 1. Installare [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) se il server non è già monitorato da System Center 2016 Operations Manager o Operations Manager 2012 R2.
-2. Se si esegue il monitoraggio con System Center 2016 - Operations Manager o Operations Manager 2012 R2 e il gruppo di gestione non è integrato con monitoraggio di Azure, il server può essere multihomed con Log Analitica per raccogliere dati e inoltrarli al servizio, essere ancora monitorati da Operations Manager.  
+2. Se viene monitorato con System Center 2016-Operations Manager o Operations Manager 2012 R2 e il gruppo di gestione non è integrato con monitoraggio di Azure, il server può essere multihomed con Log Analytics per raccogliere i dati e inviarli al servizio e comunque monitorato da Operations Manager.  
 3. In caso contrario, se il gruppo di gestione di Operations Manager è integrato con il servizio, è necessario aggiungere i controller di dominio per la raccolta dati da parte del servizio seguendo i passaggi descritti in [Aggiungere computer gestiti dagli agenti](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) dopo aver abilitato la soluzione nell'area di lavoro.  
 
-L'agente in SQL Server quali report a un gruppo di gestione di Operations Manager, raccoglie i dati e inoltra al server di gestione assegnato e quindi vengono inviati direttamente da un server di gestione per monitoraggio di Azure.  I dati non vengono scritti nei database di Operations Manager.  
+L'agente sul SQL Server che segnala a un gruppo di gestione di Operations Manager, raccoglie i dati, li inoltra al server di gestione assegnato e quindi viene inviato direttamente da un server di gestione a monitoraggio di Azure.  I dati non vengono scritti nei database di Operations Manager.  
 
-Se l'istanza di SQL Server è monitorata da Operations Manager, è necessario configurare un account RunAs di Operations Manager. Visualizzare [account RunAs di Operations Manager per monitoraggio di Azure](#operations-manager-run-as-accounts-for-log-analytics) sotto per altre informazioni.
+Se l'istanza di SQL Server è monitorata da Operations Manager, è necessario configurare un account RunAs di Operations Manager. Per ulteriori informazioni, vedere [Operations Manager account RunAs per monitoraggio di Azure](#operations-manager-run-as-accounts-for-log-analytics) .
 
 ## <a name="sql-health-check-data-collection-details"></a>Informazioni dettagliate sulla raccolta dati di Controllo integrità SQL
 Controllo integrità SQL raccoglie i dati dalle origini seguenti usando l'agente abilitato:
@@ -92,7 +86,7 @@ Usare le informazioni seguenti per impostare l'account RunAs di Operations Manag
    > Il tipo dell'account RunAs deve essere Windows. L'account RunAs deve appartenere anche al gruppo Local Administrators in tutti i server Windows che ospitano istanze di SQL Server.
    >
    >
-5. Fare clic su **Save**.
+5. Fare clic su **Salva**
 6. Modificare ed eseguire l'esempio T-SQL seguente in ogni istanza di SQL Server per concedere le autorizzazioni minime richieste dall'account RunAs per eseguire il controllo integrità. Non è tuttavia necessario farlo se l'account RunAs fa già parte del ruolo del server sysadmin nelle istanze di SQL Server.
 
 ```
@@ -157,14 +151,14 @@ Non necessariamente. Le raccomandazioni si basano sulla conoscenza e sull'esperi
 Ogni raccomandazione include informazioni aggiuntive sui motivi per cui potrebbe essere importante. È consigliabile usare queste informazioni aggiuntive per valutare se l'implementazione della raccomandazione è appropriata, a seconda della natura dei servizi IT e delle esigenze aziendali dell'organizzazione.
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Usare le raccomandazioni relative alle aree di interesse del controllo integrità
-Prima di utilizzare una soluzione di valutazione in Monitoraggio di Azure, è necessario disporre della soluzione installata.  Dopo l'installazione, è possibile visualizzare il riepilogo delle raccomandazioni usando il riquadro controllo integrità SQL il **Panoramica** pagina di monitoraggio di Azure nel portale di Azure.
+Prima di poter usare una soluzione di valutazione in monitoraggio di Azure, è necessario che la soluzione sia installata.  Dopo l'installazione, è possibile visualizzare il riepilogo delle raccomandazioni usando il riquadro di controllo integrità SQL nella pagina **Panoramica** di monitoraggio di Azure nella portale di Azure.
 
 Visualizzare il riepilogo delle valutazioni relative alla conformità per l'infrastruttura, quindi visualizzare le raccomandazioni nel dettaglio.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Per visualizzare le raccomandazioni per un'area di interesse e applicare un'azione correttiva
 1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco delle risorse digitare **Monitoraggio**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Monitoraggio**.
-3. Nel **Insights** sezione del menu, seleziona **ulteriori**.  
+3. Nella sezione **Insights** del menu selezionare **altro**.  
 4. Nella pagina **Panoramica** fare clic sul riquadro di **Controllo integrità SQL**.
 5. Nella pagina **Controllo integrità** esaminare le informazioni di riepilogo in uno dei pannelli delle aree di interesse e quindi fare clic su un'area specifica per visualizzare le raccomandazioni corrispondenti.
 6. In una delle pagine relative alle aree di interesse è possibile visualizzare le raccomandazioni relative all'ambiente specifico, classificate in ordine di priorità. Fare clic su una raccomandazione in **Affected Objects** (Oggetti interessati) per visualizzare i dettagli relativi al motivo per cui è stata generata.<br><br> ![Immagine delle raccomandazioni di Controllo integrità SQL](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
@@ -174,15 +168,15 @@ Visualizzare il riepilogo delle valutazioni relative alla conformità per l'infr
 Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Monitoraggio di Azure userà per impedire la visualizzazione delle raccomandazioni nei risultati della valutazione.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Per identificare le raccomandazioni che verranno ignorate
-1. Nel menu di monitoraggio di Azure, fare clic su **registri**.
+1. Nel menu monitoraggio di Azure fare clic su **log**.
 2. Usare la query seguente per elencare le raccomandazioni non riuscite per i computer nell'ambiente.
 
     ```
     SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-    Di seguito è riportata una schermata che mostra la query di log:<br><br> ![raccomandazioni non riuscite](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
+    Ecco una schermata che mostra la query di log:<br><br> ![raccomandazioni non riuscite](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
 
-3. Scegliere le raccomandazioni che si vogliono ignorare. Nella procedura successiva verranno usati i valori per ID raccomandazione.
+3. Scegliere le raccomandazioni da ignorare. Nella procedura successiva verranno usati i valori per ID raccomandazione.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Per creare e usare un file di testo IgnoreRecommendations.txt
 1. Creare un file denominato IgnoreRecommendations.txt.
@@ -199,7 +193,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Mo
     ```
     SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-3. Se in seguito si decide che si vogliono vedere le raccomandazioni ignorate, rimuovere eventuali file IgnoreRecommendations.txt oppure rimuovere gli ID raccomandazione dagli stessi.
+3. Se in seguito si decide che si vogliono vedere le raccomandazioni ignorate, rimuovere eventuali file IgnoreRecommendations.txt oppure è possibile rimuovere gli ID raccomandazione dagli stessi.
 
 ## <a name="sql-health-check-solution-faq"></a>Domande frequenti sulla soluzione Controllo integrità SQL
 *Con che frequenza viene eseguito un controllo integrità?*
@@ -208,7 +202,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Mo
 
 *È possibile configurare la frequenza di esecuzione del controllo?*
 
-* Attualmente non è possibile.
+* Non attualmente.
 
 *Se viene rilevato un altro server dopo l'aggiunta della soluzione Controllo integrità SQL, il server verrà controllato?*
 
@@ -236,7 +230,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Mo
 
 *È possibile definire l'orario per la raccolta di dati?*
 
-* Attualmente non è possibile.
+* Non attualmente.
 
 *Perché è necessario configurare un account RunAs?*
 
@@ -251,4 +245,4 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Mo
 * Sì, vedere la sezione [Ignorare le raccomandazioni](#ignore-recommendations) sopra.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Le query di log](../log-query/log-query-overview.md) per informazioni su come analizzare le raccomandazioni e dati dettagliati di controllo integrità SQL.
+* [Query di log](../log-query/log-query-overview.md) per informazioni su come analizzare i dati dettagliati di controllo integrità SQL e le raccomandazioni.

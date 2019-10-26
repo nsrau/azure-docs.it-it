@@ -1,24 +1,18 @@
 ---
 title: Creazione di grafici e diagrammi da query di log di Monitoraggio di Azure | Microsoft Docs
 description: Descrive le diverse modalità di visualizzazione dei dati dei log in Monitoraggio di Azure.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 07d0866bd697587da170a00e8077a57035989d32
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/16/2018
+ms.openlocfilehash: 34975a1752467c61ea5b329210473eee266c98d1
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60594076"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900407"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Creazione di grafici e diagrammi da query di Monitoraggio di Azure
 
@@ -40,7 +34,7 @@ Heartbeat
 
 Per impostazione predefinita, i risultati vengono visualizzati sotto forma di tabella:
 
-![Tabella](media/charts/table-display.png)
+![Table](media/charts/table-display.png)
 
 Per una visualizzazione più efficace dei risultati, selezionare **Grafico** e scegliere l'opzione **Torta**:
 

@@ -1,25 +1,20 @@
 ---
 title: Domande frequenti su Azure Application Insights | Microsoft Docs
 description: Domande frequenti su Application Insights.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
-ms.service: application-insights
-ms.workload: mobile
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/16/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 94e994a3dc1cd9d5d5d0b7acb5aed4783d881915
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.date: 09/16/2019
+ms.openlocfilehash: 55a096cd4971664e55bb2cfd17f9f8927d7c32f5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802297"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899515"
 ---
-# <a name="application-insights-frequently-asked-questions"></a>Application Insights: Domande frequenti
+# <a name="application-insights-frequently-asked-questions"></a>Application Insights: domande frequenti
 
 ## <a name="configuration-problems"></a>Problemi di configurazione
 *Problemi nella configurazione di:*
@@ -84,7 +79,7 @@ Dipende dal tipo di progetto. Per un'applicazione Web:
 
   * Web.config
   * packages.config
-* (Solo nuovi progetti: se si [aggiungono Application Insights a un progetto esistente][start], è necessario eseguire questa operazione manualmente). Inserisce frammenti nel codice client e server per inizializzarli con l'ID risorsa di Application Insights. Ad esempio, in un'app MVC il codice viene inserito nella pagina master Views/Shared/_Layout.cshtml
+* (Solo nuovi progetti: se si [aggiungono Application Insights a un progetto esistente][start], è necessario eseguire questa operazione manualmente). Inserisce frammenti nel codice client e server per inizializzarli con l'ID di risorsa Application Insights. Ad esempio, in un'app MVC il codice viene inserito nella pagina master Views/Shared/_Layout.cshtml
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>In che modo è possibile effettuare l'aggiornamento da versioni dell'SDK meno recenti?
 Vedere le [note sulla versione](release-notes.md) dell'SDK appropriato per il tipo di applicazione.
@@ -96,7 +91,7 @@ In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationI
 
 Un'app desktop che è possibile usare nel server Web IIS per configurare Application Insights nelle app Web. Non raccoglie dati di telemetria: è possibile interromperlo se non si sta configurando un'app. 
 
-[Altre informazioni](monitor-performance-live-website-now.md#questions)
+[Altre informazioni](monitor-performance-live-website-now.md#questions).
 
 ## <a name="what-telemetry-is-collected-by-application-insights"></a>Quali dati di telemetria vengono raccolti da Application Insights?
 
@@ -137,12 +132,12 @@ Vedere altre informazioni per [ASP.NET](api-filtering-sampling.md) o [Java](java
 
 Viene cercato l'indirizzo IP (IPv4 o IPv6) del client Web tramite [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
-* Telemetria del browser: viene raccolto l'indirizzo IP del mittente.
-* Telemetria del server: viene raccolto l'indirizzo IP del client. L'indirizzo non viene raccolto se è impostato `X-Forwarded-For`.
+* Telemetria del browser: vengono raccolti gli indirizzi IP del mittente.
+* Telemetria del server: il modulo di Application Insights raccoglie l'indirizzo IP del client. L'indirizzo non viene raccolto se è impostato `X-Forwarded-For`.
 * Per altre informazioni su come vengono raccolti i dati relativi all'indirizzo IP e alla georilevazione in Application Insights fare riferimento a questo [articolo](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
 
 
-È possibile configurare `ClientIpHeaderTelemetryInitializer` per ottenere l'indirizzo IP da un'intestazione diversa. Ad esempio, in alcuni sistemi viene spostato da un proxy, da un bilanciamento del carico o da una rete CDN a `X-Originating-IP`. [Altre informazioni](https://apmtips.com/blog/2016/07/05/client-ip-address/)
+È possibile configurare `ClientIpHeaderTelemetryInitializer` per ottenere l'indirizzo IP da un'intestazione diversa. Ad esempio, in alcuni sistemi viene spostato da un proxy, da un bilanciamento del carico o da una rete CDN a `X-Originating-IP`. [Altre informazioni](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 È possibile [usare Power BI](export-power-bi.md ) per visualizzare i dati di telemetria della richiesta in una mappa.
 
@@ -198,9 +193,9 @@ Usare una singola risorsa per tutti i componenti o i ruoli in un singolo sistema
 | Telemetria di dipendenza |[Installare Status Monitor di Application Insights nel server](monitor-performance-live-website-now.md) |Diagnosticare i problemi relativi a database o altri componenti esterni |
 | Ricavare analisi dello stack dalle eccezioni |[Inserire chiamate TrackException nel codice](asp-net-exceptions.md) (ma alcune sono segnalate automaticamente) |Rilevare e diagnosticare le eccezioni |
 | Eseguire la ricerca di tracce dei log |[Aggiungere un adattatore di registrazione](asp-net-trace-logs.md) |Diagnosticare le eccezioni, problemi di prestazioni |
-| Nozioni di base dell'utilizzo del client: visualizzazioni pagina, sessioni, ... |[Inizializzatore JavaScript nelle pagine Web](javascript.md) |Analisi dell'utilizzo |
-| Metriche personalizzate client |[Rilevamento delle chiamate nelle pagine Web](api-custom-events-metrics.md) |Migliorare l'esperienza utente |
-| Metriche personalizzate server |[Rilevamento delle chiamate nel server](api-custom-events-metrics.md) |Business intelligence |
+| Nozioni di base dell'utilizzo del client: visualizzazioni pagina, sessioni, ... |[Inizializzatore JavaScript nelle pagine Web](javascript.md) |Analisi di utilizzo |
+| Metriche personalizzate client |[Rilevamento delle chiamate nelle pagine Web](api-custom-events-metrics.md) |Miglioramento dell'esperienza utente |
+| Metriche personalizzate server |[Rilevamento delle chiamate nel server](api-custom-events-metrics.md) |Business Intelligence |
 
 ## <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Perché i conteggi nei grafici di ricerca e di metrica non sono uguali?
 

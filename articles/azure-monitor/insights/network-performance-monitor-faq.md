@@ -1,23 +1,18 @@
 ---
 title: Domande frequenti - Soluzione Monitoraggio prestazioni rete in Azure | Microsoft Docs
 description: Questo articolo acquisisce le domande frequenti su Monitoraggio prestazioni rete in Azure. Monitoraggio prestazioni rete (NPM) consente di monitorare le prestazioni delle reti quasi in tempo reale e rilevare e individuare i colli di bottiglia delle prestazioni di rete.
-services: log-analytics
-documentationcenter: ''
-author: vinynigam
-manager: agummadi
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 10/12/2018
+author: vinynigam
 ms.author: vinigam
-ms.openlocfilehash: b3274c214aa60c930e62e651af960d5f01cbdd20
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
-ms.translationtype: MT
+ms.date: 10/12/2018
+ms.openlocfilehash: 26e9215c7e00eca59d33f7e8d259a689ad642f19
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782119"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898859"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure
 
@@ -74,7 +69,7 @@ Lo script configura Windows Firewall solo in locale. Se sono definite regole del
 ### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>Qual è il numero massimo di agenti che è possibile usare o viene visualizzato l'errore ".... è stato raggiunto il limite di configurazione?
 NPM limita il numero di indirizzi IP a 5000 IP per ogni area di lavoro. Se un nodo dispone sia di indirizzi IPv4 che IPv6, questo vale come 2 indirizzi IP per tale nodo. Di conseguenza, il limite di 5000 IP stabilisce il limite massimo del numero di agenti. È possibile eliminare gli agenti inattivi dalla scheda Nodi in NPM >> Configura. NPM gestisce anche la cronologia di tutti gli indirizzi IP che sono stati assegnati alla macchina virtuale che ospita l'agente e ognuno viene conteggiato come IP separato, contribuendo a tale limite superiore di 5000 IP. Per liberare gli IP per l'area di lavoro, è possibile usare la pagina nodi per eliminare gli IP non in uso.
 
-## <a name="monitoring"></a>Monitoraggio
+## <a name="monitoring"></a>Monitorare
 
 ### <a name="how-are-loss-and-latency-calculated"></a>Come vengono calcolate la perdita e la latenza?
 Gli agenti di origine inviano richieste SYN TCP (se è selezionato TCP come protocollo per il monitoraggio) o ECHO ICMP (se invece è selezionato ICMP) all'indirizzo IP di destinazione a intervalli regolari per verificare che tutti i percorsi per la combinazione di IP di origine e destinazione siano coperti. Per calcolare la perdita e la latenza di ogni percorso viene misurata la percentuale di pacchetti ricevuti e di tempo di round trip dei pacchetti. I dati vengono aggregati per l'intervallo di polling e per tutti i percorsi in modo da ottenere i valori complessivi di perdita e latenza per la combinazione di IP per lo specifico intervallo di polling.
@@ -165,7 +160,7 @@ E2EMedianLatency è la latenza aggiornata ogni tre minuti dopo aver aggregato i 
 
 ### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>Perché i numeri di latenza hop per hop differiscono da HopLatencyValues 
 HopLatencyValues sono da origine a endpoint.
-Di seguito è riportato un esempio: Hop-A, B, C. AvgHopLatency-10, 15, 20. Ciò significa che l'origine è una latenza = 10, la latenza da origine a B = 15 e la latenza di origine a C è 20. L'interfaccia utente calcolerà la latenza hop A-B come 5 nella topologia
+Ad esempio: hop-A, B, C. AvgHopLatency-10, 15, 20. Ciò significa che l'origine è una latenza = 10, la latenza da origine a B = 15 e la latenza di origine a C è 20. L'interfaccia utente calcolerà la latenza hop A-B come 5 nella topologia
 
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>Per quale motivo la soluzione mostra una perdita del 100%, ma è presente connettività tra l'origine e la destinazione?
 Questa situazione può verificarsi se il firewall dell'host o il firewall intermedio (firewall di rete o gruppo di sicurezza di rete di Azure) blocca le comunicazioni tra l'agente di origine e la destinazione attraverso la porta usata da Monitoraggio prestazioni rete per il monitoraggio. Per impostazione predefinita, viene usata la porta 8084, a meno che il cliente non abbia modificato l'impostazione.
@@ -186,7 +181,7 @@ I percorsi di rete tra il nodo A e il B possono essere diversi da quelli tra il 
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Per quale motivo non tutti i circuiti e le connessioni di peering di ExpressRoute vengono individuati?
 NPM individua ora i circuiti ExpressRoute e le connessioni di peering in tutte le sottoscrizioni a cui l'utente ha accesso. Scegliere tutte le sottoscrizioni in cui sono collegate risorse di ExpressRoute e abilitare il monitoraggio per ogni risorsa individuata. NPM cerca gli oggetti di connessione durante l'individuazione di un peering privato, verificare quindi se il peering è associato a una rete virtuale.
 
-### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>La funzionalità Monitoraggio di ExpressRoute visualizza un messaggio di diagnostica per segnalare che il traffico non passa attraverso alcun circuito. Che cosa significa?
+### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>La funzionalità Monitoraggio di ExpressRoute visualizza un messaggio di diagnostica per segnalare che il traffico non passa attraverso alcun circuito. Cosa significa?
 
 Può verificarsi uno scenario in cui è presente una connessione integra tra il nodo locale e quello di Azure, ma il traffico non passa attraverso il circuito ExpressRoute configurato per il monitoraggio tramite Monitoraggio prestazioni rete. 
 
@@ -219,7 +214,7 @@ Questa situazione può verificarsi se almeno una di queste condizioni è vera:
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>Per quale motivo, nella funzionalità Monitoraggio connettività servizio, il tempo di risposta del servizio non è disponibile, ma i valori di perdita di rete e latenza sono validi?
 Questa situazione può verificarsi se il servizio di destinazione non è un'applicazione Web, ma il test è configurato come test Web. Modificare la configurazione di test e scegliere il tipo di test Rete invece di Web.
 
-## <a name="miscellaneous"></a>Miscellaneous
+## <a name="miscellaneous"></a>Varie
 
 ### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>Si può riscontrare un impatto sulle prestazioni del nodo usato per il monitoraggio?
 Monitoraggio prestazioni rete è configurato in modo da arrestare il processo di monitoraggio se utilizza più del 5% delle risorse della CPU dell'host. Ciò consente di assicurarsi di poter usare i nodi per i normali carichi di lavoro senza alcun impatto sulle prestazioni.

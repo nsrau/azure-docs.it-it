@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 05cd68c7be005a5b148b7d3e691c46a0d067b0c0
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: aac20034fb4a528e48d5b383f39205a952878539
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262861"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900686"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Modificare il modello di licenza per una macchina virtuale SQL Server in Azure
 Questo articolo descrive come modificare il modello di licenza per un SQL Server macchina virtuale (VM) in Azure usando il nuovo provider di risorse VM SQL, **Microsoft. SqlVirtualMachine**.
@@ -31,7 +31,7 @@ Il modello con pagamento in base al consumo indica che il costo al secondo dell'
 
 Vantaggio Azure Hybrid consente l'uso di licenze SQL Server con Software Assurance ("licenza qualificata") in macchine virtuali di Azure. Con Vantaggio Azure Hybrid, ai clienti non viene addebitato l'uso di una licenza di SQL Server in una macchina virtuale. Ma devono comunque pagare il costo del calcolo cloud sottostante, ovvero la tariffa di base, l'archiviazione e i backup. Devono anche pagare l'I/O associato all'uso dei servizi (come applicabile).
 
-Secondo le condizioni del prodotto Microsoft: "I clienti devono indicare che usano il database SQL di Azure (Istanza gestita, Pool elastico e Database singolo), Azure Data Factory, SQL Server Integration Services o SQL Server macchine virtuali in Vantaggio Azure Hybrid per SQL Server durante la configurazione carichi di lavoro in Azure. "
+Secondo le condizioni del prodotto Microsoft: "i clienti devono indicare che usano il database SQL di Azure (Istanza gestita, Pool elastico e Database singolo), Azure Data Factory, SQL Server Integration Services o SQL Server macchine virtuali in Azure Vantaggio ibrido per SQL Server durante la configurazione dei carichi di lavoro in Azure. "
 
 Per indicare l'uso di Vantaggio Azure Hybrid per SQL Server in una macchina virtuale di Azure ed essere conformi, sono disponibili tre opzioni:
 
@@ -51,7 +51,7 @@ L'uso del provider di risorse VM SQL richiede l'SQL Server estensione IaaS. Di c
 
 ## <a name="change-the-license-for-vms-already-registered-with-the-resource-provider"></a>Modificare la licenza per le macchine virtuali già registrate con il provider di risorse 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -65,7 +65,7 @@ L'uso del provider di risorse VM SQL richiede l'SQL Server estensione IaaS. Di c
 ![Vantaggio Azure Hybrid nel portale](media/virtual-machines-windows-sql-ahb/ahb-in-portal.png)
 
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per modificare il modello di licenza, è possibile usare l'interfaccia della riga di comando di Azure.  
 
@@ -127,7 +127,7 @@ L'utente è idoneo per l'installazione automatica di SQL Server in una macchina 
 
 È possibile modificare il tipo di licenza di una macchina virtuale SQL Server come con pagamento in base al consumo o Vantaggio Azure Hybrid solo se la VM SQL Server è registrata con il provider di risorse della macchina virtuale SQL.
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 - I clienti di Azure Cloud Solution Provider (CSP) possono usare il Vantaggio Azure Hybrid distribuendo prima di tutto una macchina virtuale con pagamento in base al consumo e quindi convertirla in Bring your own License se hanno Software Assurance attivo.
 - Se si elimina la risorsa SQL Server VM, si tornerà all'impostazione di licenza hardcoded dell'immagine. 
@@ -149,12 +149,12 @@ L'utente è idoneo per l'installazione automatica di SQL Server in una macchina 
 
 ## <a name="known-errors"></a>Errori noti
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>La risorsa ' Microsoft. SqlVirtualMachine/SqlVirtualMachines/\<Resource-Group >' nel gruppo di risorse\<' Resource-Group >' non è stata trovata.
+### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>La risorsa ' Microsoft. SqlVirtualMachine/SqlVirtualMachines/\<Resource-Group >' nel gruppo di risorse '\<Resource-Group >' non è stata trovata.
 Questo errore si verifica quando si tenta di modificare il modello di licenza in una macchina virtuale SQL Server che non è stata registrata con il provider di risorse VM SQL:
 
 `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.`
 
-È necessario registrare il provider di risorse nella [sottoscrizione](virtual-machines-windows-sql-register-with-resource-provider.md#register-the-sql-vm-resource-provider-with-a-subscription)e quindi [registrare la macchina virtuale SQL Server con il provider di risorse](virtual-machines-windows-sql-register-with-resource-provider.md). 
+È necessario registrare la sottoscrizione con il provider di risorse e quindi [registrare la macchina virtuale SQL Server con il provider di risorse](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 ### <a name="cannot-validate-argument-on-parameter-sku"></a>Non è possibile convalidare l'argomento per il parametro 'Sku'
 Questo errore può verificarsi quando si tenta di modificare il modello di licenza SQL Server VM utilizzando Azure PowerShell versioni successive alla 4,0:

@@ -1,24 +1,18 @@
 ---
 title: Aggregazioni avanzate nelle query dei log di Monitoraggio di Azure | Microsoft Docs
 description: Descrive alcune delle opzioni di aggregazione più avanzate disponibili per le query dei log di Monitoraggio di Azure.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 56e87da0353a41504035a070d4c10bab0dda2279
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/16/2018
+ms.openlocfilehash: f34e71c4e15e3bb09676e366313e90a7261439e5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551754"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900433"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Aggregazioni avanzate nelle query dei log di Monitoraggio di Azure
 
@@ -120,7 +114,7 @@ Heartbeat
 | ... | ... |
 
 ## <a name="handling-missing-bins"></a>Gestione di bin mancanti
-Un'applicazione utile di `mvexpand` è quella di inserire i valori predefiniti per i bin mancanti. Si supponga, ad esempio, di voler conoscere il tempo di attività di un determinato computer esaminandone l'heartbeat e di voler visualizzare l'origine dell'heartbeat che è riportata nella colonna _category_. In genere, si usa una semplice istruzione summarize, come indicato di seguito:
+Un'applicazione utile di `mvexpand` è la necessità di inserire i valori predefiniti in per i contenitori mancanti. Si supponga, ad esempio, che si stia cercando il tempo di esecuzione di un determinato computer esplorando l'heartbeat. e di voler visualizzare l'origine dell'heartbeat che è riportata nella colonna _category_. In genere, si usa una semplice istruzione summarize, come indicato di seguito:
 
 ```Kusto
 Heartbeat
@@ -128,7 +122,7 @@ Heartbeat
 | summarize count() by Category, bin(TimeGenerated, 1h)
 ```
 
-| Category | TimeGenerated | count_ |
+| Categoria | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | Agente diretto | 2017-06-06T17:00:00Z | 15 |
 | Agente diretto | 2017-06-06T18:00:00Z | 60 |
@@ -144,7 +138,7 @@ Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
 
-| Category | count_ | TimeGenerated |
+| Categoria | count_ | TimeGenerated |
 |---|---|---|
 | Agente diretto | [15,60,0,55,60,57,60,...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
 | ... | ... | ... |
@@ -158,7 +152,7 @@ Heartbeat
 | project Category, TimeGenerated, count_
 ```
 
-| Category | TimeGenerated | count_ |
+| Categoria | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | Agente diretto | 2017-06-06T17:00:00Z | 15 |
 | Agente diretto | 2017-06-06T18:00:00Z | 60 |

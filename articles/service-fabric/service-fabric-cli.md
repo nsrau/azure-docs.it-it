@@ -2,18 +2,18 @@
 title: Introduzione all'interfaccia della riga di comando di Azure Service Fabric
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure Service Fabric e su come connettersi al cluster e gestire le applicazioni.
 services: service-fabric
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: d5b6f183a59e3f47aa5867b5e09e06541a6a67db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: e0146504bd06a3c56de8113cc59c9eedd375d06f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60803235"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901375"
 ---
 # <a name="azure-service-fabric-cli"></a>Interfaccia della riga di comando di Azure Service Fabric
 
@@ -33,7 +33,8 @@ L'interfaccia della riga di comando di Service Fabric è progettata per supporta
 
 | Versione dell'interfaccia della riga di comando   | Versione runtime supportata |
 |---------------|---------------------------|
-| Più recente (~=7)  | Più recente (~=6.4)            |
+| Più recente (~ = 8)  | Più recente (~ = 6,5)            |
+| 7.1.0         | 6.4                       |
 | 6.0.0         | 6.3                       |
 | 5.0.0         | 6.2                       |
 | 4.0.0         | 6.1                       |

@@ -1,24 +1,18 @@
 ---
 title: Ottimizzare l'ambiente System Center Operations Manager con Azure Log Analytics |Microsoft Docs
 description: È possibile usare la soluzione Controllo integrità System Center Operations Manager per valutare i rischi e l'integrità degli ambienti a intervalli regolari.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/25/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 27b55af74a713c51655891df8c852ff44cd3744a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/25/2018
+ms.openlocfilehash: 33aa246e21b54aebaa902304ff92d4b74bfaac4b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60401731"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898775"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ottimizzare l'ambiente con la soluzione Controllo integrità System Center Operations Manager (Anteprima)
 
@@ -28,7 +22,7 @@ ms.locfileid: "60401731"
 
 La soluzione offre un elenco con priorità di raccomandazioni specifiche per l'infrastruttura distribuita dei server, classificate in quattro aree di interesse che consentono di comprendere rapidamente il rischio e agire in maniera appropriata.
 
-Le raccomandazioni si basano sulla conoscenza e sull'esperienza acquisite dai tecnici Microsoft in base a migliaia di visite dei clienti. Ogni raccomandazione offre informazioni aggiuntive sui motivi per cui un problema può essere rilevante per l'utente e su come implementare le modifiche suggerite.
+Le raccomandazioni si basano sulla conoscenza e sull'esperienza acquisite dai tecnici Microsoft in base a migliaia di visite dei clienti. Ogni raccomandazione fornisce informazioni aggiuntive sui motivi per cui un problema può essere rilevante per l'utente e su come implementare le modifiche suggerite.
 
 Si possono scegliere le aree di interesse più importanti per l'organizzazione e tenere traccia dello stato di avanzamento verso la realizzazione di un ambiente integro ed esente da rischi.
 
@@ -57,11 +51,11 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 1. [Impostare l'account RunAs per Controllo integrità System Center Operations Manager](#operations-manager-run-as-accounts-for-log-analytics)  
 2. Configurare la regola di Controllo integrità di System Center Operations Manager
 
-## <a name="system-center-operations-manager-health-check-data-collection-details"></a>Dettagli di raccolta dati di controllo integrità di Center Operations Manager System
+## <a name="system-center-operations-manager-health-check-data-collection-details"></a>Dettagli raccolta dati di Controllo integrità di System Center Operations Manager
 
-La soluzione di Operations Manager controllo integrità System Center raccoglie i dati dalle origini seguenti:
+La soluzione Controllo integrità di System Center Operations Manager raccoglie i dati dalle origini seguenti:
 
-* Registro di sistema
+* Registro
 * Strumentazione gestione Windows (WMI)
 * Registro eventi
 * Dati dei file
@@ -89,7 +83,7 @@ Prima di procedere l'account RunAs deve soddisfare i requisiti seguenti:
 4. Nella pagina **Proprietà generali** selezionare **Windows** nell'elenco **Tipo di account RunAs**.
 5. Digitare un nome visualizzato nella casella di testo **Nome visualizzato** e facoltativamente una descrizione nella casella **Descrizione** e quindi fare clic su **Avanti**.
 6. Nella pagina **Sicurezza della distribuzione** selezionare **Più protetto**.
-7. Fare clic su **Crea**.  
+7. Fare clic su **Create**(Crea).  
 
 Dopo aver creato l'account RunAs, è necessario indicare i server di gestione di destinazione nel gruppo di gestione e associare l'account a un profilo RunAs predefinito in modo che i flussi di lavoro vengano eseguiti usando le credenziali.  
 
@@ -97,7 +91,7 @@ Dopo aver creato l'account RunAs, è necessario indicare i server di gestione di
 2. Nella scheda **Distribuzione** fare clic su **Aggiungi**per la casella **Computer selezionati** e aggiungere il server di gestione in cui distribuire l'account.  Fare due volte clic su **OK** per salvare le modifiche.
 3. In **Run As Configuration** (Configurazione RunAs) fare clic su **Profili**.
 4. Cercare il profilo *SCOM Assessment*.
-5. Il nome del profilo è: *Profilo runas per controllo integrità di Microsoft System Center Operations Manager*.
+5. Il nome del profilo deve essere: *Microsoft controllo integrità di System Center Operations Manager profilo RunAs*.
 6. Fare clic con il pulsante destro del mouse, aggiornare le proprietà e aggiungere l'account RunAs creato in precedenza.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Script SQL per la concessione di autorizzazioni dettagliate all'account RunAs
@@ -152,13 +146,13 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ### <a name="configure-the-health-check-rule"></a>Configurare la regola di controllo integrità
 
-Management pack della soluzione di controllo di System Center Operations Manager integrità include una regola denominata *Microsoft System Center Operations Manager eseguire integrità controllare Rule*. Questa regola è responsabile del controllo integrità. Per abilitare la regola e configurare la frequenza, seguire queste procedure.
+Il Management Pack della soluzione Controllo integrità di System Center Operations Manager include una regola denominata *Microsoft System Center Operations Manager Esegui regola di controllo integrità*. Questa regola è responsabile del controllo integrità. Per abilitare la regola e configurare la frequenza, seguire queste procedure.
 
-Per impostazione predefinita, il Microsoft System Center Operations Manager eseguire integrità controllare Rule è disabilitata. Per eseguire il controllo integrità, è necessario abilitare la regola in un server di gestione. Seguire questa procedura.
+Per impostazione predefinita, la regola di controllo dello stato di esecuzione di Microsoft System Center Operations Manager è disabilitata. Per eseguire il controllo integrità, è necessario abilitare la regola in un server di gestione. Seguire questa procedura.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Abilitare la regola per un server di gestione specifico
 
-1. Nel **Authoring** dell'area di lavoro della console operatore di Operations Manager, cercare la regola *Microsoft System Center Operations Manager eseguire integrità controllare Rule* nel **regole** riquadro.
+1. Nell'area di lavoro **creazione e modifica** della console operatore di Operations Manager, cercare la regola *Microsoft System Center Operations Manager eseguire la regola di controllo integrità* nel riquadro **regole** .
 2. Nei risultati della ricerca selezionare quello che include il testo *Tipo: Server di gestione*.
 3. Fare clic con il pulsante destro del mouse sulla regola, quindi scegliere **Override** > **Oggetto specifico della classe: Server di gestione**.
 4.  Nell'elenco dei server di gestione disponibili selezionare il server di gestione in cui eseguire la regola.  Deve trattarsi dello stesso server di gestione configurato in precedenza per l'associazione con l'account RunAs.
@@ -170,7 +164,7 @@ Per impostazione predefinita, il Microsoft System Center Operations Manager eseg
 
 Per impostazione predefinita, la valutazione è configurata per l'esecuzione ogni 10.080 minuti (o sette giorni). È possibile sostituire il valore con un valore minimo di 1440 minuti (o un giorno). Il valore rappresenta l'intervallo minimo tra le esecuzioni della valutazione. Per sostituire l'intervallo, usare la procedura seguente.
 
-1. Nel **Authoring** dell'area di lavoro della console di Operations Manager, cercare la regola *Microsoft System Center Operations Manager eseguire integrità controllare Rule* nel **regole** sezione.
+1. Nell'area di lavoro **creazione e modifica** della console di Operations Manager, cercare la regola *Microsoft System Center Operations Manager Esegui controllo integrità regola* nella sezione **regole** .
 2. Nei risultati della ricerca selezionare quello che include il testo *Tipo: Server di gestione*.
 3. Fare clic con il pulsante destro del mouse sulla regola, quindi scegliere **Sostituisci regola** > **Tutti gli oggetti della classe: Server di gestione**.
 4. Impostare il parametro **Interval** (Intervallo) sul valore desiderato. Nell'esempio seguente, il valore è impostato su 1440 minuti (un giorno).<br><br> ![parametro interval](./media/scom-assessment/interval.png)<br>  
@@ -240,7 +234,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    Di seguito è riportata una schermata che mostra la query di ricerca Log:<br><br> ![ricerca log](./media/scom-assessment/scom-log-search.png)<br>
+    Ecco una schermata che mostra la query di ricerca nei log:<br><br> ![ricerca log](./media/scom-assessment/scom-log-search.png)<br>
 
 3. Scegliere le raccomandazioni da ignorare. Nella procedura successiva verranno usati i valori per ID raccomandazione.
 
@@ -265,11 +259,11 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-3. Se in seguito si decide che si vogliono vedere le raccomandazioni ignorate, rimuovere eventuali file IgnoreRecommendations.txt oppure rimuovere gli ID raccomandazione dagli stessi.
+3. Se in seguito si decide che si vogliono vedere le raccomandazioni ignorate, rimuovere eventuali file IgnoreRecommendations.txt oppure è possibile rimuovere gli ID raccomandazione dagli stessi.
 
 ## <a name="system-center-operations-manager-health-check-solution-faq"></a>Domande frequenti sulla soluzione Controllo integrità System Center Operations Manager
 
-*La soluzione Controllo integrità è stata aggiunta all'area di lavoro di Log Analytics. Non vengono tuttavia visualizzate le raccomandazioni. Perché?* Dopo avere aggiunto la soluzione, procedere come segue per visualizzare le raccomandazioni nel dashboard di Log Analytics.  
+*La soluzione controllo integrità è stata aggiunta all'area di lavoro Log Analytics. Ma non vengono visualizzati i consigli. Perché no?* Dopo avere aggiunto la soluzione, procedere come segue per visualizzare le raccomandazioni nel dashboard di Log Analytics.  
 
 - [Impostare l'account RunAs per Controllo integrità System Center Operations Manager](#operations-manager-run-as-accounts-for-log-analytics)  
 - [Configurare la regola di Controllo integrità System Center Operations Manager](#configure-the-health-check-rule)
@@ -277,7 +271,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
 
 *È possibile configurare la frequenza di esecuzione del controllo?* Sì. Vedere [Configurare la frequenza di esecuzione](#configure-the-run-frequency).
 
-*Se viene rilevato un altro server dopo l'aggiunta della soluzione di Operations Manager controllo integrità System Center, verrà controllato?* Sì, per impostazione predefinita verrà controllato ogni sette giorni a partire dal momento dell'individuazione.
+*Se viene individuato un altro server dopo l'aggiunta della soluzione Controllo integrità di System Center Operations Manager, viene controllata?* Sì, per impostazione predefinita verrà controllato ogni sette giorni a partire dal momento dell'individuazione.
 
 *Qual è il nome del processo che esegue la raccolta di dati?* AdvisorAssessment.exe
 
@@ -289,7 +283,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
 
 *Come è possibile verificare se sono presenti errori relativi ai prerequisiti?* Se è stato eseguito il controllo integrità e non vengono visualizzati risultati, è probabile che si siano verificati errori per alcuni dei prerequisiti del controllo. Per visualizzare i prerequisiti con errori, è possibile eseguire le query `Operation Solution=SCOMAssessment` e `SCOMAssessmentRecommendation FocusArea=Prerequisites` in Ricerca log.
 
-*È presente un messaggio `Failed to connect to the SQL Instance (….).` negli errori relativi ai prerequisiti. Qual è il problema?* AdvisorAssessment.exe, il processo che raccoglie i dati, viene eseguito nel processo HealthService del server di gestione. Nell'ambito del controllo integrità, il processo prova a connettersi all'istanza di SQL Server in cui è presente il database di Operations Manager. Questo errore può verificarsi quando le regole del firewall bloccano la connessione all'istanza di SQL Server.
+*Si è verificato un messaggio di `Failed to connect to the SQL Instance (….).` negli errori dei prerequisiti. Qual è il problema?* AdvisorAssessment.exe, il processo che raccoglie i dati, viene eseguito nel processo HealthService del server di gestione. Nell'ambito del controllo integrità, il processo prova a connettersi all'istanza di SQL Server in cui è presente il database di Operations Manager. Questo errore può verificarsi quando le regole del firewall bloccano la connessione all'istanza di SQL Server.
 
 *Quali tipi di dati vengono raccolti?* Vengono raccolti i tipi di dati seguenti: dati WMI, del Registro di sistema, del log eventi e di Operations Manager tramite Windows PowerShell, query SQL e agente di raccolta di informazioni file.
 

@@ -1,24 +1,18 @@
 ---
 title: Espressione app() nelle query di log di Monitoraggio di Azure | Microsoft Docs
-description: L'espressione di app viene usata in una query di log di monitoraggio di Azure per recuperare dati da un'app specifica di Application Insights in stesso gruppo di risorse, un altro gruppo di risorse o un'altra sottoscrizione.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+description: L'espressione app viene usata in una query di log di monitoraggio di Azure per recuperare i dati da un'app Application Insights specifica nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 01/25/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: a1a605bc733597430f64dceeb6c485db0abf657b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.date: 01/25/2019
+ms.openlocfilehash: fd6bfd40eadfc09008c992d263b065d7b41ffa1f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589240"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894466"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Espressione app() in una query di Monitoraggio di Azure
 
@@ -35,7 +29,7 @@ L'espressione `app` viene usata in una query di Monitoraggio di Azure per recupe
 
 - *Identificatore*: identifica l'app usando uno dei formati indicati nella tabella seguente.
 
-| Identificatore | DESCRIZIONE | Esempio
+| Identificatore | Description | Esempio
 |:---|:---|:---|
 | Nome risorsa | Nome leggibile dell'app (anche noto come "nome componente") | app("fabrikamapp") |
 | Nome completo | Nome completo dell'app nel formato: "subscriptionName/resourceGroup/componentName" | app('AI-Prototype/Fabrikam/fabrikamapp') |
@@ -50,7 +44,7 @@ L'espressione `app` viene usata in una query di Monitoraggio di Azure per recupe
 * Usare l'espressione correlata [area di lavoro](workspace-expression.md) per eseguire query tra aree di lavoro di Log Analytics.
 * L'espressione app() non è attualmente supportata in query di ricerca quando si usa il portale di Azure per creare una [regola di avviso per i log personalizzata](../platform/alerts-log.md), a meno che non venga usata un'applicazione di Application Insights come risorsa per la regola di avviso.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 ```Kusto
 app("fabrikamapp").requests | count
@@ -79,5 +73,5 @@ union
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere l'[espressione workspace](workspace-expression.md) per fare riferimento a un'area di lavoro Log Analytics.
-- Vedere altre informazioni su come vengono archiviati i [dati di Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md).
+- Accedere alle informazioni su come vengono archiviati i [dati di Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md).
 - Accedere alla documentazione completa relativa al [linguaggio di query Kusto](/azure/kusto/query/).

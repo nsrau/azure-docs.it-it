@@ -3,33 +3,34 @@ title: Interfaccia della riga di comando di Azure Service Fabric - sfctl mesh ne
 description: Descrive i comandi sfctl mesh network dell'interfaccia della riga di comando di Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: e92fbc3856bba69db11aba6ad5d85e814bf30a81
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 4d74e3d37891ad50d8bbaa69757d0d99c80591cc
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035050"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901224"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
 Consente di ottenere ed eliminare le risorse di rete mesh.
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|DESCRIZIONE|
+|Comando|Description|
 | --- | --- |
 | delete | Elimina la risorsa di rete. |
 | list | Elimina tutte le risorse di rete. |
-| show | Ottiene la risorsa di rete con il nome specificato. |
+| mostra | Ottiene la risorsa di rete con il nome specificato. |
 
 ## <a name="sfctl-mesh-network-delete"></a>sfctl mesh network delete
 Elimina la risorsa di rete.
@@ -38,13 +39,13 @@ Elimina la risorsa di rete identificata dal nome.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|DESCRIZIONE|
+|Argomento|Description|
 | --- | --- |
 | --name -n [Obbligatorio] | Nome della rete. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
@@ -59,7 +60,7 @@ Ottiene le informazioni su tutte le risorse di rete in un determinato gruppo di 
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
@@ -74,13 +75,13 @@ Ottiene le informazioni sulla risorsa di rete con il nome specificato. Le inform
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|DESCRIZIONE|
+|Argomento|Description|
 | --- | --- |
 | --name -n [Obbligatorio] | Nome della rete. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |

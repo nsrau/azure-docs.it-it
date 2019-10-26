@@ -1,6 +1,6 @@
 ---
 title: Sviluppare funzioni .NET Standard per i processi Edge di Analisi di flusso di Azure (anteprima)
-description: Informazioni su come scrivere funzioni C# definite dall'utente per i processi di Analisi di flusso di Azure in IoT Edge.
+description: Informazioni su come sviluppare funzioni .NET definite dall'utente per i processi di analisi di flusso di Azure con codebehind, un pacchetto esistente o un progetto locale.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 40035b946d0f2b09929f8c7f1ac27231546e6746
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 287ee2d84ea3d5c6f1568edb1636191f509681e0
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64692907"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901622"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Sviluppare funzioni .NET Standard definite dall'utente per i processi di Analisi di flusso di Azure in IoT Edge (anteprima)
 
@@ -44,7 +44,7 @@ Il formato del pacchetto di una qualsiasi funzione definita dall'utente presenta
 |dateTime  |  dateTime   |
 |struct  |  IRecord   |
 |object  |  IRecord   |
-|Array\<object>  |  IArray   |
+|Matrice\<oggetto >  |  IArray   |
 |dizionario <stringa, oggetto>  |  IRecord   |
 
 ## <a name="codebehind"></a>CodeBehind
@@ -114,7 +114,7 @@ Espandere la sezione **Configurazione di codice definito dall'utente** e compila
  |**Impostazione**  |**Valore consigliato**  |
  |---------|---------|
  |Origine assembly  | Pacchetti di assembly esistenti dal cloud    |
- |Resource  |  Scegliere i dati dall'account corrente   |
+ |Gruppi  |  Scegliere i dati dall'account corrente   |
  |Sottoscrizione  |  Scegliere la propria sottoscrizione.   |
  |Account di archiviazione  |  Scegliere l'account di archiviazione.   |
  |Contenitore  |  Scegliere il contenitore creato nell'account di archiviazione.   |
@@ -134,6 +134,6 @@ L'anteprima della funzione definita dall'utente attualmente presenta le limitazi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione: Scrivere una funzione C# definita dall'utente per un processo Edge di Analisi di flusso di Azure (anteprima)](stream-analytics-edge-csharp-udf.md)
-* [Esercitazione: Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure](stream-analytics-javascript-user-defined-functions.md)
+* [Esercitazione: scrivere una funzione C# definita dall'utente per un processo di Analisi di flusso di Azure in IoT Edge (anteprima)](stream-analytics-edge-csharp-udf.md)
+* [Esercitazione: funzioni JavaScript definite dall'utente per l'Analisi di flusso di Azure](stream-analytics-javascript-user-defined-functions.md)
 * [Usare Visual Studio per visualizzare i processi di Analisi di flusso di Azure](stream-analytics-vs-tools.md)

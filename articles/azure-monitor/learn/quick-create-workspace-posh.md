@@ -1,24 +1,18 @@
 ---
 title: Creare un'area di lavoro Log Analytics usando Azure PowerShell | Microsoft Docs
 description: Informazioni su come creare un'area di lavoro Log Analytics per abilitare soluzioni di gestione e la raccolta dei dati dagli ambienti cloud e locali con Azure PowerShell.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 03/12/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: b81495f19ce596d689778e6ab75512d744ae4588
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.date: 03/12/2019
+ms.openlocfilehash: d9ac472c320767919301f5de634fd5158e824726
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71836563"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900517"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Creare un'area di lavoro Log Analytics con Azure PowerShell
 
@@ -43,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il Azure PowerShell AZ Module. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
-## <a name="create-a-workspace"></a>Crea un'area di lavoro
+## <a name="create-a-workspace"></a>Creare un'area di lavoro
 Creare un'area di lavoro con [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Nell'esempio seguente viene creata un'area di lavoro nella località *eastus* usando un modello di gestione risorse dal computer locale. Il modello JSON è configurato in modo da richiedere solo il nome dell'area di lavoro e specifica un valore predefinito per gli altri parametri che potrebbero essere usati come configurazione standard nell'ambiente in uso. 
 
 Per informazioni sulle aree supportate, vedere [aree log Analytics è disponibile in](https://azure.microsoft.com/regions/services/) e cercare monitoraggio di Azure dal campo **ricerca di un prodotto** . 

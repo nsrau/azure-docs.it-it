@@ -1,23 +1,24 @@
 ---
-title: Abilità dell'API Web personalizzata in una pipeline di arricchimento
-titleSuffix: Azure Cognitive Search
-description: Estendi le funzionalità di Azure ricerca cognitiva skillsets chiamando le API Web. Usare la competenza API Web personalizzata per integrare il codice personalizzato.
+title: Competenza personalizzata della ricerca cognitiva - Ricerca di Azure
+description: Estendere le funzionalità dei set di competenze di ricerca cognitiva chiamando API Web
+services: search
 manager: nitinme
 author: luiscabrer
-ms.author: luisca
-ms.service: cognitive-search
+ms.service: search
+ms.workload: search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 54c51993733091d326c59c4ac4ec3662cc704021
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: HT
+ms.date: 05/02/2019
+ms.author: luisca
+ms.openlocfilehash: fda4f96c2c73c5a2d39435a509afcf654ed77b70
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784898"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901329"
 ---
-# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Abilità dell'API Web personalizzata in una pipeline di arricchimento ricerca cognitiva di Azure
+# <a name="custom-web-api-skill"></a>Competenza API Web personalizzata
 
-La competenza dell' **API Web personalizzata** consente di estendere l'arricchimento di intelligenza artificiale chiamando un endpoint API Web che fornisce operazioni personalizzate. Analogamente alle competenze predefinite, una competenza **API Web personalizzata** ha input e output. A seconda degli input, l'API Web riceve un payload JSON quando l'indicizzatore viene eseguito e restituisce un payload JSON come risposta, insieme a un codice di stato di esito positivo. È previsto che la risposta abbia gli output specificati dalla competenza personalizzata. Qualsiasi altra risposta è considerata un errore e non vengono eseguiti arricchimenti.
+La competenza dell' **API Web personalizzata** consente di estendere la ricerca cognitiva chiamando un endpoint API Web che fornisce operazioni personalizzate. Analogamente alle competenze predefinite, una competenza **API Web personalizzata** ha input e output. A seconda degli input, l'API Web riceve un payload JSON quando l'indicizzatore viene eseguito e restituisce un payload JSON come risposta, insieme a un codice di stato di esito positivo. È previsto che la risposta abbia gli output specificati dalla competenza personalizzata. Qualsiasi altra risposta è considerata un errore e non vengono eseguiti arricchimenti.
 
 La struttura dei payload JSON è descritta in dettaglio più avanti in questo documento.
 
@@ -41,6 +42,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 | httpHeaders | Raccolta di coppie chiave-valore in cui le chiavi corrispondono ai nomi di intestazione e i valori rappresentano i valori di intestazione che verranno inviati all'API Web insieme al payload. In questa raccolta è proibito l'uso delle intestazioni seguenti: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | timeout | (facoltativo) Se specificato, indica il timeout per il client HTTP che effettua la chiamata API. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Ad esempio, `PT60S` per 60 secondi. Se non impostato, viene scelto un valore predefinito di 30 secondi. Il timeout può essere impostato su un massimo di 230 secondi e un minimo di 1 secondo. |
 | batchSize | (facoltativo) Indica quanti "record di dati" (vedere la struttura del payload _JSON_ più avanti) verranno inviati per ogni chiamata API. Se non impostato, viene scelto un valore predefinito di 1000. È consigliabile usare questo parametro per ottenere un compromesso accettabile tra velocità effettiva di indicizzazione e carico sull'API |
+| degreeOfParallelism | Opzionale Quando specificato, indica il numero di chiamate che l'indicizzatore farà in parallelo all'endpoint fornito. È possibile ridurre questo valore se l'endpoint ha un errore troppo elevato di un carico di richiesta o se l'endpoint è in grado di accettare più richieste e si desidera un aumento delle prestazioni dell'indicizzatore.  Se non impostato, viene utilizzato il valore predefinito 5. DegreeOfParallelism può essere impostato su un massimo di 10 e un minimo di 1. |
 
 ## <a name="skill-inputs"></a>Input competenze
 
@@ -203,5 +205,5 @@ Nei casi in cui l'API Web non è disponibile o restituisce un errore HTTP, un er
 
 + [Power Skills: un repository di competenze personalizzate](https://aka.ms/powerskills)
 + [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
-+ [Aggiungere competenze personalizzate a una pipeline di arricchimento di intelligenza artificiale](cognitive-search-custom-skill-interface.md)
-+ [Esempio: creazione di un'abilità personalizzata per l'arricchimento di intelligenza artificiale (cognitive-ricerca-creazione-personalizzata-skill-example.md)
++ [Come aggiungere una competenza personalizzata a una pipeline di ricerca cognitiva](cognitive-search-custom-skill-interface.md)
++ [Esempio: creazione di un'abilità personalizzata per la ricerca cognitiva](cognitive-search-create-custom-skill-example.md)

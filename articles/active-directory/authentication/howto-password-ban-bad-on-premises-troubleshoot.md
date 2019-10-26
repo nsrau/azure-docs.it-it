@@ -4,19 +4,19 @@ description: Informazioni sulla risoluzione dei problemi comuni di Azure AD Prot
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 690d49a94ff4f516e24494622ca378eb0794fee9
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 62395b0b6f1ed152292106a774c1e2f7c6d4f11f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71314922"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893278"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Risoluzione dei problemi relativi a Password di protezione di Azure AD
 
@@ -40,7 +40,7 @@ Il sintomo principale di questo problema è 30018 eventi nel registro eventi di 
 
 1. Il computer host proxy blocca l'accesso all'endpoint RPC (dinamico o statico) in ascolto da parte del servizio proxy
 
-   Il programma di installazione del proxy di protezione Azure AD password crea automaticamente una regola in ingresso Windows Firewall che consente l'accesso a tutte le porte in ingresso ascoltate dal servizio proxy Azure AD password protection. Se questa regola viene successivamente eliminata o disattivata, gli agenti del controller di dominio non saranno in grado di comunicare con il servizio proxy. Se il Windows Firewall incorporato è stato disabilitato al posto di un altro prodotto firewall, è necessario configurarlo per consentire l'accesso a tutte le porte in ingresso ascoltate dal servizio Azure AD proxy di protezione delle password. Questa configurazione può essere resa più specifica se il servizio proxy è stato configurato per l'ascolto su una porta RPC statica specifica (tramite `Set-AzureADPasswordProtectionProxyConfiguration` il cmdlet).
+   Il programma di installazione del proxy di protezione Azure AD password crea automaticamente una regola in ingresso Windows Firewall che consente l'accesso a tutte le porte in ingresso ascoltate dal servizio proxy Azure AD password protection. Se questa regola viene successivamente eliminata o disattivata, gli agenti del controller di dominio non saranno in grado di comunicare con il servizio proxy. Se il Windows Firewall incorporato è stato disabilitato al posto di un altro prodotto firewall, è necessario configurarlo per consentire l'accesso a tutte le porte in ingresso ascoltate dal servizio Azure AD proxy di protezione delle password. Questa configurazione può essere resa più specifica se il servizio proxy è stato configurato per l'ascolto su una porta RPC statica specifica (tramite il cmdlet `Set-AzureADPasswordProtectionProxyConfiguration`).
 
 1. Il computer host proxy non è configurato per consentire ai controller di dominio di accedere al computer. Questo comportamento viene controllato tramite l'assegnazione dei privilegi utente "accedi al computer dalla rete". È necessario concedere questo privilegio a tutti i controller di dominio in tutti i domini della foresta. Questa impostazione è spesso vincolata come parte di una maggiore attività di protezione avanzata della rete.
 
@@ -50,9 +50,9 @@ Il sintomo principale di questo problema è 30018 eventi nel registro eventi di 
 
 1. Verificare che la foresta e tutti i server proxy siano registrati nello stesso tenant di Azure.
 
-   È possibile verificare questo requisito eseguendo i `Get-AzureADPasswordProtectionProxy` cmdlet e `Get-AzureADPasswordProtectionDCAgent` di PowerShell, quindi confrontare la `AzureTenant` proprietà di ogni elemento restituito. Per il corretto funzionamento, il nome del tenant restituito deve essere lo stesso in tutti gli agenti controller di dominio e i server proxy.
+   È possibile verificare questo requisito eseguendo i cmdlet di `Get-AzureADPasswordProtectionProxy` e `Get-AzureADPasswordProtectionDCAgent` PowerShell, quindi confrontare la proprietà `AzureTenant` di ogni elemento restituito. Per il corretto funzionamento, il nome del tenant restituito deve essere lo stesso in tutti gli agenti controller di dominio e i server proxy.
 
-   Se esiste una condizione di mancata corrispondenza della registrazione del tenant di Azure, questo problema può essere `Register-AzureADPasswordProtectionProxy` risolto eseguendo i `Register-AzureADPasswordProtectionForest` cmdlet di e/o PowerShell in base alle esigenze, assicurandosi di usare le credenziali dello stesso tenant di Azure per tutte le registrazioni.
+   Se esiste una condizione di mancata corrispondenza della registrazione del tenant di Azure, questo problema può essere risolto eseguendo il `Register-AzureADPasswordProtectionProxy` e/o `Register-AzureADPasswordProtectionForest` cmdlet di PowerShell in base alle esigenze, assicurandosi di usare le credenziali dello stesso tenant di Azure per tutte le registrazioni.
 
 ## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>Impossibile crittografare o decrittografare i file di criteri password
 
@@ -166,7 +166,7 @@ Poiché la scadenza viene controllata solo all'avvio iniziale, è possibile che 
 > [!IMPORTANT]
 > Microsoft consiglia di aggiornare immediatamente gli agenti del controller di dominio di anteprima pubblica scaduti alla versione più recente.
 
-Un modo semplice per individuare gli agenti DC nell'ambiente che devono essere aggiornati è eseguire il `Get-AzureADPasswordProtectionDCAgent` cmdlet, ad esempio:
+Un modo semplice per individuare gli agenti DC nell'ambiente che devono essere aggiornati è eseguire il cmdlet `Get-AzureADPasswordProtectionDCAgent`, ad esempio:
 
 ```powershell
 PS C:\> Get-AzureADPasswordProtectionDCAgent
@@ -187,7 +187,7 @@ PS C:\> $LatestAzureADPasswordProtectionVersion = "1.2.125.0"
 PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion -lt $LatestAzureADPasswordProtectionVersion}
 ```
 
-Il software proxy per la protezione Azure AD password non è limitato da tempo in alcuna versione. Microsoft consiglia comunque di aggiornare gli agenti controller di dominio e proxy alle versioni più recenti non appena vengono rilasciati. Il `Get-AzureADPasswordProtectionProxy` cmdlet può essere utilizzato per trovare agenti proxy che richiedono aggiornamenti, in modo analogo all'esempio precedente per gli agenti DC.
+Il software proxy per la protezione Azure AD password non è limitato da tempo in alcuna versione. Microsoft consiglia comunque di aggiornare gli agenti controller di dominio e proxy alle versioni più recenti non appena vengono rilasciati. È possibile utilizzare il cmdlet `Get-AzureADPasswordProtectionProxy` per trovare agenti proxy che richiedono aggiornamenti, in modo analogo all'esempio precedente per gli agenti DC.
 
 Per ulteriori informazioni sulle procedure di aggiornamento specifiche, vedere [aggiornamento dell'agente del controller](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) di dominio e [aggiornamento dell'agente proxy](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) .
 

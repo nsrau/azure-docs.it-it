@@ -1,19 +1,18 @@
 ---
 title: Introduzione a monitoraggio di Azure Log Analytics | Microsoft Docs
 description: Questo articolo contiene un'esercitazione per l'uso di Log Analytics nel portale di Azure per la scrittura di query.
-services: log-analytics
-author: bwren
-manager: carmonm
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 07/19/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 950768326228960192f48d99e5c5fa849b2c2bda
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
-ms.translationtype: MT
+ms.date: 07/19/2019
+ms.openlocfilehash: 1babd0828e21f0125dba55199d808a579a10f049
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076818"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900358"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Introduzione a Log Analytics in monitoraggio di Azure
 
@@ -41,11 +40,11 @@ Log Analytics è uno strumento Web usato per scrivere ed eseguire query di log d
 ## <a name="firewall-requirements"></a>Requisiti del firewall
 Per utilizzare Log Analytics, il browser richiede l'accesso agli indirizzi seguenti. Se il browser accede al portale di Azure attraverso un firewall, è necessario abilitare l'accesso a questi indirizzi.
 
-| URI | IP | Porte |
+| Uri | IP | Porte |
 |:---|:---|:---|
-| portal.loganalytics.io | Dynamic | 80,443 |
-| api.loganalytics.io | Dynamic | 80,443 |
-| docs.loganalytics.io | Dynamic | 80,443 |
+| portal.loganalytics.io | Dinamica | 80,443 |
+| api.loganalytics.io | Dinamica | 80,443 |
+| docs.loganalytics.io | Dinamica | 80,443 |
 
 ## <a name="basic-queries"></a>Query di base
 È possibile usare le query per cercare termini, identificare le tendenze, analizzare i modelli e ottenere molte altre informazioni dettagliate basate sui dati. Iniziare con una query di base:
@@ -69,7 +68,7 @@ In questo esempio, la **ricerca** ha come ambito la tabella _eventi_ e tutti i r
 ## <a name="running-a-query"></a>Esecuzione di una query
 Per eseguire una query, fare clic sul pulsante **Esegui** oppure premere **MAIUSC+INVIO**. Prendere in considerazione i dettagli seguenti che determinano il codice che verrà eseguito e i dati restituiti:
 
-- Interruzioni di riga: Una singola pausa rende più semplice la lettura della query. Più interruzioni di riga suddividono la query in query separate.
+- Interruzioni di riga: una singola interruzione rende più semplice la lettura della query. Più interruzioni di riga suddividono la query in query separate.
 - Cursore: posizionare il cursore in un punto qualsiasi all'interno della query per eseguirla. La query corrente viene considerata come codice fino a quando non viene trovata una riga vuota.
 - Intervallo di tempo: per impostazione predefinita, viene usato un intervallo di tempo corrispondente alle _ultime 24 ore_. Per usare un intervallo diverso, usare il controllo di selezione di data e ora o aggiungere alla query un filtro di intervallo di tempo esplicito.
 
@@ -77,7 +76,7 @@ Per eseguire una query, fare clic sul pulsante **Esegui** oppure premere **MAIUS
 ## <a name="understand-the-schema"></a>Informazioni sullo schema
 Lo schema è una raccolta di tabelle raggruppate visivamente in una categoria logica. Diverse categorie provengono dalle soluzioni di monitoraggio. La categoria _LogManagement_ contiene dati comuni, ad esempio eventi di Windows e syslog, dati sulle prestazioni e heartbeat degli agenti.
 
-![Schema](media/get-started-portal/schema.png)
+![SCHEMA](media/get-started-portal/schema.png)
 
 In ogni tabella i dati sono organizzati in colonne con tipi di dati diversi, come indicato dalle icone accanto al nome di colonna. La tabella _Event_ nello screenshot contiene ad esempio colonne come _Computer_, costituita da testo, _EventCategory_, costituita da un numero, e _TimeGenerated_, di tipo data/ora.
 
@@ -90,7 +89,7 @@ Event
 
 Log Analytics l'ambito automatico dei risultati per:
 
-- Intervallo di tempo:  per impostazione predefinita, le query sono limitate alle ultime 24 ore.
+- Intervallo di tempo: per impostazione predefinita, le query sono limitate alle ultime 24 ore.
 - Numero di risultati: i risultati sono limitati a un massimo di 10.000 record.
 
 Questa query è molto generica e restituisce troppi risultati per essere utile. È possibile filtrare i risultati tramite gli elementi della tabella o aggiungendo in modo esplicito un filtro alla query. Il filtro dei risultati tramite gli elementi della tabella si applica al set di risultati esistente, mentre un filtro per la query restituisce un nuovo set di risultati filtrato e può quindi generare risultati più accurati.
@@ -107,7 +106,7 @@ Verranno ora presi n considerazione gli eventi con gravità corrispondete a _Err
 
 Fare clic sull'icona di filtro accanto al titolo della colonna e nella finestra popup selezionare _Inizia con_ e il testo _error_:
 
-![Applica filtro](media/get-started-portal/filter.png)
+![Filtra](media/get-started-portal/filter.png)
 
 
 ## <a name="sort-and-group-results"></a>Ordinare e raggruppare i risultati
@@ -122,7 +121,7 @@ Un altro modo per organizzare i risultati è in gruppi. Per raggruppare i risult
 ## <a name="select-columns-to-display"></a>Selezionare le colonne da visualizzare
 La tabella dei risultati include spesso molte colonne. Alcune colonne restituite possono non venire visualizzate per impostazione predefinita oppure si potrebbe voler rimuovere alcune colonne visualizzate. Per selezionare le colonne da visualizzare, fare clic sul pulsante Colonne:
 
-![Selezione colonne](media/get-started-portal/select-columns.png)
+![Seleziona le colonne](media/get-started-portal/select-columns.png)
 
 
 ## <a name="select-a-time-range"></a>Selezionare un intervallo di tempo
@@ -169,7 +168,7 @@ Per aggiungere un diagramma o una tabella a uno dei dashboard di Azure condivisi
 
 Quando si aggiunge un grafico a un dashboard, vengono applicate al grafico determinate semplificazioni:
 
-- Colonne e righe di tabella: per aggiungere una tabella al dashboard, la tabella deve avere al massimo quattro colonne. Verranno visualizzate solo le prime sette righe.
+- Colonne e righe di tabella: per aggiungere una tabella al dashboard, la tabella deve avere un massimo di quattro colonne. Verranno visualizzate solo le prime sette righe.
 - Limite di tempo: le query vengono automaticamente limitate agli ultimi 14 giorni.
 - Limite del numero di contenitori: se si visualizza un grafico con numerosi contenitori discreti, i contenitori meno popolati vengono automaticamente raggruppati in un unico contenitore _altri_.
 
@@ -181,7 +180,7 @@ Una volta creata una query utile, è possibile salvarla o condividerla con altri
 ![Salvare la funzione](media/get-started-portal/save-function.png)
 
 >[!NOTE]
->`a–z, A–Z, 0-9, -, _, ., <space>, (, ), |` Nel campo **nome** sono supportati i caratteri seguenti quando si salva o si modifica la query salvata.
+>I caratteri seguenti sono supportati `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |` nel campo **nome** quando si salva o si modifica la query salvata.
 
 Le query di Log Analytics vengono sempre salvate in un'area di lavoro selezionata e condivise con altri utenti dell'area di lavoro.
 
@@ -194,7 +193,7 @@ L'icona Esplora query si trova nell'area in alto a destra. Permette di elencare 
 Log Analytics supporta diversi metodi di esportazione:
 
 - Excel: salvare i risultati come file CSV.
-- Power BI: Esportare i risultati in Power BI. Per informazioni dettagliate, vedere [Importare i dati dei log di Monitoraggio di Azure in Power BI](../../azure-monitor/platform/powerbi.md).
+- Power BI: esportare i risultati in Power BI. Per informazioni dettagliate, vedere [Importare i dati dei log di Monitoraggio di Azure in Power BI](../../azure-monitor/platform/powerbi.md).
 - Condividere un collegamento: la query stessa può essere condivisa come collegamento che altri utenti che hanno accesso alla stessa area di lavoro possono quindi inviare ed eseguire.
 
 ## <a name="next-steps"></a>Passaggi successivi

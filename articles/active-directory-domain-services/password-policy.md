@@ -11,18 +11,21 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: iainfou
-ms.openlocfilehash: 3876c6f80e9f18059ab4abac67732cdbf2ca24fa
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: ffcff84c7778ec3d6395e1c7a706c0deb2a0dc90
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248317"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893426"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Criteri password e di blocco dell'account nei domini gestiti
 
 Per gestire la sicurezza degli utenti in Azure Active Directory Domain Services (Azure AD DS), è possibile definire criteri specifici per le password che controllano le impostazioni di blocco degli account o la lunghezza e la complessità minime della password. Un criterio granulare per le password predefinito viene creato e applicato a tutti gli utenti in un dominio gestito Azure AD DS. Per fornire un controllo granulare e soddisfare specifiche esigenze aziendali o di conformità, è possibile creare criteri aggiuntivi e applicarli a gruppi di utenti specifici.
 
 Questo articolo illustra come creare e configurare un criterio granulare per le password in Azure AD DS usando il Centro di amministrazione di Active Directory.
+
+> [!NOTE]
+> I criteri password sono disponibili solo per i domini gestiti Azure AD DS creati usando il modello di distribuzione Gestione risorse. Per i domini gestiti meno recenti creati con la distribuzione classica, [eseguire la migrazione dal modello di rete virtuale classica a gestione risorse][migrate-from-classic].
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -34,6 +37,7 @@ Per completare questo articolo, sono necessari i privilegi e le risorse seguenti
   * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
   * Se necessario, completare l'esercitazione per [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+  * È necessario che l'istanza di Azure AD DS sia stata creata utilizzando il modello di distribuzione Gestione risorse. Se necessario, [eseguire la migrazione dal modello di rete virtuale classica a gestione risorse][migrate-from-classic].
 * Una macchina virtuale di gestione di Windows Server aggiunta al dominio gestito di Azure AD DS.
   * Se necessario, completare l'esercitazione per [creare una macchina virtuale di gestione][tutorial-create-management-vm].
 * Un account utente membro del gruppo di *amministratori dei controller di dominio di Azure AD* nel tenant di Azure AD.
@@ -54,7 +58,7 @@ Tutti gli utenti, indipendentemente dal modo in cui sono stati creati, presentan
 
 * **Durata blocco account:** 30
 * **Numero di tentativi di accesso non riusciti consentiti:** 5
-* **Reimposta i tentativi di accesso non riusciti dopo:** 30 minuti
+* Il **conteggio tentativi di accesso non riusciti è stato reimpostato dopo:** 30 minuti
 * **Validità massima password (durata):** 90 giorni
 
 Con queste impostazioni predefinite, gli account utente vengono bloccati per 30 minuti se vengono usate cinque password non valide entro 2 minuti. Gli account vengono sbloccati automaticamente dopo 30 minuti.
@@ -130,3 +134,4 @@ Per ulteriori informazioni sui criteri per le password e sull'utilizzo di Active
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
+[migrate-from-classic]: migrate-from-classic-vnet.md

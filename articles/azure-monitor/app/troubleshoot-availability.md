@@ -1,26 +1,21 @@
 ---
 title: Risolvere i problemi relativi ai test di disponibilità di applicazione Azure Insights | Microsoft Docs
 description: Risolvere i problemi dei test Web in applicazione Azure Insights. Ottenere avvisi se un sito Web diventa non disponibile o risponde lentamente.
-services: application-insights
-documentationcenter: ''
-author: lgayhardt
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 09/19/2019
 ms.reviewer: sdash
-ms.author: lagayhar
-ms.openlocfilehash: fd56fffe6b11d1c32d7abfe28140127d01933def
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 71c16fa005710bb5816ec69716573b79fcae620a
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695046"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899535"
 ---
-# <a name="troubleshooting"></a>Risoluzione dei problemi
+# <a name="troubleshooting"></a>risoluzione dei problemi
 
 Questo articolo consente di risolvere i problemi comuni che possono verificarsi quando si usa il monitoraggio della disponibilità.
 
@@ -29,7 +24,7 @@ Questo articolo consente di risolvere i problemi comuni che possono verificarsi 
 |Sintomo/messaggio di errore| Possibili cause|
 |--------|------|
 |Non è stato possibile creare il canale sicuro SSL/TLS  | Versione SSL. Sono supportati solo TLS 1,0, 1,1 e 1,2. **SSLv3 non è supportato.**
-|Livello record TLSv 1.2: Avviso (livello: Fatale, Descrizione: MAC record non valido)| Per [ulteriori informazioni](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake), vedere thread stackexchange.
+|Livello record TLSv 1.2: avviso (livello: irreversibile, Descrizione: MAC record non valido)| Per [ulteriori informazioni](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake), vedere thread stackexchange.
 |L'URL che ha avuto esito negativo è la rete CDN (rete per la distribuzione di contenuti) | Il problema potrebbe essere causato da una configurazione errata della rete CDN |  
 
 ### <a name="possible-workaround"></a>Soluzione alternativa possibile
@@ -57,7 +52,7 @@ Questo articolo consente di risolvere i problemi comuni che possono verificarsi 
 
 ### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>Il sito sembra corretto, ma vengono visualizzati errori di test? Perché Application Insights avvisi?
 
-   * Il test ha **richieste di analisi dipendenti** abilitate? viene eseguito un controllo rigoroso sulle risorse, ad esempio script, immagini e così via. Questi tipi di errori possono non essere evidenti in un browser. Controllare tutte le immagini, gli script, i fogli di stile e qualsiasi altro file caricato dalla pagina. Se uno di essi ha esito negativo, il test viene segnalato come non superato, anche se la pagina HTML principale viene caricata senza problemi. Per desensibilizzare il test a errori di questo tipo, è sufficiente deselezionare l'opzione analizza richieste dipendenti dalla configurazione di test.
+   * Il test ha **richieste di analisi dipendenti** abilitate? Ciò comporta un controllo rigoroso delle risorse, ad esempio script, immagini e così via. Questi tipi di errori potrebbero non essere evidenti in un browser. Controllare tutte le immagini, gli script, i fogli di stile e qualsiasi altro file caricato dalla pagina. Se uno di essi ha esito negativo, il test viene segnalato come non superato, anche se la pagina HTML principale viene caricata senza problemi. Per desensibilizzare il test a errori di questo tipo, è sufficiente deselezionare l'opzione analizza richieste dipendenti dalla configurazione di test.
 
    * Per ridurre le probabilità di rumore dai blip di rete temporanei e così via, verificare che sia selezionata l'opzione Abilita tentativi per la configurazione degli errori dei test. È anche possibile eseguire test da più posizioni e gestire la soglia delle regole di avviso di conseguenza per evitare che problemi specifici della posizione causino avvisi non dovuti.
 
