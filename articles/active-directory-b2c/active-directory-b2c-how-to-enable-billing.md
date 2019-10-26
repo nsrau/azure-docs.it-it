@@ -1,86 +1,134 @@
 ---
-title: Come collegare una sottoscrizione di Azure - Azure Active Directory B2C | Microsoft Docs
-description: Guida dettagliata all'abilitazione della fatturazione per tenant Azure AD B2C in una sottoscrizione di Azure.
+title: Modello di fatturazione per Azure Active Directory B2C
+description: Informazioni sul modello di fatturazione di Azure AD B2C mensile per utenti attivi (MAU) e su come abilitare la fatturazione per una sottoscrizione di Azure specifica.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 10/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 892f47b6acf22c62ce2290e2ede9d0bcd21eefc8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 844b62f9575249c7b99672e9e67c94cea7ec9f99
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065903"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931492"
 ---
-# <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Collegare una sottoscrizione di Azure a un tenant di Azure Active Directory B2C
+# <a name="billing-model-for-azure-active-directory-b2c"></a>Modello di fatturazione per Azure Active Directory B2C
+
+L'utilizzo di Azure Active Directory B2C (Azure AD B2C) viene addebitato a una sottoscrizione di Azure collegata e usa un modello di fatturazione per utenti attivi mensili (MAU). Informazioni su come collegare una risorsa Azure AD B2C a una sottoscrizione e come funziona il modello di fatturazione di MAU nelle sezioni seguenti.
 
 > [!IMPORTANT]
-> Per informazioni aggiornate sulla fatturazione e sui prezzi di utilizzo per Azure Active Directory B2C (Azure AD B2C), vedere [prezzi di Azure ad B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+> Questo articolo non contiene informazioni sui prezzi. Per informazioni aggiornate sulla fatturazione e sui prezzi di utilizzo, vedere [Azure Active Directory B2C prezzi](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
-I costi per l'utilizzo di Azure AD B2C vengono addebitati a una sottoscrizione di Azure. Quando viene creato un tenant di Azure AD B2C, l'amministratore del tenant deve collegarlo in modo esplicito a una sottoscrizione di Azure. Questo articolo illustra i passaggi da eseguire.
+## <a name="monthly-active-users-mau-billing"></a>Fatturazione mensile per utenti attivi (MAU)
 
-> [!NOTE]
-> È possibile usare una sottoscrizione collegata a un tenant di Azure AD B2C solo per la fatturazione dei costi di utilizzo di Azure AD B2C o di altre risorse di Azure, tra cui le risorse di Azure AD B2C.  La sottoscrizione non può essere usata per aggiungere altri servizi basati su licenza di Azure o licenze di Office 365 nel tenant di Azure AD B2C.
+Azure AD B2C la fatturazione viene calcolata sul numero di utenti univoci con attività di autenticazione in un mese di calendario, noto come fatturazione di utenti attivi mensili (MAU).
 
-Questo collegamento alla sottoscrizione viene realizzato mediante la creazione di una "risorsa" di Azure AD B2C nella sottoscrizione di Azure di destinazione. È possibile creare molte "risorse" di Azure AD B2C all'interno di una singola sottoscrizione, insieme ad altre risorse di Azure, ad esempio macchine virtuali, archivi dati, app per la logica e così via. È possibile visualizzare tutte le risorse nella sottoscrizione passando al tenant di Azure AD cui è associata la sottoscrizione.
+A partire dal **01 novembre 2019**, tutti i nuovi tenant di Azure ad B2C creati vengono fatturati per utenti attivi mensili (Mau). I tenant esistenti [collegati a una sottoscrizione](#link-an-azure-ad-b2c-tenant-to-a-subscription) in o dopo il 01 novembre 2019 verranno fatturati per utenti attivi mensili (Mau).
 
-Le sottoscrizioni di Azure Cloud Solution Provider (CSP) sono supportate in Azure AD B2C. La funzionalità è disponibile tramite le API o il portale di Azure per Azure AD B2C e per tutte le risorse di Azure. Gli amministratori delle sottoscrizioni CSP possono collegare, spostare ed eliminare le relazioni con Azure AD B2C esattamente come per tutte le risorse di Azure. La gestione di Azure AD B2C tramite il controllo degli accessi in base al ruolo non è influenzata dall'associazione tra il tenant di Azure AD B2C e una sottoscrizione di Azure CSP. Per ottenere il controllo degli accessi in base al ruolo, usare i ruoli di base del tenant, non i ruoli basati su sottoscrizioni.
+Se si dispone di un tenant di Azure AD B2C esistente collegato a una sottoscrizione precedente alla 01 novembre 2019, è possibile scegliere di effettuare una delle seguenti operazioni:
 
-Per continuare, è necessaria una sottoscrizione di Azure valida.
+* Eseguire l'aggiornamento al modello di fatturazione Monthly Active users (MAU) o
+* Mantenere il modello di fatturazione per autenticazione
 
-## <a name="create-an-azure-ad-b2c-tenant"></a>Creare un tenant di Azure AD B2C
+### <a name="upgrade-to-monthly-active-users-billing-model"></a>Eseguire l'aggiornamento al modello di fatturazione utenti attivi mensili
 
-Prima di tutto, è necessario [creare il tenant di Azure AD B2C](active-directory-b2c-get-started.md) cui si vuole collegare una sottoscrizione. Ignorare questo passaggio se è già stato creato un tenant di Azure AD B2C.
+I proprietari delle sottoscrizioni di Azure che hanno accesso amministrativo alla risorsa Azure AD B2C possono passare al modello di fatturazione MAU. Le opzioni di fatturazione sono configurate nella risorsa Azure AD B2C.
 
-## <a name="open-azure-portal-in-the-azure-ad-tenant-that-shows-your-azure-subscription"></a>Aprire il portale di Azure nel tenant di Azure AD che mostra la sottoscrizione di Azure
+Il passaggio alla fatturazione mensile di utenti attivi (MAU) è **irreversibile**. Dopo la conversione di una risorsa Azure AD B2C nel modello di fatturazione basato su MAU, non è possibile ripristinare tale risorsa al modello di fatturazione per autenticazione.
 
-Passare al tenant di Azure AD che mostra la sottoscrizione di Azure. Aprire il [portale di Azure](https://portal.azure.com) e passare al tenant di Azure AD che mostra la sottoscrizione di Azure che si vuole usare.
+Di seguito viene illustrato come passare alla fatturazione di MAU per una risorsa Azure AD B2C esistente:
 
-![Passaggio al tenant di Azure AD](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
+1. Accedere al [portale di Azure](https://portal.azure.com) come proprietario della sottoscrizione.
+1. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e quindi selezionare la directory Azure ad B2C di cui si vuole eseguire l'aggiornamento a Mau Billing.<br/>
+    ![il filtro di directory e sottoscrizioni in portale di Azure](media/active-directory-b2c-how-to-enable-billing/portal-mau-01-select-b2c-directory.png)
+1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
+1. Nella pagina **Panoramica** del tenant di Azure ad B2C selezionare il collegamento in **nome risorsa**. Si viene indirizzati alla risorsa Azure AD B2C nel tenant di Azure AD.<br/>
+    ![Azure AD B2C collegamento alla risorsa evidenziato in portale di Azure](media/active-directory-b2c-how-to-enable-billing/portal-mau-02-b2c-resource-link.png)
+1. Nella pagina **Panoramica** della risorsa Azure ad B2C, in **unità fatturabili**, selezionare il collegamento **per autenticazione (modifica a Mau)** .<br/>
+    ![modificare il collegamento MAU evidenziato in portale di Azure](media/active-directory-b2c-how-to-enable-billing/portal-mau-03-change-to-mau-link.png)
+1. Selezionare **conferma** per completare l'aggiornamento alla fatturazione di Mau.<br/>
+    ![finestra di dialogo di conferma della fatturazione basata su MAU in portale di Azure](media/active-directory-b2c-how-to-enable-billing/portal-mau-04-confirm-change-to-mau.png)
 
-## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>Trovare Azure Active Directory B2C in Azure Marketplace
+### <a name="what-to-expect-when-you-transition-to-mau-billing-from-per-authentication-billing"></a>Cosa aspettarsi quando si esegue la transizione alla fatturazione di MAU dalla fatturazione per autenticazione
 
-Fare clic sul pulsante **Crea una risorsa**. Nel campo **Cerca nel Marketplace** immettere `Active Directory B2C`.
+La misurazione basata su MAU è abilitata non appena il proprietario della sottoscrizione o della risorsa conferma la modifica. La fattura mensile rifletterà le unità di autenticazione fatturate fino alla modifica e le nuove unità di MAU che iniziano con la modifica.
 
-![Screenshot del portale con ' Active Directory B2C ' nella ricerca nel Marketplace](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+Gli utenti non sono conteggiati a doppio durante il mese di transizione. Per gli utenti attivi univoci che eseguono l'autenticazione prima della modifica viene addebitata una tariffa per autenticazione in un mese di calendario. Gli stessi utenti non sono inclusi nel calcolo MAU per il resto del ciclo di fatturazione della sottoscrizione. ad esempio:
 
-Nell'elenco dei risultati selezionare **Azure Active Directory B2C**.
+* Il tenant di Contoso B2C ha 1.000 utenti. 250 gli utenti sono attivi in un determinato mese. L'amministratore della sottoscrizione passa da per autenticazione a utenti attivi mensili (MAU) il 10 del mese.
+* La fatturazione per il 1 ° decimo viene fatturata usando il modello di autenticazione.
+  * Se 100 utenti eseguono l'accesso durante questo periodo (1 ° decimo), gli utenti vengono contrassegnati come *pagati per il mese*.
+* La fatturazione dal decimo (il tempo effettivo di transizione) viene fatturata alla tariffa di MAU.
+  * Se un altro utente di 150 accede durante questo periodo (10a-30), vengono fatturate solo le 150 aggiuntive.
+  * L'attività continua dei primi 100 utenti non influisca sulla fatturazione per il resto del mese di calendario.
 
-![Azure Active Directory B2C selezionato nell'elenco dei risultati](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
+Durante il periodo di fatturazione della transizione, il proprietario della sottoscrizione visualizzerà probabilmente le voci per entrambi i metodi (per autenticazione e per ogni MAU) presenti nell'istruzione di fatturazione della sottoscrizione di Azure:
 
-Vengono visualizzate informazioni dettagliate su Azure AD B2C. Per iniziare la configurazione del nuovo tenant di Azure Active Directory B2C, fare clic sul pulsante **Crea**.
+* Una voce per l'utilizzo fino alla data/ora di modifica che riflette per autenticazione.
+* Una voce per l'utilizzo dopo la modifica che riflette gli utenti attivi mensili (MAU).
 
-Nella schermata di creazione delle risorse selezionare **Collega un tenant Azure AD B2C esistente alla sottoscrizione di Azure**.
+Per informazioni aggiornate sulla fatturazione e sui prezzi di utilizzo per Azure AD B2C, vedere [prezzi Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
-## <a name="create-an-azure-ad-b2c-resource-within-the-azure-subscription"></a>Creare una risorsa di Azure AD B2C nella sottoscrizione di Azure
+## <a name="link-an-azure-ad-b2c-tenant-to-a-subscription"></a>Collegare un tenant di Azure AD B2C a una sottoscrizione
 
-Nella finestra di dialogo di creazione delle risorse selezionare un tenant di Azure AD B2C nell'elenco a discesa. Verranno visualizzati tutti i tenant di cui si è l'amministratore globale e quelli che non sono già collegati a una sottoscrizione.
+Gli addebiti per l'utilizzo per Azure Active Directory B2C (Azure AD B2C) vengono fatturati a una sottoscrizione di Azure. Quando viene creato un tenant di Azure AD B2C, l'amministratore del tenant deve collegarlo in modo esplicito a una sottoscrizione di Azure.
 
-Il nome della risorsa di Azure AD B2C sarà preselezionato in modo da corrispondere al nome di dominio del tenant di Azure AD B2C.
+Il collegamento alla sottoscrizione viene effettuato creando una *risorsa* Azure ad B2C all'interno della sottoscrizione di Azure di destinazione. È possibile creare diverse Azure AD B2C risorse in una singola sottoscrizione di Azure, insieme ad altre risorse di Azure, ad esempio macchine virtuali, account di archiviazione e app per la logica. È possibile visualizzare tutte le risorse all'interno di una sottoscrizione passando al tenant Azure Active Directory (Azure AD) a cui è associata la sottoscrizione.
 
-Per Sottoscrizione, selezionare una sottoscrizione attiva di Azure di cui si è l'amministratore.
+Una sottoscrizione collegata a un tenant di Azure AD B2C può essere usata per la fatturazione dell'utilizzo Azure AD B2C o di altre risorse di Azure, incluse risorse Azure AD B2C aggiuntive. La sottoscrizione non può essere usata per aggiungere altri servizi basati su licenza di Azure o licenze di Office 365 nel tenant di Azure AD B2C.
 
-Selezionare un gruppo di risorse e la località del gruppo di risorse. La selezione non influisce su località, prestazioni o stato di fatturazione del tenant di Azure AD B2C.
+### <a name="prerequisites"></a>Prerequisiti
 
-![Pagina di creazione della risorsa Azure AD B2C in portale di Azure](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+* [Sottoscrizione di Azure](https://azure.microsoft.com/free/)
+* [Azure ad B2C tenant](active-directory-b2c-get-started.md) che si vuole collegare a una sottoscrizione
+  * È necessario essere un amministratore tenant
+  * Il tenant non deve essere già collegato a una sottoscrizione
 
-## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Gestire le risorse del tenant di Azure AD B2C
+### <a name="create-the-link"></a>Creare il collegamento
 
-Dopo aver creato una risorsa di Azure AD B2C nella sottoscrizione di Azure, verrà visualizzata una nuova risorsa di tipo "Tenant B2C" aggiunta insieme alle altre risorse di Azure.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e quindi selezionare la directory che contiene la sottoscrizione di Azure che si vuole usare (*non* la directory che contiene il tenant di Azure ad B2C).
+1. Selezionare **Crea una risorsa**, immettere `Active Directory B2C` nel campo **Cerca nel Marketplace** e quindi selezionare **Azure Active Directory B2C**.
+1. Selezionare **Crea**
+1. Selezionare **collega un tenant di Azure ad B2C esistente alla sottoscrizione di Azure**.
+1. Selezionare un **Tenant Azure ad B2C** dall'elenco a discesa. Vengono visualizzati solo i tenant di cui si è un amministratore globale e che non sono già collegati a una sottoscrizione. Il campo **nome risorsa Azure ad B2C** viene popolato con il nome di dominio del tenant di Azure ad B2C selezionato.
+1. Selezionare una **sottoscrizione** di Azure attiva di cui si è amministratore.
+1. In **gruppo di risorse**selezionare **Crea nuovo**e quindi specificare il **percorso del gruppo di risorse**. Le impostazioni del gruppo di risorse non hanno alcun effetto sulla posizione, sulle prestazioni o sullo stato di fatturazione del tenant Azure AD B2C.
+1. Selezionare **Create** (Crea).
+    ![pagina di creazione della risorsa di Azure AD B2C in portale di Azure](./media/active-directory-b2c-how-to-enable-billing/portal-01-create-b2c-resource-page.png)
+
+Dopo aver completato questi passaggi per un tenant di Azure AD B2C, la sottoscrizione di Azure viene fatturata in base ai dettagli di Azure Direct o Enterprise Agreement, se applicabile.
+
+### <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Gestire le risorse del tenant di Azure AD B2C
+
+Dopo aver creato la risorsa Azure AD B2C in una sottoscrizione di Azure, verrà visualizzata una nuova risorsa di tipo "tenant B2C" con le altre risorse di Azure.
 
 È possibile usare questa risorsa per:
 
-- Passare alla sottoscrizione per esaminare le informazioni di fatturazione.
-- Passare al tenant di Azure AD B2C.
-- Inviare una richiesta di supporto.
-- Spostare la risorsa del tenant di Azure AD B2C in un'altra sottoscrizione di Azure o in un altro gruppo di risorse.
+* Passare alla sottoscrizione per esaminare le informazioni di fatturazione
+* Ottenere l'ID tenant del tenant Azure AD B2C in formato GUID
+* Passare al tenant di Azure AD B2C.
+* Invia una richiesta di supporto
+* Spostare la risorsa del tenant di Azure AD B2C in un'altra sottoscrizione o gruppo di risorse di Azure
 
-![Pagina Impostazioni risorse B2C nella portale di Azure](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.PNG)
+![Pagina Impostazioni risorse B2C nella portale di Azure](./media/active-directory-b2c-how-to-enable-billing/portal-02-b2c-resource-overview.png)
+
+### <a name="regional-restrictions"></a>Restrizioni a livello di area
+
+Se sono state stabilite restrizioni a livello di area per la creazione di risorse di Azure nella sottoscrizione, tale restrizione potrebbe impedire la creazione della risorsa Azure AD B2C.
+
+Per attenuare questo problema, è possibile ridurre le restrizioni a livello di area.
+
+## <a name="azure-cloud-solution-providers-csp-subscriptions"></a>Sottoscrizioni di Azure Cloud Solution Provider (CSP)
+
+Le sottoscrizioni di Azure Cloud Solution Provider (CSP) sono supportate in Azure AD B2C. La funzionalità è disponibile tramite le API o il portale di Azure per Azure AD B2C e per tutte le risorse di Azure. Gli amministratori della sottoscrizione CSP possono collegare, spostare ed eliminare relazioni con Azure AD B2C come fatto con altre risorse di Azure.
+
+La gestione di Azure AD B2C tramite il controllo degli accessi in base al ruolo non è influenzata dall'associazione tra il tenant di Azure AD B2C e una sottoscrizione di Azure CSP. Il controllo degli accessi in base al ruolo è ottenibile usando ruoli basati su tenant, non ruoli basati su sottoscrizioni.
 
 ## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>Modificare la sottoscrizione per la fatturazione di Azure AD B2C tenant
 
@@ -90,14 +138,6 @@ Per informazioni su come spostare risorse di Azure come il tenant di Azure AD B2
 
 Prima di iniziare lo spostamento, assicurarsi di leggere l'intero articolo per comprendere completamente le limitazioni e i requisiti per tale spostamento. Oltre alle istruzioni per lo spostamento delle risorse, include informazioni critiche come un elenco di controllo di pre-spostamento e come convalidare l'operazione di spostamento.
 
-## <a name="known-issues"></a>Problemi noti
-
-### <a name="self-imposed-restrictions"></a>Restrizioni imposte personalmente
-
-Un utente potrebbe aver stabilito una restrizione regionale per la creazione di risorse di Azure. Questa restrizione può impedire la creazione di una risorsa di Azure AD B2C. Per attenuate il problema, ridurre questa restrizione.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver completato questa procedura per ogni tenant di Azure AD B2C, i costi della sottoscrizione di Azure vengono addebitati in base ai dettagli relativi al contratto Enterprise Agreement o ad Azure Direct.
-
-È possibile esaminare le informazioni su utilizzo e fatturazione all'interno della sottoscrizione di Azure selezionata. È anche possibile esaminare report dettagliati sull'utilizzo giornaliero con l'[API di segnalazione dell'utilizzo](active-directory-b2c-reference-usage-reporting-api.md).
+Oltre a esaminare i dettagli relativi all'utilizzo e alla fatturazione in una sottoscrizione di Azure selezionata, è possibile esaminare i report dettagliati sull'utilizzo giornaliero usando l'API per la [creazione di report sull'utilizzo](active-directory-b2c-reference-usage-reporting-api.md).

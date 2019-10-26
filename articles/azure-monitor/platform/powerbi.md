@@ -1,42 +1,36 @@
 ---
 title: Importare dati di Azure Log Analytics in Power BI | Microsoft Docs
 description: Power BI è un servizio di analisi business basato sul cloud di Microsoft che fornisce report e visualizzazioni dettagliate per l'analisi di diversi set di dati.  Questo articolo descrive come configurare e importare i dati di Log Analytics in Power BI e configurarli per l'aggiornamento automatico.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 83edc411-6886-4de1-aadd-33982147b9c3
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/01/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 0b1627306f1a8e9d9285c72118bfebdcb53d369b
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.date: 05/01/2019
+ms.openlocfilehash: 62a010480dc83561a11c6ee99c76f35b29e808c1
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626109"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932122"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importare i dati di log di monitoraggio di Azure in Power BI
 
 
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) è un servizio di analisi business basato sul cloud di Microsoft che fornisce visualizzazioni dettagliate e report per l'analisi di differenti set di dati.  È possibile importare i risultati di una query di log di monitoraggio di Azure in un set di dati di Power BI in modo da poter usufruire delle funzionalità, ad esempio la combinazione di dati da origini diverse e di condividere report sul web e dispositivi mobili.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) è un servizio di analisi business basato sul cloud di Microsoft che fornisce visualizzazioni dettagliate e report per l'analisi di differenti set di dati.  È possibile importare i risultati di una query di log di monitoraggio di Azure in un set di dati Power BI in modo da poter sfruttare le funzionalità, ad esempio la combinazione di dati di origini diverse e la condivisione di report sul Web e sui dispositivi mobili.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview"></a>Panoramica
-Per importare dati da un [dell'area di lavoro di Log Analitica](manage-access.md) in Monitoraggio di Azure in Power BI, si crea un set di dati in Power BI basato su un [query log](../log-query/log-query-overview.md) in Monitoraggio di Azure.  La query viene eseguita ogni volta che viene aggiornato il set di dati.  È quindi possibile creare report di Power BI basati sui dati provenienti dal set di dati.  Per creare il set di dati in Power BI, esportare la query da Log Analytics nella [lingua di Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification)  e usarla per creare una query in Power BI Desktop e pubblicarla in Power BI come set di dati.  Di seguito sono descritti i dettagli relativi a questo processo.
+Per importare dati da un' [area di lavoro log Analytics](manage-access.md) in monitoraggio di azure in Power bi, è possibile creare un set di dati in Power bi in base a una [query di log](../log-query/log-query-overview.md) in monitoraggio di Azure.  La query viene eseguita ogni volta che viene aggiornato il set di dati.  È quindi possibile creare report di Power BI basati sui dati provenienti dal set di dati.  Per creare il set di dati in Power BI, esportare la query da Log Analytics nella [lingua di Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification)  e usarla per creare una query in Power BI Desktop e pubblicarla in Power BI come set di dati.  Di seguito sono descritti i dettagli relativi a questo processo.
 
 ![Log Analytics in Power BI](media/powerbi/overview.png)
 
 ## <a name="export-query"></a>Esportare la query
-Iniziare creando un [query di log](../log-query/log-query-overview.md) che restituisce i dati che si desidera popolare il set di dati di Power BI.  Esportare quindi la query nella [lingua di Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification), in modo che possa essere usata da Power BI Desktop.
+Per iniziare, creare una [query di log](../log-query/log-query-overview.md) che restituisca i dati per i quali si desidera popolare il set di dati Power bi.  Esportare quindi la query nella [lingua di Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification), in modo che possa essere usata da Power BI Desktop.
 
-1. [Creare la query di log in Log Analitica](../log-query/get-started-portal.md) per estrarre i dati per il set di dati.
-2. Selezionare **esportare** > **Power BI Query (M)** .  Ciò consente di esportare la query in un file di testo denominato **Powerbiquery**. 
+1. [Creare la query di log in log Analytics](../log-query/get-started-portal.md) per estrarre i dati per il set di dati.
+2. Selezionare **esporta** > **Power bi query (M)** .  Questa operazione consente di esportare la query in un file di testo denominato **PowerBIQuery. txt**. 
 
     ![Esportare la ricerca log](media/powerbi/export-analytics.png)
 
@@ -70,12 +64,12 @@ Quando si pubblica in Power BI, vengono creati un set di dati e un report.  Se s
 
 
 ### <a name="configure-scheduled-refresh"></a>Configurare l'aggiornamento pianificato
-Il set di dati creato in Power BI avrà gli stessi dati precedentemente visualizzati in Power BI Desktop.  È necessario aggiornare il set di dati periodicamente per eseguire nuovamente la query e popolarlo con i dati più recenti da monitoraggio di Azure.  
+Il set di dati creato in Power BI avrà gli stessi dati precedentemente visualizzati in Power BI Desktop.  È necessario aggiornare periodicamente il set di dati per eseguire nuovamente la query e popolarla con i dati più recenti da monitoraggio di Azure.  
 
 1. Fare clic sull'area di lavoro in cui è stato caricato il report e quindi selezionare il menu **Set di dati**. 
 1. Selezionare il menu di scelta rapida accanto al nuovo set di dati e selezionare **Impostazioni**. 
 1. In **Credenziali dell'origine dati** viene visualizzato un messaggio per indicare che le credenziali non sono valide.  Questo messaggio viene visualizzato perché non sono ancora state fornite le credenziali per il set di dati da usare quando vengono aggiornati i dati.  
-1. Fare clic su **Modifica credenziali** e specificare le credenziali con accesso all'area di lavoro di Log Analitica in Monitoraggio di Azure. Se è necessaria l'autenticazione a due fattori, selezionare **OAuth2** per il **metodo di autenticazione** perché venga richiesto di eseguire l'accesso con le proprie credenziali.
+1. Fare clic su **Modifica credenziali** e specificare le credenziali con accesso all'area di lavoro log Analytics in monitoraggio di Azure. Se è necessaria l'autenticazione a due fattori, selezionare **OAuth2** per chiedere al **metodo di autenticazione** di eseguire l'accesso con le proprie credenziali.
 
     ![Pianificazione di Power BI](media/powerbi/powerbi-schedule.png)
 
@@ -87,4 +81,4 @@ Il set di dati creato in Power BI avrà gli stessi dati precedentemente visualiz
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su [ricerche dei log](../log-query/log-query-overview.md) per compilare query che possono essere esportate in Power BI.
-* Altre informazioni sulle [Power BI](https://powerbi.microsoft.com) per generare visualizzazioni basate sulle esportazioni di log di monitoraggio di Azure.
+* Scopri di più su [Power bi](https://powerbi.microsoft.com) per creare visualizzazioni basate sulle esportazioni dei log di monitoraggio di Azure.

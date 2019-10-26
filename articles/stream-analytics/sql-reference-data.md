@@ -1,5 +1,5 @@
 ---
-title: Usare i dati di riferimento da un Database SQL per un processo Azure Stream Analitica
+title: Usare i dati di riferimento del database SQL in un processo di analisi di flusso di Azure
 description: Questo articolo descrive come usare un database SQL come input dei dati di riferimento per un processo di Analisi di flusso di Azure nel portale di Azure e in Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: ae1954b99e268e8bc44c4ba29bbc79d7734fda6e
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 733ac7d1ff1d50e5fdcfa0dec2ad3fd3f30f6d86
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461743"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72926685"
 ---
-# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Usare i dati di riferimento da un Database SQL per un processo Azure Stream Analitica
+# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Usare i dati di riferimento di un database SQL per un processo di analisi di flusso di Azure
 
 Analisi di flusso di Azure supporta il database SQL di Azure come origine di input per i dati di riferimento. È possibile usare i dati contenuti in un database SQL come dati di riferimento per il processo di Analisi di flusso nel portale di Azure e in Visual Studio con gli strumenti di Analisi di flusso. Questo articolo illustra come fare con entrambi i metodi.
 
@@ -116,7 +116,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. Aprire il file SQL nell'editor e scrivere la query SQL.
 
-5. Se si usa Visual Studio 2019 e aver installato SQL Server Data tools, è possibile testare la query facendo clic **Execute**. Verrà visualizzata una finestra della procedura guidata per eseguire la connessione al database SQL e il risultato della query comparirà nella parte inferiore della finestra.
+5. Se si usa Visual Studio 2019 ed è stato installato SQL Server Data Tools, è possibile testare la query facendo clic su **Esegui**. Verrà visualizzata una finestra della procedura guidata per eseguire la connessione al database SQL e il risultato della query comparirà nella parte inferiore della finestra.
 
 ### <a name="specify-storage-account"></a>Specificare l'account di archiviazione
 
@@ -132,7 +132,7 @@ Prima di distribuire il processo in Azure, è possibile testare la logica di que
 
 Quando si usa la query delta, è consigliabile usare le [tabelle temporali nel database SQL di Azure](../sql-database/sql-database-temporal-tables.md).
 
-1. Creare una tabella temporale nel Database SQL di Azure.
+1. Creare una tabella temporale nel database SQL di Azure.
    
    ```SQL 
       CREATE TABLE DeviceTemporal 
@@ -148,7 +148,7 @@ Quando si usa la query delta, è consigliabile usare le [tabelle temporali nel d
    ```
 2. Creare la query snapshot. 
 
-   Usare la  **\@snapshotTime** parametro per indicare al runtime di Analitica Stream per ottenere il set di dati di riferimento dalla tabella del database SQL temporale valida come l'ora di sistema. Se non si specifica questo parametro si rischia di ottenere un set di dati di riferimento di base non accurato, a causa degli sfasamenti di orario. Di seguito è riportata una query snapshot completa di esempio:
+   Usare il parametro **\@snapshotTime** per indicare al runtime di analisi di flusso di ottenere il set di dati di riferimento dalla tabella temporale del database SQL valida all'ora di sistema. Se non si specifica questo parametro si rischia di ottenere un set di dati di riferimento di base non accurato, a causa degli sfasamenti di orario. Di seguito è riportata una query snapshot completa di esempio:
    ```SQL
       SELECT DeviceId, GroupDeviceId, [Description]
       FROM dbo.DeviceTemporal
@@ -157,7 +157,7 @@ Quando si usa la query delta, è consigliabile usare le [tabelle temporali nel d
  
 2. Creare la query delta. 
    
-   Questa query recupera tutte le righe nel database SQL che sono state inserite o eliminate all'interno di un'ora di inizio  **\@deltaStartTime**e un'ora di fine  **\@deltaEndTime**. La query delta deve restituire le stesse colonne della query snapshot, nonché la colonna **_operation_** . Questa colonna definisce se la riga viene inserita o eliminata tra  **\@deltaStartTime** e  **\@deltaEndTime**. Le righe risultanti vengono contrassegnate con **1** se i record sono stati inseriti, con **2** se sono stati eliminati. 
+   Questa query consente di recuperare tutte le righe nel database SQL inserite o eliminate entro un'ora di inizio, **\@deltaStartTime**e un'ora di fine **\@deltaEndTime**. La query delta deve restituire le stesse colonne della query snapshot, nonché la colonna **_operation_** . Questa colonna definisce se la riga viene inserita o eliminata tra **\@deltaStartTime** e **\@deltaEndTime**. Le righe risultanti vengono contrassegnate con **1** se i record sono stati inseriti, con **2** se sono stati eliminati. 
 
    Per i record aggiornati, la tabella temporale registra un'operazione di inserimento ed eliminazione. Il runtime di Analisi di flusso applicherà quindi i risultati della query delta allo snapshot precedente per mantenere aggiornati i dati di riferimento. Un esempio di query delta è illustrato di seguito:
 
@@ -174,7 +174,7 @@ Quando si usa la query delta, è consigliabile usare le [tabelle temporali nel d
    Si noti che il runtime di Analisi di flusso può eseguire periodicamente la query snapshot oltre alla query delta per archiviare i checkpoint.
 
 ## <a name="test-your-query"></a>Testare la query
-   È importante verificare che la query restituisca il set di dati previsto che verranno utilizzate dal processo di Stream Analitica dei dati di riferimento. Per testare la query, passare agli Input nella sezione topologia processo nel portale. È quindi possibile selezionare i dati di esempio nel riferimento al Database SQL di input. Dopo che il codice di esempio è diventato disponibile, è possibile scaricare il file e controllare se i dati restituiti è come previsto. Se si desidera un ottimizza le iterazioni di sviluppo e test, è consigliabile usare la [strumenti di Stream Analitica per Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). È possibile anche qualsiasi altro strumento a scelta prima di tutto verificare che la query restituisce i risultati corretti da parte dell'utente del Database SQL di Azure e quindi usarlo nel processo di Stream Analitica. 
+   È importante verificare che la query restituisca il set di dati previsto che verrà usato dal processo di analisi di flusso come dati di riferimento. Per testare la query, passare a input nella sezione Topologia del processo nel portale. È quindi possibile selezionare dati di esempio nell'input di riferimento del database SQL. Quando l'esempio diventa disponibile, è possibile scaricare il file e verificare se i dati restituiti sono quelli previsti. Se si vuole ottimizzare le iterazioni di sviluppo e test, è consigliabile usare gli [strumenti di analisi di flusso per Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). È anche possibile usare qualsiasi altro strumento di preferenza per assicurarsi prima che la query restituisca i risultati corretti dal database SQL di Azure e quindi usarla nel processo di analisi di flusso. 
 
 ## <a name="faqs"></a>Domande frequenti
 
@@ -184,10 +184,10 @@ Non sono previsti [costi per unità di streaming](https://azure.microsoft.com/pr
 
 **Come si capisce se lo snapshot dei dati di riferimento viene interrogato dal database SQL e usato nel processo di Analisi di flusso di Azure?**
 
-Esistono due metriche filtrate in base al nome logico (con il portale di Azure le metriche) che è possibile usare per monitorare l'integrità dei dati di riferimento del database SQL di input.
+Esistono due metriche filtrate in base al nome logico (nel portale di Azure delle metriche), che è possibile usare per monitorare l'integrità dell'input dei dati di riferimento del database SQL.
 
-   * InputEvents: questa metrica misura il numero di record caricati dal set di dati di riferimento del database SQL.
-   * InputEventBytes: questa metrica misura le dimensioni dello snapshot dei dati di riferimento caricato nella memoria del processo di Analisi di flusso. 
+   * InputEvents: questa metrica misura il numero di record caricati in dal set di dati di riferimento del database SQL.
+   * InputEventBytes: questa metrica misura la dimensione dello snapshot dei dati di riferimento caricato in memoria del processo di analisi di flusso. 
 
 La combinazione delle due metriche può essere usata per dedurre se il processo sta eseguendo query sul database SQL per recuperare il set di dati di riferimento e quindi caricarlo in memoria.
 
@@ -202,5 +202,5 @@ Analisi di flusso garantisce un'elaborazione di eventi di tipo exactly-once e il
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Uso dei dati di riferimento per le ricerche in Analisi di flusso](stream-analytics-use-reference-data.md)
-* [Avvio rapido: Creare un processo di Analisi di flusso con gli strumenti di Analisi di flusso di Azure per Visual Studio](stream-analytics-quick-create-vs.md)
+* [Guida introduttiva: creare un processo di analisi di flusso usando gli strumenti di analisi di flusso di Azure per Visual Studio](stream-analytics-quick-create-vs.md)
 * [Testare i dati live in locale usando gli strumenti di Analisi di flusso di Azure per Visual Studio (anteprima)](stream-analytics-live-data-local-testing.md)

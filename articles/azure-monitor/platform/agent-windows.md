@@ -1,24 +1,18 @@
 ---
 title: Connettere i computer Windows a monitoraggio di Azure | Microsoft Docs
 description: Questo articolo descrive come connettere i computer Windows ospitati in altri cloud o in monitoraggio da sito locale ad Azure con l'agente di Log Analytics per Windows.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/07/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 6c8d25a9df49323866e99487ef6c648dede40ec4
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.date: 10/07/2019
+ms.openlocfilehash: abe114a989c4ec672d391a7fd7d83341d4c52638
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72033963"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932786"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Connettere i computer Windows a monitoraggio di Azure
 
@@ -67,9 +61,9 @@ Per configurare, usare il protocollo [TLS 1.2](https://docs.microsoft.com/window
 
 Configurare .NET Framework 4.6 o versione successiva per supportare la crittografia sicura, dal momento che è disabilitata per impostazione predefinita. La [crittografia avanzata](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) usa protocolli di rete più sicuri, come TLS 1.2 che blocca i protocolli non sicuri. 
 
-1. Individuare la seguente sottochiave del registro di sistema: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319**.  
+1. Individuare la sottochiave del registro di sistema seguente: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\. NETFramework\v4.0.30319**.  
 2. Creare il valore DWORD **SchUseStrongCrypto** sotto questa sottochiave con valore **1**.  
-3. Individuare la seguente sottochiave del registro di sistema: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319**.  
+3. Individuare la sottochiave del registro di sistema seguente: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319**.  
 4. Creare il valore DWORD **SchUseStrongCrypto** sotto questa sottochiave con valore **1**. 
 5. Riavviare il sistema per rendere effettive le impostazioni. 
 
@@ -78,7 +72,7 @@ I passaggi seguenti installano e configurano l'agente Log Analytics in Azure e i
 
 1. Nell'area di lavoro Log Analytics, dalla pagina **Server Windows** a cui si è passati in precedenza, selezionare la versione appropriata da scaricare in **Scarica agente Windows** a seconda dell'architettura del processore del sistema operativo Windows.   
 2. Eseguire il programma di installazione per installare l'agente nel computer in uso.
-2. Nella pagina **iniziale** fare clic su **Avanti**.
+2. Nella pagina di **benvenuto** fare clic su **Avanti**.
 3. Nella pagina **Condizioni di licenza** leggere la licenza e quindi fare clic su **Accetto**.
 4. Nella pagina **Cartella di destinazione** modificare o mantenere la cartella di installazione predefinita e quindi fare clic su **Avanti**.
 5. Nella pagina **Opzioni di installazione dell'agente** scegliere di connettere l'agente ad Azure Log Analytics e quindi fare clic su **Avanti**.   

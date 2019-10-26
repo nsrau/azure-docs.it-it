@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2018
 ms.author: atsenthi
-ms.openlocfilehash: 6276f347f0cc0ecc03acc95282e83c243679957a
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 8503b3c8a630575b917e3710ce4d7c5d6fbe70cb
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802422"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934043"
 ---
 # <a name="application-upgrade-parameters"></a>Parametri di aggiornamento delle applicazioni
 Questo articolo descrive i diversi parametri che si applicano durante l'aggiornamento di un'applicazione di Azure Service Fabric. I parametri di aggiornamento di un'applicazione determinano i timeout e i controlli di integrità che vengono applicati durante l'aggiornamento e specificano i criteri da applicare quando un aggiornamento non riesce. I parametri dell'applicazione si applicano agli aggiornamenti tramite:
@@ -57,10 +57,6 @@ UnmonitoredManual | PS | Indica che la modalità di aggiornamento non viene moni
 ### <a name="optional-parameters"></a>Parametri facoltativi
 
 I criteri di valutazione dell'integrità sono facoltativi. Se all'avvio di un aggiornamento non vengono specificati i criteri di valutazione dell'integrità, Service Fabric usa i criteri di integrità dell'applicazione specificati nel file ApplicationManifest.xml dell'istanza dell'applicazione.
-
-Per visualizzare il campo descrizione completo, usare la barra di scorrimento orizzontale nella parte inferiore della tabella.
-
-(PS=PowerShell, VS=Visual Studio)
 
 > [!div class="mx-tdBreakAll"]
 > | Parametro | Si applica a | Description |

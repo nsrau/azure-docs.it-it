@@ -1,24 +1,18 @@
 ---
 title: Progettazione della distribuzione dei log di monitoraggio di Azure | Microsoft Docs
 description: Questo articolo descrive le considerazioni e le raccomandazioni per i clienti che preparano la distribuzione di un'area di lavoro in monitoraggio di Azure.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/20/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 24eb8440ed4746b51b92ce371b5d58b8d55de9a3
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 09/20/2019
+ms.openlocfilehash: ae737b908aad95f61cef922b493b41752da68f14
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177599"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932360"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Progettazione della distribuzione dei log di monitoraggio di Azure
 
@@ -32,7 +26,7 @@ Un'area di lavoro Log Analytics offre:
 
 * Una posizione geografica per l'archiviazione dei dati.
 * Isolamento dei dati tramite la concessione di diritti di accesso a utenti diversi dopo una delle strategie di progettazione consigliate.
-* Ambito per la configurazione di impostazioni quali il [piano tariffario](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [conservazione](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)e la [capsulatura dei dati](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#manage-your-maximum-daily-data-volume).
+* Ambito per la configurazione di impostazioni quali il piano [tariffario](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [conservazione](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)e la [capsulatura dei dati](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#manage-your-maximum-daily-data-volume).
 
 Questo articolo fornisce una panoramica dettagliata delle considerazioni relative alla progettazione e alla migrazione, alla panoramica del controllo di accesso e alla comprensione delle implementazioni di progettazione consigliate per l'organizzazione IT.
 
@@ -48,9 +42,9 @@ Identificare il numero di aree di lavoro necessarie è influenzato da uno o più
 
 Oggi le organizzazioni IT sono modellate in seguito a un ibrido centralizzato, decentralizzato o tra due strutture. Di conseguenza, i modelli di distribuzione dell'area di lavoro seguenti sono stati comunemente utilizzati per eseguire il mapping a una di queste strutture organizzative:
 
-* **Centralizzata**: Tutti i log vengono archiviati in un'area di lavoro centrale e amministrati da un singolo team, con monitoraggio di Azure che fornisce l'accesso differenziato per Team. In questo scenario, è facile da gestire, eseguire ricerche tra le risorse e i log correlati tra loro. L'area di lavoro può aumentare in modo significativo a seconda della quantità di dati raccolti da più risorse nella sottoscrizione, con un sovraccarico amministrativo aggiuntivo per mantenere il controllo di accesso a utenti diversi.
-* **Decentralizzata**: Ogni team ha una propria area di lavoro creata in un gruppo di risorse che possiede e gestisce e i dati di log vengono separati per ogni risorsa. In questo scenario, l'area di lavoro può essere mantenuta sicura e il controllo degli accessi è coerente con l'accesso alle risorse, ma è difficile correlare i log. Gli utenti che necessitano di un'ampia visualizzazione di molte risorse non possono analizzare i dati in modo significativo.
-* **Ibrido**: I requisiti di conformità del controllo di sicurezza complicano ulteriormente questo scenario perché molte organizzazioni implementano entrambi i modelli di distribuzione in parallelo. Ciò comporta in genere una configurazione complessa, costosa e difficile da gestire con gap nel code coverage dei log.
+* **Centralizzata**: tutti i log vengono archiviati in un'area di lavoro centrale e amministrati da un singolo team, con monitoraggio di Azure che offre un accesso differenziato per Team. In questo scenario, è facile da gestire, eseguire ricerche tra le risorse e i log correlati tra loro. L'area di lavoro può aumentare in modo significativo a seconda della quantità di dati raccolti da più risorse nella sottoscrizione, con un sovraccarico amministrativo aggiuntivo per mantenere il controllo di accesso a utenti diversi.
+* **Decentralizzata**: ogni team ha una propria area di lavoro creata in un gruppo di risorse che possiede e gestisce e i dati di log vengono separati per ogni risorsa. In questo scenario, l'area di lavoro può essere mantenuta sicura e il controllo degli accessi è coerente con l'accesso alle risorse, ma è difficile correlare i log. Gli utenti che necessitano di un'ampia visualizzazione di molte risorse non possono analizzare i dati in modo significativo.
+* **Ibrido**: i requisiti di conformità dei controlli di sicurezza complicano ulteriormente questo scenario perché molte organizzazioni implementano entrambi i modelli di distribuzione in parallelo. Ciò comporta in genere una configurazione complessa, costosa e difficile da gestire con gap nel code coverage dei log.
 
 Quando si usano gli agenti di Log Analytics per raccogliere dati, è necessario comprendere quanto segue per pianificare la distribuzione dell'agente:
 
@@ -63,17 +57,17 @@ Se si usa System Center Operations Manager 2012 R2 o versione successiva:
 * I computer Linux che inviano report a un gruppo di gestione devono essere configurati per segnalare direttamente a un'area di lavoro Log Analytics. Se i computer Linux hanno già segnalato direttamente a un'area di lavoro e si desidera monitorarli con Operations Manager, attenersi alla procedura seguente per creare [un report a un gruppo di gestione Operations Manager](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
 * È possibile installare l'agente di Log Analytics Windows nel computer Windows e fare in modo che il report sia Operations Manager integrato con un'area di lavoro e un'area di lavoro diversa.
 
-## <a name="access-control-overview"></a>Panoramica sul controllo di accesso
+## <a name="access-control-overview"></a>Panoramica del controllo di accesso
 
 Con il controllo degli accessi in base al ruolo, è possibile concedere a utenti e gruppi solo la quantità di accesso necessaria per lavorare con i dati di monitoraggio in un'area di lavoro. Questo consente di allinearsi al modello operativo dell'organizzazione IT usando un'unica area di lavoro per archiviare i dati raccolti abilitati in tutte le risorse. Ad esempio, si concede l'accesso al team responsabile dei servizi di infrastruttura ospitati in macchine virtuali di Azure (VM) e, di conseguenza, avranno accesso solo ai log generati dalle macchine virtuali. Segue il nuovo modello di log del contesto delle risorse. La base per questo modello è relativa a ogni record di log emesso da una risorsa di Azure, che viene automaticamente associato a questa risorsa. I log vengono quindi sottoutilizzati in un'area di lavoro centrale che rispetta l'ambito e il controllo degli accessi in base al ruolo
 
 I dati a cui un utente può accedere sono determinati da una combinazione di fattori elencati nella tabella seguente. Ogni è descritto nelle sezioni riportate di seguito.
 
-| Fattore | DESCRIZIONE |
+| Fattore | Description |
 |:---|:---|
 | [Modalità di accesso](#access-mode) | Metodo utilizzato dall'utente per accedere all'area di lavoro.  Definisce l'ambito dei dati disponibili e la modalità di controllo di accesso applicata. |
 | [Modalità di controllo di accesso](#access-control-mode) | Impostazione nell'area di lavoro che definisce se le autorizzazioni vengono applicate a livello di area di lavoro o di risorsa. |
-| [Autorizzazioni](manage-access.md) | Autorizzazioni applicate a singoli utenti o gruppi di utenti per l'area di lavoro o la risorsa. Definisce i dati a cui l'utente avrà accesso. |
+| [autorizzazioni](manage-access.md) | Autorizzazioni applicate a singoli utenti o gruppi di utenti per l'area di lavoro o la risorsa. Definisce i dati a cui l'utente avrà accesso. |
 | [RBAC a livello di tabella](manage-access.md#table-level-rbac) | Autorizzazioni granulari facoltative che si applicano a tutti gli utenti indipendentemente dalla modalità di accesso o dal controllo di accesso. Definisce i tipi di dati a cui un utente può accedere. |
 
 ## <a name="access-mode"></a>Modalità di accesso
@@ -82,11 +76,11 @@ La *modalità di accesso* si riferisce al modo in cui un utente accede a un'area
 
 Gli utenti hanno due opzioni per accedere ai dati:
 
-* **Area di lavoro-contesto**: È possibile visualizzare tutti i log nell'area di lavoro di cui si dispone delle autorizzazioni. Le query in questa modalità hanno come ambito tutti i dati di tutte le tabelle nell'area di lavoro. Questa è la modalità di accesso usata quando si accede ai log con l'area di lavoro come ambito, ad esempio quando si selezionano i **log** dal menu di **monitoraggio di Azure** nel portale di Azure.
+* **Area di lavoro**: è possibile visualizzare tutti i log nell'area di lavoro di cui si dispone delle autorizzazioni. Le query in questa modalità hanno come ambito tutti i dati di tutte le tabelle nell'area di lavoro. Questa è la modalità di accesso usata quando si accede ai log con l'area di lavoro come ambito, ad esempio quando si selezionano i **log** dal menu di **monitoraggio di Azure** nel portale di Azure.
 
     ![Contesto Log Analytics dall'area di lavoro](./media/design-logs-deployment/query-from-workspace.png)
 
-* **Contesto risorsa**: Quando si accede all'area di lavoro per una risorsa, un gruppo di risorse o una sottoscrizione particolare, ad esempio quando si seleziona **log** da un menu delle risorse nella portale di Azure, è possibile visualizzare i log solo per le risorse in tutte le tabelle a cui si ha accesso. Le query in questa modalità hanno come ambito solo i dati associati a tale risorsa. Questa modalità consente inoltre la granularità RBAC.
+* **Contesto delle risorse**: quando si accede all'area di lavoro per una risorsa, un gruppo di risorse o una sottoscrizione particolare, ad esempio quando si selezionano i **log** da un menu delle risorse nella portale di Azure, è possibile visualizzare i log solo per le risorse in tutte le tabelle di cui si dispone accesso a. Le query in questa modalità hanno come ambito solo i dati associati a tale risorsa. Questa modalità consente inoltre la granularità RBAC.
 
     ![Contesto Log Analytics dalla risorsa](./media/design-logs-deployment/query-from-resource.png)
 
@@ -115,13 +109,13 @@ Nella tabella seguente sono riepilogate le modalità di accesso:
 
 La *modalità di controllo di accesso* è un'impostazione in ogni area di lavoro che definisce la modalità di determinazione delle autorizzazioni per l'area di lavoro.
 
-* **Richiedi autorizzazioni**per l'area di lavoro: Questa modalità di controllo non consente il controllo degli accessi in base al ruolo. Per consentire a un utente di accedere all'area di lavoro, è necessario concedere le autorizzazioni all'area di lavoro o a tabelle specifiche.
+* **Richiedi autorizzazioni**per l'area di lavoro: questa modalità di controllo non consente l'uso di RBAC granulari. Per consentire a un utente di accedere all'area di lavoro, è necessario concedere le autorizzazioni all'area di lavoro o a tabelle specifiche.
 
     Se un utente accede all'area di lavoro dopo la modalità di contesto dell'area di lavoro, ha accesso a tutti i dati in qualsiasi tabella a cui è stato concesso l'accesso. Se un utente accede all'area di lavoro dopo la modalità del contesto di risorsa, ha accesso solo ai dati per tale risorsa in qualsiasi tabella a cui è stato concesso l'accesso.
 
     Questa è l'impostazione predefinita per tutte le aree di lavoro create prima del 2019 marzo.
 
-* **Usare le autorizzazioni per risorse o aree di lavoro**: Questa modalità di controllo consente la granularità RBAC. È possibile concedere agli utenti l'accesso solo ai dati associati a risorse che possono visualizzare assegnando l'autorizzazione Azure `read`. 
+* **Usa autorizzazioni per risorse o aree di lavoro**: questa modalità di controllo consente il controllo degli accessi in base È possibile concedere agli utenti l'accesso solo ai dati associati a risorse che possono visualizzare assegnando l'autorizzazione `read` di Azure. 
 
     Quando un utente accede all'area di lavoro in modalità di contesto dell'area di lavoro, vengono applicate le autorizzazioni dell'area di lavoro. Quando un utente accede all'area di lavoro in modalità del contesto di risorse, vengono verificate solo le autorizzazioni delle risorse e le autorizzazioni dell'area di lavoro vengono ignorate. Abilitare il controllo degli accessi in base al ruolo per un utente rimuovendo tali autorizzazioni dall'area di lavoro e consentendone la riconoscibilità.
 
@@ -145,7 +139,7 @@ Operation
 ``` 
 
 
-## <a name="recommendations"></a>Consigli
+## <a name="recommendations"></a>Raccomandazioni
 
 ![Esempio di progettazione del contesto di risorsa](./media/design-logs-deployment/workspace-design-resource-context-01.png)
 

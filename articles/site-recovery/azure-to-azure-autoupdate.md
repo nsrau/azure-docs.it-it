@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 10/24/2019
 ms.author: rajanaki
-ms.openlocfilehash: 92a46f7be116d0664b438c9039e311f802c873e5
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: 79a11a58f11486f3eda0205e62e7a4a92ff070b2
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708087"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933942"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Aggiornamento automatico del servizio Mobility nella replica da Azure ad Azure
 
@@ -53,11 +53,11 @@ Quando si Abilita la replica per una macchina virtuale a partire [dalla visualiz
 
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Attivare o disattivare le impostazioni di aggiornamento dell'estensione nell'insieme di credenziali
 
-1. All'interno dell'insieme di credenziali > passare a Gestisci**Site Recovery infrastruttura**.
-2. In per**le impostazioni di aggiornamento dell'estensione** **per macchine** > virtuali di Azure, attivare l'interruttore **Consenti Site Recovery di gestire** . Per gestire manualmente, disattivarla. 
+1. All'interno dell'insieme di credenziali passare a **gestisci** > **infrastruttura Site Recovery**.
+2. In **per le macchine virtuali di Azure** > **le impostazioni di aggiornamento dell'estensione**, attivare l'interruttore **Consenti Site Recovery di gestire** . Per gestire manualmente, disattivarla. 
 3. Selezionare **Salva**.
 
-![Impostazioni aggiornamento estensione](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![Impostazioni di aggiornamento dell'estensione](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important]
 > Quando si sceglie **consenti Site Recovery di gestire**, l'impostazione viene applicata a tutte le macchine virtuali nell'insieme di credenziali corrispondente.
@@ -66,7 +66,8 @@ Quando si Abilita la replica per una macchina virtuale a partire [dalla visualiz
 > [!Note]
 > Entrambe le opzioni inviano una notifica all'utente dell'account di automazione usato per la gestione degli aggiornamenti. Se si usa questa funzionalità in un insieme di credenziali per la prima volta, per impostazione predefinita viene creato un nuovo account di automazione. In alternativa, è possibile personalizzare l'impostazione e scegliere un account di automazione esistente. Tutte le repliche di abilitazione successive nello stesso insieme di credenziali usano quella creata in precedenza. Attualmente nell'elenco a discesa verranno elencati solo gli account di automazione che si trovano nello stesso gruppo di risorse dell'insieme di credenziali.  
 
-Per un account di automazione personalizzato, usare lo script seguente:
+> [!IMPORTANT]
+> Lo script seguente deve essere eseguito nel contesto di un account di automazione per un account di automazione personalizzato, usare lo script seguente:
 
 ```azurepowershell
 param(
@@ -505,7 +506,7 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 ### <a name="manage-updates-manually"></a>Gestione manuale degli aggiornamenti
 
-1. Se sono presenti nuovi aggiornamenti per il servizio Mobility installato nelle VM, verrà visualizzata la notifica seguente: "È disponibile un nuovo aggiornamento dell'agente di replica di Site Recovery. Fare clic per installare "
+1. Se sono presenti nuovi aggiornamenti per il servizio Mobility installato nelle VM, verrà visualizzata la notifica seguente: "è disponibile la nuova Site Recovery aggiornamento dell'agente di replica. Fare clic per installare "
 
      ![Finestra Elementi replicati](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 2. Selezionare la notifica per aprire la pagina di selezione della macchina virtuale.
@@ -520,9 +521,9 @@ Se si verifica un problema con gli aggiornamenti automatici, verrà visualizzata
 
 Se non è stato possibile abilitare gli aggiornamenti automatici, vedere gli errori comuni e le azioni consigliate seguenti:
 
-- **Errore**: Non si è autorizzati a creare un account RunAs (entità servizio) e a concedere il ruolo Collaboratore all'entità servizio.
+- **Errore**: non si hanno le autorizzazioni per creare un account RunAs di Azure (entità servizio) e concedere il ruolo di collaboratore all'entità servizio.
 
-   **Azione consigliata**: Verificare che l'account connesso sia assegnato come collaboratore e riprovare. Per ulteriori informazioni sull'assegnazione di autorizzazioni, vedere la sezione autorizzazioni necessarie in [usare il portale per creare un'applicazione Azure ad e un'entità servizio che possano accedere alle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) .
+   **Azione consigliata**: assicurarsi che l'account connesso sia assegnato come collaboratore e riprovare. Per ulteriori informazioni sull'assegnazione di autorizzazioni, vedere la sezione autorizzazioni necessarie in [usare il portale per creare un'applicazione Azure ad e un'entità servizio che possano accedere alle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) .
  
    Per risolvere la maggior parte dei problemi dopo aver abilitato gli aggiornamenti automatici, selezionare **Ripristina**. Se il pulsante Ripristina non è disponibile, vedere il messaggio di errore visualizzato nel riquadro Impostazioni aggiornamento estensioni.
 
@@ -530,17 +531,17 @@ Se non è stato possibile abilitare gli aggiornamenti automatici, vedere gli err
 
 - **Errore**: l'account RunAs non ha l'autorizzazione per accedere alla risorsa dei servizi di ripristino.
 
-    **Azione consigliata**: Eliminare e quindi [ricreare l'account RunAs](https://docs.microsoft.com/azure/automation/automation-create-runas-account). In alternativa, assicurarsi che l'applicazione Azure Active Directory dell'account RunAs di automazione abbia accesso alla risorsa dei servizi di ripristino.
+    **Azione consigliata**: eliminare e quindi [ricreare l'account RunAs](https://docs.microsoft.com/azure/automation/automation-create-runas-account). In alternativa, assicurarsi che l'applicazione Azure Active Directory dell'account RunAs di automazione abbia accesso alla risorsa dei servizi di ripristino.
 
 - **Errore**: impossibile trovare l'account RunAs. È possibile che uno degli elementi seguenti (applicazione di Azure Active Directory, entità servizio, ruolo, asset di certificato di Automazione, asset di connessione di Automazione) o l'identificazione personale non siano identici tra certificato e connessione. 
 
-    **Azione consigliata**: Eliminare e quindi [ricreare l'account RunAs](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+    **Azione consigliata**: eliminare e quindi [ricreare l'account RunAs](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 
--  **Errore**: Il certificato RunAs di Azure usato dall'account di automazione sta per scadere. 
+-  **Errore**: il certificato RunAs di Azure usato dall'account di automazione sta per scadere. 
 
-    Il certificato autofirmato creato per l'account RunAs scade un anno dalla data di creazione. È possibile rinnovarlo in qualsiasi momento prima della scadenza. Se è stata effettuata l'iscrizione per le notifiche tramite posta elettronica, si riceveranno anche messaggi di posta elettronica quando è richiesta un'azione da parte dell'utente. Questo errore verrà visualizzato 2 mesi prima della data di scadenza e cambierà in un errore critico se il certificato è scaduto. Una volta scaduto il certificato, l'aggiornamento automatico non funzionerà finché non si rinnova lo stesso.
+    Il certificato autofirmato creato per l'account RunAs scade un anno dalla data di creazione. È possibile rinnovarlo in qualsiasi momento prima della scadenza. Se è stata effettuata l'iscrizione per le notifiche tramite posta elettronica, si riceveranno anche messaggi di posta elettronica quando è richiesta un'azione da parte dell'utente. Questo errore verrà visualizzato due mesi prima della data di scadenza e cambierà in un errore critico se il certificato è scaduto. Una volta scaduto il certificato, l'aggiornamento automatico non funzionerà finché non si rinnova lo stesso.
 
-   **Azione consigliata**: Fare clic su "Ripristina" e quindi su "Rinnova certificato" per risolvere il problema.
+   **Azione consigliata**: fare clic su "Ripristina" e quindi su "Rinnova certificato" per risolvere il problema.
     
    ![rinnovo-certificato](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
 

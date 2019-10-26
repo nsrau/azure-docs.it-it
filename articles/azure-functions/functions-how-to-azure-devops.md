@@ -1,39 +1,39 @@
 ---
-title: Offrire in modo continuo funzione degli aggiornamenti del codice con DevOps di Azure - funzioni di Azure
-description: Informazioni su come impostare una pipeline di DevOps di Azure che fa riferimento a funzioni di Azure.
+title: Recapitare costantemente gli aggiornamenti del codice di funzione tramite Azure DevOps-funzioni di Azure
+description: Informazioni su come configurare una pipeline di Azure DevOps destinata a funzioni di Azure.
 author: ahmedelnably
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
-ms.openlocfilehash: 0fdad0caa2deef0d7d55b30a85632f72f4ff0ecc
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 4fb01eac53151799a0def00d13f18619faf437f6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594469"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72927540"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Recapito continuo tramite Azure DevOps
 
-È possibile distribuire automaticamente la funzione a un'app per le funzioni di Azure usando [pipeline di Azure](/azure/devops/pipelines/).
+È possibile distribuire automaticamente la funzione in un'app funzioni di Azure usando [Azure Pipelines](/azure/devops/pipelines/).
 
-Sono disponibili due opzioni per la definizione della pipeline:
+Per la definizione della pipeline sono disponibili due opzioni:
 
-- **YAML file**: Un file YAML descrive la pipeline. Il file potrebbe essere presente una sezione di passaggi di compilazione e una sezione di rilascio. Il file YAML deve essere nello stesso repository dell'app.
-- **Modello**: I modelli sono attività pronte all'uso che compila o si distribuisce l'app.
+- **File YAML**: un file YAML descrive la pipeline. Il file potrebbe includere una sezione relativa ai passaggi di compilazione e una sezione di rilascio. Il file YAML deve trovarsi nello stesso repository dell'app.
+- **Modello**: i modelli sono attività già create che compilano o distribuiscono l'app.
 
-## <a name="yaml-based-pipeline"></a>Della pipeline basati su YAML
+## <a name="yaml-based-pipeline"></a>Pipeline basata su YAML
 
-Per creare una pipeline in base al YAML, innanzitutto compilare l'app e quindi distribuire l'app.
+Per creare una pipeline basata su YAML, compilare prima l'app e quindi distribuire l'app.
 
-### <a name="build-your-app"></a>Creare l'app
+### <a name="build-your-app"></a>Crea la tua app
 
-Come si compila l'app nelle pipeline di Azure dipende dal linguaggio di programmazione dell'app. Ogni linguaggio ha istruzioni di compilazione specifiche che creare un elemento di distribuzione. Un elemento di distribuzione viene usato per distribuire l'app per le funzioni in Azure.
+La modalità di compilazione dell'app in Azure Pipelines dipende dal linguaggio di programmazione dell'app. Ogni linguaggio dispone di passaggi di compilazione specifici che creano un artefatto di distribuzione. Viene usato un artefatto di distribuzione per distribuire l'app per le funzioni in Azure.
 
 #### <a name="net"></a>.NET
 
-Per creare un file YAML per compilare un'app .NET, è possibile usare l'esempio seguente:
+È possibile usare l'esempio seguente per creare un file YAML per compilare un'app .NET:
 
 ```yaml
 pool:
@@ -92,7 +92,7 @@ steps:
 
 #### <a name="python"></a>Python
 
-È possibile usare l'esempio seguente per creare un file YAML per compilare un'app Python. Python è supportata solo per le funzioni di Azure di Linux.
+È possibile usare l'esempio seguente per creare un file YAML per compilare un'app Python. Python è supportato solo per le funzioni di Azure per Linux. YAML per Python 3,7 può essere compilato sostituendo tutte le istanze di 3,6 con 3,7 in questo YAML.
 
 ```yaml
 pool:
@@ -125,7 +125,7 @@ steps:
 ```
 #### <a name="powershell"></a>PowerShell
 
-È possibile usare l'esempio seguente per creare un file YAML per creare un pacchetto un'app di PowerShell. PowerShell è supportata solo per le funzioni di Windows Azure.
+È possibile usare l'esempio seguente per creare un file YAML per creare il pacchetto di un'app PowerShell. PowerShell è supportato solo per le funzioni di Windows Azure.
 
 ```yaml
 pool:
@@ -143,13 +143,13 @@ steps:
     name: 'drop'
 ```
 
-### <a name="deploy-your-app"></a>Distribuire l'app
+### <a name="deploy-your-app"></a>Distribuire l'app Web
 
-È necessario includere uno degli esempi di YAML seguenti nel file YAML, a seconda del sistema operativo host.
+È necessario includere uno degli esempi YAML seguenti nel file YAML, a seconda del sistema operativo host.
 
-#### <a name="windows-function-app"></a>App per le funzioni Windows
+#### <a name="windows-function-app"></a>App per le funzioni di Windows
 
-È possibile usare il frammento di codice seguente per distribuire un'app per Windows:
+Per distribuire un'app per le funzioni di Windows, è possibile usare il frammento di codice seguente:
 
 ```yaml
 steps:
@@ -166,7 +166,7 @@ steps:
 
 #### <a name="linux-function-app"></a>App per le funzioni Linux
 
-È possibile usare il frammento di codice seguente per distribuire un'app per Linux:
+Per distribuire un'app per le funzioni Linux è possibile usare il frammento di codice seguente:
 
 ```yaml
 steps:
@@ -182,61 +182,61 @@ steps:
     #slotName: '<Slot name>'
 ```
 
-## <a name="template-based-pipeline"></a>In base al modello di pipeline
+## <a name="template-based-pipeline"></a>Pipeline basata su modelli
 
-I modelli di Azure DevOps sono gruppi predefiniti di attività che compila o si distribuisce un'app.
+I modelli in Azure DevOps sono gruppi predefiniti di attività che compilano o distribuiscono un'app.
 
-### <a name="build-your-app"></a>Creare l'app
+### <a name="build-your-app"></a>Crea la tua app
 
-Come si compila l'app nelle pipeline di Azure dipende dal linguaggio di programmazione dell'app. Ogni linguaggio ha istruzioni di compilazione specifiche che creare un elemento di distribuzione. Un elemento di distribuzione è utilizzato per aggiornare l'app per le funzioni in Azure.
+La modalità di compilazione dell'app in Azure Pipelines dipende dal linguaggio di programmazione dell'app. Ogni linguaggio dispone di passaggi di compilazione specifici che creano un artefatto di distribuzione. Viene usato un artefatto di distribuzione per aggiornare l'app per le funzioni in Azure.
 
-Per usare modelli di compilazione predefiniti, quando si crea una nuova pipeline di compilazione, selezionare **usare l'editor classico** per creare una pipeline usando Progettazione modelli.
+Per utilizzare i modelli di compilazione predefiniti, quando si crea una nuova pipeline di compilazione, selezionare **utilizzare l'editor classico** per creare una pipeline utilizzando modelli di progettazione.
 
-![Selezionare l'editor di pipeline di Azure classico](media/functions-how-to-azure-devops/classic-editor.png)
+![Selezionare l'editor classico Azure Pipelines](media/functions-how-to-azure-devops/classic-editor.png)
 
-Dopo aver configurato l'origine del codice, modelli di compilazione ricerca per le funzioni di Azure. Selezionare il modello che corrisponde alla lingua l'app.
+Dopo aver configurato l'origine del codice, cercare i modelli di compilazione di funzioni di Azure. Selezionare il modello che corrisponde alla lingua dell'app.
 
 ![Selezionare un modello di compilazione di funzioni di Azure](media/functions-how-to-azure-devops/build-templates.png)
 
-In alcuni casi, gli artefatti di compilazione hanno una struttura di cartelle specifiche. Potrebbe essere necessario selezionare la **nome della cartella radice anteposto ai percorsi di archivio** casella di controllo.
+In alcuni casi, gli artefatti di compilazione hanno una struttura di cartelle specifica. Potrebbe essere necessario selezionare la casella **di controllo anteporre il nome della cartella radice ai percorsi di archiviazione** .
 
-![L'opzione per anteporre il nome della cartella radice](media/functions-how-to-azure-devops/prepend-root-folder.png)
+![Opzione per anteporre il nome della cartella radice](media/functions-how-to-azure-devops/prepend-root-folder.png)
 
 #### <a name="javascript-apps"></a>App JavaScript
 
-Se l'app JavaScript ha una dipendenza in moduli nativi di Windows, è necessario aggiornare la versione di pool dell'agente per **Hosted VS2017**.
+Se l'app JavaScript dipende da moduli nativi di Windows, è necessario aggiornare la versione del pool di agenti a **Hosted VS2017**.
 
-![Aggiornare la versione di pool di agenti](media/functions-how-to-azure-devops/change-agent.png)
+![Aggiornare la versione del pool di agenti](media/functions-how-to-azure-devops/change-agent.png)
 
-### <a name="deploy-your-app"></a>Distribuire l'app
+### <a name="deploy-your-app"></a>Distribuire l'app Web
 
-Quando si crea una nuova pipeline di rilascio, cercare il modello di rilascio di funzioni di Azure.
+Quando si crea una nuova pipeline di versione, cercare il modello di rilascio di funzioni di Azure.
 
-![Eseguire la ricerca per le funzioni di Azure della versione di modello](media/functions-how-to-azure-devops/release-template.png)
+![Cercare il modello di rilascio di funzioni di Azure](media/functions-how-to-azure-devops/release-template.png)
 
-Distribuzione in uno slot di distribuzione non è supportata nel modello di rilascio.
+La distribuzione in uno slot di distribuzione non è supportata nel modello di versione.
 
-## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Creare una pipeline di compilazione tramite la CLI di Azure
+## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Creare una pipeline di compilazione usando l'interfaccia della riga di comando di Azure
 
-Per creare una pipeline di compilazione in Azure, usare il `az functionapp devops-pipeline create` [comando](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create). La pipeline di compilazione viene creata per compilare e rilasciare modifiche al codice apportate nel repository. Il comando genera un nuovo file YAML che definisce la pipeline di compilazione e rilascio e quindi si esegue il commit nel repository. I prerequisiti per questo comando dipendono dal percorso del codice.
+Per creare una pipeline di compilazione in Azure, usare il [comando](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create)`az functionapp devops-pipeline create`. La pipeline di compilazione viene creata per compilare e rilasciare tutte le modifiche al codice apportate nel repository. Il comando genera un nuovo file YAML che definisce la pipeline di compilazione e rilascio e quindi ne viene eseguito il commit nel repository. I prerequisiti per questo comando dipendono dalla posizione del codice.
 
-- Se il codice in GitHub:
+- Se il codice è in GitHub:
 
-    - È necessario disporre **scrivere** autorizzazioni per la sottoscrizione.
+    - È necessario disporre delle autorizzazioni di **scrittura** per la sottoscrizione.
 
-    - È necessario essere l'amministratore di progetto DevOps di Azure.
+    - È necessario essere amministratore del progetto in Azure DevOps.
 
-    - È necessario disporre delle autorizzazioni per creare un token di accesso personale GitHub (PAT) che disponga di autorizzazioni sufficienti. Per altre informazioni, vedere [token di accesso personale GitHub requisiti relativi alle autorizzazioni.](https://aka.ms/azure-devops-source-repos)
+    - È necessario disporre delle autorizzazioni per creare un token di accesso personale GitHub che disponga di autorizzazioni sufficienti. Per altre informazioni, vedere i [requisiti di autorizzazione per GITHUB Pat.](https://aka.ms/azure-devops-source-repos)
 
-    - È necessario disporre delle autorizzazioni per eseguire il commit al ramo master nel repository GitHub in modo che è possibile eseguire il commit il file YAML generato automaticamente.
+    - È necessario disporre delle autorizzazioni per eseguire il commit nel ramo master nel repository GitHub, in modo da poter eseguire il commit del file YAML generato automaticamente.
 
-- Se il codice nel repository di Azure:
+- Se il codice è Azure Repos:
 
-    - È necessario disporre **scrivere** autorizzazioni per la sottoscrizione.
+    - È necessario disporre delle autorizzazioni di **scrittura** per la sottoscrizione.
 
-    - È necessario essere l'amministratore di progetto DevOps di Azure.
+    - È necessario essere amministratore del progetto in Azure DevOps.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Rivedere le [Panoramica di funzioni di Azure](functions-overview.md).
-- Rivedere le [Panoramica di Azure DevOps](/azure/devops/pipelines/).
+- Vedere [Panoramica di funzioni di Azure](functions-overview.md).
+- Vedere [Panoramica di Azure DevOps](/azure/devops/pipelines/).

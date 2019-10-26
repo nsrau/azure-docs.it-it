@@ -1,24 +1,18 @@
 ---
 title: Raccogliere e analizzare i contatori delle prestazioni in Monitoraggio di Azure| Microsoft Docs
 description: I contatori delle prestazioni vengono raccolti da Monitoraggio di Azure per analizzare le prestazioni degli agenti Windows e Linux.  Questo articolo descrive come configurare la raccolta di contatori delle prestazioni per gli agenti Windows e Linux, i cui dettagli vengono archiviati nell'area di lavoro, e come analizzarli nel portale di Azure.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/28/2018
+ms.openlocfilehash: d007d3dab1625d58a561d35bb111923fbdeb3482
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205744"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932430"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Origini dati delle prestazioni di Windows e Linux in Monitoraggio di Azure
 I contatori delle prestazioni in Windows e Linux forniscono informazioni dettagliate sulle prestazioni di componenti hardware, sistemi operativi e applicazioni.  Monitoraggio di Azure può raccogliere i contatori delle prestazioni a intervalli frequenti per l'analisi NRT (Near Real Time) e l'aggregazione di dati sulle prestazioni per l'analisi e la creazione di report a più lungo termine.
@@ -32,7 +26,7 @@ Quando si configurano per la prima volta i contatori delle prestazioni di Window
 
 Per i contatori delle prestazioni di Windows è possibile scegliere un'istanza specifica per ogni contatore delle prestazioni. Per i contatori delle prestazioni di Linux, l'istanza di ogni contatore scelto viene applicata a tutti i contatori figlio del contatore padre. La tabella seguente illustra le istanze comuni disponibili ai contatori delle prestazioni di Linux e Windows.
 
-| Nome dell'istanza | Descrizione |
+| Nome dell'istanza | Description |
 | --- | --- |
 | \_Totale |Totale di tutte le istanze |
 | \* |Tutte le istanze |
@@ -80,7 +74,7 @@ Ogni oggetto o categoria delle metriche delle prestazioni da raccogliere deve es
 
 I parametri di questo elemento sono descritti nella tabella seguente.
 
-| Parametri | Descrizione |
+| parameters | Description |
 |:--|:--|
 | object\_name | Nome dell'oggetto per la raccolta. |
 | instance\_regex |  *Espressione regolare* che definisce le istanze da raccogliere. Il valore `.*` specifica tutte le istanze. Per raccogliere le metriche del processore solo per l'istanza \_Total, è possibile specificare `_Total`. Per raccogliere le metriche del processore solo per le istanze crond o sshd, è possibile specificare `(crond\|sshd)`. |
@@ -122,14 +116,14 @@ La tabella seguente elenca gli oggetti e i contatori che è possibile specificar
 | Rete | Total Rx Errors |
 | Rete | Total Tx Errors |
 | Rete | Total Collisions |
-| Physical Disk | Avg. Disk sec/Read |
-| Physical Disk | Avg. Disk sec/Transfer |
-| Physical Disk | Avg. Disk sec/Write |
+| Physical Disk | Media letture disco/sec |
+| Physical Disk | Media sec/trasferimento disco |
+| Physical Disk | Media scritture disco/sec |
 | Physical Disk | Physical Disk Bytes/sec |
-| Process | Pct Privileged Time |
-| Process | Pct User Time |
-| Process | Used Memory kBytes |
-| Process | Virtual Shared Memory |
+| Processo | Pct Privileged Time |
+| Processo | Pct User Time |
+| Processo | Used Memory kBytes |
+| Processo | Virtual Shared Memory |
 | Processore | % DPC Time |
 | Processore | % Idle Time |
 | Processore | % Interrupt Time |
@@ -141,7 +135,7 @@ La tabella seguente elenca gli oggetti e i contatori che è possibile specificar
 | Sistema | Free Physical Memory |
 | Sistema | Free Space in Paging Files |
 | Sistema | Free Virtual Memory |
-| Sistema | Processi |
+| Sistema | Procedure |
 | Sistema | Size Stored In Paging Files |
 | Sistema | Uptime |
 | Sistema | Utenti |
@@ -187,7 +181,7 @@ Monitoraggio di Azure raccoglierà tutti i contatori delle prestazioni specifica
 ## <a name="performance-record-properties"></a>Proprietà dei record delle prestazioni
 Il tipo dei record delle prestazioni è **Perf** e le proprietà sono elencate nella tabella seguente.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
 | Computer |Computer da cui è stato raccolto l'evento. |
 | CounterName |Nome del contatore delle prestazioni. |
@@ -206,15 +200,15 @@ Il tipo dei record delle prestazioni è **Perf** e le proprietà sono elencate n
 ## <a name="log-queries-with-performance-records"></a>Query di log con record delle prestazioni
 La tabella seguente mostra alcuni esempi di query di log che recuperano i record delle prestazioni.
 
-| Query | Descrizione |
+| Query | Description |
 |:--- |:--- |
 | Perf |Tutti i dati sulle prestazioni |
 | Perf &#124; where Computer == "MyComputer" |Tutti i dati sulle prestazioni da un computer specifico |
 | Perf &#124; where CounterName == "Current Disk Queue Length" |Tutti i dati sulle prestazioni da un contatore specifico |
-| Prestazioni &#124; in cui ObjectName = = "Processore" e CounterName = = "% Processor Time" e InstanceName = = Total" &#124; riepiloga AVGCPU = AVG (countervalue) dal Computer |Utilizzo medio della CPU per tutti i computer |
-| Prestazioni &#124; in cui CounterName = = "% Processor Time" &#124; summarize AggregatedValue = max(CounterValue) dal Computer |Utilizzo massimo della CPU per tutti i computer |
-| Prestazioni &#124; in cui ObjectName = = "Disco logico" e CounterName = = "Lunghezza corrente coda" e il Computer = = "Nome computer" &#124; summarize AggregatedValue = AVG (countervalue) by InstanceName |Lunghezza media della coda del disco corrente per tutte le istanze di un computer specifico |
-| Prestazioni &#124; in cui CounterName = = "Trasferimenti disco/sec" &#124; summarize AggregatedValue = percentile (CounterValue, 95) dal Computer |95° percentile di trasferimenti disco al secondo per tutti i computer |
+| Perf &#124; where ObjectName = = "Processor" e CounterName = = "% Processor Time" e NomeIstanza = = "_ &#124; Total" riepilogano AVGCPU = AVG (CounterValue) per computer |Utilizzo medio della CPU per tutti i computer |
+| Prestazioni &#124; in cui CounterName = = "% tempo processore &#124; " riepiloga AggregatedValue = Max (CounterValue) per computer |Utilizzo massimo della CPU per tutti i computer |
+| Perf &#124; where ObjectName = = "disco logico" e CounterName = = "lunghezza corrente coda del disco" e computer = = "nomecomputer" &#124; riepiloga AggregatedValue = AVG (CounterValue) da NomeIstanza |Lunghezza media della coda del disco corrente per tutte le istanze di un computer specifico |
+| Perf &#124; where CounterName = = "trasferimenti disco/sec" &#124; riepiloga AggregatedValue = percentile (CounterValue, 95) per computer |95° percentile di trasferimenti disco al secondo per tutti i computer |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer |Utilizzo orario medio della CPU per tutti i computer |
 | Perf &#124; where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" &#124; summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName | 70° percentile orario di ogni contatore percentuale % per un computer specifico |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |Utilizzo CPU orario medio, minimo, massimo e 75° percentile per un computer specifico |

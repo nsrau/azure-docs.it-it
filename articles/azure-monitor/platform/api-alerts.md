@@ -1,24 +1,18 @@
 ---
 title: Uso dell'API REST degli avvisi di Log Analytics
 description: L'API REST per gli avvisi di Log Analytics consente di creare e gestire avvisi in Log Analytics, che fa parte di Log Analytics.  In questo articolo vengono forniti i dettagli dell'API e alcuni esempi per l'esecuzione di diverse operazioni.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/29/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: e8209a2d2034818a00ab9390a9af96d5b0287b5b
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.date: 07/29/2018
+ms.openlocfilehash: 9cc9c9db1438196190df38082f18d650eff38249
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663201"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932691"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creare e gestire regole di avviso in Log Analytics con l'API REST
 L'API REST degli avvisi di Log Analytics consente di creare e gestire avvisi in Log Analytics.  In questo articolo vengono forniti i dettagli dell'API e alcuni esempi per l'esecuzione di diverse operazioni.
@@ -35,11 +29,11 @@ Attualmente, gli avvisi possono essere creati solo con una ricerca salvata in Lo
 Una ricerca salvata può avere una o più pianificazioni. La pianificazione definisce la frequenza con cui viene eseguita la ricerca e l'intervallo di tempo in cui vengono identificati i criteri.
 Le pianificazioni includono le proprietà elencate nella tabella seguente.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
 | Interval |La frequenza con cui viene eseguita la ricerca. Il valore è espresso in minuti. |
 | QueryTimeSpan |L'intervallo di tempo durante il quale vengono valutati i criteri. Deve essere maggiore o uguale a Interval. Il valore è espresso in minuti. |
-| Version |La versione API utilizzata.  Attualmente, deve sempre essere impostata su 1. |
+| Versione |La versione API utilizzata.  Attualmente, deve sempre essere impostata su 1. |
 
 Si consideri ad esempio una query eventi con Interval pari a 15 minuti e Timespan pari a 30 minuti. In questo caso, la query viene eseguita ogni 15 minuti e viene attivato un avviso se i criteri continuano a restituire true in un intervallo di 30 minuti.
 
@@ -95,7 +89,7 @@ Una pianificazione può avere più azioni. Un'azione può definire uno o più pr
 
 Tutte le azioni includono le proprietà elencate nella tabella seguente.  I vari tipi di avvisi hanno proprietà aggiuntive diverse, che vengono descritte di seguito.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
 | `Type` |Tipo di azione.  Attualmente, i valori possibili sono Alert e Webhook. |
 | `Name` |Nome visualizzato per l'avviso. |
@@ -130,10 +124,10 @@ Utilizzare il metodo Delete con l'ID azione per eliminare un’azione.
 ### <a name="alert-actions"></a>Azioni di avviso
 Una pianificazione deve avere una sola azione di avviso.  Le azioni di avviso includono una o più delle sezioni elencate nella tabella seguente.  Ciascuna è descritta in dettaglio di seguito.
 
-| Sezione | DESCRIZIONE | Uso |
+| Sezione | Description | Utilizzo |
 |:--- |:--- |:--- |
 | Soglia |Criteri di esecuzione dell'azione.| Obbligatoria per ogni avviso, prima o dopo l'estensione ad Azure. |
-| Gravità |Etichetta usata per classificare l'avviso quando viene attivato.| Obbligatoria per ogni avviso, prima o dopo l'estensione ad Azure. |
+| Severity |Etichetta usata per classificare l'avviso quando viene attivato.| Obbligatoria per ogni avviso, prima o dopo l'estensione ad Azure. |
 | Elimina |Opzione per arrestare le notifiche dall'avviso. | Facoltativa per ogni avviso, prima o dopo l'estensione ad Azure. |
 | Gruppi di azioni |ID del gruppo di azioni di Azure, in cui sono specificate le azioni necessarie, come posta elettronica, SMS, chiamate vocali, webhook, runbook di Automazione, connettori di Gestione dei servizi IT e così via.| Obbligatoria dopo che gli avvisi sono stati estesi ad Azure|
 | Customize Actions|Permette di modificare l'output standard per azioni selezionate dal gruppo di azioni| Facoltativa per ogni avviso, può essere usata dopo l'estensione degli avvisi ad Azure. |
@@ -143,7 +137,7 @@ Un’azione di avviso deve avere una sola soglia.  Quando i risultati di una ric
 
 Le soglie includono le proprietà elencate nella tabella seguente.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
 | `Operator` |Operatore di confronto soglie. <br> gt = Maggiore di <br> lt = minore di |
 | `Value` |Valore per la soglia. |
@@ -173,7 +167,7 @@ Usare il metodo Put con un ID azione esistente per modificare un'azione di sogli
     $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
-#### <a name="severity"></a>Gravità
+#### <a name="severity"></a>Severity
 Log Analytics permette di classificare gli avvisi in categorie, per semplificare la gestione e la valutazione. La gravità definita per gli avvisi è: Informativo, Avviso e Critico. Queste definizioni corrispondono alla scala di gravità normale degli avvisi di Azure in questo modo:
 
 |Livello di gravità di Log Analytics  |Livello di gravità degli avvisi di Azure  |
@@ -271,7 +265,7 @@ Usare il metodo Put con un ID azione esistente per modificare un gruppo di azion
     $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
-#### <a name="customize-actions"></a>Personalizzare le azioni
+#### <a name="customize-actions"></a>Customize Actions
 Per impostazione predefinita, le azioni seguono il modello e il formato standard per le notifiche. Gli utenti possono tuttavia personalizzare alcune azioni, anche se sono controllate da gruppi di azioni. Attualmente, la personalizzazione è possibile per l'oggetto del messaggio di posta elettronica e il payload del webhook.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>Personalizzare l'oggetto del messaggio di posta elettronica per il gruppo di azioni

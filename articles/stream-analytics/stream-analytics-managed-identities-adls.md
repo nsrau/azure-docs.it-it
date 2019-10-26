@@ -1,5 +1,5 @@
 ---
-title: Eseguire l'autenticazione di Azure Data Lake archiviazione Gen1 output del processo Azure Stream Analitica
+title: Autenticare analisi di flusso di Azure per Azure Data Lake Storage Gen1
 description: Questo articolo descrive come usare le identità gestite per autenticare il processo di Analisi di flusso di Azure nell'output di Azure Data Lake Storage Gen1.
 author: mamccrea
 ms.author: mamccrea
@@ -7,16 +7,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 01741ea56b9e6f55c1393e88fc7991d410c33119
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148626"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934987"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Eseguire l'autenticazione Analitica Stream per Azure Data Lake archiviazione Gen1 usando identità gestite
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autenticare analisi di flusso per Azure Data Lake Storage Gen1 usando identità gestite
 
-Analisi di flusso di Azure supporta l'autenticazione con identità gestita con l'output di Azure Data Lake Storage (ADLS) Gen1. L'identità è un'applicazione gestita registrata in Azure Active Directory che rappresenta un determinato processo di Analisi di flusso e può essere usata per l'autenticazione in una risorsa di destinazione. Le identità gestite eliminano le limitazioni associate ai metodi di autenticazione basata sull'utente, ad esempio la necessità di ripetere l'autenticazione a causa di modifiche della password o le scadenze dei token utente ogni 90 giorni. Inoltre, le identità gestite semplificano l'automazione delle distribuzioni dei processi di Analisi di flusso che inviano l'output ad Azure Data Lake Storage Gen1.
+Analisi di flusso di Azure supporta l'autenticazione con identità gestita con l'output di Azure Data Lake Storage (ADLS) Gen1. L'identità è un'applicazione gestita registrata in Azure Active Directory che rappresenta un determinato processo di Analisi di flusso e può essere usata per l'autenticazione in una risorsa di destinazione. Le identità gestite consentono di eliminare le limitazioni associate ai metodi di autenticazione basata sull'utente, ad esempio la necessità di ripetere l'autenticazione a causa di modifiche della password o le scadenze dei token utente ogni 90 giorni. Inoltre, le identità gestite semplificano l'automazione delle distribuzioni dei processi di Analisi di flusso che inviano l'output ad Azure Data Lake Storage Gen1.
 
 Questo articolo illustra tre metodi per abilitare l'identità gestita per un processo di Analisi di flusso di Azure che invia l'output ad Azure Data Lake Storage Gen1 tramite il portale di Azure, la distribuzione dei modelli di Azure Resource Manager e gli strumenti di Analisi di flusso di Azure per Visual Studio.
 
@@ -24,11 +24,11 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
 
 ## <a name="azure-portal"></a>Portale di Azure
 
-1. Per iniziare, creare un nuovo processo di Analisi di flusso o aprire un processo esistente nel portale di Azure. Dalla barra dei menu che si trova sul lato sinistro della schermata, selezionare **identità gestito** che si trova sotto **configura**.
+1. Per iniziare, creare un nuovo processo di Analisi di flusso o aprire un processo esistente nel portale di Azure. Dalla barra dei menu disponibile sul lato sinistro della schermata selezionare **identità gestita** situata in **Configura**.
 
-   ![Configurare l'identità di Analitica Stream gestiti](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
+   ![Configurare l'identità gestita di analisi di flusso](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. Selezionare **assegnato dal sistema Usa identità gestite** dalla finestra che viene visualizzato a destra. Fare clic su **salvare** a un'entità servizio per l'identità del processo di Stream Analitica in Azure Active Directory. Il ciclo di vita dell'identità creata sarà gestito da Azure. Quando si elimina il processo di Analisi di flusso, l'identità associata (ovvero, l'entità servizio) viene eliminata automaticamente da Azure.
+2. Selezionare **Usa identità gestita assegnata dal sistema** dalla finestra visualizzata a destra. Fare clic su **Salva** in un'entità servizio per l'identità del processo di analisi di flusso in Azure Active Directory. Il ciclo di vita dell'identità creata sarà gestito da Azure. Quando si elimina il processo di Analisi di flusso, l'identità associata (ovvero, l'entità servizio) viene eliminata automaticamente da Azure.
 
    Al momento del salvataggio della configurazione, l'ID oggetto (OID) dell'entità servizio viene indicato come ID dell'entità, come illustrato di seguito:
 
@@ -36,7 +36,7 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
  
    L'entità servizio ha lo stesso nome del processo di Analisi di flusso. Ad esempio, se il nome del processo è **MyASAJob**, anche il nome dell'entità servizio creata è **MyASAJob**.
 
-3. Nella finestra proprietà di output del sink di output Gen1 Azure Data Lake Store, scegliere la modalità di autenticazione elenco a discesa e seleziona * * identità gestito * *.
+3. Nella finestra Proprietà output del sink di output ADLS Gen1 fare clic sull'elenco a discesa modalità di autenticazione e selezionare * * identità gestita * *.
 
 4. Compilare le proprietà rimanenti. Per altre informazioni sulla creazione di un output di ADLS, vedere [Create a Data lake Store output with stream analytics](../data-lake-store/data-lake-store-stream-analytics.md) (Creare un output di Data Lake Store con Analisi di flusso). Al termine, fare clic su **Salva**.
 
@@ -70,7 +70,7 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
 
    ![Configurazione del processo di Analisi di flusso per le identità gestite](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. Nella finestra proprietà di output del sink di output Gen1 Azure Data Lake Store, scegliere la modalità di autenticazione elenco a discesa e seleziona * * identità gestito * *.
+2. Nella finestra Proprietà output del sink di output ADLS Gen1 fare clic sull'elenco a discesa modalità di autenticazione e selezionare * * identità gestita * *.
 
    ![Output di ADLS per le identità gestite](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 
@@ -173,14 +173,14 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   Per altre informazioni sul precedente comando di PowerShell, vedere la [Set-AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) documentazione.
+   Per altre informazioni sul comando PowerShell precedente, vedere la documentazione di [set-AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) .
 
 ## <a name="limitations"></a>Limitazioni
-Questa funzionalità non supporta le operazioni seguenti:
+Questa funzionalità non supporta quanto segue:
 
-1. **L'accesso multi-tenant**: L'entità servizio creata per un determinato processo di Stream Analitica si troverà nel tenant di Azure Active Directory in cui è stato creato il processo e non può essere utilizzato in una risorsa che risiede in un altro tenant di Azure Active Directory. Pertanto, è possibile usare solo MSI sulle risorse di Azure Data Lake Store generazione 1 che sono nello stesso tenant di Azure Active Directory del processo di Azure Stream Analitica. 
+1. **Accesso multi-tenant**: l'entità servizio creata per un determinato processo di analisi di flusso si trova nel tenant Azure Active Directory in cui è stato creato il processo e non può essere usata per una risorsa che risiede in un Azure Active Directory diverso inquilino. È quindi possibile usare l'identità del servizio gestito solo per le risorse ADLS di generazione 1 che si trovano all'interno dello stesso tenant di Azure Active Directory del processo di analisi di flusso di Azure. 
 
-2. **[Identità utente assegnata](../active-directory/managed-identities-azure-resources/overview.md)** : non è supportato. Ciò significa che l'utente non è in grado di immettere le proprie entità di servizio da utilizzare per svolgere il proprio lavoro Stream Analitica. L'entità servizio viene generato da Azure Stream Analitica.
+2. **[Identità assegnata dall'utente](../active-directory/managed-identities-azure-resources/overview.md)** : non supportata. Ciò significa che l'utente non è in grado di immettere la propria entità servizio per l'uso da parte del processo di analisi di flusso. L'entità servizio viene generata da analisi di flusso di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 99f8c2b40445fe282800d096353bee1c7a934ebe
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: b644d293afd429bdc68fba66c119eb7146d0daf0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918115"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935471"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Eseguire Apache Oozie nei cluster HDInsight Hadoop con Enterprise Security Package
 
@@ -61,9 +61,9 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte nel linguaggio Apache 
    tar -xvf oozie-examples.tar.gz
    hdfs dfs -put examples /user/<DomainUser>/
    ```
-   Sostituire `DomainUser` con il nome utente di dominio. 
-   Sostituire `DomainUserPath` con il percorso della directory principale per l'utente di dominio. 
-   Sostituire `ClusterVersion` con la versione HDP (Hortonworks Data Platform) del cluster in uso.
+   Sostituire `DomainUser` con il nome utente di dominio.
+   Sostituire `DomainUserPath` con il percorso della directory principale per l'utente di dominio.
+   Sostituire `ClusterVersion` con la versione della piattaforma dati del cluster.
 
 2. Usare l'istruzione seguente per creare e modificare un nuovo file:
    ```bash

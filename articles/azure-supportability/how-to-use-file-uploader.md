@@ -1,6 +1,6 @@
 ---
-title: Linee guida dell'utilità Caricamento file per le nuove richieste di supporto di Microsoft Azure | Documentazione Microsoft
-description: Descrive le linee guida per l'uso dell'utilità Caricamento file per le nuove richieste di supporto di Microsoft Azure
+title: Richiesta di supporto tecnico di Azure-linee guida di caricamento file
+description: Descrive le linee guida quando si usa l'opzione di caricamento file richiesta di supporto Microsoft Azure
 author: genlin
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
@@ -8,22 +8,22 @@ ms.service: azure-supportability
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f01c70a2a077e28e8de5118332b780f27dc9ec93
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 8c22ce859aa58aeb8339b16265f6614bd7e723f8
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248681"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72936069"
 ---
-# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Linee guida dell'utilità Caricamento file per le nuove richieste di supporto di Microsoft Azure
-Quando si [crea una richiesta di supporto](https://portal.azure.com/#create/Microsoft.Support), l'utilità Caricamento file permette di caricare facilmente i file di diagnostica o qualsiasi altro file ritenuto rilevante per l'evento imprevisto.  
+# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Microsoft Azure nuove linee guida dell'utilità di caricamento file di richiesta di supporto
+Quando si [Crea una richiesta di supporto](https://portal.azure.com/#create/Microsoft.Support), l'opzione di caricamento file consente di caricare facilmente i file di diagnostica o qualsiasi altro file ritenuto rilevante per l'evento imprevisto.  
 
 > [!NOTE]
 > Per proteggere la privacy degli utenti, non includere informazioni personali nel caricamento.
 >
 >
 
-Per l'uso dell'utilità Caricamento file, seguire queste indicazioni:
+Quando si usa l'opzione di caricamento file, seguire queste linee guida:
 
 * Tutti i file devono avere un'estensione di file, ad esempio docx o xlsx. Per un elenco delle estensioni di file consentite, vedere la tabella seguente.
 * Il nome del file non deve superare i 110 caratteri.
@@ -36,7 +36,7 @@ Per l'uso dell'utilità Caricamento file, seguire queste indicazioni:
 | 7z         | dat  | hwl        | odx  | rar     | tdb       | xlam   |
 | a          | db   | ics        | oft  | rdl     | tdf       | xlr    |
 | abc        | DMP  | ini        | old  | rdlc    | text      | xls    |
-| adm        | do_  | .java       | one  | re_     | thmx      | xlsb   |
+| adm        | do_  | java       | one  | re_     | thmx      | xlsb   |
 | aspx       | doc  | jpg        | osd  | reg     | tif       | xlsm   |
 | ATF        | docm | LDF        | OUT  | remove  | trc       | xlsx   |
 | b          | docx | letterhead | p1   | ren     | TTD       | xlt    |
@@ -52,7 +52,7 @@ Per l'uso dell'utilità Caricamento file, seguire queste indicazioni:
 | compressed | evt  | mpg        | pptx | stp     | wdb       | z02    |
 | Config     | evtx | ms_        | prn  | svclog  | wks       | zi     |
 | cpk        | EX   | msg        | psf  |   -       | wma       | zi_    |
-| .cpp        | ex_  | msi        | pst  |  -        | wmv       | zip    |
+| cpp        | ex_  | msi        | pst  |  -        | wmv       | zip    |
 | cs         | ex0  | mso        | pub  | -         | wmz       | zip_   |
 | CSV        | FRD  | msu        | -      |-          | wps       | zipp   |
 | cvr        | gif  | nfo        | -      |-          | wpt       | zipped |

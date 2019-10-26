@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 7feea92d48a826000fd8aa878b95658b79d6d908
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5affc9952cfe13ebfeede126051f2236499d1343
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869986"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934283"
 ---
 # <a name="azure-maps-render-coverage"></a>Copertura per il rendering in Mappe di Azure
 
@@ -42,11 +42,11 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Burundi                          | ✓ | ✓ |
 | Cabo Verde                       | ✓ | ✓ |
 | Camerun                         | ✓ | ✓ |
-| Repubblica centrafricana         | ✓ | Ø |
+| Repubblica Centrafricana         | ✓ | Ø |
 | Chad                             | ✓ | Ø |
 | Comore                          | ✓ | Ø |
-| Congo, Repubblica democratica | ✓ | ✓ |
-| Côte d’Ivoire (Costa d'Avorio)                    | ✓ | Ø |
+| Repubblica democratica del Congo | ✓ | ✓ |
+| Côte d'Ivoire (Costa d'Avorio)                    | ✓ | Ø |
 | Gibuti                         | ✓ | Ø |
 | Egitto                            | ✓ | ✓ |
 | Guinea equatoriale                | ✓ | Ø |
@@ -75,11 +75,11 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Réunion                          | ✓ | ✓ |
 | Ruanda                           | ✓ | ✓ |
 | Sant'Elena, Ascensione e Tristan da Cunha | ✓ | Ø |
-| Tomé SAN e Príncipe            | ✓ | Ø |
+| São Tomé e Príncipe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
 | Sierra Leone                     | ✓ | ✓ |
 | Somalia                          | ✓ | ✓ |
-| Sud Africa                     | ✓ | ✓ |
+| Sudafrica                     | ✓ | ✓ |
 | Sudan del Sud                      | ✓ | ✓ |
 | Sudan                            | ✓ | ✓ |
 | Swaziland                        | ✓ | ✓ |
@@ -113,7 +113,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Cuba                      | ✓ | ✓ |
 | Curaçao                   | ✓ | ✓ |
 | Dominica                  | ✓ | ✓ |
-| Repubblica dominicana        | ✓ | ✓ |
+| Repubblica Domenicana        | ✓ | ✓ |
 | Ecuador                   | ✓ | ✓ |
 | Isole Falkland | ✓ | ✓ |
 | Guayana francese             | ✓ | ✓ |
@@ -136,7 +136,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Portorico               | ✓ | ✓ |
 | Quebec (Canada)           | ✓ | ✓ |
 | Saint Barthélemy          | ✓ | ✓ |
-| Saint Kitts e Nevis     | ✓ | ✓ |
+| Saint Christopher e Nevis     | ✓ | ✓ |
 | Saint Lucia               | ✓ | ✓ |
 | Saint Martin (francese)     | ✓ | ✓ |
 | Saint Pierre e Miquelon | ✓ | ✓ |
@@ -150,7 +150,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Uruguay                   | ✓ | ✓ |
 | Venezuela                 | ✓ | ✓ |
 | Isole Vergini britanniche   | ✓ | ✓ |
-| Isole Vergini americane      | ✓ | ✓ |
+| Isole Vergini Americane      | ✓ | ✓ |
 
 ## <a name="asia"></a>Asia 
 
@@ -160,13 +160,12 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Bahrain                   | ✓ | ✓ |
 | Bangladesh                |   | Ø |
 | Bhutan                    |   | Ø |
-| Territorio britannico dell'oceano Indiano |   | Ø |
+| Territorio britannico dell'Oceano indiano |   | Ø |
 | Brunei                    | ✓ | ✓ |
 | Cambogia                  |   | Ø |
 | Cina                     |   | Ø |
 | Isole Cocos (Keeling)   |   | Ø |
 | Repubblica democratica popolare di Corea |   | Ø |
-| Dokdo e Takeshima       |   | Ø |
 | RAS di Hong Kong             | ✓ | ✓ |
 | India                     | Ø | ✓ | 
 | Indonesia                 | ✓ | ✓ |
@@ -178,7 +177,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Kazakhstan                |   | ✓ |
 | Kuwait                    | ✓ | ✓ |
 | Kirghizistan                |   | Ø |
-| Repubblica democratica del Laos |   | Ø |
+| Repubblica democratica popolare del Laos |   | Ø |
 | Libano                   | ✓ | ✓ |
 | RAS di Macao                 | ✓ | ✓ |
 | Malaysia                  | ✓ | ✓ |
@@ -198,11 +197,11 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Repubblica araba siriana      |   | Ø |
 | Taiwan                    | ✓ | ✓ |
 | Tagikistan                |   | Ø |
-| Thailandia                  | ✓ | ✓ |
+| Tailandia                  | ✓ | ✓ |
 | Timor Est               |   | Ø |
 | Turkmenistan              |   | Ø |
 | Emirati Arabi Uniti      | ✓ | ✓ |
-| Altre isole minori degli Stati Uniti |   | Ø |
+| Altre isole americane del Pacifico |   | Ø |
 | Uzbekistan                |   | Ø |
 | Vietnam                   | ✓ | ✓ |
 | Yemen                     | ✓ | ✓ |
@@ -252,10 +251,10 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Bulgaria                  | ✓ | ✓ |
 | Croazia                   | ✓ | ✓ |
 | Cipro                    | ✓ | ✓ |
-| Repubblica ceca            | ✓ | ✓ |
+| Repubblica Ceca            | ✓ | ✓ |
 | Danimarca                   | ✓ | ✓ |
 | Estonia                   | ✓ | ✓ |
-| Isole Fær Øer             | ✓ | Ø |
+| Fær Øer             | ✓ | Ø |
 | Finlandia                   | ✓ | ✓ |
 | Francia                    | ✓ | ✓ |
 | Georgia                   | ✓ | Ø |
@@ -277,7 +276,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Macedonia del Nord           | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldova                   | ✓ | ✓ |
-| Principato di Monaco                    | ✓ | ✓ |
+| Monaco                    | ✓ | ✓ |
 | Montenegro                | ✓ | ✓ |
 | Paesi Bassi               | ✓ | ✓ |
 | Norvegia                    | ✓ | ✓ |

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: API Java SQL, SDK e risorse'
+title: 'Azure Cosmos DB: API Java SQL, risorse & SDK'
 description: Informazioni complete sull'SDK e sull'API Java, incluse le date di rilascio e di ritiro e le modifiche apportate tra le singole versioni di Azure Cosmos DB SQL Java SDK.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: bf89d419bcd97c276df35701bc4fd808f599094a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: eb8110c953787d1ebf7f01037808ee77db2eb8b4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637701"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934150"
 ---
-# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK Java di Azure Cosmos DB per API SQL: note sulla versione e risorse
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Java SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -37,11 +37,35 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 |**Download dell'SDK**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**Documentazione sull'API**|[Documentazione di riferimento API Java](/java/api/com.microsoft.azure.documentdb)|
 |**Contribuire all'SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**Introduzione**|[Introduzione a SDK Java](sql-api-java-get-started.md)|
+|**Attività iniziali**|[Introduzione a SDK Java](sql-api-java-get-started.md)|
 |**Esercitazione sull'app Web**|[Sviluppo di applicazioni Web con Azure Cosmos DB](sql-api-java-application.md)|
 |**Runtime minimo supportato**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="a-name244244"></a><a name="2.4.4"/>2.4.4
+* Aggiornamenti della cache degli intervalli di chiavi di partizione ottimizzati.
+
+### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
+* Aggiornamenti della cache della raccolta ottimizzata.
+
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+* Aggiunto il supporto per recuperare il messaggio di eccezione interna dalla stringa di diagnostica della richiesta.
+
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+* È stata introdotta l'API della versione in PartitionKeyDefinition.
+
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+* Aggiunto il supporto del timeout separato per la modalità diretta.
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+* Utilizzo del messaggio di errore null dal servizio e generazione dell'eccezione client del documento.
+
+### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
+* Miglioramento della connessione socket, aggiungendo SoKeepAlive default true.
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* Aggiunta del supporto per la stringa di diagnostica della richiesta.
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 * Correzione di un bug in PartitionKey per hash V2.
@@ -226,7 +250,7 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 <br/>
 
-| Version | Data di rilascio | Data di ritiro |
+| Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
 | [2.1.3](#2.1.3) |13 marzo, 2018 |--- |
 | [2.1.2](#2.1.2) |9 mar 2018 |--- |
@@ -271,9 +295,9 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 | 0.9.1-prelease |19 dicembre 2014 |29 febbraio 2016 |
 | 0.9.0-prelease |10 dicembre 2014 |29 febbraio 2016 |
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 Per altre informazioni su Cosmos DB, vedere la pagina del servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 

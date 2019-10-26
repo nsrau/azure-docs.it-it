@@ -1,24 +1,18 @@
 ---
 title: Eliminare e ripristinare l'area di lavoro di Azure Log Analytics | Microsoft Docs
 description: Informazioni su come eliminare l'area di lavoro Log Analytics, se ne è stata creata una in una sottoscrizione personale, o come ristrutturare il modello dell'area di lavoro.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/11/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: fb6714a52a65ef5efe4725b99acb30cb67af20c3
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 10/11/2019
+ms.openlocfilehash: f15e9c2a5980c8fb6d98f7bf9187b030e6910523
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299274"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932378"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Eliminare e ripristinare l'area di lavoro di Azure Log Analytics
 
@@ -65,7 +59,7 @@ Per ripristinare un'area di lavoro, è possibile ricreare l'area di lavoro usand
 * ID sottoscrizione
 * Nome del gruppo di risorse
 * Nome dell'area di lavoro
-* Region
+* Area geografica
 
 > [!NOTE]
 > * Il ripristino dell'area di lavoro non è supportato nell' [portale di Azure](https://portal.azure.com). 

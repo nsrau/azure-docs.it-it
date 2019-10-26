@@ -1,24 +1,18 @@
 ---
 title: Operatori utili nelle query di log di Monitoraggio di Azure | Microsoft Docs
 description: Funzioni comuni da usare per diversi scenari nelle query dei log di Monitoraggio di Azure.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/21/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: d11445c3f31f9aced6fdb9783575d10a026de1f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2018
+ms.openlocfilehash: 022a9f638b3a7d8ae4ebeff8062f258ada7a14f8
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61424139"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932874"
 ---
 # <a name="useful-operators-in-azure-monitor-log-queries"></a>Operatori utili nelle query di log di Monitoraggio di Azure
 
@@ -26,7 +20,7 @@ La tabella di seguito riporta alcune funzioni comuni da usare per diversi scenar
 
 ## <a name="useful-operators"></a>Operatori utili
 
-Category                                |Funzione di analisi pertinente
+Categoria                                |Funzione di analisi pertinente
 ----------------------------------------|----------------------------------------
 Alias di colonna e selezione            |`project`, `project-away`, `extend`
 Costanti e tabelle temporanee          |`let scalar_alias_name = …;` <br> `let table_alias_name =  …  …  … ;`| 
@@ -41,7 +35,7 @@ Join e unioni                        |`join kind=leftouter`, `inner`, `rightoute
 Ordinamento                             |`sort`, `order` 
 Oggetto dinamico (JSON e matrice)         |`parsejson()` <br> `makeset()`, `makelist()` <br> `split()`, `arraylength()` <br> `zip()`, `pack()`
 Operatori logici                       |`and`, `or`, `iff(condition, value_t, value_f)` <br> `binary_and()`, `binary_or()`, `binary_not()`, `binary_xor()`
-Machine learning                        |`evaluate autocluster`, `basket`, `diffpatterns`, `extractcolumns`
+Machine Learning                        |`evaluate autocluster`, `basket`, `diffpatterns`, `extractcolumns`
 
 
 ## <a name="next-steps"></a>Passaggi successivi

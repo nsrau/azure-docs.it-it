@@ -1,34 +1,28 @@
 ---
 title: Script automatico per la creazione di app Web di Service Manager per eseguire la connessione con Connettore di Gestione dei servizi IT | Microsoft Docs
 description: Creare un'app Web di Service Manager usando uno script automatizzato per eseguire la connessione con Connettore di Gestione dei servizi IT in Azure e monitorare e gestire in modo centralizzato gli elementi di lavoro ITSM.
-services: log-analytics
-documentationcenter: ''
-author: jyothirmaisuri
-manager: riyazp
-editor: ''
-ms.assetid: 879e819f-d880-41c8-9775-a30907e42059
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/23/2018
+author: JYOTHIRMAISURI
 ms.author: v-jysur
-ms.openlocfilehash: 42adbf7a6f0e7bb462e6bc9b690c61d4ade0cae2
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.date: 01/23/2018
+ms.openlocfilehash: 443fe6aa7e97e666075a2fbb985a9b8b00baf81a
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479711"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932258"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Creare un'app Web di Service Manager con lo script automatizzato
 
-Usare lo script seguente per creare l'app Web per l'istanza di Service Manager. Per altre informazioni sulla connessione di Service Manager, vedere qui: [App Web di Service Manager](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Usare lo script seguente per creare l'app Web per l'istanza di Service Manager. Altre informazioni sulla connessione di Service Manager sono reperibili qui: [Service Manager Web app](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service) (App Web di Service Manager)
 
 Eseguire lo script, fornendo i seguenti dettagli richiesti:
 
 - Dettagli della sottoscrizione di Azure
 - Nome del gruppo di risorse
-- Location
+- Località
 - Dettagli del server di Service Manager (nome del server, dominio, nome utente e password)
 - Prefisso del nome del sito per l'app Web
 - Spazio dei nomi ServiceBus.

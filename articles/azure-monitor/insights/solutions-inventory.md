@@ -3,16 +3,16 @@ title: Inventario delle soluzioni di monitoraggio in Azure | Microsoft Docs
 description: Le soluzioni di monitoraggio in Monitoraggio di Azure sono una raccolta di regole logiche, di visualizzazione e di acquisizione dei dati che forniscono metriche relative a un'area problematica specifica.  Questo articolo fornisce un elenco delle soluzioni di monitoraggio disponibili in Microsoft e i dettagli relativi al metodo e alla frequenza della raccolta dei dati.
 ms.service: azure-monitor
 ms.subservice: logs
-ms.topic: article
+ms.topic: conceptual
 author: MGoedtel
 ms.author: bwren
 ms.date: 06/26/2018
-ms.openlocfilehash: 1f93ada1a6fb6b87c79a3713e80ebfefae9fe56f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
-ms.translationtype: HT
+ms.openlocfilehash: 6012a74c00b64c818434ea1744d86c6cf67dd463
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900643"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931341"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Dettagli sull'inventario e sulla raccolta dei dati per le soluzioni di monitoraggio in Azure
 Le [soluzioni di monitoraggio](solutions.md) sfruttano i servizi in Azure per fornire informazioni aggiuntive sul funzionamento di un'applicazione o un servizio specifico. Le soluzioni di monitoraggio raccolgono in genere log di dati e offrono query e visualizzazioni per l'analisi dei dati raccolti. È possibile aggiungere soluzioni di monitoraggio a Monitoraggio di Azure per qualsiasi applicazione e servizio usati. Sono in genere disponibili gratuitamente, ma la raccolta dati potrebbe implicare addebiti per l'utilizzo.

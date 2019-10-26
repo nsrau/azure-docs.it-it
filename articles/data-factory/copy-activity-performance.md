@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: f760917ae8f4ab11902799e36973ae896c4a2b43
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: ba08bbdca059b3e14281a3c26827d07f7b196d1c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232341"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72930934"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guida alla scalabilità e alle prestazioni dell'attività di copia
 > [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory che si sta usando:"]
@@ -41,7 +41,7 @@ Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
 ADF offre un'architettura senza server che consente il parallelismo a livelli diversi, consentendo agli sviluppatori di compilare pipeline per sfruttare al meglio la larghezza di banda di rete, oltre a IOPS e larghezza di banda di archiviazione per ottimizzare la velocità effettiva di spostamento dei dati per l'ambiente.  Ciò significa che la velocità effettiva che è possibile ottenere può essere stimata misurando la velocità effettiva minima offerta dall'archivio dati di origine, l'archivio dati di destinazione e la larghezza di banda di rete tra l'origine e la destinazione.  La tabella seguente calcola la durata della copia in base alle dimensioni dei dati e al limite di larghezza di banda per l'ambiente. 
 
-| Dimensioni dati/ <br/> larghezza di banda | 50 Mbps    | 100 Mbps  | 500 Mbps  | 1 Gbps   | 5 Gbps   | 10 Gbps  | 50 Gbps   |
+| Dimensioni dati/ <br/> bandwidth | 50 Mbps    | 100 Mbps  | 500 Mbps  | 1 Gbps   | 5 Gbps   | 10 Gbps  | 50 Gbps   |
 | --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
 | **1 GB**                    | 2,7 min    | 1,4 min   | 0,3 min   | 0,1 min  | 0,03 min | 0,01 min | 0,0 min   |
 | **10 GB**                   | 27,3 min   | 13,7 min  | 2,7 min   | 1,3 min  | 0,3 min  | 0,1 min  | 0,03 min  |
@@ -106,7 +106,7 @@ Eseguire questi passaggi per ottimizzare le prestazioni del servizio Azure Data 
 
    Anche le regole di ottimizzazione delle prestazioni verranno gradualmente migliorate.
 
-   **Esempio: Copia nel database SQL di Azure con suggerimenti per l'ottimizzazione delle prestazioni**
+   **Esempio: copiare nel database SQL di Azure con suggerimenti per l'ottimizzazione delle prestazioni**
 
    In questo esempio, durante l'esecuzione di una copia, Azure Data Factory rileva che il database SQL di Azure sink raggiunge un utilizzo elevato di DTU, rallentando le operazioni di scrittura. Il suggerimento consiste nell'aumentare il livello del database SQL di Azure con più DTU. 
 
@@ -133,7 +133,7 @@ Azure Data Factory offre le seguenti funzionalità di ottimizzazione delle prest
 
 Un'unità di integrazione dati è una misura che rappresenta la potenza, ovvero una combinazione di CPU, memoria e allocazione di risorse di rete, di una singola unità in Azure Data Factory. L'unità di integrazione dati si applica solo al [runtime di integrazione di Azure](concepts-integration-runtime.md#azure-integration-runtime), ma non al runtime di [integrazione self-hosted](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-Ti verrà addebitato il **numero di unità \* di durata \* copia DIUs di utilizzo** Vedi i prezzi correnti [qui](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/). È possibile applicare la valuta locale e la separazione separata per ogni tipo di sottoscrizione.
+Ti verrà addebitato il **numero di DIUs usati \* durata della copia \* prezzo unitario/Diu ore**. Vedi i prezzi correnti [qui](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/). È possibile applicare la valuta locale e la separazione separata per ogni tipo di sottoscrizione.
 
 Il DIUs consentito per consentire l'esecuzione di un'attività di copia è **compreso tra 2 e 256**. Se non è specificato o se si sceglie "auto" nell'interfaccia utente, Data Factory applicare in modo dinamico l'impostazione Optimal DIU in base alla coppia di sink di origine e al modello di dati. La tabella seguente elenca le DIUs predefinite usate in diversi scenari di copia:
 
@@ -148,7 +148,7 @@ Per ignorare l'impostazione predefinita, è possibile specificare un valore per 
 Quando si monitora un'esecuzione di attività, è possibile visualizzare i DIUs usati per ogni copia eseguita nell'output dell'attività di copia. Per altre informazioni, vedere [monitoraggio dell'attività di copia](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> L'impostazione di DIUs maggiori di quattro attualmente si applica solo quando si copiano più file da archiviazione di Azure, Azure Data Lake Storage, Amazon S3, Google Cloud Storage, cloud FTP o cloud SFTP a tutti gli altri archivi dati cloud.
+> L'impostazione di DIUs maggiori di quattro attualmente si applica solo quando si copiano più file da BLOB di Azure/ADLS Gen1/ADLS Gen2/Amazon S3/Google Cloud storage/cloud FTP/cloud SFTP o da un archivio dati relazionale cloud abilitato per le opzioni di partizione (incluso [Oracle ](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)) a qualsiasi altro archivio dati cloud.
 
 **Esempio:**
 
@@ -241,12 +241,12 @@ Attualmente, non è possibile copiare i dati tra due archivi dati connessi trami
 
 Configurare l'impostazione **enableStaging** nell'attività di copia per specificare se si desidera che i dati vengano gestiti temporaneamente nell'archivio BLOB prima di caricarli in un archivio dati di destinazione. Quando si imposta **enableStaging** su `TRUE`, specificare le proprietà aggiuntive elencate nella tabella seguente. È anche necessario creare un servizio collegato di archiviazione di Azure o di archiviazione con firma di accesso condiviso per la gestione temporanea, se non è già presente.
 
-| Proprietà | Descrizione | Valore predefinito | Obbligatoria |
+| Proprietà | Description | Valore predefinito | Obbligatoria |
 | --- | --- | --- | --- |
-| enableStaging |Specificare se si vuole copiare i dati tramite un archivio di staging provvisorio. |False |No |
+| enableStaging |Specificare se si vuole copiare i dati tramite un archivio di staging provvisorio. |Falso |No |
 | linkedServiceName |Specificare il nome di un servizio collegato [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) che fa riferimento all'istanza di archiviazione usata come archivio di staging provvisorio. <br/><br/> Non è possibile usare l'archiviazione con una firma di accesso condiviso per caricare i dati in SQL Data Warehouse tramite la polibase. Può essere usata in tutti gli altri scenari. |N/D |Sì, quando **enableStaging** è impostato su TRUE |
 | path |Specificare il percorso dell'archivio BLOB che deve contenere i dati di staging. Se non si specifica un percorso, il servizio crea un contenitore per archiviare i dati temporanei. <br/><br/> Specificare un percorso solo se si usa l'archiviazione con una firma di accesso condiviso o se i dati temporanei devono trovarsi in un percorso specifico. |N/D |No |
-| enableCompression |Specifica se i dati devono essere compressi prima di essere copiati nella destinazione. Questa impostazione ridurre il volume dei dati da trasferire. |False |No |
+| enableCompression |Specifica se i dati devono essere compressi prima di essere copiati nella destinazione. Questa impostazione ridurre il volume dei dati da trasferire. |Falso |No |
 
 >[!NOTE]
 > Se si usa la copia di staging con la compressione abilitata, l'entità servizio o l'autenticazione MSI per il servizio collegato del BLOB di staging non è supportata.
@@ -292,12 +292,12 @@ I costi vengono addebitati in base a due passaggi: durata della copia e tipo di 
 
 Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione delle prestazioni per alcuni degli archivi dati supportati:
 
-* Archiviazione di Azure, che include archiviazione BLOB e archiviazione tabelle: [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../storage/common/storage-scalability-targets.md) ed [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](../storage/common/storage-performance-checklist.md).
-* Database SQL di Azure: È possibile [monitorare le prestazioni](../sql-database/sql-database-single-database-monitor.md) e controllare la percentuale di unità di transazione di database (DTU).
-* Azure SQL Data Warehouse: La relativa funzionalità viene misurata in unità data warehouse (DWU). Vedere [gestire la potenza di calcolo in Azure SQL data warehouse (panoramica)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
-* Azure Cosmos DB: [Livelli di prestazioni in Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* SQL Server locale: [Monitorare e ottimizzare le prestazioni](https://msdn.microsoft.com/library/ms189081.aspx).
-* File server locale: [Ottimizzazione delle prestazioni per i file server](https://msdn.microsoft.com/library/dn567661.aspx).
+* Archiviazione di Azure, che include archiviazione BLOB e archiviazione tabelle: [obiettivi di scalabilità di archiviazione di Azure](../storage/common/storage-scalability-targets.md) e [elenco di controllo di prestazioni e scalabilità per archiviazione di](../storage/common/storage-performance-checklist.md)Azure
+* Database SQL di Azure: è possibile [monitorare le prestazioni](../sql-database/sql-database-single-database-monitor.md) e controllare la percentuale di unità di transazione di database (DTU).
+* Azure SQL Data Warehouse: la relativa funzionalità viene misurata in unità di data warehouse (DWU). Vedere [gestire la potenza di calcolo in Azure SQL data warehouse (panoramica)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+* Azure Cosmos DB: [livelli di prestazioni in Azure Cosmos DB](../cosmos-db/performance-levels.md).
+* SQL Server locale: [monitoraggio e ottimizzazione delle prestazioni](https://msdn.microsoft.com/library/ms189081.aspx).
+* File server locale: [ottimizzazione delle prestazioni per i file server](https://msdn.microsoft.com/library/dn567661.aspx).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli altri articoli sull'attività di copia:

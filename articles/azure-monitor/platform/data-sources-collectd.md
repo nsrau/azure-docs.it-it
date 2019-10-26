@@ -1,24 +1,18 @@
 ---
 title: Raccogliere dati da CollectD in Monitoraggio di Azure | Microsoft Docs
 description: CollectD è un daemon Linux open source che, a intervalli regolari, raccoglie dati dalle applicazioni e informazioni a livello di sistema.  Questo articolo fornisce informazioni sulla raccolta di dati da CollectD in Monitoraggio di Azure.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/27/2018
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: b1f02e01fef95bdd06930aa30479dd16d40675ce
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.date: 11/27/2018
+ms.openlocfilehash: 4bf58a7e446cb13366a230a35c83e6bf0acaa09a
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812560"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932529"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Raccogliere dati da CollectD su agenti Linux in Monitoraggio di Azure
 [CollectD](https://collectd.org/) è un daemon Linux open source che, a intervalli regolari, raccoglie metriche sulle prestazioni dalle applicazioni e informazioni a livello di sistema. Applicazioni di esempio includono Java Virtual Machine (JVM), MySQL Server e Nginx. Questo articolo fornisce informazioni sulla raccolta di dati sulle prestazioni da CollectD in Monitoraggio di Azure.
@@ -115,12 +109,12 @@ Per mantenere un modello comune tra le metriche dell'infrastruttura già raccolt
 | Campo metrica CollectD | Campo di Monitoraggio di Azure |
 |:--|:--|
 | `host` | Computer |
-| `plugin` | Nessuna |
-| `plugin_instance` | Nome istanza<br>Se **plugin_instance** è *null*, InstanceName=" *_Total*" |
+| `plugin` | Nessuno |
+| `plugin_instance` | Nome dell'istanza<br>Se **plugin_instance** è *null*, InstanceName=" *_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>Se **type_instance** è *null*, CounterName=**blank** |
 | `dsnames[]` | CounterName |
-| `dstypes` | Nessuna |
+| `dstypes` | Nessuno |
 | `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>Passaggi successivi

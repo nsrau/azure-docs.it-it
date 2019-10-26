@@ -1,24 +1,18 @@
 ---
 title: Raccogliere e analizzare messaggi Syslog in Monitoraggio di Azure | Microsoft Docs
 description: Syslog è un protocollo di registrazione di eventi comunemente usato in Linux. Questo articolo descrive come configurare una raccolta di messaggi Syslog in Log Analytics e i dettagli dei record creati.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/22/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: dc3aa502dccdd4eb4e8bd1a82456656e5d389160
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.date: 03/22/2019
+ms.openlocfilehash: 5daa9e99ccf71da680dad00b06c4e53f6c8b4e81
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327427"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932424"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Origini dati Syslog in Monitoraggio di Azure
 Syslog è un protocollo di registrazione di eventi comunemente usato in Linux. Le applicazioni inviano messaggi che possono essere archiviati nel computer locale o recapitati a un agente di raccolta di Syslog. Quando è installato, l'agente di Log Analytics per Linux configura il daemon Syslog locale per inoltrare i messaggi all'agente. Quest'ultimo invia quindi il messaggio a Monitoraggio di Azure, dove viene creato un record corrispondente.  
@@ -33,12 +27,12 @@ Syslog è un protocollo di registrazione di eventi comunemente usato in Linux. L
 Con l'agente di raccolta syslog sono supportate le seguenti funzionalità:
 
 * Kern
-* Utente
+* user
 * mail
 * daemon
 * auth
 * syslog
-* lpr
+* LPR
 * news
 * uucp
 * cron
@@ -201,7 +195,7 @@ Dopo aver completato le modifiche, riavviare Syslog e il servizio agente di Log 
 ## <a name="syslog-record-properties"></a>Proprietà dei record Syslog
 I record Syslog sono di tipo **Syslog** e hanno le proprietà descritte nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 |:--- |:--- |
 | Computer |Computer da cui è stato raccolto l'evento. |
 | Facility |Parte del sistema che ha generato il messaggio. |
@@ -215,9 +209,9 @@ I record Syslog sono di tipo **Syslog** e hanno le proprietà descritte nella ta
 ## <a name="log-queries-with-syslog-records"></a>Query di log con record Syslog
 La tabella seguente mostra alcuni esempi di query di log che recuperano i record Syslog.
 
-| Query | Descrizione |
+| Query | Description |
 |:--- |:--- |
-| Syslog |Tutti i record Syslog. |
+| syslog |Tutti i record Syslog. |
 | Syslog &#124; where SeverityLevel == "error" |Tutti i record Syslog con livello di gravità errore. |
 | Syslog &#124; summarize AggregatedValue = count() by Computer |Numero di record Syslog per computer. |
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Numero di record Syslog per funzionalità. |

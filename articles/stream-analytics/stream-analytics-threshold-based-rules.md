@@ -1,5 +1,5 @@
 ---
-title: Elaborare regole basate su soglie configurabili in Analisi di flusso di Azure
+title: Regole configurabili basate su soglie in analisi di flusso di Azure
 description: Questo articolo descrive come usare i dati di riferimento per ottenere una soluzione per la creazione di avvisi che disponga di regole basate su soglie configurabili in Analisi di flusso di Azure.
 services: stream-analytics
 author: zhongc
@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8fd21f411093e22b2b1dc5afd6da9cb26db6ff8
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761727"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934249"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Elaborare regole basate su soglie configurabili in Analisi di flusso di Azure
 Questo articolo descrive come usare i dati di riferimento per ottenere una soluzione per la creazione di avvisi che usi regole basate su soglie configurabili in Analisi di flusso di Azure.
 
-## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Scenario: Avvisi basati su valori di soglia regolabile regola
+## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Scenario: Creazione di avvisi basati su soglie delle regole modificabili
 Potrebbe essere necessario generare un avviso come output quando gli eventi trasmessi in ingresso hanno raggiunto un valore specifico oppure quando un valore aggregato basato sugli eventi trasmessi in ingresso supera una determinata soglia. È possibile configurare facilmente una query di Analisi di flusso per mettere a confronto un valore con una soglia statica fissa e predeterminata. Una soglia fissa può essere impostata come hardcoded nella sintassi della query di streaming usando confronti numerici semplici (maggiore di, minore di e uguale a).
 
 In alcuni casi, i valori soglia devono poter essere più facilmente configurabili senza modificare la sintassi della query ogni volta che si modifica un valore soglia. In altri casi, potrebbe essere necessario che la stessa query elabori numerosi dispositivi o utenti, ognuno con valori soglia differenti per ciascun tipo di dispositivo. 

@@ -1,20 +1,18 @@
 ---
 title: Informazioni di riferimento su host.json per Funzioni di Azure 2.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v2.
-services: functions
 author: ggailey777
-manager: jeconnoc
-keywords: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 9eb68bb4accafa708d738ea40210980358f60f24
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 2a61a2ba74ccdaa69b26cae65dd4f74a7b837ccf
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596867"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72927455"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x  
 
@@ -150,9 +148,7 @@ Un elenco di funzioni eseguite dall'host di processo. Una matrice vuota indica l
 ## <a name="functiontimeout"></a>functionTimeout
 
 Indica la durata del timeout per tutte le funzioni. Segue il formato stringa TimeSpan. In un piano di consumo serverless l'intervallo valido va da 1 secondo a 10 minuti e il valore predefinito è 5 minuti.  
-In un piano dedicato (servizio app) non esiste alcun limite globale e il valore predefinito dipende dalla versione runtime: 
-+ Versione 1. x: il valore predefinito è *null*, che indica nessun timeout.   
-+ Versione 2. x: il valore predefinito è 30 minuti. Il valore `-1` indica un'esecuzione non vincolata.
+In un piano dedicato (servizio app) non esiste alcun limite globale e il valore predefinito è 30 minuti. Il valore `-1` indica un'esecuzione non vincolata.
 
 ```json
 {

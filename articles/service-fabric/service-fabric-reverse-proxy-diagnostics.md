@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: c9c8c649208cff95f4ee515d39cc8cca3e2c64bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6074b799e992371d41de050f68690e450f008789
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726843"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933975"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitorare e diagnosticare l'elaborazione della richiesta nel proxy inverso
 
@@ -37,12 +37,12 @@ Di seguito sono riportati alcuni esempi su come interpretare i log di potenziali
 
     Il payload include:
 
-   * **traceId**: Questo GUID può essere utilizzato per correlare tutti gli eventi corrispondenti a una singola richiesta. Nei due eventi di seguito, il traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271** implica l'appartenenza alla stessa richiesta.
-   * **requestUrl**: L'URL (URL del proxy inverso) a cui è stata inviata la richiesta.
-   * **verb**: Verbo HTTP.
-   * **remoteAddress**: Indirizzo del client che invia la richiesta.
-   * **resolvedServiceUrl**: URL dell'endpoint servizio a cui la richiesta in ingresso è stato risolta. 
-   * **errorDetails**: Informazioni aggiuntive sull'errore.
+   * **traceId**: questo GUID può essere usato per correlare tutti gli eventi corrispondenti a una singola richiesta. Nei due eventi di seguito, il traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271** implica l'appartenenza alla stessa richiesta.
+   * **requestUrl**: l'URL (URL del proxy inverso) a cui è stata inviata la richiesta.
+   * **verb**: il verbo HTTP.
+   * **remoteAddress**: l'indirizzo del client che ha inviato la richiesta.
+   * **resolvedServiceUrl**: l'URL dell'endpoint di servizio con la risoluzione della richiesta in ingresso. 
+   * **errorDetails**: informazioni aggiuntive sull'errore.
 
      ```
      {
@@ -85,8 +85,8 @@ Di seguito sono riportati alcuni esempi su come interpretare i log di potenziali
     
     Di seguito è riportato un evento di esempio in cui il proxy inverso restituisce il codice 404 poiché non è riuscito a trovare l'endpoint di servizio corrispondente.
     Le voci del payload di interesse sono:
-   * **processRequestPhase**: Indica la fase di elaborazione della richiesta quando si è verificato l'errore ***TryGetEndpoint*** ad es. durante il tentativo di recupero dell'endpoint di servizio a cui eseguire l'inoltro. 
-   * **errorDetails**: Elenca i criteri di ricerca dell'endpoint. Esaminare qui che il listenerName specificato = **FrontEndListener**, mentre l'elenco di endpoint di replica contiene solo un listener con il nome **OldListener**.
+   * **processRequestPhase**: indica la fase di elaborazione della richiesta in cui si è verificato l'errore ***TryGetEndpoint***, ad esempio durante il tentativo di recupero dell'endpoint di servizio a cui eseguire l'inoltro. 
+   * **errorDetails**: elenca i criteri di ricerca dell'endpoint. Esaminare qui che il listenerName specificato = **FrontEndListener**, mentre l'elenco di endpoint di replica contiene solo un listener con il nome **OldListener**.
     
      ```
      {
@@ -104,7 +104,7 @@ Di seguito sono riportati alcuni esempi su come interpretare i log di potenziali
      }
      }
      ```
-     Un altro esempio in cui il proxy inverso può restituire 404 non trovato è: Parametro di configurazione ApplicationGateway\Http **SecureOnlyMode** è impostato su true con il proxy inverso in ascolto **HTTPS**, ma tutti gli endpoint di replica risultano non sicuri (in ascolto su HTTP).
+     Un altro esempio in cui il proxy inverso può restituire l'errore 404 - Non trovato è quando il parametro di configurazione ApplicationGateway\Http **SecureOnlyMode** è impostato su true con il proxy inverso in ascolto su **HTTPS**, ma tutti gli endpoint di replica risultano non sicuri (in ascolto su HTTP).
      Il server proxy restituisce il codice di stato 404 poiché non è possibile trovare un endpoint in ascolto su HTTPS per inoltrare la richiesta. L'analisi dei parametri nel payload dell'evento consente di circoscrivere il problema:
     
      ```
@@ -200,5 +200,5 @@ Di seguito sono riportati alcuni esempi su come interpretare i log di potenziali
 ## <a name="next-steps"></a>Passaggi successivi
 * [Aggregazione e raccolta di eventi usando Diagnostica di Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md) per abilitare la raccolta di log nei cluster di Azure.
 * Per visualizzare gli eventi di Service Fabric in Visual Studio, vedere [Monitorare e diagnosticare in locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
-* Fare riferimento a [Configure reverse proxy to connect to secure services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) (Configurare il proxy inverso per la connessione ai servizi protetti) per il modello di Azure Resource Manager per configurare il proxy inverso protetto con le diverse opzioni di convalida del certificato del servizio .
+* Fare riferimento a [Configure reverse proxy to connect to secure services](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services) (Configurare il proxy inverso per la connessione ai servizi protetti) per il modello di Azure Resource Manager per configurare il proxy inverso protetto con le diverse opzioni di convalida del certificato del servizio .
 * Per altre informazioni, leggere [Proxy inverso di Service Fabric](service-fabric-reverseproxy.md).

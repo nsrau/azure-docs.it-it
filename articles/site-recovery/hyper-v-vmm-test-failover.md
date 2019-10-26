@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: dc8deb16f7d124c5fb11568f25050eee99a245b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef8504f3f79d23fa0d59493c06cfbe133e1c4113
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60865520"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933465"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Eseguire un'esercitazione sul ripristino di emergenza per macchine virtuali Hyper-V in un sito secondario
 
@@ -20,6 +20,10 @@ ms.locfileid: "60865520"
 Questo articolo illustra come eseguire un esercitazione sul ripristino di emergenza per le macchine virtuali Hyper-V gestite nei cloud di System Center Virtual Machine Manager (VMM) in un sito secondario locale usando [Azure Site Recovery](site-recovery-overview.md).
 
 Viene eseguito un failover di testper convalidare la strategia di replica ed eseguire un'esercitazione sul ripristino di emergenza senza perdita di dati o tempi di inattività. Un failover di test non ha alcun impatto sulla replica in corso o sull'ambiente di produzione. 
+
+> [!WARNING]
+> Si noti che il supporto di ASR per l'uso della configurazione SCVMM sarà presto deprecato e pertanto si consiglia di leggere i dettagli relativi alla [deprecazione](scvmm-site-recovery-deprecation.md) prima di procedere.
+
 
 ## <a name="how-do-test-failovers-work"></a>Come funziona il failover di test?
 
@@ -31,8 +35,8 @@ Eseguire un failover di test dal server primario al sito secondario. Se si desid
     - Eseguire il failover e consentire a Site Recovery di creare automaticamente una rete di test. In questo caso Site Recovery crea automaticamente la rete ed esegue la pulizia quando il failover di test è stato completato.
 - È necessario selezionare un punto di ripristino per il failover di test: 
     - **Elaborato più recente**: questa opzione consente di eseguire il failover di una macchina virtuale nel punto di ripristino più recente elaborato da Site Recovery. Offre un RTO (Recovery Time Objective) basso poiché non viene impiegato tempo per elaborare dati non elaborati.
-    - **Coerente con l'app più recente**: questa opzione esegue il failover di una macchina virtuale nel punto di ripristino coerente con l'applicazione più recente elaborato da Site Recovery. 
-    - **Più recente**: con questa opzione vengono prima elaborati tutti i dati inviati al servizio Site Recovery per creare un punto di ripristino per ogni macchina virtuale e quindi viene eseguito il failover in tale punto di ripristino. Questa opzione offre il valore RPO (Recovery Point Objective) più basso perché la macchina virtuale creata dopo il failover conterrà tutti i dati che sono stati replicati in Site Recovery all'attivazione del failover.
+    - **Coerente con l'app più recente**: questa opzione esegue il failover di una macchina virtuale nel punto di ripristino coerente con l'app più recente elaborato da Site Recovery. 
+    - **Più recente**: con questa opzione vengono prima elaborati tutti i dati inviati al servizio Site Recovery per creare un punto di ripristino per ogni VM e quindi viene eseguito il failover in tale punto di ripristino. Questa opzione offre il valore RPO (Recovery Point Objective) più basso perché la macchina virtuale creata dopo il failover conterrà tutti i dati che sono stati replicati in Site Recovery all'attivazione del failover.
     - **Elaborato più recente tra più macchine virtuali**: questa opzione è disponibile per i piani di ripristino che includono una o più macchine virtuali in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali in cui è abilitata l'impostazione eseguono il failover nel punto di ripristino coerente tra più macchine comune più recente. Le altre macchine virtuali eseguono il failover nel relativo punto di ripristino più recente elaborato.
     - **Coerente con l'app più recente tra più macchine virtuali**: questa opzione è disponibile per i piani di ripristino con una o più macchine virtuali in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali che fanno parte di un gruppo di replica eseguono il failover nel punto di ripristino coerente a livello applicazione tra più macchine comune più recente. Le altre macchine virtuali eseguono il failover nel relativo punto di ripristino più recente coerente con l'applicazione.
     - **Personalizzato**: questa opzione consente di eseguire il failover di una macchina virtuale specifica in un determinato punto di ripristino.
@@ -45,7 +49,7 @@ Quando si esegue un failover di test, viene chiesto di selezionare le impostazio
 
 | **Opzione** | **Dettagli** | |
 | --- | --- | --- |
-| **None** | La macchina virtuale di test viene creata nello stesso host in cui è presente la macchina virtuale di replica. Non viene aggiunta al cloud e non è connessa ad alcuna rete.<br/><br/> Dopo essere stata creata, la macchina può essere connessa a una rete VM.| |
+| **Nessuno** | La macchina virtuale di test viene creata nello stesso host in cui è presente la macchina virtuale di replica. Non viene aggiunta al cloud e non è connessa ad alcuna rete.<br/><br/> Dopo essere stata creata, la macchina può essere connessa a una rete VM.| |
 | **Usa esistente** | La macchina virtuale di test viene creata nello stesso host in cui è presente la macchina virtuale di replica. Non viene aggiunta al cloud.<br/><br/>Creare una rete VM isolata dalla rete di produzione.<br/><br/>Se si vuole usare una rete basata su VLAN, è consigliabile creare a questo scopo in VMM una rete logica separata non usata in produzione. Questa rete logica viene usata per creare reti VM per i failover di test.<br/><br/>La rete logica deve essere associata ad almeno una delle schede di rete di tutti i server Hyper-V che ospitano macchine virtuali.<br/><br/>Per le reti logiche VLAN i siti di rete che vengono aggiunti alla rete logica devono essere isolati.<br/><br/>Se si usa una rete logica basata su Virtualizzazione rete Windows, Azure Site Recovery crea automaticamente reti VM isolate. | |
 | **Crea una rete** | Viene creata automaticamente una rete di test temporanea in base all'impostazione specificata in **Rete logica** e ai siti di rete correlati.<br/><br/> Il failover controlla che le macchine virtuali vengano create.<br/><br/> Usare questa opzione se un piano di ripristino uza più reti VM.<br/><br/> Se si utilizzano reti di virtualizzazione rete Windows, è possibile utilizzare questa opzione per creare automaticamente reti VM con le stesse impostazioni (subnet e pool di indirizzi IP) specificate nella rete della macchina virtuale di replica. Queste reti VM vengono eliminate automaticamente al termine del failover di test.<br/><br/> La macchina virtuale di test viene creata nello stesso host in cui è presente la macchina virtuale di replica. Non viene aggiunta al cloud.|
 

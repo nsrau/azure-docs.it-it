@@ -1,24 +1,18 @@
 ---
 title: Visualizza i dati delle app Azure Application Insights | Microsoft Docs
 description: È possibile usare la soluzione Connettore di Application Insights per diagnosticare problemi di prestazioni e comprendere in che modo gli utenti usano le app con il monitoraggio di Application Insights.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/13/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 05f2f52da90f499f7ac16de179d9967b97579997
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 02/13/2019
+ms.openlocfilehash: b956c3bc7d04908db1cc45092cf5926ecfcc305c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849179"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932737"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Soluzione di gestione Connettore di Application Insights (deprecata)
 
@@ -49,7 +43,7 @@ Quando si usa la soluzione, è possibile:
 
 A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per Connettore di Application Insights non vengono raccolti dagli agenti. Tutti i dati usati dalla soluzione provengono direttamente da Azure.
 
-| Origine connessa | Supportato | Descrizione |
+| Origine connessa | Supportato | Description |
 | --- | --- | --- |
 | [Agenti di Windows](../../azure-monitor/platform/agent-windows.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
 | [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
@@ -67,7 +61,7 @@ A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per
 1. Abilitare la soluzione Analisi app Web di Azure da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../../azure-monitor/insights/solutions.md).
 2. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Tutti i servizi** per aprire Application Insights. Cercare quindi Application Insights. 
 3. In **Sottoscrizioni** selezionare una sottoscrizione che contenga risorse di Application Insights e quindi in **Nome** selezionare una o più applicazioni.
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**
 
 Dopo circa 30 minuti, i dati diverranno disponibili e il riquadro Application Insights verrà aggiornato con alcuni dati, come nell'immagine seguente:
 
@@ -169,7 +163,7 @@ La soluzione riceve i tipi seguenti di telemetria di dati dalle app Application 
 
 - Disponibilità
 - Eccezioni
-- Requests
+- Richieste
 - Visualizzazioni di pagine: per l'area di lavoro per la ricezione di visualizzazioni di pagina, è necessario configurare le app per raccogliere tali informazioni. Per altre informazioni, vedere [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
 - Eventi personalizzati: per l'area di lavoro per la ricezione di eventi personalizzati, è necessario configurare le app per raccogliere tali informazioni. Per altre informazioni, vedere [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
@@ -192,9 +186,9 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 | DeviceType | Dispositivo client |
 | ScreenResolution |   |
 | Continent | Continente in cui ha origine la richiesta |
-| Country | Paese/area geografica in cui ha avuto origine la richiesta |
+| Paese | Paese/area geografica in cui ha avuto origine la richiesta |
 | Province | Provincia, stato o impostazioni locali in cui ha origine la richiesta |
-| city | Città o paese in cui ha origine la richiesta |
+| Città | Città o paese in cui ha origine la richiesta |
 | isSynthetic | Indica se la richiesta è stata creata da un utente o dal metodo automatizzato. True = metodo automatico o false = utente generato |
 | SamplingRate | Percentuale di telemetria generata dall'SDK inviato al portale. L'intervallo è 0,0-100,0. |
 | SampledCount | 100/(SamplingRate). Ad esempio, 4 =&gt; 25% |
@@ -207,7 +201,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="availability-specific-fields"></a>Campi specifici di disponibilità
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 | --- | --- |
 | TelemetryType | Disponibilità |
 | AvailabilityTestName | Nome del test Web |

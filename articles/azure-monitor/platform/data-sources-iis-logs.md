@@ -1,29 +1,23 @@
 ---
 title: Log di IIS in Monitoraggio di Azure | Microsoft Docs
 description: Internet Information Services (IIS) archivia le attività utente in file di log che possono essere raccolti da Monitoraggio di Azure.  Questo articolo descrive come configurare una raccolta di log di IIS e i dettagli dei record creati in Monitoraggio di Azure.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: cc0fcbb2005ce2aaa70c9e1d2a9993d341169209
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.date: 11/28/2018
+ms.openlocfilehash: a865f43585ccbb31569e2ca0987aae62a89a9281
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814231"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932493"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Raccogliere i log di IIS in Monitoraggio di Azure
 Internet Information Services (IIS) archivia le attività utente in file di log che possono essere raccolti da Monitoraggio di Azure e archiviati come [dati di log](data-platform.md).
 
-![Log di IIS](media/data-sources-iis-logs/overview.png)
+![Log IIS](media/data-sources-iis-logs/overview.png)
 
 ## <a name="configuring-iis-logs"></a>Configurazione dei log di IIS
 Poiché Monitoraggio di Azure raccoglie le voci dai file di log creati da IIS, è necessario [configurare la registrazione in IIS](https://technet.microsoft.com/library/hh831775.aspx).
@@ -40,7 +34,7 @@ Monitoraggio di Azure raccoglie le voci di log di IIS da ogni agente ogni volta 
 ## <a name="iis-log-record-properties"></a>Proprietà dei record del log di IIS
 I record dei log di IIS sono di tipo **W3CIISLog**; la tabella seguente descrive le loro proprietà:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
 | Computer |Nome del computer da cui è stato raccolto l'evento. |
 | cIP |Indirizzo IP del client. |
@@ -67,12 +61,12 @@ I record dei log di IIS sono di tipo **W3CIISLog**; la tabella seguente descrive
 ## <a name="log-queries-with-iis-logs"></a>Query di log con i log di IIS
 La tabella seguente mostra alcuni esempi di query nei log che recuperano i record dei log di IIS.
 
-| Query | DESCRIZIONE |
+| Query | Description |
 |:--- |:--- |
 | W3CIISLog |Tutti i record del log di IIS. |
 | W3CIISLog &#124; where scStatus==500 |Tutti i record del log IIS con stato restituito pari a 500. |
 | W3CIISLog &#124; summarize count() by cIP |Numero di voci del log di IIS in base all'indirizzo IP del client. |
-| W3CIISLog &#124; where csHost = = "www\.contoso.com" &#124; riepiloga Count () by csUriStem |Numero di voci del log di IIS per URL per l'\.host www contoso.com. |
+| W3CIISLog &#124; where csHost = = "www\.contoso.com" &#124; riepiloga Count () by csUriStem |Numero di voci del log di IIS per URL per l'host www\.contoso.com. |
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Numero totale di byte ricevuti da ogni computer che esegue IIS. |
 
 ## <a name="next-steps"></a>Passaggi successivi

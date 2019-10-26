@@ -1,23 +1,18 @@
 ---
 title: Proprietà standard nei record di log di Monitoraggio di Azure | Microsoft Docs
 description: Descrive le proprietà comuni a più tipi di dati nei log di Monitoraggio di Azure.
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: 0fe174f309656011a1d05762927e254ff210b1e7
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.date: 07/18/2019
+ms.openlocfilehash: d765422957392a5cdb170208b809c24bf5aec2a3
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262002"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932203"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Proprietà standard nei log di monitoraggio di Azure
 I dati nei log di monitoraggio di Azure vengono [archiviati come set di record in un'area di lavoro log Analytics o in un'applicazione Application Insights](../log-query/logs-structure.md), ognuno con un particolare tipo di dati che dispone di un set univoco di proprietà. Molti tipi di dati hanno proprietà standard comuni a più tipi. Questo articolo descrive queste proprietà e contiene esempi di come usarle nelle query.
@@ -30,7 +25,7 @@ Le proprietà **TimeGenerated** (area di lavoro log Analytics) e **timestamp** (
 
 **TimeGenerated** e **timestamp** forniscono una proprietà comune da usare per il filtro o il riepilogo in base al tempo. Quando si seleziona un intervallo di tempo per una vista o un dashboard nella portale di Azure, viene usato TimeGenerated o timestamp per filtrare i risultati. 
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>esempi
 
 La query seguente restituisce il numero di eventi di errore creati per ogni giorno della settimana precedente.
 
@@ -52,7 +47,7 @@ exceptions
 ```
 
 ## <a name="_timereceived"></a>\_TimeReceived
-La proprietà TimeReceived contiene la data e l'ora in cui il record è stato ricevuto dal punto di inserimento del monitoraggio di Azure nel cloud di Azure.  **\_** Questa operazione può essere utile per identificare i problemi di latenza tra l'origine dati e il cloud. Un esempio potrebbe essere un problema di rete che causa un ritardo con l'invio di dati da un agente. Per altri dettagli, vedere [tempo di inserimento dei dati del log in monitoraggio di Azure](data-ingestion-time.md) .
+La proprietà **\_TimeReceived** contiene la data e l'ora in cui il record è stato ricevuto dal punto di inserimento del monitoraggio di Azure nel cloud di Azure. Questa operazione può essere utile per identificare i problemi di latenza tra l'origine dati e il cloud. Un esempio potrebbe essere un problema di rete che causa un ritardo con l'invio di dati da un agente. Per altri dettagli, vedere [tempo di inserimento dei dati del log in monitoraggio di Azure](data-ingestion-time.md) .
 
 La query seguente restituisce la latenza media per ora per i record di eventi da un agente. Sono inclusi il tempo dall'agente al cloud e il tempo totale per la disponibilità del record per le query di log.
 
@@ -68,7 +63,7 @@ Event
 ## <a name="type-and-itemtype"></a>Digitare e itemType
 Il **tipo** (area di lavoro log Analytics) e le proprietà **ItemType** (Application Insights applicazione) contengono il nome della tabella da cui il record è stato recuperato, che può anche essere considerato come tipo di record. Questa proprietà è utile nelle query che consentono di combinare record da più tabelle, ad esempio quelle che usano l'operatore `search`, per distinguere tra record di diverso tipo. **$table** può essere usato al posto di **Type** in alcune posizioni.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>esempi
 La query seguente restituisce il numero di record in base al tipo raccolti nell'ultima ora.
 
 ```Kusto
@@ -77,8 +72,8 @@ search *
 | summarize count() by Type
 
 ```
-## <a name="_itemid"></a>\_ID elemento
-La proprietà ItemId include un identificatore univoco per il record.  **\_**
+## <a name="_itemid"></a>ID elemento \_
+Il **\_proprietà ItemId** include un identificatore univoco per il record.
 
 
 ## <a name="_resourceid"></a>\_ResourceId
@@ -89,7 +84,7 @@ Per le risorse di Azure, il valore di **_ResourceId** è l'[URL dell'ID risorsa 
 > [!NOTE]
 > Alcuni tipi di dati dispongono già di campi che contengono l'ID risorsa di Azure o almeno una parte di esso, ad esempio l'ID sottoscrizione. Mentre questi campi vengono mantenuti per motivi di compatibilità con le versioni precedenti, è consigliabile usare _ResourceId per eseguire la correlazione incrociata dal momento che sarà più coerente.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>esempi
 La query seguente crea un join dei dati delle prestazioni e degli eventi per ogni computer. Mostra tutti gli eventi con ID _101_ e un utilizzo del processore del 50%.
 
 ```Kusto
@@ -130,7 +125,7 @@ Usare queste query `union withsource = tt *` solo se necessario, poiché le anal
 ## <a name="_isbillable"></a>\_IsBillable
 La proprietà **\_IsBillable** specifica se i dati inseriti sono fatturabili. I dati con **\_IsBillable** uguali a _false_ vengono raccolti gratuitamente e non fatturati nell'account Azure.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>esempi
 Per ottenere un elenco di computer che inviano i tipi di dati fatturati, usare la query seguente:
 
 > [!NOTE]
@@ -158,7 +153,7 @@ union withsource = tt *
 La proprietà **\_BilledSize** specifica la dimensione in byte dei dati che verranno fatturati all'Azure se la proprietà **\_IsBillable** è true.
 
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>esempi
 Per vedere le dimensioni degli eventi fatturabili inseriti per computer, usare la proprietà `_BilledSize` che fornisce la dimensione in byte:
 
 ```Kusto

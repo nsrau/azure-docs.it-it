@@ -1,24 +1,18 @@
 ---
 title: Query di ricerca nei log di Monitoraggio di Azure | Microsoft Docs
 description: Questo articolo fornisce un'esercitazione per iniziare a usare il comando search nelle query di log di Monitoraggio di Azure.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/06/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: a0ceb5aa82b0d38ab5d2567689e3e131ba781ce9
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.date: 08/06/2018
+ms.openlocfilehash: d92cd42f0fceadee16035b605e8d25c6bc23bc67
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254998"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933005"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Query di ricerca nei log di Monitoraggio di Azure
 Le query di log di Monitoraggio di Azure possono iniziare con un nome di tabella o un comando search. Questa esercitazione illustra le query basate sul comando search. Ogni metodo offre vantaggi specifici.

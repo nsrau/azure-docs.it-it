@@ -4,152 +4,152 @@ description: Elenca i tipi di risorse di Azure che possono essere spostati in un
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 10/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 81096a4299ec190cb4299f1b8ea4f9c2533d37ad
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: ba594a2bc0f0cb50eb515a24255a3f9ad56a10a3
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948034"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931881"
 ---
 # <a name="move-operation-support-for-resources"></a>Supporto per lo spostamento delle risorse
 Questo articolo indica se un tipo di risorsa di Azure supporta l'operazione di spostamento. Vengono inoltre fornite informazioni sulle condizioni speciali da considerare quando si trasferisce una risorsa.
 
 Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="op_single_selector"]
-> - [Microsoft.AAD](#microsoftaad)
-> - [microsoft.aadiam](#microsoftaadiam)
-> - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
-> - [Microsoft.AnalysisServices](#microsoftanalysisservices)
+> - [Microsoft. AAD](#microsoftaad)
+> - [Microsoft. aadiam](#microsoftaadiam)
+> - [Microsoft. AlertsManagement](#microsoftalertsmanagement)
+> - [Microsoft. AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
-> - [Microsoft.AppConfiguration](#microsoftappconfiguration)
-> - [Microsoft.AppService](#microsoftappservice)
+> - [Microsoft. AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft. AppService](#microsoftappservice)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
-> - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
+> - [Microsoft. AzureActiveDirectory](#microsoftazureactivedirectory)
 > - [Microsoft. AzureData](#microsoftazuredata)
-> - [Microsoft.AzureStack](#microsoftazurestack)
-> - [Microsoft.Backup](#microsoftbackup)
-> - [Microsoft.Batch](#microsoftbatch)
-> - [Microsoft.BatchAI](#microsoftbatchai)
-> - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
+> - [Microsoft. AzureStack](#microsoftazurestack)
+> - [Microsoft. batch](#microsoftbatch)
+> - [Microsoft. BatchAI](#microsoftbatchai)
+> - [Microsoft. BingMaps](#microsoftbingmaps)
+> - [Microsoft. BizTalkServices](#microsoftbiztalkservices)
 > - [Microsoft. blockchain](#microsoftblockchain)
-> - [Microsoft.Blueprint](#microsoftblueprint)
-> - [Microsoft.BotService](#microsoftbotservice)
+> - [Microsoft. Blueprint](#microsoftblueprint)
+> - [Microsoft. BotService](#microsoftbotservice)
 > - [Microsoft.Cache](#microsoftcache)
 > - [Microsoft.Cdn](#microsoftcdn)
-> - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
-> - [Microsoft.ClassicCompute](#microsoftclassiccompute)
-> - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
-> - [Microsoft.ClassicStorage](#microsoftclassicstorage)
-> - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
-> - [Microsoft.Compute](#microsoftcompute)
-> - [Microsoft.Container](#microsoftcontainer)
-> - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
+> - [Microsoft. CertificateRegistration](#microsoftcertificateregistration)
+> - [Microsoft. ClassicCompute](#microsoftclassiccompute)
+> - [Microsoft. ClassicNetwork](#microsoftclassicnetwork)
+> - [Microsoft. ClassicStorage](#microsoftclassicstorage)
+> - [Microsoft. CognitiveServices](#microsoftcognitiveservices)
+> - [Microsoft. Compute](#microsoftcompute)
+> - [Microsoft. container](#microsoftcontainer)
+> - [Microsoft. ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [Microsoft.ContentModerator](#microsoftcontentmoderator)
-> - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
-> - [Microsoft.CostManagement](#microsoftcostmanagement)
-> - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
-> - [Microsoft.DataBox](#microsoftdatabox)
-> - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
-> - [Microsoft.Databricks](#microsoftdatabricks)
-> - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.DataConnect](#microsoftdataconnect)
-> - [Microsoft.DataExchange](#microsoftdataexchange)
+> - [Microsoft. ContentModerator](#microsoftcontentmoderator)
+> - [Microsoft. CortanaAnalytics](#microsoftcortanaanalytics)
+> - [Microsoft. CostManagement](#microsoftcostmanagement)
+> - [Microsoft. CustomerInsights](#microsoftcustomerinsights)
+> - [Microsoft. CustomProviders](#microsoftcustomproviders)
+> - [Microsoft. DataBox](#microsoftdatabox)
+> - [Microsoft. DataBoxEdge](#microsoftdataboxedge)
+> - [Microsoft. databricks](#microsoftdatabricks)
+> - [Microsoft. datacatalog](#microsoftdatacatalog)
+> - [Microsoft. DataConnect](#microsoftdataconnect)
+> - [Microsoft. DataExchange](#microsoftdataexchange)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
-> - [Microsoft.DataLake](#microsoftdatalake)
+> - [Microsoft. datalake](#microsoftdatalake)
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
-> - [Microsoft.DataMigration](#microsoftdatamigration)
-> - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
-> - [Microsoft.DBforMySQL](#microsoftdbformysql)
-> - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
-> - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
+> - [Microsoft. DataMigration](#microsoftdatamigration)
+> - [Microsoft. DataShare](#microsoftdatashare)
+> - [Microsoft. DBforMariaDB](#microsoftdbformariadb)
+> - [Microsoft. DBforMySQL](#microsoftdbformysql)
+> - [Microsoft. DBforPostgreSQL](#microsoftdbforpostgresql)
+> - [Microsoft. DeploymentManager](#microsoftdeploymentmanager)
 > - [Microsoft.Devices](#microsoftdevices)
-> - [Microsoft.DevSpaces](#microsoftdevspaces)
+> - [Microsoft. DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
-> - [Microsoft.DomainRegistration](#microsoftdomainregistration)
-> - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
-> - [Microsoft.EventGrid](#microsofteventgrid)
+> - [Microsoft. DomainRegistration](#microsoftdomainregistration)
+> - [Microsoft. EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
+> - [Microsoft. EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
-> - [Microsoft.Genomics](#microsoftgenomics)
-> - [Microsoft.HanaOnAzure](#microsofthanaonazure)
+> - [Microsoft. genomica](#microsoftgenomics)
+> - [Microsoft. HanaOnAzure](#microsofthanaonazure)
 > - [Microsoft.HDInsight](#microsofthdinsight)
-> - [Microsoft.HealthcareApis](#microsofthealthcareapis)
-> - [Microsoft.HybridCompute](#microsofthybridcompute)
-> - [Microsoft.HybridData](#microsofthybriddata)
-> - [Microsoft.ImportExport](#microsoftimportexport)
-> - [microsoft.insights](#microsoftinsights)
-> - [Microsoft.IoTCentral](#microsoftiotcentral)
-> - [Microsoft.IoTSpaces](#microsoftiotspaces)
+> - [Microsoft. HealthcareApis](#microsofthealthcareapis)
+> - [Microsoft. HybridCompute](#microsofthybridcompute)
+> - [Microsoft. HybridData](#microsofthybriddata)
+> - [Microsoft. ImportExport](#microsoftimportexport)
+> - [Microsoft. Insights](#microsoftinsights)
+> - [Microsoft. IoTCentral](#microsoftiotcentral)
+> - [Microsoft. IoTSpaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
-> - [Microsoft.Kusto](#microsoftkusto)
-> - [Microsoft.LabServices](#microsoftlabservices)
-> - [Microsoft.LocationBasedServices](#microsoftlocationbasedservices)
-> - [Microsoft.LocationServices](#microsoftlocationservices)
+> - [Microsoft. kusto](#microsoftkusto)
+> - [Microsoft. LabServices](#microsoftlabservices)
+> - [Microsoft. LocationBasedServices](#microsoftlocationbasedservices)
+> - [Microsoft. LocationServices](#microsoftlocationservices)
 > - [Microsoft.Logic](#microsoftlogic)
-> - [Microsoft.MachineLearning](#microsoftmachinelearning)
-> - [Microsoft.MachineLearningCompute](#microsoftmachinelearningcompute)
-> - [Microsoft.MachineLearningExperimentation](#microsoftmachinelearningexperimentation)
-> - [Microsoft.MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
-> - [Microsoft.MachineLearningOperationalization](#microsoftmachinelearningoperationalization)
-> - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
-> - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft.Maps](#microsoftmaps)
-> - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
+> - [Microsoft. MachineLearning](#microsoftmachinelearning)
+> - [Microsoft. MachineLearningCompute](#microsoftmachinelearningcompute)
+> - [Microsoft. MachineLearningExperimentation](#microsoftmachinelearningexperimentation)
+> - [Microsoft. MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
+> - [Microsoft. MachineLearningOperationalization](#microsoftmachinelearningoperationalization)
+> - [Microsoft. MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft. ManagedIdentity](#microsoftmanagedidentity)
+> - [Microsoft. Maps](#microsoftmaps)
+> - [Microsoft. MarketplaceApps](#microsoftmarketplaceapps)
 > - [Microsoft.Media](#microsoftmedia)
 > - [Microsoft. Microservices4Spring](#microsoftmicroservices4spring)
-> - [Microsoft.Migrate](#microsoftmigrate)
-> - [Microsoft.NetApp](#microsoftnetapp)
-> - [Microsoft.Network](#microsoftnetwork)
+> - [Microsoft. migrate](#microsoftmigrate)
+> - [Microsoft. NetApp](#microsoftnetapp)
+> - [Microsoft. Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
-> - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
-> - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
-> - [Microsoft.Peering](#microsoftpeering)
-> - [Microsoft.Portal](#microsoftportal)
-> - [Microsoft.PortalSdk](#microsoftportalsdk)
-> - [Microsoft.PowerBI](#microsoftpowerbi)
-> - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
-> - [Microsoft.ProjectOxford](#microsoftprojectoxford)
+> - [Microsoft. OperationalInsights](#microsoftoperationalinsights)
+> - [Microsoft. OperationsManagement](#microsoftoperationsmanagement)
+> - [Microsoft. peering](#microsoftpeering)
+> - [Microsoft. Portal](#microsoftportal)
+> - [Microsoft. PortalSdk](#microsoftportalsdk)
+> - [Microsoft. Power bi](#microsoftpowerbi)
+> - [Microsoft. PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft. ProjectOxford](#microsoftprojectoxford)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
-> - [Microsoft.Relay](#microsoftrelay)
+> - [Microsoft. Relay](#microsoftrelay)
 > - [Microsoft. ResourceGraph](#microsoftresourcegraph)
-> - [Microsoft.SaaS](#microsoftsaas)
+> - [Microsoft. SaaS](#microsoftsaas)
 > - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
-> - [Microsoft.ServerManagement](#microsoftservermanagement)
+> - [Microsoft. ServerManagement](#microsoftservermanagement)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
 > - [Microsoft.ServiceFabric](#microsoftservicefabric)
-> - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
-> - [Microsoft.SignalRService](#microsoftsignalrservice)
-> - [Microsoft.SiteRecovery](#microsoftsiterecovery)
-> - [Microsoft.Solutions](#microsoftsolutions)
+> - [Microsoft. ServiceFabricMesh](#microsoftservicefabricmesh)
+> - [Microsoft. SignalRService](#microsoftsignalrservice)
+> - [Microsoft. Solutions](#microsoftsolutions)
 > - [Microsoft.Sql](#microsoftsql)
-> - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
-> - [Microsoft.SqlVM](#microsoftsqlvm)
+> - [Microsoft. SqlVirtualMachine](#microsoftsqlvirtualmachine)
+> - [Microsoft. SqlVM](#microsoftsqlvm)
 > - [Microsoft.Storage](#microsoftstorage)
-> - [Microsoft.StorageCache](#microsoftstoragecache)
-> - [Microsoft.StorageSync](#microsoftstoragesync)
-> - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
-> - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
-> - [Microsoft.StorSimple](#microsoftstorsimple)
-> - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
-> - [Microsoft.StreamAnalyticsExplorer](#microsoftstreamanalyticsexplorer)
-> - [Microsoft.TerraformOSS](#microsoftterraformoss)
-> - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
-> - [Microsoft.Token](#microsofttoken)
-> - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
-> - [microsoft.visualstudio](#microsoftvisualstudio)
-> - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft. StorageCache](#microsoftstoragecache)
+> - [Microsoft. StorageSync](#microsoftstoragesync)
+> - [Microsoft. StorageSyncDev](#microsoftstoragesyncdev)
+> - [Microsoft. StorageSyncInt](#microsoftstoragesyncint)
+> - [Microsoft. StorSimple](#microsoftstorsimple)
+> - [Microsoft. StreamAnalytics](#microsoftstreamanalytics)
+> - [Microsoft. StreamAnalyticsExplorer](#microsoftstreamanalyticsexplorer)
+> - [Microsoft. TerraformOSS](#microsoftterraformoss)
+> - [Microsoft. TimeSeriesInsights](#microsofttimeseriesinsights)
+> - [Microsoft. token](#microsofttoken)
+> - [Microsoft. VirtualMachineImages](#microsoftvirtualmachineimages)
+> - [Microsoft. VisualStudio](#microsoftvisualstudio)
+> - [Microsoft. VMwareCloudSimple](#microsoftvmwarecloudsimple)
 > - [Microsoft.Web](#microsoftweb)
-> - [Microsoft.WindowsIoT](#microsoftwindowsiot)
-> - [Microsoft.WindowsVirtualDesktop](#microsoftwindowsvirtualdesktop)
+> - [Microsoft. WindowsIoT](#microsoftwindowsiot)
+> - [Microsoft. WindowsVirtualDesktop](#microsoftwindowsvirtualdesktop)
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
@@ -171,28 +171,28 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | actionrules | Yes | Yes |
+> | actionrules | SÌ | SÌ |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | server | Yes | Yes |
+> | server | SÌ | SÌ |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | servizio | Yes | Yes |
+> | servizio | SÌ | SÌ |
 
-## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
+## <a name="microsoftappconfiguration"></a>Microsoft. AppConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | configurationstores | Yes | Yes |
+> | configurationstores | SÌ | SÌ |
 
 ## <a name="microsoftappservice"></a>Microsoft.AppService
 
@@ -218,9 +218,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | automationaccounts | Yes | Yes |
-> | automationaccounts/configurazioni | Yes | Yes |
-> | automationaccounts/manuali operativi | Yes | Yes |
+> | automationaccounts | SÌ | SÌ |
+> | automationaccounts/configurazioni | SÌ | SÌ |
+> | automationaccounts/manuali operativi | SÌ | SÌ |
 
 > [!IMPORTANT]
 > Manuali operativi deve esistere nello stesso gruppo di risorse dell'account di automazione.
@@ -230,7 +230,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | b2cdirectories | Yes | Yes |
+> | b2cdirectories | SÌ | SÌ |
 
 ## <a name="microsoftazuredata"></a>Microsoft. AzureData
 
@@ -244,21 +244,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | registrations | Yes | Yes |
-
-## <a name="microsoftbackup"></a>Microsoft.Backup
-
-> [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
-> | ------------- | ----------- | ---------- |
-> | backupvault | No | No |
+> | registrations | SÌ | SÌ |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | batchaccounts | Yes | Yes |
+> | batchaccounts | SÌ | SÌ |
 
 ## <a name="microsoftbatchai"></a>Microsoft.BatchAI
 
@@ -267,7 +260,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- | ---------- |
 > | clusters | No | No |
 > | fileservers | No | No |
-> | processi | No | No |
+> | jobs | No | No |
 > | aree di lavoro | No | No |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
@@ -282,14 +275,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | biztalk | Yes | Yes |
+> | biztalk | SÌ | SÌ |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | blockchainmembers | Yes | Yes |
+> | blockchainmembers | SÌ | SÌ |
 > | visualizzazioni | No | No |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
@@ -304,14 +297,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | botservices | Yes | Yes |
+> | botservices | SÌ | SÌ |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | redis | Yes | Yes |
+> | redis | SÌ | SÌ |
 
 > [!IMPORTANT]
 > Se la cache di Azure per l'istanza di redis è configurata con una rete virtuale, l'istanza non può essere spostata in una sottoscrizione diversa. Vedere [limitazioni dello spostamento di rete](./move-limitations/networking-move-limitations.md).
@@ -322,15 +315,15 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
 > | cdnwebapplicationfirewallpolicies | No | No |
-> | profiles | Yes | Yes |
-> | profili/endpoint | Yes | Yes |
+> | Profili | SÌ | SÌ |
+> | profili/endpoint | SÌ | SÌ |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | certificateorders | Yes | Yes |
+> | certificateorders | SÌ | SÌ |
 
 > [!IMPORTANT]
 > Vedere le [indicazioni sullo spostamento del servizio app](./move-limitations/app-service-move-limitations.md).
@@ -340,8 +333,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | domainnames | Yes | No |
-> | virtualmachines | Yes | No |
+> | domainnames | SÌ | No |
+> | virtualmachines | SÌ | No |
 
 > [!IMPORTANT]
 > Vedere [linee guida di spostamento della distribuzione classica](./move-limitations/classic-model-move-limitations.md). Le risorse di distribuzione classica possono essere spostate tra sottoscrizioni con un'operazione specifica di tale scenario.
@@ -363,7 +356,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | storageaccounts | Yes | No |
+> | storageaccounts | SÌ | No |
 
 > [!IMPORTANT]
 > Vedere [linee guida di spostamento della distribuzione classica](./move-limitations/classic-model-move-limitations.md). Le risorse di distribuzione classica possono essere spostate tra sottoscrizioni con un'operazione specifica di tale scenario.
@@ -373,30 +366,30 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | account | Yes | Yes |
+> | account | SÌ | SÌ |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | availabilitysets | Yes | Yes |
+> | availabilitysets | SÌ | SÌ |
 > | diskencryptionsets | No | No |
-> | dischi | Yes | Yes |
+> | dischi | SÌ | SÌ |
 > | galleries | No | No |
 > | raccolte/immagini | No | No |
 > | raccolte/immagini/versioni | No | No |
 > | gruppi host | No | No |
 > | gruppi host/host | No | No |
-> | immagini | Yes | Yes |
+> | images | SÌ | SÌ |
 > | proximityplacementgroups | No | No |
 > | restorepointcollections | No | No |
 > | sharedvmimages | No | No |
 > | sharedvmimages/versioni | No | No |
-> | snapshot | Yes | Yes |
-> | virtualmachines | Yes | Yes |
-> | VirtualMachines/estensioni | Yes | Yes |
-> | virtualmachinescalesets | Yes | Yes |
+> | snapshots | SÌ | SÌ |
+> | virtualmachines | SÌ | SÌ |
+> | VirtualMachines/estensioni | SÌ | SÌ |
+> | virtualmachinescalesets | SÌ | SÌ |
 
 > [!IMPORTANT]
 > Vedere [linee guida per lo spostamento di macchine virtuali](./move-limitations/virtual-machines-move-limitations.md).
@@ -420,11 +413,11 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | registries | Yes | Yes |
-> | registri/BuildTasks | Yes | Yes |
-> | registri/repliche | Yes | Yes |
-> | registri/attività | Yes | Yes |
-> | registri/webhook | Yes | Yes |
+> | registries | SÌ | SÌ |
+> | registri/BuildTasks | SÌ | SÌ |
+> | registri/repliche | SÌ | SÌ |
+> | registri/attività | SÌ | SÌ |
+> | registri/webhook | SÌ | SÌ |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
@@ -440,7 +433,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | applicazioni | Yes | Yes |
+> | applicazioni | SÌ | SÌ |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 
@@ -454,21 +447,28 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | connettori | Yes | Yes |
+> | dell'account di integrazione | SÌ | SÌ |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | hub | Yes | Yes |
+> | hubs | SÌ | SÌ |
+
+## <a name="microsoftcustomproviders"></a>Microsoft. CustomProviders
+
+> [!div class="mx-tableFixed"]
+> | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
+> | ------------- | ----------- | ---------- |
+> | resourceproviders | SÌ | SÌ |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | processi | No | No |
+> | jobs | No | No |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
@@ -489,7 +489,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | catalogs | Yes | Yes |
+> | catalogs | SÌ | SÌ |
 > | datacatalogs | No | No |
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
@@ -512,8 +512,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | datafactories | Yes | Yes |
-> | factories | Yes | Yes |
+> | datafactories | SÌ | SÌ |
+> | factories | SÌ | SÌ |
 
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
 
@@ -527,37 +527,44 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | account | Yes | Yes |
+> | account | SÌ | SÌ |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | account | Yes | Yes |
+> | account | SÌ | SÌ |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | servizi | No | No |
+> | services | No | No |
 > | Servizi/progetti | No | No |
 > | slot | No | No |
+
+## <a name="microsoftdatashare"></a>Microsoft. DataShare
+
+> [!div class="mx-tableFixed"]
+> | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
+> | ------------- | ----------- | ---------- |
+> | account | No | No |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | server | Yes | Yes |
+> | server | SÌ | SÌ |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | server | Yes | Yes |
+> | server | SÌ | SÌ |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
@@ -565,20 +572,20 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
 > | servergroups | No | No |
-> | server | Yes | Yes |
-> | serversv2 | Yes | Yes |
+> | server | SÌ | SÌ |
+> | serversv2 | SÌ | SÌ |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | artifactsources | Yes | Yes |
-> | rollouts | Yes | Yes |
-> | servicetopologies | Yes | Yes |
-> | servicetopologies/servizi | Yes | Yes |
-> | servicetopologies/Services/serviceunits | Yes | Yes |
-> | steps | Yes | Yes |
+> | artifactsources | SÌ | SÌ |
+> | rollouts | SÌ | SÌ |
+> | servicetopologies | SÌ | SÌ |
+> | servicetopologies/servizi | SÌ | SÌ |
+> | servicetopologies/Services/serviceunits | SÌ | SÌ |
+> | steps | SÌ | SÌ |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
@@ -587,15 +594,15 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- | ---------- |
 > | elasticpools | No | No |
 > | elasticpools / iothubtenants | No | No |
-> | iothubs | Yes | Yes |
-> | provisioningservices | Yes | Yes |
+> | iothubs | SÌ | SÌ |
+> | provisioningservices | SÌ | SÌ |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | controllers | Yes | Yes |
+> | controllers | SÌ | SÌ |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
@@ -603,48 +610,48 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
 > | labcenters | No | No |
-> | labs | Yes | No |
-> | Lab/ambienti | Yes | Yes |
-> | Lab/servicerunners | Yes | Yes |
-> | Lab/VirtualMachines | Yes | No |
-> | schedules | Yes | Yes |
+> | labs | SÌ | No |
+> | Lab/ambienti | SÌ | SÌ |
+> | Lab/servicerunners | SÌ | SÌ |
+> | Lab/VirtualMachines | SÌ | No |
+> | schedules | SÌ | SÌ |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | databaseaccounts | Yes | Yes |
+> | databaseaccounts | SÌ | SÌ |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | domains | Yes | Yes |
+> | domains | SÌ | SÌ |
 
-## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
+## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft. EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | servizi | Yes | Yes |
+> | services | SÌ | SÌ |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | domains | Yes | Yes |
-> | topics | Yes | Yes |
+> | domains | SÌ | SÌ |
+> | topics | SÌ | SÌ |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | clusters | Yes | Yes |
-> | spazi dei nomi | Yes | Yes |
+> | clusters | SÌ | SÌ |
+> | spazi dei nomi | SÌ | SÌ |
 
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 
@@ -659,47 +666,47 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
 > | hanainstances | No | No |
-> | sapmonitors | Yes | Yes |
+> | sapmonitors | SÌ | SÌ |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | clusters | Yes | Yes |
+> | clusters | SÌ | SÌ |
 
 > [!IMPORTANT]
 > È possibile spostare i cluster HDInsight in una nuova sottoscrizione o in un nuovo gruppo di risorse. Non è tuttavia possibile spostare tra sottoscrizioni le risorse di rete collegate al cluster HDInsight, ad esempio la rete virtuale, l'interfaccia di rete o il servizio di bilanciamento del carico. Non è possibile spostare in un nuovo gruppo di risorse un'interfaccia di rete collegata a una macchina virtuale per il cluster.
 >
 > Quando si sposta un cluster HDInsight in una nuova sottoscrizione, spostare prima altre risorse, ad esempio l'account di archiviazione. Spostare quindi il cluster HDInsight.
 
-## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
+## <a name="microsofthealthcareapis"></a>Microsoft. HealthcareApis
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | servizi | Yes | Yes |
+> | services | SÌ | SÌ |
 
-## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
+## <a name="microsofthybridcompute"></a>Microsoft. HybridCompute
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | computer | No | No |
+> | macchine | No | No |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | datamanagers | Yes | Yes |
+> | datamanagers | SÌ | SÌ |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | processi | Yes | Yes |
+> | jobs | SÌ | SÌ |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
@@ -707,18 +714,18 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
 > | account | No | No |
-> | actiongroups | Yes | Yes |
+> | actiongroups | SÌ | SÌ |
 > | activitylogalerts | No | No |
-> | alertrules | Yes | Yes |
-> | autoscalesettings | Yes | Yes |
-> | components | Yes | Yes |
+> | alertrules | SÌ | SÌ |
+> | autoscalesettings | SÌ | SÌ |
+> | components | SÌ | SÌ |
 > | guestdiagnosticsettings | No | No |
 > | metricalerts | No | No |
 > | notificationgroups | No | No |
 > | notificationrules | No | No |
-> | scheduledqueryrules | Yes | Yes |
-> | webtests | Yes | Yes |
-> | cartelle di lavoro | Yes | Yes |
+> | scheduledqueryrules | SÌ | SÌ |
+> | webtests | SÌ | SÌ |
+> | workbooks | SÌ | SÌ |
 
 > [!IMPORTANT]
 > Verificare che il passaggio alla nuova sottoscrizione non superi le [quote di sottoscrizione](../azure-subscription-service-limits.md#azure-monitor-limits).
@@ -728,15 +735,15 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | iotapps | Yes | Yes |
+> | iotapps | SÌ | SÌ |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Yes | Yes |
-> | grafo | Yes | Yes |
+> | checknameavailability | SÌ | SÌ |
+> | graph | SÌ | SÌ |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
@@ -744,7 +751,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
 > | hsmpools | No | No |
-> | insiemi di credenziali | Yes | Yes |
+> | insiemi di credenziali | SÌ | SÌ |
 
 > [!IMPORTANT]
 > Gli insiemi di credenziali delle chiavi usati per la crittografia del disco non possono essere spostati in un gruppo di risorse nella stessa sottoscrizione o tra sottoscrizioni.
@@ -754,7 +761,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | clusters | Yes | Yes |
+> | clusters | SÌ | SÌ |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
@@ -783,26 +790,26 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
 > | hostingenvironments | No | No |
-> | integrationaccounts | Yes | Yes |
+> | integrationaccounts | SÌ | SÌ |
 > | integrationserviceenvironments | No | No |
 > | isolatedenvironments | No | No |
-> | flussi di lavoro | Yes | Yes |
+> | flussi di lavoro | SÌ | SÌ |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | commitmentplans | Yes | Yes |
-> | webservices | Yes | No |
-> | aree di lavoro | Yes | Yes |
+> | commitmentplans | SÌ | SÌ |
+> | webservices | SÌ | No |
+> | aree di lavoro | SÌ | SÌ |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | operationalizationclusters | Yes | Yes |
+> | operationalizationclusters | SÌ | SÌ |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 
@@ -849,7 +856,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | account | Yes | Yes |
+> | account | SÌ | SÌ |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
@@ -863,9 +870,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | mediaservices | Yes | Yes |
-> | MediaServices/liveevents | Yes | Yes |
-> | MediaServices/le entità streamingendpoint | Yes | Yes |
+> | mediaservices | SÌ | SÌ |
+> | MediaServices/liveevents | SÌ | SÌ |
+> | MediaServices/le entità streamingendpoint | SÌ | SÌ |
 
 ## <a name="microsoftmicroservices4spring"></a>Microsoft. Microservices4Spring
 
@@ -901,50 +908,50 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- | ---------- |
 > | applicationgateways | No | No |
 > | applicationgatewaywebapplicationfirewallpolicies | No | No |
-> | applicationsecuritygroups | Yes | Yes |
-> | azurefirewalls | Yes | Yes |
+> | applicationsecuritygroups | SÌ | SÌ |
+> | azurefirewalls | SÌ | SÌ |
 > | bastionhosts | No | No |
-> | connessioni | Yes | Yes |
-> | ddoscustompolicies | Yes | Yes |
+> | connections | SÌ | SÌ |
+> | ddoscustompolicies | SÌ | SÌ |
 > | ddosprotectionplans | No | No |
-> | dnszones | Yes | Yes |
+> | dnszones | SÌ | SÌ |
 > | expressroutecircuits | No | No |
 > | expressroutecrossconnections | No | No |
 > | expressroutegateways | No | No |
 > | expressrouteports | No | No |
-> | frontdoor | No | No |
+> | frontdoors | No | No |
 > | frontdoorwebapplicationfirewallpolicies | No | No |
 > | loadbalancers | Sì, SKU Basic<br>SKU senza standard | Sì, SKU Basic<br>SKU senza standard |
-> | localnetworkgateways | Yes | Yes |
-> | natgateways | Yes | Yes |
-> | networkintentpolicies | Yes | Yes |
-> | networkinterfaces | Yes | Yes |
+> | localnetworkgateways | SÌ | SÌ |
+> | natgateways | SÌ | SÌ |
+> | networkintentpolicies | SÌ | SÌ |
+> | networkinterfaces | SÌ | SÌ |
 > | networkprofiles | No | No |
-> | networksecuritygroups | Yes | Yes |
-> | networkwatchers | Yes | Yes |
-> | networkwatchers / connectionmonitors | Yes | Yes |
-> | networkwatchers/lenti | Yes | Yes |
-> | networkwatchers / pingmeshes | Yes | Yes |
+> | networksecuritygroups | SÌ | SÌ |
+> | networkwatchers | SÌ | SÌ |
+> | networkwatchers / connectionmonitors | SÌ | SÌ |
+> | networkwatchers/lenti | SÌ | SÌ |
+> | networkwatchers / pingmeshes | SÌ | SÌ |
 > | p2svpngateways | No | No |
-> | privatednszones | Yes | Yes |
-> | privatednszones / virtualnetworklinks | Yes | Yes |
+> | privatednszones | SÌ | SÌ |
+> | privatednszones / virtualnetworklinks | SÌ | SÌ |
 > | privateendpoints | No | No |
 > | privatelinkservices | No | No |
 > | publicipaddresses | Sì, SKU Basic<br>SKU senza standard | Sì, SKU Basic<br>SKU senza standard |
-> | publicipprefixes | Yes | Yes |
+> | publicipprefixes | SÌ | SÌ |
 > | routefilters | No | No |
-> | routetables | Yes | Yes |
-> | securegateways | Yes | Yes |
-> | serviceendpointpolicies | Yes | Yes |
-> | trafficmanagerprofiles | Yes | Yes |
+> | routetables | SÌ | SÌ |
+> | securegateways | SÌ | SÌ |
+> | serviceendpointpolicies | SÌ | SÌ |
+> | trafficmanagerprofiles | SÌ | SÌ |
 > | virtualhubs | No | No |
-> | virtualnetworkgateways | Yes | Yes |
-> | virtualnetworks | Yes | Yes |
+> | virtualnetworkgateways | SÌ | SÌ |
+> | virtualnetworks | SÌ | SÌ |
 > | virtualnetworktaps | No | No |
 > | virtualwans | No | No |
 > | vpngateways (WAN virtuale) | No | No |
 > | vpnsites (WAN virtuale) | No | No |
-> | webapplicationfirewallpolicies | Yes | Yes |
+> | webapplicationfirewallpolicies | SÌ | SÌ |
 
 > [!IMPORTANT]
 > Vedere [linee guida](./move-limitations/networking-move-limitations.md)per lo spostamento di rete.
@@ -954,15 +961,15 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | spazi dei nomi | Yes | Yes |
-> | spazi dei nomi/notificationhubs | Yes | Yes |
+> | spazi dei nomi | SÌ | SÌ |
+> | spazi dei nomi/notificationhubs | SÌ | SÌ |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | aree di lavoro | Yes | Yes |
+> | aree di lavoro | SÌ | SÌ |
 
 > [!IMPORTANT]
 > Verificare che il passaggio alla nuova sottoscrizione non superi le [quote di sottoscrizione](../azure-subscription-service-limits.md#azure-monitor-limits).
@@ -972,11 +979,11 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | managementconfigurations | Yes | Yes |
-> | soluzioni | Yes | Yes |
-> | visualizzazioni | Yes | Yes |
+> | managementconfigurations | SÌ | SÌ |
+> | solutions | SÌ | SÌ |
+> | Viste | SÌ | SÌ |
 
-## <a name="microsoftpeering"></a>Microsoft.Peering
+## <a name="microsoftpeering"></a>Microsoft. peering
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -988,7 +995,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | dashboards | Yes | Yes |
+> | dashboards | SÌ | SÌ |
 
 ## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
 
@@ -1002,14 +1009,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | workspacecollections | Yes | Yes |
+> | workspacecollections | SÌ | SÌ |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | capacities | Yes | Yes |
+> | capacities | SÌ | SÌ |
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 
@@ -1023,7 +1030,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | insiemi di credenziali | Yes | Yes |
+> | insiemi di credenziali | SÌ | SÌ |
 
 > [!IMPORTANT]
 > Vedere [linee guida per lo spostamento dei servizi di ripristino](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
@@ -1033,36 +1040,36 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | spazi dei nomi | Yes | Yes |
+> | spazi dei nomi | SÌ | SÌ |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | query | Yes | Yes |
+> | query | SÌ | SÌ |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | applicazioni | Yes | No |
+> | applicazioni | SÌ | No |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | flussi | Yes | Yes |
-> | jobcollections | Yes | Yes |
+> | flows | SÌ | SÌ |
+> | jobcollections | SÌ | SÌ |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | searchservices | Yes | Yes |
+> | searchservices | SÌ | SÌ |
 
 > [!IMPORTANT]
 > Non è possibile spostare più risorse di ricerca in aree diverse in un'unica operazione. Al contrario, è possibile spostarle con operazioni separate.
@@ -1072,7 +1079,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | iotsecuritysolutions | Yes | Yes |
+> | iotsecuritysolutions | SÌ | SÌ |
 > | playbookconfigurations | No | No |
 
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
@@ -1081,14 +1088,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
 > | gateways | No | No |
-> | nodes | No | No |
+> | nodi | No | No |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | spazi dei nomi | Yes | Yes |
+> | spazi dei nomi | SÌ | SÌ |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 
@@ -1096,43 +1103,33 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
 > | applicazioni | No | No |
-> | clusters | Yes | Yes |
+> | clusters | SÌ | SÌ |
 > | cluster/applicazioni | No | No |
 > | containergroups | No | No |
 > | containergroupsets | No | No |
 > | edgeclusters | No | No |
-> | Reti | No | No |
+> | networks | No | No |
 > | secretstores | No | No |
-> | volumi | No | No |
+> | volumes | No | No |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | applicazioni | Yes | Yes |
+> | applicazioni | SÌ | SÌ |
 > | containergroups | No | No |
-> | gateways | Yes | Yes |
-> | Reti | Yes | Yes |
-> | segreti | Yes | Yes |
-> | volumi | Yes | Yes |
+> | gateways | SÌ | SÌ |
+> | networks | SÌ | SÌ |
+> | chiavi private | SÌ | SÌ |
+> | volumes | SÌ | SÌ |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | signalr | Yes | Yes |
-
-## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
-
-> [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
-> | ------------- | ----------- | ---------- |
-> | siterecoveryvault | No | No |
-
-> [!IMPORTANT]
-> Vedere [linee guida per lo spostamento dei servizi di ripristino](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+> | signalr | SÌ | SÌ |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
@@ -1153,10 +1150,10 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | instancepools | No | No |
 > | managedinstances | No | No |
 > | ManagedInstances/database | No | No |
-> | server | Yes | Yes |
-> | server/database | Yes | Yes |
-> | Server/elasticpools | Yes | Yes |
-> | virtualclusters | Yes | Yes |
+> | server | SÌ | SÌ |
+> | server/database | SÌ | SÌ |
+> | Server/elasticpools | SÌ | SÌ |
+> | virtualclusters | SÌ | SÌ |
 
 > [!IMPORTANT]
 > Un database e un server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database. Questo comportamento si applica al database SQL di Azure e ai database di Azure SQL Data Warehouse.
@@ -1166,8 +1163,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | sqlvirtualmachinegroups | Yes | Yes |
-> | sqlvirtualmachines | Yes | Yes |
+> | sqlvirtualmachinegroups | SÌ | SÌ |
+> | sqlvirtualmachines | SÌ | SÌ |
 
 ## <a name="microsoftsqlvm"></a>Microsoft.SqlVM
 
@@ -1181,9 +1178,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | storageaccounts | Yes | Yes |
+> | storageaccounts | SÌ | SÌ |
 
-## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
+## <a name="microsoftstoragecache"></a>Microsoft. StorageCache
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -1195,7 +1192,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | storagesyncservices | Yes | Yes |
+> | storagesyncservices | SÌ | SÌ |
 
 ## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
 
@@ -1223,7 +1220,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | streamingjobs | Yes | Yes |
+> | streamingjobs | SÌ | SÌ |
 
 > [!IMPORTANT]
 > I processi di analisi di flusso non possono essere spostati in stato di esecuzione.
@@ -1245,18 +1242,18 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
 > | providerregistrations | No | No |
-> | risorse | No | No |
+> | resources | No | No |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | environments | Yes | Yes |
-> | ambienti/EventSources | Yes | Yes |
-> | ambienti/referencedatasets | Yes | Yes |
+> | environments | SÌ | SÌ |
+> | ambienti/EventSources | SÌ | SÌ |
+> | ambienti/referencedatasets | SÌ | SÌ |
 
-## <a name="microsofttoken"></a>Microsoft.Token
+## <a name="microsofttoken"></a>Microsoft. token
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -1275,36 +1272,36 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | account | Yes | Yes |
-> | account/estensione | Yes | Yes |
-> | account/progetto | Yes | Yes |
+> | account | SÌ | SÌ |
+> | account/estensione | SÌ | SÌ |
+> | account/progetto | SÌ | SÌ |
 
 > [!IMPORTANT]
 > Per modificare la sottoscrizione per Azure DevOps, vedere [modificare la sottoscrizione di Azure usata per la fatturazione](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
 
-## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
+## <a name="microsoftvmwarecloudsimple"></a>Microsoft. VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | dedicatedcloudnodes | Yes | Yes |
-> | dedicatedcloudservices | Yes | Yes |
-> | virtualmachines | Yes | Yes |
+> | dedicatedcloudnodes | No | No |
+> | dedicatedcloudservices | No | No |
+> | virtualmachines | No | No |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 > | ------------- | ----------- | ---------- |
-> | certificati | No | Yes |
-> | connectiongateways | Yes | Yes |
-> | connessioni | Yes | Yes |
-> | customapis | Yes | Yes |
+> | certificates | No | SÌ |
+> | connectiongateways | SÌ | SÌ |
+> | connections | SÌ | SÌ |
+> | customapis | SÌ | SÌ |
 > | hostingenvironments | No | No |
-> | serverfarms | Yes | Yes |
-> | siti | Yes | Yes |
-> | siti/premieraddons | Yes | Yes |
-> | siti/slot | Yes | Yes |
+> | serverfarms | SÌ | SÌ |
+> | siti | SÌ | SÌ |
+> | siti/premieraddons | SÌ | SÌ |
+> | siti/slot | SÌ | SÌ |
 
 > [!IMPORTANT]
 > Vedere le [indicazioni sullo spostamento del servizio app](./move-limitations/app-service-move-limitations.md).
@@ -1316,7 +1313,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- | ---------- |
 > | deviceservices | No | No |
 
-## <a name="microsoftwindowsvirtualdesktop"></a>Microsoft.WindowsVirtualDesktop
+## <a name="microsoftwindowsvirtualdesktop"></a>Microsoft. WindowsVirtualDesktop
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |

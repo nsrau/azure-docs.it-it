@@ -1,24 +1,18 @@
 ---
 title: Gruppi di computer nelle query di log in Monitoraggio di Azure | Microsoft Docs
 description: I gruppi di computer in Monitoraggio di Azure consentono di limitare l'ambito delle query di log a uno specifico set di computer.  Questo articolo descrive i diversi metodi disponibili per creare gruppi di computer e come usarli in una query di log.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/05/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: ae423b6fb141cab4038e65ba85c6067f1c23aee0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 02/05/2019
+ms.openlocfilehash: 9ef0f2810252b73921fc0a72f2e523262c760bab
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320684"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932667"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Gruppi di computer nelle query log di monitoraggio di Azure
 I gruppi di computer in Monitoraggio di Azure consentono di limitare l'ambito delle [query di log](../log-query/log-query-overview.md) a uno specifico set di computer.  Ogni gruppo viene popolato con i computer usando una query definita dall'utente oppure importando gruppi da diverse origini.  Quando il gruppo viene incluso in una query di log, i risultati sono limitati ai record corrispondenti ai computer del gruppo.
@@ -28,12 +22,12 @@ I gruppi di computer in Monitoraggio di Azure consentono di limitare l'ambito de
 ## <a name="creating-a-computer-group"></a>Creazione di un gruppo di computer
 È possibile creare un gruppo di computer in Monitoraggio di Azure usando uno dei metodi riportati nella tabella seguente.  Informazioni dettagliate su ogni metodo sono disponibili nelle sezioni successive. 
 
-| Metodo | DESCRIZIONE |
+| Metodo | Description |
 |:--- |:--- |
 | Query di log |Creare una query di log che restituisca un elenco di computer. |
-| API di ricerca nei log |Usare l'API di ricerca log per creare un gruppo di computer a livello di codice in base ai risultati di una query di log. |
+| API di ricerca log |Usare l'API di ricerca log per creare un gruppo di computer a livello di codice in base ai risultati di una query di log. |
 | Active Directory |Analizzare automaticamente l'appartenenza a gruppi di tutti i computer degli agenti che sono membri di un dominio di Active Directory e creare un gruppo in Monitoraggio di Azure per ogni gruppo di sicurezza. (solo computer Windows)|
-| Gestione configurazione | Importare raccolte da System Center Configuration Manager e creare in Monitoraggio di Azure un gruppo per ognuna. |
+| Configuration Manager | Importare raccolte da System Center Configuration Manager e creare in Monitoraggio di Azure un gruppo per ognuna. |
 | Windows Server Update Services |Analizzare automaticamente i server o i client WSUS per rilevare i gruppi di destinazione e creare in Monitoraggio di Azure un gruppo per ognuno. |
 
 ### <a name="log-query"></a>Query di log
@@ -53,9 +47,9 @@ Eseguire questa procedura per creare un gruppo di computer da una ricerca log ne
 
 La tabella seguente descrive le proprietà che definiscono un gruppo di computer.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:---|:---|
-| NOME   | Nome della query da visualizzare nel portale. |
+| name   | Nome della query da visualizzare nel portale. |
 | Alias di funzione | Alias univoco usato per identificare il gruppo di computer in una query. |
 | Categoria       | Categoria per l'organizzazione delle query nel portale. |
 
@@ -125,7 +119,7 @@ La query seguente restituisce i record UpdateSummary solo per i computer in Comp
 ## <a name="computer-group-records"></a>Record dei gruppi di computer
 Per ogni appartenenza a gruppi di computer creata da Active Directory o WSUS viene creato un record nell'area di lavoro Log Analytics.  Il tipo di questi record è **ComputerGroup** e le proprietà sono elencate nella tabella seguente.  Per i gruppi di computer basati su query di log non vengono creati record.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
 | `Type` |*ComputerGroup* |
 | `SourceSystem` |*SourceSystem* |

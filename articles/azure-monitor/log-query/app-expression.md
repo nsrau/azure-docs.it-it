@@ -3,16 +3,16 @@ title: Espressione app() nelle query di log di Monitoraggio di Azure | Microsoft
 description: L'espressione app viene usata in una query di log di monitoraggio di Azure per recuperare i dati da un'app Application Insights specifica nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione.
 ms.service: azure-monitor
 ms.subservice: logs
-ms.topic: article
+ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/25/2019
-ms.openlocfilehash: fd6bfd40eadfc09008c992d263b065d7b41ffa1f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
-ms.translationtype: HT
+ms.openlocfilehash: ffef73f88c8679d0b0be81222b1b61c4eaef5098
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894466"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933090"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Espressione app() in una query di Monitoraggio di Azure
 
