@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 2601d05c5d2302bedb51e959747939aa3c33db44
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7ba38e1aa7196263b0ac64a6c92984cc3e7416a6
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839638"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964805"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite l'interfaccia della riga di comando di Azure
 
@@ -28,8 +28,8 @@ In questo articolo vengono configurate l'interfaccia della riga di comando di Az
 ## <a name="cli-prerequisites"></a>Prerequisiti dell'interfaccia della riga di comando
 
 * Un [hub IoT](../iot-hub/iot-hub-create-using-cli.md) nella sottoscrizione di Azure. 
-* [Dispositivi IoT Edge](how-to-register-device-cli.md) con il runtime IoT Edge installato.
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'ambiente in uso. La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.24 o successiva. Usare il comando `az --version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack. 
+* [Dispositivi IoT Edge](how-to-register-device.md#prerequisites-for-the-azure-cli) con il runtime IoT Edge installato.
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'ambiente in uso. La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.24 o successiva. Usare `az --version` per la convalida. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack. 
 * [Estensione IoT per l'interfaccia della riga di comando di Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
@@ -142,10 +142,10 @@ az iot edge deployment create --deployment-id [deployment id] --hub-name [hub na
 Il comando Deployment create accetta i parametri seguenti: 
 
 * **--deployment-id**: nome della distribuzione che verrà creata nell'hub IoT. Assegnare alla distribuzione un nome univoco contenente al massimo 128 lettere minuscole. Evitare gli spazi e i seguenti caratteri non validi: `& ^ [ ] { } \ | " < > /`.
-* **--hub-name**: nome dell'hub IoT in cui verrà creata la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Modificare la sottoscrizione corrente con il `az account set -s [subscription name]` comando.
+* **--hub-name**: nome dell'hub IoT in cui verrà creata la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Modificare la sottoscrizione corrente con il comando `az account set -s [subscription name]`.
 * **--content**: percorso file del manifesto della distribuzione JSON. 
 * **--labels**: aggiungere etichette per tenere traccia delle distribuzioni. Le etichette sono coppie nome-valore che descrivono la distribuzione. Le etichette richiedono la formattazione JSON per nomi e valori. Ad esempio: `{"HostPlatform":"Linux", "Version:"3.0.1"}`
-* **--target-condition**: immettere una condizione di destinazione per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag o sulle proprietà segnalate dei dispositivi gemelli e deve corrispondere al formato di espressione. Ad esempio `tags.environment='test' and properties.reported.devicemodel='4000x'`. 
+* **--target-condition**: immettere una condizione di destinazione per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag del dispositivo gemello o sulle proprietà segnalate dal dispositivo gemello e deve corrispondere al formato dell'espressione. Ad esempio, `tags.environment='test' and properties.reported.devicemodel='4000x'`. 
 * **--priority**: numero intero positivo. Nel caso in cui due o più distribuzioni abbiano lo stesso dispositivo di destinazione, verrà applicata quella con valore di priorità più alto.
 
 ## <a name="monitor-a-deployment"></a>Monitorare una distribuzione
@@ -160,7 +160,7 @@ Il comando Deployment Show accetta i parametri seguenti:
 * **--deployment-id**: nome della distribuzione esistente nell'hub IoT.
 * **--hub-name**: nome dell'hub IoT in cui si trova la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
 
-Ispezionare la distribuzione nella finestra di comando. La proprietà **metrics** visualizza un conteggio per ogni metrica valutata da ciascun hub:
+Ispezionare la distribuzione nella finestra di comando. La proprietà **metrica** elenca un conteggio per ogni metrica valutata da ogni hub:
 
 * **targetedCount**: metrica di sistema che specifica il numero di dispositivi gemelli presenti nell'hub IoT che corrispondono alla condizione di destinazione.
 * **appliedCount**: metrica di sistema che specifica il numero di dispositivi ai cui moduli gemelli nell'hub IoT è stato applicato il contenuto della distribuzione.
@@ -175,7 +175,7 @@ az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [
 
 Il comando Deployment Show-Metric accetta i parametri seguenti: 
 * **--deployment-id**: nome della distribuzione esistente nell'hub IoT.
-* **--metric-id**: nome della metrica per la quale si vuole visualizzare l'elenco di ID dispositivo, ad esempio `reportedFailedCount`.
+* **--metric-id**: nome della metrica per il quale si vuole visualizzare l'elenco di ID, ad esempio `reportedFailedCount`
 * **--hub-name**: nome dell'hub IoT in cui si trova la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
 
 ## <a name="modify-a-deployment"></a>Modificare una distribuzione
@@ -198,9 +198,9 @@ Il comando di aggiornamento della distribuzione accetta i parametri seguenti:
 * **--deployment-id**: nome della distribuzione esistente nell'hub IoT.
 * **--hub-name**: nome dell'hub IoT in cui si trova la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
 * **--set**: aggiorna una proprietà nella distribuzione. È possibile aggiornare le proprietà seguenti:
-  * targetCondition, ad esempio `targetCondition=tags.location.state='Oregon'`
+  * targetCondition: ad esempio `targetCondition=tags.location.state='Oregon'`
   * Etichette 
-  * priorità
+  * priority
 
 
 ## <a name="delete-a-deployment"></a>Eliminare una distribuzione

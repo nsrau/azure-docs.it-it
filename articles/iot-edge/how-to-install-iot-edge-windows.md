@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: c1b507398a2edd839b610a7c52892e23a88481a0
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: ae3f866ff5e4266983117e93f2aab5982065947e
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516603"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964379"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installare il runtime di Azure IoT Edge in Windows
 
@@ -76,9 +76,9 @@ In questo esempio viene illustrata un'installazione manuale con i contenitori di
 
 1. Se non è già stato fatto, registrare un nuovo dispositivo IoT Edge e recuperare la **stringa di connessione del dispositivo**. Copiare la stringa di connessione da usare più avanti in questa sezione. Per completare questo passaggio, è possibile usare gli strumenti seguenti:
 
-   * [Azure portal](how-to-register-device-portal.md)
-   * [interfaccia della riga di comando di Azure](how-to-register-device-cli.md)
-   * [Visual Studio Code](how-to-register-device-vscode.md)
+   * [Azure portal](how-to-register-device.md#register-in-the-azure-portal)
+   * [interfaccia della riga di comando di Azure](how-to-register-device.md#register-with-the-azure-cli)
+   * [Visual Studio Code](how-to-register-device.md#register-with-visual-studio-code)
 
 2. Eseguire PowerShell come amministratore.
 
@@ -123,7 +123,7 @@ Per ulteriori informazioni su queste opzioni di installazione, passare a informa
 
 In questa seconda opzione viene effettuato il provisioning del dispositivo con il servizio Device Provisioning in hub IoT. Fornire l' **ID ambito** da un'istanza del servizio Device provisioning insieme a qualsiasi altra informazione specifica per il [meccanismo di attestazione](../iot-dps/concepts-security.md#attestation-mechanism)preferito:
 
-* [Creare ed effettuare il provisioning di un dispositivo Edge TPM simulato in Windows](how-to-auto-provision-simulated-device-windows.md)
+* [Creare ed effettuare il provisioning di un dispositivo IoT Edge simulato con un TPM virtuale in Windows](how-to-auto-provision-simulated-device-windows.md)
 * [Creare ed effettuare il provisioning di un dispositivo IoT Edge usando l'attestazione della chiave simmetrica](how-to-auto-provision-symmetric-keys.md)
 
 Quando si installa e si effettua il provisioning automatico di un dispositivo, è possibile usare parametri aggiuntivi per modificare l'installazione, tra cui:

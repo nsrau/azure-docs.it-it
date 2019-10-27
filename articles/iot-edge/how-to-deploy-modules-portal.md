@@ -10,23 +10,23 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f27484fd1d47a2e29aa5083a7d440e5c7dba11c1
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 4c2adc8ef0d426617dc85dd507907d612bbdabaa
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839657"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964914"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuire i moduli di Azure IoT Edge dal portale di Azure
 
-Dopo aver creato i moduli di IoT Edge in base alla propria logica di business, si distribuiscono i moduli nei dispositivi per consentirne il funzionamento nella rete perimetrale. Se si hanno più moduli che interagiscono per raccogliere ed elaborare dati, è possibile distribuirli contemporaneamente e dichiarare le regole di routing che li connettono.
+Dopo aver creato i moduli di IoT Edge in base alla propria logica di business, si distribuiscono i moduli nei dispositivi per consentirne l'uso a livello perimetrale. Se si hanno più moduli che interagiscono per raccogliere ed elaborare dati, è possibile distribuirli contemporaneamente e dichiarare le regole di routing che li connettono.
 
 Questo articolo illustra come il portale di Azure consente di creare un manifesto della distribuzione ed eseguire il push della distribuzione a un dispositivo IoT Edge. Per informazioni sulla creazione di una distribuzione da assegnare a più dispositivi in base ai relativi tag condivisi, vedere [Distribuire e monitorare i moduli di IoT Edge su larga scala](how-to-deploy-monitor.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) nella sottoscrizione di Azure.
-* Un [dispositivo IoT Edge](how-to-register-device-portal.md) con il runtime di IoT Edge installato.
+* Un [dispositivo IoT Edge](how-to-register-device.md#register-in-the-azure-portal) con il runtime di IoT Edge installato.
 
 ## <a name="select-your-device"></a>Selezionare il dispositivo
 
@@ -37,9 +37,9 @@ Questo articolo illustra come il portale di Azure consente di creare un manifest
 
 ## <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
 
-Un manifesto della distribuzione è un documento JSON contenente la descrizione dei moduli da distribuire, dei flussi di dati esistenti tra i moduli e delle proprietà desiderate dei moduli gemelli. Per altre informazioni sul funzionamento e sulla modalità di creazione dei manifesti della distribuzione, vedere [Informazioni su come usare, configurare e riusare i moduli di IoT Edge](module-composition.md).
+Un manifesto della distribuzione è un documento JSON contenente la descrizione dei moduli da distribuire, dei flussi di dati esistenti tra i moduli e delle proprietà desiderate dei moduli gemelli. Per altre informazioni sul funzionamento e sulla modalità di creazione dei manifesti della distribuzione, vedere [Informazioni su come usare, configurare e riusare i moduli IoT Edge](module-composition.md).
 
-Nel portale di Azure è disponibile una procedura guidata che consente di creare il manifesto dell'applicazione anziché creare il documento JSON manualmente. Sono previsti tre passaggi: **Aggiungi moduli**, **Specifica route** e **Rivedi distribuzione**.
+Nel portale di Azure è disponibile una procedura guidata che consente di creare il manifesto dell'applicazione anziché creare il documento JSON manualmente. Sono previsti tre passaggi: **Add modules** (Aggiungere moduli), **Specify routes** (Specificare route) e **Review deployment** (Verificare la distribuzione).
 
 ### <a name="add-modules"></a>Aggiungere moduli
 
@@ -55,7 +55,7 @@ Nel portale di Azure è disponibile una procedura guidata che consente di creare
 
 1. Selezionare il **Modulo IoT Edge**.
 
-1. Specificare un nome per il modulo e quindi l'immagine del contenitore. Ad esempio:
+1. Specificare un nome per il modulo e quindi l'immagine del contenitore. ad esempio:
 
    * **Nome** : SimulatedTemperatureSensor
    * **URI immagine**: mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
@@ -92,7 +92,7 @@ Azure Marketplace è un marketplace online di servizi e applicazioni dove è pos
 
 1. Trovare un modulo e iniziare il processo di distribuzione.
 
-   * Portale di Azure: Trovare un modulo e selezionare **Crea**.
+   * Portale di Azure: trovare un modulo e selezionare **Crea**.
 
    * Azure Marketplace:
 

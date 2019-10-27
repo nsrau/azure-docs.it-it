@@ -4,14 +4,14 @@ description: Informazioni sulle funzioni da usare in un modello di Azure Resourc
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 10/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: cf791bd262849cd93a155a19ade8f8fc377f8da6
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: dc39c727526f55039a5e18a8fd2aeeb4f25234a6
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894206"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965638"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
@@ -749,6 +749,12 @@ L'ID risorsa viene restituito nel formato seguente:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
+
+Quando viene usato in una [distribuzione a livello di sottoscrizione](deploy-to-subscription.md), l'ID risorsa viene restituito nel formato seguente:
+
+```json
+/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
 Per ottenere l'ID in altri formati, vedere:

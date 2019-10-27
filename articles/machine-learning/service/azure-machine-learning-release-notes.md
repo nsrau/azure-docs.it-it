@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: afad2648ec73b02d4e06ad55f850a518d2488f68
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c8ec05db9bf372f31b6c3cfadf1eda75ba8f7d2b
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756046"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965182"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -171,7 +171,7 @@ La scheda Experiment (esperimento) del [nuovo portale dell'area di lavoro](http:
     + È stata rivisitata la gestione delle eccezioni nel codice ADB e sono state apportate modifiche a in base alla nuova gestione degli errori
     + Aggiunta dell'autenticazione MSI automatica per le macchine virtuali del notebook.
     + Corregge il bug in cui è possibile caricare modelli danneggiati o vuoti a causa di tentativi non riusciti.
-    + Correzione del bug in cui `DataReference` nome cambia quando viene modificata la modalità di `DataReference`, ad esempio quando si chiama `as_upload`, `as_download` o `as_mount`.
+    + Correzione del bug in cui `DataReference` nome cambia quando viene modificata la modalità di `DataReference`, ad esempio quando si chiama `as_upload`, `as_download`o `as_mount`.
     + Rendere `mount_point` e `target_path` facoltativo per `FileDataset.mount` e `FileDataset.download`.
     + Eccezione che non è possibile trovare la colonna timestamp se l'API relativa alle serie temporali è chiamata senza una colonna di tipo timestamp assegnata o se le colonne timestamp assegnate vengono eliminate.
     + Le colonne delle serie temporali devono essere assegnate con la colonna il cui tipo è date. in caso contrario, è prevista l'eccezione
@@ -254,7 +254,7 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
     ```
     
     + Introdurre `parition_format` come argomento per `Dataset.Tabular.from_delimited_files` e `Dataset.Tabular.from_parquet.files`. Le informazioni sulla partizione di ogni percorso dati verranno estratte in colonne in base al formato specificato. ' {column_name}' crea una colonna stringa è {column_name: AAAA/MM/GG/HH/mm/SS}' crea una colonna DateTime, dove ' aaaa ',' MM ',' dd ',' HH ',' mm ' è SS ' vengono utilizzati per estrarre anno, mese, giorno, ora, minuto e secondo per il tipo DateTime. Il partition_format deve iniziare dalla posizione della prima chiave di partizione fino alla fine del percorso del file. Ad esempio, dato il percorso '. /USA/2019/01/01/data.csv "dove la partizione è per paese e ora, partition_format ="/{Country}/{PartitionDate: AAAA/MM/gg}/data. csv "crea la colonna di stringa" Country "con valore" USA "e colonna DateTime" PartitionDate "con valore" 2019-01-01 ".
-    + `TabularDataset` sono stati aggiunti i metodi `to_csv_files` e `to_parquet_files`. Questi metodi consentono la conversione tra un `TabularDataset` e un `FileDataset` convertendo i dati in file del formato specificato.
+    + `TabularDataset`sono stati aggiunti i metodi `to_csv_files` e `to_parquet_files`. Questi metodi consentono la conversione tra un `TabularDataset` e un `FileDataset` convertendo i dati in file del formato specificato.
     + Accedere automaticamente al registro immagini di base quando si salva un Dockerfile generato da Model. Package ().
     + ' gpu_support ' non è più necessario. AzureML ora rileva e usa automaticamente l'estensione Docker NVIDIA quando è disponibile. Verrà rimosso in una versione futura.
     + Aggiunta del supporto per la creazione, l'aggiornamento e l'uso di PipelineDrafts.
@@ -580,13 +580,13 @@ Al momento di questa versione sono supportati i browser seguenti: Chrome, Firefo
 ### <a name="azure-machine-learning-data-prep-sdk-v118"></a>Azure Machine Learning data Prep SDK v 1.1.8
 
 + **Nuove funzionalità**
- + È ora possibile eseguire l'iterazione degli oggetti del flusso di dati, producendo una sequenza di record. Vedere la documentazione per `Dataflow.to_record_iterator`.
+  + È ora possibile eseguire l'iterazione degli oggetti del flusso di dati, producendo una sequenza di record. Vedere la documentazione per `Dataflow.to_record_iterator`.
 
 + **Correzioni di bug e miglioramenti**
- + Miglioramento dell'affidabilità di dataprep SDK.
- + Gestione migliorata dei frame di frame Pandas con indici di colonna non stringa.
- + Miglioramento delle prestazioni di `to_pandas_dataframe` nei set di impostazioni.
- + Correzione di un bug per cui l'esecuzione Spark dei set di impostazioni non è riuscita quando viene eseguita in un ambiente a più nodi.
+  + Miglioramento dell'affidabilità di dataprep SDK.
+  + Gestione migliorata dei frame di frame Pandas con indici di colonna non stringa.
+  + Miglioramento delle prestazioni di `to_pandas_dataframe` nei set di impostazioni.
+  + Correzione di un bug per cui l'esecuzione Spark dei set di impostazioni non è riuscita quando viene eseguita in un ambiente a più nodi.
 
 ## <a name="2019-07-01"></a>2019-07-01
 
@@ -826,14 +826,14 @@ Nota: la preparazione dei dati Python SDK non installerà più i pacchetti `nump
     + Esempi:
       + `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
       + `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
-  + È ora possibile usare `to_upper`  and `to_lower`  functions nel linguaggio delle espressioni.
+  + È ora possibile usare le funzioni `to_upper` e `to_lower` nel linguaggio delle espressioni.
   + È ora possibile visualizzare il numero di valori univoci di ogni colonna in un profilo dati.
   + Per alcuni dei passaggi di Reader usati di frequente, è ora possibile passare l'argomento `infer_column_types`. Se è impostato su `True`, la preparazione dei dati tenterà di rilevare e convertire automaticamente i tipi di colonna.
     + `inference_arguments` ora è deprecata.
   + È ora possibile chiamare `Dataflow.shape`.
 
 + **Correzioni di bug e miglioramenti**
-  + `keep_columns`  now accetta un argomento facoltativo aggiuntivo `validate_column_exists`, che controlla se il risultato di `keep_columns` conterrà colonne.
+  + `keep_columns` ora accetta un argomento facoltativo aggiuntivo `validate_column_exists`, che controlla se il risultato di `keep_columns` conterrà le colonne.
   + Tutti i passaggi del lettore, che leggono da un file, accettano ora un argomento facoltativo aggiuntivo `verify_exists`.
   + Miglioramento delle prestazioni di lettura dal dataframe Pandas e recupero dei profili dati.
   + Correzione di un bug per cui il sezionamento di un singolo passaggio da un flusso di un flusso di un flusso di un oggetto non è riuscito
@@ -852,7 +852,7 @@ Nota: la preparazione dei dati Python SDK non installerà più i pacchetti `nump
 
 + **Nuove funzionalità**
   + Il Azure Machine Learning SDK supporta ora Python 3,7.
-  + Azure Machine Learning DNN Estimator ora fornisce supporto integrato per più versioni. Ad esempio, `TensorFlow`  estimator ora accetta un parametro `framework_version` e gli utenti possono specificare la versione "1,10" o "1,12". Per un elenco delle versioni supportate dalla versione corrente dell'SDK, chiamare `get_supported_versions()` sulla classe Framework desiderata, ad esempio `TensorFlow.get_supported_versions()`.
+  + Azure Machine Learning DNN Estimator ora fornisce supporto integrato per più versioni. Ad esempio, `TensorFlow` Estimator ora accetta un parametro `framework_version` e gli utenti possono specificare la versione "1,10" o "1,12". Per un elenco delle versioni supportate dalla versione corrente dell'SDK, chiamare `get_supported_versions()` sulla classe Framework desiderata, ad esempio `TensorFlow.get_supported_versions()`.
   Per un elenco delle versioni supportate dalla versione più recente dell'SDK, vedere la [documentazione di DNN Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v111"></a>Azure Machine Learning data Prep SDK v 1.1.1

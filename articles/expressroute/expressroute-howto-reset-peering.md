@@ -1,19 +1,19 @@
 ---
-title: 'Reimpostare il peering del circuito - ExpressRoute:  Azure | Microsoft Docs'
+title: 'Reimpostare il peering del circuito-ExpressRoute: Azure | Microsoft Docs'
 description: Informazioni su come abilitare e disabilitare i peering di un circuito ExpressRoute.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 10/25/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 8541362a16c7d12a0e3a4cf009ed9cd5faf9f1cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 841c68b43e7f31693863268c3a7b2bd544c5e7ae
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366301"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965339"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Reimpostare i peering del circuito ExpressRoute
 
@@ -21,7 +21,7 @@ Questo articolo descrive come abilitare e disabilitare i peering di un circuito 
 
 La reimpostazione dei peering ExpressRoute può essere utile in un paio di scenari.
 * Esecuzione di test della progettazione e dell'implementazione del ripristino di emergenza. Ad esempio, sono presenti due circuiti ExpressRoute. È possibile disabilitare i peering di un circuito e forzare il failover del traffico di rete nell'altro circuito.
-* Abilitazione del rilevamento dell'inoltro bidirezionale nel peering privato di Azure del circuito ExpressRoute. Il rilevamento dell'inoltro bidirezionale è abilitato per impostazione predefinita se il circuito ExpressRoute è stato creato dopo il 1° agosto 2018. Se il circuito è stato creato prima di questa data, il rilevamento dell'inoltro bidirezionale non è stato abilitato. È possibile abilitarlo disabilitando il peering e riabilitandolo. Tenere presente che il rilevamento dell'inoltro bidirezionale è supportato solo nel peering privato di Azure.
+* Abilitare il rilevamento di inoltri bidirezionali (BFD) nel peering privato di Azure o nel peering Microsoft del circuito ExpressRoute. BFD è abilitato per impostazione predefinita nel peering privato di Azure se il circuito ExpressRoute viene creato dopo il 1 2018 agosto e nel peering Microsoft se il circuito ExpressRoute viene creato dopo ottobre 1 2019. Se il circuito è stato creato prima di questa data, il rilevamento dell'inoltro bidirezionale non è stato abilitato. È possibile abilitarlo disabilitando il peering e riabilitandolo. 
 
 ### <a name="working-with-azure-powershell"></a>Uso di Azure PowerShell
 

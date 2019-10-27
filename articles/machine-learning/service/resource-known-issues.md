@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: a3ba28960327f1e0a56b1ac838b2cb90ab6ac72a
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 0dd0b8cf39da8039b3a59bf243284e0d5062bd78
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675639"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965605"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi Azure Machine Learning
 
@@ -43,7 +43,7 @@ Potrebbe essere necessario eseguire un esperimento contenente solo il set di dat
  
 Prima della correzione, è possibile connettere il set di dati a qualsiasi modulo di trasformazione dati (selezionare le colonne nel set di dati, modificare i metadati, suddividere i dati e così via) ed eseguire l'esperimento. Sarà quindi possibile visualizzare il set di dati. 
 
-Nell'immagine seguente viene illustrato come: ![visulize-data ](./media/resource-known-issues/aml-visualize-data.png)
+Nell'immagine seguente viene illustrato come: ![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>Problemi di installazione dell'SDK
 
@@ -86,6 +86,16 @@ Il flusso tensore automatico Machine Learning non supporta attualmente il flusso
 ### <a name="experiment-charts"></a>Grafici degli esperimenti
 
 I grafici di classificazione binaria (precisione-richiamo, ROC, curva di guadagno e così via) mostrati nelle iterazioni dell'esperimento di ML automatizzato non vengono visualizzati correttamente nell'interfaccia utente a partire da 4/12. I tracciati del grafico mostrano attualmente risultati inversi, in cui i modelli con prestazioni migliori vengono visualizzati con risultati inferiori. Una soluzione è in fase di analisi.
+
+## <a name="datasets-and-data-preparation"></a>Set di dati e preparazione dei dati
+
+### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>Non è possibile leggere il file parquet da HTTP o ADLS gen 2
+
+Si è verificato un problema noto in AzureML dataprep SDK versione 1.1.25 che causa un errore durante la creazione di un set di dati leggendo i file parquet da HTTP o ADLS gen 2. Per risolvere il problema, eseguire l'aggiornamento a una versione successiva a 1.1.26 o effettuare il downgrade a una versione precedente a 1.1.24.
+
+```python
+pip install --upgrade azureml-dataprep
+```
 
 ## <a name="databricks"></a>Databricks
 
@@ -232,7 +242,7 @@ In base all'osservazione generale, di seguito sono riportate le raccomandazioni 
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors (nessun modulo denominato)
 Se si esegue ModuleErrors durante l'invio di esperimenti in Azure ML, significa che lo script di training prevede l'installazione di un pacchetto, ma non viene aggiunto. Una volta fornito il nome del pacchetto, Azure ML installerà il pacchetto nell'ambiente usato per la formazione. 
 
-Se si usano gli [estimatori](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) per inviare esperimenti, è possibile specificare un nome di pacchetto tramite `pip_packages` o `conda_packages` parametro nello strumento di stima basato su da quale origine si vuole installare il pacchetto. È anche possibile specificare un file yml con tutte le dipendenze usando `conda_dependencies_file`or elencare tutti i requisiti PIP in un file txt usando `pip_requirements_file` parametro.
+Se si usano gli [estimatori](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) per inviare esperimenti, è possibile specificare un nome di pacchetto tramite `pip_packages` o `conda_packages` parametro nello strumento di stima basato su da quale origine si vuole installare il pacchetto. È anche possibile specificare un file yml con tutte le dipendenze usando `conda_dependencies_file`o elencare tutti i requisiti PIP in un file txt usando `pip_requirements_file` parametro.
 
 Azure ML fornisce anche estimatori specifici del Framework per Tensorflow, PyTorch, Chainer e SKLearn. Con questi estimatori si assicurerà che le dipendenze del Framework siano installate per conto dell'utente nell'ambiente utilizzato per il training. È possibile specificare dipendenze aggiuntive, come descritto in precedenza. 
  

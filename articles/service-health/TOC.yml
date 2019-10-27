@@ -1,5 +1,5 @@
 - name: Integrità dei servizi di Azure
-  href: index.md
+  href: index.yml
 - name: Panoramica
   items:
     - name: Servizio Integrità dei servizi di Azure

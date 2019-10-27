@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/15/2019
 ms.author: kumud
-ms.openlocfilehash: 2d00ccdeb89ba5d983e4a3e089e78a8d748e4092
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 8254a7d86d5cadc2ddc03940f4ab2d08de74bd86
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597945"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965165"
 ---
 # <a name="reserved-public-ipv6-address-prefix-preview"></a>Prefisso dell'indirizzo IPv6 pubblico riservato (anteprima)
 
@@ -46,7 +46,7 @@ La dimensione del prefisso viene specificata come una maschera CIDR (Inter-Domai
 Per i costi associati all'uso di indirizzi IP pubblici di Azure, sia per gli indirizzi IP individuali che per gli intervalli IP, vedere [prezzi degli indirizzi IP pubblici](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## <a name="limitations"></a>Limitazioni
-IPv6 è supportato solo in indirizzi IP pubblici di base con allocazione dinamica che indica che l'indirizzo IPv6 verrà modificato se si elimina e si ridistribuisce l'applicazione (bilanciamento del carico o della VM) in Azure. Solo gli indirizzi IP pubblici IPv6 standard supportano l'allocazione dinamica e statica (riservata).
+IPv6 è supportato solo in indirizzi IP pubblici di base con allocazione dinamica che indica che l'indirizzo IPv6 verrà modificato se si elimina e si ridistribuisce l'applicazione (bilanciamento del carico o della VM) in Azure. L'IP pubblico IPv6 standard supporta solo l'allocazione statica (riservata), sebbene i bilanciamento del carico interno standard possano supportare anche l'allocazione dinamica dall'interno della subnet a cui sono assegnati.  
 
 Come procedura consigliata, è consigliabile usare gli indirizzi IP pubblici standard e i bilanciamenti del carico standard per le applicazioni IPv6.
 

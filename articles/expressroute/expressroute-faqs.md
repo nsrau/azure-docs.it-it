@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 4fd27acc58f5aaeb9b7680062ad97aaba22dec51
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: df8b1c8fd31eed0a09b878f09faadb23f6b72aaa
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686982"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965435"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -27,7 +27,7 @@ Le connessioni ExpressRoute non sfruttano la rete Internet pubblica. Esse offron
 
 ### <a name="where-is-the-service-available"></a>Dov'è disponibile il servizio?
 
-Vedere questa pagina per la posizione e la disponibilità del servizio: [Partner e località per ExpressRoute](expressroute-locations.md).
+Per informazioni sulla località e la disponibilità del servizio, vedere [Partner e località per ExpressRoute](expressroute-locations.md).
 
 ### <a name="how-can-i-use-expressroute-to-connect-to-microsoft-if-i-dont-have-partnerships-with-one-of-the-expressroute-carrier-partners"></a>In che modo è possibile usare ExpressRoute per connettersi a Microsoft se non è disponibile una relazione con uno dei partner del gestore ExpressRoute?
 
@@ -57,23 +57,23 @@ Per informazioni, vedere [Contratto di servizio di ExpressRoute](https://azure.m
 
 ExpressRoute supporta [tre domini di routing](expressroute-circuit-peerings.md) per diversi tipi di servizi: peering privato, peering Microsoft e peering pubblico.
 
-### <a name="private-peering"></a>Peer privato
+### <a name="private-peering"></a>Peering privato
 
 * Reti virtuali, inclusi tutti i servizi cloud e tutte le macchine virtuali
 
-### <a name="microsoft-peering"></a>Peer Microsoft
+### <a name="microsoft-peering"></a>Peering Microsoft
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI-disponibile tramite una community regionale di Azure, vedere [qui](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) per informazioni su come individuare l'area del tenant di Power bi.
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (community di Servizi globali di Azure)
 * È supportata la maggior parte dei servizi di Azure. Contattare direttamente il servizio che si vuole usare per verificarne il supporto.<br><br>**I servizi seguenti NON sono supportati**:
-    * CDN
+    * Rete CDN
     * Frontdoor di Azure
     * Server di autenticazione a più fattori (legacy)
     * Gestione traffico
 
-### <a name="public-peering"></a>Peer pubblico
+### <a name="public-peering"></a>Peering pubblico
 
 >[!NOTE]
 >Il peering pubblico è stato disabilitato sui circuiti nuovi di ExpressRoute. I servizi di Azure sono disponibili nel peering Microsoft.
@@ -82,10 +82,18 @@ ExpressRoute supporta [tre domini di routing](expressroute-circuit-peerings.md) 
 * Power BI
 * È supportata la maggior parte dei servizi di Azure. Contattare direttamente il servizio che si vuole usare per verificarne il supporto.<br><br>
   **I servizi seguenti NON sono supportati**:
-    * CDN
+    * Rete CDN
     * Frontdoor di Azure
     * Server di autenticazione a più fattori (legacy)
     * Gestione traffico
+
+### <a name="why-i-see-advertised-public-prefixes-status-as-validation-needed-while-configuring-microsoft-peering"></a>Perché viene visualizzato lo stato ' prefissi pubblici annunciati ' come ' convalida necessaria ' durante la configurazione del peering Microsoft?
+
+Microsoft verifica se i ' prefissi pubblici annunciati ' è peer ASN ' (o ' Customer ASN ') specificati sono assegnati all'utente nel registro di sistema di routing Internet. Se si ricevono i prefissi pubblici da un'altra entità e se l'assegnazione non viene registrata con il registro di routing, la convalida automatica non verrà completata e richiederà la convalida manuale. Se la convalida automatica ha esito negativo, verrà visualizzato il messaggio "convalida necessaria".
+
+Se viene visualizzato il messaggio "convalida richiesta", raccogliere i documenti che mostrano i prefissi pubblici assegnati all'organizzazione dall'entità elencata come proprietario dei prefissi nel registro di sistema di routing e inviare questi documenti per la convalida manuale da apertura di un ticket di supporto, come illustrato di seguito.
+
+![](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
 
 ### <a name="is-dynamics-365-supported-on-expressroute"></a>Dynamics 365 è supportato in ExpressRoute?
 
@@ -339,7 +347,7 @@ ExpressRoute local è disponibile nelle località di peering in cui una o due ar
 
 ### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services"></a>I circuiti ExpressRoute esistenti possono supportare la connettività ai servizi di Office 365?
 
-Sì. È possibile configurare i circuiti ExpressRoute esistenti per supportare la connettività ai servizi di Office 365. Assicurarsi di avere una capacità sufficiente a connettersi ai servizi di Office 365 e che sia stato abilitato il componente aggiuntivo Premium. [Pianificazione e al perfezionamento delle prestazioni di rete per Office 365](https://aka.ms/tune/) aiuta a pianificare le esigenze di connettività. Vedere inoltre [Creare e modificare un circuito ExpressRoute](expressroute-howto-circuit-classic.md).
+Sì. È possibile configurare i circuiti ExpressRoute esistenti per supportare la connettività ai servizi di Office 365. Assicurarsi di avere una capacità sufficiente a connettersi ai servizi di Office 365 e che sia stato abilitato il componente aggiuntivo Premium. [Pianificazione della rete e ottimizzazione delle prestazioni per Office 365](https://aka.ms/tune/) aiuta a pianificare le esigenze di connettività. Vedere inoltre [Creare e modificare un circuito ExpressRoute](expressroute-howto-circuit-classic.md).
 
 ### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>A quali servizi di Office 365 è possibile accedere tramite una connessione ExpressRoute?
 

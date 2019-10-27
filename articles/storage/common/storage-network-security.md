@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 908e44ef17dcfcf7042eab32cfd6d1fc3a565ac7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: af5b2a8c6894846ec529763f80c78bc50debabe6
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72927106"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965515"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -358,11 +358,11 @@ Le regole di rete IP per gli account di archiviazione possono essere gestite tra
 
 ## <a name="exceptions"></a>Eccezioni
 
-Le regole di rete consentono di creare un ambiente sicuro per l'accesso tra le applicazioni e i dati per la maggior parte degli scenari. Tuttavia, alcune applicazioni utilizzano servizi che non possono essere isolati in modo univoco tramite le regole della rete virtuale o dell'indirizzo IP. È tuttavia necessario concedere tali servizi all'account di archiviazione per abilitare la funzionalità completa dell'applicazione. È possibile usare l'eccezione ***Consenti servizi Microsoft attendibili*** per abilitare alcuni scenari di accesso per i dati, i log o le analisi.
+Le regole di rete consentono di creare un ambiente sicuro per le connessioni tra le applicazioni e i dati per la maggior parte degli scenari. Tuttavia, alcune applicazioni utilizzano servizi che non possono essere isolati in modo univoco tramite le regole della rete virtuale o dell'indirizzo IP. Tuttavia, tali servizi devono essere concessi allo spazio di archiviazione per abilitare la funzionalità completa dell'applicazione. In tali situazioni, è possibile usare l'impostazione ***Consenti servizi Microsoft attendibili*** per consentire l'accesso a dati, log o analisi.
 
 ### <a name="trusted-microsoft-services"></a>Servizi Microsoft attendibili
 
-Non è possibile concedere l'accesso ad alcuni servizi Microsoft dalle reti con le regole di rete esistenti. È possibile consentire a un sottoinsieme di tali servizi Microsoft attendibili di accedere all'account di archiviazione, mantenendo al tempo stesso le regole di rete per altre app. Questi servizi possono quindi usare l'autenticazione avanzata per connettersi a un account di archiviazione. Vengono abilitati due tipi di accesso attendibile per i servizi Microsoft.
+Alcuni servizi Microsoft operano da reti che non possono essere incluse nelle regole di rete. È possibile consentire a un sottoinsieme di tali servizi Microsoft attendibili di accedere all'account di archiviazione, mantenendo al tempo stesso le regole di rete per altre app. Questi servizi possono quindi usare l'autenticazione avanzata per connettersi in modo sicuro all'account di archiviazione. Vengono abilitati due tipi di accesso attendibile per i servizi Microsoft.
 
 - È possibile concedere l'accesso alle risorse di alcuni servizi per le operazioni di selezione, ad esempio la scrittura di log o per il backup.
 - È possibile concedere l'accesso a una particolare istanza di alcuni servizi [assegnando un ruolo RBAC](storage-auth-aad.md#assign-rbac-roles-for-access-rights) all'istanza della risorsa.
@@ -384,7 +384,7 @@ Quando si Abilita l'eccezione **Consenti servizi Microsoft attendibili...** , ai
 | Rete di Azure         | Microsoft.Network          | Archiviare e analizzare i log di traffico di rete. [Altre informazioni](/azure/network-watcher/network-watcher-packet-capture-overview). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Abilitare la replica per il ripristino di emergenza di macchine virtuali IaaS di Azure quando si usano gli account di archiviazione della cache, di origine o di destinazione abilitati per il firewall.  [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
-L'eccezione **Consenti servizi Microsoft attendibili...** consente a istanze specifiche di questi servizi di accedere all'account di archiviazione, se all' [identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per l'istanza viene assegnato un ruolo RBAC.
+L'eccezione **Consenti servizi Microsoft attendibili...** consente a specifiche istanze di questi servizi di accedere all'account di archiviazione, se all' [identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per l'istanza viene assegnato un ruolo RBAC.
 
 | Servizio                  | Nome provider di risorse          | Finalità                            |
 | :----------------------- | :------------------------------ | :--------------------------------- |
@@ -396,7 +396,7 @@ L'eccezione **Consenti servizi Microsoft attendibili...** consente a istanze spe
 
 ### <a name="storage-analytics-data-access"></a>Accesso ai dati di Analisi archiviazione
 
-In alcuni casi, l'accesso per la lettura dei log di diagnostica e delle metriche è obbligatorio dall'esterno del limite di rete. Quando si configura l'accesso ai servizi attendibili per l'account di archiviazione, è possibile consentire l'accesso in lettura per i file di log, le tabelle di metriche o entrambi. [Altre informazioni sull'uso dell'analisi archiviazione.](/azure/storage/storage-analytics)
+In alcuni casi l'accesso per la lettura di log diagnostici e metrica viene richiesto dall'esterno dei limiti di rete. Quando si configura l'accesso ai servizi attendibili per l'account di archiviazione, è possibile consentire l'accesso in lettura per i file di log, le tabelle di metriche o entrambi. [Altre informazioni sull'uso dell'analisi archiviazione.](/azure/storage/storage-analytics)
 
 ### <a name="managing-exceptions"></a>Gestione delle eccezioni
 

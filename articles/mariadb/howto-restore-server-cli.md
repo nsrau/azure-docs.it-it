@@ -1,22 +1,20 @@
 ---
 title: Come eseguire il backup e il ripristino di un server in Database di Azure per MariaDB
 description: Informazioni su come eseguire la procedura di backup e ripristino di un server in Database di Azure per MariaDB tramite l'interfaccia della riga di comando di Azure.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.openlocfilehash: 409fe7b76306036cad19980459ca718c87118d8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/25/2019
+ms.openlocfilehash: ae2e8049c58be312eed380fe2197985e61d28a26
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171385"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965215"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per MariaDB tramite l'interfaccia della riga di comando di Azure
-
-## <a name="backup-happens-automatically"></a>Il backup viene eseguito automaticamente
 
 Il backup dei server Database di Azure per MariaDB viene eseguito periodicamente per abilitare le funzionalità di ripristino. L'uso di questa funzionalità consente di ripristinare il server e tutti i suoi database a un momento precedente nel nuovo server.
 
@@ -71,18 +69,20 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 
 Il comando `az mariadb server restore` richiede i parametri seguenti:
 
-| Impostazione | Valore consigliato | Descrizione  |
+| Impostazione | Valore consigliato | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | name | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Selezionare un punto nel tempo per il ripristino. La data e l'ora devono trovarsi all'interno del periodo di memorizzazione dei backup del server di origine. Usare il formato ISO8601 per la data e l'ora. È possibile usare il proprio fuso orario locale, ad esempio `2018-03-13T05:59:00-08:00`. È anche possibile usare il formato UTC Zulu, ad esempio `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | Il nome o l'ID del server di origine da cui eseguire il ripristino. |
 
-Quando si ripristina un server a un punto precedente nel tempo, viene creato un nuovo server. Il server originale e i database dal punto nel punto specificato vengono copiati nel nuovo server.
+SSE si ripristina un server a un punto precedente nel tempo, viene creato un nuovo server. Il server originale e i database dal punto nel punto specificato vengono copiati nel nuovo server.
 
-I valori relativi al percorso e al piano tariffario per il server ripristinato sono gli stessi del server di origine.
+I valori relativi al percorso e al piano tariffario per il server ripristinato sono gli stessi del server di origine. 
 
-Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto.
+Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto. Il nuovo server ha lo stesso nome di accesso dell'amministratore del server e la stessa password validi per il server esistente nel momento in cui è stato avviato il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
+
+Il nuovo server creato durante un ripristino non include le regole del firewall o gli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server.
 
 ## <a name="geo-restore"></a>Ripristino geografico
 
@@ -111,7 +111,7 @@ az mariadb server georestore --resource-group newresourcegroup --name mydemoserv
 
 Il comando `az mariadb server georestore` richiede i parametri seguenti:
 
-| Impostazione | Valore consigliato | Descrizione  |
+| Impostazione | Valore consigliato | Description  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Nome del gruppo di risorse cui apparterrà il nuovo server.|
 |name | mydemoserver-georestored | Nome del nuovo server. |
@@ -119,12 +119,14 @@ Il comando `az mariadb server georestore` richiede i parametri seguenti:
 |location | eastus | Posizione del nuovo server. |
 |sku-name| GP_Gen5_8 | Questo parametro imposta il piano tariffario, la generazione delle risorse di calcolo e il numero di vCore del nuovo server. GP_Gen5_8 indica un server per utilizzo generico di quinta generazione con otto vCore.|
 
->[!Important]
->Quando si crea un nuovo server tramite un ripristino geografico, il server eredita le stesse dimensioni di archiviazione e lo stesso piano tariffario del server di origine. Questi valori non possono essere modificati durante la creazione. Dopo aver creato il nuovo server, le dimensioni di archiviazione possono essere aumentate.
+Quando si crea un nuovo server tramite un ripristino geografico, il server eredita le stesse dimensioni di archiviazione e lo stesso piano tariffario del server di origine. Questi valori non possono essere modificati durante la creazione. Dopo aver creato il nuovo server, le dimensioni di archiviazione possono essere aumentate.
 
-Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto.
+Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto. Il nuovo server ha lo stesso nome di accesso dell'amministratore del server e la stessa password validi per il server esistente nel momento in cui è stato avviato il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
+
+Il nuovo server creato durante un ripristino non include le regole del firewall o gli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sui [backup](concepts-backup.md) del servizio.
-- Altre informazioni sulle opzioni di [continuità aziendale](concepts-business-continuity.md).
+- Altre informazioni sui [backup](concepts-backup.md) del servizio
+- Informazioni sulle [repliche](concepts-read-replicas.md)
+- Altre informazioni sulle opzioni di [continuità aziendale](concepts-business-continuity.md)

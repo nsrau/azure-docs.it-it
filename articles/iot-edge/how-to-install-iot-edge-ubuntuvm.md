@@ -9,18 +9,18 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: f4bab6ab837b746c6a569cc6de95a95023bf83f4
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 0e5bec7d3e1ecd63541a319cd5a9151560ef4139
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986996"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964638"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Eseguire Azure IoT Edge in macchine virtuali Ubuntu
 
 Il runtime di Azure IoT Edge è ciò che trasforma un dispositivo in un dispositivo IoT Edge. Il runtime può essere distribuito nei dispositivi di dimensioni pari a un server industriale o a un dispositivo Raspberry Pi. Dopo aver configurato un dispositivo con il runtime di IoT Edge, è possibile avviare la distribuzione della logica di business dal cloud.
 
-Per altre informazioni sul funzionamento del runtime di IoT Edge e sui componenti inclusi, vedere [Informazioni sul runtime Azure IoT Edge e la relativa architettura](iot-edge-runtime.md).
+Per altre informazioni sul funzionamento di runtime di IoT Edge e sui componenti inclusi, vedere [Informazioni sul runtime di Azure IoT Edge e la relativa architettura](iot-edge-runtime.md).
 
 Questo articolo elenca i passaggi per eseguire il runtime Azure IoT Edge in una macchina virtuale Ubuntu 16.04 usando l'[offerta Azure IoT Edge on Ubuntu di Azure Marketplace](https://aka.ms/azure-iot-edge-ubuntuvm) preconfigurata. 
 
@@ -33,7 +33,7 @@ Al primo avvio, la macchina virtuale con Azure IoT Edge on Ubuntu preinstalla la
     *   Se è la prima volta che si usa una macchina virtuale, è più semplice usare una password e abilitare SSH nel menu della porta in ingresso pubblica. 
     *   Se si ha un carico di lavoro con utilizzo intensivo delle risorse, è consigliabile aggiornare le dimensioni della macchina virtuale aggiungendo più CPU e/o memoria.
 4.  Dopo aver distribuito la macchina virtuale, configurarla per connettersi all'hub IoT:
-    1.  Copiare la stringa di connessione del dispositivo dal dispositivo IoT Edge creato nell'hub IoT (è possibile seguire la guida alle procedure [Registrare un nuovo dispositivo Azure IoT Edge dal portale di Azure](how-to-register-device-portal.md) se non si ha familiarità con questo processo)
+    1.  Copiare la stringa di connessione del dispositivo dal dispositivo IoT Edge creato nell'hub Internet. se non si ha familiarità con questo processo, è possibile seguire la procedura [recuperare la stringa di connessione nella portale di Azure](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal) .
     1.  Selezionare la nuova risorsa macchina virtuale creata dal portale di Azure e aprire l'opzione **Comando Esegui**
     1.  Selezionare l'opzione **RunShellScript**
     1.  Eseguire lo script seguente tramite la finestra di comando con la stringa di connessione del dispositivo: `/etc/iotedge/configedge.sh “{device_connection_string}”`
@@ -85,7 +85,7 @@ Dal portale di Azure, cercare "Azure IoT Edge" e selezionare **Ubuntu Server 16.
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
-1. Impostare la stringa di connessione del dispositivo (è possibile seguire la guida alle procedure [Registrare un nuovo dispositivo Azure IoT Edge con l'interfaccia della riga di comando di Azure](how-to-register-device-cli.md) se non si ha familiarità con questo processo):
+1. Impostare la stringa di connessione del dispositivo. se non si ha familiarità con questo processo, è possibile seguire la procedura [per recuperare la stringa di connessione con l'interfaccia della riga di comando di Azure](how-to-register-device.md#retrieve-the-connection-string-with-the-azure-cli) :
 
    ```azurecli-interactive
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"

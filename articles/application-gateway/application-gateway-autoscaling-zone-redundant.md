@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: f58ac4448f50e8e02f2838fef02c9f884f69266b
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 3b552d37ce176e76bc0a4230a24a910543e5ea0d
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177444"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965128"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway applicazione con scalabilità automatica e ridondanza della zona versione 2 
 
@@ -20,31 +20,31 @@ Il gateway applicazione e il Web Application Firewall (WAF) sono disponibili anc
 
 Il nuovo SKU v2 include i miglioramenti seguenti:
 
-- **Ridimensionamento automatico**: le distribuzioni del gateway applicazione o WAF nello SKU con ridimensionamento automatico possono passare a un piano superiore o inferiore in base alle modifiche dei modelli di carico del traffico. La scalabilità automatica elimina anche la necessità di scegliere un numero di istanze o le dimensioni della distribuzione durante il provisioning. Questo SKU offre una vera elasticità. Nello SKU Standard_v2 e WAF_v2 il gateway applicazione può funzionare sia con la capacità fissa (scalabilità automatica disabilitata) sia con la modalità abilitata per la scalabilità automatica. La modalità di capacità fissa è utile per gli scenari con carichi di lavoro coerenti e prevedibili. La modalità di scalabilità automatica è utile nelle applicazioni che visualizzano la varianza nel traffico delle applicazioni.
-- **Ridondanza della zona**: Un gateway applicazione o una distribuzione WAF può estendersi su più zone di disponibilità, eliminando la necessità di eseguire il provisioning di istanze separate del gateway applicazione in ogni zona con gestione traffico. È possibile scegliere una singola zona o più zone in cui vengono distribuite le istanze del gateway applicazione, in modo da renderla più resiliente agli errori di zona. Il pool di back-end per le applicazioni può analogamente essere distribuito tra zone di disponibilità.
+- **Scalabilità automatica**: le distribuzioni del gateway applicazione o WAF nella SKU con scalabilità automatica possono passare a un piano superiore o inferiore in base alle modifiche dei modelli di carico del traffico. La scalabilità automatica elimina anche la necessità di scegliere un numero di istanze o le dimensioni della distribuzione durante il provisioning. Questo SKU offre una vera elasticità. Nello SKU Standard_v2 e WAF_v2 il gateway applicazione può funzionare sia con la capacità fissa (scalabilità automatica disabilitata) sia con la modalità abilitata per la scalabilità automatica. La modalità di capacità fissa è utile per gli scenari con carichi di lavoro coerenti e prevedibili. La modalità di scalabilità automatica è utile nelle applicazioni che visualizzano la varianza nel traffico delle applicazioni.
+- **Ridondanza della zona**: un gateway applicazione o una distribuzione WAF può estendersi su più zone di disponibilità, eliminando la necessità di effettuare il provisioning di istanze separate del gateway applicazione in ogni zona con gestione traffico. È possibile scegliere una singola zona o più zone in cui vengono distribuite le istanze del gateway applicazione, in modo da renderla più resiliente agli errori di zona. Il pool di back-end per le applicazioni può analogamente essere distribuito tra zone di disponibilità.
 
   La ridondanza della zona è disponibile solo se sono disponibili zone di Azure. In altre aree sono supportate tutte le altre funzionalità. Per altre informazioni, vedere [Informazioni sulle zone di disponibilità di Azure](../availability-zones/az-overview.md#services-support-by-region)
-- **Indirizzo VIP statico**: Lo SKU del gateway applicazione V2 supporta il tipo di indirizzo VIP statico in modo esclusivo. In questo modo si assicura che l'indirizzo VIP associato al gateway applicazione non cambi per il ciclo di vita della distribuzione, anche dopo un riavvio.  Non esiste un indirizzo VIP statico nella versione 1, quindi è necessario usare l'URL del gateway applicazione anziché l'indirizzo IP per il routing del nome di dominio ai servizi app tramite il gateway applicazione.
-- **Riscrittura intestazione**: Il gateway applicazione consente di aggiungere, rimuovere o aggiornare intestazioni di richiesta e risposta HTTP con lo SKU V2. Per altre informazioni, vedere [riscrivere le intestazioni HTTP con il gateway applicazione](rewrite-http-headers.md)
-- **Integrazione di Key Vault (anteprima)** : Il gateway applicazione V2 supporta l'integrazione con Key Vault (in anteprima pubblica) per i certificati server collegati ai listener abilitati per HTTPS. Per ulteriori informazioni, vedere [terminazione SSL con Key Vault Certificates](key-vault-certs.md).
-- **Controller di ingresso del servizio Azure Kubernetes (anteprima)** : Il controller di ingresso del gateway applicazione v2 consente l'uso del gateway applicazione Azure come ingresso per un servizio Azure Kubernetes (AKS) noto come cluster AKS. Per ulteriori informazioni, vedere la [pagina della documentazione](https://azure.github.io/application-gateway-kubernetes-ingress/).
-- **Miglioramenti delle prestazioni**: Lo SKU V2 offre prestazioni di offload SSL migliori a 5 volte rispetto allo SKU standard/WAF.
+- Indirizzo **VIP statico**: lo SKU del gateway applicazione V2 supporta il tipo di indirizzo VIP statico in modo esclusivo. In questo modo si assicura che l'indirizzo VIP associato al gateway applicazione non cambi per il ciclo di vita della distribuzione, anche dopo un riavvio.  Non esiste un indirizzo VIP statico nella versione 1, quindi è necessario usare l'URL del gateway applicazione anziché l'indirizzo IP per il routing del nome di dominio ai servizi app tramite il gateway applicazione.
+- **Header Rewrite**: il gateway applicazione consente di aggiungere, rimuovere o aggiornare intestazioni di richiesta e risposta http con lo SKU V2. Per altre informazioni, vedere [riscrivere le intestazioni HTTP con il gateway applicazione](rewrite-http-headers.md)
+- **Integrazione di Key Vault (anteprima)** : il gateway applicazione V2 supporta l'integrazione con Key Vault (in anteprima pubblica) per i certificati server collegati ai listener abilitati per HTTPS. Per ulteriori informazioni, vedere [terminazione SSL con Key Vault Certificates](key-vault-certs.md).
+- Controller di ingresso del **servizio Azure Kubernetes (anteprima)** : il controller di ingresso del gateway applicazione v2 consente l'uso del gateway applicazione Azure come ingresso per un servizio Azure KUBERNETES (AKS) noto come cluster AKS. Per ulteriori informazioni, vedere la [pagina della documentazione](https://azure.github.io/application-gateway-kubernetes-ingress/).
+- **Miglioramenti delle prestazioni**: lo SKU V2 offre prestazioni di offload SSL migliori a 5X rispetto allo SKU standard/WAF.
 - **Tempo di distribuzione e aggiornamento più rapido** Lo SKU V2 offre tempi di distribuzione e aggiornamento più veloci rispetto allo SKU standard/WAF. Sono incluse anche le modifiche della configurazione di WAF.
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## <a name="supported-regions"></a>Aree supportate
 
-Lo SKU Standard_v2 e WAF_v2 è disponibile nelle aree geografiche seguenti: Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Europa settentrionale, Europa occidentale, Asia sudorientale, Francia centrale, Regno Unito occidentale, Giappone orientale, Giappone occidentale, Australia orientale, Australia sudorientale, Brasile meridionale, Canada centrale, Canada orientale, est Asia, Corea centrale, Corea meridionale, India meridionale, Regno Unito meridionale, India centrale, India occidentale, India meridionale.
+Lo SKU Standard_v2 e WAF_v2 è disponibile nelle aree seguenti: Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti occidentali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Europa settentrionale, Europa occidentale, Asia sudorientale, Francia centrale, Regno Unito occidentale, Giappone orientale, Giappone occidentale, Australia orientale , Australia sudorientale, Brasile meridionale, Canada centrale, Canada orientale, Asia orientale, Corea centrale, Corea meridionale, India meridionale, Regno Unito meridionale, India centrale, India occidentale, India meridionale.
 
 ## <a name="pricing"></a>Prezzi
 
 Con lo SKU V2, il modello di determinazione dei prezzi è determinato dal consumo e non è più associato ai conteggi o alle dimensioni delle istanze. I prezzi dello SKU V2 hanno due componenti:
 
-- **Prezzo fisso** : prezzo orario (o ora parziale) per il provisioning di un gateway Standard_v2 o WAF_v2.
-- **Prezzo unitario di capacità** : costo in base al consumo addebitato in aggiunta al costo fisso. Gli addebiti relativi alle unità di capacità vengono calcolati anche su base oraria o parzialmente oraria. Sono disponibili tre dimensioni per le unità di capacità, ovvero unità di calcolo, connessioni persistenti e unità elaborate. L'unità di calcolo è una misura relativa alla capacità di processore utilizzata. I fattori che influiscono sull'unità di calcolo sono connessioni TLS/sec, calcoli di riscrittura URL e elaborazione di regole WAF. La connessione persistente è una misura delle connessioni TCP stabilite al gateway applicazione in un determinato intervallo di fatturazione. La velocità effettiva è media megabit/sec elaborati dal sistema in un determinato intervallo di fatturazione.
+- **Prezzo fisso** : prezzo orario (o ora parziale) per il provisioning di un gateway Standard_v2 o WAF_v2. Si noti che 0 istanze aggiuntive minime garantiscono comunque una disponibilità elevata del servizio sempre incluso con prezzo fisso.
+- **Prezzo unitario di capacità** : costo in base al consumo addebitato in aggiunta al costo fisso. Gli addebiti relativi alle unità di capacità vengono calcolati anche su base oraria o parzialmente oraria. Sono disponibili tre dimensioni per le unità di capacità, ovvero unità di calcolo, connessioni persistenti e unità elaborate. L'unità di calcolo è una misura relativa alla capacità di processore utilizzata. I fattori che influiscono sull'unità di calcolo sono connessioni TLS/sec, calcoli di riscrittura URL e elaborazione di regole WAF. La connessione persistente è una misura delle connessioni TCP stabilite al gateway applicazione in un determinato intervallo di fatturazione. La velocità effettiva è media megabit/sec elaborati dal sistema in un determinato intervallo di fatturazione.  La fatturazione viene effettuata a livello di unità di capacità per qualsiasi valore superiore al numero di istanze riservate.
 
-Ogni unità di capacità è costituita al massimo da: 1 unità di calcolo o 2500 connessioni permanenti o velocità effettiva di 2,22 Mbps.
+Ogni unità di capacità è composta al massimo: 1 unità di calcolo o 2500 connessioni permanenti o velocità effettiva di 2,22 Mbps.
 
 Linee guida per le unità di calcolo:
 
@@ -61,7 +61,7 @@ Nella tabella seguente vengono illustrati i prezzi di esempio e sono solo a scop
 
 |              Nome SKU                             | Prezzo fisso ($/ora)  | Prezzo unitario di capacità ($/CU-hr)   |
 | ------------------------------------------------- | ------------------- | ------------------------------- |
-| Standard_v2                                       |    0.20             | 0,0080                          |
+| Standard_v2                                       |    0,20             | 0,0080                          |
 | WAF_v2                                            |    0,36             | 0,0144                          |
 
 Per ulteriori informazioni sui prezzi, vedere la pagina relativa ai [prezzi](https://azure.microsoft.com/pricing/details/application-gateway/). La fatturazione è prevista per l'inizio il 1 ° luglio 2019.
@@ -77,7 +77,7 @@ Prezzo totale = $148,8 + $297,6 = $446,4
 
 **Esempio 2**
 
-Viene eseguito il provisioning di un standard_v2 del gateway applicazione per un mese e durante questo periodo vengono ricevute 25 nuove connessioni SSL/sec, ovvero la media del trasferimento dati 8,88 Mbps. Supponendo che le connessioni siano di breve durata, il prezzo sarà:
+Viene eseguito il provisioning di un standard_v2 del gateway applicazione per un mese, con 0 istanze minime e, durante questo periodo, riceve 25 nuove connessioni SSL/sec, ovvero la media del trasferimento dati 8,88 Mbps. Supponendo che le connessioni siano di breve durata, il prezzo sarà:
 
 Prezzo fisso = 744 (ore) * $0,20 = $148,8
 
@@ -85,10 +85,37 @@ Unità di capacità prezzo = 744 (ore) * Max (25/50 unità di calcolo per le con
 
 Prezzo totale = $148.8 + 23.81 = $172,61
 
+Come si può notare, vengono addebitate solo 4 unità di capacità, non per l'intera istanza. 
+
 > [!NOTE]
 > La funzione max restituisce il valore più grande in una coppia di valori.
 
+
 **Esempio 3**
+
+Viene eseguito il provisioning di un standard_v2 del gateway applicazione per un mese, con un minimo di 5 istanze. Supponendo che non siano presenti traffico e connessioni di breve durata, il prezzo sarà:
+
+Prezzo fisso = 744 (ore) * $0,20 = $148,8
+
+Unità di capacità prezzo = 744 (ore) * Max (0/50 unità di calcolo per le connessioni/sec, 0/unità di capacità 2.22 per velocità effettiva) * $0,008 = 744 * 50 * 0,008 = $297,60
+
+Prezzo totale = $148.80 + 297.60 = $446,4
+
+In questo caso viene addebitato l'intero numero di istanze di 5, anche se non è presente traffico.
+
+**Esempio 4**
+
+Viene eseguito il provisioning di un standard_v2 del gateway applicazione per un mese, con un minimo di 5 istanze, ma questa volta esiste una media del trasferimento dei dati a 125 Mbps e 25 connessioni SSL al secondo. Supponendo che non siano presenti traffico e connessioni di breve durata, il prezzo sarà:
+
+Prezzo fisso = 744 (ore) * $0,20 = $148,8
+
+Unità di capacità prezzo = 744 (ore) * Max (25/50 unità di calcolo per le connessioni/sec, unità di capacità 125/2.22 per velocità effettiva) * $0,008 = 744 * 57 * 0,008 = $339,26
+
+Prezzo totale = $148.80 + 339.26 = $488,06
+
+In questo caso vengono addebitate le 5 istanze complete, più 7 unità di capacità, ovvero 7/10 di un'istanza.  
+
+**Esempio 5**
 
 Viene eseguito il provisioning di un WAF_v2 del gateway applicazione per un mese. Durante questo periodo, riceve 25 nuove connessioni SSL/sec, la media del trasferimento dati 8,88 Mbps e la richiesta 80 al secondo. Supponendo che le connessioni siano di breve durata e che il calcolo dell'unità di calcolo per l'applicazione supporti 10 RPS per ogni unità di calcolo, il prezzo sarà:
 
@@ -105,7 +132,7 @@ Prezzo totale = $267,84 + $85,71 = $353,55
 
 Il gateway applicazione e WAF possono essere configurati per la scalabilità in due modalità:
 
-- **Scalabilità** automatica: con la scalabilità automatica abilitata, il gateway applicazione e gli SKU WAF V2 aumentano o riducono in base ai requisiti del traffico delle applicazioni. Questa modalità offre una migliore elasticità all'applicazione ed elimina la necessità di indovinare la dimensione o il numero di istanze del gateway applicazione. Questa modalità consente anche di risparmiare sui costi senza richiedere che il gateway venga eseguito al massimo della capacità con provisioning per il carico di traffico massimo previsto. È necessario specificare un numero minimo e facoltativo massimo di istanze. La capacità minima garantisce che il gateway applicazione e WAF V2 non scendano al di sotto del numero minimo di istanze specificato, anche in assenza di traffico. Ogni istanza viene conteggiata come 10 unità di capacità riservate aggiuntive. 0 indica che non è disponibile alcuna capacità riservata ed è esclusivamente la scalabilità automatica. Si noti che 0 istanze aggiuntive minime garantiscono comunque una disponibilità elevata del servizio sempre incluso con prezzo fisso. Facoltativamente, è anche possibile specificare un numero massimo di istanze, che garantisce che il gateway applicazione non venga ridimensionato oltre il numero specificato di istanze. Continuerà a essere addebitata la quantità di traffico servito dal gateway. Il numero di istanze può essere compreso tra 0 e 125. Il valore predefinito per il numero massimo di istanze è 20 se non è specificato. 
+- **Scalabilità** automatica: con la scalabilità automatica abilitata, il gateway applicazione e gli SKU WAF V2 aumentano o riducono in base ai requisiti del traffico delle applicazioni. Questa modalità offre una migliore elasticità all'applicazione ed elimina la necessità di indovinare la dimensione o il numero di istanze del gateway applicazione. Questa modalità consente anche di risparmiare sui costi senza richiedere che il gateway venga eseguito al massimo della capacità con provisioning per il carico di traffico massimo previsto. È necessario specificare un numero minimo e facoltativo massimo di istanze. La capacità minima garantisce che il gateway applicazione e WAF V2 non scendano al di sotto del numero minimo di istanze specificato, anche in assenza di traffico. Ogni istanza viene conteggiata come 10 unità di capacità riservate aggiuntive. 0 indica che non è disponibile alcuna capacità riservata ed è esclusivamente la scalabilità automatica. Si noti che 0 istanze aggiuntive minime garantiscono comunque una disponibilità elevata del servizio sempre incluso con prezzo fisso. Facoltativamente, è anche possibile specificare un numero massimo di istanze, che garantisce che il gateway applicazione non venga ridimensionato oltre il numero specificato di istanze. Continuerà a essere addebitata la quantità di traffico servito dal gateway. Il numero di istanze può essere compreso tra 0 e 125. Il valore predefinito per il numero massimo di istanze è 20 se non è specificato.
 - **Manuale** : in alternativa, è possibile scegliere la modalità manuale in cui il gateway non esegue la scalabilità automatica. In questa modalità, se è presente più traffico rispetto a quello che può essere gestito dal gateway applicazione o da WAF, potrebbe verificarsi una perdita di traffico. Con la modalità manuale, specificare il numero di istanze è obbligatorio. Il numero di istanze può variare da 1 a 125.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Confronto tra le funzionalità dello SKU V1 e dello SKU V2
@@ -114,7 +141,7 @@ Nella tabella seguente vengono confrontate le funzionalità disponibili in ogni 
 
 |                                                   | SKU V1   | SKU V2   |
 | ------------------------------------------------- | -------- | -------- |
-| Ridimensionamento automatico                                       |          | &#x2713; |
+| Scalabilità automatica                                       |          | &#x2713; |
 | Ridondanza della zona                                   |          | &#x2713; |
 | Indirizzo VIP statico                                        |          | &#x2713; |
 | Controller di ingresso del servizio Azure Kubernetes (AKS) |          | &#x2713; |
@@ -140,8 +167,8 @@ Nella tabella seguente vengono confrontate le funzionalità disponibili in ogni 
 |Differenza|Dettagli|
 |--|--|
 |Autenticazione del certificato|Non supportati.<br>Per altre informazioni, vedere [Panoramica di SSL end-to-end con il gateway applicazione](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
-|Combinazione di versione 2 Standard e gateway applicazione standard nella stessa subnet|Non supportate|
-|Applicazione di una route definita dall'utente alla subnet del gateway applicazione|Non supportate|
+|Combinazione di versione 2 Standard e gateway applicazione standard nella stessa subnet|Supporto non disponibile|
+|Applicazione di una route definita dall'utente alla subnet del gateway applicazione|Supporto non disponibile|
 |Gruppo di sicurezza di rete per intervallo di porte in ingresso| - Da 65200 a 65535 per SKU versione 2 Standard<br>- Da 65503 a 65534 per SKU Standard.<br>Per altre informazioni, vedere la sezione [Domande frequenti](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Contatori delle prestazioni in Diagnostica di Azure|Non supportati.<br>Usare le metriche di Azure.|
 |Fatturazione|Fatturazione pianificata per l'avvio il 1 ° luglio 2019.|
@@ -156,7 +183,7 @@ In PowerShell Gallery è disponibile uno script Azure PowerShell che consente di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Avvio rapido: Indirizzare il traffico Web con il gateway applicazione di Azure - Portale di Azure](quick-create-portal.md)
+- [Guida introduttiva: indirizzare il traffico Web con applicazione Azure gateway-portale di Azure](quick-create-portal.md)
 - [Creare un gateway applicazione con scalabilità automatica e ridondanza della zona con un indirizzo IP virtuale riservato tramite Azure PowerShell](tutorial-autoscale-ps.md)
 - Altre informazioni sul [gateway applicazione](overview.md).
 - Altre informazioni su [Firewall di Azure](../firewall/overview.md).

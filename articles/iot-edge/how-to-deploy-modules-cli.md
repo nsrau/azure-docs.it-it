@@ -10,26 +10,26 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: aa5c4747238b2f2427be3e57c3e84e03c81fd609
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: c8cd6e2d13e252f9a7560b55eca58341e791db5a
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541755"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964932"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Distribuire i moduli di Azure IoT Edge con l'interfaccia della riga di comando di Azure
 
 Dopo aver creato i moduli di IoT Edge in base alla propria logica di business, si distribuiscono i moduli nei dispositivi per consentirne l'uso a livello perimetrale. Se si hanno più moduli che interagiscono per raccogliere ed elaborare dati, è possibile distribuirli contemporaneamente e dichiarare le regole di routing che li connettono.
 
-L'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) è uno strumento da riga di comando multipiattaforma e open source per la gestione di risorse di Azure come IoT Edge. Consente di gestire le risorse dell'hub IoT di Azure, le istanze del servizio di provisioning di dispositivi e gli hub collegati predefiniti. La nuova estensione IoT arricchisce l'interfaccia della riga di comando di Azure con funzionalità quali la gestione dei dispositivi e le funzionalità complete di IoT Edge.
+L'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) è uno strumento da riga di comando multipiattaforma e open source per la gestione di risorse di Azure come IoT Edge. Consente di gestire le risorse dell'hub IoT di Azure, le istanze del servizio Device Provisioning e gli hub collegati predefiniti. La nuova estensione IoT arricchisce l'interfaccia della riga di comando di Azure con funzionalità quali la gestione dei dispositivi e le funzionalità complete di IoT Edge.
 
 Questo articolo illustra come creare un manifesto della distribuzione JSON e quindi usare tale file per eseguire il push della distribuzione in un dispositivo IoT Edge. Per informazioni sulla creazione di una distribuzione da assegnare a più dispositivi in base ai relativi tag condivisi, vedere [Distribuire e monitorare i moduli di IoT Edge su larga scala](how-to-deploy-monitor-cli.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un [hub IoT](../iot-hub/iot-hub-create-using-cli.md) nella sottoscrizione di Azure.
-* Un [dispositivo IoT Edge](how-to-register-device-cli.md) con il runtime di IoT Edge installato.
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'ambiente in uso. La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.24 o successiva. Usare il comando `az --version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack.
+* Un [dispositivo IoT Edge](how-to-register-device.md#register-with-the-azure-cli) con il runtime di IoT Edge installato.
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'ambiente in uso. La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.24 o successiva. Usare `az --version` per la convalida. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack.
 * [Estensione IoT per l'interfaccia della riga di comando di Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
@@ -116,7 +116,7 @@ Per applicare la configurazione a un dispositivo IoT Edge usare il comando segue
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
-Il parametro device id fa distinzione tra maiuscole e minuscole. Il parametro content punta al file del manifesto della distribuzione salvato.
+Il parametro ID dispositivo distingue tra maiuscole e minuscole. Il parametro content punta al file del manifesto della distribuzione salvato.
 
    ![az iot edge set-modules output](./media/how-to-deploy-cli/set-modules.png)
 
@@ -130,7 +130,7 @@ Visualizzare i moduli nel dispositivo IoT Edge:
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-Per il parametro device-id viene fatta distinzione tra maiuscole e minuscole.
+Il parametro ID dispositivo distingue tra maiuscole e minuscole.
 
    ![az iot hub module-identity list output](./media/how-to-deploy-cli/list-modules.png)
 

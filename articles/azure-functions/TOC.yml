@@ -245,8 +245,12 @@
         - name: Disabilitare una funzione
           href: disable-function.md
     - name: Monitorare
-      href: functions-monitoring.md
-      displayName: 'App Insights, Application Insights, logs, logging'
+      items:
+        - name: Funzioni di Monitoraggio
+          href: functions-monitoring.md
+          displayName: 'App Insights, Application Insights, logs, logging'
+        - name: Analizzare i log
+          href: functions-monitor-log-analytics.md
     - name: Proteggere
       items:
         - name: Acquistare un certificato SSL

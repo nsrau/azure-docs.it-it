@@ -10,12 +10,12 @@ ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 61ea7eb0b81c5489ad2bf20e8148d2481bb4fb13
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c3d721427075736138ba73fda51a4fd515125f1c
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840174"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964869"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Distribuire i moduli di Azure IoT Edge da Visual Studio Code
 
@@ -26,9 +26,9 @@ Questo articolo illustra come creare un manifesto della distribuzione JSON e qui
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) nella sottoscrizione di Azure.
-* Un [dispositivo IoT Edge](how-to-register-device-portal.md) con il runtime di IoT Edge installato.
+* Un [dispositivo IoT Edge](how-to-register-device.md#register-with-visual-studio-code) con il runtime di IoT Edge installato.
 * [Visual Studio Code](https://code.visualstudio.com/).
-* [Strumenti di Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) per Visual Studio Code.
+* [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) per Visual Studio Code.
 
 ## <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
 

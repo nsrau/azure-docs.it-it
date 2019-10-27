@@ -11,16 +11,16 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
-ms.openlocfilehash: 28b702192b41d3b4a8151e3127a4297c28712fa2
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: ab3971b4fb6065701d693debf55242be7b15295e
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390708"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965968"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Disponibilità elevata e database SQL di Azure
 
-L'obiettivo dell'architettura a disponibilità elevata nel database SQL di Azure è garantire che il database sia in esecuzione il 99,99% del tempo, senza doversi preoccupare dell'effetto delle operazioni di manutenzione e delle interruzioni. Azure gestisce automaticamente le attività di manutenzione critiche, ad esempio l'applicazione di patch, i backup, gli aggiornamenti di Windows e SQL, nonché gli eventi non pianificati, ad esempio l'hardware sottostante, software o errori di rete.  Quando l'istanza di SQL sottostante viene patchata o viene eseguito il failover, il tempo di inattività non è evidente se si [Usa la logica di ripetizione dei tentativi](sql-database-develop-overview.md#resiliency) nell'app. Database SQL di Azure può effettuare rapidamente il recupero anche nei casi più critici garantendo che i dati siano sempre disponibili.
+L'obiettivo dell'architettura a disponibilità elevata nel database SQL di Azure è garantire che il database sia in esecuzione il 99,99% del tempo, senza doversi preoccupare dell'effetto delle operazioni di manutenzione e delle interruzioni. Azure gestisce automaticamente le attività di manutenzione critiche, ad esempio l'applicazione di patch, i backup, gli aggiornamenti di Windows e SQL, nonché eventi non pianificati, ad esempio hardware, software o errori di rete sottostanti.  Quando l'istanza di SQL sottostante viene patchata o viene eseguito il failover, il tempo di inattività non è evidente se si [Usa la logica di ripetizione dei tentativi](sql-database-develop-overview.md#resiliency) nell'app. Database SQL di Azure può effettuare rapidamente il recupero anche nei casi più critici garantendo che i dati siano sempre disponibili.
 
 La soluzione a disponibilità elevata è progettata per garantire che i dati di cui è stato eseguito il commit non vengano mai persi a causa di errori, che le operazioni di manutenzione non influiscano sul carico di lavoro e che il database non sia un singolo punto di guasto nell'architettura software. Non ci sono finestre di manutenzione o tempi di inattività che richiedono l'arresto del carico di lavoro mentre il database viene aggiornato o se ne esegue la manutenzione. 
 
@@ -89,12 +89,14 @@ La versione con ridondanza della zona dell'architettura a disponibilità elevata
 
 [Accelerated Database Recovery (ADR)](sql-database-accelerated-database-recovery.md) è una nuova funzionalità del motore di database SQL che migliora notevolmente la disponibilità dei database, soprattutto in presenza di transazioni a esecuzione prolungata. Questa funzionalità è attualmente disponibile per database singoli, pool elastici e Azure SQL Data Warehouse.
 
-## <a name="testing-database-fault-resiliency"></a>Test della resilienza degli errori del database
+## <a name="testing-application-fault-resiliency"></a>Test della resilienza degli errori delle applicazioni
 
-La disponibilità elevata è una parte fundamenental della piattaforma del database SQL di Azure e funziona in modo trasparente per l'applicazione di database. Tuttavia, è possibile che si desideri testare il modo in cui le operazioni di failover automatico avviate durante gli eventi pianificati o non pianificati avranno un effetto sull'applicazione prima di distribuirla per la produzione. È possibile chiamare un'API speciale per riavviare il database o il pool elastico, che attiverà a sua volta il failover. Nel caso di un database con ridondanza della zona o di un pool elastico, la chiamata API comporterebbe il reindirizzamento delle connessioni client al nuovo database primario in un altro AZ. Quindi, oltre a testare il modo in cui il failover influisca sulle sessioni di database esistenti, è anche possibile verificare se influisca sulle prestazioni end-to-end. Poiché l'operazione di riavvio è intrusiva e un numero elevato di questi potrebbe evidenziare la piattaforma, viene consentita una sola chiamata di failover ogni 30 minuti per ogni database o pool elastico. Per informazioni dettagliate, vedere [failover del database](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) e failover del [pool elastico](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover).       
+La disponibilità elevata è una parte fondamentale della piattaforma del database SQL di Azure che funziona in modo trasparente per l'applicazione di database. Tuttavia, è possibile che si desideri testare il modo in cui le operazioni di failover automatico avviate durante gli eventi pianificati o non pianificati avranno un effetto sull'applicazione prima di distribuirla nell'ambiente di produzione. È possibile chiamare un'API speciale per riavviare un database o un pool elastico, che attiverà a sua volta un failover. Nel caso di un database con ridondanza della zona o di un pool elastico, la chiamata API comporterebbe il reindirizzamento delle connessioni client al nuovo primario in una zona di disponibilità diversa dalla zona di disponibilità della replica primaria precedente. Quindi, oltre a testare il modo in cui il failover influisca sulle sessioni di database esistenti, è anche possibile verificare se le prestazioni end-to-end vengono modificate a causa di modifiche alla latenza di rete. Poiché l'operazione di riavvio è intrusiva e un numero elevato di questi potrebbe sottolineare la piattaforma, viene consentita una sola chiamata di failover ogni 30 minuti per ogni database o pool elastico. 
+
+È possibile avviare un failover usando l'API REST o PowerShell. Per l'API REST, vedere [failover del database](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) e failover del [pool elastico](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover). Per PowerShell, vedere [Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover) e [Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover). Le chiamate all'API REST possono anche essere effettuate dall'interfaccia della riga di comando di Azure usando il comando [AZ Rest](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest) .
 
 > [!IMPORTANT]
-> Il comando di failover non è attualmente disponibile per i database Hypescale e instancses gestiti.  
+> Il comando di failover non è al momento disponibile nel livello di servizio con iperscalabilità e per Istanza gestita.
 
 ## <a name="conclusion"></a>Conclusione
 

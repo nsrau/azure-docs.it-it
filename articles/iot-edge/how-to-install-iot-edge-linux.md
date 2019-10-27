@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 9bc4d60eab0dac80d1b2b524f32bc506a66dee18
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: aca417ebbc6f9af80058ddece32842f38918ce60
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516675"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964768"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installare il runtime di Azure IoT Edge nei sistemi Linux basati su Debian
 
@@ -167,7 +167,7 @@ Il daemon può essere configurato usando il file di configurazione in `/etc/iote
 
 ### <a name="option-1-manual-provisioning"></a>Opzione 1: Provisioning manuale
 
-Per eseguire manualmente il provisioning di un dispositivo, è necessario fornire una [stringa di connessione del dispositivo](how-to-register-device-portal.md) che è possibile creare tramite la registrazione di un nuovo dispositivo nell'hub IoT.
+Per eseguire manualmente il provisioning di un dispositivo, è necessario fornire una [stringa di connessione del dispositivo](how-to-register-device.md#register-in-the-azure-portal) che è possibile creare tramite la registrazione di un nuovo dispositivo nell'hub IoT.
 
 Aprire il file di configurazione.
 

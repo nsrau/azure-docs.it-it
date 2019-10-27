@@ -1,22 +1,21 @@
 ---
 title: Come eseguire il backup e il ripristino di un server in Database di Azure per MySQL
 description: Informazioni su come eseguire la procedura di backup e ripristino di un server in Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.openlocfilehash: f3850623f5918ea9405131edb1821b941019ac34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/25/2019
+ms.openlocfilehash: b265b77e08dda582153efa51c036f4f7a9de8d41
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160452"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965213"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure
 
-## <a name="backup-happens-automatically"></a>Il backup viene eseguito automaticamente
 Il backup dei server Database di Azure per MySQL viene eseguito periodicamente per abilitare le funzionalità di ripristino. L'uso di questa funzionalità consente di ripristinare il server e tutti i suoi database a un momento precedente nel nuovo server.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -69,7 +68,7 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 
 Il comando `az mysql server restore` richiede i parametri seguenti:
 
-| Impostazione | Valore consigliato | Descrizione  |
+| Impostazione | Valore consigliato | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | name | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
@@ -80,7 +79,9 @@ Quando si ripristina un server a un punto precedente nel tempo, viene creato un 
 
 I valori relativi al percorso e al piano tariffario per il server ripristinato sono gli stessi del server di origine. 
 
-Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto.
+Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto. Il nuovo server ha lo stesso nome di accesso dell'amministratore del server e la stessa password validi per il server esistente nel momento in cui è stato avviato il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
+
+Il nuovo server creato durante un ripristino non include le regole del firewall o gli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server.
 
 ## <a name="geo-restore"></a>Ripristino geografico
 Se il server è stato configurato per backup con ridondanza geografica, è possibile creare un nuovo server dal backup di quel server esistente. Questo nuovo server può essere creato in qualsiasi area in cui è disponibile Database di Azure per MySQL.  
@@ -107,7 +108,7 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 
 Il comando `az mysql server georestore` richiede i parametri seguenti:
 
-| Impostazione | Valore consigliato | Descrizione  |
+| Impostazione | Valore consigliato | Description  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Nome del gruppo di risorse cui apparterrà il nuovo server.|
 |name | mydemoserver-georestored | Nome del nuovo server. |
@@ -115,12 +116,13 @@ Il comando `az mysql server georestore` richiede i parametri seguenti:
 |location | eastus | Posizione del nuovo server. |
 |sku-name| GP_Gen5_8 | Questo parametro imposta il piano tariffario, la generazione delle risorse di calcolo e il numero di vCore del nuovo server. GP_Gen5_8 indica un server per utilizzo generico di quinta generazione con otto vCore.|
 
+Quando si crea un nuovo server tramite un ripristino geografico, il server eredita le stesse dimensioni di archiviazione e lo stesso piano tariffario del server di origine. Questi valori non possono essere modificati durante la creazione. Dopo aver creato il nuovo server, le dimensioni di archiviazione possono essere aumentate.
 
->[!Important]
->Quando si crea un nuovo server tramite un ripristino geografico, il server eredita le stesse dimensioni di archiviazione e lo stesso piano tariffario del server di origine. Questi valori non possono essere modificati durante la creazione. Dopo aver creato il nuovo server, le dimensioni di archiviazione possono essere aumentate.
+Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto. Il nuovo server ha lo stesso nome di accesso dell'amministratore del server e la stessa password validi per il server esistente nel momento in cui è stato avviato il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
 
-Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto.
+Il nuovo server creato durante un ripristino non include le regole del firewall o gli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sui [backup](concepts-backup.md) del servizio.
-- Altre informazioni sulle opzioni di [continuità aziendale](concepts-business-continuity.md).
+- Altre informazioni sui [backup](concepts-backup.md) del servizio
+- Informazioni sulle [repliche](concepts-read-replicas.md)
+- Altre informazioni sulle opzioni di [continuità aziendale](concepts-business-continuity.md)

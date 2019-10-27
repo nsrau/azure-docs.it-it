@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/21/2019
 ms.author: kumud
-ms.openlocfilehash: 47f73ca8ece8db5fad3f8a7709d8787db42626f4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 907a6de2ff89ddd3c2cb5bdab67e1deb984141dc
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791190"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965247"
 ---
 # <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell-preview"></a>Aggiornare un'applicazione IPv4 a IPv6 in rete virtuale di Azure-PowerShell (anteprima)
 
-Questo articolo illustra come aggiungere indirizzi IPv6 a un'applicazione che usa un indirizzo IP pubblico IPv4 in una rete virtuale di Azure per un Load Balancer Standard. L'aggiornamento sul posto include una rete virtuale e una subnet, un Load Balancer Standard con configurazioni front-end IPv4 + IPV6, VM con NIC con configurazioni IPv4 + IPv6, gruppo di sicurezza di rete e indirizzi IP pubblici.
+Questo articolo illustra come aggiungere connettività IPv6 a un'applicazione IPv4 esistente in una rete virtuale di Azure con un Load Balancer Standard e un indirizzo IP pubblico. L'aggiornamento sul posto include:
+- Spazio degli indirizzi IPv6 per la rete virtuale e la subnet
+- Load Balancer Standard con configurazioni front-end IPv4 e IPV6
+- VM con NIC con una configurazione di IPv4 + IPv6
+- IP pubblico di IPv, quindi il servizio di bilanciamento del carico ha connettività IPv6 con connessione Internet
 
 > [!Important]
 > Il supporto IPv6 per la rete virtuale di Azure è attualmente disponibile in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -81,7 +85,7 @@ Creare un indirizzo IPv6 pubblico con [New-AzPublicIpAddress](/powershell/module
 
 ## <a name="configure-load-balancer-frontend"></a>Configurare front-end del servizio di bilanciamento del carico
 
-Recuperare la configurazione del servizio di bilanciamento del carico esistente e configurarla con il nuovo indirizzo IP IPv6 usando [Add-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/Add-AzLoadBalancerFrontendIpConfig) come indicato di seguito:
+Recuperare la configurazione del servizio di bilanciamento del carico esistente e quindi aggiungere il nuovo indirizzo IP IPv6 usando [Add-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/Add-AzLoadBalancerFrontendIpConfig) come indicato di seguito:
 
 ```azurepowershell
 # Retrieve the load balancer configuration
@@ -124,7 +128,7 @@ $lb | Set-AzLoadBalancer
 ```
 ## <a name="add-ipv6-address-ranges"></a>Aggiungi intervalli di indirizzi IPv6
 
-Aggiungere gli intervalli di indirizzi IPv6 alla rete virtuale e alla subnet che ospita il servizio di bilanciamento del carico come segue:
+Aggiungere gli intervalli di indirizzi IPv6 alla rete virtuale e alla subnet che ospita le macchine virtuali come indicato di seguito:
 
 ```azurepowershell
 #Add IPv6 ranges to the VNET and subnet
@@ -145,7 +149,7 @@ $vnet |  Set-AzVirtualNetwork
 ```
 ## <a name="add-ipv6-configuration-to-nic"></a>Aggiungere la configurazione IPv6 alla scheda NIC
 
-Configurare entrambe le schede NIC VM con un indirizzo IPv6 usando [Add-AzNetworkInterfaceIpConfig](/powershell/module/az.network/Add-AzNetworkInterfaceIpConfig) come indicato di seguito:
+Configurare tutte le NIC VM con un indirizzo IPv6 usando [Add-AzNetworkInterfaceIpConfig](/powershell/module/az.network/Add-AzNetworkInterfaceIpConfig) come indicato di seguito:
 
 ```azurepowershell
 
@@ -185,4 +189,4 @@ Remove-AzResourceGroup -Name MyAzureResourceGroupSLB
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato aggiornato un Load Balancer Standard esistente con una configurazione IP front-end IPv4 a una configurazione dual stack (IPv4 e IPv6). Sono state anche aggiunte configurazioni IPv6 alle schede NIC delle macchine virtuali nel pool back-end. Per altre informazioni sul supporto di IPv6 in reti virtuali di Azure, vedere [che cos'è IPv6 per rete virtuale di Azure?](ipv6-overview.md)
+In questo articolo è stato aggiornato un Load Balancer Standard esistente con una configurazione IP front-end IPv4 a una configurazione dual stack (IPv4 e IPv6). Sono state inoltre aggiunte configurazioni IPv6 alle schede NIC delle macchine virtuali nel pool back-end e alla rete virtuale in cui sono ospitate. Per altre informazioni sul supporto di IPv6 in reti virtuali di Azure, vedere [che cos'è IPv6 per rete virtuale di Azure?](ipv6-overview.md)

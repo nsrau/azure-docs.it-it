@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: d34ac159a216c5c77214b4c8b799a233c3671235
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a42763ff47cccfa506acbbbd95d20d41eb0827f
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447359"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965379"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Aggiungere un dispositivo IoT Edge all'acceleratore della soluzione di monitoraggio remoto
 
 Per aggiungere un dispositivo [IoT Edge](../iot-edge/about-iot-edge.md) all'acceleratore della soluzione, completare i due passaggi seguenti:
 
-1. Aggiungere il dispositivo perimetrale nel **Device Explorer** pagina di monitoraggio remoto soluzione accelerator web dell'interfaccia utente.
+1. Aggiungere il dispositivo perimetrale nella pagina **Device Explorer** nell'interfaccia utente Web dell'acceleratore per la soluzione di monitoraggio remoto.
 1. Installare il runtime IoT Edge nel dispositivo Edge.
 
 ## <a name="add-the-iot-edge-device"></a>Aggiungere il dispositivo IoT Edge
@@ -34,11 +34,11 @@ Nel pannello **Nuovo dispositivo** scegliere **Dispositivo IoT Edge**. È possib
 
 È anche possibile registrare un dispositivo IoT Edge direttamente nell'istanza dell'hub IoT nell'acceleratore della soluzione. Prima di seguire queste guide procedurali, tuttavia, è necessario conoscere il nome dell'hub IoT nell'acceleratore della soluzione:
 
-- [Registrare un nuovo dispositivo Azure IoT Edge dal portale di Azure](../iot-edge/how-to-register-device-portal.md)
-- [Registrare un nuovo dispositivo Azure IoT Edge con l'interfaccia della riga di comando di Azure](../iot-edge/how-to-register-device-cli.md)
-- [Registrare un nuovo dispositivo Azure IoT Edge da Visual Studio Code](../iot-edge/how-to-register-device-vscode.md)
+- [Registrare un nuovo dispositivo Azure IoT Edge dal portale di Azure](../iot-edge/how-to-register-device.md#register-in-the-azure-portal)
+- [Registrare un nuovo dispositivo Azure IoT Edge con l'interfaccia della riga di comando di Azure](../iot-edge/how-to-register-device.md#register-with-the-azure-cli)
+- [Registrare un nuovo dispositivo Azure IoT Edge da Visual Studio Code](../iot-edge/how-to-register-device.md#register-with-visual-studio-code)
 
-Quando si registra un dispositivo direttamente con l'hub IoT in Remote Monitoring solution accelerator, viene elencato nella **Device Explorer** pagina dell'interfaccia utente Web.
+Quando si registra un dispositivo direttamente con l'hub Internet delle cose in Remote Monitoring Solution Accelerator, questo viene elencato nella pagina **Device Explorer** nell'interfaccia utente Web.
 
 ## <a name="install-the-iot-edge-runtime"></a>Installare il runtime IoT Edge.
 

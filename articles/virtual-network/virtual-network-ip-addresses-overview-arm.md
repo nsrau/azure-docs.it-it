@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0c86f9ad134e9b640d33d1a391c5387af9f9afd
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65236348"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965673"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione in Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "65236348"
 È anche possibile creare un intervallo contiguo di indirizzi IP pubblici statici tramite un prefisso IP pubblico. [Informazioni sui prefissi IP pubblici.](public-ip-address-prefix.md)
 
 > [!NOTE]
-> Azure offre due modelli di distribuzione diversi per creare e usare le risorse:  [Resource Manager e distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Questo articolo illustra il modello di distribuzione Resource Manager che Microsoft consiglia di usare per le distribuzioni più recenti in sostituzione del [modello di distribuzione classica](virtual-network-ip-addresses-overview-classic.md).
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Questo articolo illustra l'uso del modello di distribuzione Resource Manager che Microsoft consiglia di usare invece del [modello di distribuzione classica](virtual-network-ip-addresses-overview-classic.md) per le distribuzioni più recenti.
 > 
 
 Se si ha familiarità con il modello di distribuzione classica, verificare le [differenze tra gli indirizzi IP nella versione classica e in Resource Manager](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
@@ -48,7 +48,7 @@ In Gestione risorse di Azure un [indirizzo IP pubblico](virtual-network-public-i
 
 ### <a name="ip-address-version"></a>Versione dell'indirizzo IP
 
-Gli indirizzi IP pubblici vengono creati con un indirizzo IPv4 o IPv6. Gli indirizzi IPv6 pubblici possono essere assegnati solo a servizi di bilanciamento del carico con connessione Internet.
+Gli indirizzi IP pubblici vengono creati con un indirizzo IPv4 o IPv6. 
 
 ### <a name="sku"></a>SKU
 
@@ -81,7 +81,7 @@ Gli indirizzi IP pubblici con SKU Standard sono:
 > La comunicazione in ingresso con una risorsa SKU Standard non riesce finché non si crea e si associa un [gruppo di sicurezza di rete](security-overview.md#network-security-groups) e si consente in modo esplicito il traffico in ingresso.
 
 > [!NOTE]
-> Solo gli indirizzi IP pubblici con SKU basic sono disponibili quando si usa [istanza del servizio metadati IMDS](../virtual-machines/windows/instance-metadata-service.md). Lo SKU standard non è supportato.
+> Quando si usa il [servizio metadati dell'istanza](../virtual-machines/windows/instance-metadata-service.md), sono disponibili solo indirizzi IP pubblici con SKU di base IMDS. Lo SKU standard non è supportato.
 
 ### <a name="allocation-method"></a>Metodo di allocazione
 
@@ -111,8 +111,8 @@ Gli indirizzi IP pubblici statici sono comunemente usati negli scenari seguenti:
 > Ogni etichetta di nome di dominio creata deve essere univoca nella relativa posizione di Azure.  
 >
 
-### <a name="dns-best-practices"></a>Procedure consigliate DNS
-Se è necessario eseguire la migrazione a un'area diversa, non è possibile migrare il FQDN del proprio indirizzo IP pubblico. Come procedura consigliata, è possibile utilizzare il nome di dominio completo per creare un record CNAME di dominio personalizzato che punta all'indirizzo IP pubblico in Azure. Se devi spostare in un indirizzo IP pubblico diverso, sarà necessario un aggiornamento del record CNAME anziché dover aggiornare manualmente il nome FQDN per il nuovo indirizzo. È possibile usare [DNS di Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) o un provider DNS esterno per il Record DNS. 
+### <a name="dns-best-practices"></a>Procedure consigliate per DNS
+Se è necessario eseguire la migrazione a un'area diversa, non è possibile eseguire la migrazione del nome di dominio completo dell'indirizzo IP pubblico. Come procedura consigliata, è possibile usare il nome di dominio completo per creare un record CNAME di dominio personalizzato che punta all'indirizzo IP pubblico in Azure. Se è necessario passare a un indirizzo IP pubblico diverso, sarà necessario un aggiornamento del record CNAME invece di dover aggiornare manualmente il nome FQDN al nuovo indirizzo. È possibile usare [DNS di Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) o un provider DNS esterno per il record DNS. 
 
 ### <a name="virtual-machines"></a>Macchine virtuali
 
@@ -120,7 +120,7 @@ Se è necessario eseguire la migrazione a un'area diversa, non è possibile migr
 
 ### <a name="internet-facing-load-balancers"></a>Servizi di bilanciamento del carico con connessione Internet
 
-È possibile associare un indirizzo IP pubblico creato con uno dei due [SKU](#sku) a un'istanza di [Azure Load Balancer](../load-balancer/load-balancer-overview.md) assegnandolo alla configurazione **front-end** del servizio di bilanciamento del carico. L'indirizzo IP pubblico viene usato come indirizzo IP virtuale (indirizzo VIP) di bilanciamento del carico. A un servizio di bilanciamento del carico front-end è possibile assegnare un indirizzo IP pubblico statico o dinamico. È anche possibile assegnare più indirizzi IP pubblici a un front-end del servizio di bilanciamento del carico, consentendo così scenari con [più indirizzi VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , ad esempio un ambiente multi-tenant con siti Web basati su SSL. Per altre informazioni sugli SKU di Azure Load Balancer, vedere [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU Standard di Azure Load Balancer).
+È possibile associare un indirizzo IP pubblico creato con uno dei due [SKU](#sku) a un'istanza di [Azure Load Balancer](../load-balancer/load-balancer-overview.md) assegnandolo alla configurazione **front-end** del servizio di bilanciamento del carico. L'indirizzo IP pubblico viene usato come indirizzo IP virtuale (indirizzo VIP) di bilanciamento del carico. A un servizio di bilanciamento del carico front-end è possibile assegnare un indirizzo IP pubblico statico o dinamico. È anche possibile assegnare più indirizzi IP pubblici a un front-end del servizio di bilanciamento del carico, consentendo così scenari con [più indirizzi VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , ad esempio un ambiente multi-tenant con siti Web basati su SSL. Per altre informazioni sugli SKU dei servizi di bilanciamento del carico di Azure, vedere [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU Standard dei servizi di bilanciamento del carico di Azure).
 
 ### <a name="vpn-gateways"></a>Gateway VPN
 
@@ -128,16 +128,16 @@ Un [gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2
 
 ### <a name="application-gateways"></a>Gateway di applicazione
 
-È possibile associare un indirizzo IP pubblico a un [gateway applicazione](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)di Azure, assegnandolo alla configurazione **front-end** del gateway. Questo indirizzo IP pubblico viene usato come indirizzo VIP con carico bilanciato. È possibile assegnare solo un *dinamici* base indirizzo IP pubblico a una configurazione del front-end dell'applicazione gateway V1 e solo una *statico* indirizzo con SKU standard a una configurazione front-end V2.
+È possibile associare un indirizzo IP pubblico a un [gateway applicazione](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)di Azure, assegnandolo alla configurazione **front-end** del gateway. Questo indirizzo IP pubblico viene usato come indirizzo VIP con carico bilanciato. È possibile assegnare solo un indirizzo IP pubblico di base *dinamico* a una configurazione front-end del gateway applicazione V1 e solo un indirizzo dello SKU standard *statico* a una configurazione front-end V2.
 
 ### <a name="at-a-glance"></a>Riepilogo
 La tabella seguente illustra la proprietà specifica tramite la quale un indirizzo IP pubblico può essere associato a una risorsa di livello superiore e i metodi di allocazione possibili (dinamici o statici) utilizzabili.
 
-| Risorse di livello superiore | Associazione di indirizzi IP | Dynamic | statico |
+| Risorse di livello superiore | Associazione di indirizzi IP | Dinamica | Statica |
 | --- | --- | --- | --- |
-| Macchina virtuale |interfaccia di rete |Yes |Yes |
-| Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |Yes |Yes |
-| gateway VPN |Configurazione IP del gateway |Yes |No |
+| Macchine virtuali |interfaccia di rete |SÌ |SÌ |
+| Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |SÌ |SÌ |
+| gateway VPN |Configurazione IP del gateway |SÌ |No |
 | gateway applicazione |Configurazione front-end |Sì (solo V1) |Sì (solo V2) |
 
 ## <a name="private-ip-addresses"></a>Indirizzi IP privati
@@ -148,10 +148,6 @@ Nel modello di distribuzione Azure Resource Manager un indirizzo IP privato è a
 * Interfacce di rete di macchina virtuale
 * Servizi di bilanciamento del carico interno
 * Gateway di applicazione
-
-### <a name="ip-address-version"></a>Versione dell'indirizzo IP
-
-Gli indirizzi IP privati vengono creati con un indirizzo IPv4 o IPv6. Gli indirizzi IPv6 privati possono essere assegnati solo con il metodo di allocazione dinamica. Non è possibile comunicare tra gli indirizzi IPv6 privati in una rete virtuale. Per la comunicazione in ingresso verso un indirizzo IPv6 privato da Internet, è possibile usare un servizio di bilanciamento del carico con connessione Internet. Per informazioni dettagliate, vedere [Creare un servizio di bilanciamento del carico Internet con IPv6](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="allocation-method"></a>Metodo di allocazione
 
@@ -181,13 +177,13 @@ Le macchine virtuali configurate con server DNS gestiti di Azure possono risolve
 ### <a name="at-a-glance"></a>Riepilogo
 La tabella seguente illustra la proprietà specifica tramite la quale un indirizzo IP privato può essere associato a una risorsa di livello superiore e i metodi di allocazione possibili (dinamici o statici) utilizzabili.
 
-| Risorse di livello superiore | Associazione di indirizzi IP | dinamico | statico |
+| Risorse di livello superiore | Associazione di indirizzi IP | Dinamica | Statica |
 | --- | --- | --- | --- |
-| Macchina virtuale |interfaccia di rete |Yes |Yes |
-| Bilanciamento del carico |Configurazione front-end |Yes |Yes |
-| gateway applicazione |Configurazione front-end |Yes |Yes |
+| Macchine virtuali |interfaccia di rete |SÌ |SÌ |
+| Load Balancer |Configurazione front-end |SÌ |SÌ |
+| gateway applicazione |Configurazione front-end |SÌ |SÌ |
 
-## <a name="limits"></a>Limiti
+## <a name="limits"></a>limiti
 I limiti imposti agli indirizzi IP sono indicati nel set completo di [limiti della rete](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. I limiti sono classificati per area e per sottoscrizione. È possibile [contattare il supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per aumentare i limiti predefiniti fino ai massimi consentiti in base alle esigenze aziendali.
 
 ## <a name="pricing"></a>Prezzi
