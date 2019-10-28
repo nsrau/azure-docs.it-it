@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 953699793d81485e3828b9fb46de8523d2b7674e
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 846650fce6701bb7e382df049902f427390b3051
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129995"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931221"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Supporto lingua e area geografica per l'API Analisi del testo
 
@@ -32,30 +32,30 @@ Se si ha contenuto espresso in un lingua usata con minore frequenza, si può pro
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Analisi del sentiment, Estrazione frasi chiave e il riconoscimento di entità denominate
 
 Per l'analisi del sentiment, l'estrazione delle frasi chiave e il riconoscimento delle entità, l'elenco delle lingue supportate è più selettivo, poiché gli analizzatori sono ottimizzati in base alle regole linguistiche di lingue aggiuntive. Il supporto per il set completo di [tipi di entità](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) è attualmente limitato alle lingue seguenti: 
-* Inglese
+* Italiano
 * Cinese semplificato
 * Francese
 * Tedesco
 * Spagnolo
 
-Per gli `Person`altri `Location` linguaggi `Organization` vengono restituite solo le entità denominate e.
+Per gli altri linguaggi vengono restituite solo le entità denominate `Person`, `Location` e `Organization`.
 
 ## <a name="language-list-and-status"></a>Elenco e stato delle lingue
 
 Il supporto di una lingua viene inizialmente implementato in anteprima e quindi promosso alla disponibilità a livello generale (GA), indipendentemente dalle altre lingue e dal servizio Analisi del testo nel suo complesso. È possibile che una lingua rimanga disponibile in anteprima, anche quando l'API Analisi del testo passa alla disponibilità a livello generale.
 
-| Linguaggio    | Codice lingua | Valutazione | Frasi chiave | Riconoscimento di entità denominate |   Note  |
+| Linguaggio    | Codice lingua | Sentiment | Frase chiave | Riconoscimento di entità denominate |   Note  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Arabo      | `ar`          |           |             | ✔ \*                     | |
 | Ceco       | `cs`          |           |             | ✔ \*                     | |
 | Cinese semplificato | `zh-hans`| ✔ \***     |             | ✔         |    |
 | Cinese tradizionale | `zh-hant`| ✔ \***     |             |          |    |
 | Danese      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
-| Olandese       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
-| Inglese     | `en`          | ✔ \***       | ✔           |  ✔ \*\*     |      |
+| Olandese       | `nl`          | ✔ \***     | ✔          |  ✔ \*           |     |
+| Italiano     | `en`          | ✔ \***       | ✔           |  ✔ \*\*     |      |
 | Finlandese     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
 | Francese      | `fr`          | ✔ \***       | ✔           |  ✔            |     |
-| Tedesco      | `de`          | ✔ \*     | ✔           |  ✔           |     |
+| Tedesco      | `de`          | ✔ \***     | ✔           |  ✔           |     |
 | Greco       | `el`          | ✔ \*     |             |            |     |
 | Ungherese   | `hu`          |           |             |  ✔ \*          |     | 
 | Italiano     | `it`          | ✔ \***     | ✔           |  ✔ \*           |     |
@@ -63,20 +63,20 @@ Il supporto di una lingua viene inizialmente implementato in anteprima e quindi 
 | Coreano      | `ko`          |          | ✔           |  ✔ \*          |     |
 | Norvegese (Bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
 | Polacco      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
-| Portoghese (Portogallo) | `pt-PT`| ✔        |  ✔          | ✔ \*      |Accettato anche `pt`|
+| Portoghese (Portogallo) | `pt-PT`| ✔ \***        |  ✔          | ✔ \*      |Accettato anche `pt`|
 | Portoghese (Brasile)   | `pt-BR`|          |  ✔   |  ✔ \*       |     |
 | Russo     | `ru`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Spagnolo     | `es`          | ✔        | ✔           |   ✔ \*\*      |     | 
+| Spagnolo     | `es`          | ✔ \***       | ✔           |   ✔ \*\*      |     | 
 | Svedese     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
 | Turco     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
 
-\*Il supporto della lingua è in anteprima
+il supporto della lingua \* è in anteprima
 
-\*\*Il [riconoscimento delle entità](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) denominate e il [collegamento di entità](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) sono entrambi disponibili per questa lingua.  
+\*\* il [riconoscimento delle entità denominato](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) e il [collegamento di entità](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) sono entrambi disponibili per questa lingua.  
 
-\** * Disponibile nell' [anteprima pubblica analisi del sentiment V3](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview)
+\** * disponibile nell' [anteprima pubblica analisi del sentiment V3](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Documentazione dei servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/)   
 [Pagina del prodotto Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/)

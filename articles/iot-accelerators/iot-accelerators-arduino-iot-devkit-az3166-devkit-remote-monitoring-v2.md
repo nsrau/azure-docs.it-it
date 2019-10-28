@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: 3551d088c1d02715bf9ace09d7eb0048bc10111e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 542a0780c0525ee7ceddfd36c3a4f7c348d0574f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65473477"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72930872"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Connettere un dispositivo IoT DevKit all'acceleratore della soluzione di monitoraggio remoto
 
@@ -36,7 +36,7 @@ Per aprire l'esempio della soluzione di monitoraggio remoto in VS Code:
 
 1. Assicurarsi che IoT DevKit non sia connesso al computer. Avviare per prima cosa Visual Studio Code, quindi connettere il DevKit al computer.
 
-1. Premere `F1` per aprire il riquadro comandi, digitare e selezionare **Azure IoT Device Workbench: Open Examples** (Azure IoT Device Workbench: Apri esempi). Quindi selezionare **IoT DevKit** (DevKit di IoT) come lavagna.
+1. Fare clic su `F1` per aprire il riquadro comandi, digitare e selezionare **Azure Azure per dispositivi Workbench: aprire esempi..** .. Selezionare quindi **DevKit** come lavagna.
 
 1. Trovare **Remote Monitoring** (Monitoraggio remoto) e fare clic su **Open Sample** (Apri esempio). Si apre una nuova finestra di Visual Studio Code che visualizza la cartella del progetto:
 
@@ -55,7 +55,7 @@ Per configurare la stringa di connessione del dispositivo hub IoT al dispositivo
 
     ![Selezionare la modalità di configurazione di IoT DevKit](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/devkit-configuration-mode.png)
 
-1. Premere **F1** per aprire il riquadro comandi, digitare e selezionare **Azure IoT Device Workbench: Configure Device Settings... > Config Device Connection String** (Configura impostazioni dispositivo > Configura stringa di connessione dispositivo).
+1. Premere **F1** per aprire il riquadro comandi, digitare e selezionare **Azure Internet Azure per dispositivi Workbench: configurare le impostazioni del dispositivo... Stringa di connessione del dispositivo > config**.
 
 1. Incollare la stringa di connessione copiata in precedenza e premere **Invio** per configurare il dispositivo.
 
@@ -63,11 +63,11 @@ Per configurare la stringa di connessione del dispositivo hub IoT al dispositivo
 
 Per compilare e caricare il codice del dispositivo:
 
-1. Premere `F1` per aprire il riquadro comandi, digitare e selezionare **Azure IoT Device Workbench: Upload Device Code** (Azure IoT Device Workbench: Carica il codice del dispositivo):
+1. Premere `F1` per aprire il riquadro comandi, digitare e selezionare **Azure Internet Azure per dispositivi Workbench: caricare il codice del dispositivo**:
 
 1. Visual Studio Code compila e carica il codice nel dispositivo DevKit:
 
-    ![Workbench IoT: Dispositivo - > Caricato](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-uploaded.png)
+    ![IoT Workbench: Device - > Uploaded (Workbench IoT: Dispositivo > Caricato)](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-uploaded.png)
 
 1. Il dispositivo DevKit viene riavviato ed esegue il codice caricato.
 
@@ -87,7 +87,7 @@ Quando viene eseguita l'app di esempio, il dispositivo DevKit invia le informazi
 
 ### <a name="control-the-devkit-device"></a>Controllare il dispositivo DevKit
 
-L'acceleratore della soluzione di monitoraggio remoto consente di controllare il dispositivo in remoto. Il codice di esempio implementa tre metodi che è possibile visualizzare nel **metodo** sezione quando si seleziona il dispositivo nel **Device Explorer** pagina:
+L'acceleratore della soluzione di monitoraggio remoto consente di controllare il dispositivo in remoto. Il codice di esempio implementa tre metodi che è possibile visualizzare nella sezione **Method** quando si seleziona il dispositivo nella pagina **Device Explorer** :
 
 ![Metodi di IoT DevKit](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 
@@ -99,9 +99,9 @@ Per cambiare il colore di uno dei LED del dispositivo DevKit, usare il metodo **
 
 1. Configurare i processi con i valori seguenti e fare clic su **Applica**:
 
-   * Seleziona processo: **Metodo Run**
-   * Nome metodo: **LedColor**
-   * Nome processo: **ChangeLedColor**
+   * Select Job: **Run method** (Selezione processo: Esegui metodo)
+   * Method name: **LedColor** (Nome del metodo: LedColor)
+   * Job Name: **ChangeLedColor** (Nome del processo: ChangeLedColor)
 
      ![Impostazioni del processo](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
 
@@ -130,4 +130,4 @@ Dopo aver appreso come connettere un dispositivo DevKit all'acceleratore della s
 
 * [Panoramica degli acceleratori di soluzioni Azure IoT](https://docs.microsoft.com/azure/iot-accelerators/)
 * [Personalizzare l'interfaccia utente](iot-accelerators-remote-monitoring-customize.md)
-* [Connettere un dispositivo IoT DevKit all'applicazione Azure IoT Central](../iot-central/howto-connect-devkit.md)
+* [Connettere un dispositivo Iot DevKit all'applicazione Azure IoT Central](../iot-central/core/howto-connect-devkit.md)
