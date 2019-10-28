@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 10/21/2019
 ms.author: ramamill
-ms.openlocfilehash: 037f0ff64b114ce9341702564147825099695aa0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 080edfc86848bb6c6579c177c72d3fbd3214a06a
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110031"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968845"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurare un server di elaborazione in Azure per il failback
 
@@ -37,7 +37,7 @@ Per altre informazioni, vedere il processo di [riprotezione](vmware-azure-reprot
 
 4. In **Nome server**, **Nome utente**e **Password** specificare un nome per il server di elaborazione e le credenziali a cui verranno assegnate le autorizzazioni di amministrazione sul server.
 5. Specificare un account di archiviazione da usare per i dischi della macchina virtuale del server, la subnet in cui la macchina virtuale del server di elaborazione sarà disponibile e l'indirizzo IP del server che verrà assegnato all'avvio della macchina virtuale.
-6. Fare clic sul pulsante **OK** per avviare la distribuzione della macchina virtuale del server di elaborazione.
+6. Fare clic sul pulsante **OK** per avviare la distribuzione della macchina virtuale del server di elaborazione. Il server di elaborazione verrà distribuito nello SKU Standard_A8_v2. Assicurarsi che lo SKU della macchina virtuale sia disponibile per la sottoscrizione.
 
 >
 

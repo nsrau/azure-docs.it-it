@@ -1,5 +1,5 @@
 ---
-title: Eseguire il backup di una macchina virtuale di Azure dalle impostazioni della macchina virtuale con il servizio Backup di Azure
+title: Eseguire il backup di una macchina virtuale di Azure dalle impostazioni della macchina virtuale con backup di Azure
 description: Informazioni su come eseguire il backup di una macchina virtuale di Azure con il servizio Backup di Azure
 author: dcurwin
 manager: carmonm
@@ -7,21 +7,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 042fa44b8f24bb729b94c7631db9469de8493ba4
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: cfbec94a2922995eed546d526c1f469e2ea54118
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639776"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969041"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Eseguire il backup di una macchina virtuale di Azure dalle impostazioni della macchina virtuale
 
 Questo articolo spiega come eseguire il backup di macchine virtuali di Azure con il servizio [Backup di Azure](backup-overview.md). Esistono due metodi per eseguire il backup di macchine virtuali di Azure:
 
-- Singola macchina virtuale di Azure: le istruzioni riportate in questo articolo descrivono come eseguire il backup di una macchina virtuale di Azure direttamente dalle impostazioni della macchina virtuale.
-- Più macchine virtuali di Azure: è possibile configurare un insieme di credenziali di Servizi di ripristino e configurare il backup per più macchine virtuali di Azure. Seguire le istruzioni di [questo articolo](backup-azure-arm-vms-prepare.md) per questo scenario.
-
-
+- Singola macchina virtuale di Azure: le istruzioni in questo articolo descrivono come eseguire il backup di una macchina virtuale di Azure direttamente dalle impostazioni della macchina virtuale.
+- Più macchine virtuali di Azure: è possibile configurare un insieme di credenziali di servizi di ripristino e configurare il backup per più macchine virtuali di Azure. Seguire le istruzioni di [questo articolo](backup-azure-arm-vms-prepare.md) per questo scenario.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -36,7 +34,6 @@ Per eseguire il backup di macchine virtuali di Azure, Backup di Azure installa u
 - Quando si abilita il backup, dopo aver installato l'agente, Backup di Azure installa l'estensione di backup all'agente. Questi esegue aggiornamenti e patch all'estensione senza intervento dell'utente.
 
 ## <a name="back-up-from-azure-vm-settings"></a>Eseguire il backup dalle impostazioni della macchina virtuale di Azure
-
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **Tutti i servizi**, digitare **Macchine virtuali** in Filtro e fare clic su **Macchine virtuali**.
@@ -69,11 +66,9 @@ Per eseguire il backup di macchine virtuali di Azure, Backup di Azure installa u
     - Fino al completamento del backup iniziale, lo **stato dell'ultimo backup** è **Avviso (backup iniziale in sospeso)** .
     - Per visualizzare quando verrà eseguito il successivo backup pianificato, fare clic sul nome del criterio di backup.
 
-
 > [!NOTE]
-> Il servizio backup di Azure crea un gruppo di risorse distinto (diverso dal gruppo di risorse VM) per archiviare gli snapshot, con il formato di denominazione **AzureBackupRG_geography_number** (esempio: AzureBackupRG_northeurope_1). I dati in questo gruppo di risorse verranno conservati per la durata in giorni, come specificato nella sezione "Mantieni snapshot di ripristino istantaneo" del criterio di backup della macchina virtuale di Azure. L'applicazione di un blocco a questo gruppo di risorse può causare errori di backup.<br>
+> Il servizio backup di Azure crea un gruppo di risorse distinto (diverso dal gruppo di risorse VM) per archiviare gli snapshot, con il formato di denominazione **AzureBackupRG_geography_number** (ad esempio: AzureBackupRG_northeurope_1). I dati in questo gruppo di risorse verranno conservati per la durata in giorni, come specificato nella sezione "Mantieni snapshot di ripristino istantaneo" del criterio di backup della macchina virtuale di Azure. L'applicazione di un blocco a questo gruppo di risorse può causare errori di backup.<br>
 Questo gruppo di risorse deve essere escluso da qualsiasi restrizione relativa a nome/tag poiché i criteri di restrizione bloccano la creazione di raccolte di punti risorse in un nuovo errore causando errori di backup.
-
 
 ## <a name="run-a-backup-immediately"></a>Eseguire immediatamente un backup
 
@@ -86,9 +81,6 @@ Questo gruppo di risorse deve essere escluso da qualsiasi restrizione relativa a
     ![Giorno di conservazione backup](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
 3. Le notifiche del portale consentono di sapere se è stato attivato il processo di backup. Per monitorare lo stato di backup, fare clic su **Visualizza tutti i processi**.
-
-
-
 
 ## <a name="back-up-from-the-recovery-services-vault"></a>Eseguire il backup da un insieme di credenziali di Servizi di ripristino
 

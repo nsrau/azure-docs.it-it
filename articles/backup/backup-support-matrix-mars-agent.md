@@ -1,5 +1,5 @@
 ---
-title: Matrice di supporto per l'agente di Servizi di ripristino di Microsoft Azure (MARS)
+title: Matrice di supporto per l'agente di Servizi di ripristino di Microsoft Azure
 description: Questo articolo riepiloga il supporto di backup di Azure quando si esegue il backup dei computer che eseguono l'agente di Servizi di ripristino di Microsoft Azure (MARS).
 author: dcurwin
 ms.service: backup
@@ -7,12 +7,12 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 1559bb096baaa8f19718bf0c3bcd6b2dc767235b
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 6f7bb1cfdb36bcaa8545fba8767b20d974c8e073
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210135"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968375"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matrice di supporto per il backup con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -21,6 +21,7 @@ ms.locfileid: "70210135"
 ## <a name="the-mars-agent"></a>Agente MARS
 
 Backup di Azure usa l'agente MARS per eseguire il backup dei dati da computer locali e VM di Azure a un insieme di credenziali di servizi di ripristino di backup in Azure. L'agente MARS può:
+
 - Eseguire nei computer Windows locali in modo che possano eseguire il backup direttamente in un insieme di credenziali di servizi di ripristino di backup in Azure.
 - Eseguire sulle macchine virtuali Windows in modo che possano eseguire il backup direttamente in un insieme di credenziali.
 - Eseguire in Backup di Microsoft Azure Server (MAB) o in un server System Center Data Protection Manager (DPM). In questo scenario, i computer e i carichi di lavoro eseguono il backup in MAB o nel server DPM. L'agente MARS esegue quindi il backup di questo server in un insieme di credenziali in Azure.
@@ -37,17 +38,16 @@ Installare in un server di backup | Quando si configura DPM o il server di Backu
 > Per impostazione predefinita, le macchine virtuali di Azure abilitate per il backup hanno un'installazione dell'estensione di backup di Azure. Questa estensione esegue il backup dell'intera macchina virtuale. È possibile installare ed eseguire l'agente di Servizi di ripristino di Microsoft Azure in una macchina virtuale di Azure insieme all'estensione se si intende eseguire il backup di cartelle e file specifici anziché della macchina virtuale completa.
 > Quando si esegue l'agente MARS in una macchina virtuale di Azure, viene eseguito il backup di file o cartelle presenti nell'archivio temporaneo della macchina virtuale. I backup non riescono se i file o le cartelle vengono rimossi dall'archiviazione temporanea o se l'archiviazione temporanea viene rimossa.
 
-
 ## <a name="cache-folder-support"></a>Supporto della cartella cache
 
 Quando si usa l'agente MARS per eseguire il backup dei dati, l'agente acquisisce uno snapshot dei dati e lo archivia in una cartella della cache locale prima di inviare i dati ad Azure. La cartella cache (Scratch) presenta diversi requisiti:
 
 **Cache** | **Dettagli**
 --- | ---
-Dimensione |  Lo spazio disponibile nella cartella della cache deve essere almeno compreso tra 5 e 10% delle dimensioni complessive dei dati di backup.
-Location | La cartella della cache deve essere archiviata localmente nel computer di cui viene eseguito il backup e deve essere online. La cartella della cache non deve trovarsi in una condivisione di rete, in un supporto rimovibile o in un volume offline.
+Dimensioni |  Lo spazio disponibile nella cartella della cache deve essere almeno compreso tra 5 e 10% delle dimensioni complessive dei dati di backup.
+Località | La cartella della cache deve essere archiviata localmente nel computer di cui viene eseguito il backup e deve essere online. La cartella della cache non deve trovarsi in una condivisione di rete, in un supporto rimovibile o in un volume offline.
 Cartella | La cartella della cache deve essere crittografata in un volume deduplicato o in una cartella compressa, di tipo sparse o con un punto di analisi.
-Modifiche alla posizione | È possibile modificare il percorso della cache arrestando il motore di`net stop bengine`backup () e copiando la cartella della cache in una nuova unità. Assicurarsi che la nuova unità disponga di spazio sufficiente. Aggiornare quindi due voci del registro di sistema in **HKLM\Software\Microsoft\Windows Azure Backup** (**config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation**) al nuovo percorso e riavviare il motore.
+Modifiche alla posizione | È possibile modificare il percorso della cache arrestando il motore di backup (`net stop bengine`) e copiando la cartella della cache in una nuova unità. Assicurarsi che la nuova unità disponga di spazio sufficiente. Aggiornare quindi due voci del registro di sistema in **HKLM\Software\Microsoft\Windows Azure Backup** (**config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation**) al nuovo percorso e riavviare il motore.
 
 ## <a name="networking-and-access-support"></a>Supporto delle funzionalità di rete e dell'accesso
 
@@ -58,8 +58,8 @@ L'agente di Servizi di ripristino di Microsoft Azure deve poter accedere a quest
 - http://www.msftncsi.com/ncsi.txt
 - *.Microsoft.com
 - *.windowsazure.com
-- *.MicrosoftOnline.com
-- *.Windows.net
+- *. MicrosoftOnline.com
+- *. Windows.net
 
 ### <a name="throttling-support"></a>Supporto della limitazione della larghezza di banda della rete
 
@@ -74,20 +74,19 @@ Limitazione della larghezza di banda della rete | Non disponibile per computer s
 
 **Sistema operativo** | **File/cartelle** | **Stato del sistema** | **Requisiti del software/modulo**
 --- | --- | --- | ---
-Windows 10 (Enterprise, Pro, Home) | Sì | No |  Controllare la versione del server corrispondente per i requisiti software/modulo
-Windows 8.1 (Enterprise, Pro)| Yes |No | Controllare la versione del server corrispondente per i requisiti software/modulo
-Windows 8 (Enterprise, Pro) | Sì | No | Controllare la versione del server corrispondente per i requisiti software/modulo
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Yes | No | Controllare la versione del server corrispondente per i requisiti software/modulo
-Windows Server 2016 (Standard, Datacenter, Essentials) | Sì | Yes | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Sì | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
-Windows Server 2012 (Standard, Datacenter, Foundation) | Sì | Sì |-.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0 <br> -Gestione e manutenzione immagini distribuzione (DISM. exe)
-Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Sì | Sì | -.NET 3,5, .NET 4,5 <br> -Windows PowerShell <br> -Compatibile con Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0 <br> -Gestione e manutenzione immagini distribuzione (DISM. exe)
-Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Yes | No | -.NET 3,5, .NET 4,5 <br> -Windows PowerShell <br> -Compatibile con Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0 <br> -Gestione e manutenzione immagini distribuzione (DISM. exe) <br> -Server virtuale 2005 base + KB KB948515
-Windows Storage Server 2016/2012 R2/2012 (standard, Workgroup) | Sì | No | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
-Windows Server 2019 (Standard, Datacenter, Essentials) | Sì | Sì | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
+Windows 10 (Enterprise, Pro, Home) | SÌ | No |  Controllare la versione del server corrispondente per i requisiti software/modulo
+Windows 8.1 (Enterprise, Pro)| SÌ |No | Controllare la versione del server corrispondente per i requisiti software/modulo
+Windows 8 (Enterprise, Pro) | SÌ | No | Controllare la versione del server corrispondente per i requisiti software/modulo
+Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | SÌ | No | Controllare la versione del server corrispondente per i requisiti software/modulo
+Windows Server 2016 (Standard, Datacenter, Essentials) | SÌ | SÌ | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
+Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | SÌ | SÌ | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
+Windows Server 2012 (Standard, Datacenter, Foundation) | SÌ | SÌ |-.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0 <br> -Gestione e manutenzione immagini distribuzione (DISM. exe)
+Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | SÌ | SÌ | -.NET 3,5, .NET 4,5 <br> -Windows PowerShell <br> -Compatibile con Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0 <br> -Gestione e manutenzione immagini distribuzione (DISM. exe)
+Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | SÌ | No | -.NET 3,5, .NET 4,5 <br> -Windows PowerShell <br> -Compatibile con Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0 <br> -Gestione e manutenzione immagini distribuzione (DISM. exe) <br> -Server virtuale 2005 base + KB KB948515
+Windows Storage Server 2016/2012 R2/2012 (standard, Workgroup) | SÌ | No | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
+Windows Server 2019 (Standard, Datacenter, Essentials) | SÌ | SÌ | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
 
 Per ulteriori informazioni, vedere i [sistemi operativi supportati da MAB e DPM](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
-
 
 ## <a name="backup-limits"></a>Limiti relativi a Backup
 
@@ -95,38 +94,37 @@ Backup di Azure limita le dimensioni di un'origine dati file o cartella di cui �
 
 **Sistema operativo** | **Limite dimensioni**
 --- | ---
-Windows Server 2012 o versioni successive |  54400 GB
-Windows Server 2008 R2 SP1 |    1\.700 GB
-Windows Server 2008 SP2 | 1\.700 GB
-Windows 8 o versione successiva  | 54400 GB
-Windows 7   | 1\.700 GB
-
+Windows Server 2012 o versioni successive |54400 GB
+Windows Server 2008 R2 SP1 |1\.700 GB
+Windows Server 2008 SP2| 1\.700 GB
+Windows 8 o versione successiva| 54400 GB
+Windows 7| 1\.700 GB
 
 ## <a name="supported-file-types-for-backup"></a>Tipi di file supportati per il backup
 
 **Tipo** | **Supporto**
 --- | ---
-Crittografato   | Supportato.
+Crittografato| Supportato.
 Compresso | Supportato.
 Sparse | Supportato.
-Compresso e sparse | Supportato.
-Collegamenti reali  | Non supportati. Ignorato.
-Reparse point   | Non supportati. Ignorato.
-Crittografato e sparse |  Non supportati. Ignorato.
-Flusso compresso   | Non supportati. Ignorato.
-Flusso di tipo sparse   | Non supportati. Ignorato.
-OneDrive (i file sincronizzati sono flussi sparse)  | Non supportati.
+Compresso e sparse |Supportato.
+Collegamenti reali| Non supportati. Ignorato.
+Reparse point| Non supportati. Ignorato.
+Crittografato e sparse |Non supportati. Ignorato.
+Flusso compresso| Non supportati. Ignorato.
+Flusso di tipo sparse| Non supportati. Ignorato.
+OneDrive (i file sincronizzati sono flussi sparse)| Non supportati.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Unità o volumi supportati per il backup
 
 **Unità/volume** | **Supporto** | **Dettagli**
 --- | --- | ---
-Volumi di sola lettura   | Non supportate | Il servizio Copia Shadow del volume (VSS) funziona solo se il volume è scrivibile.
-Volumi offline | Non supportate |   VSS funziona solo se il volume è online.
-Condivisione di rete   | Non supportate |   Il volume deve essere locale nel server.
-Volumi protetti da BitLocker | Non supportate |   Il volume deve essere sbloccato prima dell'avvio del backup.
-Identificazione del file System  | Non supportate |   È supportato solo NTFS.
-Supporti rimovibili | Non supportate |   Lo stato di tutte le origini degli elementi di backup deve essere *fisso* .
+Volumi di sola lettura| Supporto non disponibile | Il servizio Copia Shadow del volume (VSS) funziona solo se il volume è scrivibile.
+Volumi offline| Supporto non disponibile |VSS funziona solo se il volume è online.
+Condivisione di rete| Supporto non disponibile |Il volume deve essere locale nel server.
+Volumi protetti da BitLocker| Supporto non disponibile |Il volume deve essere sbloccato prima dell'avvio del backup.
+Identificazione del file System| Supporto non disponibile |È supportato solo NTFS.
+Supporti rimovibili| Supporto non disponibile |Lo stato di tutte le origini degli elementi di backup deve essere *fisso* .
 Unità deduplicate | Supportato | Il servizio Backup di Azure converte i dati deduplicati in dati normali. Consente di ottimizzare, crittografare, archiviare e inviare i dati all'insieme di credenziali.
 
 ## <a name="support-for-initial-offline-backup"></a>Supporto per il backup offline iniziale
@@ -145,5 +143,6 @@ Usando la funzionalità di [ripristino istantaneo](backup-instant-restore-capabi
 Non è possibile ripristinare i backup in un computer di destinazione in cui è in esecuzione una versione precedente del sistema operativo. Ad esempio, è possibile ripristinare un backup eseguito da un computer che esegue Windows 7 in Windows 8 o versione successiva. Tuttavia, un backup eseguito da un computer che esegue Windows 8 non può essere ripristinato in un computer che esegue Windows 7.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 - Altre informazioni sull' [architettura di backup che usa l'agente Mars](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
 - Informazioni sulle funzionalità supportate quando si [esegue l'agente Mars su MAB o su un server DPM](backup-support-matrix-mabs-dpm.md).

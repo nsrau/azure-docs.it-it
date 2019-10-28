@@ -1,6 +1,6 @@
 ---
-title: Sviluppare funzioni di .NET Standard per i processi Edge di analisi di flusso di Azure
-description: Informazioni su come sviluppare funzioni .NET definite dall'utente per i processi di analisi di flusso di Azure con codebehind, un pacchetto esistente o un progetto locale.
+title: Sviluppare funzioni di .NET Standard per i processi di analisi di flusso di Azure (anteprima)
+description: Informazioni su come scrivere funzioni c# definite dall'utente per i processi di analisi di flusso.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -10,16 +10,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: cdfe4d2ccc39385b4020f60905b12c4683b1758c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 835eeaa0036d824a65918102ab7a00c3cf236931
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935015"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72988401"
 ---
-# <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Sviluppare funzioni .NET Standard definite dall'utente per i processi di Analisi di flusso di Azure in IoT Edge (anteprima)
+# <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Sviluppare .NET Standard funzioni definite dall'utente per i processi di analisi di flusso di Azure (anteprima)
 
-L'Analisi di flusso di Azure offre un linguaggio di query simile a SQL per eseguire trasformazioni e calcoli sui flussi di dati degli eventi. Sono disponibili molte funzioni predefinite, ma alcuni scenari complessi richiedono una maggiore flessibilità. Con le funzioni .NET Standard definite dall'utente è possibile richiamare funzioni personalizzate scritte in qualsiasi linguaggio di programmazione .NET Standard (C#, F# e così via) per estendere il linguaggio di query dell'Analisi di flusso di Azure. Le funzioni definite dall'utente consentono di eseguire calcoli matematici complessi, di importare i modelli di Machine Learning personalizzati con ML.NET e di usare la logica di imputazione personalizzata per i dati mancanti. La funzionalità per le funzioni definite dall'utente per i processi Edge di Analisi di flusso di Azure è attualmente in anteprima e non deve essere usata nei carichi di lavoro di produzione.
+L'Analisi di flusso di Azure offre un linguaggio di query simile a SQL per eseguire trasformazioni e calcoli sui flussi di dati degli eventi. Sono disponibili molte funzioni predefinite, ma alcuni scenari complessi richiedono una maggiore flessibilità. Con le funzioni .NET Standard definite dall'utente è possibile richiamare funzioni personalizzate scritte in qualsiasi linguaggio di programmazione .NET Standard (C#, F# e così via) per estendere il linguaggio di query dell'Analisi di flusso di Azure. Le funzioni definite dall'utente consentono di eseguire calcoli matematici complessi, di importare i modelli di Machine Learning personalizzati con ML.NET e di usare la logica di imputazione personalizzata per i dati mancanti. La funzionalità UDF per i processi di analisi di flusso è attualmente in anteprima e non deve essere usata nei carichi di lavoro di produzione.
 
 ## <a name="overview"></a>Panoramica
 Gli strumenti di Visual Studio per l'Analisi di flusso di Azure semplificano la scrittura di funzioni definite dall'utente, l'esecuzione di test sui processi in locale (anche offline) e la pubblicazione del processo di Analisi di flusso in Azure. Dopo la pubblicazione in Azure è possibile distribuire il processo nei dispositivi IoT con l'hub IoT.
@@ -65,7 +65,7 @@ Per fare riferimento a un progetto locale:
 
 ### <a name="example"></a>Esempio
 
-In questo esempio **UDFTest** è un progetto di libreria di classi C# e **ASAEdgeUDFDemo** è il progetto di Analisi di flusso di Azure in IoT Edge che farà riferimento a **UDFTest**.
+In questo esempio, **UDFTest** è un C# progetto di libreria di classi e **ASAUDFDemo** è il progetto di analisi di flusso di Azure, che fa riferimento a **UDFTest**.
 
 ![Progetto di Analisi di flusso di Azure in IoT Edge in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-demo.png)
 
@@ -73,7 +73,7 @@ In questo esempio **UDFTest** è un progetto di libreria di classi C# e **ASAEdg
     
    ![Compilare un progetto di Analisi di flusso di Azure in IoT Edge in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-build-project.png)
 
-2. Aggiungere il riferimento al progetto C# nel progetto di Analisi di flusso di Azure in IoT Edge. Fare clic con il pulsante destro del mouse sul nodo Riferimenti e scegliere Aggiungi riferimento.
+2. Aggiungere il riferimento al C# progetto nel progetto ASA. Fare clic con il pulsante destro del mouse sul nodo Riferimenti e scegliere Aggiungi riferimento.
 
    ![Aggiungere un riferimento a un progetto C# in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-reference.png)
 
@@ -97,7 +97,7 @@ In questo esempio **UDFTest** è un progetto di libreria di classi C# e **ASAEdg
 
    ![Configurazione di una funzione C sharp in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-csharp-function-config.png)
 
-8. Nella configurazione della funzione C# scegliere **Carica dal riferimento al progetto ASA** e i nomi di assembly, classe e metodo correlati dall'elenco a discesa. Per fare riferimento a metodi, tipi e funzioni nella query di Analisi di flusso di Azure in IoT Edge è necessario definire le classi come *public* e gli oggetti come *static public*.
+8. Nella configurazione della funzione C# scegliere **Carica dal riferimento al progetto ASA** e i nomi di assembly, classe e metodo correlati dall'elenco a discesa. Per fare riferimento ai metodi, ai tipi e alle funzioni nella query di analisi di flusso, le classi devono essere definite come *pubbliche* e gli oggetti devono essere definiti come *pubblici statici*.
 
    ![Configurazione della funzione C sharp dell'Analisi di flusso di Azure](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-asa-csharp-function-config.png)
 
@@ -105,26 +105,25 @@ In questo esempio **UDFTest** è un progetto di libreria di classi C# e **ASAEdg
 
 È possibile creare funzioni .NET Standard definite dall'utente in qualsiasi ambiente di sviluppo integrato desiderato e richiamarle dalla query di Analisi di flusso di Azure. Compilare innanzitutto il codice e includere in un pacchetto tutte le DLL. Il formato del pacchetto presenta il percorso `/UserCustomCode/CLR/*`. Caricare quindi `UserCustomCode.zip` nella radice del contenitore nell'account di archiviazione di Azure.
 
-Dopo aver caricato i pacchetti ZIP di assembly nel proprio account di archiviazione di Azure, è possibile usare le funzioni nelle query di Analisi di flusso di Azure. È sufficiente includere le informazioni di archiviazione nella configurazione del processo di Analisi di flusso di Azure in IoT Edge. Con questa opzione non è possibile effettuare test in locale per la funzione, in quanto gli strumenti di Visual Studio non scaricheranno il pacchetto. Il percorso del pacchetto viene analizzato direttamente nel servizio. 
+Dopo aver caricato i pacchetti ZIP di assembly nel proprio account di archiviazione di Azure, è possibile usare le funzioni nelle query di Analisi di flusso di Azure. È sufficiente includere le informazioni di archiviazione nella configurazione del processo di analisi di flusso. Con questa opzione non è possibile effettuare test in locale per la funzione, in quanto gli strumenti di Visual Studio non scaricheranno il pacchetto. Il percorso del pacchetto viene analizzato direttamente nel servizio. 
 
 Per configurare il percorso dell'assembly nel file di configurazione del processo, `JobConfig.json`:
 
 Espandere la sezione **Configurazione di codice definito dall'utente** e compilare la configurazione con i seguenti valori suggeriti:
 
- |**Impostazione**  |**Valore consigliato**  |
- |---------|---------|
- |Origine assembly  | Pacchetti di assembly esistenti dal cloud    |
- |Gruppi  |  Scegliere i dati dall'account corrente   |
- |Sottoscrizione  |  Scegliere la propria sottoscrizione.   |
- |Account di archiviazione  |  Scegliere l'account di archiviazione.   |
- |Contenitore  |  Scegliere il contenitore creato nell'account di archiviazione.   |
-
-![Configurazione del progetto Edge di Analisi di flusso di Azure in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
+   |**Impostazione**|**Valore consigliato**|
+   |-------|---------------|
+   |Risorsa impostazioni di archiviazione globali|Scegliere l'origine dati dall'account corrente|
+   |Sottoscrizione impostazioni di archiviazione globali| < la sottoscrizione >|
+   |Account di archiviazione delle impostazioni di archiviazione globali| < l'account di archiviazione >|
+   |Risorsa Impostazioni archiviazione codice personalizzata|Scegliere l'origine dati dall'account corrente|
+   |Account di archiviazione delle impostazioni di archiviazione del codice personalizzato|< l'account di archiviazione >|
+   |Contenitore Impostazioni archiviazione codice personalizzato|< il contenitore di archiviazione >|
+   |Origine assembly di codice personalizzato|Pacchetti di assembly esistenti dal cloud|
+   |Origine assembly di codice personalizzato|UserCustomCode. zip|
 
 ## <a name="limitations"></a>Limitazioni
 L'anteprima della funzione definita dall'utente attualmente presenta le limitazioni seguenti:
-
-* I linguaggi di programmazione .NET Standard sono utilizzabili solo per l'Analisi di flusso di Azure in IoT Edge. Per i processi cloud è possibile scrivere funzioni JavaScript definite dall'utente. Per altre informazioni, visitare l'esercitazione [Funzione di JavaScript definita dall'utente per l'Analisi di flusso di Azure](stream-analytics-javascript-user-defined-functions.md).
 
 * Le funzioni .NET Standard definite dall'utente possono solo essere create in Visual Studio e pubblicate in Azure. Le versioni di sola lettura delle funzioni .NET Standard definite dall'utente possono essere visualizzate nella sezione **Funzioni** del portale di Azure. La creazione delle funzioni .NET Standard non è supportata nel portale di Azure.
 
@@ -134,6 +133,6 @@ L'anteprima della funzione definita dall'utente attualmente presenta le limitazi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione: scrivere una funzione C# definita dall'utente per un processo di Analisi di flusso di Azure in IoT Edge (anteprima)](stream-analytics-edge-csharp-udf.md)
+* [Esercitazione: scrivere una C# funzione definita dall'utente per un processo di analisi di flusso di Azure (anteprima)](stream-analytics-edge-csharp-udf.md)
 * [Esercitazione: funzioni JavaScript definite dall'utente per l'Analisi di flusso di Azure](stream-analytics-javascript-user-defined-functions.md)
 * [Usare Visual Studio per visualizzare i processi di Analisi di flusso di Azure](stream-analytics-vs-tools.md)

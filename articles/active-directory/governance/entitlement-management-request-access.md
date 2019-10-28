@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86ab995327522ac5dead9b3f944e0760084aedce
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e57a216efee39df0ad22712b281073a68600e0df
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389095"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990771"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Richiedere l'accesso a un pacchetto di accesso in Azure AD gestione dei diritti (anteprima)
 
@@ -58,12 +58,13 @@ Dopo aver trovato il pacchetto di accesso nel portale di accesso personale, è p
 
 1. Trovare il pacchetto di accesso nell'elenco.  Se necessario, è possibile eseguire una ricerca digitando una stringa di ricerca e quindi selezionando il **nome**, il **Catalogo**o il filtro **risorse** .
 
-    ![Portale di accesso personale-ricerca risorse](./media/entitlement-management-request-access/elm-myaccess-resource-search.png)
+    ![Portale di accesso personale-ricerca risorse](./media/entitlement-management-request-access/my-access-resource-search.png)
+
 1. Fare clic sul segno di spunta per selezionare il pacchetto di accesso.
 
-    ![Portale di Accesso personale - Pacchetti di accesso](./media/entitlement-management-shared/my-access-access-packages.png)
-
 1. Fare clic su **Richiedi accesso** per aprire il riquadro Richiedi accesso.
+
+    ![Portale di Accesso personale - Pacchetti di accesso](./media/entitlement-management-request-access/my-access-request-access-button.png)
 
 1. Se viene visualizzata la casella **motivazione aziendale** , digitare una giustificazione per la necessità di accesso.
 
@@ -78,6 +79,12 @@ Dopo aver trovato il pacchetto di accesso nel portale di accesso personale, è p
 1. Fare clic su **Cronologia richieste** per visualizzare un elenco delle richieste e dello stato.
 
     Se il pacchetto di accesso richiede l'approvazione, la richiesta è ora in uno stato di approvazione in sospeso.
+
+### <a name="select-a-policy"></a>Selezionare un criterio
+
+Se si richiede l'accesso a un pacchetto di accesso con più criteri applicabili, potrebbe essere richiesto di selezionare un criterio. Una gestione pacchetti di Access, ad esempio, potrebbe configurare un pacchetto di accesso con due criteri per due gruppi di dipendenti interni. Il primo criterio potrebbe consentire l'accesso per 60 giorni e richiedere l'approvazione. Il secondo criterio potrebbe consentire l'accesso per 2 giorni e non richiede l'approvazione. Se si verifica questo scenario, è necessario selezionare il criterio che si desidera utilizzare.
+
+![Portale di accesso personale-richiesta di accesso-più criteri](./media/entitlement-management-request-access/my-access-multiple-policies.png)
 
 ## <a name="cancel-a-request"></a>Annulla una richiesta
 
@@ -94,12 +101,6 @@ Se si invia una richiesta di accesso e la richiesta è ancora in stato di **appr
     ![Portale di accesso personale-richiesta di annullamento](./media/entitlement-management-request-access/my-access-cancel-request.png)
 
 1. Fare clic su **Cronologia richieste** per confermare che la richiesta è stata annullata.
-
-## <a name="select-a-policy"></a>Selezionare un criterio
-
-Se si richiede l'accesso a un pacchetto di accesso con più criteri applicabili, potrebbe essere richiesto di selezionare un criterio. Una gestione pacchetti di Access, ad esempio, potrebbe configurare un pacchetto di accesso con due criteri per due gruppi di dipendenti interni. Il primo criterio potrebbe consentire l'accesso per 60 giorni e richiedere l'approvazione. Il secondo criterio potrebbe consentire l'accesso per 2 giorni e non richiede l'approvazione. Se si verifica questo scenario, è necessario selezionare il criterio che si desidera utilizzare.
-
-**Ruolo prerequisiti:** Richiedente
 
 ## <a name="next-steps"></a>Passaggi successivi
 

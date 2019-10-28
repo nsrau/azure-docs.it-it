@@ -4,14 +4,14 @@ description: Descrive in che modo i tipi di risorsa gestiscono l'eliminazione in
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: de1b5080e72f79626ca0c749efe4122721f14922
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 03e91e4be967e822d17144af848f51e73851b1e6
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528596"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969189"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminazione di risorse di Azure per distribuzioni in modalità completa
 
@@ -61,7 +61,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft. ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [Microsoft. ContentModerator](#microsoftcontentmoderator)
 > - [Microsoft. CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft. CostManagement](#microsoftcostmanagement)
 > - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
@@ -277,6 +276,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | dataalias | No |
 > | denyAssignments | No |
 > | elevateAccess | No |
+> | findOrphanRoleAssignments | No |
 > | locks | No |
 > | autorizzazioni | No |
 > | policyAssignments | No |
@@ -394,6 +394,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | billingAccounts/createBillingRoleAssignment | No |
 > | billingAccounts/createInvoiceSectionOperations | No |
 > | billingAccounts/clienti | No |
+> | billingAccounts/Customers/billingPermissions | No |
 > | billingAccounts/Customers/billingSubscriptions | No |
 > | billingAccounts/Customers/initiateTransfer | No |
 > | billingAccounts/clienti/criteri | No |
@@ -451,6 +452,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | blockchainMembers | SÌ |
+> | cordaMembers | SÌ |
 > | visualizzazioni | SÌ |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
@@ -641,6 +643,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | proximityPlacementGroups | SÌ |
 > | restorePointCollections | SÌ |
 > | restorePointCollections/restorePoints | No |
+> | sharedVMExtensions | SÌ |
+> | sharedVMExtensions/versioni | No |
 > | sharedVMImages | SÌ |
 > | sharedVMImages/versions | No |
 > | snapshots | SÌ |
@@ -700,6 +704,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | registries/buildTasks | SÌ |
 > | registries/buildTasks/steps | No |
 > | registries/eventGridFilters | No |
+> | registri/generateCredentials | No |
 > | registries/getBuildSourceUploadUrl | No |
 > | registries/GetCredentials | No |
 > | registries/importImage | No |
@@ -710,7 +715,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | registries/runs | No |
 > | registries/runs/cancel | No |
 > | registries/scheduleRun | No |
+> | registri/scopeMaps | No |
 > | registries/tasks | SÌ |
+> | registri/token | No |
 > | registries/updatePolicies | No |
 > | registries/webhooks | SÌ |
 > | registries/webhooks/getCallbackConfig | No |
@@ -724,14 +731,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | containerServices | SÌ |
 > | managedClusters | SÌ |
 > | openShiftManagedClusters | SÌ |
-
-## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
-
-> [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Eliminazione in modalità completa |
-> | ------------- | ----------- |
-> | applicazioni | SÌ |
-> | updateCommunicationPreference | No |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 
@@ -753,7 +752,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Departments | No |
 > | Dimensioni | No |
 > | EnrollmentAccounts | No |
-> | Esporta | No |
+> | Esportazioni | No |
 > | ExternalBillingAccounts | No |
 > | ExternalBillingAccounts/avvisi | No |
 > | ExternalBillingAccounts/dimensioni | No |
@@ -821,8 +820,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | sottocataloghi/origini dati/analisi | No |
 > | datacatalogs/DataSources/scansioni/set di dati | No |
 > | datacatalogs/origini dati/analisi/trigger | No |
-> | datacatalogs/scantargets | No |
-> | datacatalogs/scantargets/DataSets | No |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -887,6 +884,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | server | SÌ |
 > | servers/advisors | No |
+> | Server/privateEndpointConnectionProxies | No |
+> | Server/privateEndpointConnections | No |
+> | Server/privateLinkResources | No |
 > | servers/queryTexts | No |
 > | servers/recoverableServers | No |
 > | servers/topQueryStatistics | No |
@@ -900,6 +900,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | server | SÌ |
 > | servers/advisors | No |
+> | Server/privateEndpointConnectionProxies | No |
+> | Server/privateEndpointConnections | No |
+> | Server/privateLinkResources | No |
 > | servers/queryTexts | No |
 > | servers/recoverableServers | No |
 > | servers/topQueryStatistics | No |
@@ -914,6 +917,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | serverGroups | SÌ |
 > | server | SÌ |
 > | servers/advisors | No |
+> | servers/keys | No |
 > | Server/privateEndpointConnectionProxies | No |
 > | Server/privateEndpointConnections | No |
 > | Server/privateLinkResources | No |
@@ -943,6 +947,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | applicationgroups | SÌ |
 > | applicationgroups/applicazioni | No |
+> | applicationgroups/desktop | No |
 > | applicationgroups/startmenuitems | No |
 > | hostpools | SÌ |
 > | hostpools/sessionhosts | No |
@@ -1088,6 +1093,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | autoManagedVmConfigurationProfiles | SÌ |
+> | configurationProfileAssignments | No |
 > | guestConfigurationAssignments | No |
 > | software | No |
 > | softwareUpdateProfile | No |
@@ -1129,6 +1135,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | macchine | SÌ |
+> | computer/estensioni | SÌ |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
@@ -1235,6 +1242,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | aree di lavoro | SÌ |
 > | workspaces/computes | No |
+> | aree di lavoro/eventGridFilters | No |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
@@ -1322,6 +1330,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | mediaservices/liveEvents | SÌ |
 > | mediaservices/liveEvents/liveOutputs | No |
 > | mediaservices/liveOutputOperations | No |
+> | MediaServices/mediaGraphs | No |
 > | mediaservices/streamingEndpointOperations | No |
 > | mediaservices/streamingEndpoints | SÌ |
 > | mediaservices/streamingLocators | No |
@@ -1520,6 +1529,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | policyEvents | No |
+> | policyMetadata | No |
 > | policyStates | No |
 > | policyTrackedResources | No |
 > | remediations | No |
@@ -1610,6 +1620,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | deployments | No |
 > | deployments/operations | No |
+> | deploymentScripts | SÌ |
+> | deploymentScripts/log | No |
 > | links | No |
 > | notifyResourceJobs | No |
 > | provider | No |
@@ -1659,6 +1671,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | applicationWhitelistings | No |
 > | assessmentMetadata | No |
 > | valutazioni | No |
+> | Automazioni | SÌ |
 > | AutoProvisioningSettings | No |
 > | Compliances | No |
 > | dataCollectionAgents | No |

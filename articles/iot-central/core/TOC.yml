@@ -8,8 +8,6 @@
       href: overview-iot-options.md
     - name: Presentazione dell'interfaccia utente
       href: overview-iot-central-tour.md
-    - name: Rimanere connessi
-      href: concepts-stay-connected.md
 - name: Guide introduttive
   expanded: true
   items:

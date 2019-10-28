@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 3/29/2019
+ms.date: 10/22/2019
 ms.author: sutalasi
-ms.openlocfilehash: 9c65d6055807ee2735f1915e8ca289dc0754535b
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: fc97f9d78e84882675c3dd011a64e1e50c4cc907
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736403"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968340"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informazioni sulle reti per la replica da Azure ad Azure
 
@@ -48,7 +48,7 @@ Se si usa un proxy firewall basato su URL per controllare la connettività in us
 
 **URL** | **Dettagli**  
 --- | ---
-*.blob.core.windows.net | Richiesto in modo che i dati possano essere scritti nell'account di archiviazione della cache nell'area di origine dalla macchina virtuale. Se si conoscono tutti gli account di archiviazione della cache per le macchine virtuali, è possibile aggiungere all'elenco elementi consentiti gli URL specifici dell'account di archiviazione (ad esempio, cache1.blob.core.windows.net e cache2.blob.core.windows.net) anziché *. blob.core.windows.net
+*.blob.core.windows.net | Richiesto in modo che i dati possano essere scritti nell'account di archiviazione della cache nell'area di origine dalla macchina virtuale. Se si conoscono tutti gli account di archiviazione della cache per le macchine virtuali, è possibile consentire l'accesso agli URL specifici dell'account di archiviazione, ad esempio cache1.blob.core.windows.net e cache2.blob.core.windows.net, anziché *. blob.core.windows.net
 login.microsoftonline.com | Richiesto per l'autorizzazione e l'autenticazione negli URL del servizio Site Recovery.
 *.hypervrecoverymanager.windowsazure.com | Richiesto in modo che la comunicazione del servizio di Site Recovery possa verificarsi dalla macchina virtuale. È possibile usare il ' Site Recovery IP ' corrispondente se il proxy del firewall supporta gli IP.
 *.servicebus.windows.net | Richiesto in modo che il monitoraggio e i dati di diagnostica di Site Recovery possano essere scritti dalla macchina virtuale. Se il proxy del firewall supporta gli IP, è possibile usare il ' Site Recovery IP di monitoraggio ' corrispondente.
@@ -62,7 +62,7 @@ Se si usa un proxy firewall basato su IP o regole NSG per controllare la connett
     - Consentire questi indirizzi in modo che i dati possano essere scritti nell'account di archiviazione della cache dalla macchina virtuale.
 - Creare una regola NSG basata su [tag del servizio Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) per consentire l'accesso a tutti gli indirizzi IP corrispondenti ad AAD
     - Se in futuro vengono aggiunti nuovi indirizzi ad Azure Active Directory (AAD), è necessario creare nuove regole NSG.
-- Indirizzi IP dell'endpoint di servizio di Site Recovery, disponibili in un [file XML](https://aka.ms/site-recovery-public-ips) e che variano a seconda della posizione di destinazione.
+- Indirizzi IP dell'endpoint di servizio di Site Recovery, disponibili in un [file XML](https://aka.ms/site-recovery-public-ips) e che variano a seconda della posizione di destinazione. Si consiglia di consentire l'accesso al tag **"AzureSiteRecovery"** per l'accesso al servizio Site Recovery.
 - Prima di creare le regole in un gruppo di sicurezza di rete di produzione, è consigliabile creare le regole del gruppo di sicurezza di rete necessarie in un NSG di test e verificare che non siano presenti problemi.
 
 
@@ -77,7 +77,7 @@ Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
    Stati Uniti centro-settentrionali | 23.96.195.247 | 168.62.249.226
    Europa settentrionale | 40.69.212.238 | 52.169.18.8
    Europa occidentale | 52.166.13.64 | 40.68.93.145
-   East US | 13.82.88.226 | 104.45.147.24
+   Stati Uniti Orientali | 13.82.88.226 | 104.45.147.24
    Stati Uniti occidentali | 40.83.179.48 | 104.40.26.199
    Stati Uniti centro-meridionali | 13.84.148.14 | 104.210.146.250
    Stati Uniti centrali | 40.69.144.231 | 52.165.34.144
@@ -95,8 +95,8 @@ Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
    Regno Unito meridionale | 51.140.43.158 | 51.140.189.52
    Regno Unito meridionale 2 | 13.87.37.4| 13.87.34.139
    Regno Unito settentrionale | 51.142.209.167 | 13.87.102.68
-   Corea del Sud centrale | 52.231.28.253 | 52.231.32.85
-   Corea del Sud meridionale | 52.231.198.185 | 52.231.200.144
+   Corea centrale | 52.231.28.253 | 52.231.32.85
+   Corea meridionale | 52.231.198.185 | 52.231.200.144
    Francia centrale | 52.143.138.106 | 52.143.136.55
    Francia meridionale | 52.136.139.227 |52.136.136.62
    Australia centrale| 20.36.34.70 | 20.36.46.142
@@ -104,11 +104,11 @@ Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
    Sudafrica occidentale | 102.133.72.51 | 102.133.26.128
    Sudafrica settentrionale | 102.133.160.44 | 102.133.154.128
    US Gov Virginia | 52.227.178.114 | 23.97.0.197
-   US Gov Iowa | 13.72.184.23 | 23.97.16.186
+   Governo degli Stati Uniti - Iowa | 13.72.184.23 | 23.97.16.186
    US Gov Arizona | 52.244.205.45 | 52.244.48.85
    US Gov Texas | 52.238.119.218 | 52.238.116.60
-   US DoD East | 52.181.164.103 | 52.181.162.129
-   US DoD Central | 52.182.95.237 | 52.182.90.133
+   US DoD (area orientale) | 52.181.164.103 | 52.181.162.129
+   US DoD (area centrale) | 52.182.95.237 | 52.182.90.133
    Cina settentrionale | 40.125.202.254 | 42.159.4.151
    Cina settentrionale 2 | 40.73.35.193 | 40.73.33.230
    Cina orientale | 42.159.205.45 | 42.159.132.40
@@ -117,6 +117,8 @@ Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
    Germania centro-occidentale | 51.116.156.176 | 51.116.154.192
    Svizzera occidentale | 51.107.231.223| 51.107.154.128
    Svizzera settentrionale | 51.107.68.31| 51.107.58.128
+   Norvegia orientale | 51.120.100.64| 51.120.98.128
+   Norvegia occidentale | 51.120.220.65| 51.120.218.160
 
 ## <a name="example-nsg-configuration"></a>Esempio di configurazione del gruppo di sicurezza di rete
 
@@ -124,6 +126,9 @@ In questo esempio viene illustrato come configurare le regole NSG per una macchi
 
 - Se si usano regole NSG per controllare la connettività in uscita, usare regole che consentano HTTPS in uscita per la porta 443 per tutti gli intervalli di indirizzi IP necessari.
 - Nell'esempio si presuppone che il percorso di origine della macchina virtuale sia "Stati Uniti orientali" e che il percorso di destinazione sia "Stati Uniti centrali".
+
+> [!NOTE]
+> È consigliabile usare un **tag AzureSiteRecovery** anziché indirizzi IP per consentire l'accesso al **servizio Site Recovery**.
 
 ### <a name="nsg-rules---east-us"></a>Regole NSG - Stati Uniti orientali
 
@@ -137,7 +142,7 @@ In questo esempio viene illustrato come configurare le regole NSG per una macchi
 
 3. Creare regole HTTPS in uscita (443) per gli IP di Site Recovery che corrispondono alla località di destinazione:
 
-   **Location** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
+   **Località** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
     --- | --- | ---
    Stati Uniti centrali | 40.69.144.231 | 52.165.34.144
 
@@ -151,9 +156,10 @@ Queste regole sono necessarie in modo che la replica possa essere abilitata dall
 
 3. Creare regole HTTPS in uscita (443) per gli IP di Site Recovery che corrispondono alla località di origine:
 
-   **Location** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
+   **Località** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
     --- | --- | ---
-   East US | 13.82.88.226 | 104.45.147.24
+   Stati Uniti Orientali | 13.82.88.226 | 104.45.147.24
+
 
 ## <a name="network-virtual-appliance-configuration"></a>Configurazione di appliance virtuali di rete
 

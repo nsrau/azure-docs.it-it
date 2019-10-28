@@ -5,6 +5,7 @@
     - name: Informazioni su Servizi multimediali
       href: media-services-overview.md
     - name: Novità di Servizi multimediali
+      displayName: release notes
       href: release-notes.md
 - name: Esercitazioni
   expanded: true

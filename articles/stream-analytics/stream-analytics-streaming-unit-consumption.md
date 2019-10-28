@@ -8,13 +8,13 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
-ms.openlocfilehash: a4811da398fde869d8eb5457db11a592006c59a9
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 10/28/2019
+ms.openlocfilehash: d9c4169176707f98181f2a479e470cf89ff2e04f
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934282"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72988240"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
@@ -34,6 +34,7 @@ La metrica di utilizzo in percentuale delle unità di streaming, da 0% a 100%, d
     ![Configurazione del processo di Analisi di flusso nel portale di Azure][img.stream.analytics.preview.portal.settings.scale]
     
 4. Usare il dispositivo di scorrimento per impostare le unità di streaming per il processo. Si noti che è possibile definire solo impostazioni specifiche delle unità di streaming. 
+5. È possibile modificare il numero di unità di streaming assegnate al processo anche quando è in esecuzione. Questa operazione non è possibile se il processo usa un [output non partizionato](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) o presenta [una query in più passaggi con diversi valori di partizionamento](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). Per modificare questa impostazione quando il processo è in esecuzione, è necessario che il processo disponga anche di almeno 6 unità di streaming. Quando il processo è in esecuzione, è possibile scegliere da un set di valori SU. 
 
 ## <a name="monitor-job-performance"></a>Monitorare le prestazioni del processo
 Nel portale di Azure è possibile rilevare la velocità effettiva di un processo:
@@ -110,7 +111,7 @@ Il numero di eventi senza corrispondenza nel join influisce sull'utilizzo della 
 
 In questo esempio è possibile che vengano mostrati molti annunci e che pochi utenti facciano clic sugli annunci. È anche necessario mantenere tutti gli eventi nell'intervallo di tempo. La memoria consumata è proporzionale alle dimensioni della finestra e alla frequenza degli eventi. 
 
-Per risolvere questo problema, inviare gli eventi a Hub eventi partizionandoli in base alle chiavi di join (l'ID in questo caso) e scalare orizzontalmente la query consentendo al sistema di elaborare ogni partizione di input separatamente usando **PARTITION BY**, come mostrato di seguito:
+Per correggere questo problema, inviare gli eventi all'hub eventi partizionati in base alle chiavi di join (in questo caso ID) e scalare la query consentendo al sistema di elaborare ogni partizione di input separatamente usando **Partition by** , come illustrato:
 
    ```sql
    SELECT clicks.id

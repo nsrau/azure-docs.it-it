@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: cc12579a4932894b730b04cdc77acc0151168bdb
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: d5214b6a6ffcb7c78fc00fe0305a1d1846b328f8
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010209"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990268"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -96,9 +96,10 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 6. Per configurare la scrittura dei log per un account di archiviazione, selezionare **memorizzazione** e aprire **dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. I log meno recenti verranno eliminati. Fare quindi clic su **OK**.
 
    > [!IMPORTANT]
-   > Il valore predefinito per il periodo di memorizzazione è 0 (conservazione illimitata). È possibile modificare questo valore spostando il dispositivo di scorrimento **conservazione (giorni)** nelle **impostazioni di archiviazione** quando si configura l'account di archiviazione per il controllo.
+   > - Il valore predefinito per il periodo di memorizzazione è 0 (conservazione illimitata). È possibile modificare questo valore spostando il dispositivo di scorrimento **conservazione (giorni)** nelle **impostazioni di archiviazione** quando si configura l'account di archiviazione per il controllo.
+   > - Se si modifica il periodo di conservazione da 0 (conservazione illimitata) a qualsiasi altro valore, si noti che la conservazione verrà applicata solo ai log scritti dopo la modifica del valore di conservazione (i log scritti durante il periodo in cui la conservazione è stata impostata su illimitata vengono conservati, anche dopo conservazione abilitata)
 
-    ![archiviazione di Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+    ![account di archiviazione](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 7. Per configurare la scrittura dei log di controllo in un'area di lavoro Log Analytics, selezionare **Log Analytics (anteprima)** e aprire **Dettagli di Log Analytics**. Selezionare o creare l'area di lavoro Log Analytics in cui verranno scritti i log e quindi scegliere **OK**.
 
@@ -108,7 +109,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 
     ![Hub eventi](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**
 10. Per personalizzare gli eventi controllati, è possibile usare i [cmdlet PowerShell](#subheading-7) o l'[API REST](#subheading-9).
 11. Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce](sql-database-threat-detection-get-started.md).
 
@@ -134,7 +135,7 @@ Se si sceglie di scrivere i log di controllo nei log di monitoraggio di Azure:
 
     Facendo clic su **Visualizza dashboard** nella parte superiore della pagina **record di controllo** , si aprirà un dashboard che visualizza le informazioni sui log di controllo, in cui è possibile eseguire il drill-down nelle informazioni dettagliate sulla sicurezza, accedere ai dati sensibili e altro ancora. Questo dashboard è stato progettato per ottenere informazioni approfondite sulla sicurezza per i dati.
     È anche possibile personalizzare l'intervallo di tempo e la query di ricerca. 
-    ![Visualizza dashboard Log Analytics](media/sql-database-auditing-get-started/auditing-view-dashboard.png)
+    Visualizzazione ![Log Analytics Dashboard](media/sql-database-auditing-get-started/auditing-view-dashboard.png)
 
     ![Dashboard Log Analytics](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard.png)
 
@@ -197,7 +198,7 @@ Se si sceglie di scrivere i log di controllo in un account di archiviazione di A
 
 Con i database con replica geografica, quando si abilita il controllo nel database primario il database secondario disporrà di un criterio di controllo identico. È anche possibile impostare il controllo nel database secondario abilitando il controllo nel **server secondario**, in modo indipendente dal database primario.
 
-- Livello server (**consigliato**): attivare il controllo sia nel **server primario** che nel **server secondario**. I database primari e secondari saranno controllati in modo indipendente in base ai rispettivi criteri a livello di server.
+- A livello di server (**consigliato**): attivare il controllo sia nel **server primario** che nel **server secondario**. I database primari e secondari saranno controllati in modo indipendente in base ai rispettivi criteri a livello di server.
 - A livello di database: il controllo a livello di database per i database secondari può essere configurato solo mediante le impostazioni di controllo del database primario.
   - Il controllo deve essere abilitato nello *stesso database primario* e non nel server.
   - Dopo che il controllo è stato abilitato nel database primario, verrà abilitato anche nel database secondario.

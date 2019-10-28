@@ -1,5 +1,5 @@
 ---
-title: 'Backup di Azure: ripristinare file e cartelle da un backup di macchine virtuali di Azure'
+title: 'Backup di Azure: ripristinare file e cartelle dal backup delle macchine virtuali di Azure'
 description: Ripristinare i file da un punto di ripristino della macchina virtuale di Azure
 ms.reviewer: pullabhk
 author: dcurwin
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1c0d470f12cf54c900fec3c453b7e5f07d0b2325
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: df8e309ecb2a81205684c60076015f79ac8c4c8f
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900299"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968479"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -74,10 +74,9 @@ Per ripristinare file o cartelle dal punto di recupero, passare alla macchina vi
     - porta in uscita 3260
 
 > [!Note]
-> 
-> * Il nome del file script scaricato avrà il **nome geografico** da compilare nell'URL. Per esempio: il nome dello script scaricato inizia con \'VMname\'\_\'geoname\'_\'GUID\', ad esempio ContosoVM_wcus_12345678....<br><br>
-> * L'URL è "https:\//pod01-rec2.wcus.backup.windowsazure.com"
-
+>
+> - Il nome del file script scaricato avrà il **nome geografico** da compilare nell'URL. Per esempio: il nome dello script scaricato inizia con \'VMname\'\_\'geoname\'_\'GUID\', ad esempio ContosoVM_wcus_12345678....<br><br>
+> - L'URL è "https:\//pod01-rec2.wcus.backup.windowsazure.com"
 
    Per Linux, lo script richiede i componenti "open-iscsi" e "lshw" per la connessione al punto di ripristino. Se i componenti non sono presenti nel computer in cui viene eseguito, lo script chiede l'autorizzazione per installarli. Acconsentire all'installazione dei componenti necessari.
 
@@ -223,7 +222,7 @@ Per l'esecuzione e la connessione sicura al punto di ripristino, lo script richi
 
 Questa sezione illustra come eseguire il ripristino di file da backup di macchine virtuali di Azure il cui numero di dischi è > 16 e ogni dimensione del disco è > 4 TB.
 
-Poiché il processo di recupero file connette tutti i dischi dal backup, in caso di un numero elevato di dischi (> 16) o dischi di grandi dimensioni (> 4 TB ognuno), sono consigliati i punti di azione seguenti.
+Poiché il processo di recupero file connette tutti i dischi dal backup, in caso di un numero elevato di dischi (> 16) o dischi di grandi dimensioni (> 4 TB ciascuno), sono consigliati i punti di azione seguenti.
 
 - Per il ripristino dei file, è necessario usare un server di ripristino separato (VM D2v3 VM di Azure). È possibile utilizzare questo solo ripristino di file e quindi arrestarlo quando non è necessario. Il ripristino nel computer originale non è consigliato perché avrà un impatto significativo sulla macchina virtuale stessa.
 - Eseguire quindi lo script una volta per verificare se l'operazione di ripristino del file riesce.
@@ -276,7 +275,7 @@ Questa funzionalità è stata creata per accedere ai dati della macchina virtual
 
 #### <a name="select-recovery-point-who-can-generate-script"></a>Seleziona punto di ripristino (che può generare lo script)
 
-Lo script fornisce l'accesso ai dati della macchina virtuale, è importante definire chi può generarlo in primo luogo. È necessario accedere a portale di Azure e il controllo degli accessi in base al ruolo [autorizzato](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) a generare lo script.
+Lo script fornisce l'accesso ai dati della macchina virtuale, è importante definire chi può generarlo in primo luogo. È necessario accedere a portale di Azure e il controllo degli accessi in base al ruolo [autorizzato](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) a essere in grado di generare lo script.
 
 Il ripristino del file richiede lo stesso livello di autorizzazione necessario per il ripristino delle macchine virtuali e il ripristino dei dischi. In altre parole, solo gli utenti autorizzati possono visualizzare i dati della macchina virtuale possono generare lo script.
 

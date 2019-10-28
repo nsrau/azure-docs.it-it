@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/01/2019
 ms.author: juliako
-ms.openlocfilehash: 983b66be6b51c9af5987e539ea1175a65c9269b3
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: f0dede42891069bb5d01ddc33f3797c20c5493d7
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70862044"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968733"
 ---
 # <a name="automatically-identify-and-transcribe-multi-language-content-preview"></a>Identificare e trascrivere automaticamente il contenuto multilingue (anteprima)
 
@@ -39,7 +39,7 @@ Video Indexer supporta l'identificazione e la trascrizione automatica della ling
 
 ## <a name="choosing-multilingual-identification-on-indexing-with-api"></a>Scelta dell'identificazione multilingue per l'indicizzazione con l'API
 
-Durante l'indicizzazione o la [reindicizzazione](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) di un video tramite l' `multi-language detection` API, scegliere `sourceLanguage` l'opzione nel parametro.
+Durante l'indicizzazione o la [reindicizzazione](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) di un video tramite l'API, scegliere l'opzione `multi-language detection` nel parametro `sourceLanguage`.
 
 ### <a name="model-output"></a>Output modello
 
@@ -75,7 +75,7 @@ Inoltre, ogni istanza nella sezione trascrizione includerà la lingua in cui è 
 
 ## <a name="guidelines-and-limitations"></a>Linee guida e limitazioni
 
-* Set di lingue supportate: Inglese, francese, tedesco, spagnolo.
+* Set di lingue supportate: inglese, francese, tedesco, spagnolo.
 * Supporto per contenuti multilingue con fino a tre lingue supportate.
 * Se l'audio contiene lingue diverse dall'elenco supportato, il risultato è imprevisto.
 * Lunghezza minima del segmento da rilevare per ogni lingua: 15 secondi.
@@ -86,9 +86,8 @@ Inoltre, ogni istanza nella sezione trascrizione includerà la lingua in cui è 
 * La creazione e la modifica di progetti non sono attualmente disponibili per i video multilingue.
 * I modelli di linguaggio personalizzati non sono disponibili quando si usa il rilevamento in più lingue.
 * L'aggiunta di parole chiave non è supportata.
-* l'API "aggiornamento della trascrizione" non è supportata.
 * Quando si esportano file di didascalia chiusi, l'indicazione della lingua non verrà visualizzata.
-
+* L'API della trascrizione dell'aggiornamento non supporta più file di lingue.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

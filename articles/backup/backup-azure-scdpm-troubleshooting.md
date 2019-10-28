@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi relativi a System Center Data Protection Manager con Backup di Azure
+title: Risolvere i problemi di System Center Data Protection Manager-backup di Azure
 description: Risolvere i problemi in System Center Data Protection Manager.
 ms.reviewer: kasinh
 author: dcurwin
@@ -8,23 +8,23 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 501e61d06b7724147d7224ae51bde5de736279b3
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: a348a11d35a8803bb0c01e1736e644847e2a07a1
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689024"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968421"
 ---
-# <a name="troubleshoot-system-center-data-protection-manager"></a>Risolvere i problemi relativi a System Center Data Protection Manager
+# <a name="troubleshoot-system-center-data-protection-manager"></a>Risolvere i problemi di System Center Data Protection Manager
 
 Questo articolo descrive alcune soluzioni ai problemi che potrebbero verificarsi durante l'uso di Data Protection Manager.
 
 Per le ultime note sulla versione per System Center Data Protection Manager, vedere la [documentazione di System Center](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). Altre informazioni sul supporto per Data Protection Manager sono disponibili in [questa matrice](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
 
-
 ## <a name="error-replica-is-inconsistent"></a>Errore: La replica è incoerente
 
 Una replica può essere incoerente per i motivi seguenti:
+
 - Il processo di creazione della replica non è riuscito.
 - Ci sono problemi con il journal delle modifiche.
 - La bitmap del filtro a livello di volume contiene errori.
@@ -33,6 +33,7 @@ Una replica può essere incoerente per i motivi seguenti:
 - La replica è realmente incoerente.
 
 Per risolvere il problema, eseguire le azioni seguenti:
+
 - Per rimuovere lo stato di incoerenza, eseguire la verifica della coerenza manualmente o pianificare una verifica della coerenza giornaliera.
 - Assicurarsi di usare la versione più recente di Server di Backup di Microsoft Azure e Data Protection Manager.
 - Verificare che l'impostazione **Coerenza automatica** sia abilitata.
@@ -45,6 +46,7 @@ Per risolvere il problema, eseguire le azioni seguenti:
 ## <a name="error-online-recovery-point-creation-failed"></a>Errore: Creazione del punto di ripristino online non riuscita
 
 Per risolvere il problema, eseguire le azioni seguenti:
+
 - Accertarsi di usare l'ultima versione dell'agente di Backup di Azure.
 - Provare a creare manualmente un punto di recupero nell'area dell'attività di protezione.
 - Assicurarsi di eseguire la verifica della coerenza nell'origine dati.
@@ -53,11 +55,12 @@ Per risolvere il problema, eseguire le azioni seguenti:
 - Verificare che la replica sia presente e non mancante.
 - Verificare che la replica disponga di spazio sufficiente per creare il journal del numero di sequenza di aggiornamento (USN).
 
-## <a name="error-unable-to-configure-protection"></a>Errore: Impossibile configurare la protezione dati
+## <a name="error-unable-to-configure-protection"></a>Errore: Impossibile configurare la protezione
 
-Questo errore si verifica quando il server di Data Protection Manager non riesce a contattare il server protetto. 
+Questo errore si verifica quando il server di Data Protection Manager non riesce a contattare il server protetto.
 
 Per risolvere il problema, eseguire le azioni seguenti:
+
 - Accertarsi di usare l'ultima versione dell'agente di Backup di Azure.
 - Assicurarsi che vi sia connettività (rete/firewall/proxy) tra il server Data Protection Manager e il server protetto.
 - Per proteggere un server SQL, assicurarsi che, nella voce **Proprietà di accesso** > **NT AUTHORITY\SYSTEM**, sia abilitata l'impostazione **sysadmin**.
@@ -67,17 +70,20 @@ Per risolvere il problema, eseguire le azioni seguenti:
 Questo errore si verifica nel processo di ripristino dei dati del server Data Protection Manager/Azure Backup. Il file delle credenziali dell'insieme di credenziali usato nel processo di ripristino non appartiene all'insieme di credenziali di Servizi di ripristino per il server di Data Protection Manager/Azure Backup.
 
 Per risolvere il problema, seguire questa procedura:
+
 1. Scaricare il file delle credenziali dall'insieme di credenziali di Servizi di ripristino in cui è registrato il server di Data Protection Manager/Azure Backup.
 2. Provare a registrare il server con l'insieme di credenziali usando il file delle credenziali dell'insieme di credenziali scaricato più recentemente.
 
 ## <a name="error-no-recoverable-data-or-selected-server-not-a-data-protection-manager-server"></a>Errore: Nessun dato ripristinabile, oppure il server selezionato non è un server di Data Protection Manager
 
 Questo errore si verifica per i motivi seguenti:
+
 - Nessun altro server di Data Protection Manager/Azure Backup è registrato nell'insieme di credenziali di servizi di ripristino.
 - I server non hanno ancora caricato i metadati.
 - Il server selezionato non è un server di Data Protection Manager/Azure Backup.
 
 Quando altri server di Data Protection Manager/Azure Backup sono registrati nell'insieme di credenziali di servizi di ripristino, eseguire i passaggi seguenti per risolvere il problema:
+
 1. Assicurarsi che sia installato l'agente Backup di Azure più aggiornato.
 2. Dopo avere verificato che sia installato l'agente più aggiornato, attendere un giorno prima di avviare il processo di ripristino. I processi di backup notturni caricano i metadati per tutti i backup protetti nel cloud. I dati di backup sono quindi disponibili per il ripristino.
 
@@ -88,5 +94,5 @@ Questo errore si verifica nel processo di crittografia durante il recupero di da
 > [!IMPORTANT]
 > Se si dimentica o si smarrisce la passphrase di crittografia, non esistono altri metodi per ripristinare i dati. L'unica opzione è quella di rigenerare la passphrase. Usare la nuova passphrase per crittografare i dati di backup futuri.
 >
-> Quando si esegue il ripristino dei dati, è necessario specificare sempre la stessa passphrase di crittografia associata con il server di Data Protection Manager/Azure Backup. 
+> Quando si esegue il ripristino dei dati, è necessario specificare sempre la stessa passphrase di crittografia associata con il server di Data Protection Manager/Azure Backup.
 >

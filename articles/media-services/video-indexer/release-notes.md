@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 10/27/2019
 ms.author: juliako
-ms.openlocfilehash: 4953160a30e45b9be1ff249b6cd1f74e01bb14f3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 0583c0093d240026e3ebcdad7b14494f07986ec2
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672665"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968725"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di servizi multimediali di Azure Video Indexer
 
@@ -28,7 +28,13 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 * Correzioni di bug
 * Funzionalità deprecate
 
-## <a name="september-2019"></a>2019 settembre
+## <a name="october-2019"></a>2019 ottobre
+ 
+* Cercare i caratteri animati nella raccolta
+
+    Quando si indicizzano i caratteri animati, è ora possibile cercarli nella cambusa video dell'account. Per ulteriori informazioni, vedere [riconoscimento dei caratteri animati](animated-characters-recognition.md).
+
+## <a name="september-2019"></a>Settembre 2019
  
 Sono stati annunciati più progressi in IBC 2019:
  
@@ -37,7 +43,7 @@ Sono stati annunciati più progressi in IBC 2019:
     Possibilità di rilevare il gruppo ad Recognize characters nel contenuto animato tramite l'integrazione con la visione personalizzata. Per ulteriori informazioni, vedere [rilevamento dei caratteri animati](animated-characters-recognition.md).
 * Identificazione a più lingue (anteprima pubblica)
 
-    Rilevare i segmenti in più lingue nella traccia audio e creare una trascrizione multilingue basata su di essi. Supporto iniziale: Inglese, spagnolo, tedesco e francese. Per altre informazioni, vedere [identificare e trascrivere automaticamente contenuti multilingue](multi-language-identification-transcription.md).
+    Rilevare i segmenti in più lingue nella traccia audio e creare una trascrizione multilingue basata su di essi. Supporto iniziale: inglese, spagnolo, tedesco e francese. Per altre informazioni, vedere [identificare e trascrivere automaticamente contenuti multilingue](multi-language-identification-transcription.md).
 * Estrazione di entità denominate per utenti e località
 
     Estrae le marche, le località e gli utenti da testo vocale e visivo tramite la PNL (Natural Language Processing).
@@ -85,7 +91,7 @@ Supporto per la stringa di query dell'URL 4096 (anziché 2048) nell'indicizzazio
 
 I progetti possono ora essere creati in base ai video indicizzati in lingue diverse (solo API).
 
-## <a name="july-2019"></a>2019 luglio
+## <a name="july-2019"></a>Luglio 2019
 
 ### <a name="editor-as-a-widget"></a>Editor come widget
 

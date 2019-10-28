@@ -1,5 +1,5 @@
 ---
-title: Gestire e monitorare i backup delle macchine virtuali di Azure usando il servizio backup di Azure
+title: Gestire e monitorare il backup di macchine virtuali di Azure con il servizio Backup di Azure
 description: Informazioni su come gestire e monitorare i backup delle macchine virtuali di Azure usando il servizio backup di Azure.
 ms.reviewer: sogup
 author: dcurwin
@@ -8,17 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 24e36e231d80a82362333b7a711f94cf627816ac
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 3781ac1be547f6733417c4f0cae9f3e8681ea9e8
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029248"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969228"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gestire i backup delle macchine virtuali di Azure con il servizio backup di Azure
 
 Questo articolo descrive come gestire le macchine virtuali di Azure di cui viene eseguito il backup con il [servizio backup di Azure](backup-overview.md). Questo articolo riepiloga anche le informazioni di backup che è possibile trovare nel dashboard dell'insieme di credenziali.
-
 
 Nel portale di Azure il dashboard dell'insieme di credenziali dei servizi di ripristino fornisce l'accesso alle informazioni sull'insieme di credenziali, tra cui:
 
@@ -77,11 +76,12 @@ Per gestire i criteri di backup:
      ![Scegliere un criterio di backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
 ## <a name="run-an-on-demand-backup"></a>Eseguire un backup su richiesta
+
 È possibile eseguire un backup su richiesta di una macchina virtuale dopo aver impostato la protezione. Tenere presente i seguenti dettagli:
 
-- Se il backup iniziale è in sospeso, il backup su richiesta crea una copia completa della macchina virtuale nell'insieme di credenziali di servizi di ripristino.
-- Se il backup iniziale è completo, un backup su richiesta invierà solo le modifiche dallo snapshot precedente all'insieme di credenziali dei servizi di ripristino. Ovvero, i backup successivi sono sempre incrementali.
-- Il periodo di mantenimento dati per un backup su richiesta è il valore di conservazione specificato quando si attiva il backup.
+* Se il backup iniziale è in sospeso, il backup su richiesta crea una copia completa della macchina virtuale nell'insieme di credenziali di servizi di ripristino.
+* Se il backup iniziale è completo, un backup su richiesta invierà solo le modifiche dallo snapshot precedente all'insieme di credenziali dei servizi di ripristino. Ovvero, i backup successivi sono sempre incrementali.
+* Il periodo di mantenimento dati per un backup su richiesta è il valore di conservazione specificato quando si attiva il backup.
 
 Per attivare un backup su richiesta:
 
@@ -147,32 +147,32 @@ Per riprendere la protezione per una macchina virtuale:
 
 Esistono due modi per eliminare i dati di backup di una macchina virtuale:
 
-- Nel dashboard dell'elemento dell'insieme di credenziali selezionare Interrompi backup e seguire le istruzioni per l'opzione [Interrompi protezione ed Elimina dati di backup](#stop-protection-and-delete-backup-data) .
+* Nel dashboard dell'elemento dell'insieme di credenziali selezionare Interrompi backup e seguire le istruzioni per l'opzione [Interrompi protezione ed Elimina dati di backup](#stop-protection-and-delete-backup-data) .
 
   ![Selezionare Interrompi backup](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
-- Nel dashboard dell'elemento dell'insieme di credenziali selezionare Elimina dati di backup. Questa opzione è abilitata se si è scelto di [arrestare la protezione e di mantenere l'opzione backup data](#stop-protection-and-retain-backup-data) durante l'arresto della protezione delle macchine virtuali
+* Nel dashboard dell'elemento dell'insieme di credenziali selezionare Elimina dati di backup. Questa opzione è abilitata se si è scelto di [arrestare la protezione e di mantenere l'opzione backup data](#stop-protection-and-retain-backup-data) durante l'arresto della protezione delle macchine virtuali
 
   ![Selezionare Elimina backup](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-  - Nel [Dashboard dell'elemento](#view-vms-on-the-dashboard)dell'insieme di credenziali selezionare **Elimina dati di backup**.
-  - Digitare il nome dell'elemento di backup per confermare che si desidera eliminare i punti di ripristino.
+  * Nel [Dashboard dell'elemento](#view-vms-on-the-dashboard)dell'insieme di credenziali selezionare **Elimina dati di backup**.
+  * Digitare il nome dell'elemento di backup per confermare che si desidera eliminare i punti di ripristino.
 
     ![Elimina dati di backup](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-  - Per eliminare i dati di backup per l'elemento, selezionare **Elimina**. Un messaggio di notifica informa che i dati di backup sono stati eliminati.
+  * Per eliminare i dati di backup per l'elemento, selezionare **Elimina**. Un messaggio di notifica informa che i dati di backup sono stati eliminati.
 
   > [!NOTE]
   > Quando si eliminano i dati di backup, vengono eliminati tutti i punti di ripristino associati. Non è possibile scegliere punti di ripristino specifici da eliminare.
 
 ### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Elemento di backup in cui l'origine dati primaria non esiste più
 
-- Se le macchine virtuali di Azure configurate per backup di Azure vengono eliminate o spostate senza arrestare la protezione, i processi di backup pianificati e su richiesta (ad-hoc) avranno esito negativo con l'errore UserErrorVmNotFoundV2. Il controllo preliminare di backup verrà visualizzato come critico solo per i processi di backup ad hoc non riusciti (i processi pianificati non riusciti non vengono visualizzati). 
-- Questi elementi di backup rimangono attivi nel sistema rispettando i criteri di backup e conservazione impostati dall'utente. I dati di cui è stato eseguito il backup per queste macchine virtuali di Azure verranno conservati in base ai criteri di conservazione. I punti di ripristino scaduti, ad eccezione dell'ultimo punto di ripristino, vengono puliti in base al periodo di mantenimento dati impostato nei criteri di backup.
-- Si consiglia agli utenti di eliminare gli elementi di backup in cui l'origine dati primaria non esiste più per evitare costi aggiuntivi, se l'elemento o i dati di backup per le risorse di eliminazione non sono più necessari, perché l'ultimo punto di ripristino viene mantenuto per sempre e l'utente viene addebitato come per i prezzi di backup applicabili.
-
+* Se le macchine virtuali di Azure configurate per backup di Azure vengono eliminate o spostate senza arrestare la protezione, i processi di backup pianificati e su richiesta (ad-hoc) avranno esito negativo con l'errore UserErrorVmNotFoundV2. Il controllo preliminare di backup verrà visualizzato come critico solo per i processi di backup ad hoc non riusciti (i processi pianificati non riusciti non vengono visualizzati).
+* Questi elementi di backup rimangono attivi nel sistema rispettando i criteri di backup e conservazione impostati dall'utente. I dati di cui è stato eseguito il backup per queste macchine virtuali di Azure verranno conservati in base ai criteri di conservazione. I punti di ripristino scaduti, ad eccezione dell'ultimo punto di ripristino, vengono puliti in base al periodo di mantenimento dati impostato nei criteri di backup.
+* Si consiglia agli utenti di eliminare gli elementi di backup in cui l'origine dati primaria non esiste più per evitare costi aggiuntivi, se l'elemento o i dati di backup per le risorse di eliminazione non sono più necessari, perché l'ultimo punto di ripristino viene mantenuto per sempre e l'utente viene addebitato come per i prezzi di backup applicabili.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni su come [eseguire il backup di macchine virtuali di Azure dalle impostazioni della macchina virtuale](backup-azure-vms-first-look-arm.md).
-- Informazioni su come [ripristinare le macchine virtuali](backup-azure-arm-restore-vms.md).
-- Informazioni su come [monitorare i backup delle macchine virtuali di Azure](backup-azure-monitor-vms.md).
+
+* Informazioni su come [eseguire il backup di macchine virtuali di Azure dalle impostazioni della macchina virtuale](backup-azure-vms-first-look-arm.md).
+* Informazioni su come [ripristinare le macchine virtuali](backup-azure-arm-restore-vms.md).
+* Informazioni su come [monitorare i backup delle macchine virtuali di Azure](backup-azure-monitor-vms.md).

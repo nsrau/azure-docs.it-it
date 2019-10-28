@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 053c52d7d1a0282d72ad76408b77c96aa3b0e3e4
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: a3d48d53c2d4d0c859b58a94b12ffa94590b18a5
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174696"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989628"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Crittografia dischi di Azure per macchine virtuali Linux 
 
@@ -34,7 +34,7 @@ Se si usa il [Centro sicurezza di Azure](../../security-center/index.yml), l'ute
 
 Le macchine virtuali Linux sono disponibili in un [intervallo di dimensioni](sizes.md). Crittografia dischi di Azure non è disponibile nelle [VM Basic, serie A](https://azure.microsoft.com/pricing/details/virtual-machines/series/)o nelle macchine virtuali che non soddisfano i requisiti di memoria minimi seguenti:
 
-| Macchina virtuale | Requisito memoria minima |
+| Macchine virtuali | Requisito memoria minima |
 |--|--|
 | VM Linux quando si crittografano solo i volumi di dati| 2 GB |
 | VM Linux durante la crittografia di volumi di dati e sistemi operativi e in cui la radice (/) file system utilizzo è 4 GB o meno | 8 GB |
@@ -96,7 +96,7 @@ Un esempio di comandi che possono essere usati per montare i dischi dati e crear
 ## <a name="networking-requirements"></a>Requisiti di rete
 
 Per abilitare la funzionalità Crittografia dischi di Azure, è necessario che le macchine virtuali Linux soddisfino i requisiti di configurazione degli endpoint di rete seguenti:
-  - Per ottenere un token per la connessione all'insieme di credenziali delle chiavi, la VM Linux deve essere in grado di connettersi a un endpoint Azure Active Directory, @no__t -0login. microsoftonline. com @ no__t-1.
+  - Per ottenere un token per la connessione all'insieme di credenziali delle chiavi, è necessario che la macchina virtuale Linux sia in grado di connettersi a un endpoint Azure Active Directory, \[\]login.microsoftonline.com.
   - Per scrivere le chiavi di crittografia nell'insieme di credenziali delle chiavi, la VM Linux deve essere in grado di connettersi all'endpoint dell'insieme di credenziali delle chiavi.
   - La VM Linux deve essere in grado di connettersi a un endpoint di archiviazione di Azure che ospita il repository di estensioni di Azure e un account di archiviazione di Azure che ospita i file VHD.
   -  Se i criteri di sicurezza limitano l'accesso dalle macchine virtuali di Azure a Internet, è possibile risolvere l'URI precedente e configurare una regola specifica per consentire la connettività in uscita agli indirizzi IP. Per altre informazioni, vedere [Azure Key Vault protetto da firewall](../../key-vault/key-vault-access-behind-firewall.md).  
@@ -116,7 +116,7 @@ La tabella seguente definisce alcuni dei termini comuni usati nella documentazio
 | Interfaccia della riga di comando di Azure | [L'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) è ottimizzata per la gestione e l'amministrazione delle risorse di Azure dalla riga di comando.|
 | DM-Crypt |[Dm-crypt](https://gitlab.com/cryptsetup/cryptsetup/wikis/DMCrypt) è il sottosistema di crittografia dei dischi trasparente basato su Linux usato per abilitare la crittografia dei dischi nelle macchine virtuali Linux. |
 | Chiave di crittografia della chiave (KEK) | Chiave asimmetrica (RSA 2048) che è possibile usare per proteggere o eseguire il wrapping del segreto. È possibile fornire una chiave protetta tramite modulo di protezione hardware o una chiave protetta tramite software. Per altre informazioni, vedere la documentazione di [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) e [creazione e configurazione di un insieme di credenziali delle chiavi per crittografia dischi di Azure](disk-encryption-key-vault.md). |
-| Cmdlet PowerShell | Per altre informazioni, vedere [Cmdlet di Azure PowerShell](/powershell/azure/overview). |
+| Cmdlet di PowerShell | Per altre informazioni, vedere [Cmdlet di Azure PowerShell](/powershell/azure/overview). |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

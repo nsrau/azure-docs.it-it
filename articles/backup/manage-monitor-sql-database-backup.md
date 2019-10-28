@@ -1,5 +1,5 @@
 ---
-title: Gestire e monitorare SQL Server database in una macchina virtuale di Azure con backup di Azure
+title: Gestire e monitorare SQL Server database in una macchina virtuale di Azure-Backup di Azure
 description: Questo articolo descrive come gestire e monitorare SQL Server database in esecuzione in una macchina virtuale di Azure.
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5ef4ca3f6cbf45ac67bad6531926a7de54cd2012
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 7440859748a613f7d6af751974e07289175ed7ac
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934781"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968361"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gestire e monitorare i database SQL Server di cui è stato eseguito il backup
 
@@ -31,7 +31,6 @@ Backup di Azure Mostra tutti i processi attivati manualmente nel portale dei **p
 >
 
 Per informazioni dettagliate sugli scenari di monitoraggio, vedere [monitoraggio nella portale di Azure](backup-azure-monitoring-built-in-monitor.md) e [monitoraggio tramite](backup-azure-monitoring-use-azuremonitor.md)monitoraggio di Azure.  
-
 
 ## <a name="view-backup-alerts"></a>Visualizzare gli avvisi di backup
 
@@ -57,14 +56,14 @@ Per monitorare gli avvisi di backup del database:
 
 È possibile interrompere i backup di un database di SQL Server in due modi:
 
-* Interrompere tutti i processi di backup futuri ed eliminare tutti i punti di recupero.
-* Arrestare tutti i processi di backup futuri e lasciare intatti i punti di ripristino.
+- Interrompere tutti i processi di backup futuri ed eliminare tutti i punti di recupero.
+- Arrestare tutti i processi di backup futuri e lasciare intatti i punti di ripristino.
 
 Se si sceglie di lasciare i punti di ripristino, tenere presente quanto segue:
 
-* Tutti i punti di ripristino rimarranno intatti per sempre, tutte le eliminazioni verranno interrotte in caso di arresto della protezione con Mantieni dati.
-* Verranno addebitati l'istanza protetta e l'archiviazione utilizzata. Per altre informazioni, vedere [prezzi di backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
-* Se si elimina un'origine dati senza arrestare i backup, i nuovi backup avranno esito negativo.
+- Tutti i punti di ripristino rimarranno intatti per sempre, tutte le eliminazioni verranno interrotte in caso di arresto della protezione con Mantieni dati.
+- Verranno addebitati l'istanza protetta e l'archiviazione utilizzata. Per altre informazioni, vedere [prezzi di backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
+- Se si elimina un'origine dati senza arrestare i backup, i nuovi backup avranno esito negativo.
 
 Per interrompere la protezione per un database:
 
@@ -82,22 +81,20 @@ Per interrompere la protezione per un database:
 
     ![Selezionare Interrompi backup](./media/backup-azure-sql-database/stop-db-button.png)
 
-
 5. Scegliere se mantenere o eliminare i dati dal menu **Interrompi backup** . Se lo si desidera, specificare un motivo e un commento.
 
     ![Mantenere o eliminare dati dal menu Interrompi backup](./media/backup-azure-sql-database/stop-backup-button.png)
 
 6. Selezionare **Arresta backup**.
 
-
 > [!NOTE]
 >
 >Per ulteriori informazioni sull'opzione Elimina dati, vedere le domande frequenti seguenti:
->* [Se si elimina un database da un'istanza protetta in modo automatico, cosa accade ai backup?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
->* [Se si interrompe l'operazione di backup di un database autoprotetto, quale sarà il comportamento?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>
+>- [Se si elimina un database da un'istanza protetta in modo automatico, cosa accade ai backup?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+>- [Se si interrompe l'operazione di backup di un database autoprotetto, quale sarà il comportamento?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >
-
 
 ## <a name="resume-protection-for-a-sql-database"></a>Riprendere la protezione per un database SQL
 
@@ -115,12 +112,13 @@ Per riprendere la protezione per un database SQL:
 
 È possibile eseguire diversi tipi di backup su richiesta:
 
-* Backup completo
-* Backup completo solo copia
-* Backup differenziale
-* Backup dei log
+- Backup completo
+- Backup completo solo copia
+- Backup differenziale
+- Backup dei log
 
-Anche se è necessario specificare la durata di conservazione per il backup completo di sola copia, il periodo di mantenimento dati per il backup completo ad hoc verrà impostato automaticamente su 45 giorni dall'ora corrente. <br/>
+Anche se è necessario specificare la durata di conservazione per il backup completo di sola copia, il periodo di mantenimento dati per il backup completo ad hoc verrà impostato automaticamente su 45 giorni dall'ora corrente.
+
 Per ulteriori informazioni, vedere [SQL Server tipi di backup](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>Annullare un’istanza SQL &Server
@@ -141,35 +139,34 @@ Annullare la registrazione di un'istanza di SQL Server dopo aver disabilitato la
 
    ![Selezionare Elimina](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
-
 ## <a name="modify-policy"></a>Modificare i criteri
+
 Modificare i criteri per modificare la frequenza di backup o il periodo di mantenimento dati.
 
 > [!NOTE]
 > Eventuali modifiche apportate al periodo di conservazione verranno applicate in modo retrospettivo a tutti i punti di ripristino meno recenti oltre a quelli nuovi.
 
-Nel dashboard dell'insieme di credenziali passare a **Gestisci** > **criteri di backup** e scegliere il criterio che si vuole modificare.
+Nel dashboard dell'insieme di credenziali passare a **gestisci** > **criteri di backup** e scegliere il criterio che si vuole modificare.
 
   ![Gestire i criteri di backup](./media/backup-azure-sql-database/modify-backup-policy.png)
 
   ![Modificare i criteri di backup](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
 
-La modifica dei criteri avrà un effetto su tutti gli elementi di backup associati e sul trigger corrispondenti processi di **configurazione della protezione** . 
+La modifica dei criteri avrà un effetto su tutti gli elementi di backup associati e sul trigger corrispondenti processi di **configurazione della protezione** .
 
-#### <a name="inconsistent-policy"></a>Criteri non coerenti 
+### <a name="inconsistent-policy"></a>Criteri non coerenti
 
 In alcuni casi, un'operazione di modifica dei criteri può causare una versione non **coerente** dei criteri per alcuni elementi di backup. Ciò si verifica quando il processo di **configurazione della protezione** corrispondente non riesce per l'elemento di backup dopo l'attivazione di un'operazione di modifica dei criteri. Viene visualizzato come segue nella visualizzazione dell'elemento di backup:
- 
+
   ![Criteri non coerenti](./media/backup-azure-sql-database/inconsistent-policy.png)
 
 È possibile correggere la versione dei criteri per tutti gli elementi interessati con un solo clic:
 
   ![Correggi criteri non coerenti](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
- 
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Ripetere la registrazione dell'estensione nella macchina virtuale SQL Server
 
-In alcuni casi, l'estensione del carico di lavoro nella macchina virtuale può essere interessata per un motivo o l'altro. In questi casi, tutte le operazioni attivate nella macchina virtuale inizieranno ad avere esito negativo. Potrebbe quindi essere necessario registrare nuovamente l'estensione nella macchina virtuale. L'operazione di **ripetizione della registrazione** reinstalla l'estensione di backup del carico di lavoro nella macchina virtuale affinché le operazioni continuino.  <br>
+In alcuni casi, l'estensione del carico di lavoro nella macchina virtuale può essere interessata per un motivo o l'altro. In questi casi, tutte le operazioni attivate nella macchina virtuale inizieranno ad avere esito negativo. Potrebbe quindi essere necessario registrare nuovamente l'estensione nella macchina virtuale. L'operazione di **ripetizione della registrazione** reinstalla l'estensione di backup del carico di lavoro nella macchina virtuale affinché le operazioni continuino.
 
 Usare questa opzione con cautela. Quando viene attivato in una macchina virtuale con un'estensione già integra, questa operazione causerà il riavvio dell'estensione. Ciò può comportare l'esito negativo di tutti i processi in corso. Assicurarsi di verificare la presenza di uno o più [sintomi](backup-sql-server-azure-troubleshoot.md#re-registration-failures) prima di attivare l'operazione di ripetizione della registrazione.
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/18/2019
+ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78243f02cbbe3d06b94ee52d6193865dbfa27121
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: da3e1b6439b033742af62d548775cfb628e955b7
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488992"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990696"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management-preview"></a>Approva o rifiuta le richieste di accesso in Azure AD gestione dei diritti (anteprima)
 
@@ -36,7 +36,7 @@ Con Azure AD gestione dei diritti, è possibile configurare i criteri per richie
 
 Il primo passaggio per approvare o negare le richieste di accesso consiste nell'individuare e aprire la richiesta di accesso in attesa di approvazione. Esistono due modi per aprire la richiesta di accesso.
 
-**Ruolo prerequisito:** Responsabile approvazione
+**Ruolo prerequisiti:** Approvatore
 
 1. Cercare un messaggio di posta elettronica da Microsoft Azure che chieda di approvare o rifiutare una richiesta. Di seguito è riportato un messaggio di posta elettronica di esempio:
 
@@ -48,9 +48,9 @@ Il primo passaggio per approvare o negare le richieste di accesso consiste nell'
 
 Se non si dispone del messaggio di posta elettronica, è possibile trovare le richieste di accesso in attesa di approvazione attenendosi alla seguente procedura.
 
-1. Accedere al portale di accesso personale all'indirizzo [https://myaccess.microsoft.com](https://myaccess.microsoft.com).
+1. Accedere al portale di accesso personale all' [https://myaccess.microsoft.com](https://myaccess.microsoft.com).
 
-1. Nel menu a sinistra fare clic  su approvazioni per visualizzare un elenco di richieste di accesso in attesa di approvazione.
+1. Nel menu a sinistra fare clic su **approvazioni** per visualizzare un elenco di richieste di accesso in attesa di approvazione.
 
 1. Individuare la richiesta nella scheda **in sospeso** .
 
@@ -58,7 +58,7 @@ Se non si dispone del messaggio di posta elettronica, è possibile trovare le ri
 
 Dopo aver aperto una richiesta di accesso in attesa di approvazione, è possibile visualizzare i dettagli che consentiranno di prendere una decisione di approvazione o negazione.
 
-**Ruolo prerequisito:** Responsabile approvazione
+**Ruolo prerequisiti:** Approvatore
 
 1. Fare clic sul collegamento **Visualizza** per aprire il riquadro Richiesta di accesso.
 
@@ -70,7 +70,7 @@ Dopo aver aperto una richiesta di accesso in attesa di approvazione, è possibil
 
 1. Se necessario, immettere un motivo.
 
-    ![Portale di Accesso personale - Richiesta di accesso](./media/entitlement-management-shared/my-access-approve-request.png)
+    ![Portale di Accesso personale - Richiesta di accesso](./media/entitlement-management-request-approve/my-access-approve-request.png)
 
 1. Fare clic su **Invia** per inviare la decisione.
 

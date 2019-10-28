@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 4add98ae092359c6f070bfc93b69257894f44e48
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: e8e6eb9be65b038780fa6e21cf20f4c5dda27a31
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596425"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991449"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Domande frequenti (FAQ)
 
@@ -47,7 +47,7 @@ Le reti virtuali classiche non sono supportate per le nuove distribuzioni. I dom
 Sì. Azure AD Domain Services può essere abilitato in una rete virtuale di Azure Resource Manager. Le reti virtuali di Azure classiche non sono più supportate quando si crea un nuovo dominio gestito.
 
 ### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>È possibile eseguire la migrazione del dominio gestito esistente da una rete virtuale classica a una rete virtuale Gestione risorse?
-Sì, questa funzionalità è in anteprima. Per ulteriori informazioni, vedere [migrare Azure AD Domain Services dal modello di rete virtuale classica a Gestione risorse (anteprima)] [migrate-from-Classic-vnet.md]
+Sì, questa funzionalità è in anteprima. Per altre informazioni, vedere [eseguire la migrazione Azure ad Domain Services dal modello di rete virtuale classica a gestione risorse (anteprima)](migrate-from-classic-vnet.md).
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>È possibile abilitare Azure Active Directory Domain Services in una sottoscrizione di Azure CSP (Cloud Solution Provider)?
 Sì. Per altre informazioni, vedere [How to enable Azure ad Domain Services in Azure CSP subscriptions](csp.md).

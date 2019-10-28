@@ -1,5 +1,5 @@
 ---
-title: Risolvere gli errori durante il backup dei database SAP HANA usando backup di Azure | Microsoft Docs
+title: Risolvere gli errori di backup SAP HANA database-backup di Azure
 description: Viene descritto come risolvere gli errori comuni che possono verificarsi quando si usa backup di Azure per eseguire il backup di SAP HANA database.
 ms.reviewer: pullabhk
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: 00e37030417da97d2c57b0fb5872422e7048a2bc
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 004d10b794c6eca2e078e437880f44d91ca30acb
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954461"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968443"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Risolvere i problemi di backup di database SAP HANA in Azure
 
@@ -32,13 +32,13 @@ Cosa fa lo script di preregistrazione:
     - LETTURA catalogo: per leggere il catalogo di backup.
     - SAP_INTERNAL_HANA_SUPPORT: per accedere ad alcune tabelle private.
 2. Aggiunge una chiave a Hdbuserstore per il plug-in HANA per gestire tutte le operazioni (query di database, operazioni di ripristino, configurazione ed esecuzione di backup).
-   
+
    Per confermare la creazione della chiave, eseguire il comando HDBSQL nel computer HANA con le credenziali di SIDADM:
 
     ``` hdbsql
     hdbuserstore list
     ```
-    
+
     L'output del comando dovrebbe visualizzare la chiave {SID} {DBNAME}, con l'utente visualizzato come AZUREWLBACKUPHANAUSER.
 
 > [!NOTE]
@@ -50,9 +50,9 @@ Quando si sceglie un database per il backup, il servizio backup di Azure configu
 
 - [catalog_backup_using_backint: true]
 - [enable_accumulated_catalog_backup: false]
-- [parallel_data_backup_backint_channels:1]
+- [parallel_data_backup_backint_channels: 1]
 - [log_backup_timeout_s: 900)]
-- [backint_response_timeout:7200]
+- [backint_response_timeout: 7200]
 
 > [!NOTE]
 > Assicurarsi che questi parametri *non* siano presenti a livello di host. I parametri a livello di host eseguiranno l'override di questi parametri e potrebbero causare un comportamento imprevisto.
@@ -68,6 +68,7 @@ Si supponga che venga eseguito il backup di un'istanza DSC HANA "H21". Nella pag
 ![Input di ripristino DSC](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
 
 Tenere presente quanto segue:
+
 - Per impostazione predefinita, il nome del database ripristinato verrà popolato con il nome dell'elemento di backup, ad esempio H21 (DSC)
 - Se si seleziona la destinazione come H11, il nome del database ripristinato non verrà modificato automaticamente. **Deve essere modificato in H11 (DSC)** . Nel caso di DSC, il nome del database ripristinato sarà l'ID dell'istanza di destinazione con lettere minuscole e "DSC" accodato tra parentesi quadre.
 - Poiché la DSC può avere un solo database singolo, è anche necessario fare clic sulla casella di controllo per consentire l'override dei dati del database esistenti con i dati del punto di ripristino.
@@ -89,4 +90,4 @@ data| Messaggio di errore | Possibili cause | Azione consigliata |
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| È stata rilevata una configurazione Backint non valida. Arrestare la protezione e riconfigurare il database.| I parametri backInt non sono specificati correttamente per backup di Azure. | Controllare se [i parametri sono impostati](#setting-up-backint-parameters). Se i parametri basati su backInt sono presenti nell'HOST, rimuoverli. Se i parametri non sono presenti a livello di HOST ma sono stati modificati manualmente a livello di database, ripristinare i valori appropriati come descritto in precedenza. In alternativa, eseguire **Stop Protection e mantenere i dati di backup** dal portale di Azure, quindi selezionare Riprendi **backup**.|
+| È stata rilevata una configurazione Backint non valida. Arrestare la protezione e riconfigurare il database.| I parametri backInt non sono specificati correttamente per backup di Azure. | Controllare se [i parametri sono impostati](#setting-up-backint-parameters). Se i parametri basati su backInt sono presenti nell'HOST, rimuoverli. Se i parametri non sono presenti a livello di HOST ma sono stati modificati manualmente a livello di database, ripristinare i valori appropriati come descritto in precedenza. In alternativa, eseguire **Stop Protection e mantenere i dati di backup** dal portale di Azure, quindi selezionare **Riprendi backup**.|
