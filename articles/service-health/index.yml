@@ -1,0 +1,43 @@
+### YamlMime:Landing
+title: Documentazione di Integrità dei servizi di Azure
+summary: Integrità dei servizi di Azure è una suite di esperienze che fornisce supporto e indicazioni personalizzati quando si verificano o potrebbero verificarsi in futuro problemi nei servizi di Azure dell'utente. Integrità dei servizi di Azure è costituito dallo stato di Azure, dal servizio di integrità dei servizi e da Integrità risorse.
+metadata:
+  title: Documentazione di Integrità dei servizi di Azure
+  description: Integrità dei servizi di Azure è una suite di esperienze che fornisce supporto e indicazioni personalizzati quando si verificano problemi nei servizi di Azure dell'utente. Il servizio Integrità dei servizi di Azure può inviare notifiche, aiutare a comprendere gli effetti dei problemi e fornire informazioni aggiornate durante la relativa risoluzione. Può anche aiutare a preparare la manutenzione pianificata e le modifiche che potrebbero influire sulla disponibilità delle risorse.
+  services: service-health
+  ms.service: service-health
+  ms.topic: landing-page
+  author: rboucher
+  ms.author: robb
+  ms.date: 10/08/2019
+  ms.openlocfilehash: 83380e57a5d67431fccf1d808b8c8f69eddc5962
+  ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 10/27/2019
+  ms.locfileid: "72966006"
+landingContent:
+- title: Informazioni su Integrità dei servizi di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Integrità dei servizi di Azure
+      url: overview.md
+    - text: Stato di Azure
+      url: azure-status-overview.md
+    - text: Servizio Integrità dei servizi
+      url: service-health-overview.md
+    - text: Integrità delle risorse
+      url: resource-health-overview.md
+  - linkListType: video
+    links:
+    - text: Video introduttivo su Integrità dei servizi di Azure
+      url: https://www.microsoft.com/videoplayer/embed/RE2OgX6
+- title: Ricevere notifiche
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Ricevere notifiche quando si verifica un problema relativo a un servizio di Azure che interessa l'utente
+      url: alerts-activity-log-service-notifications.md
+    - text: Ricevere notifiche quando la risorsa di Azure risulta indisponibile
+      url: resource-health-alert-arm-template-guide.md

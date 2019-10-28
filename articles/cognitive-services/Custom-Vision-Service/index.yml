@@ -2,7 +2,7 @@
 title: Documentazione di Visione personalizzata
 summary: Visione personalizzata è un servizio cognitivo che consente di compilare, distribuire e migliorare classificatori di immagini. Un classificatore di immagini è un servizio di intelligenza artificiale che applica etichette (che rappresentano classi) alle immagini, in base alle relative caratteristiche visive.
 metadata:
-  title: Documentazione di Visione personalizzata
+  title: 'Documentazione di Visione personalizzata: guide introduttive, esercitazioni, informazioni di riferimento sulle API - Servizi cognitivi di Azure | Microsoft Docs'
   description: Visione personalizzata è un servizio cognitivo che consente di compilare, distribuire e migliorare classificatori di immagini. Un classificatore di immagini è un servizio di intelligenza artificiale che applica etichette (che rappresentano classi) alle immagini, in base alle relative caratteristiche visive.
   services: cognitive-services
   ms.service: cognitive-services
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 5be5dcd64345de32e37413932869574391573c60
-  ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+  ms.openlocfilehash: 21e4c324b947cb863614f50bb2ee0bfe09246372
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/09/2019
-  ms.locfileid: "72176177"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72931645"
 landingContent:
 - title: Informazioni su Visione personalizzata
   linkLists:
@@ -128,3 +128,11 @@ landingContent:
       url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
     - text: interfaccia della riga di comando di Azure
       url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+- title: Guida e feedback
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: UserVoice
+      url: https://cognitive.uservoice.com/forums/598141-custom-vision-service
+    - text: Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/microsoft-cognitive

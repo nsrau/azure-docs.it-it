@@ -2,7 +2,7 @@
 title: Documentazione di Riconoscimento modulo
 summary: Riconoscimento modulo di Azure è un servizio cognitivo che usa tecnologia di Machine Learning per identificare ed estrarre coppie chiave-valore e dati di tabella da documenti modulo. Restituisce quindi dati strutturati che includono le relazioni nel file originale. L'apprendimento non supervisionato consente al modello di riconoscere il layout e le relazioni tra campi e voci senza assegnazione manuale di etichette dati o impegnative attività di creazione di codice e manutenzione.
 metadata:
-  title: Documentazione di Riconoscimento modulo
+  title: 'Documentazione di Riconoscimento modulo: avvii rapidi, esercitazioni, informazioni di riferimento sulle API - Servizi cognitivi di Azure | Microsoft Docs'
   description: Riconoscimento modulo di Azure è un servizio cognitivo che usa tecnologia di Machine Learning per identificare ed estrarre coppie chiave-valore e dati di tabella da documenti modulo. Restituisce quindi dati strutturati che includono le relazioni nel file originale. L'apprendimento non supervisionato consente al modello di riconoscere il layout e le relazioni tra campi e voci senza assegnazione manuale di etichette dati o impegnative attività di creazione di codice e manutenzione.
   services: cognitive-services
   ms.service: cognitive-services
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 0c450a79c0dbdd19732488af927c3c29df263a23
-  ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+  ms.openlocfilehash: 3a3146c6a918916792a331c0dab74683db82a02d
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/12/2019
-  ms.locfileid: "70931834"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72931295"
 landingContent:
 - title: Informazioni su Riconoscimento modulo
   linkLists:
@@ -76,3 +76,11 @@ landingContent:
       url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
     - text: interfaccia della riga di comando di Azure
       url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+- title: Guida e feedback
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: UserVoice
+      url: https://go.microsoft.com/fwlink/?linkid=2090535
+    - text: Stack Overflow
+      url: https://go.microsoft.com/fwlink/?linkid=2087186

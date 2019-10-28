@@ -14,11 +14,11 @@
       href: tutorial-sql-server-to-azure-sql.md
     - name: Eseguire la migrazione online di SQL Server al database SQL di Azure (database singolo)
       href: tutorial-sql-server-azure-sql-online.md
-    - name: Eseguire la migrazione offline di SQL Server all'istanza gestita di database SQL di Azure
+    - name: Eseguire la migrazione offline di SQL Server a Istanza gestita di database SQL di Azure
       href: tutorial-sql-server-to-managed-instance.md
-    - name: Eseguire la migrazione online di SQL Server all'istanza gestita di database SQL di Azure
+    - name: Eseguire la migrazione online di SQL Server a Istanza gestita di database SQL di Azure
       href: tutorial-sql-server-managed-instance-online.md
-    - name: Eseguire la migrazione online di RDS SQL Server al database SQL di Azure (database singolo) o all'istanza gestita di database SQL di Azure
+    - name: Eseguire la migrazione online di RDS SQL Server al database SQL di Azure (database singolo) o a Istanza gestita di database SQL di Azure
       href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
     - name: Eseguire la migrazione online di MySQL al database di Azure per MySQL
       href: tutorial-mysql-azure-mysql-online.md
@@ -38,7 +38,7 @@
   items:
     - name: Usare PowerShell per eseguire la migrazione di SQL Server al database SQL di Azure (database singolo)
       href: howto-sql-server-to-azure-sql-powershell.md
-    - name: Usare PowerShell per eseguire la migrazione di SQL Server all'istanza gestita di database SQL di Azure
+    - name: Usare PowerShell per eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure
       href: howto-sql-server-to-azure-sql-mi-powershell.md
     - name: Monitorare l'attività di migrazione
       href: how-to-monitor-migration-activity.md
@@ -53,8 +53,10 @@
       href: resource-scenario-status.md
     - name: Panoramica dei prerequisiti
       href: pre-reqs.md
-    - name: Topologie di rete per migrazioni all'istanza gestita di database SQL di Azure
+    - name: Topologie di rete per migrazioni a Istanza gestita di database SQL di Azure
       href: resource-network-topologies.md
+    - name: Ruoli personalizzati per migrazioni online da SQL Server a Istanza gestita di database SQL di Azure
+      href: resource-custom-roles-sql-db-managed-instance.md
     - name: Risoluzione dei problemi e problemi noti
       items:
         - name: Risolvere i problemi di connettività del database di origine

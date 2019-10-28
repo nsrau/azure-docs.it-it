@@ -1,96 +1,114 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentazione dell'API Viso
+### YamlMime:Landing
+title: Documentazione di Viso
+summary: L'API Viso basata sul cloud consente agli sviluppatori di accedere ad algoritmi facciali avanzati. Gli algoritmi del servizio Viso di Microsoft consentono il rilevamento e il riconoscimento degli attributi dei visi. Informazioni su come analizzare il contenuto in modi diversi con guide introduttive, esercitazioni ed esempi.
 metadata:
-  title: 'Documentazione dell''API Viso: avvii rapidi, esercitazioni, informazioni di riferimento sulle API - Servizi cognitivi di Azure | Microsoft Docs'
-  description: Informazioni su come usare l'API Viso per rilevare e identificare i visi nelle immagini e restituire le informazioni facciali. Le esercitazioni illustrano come compilare app che usano l'API.
+  title: "Documentazione dell'API Viso: avvii rapidi, esercitazioni, informazioni di riferimento sulle API - Servizi cognitivi di Azure | Microsoft Docs"
+  description: L'API Viso basata sul cloud consente agli sviluppatori di accedere ad algoritmi facciali avanzati. Gli algoritmi del servizio Viso di Microsoft consentono il rilevamento e il riconoscimento degli attributi dei visi. Informazioni su come analizzare il contenuto in modi diversi con guide introduttive, esercitazioni ed esempi.
   services: cognitive-services
-  author: PatrickFarley
-  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: face-api
   ms.topic: landing-page
-  ms.date: 12/20/2018
-  ms.author: nitinme
-abstract:
-  description: 'L''API Viso basata sul cloud consente agli sviluppatori di accedere ad algoritmi facciali avanzati. Gli algoritmi del servizio Viso di Microsoft consentono il rilevamento e il riconoscimento degli attributi dei visi. Informazioni su come analizzare il contenuto in modi diversi con guide introduttive, esercitazioni ed esempi.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/face/overview
-            html: <p>Informazioni sull'API Viso.</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Informazioni sull'API Viso
-          - href: /azure/cognitive-services/face/face-api-how-to-topics/howtodetectfacesinimage
-            html: <p>Informazioni su come rilevare visi nelle immagini.</p>
-            image:
-              src: ../media/index/i_tasks.svg
-            title: Rilevare visi nelle immagini
-          - href: /azure/cognitive-services/face/face-how-to-install-containers
-            html: <p>Informazioni su come usare l'API Viso in contenitori.</p>
-            image:
-              src: ../media/index/i_tasks.svg
-            title: Usare l'API Viso in contenitori
-  - title: Guide introduttive di 5 minuti
-    items:
-      - type: paragraph
-        text: 'Analizzare le immagini, generare anteprime ed estrarre il testo da un''immagine usando:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/logo_Csharp.svg
-            text: 'C&#35;'
-            href: QuickStarts/CSharp
-          - image:
-              src: media/index/logo_java.svg
-            text: Java
-            href: QuickStarts/Java
-          - image:
-              src: media/index/logo_nodejs.svg
-            text: Node.js
-            href: QuickStarts/node
-          - image:
-              src: media/index/logo_python.svg
-            text: Python
-            href: QuickStarts/Python
-          - image:
-              src: media/index/logo_go.svg
-            text: Go
-            href: QuickStarts/Go
-  - title: Esercitazioni dettagliate
-    items:
-      - type: paragraph
-        text: 'Informazioni su come sviluppare applicazioni con l''API Viso:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">Rilevare i visi ed evidenziarli con una cornice in un'immagine in Windows</a></li>
-          - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorial">Rilevare i visi ed evidenziarli con una cornice in un'immagine in Android</a></li>
-  - title: Esempi
-    items:
-      - type: paragraph
-        text: 'Trovare esempi per l''API Viso:'
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=Relevance">Esempi di codice</a>'
-  - title: riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API
-            html: <p><a href="APIReference">API Viso</a></p>
-          - title: SDK
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest">Node</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face">Go</a></p> <p><a href="https://github.com/Microsoft/Cognitive-Face-iOS">iOS</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Interfaccia della riga di comando di Azure</a></p>'
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 10/24/2019
+  ms.openlocfilehash: e7dabc3104f925f602fe5806e04f9da7f438c310
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72935738"
+landingContent:
+- title: Informazioni sull'API Viso
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni sull'API Viso
+      url: Overview.md
+- title: Rilevare visi
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Rilevamento del viso
+      url: concepts/face-detection.md
+  - linkListType: quickstart
+    links:
+    - text: Uso di .NET SDK
+      url: quickstarts/csharp-sdk.md
+    - text: Uso di Python SDK
+      url: quickstarts/python-sdk.md
+  - linkListType: how-to-guide
+    links:
+    - text: Specificare un modello di rilevamento volto
+      url: Face-API-How-to-Topics/specify-detection-model.md
+- title: Riconoscere visi
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Riconoscimento del viso
+      url: concepts/face-recognition.md
+  - linkListType: quickstart
+    links:
+    - text: Uso di .NET SDK
+      url: quickstarts/csharp-sdk.md
+    - text: Uso di Python SDK
+      url: quickstarts/python-sdk.md
+  - linkListType: how-to-guide
+    links:
+    - text: Specificare un modello di riconoscimento volto
+      url: Face-API-How-to-Topics/specify-recognition-model.md
+- title: Usare rettangoli intorno ai visi
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Visualizzare i dati sui visi in un'app WPF
+      url: Tutorials/FaceAPIinCSharpTutorial.md
+    - text: Visualizzare i dati sui visi in un'app Android
+      url: Tutorials/FaceAPIinJavaForAndroidTutorial.md
+  - linkListType: how-to-guide
+    links:
+    - text: Usare l'attributo HeadPose
+      url: Face-API-How-to-Topics/how-to-use-headpose.md
+- title: Usare i contenitori
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Installare ed eseguire i contenitori
+      url: face-how-to-install-containers.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurare i contenitori
+      url: face-resource-container-config.md
+  - linkListType: deploy
+    links:
+    - text: Usare istanze di contenitore
+      url: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+- title: riferimento
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API Viso versione 1.0
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236
+    - text: .NET SDK
+      url: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+    - text: Python SDK
+      url: https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-vision-face/?view=azure-python
+    - text: SDK per Java
+      url: https://docs.microsoft.com/en-us/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+    - text: Node.js SDK
+      url: https://docs.microsoft.com/en-us/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest
+    - text: Go SDK
+      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
+    - text: iOS SDK
+      url: https://github.com/Microsoft/Cognitive-Face-iOS
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+    - text: interfaccia della riga di comando di Azure
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+- title: Guida e feedback
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: UserVoice
+      url: https://cognitive.uservoice.com/forums/430315-face-api
+    - text: Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/microsoft-cognitive

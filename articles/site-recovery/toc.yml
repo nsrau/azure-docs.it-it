@@ -361,6 +361,8 @@
               href: hyper-v-azure-failback.md
         - name: Gestisci
           items:
+            - name: Dettagli sulla prossima deprecazione del supporto per le configurazioni SCVMM in Azure Site Recovery
+              href: scvmm-site-recovery-deprecation.md
             - name: Aggiornare i server Windows configurati con Site Recovery
               href: upgrade-2012R2-to-2016.md
             - name: Rimuovere server e disabilitare la protezione

@@ -36,7 +36,7 @@
           href: log-query/get-started-portal.md
         - name: Query di log
           href: log-query/get-started-queries.md
-        - name: Visualizzare i dati dei log
+        - name: Dashboard con i dati dei log
           href: learn/tutorial-logs-dashboards.md
         - name: Avvisi per i dati di log
           href: learn/tutorial-response.md
@@ -50,7 +50,7 @@
           href: learn/tutorial-alert.md
         - name: Informazioni sugli utenti delle applicazioni
           href: learn/tutorial-users.md
-        - name: Creare dashboard personalizzati
+        - name: Dashboard con i dati delle applicazioni
           href: learn/tutorial-app-dashboards.md
     - name: Archiviare dati metrici e di log della piattaforma
       href: learn/tutorial-archive-data.md
@@ -889,7 +889,11 @@
         - name: Workbooks
           href: app/usage-workbooks.md
         - name: Dashboard
-          href: app/app-insights-dashboards.md
+          items:
+            - name: Dashboard con i dati dei log
+              href: learn/tutorial-logs-dashboards.md
+            - name: Dashboard con i dati delle applicazioni
+              href: learn/tutorial-app-dashboards.md
         - name: Inviare dati a Grafana
           href: platform/grafana-plugin.md
     - name: Creazione di avvisi
@@ -1098,10 +1102,8 @@
           href: platform/metrics-supported.md
         - name: Metriche supportate per avvisi più recenti
           href: platform/alerts-metric-near-real-time.md
-    - name: Log di diagnostica
-      items:
-        - name: 'Servizi, categorie e schemi dei log di diagnostica'
-          href: platform/diagnostic-logs-schema.md
+    - name: 'Servizi, categorie e schemi dei log delle risorse'
+      href: platform/diagnostic-logs-schema.md
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Interfaccia della riga di comando di Azure - Application Insights (anteprima)
@@ -1110,9 +1112,11 @@
       href: app/azure-functions-supported-features.md
     - name: Azure PowerShell
       items:
+        - name: 'Avvisi, metriche, log attività, scalabilità automatica'
+          href: /powershell/module/az.monitor
         - name: Application Insights
           href: /powershell/module/az.applicationinsights
-        - name: Log
+        - name: Log Analytics
           href: /powershell/module/az.operationalinsights
     - name: API REST
       items:

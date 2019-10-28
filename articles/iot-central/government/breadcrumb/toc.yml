@@ -10,6 +10,6 @@
           tocHref: /azure/iot-central/
           topicHref: /azure/iot-central/
           items:
-            - name: Componenti di base di IoT Central (funzionalità di anteprima)
+            - name: IoT Central per enti pubblici
               tocHref: /azure/iot-central/
-              topicHref: /azure/iot-central/index?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+              topicHref: /azure/iot-central/government/index/

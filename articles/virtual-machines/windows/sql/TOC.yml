@@ -56,28 +56,37 @@
               href: virtual-machines-windows-ps-sql-keyvault.md
 - name: Guide alle procedure
   items:
-    - name: Creare una VM SQL
+    - name: Creare una macchina virtuale SQL
       items:
         - name: Usare il portale
           href: virtual-machines-windows-portal-sql-server-provision.md
         - name: Usare Azure PowerShell
           href: virtual-machines-windows-ps-sql-create.md
-    - name: Eseguire la registrazione con il provider di risorse
-      href: virtual-machines-windows-sql-register-with-resource-provider.md
-    - name: Cambiare il modello di licenza
-      href: virtual-machines-windows-sql-ahb.md
-    - name: Cambiare edizione
-      href: virtual-machines-windows-sql-change-edition.md
+    - name: Eseguire la registrazione con il provider di risorse delle macchine virtuali SQL
+      displayName: 'resource provider, registration'
+      items:
+        - name: Macchina virtuale singola
+          href: virtual-machines-windows-sql-register-with-resource-provider.md
+        - name: Registrare in blocco più macchine virtuali
+          href: virtual-machines-windows-sql-bulk-register-with-resource-provider.md
+    - name: Gestisci
+      items:
+        - name: Modello di licenza
+          displayName: 'ahb, ahub, payg, change, modify, update'
+          href: virtual-machines-windows-sql-ahb.md
+        - name: Edizione
+          displayName: 'change, modify, update'
+          href: virtual-machines-windows-sql-change-edition.md
+        - name: Archiviazione di Azure per il backup e il ripristino
+          href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
     - name: Migrazione
       items:
-        - name: Eseguire la migrazione di un database SQL Server
+        - name: Dal database di SQL Server alla macchina virtuale
           href: virtual-machines-windows-migrate-sql.md
         - name: VM in una nuova area
           href: virtual-machines-windows-sql-move-different-region.md
     - name: Configurare la disponibilità elevata
       items:
-        - name: Usare Archiviazione di Azure per il backup e il ripristino
-          href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
         - name: Gruppo di disponibilità AlwaysOn
           items:
             - name: Interfaccia della riga di comando delle macchine virtuali di Azure SQL

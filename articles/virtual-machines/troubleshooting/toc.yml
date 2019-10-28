@@ -65,10 +65,12 @@
       href: detailed-troubleshoot-ssh-connection.md
 - name: Messaggi di errore comuni
   href: error-messages.md
-- name: Problemi di prestazioni con le macchine virtuali
-  href: performance-diagnostics.md
-- name: Risoluzione dei problemi di prestazioni generici per macchine virtuali di Azure che eseguono Linux o Windows
-  href: troubleshoot-performance-virtual-machine-linux-windows.md
+- name: Risolvere i problemi di prestazioni delle macchine virtuali di Azure
+  items:
+    - name: Problemi di prestazioni in Linux o Windows
+      href: troubleshoot-performance-virtual-machine-linux-windows.md
+    - name: Performance Diagnostics
+      href: performance-diagnostics.md
 - name: Supporto per i sistemi operativi a 32 bit
   href: support-32-bit-operating-systems-virtual-machines.md
 - name: PerfInsights

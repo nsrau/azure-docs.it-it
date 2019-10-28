@@ -42,6 +42,8 @@
           items:
             - name: Delega agli autori di cataloghi
               href: entitlement-management-delegate-catalog.md
+            - name: Aggiungere un'organizzazione connessa
+              href: entitlement-management-organization.md
             - name: Gestire l'accesso per gli utenti esterni
               href: entitlement-management-external-users.md
             - name: Visualizzare report e log

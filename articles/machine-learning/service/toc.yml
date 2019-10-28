@@ -138,6 +138,9 @@
         - name: Eseguire il training con set di dati
           displayName: 'data, dataset'
           href: how-to-train-with-datasets.md
+        - name: Eseguire il controllo delle versioni e tenere traccia dei set di dati
+          displayName: 'data, data set'
+          href: how-to-version-track-datasets.md
     - name: Eseguire il training dei modelli
       items:
         - name: Usare l'interfaccia visiva grafica

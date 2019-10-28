@@ -89,8 +89,8 @@
           href: 'cache-administration.md#schedule-updates'
         - name: Configurare l'accesso con redis-cli.exe
           href: cache-how-to-redis-cli-tool.md
-        - name: Uso deprecato di TLS 1.0 e 1.1
-          href: cache-deprecate-tls-10-11.md
+        - name: Rimuovere TLS 1.0 e 1.1
+          href: cache-remove-tls-10-11.md
     - name: Monitorare
       items:
         - name: Monitoraggio nel portale di Azure

@@ -23,6 +23,10 @@
               href: quickstarts/python-receipts.md
     - name: Uso di .NET SDK
       href: quickstarts/dotnet-sdk.md
+- name: Esercitazioni
+  items:
+    - name: Usare Riconoscimento modulo con App per la logica
+      href: tutorial-form-recognizer-with-logic-apps.md
 - name: Guide alle procedure
   items:
     - name: Creare un set di dati di training
