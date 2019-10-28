@@ -5,12 +5,12 @@ ms.subservice: single-database
 ms.topic: include
 ms.date: 07/31/2019
 ms.author: mathoma
-ms.openlocfilehash: d4c426c5fe31f8fc2bfaf4697c05456124cafcb1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ff5505c2cb35d088565773e8d0ba01e8abb4b8c3
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099016"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933259"
 ---
 In questo passaggio si creerà un database singolo di Database SQL di Azure. 
 
@@ -142,6 +142,15 @@ Creare il gruppo di risorse e il database singolo usando PowerShell.
    $database
    ```
 
+In questa parte dell'articolo si usano i cmdlet di PowerShell seguenti:
+
+| Comando | Note |
+|---|---|
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Crea un server di database SQL che ospita database singoli e pool elastici. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Crea una regola del firewall per un server logico. | 
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Crea un nuovo database singolo di Database SQL di Azure. | 
+
 # <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Creare il gruppo di risorse e il database singolo usando l'interfaccia della riga di comando AZ.
@@ -207,5 +216,16 @@ Creare il gruppo di risorse e il database singolo usando l'interfaccia della rig
       --family Gen5 \
       --capacity 2
    ```
+
+Questo script usa i comandi seguenti. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+
+| Comando | Note |
+|---|---|
+| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) | Imposta una sottoscrizione come sottoscrizione attiva corrente. | 
+| [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crea un server di database SQL che ospita database singoli e pool elastici. |
+| [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Crea le regole del firewall di un server. | 
+| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Crea un database. | 
+
 
 ---

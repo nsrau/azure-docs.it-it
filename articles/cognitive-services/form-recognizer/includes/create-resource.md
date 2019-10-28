@@ -5,12 +5,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/12/2019
 ms.author: pafarley
-ms.openlocfilehash: c2d3119283b5b75eeca6b0e0737f62eee00e81c6
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 14740e780f6143f19f843891c16b25df761d0b4f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72237373"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931259"
 ---
 Quando viene concesso l'accesso per l'uso di Riconoscimento modulo, si riceve un messaggio di posta elettronica di benvenuto con diversi collegamenti e risorse. Usare il collegamento al portale di Azure nel messaggio per aprire il portale di Azure e creare una risorsa di riconoscimento modulo. Nel riquadro **Crea** specificare le informazioni seguenti:
 
@@ -25,4 +25,4 @@ Quando viene concesso l'accesso per l'uso di Riconoscimento modulo, si riceve un
 > [!IMPORTANT]
 > In genere, quando si crea una risorsa di Servizi cognitivi nel portale di Azure, si ha la possibilità di creare una chiave di sottoscrizione multiservizio (usata per più servizi cognitivi) o una chiave di sottoscrizione per singolo servizio (usata solo con un determinato servizio cognitivo). L'API di riconoscimento modulo è tuttavia disponibile in versione di anteprima. Non è quindi inclusa nella sottoscrizione multiservizio e non è possibile creare la sottoscrizione per singolo servizio se non tramite il collegamento riportato nel messaggio di posta elettronica di benvenuto.
 
-Quando la distribuzione della risorsa di riconoscimento modulo è completata, individuarla e selezionarla dall'elenco **Tutte le risorse** nel portale. Selezionare quindi la scheda **Chiavi** per visualizzare le chiavi della sottoscrizione. L'app potrà accedere alla risorsa con una delle due chiavi. Copiare il valore di **CHIAVE 1**, che
+Quando la distribuzione della risorsa di riconoscimento modulo è completata, individuarla e selezionarla dall'elenco **Tutte le risorse** nel portale. Selezionare quindi la scheda **Avvio rapido** per visualizzare i dati della sottoscrizione. Salvare i valori di **Key1** ed **Endpoint** in un percorso temporaneo. Questi valori verranno usati nella procedura seguente.

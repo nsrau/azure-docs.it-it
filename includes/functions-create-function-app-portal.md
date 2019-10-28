@@ -5,40 +5,67 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/05/2019
+ms.date: 10/17/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 460199c1958e3bb22148624b9f013eadbb707bd2
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 3204387a8e0920d2a7196edbad229bf811a9ba0a
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69564384"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72958634"
 ---
-1. Selezionare il pulsante **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure e quindi selezionare **Calcolo** > **App per le funzioni**.
+1. Aprire il portale di Azure da [https://portal.azure.com](https://portal.azure.com)
 
-    ![Creare un'app per le funzioni nel portale di Azure](./media/functions-create-function-app-portal/function-app-create-flow.png)
+1. Selezionare il pulsante **Crea una risorsa**
 
-2. Usare le impostazioni dell'app per le funzioni come indicato nella tabella sottostante l'immagine.
+    ![Crea risorsa](./media/functions-create-function-app-portal/function-app-create-resource.png)
 
-    ![Definire nuove impostazioni dell'app per le funzioni](./media/functions-create-function-app-portal/function-app-create-flow2.png)
+1. Selezionare **Calcolo** > **App per le funzioni**.
 
-    | Impostazione      | Valore consigliato  | DESCRIZIONE                                        |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **Nome app** | Nome globalmente univoco | Nome che identifica la nuova app per le funzioni. I caratteri validi sono `a-z`, `0-9` e `-`.  | 
-    | **Sottoscrizione** | Sottoscrizione in uso | Sottoscrizione in cui viene creata questa nuova app per le funzioni. | 
-    | **[Gruppo di risorse](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nome del nuovo gruppo di risorse in cui creare l'app per le funzioni. |
-    | **Sistema operativo** | Windows | Le opzioni disponibili per il linguaggio di programmazione disponibili dipendono dal sistema operativo dell'app per le funzioni, ad esempio con Python è richiesto Linux. |
-    | **[Piano di hosting](../articles/azure-functions/functions-scale.md)** | Piano a consumo | Piano di hosting che definisce come vengono allocate le risorse all'app per le funzioni. Nel **piano a consumo** predefinito le risorse vengono aggiunte dinamicamente in base alle esigenze delle funzioni. In questo hosting [senza server](https://azure.microsoft.com/overview/serverless-computing/) si paga solo per il periodo in cui le funzioni sono in esecuzione. In caso di esecuzione in un piano di servizio app, è necessario gestire il [ridimensionamento dell'app per le funzioni](../articles/azure-functions/functions-scale.md).  |
-    | **Posizione** | Europa occidentale | Scegliere un'[area](https://azure.microsoft.com/regions/) nelle vicinanze o vicino ad altri servizi a cui accedono le funzioni. |
+    ![Creare un'app per le funzioni nel portale di Azure](./media/functions-create-function-app-portal/function-app-create-start.png)
+
+1. Usare le impostazioni dell'app per le funzioni come indicato nella tabella sottostante l'immagine.
+
+    ![Nozioni di base](./media/functions-create-function-app-portal/function-app-create-basics.png)
+
+    | Impostazione      | Valore consigliato  | DESCRIZIONE |
+    | ------------ | ---------------- | ----------- |
+    | **Sottoscrizione** | Sottoscrizione in uso | Sottoscrizione in cui viene creata questa nuova app per le funzioni. |
+    | **[Gruppo di risorse](../articles/azure-resource-manager/resource-group-overview.md)** |  *myResourceGroup* | Nome del nuovo gruppo di risorse in cui creare l'app per le funzioni. |
+    | **Nome dell'app per le funzioni** | Nome globalmente univoco | Nome che identifica la nuova app per le funzioni. I caratteri validi sono `a-z` (senza distinzione tra maiuscole e minuscole), `0-9` e `-`.  |
+    |**Pubblica**| Codice | Opzione per la pubblicazione di file di codice o di un contenitore Docker. |
     | **Stack di runtime** | Lingua preferita | Scegliere un runtime che supporti il linguaggio di programmazione della funzione preferito. Scegliere **.NET** per le funzioni C# e F #. |
-    | **[Archiviazione](../articles/storage/common/storage-quickstart-create-account.md)** |  Nome globalmente univoco |  Creare un account di archiviazione usato dall'app per le funzioni. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È anche possibile usare un account esistente, che dovrà soddisfare i [requisiti dell'account di archiviazione](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
+    |**Area**| Area preferita | Scegliere un'[area](https://azure.microsoft.com/regions/) nelle vicinanze o vicino ad altri servizi a cui accedono le funzioni. |
+
+    Selezionare il pulsante **Avanti: Hosting >** .
+
+1. Immettere le impostazioni seguenti per l'hosting.
+
+    ![Hosting](./media/functions-create-function-app-portal/function-app-create-hosting.png)
+
+    | Impostazione      | Valore consigliato  | DESCRIZIONE |
+    | ------------ | ---------------- | ----------- |
+    | **[Account di archiviazione](../articles/storage/common/storage-quickstart-create-account.md)** |  Nome globalmente univoco |  Creare un account di archiviazione usato dall'app per le funzioni. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È anche possibile usare un account esistente, che deve soddisfare i [requisiti dell'account di archiviazione](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
+    |**Sistema operativo**| Sistema operativo preferito | Viene preselezionato automaticamente un sistema operativo in base alla selezione dello stack di runtime, ma, se necessario, è possibile modificare l'impostazione. |
+    | **[Piano](../articles/azure-functions/functions-scale.md)** | Piano a consumo | Piano di hosting che definisce come vengono allocate le risorse all'app per le funzioni. Nel **piano a consumo** predefinito le risorse vengono aggiunte dinamicamente in base alle esigenze delle funzioni. In questo hosting [senza server](https://azure.microsoft.com/overview/serverless-computing/) si paga solo per il periodo in cui le funzioni sono in esecuzione. In caso di esecuzione in un piano di servizio app, è necessario gestire il [ridimensionamento dell'app per le funzioni](../articles/azure-functions/functions-scale.md).  |
+
+    Selezionare il pulsante **Avanti: Monitoraggio >** .
+
+1. Immettere le impostazioni seguenti per il monitoraggio.
+
+    ![Monitoraggio](./media/functions-create-function-app-portal/function-app-create-monitoring.png)
+
+    | Impostazione      | Valore consigliato  | DESCRIZIONE |
+    | ------------ | ---------------- | ----------- |
     | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Predefinito | Crea una risorsa di Application Insights con lo stesso *nome di app* nell'area più vicina supportata. Espandendo questa impostazione, è possibile cambiare il **Nome nuova risorsa** oppure scegliere una **Località** in un'[area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) in cui si vogliono archiviare i dati. |
 
-3. Selezionare **Crea** per effettuare il provisioning dell'app per le funzioni e distribuirla.
+    Selezionare **Rivedi e crea** per rivedere le selezioni effettuate per la configurazione dell'app.
 
-4. Selezionare l'icona di notifica nell'angolo superiore destro del portale e attendere la visualizzazione del messaggio **La distribuzione è riuscita**.
+1. Selezionare **Crea** per effettuare il provisioning dell'app per le funzioni e distribuirla.
 
-    ![Definire nuove impostazioni dell'app per le funzioni](./media/functions-create-function-app-portal/function-app-create-notification.png)
+1. Selezionare l'icona di notifica nell'angolo superiore destro del portale e attendere la visualizzazione del messaggio **La distribuzione è riuscita**.
 
-5. Selezionare **Vai alla risorsa** per visualizzare la nuova app per le funzioni. È anche possibile selezionare **Aggiungi al dashboard**. In questo modo è più facile tornare in questa risorsa di app per le funzioni dal dashboard.
+    ![Notifica della distribuzione](./media/functions-create-function-app-portal/function-app-create-notification2.png)
+
+1. Selezionare **Vai alla risorsa** per visualizzare la nuova app per le funzioni. È anche possibile selezionare **Aggiungi al dashboard**. In questo modo è più facile tornare in questa risorsa di app per le funzioni dal dashboard.
