@@ -2,36 +2,49 @@
 title: File di inclusione
 description: File di inclusione
 services: machine-learning
-author: sdgilley
+author: peterclu
 ms.service: machine-learning
-ms.author: sgilley
+ms.author: peterlu
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 05/06/2019
-ms.openlocfilehash: eb84dc1b5bf3f756e484ef27aaa998ab6b94cc51
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.date: 10/09/2019
+ms.openlocfilehash: 3f969fb346ce341e694458dcc38bf193f012226b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891675"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792642"
 ---
-Un esperimento viene eseguito su una destinazione di calcolo, una risorsa di calcolo collegata all'area di lavoro.  Dopo aver creato una destinazione di calcolo, è possibile riusarla per le esecuzioni future.
+Una pipeline viene eseguita in una destinazione di calcolo, ossia una risorsa di calcolo collegata all'area di lavoro. Dopo aver creato una destinazione di calcolo, è possibile riusarla per le esecuzioni future.
 
-1. Selezionare **Run** (Esegui) nella parte inferiore per eseguire l'esperimento.
+1. Selezionare **Esegui** nella parte superiore dell'area di disegno per eseguire la pipeline.
 
-1. Quando viene visualizzata la finestra di dialogo **Setup Compute Targets** (Configura destinazioni di calcolo), se l'area di lavoro contiene già una risorsa di calcolo, è possibile selezionarla ora.  In alternativa, selezionare **Create new** (Crea nuovo).
+1. Quando viene visualizzato il riquadro **Impostazioni**, selezionare **Select compute target** (Seleziona destinazione di calcolo).
+
+    Se è già disponibile una destinazione di calcolo, è possibile selezionarla per eseguire questa pipeline.
 
     > [!NOTE]
     > L'interfaccia visiva può eseguire gli esperimenti solo nelle destinazioni dell'ambiente di calcolo di Machine Learning. Altre destinazioni di calcolo non verranno visualizzate.
 
 1. Specificare un nome per la risorsa di calcolo.
 
-1. Selezionare **Run** (Esegui).
+1. Selezionare **Salva**.
 
     ![Configurare la destinazione di calcolo](./media/aml-ui-create-training-compute/set-compute.png)
 
-    Verrà ora creata la risorsa di calcolo. Visualizzare lo stato nell'angolo in alto a destra dell'esperimento. 
+1. Selezionare **Run** (Esegui).
+
+1. Nella finestra di dialogo **Configura esecuzione della pipeline** selezionare **+ Nuovo esperimento** per **Esperimento**
+
+    > [!NOTE]
+    > Gli esperimenti raggruppano esecuzioni di pipeline simili. Se una pipeline viene eseguita più volte, è possibile selezionare lo stesso esperimento per le esecuzioni successive.
+
+    * Immettere un nome descrittivo per il **Nome esperimento**
+
+    * Selezionare **Esegui**
+    
+    È possibile visualizzare lo stato di esecuzione e i dettagli nella parte superiore destra dell'area di disegno.
 
     > [!NOTE]
     > La creazione di una risorsa di calcolo richiede circa 5 minuti. Dopo aver creato la risorsa, è possibile riusarla e saltare questo tempo di attesa per le esecuzioni future.

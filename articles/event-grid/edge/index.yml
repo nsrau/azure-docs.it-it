@@ -1,0 +1,67 @@
+### YamlMime:Landing
+title: Documentazione di Griglia di eventi in IoT Edge
+summary: Informazioni su come usare Griglia di eventi in IoT Edge per rispondere a eventi significativi generati in dispositivi Edge in tempo quasi reale.
+metadata:
+  title: Documentazione di Griglia di eventi in IoT Edge
+  description: Informazioni su come usare Griglia di eventi in IoT Edge per rispondere a eventi significativi generati in dispositivi Edge in tempo quasi reale.
+  services: event-grid
+  ms.service: event-grid
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: collection
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 10/12/2019
+  ms.openlocfilehash: 4b79d64240b96ed41b535f8dbcd1155d67e76282
+  ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 10/28/2019
+  ms.locfileid: "72991614"
+landingContent:
+- title: Informazioni su Griglia di eventi in IoT Edge
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Griglia di eventi in IoT Edge?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Concetti relativi a Griglia di eventi
+      url: concepts.md
+    - text: Schemi degli eventi
+      url: event-schemas.md
+    - text: Suddivisione in batch per l'output
+      url: delivery-output-batching.md
+    - text: Filtro avanzato
+      url: advanced-filtering.md
+    - text: Recapito e nuovo tentativo
+      url: delivery-retry.md
+- title: Scenari
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Pubblicare e sottoscrivere eventi in locale
+      url: pub-sub-events-webhook-local.md
+    - text: Pubblicare e sottoscrivere eventi nel cloud
+      url: pub-sub-events-webhook-cloud.md
+    - text: Inoltrare eventi a Griglia di eventi di Azure
+      url: forward-events-event-grid-cloud.md
+    - text: Inoltrare eventi a Hub IoT di Azure
+      url: forward-events-event-grid-cloud.md
+    - text: Rispondere a eventi di Archiviazione BLOB di Azure in locale
+      url: react-blob-storage-events-locally.md
+- title: Security
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Sicurezza e autenticazione
+      url: security-authentication.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurare l'autenticazione dei client
+      url: configure-client-auth.md
+    - text: Configurare l'autenticazione dei sottoscrittori di webhook
+      url: configure-webhook-subscriber-auth.md
+    - text: Configurare l'autenticazione delle identità
+      url: configure-identity-auth.md

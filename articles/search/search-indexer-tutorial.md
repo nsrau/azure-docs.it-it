@@ -1,27 +1,27 @@
 ---
-title: 'Esercitazione per C#: Indicizzare i dati da database SQL di Azure - Ricerca di Azure'
-description: Esempio di codice C# che mostra come eseguire la connessione al database SQL di Azure, estrarre i dati ricercabili e caricarli in un indice di Ricerca di Azure.
-author: HeidiSteen
+title: 'Esercitazione per C#: Indicizzare i dati da database SQL di Azure'
+titleSuffix: Azure Cognitive Search
+description: Esempio di codice C# che mostra come eseguire la connessione al database SQL di Azure, estrarre i dati ricercabili e caricarli in un indice di Ricerca cognitiva di Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 1ba0a965de356cfbe7d9a1cfc8d6d2e8da092934
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: d83db424ee6e9a009353ca568232b38260883a4c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327184"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793615"
 ---
-# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Esercitazione per C#: effettuare una ricerca per indicizzazione in un database SQL di Azure con gli indicizzatori di Ricerca di Azure
+# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-cognitive-search-indexers"></a>Esercitazione per C#: Effettuare una ricerca per indicizzazione in un database SQL di Azure con gli indicizzatori di Ricerca cognitiva di Azure
 
-Informazioni su come configurare un indicizzatore per l'estrazione di dati ricercabili da un database SQL di Azure di esempio. Gli [indicizzatori](search-indexer-overview.md) sono un componente di Ricerca di Azure che effettua la ricerca per indicizzazione di origini dati esterne, popolando un [indice di ricerca](search-what-is-an-index.md) con contenuti. L'indicizzatore del database SQL di Azure è il più usato tra gli indicizzatori disponibili. 
+Informazioni su come configurare un indicizzatore per l'estrazione di dati ricercabili da un database SQL di Azure di esempio. Gli [indicizzatori](search-indexer-overview.md) sono un componente di Ricerca cognitiva di Azure che effettua la ricerca per indicizzazione di origini dati esterne, popolando un [indice di ricerca](search-what-is-an-index.md) con contenuti. L'indicizzatore del database SQL di Azure è il più usato tra gli indicizzatori disponibili. 
 
 Una competenza specifica a livello di configurazione dell'indicizzatore risulta utile perché riduce la quantità di codice da scrivere e mantenere. Invece di preparare ed eseguire il push di un set di dati JSON conforme allo schema, è possibile associare un indicizzatore a un'origine dati, richiedere all'indicizzatore di estrarre i dati e inserirli in un indice e facoltativamente eseguire l'indicizzatore su una pianificazione ricorrente per rilevare le modifiche nell'origine sottostante.
 
-In questa esercitazione usare le [librerie client .NET di Ricerca di Azure](https://aka.ms/search-sdk) e un'applicazione console .NET Core per eseguire le attività seguenti:
+In questa esercitazione verranno usate le [librerie client .NET di Ricerca cognitiva di Azure](https://aka.ms/search-sdk) e un'applicazione console .NET Core per eseguire le attività seguenti:
 
 > [!div class="checklist"]
 > * Aggiungere le informazioni sul servizio di ricerca alle impostazioni dell'applicazione
@@ -37,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati seguenti. 
 
-[Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione.
+[Creare un servizio di ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione.
 
 [Database SQL di Azure](https://azure.microsoft.com/services/sql-database/) archivia l'origine dati esterna usata da un indicizzatore. La soluzione di esempio fornisce un file di dati SQL per creare la tabella. I passaggi per la creazione del servizio e del database sono forniti in questa esercitazione.
 
@@ -46,17 +46,17 @@ In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati 
 [Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) fornisce la soluzione di esempio che si trova nel repository GitHub di esempi di Azure. Scaricare ed estrarre la soluzione. Per impostazione predefinita, le soluzioni sono di sola lettura. Fare clic con il pulsante destro del mouse sulla soluzione e deselezionare l'attributo di sola lettura in modo che sia possibile modificare i file.
 
 > [!Note]
-> Se si usa il servizio Ricerca di Azure gratuito, si è limitati a tre indici, tre indicizzatori e tre origini dati. Questa esercitazione crea un elemento per ogni tipo. Assicurarsi che lo spazio nel servizio sia sufficiente per accettare le nuove risorse.
+> Se si usa il servizio Ricerca cognitiva di Azure gratuito, è previsto un limite di tre indici, tre indicizzatori e tre origini dati. Questa esercitazione crea un elemento per ogni tipo. Assicurarsi che lo spazio nel servizio sia sufficiente per accettare le nuove risorse.
 
 ## <a name="get-a-key-and-url"></a>Ottenere una chiave e un URL
 
-Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni richiesta. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se si è aggiunto Ricerca di Azure alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
+Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni richiesta. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se il servizio Ricerca cognitiva di Azure è stato aggiunto alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
 
 1. [Accedere al portale di Azure](https://portal.azure.com/) e ottenere l'URL nella pagina **Panoramica** del servizio di ricerca. Un endpoint di esempio potrebbe essere simile a `https://mydemo.search.windows.net`.
 
 1. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
-![Ottenere una chiave di accesso e un endpoint HTTP](media/search-get-started-postman/get-url-key.png "Ottenere una chiave di accesso e un endpoint HTTP")
+![Ottenere un endpoint HTTP e una chiave di accesso](media/search-get-started-postman/get-url-key.png "Ottenere un endpoint HTTP e una chiave di accesso")
 
 Per ogni richiesta inviata al servizio è necessario specificare una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
@@ -67,7 +67,7 @@ Le informazioni sulla connessione per i servizi necessari vengono specificate ne
 
 1. In Esplora soluzioni aprire **appsettings.json**, in modo che sia possibile popolare ogni impostazione.  
 
-Le prime due voci possono essere inserite subito, usando l'URL e le chiavi amministratore per il servizio Ricerca di Azure. Con `https://mydemo.search.windows.net` come endpoint, il nome del servizio da fornire sarà `mydemo`.
+Le prime due voci possono essere compilate subito, usando l'URL e le chiavi amministratore per il servizio Ricerca cognitiva di Azure. Con `https://mydemo.search.windows.net` come endpoint, il nome del servizio da fornire sarà `mydemo`.
 
 ```json
 {
@@ -81,7 +81,7 @@ L'ultima voce richiede un database esistente che verrà creato nel passaggio suc
 
 ## <a name="prepare-sample-data"></a>Preparare i dati di esempio
 
-In questo passaggio viene creata un'origine dati esterna che può essere sottoposta a ricerca per indicizzazione da un indicizzatore. È possibile usare il portale di Azure e il file *hotels.sql* dall'esempio per creare il set di dati nel database SQL di Azure. Ricerca di Azure utilizza set di righe bidimensionali, come quello generato da una visualizzazione o una query. Il file SQL nella soluzione di esempio crea e popola una singola tabella.
+In questo passaggio viene creata un'origine dati esterna che può essere sottoposta a ricerca per indicizzazione da un indicizzatore. È possibile usare il portale di Azure e il file *hotels.sql* dall'esempio per creare il set di dati nel database SQL di Azure. Ricerca cognitiva di Azure utilizza set di righe bidimensionali, come quello generato da una visualizzazione o una query. Il file SQL nella soluzione di esempio crea e popola una singola tabella.
 
 L'esercizio seguente presuppone che non sia disponibile alcun server o database e richiede la creazione di entrambi nel Passaggio 2. Se è presente una risorsa esistente, è facoltativamente possibile aggiungere ad essa la tabella relativa agli hotel, a partire dal Passaggio 4.
 
@@ -159,7 +159,7 @@ In questa esercitazione l'indicizzatore esegue il pull di dati da un'origine dat
 
 Il programma principale include la logica per la creazione di un client, un indice, un'origine dati e un indicizzatore. Il codice cerca ed elimina le risorse esistenti con lo stesso nome, presupponendo che sia possibile che il programma venga eseguito più volte.
 
-L'oggetto origine dati è configurato con le impostazioni specifiche nelle risorse del database SQL di Azure, tra cui l'[indicizzazione incrementale](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) per sfruttare le [funzionalità di rilevamento della modifica](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) predefinite di Azure SQL. Il database degli hotel demo in SQL di Azure include una colonna di "eliminazione temporanea" denominata **IsDeleted**. Quando questa colonna è impostata su true nel database, l'indicizzatore rimuove il documento corrispondente dall'indice di Ricerca di Azure.
+L'oggetto origine dati è configurato con le impostazioni specifiche nelle risorse del database SQL di Azure, tra cui l'[indicizzazione incrementale](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) per sfruttare le [funzionalità di rilevamento della modifica](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) predefinite di Azure SQL. Il database degli hotel demo in SQL di Azure include una colonna di "eliminazione temporanea" denominata **IsDeleted**. Quando questa colonna è impostata su true nel database, l'indicizzatore rimuove il documento corrispondente dall'indice di Ricerca cognitiva di Azure.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -261,7 +261,7 @@ Tutti gli indicizzatori, incluso quello appena creato a livello di codice, vengo
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Il modo più veloce per pulire le risorse dopo un'esercitazione consiste nell'eliminare il gruppo di risorse contenente il servizio Ricerca di Azure. È possibile eliminare ora il gruppo di risorse per eliminare definitivamente tutti gli elementi in esso contenuti. Nel portale, il nome del gruppo di risorse è indicato nella pagina Panoramica del servizio Ricerca di Azure.
+Il modo più veloce per pulire le risorse dopo un'esercitazione consiste nell'eliminare il gruppo di risorse contenente il servizio Ricerca cognitiva di Azure. È possibile eliminare ora il gruppo di risorse per eliminare definitivamente tutti gli elementi in esso contenuti. Nel portale il nome del gruppo di risorse è indicato nella pagina Panoramica del servizio Ricerca cognitiva di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

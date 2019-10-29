@@ -10,13 +10,19 @@
     - name: Installare e configurare Terraform
       href: /azure/virtual-machines/linux/terraform-install-configure
       maintainContext: true
-    - name: Creare un'applicazione multiservizio
-      href: terrafom-quickstart.md
+    - name: Creare una configurazione Terraform
+      href: terraform-create-configuration.md
     - name: Creare una macchina virtuale Linux
       href: /azure/virtual-machines/linux/terraform-create-complete-vm
       maintainContext: true
 - name: Esercitazioni
   items:
+    - name: Installazione e configurazione
+      items:
+        - name: Archiviare lo stato Terraform in Archiviazione di Azure
+          href: terraform-backend.md
+        - name: Configurare Azure Cloud Shell per Terraform
+          href: terraform-cloud-shell.md
     - name: Servizio app
       items:
         - name: Terraform e slot di distribuzione per provider di Azure
@@ -29,8 +35,8 @@
           href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
     - name: Infrastruttura
       items:
-        - name: Creare una VM Terraform con identità del servizio gestito abilitata
-          href: terraform-vm-msi.md
+        - name: Creare una macchina virtuale Terraform con identità gestite per le risorse di Azure abilitate
+          href: terraform-vm-managed-identities-for-azure-resources.md
         - name: Creare un cluster di VM con moduli Terraform
           href: terraform-create-vm-cluster-module.md
         - name: Creare un cluster di macchine virtuali con Terraform e HCL
@@ -67,10 +73,6 @@
   items:
     - name: Modelli di configurazione
       href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
-- name: Guide alle procedure
-  items:
-    - name: Archiviare lo stato in Archiviazione di Azure
-      href: terraform-backend.md
 - name: riferimento
   items:
     - name: Registro moduli per Azure

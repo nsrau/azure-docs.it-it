@@ -1,24 +1,25 @@
 ---
-title: Esercitazione per C# sull'uso di facet per semplificare l'esplorazione - Ricerca di Azure
-description: Questa esercitazione si basa sul progetto "Paginazione dei risultati della ricerca - Ricerca di Azure", per aggiungere l'esplorazione basata su facet. I facet possono essere usati per limitare facilmente una ricerca.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: Esercitazione per C# sull'uso di facet per semplificare l'esplorazione
+titleSuffix: Azure Cognitive Search
+description: Questa esercitazione si basa sul progetto "Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure", per aggiungere l'esplorazione basata su facet. Come usare i facet per limitare facilmente una ricerca.
+manager: nitinme
 author: PeterTurcan
-ms.date: 06/20/2019
-ms.openlocfilehash: 62326ad3bc5f2d740ce744819df559bce8658eb7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 9f0d716e9077b2d9702f26b1afe92d9e4faf4a77
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443790"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794125"
 ---
-# <a name="c-tutorial-use-facets-to-aid-navigation---azure-search"></a>Esercitazione per C#: Usare facet per semplificare l'esplorazione - Ricerca di Azure
+# <a name="c-tutorial-use-facets-to-aid-navigation---azure-cognitive-search"></a>Esercitazione per C#: Usare facet per semplificare l'esplorazione - Ricerca cognitiva di Azure
 
 I facet vengono usati per semplificare l'esplorazione e offrono all'utente un set di collegamenti da usare per contestualizzare la ricerca. I facet sono attributi dei dati, ad esempio la categoria, o una caratteristica specifica, di un hotel nei dati di esempio.
 
-Questa esercitazione si basa sul progetto di paginazione creato in [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca di Azure](tutorial-csharp-paging.md).
+Questa esercitazione si basa sul progetto di paginazione creato in [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure](tutorial-csharp-paging.md).
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
@@ -29,7 +30,7 @@ In questa esercitazione si apprenderà come:
 
 Per completare questa esercitazione, è necessario:
 
-Predisporre il progetto [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca di Azure](tutorial-csharp-paging.md) perché sia attivo e in esecuzione. Questo progetto può essere una versione personalizzata o può essere installato da GitHub: [Creare la prima app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Predisporre il progetto [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure](tutorial-csharp-paging.md) attiva e in esecuzione. Questo progetto può essere una versione personalizzata oppure può essere installato da GitHub: [Creare la prima app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="set-model-properties-as-isfacetable"></a>Impostare le proprietà del modello come IsFacetable
 
@@ -559,4 +560,4 @@ Tenere conto delle considerazioni seguenti riguardo a questo progetto:
 Nella prossima esercitazione verrà esaminato l'ordinamento dei risultati. Fino a questo punto, i risultati vengono ordinati semplicemente in base alla posizione nel database.
 
 > [!div class="nextstepaction"]
-> [Esercitazione per C#: Ordinare i risultati - Ricerca di Azure](tutorial-csharp-orders.md)
+> [Esercitazione per C#: Ordinare i risultati - Ricerca cognitiva di Azure](tutorial-csharp-orders.md)

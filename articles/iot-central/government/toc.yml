@@ -6,14 +6,12 @@
       href: overview-iot-central-government.md
 - name: Esercitazioni
   items:
-    - name: Analisi punti vendita - Pagamento
-      items:
-        - name: Creare un'app di gestione rifiuti connessa
-          href: tutorial-connected-waste-management.md
-        - name: Creare un'app di monitoraggio consumo idrico
-          href: tutorial-water-consumption-monitoring.md
-        - name: Creare un'app di monitoraggio qualità acqua
-          href: tutorial-water-quality-monitoring.md
+    - name: Creare un'app di gestione rifiuti connessa
+      href: tutorial-connected-waste-management.md
+    - name: Creare un'app di monitoraggio consumo idrico
+      href: tutorial-water-consumption-monitoring.md
+    - name: Creare un'app di monitoraggio qualità acqua
+      href: tutorial-water-quality-monitoring.md
 - name: Concetti
   items:
     - name: Architettura di riferimento per la gestione rifiuti connessa
@@ -22,10 +20,10 @@
       href: concepts-waterconsumptionmonitoring-architecture.md
     - name: Architettura di riferimento per il monitoraggio qualità acqua
       href: concepts-waterqualitymonitoring-architecture.md
-    - name: Connettività
-      href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
 - name: Guide alle procedure
   items:
+    - name: Connettere l'app a Dynamics 365 for Field Service
+      href: how-to-configure-connected-field-services.md
     - name: Connettere dispositivi
       items:
         - name: Preparare e connettere un MXChip IoT DevKit
@@ -56,8 +54,6 @@
           href: ../core/howto-export-data-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Creare regole personalizzate
           href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
-        - name: Creare analisi personalizzate con Databricks
-          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Creare analisi personalizzate con Databricks
           href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
     - name: Administration

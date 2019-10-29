@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6afe76aca388f1f6bd479f53eb4e18cc62c10584
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 092da53c3179d939ebf0472219338b8d8392fda6
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268671"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554255"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Creare una mappa per la ricerca interattiva con Mappe di Azure
 
@@ -43,7 +43,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
      ![Creare un account di Mappe di Azure nel portale](./media/quick-demo-map-app/create-account.png)
 
-5. Dopo avere creato l'account, aprirlo e trovare la sezione delle impostazioni del menu dell'account. Selezionare **Chiavi** per visualizzare le chiavi primaria e secondaria per l'account di Mappe di Azure. Copiare il valore di **Chiave primaria** negli Appunti in locale per usarlo nella sezione seguente.
+5. Dopo avere creato l'account, aprirlo e trovare la sezione delle impostazioni del menu dell'account. Selezionare **Autenticazione** per visualizzare la chiave primaria e la chiave secondaria per l'account di Mappe di Azure. Copiare il valore di **Chiave primaria** negli Appunti in locale per usarlo nella sezione seguente.
 
 ## <a name="download-the-application"></a>Scaricare l'applicazione
 
@@ -55,7 +55,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. Aprire il file **AzureMapDemo.html** nel browser che si preferisce.
 2. Osservare la mappa visualizzata della città di Los Angeles. Fare zoom avanti e indietro per osservare come la mappa esegue automaticamente il rendering con più o meno informazioni a seconda del livello di zoom. 
-3. Modificare il centro predefinito della mappa. Nel file **AzureMapDemo.html** cercare la variabile denominata **center**. Sostituire il valore della coppia longitudine, latitudine di questa variabile con i nuovi valori **[-74,0060, 40,7128]**. Salvare il file e aggiornare il browser.
+3. Modificare il centro predefinito della mappa. Nel file **AzureMapDemo.html** cercare la variabile denominata **center**. Sostituire il valore della coppia longitudine, latitudine di questa variabile con i nuovi valori **[-74,0060, 40,7128]** . Salvare il file e aggiornare il browser.
 4. Provare l'esperienza di ricerca interattiva. Nella casella di ricerca nell'angolo in alto a sinistra dell'applicazione Web demo cercare **restaurants**.
 5. Spostare il puntatore del mouse sull'elenco di indirizzi e posizioni visualizzato sotto la casella di ricerca. Osservare che l'indicatore corrispondente sulla mappa visualizza le informazioni sulla posizione corrispondente. Per la privacy delle aziende private, sono visualizzati nomi e indirizzi fittizi.
 

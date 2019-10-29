@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 5f22c9e7b7f040a0e6b957cbc184720918ce9222
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: c55de6b437755f46df8d95a8ee461c0671a52cff
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274149"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791536"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Guida introduttiva: Eseguire un processo Spark in Azure Databricks con il modello di Azure Resource Manager
 
@@ -31,7 +31,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 > [!Note]
 > Questa esercitazione non può essere eseguita usando una **sottoscrizione di valutazione gratuita di Azure**.
-> Se l'utente ha un account gratuito, andare al proprio profilo e modificare la sottoscrizione a **con pagamento in base al consumo**. Per altre informazioni, vedere [Account gratuito di Azure](https://azure.microsoft.com/free/). Quindi [rimuovere il limite di spesa](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center) e [richiedere un aumento della quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) per le vCPU nell'area dell'utente. Quando si crea l'area di lavoro Azure Databricks, è possibile selezionare il piano tariffario **Versione di valutazione (Premium - Unità Databricks gratuite per 14 giorni)** per concedere l'accesso gratuito Premium per 14 giorni dell'area di lavoro alle Unità Databricks di Azure.
+> Se l'utente ha un account gratuito, andare al proprio profilo e modificare la sottoscrizione a **con pagamento in base al consumo**. Per altre informazioni, vedere [Account gratuito di Azure](https://azure.microsoft.com/free/). Quindi [rimuovere il limite di spesa](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) e [richiedere un aumento della quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) per le vCPU nell'area dell'utente. Quando si crea l'area di lavoro Azure Databricks, è possibile selezionare il piano tariffario **Versione di valutazione (Premium - Unità Databricks gratuite per 14 giorni)** per concedere l'accesso gratuito Premium per 14 giorni dell'area di lavoro alle Unità Databricks di Azure.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Creare un'area di lavoro di Azure Databricks
 
@@ -43,7 +43,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il m
 
 2. Specificare i valori richiesti per creare l'area di lavoro di Azure Databricks
 
-   ![Creare un'area di lavoro di Azure Databricks usando un modello di Azure Resource Manager](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-workspace-using-resource-manager-template.png "Creare un'area di lavoro di Azure Databricks usando un modello di Azure Resource Manager")
+   ![Creare un'area di lavoro di Azure Databricks con un modello di Azure Resource Manager](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-workspace-using-resource-manager-template.png "Creare un'area di lavoro di Azure Databricks con un modello di Azure Resource Manager")
 
    Specificare i valori seguenti:
 
@@ -59,7 +59,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il m
 
 4. La creazione dell'area di lavoro richiede alcuni minuti, durante i quali il portale visualizza il riquadro **Invio della distribuzione per Azure Databricks** a destra. Potrebbe essere necessario scorrere verso destra nel dashboard per visualizzare il riquadro. È presente anche un indicatore di stato nella parte superiore della schermata. È possibile esaminare lo stato di avanzamento nelle due aree.
 
-   ![Riquadro di distribuzione Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-deployment-tile.png "Riquadro di distribuzione Databricks")
+   ![Riquadro di distribuzione di Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-deployment-tile.png "Riquadro di distribuzione di Databricks")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Creare un cluster Spark in Databricks
 
@@ -71,7 +71,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il m
 
 3. Nella pagina **New cluster** (Nuovo cluster) specificare i valori per creare un cluster.
 
-   ![Creare il cluster Databricks Spark in Azure](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-spark-cluster.png "Creare il cluster Databricks Spark in Azure")
+   ![Creare un cluster di Databricks Spark in Azure](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-spark-cluster.png "Creare un cluster di Databricks Spark in Azure")
 
    Accettare tutti gli altri valori predefiniti tranne i seguenti:
 
@@ -95,11 +95,11 @@ Eseguire le operazioni seguenti per creare un blocco appunti in Databricks, conf
 
 1. Nel riquadro sinistro fare clic su **Area di lavoro**. Nell'elenco a discesa **Area di lavoro** fare clic su **Crea** e quindi su **Notebook** (Blocco appunti).
 
-   ![Creare un blocco appunti in Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-create-notebook.png "Creare un blocco appunti in Databricks")
+   ![Creare un notebook in Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-create-notebook.png "Creare un notebook in Databricks")
 
 2. Nella finestra di dialogo **Create Notebook** (Crea blocco appunti) immettere un nome, selezionare **Scala** come linguaggio e selezionare il cluster Spark creato in precedenza.
 
-   ![Creare un blocco appunti in Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-details.png "Creare un blocco appunti in Databricks")
+   ![Creare un notebook in Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-details.png "Creare un notebook in Databricks")
 
    Fare clic su **Create**(Crea).
 
@@ -163,7 +163,7 @@ Eseguire le operazioni seguenti per creare un blocco appunti in Databricks, conf
 
 8. In **Customize Plot** (Personalizza grafico) trascinare i valori come illustrato nello screenshot.
 
-   ![Personalizzare il grafico a barre](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-customize-plot.png "Personalizzare il grafico a barre")
+   ![Personalizzare un grafico a barre](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-customize-plot.png "Personalizzare un grafico a barre")
 
    * Impostare **Keys** (Chiavi) su **gender**.
    * Impostare **Series groupings** (Raggruppamenti di serie) su **level**.
@@ -174,13 +174,13 @@ Eseguire le operazioni seguenti per creare un blocco appunti in Databricks, conf
 
 9. L'output mostra la rappresentazione visiva illustrata nello screenshot seguente:
 
-   ![Personalizzare il grafico a barre](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sql-query-output-bar-chart.png "Personalizzare il grafico a barre")
+   ![Personalizzare un grafico a barre](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sql-query-output-bar-chart.png "Personalizzare un grafico a barre")
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Dopo aver finito l'articolo è possibile terminare il cluster. A questo scopo, nel riquadro sinistro dell'area di lavoro di Azure Databricks fare clic su **Clusters** (Cluster). Per il cluster che si vuole terminare, posizionare il cursore sui puntini di sospensione sotto la colonna **Actions** (Azioni) e fare clic sull'icona **Terminate** (Termina).
 
-![Arrestare un cluster Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/terminate-databricks-cluster.png "Arrestare un cluster Databricks")
+![Arrestare un cluster di Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/terminate-databricks-cluster.png "Arrestare un cluster di Databricks")
 
 Se non viene terminato manualmente, il cluster si arresterà automaticamente se è stata selezionata la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo \_\_ minuti di attività) durante la creazione del cluster. In tal caso, il cluster viene automaticamente arrestato se è rimasto inattivo per il tempo specificato.
 

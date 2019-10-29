@@ -1,23 +1,23 @@
 ---
-title: 'Esercitazione REST: Creare una pipeline di arricchimento con intelligenza artificiale usando la ricerca cognitiva - Ricerca di Azure'
-description: Procedura di esempio di estrazione del testo ed elaborazione del linguaggio naturale su contenuto in BLOB JSON con Postman e API REST di Ricerca di Azure.
+title: 'Esercitazione REST: Creare una pipeline di arricchimento tramite intelligenza artificiale per estrarre il testo e la struttura dai BLOB JSON'
+titleSuffix: Azure Cognitive Search
+description: Procedura di esempio di estrazione del testo ed elaborazione del linguaggio naturale su contenuto in BLOB JSON con Postman e API REST di Ricerca cognitiva di Azure.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 08/23/2019
 ms.author: luisca
-ms.openlocfilehash: 6f7c5e2955c57e0e1891593504e5eec1a06bbb04
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: cb05d85c32d7eaed002d3e3bacbe7fdbd17310eb
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265377"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790184"
 ---
-# <a name="tutorial-add-structure-to-unstructured-content-with-cognitive-search"></a>Esercitazione: Definire la struttura di "contenuto non strutturato" con la ricerca cognitiva
+# <a name="tutorial-add-structure-to-unstructured-content-with-ai-enrichment"></a>Esercitazione: Aggiungere struttura a "contenuto non strutturato" con l'arricchimento tramite intelligenza artificiale
 
-Se si dispone di contenuto di testo o immagine non strutturato, è possibile sfruttare la funzionalità di [ricerca cognitiva](cognitive-search-concept-intro.md) di Ricerca di Azure per estrarre informazioni e creare nuovi contenuti utili per gli scenari di ricerca full-text o di knowledge mining. Anche se la ricerca cognitiva consente di elaborare file di immagine (JPG, PNG, TIFF), questa esercitazione è incentrata sul contenuto basato su parole, sull'applicazione del rilevamento della lingua e dell'analisi del testo per creare nuovi campi e informazioni che è possibile sfruttare in query, facet e filtri.
+Se si dispone di contenuto di testo o immagine non strutturato, è possibile usare la [pipeline di arricchimento tramite intelligenza artificiale](cognitive-search-concept-intro.md) per estrarre informazioni e creare nuovo contenuto utile per gli scenari di ricerca full-text o di knowledge mining. Anche se la pipeline consente di elaborare file di immagine (JPG, PNG, TIFF), questa esercitazione è incentrata sul contenuto basato su parole, sull'applicazione del rilevamento della lingua e dell'analisi del testo per creare nuovi campi e informazioni che è possibile sfruttare in query, facet e filtri.
 
 > [!div class="checklist"]
 > * Iniziare con documenti interi (testo non strutturato) come PDF, MD, DOCX e PPTX in Archiviazione BLOB di Azure.
@@ -38,7 +38,7 @@ Se non si ha una sottoscrizione di Azure, aprire un [account gratuito](https://a
 
 ## <a name="1---create-services"></a>1 - Creare i servizi
 
-Questa procedura dettagliata usa Ricerca di Azure per l'indicizzazione e le query, Servizi cognitivi per l'arricchimento con intelligenza artificiale e Archiviazione BLOB di Azure per fornire i dati. Se possibile, creare tutti e tre i servizi nella stessa area e nello stesso gruppo di risorse per motivi di prossimità e gestibilità. In pratica, l'account di archiviazione di Azure può trovarsi in qualsiasi area.
+Questa procedura dettagliata usa Ricerca cognitiva di Azure per l'indicizzazione e le query, Servizi cognitivi per l'arricchimento con intelligenza artificiale e Archiviazione BLOB di Azure per fornire i dati. Se possibile, creare tutti e tre i servizi nella stessa area e nello stesso gruppo di risorse per motivi di prossimità e gestibilità. In pratica, l'account di archiviazione di Azure può trovarsi in qualsiasi area.
 
 ### <a name="start-with-azure-storage"></a>Iniziare con Archiviazione di Azure
 
@@ -46,7 +46,7 @@ Questa procedura dettagliata usa Ricerca di Azure per l'indicizzazione e le quer
 
 1. Cercare *account di archiviazione* e selezionare l'offerta Account di archiviazione di Microsoft.
 
-   ![Creare l'account di archiviazione](media/cognitive-search-tutorial-blob/storage-account.png "Creare l'account di archiviazione")
+   ![Creare un account di archiviazione](media/cognitive-search-tutorial-blob/storage-account.png "Creare l'account di archiviazione")
 
 1. Nella scheda Informazioni di base gli elementi seguenti sono obbligatori. Accettare le impostazioni predefinite per tutti gli altri elementi.
 
@@ -54,7 +54,7 @@ Questa procedura dettagliata usa Ricerca di Azure per l'indicizzazione e le quer
 
    + **Nome account di archiviazione**. Se si ritiene che potrebbero esistere più risorse dello stesso tipo, usare il nome per distinguerle in base al tipo e all'area, ad esempio *blobstoragewestus*. 
 
-   + **Località**. Se possibile, scegliere la stessa località usata per Ricerca di Azure e Servizi cognitivi. La scelta di un'unica località consente di azzerare i costi correlati alla larghezza di banda.
+   + **Località**. Se possibile, scegliere la stessa località usata per Ricerca cognitiva di Azure e Servizi cognitivi. La scelta di un'unica località consente di azzerare i costi correlati alla larghezza di banda.
 
    + **Tipologia account**. Scegliere l'impostazione predefinita *Archiviazione (utilizzo generico v2)* .
 
@@ -68,9 +68,9 @@ Questa procedura dettagliata usa Ricerca di Azure per l'indicizzazione e le quer
 
 1. Selezionare *cog-search-demo* e quindi fare clic su **Carica** per aprire la cartella in cui sono stati salvati i file di download. Selezionare tutti i file non di immagine. I file selezionati dovrebbero essere 7. Fare clic su **OK** per caricarli.
 
-   ![Caricare i file di esempio](media/cognitive-search-tutorial-blob/sample-files.png "Caricare i file di esempio")
+   ![Carica file di esempio](media/cognitive-search-tutorial-blob/sample-files.png "Carica file di esempio")
 
-1. Prima di uscire da Archiviazione di Azure, ottenere una stringa di connessione in modo che sia possibile definire una connessione in Ricerca di Azure. 
+1. Prima di uscire da Archiviazione di Azure, ottenere una stringa di connessione in modo che sia possibile definire una connessione in Ricerca cognitiva di Azure. 
 
    1. Tornare alla pagina Panoramica dell'account di archiviazione (come esempio è stato usato *blobstragewestus*). 
    
@@ -86,17 +86,17 @@ Questa procedura dettagliata usa Ricerca di Azure per l'indicizzazione e le quer
 
 ### <a name="cognitive-services"></a>Servizi cognitivi
 
-L'arricchimento con intelligenza artificiale nella ricerca cognitiva è supportato da Servizi cognitivi, tra Analisi del testo e Visione artificiale per l'elaborazione del linguaggio naturale e delle immagini. Se l'obiettivo è quello di completare un prototipo o un progetto effettivo, a questo punto è necessario effettuare il provisioning di Servizi cognitivi (nella stessa area di Ricerca di Azure) in modo da poterlo collegare alle operazioni di indicizzazione.
+L'arricchimento tramite intelligenza artificiale è supportato dai Servizi cognitivi, ad esempio Analisi del testo e Visione artificiale per l'elaborazione del linguaggio naturale e delle immagini. Se l'obiettivo è quello di completare un prototipo o un progetto effettivo, a questo punto è necessario effettuare il provisioning di Servizi cognitivi (nella stessa area di Ricerca cognitiva di Azure) in modo da poter collegare il servizio alle operazioni di indicizzazione.
 
-Per questo esercizio è però possibile ignorare il provisioning delle risorse perché Ricerca di Azure riesce a connettersi a Servizi cognitivi in background e offre 20 transazioni gratuite per ogni esecuzione dell'indicizzatore. Dal momento che in questa esercitazione vengono usate 7 transazioni, l'allocazione gratuita è sufficiente. Per progetti di dimensioni maggiori, pianificare il provisioning di Servizi cognitivi al livello S0 con pagamento in base al consumo. Per altre informazioni, vedere [Collegare Servizi cognitivi](cognitive-search-attach-cognitive-services.md).
+Per questo esercizio è tuttavia possibile ignorare il provisioning delle risorse perché Ricerca cognitiva di Azure riesce a connettersi a Servizi cognitivi in background e offre 20 transazioni gratuite per ogni esecuzione dell'indicizzatore. Dal momento che in questa esercitazione vengono usate 7 transazioni, l'allocazione gratuita è sufficiente. Per progetti di dimensioni maggiori, pianificare il provisioning di Servizi cognitivi al livello S0 con pagamento in base al consumo. Per altre informazioni, vedere [Collegare Servizi cognitivi](cognitive-search-attach-cognitive-services.md).
 
-### <a name="azure-search"></a>Ricerca di Azure
+### <a name="azure-cognitive-search"></a>Ricerca cognitiva di Azure
 
-Il terzo componente è Ricerca di Azure, che è [possibile creare nel portale](search-create-service-portal.md). Per completare questa procedura dettagliata, è possibile usare il livello gratuito. 
+Il terzo componente è Ricerca cognitiva di Azure, che è [possibile creare nel portale](search-create-service-portal.md). Per completare questa procedura dettagliata, è possibile usare il livello gratuito. 
 
 Come per Archiviazione BLOB di Azure dedicare qualche istante alla raccolta della chiave di accesso. Più avanti, quando si inizierà a strutturare le richieste, sarà necessario specificare l'endpoint e la chiave API di amministrazione usati per autenticare ogni richiesta.
 
-### <a name="get-an-admin-api-key-and-url-for-azure-search"></a>Ottenere un URL e una chiave API di amministrazione per Ricerca di Azure
+### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Ottenere un URL e una chiave API di amministrazione per Ricerca cognitiva di Azure
 
 1. [Accedere al portale di Azure](https://portal.azure.com/) e ottenere il nome del servizio di ricerca nella relativa pagina **Panoramica**. È possibile verificare il nome del servizio esaminando l'URL dell'endpoint. Se l'URL dell'endpoint fosse `https://mydemo.search.windows.net`, il nome del servizio sarebbe `mydemo`.
 
@@ -110,17 +110,17 @@ Nell'intestazione di ogni richiesta inviata al servizio è necessario specificar
 
 ## <a name="2---set-up-postman"></a>2 - Configurare Postman
 
-Avviare Postman e configurare una richiesta HTTP. Se non si ha familiarità con questo strumento, vedere [Esplorare le API REST di Ricerca di Azure con Postman](search-get-started-postman.md) per altre informazioni.
+Avviare Postman e configurare una richiesta HTTP. Se non si ha familiarità con questo strumento, vedere [Esplorare le API REST di Ricerca cognitiva di Azure con Postman](search-get-started-postman.md) per altre informazioni.
 
 I metodi di richiesta usati in questa esercitazione sono **POST**, **PUT** e **GET**. Questi metodi verranno usati per effettuare quattro chiamate API al servizio di ricerca e in particolare per creare un'origine dati, un set di competenze, un indice e un indicizzatore.
 
-In Headers (Intestazioni) impostare "Content-type" su `application/json` e `api-key` sulla chiave API di amministrazione del servizio Ricerca di Azure. Dopo aver impostato le intestazioni, è possibile usarle per ogni richiesta in questo esercizio.
+In Headers (Intestazioni) impostare "Content-type" su `application/json` e `api-key` sulla chiave API di amministrazione del servizio Ricerca cognitiva di Azure. Dopo aver impostato le intestazioni, è possibile usarle per ogni richiesta in questo esercizio.
 
-  ![URL e intestazione della richiesta Postman](media/search-get-started-postman/postman-url.png "URL e intestazione della richiesta Postman")
+  ![Intestazione e URL della richiesta Postman](media/search-get-started-postman/postman-url.png "Intestazione e URL della richiesta Postman")
 
 ## <a name="3---create-the-pipeline"></a>3 - Creare la pipeline
 
-In Ricerca di Azure l'elaborazione di intelligenza artificiale viene eseguita durante l'indicizzazione o l'inserimento dati. In questa parte della procedura dettagliata vengono creati quattro oggetti: origine dati, definizione dell'indice, set di competenze e indicizzatore. 
+In Ricerca cognitiva di Azure l'elaborazione tramite intelligenza artificiale viene eseguita durante l'indicizzazione o l'inserimento dati. In questa parte della procedura dettagliata vengono creati quattro oggetti: origine dati, definizione dell'indice, set di competenze e indicizzatore. 
 
 ### <a name="step-1-create-a-data-source"></a>Passaggio 1: Creare un'origine dati
 
@@ -171,7 +171,7 @@ Un [oggetto set di competenze](https://docs.microsoft.com/rest/api/searchservice
    | [Suddivisione del testo](cognitive-search-skill-textsplit.md)  | Suddivide il contenuto di grandi dimensioni in blocchi più piccoli prima di chiamare la competenza di estrazione delle frasi chiave. L'estrazione delle frasi chiave accetta input di al massimo 50.000 caratteri. Alcuni dei file di esempio devono essere suddivisi per rispettare questo limite. |
    | [Estrazione frasi chiave](cognitive-search-skill-keyphrases.md) | Estrae le frasi chiave principali. |
 
-   Ogni competenza viene eseguita sul contenuto del documento. Durante l'elaborazione, Ricerca di Azure analizza ogni documento per leggere il contenuto da formati di file diversi. Il testo trovato con origine nel file di origine viene inserito in un campo ```content``` generato, uno per ogni documento. L'input diventa quindi ```"/document/content"```.
+   Ogni competenza viene eseguita sul contenuto del documento. Durante l'elaborazione, Ricerca cognitiva di Azure esegue il cracking di ogni documento per leggere il contenuto da formati di file diversi. Il testo trovato con origine nel file di origine viene inserito in un campo ```content``` generato, uno per ogni documento. L'input diventa quindi ```"/document/content"```.
 
    Dal momento che per l'estrazione di frasi chiave si usa la competenza di suddivisione del testo per suddividere file più grandi in pagine, il contesto per la competenza di estrazione delle frasi chiave è ```"document/pages/*"``` (per ogni pagina del documento) invece di ```"/document/content"```.
 
@@ -230,7 +230,7 @@ Un [oggetto set di competenze](https://docs.microsoft.com/rest/api/searchservice
     ```
     Di seguito è riportata una rappresentazione grafica del set di competenze. 
 
-    ![Comprendere un set di competenze](media/cognitive-search-tutorial-blob/skillset.png "Comprendere un set di competenze")
+    ![Informazioni sui set di competenze](media/cognitive-search-tutorial-blob/skillset.png "Informazioni sui set di competenze")
 
 1. Inviare la richiesta. Postman dovrebbe restituire un codice di stato 201 a conferma dell'esito positivo dell'operazione. 
 
@@ -239,7 +239,7 @@ Un [oggetto set di competenze](https://docs.microsoft.com/rest/api/searchservice
 
 ### <a name="step-3-create-an-index"></a>Passaggio 3: Creare un indice
 
-Un [indice](https://docs.microsoft.com/rest/api/searchservice/create-index) fornisce lo schema usato per creare l'espressione fisica del contenuto negli indici invertiti e in altri costrutti in Ricerca di Azure. Il componente più grande di un indice è la raccolta fields, in cui il tipo di dati e gli attributi determinano il contenuto e i comportamenti in Ricerca di Azure.
+Un [indice](https://docs.microsoft.com/rest/api/searchservice/create-index) fornisce lo schema usato per creare l'espressione fisica del contenuto negli indici invertiti e in altri costrutti in Ricerca cognitiva di Azure. Il componente più grande di un indice è la raccolta fields, in cui il tipo di dati e gli attributi determinano il contenuto e i comportamenti in Ricerca cognitiva di Azure.
 
 1. Usare **PUT** e l'URL seguente, sostituendo YOUR-SERVICE-NAME con il nome effettivo del servizio, per assegnare un nome all'indice.
 
@@ -323,7 +323,7 @@ Un [indice](https://docs.microsoft.com/rest/api/searchservice/create-index) forn
 
 ### <a name="step-4-create-and-run-an-indexer"></a>Passaggio 4: Creare ed eseguire un indicizzatore
 
-Un [indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer) consente di gestire la pipeline. I tre componenti creati finora (origine dati, set di competenze, indice) costituiscono i valori di input di un indicizzatore. La creazione dell'indicizzatore in Ricerca di Azure è l'evento che mette in moto l'intera pipeline. 
+Un [indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer) consente di gestire la pipeline. I tre componenti creati finora (origine dati, set di competenze, indice) costituiscono i valori di input di un indicizzatore. La creazione dell'indicizzatore in Ricerca cognitiva di Azure è l'evento che mette in moto l'intera pipeline. 
 
 1. Usare **PUT** e l'URL seguente, sostituendo YOUR-SERVICE-NAME con il nome effettivo del servizio, per assegnare un nome all'indicizzatore.
 
@@ -445,7 +445,7 @@ Ricordare che all'inizio è stato usato il contenuto del BLOB, in cui l'intero d
    
    I risultati di questa query restituiscono il contenuto del documento, ovvero lo stesso risultato che si otterrebbe usando l'indicizzatore BLOB senza la pipeline di ricerca cognitiva. Questo campo è ricercabile ma non funziona se si intende usare facet, filtri o il completamento automatico.
 
-   ![Output del campo content](media/cognitive-search-tutorial-blob/content-output.png "Output del campo content")
+   ![Output del campo del contenuto](media/cognitive-search-tutorial-blob/content-output.png "Output del campo del contenuto")
    
 1. Per la seconda query restituire alcuni dei nuovi campi creati dalla pipeline (persons, organizations, locations, languageCode). Il campo keyPhrases viene omesso per brevità, ma è consigliabile includerlo se si intende visualizzare tali valori.
 
@@ -481,7 +481,7 @@ Queste query illustrano alcuni dei modi in cui è possibile usare la sintassi di
 
 ## <a name="reset-and-rerun"></a>Reimpostare ed eseguire di nuovo
 
-Nelle prime fasi sperimentali dello sviluppo della pipeline, l'approccio più pratico per le iterazioni di progettazione consiste nell'eliminare gli oggetti da Ricerca di Azure e consentire al codice di ricompilarli. I nomi di risorsa sono univoci. L'eliminazione di un oggetto consente di ricrearlo usando lo stesso nome.
+Nelle prime fasi sperimentali dello sviluppo della pipeline, l'approccio più pratico per le iterazioni di progettazione consiste nell'eliminare gli oggetti da Ricerca cognitiva di Azure e consentire al codice di ricompilarli. I nomi di risorsa sono univoci. L'eliminazione di un oggetto consente di ricrearlo usando lo stesso nome.
 
 Per reindicizzare i documenti con le nuove definizioni:
 
@@ -503,17 +503,17 @@ Con l'evoluzione del codice può risultare necessario perfezionare una strategia
 
 Questa esercitazione illustra i passaggi di base per la compilazione di una pipeline di indicizzazione arricchita tramite la creazione delle parti componenti: un'origine dati, un set di competenze, un indice e un indicizzatore.
 
-Sono state presentate le [competenze predefinite](cognitive-search-predefined-skills.md), oltre alla definizione del set di competenze e ai meccanismi di concatenamento delle competenze tramite input e output. Si è inoltre appreso che `outputFieldMappings` nella definizione dell'indicizzatore è obbligatorio per indirizzare i valori arricchiti dalla pipeline in un indice di ricerca in un servizio Ricerca di Azure.
+Sono state presentate le [competenze predefinite](cognitive-search-predefined-skills.md), oltre alla definizione del set di competenze e ai meccanismi di concatenamento delle competenze tramite input e output. Si è inoltre appreso che `outputFieldMappings` nella definizione dell'indicizzatore è necessario per indirizzare i valori arricchiti dalla pipeline in un indice di ricerca in un servizio Ricerca cognitiva di Azure.
 
 Infine, è stato descritto come testare i risultati e reimpostare il sistema per ulteriori iterazioni. Si è appreso che l'esecuzione di query sull'indice consente di restituire l'output creato dalla pipeline di indicizzazione arricchita. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Il modo più veloce per pulire le risorse dopo un'esercitazione consiste nell'eliminare il gruppo di risorse contenente il servizio Ricerca di Azure e il servizio BLOB di Azure. Supponendo che entrambi i servizi siano stati inseriti nello stesso gruppo, eliminare il gruppo di risorse a questo punto per eliminare definitivamente tutti gli elementi in esso contenuti, inclusi i servizi e qualsiasi contenuto archiviato creato per questa esercitazione. Nel portale, il nome del gruppo di risorse è indicato nella pagina Panoramica di ciascun servizio.
+Il modo più veloce per pulire le risorse dopo un'esercitazione consiste nell'eliminare il gruppo di risorse contenente il servizio Ricerca cognitiva di Azure e il servizio BLOB di Azure. Supponendo che entrambi i servizi siano stati inseriti nello stesso gruppo, eliminare il gruppo di risorse a questo punto per eliminare definitivamente tutti gli elementi in esso contenuti, inclusi i servizi e qualsiasi contenuto archiviato creato per questa esercitazione. Nel portale, il nome del gruppo di risorse è indicato nella pagina Panoramica di ciascun servizio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Personalizzare o estendere la pipeline con competenze personalizzate. Creare una competenza personalizzata e aggiungerla a un set di competenze consente di caricare procedure di analisi del testo o delle immagini personalizzate. 
 
 > [!div class="nextstepaction"]
-> [Esempio: Creare una competenza personalizzata per la ricerca cognitiva](cognitive-search-create-custom-skill-example.md)
+> [Esempio: Creazione di una competenza personalizzata per l'arricchimento tramite intelligenza artificiale](cognitive-search-create-custom-skill-example.md)

@@ -1,24 +1,25 @@
 ---
-title: Esercitazione per C# sull'ordinamento dei risultati - Ricerca di Azure
-description: Questa esercitazione si basa sul progetto "Paginazione dei risultati della ricerca - Ricerca di Azure" per aggiungere l'ordinamento dei risultati della ricerca. Vengono fornite informazioni su come ordinare i risultati in base a una proprietà primaria e, per i risultati con la stessa proprietà primaria, come ordinare i risultati in base a una proprietà secondaria. Vengono infine fornite informazioni su come ordinare i risultati in base a un profilo di punteggio.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: Esercitazione per C# sull'ordinamento dei risultati
+titleSuffix: Azure Cognitive Search
+description: Questa esercitazione si basa sul progetto "Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure" per aggiungere l'ordinamento dei risultati della ricerca. Vengono fornite informazioni su come ordinare i risultati in base a una proprietà primaria e, per i risultati con la stessa proprietà primaria, come ordinare i risultati in base a una proprietà secondaria. Vengono infine fornite informazioni su come ordinare i risultati in base a un profilo di punteggio.
+manager: nitinme
 author: PeterTurcan
-ms.date: 06/21/2019
-ms.openlocfilehash: 684ce33e5ecf587aa2030a817680f2d405225117
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 8d0c8e2a4467fe56cc0633a7d501af0c6aeed22a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327655"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794047"
 ---
-# <a name="c-tutorial-order-the-results---azure-search"></a>Esercitazione per C#: Ordinare i risultati - Ricerca di Azure
+# <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>Esercitazione per C#: Ordinare i risultati - Ricerca cognitiva di Azure
 
 Fino a questo punto nella serie di esercitazioni, i risultati vengono restituiti e visualizzati in base a un ordine predefinito. Può trattarsi dell'ordine in cui si trovano i dati o eventualmente di un _profilo di punteggio_ che è stato definito e che verrà usato quando non vengono specificati parametri di ordinamento. In questa esercitazione verrà illustrato come ordinare i risultati in base a una proprietà primaria e quindi, per i risultati con la stessa proprietà primaria, come ordinare tale selezione in base a una proprietà secondaria. In alternativa all'ordinamento basato su valori numerici, nell'esempio finale viene illustrato come ordinare i risultati in base a un profilo di punteggio personalizzato. Verrà anche illustrata in dettaglio la visualizzazione dei _tipi complessi_.
 
-Per poter confrontare facilmente i risultati restituiti, questo progetto si basa sul progetto di scorrimento infinito creato in [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca di Azure](tutorial-csharp-paging.md).
+Per poter confrontare facilmente i risultati restituiti, questo progetto si basa sul progetto di scorrimento infinito creato in [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure](tutorial-csharp-paging.md).
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
@@ -31,7 +32,7 @@ In questa esercitazione si apprenderà come:
 
 Per completare questa esercitazione, è necessario:
 
-Disporre della versione con scorrimento infinito del progetto [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca di Azure](tutorial-csharp-paging.md) attivo e in esecuzione. Questo progetto può essere una versione personalizzata oppure può essere installato da GitHub: [Creare la prima app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Disporre della versione con scorrimento infinito del progetto [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure](tutorial-csharp-paging.md) attiva e in esecuzione. Questo progetto può essere una versione personalizzata oppure può essere installato da GitHub: [Creare la prima app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="order-results-based-on-one-property"></a>Ordinare i risultati in base a un'unica proprietà
 
@@ -435,7 +436,7 @@ Per visualizzare i risultati in base alla distanza geografica, sono necessari di
     OrderBy = new[] { $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') asc" },
     ```
 
-3. Anche se i risultati sono stati restituiti da Ricerca di Azure usando un filtro di distanza, la distanza calcolata tra i dati e il punto specificato _non_ viene restituita. Ricalcolare questo valore nella visualizzazione o nel controller se si vuole includerlo nei risultati.
+3. Anche se i risultati sono stati restituiti da Ricerca cognitiva di Azure usando un filtro di distanza, la distanza calcolata tra i dati e il punto specificato _non_ viene restituita. Ricalcolare questo valore nella visualizzazione o nel controller se si vuole includerlo nei risultati.
 
     Il codice seguente consente di calcolare la distanza tra due punti lat/lon.
 
@@ -465,7 +466,7 @@ Per visualizzare i risultati in base alla distanza geografica, sono necessari di
 
 ## <a name="order-results-based-on-a-scoring-profile"></a>Ordinare i risultati in base a un profilo di punteggio
 
-Gli esempi forniti finora nell'esercitazione mostrano come ordinare i risultati in base a valori numerici (valutazione, data di ristrutturazione, distanza geografica), offrendo un processo di ordinamento _esatto_. Tuttavia, con alcune ricerche e alcuni dati non è semplice eseguire un confronto tra due elementi dati. Ricerca di Azure include il concetto di _punteggio_. È possibile specificare _profili di punteggio_ per un set di dati utilizzabile per confronti più complessi e di qualità, caratteristica essenziale quando si confrontano dati basati su testo per decidere quelli da visualizzare per primi.
+Gli esempi forniti finora nell'esercitazione mostrano come ordinare i risultati in base a valori numerici (valutazione, data di ristrutturazione, distanza geografica), offrendo un processo di ordinamento _esatto_. Tuttavia, con alcune ricerche e alcuni dati non è semplice eseguire un confronto tra due elementi dati. Ricerca cognitiva di Azure include il concetto di _punteggio_. È possibile specificare _profili di punteggio_ per un set di dati utilizzabile per confronti più complessi e di qualità, caratteristica essenziale quando si confrontano dati basati su testo per decidere quelli da visualizzare per primi.
 
 I profili di punteggio non sono definiti dagli utenti, ma in genere dagli amministratori di un set di dati. Per i dati degli alberghi sono stati configurati diversi profili di punteggio. Verrà ora esaminato come definire un profilo di punteggio e provare a scrivere codice per eseguire ricerche basate sui profili.
 
@@ -957,7 +958,7 @@ Esaminare tre esempi di profili di punteggio e considerare in che modo ognuno _d
 
 ### <a name="resources"></a>Risorse
 
-Per altre informazioni, vedere l'articolo seguente [Aggiungere profili di punteggio a un indice di Ricerca di Azure](https://docs.microsoft.com/azure/search/index-add-scoring-profiles).
+Per altre informazioni, vedere l'articolo seguente [Aggiungere profili di punteggio a un indice di Ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/index-add-scoring-profiles).
 
 ## <a name="takeaways"></a>Risultati
 
@@ -971,6 +972,6 @@ Tenere conto delle considerazioni seguenti riguardo a questo progetto:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa serie di esercitazioni per C# è stata completata. A questo punto si sono acquisite utili informazioni sulle API di Ricerca di Azure.
+Questa serie di esercitazioni per C# è stata completata. A questo punto sono state acquisite conoscenze preziose sulle API di Ricerca cognitiva di Azure.
 
-Per altre informazioni di riferimento ed esercitazioni, provare a esplorare [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure) o a eseguire le altre esercitazioni disponibili nella [documentazione di Ricerca di Azure](https://docs.microsoft.com/azure/search/).
+Per altre informazioni di riferimento ed esercitazioni, provare a esplorare [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure) o a completare le altre esercitazioni disponibili nella [documentazione di Ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/).

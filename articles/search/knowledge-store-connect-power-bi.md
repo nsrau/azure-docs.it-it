@@ -1,23 +1,24 @@
 ---
-title: Connettere un archivio conoscenze con Power BI - Ricerca di Azure
-description: Connettere un archivio conoscenze di Ricerca di Azure con Power BI per l'analisi e l'esplorazione.
+title: Connettersi un archivio conoscenze con Power BI
+titleSuffix: Azure Cognitive Search
+description: Connettere un archivio conoscenze di Ricerca cognitiva di Azure a Power BI per l'analisi e l'esplorazione.
 author: lisaleib
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 09/03/2019
+manager: nitinme
 ms.author: v-lilei
-ms.openlocfilehash: de282213535a2e49f73bc30e476bae02d470fdb2
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 7852eda849dfb05343829875ba5a66fa47970e7e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265657"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790077"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Connettere un archivio conoscenze con Power BI
 
 > [!Note]
-> La funzionalità dell'archivio conoscenze è in anteprima e non deve essere usata in ambienti di produzione. È inclusa nell'[API REST di Ricerca di Azure versione 2019-05-06-Preview](search-api-preview.md). Non è attualmente disponibile alcun supporto di .NET SDK.
+> La funzionalità dell'archivio conoscenze è in anteprima e non deve essere usata in ambienti di produzione. È inclusa nell'[API REST di Ricerca cognitiva di Azure versione 2019-05-06-Preview](search-api-preview.md). Non è attualmente disponibile alcun supporto di .NET SDK.
 >
 Questo articolo illustra come connettere ed esplorare un archivio conoscenze usando Power Query nell'app Power BI Desktop. Per creare l'esempio di archivio conoscenze usato in questa procedura dettagliata, vedere [Creare un archivio conoscenze nel portale di Azure](knowledge-store-create-portal.md).
 
@@ -39,7 +40,7 @@ Questo articolo illustra come connettere ed esplorare un archivio conoscenze usa
 
 1. Se richiesto, immettere la chiave dell'account di archiviazione.
 
-1. Selezionare le tabelle *hotelReviewsSsDocument*, *hotelReviewsSsKeyPhrases* e *hotelReviewsSsPages*. Queste tabelle sono le proiezioni di tabelle di Azure dei dati di esempio delle recensioni di hotel e includono gli arricchimenti dei servizi cognitivi selezionati al momento della creazione dell'archivio conoscenze.
+1. Selezionare le tabelle *hotelReviewsSsDocument*, *hotelReviewsSsKeyPhrases* e *hotelReviewsSsPages*. Queste tabelle sono le proiezioni di tabelle di Azure dei dati di esempio delle recensioni di hotel e includono gli arricchimenti tramite intelligenza artificiale selezionati al momento della creazione dell'archivio conoscenze.
 
 1. Fare clic su **Carica**.
 
@@ -60,7 +61,7 @@ Questo articolo illustra come connettere ed esplorare un archivio conoscenze usa
    + Per *Content.latitude* e *Content.longitude* selezionare **Numero decimale**.
    + Per *Content.reviews_date* e *Content.reviews_dateAdded* selezionare **Data/ora**.
 
-   ![Cambiare i tipi di dati](media/knowledge-store-connect-power-bi/powerbi-change-type.png "Cambiare i tipi di dati")
+   ![Modificare i tipi di dati](media/knowledge-store-connect-power-bi/powerbi-change-type.png "Modificare i tipi di dati")
 
 1. Selezionare *hotelReviewsSsPages*, quindi ripetere i passaggi 9 e 10 per eliminare le colonne ed espandere *Contenuto*.
 1. Cambiare il tipo di dati di *Content.SentimentScore* in **Numero decimale**.
@@ -70,7 +71,7 @@ Questo articolo illustra come connettere ed esplorare un archivio conoscenze usa
 
 1. Fare clic sul riquadro Modello nel riquadro di spostamento a sinistra e verificare che Power BI mostri le relazioni fra le tre tabelle.
 
-   ![Verificare le relazioni](media/knowledge-store-connect-power-bi/powerbi-relationships.png "Verificare le relazioni")
+   ![Convalidare le relazioni](media/knowledge-store-connect-power-bi/powerbi-relationships.png "Convalidare le relazioni")
 
 1. Fare doppio clic su ogni relazione e verificare che **Direzione filtro incrociato** sia impostato su **Entrambe**.  Questa impostazione consente l'aggiornamento degli oggetti visivi quando viene applicato un filtro.
 
@@ -87,7 +88,7 @@ Create new containers in Azure Blob storage and upload each CSV file to its own 
 | Medium (6000 Records)| [HotelReviews_Medium.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Medium.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D)
 | Large (Full dataset 35000 Records) | [HotelReviews_Large.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Large.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). Be aware that very large data sets are expensive to process. This one costs roughly $1000 U.S dollars.|
 
-In the enrichment step of the wizard, attach a billable [Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) resource, created at the *S0* tier, in the same region as Azure Search to use larger data sets. 
+In the enrichment step of the wizard, attach a billable [Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) resource, created at the *S0* tier, in the same region as Azure Cognitive Search to use larger data sets. 
 
   ![Create a Cognitive Services resource](media/knowledge-store-connect-power-bi/create-cognitive-service.png "Create a Cognitive Services resource") -->
 

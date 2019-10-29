@@ -3,15 +3,64 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/20/2019
-ms.openlocfilehash: e64363c39675305c94557515e54db53c722c6a5f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 10/08/2019
+ms.openlocfilehash: a7ae6cb1231e4c202dfd0a39602c03b33099d088
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639344"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554706"
 ---
-I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per Rilevamento anomalie usando il [portale di Azure](../articles/cognitive-services/cognitive-services-apis-create-account.md) o l'[interfaccia della riga di comando di Azure](../articles/cognitive-services/cognitive-services-apis-create-account-cli.md) nel computer locale. È anche possibile:
+Iniziare a usare il servizio Rilevamento anomalie creando una delle risorse di Azure seguenti.
 
-* Ottenere un [codice di valutazione gratuito](https://azure.microsoft.com/try/cognitive-services/#decision) valido per 7 giorni. Dopo aver eseguito l'iscrizione, sarà disponibile sul [sito Web di Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* Visualizzare questa risorsa nel [portale di Azure](https://portal.azure.com/).
+* Una [risorsa di valutazione](https://azure.microsoft.com/try/cognitive-services/#decision) (non richiede una sottoscrizione di Azure): 
+    * è gratuita e valida sette giorni. Dopo aver eseguito l'iscrizione, una chiave di valutazione e un endpoint saranno disponibili sul [sito Web di Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
+    * Si tratta di un'ottima soluzione se si vuole provare Rilevamento anomalie, ma non si ha una sottoscrizione di Azure.
+
+* [Risorsa Rilevamento anomalie](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector):
+    * disponibile tramite il [portale di Azure](https://ms.portal.azure.com#blade/HubsExtension/BrowseResourceGroupBlade) fino a quando la risorsa non viene eliminata.
+    * Usare il piano tariffario gratuito per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
+
+### <a name="create-an-environment-variable"></a>Creare una variabile di ambiente
+
+>[!NOTE]
+> Gli endpoint per le risorse non di valutazione create dopo il 1° luglio 2019 usano il formato di sottodominio personalizzato riportato di seguito. Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+
+Usando la chiave e l'endpoint della risorsa creata, creare due variabili di ambiente per l'autenticazione:
+
+* `ANOMALY_DETECTOR_KEY`: la chiave della risorsa per l'autenticazione delle richieste.
+* `ANOMALY_DETECTOR_ENDPOINT`: l'endpoint della risorsa per l'invio delle richieste API. L'aspetto sarà simile al seguente: 
+  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+
+Usare le istruzioni per il sistema operativo in uso.
+
+#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+```console
+setx ANOMALY_DETECTOR_KEY your-anomaly-detector-key
+setx ANOMALY_DETECTOR_ENDPOINT your-anomaly-detector-endpoint
+```
+
+Dopo aver aggiunto la variabile di ambiente, riavviare la finestra della console.
+
+#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+```bash
+export ANOMALY_DETECTOR_KEY=your-anomaly-detector-key
+export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
+```
+
+Dopo avere aggiunto la variabile di ambiente, eseguire `source ~/.bashrc` dalla finestra della console per rendere effettive le modifiche.
+
+#### <a name="macostabunix"></a>[macOS](#tab/unix)
+
+Modificare `.bash_profile` e aggiungere la variabile di ambiente:
+
+```bash
+export ANOMALY_DETECTOR_KEY=your-anomaly-detector-key
+export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
+```
+
+Dopo avere aggiunto la variabile di ambiente, eseguire `source .bash_profile` dalla finestra della console per rendere effettive le modifiche.
+
+***

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 08/01/2019
+ms.date: 10/15/2019
 ms.author: aahi
-ms.openlocfilehash: 28dbcde723e25577545cfd44fed9ef00249d8f30
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 926d7043ea6f56c1ba6d13fd4586fc6f6d59cfa8
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694899"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554694"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>Guida introduttiva: Libreria client di Rilevamento anomalie per Python
 
@@ -26,7 +26,7 @@ Usare la libreria client di Rilevamento anomalie per Python per:
 * Rilevare le anomalie nel set di dati delle serie temporali come richiesta batch
 * Rilevare lo stato di anomalia del punto dati più recente nella serie temporale
 
-[Documentazione di riferimento della libreria](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Pacchetto (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [Esempi](https://github.com/Azure-Samples/anomalydetector)
+[Documentazione di riferimento della libreria](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Pacchetto (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [Esempi di codice](https://github.com/Azure-Samples/anomalydetector)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,11 +40,9 @@ Usare la libreria client di Rilevamento anomalie per Python per:
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-Dopo aver ottenuto una chiave dalla sottoscrizione di valutazione o dalla risorsa, [creare una variabile di ambiente](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) per la chiave, denominata `ANOMALY_DETECTOR_KEY`.
-
 ### <a name="create-a-new-python-application"></a>Creare una nuova applicazione Python
 
- Creare una nuova applicazione Python nell'ambiente di sviluppo integrato o nell'editor preferito. Importare quindi le librerie seguenti.
+ Creare un nuovo file Python e importare le librerie seguenti.
 
 [!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
 
@@ -114,7 +112,7 @@ Chiamare l'API Rilevamento anomalie per determinare se il punto dati più recent
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
-Eseguire l'applicazione nell'IDE o nella riga di comando con il comando `python` e il nome file.
+Eseguire l'applicazione con il comando `python` e il nome del file.
  
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

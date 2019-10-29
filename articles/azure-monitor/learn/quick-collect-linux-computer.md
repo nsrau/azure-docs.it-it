@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
-ms.custom: mvc, seo-javascript-september2019
-ms.openlocfilehash: 72f50754a28f0bbf5648ae64299d28ff13e2ec31
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: 959f36107ab9f79d4e66cc23b0744f1dbb8b2690
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703046"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677954"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Guida introduttiva: Raccogliere dati da un computer Linux in un ambiente ibrido con Monitoraggio di Azure
 
@@ -37,7 +37,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Aree di lavoro di Log Analytics**.
 
-    ![Portale di Azure](media/quick-collect-azurevm/azure-portal-01.png)<br>  
+    ![Ricerca di un'area di lavoro Log Analytics nel portale di Azure](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Selezionare **Crea** e quindi scegliere le opzioni per gli elementi seguenti:
 
@@ -47,7 +47,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
    * Selezionare la **località** in cui sono distribuite le VM.  Per altre informazioni, vedere le [are in cui è disponibile Log Analytics](https://azure.microsoft.com/regions/services/).
    * Se si sta creando un'area di lavoro in una nuova sottoscrizione creata dopo il 2 aprile 2018, verrà automaticamente usato il piano di determinazione dei prezzi *Per GB* e non sarà disponibile l'opzione che consente di selezionare un piano tariffario.  Se si sta creando un'area di lavoro per una sottoscrizione esistente creata prima del 2 aprile o per una sottoscrizione collegata a un Contratto Enterprise esistente, selezionare il piano tariffario preferito.  Per altre informazioni sui piani specifici, vedere [Dettagli prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
   
-        ![Creare il pannello della risorsa Log Analytics](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![Creazione di un'area di lavoro Log Analytics nel portale di Azure](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
 3. Dopo aver specificato le informazioni necessarie nel riquadro **Area di lavoro di Log Analytics**, selezionare **OK**.  
 
@@ -65,7 +65,7 @@ Prima di installare l'agente di Log Analytics per Linux, sono necessari l'ID e l
 
 3. Selezionare **Impostazioni avanzate**:
 
-    ![Impostazioni avanzate di Log Analytics](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png) 
+    ![Menu Impostazioni avanzate per l'area di lavoro Log Analytics nel portale di Azure](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png) 
  
 4. Selezionare **Origini connesse**, quindi **Server Linux**.
 
@@ -129,7 +129,7 @@ Monitoraggio di Azure può raccogliere gli eventi specificati da Linux Syslog e 
 
 7. Quando si configurano i contatori delle prestazioni di Linux per la prima volta per una nuova area di lavoro Log Analytics, è possibile creare rapidamente numerosi contatori comuni. Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.
 
-    ![Contatori delle prestazioni di Windows predefiniti selezionati](media/quick-collect-azurevm/linux-perfcounters-default.png)
+    ![Contatori delle prestazioni predefiniti di Linux selezionati in Monitoraggio di Azure](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
     Selezionare **Applica la configurazione seguente alle macchine virtuali** e quindi **Aggiungi i contatori delle prestazioni selezionati**. Vengono aggiunti e preimpostati con un intervallo di esempio tra le raccolte di dieci secondi.  
 

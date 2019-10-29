@@ -1,22 +1,23 @@
 ---
-title: Esercitazione C# per creare la prima app - Ricerca di Azure
-description: Questa esercitazione offre una guida dettagliata per la creazione della prima app per Ricerca di Azure. L'esercitazione fornisce sia un collegamento a un'app funzionante su GitHub che il processo completo per creare l'app da zero. Informazioni sui componenti fondamentali di Ricerca di Azure.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: Esercitazione per C# su come creare la prima app
+titleSuffix: Azure Cognitive Search
+description: Esercitazione passo passo per creare la prima app di ricerca. L'esercitazione fornisce sia un collegamento a un'app funzionante su GitHub che il processo completo per creare l'app da zero. Informazioni sui componenti fondamentali di Ricerca cognitiva di Azure.
+manager: nitinme
 author: PeterTurcan
-ms.date: 05/01/2019
-ms.openlocfilehash: d569437a3e6f6f05ddb9c6fa85f62c77ac51f72b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 3f234a11aeaf7af4e47fb0cf6310ecd68d35e4da
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443808"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794143"
 ---
-# <a name="c-tutorial-create-your-first-app---azure-search"></a>Esercitazione per C#: Creare la prima app - Ricerca di Azure
+# <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>Esercitazione per C#: Creare la prima app - Ricerca cognitiva di Azure
 
-Informazioni su come creare un'interfaccia Web per eseguire query e presentare i risultati della ricerca da un indice con Ricerca di Azure. Questa esercitazione inizia con un indice ospitato già esistente in modo da potersi concentrare sulla creazione di una pagina di ricerca. L'indice contiene dati di hotel fittizi. Dopo aver creato una pagina di base, è possibile migliorarla nelle lezioni successive e includere l'impaginazione, i facet e un'esperienza di completamento automatico.
+Informazioni su come creare un'interfaccia Web per eseguire query e presentare i risultati della ricerca da un indice con Ricerca cognitiva di Azure. Questa esercitazione inizia con un indice ospitato già esistente in modo da potersi concentrare sulla creazione di una pagina di ricerca. L'indice contiene dati di hotel fittizi. Dopo aver creato una pagina di base, è possibile migliorarla nelle lezioni successive e includere l'impaginazione, i facet e un'esperienza di completamento automatico.
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
@@ -60,7 +61,7 @@ Per completare questa esercitazione, è necessario:
 
 Il progetto non dovrebbe presentare problemi e l'app di Azure dovrebbe avviarsi. In questa app sono inclusi molti dei componenti essenziali per ricerche più sofisticate, pertanto è consigliabile esaminarla e ricrearla seguendo la procedura dettagliata.
 
-Per creare il progetto da zero e quindi potenziare i componenti di Ricerca di Azure in base alle proprie esigenze, seguire queste procedure.
+Per creare il progetto da zero e quindi approfondire i concetti relativi ai componenti di Ricerca cognitiva di Azure, seguire questa procedura.
 
 ## <a name="set-up-a-development-environment"></a>Configurare un ambiente di sviluppo
 
@@ -72,11 +73,11 @@ Per creare il progetto da zero e quindi potenziare i componenti di Ricerca di Az
 
     ![Creazione di un progetto MVC](./media/tutorial-csharp-create-first-app/azure-search-project2.png)
 
-3. Scegliere quindi **Gestione pacchetti NuGet** dal menu **Strumenti** e quindi **Gestisci pacchetti NuGet per la soluzione**. Deve essere installato un pacchetto. Selezionare la scheda **Sfoglia** e quindi digitare "Ricerca di Azure" nella casella di ricerca. Installare **Microsoft.Azure.Search** quando è visibile nell'elenco (versione 9.0.1 o successive). Sarà necessario completare qualche altra finestra di dialogo per terminare l'installazione.
+3. Scegliere quindi **Gestione pacchetti NuGet** dal menu **Strumenti** e quindi **Gestisci pacchetti NuGet per la soluzione**. Deve essere installato un pacchetto. Selezionare la scheda **Sfoglia** e quindi digitare "Ricerca cognitiva di Azure" nella casella di ricerca. Installare **Microsoft.Azure.Search** quando è visibile nell'elenco (versione 9.0.1 o successiva). Sarà necessario completare qualche altra finestra di dialogo per terminare l'installazione.
 
     ![Uso di NuGet per aggiungere librerie di Azure](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
 
-### <a name="initialize-azure-search"></a>Inizializzare Ricerca di Azure
+### <a name="initialize-azure-cognitive-search"></a>Inizializzare Ricerca cognitiva di Azure
 
 Per questo esempio verranno usati dati di hotel disponibili pubblicamente. Questi dati costituiscono una raccolta arbitraria di 50 nomi di hotel fittizi con relative descrizioni, creati esclusivamente allo scopo di fornire i dati per la demo. Per accedere a questi dati, è necessario specificare un nome e la relativa chiave.
 
@@ -223,7 +224,7 @@ I modelli (classi C#) vengono usati per comunicare i dati tra il client (la vist
     }
     ```
 
-5. Il set di classi **Hotel**, **Address** e **Room** costituisce ciò che in Azure è noto come [_tipi complessi_](search-howto-complex-data-types.md), un'importante funzionalità di Ricerca di Azure. I tipi complessi possono includere molti livelli al di sotto di classi e sottoclassi e consentire la rappresentazione di strutture di dati molto più complesse rispetto all'uso dei _tipi semplici_ (una classe che contiene solo membri primitivi). Poiché è necessario ancora un modello, seguire di nuovo la procedura di creazione di una nuova classe di modello, assegnando però questa volta alla classe il nome SearchData.cs e sostituendo il codice predefinito con il codice seguente.
+5. Il set di classi **Hotel**, **Address** e **Room** costituisce ciò che in Azure è noto come [_tipi complessi_](search-howto-complex-data-types.md), un'importante funzionalità di Ricerca cognitiva di Azure. I tipi complessi possono includere molti livelli al di sotto di classi e sottoclassi e consentire la rappresentazione di strutture di dati molto più complesse rispetto all'uso dei _tipi semplici_ (una classe che contiene solo membri primitivi). Poiché è necessario ancora un modello, seguire di nuovo la procedura di creazione di una nuova classe di modello, assegnando però questa volta alla classe il nome SearchData.cs e sostituendo il codice predefinito con il codice seguente.
 
     ```cs
     using Microsoft.Azure.Search.Models;
@@ -425,7 +426,7 @@ Sono necessari due metodi **Index**, uno senza parametri (per lo scenario in cui
                     model.searchText = "";
                 }
 
-                // Make the Azure Search call.
+                // Make the Azure Cognitive Search call.
                 await RunQueryAsync(model);
             }
 
@@ -451,7 +452,7 @@ Nell'esempio di GitHub sono state eliminate le viste non usate e le azioni assoc
 
 ### <a name="add-the-runqueryasync-method"></a>Aggiungere il metodo RunQueryAsync
 
-La chiamata di Ricerca di Azure è incapsulata nel metodo **RunQueryAsync**.
+La chiamata di Ricerca cognitiva di Azure è incapsulata nel metodo **RunQueryAsync**.
 
 1. Prima di tutto aggiungere alcune variabili statiche per configurare il servizio di Azure e una chiamata per avviarle.
 
@@ -517,11 +518,11 @@ A questo punto è possibile verificare se l'app viene eseguita correttamente.
 
      ![Ricerca di "beach"](./media/tutorial-csharp-create-first-app/azure-search-beach.png)
 
-3. Provare a immettere "five star". Non si otterrà alcun risultato. Una ricerca più sofisticata potrebbe considerare "five star" come un sinonimo di "luxury" e restituire risultati. L'uso dei sinonimi è disponibile in Ricerca di Azure, anche se non verrà trattato nelle esercitazioni iniziali.
+3. Provare a immettere "five star". Non si otterrà alcun risultato. Una ricerca più sofisticata potrebbe considerare "five star" come un sinonimo di "luxury" e restituire risultati. L'uso dei sinonimi è disponibile in Ricerca cognitiva di Azure, anche se non verrà trattato nelle esercitazioni iniziali.
  
 4. Provare a immettere "hot" come testo di ricerca. _Non_ restituirà voci contenenti la parola "hotel". La ricerca individua solo parole intere, anche se vengono restituiti alcuni risultati.
 
-5. Provare con altre parole: "pool", "sunshine", "view" e così via. Sarà possibile osservare il funzionamento di Ricerca di Azure al livello più semplice, ma comunque convincente.
+5. Provare con altre parole: "pool", "sunshine", "view" e così via. Sarà possibile osservare il funzionamento di Ricerca cognitiva di Azure al livello più semplice, ma comunque convincente.
 
 ## <a name="test-edge-conditions-and-errors"></a>Testare errori e condizioni limite
 
@@ -540,19 +541,19 @@ A questo punto è possibile verificare se l'app viene eseguita correttamente.
 
 ## <a name="takeaways"></a>Risultati
 
-Tenere conto delle considerazioni seguenti estrapolate da questo progetto:
+Tenere conto delle considerazioni seguenti riguardo a questo progetto:
 
-* Una chiamata a Ricerca di Azure è concisa e consente una facile interpretazione dei risultati.
+* Una chiamata a Ricerca cognitiva di Azure è concisa e consente una facile interpretazione dei risultati.
 * Le chiamate asincrone aggiungono una quantità ridotta di complessità al controller, ma sono la procedura consigliata se si prevede di sviluppare app di qualità.
 * Questa app ha eseguito una ricerca di testo semplice, secondo quanto configurato in **searchParameters**. Questa classe tuttavia può essere completata con molti membri che aggiungono complessità a una ricerca. Non è necessario molto lavoro in più per potenziare questa app.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per garantire la migliore esperienza utente tramite Ricerca di Azure, è necessario aggiungere altre funzionalità, in particolare l'impaginazione (usando numeri di pagina o lo scorrimento infinito) e il completamento automatico o i suggerimenti. È opportuno inoltre prendere in considerazione parametri di ricerca più sofisticati, ad esempio ricerche geografiche basate sugli alberghi entro un determinato raggio rispetto a un punto specificato e l'ordinamento dei risultati della ricerca.
+Per garantire la migliore esperienza utente tramite Ricerca cognitiva di Azure, è necessario aggiungere altre funzionalità, in particolare la paginazione (usando numeri di pagina o lo scorrimento infinito) e il completamento automatico o i suggerimenti. È opportuno inoltre prendere in considerazione parametri di ricerca più sofisticati, ad esempio ricerche geografiche basate sugli alberghi entro un determinato raggio rispetto a un punto specificato e l'ordinamento dei risultati della ricerca.
 
 Questi passaggi successivi sono illustrati in una serie di esercitazioni. Si inizierà con l'impaginazione.
 
 > [!div class="nextstepaction"]
-> [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca di Azure](tutorial-csharp-paging.md)
+> [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure](tutorial-csharp-paging.md)
 
 

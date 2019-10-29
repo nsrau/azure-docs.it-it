@@ -1,5 +1,7 @@
-- name: Documentazione di Griglia di eventi
+- name: Documentazione di Griglia di eventi di Azure
   href: index.yml
+- name: Documentazione per il passaggio a Griglia di eventi in IoT Edge
+  href: edge/pub-sub-events-webhook-local.md
 - name: Panoramica
   items:
     - name: Informazioni su Griglia di eventi

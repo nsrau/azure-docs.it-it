@@ -1,23 +1,24 @@
 ---
-title: Visualizzare un archivio conoscenze con Storage Explorer - Ricerca di Azure
-description: Visualizzare e analizzare un archivio conoscenze di Ricerca di Azure con lo strumento Storage Explorer del portale di Azure.
+title: Visualizzare un archivio conoscenze con Storage Explorer
+titleSuffix: Azure Cognitive Search
+description: Visualizzare e analizzare un archivio conoscenze di Ricerca cognitiva di Azure con lo strumento Storage Explorer del portale di Azure.
+manager: nitinme
 author: lisaleib
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 09/03/2019
 ms.author: v-lilei
-ms.openlocfilehash: 9ec93bcd2309bb47b24983260c35726ac24b5e95
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: cfa85e61059e27cd39a9701a835a725e16e5bc0a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265611"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789967"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Visualizzare un archivio conoscenze con Storage Explorer
 
 > [!Note]
-> La funzionalità dell'archivio conoscenze è in anteprima e non deve essere usata in ambienti di produzione. È inclusa nell'[API REST di Ricerca di Azure versione 2019-05-06-Preview](search-api-preview.md). Non è attualmente disponibile alcun supporto di .NET SDK.
+> La funzionalità dell'archivio conoscenze è in anteprima e non deve essere usata in ambienti di produzione. È inclusa nell'[API REST di Ricerca cognitiva di Azure versione 2019-05-06-Preview](search-api-preview.md). Non è attualmente disponibile alcun supporto di .NET SDK.
 >
 Questo articolo illustra come connettere ed esplorare un archivio conoscenze usando Storage Explorer nel portale di Azure. Per creare l'esempio di archivio conoscenze usato in questa procedura dettagliata, vedere [Creare un archivio conoscenze nel portale di Azure](knowledge-store-create-portal.md).
 
@@ -45,7 +46,7 @@ Per cambiare il tipo di dati per qualsiasi valore di tabella o per modificare si
 
 Per eseguire query, fare clic su **Query** sulla barra dei comandi e immettere le condizioni.  
 
-   ![Eseguire query sulle tabelle in Storage Explorer](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Eseguire query sulle tabelle in Storage Explorer")
+   ![Eseguire query sulla tabella in Storage Explorer](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Eseguire query sulla tabella in Storage Explorer")
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 

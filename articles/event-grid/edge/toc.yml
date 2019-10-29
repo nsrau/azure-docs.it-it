@@ -1,0 +1,62 @@
+- name: Documentazione di IoT Edge per Griglia di eventi
+  href: index.yml
+- name: Documentazione per il passaggio a Griglia di eventi di Azure
+  href: ../overview.md
+- name: Panoramica
+  items:
+    - name: Che cos'è Griglia di eventi in IoT Edge?
+      href: overview.md
+- name: Esercitazioni
+  items:
+    - name: Pubblicare e sottoscrivere eventi in locale
+      href: pub-sub-events-webhook-local.md
+    - name: Pubblicare e sottoscrivere eventi nel cloud
+      href: pub-sub-events-webhook-cloud.md
+    - name: Inoltrare eventi a Griglia di eventi di Azure
+      href: forward-events-event-grid-cloud.md
+    - name: Inoltrare eventi a Hub IoT di Azure
+      href: forward-events-iothub.md
+    - name: Rispondere a eventi di Archiviazione BLOB in locale
+      href: react-blob-storage-events-locally.md
+- name: Esempi
+  href: 'https://github.com/Azure/event-grid-iot-edge'
+- name: Concetti
+  items:
+    - name: Concetti relativi a Griglia di eventi
+      href: concepts.md
+    - name: Sicurezza e autenticazione
+      href: security-authentication.md
+    - name: Schemi degli eventi
+      href: event-schemas.md
+    - name: Recapito e nuovo tentativo
+      href: delivery-retry.md
+    - name: Suddivisione in batch per l'output
+      href: delivery-output-batching.md
+    - name: Filtro avanzato
+      href: advanced-filtering.md
+- name: Guide alle procedure
+  items:
+    - name: Stato di persistenza
+      items:
+        - name: Linux
+          href: persist-state-linux.md
+        - name: Windows
+          href: persist-state-windows.md
+    - name: Configurare protocolli API
+      href: configure-api-protocol.md
+    - name: Configurare l'autenticazione dei client
+      href: configure-client-auth.md
+    - name: Configurare l'autenticazione dei sottoscrittori di webhook
+      href: configure-webhook-subscriber-auth.md
+    - name: Configurare l'autenticazione delle identità
+      href: configure-identity-auth.md
+    - name: Risolvere problemi
+      href: troubleshoot.md
+- name: riferimento
+  items:
+    - name: API REST
+      href: api.md
+    - name: Configurare Griglia di eventi
+      href: configure-event-grid.md
+    - name: Schema di configurazione del modulo gemello
+      href: twin-json.md

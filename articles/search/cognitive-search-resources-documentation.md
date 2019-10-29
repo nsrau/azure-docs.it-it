@@ -1,54 +1,54 @@
 ---
-title: Risorse della documentazione di ricerca cognitiva- Ricerca di Azure
-description: Un elenco annotato di articoli, esercitazioni, esempi e post di blog relativi ai carichi di lavoro della ricerca cognitiva in Ricerca di Azure.
-services: search
+title: Collegamenti alla documentazione per l'arricchimento tramite intelligenza artificiale
+titleSuffix: Azure Cognitive Search
+description: Elenco con annotazioni di articoli, esercitazioni, esempi e post di blog relativi ai carichi di lavoro di arricchimento tramite intelligenza artificiale in Ricerca cognitiva di Azure.
 manager: nitinme
 author: HeidiSteen
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 7267f40a981b984ab945d956ff3552157267cd43
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
-ms.translationtype: MT
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
+ms.openlocfilehash: 5fb1050fed2ab7318ad5b4ecafec7a96a9324575
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265473"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792059"
 ---
-# <a name="documentation-resources-for-cognitive-search-workloads"></a>Risorse della documentazione per i carichi di lavoro della ricerca cognitiva
+# <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Risorse di documentazione per l'arricchimento tramite intelligenza artificiale in Ricerca cognitiva di Azure
 
-La ricerca cognitiva, ora disponibile a livello generale, è un nuovo livello di arricchimento nell'indicizzazione di ricerca di Azure che consente di trovare informazioni latenti in origini non di testo e testo non differenziato, trasformarlo in contenuto ricercabile full-text in ricerca di Azure.
+L'arricchimento tramite intelligenza artificiale è una funzionalità dell'indicizzazione di Ricerca cognitiva di Azure che consente di trovare informazioni latenti in origini non di testo e testo indifferenziato, trasformandolo in contenuto abilitato per la ricerca full-text in Ricerca cognitiva di Azure.
 
-Gli articoli seguenti rappresentano la documentazione completa per la ricerca cognitiva.
+Gli articoli seguenti rappresentano la documentazione completa per l'arricchimento tramite intelligenza artificiale.
 
 ## <a name="getting-started"></a>Introduzione
-+ [Che cos'è la ricerca cognitiva?](cognitive-search-concept-intro.md)
-+ [Avvio rapido: Provare la ricerca cognitiva nel portale](cognitive-search-quickstart-blob.md)
-+ [Esercitazione: Informazioni sulle API di ricerca cognitiva](cognitive-search-tutorial-blob.md)
-+ [Esempio: Creare una competenza personalizzata per la ricerca cognitiva](cognitive-search-create-custom-skill-example.md)
++ [Introduzione all'arricchimento tramite intelligenza artificiale in Ricerca cognitiva di Azure](cognitive-search-concept-intro.md)
++ [Guida introduttiva: Provare l'arricchimento tramite intelligenza artificiale nel portale](cognitive-search-quickstart-blob.md)
++ [Esercitazione: Indicizzazione arricchita con intelligenza artificiale](cognitive-search-tutorial-blob.md)
++ [Esempio: Creazione di una competenza personalizzata per l'arricchimento tramite intelligenza artificiale](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Guida alle procedure
 + [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
 + [Come fare riferimento alle annotazioni in un insieme di competenze](cognitive-search-concept-annotations-syntax.md)
 + [Come eseguire la mappatura dei campi a un indice](cognitive-search-output-field-mapping.md)
 + [Come elaborare ed estrarre informazioni dalle immagini](cognitive-search-concept-image-scenarios.md)
-+ [Come ricompilare un indice di Ricerca di Azure](search-howto-reindex.md)
++ [Come ricompilare un indice di Ricerca cognitiva di Azure](search-howto-reindex.md)
 + [Come definire un'interfaccia di competenze personalizzata](cognitive-search-custom-skill-interface.md)
 + [Suggerimenti per la risoluzione dei problemi](cognitive-search-concept-troubleshooting.md)
 
-## <a name="reference"></a>Riferimenti
+## <a name="reference"></a>riferimento
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
-  + [Microsoft. Skills. Text. KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md)
+  + [Microsoft.Skills.Text.KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md)
   + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
   + [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
   + [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md)
   + [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md)
   + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
-  + [Microsoft. Skills. Text. TranslationSkill](cognitive-search-skill-text-translation.md)
+  + [Microsoft.Skills.Text.TranslationSkill](cognitive-search-skill-text-translation.md)
   + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
   + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
-  + [Microsoft. Skills. util. ConditionalSkill](cognitive-search-skill-conditional.md)
+  + [Microsoft.Skills.Util.ConditionalSkill](cognitive-search-skill-conditional.md)
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
 + Competenze personalizzate
@@ -63,6 +63,6 @@ Gli articoli seguenti rappresentano la documentazione completa per la ricerca co
 
 ## <a name="see-also"></a>Vedere anche
 
-+ [API REST Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/)
-+ [Indicizzatori in Ricerca di Azure](search-indexer-overview.md)
-+ [Che cos'è la Ricerca di Azure?](search-what-is-azure-search.md)
++ [API REST di Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/)
++ [Indicizzatori in Ricerca cognitiva di Azure](search-indexer-overview.md)
++ [Che cos'è la ricerca cognitiva di Azure?](search-what-is-azure-search.md)

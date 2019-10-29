@@ -1,22 +1,23 @@
 ---
-title: Esercitazione per C# su completamento automatico e suggerimenti - Ricerca di Azure
-description: Questa esercitazione si basa sul progetto "Paginazione dei risultati della ricerca - Ricerca di Azure" per aggiungere il completamento automatico e i suggerimenti. L'obiettivo è di migliorare l'esperienza utente. Vengono fornite informazioni su come combinare un elenco a discesa di suggerimenti con il completamento automatico inline.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: Esercitazione per C# su completamento automatico e suggerimenti
+titleSuffix: Azure Cognitive Search
+description: Questa esercitazione si basa sul progetto "Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure" per aggiungere il completamento automatico e i suggerimenti. L'obiettivo è di migliorare l'esperienza utente. Vengono fornite informazioni su come combinare un elenco a discesa di suggerimenti con il completamento automatico inline.
+manager: nitinme
 author: PeterTurcan
-ms.date: 05/01/2019
-ms.openlocfilehash: 01c0819fd0bf525739675ad756031cafc1a51673
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 959ae749f9ab8a025ec9c78d75640e2108868372
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434711"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786496"
 ---
-# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-search"></a>Esercitazione per C#: Aggiungere completamento automatico e suggerimenti - Ricerca di Azure
+# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>Esercitazione per C#: Aggiungere completamento automatico e suggerimenti - Ricerca cognitiva di Azure
 
-In questa esercitazione viene spiegato come implementare il completamento automatico e i suggerimenti quando un utente inizia a digitare nella casella di ricerca. Nell'esercitazione i risultati del completamento automatico e dei suggerimenti verranno mostrati separatamente. Verrà quindi illustrato un metodo per combinarli e ottenere un'esperienza utente migliore. È possibile che l'utente debba digitare solo due o tre lettere per individuare tutti i risultati disponibili. Questa esercitazione si basa sul progetto di paginazione creato in [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca di Azure](tutorial-csharp-paging.md).
+In questa esercitazione viene spiegato come implementare il completamento automatico e i suggerimenti quando un utente inizia a digitare nella casella di ricerca. Nell'esercitazione i risultati del completamento automatico e dei suggerimenti verranno mostrati separatamente. Verrà quindi illustrato un metodo per combinarli e ottenere un'esperienza utente migliore. È possibile che l'utente debba digitare solo due o tre lettere per individuare tutti i risultati disponibili. Questa esercitazione si basa sul progetto di paginazione creato in [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure](tutorial-csharp-paging.md).
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
@@ -29,7 +30,7 @@ In questa esercitazione si apprenderà come:
 
 Per completare questa esercitazione, è necessario:
 
-Disporre del progetto [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca di Azure](tutorial-csharp-paging.md) attivo e in esecuzione. Questo progetto può essere una versione personalizzata, completata nell'esercitazione precedente, oppure può essere installato da GitHub: [Creare la prima app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Predisporre il progetto [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure](tutorial-csharp-paging.md) attiva e in esecuzione. Questo progetto può essere una versione personalizzata, completata nell'esercitazione precedente, oppure può essere installato da GitHub: [Creare la prima app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="add-suggestions"></a>Aggiungere suggerimenti
 
@@ -146,7 +147,7 @@ La funzione di completamento automatico chiamata nello script precedente non dev
  
     !["po" con fuzzy impostato su true](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
-    Se si è interessati, nell'articolo [Sintassi di query Lucene in Ricerca di Azure](https://docs.microsoft.com/azure/search/query-lucene-syntax) è descritta in dettaglio la logica usata nelle ricerche fuzzy.
+    Se si è interessati, nell'articolo [Sintassi di query Lucene in Ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/query-lucene-syntax) è descritta in dettaglio la logica usata nelle ricerche fuzzy.
 
 ## <a name="add-highlighting-to-the-suggestions"></a>Aggiungere l'evidenziazione per i suggerimenti
 
@@ -255,7 +256,7 @@ Un'altra variante, leggermente diversa dai suggerimenti, è il cosiddetto comple
 
 ## <a name="combine-autocompletion-and-suggestions"></a>Combinare il completamento automatico e i suggerimenti
 
-La combinazione di completamento automatico e suggerimenti è la più complessa delle opzioni presentate e, probabilmente, quella che offre la migliore esperienza utente. L'intento è visualizzare, in linea con il testo digitato, la prima opzione di Ricerca di Azure per il completamento automatico del testo. Si intende inoltre visualizzare un elenco a discesa che includa vari suggerimenti.
+La combinazione di completamento automatico e suggerimenti è la più complessa delle opzioni presentate e, probabilmente, quella che offre la migliore esperienza utente. L'intento è visualizzare, in linea con il testo digitato, la prima scelta di Ricerca cognitiva di Azure per il completamento automatico del testo. Si intende inoltre visualizzare un elenco a discesa che includa vari suggerimenti.
 
 Sono disponibili librerie che offrono questa funzionalità, nota spesso come "completamento automatico inline". In questo caso, però, questa funzionalità verrà implementata in modo nativo per offrire maggiori informazioni su tutti i passaggi. In questo esempio si inizierà a lavorare prima sul controller.
 
@@ -464,6 +465,6 @@ Tenere conto delle considerazioni seguenti riguardo a questo progetto:
 Nella prossima esercitazione verrà esaminato un altro modo per migliorare l'esperienza utente, usando i facet per limitare le ricerche con un singolo clic.
 
 > [!div class="nextstepaction"]
-> [Esercitazione per C#: Usare facet per semplificare l'esplorazione - Ricerca di Azure](tutorial-csharp-facets.md)
+> [Esercitazione per C#: Usare facet per semplificare l'esplorazione - Ricerca cognitiva di Azure](tutorial-csharp-facets.md)
 
 

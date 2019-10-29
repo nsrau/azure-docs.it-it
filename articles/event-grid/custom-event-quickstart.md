@@ -12,12 +12,12 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: fb57d69b4969bcbf66717a8ca29ede23f2ed8e43
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 30ffcd9bdb8170777c245d95b0c07198a34c5464
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429109"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72556075"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Guida introduttiva: Instradare eventi personalizzati all'endpoint Web con l'interfaccia della riga di comando di Azure e Griglia di eventi
 
@@ -27,7 +27,7 @@ In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intr
 
 Al termine, i dati degli eventi saranno stati inviati all'app Web.
 
-![Usare il visualizzatore Griglia di eventi di Azure per verificare che i dati degli eventi siano stati inviati](./media/custom-event-quickstart/azure-event-grid-viewer-displays-event-data.png)
+![Visualizzare i risultati nel visualizzatore Griglia di eventi di Azure](./media/custom-event-quickstart/azure-event-grid-viewer-record-inserted-event.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -98,7 +98,8 @@ az eventgrid event-subscription create \
 
 Visualizzare nuovamente l'app Web e notare che all'app è stato inviato un evento di convalida della sottoscrizione. Selezionare l'icona a forma di occhio per espandere i dati dell'evento. Griglia di eventi invia l'evento di convalida in modo che l'endpoint possa verificare che voglia ricevere i dati dell'evento. L'app Web include il codice per convalidare la sottoscrizione.
 
-![Visualizzare il codice di convalida della sottoscrizione nel visualizzatore Griglia di eventi di Azure](./media/custom-event-quickstart/view-subscription-validation-code-in-azure-event-grid-viewer.png)
+![Visualizzare l'evento della sottoscrizione nel visualizzatore Griglia di eventi di Azure](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
+
 
 ## <a name="send-an-event-to-your-custom-topic"></a>Inviare un evento all'argomento personalizzato
 
