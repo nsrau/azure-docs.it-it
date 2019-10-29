@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 327e470d60235e6bf400293e80e3aec5f6144ff4
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68943451"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Esercitazione: Integrazione di Azure Active Directory con PolicyStat
@@ -51,7 +51,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-policystat-from-the-gallery"></a>Aggiunta di PolicyStat dalla raccolta
 
-Per configurare l'integrazione di PolicyStat in Azure AD, è necessario aggiungere PolicyStat dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di PolicyStat in Azure AD, è necessario aggiungere PolicyStat dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere PolicyStat dalla raccolta, seguire questa procedura:**
 
@@ -76,12 +76,12 @@ Per configurare l'integrazione di PolicyStat in Azure AD, è necessario aggiunge
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con PolicyStat usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in PolicyStat.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con PolicyStat, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con PolicyStat, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di PolicyStat ](#configure-policystat-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di PolicyStat ](#create-policystat-test-user)** : per avere una controparte di Britta Simon in PolicyStat collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -109,7 +109,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PolicyStat, seguire que
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname>.policystat.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<companyname>.policystat.com/saml2/metadata/`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<companyname>.policystat.com/saml2/metadata/`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere tali valori, contattare il [team di supporto clienti di PolicyStat](http://www.policystat.com/support/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -162,15 +162,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con PolicyStat, seguire que
 
 2. Scegliere la scheda **Admin**, quindi fare clic su **Configurazione di Single Sign-On** nel riquadro di spostamento a sinistra.
    
-    ![Menu amministratore](./media/policystat-tutorial/ic808633.png "Menu amministratore")
+    ![Administrator Menu](./media/policystat-tutorial/ic808633.png "Menu Amministratore")
 
 3. Nella sezione **Configurazione** selezionare **Abilitare integrazione di Single Sign-On**.
    
-    ![Configurazione Single Sign-on](./media/policystat-tutorial/ic808634.png "Configurazione Single Sign-on")
+    ![Single Sign-On Configuration](./media/policystat-tutorial/ic808634.png "Configurazione di Single Sign-On")
 
 4. Fare clic su **Configura attributi** e nella sezione **Configura attributi** eseguire la procedura seguente:
    
-    ![Configurazione Single Sign-on](./media/policystat-tutorial/ic808635.png "Configurazione Single Sign-on")
+    ![Single Sign-On Configuration](./media/policystat-tutorial/ic808635.png "Configurazione di Single Sign-On")
    
     a. Nella casella di testo **Attributo nome utente** digitare **uid**.
 
@@ -184,15 +184,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con PolicyStat, seguire que
 
 5. Fare clic su **Metadati del provider di identità** quindi, nella sezione **Metadati del provider di identità**, eseguire la procedura seguente:
    
-    ![Configurazione Single Sign-on](./media/policystat-tutorial/ic808636.png "Configurazione Single Sign-on")
+    ![Single Sign-On Configuration](./media/policystat-tutorial/ic808636.png "Configurazione di Single Sign-On")
    
     a. Aprire il file di metadati scaricato, copiare il contenuto e incollarlo nella casella di testo **Your Identity Provider Metadata** (Metadati provider di identità).
 
     b. Fare clic su **Salva modifiche**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -212,17 +212,17 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a PolicyStat.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a PolicyStat.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **PolicyStat**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco di applicazioni selezionare **PolicyStat**.
+2. Nell'elenco delle applicazioni selezionare **PolicyStat**.
 
     ![Collegamento di PolicyStat nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -251,7 +251,7 @@ In questa sezione viene creato un utente di nome Britta Simon in PolicyStat. Pol
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di PolicyStat nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione PolicyStat per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di PolicyStat nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di PolicyStat per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
