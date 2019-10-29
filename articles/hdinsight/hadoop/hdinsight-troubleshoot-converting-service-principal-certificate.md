@@ -1,5 +1,5 @@
 ---
-title: Conversione del contenuto del certificato dell'entità servizio in base-64-Azure HDInsight
+title: Conversione del contenuto del certificato in base-64-Azure HDInsight
 description: Conversione del contenuto del certificato dell'entità servizio nel formato stringa con codifica base 64 in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/31/2019
-ms.openlocfilehash: 0f9158164ec598682841b217b9954145f8540c6c
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: ad41ef464f592fd09b070ab6f715e9a07fb3cf21
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087439"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044502"
 ---
 # <a name="converting-service-principal-certificate-contents-to-base-64-encoded-string-format-in-hdinsight"></a>Conversione del contenuto del certificato dell'entità servizio nel formato stringa con codifica base 64 in HDInsight
 
@@ -58,6 +58,6 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
 
-* Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente connettendo la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
+* È possibile connettersi con [@AzureSupport](https://twitter.com/azuresupport) , l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente connettendo la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
 
 * Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto tecnico di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

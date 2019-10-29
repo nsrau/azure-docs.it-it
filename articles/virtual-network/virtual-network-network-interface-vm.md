@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: kumud
-ms.openlocfilehash: 23e46290af6bdb4c217d8fa0cd836673652fc81d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24f4b7435c2736527d033aa5ca7a65ad35a3a705
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701382"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73022173"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Aggiungere o rimuovere interfacce di rete da macchine virtuali
 
@@ -49,7 +49,7 @@ Prima di creare la macchina virtuale, creare un'interfaccia di rete seguendo la 
 
 |Strumento|Comando|
 |---|---|
-|CLI|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|Interfaccia della riga di comando|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |PowerShell|[New-AzVM](/powershell/module/az.compute/new-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>Aggiungere un'interfaccia di rete a una macchina virtuale esistente
@@ -72,8 +72,8 @@ Prima di creare la macchina virtuale, creare un'interfaccia di rete seguendo la 
 ### <a name="commands"></a>Comandi:
 |Strumento|Comando|
 |---|---|
-|CLI|[az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (riferimento) o [passaggi dettagliati](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
-|PowerShell|[Aggiungere-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (riferimento) o [passaggi dettagliati](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
+|Interfaccia della riga di comando|[az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (riferimento) o [passaggi dettagliati](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
+|PowerShell|[Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (riferimento) o [passaggi dettagliati](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="view-network-interfaces-for-a-vm"></a>Visualizzare le interfacce di rete per una macchina virtuale
 
@@ -88,7 +88,7 @@ Prima di creare la macchina virtuale, creare un'interfaccia di rete seguendo la 
 
 |Strumento|Comando|
 |---|---|
-|CLI|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|Interfaccia della riga di comando|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |PowerShell|[Get-AzVM](/powershell/module/az.compute/get-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="remove-a-network-interface-from-a-vm"></a>Rimuovere un'interfaccia di rete da una macchina virtuale
@@ -107,7 +107,7 @@ Prima di creare la macchina virtuale, creare un'interfaccia di rete seguendo la 
 
 |Strumento|Comando|
 |---|---|
-|CLI|[az vm nic remove](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (riferimento) o [passaggi dettagliati](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
+|Interfaccia della riga di comando|[az vm nic remove](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (riferimento) o [passaggi dettagliati](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
 |PowerShell|[Remove-AzVMNetworkInterface](/powershell/module/az.compute/remove-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (riferimento) o [passaggi dettagliati](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## <a name="constraints"></a>Vincoli
@@ -122,11 +122,10 @@ Prima di creare la macchina virtuale, creare un'interfaccia di rete seguendo la 
 - Anche se le interfacce di rete nella stessa macchina virtuale possono essere connesse a subnet diverse all'interno di una rete virtuale, le interfacce di rete devono essere tutte connesse alla stessa rete virtuale.
 - È possibile aggiungere qualsiasi indirizzo IP per qualsiasi configurazione IP di un'interfaccia di rete primaria e secondaria a un pool back-end di Azure Load Balancer. In passato, era possibile aggiungere a un pool di back-end solo l'indirizzo IP primario per l'interfaccia di rete primaria. Per altre informazioni sugli indirizzi e le configurazioni IP, vedere [Aggiungere, modificare o rimuovere indirizzi IP](virtual-network-network-interface-addresses.md).
 - Se si elimina una macchina virtuale, le interfacce di rete virtuale connesse a questa non vengono eliminate. Quando si elimina una macchina virtuale, le interfacce di rete vengono scollegate dalla macchina virtuale. È possibile aggiungere le interfacce di rete a macchine virtuali diverse o eliminarle.
-- Se a un'interfaccia di rete è assegnato un indirizzo IPv6 privato, è necessario aggiungerla (collegarla) a una macchina virtuale quando si crea la macchina virtuale. Dopo aver creato la macchina virtuale, non è più possibile aggiungere un'interfaccia di rete con un indirizzo IPv6 assegnato a una macchina virtuale. Se si aggiunge un'interfaccia di rete con un indirizzo IPv6 privato assegnato durante la creazione di una macchina virtuale, è possibile aggiungere solo questa interfaccia di rete specifica alla macchina virtuale, indipendentemente dal numero di interfacce di rete supportato dalle dimensioni della macchina virtuale. Vedere [Aggiungere, modificare o rimuovere indirizzi IP per un'interfaccia di rete di Azure](virtual-network-network-interface-addresses.md) per altre informazioni sull'assegnazione di indirizzi IP alle interfacce di rete.
 - Come per IPv6, non è possibile collegare un'interfaccia di rete con rete accelerata abilitata a una macchina virtuale dopo averla creata. Inoltre, per sfruttare i vantaggi della rete accelerata, è anche necessario completare i passaggi all'interno del sistema operativo della macchina virtuale. Sono disponibili altre informazioni sulle rete accelerata e altri vincoli per il relativo uso per macchine virtuali [Windows](create-vm-accelerated-networking-powershell.md) o [Linux](create-vm-accelerated-networking-cli.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per creare una macchina virtuale con più interfacce di rete o indirizzi IP, vedere gli articoli seguenti:
+Per creare una VM con più interfacce di rete o indirizzi IP, vedere gli articoli seguenti:
 
 |Attività|Strumento|
 |---|---|

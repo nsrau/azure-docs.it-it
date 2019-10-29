@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/23/2019
 ms.author: iainfou
-ms.openlocfilehash: 81d20a973454db600d8be9ce036f001dd41784e7
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 325b9e8edc997e41e48e11b3ee752bc38d7dc4a1
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315001"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024015"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considerazioni sulla progettazione della rete virtuale e opzioni di configurazione per Azure AD Domain Services
 
@@ -88,11 +88,11 @@ Le reti virtuali connesse alla rete virtuale Azure AD Domain Services in genere 
 
 Un dominio gestito di Azure AD DS crea alcune risorse di rete durante la distribuzione. Queste risorse sono necessarie per il corretto funzionamento e la gestione del dominio gestito Azure AD DS e non devono essere configurate manualmente.
 
-| Risorsa di Azure                          | Descrizione |
+| Risorsa di Azure                          | Description |
 |:----------------------------------------|:---|
 | Scheda di interfaccia di rete                  | Azure AD DS ospita il dominio gestito in due controller di dominio (DCs) che vengono eseguiti in Windows Server come macchine virtuali di Azure. Ogni macchina virtuale dispone di un'interfaccia di rete virtuale che si connette alla subnet della rete virtuale. |
-| Indirizzo IP pubblico di base dinamico         | Azure AD DS comunica con il servizio di sincronizzazione e gestione usando un indirizzo IP pubblico dello SKU di base. Per altre informazioni sugli indirizzi IP pubblici, vedere [tipi di indirizzi IP e metodi di allocazione in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
-| Servizio di bilanciamento del carico Basic di Azure               | Azure AD DS usa un servizio di bilanciamento del carico SKU Basic per la Network Address Translation (NAT) e il bilanciamento del carico (se usato con LDAP sicuro). Per altre informazioni sui bilanciamenti del carico di Azure, vedere [che cos'è Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
+| Indirizzo IP pubblico standard dinamico         | Azure AD DS comunica con il servizio di sincronizzazione e gestione usando un indirizzo IP pubblico dello SKU standard. Per altre informazioni sugli indirizzi IP pubblici, vedere [tipi di indirizzi IP e metodi di allocazione in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
+| Azure Load Balancer standard               | Azure AD DS usa un servizio di bilanciamento del carico SKU standard per Network Address Translation (NAT) e bilanciamento del carico (se usato con LDAP sicuro). Per altre informazioni sui bilanciamenti del carico di Azure, vedere [che cos'è Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
 | Regole NAT (Network Address Translation) | Azure AD DS crea e usa tre regole NAT nel servizio di bilanciamento del carico: una regola per il traffico HTTP protetto e due regole per la comunicazione remota di PowerShell sicura. |
 | Regole del servizio di bilanciamento del carico                     | Quando un dominio gestito di Azure AD DS è configurato per l'LDAP sicuro sulla porta TCP 636, vengono create tre regole e usate in un servizio di bilanciamento del carico per distribuire il traffico. |
 
@@ -105,12 +105,12 @@ Un [gruppo di sicurezza di rete (NSG)](https://docs.microsoft.com/azure/virtual-
 
 Le seguenti regole del gruppo di sicurezza di rete sono necessarie per Azure AD DS per fornire servizi di autenticazione e di gestione. Non modificare o eliminare queste regole del gruppo di sicurezza di rete per la subnet della rete virtuale in cui è distribuito il dominio gestito di Azure AD DS.
 
-| Numero porta | Protocol | Source                             | Destination | Azione | Richiesto | Scopo |
+| Numero della porta | Protocol | Source (Sorgente)                             | Destinazione | Azione | Obbligatoria | Finalità |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Sincronizzazione con il tenant del Azure AD. |
-| 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Yes      | Gestione del dominio. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Gestione del dominio. |
-| 636         | TCP      | Any                                | Any         | Allow  | No       | Abilitato solo quando si configura LDAP sicuro (LDAPs). |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Qualsiasi         | Allow  | SÌ      | Sincronizzazione con il tenant del Azure AD. |
+| 3389        | TCP      | CorpNetSaw                         | Qualsiasi         | Allow  | SÌ      | Gestione del dominio. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualsiasi         | Allow  | SÌ      | Gestione del dominio. |
+| 636         | TCP      | Qualsiasi                                | Qualsiasi         | Allow  | No       | Abilitato solo quando si configura LDAP sicuro (LDAPs). |
 
 > [!WARNING]
 > Non modificare manualmente le configurazioni e le risorse di rete. Quando si associa un gruppo di sicurezza di rete configurato in modo non configurato o una tabella di route definita dall'utente con la subnet in cui viene distribuito Azure AD DS, è possibile che si verifichino problemi di gestione e gestione del dominio da parte di Microsoft. Viene anche interrotta la sincronizzazione tra il tenant di Azure AD e il dominio gestito di Azure AD DS.
@@ -142,7 +142,7 @@ Le seguenti regole del gruppo di sicurezza di rete sono necessarie per Azure AD 
 * Consente di eseguire attività di gestione tramite la comunicazione remota di PowerShell nel dominio gestito di Azure AD DS.
 * Senza l'accesso a questa porta, il dominio gestito di Azure AD DS non può essere aggiornato, configurato, sottoposto a backup o monitorato.
 * Per i domini gestiti Azure AD DS che usano una rete virtuale basata su Gestione risorse, è possibile limitare l'accesso in ingresso a questa porta al tag del servizio *AzureActiveDirectoryDomainServices* .
-    * Per i domini gestiti legacy Azure AD DS che usano una rete virtuale basata su classica, è possibile limitare l'accesso in ingresso a questa porta agli indirizzi IP di origine seguenti: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*e *104.40.87.209*.
+    * Per i domini gestiti legacy Azure AD DS che usano una rete virtuale basata su classica, è possibile limitare l'accesso in ingresso a questa porta agli indirizzi IP di origine seguenti: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223* , *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*e *104.40.87.209*.
 
 ## <a name="user-defined-routes"></a>Route definite dall'utente
 

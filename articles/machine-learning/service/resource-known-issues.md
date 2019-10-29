@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0dd0b8cf39da8039b3a59bf243284e0d5062bd78
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 5edf4a4f53e6b4255970f86dd942795ad2e4cbe2
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965605"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025402"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi Azure Machine Learning
 
@@ -150,6 +150,12 @@ Se viene visualizzato un errore di `FailToSendFeather` durante la lettura dei da
 * Aggiungere `azure-dataprep` versione 1.1.8 o successiva.
 * Aggiungere `pyarrow` versione 0,11 o successiva.
 
+## <a name="datasets"></a>Set di dati
+
+Si tratta di problemi noti per Azure Machine Learning set di impostazioni.
+
++ **Non è stato possibile leggere i file parquet nel Azure Data Lake storage Gen2** La lettura dei file parquet da Azure Data Lake Storage Gen2 archivi dati non funziona se `azureml-dataprep==1.1.25` è installato. L'operazione avrà esito negativo con `Cannot seek once reading started.`. Se viene visualizzato questo errore, è possibile installare `azureml-dataprep<=1.1.24` o installare `azureml-dataprep>=1.1.26`.
+
 ## <a name="azure-portal"></a>Portale di Azure
 
 Se si passa direttamente a visualizzare l'area di lavoro a un collegamento di condivisione da SDK o dal portale, non sarà possibile visualizzare la pagina Panoramica normale con le informazioni sulla sottoscrizione nell'estensione. Inoltre non sarà possibile passare in un'altra area di lavoro. Se si desidera visualizzare un'altra area di lavoro, la soluzione alternativa consiste nel passare direttamente al [portale di Azure](https://portal.azure.com) e cercare il nome dell'area di lavoro.
@@ -242,12 +248,12 @@ In base all'osservazione generale, di seguito sono riportate le raccomandazioni 
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors (nessun modulo denominato)
 Se si esegue ModuleErrors durante l'invio di esperimenti in Azure ML, significa che lo script di training prevede l'installazione di un pacchetto, ma non viene aggiunto. Una volta fornito il nome del pacchetto, Azure ML installerà il pacchetto nell'ambiente usato per la formazione. 
 
-Se si usano gli [estimatori](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) per inviare esperimenti, è possibile specificare un nome di pacchetto tramite `pip_packages` o `conda_packages` parametro nello strumento di stima basato su da quale origine si vuole installare il pacchetto. È anche possibile specificare un file yml con tutte le dipendenze usando `conda_dependencies_file`o elencare tutti i requisiti PIP in un file txt usando `pip_requirements_file` parametro.
+Se si usano gli [estimatori](concept-azure-machine-learning-architecture.md#estimators) per inviare esperimenti, è possibile specificare un nome di pacchetto tramite `pip_packages` o `conda_packages` parametro nello strumento di stima basato su da quale origine si vuole installare il pacchetto. È anche possibile specificare un file yml con tutte le dipendenze usando `conda_dependencies_file`o elencare tutti i requisiti PIP in un file txt usando `pip_requirements_file` parametro.
 
 Azure ML fornisce anche estimatori specifici del Framework per Tensorflow, PyTorch, Chainer e SKLearn. Con questi estimatori si assicurerà che le dipendenze del Framework siano installate per conto dell'utente nell'ambiente utilizzato per il training. È possibile specificare dipendenze aggiuntive, come descritto in precedenza. 
  
  Le immagini Docker gestite da Azure ML e il relativo contenuto possono essere visualizzate nei [contenitori AzureML](https://github.com/Azure/AzureML-Containers).
-Le dipendenze specifiche del Framework sono elencate nella rispettiva documentazione del [Framework,](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks) [PyTorch](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+Le dipendenze specifiche del Framework sono elencate nella rispettiva documentazione del [Framework,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks) [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
 
 >[Nota] Se si ritiene che un particolare pacchetto sia abbastanza comune da essere aggiunto in ambienti e immagini gestite da Azure ML, è necessario generare un problema di GitHub nei [contenitori AzureML](https://github.com/Azure/AzureML-Containers). 
  

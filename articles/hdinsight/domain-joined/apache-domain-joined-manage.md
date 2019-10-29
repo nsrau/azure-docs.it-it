@@ -1,5 +1,5 @@
 ---
-title: Gestire i cluster HDInsight con Enterprise Security Package - Azure
+title: Gestire i cluster di Enterprise Security Package-Azure HDInsight
 description: Informazioni su come gestire i cluster HDInsight di Azure con Enterprise Security Package.
 ms.service: hdinsight
 author: omidm1
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: b98c62908885bc13cd5f473967cc70709af693d2
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 35accc587fe197da751a8695e3ec0b21ea9fbbd4
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034109"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044928"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gestire i cluster HDInsight con Enterprise Security Package
 Informazioni su utenti e ruoli in HDInsight Enterprise Security Package (ESP) e su come gestire i cluster ESP.
@@ -22,7 +22,7 @@ Informazioni su utenti e ruoli in HDInsight Enterprise Security Package (ESP) e 
 
 È possibile collegare un cluster normale usando un nome utente Apache Ambari gestito e anche collegare un cluster Apache Hadoop di sicurezza usando un nome utente di dominio (ad esempio: `user1@contoso.com`).
 
-1. Aprire il riquadro comandi premendo **CTRL+MAIUSC+P**, quindi immettere **HDInsight: Link a cluster** (HDInsight: Collega un cluster).
+1. Aprire il riquadro comandi premendo la combinazione di tasti **CTRL+MAIUSC+P** e quindi immettere **HDInsight: Link a cluster** (HDInsight: Collega un cluster).
 
    ![riquadro comandi, collegare un cluster](./media/apache-domain-joined-manage/link-cluster-command.png)
 
@@ -35,7 +35,7 @@ Informazioni su utenti e ruoli in HDInsight Enterprise Security Package (ESP) e 
 
 3. È possibile visualizzare un cluster collegato usando il comando **List cluster** (Elenca cluster). È ora possibile inviare uno script al cluster collegato.
 
-   ![elencare la verifica dell'output del comando cluster](./media/apache-domain-joined-manage/hdinsight-linked-cluster.png "cluster collegato")
+   ![elencare la verifica dell'output del comando cluster](./media/apache-domain-joined-manage/hdinsight-linked-cluster.png "Cluster collegato")
 
 4. È anche possibile scollegare un cluster immettendo **HDInsight: Unlink a cluster** (HDInsight: Scollega un cluster) nel riquadro comandi.
 
@@ -100,8 +100,8 @@ La sicurezza e l'isolamento degli utenti sono importanti per un cluster HDInsigh
 |Apache Hadoop|Hive - query/processi interattivi  |<ul><li>[Beeline](#beeline)</li><li>[Vista di Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC - Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Strumenti di Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Apache Spark|Query/processi interattivi, PySpark interattivo|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin con Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Vista di Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC - Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Strumenti di Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Apache Spark|Scenari batch - Spark-submit, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
-|Interactive Query (LLAP)|Interattivo|<ul><li>[Beeline](#beeline)</li><li>[Vista di Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC - Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Strumenti di Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Any|Installazione applicazione personalizzata|<ul><li>[Azioni Script](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
+|Interactive Query (LLAP)|Interattività|<ul><li>[Beeline](#beeline)</li><li>[Vista di Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC - Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Strumenti di Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Qualsiasi|Installazione applicazione personalizzata|<ul><li>[Azioni Script](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
    > [!NOTE]  
    > Jupyter non è installato/supportato in Enterprise Security Package.
@@ -150,7 +150,7 @@ Un cluster HDInsight non ESP dispone di due account utente creati durante la cre
 
 Un cluster HDInsight con ESP ha tre nuovi utenti, oltre all'amministratore di Ambari.
 
-* **Amministratore Ranger**:  questo account è l'account amministratore locale di Apache Ranger. Non si tratta di un utente del dominio di Active Directory. Questo account può essere usato per configurare criteri e creare altri utenti amministratori o amministratori con delega (i quali potranno gestire i criteri). Per impostazione predefinita, il nome utente è *admin* e la password corrisponde alla password dell'amministratore Ambari. La password può essere aggiornata dalla pagina delle impostazioni di Ranger.
+* **Amministrazione Ranger**: questo account è l'account di amministratore Ranger locale di Apache. Non si tratta di un utente del dominio di Active Directory. Questo account può essere usato per configurare criteri e creare altri utenti amministratori o amministratori con delega (i quali potranno gestire i criteri). Per impostazione predefinita, il nome utente è *admin* e la password corrisponde alla password dell'amministratore Ambari. La password può essere aggiornata dalla pagina delle impostazioni di Ranger.
 * **Utente del dominio di amministrazione cluster**: questo account corrisponde a un utente del dominio di Active Directory designato come amministratore del cluster Hadoop che include Ambari e Ranger. Durante la creazione del cluster, è necessario fornire le credenziali dell'utente. L'utente dispone dei privilegi seguenti:
 
   * Aggiunta di computer al dominio e posizionamento degli stessi all'interno dell'unità organizzativa specificata in fase di creazione del cluster.
@@ -160,7 +160,7 @@ Un cluster HDInsight con ESP ha tre nuovi utenti, oltre all'amministratore di Am
     Tenere presente che questi privilegi sono gli stessi di altri utenti di Active Directory.
 
     Il cluster contiene alcuni endpoint (ad esempio, Templeton) non gestiti tramite Ranger e pertanto non sicuri. Questi endpoint sono bloccati per tutti gli utenti, tranne l'utente del dominio di amministrazione del cluster.
-* **Normale**: durante la creazione del cluster è possibile specificare più gruppi di Active Directory. Gli utenti di questi gruppi sono sincronizzati con Ranger e Ambari. Questi utenti sono utenti di dominio e possono accedere solo agli endpoint gestiti da Ranger (ad esempio, Hiveserver2). A questi utenti potranno essere applicati tutti i criteri di controllo e controllo degli accessi in base al ruolo.
+* **Normale**: durante la creazione del cluster, è possibile specificare più gruppi di Active Directory. Gli utenti di questi gruppi sono sincronizzati con Ranger e Ambari. Questi utenti sono utenti di dominio e possono accedere solo agli endpoint gestiti da Ranger (ad esempio, Hiveserver2). A questi utenti potranno essere applicati tutti i criteri di controllo e controllo degli accessi in base al ruolo.
 
 ## <a name="roles-of-hdinsight-clusters-with-esp"></a>Ruoli dei cluster HDInsight con ESP
 Enterprise Security Package per HDInsight ha i seguenti ruoli:

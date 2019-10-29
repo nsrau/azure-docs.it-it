@@ -1,5 +1,5 @@
 ---
-title: Informazioni su come usare un Apache Hadoop sandbox-Emulator-Azure HDInsight
+title: Informazioni su come usare un Apache Hadoop sandbox, Emulator-Azure HDInsight
 description: "Per iniziare ad apprendere l'uso dell'ecosistema Apache Hadoop, è possibile impostare un ambiente sandbox Hadoop di Hortonworks in una macchina virtuale Azure. "
 keywords: emulatore hadoop, sandbox hadoop
 ms.reviewer: jasonh
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9515f0ecae92e6350924b3856aa6cbf20e608d51
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 47ee66393e3e1678576b12a70b767f35cb3bc635
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066684"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044761"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introduzione a un Apache Hadoop sandbox, un emulatore in una macchina virtuale
 
@@ -44,7 +44,7 @@ Per scaricare una versione precedente di HDP sandbox, vedere i collegamenti nell
 
     ![avvio normale di VirtualBox Manager](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
-1. Aprire un Web browser e passare all'URL visualizzato (in genere `http://127.0.0.1:8888`).
+1. Aprire un Web browser e passare all'URL visualizzato, in genere `http://127.0.0.1:8888`.
 
 ## <a name="set-sandbox-passwords"></a>Impostare le password Sandbox
 

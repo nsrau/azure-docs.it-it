@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 0ee85a92753845e0e67fff22da894a048acb1b14
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 3d92f1a7067d4b3717ecdfd5b8cb16ec0234bdec
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274963"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025715"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Creare un servizio di bilanciamento del carico pubblico con IPv6 tramite l'interfaccia della riga di comando di Azure
 
+>[! Nota: modificare la procedura consigliata per IPv6] in questo articolo viene descritta una funzionalità IPv6 introduttiva per consentire ai bilanciamenti del carico di base di fornire connettività IPv4 e IPv6.  Connettività IPv6 più completa è ora disponibile con [IPv6 per Azure reti virtuali](../virtual-network/ipv6-overview.md) , che integra la connettività IPv6 con le reti virtuali e include funzionalità chiave quali le regole del gruppo di sicurezza di rete IPv6, il routing definito dall'utente IPv6, il servizio di base IPv6 e Bilanciamento del carico standard e altro ancora.  IPv6 per Azure reti virtuali è la procedura consigliata per le applicazioni IPv6 in Azure. 
+>Vedere [IPv6 per la distribuzione dell'interfaccia della riga di comando di Azure VNET](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md)
 
 Azure Load Balancer è un servizio di bilanciamento del carico di livello 4 (TCP, UDP). I servizi id bilanciamento del carico offrono disponibilità elevata distribuendo il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali in un set di bilanciamento del carico. I servizi di bilanciamento del carico possono anche presentare tali servizi su più porte, più indirizzi IP o entrambi.
 
@@ -48,8 +50,8 @@ Per distribuire un servizio di bilanciamento del carico, creare e configurare gl
 
 * **Configurazione di IP front-end**: contiene gli indirizzi IP pubblici per il traffico di rete in ingresso.
 * **Pool di indirizzi back-end**: contiene le interfacce di rete (NIC) per le macchine virtuali per la ricezione del traffico di rete dal servizio di bilanciamento del carico.
-* **Regole di bilanciamento del carico**: contiene le regole che eseguono il mapping di una porta pubblica nel servizio di bilanciamento del carico a una porta nel pool di indirizzi back-end.
-* **Regole NAT in ingresso**: contiene le regole NAT (Network Address Translation) che eseguono il mapping di una porta pubblica nel servizio di bilanciamento del carico a una porta per una macchina virtuale specifica nel pool di indirizzi back-end.
+* **Regole di bilanciamento del carico**: contiene le regole che eseguono il mapping di una porta pubblica sul servizio di bilanciamento del carico a una porta nel pool di indirizzi back-end.
+* **Regole NAT in ingresso**: contiene le regole NAT (Network Address Translation) che eseguono il mapping di una porta pubblica sul servizio di bilanciamento del carico a una porta per una macchina virtuale specifica nel pool di indirizzi back-end.
 * **Probe**: contiene i probe di integrità usati per verificare la disponibilità di istanze di macchine virtuali nel pool di indirizzi back-end.
 
 ## <a name="set-up-azure-cli"></a>Configurare l'interfaccia della riga di comando di Azure
@@ -296,8 +298,4 @@ Per creare le macchine virtuali è necessario un account di archiviazione. Per i
     az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
     ```
 
-## <a name="next-steps"></a>Passaggi successivi
 
-[Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-get-started-ilb-arm-cli.md)  
-[Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)  
-[Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)

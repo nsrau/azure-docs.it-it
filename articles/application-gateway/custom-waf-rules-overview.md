@@ -7,14 +7,14 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8ae5c9b6b52ea13e3d0981664e8c920cc5b47a01
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 2e96a2a2dd5504c906b5fb84b643467a83518f21
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263553"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027572"
 ---
-# <a name="overview-custom-rules-for-web-application-firewall-v2"></a>Panoramica Regole personalizzate per web application firewall V2
+# <a name="overview-custom-rules-for-web-application-firewall-v2"></a>Panoramica: regole personalizzate per web application firewall V2
 
 Applicazione Azure gateway web application firewall (WAF) v2 include un set di regole preconfigurato, gestito dalla piattaforma che offre protezione da molti tipi diversi di attacchi. Questi attacchi includono lo scripting tra siti, SQL injection e altri. Se si è un amministratore di WAF, potrebbe essere necessario scrivere regole personalizzate per aumentare le regole del set di regole di base. Le regole possono bloccare o consentire il traffico richiesto in base ai criteri di corrispondenza.
 
@@ -32,6 +32,9 @@ Se si desidera utilizzare *o* per due condizioni diverse, è necessario che le d
 > Il numero massimo di regole personalizzate di WAF è 100. Per altre informazioni sui limiti del gateway applicazione, vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md#application-gateway-limits).
 
 Le espressioni regolari sono supportate anche nelle regole personalizzate, così come sono nei set di regole di base. Per esempi di queste regole, vedere l'argomento "esempio 3" e "esempio 5" in [creare e usare regole Web Application Firewall personalizzate](create-custom-waf-rules.md).
+
+> [!NOTE]
+> Le regole personalizzate non sono disponibili nello SKU V1 WAF.
 
 ## <a name="allowing-or-blocking-traffic"></a>Consentire o bloccare il traffico
 
@@ -55,7 +58,7 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Il `$BlockRule` precedente viene mappato alla seguente regola personalizzata in Azure Resource Manager:
+Il `$BlockRule` precedente esegue il mapping alla seguente regola personalizzata in Azure Resource Manager:
 
 ```json
 "customRules": [
@@ -107,14 +110,14 @@ Attualmente, il tipo di regola deve essere **MatchRule**.
 
 La variabile di corrispondenza deve essere una delle seguenti:
 
-- IndirizzoRemoto Indirizzo IP o nome host della connessione al computer remoto
-- RequestMethod: Metodo di richiesta HTTP (GET, POST, PUT, DELETE e così via).
-- QueryString Variabile nell'URI.
-- Postargs: Argomenti inviati nel corpo del POST. Le regole personalizzate che usano questa variabile di corrispondenza vengono applicate solo se l'intestazione Content-Type è impostata su "Application/x-www-form-urlencoded" e "multipart/form-data".
-- RequestUri URI della richiesta.
-- RequestHeaders Intestazioni della richiesta.
-- RequestBody Variabile che contiene l'intero corpo della richiesta nel suo complesso. Le regole personalizzate che usano questa variabile di corrispondenza vengono applicate solo se l'intestazione Content-Type è impostata su "Application/x-www-form-urlencoded". 
-- RequestCookies: Cookie della richiesta.
+- IndirizzoRemoto: indirizzo IP o nome host della connessione al computer remoto
+- RequestMethod: metodo di richiesta HTTP (GET, POST, PUT, DELETE e così via).
+- QueryString: variabile nell'URI.
+- Postargs: gli argomenti inviati nel corpo del POST. Le regole personalizzate che usano questa variabile di corrispondenza vengono applicate solo se l'intestazione Content-Type è impostata su "Application/x-www-form-urlencoded" e "multipart/form-data".
+- RequestUri: URI della richiesta.
+- RequestHeaders: intestazioni della richiesta.
+- RequestBody: variabile che contiene l'intero corpo della richiesta nel suo complesso. Le regole personalizzate che usano questa variabile di corrispondenza vengono applicate solo se l'intestazione Content-Type è impostata su "Application/x-www-form-urlencoded". 
+- RequestCookies: cookie della richiesta.
 
 ### <a name="selector-optional"></a>Selettore (facoltativo)
 
@@ -124,8 +127,8 @@ Il selettore descrive il campo della raccolta matchVariable. Ad esempio, se matc
 
 L'operatore deve essere uno dei seguenti:
 
-- IPMatch: Questo operatore viene utilizzato solo quando la variabile di corrispondenza è *IndirizzoRemoto*.
-- È uguale a L'input è identico a quello di MatchValue.
+- IPMatch: questo operatore viene usato solo quando la variabile di corrispondenza è *IndirizzoRemoto*.
+- Equals: l'input è uguale a quello di MatchValue.
 - Contiene
 - LessThan
 - GreaterThan
@@ -158,11 +161,11 @@ Il campo matchValues è un elenco di valori di cui trovare una corrispondenza, c
 
 Il campo azione offre le opzioni seguenti: 
 
-- Consenti: Autorizza la transazione e ignora tutte le regole successive. Ciò significa che la richiesta specificata viene aggiunta all'elenco Consenti e, dopo la corrispondenza, la richiesta interrompe un'ulteriore valutazione e viene inviata al pool back-end. Le regole presenti nell'elenco Consenti non vengono valutate per altre regole personalizzate o regole gestite.
+- Allow: autorizza la transazione e ignora tutte le regole successive. Ciò significa che la richiesta specificata viene aggiunta all'elenco Consenti e, dopo la corrispondenza, la richiesta interrompe un'ulteriore valutazione e viene inviata al pool back-end. Le regole presenti nell'elenco Consenti non vengono valutate per altre regole personalizzate o regole gestite.
 
-- Blocca: Blocca la transazione in base a *SecDefaultAction* (modalità di rilevamento/prevenzione). Analogamente all'azione Consenti, dopo che la richiesta viene valutata e aggiunta all'elenco dei blocchi, la valutazione viene arrestata e la richiesta viene bloccata. Le richieste successive che soddisfano le stesse condizioni non vengono valutate. Sono bloccate. 
+- Block: blocca la transazione in base a *SecDefaultAction* (modalità di rilevamento/prevenzione). Analogamente all'azione Consenti, dopo che la richiesta viene valutata e aggiunta all'elenco dei blocchi, la valutazione viene arrestata e la richiesta viene bloccata. Le richieste successive che soddisfano le stesse condizioni non vengono valutate. Sono bloccate. 
 
-- Log Consente alla regola di scrivere nel log e consente di eseguire le altre regole per la valutazione. Le regole personalizzate successive vengono valutate in ordine di priorità, seguite dalle regole gestite.
+- Log: consente alla regola di scrivere nel log e consente di eseguire le altre regole per la valutazione. Le regole personalizzate successive vengono valutate in ordine di priorità, seguite dalle regole gestite.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

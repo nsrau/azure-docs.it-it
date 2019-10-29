@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/22/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: f1a679deca8ee33bb4801eb1d1023684a37d0f59
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: c0c7e8b6066626966e2a72d474306bae4ead14c2
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793171"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027213"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Usare Java Message Service (JMS) con il bus di servizio di Azure e AMQP 1,0
 Questo articolo illustra come usare le funzionalità di messaggistica del bus di servizio di Azure (code e argomenti di pubblicazione/sottoscrizione) dalle applicazioni Java usando lo standard API JMS (Java Message Service) più diffuso. È disponibile un [Articolo complementare](service-bus-amqp-dotnet.md) che illustra come eseguire la stessa operazione usando l'API .NET del bus di servizio di Azure. È possibile consultare queste due guide per acquisire informazioni sulla messaggistica multipiattaforma con AMQP 1.0.
@@ -344,7 +344,7 @@ MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ## <a name="jms-topics-vs-service-bus-topics"></a>Argomenti di JMS e argomenti del bus di servizio
 L'uso di argomenti e sottoscrizioni del bus di servizio di Azure tramite l'API JMS (Java Message Service) fornisce funzionalità di base per l'invio e la ricezione. Si tratta di una scelta comoda quando si trasferiscono le applicazioni da altri broker di messaggi con API conformi a JMS, anche se gli argomenti del bus di servizio differiscono dagli argomenti JMS e richiedono alcune modifiche. 
 
-Gli argomenti del bus di servizio di Azure indirizzano i messaggi in sottoscrizioni denominate, condivise e durevoli gestite tramite l'interfaccia di gestione risorse di Azure, gli strumenti da riga di comando di Azure o tramite la portale di Azure. Ogni sottoscrizione consente un massimo di 2000 regole di selezione, ciascuna delle quali può avere una condizione di filtro e, per i filtri SQL, anche un'azione di trasformazione dei metadati. Ogni corrispondenza di condizione di filtro consente di selezionare il messaggio di input da copiare nella sottoscrizione tehj.  
+Gli argomenti del bus di servizio di Azure indirizzano i messaggi in sottoscrizioni denominate, condivise e durevoli gestite tramite l'interfaccia di gestione risorse di Azure, gli strumenti da riga di comando di Azure o tramite la portale di Azure. Ogni sottoscrizione consente un massimo di 2000 regole di selezione, ciascuna delle quali può avere una condizione di filtro e, per i filtri SQL, anche un'azione di trasformazione dei metadati. Ogni corrispondenza di condizione di filtro consente di selezionare il messaggio di input da copiare nella sottoscrizione.  
 
 La ricezione di messaggi dalle sottoscrizioni è identico a ricevere messaggi dalle code. A ogni sottoscrizione è associata una coda di messaggi non recapitabili, nonché la possibilità di inviare automaticamente i messaggi a un'altra coda o a altri argomenti. 
 

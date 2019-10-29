@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 10/11/2019
-ms.openlocfilehash: f15e9c2a5980c8fb6d98f7bf9187b030e6910523
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 10/28/2019
+ms.openlocfilehash: 709d63b2c764049a698bc538d9ec451b4e75feaa
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932378"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044232"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Eliminare e ripristinare l'area di lavoro di Azure Log Analytics
 
@@ -54,12 +54,14 @@ L'operazione di eliminazione dell'area di lavoro consente di rimuovere l'area di
 
 Se si dispone delle autorizzazioni di collaboratore per la sottoscrizione e il gruppo di risorse in cui l'area di lavoro è stata associata prima dell'operazione di eliminazione temporanea, è possibile ripristinarla durante il periodo di eliminazione temporanea, inclusi i dati, la configurazione e gli agenti connessi. Dopo il periodo di eliminazione temporanea, l'area di lavoro non è reversibile e assegnata per l'eliminazione permanente. I nomi delle aree di lavoro eliminate vengono conservati durante il periodo di eliminazione temporanea e non possono essere usati quando si tenta di creare una nuova area di lavoro.  
 
-Per ripristinare un'area di lavoro, è possibile ricreare l'area di lavoro usando l'area di lavoro crea metodi [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) o l' [API REST]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) , purché queste proprietà vengano popolate con i dettagli dell'area di lavoro eliminati, tra cui:
+Per ripristinare un'area di lavoro, è possibile ricrearla usando i metodi di creazione dell'area di lavoro seguenti: [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) o l' [API REST]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) , purché le proprietà seguenti vengano popolate con i dettagli dell'area di lavoro eliminati:
 
 * ID sottoscrizione
 * Nome del gruppo di risorse
 * Nome dell'area di lavoro
 * Area geografica
+
+L'area di lavoro e tutti i relativi dati vengono restituiti dopo l'operazione di ripristino. Le soluzioni e i servizi collegati sono stati rimossi definitivamente dall'area di lavoro al momento dell'eliminazione ed è necessario riconfigurarli per portare l'area di lavoro allo stato configurato in precedenza. Alcuni dati potrebbero non essere disponibili per la query dopo il ripristino dell'area di lavoro fino a quando le soluzioni associate non vengono reinstallate e i relativi schemi vengono aggiunti all'area di lavoro.
 
 > [!NOTE]
 > * Il ripristino dell'area di lavoro non è supportato nell' [portale di Azure](https://portal.azure.com). 

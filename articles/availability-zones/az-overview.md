@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/06/2019
+ms.date: 10/17/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1a8ac8746cda786d8651b4e3606756a76a80441c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: cfe7374525486f7b4fc1b6cb89e40f2eaeff6737
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928344"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027167"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Informazioni sulle zone di disponibilità di Azure
 Le zone di disponibilità offrono una soluzione a disponibilità elevata che consente di proteggere le applicazioni e i dati da eventuali guasti del data center. Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati da eventuali guasti del data center. I servizi con ridondanza della zona replicano le applicazioni e i dati tra aree di disponibilità per garantire la protezione da singoli punti di errore. Con le zone di disponibilità, Azure offre un contratto di servizio con tempo di attività delle VM del 99,99% tra i migliori del settore. La versione completa del [contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) descrive la disponibilità garantita di Azure nel suo complesso.
@@ -72,8 +72,8 @@ Le combinazioni dei servizi e delle aree di Azure che supportano zone di disponi
 | **Integrazione**                     |            |              |           |           |                |              |          |             |            |                |
 | Bus di servizio (solo livello Premium) | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |
 | Griglia di eventi | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |
-
-
+| **Identità**                     |            |              |           |           |                |              |          |             |            |                |
+| Servizi di dominio Azure Active Directory | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |
 
 ## <a name="services-resiliency"></a>Resilienza dei servizi
 Tutti i servizi di gestione di Azure sono progettati per essere resilienti da errori a livello di area. Nello spettro degli errori, uno o più errori della zona di disponibilità all'interno di un'area hanno un raggio di errore inferiore rispetto a un errore dell'intera area. Azure può eseguire il ripristino da un errore a livello di zona dei servizi di gestione all'interno dell'area o da un'altra area di Azure. Azure esegue una manutenzione critica di una zona alla volta all'interno di un'area, per evitare errori che influiscano sulle risorse dei clienti distribuite tra zone di disponibilità all'interno di un'area.
@@ -95,6 +95,7 @@ Per le macchine virtuali distribuite in una zona di disponibilità non sono prev
 - [Creare un gateway di rete virtuale con ridondanza della zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 - [Aggiungere un'area con ridondanza della zona per Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
 - [Introduzione cache di Azure per Redis zone di disponibilità](https://aka.ms/redis/az/getstarted)
+- [Creare un'istanza di Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Modelli di avvio rapido](https://aka.ms/azqs)

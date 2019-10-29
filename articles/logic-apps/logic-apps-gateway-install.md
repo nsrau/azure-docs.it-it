@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/18/2019
-ms.openlocfilehash: 7533b391917175fd9dea395f58906a9f78a61488
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 6467937e2aca08e234cb136c5f610503627921fb
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675699"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042137"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
@@ -89,15 +89,15 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
 
 1. Dopo l'apertura del programma di installazione, fare clic su **Avanti**.
 
-   ![Introduzione del programma di installazione](./media/logic-apps-gateway-install/gateway-intro-screen.png)
+   ![Schermata introduttiva per il programma di installazione del gateway](./media/logic-apps-gateway-install/gateway-intro-screen.png)
 
 1. Selezionare **gateway dati locale (scelta consigliata)** , che è la modalità standard, quindi selezionare **Avanti**.
 
-   ![Selezionare la modalità gateway](./media/logic-apps-gateway-install/select-gateway-mode.png)
+   ![Selezionare la modalità di esecuzione per il gateway dati](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
 
 1. Verificare i requisiti minimi, tenere il percorso di installazione predefinito, accettare le condizioni per l'utilizzo e quindi selezionare **Installa**.
 
-   ![Esaminare i requisiti e accettare le condizioni per l'utilizzo](./media/logic-apps-gateway-install/accept-terms.png)
+   ![Esaminare i requisiti e accettare le condizioni per l'utilizzo](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
 
 1. Al termine dell'installazione del gateway, fornire l'indirizzo di posta elettronica per l'account Azure e quindi selezionare **Accedi**, ad esempio:
 
@@ -107,7 +107,7 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
 
 1. Selezionare **registra un nuovo gateway nel computer**  > **Avanti**. Questo passaggio registra l'installazione del gateway con il [servizio cloud gateway](#gateway-cloud-service).
 
-   ![Registrare il gateway](./media/logic-apps-gateway-install/register-gateway.png)
+   ![Registrare il gateway nel computer locale](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
 1. Specificare le informazioni seguenti per l'installazione del gateway:
 
@@ -115,7 +115,7 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
    * Chiave di ripristino, che deve contenere almeno otto caratteri che si desidera utilizzare
    * Conferma per la chiave di ripristino
 
-   ![Configurare il gateway](./media/logic-apps-gateway-install/set-up-gateway.png)
+   ![Fornire informazioni per l'installazione del gateway](./media/logic-apps-gateway-install/gateway-name-recovery-key.png)
 
    > [!IMPORTANT]
    > Salvare e conservare la chiave di ripristino in un luogo sicuro. Questa chiave è necessaria se si vuole modificare il percorso, spostare, ripristinare o sostituire un'installazione del gateway.
@@ -124,7 +124,7 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
 
 1. Controllare l'area per il servizio cloud gateway e il [bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/) usato dall'installazione del gateway. Per impostazione predefinita, quest'area è la stessa località del tenant di Azure AD per l'account Azure.
 
-   ![Controllare l'area](./media/logic-apps-gateway-install/check-region.png)
+   ![Confermare l'area per il servizio gateway e il bus di servizio](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
 1. Per accettare l'area predefinita, selezionare **Configura**. Tuttavia, se l'area predefinita non è quella più vicina, è possibile modificare l'area.
 
@@ -134,15 +134,15 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
 
    1. Accanto all'area corrente, selezionare **Cambia area**.
 
-      ![Cambiare area](./media/logic-apps-gateway-install/change-region.png)
+      ![Modificare l'area del gateway corrente](./media/logic-apps-gateway-install/change-gateway-service-region.png)
 
    1. Nella pagina successiva aprire l'elenco **Seleziona area** , selezionare l'area desiderata, quindi fare clic su **fine**.
 
-      ![Selezionare un'altra area](./media/logic-apps-gateway-install/select-region-gateway-install.png)
+      ![Selezionare un'altra area per il servizio gateway](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
 1. Esaminare le informazioni nella finestra di conferma finale. Questo esempio usa lo stesso account per app per la logica, Power BI, PowerApps e Microsoft Flow, in modo che il gateway sia disponibile per tutti questi servizi. Quando si è pronti, selezionare **Chiudi**.
 
-   ![Gateway completato](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
+   ![Confermare le informazioni sul gateway dati](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
 1. [Creare ora la risorsa di Azure per l'installazione del gateway](../logic-apps/logic-apps-gateway-connection.md).
 
@@ -185,7 +185,7 @@ Per modificare la posizione del gateway, spostare l'installazione del gateway in
 
 1. Selezionare tra i cluster e i gateway disponibili e immettere la chiave di ripristino per il gateway selezionato, ad esempio:
 
-   ![Selezionare il gateway](./media/logic-apps-gateway-install/select-existing-gateway.png)
+   ![Selezionare il gateway e fornire la chiave di ripristino](./media/logic-apps-gateway-install/select-existing-gateway.png)
 
 1. Per modificare l'area, selezionare **Cambia area**e selezionare la nuova area.
 
@@ -270,9 +270,9 @@ Ecco i modi in cui è possibile associare gli account di Active Directory locali
 
 Per altre informazioni, vedere gli argomenti seguenti:
 
-* [Domande frequenti sul gateway dati locale](/data-integration/gateway/service-gateway-onprem-faq)
-* [Risolvere i problemi del gateway dati locale](/data-integration/gateway/service-gateway-tshoot)
-* [Monitorare e ottimizzare le prestazioni del gateway](/data-integration/gateway/service-gateway-performance)
+* [Domande frequenti sul gateway dati locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
+* [Risolvere i problemi del gateway dati locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
+* [Monitorare e ottimizzare le prestazioni del gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

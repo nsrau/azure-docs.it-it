@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 10/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62ceff25b022866e47e6fdd488b01dd647cf550f
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: dfca7ef1dabb8c6021c9df2e3174d3e208a839b5
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808215"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042102"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 
@@ -114,6 +114,8 @@ Configurare gli indirizzi di posta elettronica per gli utenti che riceveranno me
 
 >[!NOTE]
 >Quando vengono effettuate chiamate MFA tramite la rete telefonica pubblica, queste vengono a volte indirizzate su un gestore che non supporta l'ID chiamante. Per questo motivo, l'ID chiamante non è garantito, anche se il sistema di autenticazione a più fattori lo invia sempre.
+
+Nel Stati Uniti, se l'ID chiamante dell'autenticazione a più fattori non è stato configurato, le chiamate vocali da Microsoft provengono dai numeri seguenti: + 1 (866) 539 4191, + 1 (855) 330 8653 e + 1 (877) 668 6536. Se si usano i filtri di posta indesiderata, assicurarsi di escludere questi numeri.
 
 ### <a name="custom-voice-messages"></a>Messaggi vocali personalizzati
 
@@ -387,7 +389,7 @@ Altre informazioni sull'uso dei metodi di autenticazione sono disponibili nell'a
 La funzionalità di _memorizzazione di Multi-Factor Authentication_ per dispositivi e browser considerati attendibili dall'utente è una funzionalità gratuita per tutti gli utenti di Multi-Factor Authentication. Gli utenti possono ignorare le verifiche successive per un numero specificato di giorni, dopo aver effettuato correttamente l'accesso in un dispositivo tramite Multi-Factor Authentication. Questa funzionalità permette di migliorare l'usabilità, riducendo al minimo il numero di volte in cui un utente deve eseguire la verifica in due passaggi nello stesso dispositivo.
 
 >[!IMPORTANT]
->Se un dispositivo o un account viene compromesso, la memorizzazione di Multi-Factor Authentication per i dispositivi attendibili può influire sulla sicurezza. Se viene compromesso un account aziendale o un dispositivo attendibile viene smarrito o rubato, è necessario [ripristinare Multi-Factor Authentication su tutti i dispositivi](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
+>Se un dispositivo o un account viene compromesso, la memorizzazione di Multi-Factor Authentication per i dispositivi attendibili può influire sulla sicurezza. Se un account aziendale viene compromesso o un dispositivo attendibile viene smarrito o rubato, è necessario [revocare le sessioni](howto-mfa-userdevicesettings.md)di autenticazione a più fattori.
 >
 >L'azione di ripristino revoca lo stato di attendibilità di tutti i dispositivi e l'utente deve eseguire nuovamente la verifica in due passaggi. È possibile anche istruire gli utenti a ripristinare Multi-Factor Authentication sui propri dispositivi con le istruzioni disponibili in [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) (Gestire le impostazioni per la verifica in due passaggi).
 

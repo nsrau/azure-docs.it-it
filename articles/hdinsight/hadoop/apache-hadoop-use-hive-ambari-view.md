@@ -1,5 +1,5 @@
 ---
-title: Usare le visualizzazioni di Apache Ambari per l'uso di Hive in HDInsight (Apache Hadoop) - Azure
+title: Usare la vista hive di Apache Ambari con Apache Hadoop in Azure HDInsight
 description: Informazioni su come usare la visualizzazione Hive dal Web browser per inviare query Hive. La visualizzazione Hive fa parte delle visualizzazioni di Ambari fornite con il cluster HDInsight basato su Linux.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: da4d1ed7dec8b3b0bc61dd2959a868d03875039c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 5063be247b2ad51dc8888f8512f523ccf2b0174c
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077003"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044818"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Usare la vista Hive di Apache Ambari con Apache Hadoop in HDInsight
 
@@ -70,7 +70,7 @@ Informazioni su come eseguire query Hive usando la vista Hive di Apache Ambari. 
 
    * `STORED AS TEXTFILE LOCATION`: indica dove sono archiviati i dati e che sono archiviati come testo.
 
-   * `SELECT`: seleziona un conteggio di tutte le righe in cui la colonna t4 contiene il valore [ERROR].
+   * `SELECT`: seleziona un conteggio di tutte le righe in cui la colonna t4 include il valore [ERROR].
 
    > [!IMPORTANT]  
    > Mantenere la selezione di __Database__ __predefinita__. Gli esempi di questo documento usano il database predefinito incluso in HDInsight.
@@ -170,4 +170,4 @@ Per informazioni generali su Hive in HDInsight:
 Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Apache Pig con Apache Hadoop su HDInsight](hdinsight-use-pig.md)
-* [Usare MapReduce con Apache Hadoop su HDInsight](hdinsight-use-mapreduce.md)
+* [Usare MapReduce in Apache Hadoop in HDInsight](hdinsight-use-mapreduce.md)

@@ -1,5 +1,5 @@
 ---
-title: Funzione definita dall'utente (UDF) Java con Apache Hive in HDInsight - Azure
+title: Funzione definita dall'utente (UDF) Java con Apache Hive Azure HDInsight
 description: Informazioni su come creare una funzione definita dall'utente (UDF) basata su Java che funzioni con Apache Hive. In questo esempio, UDF converte una tabella di stringhe di testo in caratteri minuscoli.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 43208636fb275c38573f820ef8245d7652b4aa86
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 5690f2cc5bc85d7bcdbf1d05930a05bcc2e764c0
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181174"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044787"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Usare una funzione definita dall'utente Java con Apache Hive in HDInsight
 
@@ -24,7 +24,7 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
 * Un cluster Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](./apache-hadoop-linux-tutorial-get-started.md).
 * [Java Developer Kit (JDK) versione 8](https://aka.ms/azure-jdks)
 * [Apache Maven](https://maven.apache.org/download.cgi) correttamente [installato](https://maven.apache.org/install.html) in base alle indicazioni di Apache.  Maven è un sistema di compilazione per progetti Java.
-* Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. Si tratta di wasb://per archiviazione di Azure, abfs://per Azure Data Lake Storage Gen2 o adl://per Azure Data Lake Storage Gen1. Se il trasferimento sicuro è abilitato per archiviazione di Azure, l'URI `wasbs://`è.  Vedere anche [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
+* Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. Si tratta di wasb://per archiviazione di Azure, abfs://per Azure Data Lake Storage Gen2 o adl://per Azure Data Lake Storage Gen1. Se il trasferimento sicuro è abilitato per Archiviazione di Azure, l'URI sarà `wasbs://`.  Vedere anche l'articolo sul [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
 
 * Un editor di testo o ambiente IDE Java
 
@@ -51,7 +51,7 @@ cd C:\HDI
 
     Questo comando crea una directory denominata `exampleudf`, che contiene il progetto Maven.
 
-2. Una volta creato il progetto, eliminare `exampleudf/src/test` la directory creata come parte del progetto immettendo il comando seguente:
+2. Una volta creato il progetto, eliminare la directory `exampleudf/src/test` creata come parte del progetto immettendo il comando seguente:
 
     ```cmd
     cd ExampleUDF
@@ -64,7 +64,7 @@ cd C:\HDI
     notepad pom.xml
     ```
 
-    Sostituire quindi la voce `<dependencies>` esistente con il codice XML seguente:
+    Sostituire quindi la voce di `<dependencies>` esistente con il codice XML seguente:
 
     ```xml
     <dependencies>
@@ -190,7 +190,7 @@ Nei comandi seguenti sostituire `sshuser` con il nome utente effettivo, se diver
 
     Questo comando compila e impacchetta la UDF nel file `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar`.
 
-2. Usare il `scp` comando per copiare il file nel cluster HDInsight immettendo il comando seguente:
+2. Usare il comando `scp` per copiare il file nel cluster HDInsight immettendo il comando seguente:
 
     ```cmd
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
@@ -248,7 +248,7 @@ Nei comandi seguenti sostituire `sshuser` con il nome utente effettivo, se diver
         | colorado      | Colorado      |
         +---------------+---------------+--+
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Quando si esegue il processo hive, è possibile riscontrare un errore simile al testo seguente:
 

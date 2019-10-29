@@ -12,12 +12,12 @@ ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.openlocfilehash: 6e5a8eda3891b3b356e0cbd7b6d2e22e4a70c278
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4fc20c4b1314d953ea979192c81b2c264292d3af
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799716"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041869"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Chiamare, attivare o annidare app per la logica usando endpoint HTTP in app per la logica di Azure
 
@@ -62,7 +62,7 @@ Per creare un endpoint HTTP, aggiungere un trigger in grado di ricevere le richi
     }
     ```
 
-   ![Aggiungere l'azione Request](./media/logic-apps-http-endpoint/manualtrigger.png)
+   ![Fornire lo schema JSON per l'azione di richiesta](./media/logic-apps-http-endpoint/manual-request-trigger-schema.png)
 
    > [!TIP]
    >
@@ -95,7 +95,7 @@ Per creare un endpoint HTTP, aggiungere un trigger in grado di ricevere le richi
 
    L'URL contiene una chiave di firma di accesso condiviso (SAS) nei parametri di query usati per l'autenticazione. È inoltre possibile ottenere l'URL dell'endpoint HTTP dalla panoramica dell'app per la logica nel portale di Azure. In **Cronologia trigger** selezionare il trigger:
 
-   ![Ottenere l'URL dell'endpoint HTTP GET dal portale di Azure](./media/logic-apps-http-endpoint/manualtriggerurl.png)
+   ![Ottenere l'URL dell'endpoint HTTP GET dal portale di Azure](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
    Oppure è possibile ottenere l'URL mediante questa chiamata:
 
@@ -117,7 +117,7 @@ Per impostazione predefinita, il trigger **Richiesta** prevede una richiesta HTT
    > [!NOTE]
    > È possibile selezionare qualsiasi altro metodo HTTP o specificare un metodo personalizzato per la propria app per la logica.
 
-   ![Modificare il metodo HTTP](./media/logic-apps-http-endpoint/change-method.png)
+   ![Selezionare il metodo HTTP da usare per la richiesta](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
 ## <a name="accept-parameters-through-your-http-endpoint-url"></a>Accettare i parametri tramite l'URL dell'endpoint HTTP
 
@@ -132,7 +132,7 @@ Quando si desidera che l'URL dell'endpoint HTTP accetti i parametri, personalizz
 
 3. In **Percorso relativo** specificare il percorso relativo per il parametro che l'URL deve accettare, ad esempio, `customers/{customerID}`.
 
-   ![Specificare il percorso relativo e il metodo HTTP per il parametro](./media/logic-apps-http-endpoint/relativeurl.png)
+   ![Specificare il percorso relativo e il metodo HTTP per il parametro](./media/logic-apps-http-endpoint/relative-path-url-value.png)
 
 4. Per usare il parametro, aggiungere un'azione **Risposta** all'app per la logica. (Nel trigger scegliere **Nuovo passaggio** > **Aggiungi un'azione** > **Risposta**) 
 
@@ -140,11 +140,11 @@ Quando si desidera che l'URL dell'endpoint HTTP accetti i parametri, personalizz
 
    Ad esempio, per restituire `Hello {customerID}`, aggiornare il **corpo** della risposta con `Hello {customerID token}`. Viene visualizzato l'elenco del contenuto dinamico che mostra il token `customerID` da selezionare.
 
-   ![Aggiungere un parametro al corpo della risposta](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+   ![Aggiungere un parametro al corpo della risposta](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
 
    Il **corpo** dovrebbe essere simile al seguente:
 
-   ![Corpo della risposta con parametri](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
+   ![Esempio di corpo della risposta con parametro](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
 6. Salvare l'app per la logica. 
 
@@ -194,7 +194,7 @@ Di seguito è riportato lo schema JSON completo:
 
 È possibile nidificare i flussi di lavoro nell'app per la logica aggiungendo altre app per la logica che possono ricevere richieste. Per includere queste app per la logica, aggiungere l'azione **Azure Logic Apps - Choose a Logic Apps workflow** (App per la logica di Azure - Scegliere un flusso di lavoro delle app per la logica) al trigger. È quindi possibile selezionare dalle app per la logica idonee.
 
-![Aggiungere un'altra app per la logica](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
+![Annidare app per la logica nell'app per la logica corrente](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
 ## <a name="call-or-trigger-logic-apps-through-http-endpoints"></a>Chiamare o avviare le app per la logica tramite endpoint HTTP
 
@@ -233,7 +233,7 @@ Per alcune richieste che avviano un'app per la logica, può risultare utile risp
 
 È possibile includere più di un'intestazione e qualsiasi tipo di contenuto nel corpo della risposta. Nell'esempio di risposta l'intestazione specifica che la risposta contiene il tipo di contenuto `application/json`, mentre il corpo contiene `title` e `name`, in base allo schema JSON aggiornato in precedenza per il trigger **Richiesta**.
 
-![Azione di risposta HTTP](./media/logic-apps-http-endpoint/response.png)
+![Fornire il contenuto della risposta per l'azione di risposta HTTP](./media/logic-apps-http-endpoint/content-for-response-action.png)
 
 Le risposte hanno le seguenti proprietà:
 

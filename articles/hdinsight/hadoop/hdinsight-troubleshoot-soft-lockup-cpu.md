@@ -1,5 +1,5 @@
 ---
-title: errore di utilizzo della CPU per il blocco molle del BUG di watchdog da un cluster Azure HDInsight
+title: Errore di utilizzo della CPU del blocco software del watchdog dal cluster HDInsight di Azure
 description: La CPU del blocco software del Watchdog viene visualizzata nei syslog del kernel dal cluster HDInsight di Azure
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,20 +7,20 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
-ms.openlocfilehash: 8f9b60c6e181c9f47635e7d46ce103032d395028
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1d357566a7b2478fff77ed4d88af4ee8a9535050
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087344"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044730"
 ---
-# <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Scenario: "watchdog: BUG: errore di blocco software-CPU da un cluster Azure HDInsight
+# <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Scenario: errore "watchdog: BUG: blocco soft-CPU" da un cluster Azure HDInsight
 
 Questo articolo descrive le procedure di risoluzione dei problemi e le possibili soluzioni per i problemi durante l'interazione con i cluster HDInsight di Azure.
 
 ## <a name="issue"></a>Problema
 
-I syslog del kernel contengono il messaggio di errore `watchdog: BUG: soft lockup - CPU`:.
+I syslog del kernel contengono il messaggio di errore: `watchdog: BUG: soft lockup - CPU`.
 
 ## <a name="cause"></a>Causa
 
@@ -39,14 +39,14 @@ Applica patch del kernel. Lo script seguente aggiorna il kernel Linux e riavvia 
     | Proprietà | Value |
     | --- | --- |
     | Tipo di script | -Personalizzato |
-    | Name |Correzione per il problema di blocco soft kernel |
+    | name |Correzione per il problema di blocco soft kernel |
     | URI script Bash |`https://raw.githubusercontent.com/hdinsight/hdinsight.github.io/master/ClusterCRUD/KernelSoftLockFix/scripts/KernelSoftLockIssue_FixAndReboot.sh` |
     | Tipo/i di nodo |Worker, Zookeeper |
-    | Parametri |N/D |
+    | parameters |N/D |
 
     Selezionare **Mantieni questa azione script...** se si desidera che esegua lo script quando vengono aggiunti nuovi nodi.
 
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
 1. Attendere che l'esecuzione abbia esito positivo.
 
@@ -60,6 +60,6 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
 
-* Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente connettendo la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
+* È possibile connettersi con [@AzureSupport](https://twitter.com/azuresupport) , l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente connettendo la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
 
 * Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto tecnico di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

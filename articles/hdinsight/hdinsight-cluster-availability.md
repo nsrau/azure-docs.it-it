@@ -1,20 +1,20 @@
 ---
-title: Come monitorare la disponibilità del cluster con Ambari e i log di monitoraggio di Azure
+title: 'Monitoraggio: Apache Ambari & log di monitoraggio di Azure-Azure HDInsight'
 description: Informazioni su come usare Ambari e i log di monitoraggio di Azure per monitorare l'integrità e la disponibilità del cluster.
 keywords: monitoraggio, Ambari, monitoraggio, log Analytics, avviso, disponibilità, integrità
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-author: tylerfox
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: tyfox
-ms.openlocfilehash: 153c28dc8a06968dc9dd3cfda021496672a094d5
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: eeaef8851035bbb8d2f39bcf9f366118545fcf0f
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076559"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044470"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Come monitorare la disponibilità del cluster con Ambari e i log di monitoraggio di Azure
 
@@ -26,7 +26,7 @@ Questo documento illustra come usare questi strumenti per monitorare il cluster 
 
 ### <a name="dashboard"></a>dashboard
 
-È possibile accedere al dashboard di Ambari facendo clic sul collegamento **Ambari Home** nella sezione **Dashboard del cluster del pannello** panoramica di HDInsight in portale di Azure come illustrato di seguito. In alternativa, è possibile accedervi immettendo l'URL seguente in un [browser\<https://clustername\>. azurehdinsight.NET](https://clustername.azurehdinsight.net/)
+È possibile accedere al dashboard di Ambari facendo clic sul collegamento **Ambari Home** nella sezione **Dashboard del cluster del pannello** panoramica di HDInsight in portale di Azure come illustrato di seguito. In alternativa, è possibile accedervi immettendo l'URL seguente in un browser [https://\<clustername\>. azurehdinsight.NET](https://clustername.azurehdinsight.net/)
 
 ![Visualizzazione del portale delle risorse di HDInsight](media/hdinsight-cluster-availability/portal-oms-overview1.png)
 
@@ -58,7 +58,7 @@ Per visualizzare un elenco di definizioni di avviso e i relativi stati, fare cli
 
 Ambari offre molti avvisi predefiniti relativi alla disponibilità, tra cui:
 
-| Nome avviso                        | Descrizione                                                                                                                                                                           |
+| Nome avviso                        | Description                                                                                                                                                                           |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Riepilogo integrità dataNode           | Questo avviso a livello di servizio viene attivato se sono presenti nodi di tipo non integro                                                                                                                |
 | Stato disponibilità elevata NameNode | Questo avviso a livello di servizio viene attivato se il NameNode attivo NameNode o standby non è in esecuzione.                                                                              |
@@ -83,7 +83,7 @@ Facoltativamente, è anche possibile configurare le notifiche di posta elettroni
 
 ![Azione di gestione notifiche di Ambari](media/hdinsight-cluster-availability/ambari-manage-notifications.png)
 
-Viene visualizzata una finestra di dialogo per la gestione delle notifiche di avviso. **+** Fare clic su nella parte inferiore della finestra di dialogo e compilare i campi obbligatori per fornire a Ambari i dettagli del server di posta elettronica da cui inviare i messaggi di posta elettronica.
+Viene visualizzata una finestra di dialogo per la gestione delle notifiche di avviso. Fare clic sul **+** nella parte inferiore della finestra di dialogo e compilare i campi obbligatori per fornire a Ambari i dettagli del server di posta elettronica da cui inviare i messaggi di posta elettronica.
 
 > [!TIP]
 > La configurazione delle notifiche di posta elettronica di Ambari può essere un modo efficace per ricevere avvisi in un'unica posizione quando si gestiscono molti cluster HDInsight.
@@ -92,7 +92,7 @@ Viene visualizzata una finestra di dialogo per la gestione delle notifiche di av
 
 Log di monitoraggio di Azure consente di raccogliere e aggregare i dati generati da più risorse, ad esempio i cluster HDInsight, in un'unica posizione per ottenere un'esperienza di monitoraggio unificata.
 
-Come prerequisito, sarà necessaria un'area di lavoro Log Analytics per archiviare i dati raccolti. Se non ne è già stato creato uno, è possibile seguire le istruzioni riportate qui: [Creare un'area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Come prerequisito, sarà necessaria un'area di lavoro Log Analytics per archiviare i dati raccolti. Se non è già stato creato, è possibile seguire le istruzioni riportate qui: [creare un'area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
 ### <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Abilitare l'integrazione dei log di monitoraggio di Azure HDInsight
 
@@ -108,7 +108,7 @@ Una volta abilitata l'integrazione dei log di monitoraggio di Azure (l'operazion
 
 Il pannello **logs** elenca una serie di query di esempio, ad esempio:
 
-| Nome query                      | Descrizione                                                               |
+| Nome query                      | Description                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
 | Disponibilità di computer oggi    | Grafico numero di computer che inviano log, ogni ora                     |
 | Elenca heartbeat                 | Elencare tutti gli heartbeat del computer nell'ultima ora                           |
@@ -123,7 +123,7 @@ Eseguire ad esempio la query di esempio sulla **frequenza di disponibilità** fa
 > [!NOTE] 
 > La frequenza di disponibilità viene misurata in un periodo di 24 ore, quindi il cluster deve essere eseguito per almeno 24 ore prima di visualizzare le tariffe di disponibilità accurate.
 
-È possibile aggiungere questa tabella a un dashboard condiviso facendo clic su **Aggiungi** nell'angolo in alto a destra. Se non si dispone di dashboard condivisi scrivibili, è possibile vedere come crearne uno: [Creare e condividere i dashboard nel portale di Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
+È possibile aggiungere questa tabella a un dashboard condiviso facendo clic su **Aggiungi** nell'angolo in alto a destra. Se non si dispone di dashboard condivisi scrivibili, è possibile vedere come crearne uno qui: [creare e condividere i dashboard nel portale di Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
 
 ### <a name="azure-monitor-alerts"></a>Avvisi di monitoraggio di Azure
 
@@ -147,7 +147,7 @@ Verrà aperto il pannello **Configura logica del segnale** .
 
 Impostare la sezione **logica avvisi** come segue:
 
-*In base a: Numero di risultati, condizione: Maggiore di, soglia: 0.*
+*In base a: numero di risultati, condizione: maggiore di, soglia: 0.*
 
 Poiché questa query restituisce solo i nodi non disponibili come risultati, se il numero di risultati è sempre maggiore di 0, l'avviso deve essere attivato.
 
@@ -155,7 +155,7 @@ Nella sezione **valutato in base a** impostare il **periodo** e la **frequenza**
 
 Si noti che, ai fini di questo avviso, è necessario assicurarsi che **period = Frequency.** Altre informazioni su periodo, frequenza e altri parametri di avviso sono disponibili [qui](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log#log-search-alert-rule---definition-and-types).
 
-Fare clic su **Done** al termine della configurazione per la logica di segnale.
+Al termine della configurazione della logica del segnale, fare clic su **fine** .
 
 ![Regola di avviso configurare la logica del segnale](media/hdinsight-cluster-availability/portal-configure-signal-logic.png)
 

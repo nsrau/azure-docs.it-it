@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 10/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 50617eda56c2eaec9fac315013114f173e85edbc
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 920419bf10634e8be15e05a89d547a5a9d1430b7
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990783"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027791"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -312,7 +312,7 @@ Sì. Gli addebiti per ExpressRoute Premium vengono sommati agli addebiti per Exp
 
 ## <a name="expressroute-local"></a>ExpressRoute locale
 ### <a name="what-is-expressroute-local"></a>Che cos'è ExpressRoute local?
-ExpressRoute local è uno SKU del circuito ExpressRoute disponibile in [ExpressRoute Direct](expressroute-erdirect-about.md). Una funzionalità chiave di local è che un circuito locale in una località di peering ExpressRoute consente di accedere solo a una o due aree di Azure in o vicino alla stessa metropolitana. Al contrario, un circuito standard consente di accedere a tutte le aree di Azure in un'area geopolitica e un circuito Premium a tutte le aree di Azure a livello globale. 
+ExpressRoute local è uno SKU del circuito ExpressRoute, oltre allo SKU standard e allo SKU Premium. Una funzionalità chiave di local è che un circuito locale in una località di peering ExpressRoute consente di accedere solo a una o due aree di Azure in o vicino alla stessa metropolitana. Al contrario, un circuito standard consente di accedere a tutte le aree di Azure in un'area geopolitica e un circuito Premium a tutte le aree di Azure a livello globale. 
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>Quali sono i vantaggi di ExpressRoute local?
 Anche se è necessario pagare il trasferimento dei dati in uscita per il circuito ExpressRoute standard o Premium, non si paga il trasferimento dei dati in uscita separatamente per il circuito locale di ExpressRoute. In altre parole, il prezzo di ExpressRoute local include tariffe per il trasferimento dei dati. ExpressRoute local è una soluzione più economica se si dispone di una grande quantità di dati da trasferire ed è possibile trasferire i dati tramite una connessione privata a una località di peering ExpressRoute vicino alle aree di Azure desiderate. 
@@ -323,9 +323,6 @@ Rispetto a un circuito ExpressRoute standard, un circuito locale ha lo stesso se
 * ExpressRoute Copertura globale non è disponibile in locale
 
 ExpressRoute local ha anche gli stessi limiti per le risorse (ad esempio, il numero di reti virtuali per circuito) come standard. 
-
-### <a name="how-to-configure-expressroute-local"></a>Come configurare ExpressRoute local? 
-ExpressRoute local è disponibile solo in ExpressRoute Direct. Prima di tutto è necessario configurare la porta ExpressRoute Direct. Una volta creata la porta diretta, è possibile creare un circuito locale seguendo le istruzioni riportate [qui](expressroute-howto-erdirect.md).
 
 ### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Dove è disponibile ExpressRoute locale e a quali aree di Azure è mappata ogni località di peering?
 ExpressRoute local è disponibile nelle località di peering in cui una o due aree di Azure sono vicine. Non è disponibile in una località di peering in cui non esiste alcuna area di Azure in tale stato o provincia o paese. Vedere i mapping esatti nella [pagina percorsi](expressroute-locations-providers.md).  

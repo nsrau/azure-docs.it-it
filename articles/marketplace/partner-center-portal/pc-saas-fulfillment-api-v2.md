@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: evansma
-ms.openlocfilehash: 9cded164b63bbb72e4a353e9a542c9e054c14d93
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b1ec40485e775b7e50b5f7d82014aef77f14fb3e
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821149"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025279"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>API di evasione SaaS, versione 2 
 
@@ -87,7 +87,7 @@ La tabella seguente elenca le definizioni per i parametri e le entità comuni us
 | `offerId`                | Identificatore di stringa univoco per ogni offerta (ad esempio: "offer1").  |
 | `planId`                 | Identificatore di stringa univoco per ogni piano/SKU (ad esempio: "Silver"). |
 | `operationId`            | Identificatore GUID per una particolare operazione.  |
-|  `action`                | Azione eseguita su una risorsa, ovvero `unsubscribe`, `suspend`, `reinstate` o `changePlan` `changeQuantity` `transfer`.  |
+|  `action`                | Azione eseguita su una risorsa, ovvero `Unsubscribe`, `Suspend`, `Reinstate`o `ChangePlan``ChangeQuantity``Transfer`. |
 |   |   |
 
 Gli identificatori univoci globali ([GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) sono numeri a 128 bit (32-esadecimale) che vengono in genere generati automaticamente. 
@@ -707,7 +707,7 @@ Errore interno del server.
 
 #### <a name="get-operation-status"></a>Ottenere lo stato dell'operazione
 
-Consente al server di pubblicazione di tenere traccia dello stato dell'operazione asincrona attivata specificata, ad esempio `subscribe`, `unsubscribe`, `changePlan` o `changeQuantity`.
+Consente al server di pubblicazione di tenere traccia dello stato dell'operazione asincrona attivata specificata, ad esempio `Subscribe`, `Unsubscribe`, `ChangePlan`o `ChangeQuantity`.
 
 ##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Ottieni<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -850,11 +850,11 @@ Il server di pubblicazione deve implementare un webhook in questo servizio SaaS 
 }
 ```
 Dove l'azione può essere una delle seguenti: 
-- `unsubscribe` (quando la risorsa è stata eliminata)
-- `changePlan` (al termine dell'operazione di modifica del piano)
-- `changeQuantity` (al termine dell'operazione di modifica della quantità)
-- `suspend` (quando la risorsa è stata sospesa)
-- `reinstate` (quando la risorsa è stata ripristinata dopo la sospensione)
+- `Unsubscribe` (quando la risorsa è stata eliminata)
+- `ChangePlan` (al termine dell'operazione di modifica del piano)
+- `ChangeQuantity` (al termine dell'operazione di modifica della quantità)
+- `Suspend` (quando la risorsa è stata sospesa)
+- `Reinstate` (quando la risorsa è stata ripristinata dopo la sospensione)
 
 Dove lo stato può essere uno dei seguenti: 
 - **NotStarted** <br>

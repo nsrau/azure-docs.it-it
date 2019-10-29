@@ -3,21 +3,20 @@ title: Come scalare l'ambiente Time Series Insights di Azure | Microsoft Docs
 description: Questo articolo spiega come ridimensionare l'ambiente Time Series Insights. Per aggiungere o sottrarre capacità in uno SKU di prezzo, usare il portale di Azure.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a899de22137decc1eb1578369a2751710c17abda
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 3f03f5ed75c720c9b0daf30d721ef4d2aee9749c
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332856"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991146"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Come scalare l'ambiente Time Series Insights
 
@@ -27,21 +26,9 @@ Questo articolo descrive come modificare la capacità dell'ambiente di Time Seri
 
 Non è però consentita la modifica dello SKU di piano tariffario. Ad esempio, un ambiente con uno SKU di prezzo S1 non può essere convertito in un ambiente con SKU S2 o viceversa.
 
-## <a name="s1-sku-ingress-rates-and-capacities"></a>Capacità e velocità di ingresso dello SKU S1
+## <a name="ga-limits"></a>Limiti GA
 
-| Capacità SKU S1 | Velocità in ingresso | Capacità massima di archiviazione
-| --- | --- | --- |
-| 1 | 1 GB (1 milione di eventi) | 30 GB (30 milioni di eventi) al mese |
-| 10 | 10 GB (10 milioni di eventi) | 300 GB (300 milioni di eventi) al mese |
-
-## <a name="s2-sku-ingress-rates-and-capacities"></a>Capacità e velocità di ingresso dello SKU S2
-
-| Capacità SKU S2 | Velocità in ingresso | Capacità massima di archiviazione
-| --- | --- | --- |
-| 1 | 10 GB (10 milioni di eventi) | 300 GB (300 milioni di eventi) al mese |
-| 10 | 100 GB (100 milioni di eventi) | 3 TB (3 miliardi di eventi) al mese |
-
-La capacità ha una scalabilità lineare, pertanto uno SKU S1 con capacità 2 supporta una velocità in ingresso di 2 GB (2 milioni) di eventi al giorno e 60 GB (60 milioni) di eventi al mese.
+[!INCLUDE [Azure Time Series Insights GA limits](../../includes/time-series-insights-ga-limits.md)]
 
 ## <a name="change-the-capacity-of-your-environment"></a>Modificare la capacità dell'ambiente
 
@@ -49,11 +36,11 @@ La capacità ha una scalabilità lineare, pertanto uno SKU S1 con capacità 2 su
 
 1. Nel menu per l'ambiente Time Series Insights, selezionare **Configura**.
 
-   [@no__t -1configure. png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
+   [![configure. png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
 
 1. Regolare il dispositivo di scorrimento **Capacità** per selezionare una capacità che soddisfi i requisiti in termini di velocità in ingresso e capacità di archiviazione. Si noti che la **velocità in ingresso**, la **capacità di archiviazione** e i **costi stimati** vengono aggiornati in modo dinamico per illustrare l'impatto della modifica.
 
-   [![Slider](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
+   [Dispositivo di scorrimento![](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
 
    In alternativa, è possibile digitare il numero del moltiplicatore di capacità nella casella di testo a destra del dispositivo di scorrimento.
 

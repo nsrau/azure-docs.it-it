@@ -3,8 +3,8 @@ title: Registrare gli esperimenti di ML & metrica
 titleSuffix: Azure Machine Learning
 description: Monitora gli esperimenti di Azure ML e monitora le metriche di esecuzione per migliorare il processo di creazione del modello. Aggiungere la registrazione allo script di training e visualizzare i risultati registrati di un'esecuzione.  Usare Run. log, Run. start_logging o ScriptRunConfig.
 services: machine-learning
-author: heatherbshapiro
-ms.author: hshapiro
+author: sdgilley
+ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: a37ed7c7f39324a7fb4750389c0d76c36539c3cc
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c72de809dc5818cced95be2cbd6b47308bad4f22
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002699"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045213"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitorare le esecuzioni e le metriche dell'esperimento di Azure ML
 
@@ -33,9 +33,9 @@ Le metriche seguenti possono essere aggiunte a un'esecuzione durante il training
 |Type| Funzione Python | Note|
 |----|:----|:----|
 |Valori scalari |Funzione:<br>`run.log(name, value, description='')`<br><br>Esempio:<br>run.log("accuracy", 0.95) |Registrare un valore numerico o stringa per l'esecuzione con il nome specificato. La registrazione di una metrica per un'esecuzione fa sì che tale metrica venga archiviata nel record esecuzione nell'esperimento.  È possibile registrare la stessa metrica più volte all'interno di un'esecuzione. Il risultato verrà considerato un vettore di tale metrica.|
-|Liste|Funzione:<br>`run.log_list(name, value, description='')`<br><br>Esempio:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Registrare un elenco di valori per l'esecuzione con il nome specificato.|
+|Elenchi|Funzione:<br>`run.log_list(name, value, description='')`<br><br>Esempio:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Registrare un elenco di valori per l'esecuzione con il nome specificato.|
 |Riga|Funzione:<br>`run.log_row(name, description=None, **kwargs)`<br>Esempio:<br>run.log_row("Y over X", x=1, y=0.4) | L'uso di *log_row* crea una metrica con più colonne come descritto in kwargs. Ogni parametro denominato genera una colonna con il valore specificato.  *log_row* può essere chiamato una volta per registrare una tupla arbitraria o più volte in un ciclo per generare una tabella completa.|
-|Tabella|Funzione:<br>`run.log_table(name, value, description='')`<br><br>Esempio:<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | Registrare un oggetto dizionario per l'esecuzione con il nome specificato. |
+|Table|Funzione:<br>`run.log_table(name, value, description='')`<br><br>Esempio:<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | Registrare un oggetto dizionario per l'esecuzione con il nome specificato. |
 |Immagini|Funzione:<br>`run.log_image(name, path=None, plot=None)`<br><br>Esempio:<br>`run.log_image("ROC", plt)` | Registrare un'immagine per il record esecuzione. Usare log_image per registrare un file di immagine o un tracciato matplotlib per l'esecuzione.  Queste immagini saranno visibili e confrontabili nel record esecuzione.|
 |Assegnare un tag a un'esecuzione|Funzione:<br>`run.tag(key, value=None)`<br><br>Esempio:<br>run.tag("selected", "yes") | Assegnare all'esecuzione una chiave stringa e un valore di stringa facoltativo.|
 |Caricare un file o una directory|Funzione:<br>`run.upload_file(name, path_or_stream)`<br> <br> Esempio:<br>run.upload_file("best_model.pkl", "./model.pkl") | Caricare un file per il record esecuzione. Consente di eseguire automaticamente il file di acquisizione nella directory di output specificata, che per impostazione predefinita corrisponde a "./outputs" per la maggior parte dei tipi di esecuzione.  Usare upload_file solo quando è necessario caricare altri file o non è specificata una directory di output. È consigliabile aggiungere `outputs` al nome, in modo che venga caricato nella directory outputs. È possibile elencare tutti i file associati a questo record esecuzione chiamando `run.get_file_names()`|
@@ -61,7 +61,7 @@ Prima di aggiungere la registrazione e inviare un esperimento, è necessario con
    ws = Workspace.from_config()
    ```
   
-## <a name="option-1-use-start_logging"></a>Opzione 1: Usare start_logging
+## <a name="option-1-use-start_logging"></a>Opzione 1: usare start_logging
 
 **start_logging** crea un'esecuzione interattiva per l'uso in scenari come i notebook. Le metriche registrate durante la sessione vengono aggiunte al record esecuzione nell'esperimento.
 
@@ -125,7 +125,7 @@ Nell'esempio seguente viene eseguito il training di un semplice modello sklearn 
 
     Lo script termina con ```run.complete()```, che contrassegna l'esecuzione come completata.  Questa funzione viene usata in genere in scenari di notebook interattivi.
 
-## <a name="option-2-use-scriptrunconfig"></a>Opzione 2: Usare ScriptRunConfig
+## <a name="option-2-use-scriptrunconfig"></a>Opzione 2: usare ScriptRunConfig
 
 [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) è una classe per la configurazione delle configurazioni per le esecuzioni di script. Con questa opzione, è possibile aggiungere codice per il monitoraggio in modo da ricevere una notifica del completamento o per ottenere un widget visivo da monitorare.
 
@@ -290,7 +290,7 @@ Il collegamento per l'esecuzione consente di accedere direttamente alla pagina d
 
 Sono disponibili vari modi per usare le API di registrazione per registrare diversi tipi di metriche durante un'esecuzione e visualizzarli come grafici nel portale di Azure. 
 
-|Valore registrato|codice di esempio| Visualizzazione nel portale|
+|Valore registrato|Codice di esempio| Visualizzazione nel portale|
 |----|----|----|
 |Registra una matrice di valori numerici| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|Grafico a linee a singola variabile|
 |Registra un valore numerico singolo con lo stesso nome di metrica usato più volte (come in un ciclo for)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Grafico a linee a singola variabile|

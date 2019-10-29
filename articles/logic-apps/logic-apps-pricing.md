@@ -1,6 +1,6 @@
 ---
-title: Prezzi e fatturazione - App per la logica di Azure | Microsoft Docs
-description: Informazioni sui prezzi e sulla fatturazione per App per la logica di Azure
+title: Prezzi & modello di fatturazione-app per la logica di Azure
+description: Panoramica del funzionamento del modello di prezzi e fatturazione per le app per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: logic-apps
@@ -9,12 +9,12 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 62b96fa8722408aed81e87cb31218140fa4f5da8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f4651e40a0f4269dc5c8a2fcd4c0e25c1e9bbb3c
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099417"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045100"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modello di determinazione dei prezzi per le App per la logica di Azure
 
@@ -51,15 +51,15 @@ Un [ *ambiente Integration Services* (ISE)](../logic-apps/connect-virtual-networ
 
 * Utilizzo dell' [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) senza costi aggiuntivi, in base allo [SKU ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 
-  * **SKU Premium**: Un singolo account di integrazione del [livello standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
+  * **SKU Premium**: un unico account di integrazione del [livello standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
 
-  * **SKU per sviluppatori**: Un singolo account di integrazione del [livello gratuito](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
+  * **SKU per sviluppatori**: un unico account di integrazione del [livello gratuito](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
 
   Ogni SKU ISE è limitato a 5 account di integrazione totali. Per un costo aggiuntivo, è possibile avere più account di integrazione in base allo SKU ISE:
 
-  * **SKU Premium**: Fino a quattro più account standard. Nessun account gratuito o Basic.
+  * **SKU Premium**: fino a altri quattro account standard. Nessun account gratuito o Basic.
 
-  * **SKU per sviluppatori**: Un massimo di 4 account standard o fino a 5 account standard totali. Nessun account di base.
+  * **SKU per sviluppatori**: fino a un massimo di 4 account standard o fino a 5 account standard totali. Nessun account di base.
 
 Per altre informazioni sui limiti dell'account di integrazione, vedere [limiti e configurazione delle app](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)per la logica. Più avanti in questo argomento sono disponibili ulteriori informazioni sui [livelli di account di integrazione e sul relativo modello di determinazione dei prezzi](#integration-accounts) .
 
@@ -82,13 +82,13 @@ I connettori delle app per la logica di Azure consentono all'app per la logica d
 
 I trigger sono azioni speciali che creano un'istanza di un'app per la logica ogni volta che si verifica un evento specifico. I trigger agiscono in modi diversi, che influiscono sulla misurazione dell'app per la logica. Ecco i diversi tipi di trigger presenti nelle app per la logica di Azure:
 
-* **Trigger**di polling: Questo trigger controlla continuamente un endpoint per i messaggi che soddisfano i criteri per la creazione di un'istanza dell'app per la logica e l'avvio del flusso di lavoro. Anche quando non viene creata alcuna istanza di app per la logica, il servizio App per la logica misura ogni richiesta di polling come un'esecuzione. Per specificare l'intervallo di polling, configurare il trigger tramite la finestra Progettazione app per la logica.
+* **Trigger di polling**: questo trigger controlla continuamente un endpoint per i messaggi che soddisfano i criteri per la creazione di un'istanza dell'app per la logica e l'avvio del flusso di lavoro. Anche quando non viene creata alcuna istanza di app per la logica, il servizio App per la logica misura ogni richiesta di polling come un'esecuzione. Per specificare l'intervallo di polling, configurare il trigger tramite la finestra Progettazione app per la logica.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Trigger webhook**: Questo trigger attende che un client invii una richiesta a un endpoint specifico. Ogni richiesta inviata all'endpoint del webhook viene conteggiata come esecuzione di azione. I trigger Richiesta e Webhook HTTP, ad esempio, sono entrambi trigger di webhook.
+* **Trigger webhook**: questo trigger attende che un client invii una richiesta a un endpoint specifico. Ogni richiesta inviata all'endpoint del webhook viene conteggiata come esecuzione di azione. I trigger Richiesta e Webhook HTTP, ad esempio, sono entrambi trigger di webhook.
 
-* **Trigger**ricorrenza: Questo trigger crea un'istanza dell'app per la logica in base all'intervallo di ricorrenza configurato nel trigger. Ad esempio, è possibile impostare un trigger di ricorrenza che viene eseguito ogni tre giorni o in base a una pianificazione più complessa.
+* **Trigger di ricorrenza**: questo trigger crea un'istanza dell'app per la logica in base all'intervallo di ricorrenza configurato nel trigger. Ad esempio, è possibile impostare un trigger di ricorrenza che viene eseguito ogni tre giorni o in base a una pianificazione più complessa.
 
 <a name="actions"></a>
 
@@ -119,11 +119,11 @@ Se si dispone di un [ *ambiente Integration Services* (ISE)](../logic-apps/conne
 
 Per scegliere tra un account di integrazione gratuito, Basic o standard, esaminare le descrizioni dei casi d'uso seguenti:
 
-* **Gratuito**: Per quando si desidera provare scenari esplorativi, non scenari di produzione
+* **Gratuito**: per i casi in cui si vuole provare scenari esplorativi, non scenari di produzione
 
-* **Basic**: Per quando si desidera solo la gestione dei messaggi o fungere da partner commerciale di piccole dimensioni con una relazione tra partner commerciali e un'entità di business più ampia
+* **Basic**: per i casi in cui si desidera solo la gestione dei messaggi o fungere da partner commerciale di piccole dimensioni con una relazione tra partner commerciali e un'entità di business più ampia
 
-* **Standard**: Quando si hanno relazioni B2B più complesse e un numero maggiore di entità che è necessario gestire
+* **Standard**: per le relazioni B2B più complesse e un numero maggiore di entità che è necessario gestire
 
 <a name="data-retention"></a>
 

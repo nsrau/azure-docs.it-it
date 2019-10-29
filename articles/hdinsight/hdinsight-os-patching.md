@@ -1,5 +1,5 @@
 ---
-title: Configurare la pianificazione dell'applicazione di patch del sistema operativo per i cluster HDInsight basati su Linux-Azure
+title: Configurare la pianificazione dell'applicazione di patch del sistema operativo per i cluster HDInsight di Azure
 description: Informazioni su come configurare una pianificazione dell'applicazione di patch al sistema operativo per i cluster di HDInsight basati su Linux.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: 06111ec35a127cf17fdcc77ff717de7a4bc7299f
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: d0a490fd3b23c96923af10db3c1f9ee9ea0dfad5
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076849"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044892"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configurare la pianificazione dell'applicazione di patch del sistema operativo per i cluster HDInsight basati su Linux 
 
@@ -39,7 +39,7 @@ Per usare uno script sono necessarie le informazioni seguenti:
     
    HDInsight usa questo URI per trovare ed eseguire lo script in tutte le macchine virtuali del cluster. Questo script fornisce le opzioni per installare gli aggiornamenti e riavviare la macchina virtuale.
   
-- Il percorso dello script Schedule-reboots https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh:.
+- Il percorso dello script Schedule-reboots: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh.
     
    HDInsight usa questo URI per trovare ed eseguire lo script in tutte le macchine virtuali del cluster. Questo script riavvia la macchina virtuale.
   

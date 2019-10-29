@@ -14,20 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 12f9b8d3031d3b64e2f39f07763f7a75164aad25
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 9f2bd24955cc378deed5dbc0423488645632a958
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274975"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025796"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Introduzione alla creazione di un servizio di bilanciamento del carico con connessione Internet con IPv6 usando PowerShell per Resource Manager
 
 > [!div class="op_single_selector"]
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
-> * [Interfaccia della riga di comando di Azure](load-balancer-ipv6-internet-cli.md)
+> * [interfaccia della riga di comando di Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modello](load-balancer-ipv6-internet-template.md)
 
+>[! Nota: modificare la procedura consigliata per IPv6] in questo articolo viene descritta una funzionalità IPv6 introduttiva per consentire ai bilanciamenti del carico di base di fornire connettività IPv4 e IPv6.  Connettività IPv6 più completa è ora disponibile con [IPv6 per Azure reti virtuali](../virtual-network/ipv6-overview.md) , che integra la connettività IPv6 con le reti virtuali e include funzionalità chiave quali le regole del gruppo di sicurezza di rete IPv6, il routing definito dall'utente IPv6, il servizio di base IPv6 e Bilanciamento del carico standard e altro ancora.  IPv6 per Azure reti virtuali è la procedura consigliata per le applicazioni IPv6 in Azure. 
+>Vedere [IPv6 per la distribuzione di Azure VNET PowerShell](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
 
 Azure Load Balancer è un servizio di bilanciamento del carico di livello 4 (TCP, UDP). Il servizio di bilanciamento del carico offre disponibilità elevata distribuendo il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali in un set di bilanciamento del carico . Azure Load Balancer può anche presentare tali servizi su più porte, più indirizzi IP o entrambi.
 
@@ -100,7 +102,7 @@ Assicurarsi di avere la versione di produzione più recente del modulo Azure Res
     $vnet = New-AzvirtualNetwork -Name VNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. Creare risorse di indirizzi IP pubblici (PIP) di Azure per il pool di indirizzi IP front-end. Assicurarsi di modificare il valore di prima `-DomainNameLabel` di eseguire i comandi seguenti. Il valore deve essere univoco all'interno dell'area di Azure.
+2. Creare risorse di indirizzi IP pubblici (PIP) di Azure per il pool di indirizzi IP front-end. Assicurarsi di modificare il valore di `-DomainNameLabel` prima di eseguire i comandi seguenti. Il valore deve essere univoco all'interno dell'area di Azure.
 
     ```azurepowershell-interactive
     $publicIPv4 = New-AzPublicIpAddress -Name 'pub-ipv4' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -IpAddressVersion IPv4 -DomainNameLabel lbnrpipv4
@@ -230,10 +232,4 @@ Per altre informazioni, vedere [Creare e preconfigurare una macchina virtuale Wi
     New-AzVM -ResourceGroupName NRP-RG -Location 'West US' -VM $vm2
     ```
 
-## <a name="next-steps"></a>Passaggi successivi
 
-[Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-get-started-ilb-arm-ps.md)
-
-[Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
-
-[Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)

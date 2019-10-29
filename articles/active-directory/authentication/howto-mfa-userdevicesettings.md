@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 10/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 190d697dca56fa51d92987f32db0146aa79881aa
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 808faaed76ff63d69feb8170eaac72021c7bd49d
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70162410"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042115"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gestire le impostazioni utente nel cloud con Azure Multi-Factor Authentication
 
@@ -39,33 +39,9 @@ Quando un amministratore ha assegnato il ruolo di amministratore dell'autenticaz
    - È **necessario ripetere la registrazione** dell'autenticazione a più fattori, in modo che, quando l'utente esegue l'accesso in un secondo momento, verrà richiesto di configurare un nuovo metodo di autenticazione a più fattori.
    - **Revoca le sessioni** di autenticazione a più fattori consente di cancellare le sessioni di autenticazione a più fattori memorizzate dall'utente e le richiede di eseguire l'autenticazione a più fattori la volta successiva che è richiesta dal criterio sul dispositivo.
 
-## <a name="require-users-to-provide-contact-methods-again"></a>Richiedere agli utenti di fornire di nuovo i metodi di contatto
-
-Questa impostazione impone all'utente di completare di nuovo il processo di registrazione. Le app non basate su browser continuano a funzionare se l'utente dispone delle relative password.  È possibile eliminare le password dell'app degli utenti anche selezionando **Eliminare tutte le password dell'app esistenti generate dagli utenti selezionati**.
-
-### <a name="how-to-require-users-to-provide-contact-methods-again"></a>Come richiedere agli utenti di fornire di nuovo i metodi di contatto
-
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. A sinistra selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti**.
-3. A destra selezionare **Multi-Factor Authentication** sulla barra degli strumenti. Viene aperta la pagina dell'autenticazione a più fattori.
-4. Selezionare la casella accanto a uno o più utenti che si desidera gestire. A destra viene visualizzato un elenco di opzioni di passaggio rapido.
-5. Selezionare **Gestisci le impostazioni dell'utente**.
-6. Selezionare la casella accanto a **Richiedere agli utenti selezionati di fornire di nuovo i metodi di contatto**.
-   ![Require gli utenti di fornire nuovamente i metodi di contatto ](./media/howto-mfa-userdevicesettings/reproofup.png)
-7. Fare clic su **save**.
-8. Fare clic su **chiudi**.
-
-Le organizzazioni possono completare questi passaggi con PowerShell usando il comando seguente come guida per cancellare l'attributo `StrongAuthenticationMethods`:
-
-```PowerShell
-$Upn = "theuser@domain.com"
-$noMfaConfig = @()
-Set-MsolUser -UserPrincipalName $Upn -StrongAuthenticationMethods $noMfaConfig
-```
-
 ## <a name="delete-users-existing-app-passwords"></a>Eliminare le password per le app esistenti degli utenti
 
-Questa impostazione elimina tutte le password dell'app create da un utente. Le app non basate su browser associate a tali password dell'app non funzioneranno più fino a quando non verrà creata una nuova password dell'app.
+Questa impostazione elimina tutte le password dell'app create da un utente. Le app non basate su browser associate a tali password dell'app non funzioneranno più fino a quando non verrà creata una nuova password dell'app. Per eseguire questa azione, sono necessarie le autorizzazioni di amministratore globale.
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>Come eliminare le password per le app esistenti degli utenti
 
@@ -75,27 +51,7 @@ Questa impostazione elimina tutte le password dell'app create da un utente. Le a
 4. Selezionare la casella accanto a uno o più utenti che si desidera gestire. A destra viene visualizzato un elenco di opzioni di passaggio rapido.
 5. Selezionare **Gestisci le impostazioni dell'utente**.
 6. Selezionare la casella accanto a **Eliminare tutte le password dell'app esistenti generate dagli utenti selezionati**.
-   ![Delete tutte le password dell'app esistenti ](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
-7. Fare clic su **save**.
-8. Fare clic su **chiudi**.
-
-## <a name="restore-mfa-on-all-remembered-devices-for-a-user"></a>Ripristinare MFA in tutti i dispositivi memorizzati per un utente
-
-Una delle funzionalità configurabili di Azure Multi-Factor Authentication è dare agli utenti la possibilità di contrassegnare i dispositivi come attendibili. Per altre informazioni, vedere [Configurare le impostazioni di Azure Multi-Factor Authentication](howto-mfa-mfasettings.md#remember-multi-factor-authentication).
-
-Gli utenti possono rifiutare esplicitamente la verifica in due passaggi per un numero configurabile di giorni per i propri dispositivi regolari. Se un account viene compromesso o un dispositivo attendibile viene smarrito, è necessario poter rimuovere lo stato attendibile e richiedere di nuovo la verifica in due passaggi.
-
-Quando questa opzione è selezionata, è necessario **ripristinare l'autenticazione a più fattori in tutti i dispositivi memorizzati** per eseguire la verifica in due passaggi al successivo accesso, anche se il dispositivo è stato contrassegnato come attendibile.
-
-### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Come ripristinare Multi-Factor Authentication in tutti i dispositivi sospesi per un utente
-
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. A sinistra selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti**.
-3. A destra selezionare **Multi-Factor Authentication** sulla barra degli strumenti. Viene aperta la pagina dell'autenticazione a più fattori.
-4. Selezionare la casella accanto a uno o più utenti che si desidera gestire. A destra viene visualizzato un elenco di opzioni di passaggio rapido.
-5. Selezionare **Gestisci le impostazioni dell'utente**.
-6. Selezionare la casella per **ripristinare l'autenticazione a più fattori in tutti i dispositivi memorizzati** 
-    ![Restore autenticazione a più fattori in tutti i dispositivi memorizzati ](./media/howto-mfa-userdevicesettings/rememberdevices.png)
+   ![eliminare tutte le password dell'app esistenti](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 7. Fare clic su **save**.
 8. Fare clic su **chiudi**.
 

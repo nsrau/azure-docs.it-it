@@ -1,5 +1,5 @@
 ---
-title: Apache Spark dati da Apache Kafka a Azure Cosmos DB-Azure HDInsight
+title: Apache Spark & Apache Kafka con Cosmos DB-Azure HDInsight
 description: Informazioni su come usare lo streaming strutturato Apache Spark per leggere i dati da Apache Kafka e quindi archiviarli in Azure Cosmos DB. In questo esempio i dati vengono trasmessi in streaming tramite un notebook Jupyter da Spark in HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0d8c6929705ab29ced25a847bf7c5a72d57aa49b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: faae65c6664123bd673711674a36edc928c74278
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037281"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044900"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Usare Apache Spark Structured Streaming con Apache Kafka e Azure Cosmos DB
 
@@ -69,28 +69,28 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 
     ![HDInsight valori di distribuzione personalizzati](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
 
-    * **Sottoscrizione** Selezionare la sottoscrizione di Azure.
+    * **Sottoscrizione**: selezionare una sottoscrizione di Azure.
 
     * **Gruppo di risorse**: creare un gruppo o selezionarne uno esistente. Questo gruppo contiene il cluster HDInsight.
 
     * **Località**: scegliere una località geograficamente vicina.
 
-    * **Nome dell'account Cosmos DB**: questo valore viene usato come nome dell'account Cosmos DB.
+    * **Nome dell'account Cosmos DB**: questo valore viene usato come nome per l'account Cosmos DB.
 
     * **Base Cluster Name** (Nome di base del cluster): questo valore viene usato come nome di base per i cluster Spark e Kafka. Ad esempio, se si immette **myhdi** viene creato un cluster Spark denominato __spark-myhdi__ e un cluster Kafka denominato **kafka-myhdi**.
 
-    * **Versione cluster**: versione del cluster HDInsight.
+    * **Versione del cluster**: versione del cluster HDInsight.
 
         > [!IMPORTANT]  
         > In questo esempio è stato eseguito un test con HDInsight 3.6 e potrebbe non funzionare con altri tipi di cluster.
 
-    * **Nome utente dell'account di accesso del cluster**: nome utente amministratore per i cluster Spark e Kafka.
+    * **Cluster Login User Name** (Nome utente di accesso del cluster): nome utente amministratore per i cluster Spark e Kafka.
 
-    * **Password dell'account di accesso del cluster**: password dell'utente amministratore per i cluster Spark e Kafka.
+    * **Cluster Login Password** (Password di accesso del cluster): password amministratore per i cluster Spark e Kafka.
 
-    * **Nome utente SSH**: utente SSH da creare per i cluster Spark e Kafka.
+    * **SSH User Name** (Nome utente SSH): utente SSH da creare per i cluster Spark e Kafka.
 
-    * **Password SSH**: password dell'utente SSH per i cluster Spark e Kafka.
+    * **SSH Password** (Password SSH): password dell'utente SSH per i cluster Spark e Kafka.
 
 3. Leggere le **Condizioni** e quindi selezionare **Accetto le condizioni riportate sopra**.
 

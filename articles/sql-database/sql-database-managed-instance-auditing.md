@@ -13,12 +13,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 04/08/2019
-ms.openlocfilehash: a4941038288b90bcbfd61660458c564ce64add9e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 23e3a15ac26cdf0950ee31fddad2af4a3b7414c2
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958497"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025375"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introduzione al controllo dell'istanza gestita del database SQL di Azure
 
@@ -73,7 +73,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
         - Configurare SAS come segue:
 
-          - **Servizi consentiti**: Blob
+          - **Servizi consentiti**: BLOB
 
           - **Data di inizio**: per evitare problemi correlati al fuso orario, è consigliabile usare la data del giorno precedente
 
@@ -130,7 +130,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
      1. (Facoltativo) Accedere all'account di Azure:
 
-        ![Accedi ad Azure](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
+        ![Accedere a Azure](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
 
      1. Selezionare una sottoscrizione, un account di archiviazione e un contenitore BLOB dagli elenchi a discesa oppure creare un contenitore personalizzato facendo clic su **Crea**. Al termine, fare clic su **OK**:
 
@@ -153,7 +153,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
 Per altre informazioni:
 
-- [Differenze di controllo tra database singoli, pool elastici e istanze gestite nel database SQL di Azure e i database in SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [Controllo delle differenze tra database singoli, pool elastici e istanze gestite in database SQL di Azure e database in SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -171,7 +171,7 @@ I log di controllo da un'istanza gestita possono essere inviati anche a hub o lo
 
 5. Selezionare una destinazione per gli eventi di controllo: Hub eventi, log di monitoraggio di Azure o entrambi. Configurare per ogni destinazione i parametri obbligatori (ad esempio Log Analytics dell'area di lavoro).
 
-6. Fare clic su **Save**.
+6. Fare clic su **Salva**
 
     ![Configurare le impostazioni di diagnostica](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
 
@@ -214,7 +214,7 @@ Per utilizzare i dati dei log di controllo da Hub eventi, è necessario configur
 
 ### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Utilizzare e analizzare i log archiviati nei log di monitoraggio di Azure
 
-Se i log di controllo vengono scritti nei log di monitoraggio di Azure, sono disponibili nell'area di lavoro Log Analytics, in cui è possibile eseguire ricerche avanzate sui dati di controllo. Come punto di partenza, passare all'area di lavoro log Analytics e nella sezione *generale* fare clic su *log* e immettere una semplice query, `search "SQLSecurityAuditEvents"` ad esempio: per visualizzare i log di controllo.  
+Se i log di controllo vengono scritti nei log di monitoraggio di Azure, sono disponibili nell'area di lavoro Log Analytics, in cui è possibile eseguire ricerche avanzate sui dati di controllo. Come punto di partenza, passare all'area di lavoro Log Analytics e nella sezione *generale* fare clic su *log* e immettere una semplice query, ad esempio: `search "SQLSecurityAuditEvents"` per visualizzare i log di controllo.  
 
 Log di monitoraggio di Azure offre informazioni operative in tempo reale usando la ricerca integrata e i dashboard personalizzati per analizzare rapidamente milioni di record in tutti i carichi di lavoro e i server. Per altre informazioni utili sul linguaggio di ricerca dei log di Azure e sui comandi, vedere i [riferimenti alla ricerca nei log di monitoraggio](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)di Azure.
 
@@ -225,15 +225,14 @@ Log di monitoraggio di Azure offre informazioni operative in tempo reale usando 
 Le principali differenze tra il controllo nei database nel database SQL di Azure e quello in SQL Server sono le seguenti:
 
 - Con l'opzione di distribuzione dell'istanza gestita nel database SQL di Azure, il controllo viene eseguito a livello del server e archivia file di log `.xel` in Archivio BLOB di Azure.
-- Con le opzioni di distribuzione dei database singoli e dei pool elastici nel database SQL di Azure, il controllo viene eseguito a livello del database.
 - In SQL Server locale o nelle macchine virtuali SQL Server il controllo viene eseguito a livello del server, ma archivia gli eventi nei log eventi del file system o di Windows.
 
-Il controllo XEvent nell'istanza gestita supporta le destinazioni di Archivio BLOB di Azure. I log di file e di Windows **non sono supportati**.
+Il controllo XEvent nell'istanza gestita supporta le destinazioni di Archiviazione BLOB di Azure. I log di file e di Windows **non sono supportati**.
 
 Le principali differenze nella sintassi `CREATE AUDIT` per il controllo in Archivio BLOB di Azure sono le seguenti:
 
 - È disponibile una nuova sintassi `TO URL` che consente di specificare l'URL del contenitore di archiviazione BLOB di Azure in cui vengono inseriti i file con estensione `.xel`.
-- Viene fornita una `TO EXTERNAL MONITOR` nuova sintassi per abilitare anche le destinazioni dei log degli hub e di monitoraggio di Azure.
+- Viene fornita una nuova sintassi `TO EXTERNAL MONITOR` per abilitare anche l'hub e i log di monitoraggio di Azure.
 - La sintassi `TO FILE` **non è supportata** perché il database SQL non può accedere alle condivisioni file di Windows.
 - L'opzione Shutdown **non è supportata**.
 - Un valore di `queue_delay` uguale a 0 **non è supportato**.

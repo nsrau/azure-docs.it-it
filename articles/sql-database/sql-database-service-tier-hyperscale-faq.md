@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: a5daac9fb34f36620176111e866f493d47f63bba
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 906beabe527db41f41793a7fb1f76aef27487cdd
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513922"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044966"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Domande frequenti sull'iperscalabilità del database SQL di Azure
 
@@ -46,9 +46,9 @@ I livelli di servizio basati su vCore sono differenziati in base alla disponibil
 | **Dimensioni di calcolo**|Database singolo/pool elastico* | Da 1 a 80 vCore | Da 1 a 80 vCore* | Da 1 a 80 vCore |
 | |Istanza gestita | 8, 16, 24, 32, 40, 64, 80 vCore | N/D | 8, 16, 24, 32, 40, 64, 80 vCore |
 | **Tipo di archiviazione** | Tutto |Archiviazione remota Premium (per istanza) | Archiviazione disaccoppiata con cache SSD locale (per istanza) | Archiviazione SSD locale estremamente veloce (per istanza) |
-| **Dimensioni archiviazione** | Database singolo/pool elastico | 5 GB - 4 TB | Fino a 100 TB | 5 GB - 4 TB |
+| **Dimensioni archiviazione** | Database singolo/pool elastico*| 5 GB - 4 TB | Fino a 100 TB | 5 GB - 4 TB |
 | | Istanza gestita  | 32 GB - 8 TB | N/D | 32 GB - 4 TB |
-| **IOPS** | Database singolo** | 500 operazioni di I/O al secondo per vCore fino a un massimo di 7000 | La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. Gli IOPS effettivi dipendono dal carico di lavoro. | 5000 operazioni di I/O al secondo fino a un massimo di 200.000|
+| **IOPS** | Database singolo | 500 operazioni di I/O al secondo per vCore fino a un massimo di 7000 | La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. Gli IOPS effettivi dipendono dal carico di lavoro. | 5000 operazioni di I/O al secondo fino a un massimo di 200.000|
 | | Istanza gestita | Dipende dalle dimensioni del file | N/D | 1375 IOPS/vCore |
 |**Disponibilità**|Tutto|1 replica, nessuna scalabilità in lettura, nessuna cache locale | Più repliche, fino a 4 scalabilità in lettura, cache locale parziale | 3 repliche, 1 scalabilità in lettura, disponibilità elevata con ridondanza della zona, archiviazione locale completa |
 |**Backup**|Tutto|RA-GRS, conservazione di 7-35 giorni (7 giorni per impostazione predefinita)| RA-GRS, conservazione di 7 giorni, ripristino temporizzato temporizzato costante (ripristino temporizzato) | RA-GRS, conservazione di 7-35 giorni (7 giorni per impostazione predefinita) |

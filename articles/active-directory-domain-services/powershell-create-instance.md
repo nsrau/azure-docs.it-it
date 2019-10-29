@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: iainfou
-ms.openlocfilehash: 163259af3797b652c9605c171447f4a7d2576c87
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 961b54a4d7c9caee98497e5d2b8db86284084d15
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842704"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023868"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Abilitare Azure Active Directory Domain Services con PowerShell
 
@@ -64,7 +64,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 Con il gruppo di *amministratori di AAD DC* creato, aggiungere un utente al gruppo usando il cmdlet [Add-AzureADGroupMember][Add-AzureADGroupMember] . Per prima cosa, è necessario ottenere l'ID oggetto gruppo *amministratori di AAD DC* usando il cmdlet [Get-AzureADGroup][Get-AzureADGroup] , quindi l'ID oggetto dell'utente desiderato usando il cmdlet [Get-AzureADUser][Get-AzureADUser] .
 
-Nell'esempio seguente, ID oggetto utente per l'account con UPN `admin@contoso.onmicrosoft.com`. Sostituire questo account utente con l'UPN dell'utente che si vuole aggiungere al gruppo di *amministratori di AAD DC* :
+Nell'esempio seguente, l'ID oggetto utente per l'account con UPN `admin@contoso.onmicrosoft.com`. Sostituire questo account utente con l'UPN dell'utente che si vuole aggiungere al gruppo di *amministratori di AAD DC* :
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -130,6 +130,12 @@ $Vnet= New-AzVirtualNetwork `
 
 A questo punto è possibile creare un dominio gestito di Azure AD DS. Impostare l'ID sottoscrizione di Azure e quindi specificare un nome per il dominio gestito, ad esempio *contoso.com*. È possibile ottenere l'ID sottoscrizione usando il cmdlet [Get-AzSubscription][Get-AzSubscription] .
 
+Se si sceglie un'area che supporta zone di disponibilità, le risorse di Azure AD DS vengono distribuite tra le zone per una maggiore ridondanza.
+
+Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate.
+
+Non c'è nulla da configurare per la distribuzione di Azure AD DS tra le zone. La piattaforma Azure gestisce automaticamente la distribuzione della zona delle risorse. Per altre informazioni e per vedere la pagina relativa alla disponibilità delle aree, vedere informazioni sulle [zone di disponibilità in Azure][availability-zones].
+
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
 $ManagedDomainName = "contoso.com"
@@ -148,11 +154,13 @@ Quando il portale di Azure indica che il dominio gestito da Azure AD DS ha compl
 
 * Aggiornare le impostazioni DNS per la rete virtuale, in modo che le macchine virtuali possano trovare il dominio gestito per l'autenticazione o l'aggiunta al dominio.
     * Per configurare DNS, selezionare il dominio gestito di Azure AD DS nel portale. Nella finestra **Panoramica** viene richiesto di configurare automaticamente queste impostazioni DNS.
+* Se è stato creato un dominio gestito Azure AD DS in un'area che supporta zone di disponibilità, creare un gruppo di sicurezza di rete per limitare il traffico nella rete virtuale per il dominio gestito di Azure AD DS. Viene creato un servizio di bilanciamento del carico standard di Azure che richiede che queste regole siano inserite. Questo gruppo di sicurezza di rete protegge Azure AD DS ed è necessario affinché il dominio gestito funzioni correttamente.
+    * Per creare il gruppo di sicurezza di rete e le regole necessarie, selezionare il dominio gestito di Azure AD DS nel portale. Nella finestra **Panoramica** viene richiesto di creare e configurare automaticamente il gruppo di sicurezza di rete.
 * [Abilitare la sincronizzazione password per Azure ad Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) in modo che gli utenti finali possano accedere al dominio gestito usando le credenziali aziendali.
 
 ## <a name="complete-powershell-script"></a>Completare lo script di PowerShell
 
-Il seguente script di PowerShell completo combina tutte le attività illustrate in questo articolo. Copiare lo script e salvarlo in un file con `.ps1` estensione. Eseguire lo script in una console di PowerShell locale o nel [Azure cloud Shell][cloud-shell].
+Il seguente script di PowerShell completo combina tutte le attività illustrate in questo articolo. Copiare lo script e salvarlo in un file con un'estensione `.ps1`. Eseguire lo script in una console di PowerShell locale o nel [Azure cloud Shell][cloud-shell].
 
 > [!NOTE]
 > Per abilitare Azure AD DS, è necessario essere un amministratore globale per il tenant di Azure AD. Sono inoltre necessari almeno i privilegi di *collaboratore* nella sottoscrizione di Azure.
@@ -233,6 +241,8 @@ Quando il portale di Azure indica che il dominio gestito da Azure AD DS ha compl
 
 * Aggiornare le impostazioni DNS per la rete virtuale, in modo che le macchine virtuali possano trovare il dominio gestito per l'autenticazione o l'aggiunta al dominio.
     * Per configurare DNS, selezionare il dominio gestito di Azure AD DS nel portale. Nella finestra **Panoramica** viene richiesto di configurare automaticamente queste impostazioni DNS.
+* Se è stato creato un dominio gestito Azure AD DS in un'area che supporta zone di disponibilità, creare un gruppo di sicurezza di rete per limitare il traffico nella rete virtuale per il dominio gestito di Azure AD DS. Viene creato un servizio di bilanciamento del carico standard di Azure che richiede che queste regole siano inserite. Questo gruppo di sicurezza di rete protegge Azure AD DS ed è necessario affinché il dominio gestito funzioni correttamente.
+    * Per creare il gruppo di sicurezza di rete e le regole necessarie, selezionare il dominio gestito di Azure AD DS nel portale. Nella finestra **Panoramica** viene richiesto di creare e configurare automaticamente il gruppo di sicurezza di rete.
 * [Abilitare la sincronizzazione password per Azure ad Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) in modo che gli utenti finali possano accedere al dominio gestito usando le credenziali aziendali.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -258,3 +268,4 @@ Per visualizzare il dominio gestito di Azure AD DS in azione, è possibile [aggi
 [New-AzVirtualNetwork]: /powershell/module/Az.Network/New-AzVirtualNetwork
 [Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
 [cloud-shell]: /azure/cloud-shell/cloud-shell-windows-users
+[availability-zones]: ../availability-zones/az-overview.md

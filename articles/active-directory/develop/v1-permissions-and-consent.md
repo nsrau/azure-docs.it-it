@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fb4342e024d826c65ed33184aaf33012d09190a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a467593d16c54e73d58f9cb2b67a4fa31eb0179e
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545202"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042320"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Autorizzazioni e consenso nell'endpoint v1.0 di Azure Active Directory
 
@@ -38,7 +38,7 @@ Le *autorizzazioni*, note anche come *ambiti*, semplificano l'autorizzazione per
 Azure AD definisce due tipi di autorizzazioni:
 
 * **Autorizzazioni delegate**: usati dalle app con un utente connesso. Per queste app, l'utente o un amministratore fornisce il consenso per le autorizzazioni richieste dall'app e all'app viene delegata l'autorizzazione per agire per conto dell'utente connesso quando vengono effettuate chiamate a un'API. A seconda dell'API, l'utente potrebbe non essere in grado di fornire il consenso direttamente all'API e dovrà invece [chiedere a un amministratore di fornire il "consenso amministratore"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
-* **Autorizzazioni dell'applicazione**: usate dalle app che vengono eseguite senza un utente connesso, ad esempio le app eseguite come servizi in background o daemon. Le autorizzazioni dell'applicazione possono essere concesse solo tramite il [consenso di un amministratore](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) perché sono in genere potenti e consentono l'accesso ai dati di diversi utenti o a dati a cui altrimenti potrebbero accedere solo gli amministratori.
+* **Autorizzazioni dell'applicazione**: usate dalle app che vengono eseguite senza un utente connesso, ad esempio le app eseguite come servizi in background o daemon. Le autorizzazioni dell'applicazione possono essere [consentite solo dagli amministratori](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) perché sono in genere potenti e consentono l'accesso ai dati attraverso i limiti utente o ai dati che altrimenti sarebbero limitati agli amministratori. Gli utenti definiti come proprietari dell'applicazione della risorsa (ad esempio, l'API che pubblica le autorizzazioni) possono concedere anche le autorizzazioni dell'applicazione per le API di loro proprietà.
 
 Le autorizzazioni valide sono le autorizzazioni che l'app avrà quando effettuerà le richieste a un'API. 
 
@@ -61,7 +61,7 @@ Le autorizzazioni in Azure AD hanno diverse proprietà che aiutano utenti, ammin
 > (Get-AzureADServicePrincipal -filter "DisplayName eq 'Microsoft Graph'").AppRoles
 > ```
 
-| Nome proprietà | Descrizione | Esempio |
+| Nome proprietà | Description | Esempio |
 | --- | --- | --- |
 | `ID` | Valore GUID che identifica in modo univoco l'autorizzazione. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
 | `IsEnabled` | Indica se l'autorizzazione è disponibile per l'uso. | true |
@@ -106,7 +106,7 @@ Le applicazioni in Azure AD si basano sul consenso per ottenere l'accesso alle A
   - `Permission` corrisponde all'azione che un utente può eseguire su tali dati
   - `Modifier` viene usato facoltativamente per descrivere le specializzazioni di un'altra autorizzazione
     
-    Ad esempio:
+    ad esempio:
   - Mail.Read: consente agli utenti di leggere i messaggi di posta.
   - Mail.ReadWrite: consente agli utenti di leggere o scrivere messaggi di posta.
   - Mail.ReadWrite.All: consente a un amministratore o a un utente di accedere a tutti i messaggi di posta nell'organizzazione.

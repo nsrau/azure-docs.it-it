@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: f9b23e00c954e8babb1fe920bca1aa2ea5f9298e
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b219eb50254ecd347f731d332c3236be028834ba
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799485"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045073"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in app per la logica di Azure
 
@@ -266,11 +266,11 @@ Molti trigger e azioni hanno impostazioni per nascondere gli input, gli output o
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 
-   ![Apri app per la logica di esempio](./media/logic-apps-securing-a-logic-app/sample-logic-app.png)
+   ![Aprire l'app per la logica in progettazione app per la logica](./media/logic-apps-securing-a-logic-app/open-sample-logic-app-in-designer.png)
 
 1. Nel trigger o nell'azione in cui si desidera proteggere i dati, selezionare il pulsante con i puntini di sospensione ( **...** ) e quindi selezionare **Impostazioni**.
 
-   ![Apri "Impostazioni"](./media/logic-apps-securing-a-logic-app/open-settings.png)
+   ![Apri impostazioni trigger o azione](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
 1. Attivare gli **input protetti**, gli **output protetti**o entrambi. Al termine, fare clic su **Fine**.
 
@@ -278,11 +278,11 @@ Molti trigger e azioni hanno impostazioni per nascondere gli input, gli output o
 
    L'azione o il trigger Mostra ora un'icona di blocco nella barra del titolo.
 
-   ![Icona di blocco sulla barra del titolo](./media/logic-apps-securing-a-logic-app/title-bar-lock-icon.png)
+   ![Barra del titolo azione o trigger Mostra icona blocco](./media/logic-apps-securing-a-logic-app/lock-icon-action-trigger-title-bar.png)
 
    I token che rappresentano output protetti dalle azioni precedenti mostrano anche icone di blocco. Ad esempio, quando si seleziona un output di questo tipo dall'elenco di contenuto dinamico da usare in un'azione, il token Mostra un'icona di blocco.
 
-   ![Seleziona output](./media/logic-apps-securing-a-logic-app/select-secured-token.png)
+   ![Selezionare il token per l'output protetto](./media/logic-apps-securing-a-logic-app/select-secured-token.png)
 
 1. Dopo l'esecuzione dell'app per la logica, è possibile visualizzare la cronologia per l'esecuzione.
 
@@ -292,7 +292,7 @@ Molti trigger e azioni hanno impostazioni per nascondere gli input, gli output o
 
       Se si sceglie di proteggere gli input e gli output, questi valori vengono ora nascosti.
 
-      ![Dati nascosti nella cronologia di esecuzione](./media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
+      ![Input e output nascosti nella cronologia di esecuzione](./media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
 
 <a name="secure-data-code-view"></a>
 
@@ -349,7 +349,7 @@ Di seguito sono riportate alcune [considerazioni da considerare](#obfuscation-co
 
   Quando si attivano manualmente gli **input protetti** in un trigger o un'azione, le app per la logica proteggono questi input nella cronologia di esecuzione. Se un'azione downstream USA in modo esplicito gli output visibili da tale trigger o azione come input, app per la logica nasconde gli input dell'azione downstream nella cronologia di esecuzione, ma *non Abilita* gli **input protetti** in questa azione e non nasconde l'azione uscite.
 
-  ![Input protetti e effetto downstream sulla maggior parte delle azioni](./media/logic-apps-securing-a-logic-app/secure-inputs-flow.png)
+  ![Input protetti e effetto downstream sulla maggior parte delle azioni](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
 
   Se le azioni compose, parse JSON e Response usano in modo esplicito gli output visibili del trigger o dell'azione con gli input protetti, le app per la logica nascondono gli input e gli output di tali azioni, ma *non abilitano* gli **input protetti** di tali azioni impostazione. Se un'azione downstream USA in modo esplicito gli output nascosti dalle azioni compose, parse JSON o Response come input, app per *la logica non nasconde gli input o gli output dell'azione downstream*.
 

@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ab46bd29aef2fab26c744e1e4c199f6c9a9fff1
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 0aa0480e95fa072b6fa87aea8debd3dafc8ebcab
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304206"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042071"
 ---
-# <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Procedura: Abilitare la reimpostazione della password dalla schermata di accesso di Windows
+# <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Procedura: abilitare la reimpostazione della password dalla schermata di accesso di Windows
 
 Per i computer che eseguono Windows 7, 8, 8,1 e 10 è possibile consentire agli utenti di reimpostare la password nella schermata di accesso di Windows. Gli utenti non devono più trovare un dispositivo con un Web browser per accedere al [portale di SSPR](https://aka.ms/sspr).
 
@@ -30,15 +30,14 @@ Per i computer che eseguono Windows 7, 8, 8,1 e 10 è possibile consentire agli 
 - **Prima di usare questa funzionalità, gli utenti devono registrarsi per SSPR**
 - Requisiti del proxy di rete
    - Dispositivi Windows 10 
-       - Porta 443 a `passwordreset.microsoftonline.com` e`ajax.aspnetcdn.com`
+       - Porta 443 per `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com`
        - I dispositivi Windows 10 supportano solo la configurazione del proxy a livello di computer
    - Dispositivi Windows 7, 8 e 8,1
-       - Porta 443 a`passwordreset.microsoftonline.com`
+       - Porta 443 `passwordreset.microsoftonline.com`
 
 ## <a name="general-limitations"></a>Limitazioni generali
 
 - La reimpostazione della password non è attualmente supportata da un Desktop remoto o da sessioni avanzate di Hyper-V.
-- Lo sblocco dell'account, la notifica dell'app per dispositivi mobili e il codice dell'app mobile non sono supportati.
 - Questa funzionalità non funziona per le reti con autenticazione di rete 802.1x distribuita e l'opzione "Esegui immediatamente prima dell'accesso utente". Per le reti con autenticazione di rete 802.1x distribuita, è consigliabile usare l'autenticazione di computer per abilitare questa funzionalità.
 
 ## <a name="windows-10-password-reset"></a>Reimpostazione della password di Windows 10
@@ -59,7 +58,7 @@ Per i computer che eseguono Windows 7, 8, 8,1 e 10 è possibile consentire agli 
     - EnableLostMode è impostato sul dispositivo
     - Explorer.exe è sostituito con una shell personalizzata
 - La combinazione delle tre impostazioni specifiche seguenti può causare un funzionamento non corretto di questa funzionalità.
-    - Accesso interattivo: Non richiedere CTRL + ALT + CANC = disabilitato
+    - Accesso interattivo: non richiedere CTRL + ALT + CANC = disabilitato
     - DisableLockScreenAppNotifications = 1 o abilitato
     - IsContentDeliveryPolicyEnforced = 1 o true 
 
@@ -102,7 +101,7 @@ Il log di controllo di Azure AD includerà informazioni sull'indirizzo IP e sul 
 
 ![Esempio di reimpostazione della password di Windows 7 nel registro di controllo Azure AD](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-Quando gli utenti reimpostano la password dalla schermata di accesso di un dispositivo Windows 10, `defaultuser1` viene creato un account temporaneo con privilegi limitati. Questo account viene usato per proteggere il processo di reimpostazione della password. Lo stesso account ha una password generata casualmente, non viene visualizzato per l'accesso al dispositivo e verrà rimosso automaticamente dopo che l'utente avrà reimpostato la password. Possono `defaultuser` esistere più profili, ma possono essere ignorati.
+Quando gli utenti reimpostano la password dalla schermata di accesso di un dispositivo Windows 10, viene creato un account temporaneo con privilegi limitati denominato `defaultuser1`. Questo account viene usato per proteggere il processo di reimpostazione della password. Lo stesso account ha una password generata casualmente, non viene visualizzato per l'accesso al dispositivo e verrà rimosso automaticamente dopo che l'utente avrà reimpostato la password. Possono esistere più profili di `defaultuser` ma possono essere ignorati in modo sicuro.
 
 ## <a name="windows-7-8-and-81-password-reset"></a>Reimpostazione della password di Windows 7, 8 e 8,1
 
@@ -115,7 +114,7 @@ Quando gli utenti reimpostano la password dalla schermata di accesso di un dispo
 > [!WARNING]
 > È necessario abilitare TLS 1,2, non solo impostare la negoziazione automatica
 
-### <a name="install"></a>Installa
+### <a name="install"></a>Installazione
 
 1. Scaricare il programma di installazione appropriato per la versione di Windows che si vuole abilitare.
    - Il software è disponibile nell'Area download Microsoft all'indirizzo [https://aka.ms/sspraddin](https://aka.ms/sspraddin)
@@ -141,8 +140,8 @@ Se è necessaria una registrazione aggiuntiva, è possibile modificare una chiav
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- Per abilitare la registrazione dettagliata, creare un `REG_DWORD: “EnableLogging”`oggetto e impostarlo su 1.
-- Per disabilitare la `REG_DWORD: “EnableLogging”` registrazione dettagliata, impostare su 0.
+- Per abilitare la registrazione dettagliata, creare un `REG_DWORD: “EnableLogging”`e impostarlo su 1.
+- Per disabilitare la registrazione dettagliata, impostare il `REG_DWORD: “EnableLogging”` su 0.
 
 ## <a name="what-do-users-see"></a>Cosa vedono gli utenti
 

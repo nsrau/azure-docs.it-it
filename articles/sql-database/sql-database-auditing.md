@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: d5214b6a6ffcb7c78fc00fe0305a1d1846b328f8
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 1171a3b6d38fe04a4213513e934be258d79a1aa0
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990268"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045198"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -48,7 +48,8 @@ Il controllo per il [database SQL](sql-database-technical-overview.md) di azure 
 > - Sono supportate tutte le configurazioni di replica di archiviazione.
 > - **Archiviazione Premium** attualmente **non è supportata**.
 > - **Storage in VNet** attualmente **non è supportato**.
-> - L'**archiviazione protetta da firewall** attualmente **non è supportata**
+> - **L'archiviazione dietro un firewall** non è attualmente **supportata**.
+> - **Lo spazio dei nomi gerarchico** per **Azure Data Lake storage Gen2 account di archiviazione** non è al momento **supportato**.
 
 ## <a id="subheading-8"></a>Definire criteri di controllo a livello di server o a livello di database
 

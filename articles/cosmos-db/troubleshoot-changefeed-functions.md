@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 2f9d2cea7adaf2e46feb0417ea9631ce02478f80
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7a9f726273dc3c5b336b22588d49704ffc2d8192
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934146"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043365"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticare e risolvere i problemi quando si usa il trigger di funzioni di Azure per Cosmos DB
 
@@ -103,6 +103,9 @@ Se si imposta [StartFromBeginning](../azure-functions/functions-bindings-cosmosd
 Questo errore si verifica se il progetto di funzioni di Azure o qualsiasi progetto a cui si fa riferimento contiene un riferimento a NuGet manuale a Azure Cosmos DB SDK con una versione diversa da quella fornita dall' [estensione Cosmos DB di funzioni di Azure](./troubleshoot-changefeed-functions.md#dependencies).
 
 Per aggirare questa situazione, rimuovere il riferimento NuGet manuale che è stato aggiunto e consentire al Azure Cosmos DB riferimento SDK di risolversi tramite il pacchetto di estensioni Cosmos DB di funzioni di Azure.
+
+### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>Modifica dell'intervallo di polling della funzione di Azure per le modifiche di rilevamento
+Come spiegato in precedenza per [# # # la ricezione delle modifiche richiede troppo tempo](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-be-received), la funzione di Azure rimarrà sospesa per un periodo di tempo configurabile (per impostazione predefinita, 5 secondi) prima di verificare la presenza di nuove modifiche (per evitare un consumo di ur elevato). È possibile configurare questo tempo di sospensione tramite l'impostazione `FeedPollDelay/feedPollDelay` nella [configurazione](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) del trigger (si prevede un valore in millisecondi).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

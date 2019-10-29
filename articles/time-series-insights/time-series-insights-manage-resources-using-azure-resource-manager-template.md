@@ -3,7 +3,7 @@ title: Gestione dell'ambiente di Azure Time Series Insights tramite i modelli di
 description: In questo articolo viene descritto come gestire l'ambiente di Azure Time Series Insights a livello di programmazione tramite Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.devlang: csharp
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3aa6d06add1d80512eda0e62888b4a36760e98c
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: f7a88dafb9662e404cedf10334b22af149a3cd16
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274793"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991208"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creare risorse di Time Series Insights tramite i modelli di Azure Resource Manager
 
@@ -24,7 +24,7 @@ Questo articolo descrive come creare e distribuire Time Series Insights risorse 
 
 Time Series Insights supporta le risorse seguenti:
 
-   | Resource | Descrizione |
+   | Risorsa | Descrizione |
    | --- | --- |
    | Environment | Un ambiente Time Series Insights è un raggruppamento logico di eventi che vengono letti dai broker di eventi, archiviati e resi disponibili per la query. Per altre informazioni, vedere [pianificare l'ambiente di Azure Time Series Insights](time-series-insights-environment-planning.md) |
    | Origine evento | Un'origine evento è una connessione a un gestore eventi da cui Time Series Insights legge e inserisce gli eventi nell'ambiente. Le origini eventi attualmente supportate sono hub IoT e hub eventi. |
@@ -148,7 +148,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 1. Se non esiste, creare un nuovo gruppo di risorse.
 
-   * Se non si dispone di un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzResourceGroup** . Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Esempio:
+   * Se non si dispone di un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzResourceGroup** . Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio:
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"

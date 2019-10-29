@@ -1,5 +1,5 @@
 ---
-title: Strumenti di Apache Hadoop e Data Lake per Visual Studio-Azure HDInsight
+title: Apache Hadoop & Visual Studio Data Lake Tools-Azure HDInsight
 description: Informazioni su come installare e usare Strumenti Data Lake per Visual Studio per connettersi a cluster Apache Hadoop in Azure HDInsight e quindi eseguire query Hive.
 keywords: strumenti Hadoop, query Hive, Visual Studio, Hadoop in Visual Studio
 services: hdinsight
@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 44a076ee6979e207ac3992f76d3b89cc188d53b8
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 7386250cf09d1cfbce8c34f85eaa57d07e67ed35
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076304"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044539"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Usare Strumenti Data Lake per Visual Studio per connettersi ad Azure HDInsight ed eseguire query Apache Hive
 
@@ -44,7 +44,7 @@ Per completare questo articolo e usare Data Lake Tools per Visual Studio, sono n
 * Visual Studio 2017 o Visual Studio 2019  
   Durante l'installazione, assicurarsi di includere almeno i carichi di lavoro **sviluppo di Azure** o l' **archiviazione e l'elaborazione dei dati**.  
 
-  Per le installazioni esistenti, dalla barra dei menu passare a **strumenti** > **Ottieni strumenti e funzionalità...** per aprire programma di installazione di Visual Studio.  Selezionare quindi almeno i carichi di lavoro **sviluppo di Azure** o **archiviazione ed elaborazione dei dati**.
+  Per le installazioni esistenti, dalla barra dei menu passare a **strumenti** > **ottenere strumenti e funzionalità...** per aprire programma di installazione di Visual Studio.  Selezionare quindi almeno i carichi di lavoro **sviluppo di Azure** o **archiviazione ed elaborazione dei dati**.
 
   ![Screenshot di Programma di installazione di Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/vs-2017-installation.png)
 
@@ -77,13 +77,13 @@ Per connettersi alla sottoscrizione di Azure:
 
 1. Aprire Visual Studio.
 
-2. Dalla barra dei menu passare a **Visualizza** > **Esplora server**.
+2. Dalla barra dei menu passare a **visualizza** > **Esplora server**.
 
 3. In Esplora server fare clic con il pulsante destro del mouse su **Azure**, scegliere **Connetti a Microsoft Azure sottoscrizione...** e completare il processo di accesso.
 
 4. Da Esplora server viene visualizzato un elenco di cluster HDInsight esistenti. Se non sono disponibili cluster, è possibile crearne uno usando il portale di Azure, Azure PowerShell o HDInsight SDK. Per altre informazioni, vedere [Creare cluster Hadoop in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-   ![Elenco di cluster data Lake Tools per Visual Studio in Esplora server](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png "Elenco di cluster data Lake Tools per Visual Studio in Esplora server")
+   ![Elenco di cluster Data Lake Tools per Visual Studio in Esplora server](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png "Elenco di cluster Data Lake Tools per Visual Studio in Esplora server")
 
 5. Espandere un cluster HDInsight. Vengono visualizzati i **database hive**, un account di archiviazione predefinito, gli account di archiviazione collegati e il **log del servizio Hadoop** . È possibile espandere ulteriormente le entità.
 
@@ -113,7 +113,7 @@ Fare clic con il pulsante destro del mouse sul cluster collegato, scegliere **mo
 ## <a name="explore-linked-resources"></a>Esplorare risorse collegate
 Da Esplora server è possibile visualizzare l'account di archiviazione predefinito e qualsiasi account di archiviazione collegato. Se si espande l'account di archiviazione predefinito, è possibile visualizzare i contenitori presenti. L'account di archiviazione predefinito e il contenitore predefinito sono contrassegnati. Per visualizzare i contenuti dei contenitori, fare clic su uno dei contenitori con il pulsante destro del mouse.
 
-![Strumenti di data Lake per le risorse collegate di Visual Studio in Esplora server](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-linked-resources.png "Elencare le risorse collegate")
+![Strumenti di Data Lake per le risorse collegate di Visual Studio in Esplora server](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-linked-resources.png "Elencare le risorse collegate")
 
 Dopo aver aperto un contenitore, è possibile usare i pulsanti seguenti per caricare, eliminare e scaricare i BLOB:
 
@@ -132,26 +132,26 @@ Dopo aver aperto un contenitore, è possibile usare i pulsanti seguenti per cari
 Da Esplora server passare ad **Azure** > **HDInsight** e selezionare il cluster.  Questo sarà il punto iniziale in Esplora server per le sezioni da seguire.
 
 ### <a name="view-hivesampletable"></a>Visualizza hivesampletable
-Tutti i cluster HDInsight hanno una tabella hive di esempio predefinita `hivesampletable`denominata.  
+Tutti i cluster HDInsight hanno una tabella hive di esempio predefinita denominata `hivesampletable`.  
 
-Dal cluster passare a **hive databases** > **default** > **hivesampletable**.
+Dal cluster passare a **hive Databases** > **default** > **hivesampletable**.
 
-* Per visualizzare `hivesampletable` lo schema:  
+* Per visualizzare `hivesampletable` schema:  
 Espandere **hivesampletable**.
 
-* Per visualizzare `hivesampletable` i dati:  
+* Per visualizzare i dati `hivesampletable`:  
 Fare clic con il pulsante destro del mouse su **hivesampletable**e selezionare **Visualizza prime 100 righe**.  Questa operazione equivale a eseguire la query Hive seguente usando il driver ODBC di Hive:
 
    `SELECT * FROM hivesampletable LIMIT 100`
 
   È possibile personalizzare il numero delle righe.
 
-  ![Screenshot di una query sullo schema Hive HDInsight in Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-hive-schema.png "Risultati della query Hive")
+  ![Screenshot di una query dello schema di Visual Studio hive HDInsight](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-hive-schema.png "Risultati della query relativa alla tabella")
 
 ### <a name="create-hive-tables"></a>Creare tabelle Hive
 Per creare una tabella Hive, è possibile usare l'interfaccia utente grafica o query Hive. Per informazioni sull'uso di query Hive, vedere [Eseguire query Apache Hive](#run.queries).
 
-1. Dal cluster passare a **hive databases** > **default**.
+1. Dal cluster passare a **hive Databases** > **default**.
 
 2. Fare clic con il pulsante destro del mouse su **predefinito**e scegliere **Crea tabella**.
 
@@ -159,7 +159,7 @@ Per creare una tabella Hive, è possibile usare l'interfaccia utente grafica o q
 
 4. Selezionare **Crea tabella** per inviare il processo per creare la nuova tabella Hive.
 
-    ![Screenshot della finestra Crea tabella di Strumenti di Visual Studio in HDInsight](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-create-hive-table.png "Creare una tabella Hive")
+    ![Screenshot della finestra di Strumenti di Visual Studio crea tabella HDInsight](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-create-hive-table.png "Creare una tabella hive")
 
 ### <a name="run.queries"></a>Creare ed eseguire query hive
 Per la creazione e l'esecuzione di query Hive sono disponibili due opzioni:
@@ -180,11 +180,11 @@ Per creare ed eseguire query ad hoc:
     ORDER BY devicemodel
     ```
 
-    L'editor Hive supporta IntelliSense. Strumenti Data Lake per Visual Studio supporta il caricamento di metadati remoti quando si modifica lo script Hive. Se, ad esempio, si `SELECT * FROM`digita, IntelliSense elenca tutti i nomi di tabella suggeriti. Quando si specifica un nome di tabella, IntelliSense elenca i nomi delle colonne. Gli strumenti supportano la maggior parte delle funzioni definite dall'utente predefinite, delle sottoquery e delle istruzioni DML Hive.
+    L'editor Hive supporta IntelliSense. Strumenti Data Lake per Visual Studio supporta il caricamento di metadati remoti quando si modifica lo script Hive. Se ad esempio si digita `SELECT * FROM`, IntelliSense elenca tutti i nomi di tabella suggeriti. Quando si specifica un nome di tabella, IntelliSense elenca i nomi delle colonne. Gli strumenti supportano la maggior parte delle funzioni definite dall'utente predefinite, delle sottoquery e delle istruzioni DML Hive.
 
-    ![Screenshot 1 di un esempio di IntelliSense in Strumenti di Visual Studio in HDInsight](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-intellisense-table-names.png "IntelliSense in U-SQL")
+    ![Screenshot di un HDInsight Strumenti di Visual Studio IntelliSense esempio 1](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-intellisense-table-names.png "IntelliSense per U-SQL")
 
-    ![Screenshot 2 di un esempio di IntelliSense in Strumenti di Visual Studio in HDInsight](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-intellisense-column-names.png "IntelliSense in U-SQL")
+    ![Screenshot di un HDInsight Strumenti di Visual Studio IntelliSense Example 2](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-intellisense-column-names.png "IntelliSense per U-SQL")
 
    > [!NOTE]  
    > IntelliSense suggerisce solo i metadati del cluster selezionato nella barra degli strumenti HDInsight.
@@ -203,20 +203,20 @@ Per creare ed eseguire query ad hoc:
 
       ![Opzioni query e batch di Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-batch.png)  
 
-      ![Screenshot di una query Hive Hadoop HDInsight](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-submit-jobs-advanced.png "Inviare query")
+      ![Screenshot di una query hive di Hadoop di HDInsight](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-submit-jobs-advanced.png "Invia query")
 
       > [!NOTE]  
       > Non è possibile inviare batch ai cluster Interactive query.  È necessario utilizzare la modalità interattiva.
 
 Per creare ed eseguire una soluzione Hive:
 
-1. Dalla barra dei menu passare a **file** > **nuovo** > **progetto...** .
+1. Dalla barra dei menu passare a **File** > **nuovo** > **progetto...** .
 
 2. Nel riquadro sinistro passare a **installato** > **Azure Data Lake** > **hive (HDInsight)** .  
 
 3. Nel riquadro centrale selezionare **Hive Application** (Applicazione Hive). Immettere le proprietà e quindi selezionare **OK**.
 
-    ![Screenshot di un nuovo progetto Hive in Strumenti di Visual Studio per HDInsight](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-new-hive-project.png "Creare applicazioni Hive da Visual Studio")
+    ![Screenshot di un HDInsight Strumenti di Visual Studio nuovo progetto hive](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-new-hive-project.png "Creare applicazioni hive da Visual Studio")
 
 4. In **Esplora soluzioni** fare doppio clic su **Script.hql** per aprire lo script.
 
@@ -224,7 +224,7 @@ Per creare ed eseguire una soluzione Hive:
 
 Il riepilogo del processo varia leggermente tra il **batch** e la modalità **interattiva** .
 
-![Visualizzazione della scheda Riepilogo processi Apache hive](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-summary.png "Riepilogo del processo hive")
+![Visualizzazione della scheda Riepilogo processi Apache Hive](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-summary.png "Riepilogo del processo hive")
 
 Utilizzare il pulsante **Aggiorna** per aggiornare lo stato fino a quando lo stato del processo diventa **completato**.  
 
@@ -232,7 +232,7 @@ Utilizzare il pulsante **Aggiorna** per aggiornare lo stato fino a quando lo sta
 
 * Per informazioni dettagliate sul processo dalla modalità **interattiva** , vedere Tab **output** e **output HiveServer2**.
 
-  ![Dettagli del processo di Apache hive di Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-details.png "Dettagli processo hive")
+  ![Dettagli del processo di Apache Hive di Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-details.png "Dettagli processo hive")
 
 ### <a name="view-job-graph"></a>Visualizzare il grafico del processo
 
@@ -242,13 +242,13 @@ Per visualizzare tutti gli operatori all'interno del vertice, fare doppio clic s
 
 Il grafico del processo potrebbe non essere visualizzato anche se Tez viene specificato come motore di esecuzione se non viene avviata alcuna applicazione Tez.  Questo problema può verificarsi perché il processo non contiene istruzioni DML oppure le istruzioni DML possono restituire senza avviare un'applicazione Tez. Ad esempio, `SELECT * FROM table1` non avvierà l'applicazione Tez.
 
-![Grafico del processo di Apache hive di Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-fast-path-hive-execution.png "Riepilogo del processo hive")
+![Grafico del processo di Apache Hive di Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-fast-path-hive-execution.png "Riepilogo del processo hive")
 
 ### <a name="task-execution-detail"></a>Dettagli esecuzione attività
 
 Dal grafico del processo è possibile selezionare i **Dettagli di esecuzione delle attività** per ottenere informazioni strutturate e visualizzate per i processi hive. Sono disponibili anche altri dettagli sui processi. Se si verificano problemi di prestazioni, è possibile usare la visualizzazione per ottenere altri dettagli sul problema. È ad esempio possibile ottenere informazioni sul funzionamento di ogni attività e informazioni dettagliate su ogni attività (lettura/scrittura dati, ora di pianificazione/inizio/fine e così via). Usare le informazioni per ottimizzare le configurazioni dei processi o l'architettura di sistema in base alle informazioni visualizzate.
 
-![Data Lake strumenti di Visual Studio finestra visualizzazione esecuzioni attività](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-task-execution-view.png "Visualizzazione esecuzione attività")
+![Data Lake Strumenti di Visual Studio finestra visualizzazione esecuzioni attività](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-task-execution-view.png "Visualizzazione esecuzione attività")
 
 
 ### <a name="view-hive-jobs"></a>Visualizzare processi Hive
@@ -266,12 +266,12 @@ Per visualizzare processi Hive:
     - **Log processo**  
     - **Log Yarn**
 
-    ![Screenshot della finestra di visualizzazione dei processi Hive in Strumenti di Visual Studio di HDInsight](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-view-hive-jobs.png "Visualizzare processi Hive")
+    ![Screenshot della finestra HDInsight Strumenti di Visual Studio View hive Jobs](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-view-hive-jobs.png "Visualizzare processi Hive")
 
 
 ## <a name="run-apache-pig-scripts"></a>Eseguire script Apache Pig
 
-1. Dalla barra dei menu passare a **file** > **nuovo** > **progetto...** .
+1. Dalla barra dei menu passare a **File** > **nuovo** > **progetto...** .
 
 2. Nel riquadro sinistro passare a **installato** > **Azure Data Lake** > **Pig (HDInsight)** .  
 

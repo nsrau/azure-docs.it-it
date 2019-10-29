@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: ea6de5f42910457efa5ca6c458d7af63faa38e18
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2392eb1f02ede13aca88419c00ea33ae38cfd8ab
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637744"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023896"
 ---
-# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change Feed Processor SDK: download e note sulla versione
+# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK del processore dei feed delle modifiche .NET: download e note sulla versione
 
 > [!div class="op_single_selector"]
 >
@@ -36,12 +36,21 @@ ms.locfileid: "68637744"
 |---|---|
 |**Download dell'SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentazione sull'API**|[Documentazione di riferimento sull'API della libreria del processore dei feed delle modifiche](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Introduzione**|[Introduzione all'SDK del processore dei feed delle modifiche .NET](change-feed.md)|
+|**Attività iniziali**|[Introduzione all'SDK del processore dei feed delle modifiche .NET](change-feed.md)|
 |**Framework attualmente supportato**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="v2-builds"></a>Build della seconda versione
+
+### <a name="a-name228228"></a><a name="2.2.8"/>2.2.8
+* Miglioramenti alla stabilità e alla diagnostica:
+  * Aggiunta del supporto per rilevare la lettura del feed di modifiche che richiede molto tempo. Quando impiega più tempo del valore specificato dalla proprietà `ChangeFeedProcessorOptions.ChangeFeedTimeout`, vengono eseguiti i passaggi seguenti:
+    * L'operazione di lettura del feed delle modifiche nella partizione problematica è stata interrotta.
+    * L'istanza del processore del feed delle modifiche Elimina la proprietà del lease problematico. Il lease eliminato verrà prelevato durante il successivo passaggio di acquisizione del lease che verrà eseguito dalla stessa istanza o da un'istanza diversa del processore del feed di modifiche. In questo modo, verrà riavviata la lettura del feed delle modifiche.
+    * Viene segnalato un problema al Health Monitor. Il monitoraggio di integrità predefinito invia tutti i problemi segnalati al log di traccia.
+  * È stata aggiunta una nuova proprietà pubblica: `ChangeFeedProcessorOptions.ChangeFeedTimeout`. Il valore predefinito di questa proprietà è 10 minuti.
+  * È stato aggiunto un nuovo valore enum pubblico: `Monitoring.MonitoredOperation.ReadChangeFeed`. Quando il valore di `HealthMonitoringRecord.Operation` è impostato su `Monitoring.MonitoredOperation.ReadChangeFeed`, indica che il problema di integrità è correlato alla lettura del feed di modifiche.
 
 ### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
 * Strategia di bilanciamento del carico migliorata per lo scenario quando il recupero di tutti i lease richiede più tempo rispetto all'intervallo di scadenza del lease, ad esempio a causa di problemi di rete:
@@ -76,7 +85,7 @@ ms.locfileid: "68637744"
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 * Aggiunta del supporto per le raccolte partizionate di lease. La chiave di partizione deve essere definita come /id.
-* Modifica che causa un'interruzione minore: i metodi dell'interfaccia IChangeFeedDocumentClient e la classe ChangeFeedDocumentClient sono stati modificati per includere i parametri RequestOptions e CancellationToken. IChangeFeedDocumentClient è un punto di estendibilità avanzata che consente di offrire un'implementazione personalizzata del client di documenti da usare con il processore dei feed delle modifiche, ad esempio, decorare DocumentClient e intercettare tutte le chiamate a esso per eseguire operazioni di analisi, gestione degli errori, e così via, extra. Con questo aggiornamento, il codice che implementa IChangeFeedDocumentClient dovrà essere modificato per includere i nuovi parametri nell'implementazione.
+* Modifica che causa un'interruzione minore: i metodi dell'interfaccia IChangeFeedDocumentClient e la classe ChangeFeedDocumentClient sono stati modificati per includere i parametri RequestOptions e CancellationToken. IChangeFeedDocumentClient è un punto di estendibilità avanzato che consente di fornire un'implementazione personalizzata del client del documento da usare con il processore di feed di modifiche, ad esempio decorare DocumentClient e intercettare tutte le chiamate ad esso per eseguire tracce aggiuntive, gestione degli errori Via. Con questo aggiornamento, il codice che implementa IChangeFeedDocumentClient dovrà essere modificato in modo da includere nuovi parametri nell'implementazione.
 * Miglioramenti della diagnostica secondari.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
@@ -168,8 +177,9 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 <br/>
 
-| Version | Data di rilascio | Data di ritiro |
+| Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.2.8](#2.2.8) |28 ottobre 2019 |--- |
 | [2.2.7](#2.2.7) |14 maggio 2019 |--- |
 | [2.2.6](#2.2.6) |29 gennaio 2019 |--- |
 | [2.2.5](#2.2.5) |13 dicembre 2018 |--- |
@@ -185,10 +195,10 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 | [1.1.0](#1.1.0) |13 agosto 2017 |--- |
 | [1.0.0](#1.0.0) |07 luglio 2017 |--- |
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>FAQ
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 Per altre informazioni su Cosmos DB, vedere la pagina del servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

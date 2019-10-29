@@ -1,5 +1,5 @@
 ---
-title: Apache Hive con Data Lake Tools per Visual Studio-Azure HDInsight
+title: Apache Hive & Data Lake Tools per Visual Studio-Azure HDInsight
 description: Informazioni su come usare gli strumenti Data Lake per Visual Studio per eseguire query Apache Hive con Apache Hadoop in Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1e5e3854f0b132ede38e182f99435a569c04d49e
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 37652a8ca9750e6b33bd2744bda386eaba92b025
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076275"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044521"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Eseguire query Apache Hive usando gli strumenti Data Lake per Visual Studio
 
@@ -61,25 +61,25 @@ Le query ad hoc possono essere eseguite in modalità **batch** o **interattiva**
 
     ![Screenshot del processo di invio di una query Hive](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
 
-    L'editor Hive supporta IntelliSense. Strumenti Data Lake per Visual Studio supporta il caricamento di metadati remoti quando si modifica lo script Hive. Se, ad esempio, si `SELECT * FROM`digita, IntelliSense elenca tutti i nomi di tabella suggeriti. Quando si specifica un nome di tabella, IntelliSense elenca i nomi delle colonne. Gli strumenti supportano la maggior parte delle funzioni definite dall'utente predefinite, delle sottoquery e delle istruzioni DML Hive. IntelliSense suggerisce solo i metadati del cluster selezionato nella barra degli strumenti HDInsight.
+    L'editor Hive supporta IntelliSense. Strumenti Data Lake per Visual Studio supporta il caricamento di metadati remoti quando si modifica lo script Hive. Se ad esempio si digita `SELECT * FROM`, IntelliSense elenca tutti i nomi di tabella suggeriti. Quando si specifica un nome di tabella, IntelliSense elenca i nomi delle colonne. Gli strumenti supportano la maggior parte delle funzioni definite dall'utente predefinite, delle sottoquery e delle istruzioni DML Hive. IntelliSense suggerisce solo i metadati del cluster selezionato nella barra degli strumenti HDInsight.
 
-    ![Screenshot 1 di un esempio di IntelliSense in Strumenti di Visual Studio in HDInsight](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-table-name.png "IntelliSense in U-SQL")
+    ![Screenshot di un HDInsight Strumenti di Visual Studio IntelliSense esempio 1](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-table-name.png "IntelliSense per U-SQL")
    
-    ![Screenshot 2 di un esempio di IntelliSense in Strumenti di Visual Studio in HDInsight](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-column-name.png "IntelliSense in U-SQL")
+    ![Screenshot di un HDInsight Strumenti di Visual Studio IntelliSense Example 2](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-column-name.png "IntelliSense per U-SQL")
 
 7. Selezionare **Submit** (Invio) o **Submit (Advanced)** (Invio - Avanzato).
 
    Se si seleziona l'opzione di invio avanzato, configurare le impostazioni per **Nome processo**, **Argomenti**, **Configurazioni aggiuntive** e **Directory di stato** per lo script:
 
-    ![Screenshot di una query Hive Hadoop HDInsight](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png "Inviare query")
+    ![Screenshot di una query hive di Hadoop di HDInsight](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png "Invia query")
 
 ### <a name="hive-application"></a>Applicazione hive
 
 1. Aprire **Visual Studio**.
 
-2. Dalla barra dei menu passare a **file** > **nuovo** > **progetto**.
+2. Dalla barra dei menu passare a **File** > **nuovo** > **progetto**.
 
-3. Dalla finestra **nuovo progetto** passare a **modelli** > **Azure Data Lake** > **applicazione hive** **hive (HDInsight)**  > . 
+3. Dalla finestra **nuovo progetto** passare a **modelli** > **Azure Data Lake** > **hive (HDInsight)**  > **applicazione hive**. 
 
 4. Specificare un nome per il progetto e quindi fare clic su **OK**.
 
@@ -96,20 +96,20 @@ Le query ad hoc possono essere eseguite in modalità **batch** o **interattiva**
 
     Le istruzioni eseguono queste azioni:
 
-   * `DROP TABLE`: Se la tabella esiste, questa istruzione la elimina.
+   * `DROP TABLE`: se la tabella esiste, questa istruzione la elimina.
 
-   * `CREATE EXTERNAL TABLE`: Crea una nuova tabella "esterna" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione originale.
+   * `CREATE EXTERNAL TABLE`: crea una nuova tabella "esterna" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione originale.
 
      > [!NOTE]  
      > Usa le tabelle esterne se si prevede che i dati sottostanti verranno aggiornati da un'origine esterna. Ad esempio, un processo MapReduce o un servizio di Azure.
      >
      > L'eliminazione di una tabella esterna **non** comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
 
-   * `ROW FORMAT`: Indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
+   * `ROW FORMAT`: indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
 
-   * `STORED AS TEXTFILE LOCATION`: Indica a Hive che i dati sono archiviati nella directory example/data e che sono archiviati come testo.
+   * `STORED AS TEXTFILE LOCATION`: indica a Hive che i dati sono archiviati nella directory example/data e che sono archiviati come testo.
 
-   * `SELECT`: Seleziona un numero di tutte le righe in cui la colonna `t4` include il valore `[ERROR]`. L'istruzione dovrebbe restituire un valore pari a `3`, poiché sono presenti tre righe contenenti questo valore.
+   * `SELECT`: seleziona un numero di tutte le righe in cui la colonna `t4` include il valore `[ERROR]`. L'istruzione dovrebbe restituire un valore pari a `3`, poiché sono presenti tre righe contenenti questo valore.
 
    * `INPUT__FILE__NAME LIKE '%.log'`: indica a Hive che si dovrebbero restituire solo i dati da file che terminano con .log. Questa clausola limita la ricerca al file sample.log che contiene i dati.
 
@@ -125,7 +125,7 @@ Le query ad hoc possono essere eseguite in modalità **batch** o **interattiva**
 
 ### <a name="additional-example"></a>Altro esempio
 
-Questo esempio si basa sulla `log4jLogs` tabella creata nel passaggio precedente.
+Questo esempio si basa sull'`log4jLogs` tabella creata nel passaggio precedente.
 
 1. Da **Esplora server**, fare clic con il pulsante destro del mouse sul cluster e selezionare **Scrivi una query hive**.
 
@@ -139,14 +139,14 @@ Questo esempio si basa sulla `log4jLogs` tabella creata nel passaggio precedente
 
     Le istruzioni eseguono queste azioni:
 
-    * `CREATE TABLE IF NOT EXISTS`: Crea una tabella, se non esiste già. Poiché la parola chiave `EXTERNAL` non viene usata, questa istruzione crea una tabella interna. Le tabelle interne vengono archiviate nel data warehouse di Hive e sono gestite da Hive.
+    * `CREATE TABLE IF NOT EXISTS`: crea una tabella, se non esiste già. Poiché la parola chiave `EXTERNAL` non viene usata, questa istruzione crea una tabella interna. Le tabelle interne vengono archiviate nel data warehouse di Hive e sono gestite da Hive.
     
     > [!NOTE]  
     > A differenza delle tabelle `EXTERNAL`, se si elimina una tabella interna, vengono eliminati anche i dati sottostanti.
 
-    * `STORED AS ORC`: Archivia i dati nel formato ORC, Optimized Row Columnar. ORC è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
+    * `STORED AS ORC`: archivia i dati nel formato ORC, Optimized Row Columnar. ORC è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
     
-    * `INSERT OVERWRITE ... SELECT`: Seleziona le righe della tabella `log4jLogs` contenenti `[ERROR]`, quindi inserisce i dati nella tabella `errorLogs`.
+    * `INSERT OVERWRITE ... SELECT`: seleziona le righe della tabella `log4jLogs` contenenti `[ERROR]`, quindi inserisce i dati nella tabella `errorLogs`.
 
 3. Eseguire la query in modalità **batch** .
 
@@ -164,7 +164,7 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Apache Pig con Apache Hadoop su HDInsight](hdinsight-use-pig.md)
 
-* [Usare MapReduce con Apache Hadoop su HDInsight](hdinsight-use-mapreduce.md)
+* [Usare MapReduce in Apache Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
 Per altre informazioni su HDInsight Tools per Visual Studio:
 

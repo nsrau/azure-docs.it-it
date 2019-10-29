@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d73c0f4dbfcc2c67a222f91693ebe8ed9ea83d98
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 1e184691ebbd34de0f69e93419d9c34ab18edbe6
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266137"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025942"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticare un dispositivo downstream con l'hub IoT di Azure
 
@@ -72,10 +72,10 @@ Dopo aver creato un'identità del dispositivo Internet nel portale, è possibile
 
 Per le stringhe di connessione di chiavi simmetriche per i dispositivi downstream sono necessari i componenti seguenti: 
 
-* Hub Internet delle cose a cui si connette il dispositivo:`Hostname={iothub name}.azure-devices.net`
-* ID dispositivo registrato con l'hub:`DeviceID={device ID}`
-* Chiave primaria o secondaria:`SharedAccessKey={key}`
-* Il dispositivo gateway con cui si connette il dispositivo. Specificare il valore del **nome host** dal file config. YAML del dispositivo gateway IOT Edge:`GatewayHostName={gateway hostname}`
+* Hub Internet delle cose a cui si connette il dispositivo: `Hostname={iothub name}.azure-devices.net`
+* ID dispositivo registrato con l'hub: `DeviceID={device ID}`
+* Chiave primaria o secondaria: `SharedAccessKey={key}`
+* Il dispositivo gateway con cui si connette il dispositivo. Specificare il valore del **nome host** dal file config. YAML del dispositivo gateway IoT Edge: `GatewayHostName={gateway hostname}`
 
 Insieme, una stringa di connessione completa ha un aspetto simile al seguente:
 
@@ -83,7 +83,7 @@ Insieme, una stringa di connessione completa ha un aspetto simile al seguente:
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
-Se è stata stabilita una relazione padre/figlio per questo dispositivo downstream, è possibile semplificare la stringa di connessione chiamando il gateway direttamente come host della connessione. Esempio: 
+Se è stata stabilita una relazione padre/figlio per questo dispositivo downstream, è possibile semplificare la stringa di connessione chiamando il gateway direttamente come host della connessione. ad esempio: 
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
@@ -101,7 +101,7 @@ Per altre informazioni su come l'hub Internet usa l'autenticazione X. 509, veder
 
 Per l'autenticazione autofirmata X. 509, a volte definita autenticazione con identificazione personale, è necessario creare nuovi certificati da collocare sul dispositivo. Questi certificati hanno un'identificazione personale che si condivide con l'hub Internet per l'autenticazione. 
 
-Il modo più semplice per eseguire il test di questo scenario consiste nell'usare lo stesso computer usato per creare i certificati in [configurare un dispositivo IOT Edge come gateway trasparente](how-to-create-transparent-gateway.md). Il computer dovrebbe essere già configurato con lo strumento appropriato, il certificato della CA radice e il certificato della CA intermedia per creare i certificati del dispositivo Internet delle cose. È possibile copiare i certificati finali e le relative chiavi private sul dispositivo downstream in seguito. Seguendo i passaggi descritti nell'articolo del gateway, si configura OpenSSL nel computer, quindi si clona il repository IoT Edge per accedere agli script di creazione del certificato. È stata quindi creata una directory di lavoro che chiameremo  **\<WRKDIR >** per conservare i certificati. I certificati predefiniti sono progettati per lo sviluppo e il test, quindi solo negli ultimi 30 giorni. È necessario aver creato un certificato CA radice e un certificato intermedio. 
+Il modo più semplice per testare questo scenario consiste nell'usare lo stesso computer usato per creare i certificati in [configurare un dispositivo IOT Edge come gateway trasparente](how-to-create-transparent-gateway.md). Il computer dovrebbe essere già configurato con lo strumento appropriato, il certificato della CA radice e il certificato della CA intermedia per creare i certificati del dispositivo Internet delle cose. È possibile copiare i certificati finali e le relative chiavi private sul dispositivo downstream in seguito. Seguendo i passaggi descritti nell'articolo del gateway, si configura OpenSSL nel computer, quindi si clona il repository IoT Edge per accedere agli script di creazione del certificato. È stata quindi creata una directory di lavoro che viene chiamata **\<WRKDIR >** per conservare i certificati. I certificati predefiniti sono progettati per lo sviluppo e il test, quindi solo negli ultimi 30 giorni. È necessario aver creato un certificato CA radice e un certificato intermedio. 
 
 1. Passare alla directory di lavoro in una finestra bash o PowerShell. 
 
@@ -155,12 +155,12 @@ Per l'autenticazione firmata (CA) dell'autorità di certificazione X. 509, è ne
 
 Questa sezione è basata sulle istruzioni descritte nell'articolo sull'hub Internet per la [configurazione della sicurezza X. 509 nell'hub Azure](../iot-hub/iot-hub-security-x509-get-started.md). Eseguire la procedura descritta in questa sezione per informazioni sui valori da usare per configurare un dispositivo downstream che si connette tramite un gateway. 
 
-Il modo più semplice per testare questo scenario consiste nell'usare lo stesso computer usato per creare i certificati in [configurare un dispositivo IOT Edge come gateway trasparente](how-to-create-transparent-gateway.md). Il computer dovrebbe essere già configurato con lo strumento appropriato, il certificato della CA radice e il certificato della CA intermedia per creare i certificati del dispositivo Internet delle cose. È possibile copiare i certificati finali e le relative chiavi private sul dispositivo downstream in seguito. Seguendo i passaggi descritti nell'articolo del gateway, si configura OpenSSL nel computer, quindi si clona il repository IoT Edge per accedere agli script di creazione del certificato. È stata quindi creata una directory di lavoro che chiameremo  **\<WRKDIR >** per conservare i certificati. I certificati predefiniti sono progettati per lo sviluppo e il test, quindi solo negli ultimi 30 giorni. È necessario aver creato un certificato CA radice e un certificato intermedio. 
+Il modo più semplice per testare questo scenario consiste nell'usare lo stesso computer usato per creare i certificati in [configurare un dispositivo IOT Edge come gateway trasparente](how-to-create-transparent-gateway.md). Il computer dovrebbe essere già configurato con lo strumento appropriato, il certificato della CA radice e il certificato della CA intermedia per creare i certificati del dispositivo Internet delle cose. È possibile copiare i certificati finali e le relative chiavi private sul dispositivo downstream in seguito. Seguendo i passaggi descritti nell'articolo del gateway, si configura OpenSSL nel computer, quindi si clona il repository IoT Edge per accedere agli script di creazione del certificato. È stata quindi creata una directory di lavoro che viene chiamata **\<WRKDIR >** per conservare i certificati. I certificati predefiniti sono progettati per lo sviluppo e il test, quindi solo negli ultimi 30 giorni. È necessario aver creato un certificato CA radice e un certificato intermedio. 
 
 1. Seguire le istruzioni riportate nella sezione [registrare i certificati della CA x. 509](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) nella sezione dell'hub Internet per *configurare la sicurezza x. 509 nell'hub Azure*. In questa sezione si eseguono i passaggi seguenti: 
 
-   1. Caricare un certificato CA radice. Se si usano i certificati creati nell'articolo gateway trasparente, caricare  **\<WRKDIR >/certs/Azure-IOT-Test-only.root.ca.cert.pem** come file del certificato radice. 
-   2. Verificare di essere proprietario del certificato CA radice. È possibile verificare il possesso con gli strumenti CERT \<in WRKDIR >. 
+   1. Caricare un certificato CA radice. Se si usano i certificati creati nell'articolo gateway trasparente, caricare **\<WRKDIR >/certs/Azure-IOT-Test-only.root.ca.cert.pem** come file del certificato radice. 
+   2. Verificare di essere proprietario del certificato CA radice. È possibile verificare il possesso con gli strumenti CERT in \<WRKDIR >. 
 
       ```powershell
       New-CACertsVerificationCert "<verification code from Azure portal>"

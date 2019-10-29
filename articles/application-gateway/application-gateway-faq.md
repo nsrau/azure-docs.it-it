@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: fd4eef9771ae89e330c99b398ad6d473356213f5
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: cbb4668ae87404771513ca5825482efe9206308d
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858539"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025014"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -20,9 +21,9 @@ ms.locfileid: "70858539"
 
 Di seguito sono riportate le domande frequenti su applicazione Azure gateway.
 
-## <a name="general"></a>Generale
+## <a name="general"></a>Informazioni di carattere generale
 
-### <a name="what-is-application-gateway"></a>Informazioni sul servizio Gateway applicazione
+### <a name="what-is-application-gateway"></a>Che cos'è il gateway applicazione?
 
 Applicazione Azure gateway fornisce un servizio di controller per la distribuzione di applicazioni (ADC) come servizio. Offre diverse funzionalità di bilanciamento del carico di livello 7 per le applicazioni. Questo servizio è altamente disponibile, scalabile e completamente gestito da Azure.
 
@@ -106,7 +107,7 @@ Per la maggior parte delle distribuzioni che usano lo SKU V2 sono necessari circ
 
 No. Il gateway applicazione non supporta i protocolli di posta elettronica, ad esempio SMTP, IMAP e POP3. 
 
-## <a name="performance"></a>Prestazioni
+## <a name="performance"></a>Performance
 
 ### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>In che modo il gateway applicazione supporta la disponibilità elevata e la scalabilità?
 
@@ -186,7 +187,7 @@ Vedere l' [ordine delle regole di elaborazione](https://docs.microsoft.com/azure
 
 ### <a name="for-custom-probes-what-does-the-host-field-signify"></a>Per i probe personalizzati, cosa significa il campo host?
 
-Il campo host specifica il nome a cui inviare il probe dopo aver configurato il multisito nel gateway applicazione. In caso contrario, usare ' 127.0.0.1'. Questo valore è diverso dal nome host della macchina virtuale. Il formato è \<protocollo\>://\<host\>:\<porta\>percorso.\>\<
+Il campo host specifica il nome a cui inviare il probe dopo aver configurato il multisito nel gateway applicazione. In caso contrario, usare ' 127.0.0.1'. Questo valore è diverso dal nome host della macchina virtuale. Il formato è \<protocollo\>://\<host\>:\<porta\>\<percorso\>.
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>È possibile consentire l'accesso del gateway applicazione solo ad alcuni indirizzi IP di origine?
 
@@ -269,7 +270,7 @@ Il gateway applicazione supporta fino a 100 certificati SSL.
 
 ### <a name="how-many-authentication-certificates-for-backend-reencryption-does-application-gateway-support"></a>Quanti certificati di autenticazione per la ricrittografia back-end supporta il gateway applicazione?
 
-Il gateway applicazione supporta fino a 10 certificati di autenticazione. Il valore predefinito è 5.
+Il gateway applicazione supporta fino a 100 certificati di autenticazione.
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>Il gateway applicazione si integra in modo nativo con Azure Key Vault?
 
@@ -333,15 +334,15 @@ Sì. Per informazioni dettagliate, vedere [eseguire la migrazione di applicazion
 
 Il gateway applicazione fornisce tre log: 
 
-* **ApplicationGatewayAccessLog**: Il log di accesso contiene ogni richiesta inviata al front-end del gateway applicazione. I dati includono IP del chiamante, URL richiesto, latenza della risposta, codice restituito e byte in uscita e in uscita. Il log di accesso viene raccolto ogni 300 secondi. Contiene un record per ogni gateway applicazione.
-* **ApplicationGatewayPerformanceLog**: Il log delle prestazioni acquisisce le informazioni sulle prestazioni per ogni gateway applicazione. Le informazioni includono la velocità effettiva in byte, le richieste totali gestite, il numero di richieste non riuscite e il numero di istanze back-end integre e non integre.
-* **ApplicationGatewayFirewallLog**: Per i gateway applicazione configurati con WAF, il log del firewall contiene le richieste registrate tramite la modalità di rilevamento o la modalità di prevenzione.
+* **ApplicationGatewayAccessLog**: il log di accesso contiene ogni richiesta inviata al front-end del gateway applicazione. I dati includono IP del chiamante, URL richiesto, latenza della risposta, codice restituito e byte in uscita e in uscita. Il log di accesso viene raccolto ogni 300 secondi. Contiene un record per ogni gateway applicazione.
+* **ApplicationGatewayPerformanceLog**: il log delle prestazioni acquisisce le informazioni sulle prestazioni per ogni gateway applicazione. Le informazioni includono la velocità effettiva in byte, le richieste totali gestite, il numero di richieste non riuscite e il numero di istanze back-end integre e non integre.
+* **ApplicationGatewayFirewallLog**: per i gateway applicazione configurati con WAF, il log del firewall contiene le richieste registrate tramite la modalità di rilevamento o la modalità di prevenzione.
 
 Per altre informazioni, vedere [integrità back-end, log di diagnostica e metriche per il gateway applicazione](application-gateway-diagnostics.md).
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Come è possibile sapere se i membri del pool back-end sono integri?
 
-Verificare lo stato di integrità usando il `Get-AzApplicationGatewayBackendHealth` cmdlet di PowerShell o il portale. Per altre informazioni, vedere [Diagnostica del gateway applicazione](application-gateway-diagnostics.md).
+Verificare lo stato di integrità usando il cmdlet di PowerShell `Get-AzApplicationGatewayBackendHealth` o il portale. Per altre informazioni, vedere [Diagnostica del gateway applicazione](application-gateway-diagnostics.md).
 
 ### <a name="whats-the-retention-policy-for-the-diagnostic-logs"></a>Quali sono i criteri di conservazione per i log di diagnostica?
 

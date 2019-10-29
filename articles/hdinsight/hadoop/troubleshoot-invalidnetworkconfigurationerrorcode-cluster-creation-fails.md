@@ -1,5 +1,5 @@
 ---
-title: InvalidNetworkConfigurationErrorCode dalla creazione del cluster in Azure HDInsight
+title: Errore InvalidNetworkConfigurationErrorCode-Azure HDInsight
 description: Diversi motivi per le creazioni di cluster non riuscite con InvalidNetworkConfigurationErrorCode in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,18 +7,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
-ms.openlocfilehash: a6b207086325018deb63383a0775af8dfe195ac4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 5b8d031af9dbe6019d71e2a1caa3d3f25d4024ea
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091713"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044457"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>La creazione del cluster non riesce con InvalidNetworkConfigurationErrorCode in Azure HDInsight
 
 Questo articolo descrive le procedure di risoluzione dei problemi e le possibili soluzioni per i problemi durante l'interazione con i cluster HDInsight di Azure.
 
-Se viene visualizzato il codice `InvalidNetworkConfigurationErrorCode` di errore con la descrizione "la configurazione della rete virtuale non è compatibile con il requisito di HDInsight", in genere indica un problema con la [configurazione della rete virtuale](../hdinsight-plan-virtual-network-deployment.md) per il cluster. In base al resto della descrizione dell'errore, seguire le sezioni seguenti per risolvere il problema.
+Se viene visualizzato il codice di errore `InvalidNetworkConfigurationErrorCode` con la descrizione "la configurazione della rete virtuale non è compatibile con il requisito di HDInsight", in genere indica un problema con la [configurazione della rete virtuale](../hdinsight-plan-virtual-network-deployment.md) per il cluster. In base al resto della descrizione dell'errore, seguire le sezioni seguenti per risolvere il problema.
 
 ## <a name="hostname-resolution-failed"></a>"Risoluzione nome host non riuscita"
 
@@ -32,11 +32,11 @@ Questo errore indica un problema con la configurazione DNS personalizzata. I ser
 
 ### <a name="resolution"></a>Risoluzione
 
-1. Eseguire ssh nella macchina virtuale che fa parte del cluster ed eseguire il comando `hostname -f`. Verrà restituito il nome di dominio completo dell'host (indicato `<host_fqdn>` nelle istruzioni seguenti).
+1. Connettersi tramite SSH alla macchina virtuale che fa parte del cluster ed eseguire il comando `hostname -f`. Verrà restituito il nome di dominio completo dell'host (denominato `<host_fqdn>` nelle istruzioni seguenti).
 
-1. Eseguire quindi il comando `nslookup <host_fqdn>` (ad esempio, `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`). Se questo comando risolve il nome in un indirizzo IP, significa che il server DNS funziona correttamente. In questo caso, viene generato un caso di supporto con HDInsight e si analizzerà il problema. Nel caso di supporto, includere i passaggi per la risoluzione dei problemi eseguiti. Questo consentirà di risolvere il problema più velocemente.
+1. Eseguire quindi il comando `nslookup <host_fqdn>`, ad esempio `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`. Se questo comando risolve il nome in un indirizzo IP, significa che il server DNS funziona correttamente. In questo caso, viene generato un caso di supporto con HDInsight e si analizzerà il problema. Nel caso di supporto, includere i passaggi per la risoluzione dei problemi eseguiti. Questo consentirà di risolvere il problema più velocemente.
 
-1. Se il comando precedente non restituisce un indirizzo IP, eseguire `nslookup <host_fqdn> 168.63.129.16` , ad esempio,. `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16` Se questo comando è in grado di risolvere l'indirizzo IP, significa che il server DNS non sta inviando la query al DNS di Azure o non è una macchina virtuale che fa parte dello stesso vNet del cluster.
+1. Se il comando precedente non restituisce un indirizzo IP, eseguire `nslookup <host_fqdn> 168.63.129.16`, ad esempio `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`. Se questo comando è in grado di risolvere l'indirizzo IP, significa che il server DNS non sta inviando la query al DNS di Azure o non è una macchina virtuale che fa parte dello stesso vNet del cluster.
 
 1. Se non si dispone di una macchina virtuale di Azure che può fungere da server DNS personalizzato nel vNet del cluster, è necessario prima aggiungere questa. Creare una macchina virtuale in vNet, che verrà configurata come server di trasmissione DNS.
 
@@ -76,6 +76,6 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
 
-* Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente connettendo la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
+* È possibile connettersi con [@AzureSupport](https://twitter.com/azuresupport) , l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente connettendo la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
 
 * Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto tecnico di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

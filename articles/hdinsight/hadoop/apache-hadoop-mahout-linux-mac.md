@@ -1,5 +1,5 @@
 ---
-title: Generare raccomandazioni con Apache Mahout e HDInsight (SSH) - Azure
+title: Generare raccomandazioni usando Apache Mahout in Azure HDInsight
 description: Informazioni su come usare la libreria di Machine Learning Apache Mahout per generare raccomandazioni di film con HDInsight (Hadoop).
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: a3919cf84714b69776222fa35d3163e0915869f7
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 3923abd10fc3a64773d561b1f375f9e2f00a7e56
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881986"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044570"
 ---
 # <a name="generate-movie-recommendations-using-apache-mahout-with-apache-hadoop-in-hdinsight-ssh"></a>Generare raccomandazioni di film usando Apache Mahout con Apache Hadoop in HDInsight (SSH)
 

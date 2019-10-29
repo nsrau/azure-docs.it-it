@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.openlocfilehash: 3e6af57840cf60516aba994a6b5728bfb7b35f09
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: c659db91b8ca1ad65b00124bed347b8046328d2e
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553532"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045003"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ottimizzazione delle prestazioni con memorizzazione nella cache dei set di risultati  
 Quando è abilitata la memorizzazione nella cache del set di risultati, Azure SQL Data Warehouse memorizza automaticamente nella cache i risultati delle query nel database utente per l'utilizzo ripetitivo.  In questo modo, le esecuzioni di query successive ottengono risultati direttamente dalla cache permanente, quindi il ricalcolo non è necessario.   La memorizzazione nella cache del set di risultati migliora le prestazioni delle query e riduce l'utilizzo delle risorse di calcolo.  Inoltre, le query che utilizzano i set di risultati memorizzati nella cache non utilizzano slot di concorrenza e pertanto non vengono conteggiati rispetto ai limiti di concorrenza esistenti. Per la sicurezza, gli utenti possono accedere solo ai risultati memorizzati nella cache se hanno le stesse autorizzazioni di accesso ai dati degli utenti che creano i risultati memorizzati nella cache.  
@@ -49,7 +49,7 @@ Il set di risultati memorizzato nella cache viene riutilizzato per una query se 
 Eseguire questo comando per verificare se una query è stata eseguita con un riscontro nella cache dei risultati. Se si verifica un riscontro nella cache, result_cache_hit restituirà 1.
 
 ```sql
-SELECT request_id, command, result_cache_hit FROM sys.pdw_exec_requests 
+SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests 
 WHERE request_id = <'Your_Query_Request_ID'>
 ```
 

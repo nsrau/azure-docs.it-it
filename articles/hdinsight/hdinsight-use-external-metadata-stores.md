@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: a495935216cb91a282cc3dbabafbc96a531dde91
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a876269b2746a1065cee2639cfc5804aff0b3446
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800111"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027694"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Usare gli archivi di metadati esterni in Azure HDInsight
 
@@ -83,7 +83,7 @@ Ecco alcune procedure consigliate generali per il metastore Hive di HDInsight:
 
 * Quando una nuova versione di Azure HDInsight viene creata in un database del metastore personalizzato esistente, il sistema aggiorna lo schema del metastore che è irreversibile senza ripristino del database dal backup.
 
-* Se un metastore è condiviso da più cluster, assicurarsi che tutti i cluster abbiano la stessa versione HDInsight. Versioni Hive diverse usano schemi di database del metastore diversi. Ad esempio, non è possibile condividere un Metastore nei cluster hive 1,2 e hive 2,1 con versione.
+* Se un metastore è condiviso da più cluster, assicurarsi che tutti i cluster abbiano la stessa versione HDInsight. Versioni Hive diverse usano schemi di database del metastore diversi. Ad esempio, non è possibile condividere un Metastore nei cluster hive 2,1 e hive 3,1 con versione.
 
 * In HDInsight 4,0, Spark e hive usano cataloghi indipendenti per accedere alle tabelle SparkSQL o hive. Una tabella creata da Spark risiede nel catalogo Spark. Una tabella creata da hive risiede nel catalogo hive. Questa operazione è diversa da quella di HDInsight 3,6 in cui hive e Spark condividono il catalogo comune. L'integrazione di hive e Spark in HDInsight 4,0 si basa sul connettore di hive warehouse (HWC). HWC funziona come un bridge tra Spark e hive. Informazioni [sul connettore del warehouse di hive](../hdinsight/interactive-query/apache-hive-warehouse-connector.md).
 

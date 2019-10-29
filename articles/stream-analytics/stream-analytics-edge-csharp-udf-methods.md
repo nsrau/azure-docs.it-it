@@ -8,18 +8,28 @@ manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: 835eeaa0036d824a65918102ab7a00c3cf236931
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 0bc59ac3e55466f8ac06a3a8fa9cf08fecbb5ce3
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988401"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024957"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Sviluppare .NET Standard funzioni definite dall'utente per i processi di analisi di flusso di Azure (anteprima)
 
 L'Analisi di flusso di Azure offre un linguaggio di query simile a SQL per eseguire trasformazioni e calcoli sui flussi di dati degli eventi. Sono disponibili molte funzioni predefinite, ma alcuni scenari complessi richiedono una maggiore flessibilità. Con le funzioni .NET Standard definite dall'utente è possibile richiamare funzioni personalizzate scritte in qualsiasi linguaggio di programmazione .NET Standard (C#, F# e così via) per estendere il linguaggio di query dell'Analisi di flusso di Azure. Le funzioni definite dall'utente consentono di eseguire calcoli matematici complessi, di importare i modelli di Machine Learning personalizzati con ML.NET e di usare la logica di imputazione personalizzata per i dati mancanti. La funzionalità UDF per i processi di analisi di flusso è attualmente in anteprima e non deve essere usata nei carichi di lavoro di produzione.
+
+La funzione definita dall'utente .NET per i processi cloud è disponibile in:
+* Stati Uniti centro-occidentali (disponibili)
+* Europa settentrionale (disponibile)
+* Stati Uniti orientali (disponibili)
+* Stati Uniti occidentali (implementazione a breve)
+* Stati Uniti orientali 2 (implementazione a breve)
+* Europa occidentale (implementazione a breve)
+
+Se si è interessati all'uso di questa funzionalità in un'altra area, è possibile [richiedere l'accesso](https://aka.ms/ccodereqregion).
 
 ## <a name="overview"></a>Panoramica
 Gli strumenti di Visual Studio per l'Analisi di flusso di Azure semplificano la scrittura di funzioni definite dall'utente, l'esecuzione di test sui processi in locale (anche offline) e la pubblicazione del processo di Analisi di flusso in Azure. Dopo la pubblicazione in Azure è possibile distribuire il processo nei dispositivi IoT con l'hub IoT.
