@@ -11,10 +11,10 @@ ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 10a10882efe05ef9e6bb86e54fcfcf8c5d73d225
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70098751"
 ---
 # <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Integrazione del controllo del codice sorgente per Azure SQL Data Warehouse
@@ -31,13 +31,13 @@ Questa esercitazione illustra come integrare il progetto di database SQL Server 
 
 1. Nell'organizzazione di Azure DevOps creare un progetto che ospiterà il progetto di database SSDT tramite un repository di Azure
 
-   ![Creare il progetto](media/sql-data-warehouse-source-control-integration/1-create-project-azure-devops.png "Creare il progetto")
+   ![Creare il progetto](media/sql-data-warehouse-source-control-integration/1-create-project-azure-devops.png "Crea progetto")
 
 2. Aprire Visual Studio e connettersi all'organizzazione e al progetto di Azure DevOps del passaggio 1 selezionando "Gestisci connessioni"
 
    ![Gestire le connessioni](media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Gestire le connessioni")
 
-   ![Connettersi](media/sql-data-warehouse-source-control-integration/3-connect.png "Connettersi")
+   ![Connettere](media/sql-data-warehouse-source-control-integration/3-connect.png "Connettere")
 
 3. Clonare il repository Azure Repos del progetto nel computer locale
 
@@ -55,23 +55,23 @@ Questa esercitazione illustra come integrare il progetto di database SQL Server 
 
 3. In Team Explorer di Visual Studio eseguire il commit di tutte le modifiche apportate al repository Git locale 
 
-   ![Eseguire il commit](media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Eseguire il commit")  
+   ![Eseguire il commit](media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Commit")  
 
 4. A questo punto, dopo aver eseguito il commit delle modifiche in locale nel repository clonato, sincronizzare ed effettuare il push delle modifiche nel repository Azure Repos nel progetto Azure DevOps.
 
-   ![Sincronizzare ed eseguire il push - staging](media/sql-data-warehouse-source-control-integration/7-commit-push-changes.png "Sincronizzare ed eseguire il push - staging")
+   ![Sincronizzazione e push - staging](media/sql-data-warehouse-source-control-integration/7-commit-push-changes.png "Sincronizzazione e push - staging")
 
-   ![Sincronizzare ed eseguire il push](media/sql-data-warehouse-source-control-integration/7.5-commit-push-changes.png "Sincronizzare ed eseguire il push")  
+   ![Sincronizzazione e push](media/sql-data-warehouse-source-control-integration/7.5-commit-push-changes.png "Sincronizzazione e push")  
 
 ## <a name="validation"></a>Convalida
 
 1. Verificare che il push delle modifiche sia stato eseguito nel repository Azure Repos aggiornando una colonna della tabella nel progetto di database da Visual Studio SQL Server Data Tools (SSDT)
 
-   ![Convalidare aggiornando la colonna](media/sql-data-warehouse-source-control-integration/8-validation-update-column.png "Convalidare aggiornando la colonna")
+   ![Convalidare l'aggiornamento della colonna](media/sql-data-warehouse-source-control-integration/8-validation-update-column.png "Convalidare l'aggiornamento della colonna")
 
 2. Eseguire il commit e il push della modifica dal repository locale al repository Azure Repos
 
-   ![Eseguire il push delle modifiche](media/sql-data-warehouse-source-control-integration/9-push-column-change.png "Eseguire il push delle modifiche")
+   ![Eseguire il push delle modifiche](media/sql-data-warehouse-source-control-integration/9-push-column-change.png "Effettuare il push delle modifiche")
 
 3. Verificare che il push della modifica sia stato eseguito nel repository Azure Repos
 

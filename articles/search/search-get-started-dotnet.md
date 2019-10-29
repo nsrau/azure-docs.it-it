@@ -1,23 +1,22 @@
 ---
-title: 'Guida introduttiva: Creare un indice di ricerca in C# con .NET SDK - Ricerca di Azure'
-description: Informazioni su come creare un indice, caricare dati ed eseguire query con C# e .NET SDK di Ricerca di Azure.
-author: heidisteen
+title: 'Guida introduttiva: Creare un indice di ricerca in C# con .NET SDK'
+titleSuffix: Azure Cognitive Search
+description: Informazioni su come creare un indice, caricare dati ed eseguire query con C# e .NET SDK di Ricerca cognitiva di Azure.
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-tags: azure-portal
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: bda9c29fe3af0bd7d9a6ec61dd5fe40a8e9cc339
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 11/04/2019
+ms.openlocfilehash: cb52ebc4cfdb6f62e9e68bf007cadc20cd565fad
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881593"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792830"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-c-using-the-net-sdk"></a>Guida introduttiva: Creare un indice di Ricerca di Azure in C# con .NET SDK
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in C# con .NET SDK
 > [!div class="op_single_selector"]
 > * [C#](search-get-started-dotnet.md)
 > * [Portale](search-get-started-portal.md)
@@ -26,12 +25,12 @@ ms.locfileid: "70881593"
 > * [Postman](search-get-started-postman.md)
 >*
 
-Per creare un'applicazione console C# per .NET Core che crea, carica ed esegue query su un indice di Ricerca di Azure, è possibile usare Visual Studio e [.NET SDK di Ricerca di Azure](https://aka.ms/search-sdk). Questo articolo illustra tutti i passaggi della creazione dell'applicazione. In alternativa, è possibile [scaricare ed eseguire l'applicazione completa](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart).
+Per creare un'applicazione console C# per .NET Core che crea, carica ed esegue query su un indice di Ricerca cognitiva di Azure, è possibile usare Visual Studio e [.NET SDK di Ricerca cognitiva di Azure](https://aka.ms/search-sdk). Questo articolo illustra tutti i passaggi della creazione dell'applicazione. In alternativa, è possibile [scaricare ed eseguire l'applicazione completa](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 > [!NOTE]
-> Per semplicità, nel codice di esempio incluso in questo articolo si usano i metodi sincroni di .NET SDK di Ricerca di Azure. Per scenari di produzione, è però consigliabile usare i metodi asincroni nelle proprie applicazioni per mantenerle scalabili e reattive. È ad esempio possibile usare `CreateAsync` e `DeleteAsync` invece di `Create` e `Delete`.
+> Per semplicità, nel codice di esempio incluso in questo articolo si usano i metodi sincroni di .NET SDK di Ricerca cognitiva di Azure. Per scenari di produzione, è però consigliabile usare i metodi asincroni nelle proprie applicazioni per mantenerle scalabili e reattive. È ad esempio possibile usare `CreateAsync` e `DeleteAsync` invece di `Create` e `Delete`.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,13 +38,13 @@ Per questa guida di avvio rapido sono richiesti i servizi e gli strumenti seguen
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), qualsiasi edizione. Il codice di esempio e le istruzioni sono stati testati nell'edizione Community Edition gratuita.
 
-+ [Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido.
++ [Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido.
 
 <a name="get-service-info"></a>
 
 ## <a name="get-a-key-and-url"></a>Ottenere una chiave e un URL
 
-Le chiamate al servizio richiedono un URL endpoint e una chiave di accesso per ogni richiesta. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se si è aggiunto Ricerca di Azure alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
+Le chiamate al servizio richiedono un URL endpoint e una chiave di accesso per ogni richiesta. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se il servizio Ricerca cognitiva di Azure è stato aggiunto alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
 
 1. [Accedere al portale di Azure](https://portal.azure.com/) e ottenere l'URL nella pagina **Panoramica** del servizio di ricerca. Un endpoint di esempio potrebbe essere simile a `https://mydemo.search.windows.net`.
 
@@ -53,7 +52,7 @@ Le chiamate al servizio richiedono un URL endpoint e una chiave di accesso per o
 
    Ottenere anche la chiave di query. È consigliabile inviare richieste di query con accesso di sola lettura.
 
-![Ottenere una chiave di accesso e un endpoint HTTP](media/search-get-started-postman/get-url-key.png "Ottenere una chiave di accesso e un endpoint HTTP")
+![Ottenere un endpoint HTTP e una chiave di accesso](media/search-get-started-postman/get-url-key.png "Ottenere un endpoint HTTP e una chiave di accesso")
 
 Per ogni richiesta inviata al servizio è necessario specificare una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
@@ -63,7 +62,7 @@ Iniziare aprendo Visual Studio e creando un nuovo progetto di app console che pu
 
 ### <a name="install-nuget-packages"></a>Installare i pacchetti NuGet
 
-[.NET SDK di Ricerca di Azure](https://aka.ms/search-sdk) è costituito da alcune librerie client che vengono distribuite come pacchetti NuGet.
+[.NET SDK di Ricerca cognitiva di Azure](https://aka.ms/search-sdk) è costituito da alcune librerie client distribuite come pacchetti NuGet.
 
 Per questo progetto usare la versione 9 del pacchetto NuGet `Microsoft.Azure.Search` e il pacchetto `Microsoft.Extensions.Configuration.Json` più recente.
 
@@ -78,7 +77,7 @@ Per questo progetto usare la versione 9 del pacchetto NuGet `Microsoft.Azure.Sea
 1. Ripetere l'operazione per `Microsoft.Extensions.Configuration.Json`, selezionando la versione 2.2.0 o successiva.
 
 
-### <a name="add-azure-search-service-information"></a>Aggiungere informazioni sul servizio Ricerca di Azure
+### <a name="add-azure-cognitive-search-service-information"></a>Aggiungere le informazioni sul servizio Ricerca cognitiva di Azure
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e selezionare **Aggiungi** > **Nuovo elemento**. 
 
@@ -204,7 +203,7 @@ L'indice degli alberghi è costituito da campi semplici e complessi, in cui i ca
 
 1. In Program.cs creare un'istanza della classe [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) da connettere al servizio, usando valori archiviati nel file config dell'applicazione (appsettings.json). 
 
-   `SearchServiceClient` include una proprietà [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet), che fornisce tutti i metodi necessari per creare, elencare, aggiornare o eliminare indici di Ricerca di Azure. 
+   `SearchServiceClient` include una proprietà [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet), che fornisce tutti i metodi necessari per creare, elencare, aggiornare o eliminare indici di Ricerca cognitiva di Azure. 
 
     ```csharp
     using System;
@@ -302,9 +301,9 @@ L'indice degli alberghi è costituito da campi semplici e complessi, in cui i ca
 
 ## <a name="2---load-documents"></a>2 - Caricare i documenti
 
-In Ricerca di Azure i documenti sono strutture dei dati che costituiscono sia l'input per l'indicizzazione che l'output restituito dalle query. In quanto ottenuti da un'origine dati esterna, gli input dei documenti possono essere righe in un database, BLOB nell'archiviazione BLOB o documenti JSON nel disco. Per brevità, in questo esempio i documenti JSON per i quattro alberghi verranno incorporati nel codice stesso. 
+In Ricerca cognitiva di Azure i documenti sono strutture dei dati che costituiscono sia l'input per l'indicizzazione che l'output restituito dalle query. In quanto ottenuti da un'origine dati esterna, gli input dei documenti possono essere righe in un database, BLOB nell'archiviazione BLOB o documenti JSON nel disco. Per brevità, in questo esempio i documenti JSON per i quattro alberghi verranno incorporati nel codice stesso. 
 
-Quando si caricano documenti, è necessario usare un oggetto [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet). Un oggetto `IndexBatch` contiene una raccolta di oggetti [`IndexAction`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet), ognuno dei quali contiene un documento e una proprietà che indica a Ricerca di Azure quale azione eseguire ([upload, merge, delete e mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
+Quando si caricano documenti, è necessario usare un oggetto [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet). Un oggetto `IndexBatch` contiene una raccolta di oggetti [`IndexAction`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet), ognuno dei quali contiene un documento e una proprietà che indicano a Ricerca cognitiva di Azure quale azione eseguire ([upload, merge, delete e mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
 
 1. In Program.cs creare una matrice di documenti e azioni di indice e quindi passarla a `IndexBatch`. I documenti seguenti sono conformi all'indice hotel-quickstart, come definito dalle classi hotel e address.
 

@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 0249867a6af16505a692e7090639807ed3d239c9
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 83446d30de17973352e836d6107ad545b2da63e3
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030811"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550308"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Guida introduttiva: Creare e crittografare una macchina virtuale con il portale di Azure
 
@@ -77,7 +77,7 @@ La distribuzione della macchina virtuale richiederà alcuni minuti. Al termine d
 
 1. Nella schermata Crittografia, in **Disks to encrypt** (Dischi da crittografare) scegliere **Dischi dati e sistema operativo**.
 1. In **Impostazioni di crittografia** fare clic su "Selezionare l'insieme di credenziali delle chiavi e la chiave per la crittografia".
-1. Sulla barra laterale destra selezionare il nome dell'insieme di credenziali delle chiavi creato in precedenza come valore per *Insieme di credenziali delle chiavi**, quindi fare clic su **Seleziona**.
+1. Sulla barra laterale destra selezionare il nome dell'insieme di credenziali delle chiavi creato in precedenza come valore per **Insieme di credenziali delle chiavi**, quindi fare clic su **Seleziona**.
 
     ![Selezione di dischi e crittografia](./media/disk-encryption/portal-qs-encrypt-vm-screen.png)
 1. Nella parte superiore della schermata Crittografia fare clic su "Salva". Viene visualizzato un avviso popup che informa che la VM verrà riavviata. Fare clic su **Sì**.

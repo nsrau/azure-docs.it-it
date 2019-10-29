@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 10/17/2019
 ms.author: mlottner
-ms.openlocfilehash: 3d9c5352a90d5bcacbaf27b7b62be61fc404e87a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 7cdf9f61c88d93f0cbf0b80576aa30dff5ce9cab
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299497"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72551587"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>Guida introduttiva: Eseguire l'onboarding del servizio Centro sicurezza di Azure per IoT nell'hub IoT
 
@@ -28,7 +28,7 @@ Questo articolo illustra come abilitare il servizio Centro sicurezza di Azure pe
 
 > [!NOTE]
 > Attualmente il Centro sicurezza di Azure per IoT supporta solo gli hub IoT di livello Standard.
-> Il Centro sicurezza di Azure per IoT è una soluzione ad hub singolo. Se servono più hub, sono necessarie più soluzioni Centro sicurezza di Azure per IoT. 
+
 
 ## <a name="prerequisites-for-enabling-the-service"></a>Prerequisiti per l'abilitazione del servizio
 
@@ -40,10 +40,10 @@ Questo articolo illustra come abilitare il servizio Centro sicurezza di Azure pe
 
 ## <a name="enable-azure-security-center-for-iot-on-your-iot-hub"></a>Abilitare il Centro sicurezza di Azure per IoT nell'hub IoT 
 
-Per abilitare la sicurezza nell'hub IoT, eseguire le operazioni seguenti: 
+Per abilitare la sicurezza nell'hub IoT: 
 
 1. Aprire l'**hub IoT** nel portale di Azure. 
-1. Nel menu **Sicurezza** fare clic su **Secure your IoT solution** (Proteggere la soluzione IoT)
+1. Nel menu **Sicurezza** fare clic su **Secure your IoT solution** (Proteggere la soluzione IoT).
 1. Lasciare l'opzione predefinita **Enable** (Abilita) selezionata. 
 1. Selezionare l'area di lavoro Log Analytics.
 1. Specificare i dettagli dell'area di lavoro Log Analytics. 
@@ -53,6 +53,33 @@ Per abilitare la sicurezza nell'hub IoT, eseguire le operazioni seguenti:
 1. Fare clic su **Save**. 
 
 Congratulazioni! È stata completata l'abilitazione del Centro sicurezza di Azure per IoT nell'hub IoT. 
+
+### <a name="geolocation-and-ip-address-handling"></a>Georilevazione e gestione degli indirizzi IP
+
+Per proteggere la soluzione IoT, vengono raccolti e archiviati per impostazione predefinita gli indirizzi IP delle connessioni in ingresso e in uscita da e verso i dispositivi IoT, IoT Edge e gli hub IoT. Queste informazioni sono essenziali per rilevare la connettività anomala da origini IP sospette. Ad esempio, quando vengono eseguiti tentativi per stabilire connessioni da un'origine IP di una botnet nota o da un'origine IP esterna alla georilevazione. Il servizio Centro sicurezza di Azure per IoT offre la flessibilità necessaria per abilitare e disabilitare la raccolta di dati di indirizzi IP in qualsiasi momento. 
+
+Per abilitare o disabilitare la raccolta di dati degli indirizzi IP: 
+
+1. Aprire l'hub IoT e quindi selezionare **Panoramica** dal menu **Sicurezza**. 
+2. Scegliere la schermata **Impostazioni** e modificare le impostazioni di georilevazione e/o gestione IP nel modo desiderato.
+
+### <a name="log-analytics-creation"></a>Creazione di Log Analytics
+
+Quando viene attivato il Centro sicurezza di Azure per IoT, viene creata un'area di lavoro Azure Log Analytics predefinita per archiviare gli eventi di sicurezza non elaborati, gli avvisi e le raccomandazioni per i dispositivi IoT, IoT Edge e l'hub IoT. Ogni mese i primi cinque (5) GB di dati inseriti per cliente nel servizio Azure Log Analytics ogni mese sono gratuiti. Ogni GB di dati inseriti nell'area di lavoro Azure Log Analytics viene conservato senza addebiti per i primi 31 giorni. Altre informazioni sui prezzi di [Log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
+
+Per modificare la configurazione dell'area di lavoro di Log Analytics:
+
+1. Aprire l'hub IoT e quindi selezionare **Panoramica** dal menu **Sicurezza**. 
+2. Scegliere la schermata **Impostazioni** e modificare la configurazione dell'area di lavoro delle impostazioni di Log Analytics nel modo desiderato.
+
+### <a name="customize-your-iot-security-solution"></a>Personalizzare la soluzione di sicurezza per IoT
+Per impostazione predefinita, l'attivazione della soluzione Centro sicurezza di Azure per IoT protegge automaticamente tutti gli hub IoT nella sottoscrizione di Azure. 
+
+Per attivare o disattivare il servizio Centro sicurezza di Azure per IoT in un hub IoT specifico: 
+
+1. Aprire l'hub IoT e quindi selezionare **Panoramica** dal menu **Sicurezza**. 
+2. Scegliere la schermata **Impostazioni** e modificare le impostazioni di sicurezza di tutti gli hub IoT nella sottoscrizione di Azure nel modo desiderato.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

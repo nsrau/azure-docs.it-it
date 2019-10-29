@@ -4,15 +4,15 @@ description: Informazioni su come usare Azure Cosmos DB per archiviare ed esegui
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 22438837a7cee1755d115993683101c260b99f2c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 670020d276b9d4a868f24eb4a3f522581060adca
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953836"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754986"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API Azure Cosmos DB per MongoDB
 
@@ -22,9 +22,9 @@ ms.locfileid: "65953836"
 
 Azure Cosmos DB implementa i protocolli di collegamento dei database NoSQL più comuni, tra cui Cassandra, MongoDB, Gremlin e Archiviazione tabelle di Azure. Fornendo un'implementazione nativa dei protocolli di collegamento in modo efficiente e direttamente in Azure Cosmos DB, consente a SDK client, driver e strumenti esistenti dei database NoSQL di interagire con Cosmos DB in modo trasparente. Cosmos DB non usa il codice sorgente dei database per fornire le API con compatibilità di collegamento per i database NoSQL.
 
-Per impostazione predefinita, l'API di Azure Cosmos DB per MongoDB è compatibile con la versione 3.2 del protocollo di collegamento di MongoDB. Le funzionalità o gli operatori di query aggiunti nella versione 3.4 del protocollo di collegamento sono attualmente disponibili come funzionalità in anteprima. I driver client MongoDB che identificano queste versioni dei protocolli dovrebbero essere in grado di collegarsi in modo nativo a Cosmos DB.
+Per impostazione predefinita, i nuovi account creati con l'API di Azure Cosmos DB per MongoDB sono compatibili con la versione 3.6 del protocollo di collegamento di MongoDB. I driver client MongoDB che identificano questa versione del protocollo dovrebbero essere in grado di collegarsi in modo nativo a Cosmos DB.
 
-![API Azure Cosmos DB per MongoDB](./media/mongodb-introduction/cosmosdb-mongodb.png) 
+![API Azure Cosmos DB per MongoDB](./media/mongodb-introduction/cosmosdb-mongodb.png)
 
 ## <a name="key-benefits"></a>Vantaggi principali
 
@@ -38,7 +38,7 @@ I vantaggi principali di Cosmos DB come database distribuito come servizio a liv
 
 ## <a name="cosmos-dbs-api-for-mongodb"></a>API di Cosmos DB per MongoDB
 
-Seguire le guide rapide per creare un account Cosmos ed eseguire la migrazione dell'applicazione MongoDB esistente per usare Azure Cosmos DB o compilarne uno nuovo:
+Seguire le guide di avvio rapido per creare un account Azure Cosmos ed eseguire la migrazione dell'applicazione MongoDB esistente per usare Azure Cosmos DB o compilarne una nuova:
 
 * [Eseguire la migrazione di un'app Web Node.js MongoDB esistente](create-mongodb-nodejs.md).
 * [Creare un'app Web usando l'API Azure Cosmos DB per MongoDB e .NET SDK](create-mongodb-dotnet.md)

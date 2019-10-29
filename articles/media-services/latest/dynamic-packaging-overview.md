@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/03/2019
+ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: af6542757e75d7d6226c2470adf3c2b51d60875a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 35fd511f2383a09898bcd7e7a5227b750c36125a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383524"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595527"
 ---
 # <a name="dynamic-packaging"></a>creazione dinamica dei pacchetti
 
@@ -98,7 +98,7 @@ Per informazioni sullo streaming live in Servizi multimediali v3, vedere [Panora
 La creazione dinamica dei pacchetti supporta file MP4 contenenti video codificati con [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC o AVC1) oppure [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 o hvc1).
 
 > [!NOTE]
-> Con la creazione dinamica dei pacchetti sono state testate risoluzioni fino a 4K e frequenze dei fotogrammi fino a 60 fotogrammi al secondo. Il [codificatore Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supporta la codifica in H.265 tramite le API v2 legacy. In caso di domande su questo argomento, contattare amshelp@microsoft.com. 
+> Con la creazione dinamica dei pacchetti sono state testate risoluzioni fino a 4K e frequenze dei fotogrammi fino a 60 fotogrammi al secondo. Il [codificatore Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supporta la codifica in H.265 tramite le API v2 legacy.
 
 ## <a name="a-idaudio-codecsaudio-codecs-supported-by-dynamic-packaging"></a><a id="audio-codecs"/>Codec audio supportati dalla creazione dinamica dei pacchetti
 
@@ -124,7 +124,7 @@ La creazione dinamica dei pacchetti supporta più tracce audio con DASH o HLS (v
 La creazione dinamica dei pacchetti non supporta file contenenti audio [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) perché si tratta di un codec legacy.
 
 > [!NOTE]
-> Il [codificatore Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supporta la codifica in Digital Dolby Plus tramite le API v2 legacy. In caso di domande su questo argomento, contattare amshelp@microsoft.com. 
+> Il [codificatore Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supporta la codifica in Digital Dolby Plus tramite le API v2 legacy. 
 
 ## <a name="manifests"></a>Manifesti 
  
@@ -272,6 +272,10 @@ Per controllare il numero di tracce, i formati, la velocità in bit e gli interv
 ## <a name="more-information"></a>Altre informazioni
 
 Consultare [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
+
+## <a name="need-help"></a>Richiesta di assistenza
+
+È possibile aprire un ticket di supporto passando a [Nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

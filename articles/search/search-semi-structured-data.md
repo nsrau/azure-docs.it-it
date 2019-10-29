@@ -1,30 +1,29 @@
 ---
-title: 'Esercitazione REST: indicizzazione di dati semistrutturati in BLOB JSON - Ricerca di Azure'
-description: Informazioni su come indicizzare e cercare BLOB JSON semistrutturati di Azure con le API REST Ricerca di Azure e Postman.
-author: HeidiSteen
+title: 'Esercitazione REST: Indicizzazione di dati semistrutturati in BLOB JSON'
+titleSuffix: Azure Cognitive Search
+description: Informazioni su come indicizzare e cercare BLOB JSON semistrutturati di Azure con le API REST di Ricerca cognitiva di Azure e Postman.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: cb9c97efd62a56ad0eac49956f11fb422a448194
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 569289a2d750f96423bd03ac82cb9e33f893ee15
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647868"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794282"
 ---
-# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Esercitazione REST: indicizzare e cercare dati semistrutturati (BLOB JSON) in Ricerca di Azure
+# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>Esercitazione REST: Indicizzare e cercare dati semistrutturati (BLOB JSON) in Ricerca cognitiva di Azure
 
-Ricerca di Azure consente di indicizzare i documenti e le matrici JSON in archiviazione BLOB di Azure usando un [indicizzatore](search-indexer-overview.md) in grado di leggere dati semistrutturati. I dati semistrutturati contengono tag o contrassegni che separano il contenuto all'interno dei dati, Si differenziano dai dati non strutturati, che devono essere completamente indicizzati, e dai dati strutturati formalmente in base a un modello di dati, ad esempio uno schema di database relazionale, che può essere indicizzato campo per campo.
+Ricerca cognitiva di Azure consente di indicizzare i documenti e le matrici JSON in archiviazione BLOB di Azure usando un [indicizzatore](search-indexer-overview.md) in grado di leggere dati semistrutturati. I dati semistrutturati contengono tag o contrassegni che separano il contenuto all'interno dei dati, Si differenziano dai dati non strutturati, che devono essere completamente indicizzati, e dai dati strutturati formalmente in base a un modello di dati, ad esempio uno schema di database relazionale, che può essere indicizzato campo per campo.
 
-In questa esercitazione usare le [API REST Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/) e un client REST per eseguire le attività seguenti:
+In questa esercitazione usare le [API REST di Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/) e un client REST per eseguire le attività seguenti:
 
 > [!div class="checklist"]
-> * Configurare un'origine dati di Ricerca di Azure per un contenitore BLOB di Azure
-> * Creare un indice di Ricerca di Azure in cui includere contenuto ricercabile
+> * Configurare un'origine dati di Ricerca cognitiva di Azure per un contenitore BLOB di Azure
+> * Creare un indice di Ricerca cognitiva di Azure in cui includere contenuto ricercabile
 > * Configurare ed eseguire un indicizzatore per leggere il contenitore ed estrarre contenuto ricercabile da archiviazione BLOB di Azure
 > * Eseguire una ricerca nell'indice che appena creato
 
@@ -32,23 +31,23 @@ In questa esercitazione usare le [API REST Ricerca di Azure](https://docs.micros
 
 In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati seguenti. 
 
-[Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione. 
+[Creare un servizio di ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione. 
 
 [Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) per l'archiviazione dei dati di esempio.
 
-L'[app desktop Postman](https://www.getpostman.com/) per inviare richieste a Ricerca di Azure.
+[App desktop Postman](https://www.getpostman.com/) per inviare le richieste a Ricerca cognitiva di Azure.
 
 [Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contiene i dati usati in questa esercitazione. Scaricare e decomprimere il file nella propria cartella. I dati provengono da [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results) e sono stati convertiti in JSON per questa esercitazione.
 
 ## <a name="get-a-key-and-url"></a>Ottenere una chiave e un URL
 
-Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni richiesta. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se si è aggiunto Ricerca di Azure alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
+Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni richiesta. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se il servizio Ricerca cognitiva di Azure è stato aggiunto alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
 
 1. [Accedere al portale di Azure](https://portal.azure.com/) e ottenere l'URL nella pagina **Panoramica** del servizio di ricerca. Un endpoint di esempio potrebbe essere simile a `https://mydemo.search.windows.net`.
 
 1. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
-![Ottenere una chiave di accesso e un endpoint HTTP](media/search-get-started-postman/get-url-key.png "Ottenere una chiave di accesso e un endpoint HTTP")
+![Ottenere un endpoint HTTP e una chiave di accesso](media/search-get-started-postman/get-url-key.png "Ottenere un endpoint HTTP e una chiave di accesso")
 
 Per ogni richiesta inviata al servizio è necessario specificare una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
@@ -60,17 +59,17 @@ Per ogni richiesta inviata al servizio è necessario specificare una chiave API.
 
 1. Dopo aver creato il contenitore, aprirlo e selezionare **Carica** nella barra dei comandi.
 
-   ![Carica nella barra dei comandi](media/search-semi-structured-data/upload-command-bar.png "Carica nella barra dei comandi")
+   ![Opzione Carica nella barra dei comandi](media/search-semi-structured-data/upload-command-bar.png "Opzione Carica nella barra dei comandi")
 
 1. Passare alla cartella contenente i file di esempio. Selezionare tutti i file e quindi fare clic su **Carica**.
 
-   ![Caricare i file](media/search-semi-structured-data/clinicalupload.png "Caricare i file")
+   ![Caricare file](media/search-semi-structured-data/clinicalupload.png "Caricare file")
 
 Dopo aver completato il caricamento, i file dovrebbero essere visualizzati nella rispettiva sottocartella all'interno del contenitore dei dati.
 
 ## <a name="set-up-postman"></a>Configurare Postman
 
-Avviare Postman e configurare una richiesta HTTP. Se non si ha familiarità con questo strumento, vedere [Esplorare le API REST di Ricerca di Azure con Postman](search-get-started-postman.md) per altre informazioni.
+Avviare Postman e configurare una richiesta HTTP. Se non si ha familiarità con questo strumento, vedere [Esplorare le API REST di Ricerca cognitiva di Azure con Postman](search-get-started-postman.md) per altre informazioni.
 
 Il metodo di richiesta per ogni chiamata in questa esercitazione è **POST**. Le chiavi di intestazione sono "Content-type" e "api-key". I valori delle chiavi di intestazione sono rispettivamente "application/json" e la chiave di amministrazione, ovvero un segnaposto per la chiave primaria di ricerca. Il corpo è l'area in cui si posiziona il contenuto effettivo della chiamata. A seconda del client in uso, la procedura per la creazione della query potrebbe essere leggermente diversa, ma questi sono i criteri di base.
 
@@ -84,7 +83,7 @@ Eseguire le tre chiamate dell'API seguenti dal client REST.
 
 ## <a name="create-a-data-source"></a>Creare un'origine dati
 
-L'[API di creazione dell'origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source) crea un'origine di Ricerca di Azure che specifica quali dati indicizzare.
+L'[API di creazione dell'origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source) crea un'origine di Ricerca cognitiva di Azure che specifica quali dati indicizzare.
 
 L'endpoint di questa chiamata è `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Sostituire `[service name]` con il nome del servizio di ricerca. 
 
@@ -127,7 +126,7 @@ La risposta dovrebbe essere simile alla seguente:
 
 ## <a name="create-an-index"></a>Creare un indice
     
-La seconda chiamata è l'[API di creazione dell'indice](https://docs.microsoft.com/rest/api/searchservice/create-indexer) che crea un indice di Ricerca di Azure che archivia tutti i dati ricercabili. Un indice specifica tutti i parametri e i relativi attributi.
+La seconda chiamata è l'[API di creazione dell'indice](https://docs.microsoft.com/rest/api/searchservice/create-indexer) che crea un indice di Ricerca cognitiva di Azure che archivia tutti i dati ricercabili. Un indice specifica tutti i parametri e i relativi attributi.
 
 L'URL per questa chiamata è `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Sostituire `[service name]` con il nome del servizio di ricerca.
 
@@ -286,11 +285,11 @@ Il parametro `$filter` funziona solo con i metadati contrassegnati come filtrabi
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Il modo più veloce per pulire le risorse dopo un'esercitazione consiste nell'eliminare il gruppo di risorse contenente il servizio Ricerca di Azure. È possibile eliminare ora il gruppo di risorse per eliminare definitivamente tutti gli elementi in esso contenuti. Nel portale, il nome del gruppo di risorse è indicato nella pagina Panoramica del servizio Ricerca di Azure.
+Il modo più veloce per pulire le risorse dopo un'esercitazione consiste nell'eliminare il gruppo di risorse contenente il servizio Ricerca cognitiva di Azure. È possibile eliminare ora il gruppo di risorse per eliminare definitivamente tutti gli elementi in esso contenuti. Nel portale il nome del gruppo di risorse è indicato nella pagina Panoramica del servizio Ricerca cognitiva di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Esistono diversi approcci e più opzioni all'indicizzazione dei BLOB JSON. Nel passaggio successivo si esamineranno e testeranno le varie opzioni per determinare quale si adatta meglio al proprio scenario.
 
 > [!div class="nextstepaction"]
-> [Come indicizzare i BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure](search-howto-index-json-blobs.md)
+> [Come indicizzare i BLOB JSON con l'indicizzatore BLOB di Ricerca cognitiva di Azure](search-howto-index-json-blobs.md)

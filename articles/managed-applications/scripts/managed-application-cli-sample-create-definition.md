@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una definizione di applicazione gestita | Microsoft Docs
+title: Creare la definizione di un'applicazione gestita - Interfaccia della riga di comando di Azure
 description: Questo articolo include un esempio di script di interfaccia della riga di comando di Azure che crea una definizione di applicazione gestita nella sottoscrizione.
 services: managed-applications
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: a653f2c10c28683c79f86c1c882bf00112f61ec0
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b5ac119aa2c4d79c046a6eeabe252801496caa1c
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332624"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528919"
 ---
 # <a name="create-a-managed-application-definition-with-azure-cli"></a>Creare una definizione di applicazione gestita con l'interfaccia della riga di comando di Azure
 

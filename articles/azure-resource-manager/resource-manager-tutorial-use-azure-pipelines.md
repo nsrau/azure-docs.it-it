@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 06/12/2019
+ms.date: 10/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 462d9cd6d2a911e660221621ebde5829e928cf00
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b176e97a546335f597d4cf424d7feb4f5fa0f775
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122216"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597240"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Esercitazione: Integrazione continua dei modelli di Azure Resource Manager con Azure Pipelines
 
@@ -183,9 +183,11 @@ Per creare una pipeline con un passaggio per distribuire un modello:
 
     ```yaml
     steps:
-    - task: AzureResourceGroupDeployment@2
+    - task: AzureResourceManagerTemplateDeployment@3
       inputs:
-        azureSubscription: '[YourServiceConnectionName]'
+        deploymentScope: 'Resource Group'
+        ConnectedServiceName: '[EnterYourServiceConnectionName]'
+        subscriptionName: '[EnterTheTargetSubscriptionID]'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '[EnterANewResourceGroupName]'
         location: 'Central US'
@@ -200,14 +202,16 @@ Per creare una pipeline con un passaggio per distribuire un modello:
 
     Apportare le modifiche seguenti:
 
-    * **azureSubscription**: aggiornare il valore con la connessione al servizio creata nella procedura precedente.
+    * **deploymentScope**: selezionare l'ambito di distribuzione tra le opzioni `Management Group`, `Subscription` e `Resource Group`. Per questa esercitazione, usare **Resource Group**. Per altre informazioni sugli ambiti, vedere [Ambiti di distribuzione](./resource-group-template-deploy-rest.md#deployment-scope).
+    * **ConnectedServiceName**: specificare il nome della connessione al servizio creata in precedenza.
+    * **SubscriptionName**:  specificare l'ID sottoscrizione di destinazione.
     * **action**: l'azione **Create Or Update Resource Group** esegue due azioni. 1. Crea un gruppo di risorse se viene specificato un nuovo nome di gruppo di risorse. 2. Distribuisce il modello specificato.
     * **resourceGroupName**: specificare un nuovo nome di gruppo di risorse. Ad esempio, **AzureRmPipeline-rg**.
     * **location**: specificare la posizione del gruppo di risorse.
     * **templateLocation**: quando viene specificato **Linked artifact**, l'attività cerca il file del modello direttamente dal repository connesso.
     * **csmFile** è il percorso del file del modello. Non è necessario specificare un file dei parametri modello perché tutti i parametri definiti nel modello hanno valori predefiniti.
 
-    Per altre informazioni su questa attività, vedere [Attività di distribuzione dei gruppi di risorse di Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment).
+    Per altre informazioni su questa attività, vedere [Attività di distribuzione dei gruppi di risorse di Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment) e [Attività di distribuzione dei modelli di Azure Resource Manager](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md).
 1. Selezionare **Salva ed esegui**.
 1. Fare di nuovo clic su **Save and run** (Salva ed esegui). Una copia del file YAML verrà salvata nel repository connesso. È possibile visualizzare tale file accedendo al repository.
 1. Verificare che la pipeline venga eseguita correttamente.

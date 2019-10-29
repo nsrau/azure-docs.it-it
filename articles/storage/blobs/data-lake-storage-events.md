@@ -9,10 +9,10 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.openlocfilehash: 03a07e70c967f92fe5dcc7c951aeea299b050405
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71326984"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Esercitazione: Implementare il modello di acquisizione data lake per aggiornare una tabella di Databricks Delta
@@ -55,7 +55,7 @@ Prima di tutto, creare un file CSV che descrive un ordine di vendita e quindi ca
 
 1. Aprire Azure Storage Explorer. Passare quindi all'account di archiviazione e nella sezione **Contenitori BLOB** creare un nuovo contenitore denominato **data**.
 
-   ![Cartella data](./media/data-lake-storage-events/data-container.png "Cartella data")
+   ![cartella dati](./media/data-lake-storage-events/data-container.png "cartella dati")
 
    Per altre informazioni su come usare Storage Explorer, vedere [Usare Azure Storage Explorer per gestire i dati in un account di Azure Data Lake Storage Gen2](data-lake-storage-explorer.md).
 
@@ -106,7 +106,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
 
 3. Nella pagina **New cluster** (Nuovo cluster) specificare i valori per creare un cluster.
 
-    ![Creare il cluster Databricks Spark in Azure](./media/data-lake-storage-events/create-databricks-spark-cluster.png "Creare il cluster Databricks Spark in Azure")
+    ![Creare un cluster di Databricks Spark in Azure](./media/data-lake-storage-events/create-databricks-spark-cluster.png "Creare un cluster di Databricks Spark in Azure")
 
     Accettare tutti gli altri valori predefiniti tranne i seguenti:
 
@@ -121,11 +121,11 @@ Per altre informazioni sulla creazione di cluster, vedere [Create a Spark cluste
 
 1. Nel riquadro a sinistra selezionare **Workspace** (Area di lavoro). Nell'elenco a discesa **Workspace** (Area di lavoro) selezionare **Create (Crea)**  > **Notebook**.
 
-    ![Creare un blocco appunti in Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Creare un blocco appunti in Databricks")
+    ![Creare un notebook in Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Creare un notebook in Databricks")
 
 2. Nella finestra di dialogo **Create Notebook** (Crea un notebook) immettere un nome per il notebook. Selezionare **Python** come linguaggio e quindi il cluster Spark creato in precedenza.
 
-    ![Creare un blocco appunti in Databricks](./media/data-lake-storage-events/new-databricks-notebook.png "Creare un blocco appunti in Databricks")
+    ![Creare un notebook in Databricks](./media/data-lake-storage-events/new-databricks-notebook.png "Creare un notebook in Databricks")
 
     Selezionare **Create** (Crea).
 
@@ -251,7 +251,7 @@ Creare una funzione di Azure che esegue il processo.
 
 1. Nell'angolo superiore dell'area di lavoro di Databricks scegliere l'icona Persone, quindi scegliere **Impostazioni utente**.
 
-   ![Gestisci account](./media/data-lake-storage-events/generate-token.png "Impostazioni utente")
+   ![Gestire l'account](./media/data-lake-storage-events/generate-token.png "Impostazioni utente")
 
 2. Fare clic sul pulsante **Genera nuovo token** e quindi sul pulsante **Genera**.
 
@@ -259,7 +259,7 @@ Creare una funzione di Azure che esegue il processo.
   
 3. Selezionare il pulsante **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure e quindi selezionare **Calcolo > App per le funzioni**.
 
-   ![Creare una funzione di Azure](./media/data-lake-storage-events/function-app-create-flow.png "Creare una funzione di Azure")
+   ![Creare una funzione di Azure](./media/data-lake-storage-events/function-app-create-flow.png "Creare la funzione di Azure")
 
 4. Nella pagina **Crea** dell'app per le funzioni assicurarsi di selezionare **.NET Core** per lo stack di runtime e configurare un'istanza di Application Insights.
 
@@ -271,7 +271,7 @@ Creare una funzione di Azure che esegue il processo.
 
 6. Nella pagina **Impostazioni applicazione** scegliere il pulsante **Nuova impostazione applicazione** per aggiungere ogni impostazione.
 
-   ![Aggiungere un'impostazione di configurazione](./media/data-lake-storage-events/add-application-setting.png "Aggiungere un'impostazione di configurazione")
+   ![Aggiungere l'impostazione di configurazione](./media/data-lake-storage-events/add-application-setting.png "Aggiungere l'impostazione di configurazione")
 
    Usare le impostazioni seguenti:
 

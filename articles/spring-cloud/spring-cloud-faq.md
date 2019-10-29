@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: d4edc634ad41042642b1d73f28ec61cb6dc15ac4
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 69b3827bbb53a5f989f3bdec0d5c4ea6035130f0
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72433314"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592316"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -30,12 +30,10 @@ Azure Spring Cloud ottimizza l'esperienza di diagnostica dell'applicazione per g
 
 ### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>Quali piani del servizio offre Azure Spring Cloud?
 
-Azure Spring Cloud offre un unico piano di servizio durante il periodo di anteprima.
+Azure Spring Cloud offre un unico piano di servizio durante il periodo di anteprima.  Una distribuzione di Spring Cloud contiene 16 core vCPU e 32 GB di memoria.  Il limite superiore per ogni istanza di microservizio all'interno di una distribuzione è di 4 core vCPU con 8 GB di memoria.
 
 Risorsa | Amount
 ------- | -------
-vCPU | 4
-Memoria | 8 GByte
 Istanze di app per ogni applicazione Spring | 20
 Numero totale di istanze di app per ogni istanza del servizio Azure Spring Cloud | 50*
 Istanze del servizio Azure Spring Cloud per area e per sottoscrizione | 2*

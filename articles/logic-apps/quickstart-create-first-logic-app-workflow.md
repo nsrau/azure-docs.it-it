@@ -1,6 +1,6 @@
 ---
-title: Avvio rapido - Creare e automatizzare il primo flusso di lavoro con App per la logica di Azure
-description: Creare la prima app per la logica che automatizza attività, processi e flussi di lavoro con App per la logica di Azure. Creare app per la logica per soluzioni di integrazione di sistemi e di Enterprise Application Integration (EAI) per sistemi e servizi cloud.
+title: Creare e automatizzare il primo flusso di lavoro - App per la logica di Azure
+description: 'Avvio rapido: creare la prima attività automatizzata o il primo flusso di lavoro automatizzato usando App per la logica di Azure per soluzioni di integrazione di sistemi e di Enterprise Application Integration (EAI)'
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
-ms.openlocfilehash: c85b3e3ced661eb36d9cb1eb0ae443a5ab21a913
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 8886472b9840c27bcbceb70265379db1682673a9
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029489"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679135"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Guida introduttiva: Creare il primo flusso di lavoro automatizzato con App per la logica di Azure - Portale di Azure
 

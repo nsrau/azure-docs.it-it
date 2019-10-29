@@ -1,62 +1,78 @@
 ---
 title: Procedure consigliate per scegliere un ID serie temporale in Anteprima di Azure Time Series Insights | Microsoft Docs
 description: Informazioni sulle procedure consigliate per scegliere un ID serie temporale in Anteprima di Azure Time Series Insights.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7057ce27cbbba8d70835493fc91a88ad823369bb
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 48f1fb542f5e28c7b8130d03cd86442390a8ad56
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947195"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989947"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedure consigliate per la scelta di un ID serie temporale
 
-Questo articolo illustra la chiave di partizione di Anteprima di Azure Time Series Insights, ovvero l'ID serie temporale, e le procedure consigliate per sceglierne uno.
+Questo articolo riepiloga l'importanza dell'ID della serie temporale per l'ambiente di Azure Time Series Insights anteprima e le procedure consigliate per sceglierne una.
 
 ## <a name="choose-a-time-series-id"></a>Scegliere un ID serie temporale
 
-Scegliere un ID serie temporale è come scegliere una chiave di partizione per un database. È una decisione importare da prendere in fase di progettazione. Non è possibile aggiornare un ambiente Anteprima di Time Series Insights esistente per usare un ID serie temporale differente. In altre parole, quando viene creato un ambiente con un ID serie temporale, il criterio è una proprietà immutabile che non può essere modificata.
+Scegliere un ID serie temporale è come scegliere una chiave di partizione per un database. Deve essere selezionata durante la creazione di un ambiente di anteprima Time Series Insights. Si tratta di una proprietà non *modificabile* . Ovvero, dopo avere creato un ambiente di anteprima Time Series Insights con un ID di serie temporale, non è possibile modificarlo per tale ambiente. 
 
 > [!IMPORTANT]
-> L'ID serie temporale fa distinzione tra maiuscole e minuscole ed è immutabile, ovvero non può essere modificato dopo essere stato impostato.
+> L'ID della serie temporale fa distinzione tra maiuscole e minuscole.
 
-Tenendo questo a mente, la selezione dell'ID serie temporale appropriato è un fattore di importanza critica. Quando si seleziona un ID serie temporale, tenere in considerazione le procedure consigliate seguenti:
+La selezione di un ID Time Series appropriato è fondamentale. Ecco alcune delle procedure consigliate che è possibile seguire:
 
-* Scegliere un nome proprietà che contenga un'ampia gamma di valori e abbia anche modelli di accesso. È consigliabile avere una chiave di partizione con molti valori distinti (ad esempio centinaia o migliaia). Per molti clienti, questa chiave sarà simile al valore DeviceID o SensorID in JSON.
+* Selezionare una chiave di partizione con molti valori distinti (ad esempio, centinaia o migliaia). In molti casi, potrebbe trattarsi dell'ID del dispositivo, dell'ID del sensore o dell'ID tag in JSON.
 * L'ID serie temporale deve essere univoco a livello di nodo foglia del [modello serie temporale](./time-series-insights-update-tsm.md).
-* Una stringa di caratteri del nome della proprietà ID serie temporale può contenere fino a 128 caratteri e i valori della proprietà ID serie temporale possono contenere fino a 1024 caratteri.
-* Se non sono definiti alcuni valori della proprietà ID serie temporale univoci, questi vengono considerati come valori Null facenti parte del vincolo di univocità.
-
-È anche possibile selezionare fino a *tre* (3) proprietà chiave come ID serie temporale.
+* Se l'origine evento è un hub Internet delle cose, l'ID della serie temporale sarà probabilmente *iothub-Connection-Device-ID*.
+* Il limite di caratteri per la stringa del nome di proprietà dell'ID della serie temporale è 128. Per il valore della proprietà dell'ID della serie temporale, il limite di caratteri è 1.024.
+* Se manca un valore di proprietà univoco per l'ID della serie temporale, questo viene considerato come un valore null e segue la stessa regola del vincolo di univocità.
+* È anche possibile selezionare fino a *tre* proprietà chiave come ID della serie temporale. La combinazione sarà una chiave composta che rappresenta l'ID della serie temporale.  
 
   > [!NOTE]
-  > Le *tre* (3) proprietà chiave devono essere stringhe.
+  > Le tre proprietà chiave devono essere stringhe.
+  > È necessario eseguire una query su questa chiave composta anziché su una proprietà alla volta.
 
-Gli scenari seguenti descrivono la selezione di più di una proprietà chiave come ID serie temporale:  
+Negli scenari seguenti viene descritto come selezionare più di una proprietà chiave come ID della serie temporale.  
 
-### <a name="scenario-one"></a>Scenario uno
+### <a name="example-1-time-series-id-with-a-unique-key"></a>Esempio 1: ID Time Series con una chiave univoca
 
-* Sono presenti flotte di asset legacy, ognuna con una chiave univoca.
-* Ad esempio, una flotta viene identificata in modo univoco dalla proprietà *deviceId* e un'altra dalla proprietà univoca *objectId*. Nessuna delle due flotte contiene la proprietà univoca dell'altra flotta. In questo esempio si selezionerebbero due chiavi, deviceId e objectId, come chiavi univoche.
-* I valori Null vengono accettati e la mancanza di una proprietà nel payload dell'evento viene è considerata come valore `null`. Questo è anche il modo appropriato di gestire l'invio di dati a due diverse origini evento dove i dati in ogni origine evento hanno un ID serie temporale univoco.
+* Sono presenti flotte legacy di asset. Ogni ha una chiave univoca.
+* Una flotta viene identificata in modo univoco dalla proprietà **DeviceID**. Per un'altra flotta, la proprietà Unique è **ObjectID**. Nessuna delle due flotte contiene la proprietà univoca dell'altra flotta. In questo esempio si selezionano due chiavi, **DeviceID** e **ObjectID**, come chiavi univoche.
+* Accettiamo valori null e la mancanza della presenza di una proprietà nel payload dell'evento viene conteggiata come valore null. Questo è anche il modo appropriato per gestire l'invio di dati a due origini eventi in cui i dati in ogni origine evento hanno un ID di serie temporale univoco.
 
-### <a name="scenario-two"></a>Scenario due
+### <a name="example-2-time-series-id-with-a-composite-key"></a>Esempio 2: ID Time Series con una chiave composta
 
 * È necessario che più proprietà siano univoche nella stessa flotta di asset. 
-* Si pensi, ad esempio, a un costruttore di edifici intelligenti che installa sensori in ogni stanza. In ogni stanza si hanno generalmente gli stessi valori per *sensorId*, ad esempio *sensor1*, *sensor2* e *sensor3*.
-* L'edificio ha inoltre numeri di piano e di stanza che si sovrappongono nei siti della proprietà *flrRm*, con valori come *1a*, *2b*, *3a* e così via.
-* È infine presente una proprietà, *location*, contenente valori come *Redmond*, *Barcelona* e *Tokyo*. Per creare univocità, è necessario designare le tre proprietà seguenti come chiavi ID serie temporale: *sensorId*, *flrRm* e *location*.
+* Sei un produttore di Smart Build e Distribuisci sensori in ogni chat room. In ogni stanza, in genere si hanno gli stessi valori per **sensorId**. Esempi sono **sensor1**, **SENSOR2**e **Sensor3**.
+* La compilazione presenta numeri di piano e spazio sovrapposti tra i siti nella proprietà **flrRm**. Questi numeri hanno valori quali **1a**, **2B**e **3A**.
+* Si dispone di una proprietà, **location**, che contiene valori quali **Redmond**, **Barcelona**e **Tokyo**. Per creare l'univocità, è necessario definire le tre proprietà seguenti come chiavi ID della serie temporale: **sensorId**, **flrRm**e **location**.
+
+Evento RAW di esempio:
+
+```JSON
+{
+  "sensorId": "sensor1",
+  "flrRm": "1a",
+  "location": "Redmond",
+  "temperature": 78
+}
+```
+
+Nella portale di Azure è possibile immettere questa chiave composta come: 
+
+`[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]`
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sulla [modellazione di dati](./time-series-insights-update-tsm.md).
+* Scopri di più sulla [modellazione dei dati](./time-series-insights-update-tsm.md).
 
-* Pianificare l'[ambiente Azure Time Series Insights (anteprima)](./time-series-insights-update-plan.md).
+* Pianificare l' [ambiente di Azure Time Series Insights anteprima](./time-series-insights-update-plan.md).

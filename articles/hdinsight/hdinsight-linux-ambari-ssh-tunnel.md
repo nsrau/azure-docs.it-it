@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: d976826fe90946697a32c5b1edb9dd323b01cc1c
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.date: 10/28/2019
+ms.openlocfilehash: 6f4efd9a316b92f17f89cea66a7c81e84ac3cf06
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105460"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991346"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Usare il tunneling SSH per accedere all'interfaccia utente Web di Apache Ambari, JobHistory, NameNode, Apache oozie e altre interfacce utente
 
-I cluster HDInsight offrono accesso all'interfaccia utente Web di Apache Ambari in Internet, ma alcune funzionalità richiedono un tunnel SSH. Ad esempio, l'interfaccia utente Web per il servizio Apache Oozie non è accessibile in Internet senza un tunnel SSH.
+I cluster HDInsight offrono accesso all'interfaccia utente Web di Apache Ambari in Internet, ma alcune funzionalità richiedono un tunnel SSH. L'interfaccia utente Web per il servizio Apache oozie, ad esempio, non è accessibile tramite Internet senza un tunnel SSh.
 
 ## <a name="why-use-an-ssh-tunnel"></a>Perché usare un tunnel SSH
 
@@ -56,10 +56,10 @@ Il [tunneling di Secure Shell, ovvero SSH,](https://en.wikipedia.org/wiki/Tunnel
 
 ## <a name="usessh"></a>Creare un tunnel con il comando SSH
 
-Utilizzare il comando seguente per creare un SSH tunnel utilizzando il comando `ssh` . Sostituire `sshuser` con un utente SSH per il cluster HDInsight e sostituire `clustername` con il nome del cluster HDInsight:
+Utilizzare il comando seguente per creare un SSH tunnel utilizzando il comando `ssh` . Sostituire `sshuser` con un utente SSH per il cluster HDInsight e sostituire `CLUSTERNAME` con il nome del cluster HDInsight:
 
 ```cmd
-ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
+ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 ```
 
 Questo comando crea una connessione che instrada il traffico alla porta locale 9876 al cluster su SSH. Le opzioni sono:
@@ -68,25 +68,28 @@ Questo comando crea una connessione che instrada il traffico alla porta locale 9
 * **C** : comprime tutti i dati, in quanto il traffico Web è costituito prevalentemente da testo.
 * **2** : forza SSH a tentare solo il protocollo versione 2.
 * **q** : modalità non interattiva.
-* **T** : disabilita l'allocazione pseudo-tty perché si tratta semplicemente dell'inoltro di una porta.
-* **n**: impedisce la lettura di STDIN perché si tratta semplicemente dell'inoltro di una porta.
-* **N** : non esegue un comando remoto perché si tratta semplicemente dell'inoltro di una porta.
+* **T** -disabilitare l'allocazione pseudo-TTY, perché si sta semplicemente inviando una porta.
+* **n** : impedisce la lettura di stdin poiché si sta semplicemente inviando una porta.
+* **N** : non esegue un comando remoto poiché si sta semplicemente inviando una porta.
 * **f** : effettua l'esecuzione in background.
 
 Al termine del comando, il traffico inviato alla porta 9876 nel computer locale viene instradato al nodo head del cluster.
 
 ## <a name="useputty"></a>Creare un tunnel utilizzando PuTTY
 
-[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) è un client SSH grafico per Windows. Se non si ha familiarità con PuTTY, vedere la [documentazione di PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Usare la procedura seguente per creare un tunnel SSH con PuTTY:
+[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) è un client SSH grafico per Windows. Se non si ha familiarità con PuTTy, vedere la [documentazione di Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Usare la procedura seguente per creare un tunnel SSH con PuTTY:
 
 ### <a name="create-or-load-a-session"></a>Creare o caricare una sessione
 
 1. Aprire PuTTY e assicurarsi che la **Sessione** sia selezionata nel menu a sinistra. Se è già stata salvata una sessione, selezionare il nome della sessione nell'elenco **sessioni salvate** e selezionare **carica**.
 
 1. Se non si ha già una sessione salvata, immettere le informazioni di connessione:
-    * **Nome host (o indirizzo IP)** - L'indirizzo SSH per il cluster HDInsight. Ad esempio, **mycluster-ssh.azurehdinsight.net**
-    * **Porta**: 22
-    * **Tipo di connessione**: SSH
+
+    |Proprietà |Value |
+    |---|---|
+    |Nome host (o indirizzo IP)|Indirizzo SSH per il cluster HDInsight. Ad esempio, **mycluster-ssh.azurehdinsight.net**.|
+    |Porta|22|
+    |Tipo di connessione|SSH|
 
 1. Selezionare **Salva**
 
@@ -96,13 +99,13 @@ Al termine del comando, il traffico inviato alla porta 9876 nel computer locale 
 
 1. Fornire le seguenti informazioni nel modulo **Options controlling SSH port forwarding** :
 
-   * **Source port** : la porta del client che si desidera inoltrare. Ad esempio, **9876**.
+    |Proprietà |Value |
+    |---|---|
+    |Porta di origine|La porta sul client che si desidera inviare. Ad esempio, **9876**.|
+    |Destinazione|Indirizzo SSH per il cluster HDInsight. Ad esempio, **mycluster-ssh.azurehdinsight.net**.|
+    |Dinamica|Abilita il routing proxy per i CALZINi dinamici.|
 
-   * **Destination** : l'indirizzo SSH del cluster HDInsight. Ad esempio, **mycluster-ssh.azurehdinsight.net**.
-
-   * **Dynamic** : consente il routing tramite proxy SOCKS dinamico.
-
-     ![Opzioni di tunneling della configurazione PuTTy](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
+    ![Opzioni di tunneling della configurazione PuTTy](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
 
 1. Selezionare **Aggiungi** per aggiungere le impostazioni e quindi fare clic su **Apri** per aprire una connessione SSH.
 
@@ -153,6 +156,6 @@ Una volta stabilito il cluster, utilizzare la procedura seguente per verificare 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo avere appreso come creare e usare un tunnel SSH, vedere il documento seguente per conoscere gli altri modi di usare Ambari:
+Ora che si è appreso come creare e usare un tunnel SSH, vedere il documento seguente per altri modi di usare Ambari:
 
 * [Gestire i cluster HDInsight mediante Apache Ambari](hdinsight-hadoop-manage-ambari.md)

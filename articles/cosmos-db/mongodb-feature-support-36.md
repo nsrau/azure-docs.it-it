@@ -1,31 +1,28 @@
 ---
-title: Funzionalità e sintassi supportate dell'API di Azure Cosmos DB per MongoDB (versione 3.2)
-description: Informazioni su funzionalità e sintassi supportate dell'API di Azure Cosmos DB per MongoDB (versione 3.2).
+title: Funzionalità e sintassi supportate dell'API di Azure Cosmos DB per MongoDB (versione 3.6)
+description: Informazioni su funzionalità e sintassi supportate dell'API di Azure Cosmos DB per MongoDB (versione 3.6).
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 12e5dba0339b6092564e5d35c1a6250b0c47f50f
+ms.openlocfilehash: 12311fa476d069d2c866fac82ed2bac25ce88ef4
 ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754994"
+ms.locfileid: "72758350"
 ---
-# <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>API di Azure Cosmos DB per MongoDB (versione 3.2): funzionalità e sintassi supportate
+# <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API di Azure Cosmos DB per MongoDB (versione 3.6): funzionalità e sintassi supportate
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile comunicare con l'API di Azure Cosmos DB per MongoDB tramite uno dei [driver](https://docs.mongodb.org/ecosystem/drivers) open source del client MongoDB. L'API di Azure Cosmos DB per MongoDB consente di usare driver client esistenti aderendo al [protocollo di collegamento](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) MongoDB.
 
 Usando l'API di Azure Cosmos DB per MongoDB è possibile sfruttare i noti vantaggi di MongoDB con tutte le funzionalità aziendali offerte da Cosmos DB: [distribuzione globale](distribute-data-globally.md), [partizionamento orizzontale automatico](partition-data.md), garanzie di disponibilità e latenza, indicizzazione automatica di ogni campo, crittografia di dati inattivi, backup e molto altro.
 
-> [!NOTE]
-> Questo articolo riguarda l'API di Azure Cosmos DB per MongoDB 3.2. Per la versione MongoDB 3.6, vedere [Funzionalità e sintassi supportate di MongoDB 3.6](mongodb-feature-support-36.md).
-
 ## <a name="protocol-support"></a>Protocolli supportati
 
-Tutti i nuovi account per l'API di Azure Cosmos DB per MongoDB sono compatibili con la versione **3.6** del server MongoDB. Questo articolo riguarda la versione 3.2 di MongoDB. Gli operatori supportati con i relativi limiti ed eccezioni sono elencati di seguito. I driver client che identificano questi protocolli dovrebbero essere in grado di collegarsi all'API di Cosmos DB per MongoDB.
+Per impostazione predefinita, l'API di Azure Cosmos DB per MongoDB è compatibile con la versione **3.6** del server MongoDB per i nuovi account. Gli operatori supportati con i relativi limiti ed eccezioni sono elencati di seguito. I driver client che identificano questi protocolli dovrebbero essere in grado di collegarsi all'API di Cosmos DB per MongoDB.
 
 ## <a name="query-language-support"></a>Linguaggi di query supportati
 
@@ -54,6 +51,7 @@ L'API di Azure Cosmos DB per MongoDB supporta i comandi di database seguenti:
 ### <a name="administration-commands"></a>Comandi di amministrazione
 
 - dropDatabase
+- listDatabases
 - listCollections
 - drop
 - create
@@ -63,6 +61,7 @@ L'API di Azure Cosmos DB per MongoDB supporta i comandi di database seguenti:
 - dropIndexes
 - connectionStatus
 - reIndex
+- killCursors
 
 ### <a name="diagnostics-commands"></a>Comandi di diagnostica
 
@@ -76,8 +75,6 @@ L'API di Azure Cosmos DB per MongoDB supporta i comandi di database seguenti:
 <a name="aggregation-pipeline"/>
 
 ## <a name="aggregation-pipelinea"></a>Pipeline di aggregazione</a>
-
-Cosmos DB supporta la pipeline di aggregazione per MongoDB 3.2 nella versione di anteprima pubblica. Per istruzioni sull'onboarding nell'anteprima pubblica, vedere il [blog di Azure](https://aka.ms/mongodb-aggregation).
 
 ### <a name="aggregation-commands"></a>Comandi di aggregazione
 
@@ -99,6 +96,8 @@ Cosmos DB supporta la pipeline di aggregazione per MongoDB 3.2 nella versione di
 - $out
 - $count
 - $addFields
+- $redact
+- $replaceRoot
 
 ### <a name="aggregation-expressions"></a>Espressioni di aggregazione
 
@@ -196,14 +195,10 @@ Cosmos DB supporta la pipeline di aggregazione per MongoDB 3.2 nella versione di
 
 ## <a name="aggregation-accumulators"></a>Accumulatori di aggregazione
 
-- $sum
-- $avg
-- $first
-- $last
-- $max
-- $min
-- $push
-- $addToSet
+Cosmos DB supporta tutti gli accumulatori MongoDB v3.6 eccetto:
+
+- $stdDevPop
+- $stdDevSamp
 
 ## <a name="operators"></a>Operatori
 
@@ -274,7 +269,7 @@ L'operatore barra '|' funge da funzione "or". La query ```find({x:{$regex: /^abc
 - $addToSet
 - $pop
 - $pullAll
-- $pull (nota: $pull con una condizione non è supportato)
+- $pull
 - $pushAll
 - $push
 - $each
@@ -311,7 +306,7 @@ Quando si usa l'operazione `findOneAndUpdate`, sono supportate le operazioni di 
 Operatore | Esempio | Note
 --- | --- | --- |
 $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
-$elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |
+$elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` |
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` |
 $text |  | Non supportati. In alternativa, usare $regex.
@@ -332,9 +327,7 @@ cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | I documenti senza chiav
 
 ## <a name="unique-indexes"></a>Indici univoci
 
-Cosmos DB indicizza tutti i campi dei documenti scritti nel database per impostazione predefinita. Gli indici univoci assicurano che un campo specifico non abbia valori duplicati in tutti i documenti di una raccolta, in modo simile alla preservazione dell'univocità per la chiave `_id` predefinita. È possibile creare indici personalizzati in Cosmos DB usando il comando createIndex, includendo il vincolo 'unique'.
-
-Gli indici univoci sono disponibili per tutti gli account Cosmos tramite l'API di Azure Cosmos DB per MongoDB.
+Gli indici univoci assicurano che un campo specifico non abbia valori duplicati in tutti i documenti di una raccolta, in modo simile alla preservazione dell'univocità per la chiave "_id" predefinita. È possibile creare indici personalizzati in Cosmos DB usando il comando createIndex, includendo il vincolo 'unique'.
 
 ## <a name="time-to-live-ttl"></a>Durata (TTL)
 
@@ -354,7 +347,11 @@ Alcune applicazioni usano un [write concern](https://docs.mongodb.com/manual/ref
 
 ## <a name="sharding"></a>Partizionamento orizzontale
 
-Azure Cosmos DB supporta il partizionamento orizzontale automatico lato server. Gestisce automaticamente la creazione, la selezione e il bilanciamento delle partizioni. Azure Cosmos DB non supporta i comandi di partizionamento orizzontale manuali, ovvero non è necessario richiamare comandi come pshardCollection, addShard, balancerStart, moveChunk e così via. È sufficiente specificare la chiave di partizione durante la creazione dei contenitori o l'esecuzione di query sui dati.
+Azure Cosmos DB supporta il partizionamento orizzontale automatico lato server. Gestisce automaticamente la creazione, la selezione e il bilanciamento delle partizioni. Azure Cosmos DB non supporta i comandi di partizionamento orizzontale manuali, ovvero non è necessario richiamare comandi come addShard, balancerStart, moveChunk e così via. È sufficiente specificare la chiave di partizione durante la creazione dei contenitori o l'esecuzione di query sui dati.
+
+## <a name="sessions"></a>Sessioni
+
+Azure Cosmos DB non supporta ancora i comandi delle sessioni sul lato server.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

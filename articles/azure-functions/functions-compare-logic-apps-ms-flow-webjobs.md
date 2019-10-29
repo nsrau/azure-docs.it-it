@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 47e300bf242f02d458363b7d2ab7af8a4399b399
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: b131a6fd5bb39ee5ec672a8ffb75cb22087a38af
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155048"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597448"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Informazioni su Microsoft Flow, App per la logica, Funzioni e Processi Web
 
@@ -27,7 +27,9 @@ Questo articolo confronta i servizi cloud Microsoft seguenti:
 * [Funzioni di Azure](https://azure.microsoft.com/services/functions/)
 * [Processi Web del servizio app di Azure](../app-service/webjobs-create.md)
 
-Tutti questi servizi consentono di risolvere i problemi di integrazione e automatizzare i processi aziendali. Possono definire input, azioni, condizioni e output e ognuno può essere eseguito in base a una pianificazione o un trigger. Ogni servizio offre vantaggi esclusivi e questo articolo ne illustra le differenze.
+Tutti questi servizi consentono di risolvere i problemi di integrazione e automatizzare i processi aziendali. Possono definire input, azioni, condizioni e output e ognuno può essere eseguito in base a una pianificazione o un trigger. Ogni servizio offre vantaggi esclusivi e questo articolo ne illustra le differenze. 
+
+Se si sta cercando un confronto più generale tra Funzioni di Azure e altre opzioni di calcolo di Azure, vedere [Criteri per la scelta di un servizio di calcolo di Azure](/azure/architecture/guide/technology-choices/compute-comparison) e [Scegliere un'opzione di calcolo di Azure per i microservizi](/azure/architecture/microservices/design/compute-options).
 
 ## <a name="compare-microsoft-flow-and-azure-logic-apps"></a>Confrontare Microsoft Flow e App per la logica di Azure
 

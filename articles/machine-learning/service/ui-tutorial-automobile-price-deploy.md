@@ -1,125 +1,121 @@
 ---
 title: "Esercitazione: Distribuire un modello di Machine Learning con l'interfaccia visiva grafica"
 titleSuffix: Azure Machine Learning
-description: Informazioni su come creare una soluzione di analisi predittiva nell'interfaccia visiva grafica di Azure Machine Learning. Eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando moduli con trascinamento della selezione. Questa esercitazione è la seconda parte di una serie in due parti su come stimare i prezzi delle automobili con la regressione lineare.
+description: Informazioni su come creare una soluzione di analisi predittiva nell'interfaccia visiva di Azure Machine Learning. Eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando moduli con trascinamento della selezione.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 07/11/2019
-ms.openlocfilehash: 9378c6a14c3b755a6456ef68ecd73730cb77fc79
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 10/22/2019
+ms.openlocfilehash: 6f8717f70a2cb03a7fd683cfe61f1198461f4305
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128975"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792666"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Esercitazione: Distribuire un modello di Machine Learning con l'interfaccia visiva grafica
 
-Per offrire ad altri utenti la possibilità di usare il modello predittivo sviluppato nella [prima parte dell'esercitazione](ui-tutorial-automobile-price-train-score.md), è possibile distribuirlo come servizio Web di Azure. Finora è stato sperimentato il training del modello. Ora è il momento di generare nuove stime in base all'input dell'utente. In questa parte dell'esercitazione verranno eseguite queste operazioni:
+Per offrire ad altri utenti la possibilità di usare il modello predittivo sviluppato nella [prima parte dell'esercitazione](ui-tutorial-automobile-price-train-score.md), è possibile distribuirlo come endpoint in tempo reale. Nella prima parte è stato eseguito il training del modello. Ora è il momento di generare nuove stime in base all'input dell'utente. In questa parte dell'esercitazione verranno eseguite queste operazioni:
 
 > [!div class="checklist"]
-> * Preparare un modello per la distribuzione
-> * Distribuire un servizio Web
-> * Testare un servizio Web
-> * Gestire un servizio Web
-> * Utilizzare il servizio Web
+> * Distribuire un endpoint in tempo reale
+> * Creare un cluster di inferenza
+> * Testare un endpoint in tempo reale
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Completare [la prima parte dell'esercitazione](ui-tutorial-automobile-price-train-score.md) per apprendere come eseguire il training e assegnare un punteggio a un modello di Machine Learning nell'interfaccia visiva grafica.
 
-## <a name="prepare-for-deployment"></a>Preparare la distribuzione
+## <a name="deploy-a-real-time-endpoint"></a>Distribuire un endpoint in tempo reale
 
-Prima di distribuire l'esperimento come servizio Web, è necessario convertire l'*esperimento di training* in un *esperimento predittivo*.
+Per distribuire la pipeline è necessario:
 
-1. Selezionare **Create Predictive Experiment*** (Crea esperimento predittivo) nella parte inferiore dell'area di disegno dell'esperimento.
+1. Convertire la pipeline di training in una pipeline di inferenza in tempo reale, che rimuove i moduli di training e aggiunge gli input e gli output per le richieste di inferenza.
+1. Distribuire la pipeline di inferenza.
 
-    ![Gif animata che mostra la conversione automatica di un esperimento di training in un esperimento predittivo](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
+### <a name="create-a-real-time-inference-pipeline"></a>Creare una pipeline di inferenza in tempo reale
 
-    Quando si seleziona **Create Predictive Experiment**, si verificano diverse situazioni:
+1. Nella parte superiore del canvas della pipeline selezionare **Create inference pipeline** > **Real-time inference pipeline** (Crea pipeline di inferenza > Pipeline di inferenza in tempo reale)
+
+    Quando si seleziona **Create inference pipeline** accadono diverse cose:
     
-    * Il modello sottoposto a training viene archiviato come **Trained Model** (Modello con training) nel riquadro dei moduli. nella sezione **Trained Models** (Modelli con training).
-    * Vengono rimossi i moduli usati per il training, in particolare:
-      * Train Model (Training del modello)
-      * Split Data (Divisione dei dati)
-      * Valutare il modello
-    * Il modello con training salvato viene aggiunto nuovamente all'esperimento.
-    * Vengono aggiunti i moduli **Web service input** (Input servizio Web) e **Web service output** (Output servizio Web). Questi moduli identificano il punto in cui i dati dell'utente verranno immessi nel modello e il punto in cui verranno restituiti.
+    * Il modello sottoposto a training viene archiviato come modulo **Dataset** (Set di dati) nel riquadro dei moduli. È possibile trovarlo in **My Datasets** (Set di dati personali).
+    * I moduli usati per il training, come **Train Model** (Training modello) e **Split Data** (Divisione dati), vengono rimossi.
+    * Il modello con training salvato viene aggiunto nuovamente alla pipeline.
+    * Vengono aggiunti i moduli **Web Service Input** (Input servizio Web) e **Web Service Output** (Output servizio Web). Questi moduli identificano il punto in cui i dati dell'utente verranno immessi nel modello e il punto in cui verranno restituiti.
 
-    L'**esperimento di training** è ancora memorizzato nelle nuove schede nella parte superiore dell'area di disegno dell'esperimento.
+    > [!Note]
+    > La **pipeline di training** viene salvata nella nuova scheda nella parte superiore del canvas della pipeline. È possibile trovarla anche come pipeline pubblicata nell'interfaccia visiva.
+    >
 
-1. **Eseguire** l'esperimento.
+    La pipeline dovrebbe ora avere un aspetto simile al seguente:  
 
-1. Selezionare l'output del modulo **Score Model** (Punteggio del modello) e quindi **View Results** (Visualizza risultati) per verificare se il modello continua a funzionare. Come si può notare, vengono visualizzati i dati originali insieme al prezzo stimato ("Scored Labels", Etichette con punteggio).
+   ![Screenshot della configurazione prevista della pipeline dopo la preparazione per la distribuzione](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
 
-L'esperimento dovrebbe risultare simile al seguente:  
+1. Selezionare **Run** (Esegui) e usare la stessa destinazione di calcolo e lo stesso esperimento usati nella prima parte.
 
-![Screenshot della configurazione prevista dell'esperimento dopo la preparazione per la distribuzione](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
+1. Selezionare il modulo **Score Model** (Punteggio modello).
 
-## <a name="deploy-the-web-service"></a>Distribuire il servizio web
+1. Nel riquadro delle proprietà selezionare **Outputs** > **Visualize** (Output > Visualizza) per verificare che il modello funzioni ancora. Come si può notare, vengono visualizzati i dati originali insieme al prezzo stimato ("Scored Labels", Etichette con punteggio).
 
-1. Selezionare **Deploy Web Service** (Distribuisci servizio Web) sotto l'area di disegno.
+1. Selezionare **Distribuisci**.
 
-1. Selezionare la **destinazione di calcolo** per eseguire il servizio Web.
+### <a name="create-an-inferencing-cluster"></a>Creare un cluster di inferenza
 
-    Attualmente l'interfaccia visiva grafica supporta solo la distribuzione nelle destinazioni di calcolo del servizio Azure Kubernetes. È possibile scegliere una delle destinazioni di calcolo disponibili del servizio Azure Kubernetes nell'area di lavoro del servizio Machine Learning oppure configurare un nuovo ambiente del servizio Azure Kubernetes seguendo i passaggi indicati nella finestra di dialogo visualizzata.
+Nella finestra di dialogo visualizzata è possibile selezionare uno dei cluster del servizio Azure Kubernetes esistenti nell'area di lavoro per distribuire il modello. Se non si ha un cluster del servizio Azure Kubernetes, seguire questa procedura per crearne uno.
 
-    ![Screenshot di una possibile configurazione per una nuova destinazione di calcolo](./media/ui-tutorial-automobile-price-deploy/deploy-compute.png)
+1. Selezionare **Compute** (Calcolo) nella finestra di dialogo per passare alla pagina **Compute** (Calcolo).
 
-1. Selezionare **Deploy Web Service** (Distribuisci servizio Web). Al termine della distribuzione verrà visualizzata la notifica seguente. La distribuzione può richiedere alcuni minuti.
+1. Nella barra multifunzione di spostamento selezionare **Inference Clusters** >  **+ New** (Cluster di inferenza > Nuovo).
 
-    ![Screenshot del messaggio di conferma per una distribuzione riuscita.](./media/ui-tutorial-automobile-price-deploy/deploy-succeed.png)
+    ![Screenshot che mostra come passare al riquadro del nuovo cluster di inferenza](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
 
-## <a name="test-the-web-service"></a>Testare il servizio Web
+1. Nel riquadro del cluster di inferenza configurare un nuovo servizio Kubernetes.
 
-È possibile testare e gestire i servizi Web dell'interfaccia visiva grafica passando alla scheda **Servizi Web**.
+1. Immettere "aks-compute" in **Compute name** (Nome del calcolo).
+    
+1. In **Region** (Area) selezionare un'area disponibile nelle vicinanze.
 
-1. Passare alla sezione del servizio Web. Verrà visualizzato il servizio Web distribuito con il nome **Tutorial - Predict Automobile Price[Predictive Exp]** .
+1. Selezionare **Create** (Crea).
 
-     ![Screenshot della scheda del servizio Web con il servizio Web creato di recente evidenziato](./media/ui-tutorial-automobile-price-deploy/web-services.png)
+    > [!Note]
+    > La creazione di un nuovo servizio Azure Kubernetes richiede circa 15 minuti. È possibile controllare lo stato del provisioning nella pagina **Inference Clusters** (Cluster di inferenza)
+    >
 
-1. Selezionare il nome del servizio Web per visualizzare altri dettagli.
+### <a name="deploy-the-real-time-endpoint"></a>Distribuire l'endpoint in tempo reale
+
+Al termine del provisioning del servizio Azure Kubernetes, tornare alla pipeline di inferenza in tempo reale per completare la distribuzione.
+
+1. Selezionare **Deploy** (Distribuisci) sopra il canvas.
+
+1. Selezionare **Deploy new real-time endpoint** (Distribuisci nuovo endpoint in tempo reale). 
+
+1. Selezionare il cluster del servizio Azure Kubernetes creato.
+
+1. Selezionare **Distribuisci**.
+
+    ![Screenshot che mostra come configurare un nuovo endpoint in tempo reale](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
+
+    Al termine della distribuzione, che può impiegare alcuni minuti, verrà visualizzata una notifica di operazione riuscita sopra il canvas.
+
+## <a name="test-the-real-time-endpoint"></a>Testare l'endpoint in tempo reale
+
+È possibile testare l'endpoint in tempo reale passando alla pagina **Endpoints** nel riquadro di spostamento dell'area di lavoro a sinistra.
+
+1. Nella pagina **Endpoints** selezionare l'endpoint appena distribuito.
+
+    ![Screenshot che mostra la scheda degli endpoint in tempo reale con l'endpoint appena creato evidenziato](./media/ui-tutorial-automobile-price-deploy/web-services.png)
 
 1. Selezionare **Test**.
 
-    [![Screenshot della pagina di test del servizio Web](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)](./media/ui-tutorial-automobile-price-deploy/web-service-test.png#lightbox)
-
 1. Immettere i dati di test oppure usare i dati di esempio compilati automaticamente e selezionare **Test**.
 
-    La richiesta di test viene inviata al servizio Web e i risultati vengono visualizzati nella pagina. Anche se generato, il valore di prezzo per i dati di input non viene usato per generare il valore della stima.
+    La richiesta di test viene inviata all'endpoint e i risultati vengono visualizzati nella pagina. Anche se generato, il valore di prezzo per i dati di input non viene usato per generare il valore della stima.
 
-## <a name="consume-the-web-service"></a>Utilizzare il servizio Web
-
-Gli utenti possono ora inviare richieste API al servizio Web di Azure e ricevere i risultati per prevedere il prezzo delle nuove automobili.
-
-**Richiesta/Risposta**: l'utente invia una o più righe di dati sulle automobili al servizio tramite un protocollo HTTP. Il servizio risponde con uno o più set di risultati.
-
-L'esempio di chiamate REST è disponibile nella scheda **Consume** (Utilizzo) della pagina di dettagli del servizio Web.
-
-   ![Screenshot di un esempio di chiamata REST che gli utenti trovano nella scheda Consume](./media/ui-tutorial-automobile-price-deploy/web-service-consume.png)
-
-Passare alla scheda **API Doc** (Documentazione dell'API) per altre informazioni sull'API.
-
-## <a name="manage-models-and-deployments"></a>Gestire modelli e distribuzioni
-
-I modelli e le distribuzioni di servizi Web creati nell'interfaccia visiva grafica possono anche essere gestiti nell'area di lavoro di Azure Machine Learning.
-
-1. Aprire l'area di lavoro nel [portale di Azure](https://portal.azure.com/).  
-
-1. Nell'area di lavoro selezionare **Modelli**. Quindi selezionare l'esperimento creato.
-
-    ![Screenshot che mostra come passare agli esperimenti nel portale di Azure](./media/ui-tutorial-automobile-price-deploy/portal-models.png)
-
-    In questa pagina sono visualizzati altri dettagli sul modello.
-
-1. Selezionare **Distribuzioni** per visualizzare un elenco dei servizi Web che usano il modello. Selezionare il nome del servizio Web per passare alla relativa pagina di dettagli. In questa pagina è possibile visualizzare informazioni più dettagliate sul servizio Web.
-
-    [![Screenshot del report dettagliato sulle esecuzioni](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)](./media/ui-tutorial-automobile-price-deploy/deployment-details.png#lightbox)
-
-È anche possibile trovare questi modelli e distribuzioni nelle sezioni **Modelli** ed **Endpoint** della [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com).
+    ![Screenshot che mostra come testare l'endpoint in tempo reale con l'etichetta con punteggio del prezzo evidenziata](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -127,7 +123,7 @@ I modelli e le distribuzioni di servizi Web creati nell'interfaccia visiva grafi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono stati illustrati i principali passaggi per creare, distribuire e utilizzare un modello di Machine Learning nell'interfaccia visiva grafica. Per altre informazioni su come usare l'interfaccia visiva grafica per risolvere altri tipi di problemi, vedere gli esperimenti di esempio.
+In questa esercitazione sono stati illustrati i principali passaggi per creare, distribuire e utilizzare un modello di Machine Learning nell'interfaccia visiva grafica. Per altre informazioni su come usare l'interfaccia visiva per risolvere altri tipi di problemi, vedere le altre pipeline di esempio.
 
 > [!div class="nextstepaction"]
 > [Esempio di classificazione del rischio di credito](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)

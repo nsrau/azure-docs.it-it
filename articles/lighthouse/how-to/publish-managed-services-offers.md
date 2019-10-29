@@ -4,15 +4,15 @@ description: Informazioni su come pubblicare un'offerta di servizio gestito che 
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 09/19/2019
+ms.date: 10/17/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: c358c728f7fe008ee8d9138cd081932524e7eaf9
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 10105d06e48a727e71ea5cb03f2ffceb589df50a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300293"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595266"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Pubblicare un'offerta di servizi gestiti in Azure Marketplace
 
@@ -132,7 +132,7 @@ Quando si è soddisfatti di tutte le informazioni immesse, il passaggio successi
 
 ## <a name="the-customer-onboarding-process"></a>Il processo di onboarding del cliente
 
-Quando un cliente aggiunge l'offerta, sarà in grado di [delegare una o più sottoscrizioni o gruppi di risorse specifici](view-manage-service-providers.md#delegate-resources) di cui verrà quindi eseguito l'onboarding per la gestione di risorse delegate di Azure. Se un cliente ha accettato un'offerta, ma non ha ancora delegato alcuna risorsa, vedrà una nota nella parte superiore della sezione **Provider offers** (Offerte di provider) della pagina [**Provider di servizi**](view-manage-service-providers.md) del portale di Azure.
+Quando un cliente aggiunge l'offerta, sarà in grado di [delegare una o più sottoscrizioni o gruppi di risorse specifici](view-manage-service-providers.md#delegate-resources) di cui verrà quindi eseguito l'onboarding per la gestione di risorse delegate di Azure. Se un cliente ha accettato un'offerta, ma non ha ancora delegato alcuna risorsa, vedrà una nota nella parte superiore della sezione **Provider offers** (Offerte di provider) della pagina [**Provider di servizi**](view-manage-service-providers.md) del portale di Azure. Se un utente nel tenant del cliente non è in grado di eseguire questa delega, probabilmente è perché non ha il ruolo Proprietario per la sottoscrizione. Per trovare utenti che possono delegare la sottoscrizione, l'utente può selezionare la sottoscrizione nel portale di Azure, aprire **Controllo di accesso (IAM)** e [visualizzare tutti gli utenti con il ruolo Proprietario](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
 
 Prima di eseguire l'onboarding di una sottoscrizione (o dei gruppi di risorse al suo interno), è necessario autorizzare la sottoscrizione registrando manualmente il provider di risorse **Microsoft.ManagedServices**. Un utente nel tenant del cliente con il ruolo Collaboratore o Proprietario può eseguire questa operazione seguendo i passaggi descritti in [Provider e tipi di risorse di Azure](../../azure-resource-manager/resource-manager-supported-services.md).
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 44e9e7220594cc84c78e2f540cce8b595643ac56
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 999e545d49b11eef84d1a03401eb28cde36e82af
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72927458"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991375"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Copertura per la geocodifica in Mappe di Azure
 
@@ -70,7 +70,7 @@ La possibilità di geocodificare in un paese/area geografica dipende dalla coper
 | Perù                                                |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Portorico                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Saint Barthélemy                                    |                 |                |       ✓      |      ✓     |          ✓         |
-| Saint Kitts e Nevis                               |                 |                |       ✓      |      ✓     |          ✓         |
+| Saint Christopher e Nevis                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Lucia                                         |                 |                |              |      ✓     |          ✓         |
 | Saint Martin                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Pierre e Miquelon                           |                 |                |       ✓      |      ✓     |          ✓         |

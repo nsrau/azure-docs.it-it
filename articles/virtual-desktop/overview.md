@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 97087b7fdc6e4cdaccf922a1c72f35284c7a7040
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e1ae0501e2a558967b7d53229dc629e035c5e067
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676558"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597896"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows 
 
@@ -76,8 +76,8 @@ L'infrastruttura richiede quanto segue per supportare Desktop virtuale Windows:
 * Un'istanza di Windows Server Active Directory sincronizzata con Azure Active Directory. Ciò può essere abilitato tramite:
   * Azure AD Connect
   * Servizi di dominio Azure Active Directory
-  >[!NOTE]
-  >Desktop virtuale Windows supporta solo gli utenti di Azure AD Domain Services che provengono da Azure Active Directory. Gli utenti di Windows Server AD non sono al momento supportati.
+     >[!NOTE]
+     >Se si usa Azure AD Domain Services, gli utenti devono essere originati da Azure Active Directory. L'uso di Azure AD Domain Services con utenti originati da AD di Windows Server non è attualmente supportato.
 * Una sottoscrizione di Azure contenente una rete virtuale che contiene o è collegata all'istanza di Windows Server Active Directory
   
 Le macchine virtuali Azure che create per Desktop virtuale Windows devono essere:

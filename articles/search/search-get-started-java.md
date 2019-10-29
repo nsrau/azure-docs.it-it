@@ -1,22 +1,22 @@
 ---
-title: 'Guida introduttiva: Creare un indice di ricerca in Java con le API REST - Ricerca di Azure'
-description: Informazioni su come creare un indice, caricare dati ed eseguire query con Java e le API REST di Ricerca di Azure.
+title: 'Guida introduttiva: Creare un indice di ricerca in Java con le API REST'
+titleSuffix: Azure Cognitive Search
+description: Informazioni su come creare un indice, caricare dati ed eseguire query con Java e le API REST di Ricerca cognitiva di Azure.
 manager: nitinme
 author: lisaleib
 ms.author: v-lilei
-ms.service: search
-ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
 ms.devlang: java
+ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: 3f424f03f72e288994b05c4559bd42e6429760a8
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.date: 11/04/2019
+ms.openlocfilehash: 9f30c30276db6daa0b4afdf3e6bdd8e617dedc52
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166236"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792805"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-java-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca di Azure in Java con le API REST
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in Java con le API REST
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -26,7 +26,7 @@ ms.locfileid: "72166236"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Per creare un'applicazione console Java che crea, carica ed esegue query su un indice di Ricerca di Azure, è possibile usare [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable) e l'[API REST del servizio Ricerca di Azure](/rest/api/searchservice/). Questo articolo fornisce le istruzioni dettagliate per creare l'applicazione. In alternativa, è possibile [scaricare ed eseguire l'applicazione completa](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Per creare un'applicazione console Java che crea, carica ed esegue query su un indice di Ricerca cognitiva di Azure, è possibile usare [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable) e l'[API REST di Ricerca cognitiva di Azure](/rest/api/searchservice/). Questo articolo fornisce le istruzioni dettagliate per creare l'applicazione. In alternativa, è possibile [scaricare ed eseguire l'applicazione completa](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -38,13 +38,13 @@ Per compilare e testare questo esempio sono stati usati il software e i servizi 
 
 + [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)
 
-+ [Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido.
++ [Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido.
 
 <a name="get-service-info"></a>
 
 ## <a name="get-a-key-and-url"></a>Ottenere una chiave e un URL
 
-Le chiamate al servizio richiedono un URL endpoint e una chiave di accesso per ogni richiesta. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se si è aggiunto Ricerca di Azure alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
+Le chiamate al servizio richiedono un URL endpoint e una chiave di accesso per ogni richiesta. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se il servizio Ricerca cognitiva di Azure è stato aggiunto alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
 
 1. [Accedere al portale di Azure](https://portal.azure.com/) e ottenere l'URL nella pagina **Panoramica** del servizio di ricerca. Un endpoint di esempio potrebbe essere simile a `https://mydemo.search.windows.net`.
 
@@ -143,7 +143,7 @@ Per iniziare, aprire IntelliJ IDEA e configurare un nuovo progetto.
 
 1. Fare clic su **OK** per chiudere la finestra.
 
-### <a name="add-azure-search-service-information"></a>Aggiungere informazioni sul servizio Ricerca di Azure
+### <a name="add-azure-cognitive-search-service-information"></a>Aggiungere le informazioni sul servizio Ricerca cognitiva di Azure
 
 1. Nella finestra **Project** (Progetto) espandere l'albero di origine per accedere alla cartella `src` >  `main` >`resources` > `app` e aggiungere un file `config.properties`. A questo scopo, selezionare la cartella `app`, premere ALT+INS, selezionare **File** e quindi immettere il nome file.
 
@@ -259,7 +259,7 @@ Per iniziare, aprire IntelliJ IDEA e configurare un nuovo progetto.
 ### <a name="add-the-http-operations"></a>Aggiungere le operazioni HTTP
 
 1. Nella cartella `src` >  `main` > `java` > `service` aggiungere una classe `SearchServiceClient`. A questo scopo, selezionare la cartella `service`, premere ALT+INS, selezionare **Java Class** (Classe Java) e quindi immettere il nome della classe.
-1. Aprire la classe `SearchServiceClient` e sostituirne il contenuto con il codice seguente. Questo codice fornisce le operazioni HTTP necessarie per usare l'API REST di Ricerca di Azure. Altri metodi per la creazione di un indice, il caricamento di documenti e l'esecuzione di query sull'indice verranno aggiunti in una sezione successiva.
+1. Aprire la classe `SearchServiceClient` e sostituirne il contenuto con il codice seguente. Questo codice fornisce le operazioni HTTP necessarie per usare l'API REST di Ricerca cognitiva di Azure. Altri metodi per la creazione di un indice, il caricamento di documenti e l'esecuzione di query sull'indice verranno aggiunti in una sezione successiva.
 
     ```java
     package main.java.service;
@@ -512,9 +512,9 @@ La definizione dell'indice hotels contiene campi semplici e un campo complesso. 
 
     Il nome dell'indice sarà "hotels-quickstart". Gli attributi nei campi dell'indice determinano la modalità di ricerca dei dati indicizzati in un'applicazione. Ad esempio, l'attributo `IsSearchable` deve essere assegnato a ogni campo che deve essere incluso in una ricerca full-text. Per altre informazioni sugli attributi, vedere [Raccolta di campi e attributi di campi](search-what-is-an-index.md#fields-collection).
     
-    Il campo `Description` di questo indice usa la proprietà facoltativa `analyzer` per eseguire l'override dell'analizzatore di lingua Lucene predefinito. Il campo `Description_fr` usa l'analizzatore Lucene per il francese (`fr.lucene`) perché archivia testo in francese. Il campo `Description` usa l'analizzatore di lingua Microsoft facoltativo (en.lucene). Per altre informazioni sugli analizzatori, vedere [Analizzatori per elaborazione del testo in Ricerca di Azure](search-analyzers.md).
+    Il campo `Description` di questo indice usa la proprietà facoltativa `analyzer` per eseguire l'override dell'analizzatore di lingua Lucene predefinito. Il campo `Description_fr` usa l'analizzatore Lucene per il francese (`fr.lucene`) perché archivia testo in francese. Il campo `Description` usa l'analizzatore di lingua Microsoft facoltativo (en.lucene). Per altre informazioni sugli analizzatori, vedere [Analizzatori per elaborazione del testo in Ricerca cognitiva di Azure](search-analyzers.md).
 
-1. Aggiungere il codice seguente alla classe `SearchServiceClient` . Questi metodi compilano gli URL del servizio REST di Ricerca di Azure che creano ed eliminano un indice e che determinano l'esistenza di un indice. I metodi consentono inoltre di effettuare la richiesta HTTP.
+1. Aggiungere il codice seguente alla classe `SearchServiceClient` . Questi metodi compilano gli URL del servizio REST di Ricerca cognitiva di Azure che creano ed eliminano un indice e che determinano l'esistenza di un indice. I metodi consentono inoltre di effettuare la richiesta HTTP.
 
     ```java
     public boolean indexExists() throws IOException, InterruptedException {
@@ -694,9 +694,9 @@ La definizione dell'indice hotels contiene campi semplici e un campo complesso. 
 
 A questo punto, dopo aver caricato i documenti, è possibile creare query di ricerca per accedere ai dati degli alberghi.
 
-1. Aggiungere il codice seguente alla classe `SearchServiceClient` . Questo codice compila gli URL del servizio REST di Ricerca di Azure per eseguire ricerche nei dati indicizzati e stampare i risultati della ricerca.
+1. Aggiungere il codice seguente alla classe `SearchServiceClient` . Questo codice compila gli URL del servizio REST di Ricerca cognitiva di Azure per eseguire ricerche nei dati indicizzati e visualizzare i risultati della ricerca.
 
-    La classe `SearchOptions` e il metodo `createSearchOptions` consentono di specificare un subset delle opzioni di query disponibili dell'API REST di Ricerca di Azure. Per altre informazioni sulle opzioni di query dell'API REST, vedere [Eseguire ricerche nei documenti (API REST del servizio Ricerca di Azure)](/rest/api/searchservice/search-documents).
+    La classe `SearchOptions` e il metodo `createSearchOptions` consentono di specificare un subset delle opzioni di query disponibili dell'API REST di Ricerca cognitiva di Azure. Per altre informazioni sulle opzioni di query dell'API REST, vedere [Eseguire ricerche nei documenti (API REST di Ricerca cognitiva di Azure)](/rest/api/searchservice/search-documents).
 
     Il metodo `SearchPlus` crea l'URL della query di ricerca, effettua la richiesta di ricerca e quindi stampa i risultati nella console. 
 

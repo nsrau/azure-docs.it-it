@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 84753f2c3ab19a0cc9d72ef8ce5011dfc8e5a8da
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: f3d5aaaf57387ae4ccefdfe8ec22435f03b2452f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711889"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757552"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con il portale di Azure
 
@@ -28,7 +28,7 @@ In questa guida introduttiva si apprenderà come usare il [portale di Azure](htt
 Per creare un contenitore nel portale di Azure, seguire questa procedura:
 
 1. Passare al nuovo account di archiviazione nel portale di Azure.
-2. Nel menu a sinistra per l'account di archiviazione scorrere fino alla sezione **Servizio BLOB** e quindi selezionare **BLOB**.
+2. Nel menu a sinistra per l'account di archiviazione scorrere fino alla sezione **Servizio BLOB** e quindi selezionare **Contenitori**.
 3. Selezionare il pulsante **+ Contenitore**.
 4. Immettere un nome per il nuovo contenitore. Il nome del contenitore deve essere composto da lettere minuscole, deve iniziare con una lettera o un numero e può contenere solo lettere, numeri e trattino (-). Per altre informazioni sui nomi di contenitori e BLOB, vedere [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Denominazione e riferimento a contenitori, BLOB e metadati).
 5. Impostare il livello di accesso pubblico del contenitore. Il livello predefinito è **Private (no anonymous access)** (Privato - nessun accesso anonimo).
@@ -67,7 +67,7 @@ Per eliminare il contenitore:
 
 1. Nel portale di Azure passare all'elenco dei contenitori presenti nell'account di archiviazione.
 2. Selezionare il contenitore da eliminare.
-3. Selezionare il pulsante **Altro** (**...**) e scegliere **Elimina**.
+3. Selezionare il pulsante **Altro** ( **...** ) e scegliere **Elimina**.
 4. Confermare di voler eliminare il contenitore.
 
 ## <a name="next-steps"></a>Passaggi successivi

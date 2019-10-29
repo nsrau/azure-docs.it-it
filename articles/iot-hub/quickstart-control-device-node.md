@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 06/21/2019
-ms.openlocfilehash: db049064c35fbe6b940d39f97decc0281983cc0f
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: ed3946c40d8e3eff665e4454b81f408c2033c09a
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515078"
+ms.locfileid: "72529594"
 ---
 # <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Guida introduttiva: Usare Node.js per controllare un dispositivo connesso a un hub IoT di Azure
 
@@ -128,7 +128,7 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
 
     La schermata seguente mostra l'output mentre l'applicazione del dispositivo simulato invia i dati di telemetria all'hub IoT:
 
-    ![Eseguire il dispositivo simulato](./media/quickstart-control-device-node/SimulatedDevice-1.png)
+    ![Eseguire il dispositivo simulato](./media/quickstart-control-device-node/simulated-device-telemetry-iot-hub.png)
 
 ## <a name="call-the-direct-method"></a>Chiamare il metodo diretto
 
@@ -149,11 +149,11 @@ L'applicazione back-end si connette a un endpoint sul lato servizio nell'IoT Hub
 
     La schermata seguente mostra l'output visualizzato quando l'applicazione effettua una chiamata del metodo diretto al dispositivo e riceve un acknowledgement:
 
-    ![Eseguire l'applicazione back-end](./media/quickstart-control-device-node/BackEndApplication.png)
+    ![Output quando l'applicazione effettua una chiamata del metodo diretto al dispositivo](./media/quickstart-control-device-node/direct-method-device-call.png)
 
     Dopo l'esecuzione dell'applicazione back-end, viene visualizzato un messaggio nella finestra della console che esegue il dispositivo simulato e cambia la frequenza di invio dei messaggi:
 
-    ![Modifica nel client simulato](./media/quickstart-control-device-node/SimulatedDevice-2.png)
+    ![Output in caso di modifica nel client simulato](./media/quickstart-control-device-node/simulated-device-message-change.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
