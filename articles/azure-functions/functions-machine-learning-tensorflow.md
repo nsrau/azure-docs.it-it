@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: abc7302ee59103a9cbab156b95a41b77eb95d474
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e243fd2f5c4a90e45f424ce39a97913df2332b2b
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68729158"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677899"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Esercitazione: Applicare modelli di Machine Learning in Funzioni di Azure con Python e TensorFlow
 
@@ -140,7 +140,7 @@ Si userà un modello TensorFlow predefinito che è stato sottoposto a training e
 > [!NOTE]
 > Se si vuole creare un proprio modello usando il livello gratuito del servizio Visione personalizzata, è possibile seguire le [istruzioni disponibili nel repository del progetto di esempio](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
 
-Il modello è costituito da due file contenuti nella cartella *<RADICE_REPOSITORY>/resources/model*: *model.db* e *labels.txt*. Copiarli nella cartella della funzione *classify*.
+Il modello è costituito da due file contenuti nella cartella *<RADICE_REPOSITORY>/resources/model*: *model.pb* e *labels.txt*. Copiarli nella cartella della funzione *classify*.
 
 #### <a name="linux-and-macos"></a>Linux e macOS:
 
@@ -179,7 +179,7 @@ Verificare che *classifiy* contenga ora un file denominato *predict.py*.
 La libreria helper presenta alcune dipendenze che devono essere installate. Aprire *start/requirements.txt* nell'editor e aggiungere le dipendenze seguenti al file.
 
 ```txt
-tensorflow
+tensorflow==1.15
 Pillow
 requests
 ```

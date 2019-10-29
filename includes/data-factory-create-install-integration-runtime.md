@@ -4,16 +4,16 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: a2858ac73838b50c21a76db5860675171a306192
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 12c2f1bd2a3185d26eae02b5cd756392b5b87c16
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180616"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533220"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Creare un runtime di integrazione self-hosted
 
-In questa sezione si crea un runtime di integrazione self-hosted e lo si associa a un computer locale con il database di SQL Server. Il runtime di integrazione self-hosted è il componente che copia i dati dall'istanza di SQL Server nel computer all'archivio BLOB di Azure. 
+In questa sezione si crea un runtime di integrazione self-hosted e lo si associa a un computer locale con il database di SQL Server. Il runtime di integrazione self-hosted è il componente che copia i dati dall'istanza di SQL Server nel computer al database SQL di Azure. 
 
 1. Creare una variabile per il nome del runtime di integrazione. Usare un nome univoco e prenderne nota. perché sarà usato più avanti in questa esercitazione. 
 
@@ -29,12 +29,12 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
    Di seguito è riportato l'output di esempio:
 
    ```json
-    Id                : /subscriptions/<subscription ID>/resourceGroups/ADFTutorialResourceGroup/providers/Microsoft.DataFactory/factories/onpremdf0914/integrationruntimes/myonpremirsp0914
+    Name              : <Integration Runtime name>
     Type              : SelfHosted
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : onpremdf0914
-    Name              : myonpremirsp0914
-    Description       :
+    ResourceGroupName : <ResourceGroupName>
+    DataFactoryName   : <DataFactoryName>
+    Description       : 
+    Id                : /subscriptions/<subscription ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DataFactory/factories/<DataFactoryName>/integrationruntimes/ADFTutorialIR
     ```
   
 3. Eseguire questo comando per recuperare lo stato del runtime di integrazione creato. Verificare che il valore della proprietà **State** sia impostato su **NeedRegistration**. 
@@ -45,21 +45,25 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
 
    Di seguito è riportato l'output di esempio:
 
-   ```json
-   Nodes                     : {}
-   CreateTime                : 9/14/2017 10:01:21 AM
-   InternalChannelEncryption :
-   Version                   :
+   ```json  
+   State                     : NeedRegistration
+   Version                   : 
+   CreateTime                : 9/24/2019 6:00:00 AM
+   AutoUpdate                : On
+   ScheduledUpdateDate       : 
+   UpdateDelayOffset         : 
+   LocalTimeZoneOffset       : 
+   InternalChannelEncryption : 
    Capabilities              : {}
-   ScheduledUpdateDate       :
-   UpdateDelayOffset         :
-   LocalTimeZoneOffset       :
-   AutoUpdate                :
-   ServiceUrls               : {eu.frontend.clouddatahub.net, *.servicebus.windows.net}
+   ServiceUrls               : {eu.frontend.clouddatahub.net}
+   Nodes                     : {}
+   Links                     : {}
+   Name                      : ADFTutorialIR
+   Type                      : SelfHosted
    ResourceGroupName         : <ResourceGroup name>
    DataFactoryName           : <DataFactory name>
-   Name                      : <Integration Runtime name>
-   State                     : NeedRegistration
+   Description               : 
+   Id                        : /subscriptions/<subscription ID>/resourceGroups/<ResourceGroup name>/providers/Microsoft.DataFactory/factories/<DataFactory name>/integrationruntimes/<Integration Runtime name>
    ```
 
 4. Eseguire questo comando per recuperare le chiavi di autenticazione per la registrazione del runtime di integrazione self-hosted nel servizio Azure Data Factory nel cloud: 
@@ -72,8 +76,8 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
 
    ```json
    {
-       "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
-       "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
+    "AuthKey1": "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
+    "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
    }
    ```    
 
@@ -92,27 +96,17 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
 
 6. Nella pagina **Pronto per l'installazione** fare clic su **Installa**.
 
-7. Se viene visualizzato un messaggio di avviso relativo alla configurazione del computer per passare alla modalità di sospensione o di ibernazione quando non è in uso, fare clic su **OK**.
+7. Nella pagina **Installazione di Microsoft Integration Runtime completata** fare clic su **Fine**.
 
-8. Se viene visualizzata la pagina **Opzioni risparmio energia**, chiuderla e passare alla pagina di configurazione.
-
-9. Nella pagina **Installazione di Microsoft Integration Runtime completata** fare clic su **Fine**.
-
-10. Nella pagina **Registra Runtime di integrazione (self-hosted)** incollare la chiave salvata nella sezione precedente e fare clic su **Registra**. 
+8. Nella pagina **Registra Runtime di integrazione (self-hosted)** incollare la chiave salvata nella sezione precedente e fare clic su **Registra**. 
 
     ![Registrare il runtime di integrazione](media/data-factory-create-install-integration-runtime/register-integration-runtime.png)
 
-11. Al termine della registrazione del runtime di integrazione self-hosted viene visualizzato il messaggio seguente:
+9. Nella pagina **Nuovo nodo di Integration Runtime (self-hosted)** fare clic su **Fine**. 
+
+10. Al termine della registrazione del runtime di integrazione self-hosted viene visualizzato il messaggio seguente:
 
     ![Registrazione completata](media/data-factory-create-install-integration-runtime/registered-successfully.png)
-
-12. Nella pagina **Nuovo nodo di Runtime di integrazione (self-hosted)** fare clic su **Avanti**. 
-
-    ![Pagina Nuovo nodo di Runtime di integrazione](media/data-factory-create-install-integration-runtime/new-integration-runtime-node-page.png)
-
-13. Nella pagina **Canale di comunicazione Intranet** fare clic su **Ignora**. Selezionare un certificato TLS/SSL per proteggere la comunicazione tra nodi in un ambiente di runtime di integrazione di più nodi. 
-
-    ![Pagina Canale di comunicazione Intranet](media/data-factory-create-install-integration-runtime/intranet-communication-channel-page.png)
 
 14. Nella pagina **Registra Runtime di integrazione (self-hosted)** fare clic su **Avvia Configuration Manager**.
 
@@ -136,7 +130,7 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
 
     f. Immettere il nome utente.
 
-    g. Immettere il nome utente e la password
+    g. Immettere la password associata al nome utente.
 
     h. Selezionare **Test** per verificare che il runtime di integrazione possa connettersi a SQL Server. Se la connessione ha esito positivo, viene visualizzato un segno di spunta verde. Se la connessione non ha esito positivo, viene visualizzato un messaggio di errore. Risolvere eventuali problemi e assicurarsi che il runtime di integrazione possa connettesi a SQL Server.    
 

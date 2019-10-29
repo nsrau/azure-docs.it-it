@@ -17,15 +17,15 @@ ms.date: 08/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28f3fca731c9ceb28f66ecd1c178e5c025f80ede
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70163537"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-envoy"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Envoy
 
-Questa esercitazione descriverà come integrare Envoy con Azure Active Directory (Azure AD). Integrando Envoy con Azure AD è possibile:
+Questa esercitazione descrive come integrare Envoy con Azure Active Directory (Azure AD). Integrando Envoy con Azure AD è possibile:
 
 * Controllare in Azure AD chi può accedere a Envoy.
 * Abilitare gli utenti per l'accesso automatico a Envoy con gli account Azure AD personali.
@@ -152,7 +152,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 5. Fare clic su **Azienda**.
 
-    ![Azienda](./media/envoy-tutorial/ic776783.png "Azienda")
+    ![Company](./media/envoy-tutorial/ic776783.png "Azienda")
 
 6. Fare clic su **SAML**.
 
@@ -160,7 +160,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 7. Nella sezione di configurazione **SAML Authentication** seguire questa procedura:
 
-    ![Autenticazione SAML](./media/envoy-tutorial/ic776785.png "Autenticazione SAML")
+    ![Autenticazione SAML](./media/envoy-tutorial/ic776785.png "SAML Authentication")
     
     >[!NOTE]
     >Il valore dell'ID della sede centrale viene generato automaticamente dall'applicazione.

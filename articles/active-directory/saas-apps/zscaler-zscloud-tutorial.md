@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 43d7e58f0c267afe8a22c217d9800abb041df8cb
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68723053"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler ZSCloud
@@ -81,7 +81,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Zscaler ZSClo
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Zscaler ZSCloud](#configure-zscaler-zscloud-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Zscaler ZSCloud](#create-zscaler-zscloud-test-user)** : per avere una controparte di Britta Simon in Zscaler ZSCloud collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler ZSCloud, seguir
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![Informazioni su URL e dominio per Single Sign-On di Zscaler ZSCloud](common/sp-signonurl.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Zscaler ZSCloud](common/sp-signonurl.png)
 
     Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Zscaler ZSCloud.
 
@@ -169,7 +169,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler ZSCloud, seguir
 
 4. Passare a **Amministrazione > Autenticazione > Impostazioni di autenticazione** ed eseguire i passaggi seguenti:
    
-    ![Amministrazione](./media/zscaler-zscloud-tutorial/ic800206.png "Amministrazione")
+    ![Amministrazione](./media/zscaler-zscloud-tutorial/ic800206.png "Administration")
 
     a. In Tipo di autenticazione scegliere **SAML**.
 
@@ -177,7 +177,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler ZSCloud, seguir
 
 5. Nella finestra **Modifica SAML** eseguire i passaggi seguenti: e fare clic su Salva.  
             
-    ![Gestire utenti e autenticazione](./media/zscaler-zscloud-tutorial/ic800208.png "Gestire utenti e autenticazione")
+    ![Gestire utenti e autenticazione](./media/zscaler-zscloud-tutorial/ic800208.png "Manage Users & Authentication")
     
     a. Nella casella di testo **URL portale SAML** incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
@@ -214,7 +214,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler ZSCloud, seguir
 
 3. Fare clic sulla scheda **Connessioni** .   
   
-     ![Connessioni](./media/zscaler-zscloud-tutorial/ic769493.png "Connessioni")
+     ![Connessioni](./media/zscaler-zscloud-tutorial/ic769493.png "connessioni")
 
 4. Fare clic su **Impostazioni LAN** per aprire la finestra di dialogo **Impostazioni LAN**.
 
@@ -234,9 +234,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler ZSCloud, seguir
 
 6. Fare clic su **OK** per chiudere la finestra di dialogo **Opzioni Internet**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -256,9 +256,9 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Zscaler ZSCloud.
 
@@ -304,7 +304,7 @@ In questa sezione viene creato un utente di nome Britta Simon in Zscaler ZSCloud
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Zscaler ZSCloud nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Zscaler ZSCloud per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Zscaler ZSCloud nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Zscaler ZSCloud per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

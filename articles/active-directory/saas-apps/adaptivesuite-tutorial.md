@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: integrazione di Azure Active Directory con Adaptive Insights | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Adaptive Insights | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Adaptive Insights.
 services: active-directory
 documentationCenter: na
@@ -17,10 +17,10 @@ ms.date: 07/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad059e6047dd883c0a5aab0d714d999840050584
-ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70213622"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Esercitazione: Integrare Adaptive Insights con Azure Active Directory
@@ -48,7 +48,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-adaptive-insights-from-the-gallery"></a>Aggiunta di Adaptive Insights dalla raccolta
 
-Per configurare l'integrazione di Adaptive Insights in Azure AD, è necessario aggiungere Adaptive Insights dalla raccolta all'elenco delle applicazioni SaaS gestite.
+Per configurare l'integrazione di Adaptive Insights in Azure AD, è necessario aggiungere Adaptive Insights dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -66,8 +66,8 @@ Per configurare e testare l'accesso SSO di Azure AD con Adaptive Insights, compl
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Adaptive Insights](#configure-adaptive-insights-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Adaptive Insights](#create-adaptive-insights-test-user)** : per avere una controparte di B.Simon in Adaptive Insights collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
@@ -90,7 +90,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > È possibile ottenere valori dell'identificatore (ID entità) e l'URL di risposta dalla pagina **Impostazioni SSO SAML** di Adaptive Insights.
 
-4. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer in uso.
+4. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -104,15 +104,15 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 2. Passare a **Administration**.
 
-    ![Amministratore](./media/adaptivesuite-tutorial/ic805644.png "Amministratore")
+    ![Administration](./media/adaptivesuite-tutorial/ic805644.png "Admin")
 
 3. Nella sezione **Users and Roles** (Utenti e ruoli) fare clic su **SAML SSO Settings** (Impostazioni SSO SAML).
 
-    ![Gestire le impostazioni SSO SAML](./media/adaptivesuite-tutorial/ic805645.png "Gestire le impostazioni SSO SAML")
+    ![Gestire le impostazioni per l'accesso SSO SAML](./media/adaptivesuite-tutorial/ic805645.png "Manage SAML SSO Settings")
 
 4. Nella pagina **SAML SSO Settings** eseguire queste operazioni:
 
-    ![Impostazioni SSO SAML](./media/adaptivesuite-tutorial/ic805646.png "Impostazioni SSO SAML")
+    ![SAML SSO Settings](./media/adaptivesuite-tutorial/ic805646.png "SAML SSO Settings")
 
     a. Nella casella di testo **Identity provider name** digitare un nome per la configurazione.
 
@@ -138,7 +138,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     h. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
@@ -148,9 +148,9 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Adaptive Insights.
 
@@ -168,7 +168,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-adaptive-insights-test-user"></a>Creare un utente di test di Adaptive Insights
+### <a name="create-adaptive-insights-test-user"></a>Creare l'utente di test di Adaptive Insights
 
 Per consentire agli utenti di Azure AD di accedere ad Adaptive Insights, è necessario effettuarne il provisioning in Adaptive Insights. Nel caso di Adaptive Insights, il provisioning è un'attività manuale.
 
@@ -178,21 +178,21 @@ Per consentire agli utenti di Azure AD di accedere ad Adaptive Insights, è nece
 
 2. Passare a **Administration**.
 
-   ![Amministratore](./media/adaptivesuite-tutorial/IC805644.png "Amministratore")
+   ![Administration](./media/adaptivesuite-tutorial/IC805644.png "Admin")
 
 3. Nella sezione **Users and Roles** (Utenti e ruoli) fare clic su **Users** (Utenti).
 
-   ![Aggiungere un utente](./media/adaptivesuite-tutorial/IC805648.png "Aggiungere un utente")
+   ![Aggiungere un utente](./media/adaptivesuite-tutorial/IC805648.png "Aggiunta di un utente")
 
 4. Nella sezione **Nuovo utente** seguire questa procedura:
 
-   ![Invio](./media/adaptivesuite-tutorial/IC805649.png "Invio")
+   ![Invia](./media/adaptivesuite-tutorial/IC805649.png "Submit")
 
    a. Nelle caselle di testo corrispondenti **Name**, **Username**, **Email**, **Password** digitare il nome, il nome utente, l'indirizzo di posta elettronica e la password di un account utente Azure Active Directory valido di cui si vuole eseguire il provisioning.
 
    b. Selezionare un valore in **Role**.
 
-   c. Fare clic su **Submit**.
+   c. Fare clic su **Submit** (Invia).
 
 > [!NOTE]
 > È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Adaptive Insights per eseguire il provisioning degli account utente di Azure AD.
@@ -201,7 +201,7 @@ Per consentire agli utenti di Azure AD di accedere ad Adaptive Insights, è nece
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Adaptive Insights nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Adaptive Insights per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Adaptive Insights nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Adaptive Insights per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

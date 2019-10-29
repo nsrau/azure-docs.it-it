@@ -1,6 +1,6 @@
 ---
-title: Esercitazione - Automatizzare l'elaborazione di messaggi di posta elettronica e allegati - App per la logica di Azure
-description: Esercitazione - Creare flussi di lavoro automatizzati per la gestione di messaggi di posta elettronica e allegati con App per la logica di Azure, Archiviazione di Azure e Funzioni di Azure
+title: Creare flussi di lavoro con Funzioni di Azure - App per la logica di Azure
+description: Flussi di lavoro automatizzati per l'elaborazione di messaggi di posta elettronica e allegati con App per la logica di Azure, Archiviazione di Azure e Funzioni di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: e7c27d284ef93d15c5ac9a6228205e79518f2ffa
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 2919816872fd73c8a50f404e857c9ec56eeab0f5
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051783"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679184"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Esercitazione: automatizzare la gestione di messaggi di posta elettronica e allegati con App per la logica di Azure
 

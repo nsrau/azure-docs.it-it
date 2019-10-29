@@ -16,49 +16,49 @@ ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a9b834feacd6241e66e18a4f4e6aadc43e909c7
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 6d578b5d08fecde733bb7b257057e480fef83c4e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72438503"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754423"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netsuite"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con NetSuite
+# <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Esercitazione: Integrare l'accesso Single Sign-On (SSO) di Azure Active Directory con NetSuite
 
 Questa esercitazione descrive come integrare NetSuite con Azure Active Directory (Azure AD). Integrando NetSuite con Azure AD, è possibile:
 
 * Controllare in Azure AD chi può accedere a NetSuite.
 * Abilitare gli utenti per l'accesso automatico a NetSuite con gli account Azure AD personali.
-* Gestire gli account in un'unica posizione centrale: il portale di Azure.
+* Gestire gli account in una posizione centrale, il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per iniziare, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
-* Sottoscrizione di NetSuite abilitata per l'accesso Single Sign-On (SSO).
+* Una sottoscrizione di NetSuite abilitata per l'accesso Single Sign-On (SSO).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
-In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
+In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. 
 
-* NetSuite supporta l'accesso SSO avviato da **IdP**
+NetSuite supporta:
 
-* NetSuite supporta il provisioning utenti **JIT**
-
-* NetSuite supporta il [provisioning utenti automatico](NetSuite-provisioning-tutorial.md)
+* Accesso Single Sign-On avviato da IDP.
+* Provisioning utenti JIT.
+* [Provisioning utenti automatizzato](NetSuite-provisioning-tutorial.md).
 
 > [!NOTE]
 > Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
 
-## <a name="adding-netsuite-from-the-gallery"></a>Aggiunta di NetSuite dalla raccolta
+## <a name="add-netsuite-from-the-gallery"></a>Aggiungere NetSuite dalla raccolta
 
-Per configurare l'integrazione di NetSuite in Azure AD, è necessario aggiungere NetSuite dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di NetSuite in Azure AD, aggiungere NetSuite dalla raccolta all'elenco di app SaaS gestite come descritto di seguito:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
+1. Nel riquadro sinistro selezionare il servizio **Azure Active Directory**.
 1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **NetSuite** nella casella di ricerca.
@@ -66,71 +66,76 @@ Per configurare l'integrazione di NetSuite in Azure AD, è necessario aggiungere
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-netsuite"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per NetSuite
 
-Configurare e testare l'accesso SSO di Azure AD con NetSuite usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in NetSuite.
+Configurare e testare l'accesso SSO di Azure AD con NetSuite by usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in NetSuite.
 
 Per configurare e testare l'accesso SSO di Azure AD con NetSuite, completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Configurare l'accesso Single Sign-On di NetSuite](#configure-netsuite-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    1. **[Creare l'utente di test di NetSuite](#create-netsuite-test-user)** : per avere una controparte di B.Simon in NetSuite collegata alla rappresentazione dell'utente in Azure AD.
-1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
+1. [Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso): per consentire agli utenti di usare questa funzionalità.
+
+    a. [Creare un utente di test di Azure AD](#create-an-azure-ad-test-user): per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.  
+    b. [Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user): per consentire all'utente B.Simon di usare l'accesso Single Sign-On di Azure AD.
+1. [Configurare l'accesso Single Sign-On di NetSuite](#configure-netsuite-sso): per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    * [Creare l'utente di test di NetSuite](#create-the-netsuite-test-user): per avere una controparte dell'utente B.Simon in NetSuite collegata alla rappresentazione dell'utente in Azure AD.
+1. [Testare l'accesso SSO](#test-sso) per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
-Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
+Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **NetSuite** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
+1. Nella pagina di integrazione dell'applicazione **NetSuite** del [portale di Azure](https://portal.azure.com/) cercare la sezione **Gestione** e quindi selezionare **Single Sign-On**.
+1. Nel riquadro **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nel riquadro **Configura l'accesso Single Sign-On con SAML** selezionare l'icona **Modifica** (la matita) accanto a **Configurazione SAML di base**.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti:
+1. Nella casella di testo **URL di risposta** della sezione **Configurazione SAML di base** digitare un URL in uno dei formati seguenti:
 
-    Nella casella di testo **URL di risposta** digitare un URL nel formato seguente:
-
-    | |
-    |--|
-    | `https://<tenant-name>.NetSuite.com/saml2/acs` |
-    | `https://<tenant-name>.na1.NetSuite.com/saml2/acs` |
-    | `https://<tenant-name>.na2.NetSuite.com/saml2/acs` |
-    | `https://<tenant-name>.sandbox.NetSuite.com/saml2/acs` |
-    | `https://<tenant-name>.na1.sandbox.NetSuite.com/saml2/acs` |
-    | `https://<tenant-name>.na2.sandbox.NetSuite.com/saml2/acs` |
+    ```
+    https://<tenant-name>.NetSuite.com/saml2/acs
+    https://<tenant-name>.na1.NetSuite.com/saml2/acs
+    https://<tenant-name>.na2.NetSuite.com/saml2/acs
+    https://<tenant-name>.sandbox.NetSuite.com/saml2/acs
+    https://<tenant-name>.na1.sandbox.NetSuite.com/saml2/acs
+    https://<tenant-name>.na2.sandbox.NetSuite.com/saml2/acs
+    ```
 
     > [!NOTE]
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere il valore contattare il [team di supporto di NetSuite](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > I valori negli URL precedenti non sono reali. Aggiornarli con l'URL di risposta effettivo. Per ottenere il valore, contattare il [team di supporto clienti di NetSuite](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). È anche possibile fare riferimento ai formati illustrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. L'applicazione NetSuite prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo Attributi utente.
+    L'applicazione NetSuite prevede che le asserzioni SAML siano visualizzate in un formato specifico. Sarà necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. 
+    
+1. Per aprire il riquadro **Attributi utente**, selezionare l'icona **Modifica** (la matita). Il riquadro visualizza un elenco di attributi predefiniti, come illustrato nell'immagine seguente: 
 
-    ![image](common/edit-attribute.png)
+    ![Riquadro Attributi utente](common/edit-attribute.png)
 
-1. Oltre quelli elencati in precedenza, l'applicazione NetSuite prevede il passaggio di altri attributi nella risposta SAML. Nella sezione Attestazioni utente della finestra di dialogo Attributi utente eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
+    Oltre a quelli elencati in precedenza, l'applicazione NetSuite prevede il passaggio di altri attributi nella risposta SAML. 
+
+1. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** seguire questa procedura per aggiungere l'attributo del token SAML illustrato nella tabella seguente:
 
     | Nome | Attributo di origine | 
     | ---------------| --------------- |
     | account  | `account id` |
 
-    1. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
+    a. Selezionare **Aggiungi nuova attestazione** per aprire il riquadro **Gestisci attestazioni utente**.
 
-    1. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
+    b. Nella casella **Nome** digitare il nome dell'attributo indicato per la riga.
 
-    1. Lasciare vuota la casella **Spazio dei nomi**.
+    c. Lasciare vuota la casella **Spazio dei nomi**.
 
-    1. Per Origine selezionare **Attributo**.
+    d. Nell'elenco a discesa **Origine** selezionare **Attributo**.
 
-    1. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
+    e. Nell'elenco **Attributo di origine** immettere il valore dell'attributo indicato per la riga.
 
-    1. Fare clic su **OK**.
+    f. Selezionare **OK**.
 
-    1. Fare clic su **Save**.
+    g. Selezionare **Salva**.
 
     >[!NOTE]
     >Il valore dell'attributo account non è reale. È necessario aggiornarlo, come descritto più avanti nell'esercitazione.
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** cercare il file **XML dei metadati della federazione**.
+
+1. Selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -140,129 +145,135 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
+In questa sezione viene creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti**.
+
 1. Selezionare **Nuovo utente** in alto nella schermata.
-1. In **Proprietà utente** seguire questa procedura:
-   1. Nel campo **Nome** immettere `B.Simon`.  
-   1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Crea**.
+
+1. Nel riquadro **Proprietà utente** seguire questa procedura:
+
+   a. Nella casella **Nome** immettere **B.Simon**.  
+   b. Nella casella **Nome utente** immettere un valore per username@companydomain.extension, ad esempio B.Simon@contoso.com.  
+   c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.  
+   d. Selezionare **Create** (Crea).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a NetSuite.
+In questa sezione si abilita l'utente B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a NetSuite.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **NetSuite**.
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+1. Nel riquadro della panoramica cercare la sezione **Gestione** e quindi selezionare il collegamento **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nel riquadro **Aggiungi assegnazione**.
 
-    ![Collegamento Aggiungi utente](common/add-assign-user.png)
+    ![Pulsante "Aggiungi utente"](common/add-assign-user.png)
 
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+1. Nell'elenco a discesa **Utenti** del riquadro **Utenti e gruppi** selezionare **B.Simon** e quindi selezionare il pulsante **Seleziona** nella parte inferiore della schermata.
+1. Se nell'asserzione SAML è previsto un valore di ruolo, seguire questa procedura:
+
+   a. Nell'elenco a discesa del riquadro **Seleziona ruolo** selezionare il ruolo appropriato per l'utente.  
+   b. Selezionare il pulsante **Seleziona** nella parte inferiore della schermata.
+1. Nel riquadro **Aggiungi assegnazione** selezionare il pulsante **Assegna**.
 
 ## <a name="configure-netsuite-sso"></a>Configurare l'accesso Single Sign-On di NetSuite
 
-1. Aprire una nuova scheda nel browser e accedere al sito della società NetSuite come amministratore.
+1. Aprire una nuova scheda nel browser e accedere al sito aziendale di NetSuite come amministratore.
 
-2. Sulla barra degli strumenti nella parte superiore della pagina, fare clic su **Setup** (Installazione), quindi passare a **Company** (Società) e fare clic su **Enable Features** (Attiva funzionalità).
+2. Nella barra di spostamento in alto selezionare **Setup** (Configura) e quindi **Company** (Società)  > **Enable Features** (Abilita funzionalità).
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-setupsaml.png)
+    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-setupsaml.png)
 
-3. Sulla barra degli strumenti al centro della pagina, fare clic su **SuiteCloud**.
+3. Sulla barra degli strumenti al centro della pagina selezionare **SuiteCloud**.
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-suitecloud.png)
+    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-suitecloud.png)
 
-4. Nella sezione **Manage Authentication** (Gestisci autenticazione) selezionare **SAML SINGLE SIGN-ON** per abilitare l'opzione SAML SINGLE SIGN-ON in NetSuite.
+4. In **Manage Authentication** (Gestisci autenticazione) selezionare la casella di controllo **SAML Single Sign-On** (Accesso SSO SAML) per abilitare l'opzione per l'acesso Single Sign-On SAML in NetSuite.
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-ticksaml.png)
+    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-ticksaml.png)
 
-5. Sulla barra degli strumenti nella parte superiore della pagina fare clic su **Setup** (Configurazione).
+5. Nella barra di spostamento in alto selezionare **Setup** (Configura).
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-setup.png)
+    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-setup.png)
 
-6. Dall'elenco **SETUP TASKS** (Configura attività) selezionare **Integration** (Integrazione).
+6. Nell'elenco **Setup Tasks** (Configura attività) selezionare **Integration** (Integrazione).
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-integration.png)
+    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-integration.png)
 
-7. Nella sezione **MANAGE AUTHENTICATION** (Gestione autenticazione) fare clic su **SAML Single Sign-on**.
+7. In **Manage Authentication** (Gestisci autenticazione) selezionare **SAML Single Sign-on** (Accesso SSO SAML).
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-saml.png)
+    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-saml.png)
 
-8. Nella pagina **SAML Setup** (Configurazione SAML), nella sezione **NetSuite Configuration** (Configurazione NetSuite) seguire questa procedura:
+8. Nella sezione **NetSuite Configuration** (Configurazione NetSuite) del riquadro **SAML Setup** (Configurazione SAML) seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-saml-setup.png)
+    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-saml-setup.png)
   
-    a. Selezionare **PRIMARY AUTHENTICATION METHOD** (Metodo di autenticazione primario).
+    a. Selezionare la casella di controllo **Primary Authentication Method** (Metodo di autenticazione primario).
 
-    b. Per il campo con etichetta **SAMLV2 IDENTITY PROVIDER METADATA** (Metadati provider identità SAMLV2) selezionare **UPLOAD IDP METADATA FILE** (Carica file di metadati IDP). Fare quindi clic su **Browse** (Sfoglia) per caricare il file di metadati scaricato dal portale di Azure.
+    b. In **SAMLV2 Identity Provider Metadata** (Metadati provider di identità SAMLV2) selezionare **Upload IDP Metadata File** (Carica file di metadati IDP) e quindi **Browse** (Sfoglia) per caricare il file di metadati scaricato dal portale di Azure.
 
-    c. Fare clic su **Submit** (Invia).
+    c. Selezionare **Submit** (Invia).
 
-9. In NetSuite fare clic su **Setup** (Configurazione) quindi passare a **Company** (Società) e fare clic su **Company Information** (Informazioni sulla società) dal menu di spostamento superiore.
+9. Nella barra di spostamento in alto di NetSuite selezionare **Setup** (Configura) e quindi **Company** (Società)  > **Company Information** (Informazioni sulla società).
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-com.png)
+    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-com.png)
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-account-id.png)
+    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-account-id.png)
 
-    b. Nella pagina **Company Information** (Informazioni sulla società) sulla colonna destra copiare **ID ACCOUNT**.
+    b. Nel riquadro **Company Information** (Informazioni sulla società) copiare il valore di **Account ID** (ID account) nella colonna di destra.
 
-    c. Incollare l'**ID account** copiato dall'account NetSuite nel campo **Valore attributo** in Azure AD. 
+    c. Incollare il valore di **Account ID** (ID account) copiato dall'account NetSuite nella casella **Valore attributo** in Azure AD. 
 
-10. Per consentire l'accesso Single Sign-On a NetSuite, è prima di tutto necessario che le autorizzazioni appropriate vengano assegnate agli utenti in NetSuite. Per assegnare le autorizzazioni, seguire le istruzioni seguenti.
+10. Per consentire l'accesso Single Sign-On a NetSuite, è prima di tutto necessario che le autorizzazioni appropriate vengano assegnate agli utenti in NetSuite. Per assegnare queste autorizzazioni, seguire questa procedura:
 
-    a. Dal menu di navigazione principale fare clic su **Setup** (Configurazione).
+    a. Nella barra di spostamento in alto selezionare **Setup** (Configura).
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-setup.png)
+    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-setup.png)
 
-    b. Scegliere **Users/Roles** (Utenti/Ruoli) dal menu di navigazione a sinistra, quindi fare clic su **Manage Roles** (Gestisci ruoli).
+    b. Nel riquadro sinistro selezionare **Users/Roles** (Utenti/Ruoli) e quindi **Manage Roles** (Gestisci ruoli).
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-manage-roles.png)
+    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-manage-roles.png)
 
-    c. Fare clic su **New Role**.
+    c. Selezionare **New Role** (Nuovo ruolo).
 
-    d. Digitare un **nome** per il nuovo ruolo.
+    d. In **Name** (Nome) immettere un nome per il nuovo ruolo.
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-new-role.png)
+    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-new-role.png)
 
-    e. Fare clic su **Save**.
+    e. Selezionare **Salva**.
 
-    f. Scegliere **Permissions**dal menu disponibile nella parte superiore. Fare quindi clic su **Setup**.
+    f. Nella barra di spostamento in alto selezionare **Permissions** (Autorizzazioni). Selezionare quindi **Setup** (Configura).
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-sso.png)
+    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-sso.png)
 
-    g. Selezionare **SAML Single Sign-on**, quindi fare clic su **Aggiungi**.
+    g. Selezionare **SAML Single Sign-on** (Accesso SSO SAML) e quindi **Add** (Aggiungi).
 
-    h. Fare clic su **Save**.
+    h. Selezionare **Salva**.
 
-    i. Scegliere **Setup** (Configurazione) dal menu di navigazione principale, quindi fare clic su **Setup Manager** (Configura gestore).
+    i. Nella barra di spostamento in alto selezionare **Setup** (Configura) e quindi **Setup Manager** (Configura responsabile).
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-setup.png)
+    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-setup.png)
 
-    j. Scegliere **Users/Roles** (Utenti/Ruoli) dal menu di navigazione a sinistra, quindi fare clic su **Manage Users** (Gestisci utenti).
+    j. Nel riquadro sinistro selezionare **Users/Roles** (Utenti/Ruoli) e quindi **Manage Users** (Gestisci utenti).
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-manage-users.png)
+    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-manage-users.png)
 
-    k. Selezionare un utente di test. Quindi fare clic su **Edit** (Modifica) e passare alla scheda **Access** (Accesso).
+    k. Selezionare un utente di test, scegliere **Edit** (Modifica) e quindi selezionare la scheda **Access** (Accesso).
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-edit-user.png)
+    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-edit-user.png)
 
-    l. Nella finestra di dialogo Roles (Ruoli) selezionare il ruolo creato.
+    l. Nel riquadro **Roles** (Ruoli) assegnare il ruolo appropriato creato.
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-add-role.png)
+    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-add-role.png)
 
-    m. Fare clic su **Save**.
+    m. Selezionare **Salva**.
 
-### <a name="create-netsuite-test-user"></a>Creare l'utente di test di NetSuite
+### <a name="create-the-netsuite-test-user"></a>Creare l'utente di test di NetSuite
 
-In questa sezione viene creato un utente di nome Britta Simon in NetSuite. NetSuite supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in NetSuite, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente di nome B.Simon in NetSuite. NetSuite supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in NetSuite, ne viene creato uno nuovo dopo l'autenticazione.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
@@ -273,10 +284,7 @@ Quando si fa clic sul riquadro di NetSuite nel pannello di accesso, si dovrebbe 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 - [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
 - [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
 - [Provare NetSuite con Azure AD](https://aad.portal.azure.com/)
 

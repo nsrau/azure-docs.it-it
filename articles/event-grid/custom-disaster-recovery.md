@@ -1,18 +1,18 @@
 ---
-title: Creare soluzioni personalizzate di ripristino di emergenza per gli Argomenti personalizzati nella Griglia di eventi di Azure | Microsoft Docs
-description: Sopravvivere alle interruzioni di servizio a livello di area per mantenere la connessione della Griglia di eventi di Azure.
+title: Ripristino di emergenza per argomenti personalizzati in Griglia di eventi di Azure
+description: Informazioni su come ovviare alle interruzioni di servizio a livello di area per mantenere connessa l'istanza di Griglia di eventi di Azure.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 05/16/2019
+ms.date: 10/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 4a069db7984a7b0b0bb4bb867dc510f73d8b1f75
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 7020fb167539e8ad16cc6c386f58e38326dec43b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305084"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790268"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Creare soluzioni personalizzate di ripristino di emergenza per argomenti personalizzati in Griglia di eventi
 Il ripristino di emergenza consiste nel recupero da una grave perdita di funzionalità delle applicazioni. Questa esercitazione illustrerà come configurare l'architettura di gestione degli eventi per il ripristino se il servizio Griglia di eventi diventa non integro in una determinata area.

@@ -17,10 +17,10 @@ ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e908cb76a57f027494230edc648b69da0730ac27
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70164234"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Onit
@@ -111,7 +111,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
@@ -137,15 +137,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. Scegliere **Amministrazione**dal menu disponibile nella parte superiore.
    
-    ![Amministrazione](./media/onit-tutorial/IC791174.png "Amministrazione")
+    ![Amministrazione](./media/onit-tutorial/IC791174.png "Administration")
 
 3. Fare clic su **Edit Corporation**.
    
-    ![Modificare l'azienda](./media/onit-tutorial/IC791175.png "Modificare l'azienda")
+    ![Edit Corporation](./media/onit-tutorial/IC791175.png "Edit Corporation")
    
 4. Fare clic sulla scheda **Security** (Sicurezza).
     
-    ![Modificare le informazioni sulla società](./media/onit-tutorial/IC791176.png "Modificare le informazioni sulla società")
+    ![Edit Company Information](./media/onit-tutorial/IC791176.png "Modifica informazioni società")
 
 5. Nella scheda **Sicurezza** eseguire la procedura seguente:
 
@@ -169,11 +169,11 @@ Per consentire agli utenti di Azure AD di accedere a Onit, è necessario eseguir
 
 2. Fare clic su **Add User**.
 
-    ![Amministrazione](./media/onit-tutorial/IC791180.png "Amministrazione")
+    ![Amministrazione](./media/onit-tutorial/IC791180.png "Administration")
 
 3. Nella pagina della finestra di dialogo **Aggiungi utente** eseguire la procedura seguente:
 
-    ![Aggiungere un utente](./media/onit-tutorial/IC791181.png "Aggiungere un utente")
+    ![Add User](./media/onit-tutorial/IC791181.png "Aggiunta di un utente")
 
     a. Digitare il **nome** e l'**indirizzo e-mail** di un account Azure AD valido di cui si vuole effettuare il provisioning nelle caselle di testo correlate.
 
