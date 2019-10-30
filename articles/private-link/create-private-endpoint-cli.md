@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 30394ba7b71d7dcb4233e5dca341dda47fd9ffa7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 477f7d4824d3165357228d200dca9e556a072744
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376324"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053517"
 ---
 # <a name="create-a-private-endpoint-using-azure-cli"></a>Creare un endpoint privato usando l'interfaccia della riga di comando
 L'endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse di collegamento privato. In questa Guida introduttiva si apprenderà come creare una VM in una rete virtuale, un server di database SQL con un endpoint privato usando l'interfaccia della riga di comando di Azure. Quindi, è possibile accedere alla macchina virtuale e accedere in modo sicuro alla risorsa di collegamento privato (un server di database SQL di Azure privato in questo esempio). 
@@ -39,7 +39,7 @@ az network vnet create \
  --subnet-name mySubnet
 ```
 ## <a name="disable-subnet-private-endpoint-policies"></a>Disabilitare i criteri dell'endpoint privato della subnet 
-Azure distribuisce le risorse in una subnet all'interno di una rete virtuale, pertanto è necessario creare o aggiornare la subnet per disabilitare i criteri di rete degli endpoint privati. Aggiornare una configurazione di subnet *denominata subnet* With [AZ Network VNET subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+Azure distribuisce le risorse in una subnet all'interno di una rete virtuale, pertanto è necessario creare o aggiornare la subnet per disabilitare i criteri di rete degli endpoint privati. Aggiornare una *configurazione di subnet denominata subnet* con [AZ Network VNET subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -49,7 +49,7 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 ## <a name="create-the-vm"></a>Creare la VM 
-Creare una macchina virtuale con AZ VM create. Quando richiesto, specificare una password da usare come credenziali di accesso per la macchina virtuale. Questo esempio crea una macchina virtuale denominata *myVm*: 
+Creare una macchina virtuale con AZ VM create. Quando richiesto, specificare una password da usare come credenziali di accesso per la macchina virtuale. Questo esempio crea una macchina virtuale denominata *myVm*: 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
@@ -81,7 +81,7 @@ az sql db create \
     --capacity 1 
 ```
 
-Si noti che l'ID SQL Server è simile a @ no__t-0. verrà usato l'ID SQL Server nel passaggio successivo. 
+Si noti che l'ID del SQL Server è simile ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/myserver.``` si userà l'ID SQL Server nel passaggio successivo. 
 
 ## <a name="create-the-private-endpoint"></a>Creare l'endpoint privato 
 Creare un endpoint privato per il server di database SQL nella rete virtuale: 
@@ -148,8 +148,8 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
 In questa sezione si effettuerà la connessione al server di database SQL dalla macchina virtuale usando l'endpoint privato.
 
- 1. Nel desktop remoto di  *myVM* aprire PowerShell.
- 2. Immettere nslookup MyServer. database. Windows. NET @ no__t-0. verrà visualizzato un messaggio simile al seguente: 
+ 1. Nel Desktop remoto di *myVM*aprire PowerShell.
+ 2. Immettere nslookup myserver.database.windows.net  verrà visualizzato un messaggio simile al seguente: 
 
 ```
       Server:  UnKnown 
@@ -165,7 +165,7 @@ In questa sezione si effettuerà la connessione al server di database SQL dalla 
  Password: immettere una password specificata durante la creazione.
  Ricorda password: selezionare Sì.
  
- 5. Selezionare **Connetti**.
+ 5. Selezionare **Connessione**.
  6. Esplorare i **database** dal menu a sinistra.
  7. Facoltativamente Creare o eseguire query sulle informazioni da *database*
  8. Chiudere la connessione Desktop remoto a *myVm*.

@@ -1,7 +1,7 @@
 ---
 title: Proteggere i servizi Web tramite SSL
 titleSuffix: Azure Machine Learning
-description: Informazioni su come proteggere un servizio Web distribuito tramite Azure Machine Learning abilitando HTTPS. HTTPS protegge i dati da dai client usando Transport Layer Security (TLS), una sostituzione per Secure Socket Layer (SSL). I client usano anche HTTPS per verificare l'identità del servizio Web.
+description: Informazioni su come abilitare HTTPS in modo da proteggere un servizio Web distribuito tramite Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce60806c26359ae682f5ab468e4f4265d3572c87
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 39b79e5729945a346e9cf022fb93e23da9fa7824
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034370"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053551"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Usare SSL per proteggere un servizio Web tramite Azure Machine Learning
 
@@ -51,7 +51,7 @@ Quando si proteggono i servizi Web tra le [destinazioni di distribuzione](how-to
 
 ## <a name="get-a-domain-name"></a>Immettere un nome di dominio
 
-Se non si dispone già di un nome di dominio, acquistarne uno da un *registrar*. Il processo e il prezzo variano tra i registrar. Il registrar fornisce gli strumenti per gestire il nome di dominio. Questi strumenti vengono usati per eseguire il mapping di un nome di dominio completo (FQDN) (\.ad esempio www contoso.com) all'indirizzo IP che ospita il servizio Web.
+Se non si dispone già di un nome di dominio, acquistarne uno da un *registrar*. Il processo e il prezzo variano tra i registrar. Il registrar fornisce gli strumenti per gestire il nome di dominio. Questi strumenti vengono usati per eseguire il mapping di un nome di dominio completo (FQDN), ad esempio www\.contoso.com, all'indirizzo IP che ospita il servizio Web.
 
 ## <a name="get-an-ssl-certificate"></a>Ottenere un certificato SSL
 
@@ -60,7 +60,7 @@ Esistono diversi modi per ottenere un certificato SSL (certificato digitale). Il
 * Un **certificato**. Il certificato deve contenere la catena di certificati completa e deve essere "con codifica PEM".
 * Una **chiave**. La chiave deve anche essere codificata con PEM.
 
-Quando si richiede un certificato, è necessario fornire il nome di dominio completo dell'indirizzo che si prevede di utilizzare per il servizio Web (ad esempio\., www contoso.com). Per verificare l'identità del servizio Web, l'indirizzo indicato nel certificato e l'indirizzo utilizzato dai client vengono confrontati. Se gli indirizzi non corrispondono, il client riceve un messaggio di errore.
+Quando si richiede un certificato, è necessario fornire il nome di dominio completo dell'indirizzo che si intende utilizzare per il servizio Web (ad esempio, www\.contoso.com). Per verificare l'identità del servizio Web, l'indirizzo indicato nel certificato e l'indirizzo utilizzato dai client vengono confrontati. Se gli indirizzi non corrispondono, il client riceve un messaggio di errore.
 
 > [!TIP]
 > Se l'autorità di certificazione non può fornire il certificato e la chiave come file con codifica PEM, è possibile usare un'utilità come [openssl](https://www.openssl.org/) per modificare il formato.
@@ -84,7 +84,7 @@ Quando si esegue la distribuzione in AKS, è possibile creare un nuovo cluster A
 
 Il metodo **enable_ssl** può usare un certificato fornito da Microsoft o da un certificato acquistato.
 
-  * Quando si usa un certificato di Microsoft, è necessario usare il parametro *leaf_domain_label* . Questo parametro genera il nome DNS per il servizio. Il valore "MyServices", ad esempio, crea un nome di dominio "MyServices\<Six-random-characters >.\< azureregion >. cloudapp. Azure. com ", dove \<azureregion > è l'area che contiene il servizio. Facoltativamente, è possibile usare il parametro *overwrite_existing_domain* per sovrascrivere il *leaf_domain_label*esistente.
+  * Quando si usa un certificato di Microsoft, è necessario usare il parametro *leaf_domain_label* . Questo parametro genera il nome DNS per il servizio. Il valore "MyServices", ad esempio, crea un nome di dominio "MyServices\<sei caratteri casuali >.\<azureregion >. cloudapp. Azure. com ", dove \<azureregion > è l'area che contiene il servizio. Facoltativamente, è possibile usare il parametro *overwrite_existing_domain* per sovrascrivere il *leaf_domain_label*esistente.
 
     Per distribuire (o ridistribuire) il servizio con SSL abilitato, impostare il parametro *ssl_enabled* su "true" laddove applicabile. Impostare il parametro *ssl_certificate* sul valore del file del *certificato* . Impostare *ssl_key* sul valore del file di *chiave* .
 
@@ -151,7 +151,7 @@ Successivamente, è necessario aggiornare il DNS in modo che punti al servizio W
 
   Aggiornare il DNS dell'indirizzo IP pubblico del cluster AKS nella scheda **configurazione** in **Impostazioni** nel riquadro sinistro. (Vedere l'immagine seguente). L'indirizzo IP pubblico è un tipo di risorsa creato nel gruppo di risorse che contiene i nodi dell'agente AKS e altre risorse di rete.
 
-  [![Azure Machine Learning: Protezione dei servizi Web con SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
+  [![Azure Machine Learning: protezione dei servizi Web con SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## <a name="update-the-ssl-certificate"></a>Aggiornare il certificato SSL
 
@@ -247,6 +247,6 @@ aks_target.update(update_config)
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-È possibile passare agli argomenti seguenti:
+Scopri come:
 + [Consume a machine learning model deployed as a web service](how-to-consume-web-service.md) (Come usare un modello di Machine Learning distribuito come servizio Web)
 + [Eseguire in modo sicuro gli esperimenti e l'inferenza all'interno di una rete virtuale di Azure](how-to-enable-virtual-network.md)

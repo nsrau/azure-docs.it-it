@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 27cf1539fc98b2ad7f1b82e194989c1619ab99fb
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: fe0f16fd4c07eac92ab3c1ae2c6f78b0bd1595eb
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980700"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053490"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -23,7 +23,7 @@ Lo schema di definizione dei criteri è disponibile qui: [https://schema.managem
 Per creare una definizione di criterio è possibile usare JSON. La definizione dei criteri contiene gli elementi per:
 
 - mode
-- parameters
+- Parametri
 - nome visualizzato
 - description
 - regola dei criteri
@@ -66,7 +66,7 @@ Ad esempio, la notazione JSON seguente illustra un criterio che limita i punti i
 
 Tutti gli esempi di criteri di Azure sono disponibili in [esempi di criteri di Azure](../samples/index.md).
 
-## <a name="mode"></a>Modalità
+## <a name="mode"></a>Mode
 
 La **modalità** viene configurata in base al fatto che i criteri siano destinati a una proprietà Azure Resource Manager o a una proprietà del provider di risorse.
 
@@ -88,7 +88,7 @@ L'unica modalità del provider di risorse supportata attualmente è `Microsoft.C
 > [!NOTE]
 > [Criteri di Azure per Kubernetes](rego-for-aks.md) è in anteprima pubblica e supporta solo le definizioni di criteri predefinite.
 
-## <a name="parameters"></a>Parametri
+## <a name="parameters"></a>parameters
 
 I parametri consentono di semplificare la gestione dei criteri, riducendone il numero di definizioni. I parametri possono essere paragonati ai campi di un modulo: `name`, `address`, `city`, `state`. Questi parametri rimangono sempre invariati, ma i loro valori cambiano a seconda dei dati immessi durante la compilazione del modulo da parte dei singoli utenti.
 I parametri funzionano nello stesso modo durante la creazione di criteri. L'inclusione dei parametri in una definizione dei criteri consente di riutilizzare i singoli criteri in vari scenari mediante l'uso di valori diversi.
@@ -100,16 +100,16 @@ I parametri funzionano nello stesso modo durante la creazione di criteri. L'incl
 
 Un parametro presenta le proprietà seguenti, usate nella definizione di criteri:
 
-- **name**: nome del parametro. Usato dalla funzione di distribuzione `parameters` all'interno della regola dei criteri. Per altre informazioni, vedere [Usare un valore di parametro](#using-a-parameter-value).
-- `type`: Determina se il parametro è una **stringa**, una **matrice**, un **oggetto**, un valore **booleano**, un Integer, un **valore** **float**o **DateTime**.
-- `metadata`: definisce le sottoproprietà usate principalmente dal portale di Azure per visualizzare informazioni di tipo descrittivo:
-  - `description`: la spiegazione di ciò per cui viene usato il parametro. Può essere usata per fornire esempi di valori accettabili.
-  - `displayName`: il nome descrittivo visualizzato per il parametro nel portale.
-  - `strongType`: (facoltativa) usata quando si assegna la definizione di criteri tramite portale. Fornisce un elenco con riconoscimento del contesto. Per altre informazioni, vedere [strongType](#strongtype).
-  - `assignPermissions`: Opzionale Impostare su _true_ per avere portale di Azure creare assegnazioni di ruolo durante l'assegnazione dei criteri. Questa proprietà è utile nel caso in cui si desideri assegnare autorizzazioni al di fuori dell'ambito di assegnazione. È disponibile un'assegnazione di ruolo per ogni definizione di ruolo nel criterio (o per definizione di ruolo in tutti i criteri dell'iniziativa). Il valore del parametro deve essere una risorsa o un ambito valido.
-- `defaultValue`: (facoltativa) imposta il valore del parametro in un'assegnazione se non viene specificato alcun valore.
+- **nome**: il nome del parametro. Usato dalla funzione di distribuzione `parameters` all'interno della regola dei criteri. Per altre informazioni, vedere [Usare un valore di parametro](#using-a-parameter-value).
+- `type`: determina se il parametro è una **stringa**, una **matrice**, un **oggetto**, un valore **booleano**, un Integer, un **valore** **float**o **DateTime**.
+- `metadata`: definisce le sottoproprietà utilizzate principalmente dal portale di Azure per visualizzare informazioni descrittivo:
+  - `description`: spiegazione della funzione utilizzata per il parametro. Può essere usata per fornire esempi di valori accettabili.
+  - `displayName`: il nome descrittivo visualizzato nel portale per il parametro.
+  - `strongType`: (facoltativo) usato durante l'assegnazione della definizione dei criteri tramite il portale. Fornisce un elenco con riconoscimento del contesto. Per altre informazioni, vedere [strongType](#strongtype).
+  - `assignPermissions`: (facoltativo) impostare su _true_ per avere portale di Azure creare assegnazioni di ruolo durante l'assegnazione dei criteri. Questa proprietà è utile nel caso in cui si desideri assegnare autorizzazioni al di fuori dell'ambito di assegnazione. È disponibile un'assegnazione di ruolo per ogni definizione di ruolo nel criterio (o per definizione di ruolo in tutti i criteri dell'iniziativa). Il valore del parametro deve essere una risorsa o un ambito valido.
+- `defaultValue`: (facoltativo) imposta il valore del parametro in un'assegnazione se non viene specificato alcun valore.
   Obbligatoria quando si aggiorna una definizione di criteri esistente già assegnata.
-- `allowedValues`: Opzionale Fornisce una matrice di valori accettati dal parametro durante l'assegnazione.
+- `allowedValues`: (facoltativo) fornisce una matrice di valori accettati dal parametro durante l'assegnazione.
 
 Ad esempio, è possibile definire una definizione di criteri per limitare i percorsi in cui le risorse possono essere distribuite. Un parametro per questa definizione di criteri potrebbe essere **allowedLocations**. Questo parametro è stato usato da ogni assegnazione della definizione di criteri per limitare i valori accettati. L'uso di **strongType** offre un'esperienza migliorata nel completamento dell'assegnazione tramite portale:
 
@@ -161,7 +161,7 @@ Nella proprietà `metadata` è possibile usare **strongType** per fornire un ele
 - `Microsoft.RecoveryServices/vaults`
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
-## <a name="definition-location"></a>Località della definizione
+## <a name="definition-location"></a>Posizione della definizione
 
 Durante la creazione di iniziative o criteri è importante specificare la posizione della definizione. La posizione della definizione deve essere specificata come un gruppo di gestione o una sottoscrizione. Tale posizione determina l'ambito al quale la definizione delle iniziative o dei criteri può essere assegnata. Le risorse devono essere membri diretti o elementi figli all'interno della gerarchia della posizione della definizione da destinare all'assegnazione.
 
@@ -223,18 +223,18 @@ La sintassi **not** inverte il risultato della condizione. La sintassi **allOf**
 
 Una condizione valuta se una funzione di accesso **field** o **value** soddisfa determinati criteri. Le condizioni supportate sono:
 
-- `"equals": "value"`
-- `"notEquals": "value"`
-- `"like": "value"`
-- `"notLike": "value"`
-- `"match": "value"`
-- `"matchInsensitively": "value"`
-- `"notMatch": "value"`
-- `"notMatchInsensitively": "value"`
-- `"contains": "value"`
-- `"notContains": "value"`
-- `"in": ["value1","value2"]`
-- `"notIn": ["value1","value2"]`
+- `"equals": "stringValue"`
+- `"notEquals": "stringValue"`
+- `"like": "stringValue"`
+- `"notLike": "stringValue"`
+- `"match": "stringValue"`
+- `"matchInsensitively": "stringValue"`
+- `"notMatch": "stringValue"`
+- `"notMatchInsensitively": "stringValue"`
+- `"contains": "stringValue"`
+- `"notContains": "stringValue"`
+- `"in": ["stringValue1","stringValue2"]`
+- `"notIn": ["stringValue1","stringValue2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
 - `"less": "value"`
@@ -246,7 +246,7 @@ Una condizione valuta se una funzione di accesso **field** o **value** soddisfa 
 Quando si usano le condizioni **like** e **notLike**, è possibile inserire un carattere jolly `*` nel valore.
 Il valore non deve contenere più di un carattere jolly `*`.
 
-Quando si usano le condizioni **match** e **notMatch** , specificare `#` in modo che corrisponda a una cifra, `?` per una lettera, `.` in modo che corrisponda a qualsiasi carattere e a qualsiasi altro carattere in modo che corrisponda al carattere effettivo.
+Quando si usano le condizioni **match** e **notMatch** , fornire `#` per trovare la corrispondenza con una cifra, `?` per una lettera, `.` in modo che corrisponda a qualsiasi carattere e qualsiasi altro carattere in modo che corrisponda al carattere effettivo.
 **match** e **notMatch** fanno distinzione tra maiuscole e minuscole. Alternative senza distinzione tra maiuscole e minuscole sono disponibili in **matchInsensitively** e **notMatchInsensitively**. Ad esempio, vedere [Consentire modelli nome multipli](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Campi
@@ -445,7 +445,7 @@ Tutte le [funzioni di modello di gestione risorse](../../../azure-resource-manag
 
 Le funzioni seguenti sono disponibili per l'uso in una regola dei criteri, ma sono diverse da quelle usate in un modello di Azure Resource Manager:
 
-- addDays(dateTime, numberOfDaysToAdd)
+- addDays (dateTime, numberOfDaysToAdd)
   - **DateTime**: [Required] stringa stringa nel formato DateTime universale ISO 8601' aaaa-mm-ggThh: mm: SS. fffffffZ '
   - **numberOfDaysToAdd**: [Required] numero intero di giorni da aggiungere
 - utcNow (): diversamente da un modello di Gestione risorse, può essere usato all'esterno di defaultValue.
@@ -509,14 +509,14 @@ L'elenco degli alias è in costante crescita. Per scoprire quali alias sono attu
 
 ### <a name="understanding-the--alias"></a>Informazioni sull'alias [*]
 
-Molti degli alias disponibili hanno una versione che viene visualizzata come un nome "normale" e un'altra a cui viene aggiunto **[\*]** . Esempio:
+Molti degli alias disponibili hanno una versione che viene visualizzata come un nome "normale" e un'altra a cui viene aggiunto **[\*]** . ad esempio:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 L'alias ' Normal ' rappresenta il campo come valore singolo. Questo campo è per gli scenari di confronto con corrispondenza esatta quando l'intero set di valori deve essere esattamente come definito, non più e non meno.
 
-L'alias **[\*]** rende possibile il confronto con il valore di ogni elemento nella matrice e proprietà specifiche di ogni elemento. Questo approccio consente di confrontare le proprietà degli elementi per gli scenari "If None of", "if any of" o "if all of". Utilizzando **ipRules [\*]** , un esempio convaliderebbe che ogni _azione_ sia _negata_, ma non preoccupante del numero di regole esistenti o del _valore_ IP. Questa regola di esempio controlla la presenza di eventuali corrispondenze di **ipRules [\*]. valore** in **10.0.4.1** e applica **effectType** solo se non trova almeno una corrispondenza:
+L'alias **[\*]** consente di eseguire il confronto con il valore di ogni elemento nella matrice e con proprietà specifiche di ogni elemento. Questo approccio consente di confrontare le proprietà degli elementi per gli scenari "If None of", "if any of" o "if all of". Utilizzando **ipRules [\*]** , un esempio consiste nel convalidare che ogni _azione_ è _negata_, ma non è preoccupante del numero di regole esistenti o del _valore_ IP. Questa regola di esempio controlla la presenza di eventuali corrispondenze di **ipRules [\*]. Value** in **10.0.4.1** e applica **effectType** solo se non trova almeno una corrispondenza:
 
 ```json
 "policyRule": {

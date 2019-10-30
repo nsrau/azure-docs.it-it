@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: asgang
-ms.openlocfilehash: 81d22250262351e3c1bbb2fe28960b3d158bbf57
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 317a8ba48851ebf65fe52e79f6cf9d9c45786f6f
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147058"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053419"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Escludere dischi dalla replica di PowerShell di macchine virtuali di Azure
 
@@ -29,6 +29,7 @@ Prima di iniziare:
 - Verificare i [requisiti di supporto](azure-to-azure-support-matrix.md) per tutti i componenti.
 - Assicurarsi di avere il modulo AzureRm di PowerShell "AZ". Per installare o aggiornare PowerShell, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Assicurarsi di aver creato almeno una volta un insieme di credenziali di servizi di ripristino e le macchine virtuali protette. Se non sono state eseguite queste operazioni, seguire la procedura in [configurare il ripristino di emergenza per macchine virtuali di Azure con Azure PowerShell](azure-to-azure-powershell.md).
+- Per informazioni sull'aggiunta di dischi a una macchina virtuale di Azure abilitata per la replica, [vedere questo articolo](azure-to-azure-enable-replication-added-disk.md).
 
 ## <a name="why-exclude-disks-from-replication"></a>Perché escludere i dischi dalla replica
 Potrebbe essere necessario escludere i dischi dalla replica perché:
@@ -79,7 +80,7 @@ $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 
 Per l'esempio seguente si presuppone che si disponga già di un account di archiviazione della cache, dei criteri di replica e dei mapping. Se non si hanno queste informazioni, seguire la procedura in [configurare il ripristino di emergenza per macchine virtuali di Azure con Azure PowerShell](azure-to-azure-powershell.md).
 
-Replicare una macchina virtuale diAzure con Managed Disks.
+Replicare una macchina virtuale di Azure con *Managed disks*.
 
 ```azurepowershell
 

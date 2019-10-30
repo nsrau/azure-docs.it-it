@@ -1,6 +1,6 @@
 ---
 title: Esplorare i dati in una macchina virtuale di SQL Server - Processo di data science per i team
-description: Esplorare dati e generare funzionalità in una macchina virtuale di SQL Server in Azure
+description: Esplora e elabora i dati e genera le funzionalità usando Python o SQL in una macchina virtuale SQL Server in Azure.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e407b26091ad559ab458f76d94e2460660ecd14f
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 877c639c35378b173b6ec9c8697725e3b3c09290
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036607"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053622"
 ---
 # <a name="heading"></a>Elaborazione dei dati della macchina virtuale di SQL Server in Azure
 Questo documento descrive come esplorare i dati e creare funzionalità per i dati archiviati in una VM di SQL Server su Azure. Questa operazione può essere eseguita gestendo i dati tramite SQL o utilizzando un linguaggio di programmazione come Python.

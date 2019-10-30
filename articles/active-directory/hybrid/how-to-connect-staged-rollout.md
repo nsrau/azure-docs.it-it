@@ -10,12 +10,12 @@ ms.date: 10/28/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 254fa924ea2104e76a475c106f16f4672dd1eec1
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 9c8f4250d2df7703ad2960c2d68cd015cb6ec2bc
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033316"
+ms.locfileid: "73052882"
 ---
 # <a name="cloud-authentication-staged-rollout-public-preview"></a>Autenticazione cloud: implementazione temporanea (anteprima pubblica)
 
@@ -80,6 +80,8 @@ Questi scenari non sono supportati per l'implementazione temporanea:
 ## <a name="get-started-with-staged-rollout"></a>Introduzione all'implementazione di gestione temporanea
 
 Se si vuole testare l'accesso con la sincronizzazione dell'hash delle password (pH) usando l'implementazione di gestione temporanea, completare il pre-lavoro seguente per abilitare l'implementazione temporanea della sincronizzazione dell'hash delle password.
+
+Per altre informazioni sui cmdlet di PowerShell usati, vedere [AzureAD 2,0 Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout)
 
 ## <a name="pre-work-for-password-hash-sync"></a>Pre-lavoro per la sincronizzazione degli hash delle password
 
@@ -239,3 +241,6 @@ Ecco come tenere traccia degli accessi degli utenti ancora in AD FS per gli uten
 -   **D: è possibile usare PowerShell per eseguire l'implementazione temporanea?**
 
 -   R: Sì, trovare la documentazione per usare PowerShell per eseguire l'implementazione temporanea.
+
+## <a name="next-steps"></a>Fasi successive
+- [AzureAD 2,0 Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

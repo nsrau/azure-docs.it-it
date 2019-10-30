@@ -8,14 +8,14 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/18/2018
+ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: fb17d1b95d74a67f220651cf198f367bdd31f19f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 02a1c12957570f0e798c5abfd88562128ea1cf76
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129310"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053078"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinque passaggi per proteggere l'infrastruttura di identità
 
@@ -31,18 +31,23 @@ Questo elenco di controllo permette di distribuire rapidamente le azioni critich
 * Migliorare la consapevolezza in merito al controllo e al monitoraggio.
 * Garantire un livello di sicurezza più prevedibile e completo per gli utenti finali con self-help.
 
+Assicurarsi di tenere traccia delle funzionalità e dei passaggi completati durante la lettura di questo elenco di controllo.
+
 > [!NOTE]
 > Molti consigli forniti in questo documento si applicano solo alle applicazioni, configurate per l'uso di Azure Active Directory come provider di identità. La configurazione di app per il Single Sign-On garantisce i vantaggi associati a criteri per le credenziali, rilevamento delle minacce, controllo, registrazione e altre funzionalità aggiunte a queste applicazioni. L'[accesso Single Sign-On tramite Azure Active Directory](../../active-directory/manage-apps/configure-single-sign-on-portal.md) costituisce l'elemento su cui si basano questi consigli.
 
-I consigli riportati in questo documento sono allineati con [Identity Secure Score](../../active-directory/fundamentals/identity-secure-score.md), un sistema automatizzato per la valutazione della configurazione di sicurezza dell'identità del tenant di Azure AD. Le organizzazioni possono usare la pagina di Identity Secure Score nel portale di Azure AD per individuare lacune nella configurazione di sicurezza corrente, in modo da garantire che vengano seguite le procedure consigliate Microsoft per la sicurezza attualmente in vigore. L'implementazione di ogni consiglio nella pagina di Secure Score aumenterà il punteggio e consentirà di tenere traccia dello stato di avanzamento. Inoltre, sarà possibile confrontare la propria implementazione con altri settori oppure organizzazioni di dimensioni simili.
+I consigli riportati in questo documento sono allineati con [Identity Secure Score](../../active-directory/fundamentals/identity-secure-score.md), un sistema automatizzato per la valutazione della configurazione di sicurezza dell'identità del tenant di Azure AD. Le organizzazioni possono usare la pagina Identity Secure score nel portale Azure AD per individuare le lacune nella configurazione di sicurezza corrente per assicurarsi che seguano le [procedure](identity-management-best-practices.md) consigliate Microsoft correnti per la sicurezza. L'implementazione di ogni consiglio nella pagina di Secure Score aumenterà il punteggio e consentirà di tenere traccia dello stato di avanzamento. Inoltre, sarà possibile confrontare la propria implementazione con altri settori oppure organizzazioni di dimensioni simili.
 
 ![Identity Secure Score](./media/steps-secure-identity/azure-ad-sec-steps0.png)
+
+> [!NOTE]
+> Molte delle funzionalità descritte in questo articolo richiedono una sottoscrizione di Azure AD Premium, mentre alcune sono gratuite. Per ulteriori informazioni, consultare l'elenco di controllo [Azure Active Directory prezzi](https://azure.microsoft.com/pricing/details/active-directory/) e [distribuzione Azure ad](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2) .
 
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Prima di iniziare: proteggere gli account con privilegi mediante MFA
 
 Prima di iniziare questo elenco di controllo, verificare che l'account non venga compromesso durante la lettura. È innanzitutto necessario proteggere gli account con privilegi.
 
-Gli utenti malintenzionati che ottengono il controllo di account con privilegi possono causare enormi danni, pertanto è fondamentale proteggere questi account prima di tutto. Abilitare e richiedere [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) (MFA) per tutti gli amministratori nell'organizzazione usando la [protezione di base](../../active-directory/conditional-access/baseline-protection.md). Implementare MFA, se non è stato già fatto. È davvero importante.
+Gli utenti malintenzionati che ottengono il controllo di account con privilegi possono causare enormi danni, pertanto è fondamentale proteggere questi account prima di tutto. Abilitare e richiedere [Azure multi-factor authentication](../../active-directory/authentication/multi-factor-authentication.md) (multi-factor authentication) per tutti gli amministratori dell'organizzazione usando [Azure ad impostazioni predefinite di sicurezza](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md) o [l'accesso condizionale](../../active-directory/conditional-access/plan-conditional-access.md). Implementare MFA, se non è stato già fatto. È davvero importante.
 
 Tutto pronto? Iniziamo con l'elenco di controllo.
 
@@ -51,9 +56,11 @@ Tutto pronto? Iniziamo con l'elenco di controllo.
 La maggior parte delle violazioni della sicurezza delle organizzazioni ha origine con un account compromesso mediante uno di alcuni metodi, tra cui un attacco password spraying, riproduzione della violazione o phishing. Altre informazioni su questi attacchi sono disponibili in questo video (45 minuti):
 > [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
 
-### <a name="make-sure-your-organization-use-strong-authentication"></a>Assicurarsi che l'organizzazione usi l'autenticazione avanzata
+### <a name="make-sure-your-organization-uses-strong-authentication"></a>Assicurarsi che l'organizzazione usi l'autenticazione avanzata
 
 Poiché le password vengono individuate, sottoposte a phishing, sottratte con malware o riusate con una certa frequenza, è fondamentale supportarle con un tipo di credenziali avanzate: altre informazioni su [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md).
+
+Per abilitare facilmente il livello di base della sicurezza delle identità, è possibile usare l'abilitazione con un solo clic con [Azure ad impostazioni predefinite di sicurezza](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md). Le impostazioni predefinite di sicurezza applicano l'autenticazione a più fattori di Azure per tutti gli utenti in un tenant e bloccano gli accessi dai protocolli legacy a livello di tenant.
 
 ### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>Iniziare a vietare le password attaccate più spesso e disattivare le regole di complessità e scadenza tradizionali.
 
@@ -74,7 +81,7 @@ Microsoft consiglia di adottare i criteri moderni di impostazione delle password
 Se l'organizzazione usa una soluzione di identità ibrida con la federazione o l'autenticazione pass-through, è consigliabile abilitare la sincronizzazione dell'hash delle password per i due motivi seguenti:
 
 * Il report [Utenti con credenziali perse](../../active-directory/reports-monitoring/concept-risk-events.md) nella gestione di Azure AD avvisa l'utente di coppie di nome utente e password esposte nel Dark Web. Una quantità incredibile di password viene persa tramite phishing, malware e riuso delle password nei siti di terze parti che verranno sottoposti a violazioni in un secondo momento. Microsoft individua molte di queste credenziali perse e, in questo report, indica se corrispondono alle credenziali di un'organizzazione, ma solo se l'utente [abilita la sincronizzazione dell'hash delle password](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
-* In caso di interruzione locale (ad esempio, in un attacco ransomware), l'utente è in grado di passare all'[autenticazione cloud usando la sincronizzazione dell'hash delle password](choose-ad-authn.md). Questo metodo di autenticazione di backup consente di continuare ad accedere alle app configurate per l'autenticazione con Azure Active Directory, incluso Office 365. In questo caso, il personale IT non deve ricorrere agli account di posta elettronica personali per condividere i dati, fino a quando non viene risolta l'interruzione del servizio in locale.
+* In caso di interruzione locale (ad esempio, in un attacco ransomware) è possibile passare all'uso dell' [autenticazione cloud con la sincronizzazione dell'hash delle password](choose-ad-authn.md). Questo metodo di autenticazione del backup consentirà di continuare ad accedere alle app configurate per l'autenticazione con Azure Active Directory, incluso Office 365. In questo caso non è necessario che il personale IT ricorra agli account di posta elettronica personali per condividere i dati fino a quando l'interruzione locale non viene risolta.
 
 Altre informazioni sul funzionamento della [sincronizzazione dell'hash delle password](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
@@ -99,7 +106,7 @@ Le app che usano propri metodi legacy per l'autenticazione con Azure AD e l'acce
 
 1. Bloccare l'[autenticazione legacy se si usa AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Configurare [SharePoint Online ed Exchange Online per l'uso dell'autenticazione moderna](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
-3. Usare i [criteri di accesso condizionale per bloccare l'autenticazione legacy](../../active-directory/conditional-access/conditions.md).
+3. Se si dispone di Azure AD Premium, utilizzare i [criteri di accesso condizionale](../../active-directory/conditional-access/conditions.md) per bloccare l'autenticazione legacy, altrimenti utilizzare [Azure ad impostazioni predefinite di sicurezza](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Bloccare punti di ingresso di autenticazione non validi
 
@@ -107,7 +114,7 @@ Con un approccio di presunzione di violazione è consigliabile ridurre l'impatto
 
 ### <a name="block-end-user-consent"></a>Bloccare il consenso dell'utente finale
 
-Per impostazione predefinita, tutti gli utenti di Azure AD possono concedere alle applicazioni che usano OAuth 2.0 e il [framework di consenso](../../active-directory/develop/consent-framework.md) dell'identità Microsoft autorizzazioni per accedere ai dati aziendali. Anche se il consenso permette agli utenti di acquisire facilmente applicazioni utili che si integrano con Microsoft 365 e Azure, può rappresentare un rischio se non viene usato e monitorato attentamente. La [disabilitazione di tutte le operazioni di consenso future per l'utente](../../active-directory/manage-apps/methods-for-removing-user-access.md) consente di ridurre la superficie di attacco e il rischio. Se il consenso dell'utente finale è disabilitato, il consenso precedete verrà comunque eseguito, ma tutte le operazioni future di consenso devono essere eseguite da un amministratore. Prima di disabilitare questa funzionalità, è consigliabile assicurarsi che gli utenti siano in grado di richiedere l'approvazione dell'amministratore per le nuove applicazioni. Ciò consente di ridurre gli ostacoli per l'utente, ridurre al minimo il volume di supporto e assicurarsi che gli utenti non si iscrivano ad applicazioni che usano credenziali non appartenenti ad Azure AD.
+Per impostazione predefinita, tutti gli utenti di Azure AD possono concedere alle applicazioni che usano OAuth 2.0 e il [framework di consenso](../../active-directory/develop/consent-framework.md) dell'identità Microsoft autorizzazioni per accedere ai dati aziendali. Anche se il consenso permette agli utenti di acquisire facilmente applicazioni utili che si integrano con Microsoft 365 e Azure, può rappresentare un rischio se non viene usato e monitorato attentamente. La [disabilitazione di tutte le operazioni di consenso future per l'utente](../../active-directory/manage-apps/methods-for-removing-user-access.md) consente di ridurre la superficie di attacco e il rischio. Se il consenso dell'utente finale è disabilitato, il consenso precedete verrà comunque eseguito, ma tutte le operazioni future di consenso devono essere eseguite da un amministratore. Prima di disabilitare questa funzionalità, è consigliabile assicurarsi che gli utenti apprendano come richiedere l'approvazione dell'amministratore per le nuove applicazioni. Questa operazione dovrebbe contribuire a ridurre l'attrito degli utenti, ridurre al minimo il volume di supporto e verificare che gli utenti non si iscrivono per le applicazioni che usano credenziali non Azure AD.
 
 ### <a name="implement-azure-ad-privileged-identity-management"></a>Implementare Azure AD Privileged Identity Management
 
@@ -130,7 +137,7 @@ Azure Active Directory offre molte funzionalità che intercettano automaticament
 
 ### <a name="implement-user-risk-security-policy-using-azure-ad-identity-protection"></a>Implementare criteri di sicurezza per il rischio utente mediante Azure AD Identity Protection
 
-Rischio utente indica la probabilità che l'identità dell'utente sia stata compromessa e calcolata in base ai rilevamenti dei [rischi utente](../../active-directory/identity-protection/overview.md) associati all'identità di un utente. I criteri di rischio utente sono criteri di accesso condizionale che valutano il livello di rischio per un utente o un gruppo specifico. Basato su un livello di rischio basso, medio o elevato, un criterio può essere configurato per bloccare l'accesso o richiedere una modifica sicura della password mediante autenticazione a più fattori. Microsoft consiglia di richiedere una modifica sicura della password per gli utenti con rischio alto.
+Rischio utente indica la probabilità che l'identità dell'utente sia stata compromessa e calcolata in base ai [rilevamenti dei rischi utente](../../active-directory/identity-protection/overview.md) associati all'identità di un utente. I criteri di rischio utente sono criteri di accesso condizionale che valutano il livello di rischio per un utente o un gruppo specifico. Basato su un livello di rischio basso, medio o elevato, un criterio può essere configurato per bloccare l'accesso o richiedere una modifica sicura della password mediante autenticazione a più fattori. Microsoft consiglia di richiedere una modifica sicura della password per gli utenti con rischio alto.
 
 ![Utenti contrassegnati per il rischio](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
@@ -142,7 +149,7 @@ Il rischio di accesso è la probabilità che un utente diverso dal proprietario 
 
 ## <a name="step-4---increase-your-awareness"></a>Passaggio 4 - Migliorare la consapevolezza
 
-Il controllo e la registrazione di eventi relativi alla sicurezza e di avvisi correlati sono componenti essenziali di una strategia di protezione efficace. I report e i log di sicurezza offrono un record elettronico delle attività sospette e aiutano a rilevare criteri che possono indicare tentativi esterni di penetrazione nella rete e attacchi interni. È possibile usare la funzione di controllo per monitorare l'attività dell'utente, documentare la conformità alle normative, eseguire analisi forensi e altro ancora. Gli avvisi forniscono notifiche di eventi di sicurezza.
+Il controllo e la registrazione di eventi relativi alla sicurezza e di avvisi correlati sono componenti essenziali di una strategia di protezione efficace. I report e i log di sicurezza offrono un record elettronico delle attività sospette e aiutano a rilevare criteri che possono indicare tentativi esterni di penetrazione nella rete e attacchi interni. È possibile utilizzare il controllo per monitorare le attività degli utenti, documentare la conformità alle normative, eseguire analisi forensi e altro ancora. Gli avvisi forniscono notifiche di eventi di sicurezza.
 
 ### <a name="monitor-azure-ad"></a>Monitorare Azure AD
 
@@ -166,7 +173,7 @@ Azure AD Identity Protection offre due importanti report da monitorare quotidian
 
 ### <a name="audit-apps-and-consented-permissions"></a>App di controllo e autorizzazioni per il consenso
 
-Gli utenti possono essere indotti a passare a siti Web o app compromesse che riusciranno ad accedere ai dati dell'utente e alle informazioni del profilo, ad esempio la posta elettronica. Un attore malintenzionato può usare le autorizzazioni per il consenso ricevute per crittografare il contenuto della cassetta postale e richiedere un riscatto per riottenere i dati della cassetta postale. Gli [amministratori dovrebbero analizzare e controllare](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) le autorizzazioni concesse dagli utenti.
+È possibile indurre gli utenti a passare a un sito Web compromesso o a app che otterranno l'accesso alle informazioni sul profilo e ai dati utente, ad esempio la posta elettronica. Un attore malintenzionato può usare le autorizzazioni per il consenso ricevute per crittografare il contenuto della cassetta postale e richiedere un riscatto per riottenere i dati della cassetta postale. Gli [amministratori dovrebbero analizzare e controllare](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) le autorizzazioni concesse dagli utenti.
 
 ## <a name="step-5---enable-end-user-self-help"></a>Passaggio 5 - Abilitare il self-help degli utenti finali
 
@@ -178,13 +185,13 @@ La [reimpostazione self-service delle password](../../active-directory/authentic
 
 ### <a name="implement-self-service-group-management"></a>Implementare la gestione gruppi self-service
 
-Azure AD offre la possibilità di gestire l'accesso alle risorse con gruppi di sicurezza e gruppi di Office 365. Questi gruppi possono essere gestiti dai proprietari, anziché dagli amministratori IT. Nota come [gestione gruppi self-service](../../active-directory/users-groups-roles/groups-self-service-management.md), questa funzionalità consente ai proprietari di gruppi sprovvisti di ruoli amministrativi di creare e gestire gruppi senza che un amministratore debba gestire le loro richieste.
+Azure AD offre la possibilità di gestire l'accesso alle risorse con gruppi di sicurezza e gruppi di Office 365. Questi gruppi possono essere gestiti dai proprietari, anziché dagli amministratori IT. Noto come [gestione self-service dei](../../active-directory/users-groups-roles/groups-self-service-management.md)gruppi, questa funzionalità consente ai proprietari del gruppo a cui non è assegnato un ruolo amministrativo di creare e gestire gruppi senza affidarsi agli amministratori per gestire le richieste.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Implementare verifiche di accesso di Azure AD
 
-Con le [verifiche di accesso di Azure AD](../../active-directory/governance/access-reviews-overview.md) è possibile gestire le appartenenze ai gruppi, l'accesso ad applicazioni aziendali e le assegnazioni di ruoli con privilegi per verificare di mantenere uno standard di sicurezza che non conceda agli utenti l'accesso per periodi prolungati, se non necessario.
+Con le verifiche di [accesso di Azure ad](../../active-directory/governance/access-reviews-overview.md), è possibile gestire le appartenenze ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo con privilegi per assicurarsi di mantenere uno standard di sicurezza che non concede agli utenti l'accesso per periodi di tempo prolungati serve.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Sono molti gli aspetti che ruotano attorno a un'infrastruttura di identità sicura, ma questo elenco di controllo di cinque passaggi consente di crearne una più sicura e protetta:
 
@@ -197,4 +204,7 @@ Sono molti gli aspetti che ruotano attorno a un'infrastruttura di identità sicu
 Apprezziamo la serietà con cui gli utenti si approcciano alla sicurezza delle identità e ci auguriamo che questo documento rappresenti un utile piano di azione per migliorare il livello di sicurezza di un'organizzazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Se occorre assistenza per pianificare e distribuire i consigli, fare riferimento ai [piani di distribuzione del progetto di Azure AD](https://aka.ms/deploymentplans).
+
+Se si è certi che tutti questi passaggi siano completi, usare il [Punteggio sicuro](../../active-directory/fundamentals/identity-secure-score.md)per l'identità di Microsoft, che consente di rimanere aggiornati sulle [procedure consigliate](identity-management-best-practices.md) e sulle minacce per la sicurezza più recenti.

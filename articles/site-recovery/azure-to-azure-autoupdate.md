@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/24/2019
 ms.author: rajanaki
-ms.openlocfilehash: 79a11a58f11486f3eda0205e62e7a4a92ff070b2
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0a8f47e0eea8908fcf6aa11c694e09efef14bbf1
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933942"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053523"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Aggiornamento automatico del servizio Mobility nella replica da Azure ad Azure
 
@@ -31,7 +31,7 @@ Quando si usa Site Recovery per gestire gli aggiornamenti, distribuisce un Runbo
 La pianificazione predefinita di Runbook si ripete ogni giorno alle 12:00 del fuso orario della geo della VM replicata. È anche possibile modificare la pianificazione del Runbook tramite l'account di automazione.
 
 > [!NOTE]
-> A partire dall'aggiornamento cumulativo 35, è possibile scegliere un account di automazione esistente da usare per gli aggiornamenti. Prima di questo aggiornamento, Site Recovery creato questo account per impostazione predefinita. Questa opzione è disponibile quando si Abilita la replica per una macchina virtuale. Se si modifica l'impostazione, questa verrà applicata a tutte le macchine virtuali di Azure protette nello stesso insieme di credenziali.
+> A partire dall'aggiornamento cumulativo 35, è possibile scegliere un account di automazione esistente da usare per gli aggiornamenti. Prima di questo aggiornamento, Site Recovery creato questo account per impostazione predefinita. Si noti che è possibile selezionare questa opzione solo quando si Abilita la replica per una macchina virtuale. Non è disponibile per una macchina virtuale di replica. L'impostazione selezionata sarà applicabile a tutte le macchine virtuali di Azure protette nello stesso insieme di credenziali.
  
 > Per attivare gli aggiornamenti automatici non è necessario riavviare le macchine virtuali di Azure o influire sulla replica in corso.
 

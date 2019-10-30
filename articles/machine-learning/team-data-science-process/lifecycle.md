@@ -1,6 +1,6 @@
 ---
 title: Ciclo di vita del processo di data science per i team
-description: Procedura necessaria per eseguire i progetti di data science
+description: Il processo di data science per i team (TDSP, Team Data Science Process) fornisce un ciclo di vita consigliato da usare per strutturare i progetti di data science.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 40d1af6e6258b5026853532f7963a76d4fc389db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00efe89314d4a1a5c3302e820b8609adf194aa59
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837888"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053249"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>Ciclo di vita del processo di data science per i team
 
@@ -45,7 +45,7 @@ Per ogni fase, specificare le informazioni seguenti:
 
    * **Obiettivi**: gli obiettivi specifici.
    * **Procedura**: una struttura delle attività specifiche e una guida su come completarle.
-   * **Artefatti**: i risultati finali e il supporto per la generazione di tali risultati.
+   * **Elementi**: i risultati finali e il supporto durante la produzione degli stessi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

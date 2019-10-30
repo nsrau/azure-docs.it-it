@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 43b8dfd571537aaaf6753d6b762ab84cfe4cfd0d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 91670d51328b3adb67ba8b2ed05d3b86f9bc0010
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376160"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053918"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Creare un endpoint privato usando Azure PowerShell
 Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato. 
@@ -50,7 +50,7 @@ $virtualNetwork = New-AzVirtualNetwork `
 
 ### <a name="add-a-subnet"></a>Aggiungere una subnet
 
-Azure distribuisce le risorse in una subnet all'interno di una rete virtuale, pertanto è necessario creare una subnet. Creare una *configurazione di subnet denominata subnet* con [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). Nell'esempio seguente viene creata una subnet *denominata subnet* con il flag di criteri di rete dell'endpoint privato impostato su **disabilitato**.
+Azure distribuisce le risorse in una subnet all'interno di una rete virtuale, pertanto è necessario creare una subnet. Creare una *configurazione di subnet denominata subnet* con [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). Nell'esempio seguente viene creata una subnet *denominata subnet* con il flag di criteri di rete dell'endpoint privato impostato su **disabilitato**.
 
 ```azurepowershell
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -62,7 +62,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>Associare la subnet alla rete virtuale
 
-È possibile scrivere la configurazione della subnet nella rete virtuale con [set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). Questo comando crea la subnet:
+È possibile scrivere la configurazione della subnet nella rete virtuale con [set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). Questo comando crea la subnet:
 
 ```azurepowershell
 $virtualNetwork | Set-AzVirtualNetwork
@@ -164,10 +164,10 @@ New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink
 } 
 } 
 ``` 
-  
+  
 ## <a name="connect-to-a-vm-from-the-internet"></a>Connettersi a una VM da Internet
 
-Usare [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) per per restituire l'indirizzo IP pubblico di una macchina virtuale. Questo esempio restituisce l'indirizzo IP pubblico della macchina virtuale *myVM* :
+Usare [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) per restituire l'indirizzo IP pubblico di una macchina virtuale. Questo esempio restituisce l'indirizzo IP pubblico della macchina virtuale *myVM* :
 
 ```azurepowershell
 Get-AzPublicIpAddress `
@@ -175,7 +175,7 @@ Get-AzPublicIpAddress `
   -ResourceGroupName myResourceGroup `
   | Select IpAddress 
 ```  
-Aprire un prompt dei comandi nel computer locale. Eseguire il comando mstsc. Sostituire @ no__t-0 @ no__t-1With l'indirizzo IP pubblico restituito dall'ultimo passaggio: 
+Aprire un prompt dei comandi nel computer locale. Eseguire il comando mstsc. Sostituire <publicIpAddress> con l'indirizzo IP pubblico ottenuto nell'ultimo passaggio: 
 
 
 > [!NOTE]
@@ -195,7 +195,7 @@ mstsc /v:<publicIpAddress>
 ## <a name="access-sql-database-server-privately-from-the-vm"></a>Accedere al server di database SQL privatamente dalla macchina virtuale
 
 1. Nel Desktop remoto di myVM aprire PowerShell.
-2. Immettere  `nslookup myserver.database.windows.net`. 
+2. Immettere `nslookup myserver.database.windows.net`. 
 
     Verrà visualizzato un messaggio simile al seguente:
     ```azurepowershell

@@ -1,7 +1,7 @@
 ---
 title: Configurare un ambiente di sviluppo Python
 titleSuffix: Azure Machine Learning
-description: Informazioni su come configurare un ambiente di sviluppo quando si lavora con Azure Machine Learning. Questo articolo illustra come usare gli ambienti conda, creare file di configurazione e configurare il proprio server notebook basato sul cloud, notebook Jupyter, Azure Databricks, IDE, editor di codice e la Data Science Virtual Machine.
+description: Informazioni su come configurare l'ambiente di sviluppo per Azure Machine Learning. Usare ambienti conda, creare file di configurazione e configurare il proprio server notebook basato sul cloud, notebook Jupyter, Azure Databricks, IDE, editor di codice e la Data Science Virtual Machine.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 66073052b290a1345dc0bb63ed6df0934fd81c64
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 7ad9d721b102ab48f2ebb9c0361153bc3974492a
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804192"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053560"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 

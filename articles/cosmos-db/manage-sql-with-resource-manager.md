@@ -4,24 +4,23 @@ description: Usare modelli di Azure Resource Manager per creare e configurare Az
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: b4d121e0628512f7bbd6aedc0a9067b31d46d0ed
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 378deb2138acf2a2c33860ab4e4ebcc44a57d8cd
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814979"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053329"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Gestire Azure Cosmos DB risorse API SQL (Core) usando modelli di Azure Resource Manager
 
 ## Creare un account, un database e un contenitore di Azure Cosmos<a id="create-resource"></a>
 
-Creare Azure Cosmos DB risorse usando un modello di Azure Resource Manager. Questo modello creerà un account Azure Cosmos con due contenitori che condividono la velocità effettiva 400 ur/s a livello di database. Copiare il modello e distribuirlo come illustrato di seguito oppure visitare la [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) e distribuire dal portale di Azure. È anche possibile scaricare il modello nel computer locale o creare un nuovo modello e specificare il percorso locale con il `--template-file` parametro.
+Creare Azure Cosmos DB risorse usando un modello di Azure Resource Manager. Questo modello creerà un account Azure Cosmos con due contenitori che condividono la velocità effettiva 400 ur/s a livello di database. Copiare il modello e distribuirlo come illustrato di seguito oppure visitare la [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) e distribuire dal portale di Azure. È anche possibile scaricare il modello nel computer locale o creare un nuovo modello e specificare il percorso locale con il parametro `--template-file`.
 
 > [!NOTE]
 >
-> - Attualmente non è possibile distribuire funzioni definite dall'utente (UDF), stored procedure e trigger utilizzando modelli Gestione risorse.
 > - Non è possibile aggiungere o rimuovere contemporaneamente percorsi in un account Azure Cosmos e modificare altre proprietà. Queste operazioni devono essere eseguite come operazioni separate.
 > - I nomi degli account devono essere minuscoli e < 31 caratteri.
 
@@ -82,11 +81,69 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-Il `az cosmosdb show` comando Mostra l'account Azure Cosmos appena creato dopo che è stato effettuato il provisioning. Se si sceglie di usare una versione installata localmente dell'interfaccia della riga di comando di Azure invece di usare CloudShell, vedere l'articolo dell' [interfaccia della riga di comando di Azure (CLI)](/cli/azure/) .
+Il comando `az cosmosdb show` Mostra l'account Azure Cosmos appena creato dopo che è stato effettuato il provisioning. Se si sceglie di usare una versione installata localmente dell'interfaccia della riga di comando di Azure invece di usare CloudShell, vedere l'articolo dell' [interfaccia della riga di comando di Azure (CLI)](/cli/azure/) .
+
+## Creare un contenitore Azure Cosmos DB con la funzionalità lato server<a id="create-sproc"></a>
+
+Creare un contenitore di Azure Cosmos DB con un stored procedure, un trigger e una funzione definita dall'utente usando un modello di Azure Resource Manager. Copiare il modello e distribuirlo come illustrato di seguito oppure visitare la [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) e distribuire dal portale di Azure. È anche possibile scaricare il modello nel computer locale o creare un nuovo modello e specificare il percorso locale con il parametro `--template-file`.
+
+[!code-json[create-cosmosdb-sql-sprocs](~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json)]
+
+### <a name="deploy-stored-procedure-template-via-powershell"></a>Distribuire stored procedure modello tramite PowerShell
+
+Per distribuire il modello di Gestione risorse usando PowerShell, **copiare** lo script e selezionare **prova** per aprire Azure cloud Shell. Per incollare lo script, fare clic con il pulsante destro del mouse sulla shell, quindi scegliere **Incolla**:
+
+```azurepowershell-interactive
+
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$accountName = Read-Host -Prompt "Enter the account name"
+$location = Read-Host -Prompt "Enter the location (i.e. westus2)"
+$primaryRegion = Read-Host -Prompt "Enter the primary region (i.e. westus2)"
+$secondaryRegion = Read-Host -Prompt "Enter the secondary region (i.e. eastus2)"
+$databaseName = Read-Host -Prompt "Enter the database name"
+$containerName = Read-Host -Prompt "Enter the container name"
+
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-sql-container-sprocs/azuredeploy.json" `
+    -accountName $accountName `
+    -location $location `
+    -primaryRegion $primaryRegion `
+    -secondaryRegion $secondaryRegion `
+    -databaseName $databaseName `
+    -containerName $containerName
+
+ (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
+```
+
+Se si sceglie di usare una versione installata localmente di PowerShell anziché da Azure cloud Shell, è necessario [installare](/powershell/azure/install-az-ps) il modulo Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione.
+
+### <a name="deploy-stored-procedure-template-via-azure-cli"></a>Distribuire stored procedure modello tramite l'interfaccia della riga di comando di Azure
+
+Per distribuire il modello di Gestione risorse usando l'interfaccia della riga di comando di Azure, selezionare **prova** per aprire Azure cloud Shell. Per incollare lo script, fare clic con il pulsante destro del mouse sulla shell, quindi scegliere **Incolla**:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the location (i.e. westus2): ' location
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the primary region (i.e. westus2): ' primaryRegion
+read -p 'Enter the secondary region (i.e. eastus2): ' secondaryRegion
+read -p 'Enter the database name: ' databaseName
+read -p 'Enter the container name: ' containerName
+
+az group create --name $resourceGroupName --location $location
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-sql-container-sprocs/azuredeploy.json \
+   --parameters accountName=$accountName primaryRegion=$primaryRegion secondaryRegion=$secondaryRegion databaseName=$databaseName \
+   containerName=$containerName
+
+az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
+```
 
 ## Aggiornamento della velocità effettiva (UR/sec) in un database<a id="database-ru-update"></a>
 
-Nel modello seguente viene aggiornata la velocità effettiva di un database. Copiare il modello e distribuirlo come illustrato di seguito oppure visitare la [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-database-ru-update/) e distribuire dal portale di Azure. È anche possibile scaricare il modello nel computer locale o creare un nuovo modello e specificare il percorso locale con il `--template-file` parametro.
+Nel modello seguente viene aggiornata la velocità effettiva di un database. Copiare il modello e distribuirlo come illustrato di seguito oppure visitare la [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-database-ru-update/) e distribuire dal portale di Azure. È anche possibile scaricare il modello nel computer locale o creare un nuovo modello e specificare il percorso locale con il parametro `--template-file`.
 
 [!code-json[cosmosdb-sql-database-ru-update](~/quickstart-templates/101-cosmosdb-sql-database-ru-update/azuredeploy.json)]
 
@@ -125,7 +182,7 @@ az group deployment create --resource-group $resourceGroupName \
 
 ## Aggiornare la velocità effettiva (UR/sec) in un contenitore<a id="container-ru-update"></a>
 
-Il modello seguente aggiornerà la velocità effettiva di un contenitore. Copiare il modello e distribuirlo come illustrato di seguito oppure visitare la [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-ru-update/) e distribuire dal portale di Azure. È anche possibile scaricare il modello nel computer locale o creare un nuovo modello e specificare il percorso locale con il `--template-file` parametro.
+Il modello seguente aggiornerà la velocità effettiva di un contenitore. Copiare il modello e distribuirlo come illustrato di seguito oppure visitare la [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-ru-update/) e distribuire dal portale di Azure. È anche possibile scaricare il modello nel computer locale o creare un nuovo modello e specificare il percorso locale con il parametro `--template-file`.
 
 [!code-json[cosmosdb-sql-container-ru-update](~/quickstart-templates/101-cosmosdb-sql-container-ru-update/azuredeploy.json)]
 

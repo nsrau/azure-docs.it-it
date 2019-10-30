@@ -11,16 +11,16 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: abc6f8a7a2fda3578bbcf2947188752f8f3373cd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 98d24b4f497f09e982101917296b572a5c381f42
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566817"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053606"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Ridimensionare in modo dinamico le risorse di database con tempo di inattività minimo
 
-Il database SQL di Azure consente di aggiungere in modo dinamico altre risorse al database con [tempi](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)di inattività minimi. Tuttavia, esiste un passaggio rispetto al periodo in cui la connettività viene persa nel database per un breve intervallo di tempo, che può essere mitigato usando la logica di ripetizione dei tentativi.
+Il database SQL di Azure consente di aggiungere in modo dinamico altre risorse al database con [tempi di inattività](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)minimi. Tuttavia, esiste un passaggio rispetto al periodo in cui la connettività viene persa nel database per un breve intervallo di tempo, che può essere mitigato usando la logica di ripetizione dei tentativi.
 
 ## <a name="overview"></a>Panoramica
 
@@ -35,7 +35,7 @@ Non è necessario acquistare un hardware o modificare o l'infrastruttura di base
 Per il database SQL di Azure è disponibile il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 
 - Il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) offre un insieme di risorse di calcolo, memoria e risorse IO in tre livelli di servizio per supportare carichi di lavoro di database da leggeri a pesanti: Basic, Standard e Premium. I livelli delle prestazioni di ogni livello forniscono una diversa combinazione di queste risorse, a cui è possibile aggiungere altre risorse di archiviazione.
-- Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) consente di scegliere il numero di vCore, la quantità di memoria e la quantità e la velocità della risorsa di archiviazione. Questo modello di acquisto offre tre livelli di servizio: Per utilizzo generico, business critical e iperscalabilità.
+- Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) consente di scegliere il numero di vCore, la quantità di memoria e la quantità e la velocità della risorsa di archiviazione. Questo modello di acquisto offre tre livelli di servizio: per utilizzo generico, business critical e iperscalabilità.
 
 È possibile creare la prima app in un singolo database di piccole dimensioni a un costo mensile contenuto nel livello di servizio Basic, Standard o Utilizzo generico e quindi modificare il livello di servizio manualmente o tramite codice in qualsiasi momento passando al livello di servizio Premium o Business Critical in base alle esigenze della soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
 
@@ -54,6 +54,8 @@ Tutte le tre versioni di Database SQL di Azure offrono la capacità di ridimensi
 - Con un [Database singolo](sql-database-single-database-scale.md) è possibile usare sia i modelli [DTU](sql-database-dtu-resource-limits-single-databases.md) o [vCore](sql-database-vcore-resource-limits-single-databases.md) per definire la quantità massima di risorse che verranno assegnate a ogni database.
 - Un'[Istanza gestita](sql-database-managed-instance.md) usa la modalità [vCore](sql-database-managed-instance.md#vcore-based-purchasing-model) e consente di definire il massimo di core CPU e il massimo della memoria allocata per l'istanza. Tutti i database all'interno dell'istanza condivideranno le risorse allocate per l'istanza.
 - I [pool elastici](sql-database-elastic-pool-scale.md) consentono di definire il limite massimo di risorse per ogni gruppo di database nel pool.
+
+Quando si avvia l'azione di aumento o riduzione delle prestazioni in una qualsiasi delle varianti, il processo del motore di database viene riavviato e spostato in una macchina virtuale diversa, se necessario. Lo sviluppo del processo del motore di database in una nuova macchina virtuale è un **processo online** in cui è possibile continuare a usare il servizio database SQL di Azure esistente mentre il processo è in corso. Una volta che il motore di database di destinazione è stato completamente inizializzato ed è pronto per l'elaborazione delle query, le connessioni verranno [passate dal motore di database di origine a quello di destinazione](sql-database-single-database-scale.md#impact-of-changing-service-tier-or-rescaling-compute-size).
 
 > [!NOTE]
 > È possibile che si verifichi un breve intervallo di connessione al termine del processo di scalabilità verticale/orizzontale. Se è stata implementata la [logica di ripetizione dei tentativi per gli errori temporanei standard](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), il failover non sarà noto.

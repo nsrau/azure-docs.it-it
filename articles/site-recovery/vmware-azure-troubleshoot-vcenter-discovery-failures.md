@@ -1,18 +1,18 @@
 ---
-title: Risoluzione dei problemi relativi al failback in un'istanza locale durante il ripristino di emergenza di macchine virtuali VMware in Azure con Azure Site Recovery | Microsoft Docs
+title: Risolvere i problemi di failback in locale durante il ripristino di emergenza di macchine virtuali VMware in Azure con Azure Site Recovery
 description: Questo articolo descrive le soluzioni agli errori di failback e riprotezione che possono verificarsi durante il ripristino di emergenza di macchine virtuali VMware in Azure con Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.author: raynew
-ms.openlocfilehash: c27e72333618f73b67eec9b5c0c3a70239a1c0b3
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 10/29/2019
+ms.author: mayg
+ms.openlocfilehash: e9213637f45a4761af60de9dfac7add6324f6b96
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970846"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053861"
 ---
 # <a name="troubleshoot-vcenter-discovery-failures"></a>Risoluzione dei problemi di individuazione di vCenter
 
@@ -20,7 +20,7 @@ Questo articolo consente di risolvere i problemi che si verificano a causa di er
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>Valori non numerici nella proprietà maxSnapShots
 
-Nelle versioni precedenti alla 9,20, vCenter si disconnette quando recupera un valore non numerico per la proprietà @no__t proprietà-0 in una macchina virtuale.
+Nelle versioni precedenti alla 9,20, vCenter si disconnette quando recupera un valore non numerico per la proprietà `snapshot.maxSnapShots` proprietà in una macchina virtuale.
 
 Questo problema è identificato dall'ID errore 95126.
 
@@ -46,8 +46,8 @@ In generale, il proxy viene utilizzato per comunicare con le reti pubbliche; com
 
 Quando viene rilevato questo problema, si verificano le situazioni seguenti:
 
-- Il server vCenter \<vCenter > non è raggiungibile a causa dell'errore: Il server remoto ha restituito un errore: (503) Server non disponibile
-- Il server vCenter \<vCenter > non è raggiungibile a causa dell'errore: Il server remoto ha restituito un errore: Impossibile connettersi al server remoto.
+- Il server vCenter \<vCenter > non è raggiungibile a causa dell'errore: il server remoto ha restituito un errore: (503) Server non disponibile
+- Il server vCenter \<vCenter > non è raggiungibile a causa dell'errore: il server remoto ha restituito un errore: Impossibile connettersi al server remoto.
 - Non è possibile connettersi al server vCenter/ESXi.
 
 Per risolvere il problema:

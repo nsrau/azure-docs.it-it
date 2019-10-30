@@ -1,6 +1,6 @@
 ---
 title: Attività del responsabile del gruppo in un processo di data science per i team
-description: Procedura dettagliata delle attività per un responsabile del gruppo in un progetto team data science.
+description: Seguire questa procedura dettagliata delle attività completate da un responsabile del gruppo in un progetto team data science.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/24/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f95bb30f547e863fc7a796e69fffe1e2334e489c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: a3d23950f5cbfaac00b03b25e3c19078c76ad0a5
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326801"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053314"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Attività del responsabile del gruppo in un processo di data science per i team
 
@@ -57,7 +57,7 @@ Nell'esercitazione riportata di seguito vengono illustrati i passaggi dettagliat
    
    ![Crea progetto](./media/group-manager-tasks/create-project.png)
 
-Verrà visualizzata la pagina di **Riepilogo** del progetto **GroupCommon** . L'URL della pagina è *https: \/ @ no__t-2 @ no__t-3servername >/\<organization-name >/GroupCommon*.
+Verrà visualizzata la pagina di **Riepilogo** del progetto **GroupCommon** . L'URL della pagina è *https:\//\<nomeserver >/\<nome-organizzazione >/GroupCommon*.
 
 ![Pagina Riepilogo progetto](./media/group-manager-tasks/project-summary.png)
 
@@ -65,9 +65,9 @@ Verrà visualizzata la pagina di **Riepilogo** del progetto **GroupCommon** . L'
 
 Azure Repos ospita i seguenti tipi di repository per il gruppo:
 
-- **Repository comuni di gruppo**: Repository di uso generico che possono essere adottati da più team all'interno di un'unità data science per molti progetti di data science. 
-- **Repository del team**:  Repository per team specifici all'interno di un'unità data science. Questi repository sono specifici per le esigenze di un team e possono essere usati per più progetti all'interno del team, ma non sono sufficientemente generici da essere usati in più team all'interno di un'unità data science.
-- **Repository del progetto**: Repository per progetti specifici. Tali repository potrebbero non essere sufficientemente generici per più progetti all'interno di un team o per altri team in un'unità data science.
+- **Repository comuni di gruppo**: repository di uso generico che possono essere adottati da più team all'interno di un'unità Data Science per molti progetti di Data Science. 
+- **Repository del team**: repository per team specifici all'interno di un'unità Data Science. Questi repository sono specifici per le esigenze di un team e possono essere usati per più progetti all'interno del team, ma non sono sufficientemente generici da essere usati in più team all'interno di un'unità data science.
+- **Repository di progetto**: repository per progetti specifici. Tali repository potrebbero non essere sufficientemente generici per più progetti all'interno di un team o per altri team in un'unità data science.
 
 Per configurare i repository comuni del gruppo nel progetto, è necessario: 
 - Rinominare il repository **GroupCommon** predefinito in **GroupProjectTemplate**
@@ -121,13 +121,13 @@ Per importare i repository del team TDSP:
    
    ![Selezionare Importa](./media/group-manager-tasks/import-repo.png)
    
-1. Nella finestra di dialogo **Importa un repository git** selezionare **git** come **tipo di origine**e immettere *https: \//github. com/Azure/Azure-TDSP-ProjectTemplate. git* per l'URL del **Clone**. Quindi selezionare **Importa**. Il contenuto del repository Microsoft TDSP team ProjectTemplate viene importato nel repository GroupProjectTemplate. 
+1. Nella finestra di dialogo **Importa un repository git** selezionare **git** come **tipo di origine**e immettere *https:\//github.com/Azure/Azure-TDSP-ProjectTemplate.git* per l'URL del **Clone**. Quindi selezionare **Importa**. Il contenuto del repository Microsoft TDSP team ProjectTemplate viene importato nel repository GroupProjectTemplate. 
    
    ![Importa repository Microsoft TDSP team](./media/group-manager-tasks/import-repo-2.png)
    
 1. Nella parte superiore **della pagina repository** , a discesa e selezionare il repository **GroupUtilities** .
    
-1. Ripetere il processo di importazione per importare il contenuto del repository Microsoft TDSP Team **Utilities** , *https: \//github. com/Azure/Azure-TDSP-Utilities. git*, nel repository **GroupUtilities** . 
+1. Ripetere il processo di importazione per importare il contenuto del repository Microsoft TDSP Team **Utilities** , *https:\//github.com/Azure/Azure-TDSP-Utilities.git*, nel repository **GroupUtilities** . 
    
 Ognuno dei due repository di gruppo contiene ora tutti i file, ad eccezione di quelli nella directory *. git* , dal repository corrispondente del team di Microsoft TDSP. 
 
@@ -151,7 +151,7 @@ Per personalizzare il contenuto del repository:
      
    - Per caricare i file, selezionare **Carica file/i**. 
      
-     ![Carica file](./media/group-manager-tasks/upload-files.png)
+     ![Caricare file](./media/group-manager-tasks/upload-files.png)
      
    - Per modificare i file esistenti, passare al file e quindi fare clic su **modifica**. 
      
@@ -215,7 +215,7 @@ git push
 ```
 
 > [!NOTE]
-> Se è la prima volta che si esegue il commit in un repository git, potrebbe essere necessario configurare i parametri globali *User.Name* e *User. email* prima di `git commit` eseguire il comando. Eseguire questi due comandi:
+> Se è la prima volta che si esegue il commit in un repository git, potrebbe essere necessario configurare i parametri globali *User.Name* e *User. email* prima di eseguire il comando `git commit`. Eseguire questi due comandi:
 > 
 > `git config --global user.name <your name>`
 > 
@@ -239,7 +239,7 @@ Per aggiungere membri al gruppo:
    
 1. Nella finestra di dialogo **Aggiungi utenti e gruppi** cercare e selezionare i membri da aggiungere al gruppo, quindi selezionare **Salva modifiche**. 
    
-   ![Aggiungi utenti e gruppi](./media/group-manager-tasks/add-users.png)
+   ![Aggiungere utenti e gruppi](./media/group-manager-tasks/add-users.png)
    
 
 Per configurare le autorizzazioni per i membri:

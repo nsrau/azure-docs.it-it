@@ -1,7 +1,7 @@
 ---
 title: Eseguire gli script di Machine Learning di Python
 titleSuffix: Azure Machine Learning Studio
-description: Informazioni su come usare Python in Azure Machine Learning Studio.
+description: Informazioni su come usare il modulo Execute Python script per usare il codice Python negli esperimenti di Machine Learning Studio (classico) e nei servizi Web.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 64030cac73b6fbd750b2ed681d85642cc6ad1146
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: bfc2efca0786838d528b3019a3aff405f46ef645
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308870"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053778"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Eseguire gli script di apprendimento automatico di Python in Azure Machine Learning Studio
 
@@ -25,7 +25,7 @@ Questo articolo descrive come usare il modulo Execute Python script per usare il
 
 ## <a name="using-the-execute-python-script-module"></a>Uso del modulo Execute Python script
 
-L'interfaccia principale per Python in studio è tramite il modulo [Execute Python script][execute-python-script] . Accetta fino a tre input e produce fino a due output, analogamente al modulo [Execute R script][execute-r-script] . Il codice Python viene immesso nella casella parametro tramite una funzione `azureml_main`del punto di ingresso denominata appositamente denominata.
+L'interfaccia principale per Python in studio è tramite il modulo [Execute Python script][execute-python-script] . Accetta fino a tre input e produce fino a due output, analogamente al modulo [Execute R script][execute-r-script] . Il codice Python viene immesso nella casella parametro tramite una funzione del punto di ingresso denominata appositamente denominata `azureml_main`.
 
 ![Eseguire il modulo di script Python](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
@@ -33,7 +33,7 @@ L'interfaccia principale per Python in studio è tramite il modulo [Execute Pyth
 
 ### <a name="input-parameters"></a>Parametri di input
 
-Gli input per il modulo Python vengono esposti come dataframe Pandas. La `azureml_main` funzione accetta un massimo di due frame di dataframe Panda facoltativi come parametri.
+Gli input per il modulo Python vengono esposti come dataframe Pandas. La funzione `azureml_main` accetta un massimo di due frame di dataframe Panda facoltativi come parametri.
 
 Il mapping delle porte di input ai parametri della funzione è di tipo posizionale:
 
@@ -41,13 +41,13 @@ Il mapping delle porte di input ai parametri della funzione è di tipo posiziona
 - Il secondo input, se connesso, è mappato al secondo parametro della funzione.
 - Il terzo input viene usato per [importare moduli Python aggiuntivi](#import-modules).
 
-Di seguito è riportata una semantica più dettagliata della modalità di mapping delle porte `azureml_main` di input ai parametri della funzione.
+Di seguito è riportata una semantica più dettagliata della modalità di mapping delle porte di input ai parametri della funzione `azureml_main`.
 
 ![Tabella delle configurazioni della porta di input e della firma Python risultante](./media/execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
 ### <a name="output-return-values"></a>Valori restituiti di output
 
-La `azureml_main` funzione deve restituire un singolo dataframe Pandas incluso in una [sequenza](https://docs.python.org/2/c-api/sequence.html) Python, ad esempio una tupla, un elenco o una matrice numpy. Il primo elemento di questa sequenza viene restituito alla prima porta di output del modulo. La seconda porta di output del modulo viene utilizzata per le [visualizzazioni](#visualizations) e non richiede un valore restituito. Questo schema è illustrato di seguito.
+La funzione `azureml_main` deve restituire un singolo dataframe Pandas incluso in una [sequenza](https://docs.python.org/2/c-api/sequence.html) Python, ad esempio una tupla, un elenco o una matrice numpy. Il primo elemento di questa sequenza viene restituito alla prima porta di output del modulo. La seconda porta di output del modulo viene utilizzata per le [visualizzazioni](#visualizations) e non richiede un valore restituito. Questo schema è illustrato di seguito.
 
 ![Mapping delle porte di input ai parametri e del valore restituito alla porta di output](./media/execute-python-scripts/map-of-python-script-inputs-outputs.png)
 
@@ -60,10 +60,10 @@ I set di impostazioni di studio non corrispondono a quelli di Panda dataframes. 
 | Stringhe e valori numerici| Tradotto come è |
 | Pandas ' NA ' | Tradotto come ' missing value ' |
 | Vettori di indice | Non supportato |
-| Nomi di colonna non stringa | Chiamata `str` sui nomi di colonna |
-| Nomi di colonna duplicati | Aggiungi suffisso numerico: (1), (2), (3) e così via.
+| Nomi di colonna non stringa | Chiama `str` per i nomi di colonna |
+| Nomi di colonna duplicati | Aggiungere il suffisso numerico: (1), (2), (3) e così via.
 
-**Tutti i frame di dati di input nella funzione Python hanno sempre un indice numerico a 64 bit compreso tra 0 e il numero di righe meno 1*
+**tutti i frame di dati di input nella funzione Python hanno sempre un indice numerico a 64 bit compreso tra 0 e il numero di righe meno 1*
 
 ## <a id="import-modules"></a>Importazione di moduli di script Python esistenti
 
@@ -95,7 +95,7 @@ L'output del modulo indica che il file ZIP è stato estratto dal pacchetto e che
 
 1. Scaricare il [pacchetto di archiviazione BLOB di Azure per Python](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip) localmente.
 1. Caricare il file zip nell'area di lavoro di studio come set di dati.
-1. Creare l'oggetto BlobService con`protocol='http'`
+1. Creare l'oggetto BlobService con `protocol='http'`
 
 ```
 from azure.storage.blob import BlockBlobService
@@ -181,7 +181,7 @@ Attualmente, è possibile aggiungere moduli Python personalizzati solo tramite i
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](https://azure.microsoft.com/develop/python/).
+Per altre informazioni, vedere il [Centro per sviluppatori di Python](https://azure.microsoft.com/develop/python/).
 
 <!-- Module References -->
 [execute-python-script]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-python-script

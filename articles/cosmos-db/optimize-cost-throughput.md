@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: fd385e820ea205c3acfc0ee3ccec4e07c62bb50e
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 4bdf842ae24d90850280a5a19038dbd00168ff2c
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989578"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053358"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB
 
@@ -77,7 +77,7 @@ HTTP Status 429,
 
 Gli SDK nativi (.NET/.NET Core, Java, Node.js e Python) intercettano implicitamente questa risposta, rispettano l'intestazione retry-after specificata dal server e ripetono la richiesta. A meno che all'account non accedano contemporaneamente più client, il tentativo successivo avrà esito positivo.
 
-Se si dispone di più di un client che funziona cumulativamente in modo costante al di sopra della frequenza delle richieste, il numero di tentativi predefinito, attualmente impostato su 9, potrebbe non essere sufficiente. In questi casi, il client genera un'`DocumentClientException` con codice di stato 429 per l'applicazione. Il numero predefinito di ripetizioni dei tentativi può essere modificato impostando `RetryOptions` nell'istanza di ConnectionPolicy. Per impostazione predefinita, il `DocumentClientException` con il codice di stato 429 viene restituito dopo un tempo di attesa cumulativo di 30 secondi se la richiesta continua a funzionare al di sopra della frequenza delle richieste. Ciò si verifica anche quando il numero di ripetizioni dei tentativi corrente è inferiore al numero massimo di tentativi, indipendentemente dal fatto che si tratti del valore predefinito 9 o di un valore definito dall'utente. 
+Se si dispone di più di un client che funziona cumulativamente in modo costante al di sopra della frequenza delle richieste, il numero di tentativi predefinito, attualmente impostato su 9, potrebbe non essere sufficiente. In questi casi, il client genera un'`RequestRateTooLargeException` con codice di stato 429 per l'applicazione. Il numero predefinito di ripetizioni dei tentativi può essere modificato impostando `RetryOptions` nell'istanza di ConnectionPolicy. Per impostazione predefinita, il `RequestRateTooLargeException` con il codice di stato 429 viene restituito dopo un tempo di attesa cumulativo di 30 secondi se la richiesta continua a funzionare al di sopra della frequenza delle richieste. Ciò si verifica anche quando il numero di ripetizioni dei tentativi corrente è inferiore al numero massimo di tentativi, indipendentemente dal fatto che si tratti del valore predefinito 9 o di un valore definito dall'utente. 
 
 [MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) è impostato su 3, quindi, in questo caso, se un'operazione di richiesta è limitata alla frequenza superando la velocità effettiva riservata per il contenitore, l'operazione di richiesta esegue tre tentativi prima di generare l'eccezione all'applicazione. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) è impostato su 60, quindi, in questo caso, se il tempo di attesa per tentativi cumulativi in secondi dalla prima richiesta supera i 60 secondi, viene generata l'eccezione.
 

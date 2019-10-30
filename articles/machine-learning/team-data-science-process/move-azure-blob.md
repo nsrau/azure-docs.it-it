@@ -1,6 +1,6 @@
 ---
 title: Spostare i dati da e verso una risorsa di archiviazione BLOB di Azure - Processo di data science per i team
-description: Spostare i dati da e verso l'archivio BLOB di Azure
+description: Spostare i dati da e verso l'archiviazione BLOB di Azure usando Azure Storage Explorer, AzCopy, Python e SSIS.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7b45f9950ef63bc29d23d78d20909f223cb30350
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: d885a7fad6e958507e7d9df34bd2b1fb222c6f86
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998152"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053668"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Spostare i dati da e verso l'archivio BLOB di Azure
 
@@ -34,7 +34,7 @@ Gli articoli seguenti descrivono come spostare i dati da e verso l'archivio BLOB
 Quale sia il metodo adatto dipenderà dallo scenario. L'articolo [Scenari per l'analisi avanzata in Azure Machine Learning](plan-sample-scenarios.md) consente di determinare le risorse necessarie per un'ampia gamma di flussi di lavoro di analisi scientifica dei dati usati nel processo di analisi avanzata.
 
 > [!NOTE]
-> Per un'introduzione completa all'archiviazione BLOB di Azure, vedere [Informazioni di base su BLOB di Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) e [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> Per un'introduzione completa all'archiviazione BLOB di Azure, vedere [Introduzione all'archivio BLOB di Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) e [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 > 
 > 
 

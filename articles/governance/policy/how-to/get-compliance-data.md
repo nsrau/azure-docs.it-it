@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: ff50619d7b3d5bc803e8ee8d9e4cbf4389a4191f
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 47258f27f44b6a21c5da72e4631591e695024400
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978097"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053268"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
@@ -89,10 +89,10 @@ La tabella seguente illustra il funzionamento dei diversi effetti dei criteri in
 
 | Stato della risorsa | Effetto | Valutazione dei criteri | Stato di conformità |
 | --- | --- | --- | --- |
-| Esistente | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non conforme |
-| Esistente | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Conforme |
-| Nuovo | Audit, AuditIfNotExist\* | True | Non conforme |
-| Nuovo | Audit, AuditIfNotExist\* | False | Conforme |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Vero | Non conforme |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Falso | Conformità |
+| Novità | Audit, AuditIfNotExist\* | Vero | Non conforme |
+| Novità | Audit, AuditIfNotExist\* | Falso | Conformità |
 
 \* Gli effetti Append, DeployIfNotExist e AuditIfNotExist richiedono che l'istruzione IF sia TRUE.
 Richiedono inoltre che la condizione di esistenza sia FALSE per lo stato non conforme. Se è TRUE, la condizione IF attiva la valutazione della condizione di esistenza per le risorse correlate.
@@ -107,9 +107,9 @@ In questo esempio, è necessario essere ben consapevoli dei rischi di sicurezza.
 
 Oltre a **Conforme** e **Non conforme**, i criteri e le risorse possono avere altri tre stati:
 
-- **In conflitto**: esistono due o più criteri con regole in conflitto. Ad esempio, due criteri aggiungono lo stesso tag con valori diversi.
-- **Non avviato**: il ciclo di valutazione per i criteri o la risorsa non è stato avviato.
-- **Non registrato**: il provider di risorse di Criteri di Azure non è stato registrato o l'account connesso non è autorizzato a leggere i dati di conformità.
+- In **conflitto**: esistono due o più criteri con regole in conflitto. Ad esempio, due criteri aggiungono lo stesso tag con valori diversi.
+- **Non avviato**: il ciclo di valutazione non è stato avviato per il criterio o la risorsa.
+- **Non registrato**: il provider di risorse dei criteri di Azure non è stato registrato o l'account connesso non è autorizzato a leggere i dati di conformità.
 
 Criteri di Azure usa i campi **tipo** e **nome** nella definizione per determinare se una risorsa è una corrispondenza. Se la risorsa corrisponde, viene considerata applicabile e il suo stato è **Conforme** o **Non conforme**. Se la sola proprietà presente nella definizione è **tipo** o **nome**, tutte le risorse sono considerate applicabili e vengono valutate.
 
@@ -118,7 +118,7 @@ Per _totale delle risorse_ si intende la somma delle risorse **conformi**, **non
 
 ![Esempio di conformità dei criteri dalla pagina conformità](../media/getting-compliance-data/simple-compliance.png)
 
-## <a name="portal"></a>Portale
+## <a name="portal"></a>di Microsoft Azure
 
 Il portale di Azure illustra un'esperienza grafica di visualizzazione e comprensione dello stato di conformità nell'ambiente in uso. Nella pagina **Criteri** l'opzione **Panoramica** fornisce i dettagli per gli ambiti disponibili sulla conformità dei criteri e delle iniziative. Oltre allo stato di conformità e al conteggio per assegnazione, contiene un grafico che mostra la conformità negli ultimi sette giorni. La pagina **Conformità** contiene buona parte di queste stesse informazioni (eccetto il grafico), ma fornisce altre opzioni di ordinamento e applicazione di filtri.
 
@@ -145,32 +145,10 @@ Quando una risorsa viene determinata come **non conforme**, esistono diversi mot
 
 ## <a name="command-line"></a>Riga di comando
 
-Le stesse informazioni disponibili nel portale possono essere recuperate con l'API REST (anche con [ARMClient](https://github.com/projectkudu/ARMClient)) o Azure PowerShell. Per informazioni dettagliate sull'API REST, vedere il riferimento a [Azure Policy Insights](/rest/api/policy-insights/) . Le pagine di riferimento sull'API REST includono un pulsante verde "Prova", che consente di provare ogni operazione direttamente nel browser.
+Le stesse informazioni disponibili nel portale possono essere recuperate con l'API REST (incluso con [ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell e l'interfaccia della riga di comando di Azure (anteprima).
+Per informazioni dettagliate sull'API REST, vedere il riferimento a [Azure Policy Insights](/rest/api/policy-insights/) . Le pagine di riferimento sull'API REST includono un pulsante verde "Prova", che consente di provare ogni operazione direttamente nel browser.
 
-Per usare gli esempi seguenti in Azure PowerShell, creare un token di autenticazione con questo codice di esempio. Sostituire quindi $restUri con la stringa riportata negli esempi per recuperare un oggetto JSON che può quindi essere analizzato.
-
-```azurepowershell-interactive
-# Login first with Connect-AzAccount if not using Cloud Shell
-
-$azContext = Get-AzContext
-$azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
-$profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
-$token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
-$authHeader = @{
-    'Content-Type'='application/json'
-    'Authorization'='Bearer ' + $token.AccessToken
-}
-
-# Define the REST API to communicate with
-# Use double quotes for $restUri as some endpoints take strings passed in single quotes
-$restUri = "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04"
-
-# Invoke the REST API
-$response = Invoke-RestMethod -Uri $restUri -Method POST -Headers $authHeader
-
-# View the response object (as JSON)
-$response
-```
+Usare ARMClient o uno strumento simile per gestire l'autenticazione in Azure per gli esempi di API REST.
 
 ### <a name="summarize-results"></a>Riepilogare i risultati
 
@@ -262,7 +240,7 @@ Per brevità, la risposta di esempio seguente è stata tagliata in una singola r
 }
 ```
 
-### <a name="view-events"></a>Visualizza gli eventi
+### <a name="view-events"></a>Visualizza eventi
 
 Quando si crea o si aggiorna una risorsa, viene generato un risultato di valutazione dei criteri. I risultati sono chiamati _eventi criteri_. Usare l'Uri seguente per visualizzare gli eventi criteri recenti associati alla sottoscrizione.
 
