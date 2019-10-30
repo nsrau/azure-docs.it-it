@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: aa3b6ce886b06c32e9e4515469099a5b31ff49e3
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ce8ea76cfc1f3f30418b66cd21de43d244da6764
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757213"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043970"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Moderare le immagini dalla console dell'API
 
@@ -102,4 +102,4 @@ Prima di poter eseguire il test drive dell'API nella console online, è necessar
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare l'API REST nel codice o seguire la [guida introduttiva alla moderazione dell'immagine per .NET](image-moderation-quickstart-dotnet.md) per procedere all'integrazione con la propria applicazione.
+Usare l'API REST nel codice oppure seguire la [Guida introduttiva di .NET SDK](dotnet-sdk-quickstart.md) per aggiungere la moderazione dell'immagine all'applicazione.

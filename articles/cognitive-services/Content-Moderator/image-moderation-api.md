@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 3bc5bc99984367b44b38a65266d2915c47ca6fd0
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 6d419135a1da68d23689f66d3134a638d71a3eab
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757349"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044109"
 ---
 # <a name="learn-image-moderation-concepts"></a>Informazioni sui concetti di moderazione delle immagini
 
@@ -147,4 +147,4 @@ Per i casi più complessi, usare lo [strumento di revisione](Review-Tool-User-Gu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Eseguire il test drive della [Console dell'API Moderazione immagini](try-image-api.md) e usare gli esempi di codice API REST. Estrarre anche l'[Avvio rapido per la moderazione delle immagini con .NET](image-moderation-quickstart-dotnet.md) se si ha familiarità con Visual Studio e C#.
+Eseguire il test drive della [Console dell'API Moderazione immagini](try-image-api.md) e usare gli esempi di codice API REST. Se si ha familiarità con Visual Studio e, C#vedere anche la sezione relativa alla moderazione delle immagini della [Guida introduttiva a .NET SDK](dotnet-sdk-quickstart.md) .

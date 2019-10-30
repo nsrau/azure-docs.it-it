@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 6c7d94761e4c5d5087dc8ac4e10854989a18f0fc
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
-ms.translationtype: HT
+ms.openlocfilehash: f1452e56054948edffc6e9b3c98fa48d2589cb2a
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992106"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024931"
 ---
 # <a name="use-net-deserializers-for-azure-stream-analytics-jobs"></a>Usare i deserializzatori .NET per i processi di analisi di flusso di Azure
 
@@ -40,7 +40,7 @@ Il frammento di codice seguente è la deserializzazione per i dati in streaming.
 
 1. T è una classe o uno struct.
 1. Tutti i campi pubblici in T sono
-    1. Uno tra [Long, DateTime, String, Double] o i rispettivi equivalenti Nullable.
+    1. Uno tra [SByte, byte, short, ushort, int, uint, Long, DateTime, String, float, Double] o i rispettivi equivalenti Nullable.
     1. Un'altra struct o classe che segue le stesse regole.
     1. Matrice di tipo `T2` che segue le stesse regole.
     1. IList`T2` dove T2 segue le stesse regole.
@@ -226,12 +226,12 @@ Il codice JavaScript seguente è un esempio del formato di serializzazione di .N
 
 Questa funzionalità è disponibile nelle aree geografiche seguenti:
 
-* Europa occidentale
-* Stati Uniti orientali
-* Europa settentrionale
-* Stati Uniti occidentali
-* Stati Uniti orientali 2
-* Stati Uniti centro-occidentali
+* Stati Uniti centro-occidentali (disponibili)
+* Europa settentrionale (disponibile)
+* Stati Uniti orientali (disponibili)
+* Stati Uniti occidentali (implementazione a breve)
+* Stati Uniti orientali 2 (implementazione a breve)
+* Europa occidentale (implementazione a breve)
 
 È possibile [richiedere supporto](https://aka.ms/ccodereqregion) per aree aggiuntive.
 
@@ -244,10 +244,6 @@ Questa funzionalità è disponibile in 6 aree (supporto di #region). Se si è in
 ### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>È possibile accedere a MetadataPropertyValue da input simili alla funzione GetMetadataPropertyValue?
 
 Questa funzionalità non è supportata. Se questa funzionalità è necessaria, è possibile votare per la richiesta in [UserVoice](https://feedback.azure.com/forums/270577-stream-analytics/suggestions/38779801-accessing-input-metadata-properties-in-custom-dese).
-
-### <a name="streamdeserializer-deserializes-a-stream-into-object-of-type-t-can-the-public-fields-in-t-be-any-supported-type-in-net"></a>StreamDeserializer deserializza un flusso in un oggetto di tipo T. I campi pubblici in T possono essere di qualsiasi tipo supportato in .NET?
-
-Il supporto per tutti i tipi supportati in .NET si trova nella roadmap.
 
 ### <a name="can-i-share-my-deserializer-implementation-with-the-community-so-that-others-can-benefit"></a>È possibile condividere l'implementazione del deserializzatore con la community in modo che altri utenti possano trarre vantaggio?
 
