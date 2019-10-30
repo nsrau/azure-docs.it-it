@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2db8d5881b5847adca4fffb72c0a678e1ec550c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 3a1906b8ac281620381176a2a11dff3841069f69
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596318"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062667"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo argomento descrive i prerequisiti e i requisiti hardware per Azure AD Connect.
@@ -221,7 +221,7 @@ La tabella seguente indica i requisiti minimi di sincronizzazione di Azure AD Co
 | 300.000-600.000 |1,6 GHz |32 GB |450 GB |
 | Più di 600.000 |1,6 GHz |32 GB |500 GB |
 
-I requisiti minimi per i computer che eseguono ADFS o i server applicazioni Web sono i seguenti:
+I requisiti minimi per i computer che eseguono AD FS o i server proxy applicazione Web sono i seguenti:
 
 * CPU: dual core da 1,6 GHz o superiore
 * MEMORIA: 2 GB o superiore

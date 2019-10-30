@@ -14,18 +14,18 @@ ms.date: 08/31/2018
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12b6cd17fac77361fa20d3b3e048e64228a2ed3d
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 2aa58c354198e648227b9b0b43d1f60546f87d32
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809019"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063071"
 ---
 # <a name="multi-factor-authentication-and-privileged-identity-management"></a>Autenticazione a più fattori e Privileged Identity Management
 
 È consigliabile richiedere l'autenticazione Multi-Factor Authentication (MFA) per tutti gli amministratori. Ciò consente di ridurre il rischio di attacchi causato da una password compromessa.
 
-È possibile richiedere agli utenti di completare una richiesta di autenticazione a più fattori quando eseguono l'accesso. È anche possibile richiedere che gli utenti completino una richiesta di autenticazione a più fattori quando attivano un ruolo in Azure Active Directory (Azure AD) Privileged Identity Management (PIM). In questo modo, se l'utente non ha completato una richiesta di autenticazione a più fattori di autenticazione quando ha eseguito l'accesso, verrà richiesto di eseguire questa operazione dal Privileged Identity Management.
+È possibile richiedere agli utenti di completare una richiesta di autenticazione a più fattori quando eseguono l'accesso. È anche possibile richiedere che gli utenti completino una richiesta di autenticazione a più fattori quando attivano un ruolo in Azure Active Directory (Azure AD) Privileged Identity Management (PIM). In questo modo, se l'utente non ha completato una richiesta di autenticazione a più fattori quando ha eseguito l'accesso, verrà richiesto di farlo da Privileged Identity Management.
 
 > [!IMPORTANT]
 > Attualmente, Azure Multi-Factor Authentication funziona solo con gli account aziendali o dell'Istituto di istruzione, non con gli account personali Microsoft (in genere un account personale usato per accedere ai servizi Microsoft, ad esempio Skype, Xbox o Outlook.com). Per questo motivo, chiunque usi un account personale non può essere un amministratore idoneo perché non può usare l'autenticazione a più fattori per attivare i ruoli. Se devono continuare a gestire i carichi di lavoro con un account Microsoft, elevare questi utenti a livello di amministratori permanenti per ora.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f50ace6d707db35dfd7cf9f14026d755093a038c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 5372bf853092ea55952b45a1300d0f979f1b086c
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802438"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062264"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Come gestire il gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD
 
@@ -59,10 +59,10 @@ Per modificare il ruolo Amministratore dispositivo, configurare **Amministratori
 >[!NOTE]
 > Questa opzione richiede un tenant Azure AD Premium. 
 
-Gli amministratori dispositivo vengono assegnati a tutti i dispositivi aggiunti ad Azure AD. Non è possibile includere gli amministratori dispositivo nell'ambito di un set specifico di dispositivi. L'aggiornamento del ruolo Amministratore dispositivo non ha necessariamente un impatto immediato sugli utenti interessati. Per i dispositivi a cui un utente ha già effettuato l'accesso, l'aggiornamento dei privilegi viene eseguito:
+Gli amministratori dispositivo vengono assegnati a tutti i dispositivi aggiunti ad Azure AD. Non è possibile includere gli amministratori dispositivo nell'ambito di un set specifico di dispositivi. L'aggiornamento del ruolo Amministratore dispositivo non ha necessariamente un impatto immediato sugli utenti interessati. Nei dispositivi in cui un utente è già connesso, viene eseguito l'aggiornamento dei privilegi quando si verificano *entrambe* le azioni seguenti:
 
-- Quando un utente si disconnette.
-- Dopo 4 ore, quando viene rilasciato un nuovo token di aggiornamento primario. 
+- sono trascorse 4 ore per Azure AD per emettere un nuovo token di aggiornamento primario con i privilegi appropriati. 
+- L'utente si disconnette e torna indietro, non blocca/sblocca, per aggiornare il proprio profilo.
 
 ## <a name="manage-regular-users"></a>Gestire utenti normali
 

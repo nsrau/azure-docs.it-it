@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: 02a1c12957570f0e798c5abfd88562128ea1cf76
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 9ea9bea83de0a177fa37d9a186f8962bac1394a4
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053078"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101413"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinque passaggi per proteggere l'infrastruttura di identità
 
@@ -175,21 +175,21 @@ Azure AD Identity Protection offre due importanti report da monitorare quotidian
 
 È possibile indurre gli utenti a passare a un sito Web compromesso o a app che otterranno l'accesso alle informazioni sul profilo e ai dati utente, ad esempio la posta elettronica. Un attore malintenzionato può usare le autorizzazioni per il consenso ricevute per crittografare il contenuto della cassetta postale e richiedere un riscatto per riottenere i dati della cassetta postale. Gli [amministratori dovrebbero analizzare e controllare](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) le autorizzazioni concesse dagli utenti.
 
-## <a name="step-5---enable-end-user-self-help"></a>Passaggio 5 - Abilitare il self-help degli utenti finali
+## <a name="step-5---enable-end-user-self-service"></a>Passaggio 5: abilitare la self-service dell'utente finale
 
-Per quanto possibile è opportuno bilanciare sicurezza e produttività. In linea con lo stesso approccio mentale con cui un utente predispone una base per la sicurezza a lungo termine, è possibile rimuovere attrito dall'organizzazione potenziando gli utenti, ma rimanendo sempre vigili. 
+Per quanto possibile è opportuno bilanciare sicurezza e produttività. In linea con lo stesso approccio mentale con cui un utente predispone una base per la sicurezza a lungo termine, è possibile rimuovere attrito dall'organizzazione potenziando gli utenti, ma rimanendo sempre vigili.
 
 ### <a name="implement-self-service-password-reset"></a>Implementare la reimpostazione self-service delle password
 
-La [reimpostazione self-service delle password](../../active-directory/authentication/quickstart-sspr.md) di Azure offre agli amministratori IT una modalità semplice per consentire agli utenti di reimpostare o sbloccare le password o gli account senza intervento dell'amministratore. Il sistema include report dettagliati per tenere traccia del momento in cui gli utenti accedono al sistema, oltre a notifiche per segnalare usi impropri. 
+La [reimpostazione della password self-service di Azure ad (SSPR)](../../active-directory/authentication/quickstart-sspr.md) offre agli amministratori IT un modo semplice per consentire agli utenti di reimpostare o sbloccare le password o gli account senza help desk o l'intervento dell'amministratore. Il sistema include report dettagliati che consentono di tenere traccia del momento in cui gli utenti hanno reimpostato le proprie password, insieme alle notifiche per segnalare un abuso o abusi.
 
-### <a name="implement-self-service-group-management"></a>Implementare la gestione gruppi self-service
+### <a name="implement-self-service-group-and-application-access"></a>Implementare l'accesso alle applicazioni e ai gruppi self-service
 
-Azure AD offre la possibilità di gestire l'accesso alle risorse con gruppi di sicurezza e gruppi di Office 365. Questi gruppi possono essere gestiti dai proprietari, anziché dagli amministratori IT. Noto come [gestione self-service dei](../../active-directory/users-groups-roles/groups-self-service-management.md)gruppi, questa funzionalità consente ai proprietari del gruppo a cui non è assegnato un ruolo amministrativo di creare e gestire gruppi senza affidarsi agli amministratori per gestire le richieste.
+Azure AD offre agli amministratori non amministratori la possibilità di gestire l'accesso alle risorse, usando i gruppi di sicurezza, i gruppi di Office 365, i ruoli applicazione e i cataloghi dei pacchetti di accesso.  La [gestione dei gruppi self-service](../../active-directory/users-groups-roles/groups-self-service-management.md) consente ai proprietari del gruppo di gestire i propri gruppi senza che sia necessario assegnare un ruolo amministrativo. Gli utenti possono anche creare e gestire i gruppi di Office 365 senza affidarsi agli amministratori per gestire le richieste e i gruppi non usati scadono automaticamente.  [Azure ad la gestione dei diritti](../../active-directory/governance/entitlement-management-overview.md) consente ulteriormente la delega e la visibilità, con flussi di lavoro di richiesta di accesso completi e scadenza automatica.  È possibile delegare agli utenti non amministratori la possibilità di configurare i propri pacchetti di accesso per i gruppi, i team, le applicazioni e i siti di SharePoint Online di cui si è proprietari, con criteri personalizzati per gli utenti che devono approvare l'accesso, inclusa la configurazione dei dipendenti responsabili e sponsor partner commerciali come responsabili approvazione.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Implementare verifiche di accesso di Azure AD
 
-Con le verifiche di [accesso di Azure ad](../../active-directory/governance/access-reviews-overview.md), è possibile gestire le appartenenze ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo con privilegi per assicurarsi di mantenere uno standard di sicurezza che non concede agli utenti l'accesso per periodi di tempo prolungati serve.
+Con le verifiche di [accesso di Azure ad](../../active-directory/governance/access-reviews-overview.md), è possibile gestire l'accesso ai pacchetti e alle appartenenze ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo con privilegi per garantire la manutenzione di uno standard di sicurezza.  Una supervisione normale da parte degli utenti, i proprietari delle risorse e altri revisori assicurano che gli utenti non mantengano l'accesso per periodi di tempo prolungati quando non sono più necessari.
 
 ## <a name="summary"></a>Summary
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: ac483a338b7d71142b89b13e41fc048346ac037f
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: e0d746f1b01784bc383c12543936f06dae66ca09
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802645"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063247"
 ---
 # <a name="azure-block-blob-storage-performance-tiers"></a>Livelli di prestazioni dell'archiviazione BLOB in blocchi di Azure
 
@@ -28,7 +28,7 @@ Le considerazioni seguenti si applicano ai diversi livelli di prestazioni:
 
 - Le prestazioni standard sono disponibili in tutte le [aree di Azure](https://azure.microsoft.com/global-infrastructure/services/?products=storage). Le prestazioni Premium sono disponibili in [aree selezionate](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 - Prestazioni Premium offre prezzi ottimizzati per le applicazioni con tariffe di transazione elevate, per [ridurre i costi di archiviazione totali](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/) per questi carichi di lavoro.
-- Per le prestazioni Premium è necessario usare gli account di archiviazione BLOB in blocchi, che supportano BLOB in blocchi e BLOB di Accodamento.
+- Per ottenere prestazioni Premium per i BLOB in blocchi, è necessario usare il tipo di account BlockBlobStorage.
 - Le prestazioni standard sono disponibili con gli account di archiviazione per utilizzo generico V1, per utilizzo generico V2 e BLOB.
 - Le prestazioni standard e Premium supportano entrambi [BLOB in blocchi con velocità effettiva elevata](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/). I BLOB in blocchi con velocità effettiva elevata sono disponibili per prestazioni Premium superiori a 256 KiB. I BLOB in blocchi con velocità effettiva elevata sono disponibili per prestazioni standard superiori a 4 MB Put Block o Put Blob size.
 - Le prestazioni Premium sono attualmente disponibili solo con archiviazione con ridondanza locale (con ridondanza locale).

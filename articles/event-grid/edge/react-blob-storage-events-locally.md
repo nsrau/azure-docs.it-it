@@ -9,12 +9,12 @@ ms.date: 10/02/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 851b5607ad5413cd1a594f788cb294ee7790e8eb
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: a074abf494e155e0dc088d0db6af7eba0b3cf3c2
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043177"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73100232"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Esercitazione: rispondere agli eventi di archiviazione BLOB in IoT Edge (anteprima)
 Questo articolo illustra come distribuire il servizio di archiviazione BLOB di Azure nel modulo Internet, che fungerebbe da server di pubblicazione di griglia di eventi per inviare gli eventi durante la creazione e l'eliminazione di BLOB in griglia di eventi.  
@@ -167,7 +167,10 @@ Questa sezione illustra come distribuire il modulo di archiviazione BLOB di Azur
 5. Fare clic su **Salva**.
 6. Fare clic su **Avanti** per passare alla sezione Route
 
- ### <a name="setup-routes"></a>Route di installazione
+    > [!NOTE]
+    > Se si usa una macchina virtuale di Azure come dispositivo perimetrale, aggiungere una regola per la porta in ingresso per consentire il traffico in ingresso nelle porte host usate in questa esercitazione: 4438, 5888, 8080 e 11002. Per istruzioni sull'aggiunta della regola, vedere [How to open ports to a VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
+
+### <a name="setup-routes"></a>Route di installazione
 
 Mantenere le route predefinite e fare clic su **Avanti** per passare alla sezione Revisione
 
@@ -184,7 +187,7 @@ Mantenere le route predefinite e fare clic su **Avanti** per passare alla sezion
 
    Per l'avvio del modulo e per il rilevamento da parte dell'hub IoT può essere richiesto un po' di tempo. Aggiornare la pagina per visualizzare lo stato aggiornato.
 
-## <a name="publish-created-and-deleted-events"></a>Pubblica eventi creati ed eliminati
+## <a name="publish-blobcreated-and-blobdeleted-events"></a>Pubblicare eventi BlobCreated e BlobDeleted
 
 1. Questo modulo crea automaticamente l'argomento **MicrosoftStorage**. Verificare che esista
     ```sh

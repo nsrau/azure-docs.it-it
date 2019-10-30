@@ -1,7 +1,7 @@
 ---
 title: Modificare le chiavi di accesso dell'account di archiviazione
 titleSuffix: Azure Machine Learning
-description: Informazioni su come modificare le chiavi di accesso per l'account di archiviazione di Azure usato dall'area di lavoro. Azure Machine Learning usa un account di archiviazione di Azure per archiviare i dati e i modelli. Quando si rigenera la chiave di accesso per l'account di archiviazione, è necessario aggiornare Azure Machine Learning per usare le nuove chiavi.
+description: Informazioni su come modificare le chiavi di accesso per l'account di archiviazione di Azure usato dall'area di lavoro. Azure Machine Learning usa un account di archiviazione di Azure per archiviare i dati e i modelli.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/16/2019
-ms.openlocfilehash: 6c87d4553c7b0fd34513d761558a06cd527c4e3b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 77cafceee35f00a81b2e07b59f0f4a13146fd906
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034960"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063327"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Rigenera le chiavi di accesso dell'account di archiviazione
 
@@ -64,9 +64,9 @@ for name, ds in datastores.items():
 
 Questo codice Cerca tutti gli archivi dati registrati che usano archiviazione di Azure e elenca le informazioni seguenti:
 
-* Nome archivio dati: Nome dell'archivio dati in cui è registrato l'account di archiviazione.
-* Nome account di archiviazione: Nome dell'account di archiviazione di Azure.
-* Contenitore Il contenitore nell'account di archiviazione usato dalla registrazione.
+* Nome archivio dati: il nome dell'archivio dati in cui è registrato l'account di archiviazione.
+* Nome dell'account di archiviazione: il nome dell'account di archiviazione di Azure.
+* Container: contenitore nell'account di archiviazione usato da questa registrazione.
 
 Indica inoltre se l'archivio dati è per un BLOB di Azure o una condivisione file di Azure, in quanto esistono diversi metodi per registrare di nuovo ogni tipo di archivio dati.
 
@@ -89,7 +89,7 @@ Per aggiornare Azure Machine Learning per utilizzare la nuova chiave, attenersi 
         az login
         ```
 
-    1. Per aggiornare l'area di lavoro per l'utilizzo della nuova chiave, utilizzare il comando seguente. Sostituire `myworkspace` con il nome dell'area di lavoro Azure Machine Learning `myresourcegroup` e sostituire con il nome del gruppo di risorse di Azure che contiene l'area di lavoro.
+    1. Per aggiornare l'area di lavoro per l'utilizzo della nuova chiave, utilizzare il comando seguente. Sostituire `myworkspace` con il nome dell'area di lavoro Azure Machine Learning e sostituire `myresourcegroup` con il nome del gruppo di risorse di Azure che contiene l'area di lavoro.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
@@ -123,4 +123,4 @@ Per aggiornare Azure Machine Learning per utilizzare la nuova chiave, attenersi 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulla registrazione di archivi dati, vedere il riferimento [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) alla classe.
+Per ulteriori informazioni sulla registrazione di archivi dati, vedere il riferimento alla classe [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) .

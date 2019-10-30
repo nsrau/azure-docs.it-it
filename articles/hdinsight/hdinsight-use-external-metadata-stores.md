@@ -7,15 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: a876269b2746a1065cee2639cfc5804aff0b3446
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.date: 10/29/2019
+ms.openlocfilehash: 33302f3760cc750bfc41386aaf17368abc15ba5d
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027694"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063297"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Usare gli archivi di metadati esterni in Azure HDInsight
+
+HDInsight consente di assumere il controllo dei dati e dei metadati distribuendo le soluzioni di metadati chiave e i database di gestione in archivi dati esterni. Questa funzionalità è attualmente disponibile per [Apache hive](#custom-metastore)Metastore, il [Metastore Apache oozie](#apache-oozie-metastore) e il [database Apache Ambari](#custom-ambari-db).
 
 Il metastore di Apache Hive in HDInsight è una parte essenziale dell'architettura di Apache Hadoop. Un metastore è il repository centrale di schemi che può essere usato da altri strumenti di accesso ai Big Data come Apache Spark, Interactive Query (LLAP), Presto o Apache Pig. HDInsight usa un Database SQL di Azure come il metastore Hive.
 
@@ -92,6 +94,10 @@ Ecco alcune procedure consigliate generali per il metastore Hive di HDInsight:
 Apache Oozie è un sistema di coordinamento dei flussi di lavoro che consente di gestire i processi Hadoop.  Oozie supporta i processi Hadoop per Apache MapReduce, Pig, Hive e altri.  Oozie usa un metastore per archiviare i dettagli sui flussi di lavoro correnti e completati. Per ottenere un miglioramento delle prestazioni quando si usa Oozie, è possibile usare il database SQL di Azure come metastore personalizzato. Il metastore può anche fornire l'accesso ai dati di processo Oozie dopo l'eliminazione del cluster.
 
 Per istruzioni sulla creazione di un metastore Oozie con il database SQL di Azure, vedere come [usare Apache Oozie per i flussi di lavoro](hdinsight-use-oozie-linux-mac.md).
+
+## <a name="custom-ambari-db"></a>DATABASE Ambari personalizzato
+
+Per usare il proprio database esterno con Apache Ambari in HDInsight, vedere [database Apache Ambari personalizzato](hdinsight-custom-ambari-db.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

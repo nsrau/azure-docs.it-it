@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: e03c68854d9150c25019fe198fe855a011750844
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b7015b3e861aea3a33ea26d6a8c1a31f7f17b8c4
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566556"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063085"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Ridimensionare le risorse di database singoli nel database SQL di Azure
 
-Questo articolo descrive come ridimensionare le risorse di calcolo e di archiviazione disponibili per un singolo database nel livello di calcolo di cui è stato effettuato il provisioning. In alternativa, il [livello di calcolo senza server (anteprima)](sql-database-serverless.md) fornisce scalabilità automatica di calcolo e fatture al secondo per il calcolo usato.
+Questo articolo descrive come ridimensionare le risorse di calcolo e di archiviazione disponibili per un database SQL di Azure nel livello di calcolo di cui è stato effettuato il provisioning. In alternativa, il [livello di calcolo senza server (anteprima)](sql-database-serverless.md) fornisce scalabilità automatica di calcolo e fatture al secondo per il calcolo usato.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -40,18 +40,18 @@ Il video seguente mostra come modificare in modo dinamico il livello di servizio
 
 ### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Effetti della modifica delle dimensioni di calcolo del livello di servizio o di ridimensionamento
 
-La modifica del livello di servizio o delle dimensioni di calcolo di un singolo database comporta principalmente il servizio che esegue i passaggi seguenti:
+La modifica del livello di servizio o delle dimensioni di calcolo di comporta principalmente il servizio che esegue i passaggi seguenti:
 
 1. Crea nuova istanza di calcolo per il database  
 
-    Viene creata una nuova istanza di calcolo per il database con il livello di servizio e le dimensioni di calcolo richiesti. Per alcune combinazioni di modifiche del livello di servizio e delle dimensioni di calcolo, è necessario creare una replica del database nella nuova istanza di calcolo, che prevede la copia dei dati e può influenzare fortemente la latenza complessiva. Indipendentemente dal fatto che il database rimanga online durante questo passaggio, le connessioni continueranno a essere indirizzate al database nell'istanza di calcolo originale.
+    Viene creata una nuova istanza di calcolo con il livello di servizio e le dimensioni di calcolo richiesti. Per alcune combinazioni di modifiche del livello di servizio e delle dimensioni di calcolo, è necessario creare una replica del database nella nuova istanza di calcolo, che prevede la copia dei dati e può influenzare fortemente la latenza complessiva. Indipendentemente dal fatto che il database rimanga online durante questo passaggio, le connessioni continueranno a essere indirizzate al database nell'istanza di calcolo originale.
 
 2. Passare il routing delle connessioni a una nuova istanza di calcolo
 
     Le connessioni esistenti al database nell'istanza di calcolo originale verranno eliminate. Tutte le nuove connessioni vengono stabilite nel database nella nuova istanza di calcolo. Per alcune combinazioni di modifiche del livello di servizio e delle dimensioni di calcolo, i file di database vengono scollegati e ricollegati durante l'opzione.  Indipendentemente dall'opzione, l'opzione può causare una breve interruzione del servizio quando il database non è disponibile in genere per meno di 30 secondi e spesso solo per pochi secondi. Se sono in esecuzione transazioni con esecuzione prolungata quando si eliminano le connessioni, la durata di questo passaggio potrebbe richiedere più tempo per recuperare le transazioni interrotte. Il [recupero accelerato del database](sql-database-accelerated-database-recovery.md) può ridurre l'effetto di un'interruzione delle transazioni a esecuzione prolungata.
 
 > [!IMPORTANT]
-> Durante qualsiasi passaggio del flusso di lavoro non viene perso alcun dato.
+> Durante qualsiasi passaggio del flusso di lavoro non viene perso alcun dato. Assicurarsi di aver implementato una logica di [ripetizione dei tentativi](sql-database-connectivity-issues.md) nelle applicazioni e nei componenti che usano il database SQL di Azure durante la modifica del livello di servizio.
 
 ### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latenza di modifica del livello di servizio o di ridimensionamento delle dimensioni di calcolo
 
@@ -59,12 +59,12 @@ La latenza stimata per modificare il livello di servizio o ridimensionare le dim
 
 |Livello di servizio|Database singolo di base,</br>Standard (S0-S1)|Pool elastico di base,</br>Standard (S2-S12), </br>Con iperscalabilità </br>per utilizzo generico database singolo o il pool elastico|Premium o business critical database singolo o pool elastico|
 |:---|:---|:---|:---|
-|**Database singolo Basic,</br> standard (S0-S1)**|&bull;&nbsp;Latenza temporale costante indipendente dallo spazio usato</br>&bull;&nbsp;In genere, meno di 5 minuti|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|
-|**Pool </br>elastico Basic, standard (S2-S12) </br>, iperscalabilità, </br>per utilizzo generico database singolo o pool elastico**|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza temporale costante indipendente dallo spazio usato</br>&bull;&nbsp;In genere, meno di 5 minuti|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|
-|**Premium o business critical database singolo o pool elastico**|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|
+|**Database singolo Basic,</br> standard (S0-S1)**|&bull; &nbsp;latenza temporale costante indipendentemente dallo spazio utilizzato</br>&bull; &nbsp;in genere, meno di 5 minuti|&bull; &nbsp;latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull; &nbsp;in genere, meno di 1 minuto per GB di spazio usato|&bull; &nbsp;latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull; &nbsp;in genere, meno di 1 minuto per GB di spazio usato|
+|**Pool elastico Basic, </br>standard (S2-S12), </br>iperscalabilità, </br>per utilizzo generico database singolo o pool elastico**|&bull; &nbsp;latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull; &nbsp;in genere, meno di 1 minuto per GB di spazio usato|&bull; &nbsp;latenza temporale costante indipendentemente dallo spazio utilizzato</br>&bull; &nbsp;in genere, meno di 5 minuti|&bull; &nbsp;latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull; &nbsp;in genere, meno di 1 minuto per GB di spazio usato|
+|**Premium o business critical database singolo o pool elastico**|&bull; &nbsp;latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull; &nbsp;in genere, meno di 1 minuto per GB di spazio usato|&bull; &nbsp;latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull; &nbsp;in genere, meno di 1 minuto per GB di spazio usato|&bull; &nbsp;latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull; &nbsp;in genere, meno di 1 minuto per GB di spazio usato|
 
 > [!TIP]
-> Per monitorare le operazioni in corso, vedere: [Gestire le operazioni tramite l'API REST SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Gestire le operazioni tramite l'interfaccia della riga di comando](/cli/azure/sql/db/op), [Monitorare le operazioni tramite T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e i due comandi PowerShell seguenti: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+> Per monitorare le operazioni in corso, vedere: [gestire le operazioni tramite l'API REST SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [gestire le operazioni tramite l'interfaccia](/cli/azure/sql/db/op)della riga di comando, [monitorare le operazioni usando T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e questi due comandi di PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [ Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
 ### <a name="cancelling-service-tier-changes-or-compute-rescaling-operations"></a>Annullamento delle modifiche al livello di servizio o delle operazioni di ridimensionamento del calcolo
 
@@ -82,7 +82,7 @@ Quindi, fare clic sul pulsante con l'etichetta **Annulla questa operazione**.
 
 #### <a name="powershell"></a>PowerShell
 
-Da un prompt dei `$ResourceGroupName`comandi di PowerShell, impostare, `$ServerName` `$DatabaseName`e, quindi eseguire il comando seguente:
+Da un prompt dei comandi di PowerShell, impostare il `$ResourceGroupName`, `$ServerName`e `$DatabaseName`, quindi eseguire il comando seguente:
 
 ```PowerShell
 $OperationName = (az sql db op list --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --query "[?state=='InProgress'].name" --out tsv)
@@ -134,11 +134,11 @@ Viene fatturata ogni ora per cui un database esiste usando il livello di servizi
 
 ## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>Vincoli P11 e P15 quando la dimensione massima è maggiore di 1 TB
 
-Nel livello Premium è attualmente disponibile uno spazio di archiviazione superiore a 1 TB in tutte le aree tranne Cina orientale, Cina settentrionale, Germania centrale, Germania nord-orientale, Stati Uniti centro-occidentali, aree US DoD e US Government (area centrale). In queste aree la quantità massima di spazio di archiviazione nel livello Premium è limitata a 1 TB. Ai database P11 e P15 con dimensioni massime maggiori di 1 TB vengono applicate le considerazioni e le limitazioni seguenti:
+Più di 1 TB di spazio di archiviazione nel livello Premium è attualmente disponibile in tutte le aree, ad eccezione di: Cina orientale, Cina settentrionale, Germania centrale, Germania nord-orientale, Stati Uniti centro-occidentali, US DoD aree e Stati Uniti centrali. In queste aree la quantità massima di risorse di archiviazione nel livello Premium è limitata a 1 TB. Ai database P11 e P15 con dimensioni massime maggiori di 1 TB vengono applicate le considerazioni e le limitazioni seguenti:
 
 - Se le dimensioni massime per un database P11 o P15 sono state impostate su un valore maggiore di 1 TB, è possibile che vengano ripristinate o copiate solo in un database P11 o P15.  Successivamente, il database può essere ridimensionato a una dimensione di calcolo diversa, a condizione che la quantità di spazio allocata al momento dell'operazione di ridimensionamento non superi i limiti di dimensioni massime delle nuove dimensioni di calcolo.
 - Per gli scenari di replica geografica attiva:
-  - Impostazione di una relazione di replica geografica: se il database primario è P11 o P15, devono esserlo anche i database secondari. Dimensioni di calcolo inferiori non vengono accettate come database secondari in quanto non supportano l'opzione superiore a 1 TB.
+  - Impostazione di una relazione di replica geografica: se il database primario è P11 o P15, devono esserlo anche i database secondari. Le dimensioni di calcolo inferiori non vengono accettate come database secondari in quanto non supportano l'opzione superiore a 1 TB.
   - Aggiornamento del database primario in una relazione di replica geografica: portando a oltre 1 TB le dimensioni massime di un database primario, viene attivata la stessa modifica nel database secondario. Entrambi gli aggiornamenti devono avere esito positivo per applicare la modifica al database primario. Vengono applicate limitazioni per l'opzione da oltre 1 TB. Se il database secondario si trova in un'area che non supporta l'opzione da oltre 1 TB, il database primario non viene aggiornato.
 - Il servizio di importazione/esportazione per caricare i database P11 o P15 con oltre 1 TB non è supportato. Usare SqlPackage.exe per [importare](sql-database-import.md) ed [esportare](sql-database-export.md) i dati.
 

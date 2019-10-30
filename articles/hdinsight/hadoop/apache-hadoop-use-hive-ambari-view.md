@@ -2,18 +2,18 @@
 title: Usare la vista hive di Apache Ambari con Apache Hadoop in Azure HDInsight
 description: Informazioni su come usare la visualizzazione Hive dal Web browser per inviare query Hive. La visualizzazione Hive fa parte delle visualizzazioni di Ambari fornite con il cluster HDInsight basato su Linux.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.author: hrasheed
-ms.openlocfilehash: 5063be247b2ad51dc8888f8512f523ccf2b0174c
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.date: 10/24/2019
+ms.openlocfilehash: 6c199a0dd75b89d9c9368e799c97a28b73758d06
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044818"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73097112"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Usare la vista Hive di Apache Ambari con Apache Hadoop in HDInsight
 
@@ -30,9 +30,9 @@ Informazioni su come eseguire query Hive usando la vista Hive di Apache Ambari. 
 
 1. Dal [portale di Azure](https://portal.azure.com/)selezionare il cluster.  Per istruzioni, vedere [elencare e visualizzare i cluster](../hdinsight-administer-use-portal-linux.md#showClusters) . Il cluster viene aperto in un nuovo pannello del portale.
 
-2. Da **Dashboard cluster**selezionare **visualizzazioni Ambari**. Quando viene richiesta l'autenticazione, usare il nome e la password dell'account di accesso al cluster (per impostazione predefinita, `admin`) specificati durante la creazione del cluster.
+1. Da **Dashboard cluster**selezionare **visualizzazioni Ambari**. Quando viene richiesta l'autenticazione, usare il nome e la password dell'account di accesso al cluster (per impostazione predefinita, `admin`) specificati durante la creazione del cluster. In alternativa, passare a `https://CLUSTERNAME.azurehdinsight.net/#/main/views` nel browser in cui `CLUSTERNAME` è il nome del cluster.
 
-3. Nell'elenco di viste selezionare __vista Hive__.
+1. Nell'elenco di viste selezionare __vista Hive__.
 
     ![Visualizzazione Apache Hive di Apache Ambari Select](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
@@ -40,7 +40,7 @@ Informazioni su come eseguire query Hive usando la vista Hive di Apache Ambari. 
 
     ![Immagine del foglio di lavoro della query per la vista Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
 
-4. Dalla scheda __Query__ incollare le istruzioni HiveQL seguenti nel foglio di lavoro:
+1. Dalla scheda __Query__ incollare le istruzioni HiveQL seguenti nel foglio di lavoro:
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -54,8 +54,8 @@ Informazioni su come eseguire query Hive usando la vista Hive di Apache Ambari. 
         t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs 
-        WHERE t4 = '[ERROR]' 
+    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs
+        WHERE t4 = '[ERROR]'
         GROUP BY t4;
     ```
 
@@ -75,9 +75,9 @@ Informazioni su come eseguire query Hive usando la vista Hive di Apache Ambari. 
    > [!IMPORTANT]  
    > Mantenere la selezione di __Database__ __predefinita__. Gli esempi di questo documento usano il database predefinito incluso in HDInsight.
 
-5. Per avviare la query, selezionare **Execute (Esegui** ) sotto il foglio di foglio. Il pulsante diventa arancione e il testo cambia in **Interrompi**.
+1. Per avviare la query, selezionare **Execute (Esegui** ) sotto il foglio di foglio. Il pulsante diventa arancione e il testo cambia in **Interrompi**.
 
-6. Al termine dell'elaborazione della query, nella scheda **Risultati** vengono visualizzati i risultati dell'operazione. Il testo seguente è il risultato della query:
+1. Al termine dell'elaborazione della query, nella scheda **Risultati** vengono visualizzati i risultati dell'operazione. Il testo seguente è il risultato della query:
 
         loglevel       count
         [ERROR]        3
@@ -133,7 +133,7 @@ La scheda della **funzione definita dall'utente** nella parte superiore della vi
 
 Dopo avere aggiunto una funzione definita dall'utente alla visualizzazione Hive, verrà visualizzato un pulsante **Insert udfs** (Inserisci funzioni definite dall'utente) nella parte inferiore di **Query Editor**. Se si seleziona questa voce, verrà visualizzato un elenco di riepilogo a discesa di funzioni definite dall'utente nella vista Hive. La selezione di una funzione definita dall'utente aggiungerà istruzioni HiveQL alla query per abilitare la funzione definita dall'utente.
 
-Ad esempio, se è stata specificata una funzione definita dall'utente con le proprietà seguenti:
+Ad esempio, se è stata definita una funzione definita dall'utente con le proprietà seguenti:
 
 * Nome della risorsa: myudfs
 
@@ -143,7 +143,7 @@ Ad esempio, se è stata specificata una funzione definita dall'utente con le pro
 
 * Nome della classe per la funzione definita dall'utente: com.myudfs.Awesome
 
-Se si usa il pulsante **Insert udfs** (Inserisci funzioni definite dall'utente), verrà visualizzata una voce denominata **myudfs**, con un altro elenco a discesa per ogni funzione definita dall'utente specificata per tale risorsa. In questo caso è **myawesomeudf**. Se si seleziona questa voce, verrà aggiunto quanto segue all'inizio della query:
+Se si usa il pulsante **Insert udfs** (Inserisci funzioni definite dall'utente), verrà visualizzata una voce denominata **myudfs**, con un altro elenco a discesa per ogni funzione definita dall'utente specificata per tale risorsa. In questo caso, **myawesomeudf**. Se si seleziona questa voce, verrà aggiunto quanto segue all'inizio della query:
 
 ```hiveql
 add jar /myudfs.jar;

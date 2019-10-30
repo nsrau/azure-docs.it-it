@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
-ms.date: 06/18/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db8d8d6df16c5df7e29d8bb870c5d5eda6d8a2d3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 6656361fd4634c46cd5216b57eb8465536319f09
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477269"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062793"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Aggiungere un'applicazione non in elenco (non di raccolta) all'organizzazione Azure AD
 
@@ -33,21 +33,36 @@ Questo articolo descrive come aggiungere un'applicazione non della raccolta alle
 ## <a name="add-a-non-gallery-application"></a>Aggiungere un'applicazione non inclusa nella raccolta
 
 1. Accedere al portale di [Azure Active Directory](https://aad.portal.azure.com/) usando l'account amministratore di Microsoft Identity Platform.
-1. Selezionare **applicazioni** > aziendali**nuova applicazione**.
-2. (Facoltativo ma consigliato) Nella casella di ricerca **Aggiungi dalla raccolta** immettere il nome visualizzato dell'applicazione. Se l'applicazione viene visualizzata nei risultati della ricerca, selezionarla e ignorare il resto di questa procedura.
-3. Selezionare l' **applicazione non della raccolta**. Verrà visualizzata la pagina **Aggiungi applicazione personalizzata** .
 
-   ![Aggiungi applicazione](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
-5. Immettere il nome visualizzato per la nuova applicazione.
-6. Selezionare **Aggiungi**. Verrà visualizzata la pagina **Panoramica** dell'applicazione.
+2. Selezionare **applicazioni aziendali** > **nuova applicazione**.
+
+3. (Facoltativo ma consigliato) Nella casella di ricerca **sfoglia Azure ad Gallery** immettere il nome visualizzato dell'applicazione. 
+
+4. Selezionare **Crea un'applicazione personalizzata**. Verrà visualizzata la pagina **Crea applicazione personalizzata** .
+
+   ![Aggiunta di un'applicazione](media/add-non-gallery-app/create-your-own-application.png)
+
+5. Iniziare a digitare il nome visualizzato per la nuova applicazione. Se sono presenti applicazioni della raccolta con nomi simili, verranno visualizzate nell'elenco dei risultati della ricerca.
+
+   > [!NOTE]
+   > Quando possibile, è consigliabile usare la versione della raccolta dell'applicazione. Se l'applicazione che si desidera aggiungere viene visualizzata nei risultati della ricerca, selezionare l'applicazione e ignorare il resto della procedura.
+
+6. In **che cosa si vuole fare con l'applicazione?** scegliere **integra qualsiasi altra applicazione che non si trova nella raccolta**. Questa opzione viene in genere utilizzata per le applicazioni SAML e WS-Fed.
+
+   > [!NOTE]
+   > Le altre due opzioni vengono usate negli scenari seguenti:
+   >* **Configurare il proxy di applicazione per l'accesso remoto sicuro a un'applicazione locale** apre la pagina di configurazione per Azure ad proxy di applicazione e i connettori.
+   >* **Registrare un'applicazione a cui si sta lavorando per l'integrazione con Azure ad** apre la pagina di **registrazioni app** . Questa opzione viene in genere usata per le applicazioni OpenID Connect.
+
+7. Selezionare **Create** (Crea). Viene visualizzata la pagina **Panoramica** dell'applicazione.
 
 ## <a name="configure-user-sign-in-properties"></a>Configurare le proprietà di accesso degli utenti
 
 1. Selezionare **Proprietà** per aprire il riquadro delle proprietà per la modifica.
 
-    ![Riquadro Modifica proprietà](media/add-application-portal/edit-properties.png)
+    ![Riquadro Modifica proprietà](media/add-non-gallery-app/edit-properties.png)
 
-1. Impostare le opzioni seguenti per determinare il modo in cui gli utenti assegnati o non assegnati all'applicazione possono accedere all'applicazione e se un utente può visualizzare l'applicazione nel pannello di accesso.
+2. Impostare le opzioni seguenti per determinare il modo in cui gli utenti assegnati o non assegnati all'applicazione possono accedere all'applicazione e se un utente può visualizzare l'applicazione nel pannello di accesso.
 
     - **Abilitata per l'accesso degli utenti** determina se gli utenti assegnati all'applicazione potranno eseguire l'accesso.
     - **Assegnazione di utenti obbligatoria** determina se gli utenti non assegnati all'applicazione potranno eseguire l'accesso.
@@ -58,13 +73,13 @@ Questo articolo descrive come aggiungere un'applicazione non della raccolta alle
        | Impostazioni delle proprietà dell'applicazione | | | Esperienza degli utenti assegnati | |
        |---|---|---|---|---|
        | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti assegnati?* |
-       | sì | sì | sì | sì | sì  |
-       | sì | sì | no  | sì | no   |
-       | sì | no  | sì | sì | sì  |
-       | sì | no  | no  | sì | no   |
-       | no  | sì | sì | no  | no   |
-       | no  | sì | no  | no  | no   |
-       | no  | no  | sì | no  | no   |
+       | Sì | Sì | Sì | Sì | Sì  |
+       | Sì | Sì | no  | Sì | no   |
+       | Sì | no  | Sì | Sì | Sì  |
+       | Sì | no  | no  | Sì | no   |
+       | no  | Sì | Sì | no  | no   |
+       | no  | Sì | no  | no  | no   |
+       | no  | no  | Sì | no  | no   |
        | no  | no  | no  | no  | no   |
 
       Comportamento per gli utenti **non assegnati**:
@@ -72,27 +87,27 @@ Questo articolo descrive come aggiungere un'applicazione non della raccolta alle
        | Impostazioni delle proprietà dell'applicazione | | | Esperienza degli utenti non assegnati | |
        |---|---|---|---|---|
        | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti non assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti non assegnati?* |
-       | sì | sì | sì | no  | no   |
-       | sì | sì | no  | no  | no   |
-       | sì | no  | sì | sì | no   |
-       | sì | no  | no  | sì | no   |
-       | no  | sì | sì | no  | no   |
-       | no  | sì | no  | no  | no   |
-       | no  | no  | sì | no  | no   |
+       | Sì | Sì | Sì | no  | no   |
+       | Sì | Sì | no  | no  | no   |
+       | Sì | no  | Sì | Sì | no   |
+       | Sì | no  | no  | Sì | no   |
+       | no  | Sì | Sì | no  | no   |
+       | no  | Sì | no  | no  | no   |
+       | no  | no  | Sì | no  | no   |
        | no  | no  | no  | no  | no   |
 
      *L'applicazione viene visualizzata agli utenti nel pannello di accesso e nell'icona di avvio delle app di Office 365?
 
-1. Per usare un logo personalizzato, creare un logo 215 di 215 pixel e salvarlo in formato PNG. Individuare quindi il logo e caricarlo.
+3. Per usare un logo personalizzato, crearne uno di 215 x 215 pixel e salvarlo in formato PNG. Quindi selezionare il logo e caricarlo.
 
-    ![Modificare il logo](media/add-application-portal/change-logo.png)
+    ![Modificare il logo](media/add-non-gallery-app/change-logo.png)
 
-1. Al termine, fare clic su **Salva**.
+4. Al termine, fare clic su **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che l'applicazione è stata aggiunta all'organizzazione Azure AD, [scegliere un metodo Single Sign-on](what-is-single-sign-on.md#choosing-a-single-sign-on-method) che si vuole usare e fare riferimento all'articolo appropriato di seguito:
+Ora che l'applicazione è stata aggiunta all'organizzazione di Azure AD, [scegliere un metodo di Single Sign-On](what-is-single-sign-on.md#choosing-a-single-sign-on-method) da usare e fare riferimento all'articolo appropriato di seguito:
 
-- [Configurare l'accesso Single Sign-on basato su SAML](configure-single-sign-on-non-gallery-applications.md)
-- [Configurare l'accesso Single Sign-on basato su password](configure-password-single-sign-on-non-gallery-applications.md)
+- [Configurare l'accesso Single Sign-On basato su SAML](configure-single-sign-on-non-gallery-applications.md)
+- [Configurare l'accesso Single Sign-On tramite password](configure-password-single-sign-on-non-gallery-applications.md)
 - [Configurare l'accesso collegato](configure-linked-sign-on.md)

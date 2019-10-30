@@ -5,20 +5,20 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 0a678023b1097c4bdec70d866632da6ae4ad57bb
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 324c0e9b8dcaafacaac52b622ce9c533d82c7ff1
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992392"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73100706"
 ---
 # <a name="delivery-and-retry"></a>Recapito e nuovo tentativo
 
-Griglia di eventi fornisce il recapito durevole. Tenta di recapitare ogni messaggio almeno una volta per ogni sottoscrizione corrispondente. Se l'endpoint di un Sottoscrittore non riconosce la ricezione di un evento o se si verifica un errore, la griglia di eventi esegue un nuovo tentativo di recapito in base a una **pianificazione** e un **criterio di ripetizione**corretti.  Attualmente il modulo di griglia di eventi recapita un evento alla volta nel Sottoscrittore. Il payload è tuttavia una matrice con un singolo evento.
+Griglia di eventi fornisce il recapito durevole. Tenta di recapitare ogni messaggio almeno una volta per ogni sottoscrizione corrispondente. Se l'endpoint di un Sottoscrittore non riconosce la ricezione di un evento o se si verifica un errore, la griglia di eventi esegue un nuovo tentativo di recapito in base a una **pianificazione** e un **criterio di ripetizione**corretti.  Per impostazione predefinita, il modulo di griglia di eventi recapita un solo evento alla volta nel Sottoscrittore. Il payload è tuttavia una matrice con un singolo evento. È possibile fare in modo che il modulo recapiti più di un evento alla volta abilitando la funzionalità di invio in batch di output. Per informazioni dettagliate su questa funzionalità, vedere Invio in [batch di output](delivery-output-batching.md).  
 
 > [!IMPORTANT]
 >Non è disponibile alcun supporto di persistenza per i dati dell'evento. Ciò significa che la ridistribuzione o il riavvio del modulo di griglia di eventi provocherà la perdita di eventuali eventi non ancora recapitati.
@@ -29,12 +29,12 @@ Griglia di eventi attende fino a 60 secondi per una risposta dopo il recapito di
 
 Sono presenti due code di backup preconfigurate che determinano la pianificazione in base alla quale verrà effettuato un nuovo tentativo. Sono:
 
-| Pianificazione | Descrizione |
+| Pianificazione | Description |
 | ---------| ------------ |
 | 1 minuto | I messaggi che terminano qui vengono tentati ogni minuto.
 | 10 minuti | I messaggi che terminano qui vengono tentati ogni 10 minuti.
 
-### <a name="how-it-works"></a>Funzionamento
+### <a name="how-it-works"></a>Come funziona
 
 1. Il messaggio arriva al modulo di griglia di eventi. Si è tentato di recapitare immediatamente il prodotto.
 1. Se il recapito non riesce, il messaggio viene accodato in una coda di 1 minuto e viene eseguito un nuovo tentativo dopo un minuto.
@@ -54,7 +54,7 @@ Un evento verrà eliminato se viene raggiunto uno dei limiti del criterio di rip
 
 Sono disponibili due proprietà: `brokers:defaultMaxDeliveryAttempts` e `broker:defaultEventTimeToLiveInSeconds` che possono essere configurate come parte della distribuzione di griglia di eventi, che controlla le impostazioni predefinite dei criteri di ripetizione dei tentativi per tutti i sottoscrittori.
 
-| Nome proprietà | Descrizione |
+| Nome proprietà | Description |
 | ---------------- | ------------ |
 | `broker:defaultMaxDeliveryAttempts` | Numero massimo di tentativi di recapitare un evento. Valore predefinito: 30.
 | `broker:defaultEventTimeToLiveInSeconds` | Durata (TTL) dell'evento in secondi dopo il quale viene eliminato un evento se non viene recapitato. Valore predefinito: **7200** secondi
@@ -64,7 +64,7 @@ Sono disponibili due proprietà: `brokers:defaultMaxDeliveryAttempts` e `broker:
 È anche possibile specificare i limiti dei criteri di ripetizione dei tentativi in base alla sottoscrizione.
 Per informazioni su come configurare le impostazioni predefinite per ogni Sottoscrittore, vedere la [documentazione dell'API](api.md) . Le impostazioni predefinite a livello di sottoscrizione sostituiscono le configurazioni a livello di modulo.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 Nell'esempio seguente vengono impostati i criteri di ripetizione dei tentativi nel modulo di griglia di eventi con maxNumberOfAttempts = 3 e l'evento TTL di 30 minuti
 

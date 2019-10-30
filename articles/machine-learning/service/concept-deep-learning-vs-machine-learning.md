@@ -1,7 +1,7 @@
 ---
 title: Apprendimento avanzato e Machine Learning
 titleSuffix: Azure Machine Learning
-description: Informazioni sull'apprendimento avanzato e sull'apprendimento automatico e sul modo in cui entrambi i concetti sono correlati all'intelligenza artificiale. L'apprendimento avanzato può essere applicato in scenari come il rilevamento delle frodi, il riconoscimento vocale e facciale, l'analisi dei sentimenti e la previsione delle serie temporali.
+description: Scopri in che modo Deep Learning è correlato a Machine Learning e intelligenza artificiale. L'apprendimento avanzato viene usato in scenari come il rilevamento delle frodi, il riconoscimento facciale & vocale, l'analisi dei sentimenti e la previsione delle serie temporali.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 791566dc65b41bf3124e84544390d7d843e51273
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: ffc71cf8b2f60568e3c4bc63a3751bc44be66e58
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123148"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063130"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Apprendimento avanzato e Machine Learning
 
@@ -22,9 +22,9 @@ Questo articolo consente di confrontare apprendimento avanzato e machine learnin
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Deep Learning, Machine Learning e intelligenza artificiale
 
-![Diagramma delle relazioni: Confronto tra intelligenza artificiale e machine learning e apprendimento avanzato](./media/concept-deep-learning-vs-machine-learning/ai-vs-machine-learning-vs-deep-learning.png)
+![Diagramma delle relazioni: intelligenza artificiale rispetto a Machine Learning e apprendimento avanzato](./media/concept-deep-learning-vs-machine-learning/ai-vs-machine-learning-vs-deep-learning.png)
 
-Prendere in considerazione le seguenti definizioni per comprendere l'apprendimento avanzato rispetto a Machine Learning e INTELLIGENZA ARTIFICIALE
+Prendere in considerazione le seguenti definizioni per comprendere l'apprendimento avanzato rispetto a Machine Learning e AI:
 
 - **Deep Learning** è un subset di machine learning basato su reti neurali artificiali. Il _processo di apprendimento_ è _profondo_ perché la struttura delle reti neurali artificiali è costituita da più livelli di input, output e nascosto. Ogni livello contiene unità che trasformano i dati di input in informazioni che il livello successivo può utilizzare per una determinata attività predittiva. Grazie a questa struttura, un computer può apprendere tramite la propria elaborazione dei dati.
 

@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1d95d14398bc6b5acdec89428ebe22a672551a8a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: c1f1f1b7448fb87135973a596017441ec02d8023
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338792"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73102018"
 ---
 # <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>Proteggere i contenuti usando la crittografia dinamica di servizi multimediali
 
@@ -35,7 +35,7 @@ La figura seguente illustra il flusso di lavoro per la protezione del contenuto 
 
 ![Flusso di lavoro per la protezione del contenuto di servizi multimediali](./media/content-protection/content-protection.svg)
   
-&#42;la crittografia *Dynamic supporta la chiave non crittografata AES-128, CBCS e CENC. Per informazioni dettagliate, vedere la [matrice di supporto](#streaming-protocols-and-encryption-types).*
+&#42;La *crittografia dinamica supporta la chiave non crittografata AES-128, CBCS e Cenc. Per informazioni dettagliate, vedere la [matrice di supporto](#streaming-protocols-and-encryption-types).*
 
 Questo articolo illustra i concetti e la terminologia che consentono di comprendere la protezione del contenuto con servizi multimediali.
 
@@ -68,7 +68,7 @@ L'esempio illustra come:
      ```
 2. Creare un [localizzatore di streaming](streaming-locators-concept.md) configurato per lo streaming dell'asset crittografato. 
   
-   Il localizzatore di streaming deve essere associato a un [criterio di streaming](streaming-policy-concept.md). Nell'esempio è stato impostato `StreamingLocator.StreamingPolicyName` sul criterio "Predefined_MultiDrmCencStreaming". 
+   Il localizzatore di streaming deve essere associato a un [criterio di streaming](streaming-policy-concept.md). Nell'esempio viene impostato `StreamingLocator.StreamingPolicyName` sul criterio "Predefined_MultiDrmCencStreaming". 
       
    Verranno applicate le crittografie PlayReady e Widevine e la chiave verrà recapitata al client di riproduzione in base alle licenze DRM configurate. Se si vuole anche crittografare il flusso con CBCS (FairPlay), usare il criterio "Predefined_MultiDrmStreaming".
 
@@ -85,7 +85,7 @@ L'esempio illustra come:
 Un'app lettore video basata su un SDK per lettori, nativa o basata su browser, deve soddisfare i requisiti seguenti:
 
 * Player SDK supporta i client DRM necessari.
-* L'SDK per lettori supporta i protocolli di streaming necessari: Smooth, DASH e/o HLS.
+* Player SDK supporta i protocolli di streaming richiesti: Smooth, DASH e/o HLS.
 * Il lettore SDK può gestire il passaggio di un token JWT in una richiesta di acquisizione della licenza.
 
 È possibile creare un lettore usando l'[API di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/). Usare l'[API ProtectionInfo di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/) per specificare la tecnologia DRM da usare in varie piattaforme DRM.
@@ -109,8 +109,6 @@ Un servizio token di sicurezza (STS) rilascia JWT come token di accesso per l'ac
 * Verifica simmetrica o asimmetrica per la verifica della firma
 * Supporto del rollover della chiave, se necessario
 
-È possibile utilizzare [questo strumento STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) per testare il servizio token di servizio. Supporta tutti e tre i tipi di chiavi di verifica: simmetrico, asimmetrico o Azure Active Directory (Azure AD) con rollover della chiave. 
-
 ## <a name="streaming-protocols-and-encryption-types"></a>Protocolli di streaming e tipi di crittografia
 
 È possibile usare Servizi multimediali per distribuire i contenuti crittografati dinamicamente con chiave non crittografata AES o con crittografia DRM mediante PlayReady, Widevine o FairPlay. Attualmente è possibile crittografare i formati HLS (HTTP Live Streaming), MPEG DASH e Smooth Streaming. Ogni protocollo supporta i seguenti metodi di crittografia.
@@ -121,7 +119,7 @@ Il protocollo HLS supporta i formati di contenitore e gli schemi di crittografia
 
 |Formato del contenitore|Schema di crittografia|Esempio di URL|
 |---|---|---|
-|Tutti|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|Tutto|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
 |MPG2-TS |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
 |CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
 |MPG2-TS |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
@@ -139,7 +137,7 @@ Il protocollo MPEG-DASH supporta i formati di contenitore e gli schemi di critto
 
 |Formato del contenitore|Schema di crittografia|Esempi di URL
 |---|---|---|
-|Tutti|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|Tutto|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
 |CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
 |CMAF(fmp4)|CENC (Widevine + PlayReady)|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cenc)`|
 
@@ -181,14 +179,14 @@ Quando si configurano i criteri di restrizione del token, è necessario specific
 
 ### <a name="token-replay-prevention"></a>Prevenzione della riproduzione del token
 
-La funzionalità di *prevenzione della riproduzione dei token* consente ai clienti di servizi multimediali di impostare un limite per il numero di volte in cui è possibile usare lo stesso token per richiedere una chiave o una licenza. Il cliente può aggiungere un'attestazione di `urn:microsoft:azure:mediaservices:maxuses` tipo nel token, dove il valore è il numero di volte in cui il token può essere usato per acquisire una licenza o una chiave. Tutte le richieste successive con lo stesso token al recapito della chiave restituiranno una risposta non autorizzata. Vedere come aggiungere l'attestazione nell' [esempio di DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
+La funzionalità di *prevenzione della riproduzione dei token* consente ai clienti di servizi multimediali di impostare un limite per il numero di volte in cui è possibile usare lo stesso token per richiedere una chiave o una licenza. Il cliente può aggiungere un'attestazione di tipo `urn:microsoft:azure:mediaservices:maxuses` nel token, dove il valore è il numero di volte in cui il token può essere usato per acquisire una licenza o una chiave. Tutte le richieste successive con lo stesso token al recapito della chiave restituiranno una risposta non autorizzata. Vedere come aggiungere l'attestazione nell' [esempio di DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
  
 #### <a name="considerations"></a>Considerazioni
 
 * I clienti devono avere il controllo sulla generazione dei token. L'attestazione deve essere inserita nel token stesso.
 * Quando si usa questa funzionalità, le richieste con token la cui ora di scadenza è più di un'ora a partire dal momento in cui la richiesta viene ricevuta vengono rifiutate con una risposta non autorizzata.
 * I token sono identificati in modo univoco dalla firma. Qualsiasi modifica apportata al payload (ad esempio, l'aggiornamento all'ora di scadenza o l'attestazione) modifica la firma del token e viene conteggiata come un nuovo token non rilevato prima dal recapito della chiave.
-* La riproduzione ha esito negativo se il token `maxuses` ha superato il valore impostato dal cliente.
+* La riproduzione ha esito negativo se il token ha superato il valore `maxuses` impostato dal cliente.
 * Questa funzionalità può essere usata per tutto il contenuto protetto esistente (è necessario modificare solo il token emesso).
 * Questa funzionalità funziona sia con JWT che con SWT.
 
@@ -211,28 +209,28 @@ Quando si usa un servizio token di sicurezza personalizzato, è necessario appor
 Esistono due tipi di chiavi di sicurezza:
 
 * Chiave simmetrica: la stessa chiave viene usata per generare e verificare un token JWT.
-* Chiave asimmetrica: una coppia di chiavi pubblica-privata in un certificato X509 viene usata con una chiave privata per la crittografia/generazione di un token JWT e con la chiave pubblica per la verifica del token.
+* Chiave asimmetrica: un coppia di chiavi pubblica-privata in un certificato X509 viene usata con una chiave privata per la crittografia/generazione di un token JWT e con la chiave pubblica per la verifica del token.
 
-Se si usa .NET Framework/C# come piattaforma di sviluppo, il certificato X509 usato per la chiave di sicurezza asimmetrica deve avere una lunghezza della chiave pari almeno a 2048 bit. È un requisito della classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. In caso contrario, viene generata un'eccezione simile alla seguente: IDX10630: 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' per la firma non può essere inferiore a 2048 bit.
+Se si usa .NET Framework/C# come piattaforma di sviluppo, il certificato X509 usato per la chiave di sicurezza asimmetrica deve avere una lunghezza della chiave pari almeno a 2048 bit. È un requisito della classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. In caso contrario, viene generata l'eccezione seguente: IDX10630:' System. IdentityModel. Tokens. X509AsymmetricSecurityKey ' per la firma non può essere minore di ' 2048' bit.
 
 ## <a name="custom-key-and-license-acquisition-url"></a>URL di acquisizione di licenze e chiavi personalizzate
 
 Usare i modelli seguenti se si vuole specificare un servizio di distribuzione di licenze/chiavi diverso (non servizi multimediali). I due campi sostituibili nei modelli sono disponibili per poter condividere i criteri di streaming tra più asset anziché creare criteri di flusso per ogni asset. 
 
-* `EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate`: Modello per l'URL del servizio personalizzato che fornisce le chiavi ai giocatori degli utenti finali. Non è obbligatorio quando si usa servizi multimediali di Azure per l'emissione di chiavi. 
+* `EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate`: modello per l'URL del servizio personalizzato che fornisce le chiavi ai giocatori degli utenti finali. Non è obbligatorio quando si usa servizi multimediali di Azure per l'emissione di chiavi. 
 
    Il modello supporta i token sostituibili che il servizio aggiornerà in fase di esecuzione con il valore specifico della richiesta.  I valori dei token attualmente supportati sono:
    * `{AlternativeMediaId}`, che viene sostituito con il valore di StreamingLocatorId. AlternativeMediaId.
    * `{ContentKeyId}`, che viene sostituito con il valore dell'identificatore della chiave richiesta.
-* `StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate`: Modello per l'URL del servizio personalizzato che fornisce le licenze ai giocatori degli utenti finali. Non è obbligatorio quando si usa servizi multimediali di Azure per emettere licenze. 
+* `StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate`: modello per l'URL del servizio personalizzato che fornisce le licenze ai giocatori degli utenti finali. Non è obbligatorio quando si usa servizi multimediali di Azure per emettere licenze. 
 
    Il modello supporta i token sostituibili che il servizio aggiornerà in fase di esecuzione con il valore specifico della richiesta. I valori dei token attualmente supportati sono:  
    * `{AlternativeMediaId}`, che viene sostituito con il valore di StreamingLocatorId. AlternativeMediaId.
    * `{ContentKeyId}`, che viene sostituito con il valore dell'identificatore della chiave richiesta. 
-* `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: Uguale al modello precedente, solo per Widevine. 
-* `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: Uguale al modello precedente, solo per FairPlay.  
+* `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: uguale al modello precedente, solo per Widevine. 
+* `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: uguale al modello precedente, solo per FairPlay.  
 
-Esempio:
+ad esempio:
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
@@ -244,11 +242,11 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
-Se si ottiene l'errore `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY`, assicurarsi di specificare i criteri di flusso appropriati.
+Se viene ricevuto il messaggio di errore `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY`, assicurarsi di specificare i criteri di flusso appropriati.
 
-Se vengono visualizzati errori che terminano `_NOT_SPECIFIED_IN_URL`con, assicurarsi di specificare il formato di crittografia nell'URL. Un esempio è `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Vedere [protocolli di streaming e tipi di crittografia](#streaming-protocols-and-encryption-types).
+Se vengono visualizzati errori che terminano con `_NOT_SPECIFIED_IN_URL`, assicurarsi di specificare il formato di crittografia nell'URL. Un esempio è `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Vedere [protocolli di streaming e tipi di crittografia](#streaming-protocols-and-encryption-types).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback e ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

@@ -1,5 +1,5 @@
 ---
-title: "Creare e installare i file di configurazione del client VPN da punto a sito per l'autenticazione del certificato di Azure: Azure"
+title: "Creare e installare i file di configurazione del client VPN P2S per l'autenticazione del certificato di Azure: Azure"
 description: Creare e installare i file di configurazione del client VPN in Windows, Linux, Linux (strongSwan) e Mac OS X per l'autenticazione del certificato da punto a sito.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 095c7c4bf2a0fb08c0a7fe7e0a8118e76732c9c7
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: fb6c484e234b4641a521bd876acdfeb4df562260
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961611"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063125"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Creare e installare i file di configurazione del client VPN per le configurazioni da punto a sito con autenticazione del certificato nativa di Azure
 
@@ -106,10 +106,10 @@ Usare questa procedura per configurare il client VPN nativo in Mac per l'autenti
    ![certificato](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 7. In **Choose An Identity** (Scegli identità) viene visualizzato un elenco dei certificati tra cui scegliere. Selezionare il certificato corretto e quindi **Continua**.
 
-   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
+   ![identità](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. Nel campo **Local ID** (ID locale) specificare il nome del certificato (dal passaggio 6). In questo esempio è "ikev2Client.com". Fare quindi clic sul pulsante **Applica** per salvare le modifiche.
 
-   ![applica](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+   ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 9. Nella finestra di dialogo **Rete** fare clic su **Applica** per salvare tutte le modifiche. Fare quindi clic su **Connect** (Connetti) per avviare la connessione da punto a sito alla rete virtuale di Azure.
 
 ## <a name="linuxgui"></a>Linux (strongSwan GUI)
@@ -136,7 +136,7 @@ In Ubuntu 18.0.4 sono state create le istruzioni seguenti. Ubuntu 16.0.10 non su
 2. Selezionare **Impostazioni** , quindi fare clic su **rete**.
 
    ![Modificare le connessioni](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
-3. Fare clic **+** sul pulsante per creare una nuova connessione.
+3. Fare clic sul pulsante **+** per creare una nuova connessione.
 
    ![Aggiungere una connessione](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
 4. Selezionare **IPSec/IKEv2 (strongSwan)** dal menu e fare doppio clic su. In questo passaggio è possibile assegnare un nome alla connessione.
@@ -174,17 +174,17 @@ Se non sono ancora stati generati certificati, attenersi alla procedura seguente
   
    ```
    conn azure
-   keyexchange=ikev2
-   type=tunnel
-   leftfirewall=yes
-   left=%any
-   leftauth=eap-tls
-   leftid=%client # use the DNS alternative name prefixed with the %
-   right= Enter the VPN Server value here# Azure VPN gateway address
-   rightid=% # Enter the VPN Server value here# Azure VPN gateway FQDN with %
-   rightsubnet=0.0.0.0/0
-   leftsourceip=%config
-   auto=add
+         keyexchange=ikev2
+         type=tunnel
+         leftfirewall=yes
+         left=%any
+         leftauth=eap-tls
+         leftid=%client # use the DNS alternative name prefixed with the %
+         right= Enter the VPN Server value here# Azure VPN gateway address
+         rightid=% # Enter the VPN Server value here# Azure VPN gateway FQDN with %
+         rightsubnet=0.0.0.0/0
+         leftsourceip=%config
+         auto=add
    ```
 6. Aggiungere quanto segue a */etc/ipsec.secrets*.
 

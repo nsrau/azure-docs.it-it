@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 7f0d846a83312e28c305100e7c8dc74cc8140d7d
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 32814b7478fac9530cc74fba605a096881229102
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73023841"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101339"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -81,7 +81,7 @@ Il proprietario della risorsa di collegamento privato può eseguire le azioni se
 > Solo un endpoint privato in stato approvato può inviare il traffico a una risorsa di collegamento privato specificata. 
 
 ### <a name="connecting-using-alias"></a>Connessione tramite alias
-Alias è un moniker univoco generato quando il proprietario del servizio crea il servizio di collegamento privato dietro un servizio di bilanciamento del carico standard. Il proprietario del servizio può condividere questo alias con i relativi consumer offline. I consumer possono richiedere una connessione al servizio di collegamento privato usando l'URI della risorsa o l'alias. Se si desidera connettersi tramite alias, è necessario creare un endpoint privato utilizzando il metodo di approvazione della connessione manuale. Per usare il metodo di approvazione della connessione manuale, impostare il parametro della richiesta manuale su true durante la creazione del flusso di endpoint privato. Per informazioni dettagliate, vedere [New-AzPrivateEndpoint](https://docs.microsoft.com/en-us/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) e [AZ network private-endpoint create](https://docs.microsoft.com/en-us/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) . 
+Alias è un moniker univoco generato quando il proprietario del servizio crea il servizio di collegamento privato dietro un servizio di bilanciamento del carico standard. Il proprietario del servizio può condividere questo alias con i relativi consumer offline. I consumer possono richiedere una connessione al servizio di collegamento privato usando l'URI della risorsa o l'alias. Se si desidera connettersi tramite alias, è necessario creare un endpoint privato utilizzando il metodo di approvazione della connessione manuale. Per usare il metodo di approvazione della connessione manuale, impostare il parametro della richiesta manuale su true durante la creazione del flusso di endpoint privato. Per informazioni dettagliate, vedere [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) e [AZ network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) . 
 
 ## <a name="dns-configuration"></a>Configurazione del DNS 
 Quando ci si connette a una risorsa di collegamento privato usando un nome di dominio completo (FQDN) come parte della stringa di connessione, è importante configurare correttamente le impostazioni DNS per la risoluzione nell'indirizzo IP privato allocato. I servizi di Azure esistenti potrebbero avere già una configurazione DNS da usare per la connessione tramite un endpoint pubblico. È necessario eseguire l'override di questo per connettersi usando l'endpoint privato. 
@@ -91,7 +91,7 @@ L'interfaccia di rete associata all'endpoint privato contiene il set completo di
 Per configurare le impostazioni DNS per gli endpoint privati, è possibile usare le opzioni seguenti: 
 - **Usare il file host (consigliato solo per i test)** . Per eseguire l'override del DNS, è possibile usare il file host in una macchina virtuale.  
 - **Usare una zona DNS privata**. È possibile usare le zone DNS private per sostituire la risoluzione DNS per un determinato endpoint privato. Una zona DNS privata può essere collegata alla rete virtuale per risolvere domini specifici.
-- **Usare il server DNS personalizzato**. È possibile usare il proprio server DNS per sostituire la risoluzione DNS per una determinata risorsa di collegamento privato. Se il [server DNS](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server) è ospitato in una rete virtuale, è possibile creare una regola di invio DNS per usare una zona DNS privata per semplificare la configurazione per tutte le risorse di collegamento privato.
+- **Usare il server DNS personalizzato**. È possibile usare il proprio server DNS per sostituire la risoluzione DNS per una determinata risorsa di collegamento privato. Se il [server DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) è ospitato in una rete virtuale, è possibile creare una regola di invio DNS per usare una zona DNS privata per semplificare la configurazione per tutte le risorse di collegamento privato.
  
 > [!IMPORTANT]
 > Non è consigliabile eseguire l'override di una zona che viene usata attivamente per risolvere gli endpoint pubblici. Le connessioni alle risorse non saranno in grado di risolversi correttamente senza l'invio DNS al DNS pubblico. Per evitare problemi, creare un nome di dominio diverso o seguire il nome suggerito per ogni servizio riportato di seguito. 

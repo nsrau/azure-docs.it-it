@@ -5,16 +5,16 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: d73f64463d3e56d7bd2e59fcb719c6320cbc6321
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 502a495bad4115daf9f0f4ffed276a307adf1fc4
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992353"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73100644"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Esercitazione: eseguire la trasmissione di eventi al cloud di griglia di eventi
 
@@ -102,7 +102,7 @@ Se, ad esempio, è stato creato un argomento denominato `testegcloudtopic` negli
    ```
 
    >[!NOTE]
-   > **EndpointUrl** specifica che l'URL dell'argomento della griglia di eventi nel cloud. **SasKey** fa riferimento alla chiave dell'argomento cloud di griglia di eventi. Il valore in **topicName** verrà usato per contrassegnare tutti gli eventi in uscita in griglia di eventi. Questa operazione può essere utile quando si esegue la pubblicazione in un argomento di dominio di griglia di eventi. Per ulteriori informazioni sull'argomento relativo al dominio di griglia di eventi, vedere [domini eventi]] (.. /event-domains.md)
+   > **EndpointUrl** specifica che l'URL dell'argomento della griglia di eventi nel cloud. **SasKey** fa riferimento alla chiave dell'argomento cloud di griglia di eventi. Il valore in **topicName** verrà usato per contrassegnare tutti gli eventi in uscita in griglia di eventi. Questa operazione può essere utile quando si esegue la pubblicazione in un argomento di dominio di griglia di eventi. Per ulteriori informazioni sull'argomento relativo al dominio di griglia di eventi, vedere [domini eventi](../event-domains.md)
 
     Ad esempio,
   
@@ -198,5 +198,6 @@ Per informazioni sulla visualizzazione degli eventi forniti dall'argomento cloud
 
 In questa esercitazione è stato pubblicato un evento sul perimetro ed è stato inviato a griglia di eventi nel cloud di Azure. Ora che si conoscono i passaggi di base per l'invio a griglia di eventi nel cloud:
 
+* Per risolvere i problemi relativi all'uso di griglia di eventi di Azure in IoT Edge, vedere [Guida alla risoluzione dei problemi](troubleshoot.md).
 * Eseguire il provisioning di eventi in IoTHub seguendo questa [esercitazione](forward-events-iothub.md)
 * Inviare gli eventi al webhook nel cloud seguendo questa [esercitazione](pub-sub-events-webhook-cloud.md)
