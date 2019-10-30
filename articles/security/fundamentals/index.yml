@@ -1,0 +1,103 @@
+### YamlMime:Landing
+title: Documentazione sui concetti fondamentali della sicurezza di Azure
+summary: Informazioni su come proteggere le soluzioni cloud in Azure con procedure consigliate e linee guida.
+metadata:
+  title: Documentazione sui concetti fondamentali della sicurezza di Azure
+  description: Informazioni su come proteggere le soluzioni cloud in Azure.
+  services: security
+  ms.service: security
+  ms.subservice: fundamentals
+  ms.topic: landing-page
+  author: TerryLanfear
+  ms.author: terrylan
+  manager: rkarlin
+  ms.date: 10/28/2019
+  ms.openlocfilehash: 4744c6668de55b28725f1e1662f93030b5f61007
+  ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 10/29/2019
+  ms.locfileid: "73055912"
+landingContent:
+- title: Informazioni sulla sicurezza di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Introduzione alla sicurezza di Azure
+      url: overview.md
+    - text: Funzionalità tecniche per la sicurezza
+      url: technical-capabilities.md
+  - linkListType: concept
+    links:
+    - text: In che modo Microsoft protegge l'infrastruttura di Azure?
+      url: infrastructure.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Responsabilità condivisa nel cloud
+      url: shared-responsibility.md
+    - text: Servizi e tecnologie per la sicurezza
+      url: services-technologies.md
+    - text: Criteri di sicurezza integrati
+      url: security-controls.md
+- title: Attenuazione delle minacce
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Centro sicurezza di Azure
+      url: ../../security-center/security-center-intro.md
+  - linkListType: concept
+    links:
+    - text: Gestione e monitoraggio
+      url: management-monitoring-overview.md
+    - text: Rilevamento avanzato delle minacce
+      url: threat-detection.md
+- title: Procedure consigliate per proteggere le soluzioni cloud
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Sicurezza di rete
+      url: network-best-practices.md
+    - text: Carichi di lavoro IaaS
+      url: iaas.md
+    - text: Gestione delle identità e controllo di accesso
+      url: identity-management-best-practices.md
+    - text: Sicurezza del database
+      url: database-best-practices.md
+    - text: Distribuzioni PaaS
+      url: paas-deployments.md
+    - text: Sicurezza e crittografia dei dati
+      url: data-encryption-best-practices.md
+    - text: Sicurezza operativa
+      url: operational-best-practices.md
+- title: Proteggere le risorse di Azure
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Crittografia di dati inattivi
+      url: encryption-atrest.md
+    - text: Protezione dati
+      url: database-security-overview.md
+    - text: Sicurezza di rete
+      url: network-overview.md
+    - text: Sicurezza delle macchine virtuali
+      url: virtual-machines-overview.md
+    - text: Sicurezza della gestione delle identità
+      url: identity-management-overview.md
+  - linkListType: learn
+    links:
+    - text: Proteggere le applicazioni cloud
+      url: https://docs.microsoft.com/learn/paths/secure-your-cloud-apps/
+- title: Sviluppare le competenze per la sicurezza
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Implementare la sicurezza di rete
+      url: https://docs.microsoft.com/learn/paths/implement-network-security
+    - text: Gestire l'identità e l'accesso
+      url: https://docs.microsoft.com/learn/paths/manage-identity-and-access
+    - text: Implementare la sicurezza nella gestione delle risorse
+      url: https://docs.microsoft.com/learn/paths/implement-resource-mgmt-security
+    - text: Implementare la sicurezza per gli host macchina virtuale
+      url: https://docs.microsoft.com/learn/paths/implement-host-security

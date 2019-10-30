@@ -148,6 +148,8 @@
               href: plan-migrate-adfs-password-hash-sync.md
             - name: Eseguire la migrazione dalla federazione a PTA
               href: plan-migrate-adfs-pass-through-authentication.md
+            - name: Autenticazione cloud - Implementazione a fasi (anteprima pubblica)
+              href: how-to-connect-staged-rollout.md
         - name: Considerazioni di progettazione dell'identità ibrida
           items:
             - name: Panoramica delle considerazioni di progettazione dell'identità ibrida

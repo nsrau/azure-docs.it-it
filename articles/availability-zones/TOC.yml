@@ -81,6 +81,10 @@
           items:
             - name: Creare un gateway di rete virtuale con ridondanza della zona
               href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+        - name: Identità
+          items:
+            - name: Creare un'istanza di Azure Active Directory Domain Services
+              href: ../active-directory-domain-services/tutorial-create-instance.md
 - name: Ripristino di emergenza
   items:
     - name: Usare Azure Site Recovery
