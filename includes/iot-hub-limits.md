@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: b8d4c2691af8429e7b3a6c1916d12f1af609e744
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2d9549c88ace63997ff6d17568b6ba5131e8a15f
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391678"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73083739"
 ---
 Nella tabella seguente sono elencati i limiti associati ai diversi livelli di servizio S1, S2, S3 e F1. Per informazioni sul costo di ogni *unità* in ogni livello, vedere [prezzi di hub Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -27,7 +27,7 @@ La tabella seguente elenca i limiti che si applicano alle risorse dell'hub Inter
 
 | Gruppi | Limite |
 | --- | --- |
-| Numero massimo hub IoT a pagamento per ogni sottoscrizione di Azure |50 |
+| Numero massimo hub IoT a pagamento per ogni sottoscrizione di Azure |100 |
 | Numero massimo hub IoT gratuiti per ogni sottoscrizione di Azure |1 |
 | Numero massimo di caratteri in un ID dispositivo | 128 |
 | Numero massimo di identità del dispositivo<br/> restituito in una singola chiamata |1\.000 |
@@ -53,7 +53,7 @@ La tabella seguente elenca i limiti che si applicano alle risorse dell'hub Inter
 | Trasferimento dati massimo di flussi dispositivo | 300 MB al giorno (per S1, S2, S3 e solo F1) |
 
 > [!NOTE]
-> Se sono necessari più di 50 Hub di Internet delle cose a pagamento in una sottoscrizione di Azure, contattare supporto tecnico Microsoft.
+> Se sono necessari più di 100 Hub di Internet delle cose a pagamento in una sottoscrizione di Azure, contattare supporto tecnico Microsoft.
 
 > [!NOTE]
 > Attualmente, il numero totale di dispositivi e moduli che possono essere registrati per un singolo hub Internet è limitato a 1 milione. Per aumentare questo limite, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).

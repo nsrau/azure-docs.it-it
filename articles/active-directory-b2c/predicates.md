@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 10/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ecec18945b53711094307162c4aeab2e0580bd5e
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a1f08589ae28b3e19d2a4fdb3e3862e127a810cc
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063861"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73099713"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates e PredicateValidations
 
@@ -31,35 +31,37 @@ Il diagramma seguente mostra la relazione tra gli elementi:
 
 L'elemento **Predicate** definisce una convalida di base per controllare il valore di un tipo di attestazione e restituisce `true` o `false`. La convalida viene eseguita usando un elemento **Method** specificato e un set di elementi **Parameter** pertinenti al metodo. Un predicato può ad esempio controllare se la lunghezza di un valore di attestazione di tipo stringa rientra nell'intervallo di parametri minimo e massimo specificato o se un valore di attestazione di tipo stringa contiene un set di caratteri. L'elemento **UserHelpText** visualizza un messaggio di errore agli utenti se il controllo ha esito negativo. Il valore dell'elemento **UserHelpText** può essere localizzato usando la [funzionalità di personalizzazione della lingua](localization.md).
 
+L'elemento **Predicates** deve apparire direttamente dopo l'elemento **ClaimsSchema** all'interno dell'elemento [BuildingBlocks](buildingblocks.md) .
+
 L'elemento **Predicates** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
-| Predicato | 1:n | Elenco di predicati. |
+| Predicate | 1:n | Elenco di predicati. |
 
 L'elemento **Predicate** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
-| ID | Yes | Identificatore usato per il predicato. Altri elementi possono usare questo identificatore nei criteri. |
-| Metodo | Yes | Tipo di metodo da usare per la convalida. Valori possibili: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** e **IsDateRange**. Il valore **IsLengthRange** controlla se la lunghezza del valore di un'attestazione di tipo stringa rientra nell'intervallo di parametri minimo e massimo specificato. Il valore **MatchesRegex** controlla se il valore di un'attestazione di tipo stringa corrisponde a un'espressione regolare. Il valore **IncludesCharacters** controlla se il valore di un'attestazione di tipo stringa contiene un set di caratteri. Il valore **IsDateRange** controlla se il valore di un'attestazione di tipo data rientra nell'intervallo di parametri minimo e massimo specificato. |
+| ID | SÌ | Identificatore usato per il predicato. Altri elementi possono usare questo identificatore nei criteri. |
+| Metodo | SÌ | Tipo di metodo da usare per la convalida. I valori possibili sono: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** o **IsDateRange**. Il valore **IsLengthRange** controlla se la lunghezza del valore di un'attestazione di tipo stringa rientra nell'intervallo di parametri minimo e massimo specificato. Il valore **MatchesRegex** controlla se il valore di un'attestazione di tipo stringa corrisponde a un'espressione regolare. Il valore **IncludesCharacters** controlla se il valore di un'attestazione di tipo stringa contiene un set di caratteri. Il valore **IsDateRange** controlla se il valore di un'attestazione di tipo data rientra nell'intervallo di parametri minimo e massimo specificato. |
 
 L'elemento **Predicate** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | Messaggio di errore per gli utenti se il controllo ha esito negativo. Questa stringa può essere localizzata usando la [funzionalità di personalizzazione della lingua](localization.md). |
-| Parametri | 1:1 | Parametri del tipo di metodo della convalida della stringa. |
+| parameters | 1:1 | Parametri del tipo di metodo della convalida della stringa. |
 
 L'elemento **Parameters** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | Parametro | 1:n | Parametri del tipo di metodo della convalida della stringa. |
 
 L'elemento **Parameter** contiene gli attributi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | ID | 1:1 | Identificatore del parametro. |
 
@@ -112,6 +114,8 @@ L'esempio seguente mostra un metodo `IsDateRange` con i parametri `Minimum` e `M
 
 Mentre i predicati definiscono la convalida da controllare rispetto a un tipo di attestazione, gli elementi **PredicateValidations** raggruppano un set di predicati per formare la convalida di un input utente che può essere applicata a un tipo di attestazione. Ogni elemento **PredicateValidation** contiene un set di elementi **PredicateGroup** che contengono un set di elementi **PredicateReference** che punta a un elemento **Predicate**. Per passare la convalida, il valore dell'attestazione deve superare tutti i testi di qualsiasi predicato in tutto il **PredicateGroup** con i rispettivi set di elementi **PredicateReference**.
 
+L'elemento **PredicateValidations** deve essere visualizzato direttamente dopo l'elemento **Predicates** all'interno dell'elemento [BuildingBlocks](buildingblocks.md) .
+
 ```XML
 <PredicateValidations>
   <PredicateValidation Id="">
@@ -132,58 +136,58 @@ Mentre i predicati definiscono la convalida da controllare rispetto a un tipo di
 
 L'elemento **PredicateValidations** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | PredicateValidation | 1:n | Elenco di convalida del predicato. |
 
 L'elemento **PredicateValidation** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
-| ID | Yes | Identificatore che viene usato per la convalida del predicato. L'elemento **ClaimType** può usare questo identificatore nei criteri. |
+| ID | SÌ | Identificatore che viene usato per la convalida del predicato. L'elemento **ClaimType** può usare questo identificatore nei criteri. |
 
 L'elemento **PredicateValidation** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | PredicateGroups | 1:n | Elenco di gruppi di predicati. |
 
 L'elemento **PredicateGroups** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | PredicateGroup | 1:n | Elenco di predicati. |
 
 L'elemento **PredicateGroup** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
-| ID | Yes | Identificatore usato per il gruppo di predicati.  |
+| ID | SÌ | Identificatore usato per il gruppo di predicati.  |
 
 L'elemento **PredicateGroup** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 |  Descrizione del predicato che può essere utile agli utenti per sapere quale valore devono digitare. |
 | PredicateReferences | 1:n | Elenco di riferimenti del predicato. |
 
 L'elemento **PredicateReferences** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | MatchAtLeast | No | Specifica che il valore deve corrispondere almeno a quello di molte definizioni di predicato affinché l'input possa essere accettato. |
 
 L'elemento **PredicateReferences** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | PredicateReference | 1:n | Riferimento a un predicato. |
 
 L'elemento **PredicateReference** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
-| ID | Yes | Identificatore che viene usato per la convalida del predicato.  |
+| ID | SÌ | Identificatore che viene usato per la convalida del predicato.  |
 
 
 ## <a name="configure-password-complexity"></a>Configurare la complessità delle password
@@ -194,7 +198,7 @@ Con gli elementi **Predicates** e **PredicateValidationsInput** è possibile con
 - **Lowercase** con il metodo `IncludesCharacters`, convalida che la password contiene una lettera minuscola.
 - **Uppercase** con il metodo `IncludesCharacters` convalida che la password contiene una lettera maiuscola.
 - **Number** con il metodo `IncludesCharacters` convalida che la password contiene una cifra.
-- **Symbol** con il metodo `IncludesCharacters` convalida che la password contiene uno dei seguenti simboli `@#$%^&*\-_+=[]{}|\:',?/~"();!`
+- **Simbolo** che usa il metodo `IncludesCharacters`, verifica che la password contenga uno dei diversi caratteri simbolo.
 - **PIN** con il metodo `MatchesRegex` convalida che la password contiene solo numeri.
 - **AllowedAADCharacters** con il metodo `MatchesRegex` convalida che la password è costituita solo da caratteri non validi.
 - **DisallowedWhitespace** con il metodo `MatchesRegex` convalida che la password non inizia o non finisce con un carattere di spazio.
@@ -233,7 +237,7 @@ Con gli elementi **Predicates** e **PredicateValidationsInput** è possibile con
   <Predicate Id="Symbol" Method="IncludesCharacters">
     <UserHelpText>a symbol</UserHelpText>
     <Parameters>
-      <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\:',?/`~"();!</Parameter>
+      <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
     </Parameters>
   </Predicate>
 
@@ -262,7 +266,7 @@ Con gli elementi **Predicates** e **PredicateValidationsInput** è possibile con
 Dopo aver definito le convalide di base, è possibile combinarle e creare un set di criteri di password da usare nei propri criteri:
 
 - **SimplePassword** convalida DisallowedWhitespace, AllowedAADCharacters e IsLengthBetween8And64.
-- **StrongPassword** convalida DisallowedWhitespace, AllowedAADCharacters e IsLengthBetween8And64. L'ultimo gruppo `CharacterClasses` esegue un set di predicati aggiuntivo con `MatchAtLeast` impostato su 3. La password dell'utente deve essere compresa tra 8 e 16 caratteri e includere tre dei tipi di caratteri seguenti: lettere minuscole, lettere maiuscole, numeri o simboli.
+- **StrongPassword** convalida DisallowedWhitespace, AllowedAADCharacters e IsLengthBetween8And64. L'ultimo gruppo `CharacterClasses` esegue un set di predicati aggiuntivo con `MatchAtLeast` impostato su 3. La password dell'utente deve essere compresa tra 8 e 16 caratteri e includere tre dei caratteri seguenti: minuscola, maiuscola, numero o simbolo.
 - **CustomPassword** convalida solo DisallowedWhitespace e AllowedAADCharacters. L'utente può pertanto specificare una password di qualsiasi lunghezza, purché i caratteri siano validi.
 
 ```XML

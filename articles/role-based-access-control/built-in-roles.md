@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 10/22/2019
+ms.date: 10/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 31e19034f6a2c6f5ab52cbc34d8b3f6e0a1051bc
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: dff222788480eea882614ad29478df1dce359199
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803581"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101283"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ruoli predefiniti per le risorse di Azure
 
@@ -114,6 +114,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 | [Lettore applicazioni gestite](#managed-applications-reader) | Consente di leggere le risorse in un accesso di app gestita e JIT richiesta. |
 | [Managed Identity Contributor](#managed-identity-contributor) (Collaboratore per identità gestita) | Crea, legge, aggiorna ed elimina l'identità assegnata all'utente |
 | [Managed Identity Operator](#managed-identity-operator) (Operatore per identità gestita) | Legge e assegna l'identità assegnata all'utente |
+| [Ruolo eliminazione assegnazione registrazione servizi gestiti](#managed-services-registration-assignment-delete-role) | Il ruolo eliminazione di assegnazione di registrazione dei servizi gestiti consente agli utenti di gestire i tenant di eliminare l'assegnazione di registrazione assegnata al tenant. |
 | [Collaboratore gruppo di gestione](#management-group-contributor) | Ruolo Collaboratore gruppo di gestione |
 | [Lettore gruppo di gestione](#management-group-reader) | Ruolo Lettore gruppo di gestione |
 | [Collaboratore al monitoraggio](#monitoring-contributor) | Può leggere tutti i dati del monitoraggio e modificare le impostazioni di monitoraggio. Vedere anche [Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
@@ -1963,6 +1964,23 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
+## <a name="managed-services-registration-assignment-delete-role"></a>Ruolo eliminazione assegnazione registrazione servizi gestiti
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Il ruolo eliminazione di assegnazione di registrazione dei servizi gestiti consente agli utenti di gestire i tenant di eliminare l'assegnazione di registrazione assegnata al tenant. |
+> | **Id** | 91c1777a-f3dc-4fae-b103-61d183457e46 |
+> | **Actions** |  |
+> | Microsoft. ManagedServices/registrationAssignments/Read | Recupera un elenco di assegnazioni di registrazione dei servizi gestiti. |
+> | Microsoft. ManagedServices/registrationAssignments/Delete | Rimuove l'assegnazione di registrazione dei servizi gestiti. |
+> | Microsoft. ManagedServices/operationStatuses/Read | Legge lo stato dell'operazione per la risorsa. |
 > | **NotActions** |  |
 > | *nessuna* |  |
 > | **DataActions** |  |

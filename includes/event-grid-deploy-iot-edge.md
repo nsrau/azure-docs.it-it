@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: fab9a8a8c28f2f75e7e5af69b70229c1de74c684
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 8656bbb070e2b05a06ea22dd1634a40182b440cb
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992288"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73098687"
 ---
 ## <a name="deploy-event-grid-iot-edge-module"></a>Distribuisci modulo di IoT Edge griglia di eventi
 
@@ -24,7 +24,7 @@ Esistono diversi modi per distribuire i moduli in un dispositivo IoT Edge e tutt
 
 >[!IMPORTANT]
 > In questa esercitazione il modulo di griglia di eventi verrà distribuito con l'autenticazione client disattivata e consentirà sottoscrittori HTTP. Per i carichi di lavoro di produzione, è consigliabile abilitare solo le richieste HTTPS e i sottoscrittori con autenticazione client abilitata. Per altre informazioni su come configurare il modulo di griglia di eventi in modo sicuro, vedere [sicurezza e autenticazione](../articles/event-grid/edge/security-authentication.md).
-
+ 
 ### <a name="select-your-iot-edge-device"></a>Selezionare il dispositivo IoT Edge
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
@@ -65,8 +65,12 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
         }
     ```
 
- 1. Fare clic su **Save**
+ 1. Fare clic su **Salva**.
  1. Fare clic su **Avanti** per passare alla sezione Route
+
+    > [!NOTE]
+    > Se si usa una macchina virtuale di Azure come dispositivo perimetrale, aggiungere una regola per la porta in ingresso per consentire il traffico in ingresso sulla porta 4438. Per istruzioni sull'aggiunta della regola, vedere [How to open ports to a VM](../articles/virtual-machines/windows/nsg-quickstart-portal.md).
+
 
 ### <a name="setup-routes"></a>Route di installazione
 

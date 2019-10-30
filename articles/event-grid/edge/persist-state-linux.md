@@ -9,12 +9,12 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 6639b8f4d947720db38a6b366c47700a56154af3
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 3506399537fe2cb16014ceb3429bce5aeee8cb69
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992275"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73100344"
 ---
 # <a name="persist-state-in-linux"></a>Mantieni stato in Linux
 
@@ -40,7 +40,7 @@ Questo articolo illustra i passaggi per distribuire il modulo di griglia di even
 ```
 
 >[!IMPORTANT]
->Non modificare la seconda parte del valore di binding. Punta a una posizione specifica all'interno del modulo. Per il modulo di griglia di eventi in Linux è necessario **/app/Metadata**.
+>Non modificare la seconda parte del valore di binding. Punta a una posizione specifica all'interno del modulo. Per il modulo di griglia di eventi in Linux è necessario **/app/metadataDb**.
 
 La configurazione seguente, ad esempio, comporterà la creazione del volume **egmetadataDbVol** in cui i metadati verranno resi permanente.
 

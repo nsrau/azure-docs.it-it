@@ -5,16 +5,16 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: b484306504af8f83a393feb0469fff5b524948ab
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 169b0c8084259ac27b466dbfd3606e465da35d99
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992210"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73098628"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Esercitazione: pubblicare, sottoscrivere gli eventi in locale
 
@@ -76,11 +76,13 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
           }
         }
     ```    
- 1. Fare clic su **Save**
+ 1. Fare clic su **Salva**.
  1. Passare alla sezione successiva per aggiungere il modulo funzioni di Azure prima di distribuirli insieme.
 
     >[!IMPORTANT]
     > In questa esercitazione verrà distribuito il modulo di griglia di eventi con autenticazione client disabilitata e Consenti Sottoscrittori HTTP. Per i carichi di lavoro di produzione, è consigliabile abilitare l'autenticazione client e consentire solo i sottoscrittori HTTPs. Per altre informazioni su come configurare il modulo di griglia di eventi in modo sicuro, vedere [sicurezza e autenticazione](security-authentication.md).
+    > 
+    > Se si usa una macchina virtuale di Azure come dispositivo perimetrale, aggiungere una regola per la porta in ingresso per consentire il traffico in ingresso sulla porta 4438. Per istruzioni sull'aggiunta della regola, vedere [How to open ports to a VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
     
 
 ## <a name="deploy-azure-function-iot-edge-module"></a>Distribuire il modulo IoT Edge di funzioni di Azure
@@ -115,7 +117,7 @@ Questa sezione illustra come distribuire il modulo di Azure Functions, che funge
             }
        ```
 
-1. Fare clic su **Save**
+1. Fare clic su **Salva**.
 1. Fare clic su **Avanti** per passare alla sezione Route
 
  ### <a name="setup-routes"></a>Route di installazione
@@ -257,7 +259,7 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
     In Windows eseguire il comando seguente:
 
     ```sh
-    iotedge logs subscriber -f
+    docker -H npipe:////./pipe/iotedge_moby_engine container logs subscriber
     ```
 
    In Linux eseguire il comando seguente:
@@ -299,6 +301,7 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione sono stati creati un argomento di griglia di eventi, una sottoscrizione e gli eventi pubblicati. Ora che si conoscono i passaggi di base, vedere gli articoli seguenti: 
 
+- Per risolvere i problemi relativi all'uso di griglia di eventi di Azure in IoT Edge, vedere [Guida alla risoluzione dei problemi](troubleshoot.md).
 - Crea/aggiorna la sottoscrizione con i [filtri](advanced-filtering.md).
 - Abilitare la persistenza del modulo di griglia di eventi in [Linux](persist-state-linux.md) o [Windows](persist-state-windows.md)
 - Segui la [documentazione](configure-client-auth.md) per configurare l'autenticazione client

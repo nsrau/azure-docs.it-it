@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d227a0b43a641ae8f5333a62d4c55f4bbb6c781c
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 610e0088fe97bdda1dce7f7391530c5128428b29
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529017"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73096965"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparare la distribuzione della soluzione IoT Edge alla produzione
 
@@ -102,6 +102,8 @@ Se si distribuiscono dispositivi vincolati con memoria limitata disponibile, è 
 #### <a name="dont-optimize-for-performance-on-constrained-devices"></a>Non ottimizzare le prestazioni su dispositivi vincolati
 
 Per impostazione predefinita, l'hub IoT Edge è ottimizzato per le prestazioni, quindi tenta di allocare blocchi di memoria di grandi dimensioni. Questa configurazione può causare problemi di stabilità in dispositivi più piccoli come Raspberry Pi. Se si distribuiscono dispositivi con risorse vincolate, potrebbe essere necessario impostare la variabile di ambiente **OptimizeForPerformance** su **false** nell'hub IOT Edge. 
+
+Quando **OptimizeForPerformance** è impostato su **true**, l'intestazione del protocollo MQTT usa il PooledByteBufferAllocator che offre prestazioni migliori ma alloca una maggiore quantità di memoria. L'allocatore non funziona bene nei sistemi operativi a 32 bit o nei dispositivi con memoria insufficiente. Inoltre, quando viene ottimizzato per le prestazioni, RocksDb alloca più memoria per il proprio ruolo come provider di archiviazione locale. 
 
 Per altre informazioni, vedere [Problemi di stabilità nei dispositivi con risorse limitate](troubleshoot.md#stability-issues-on-resource-constrained-devices).
 

@@ -5,16 +5,16 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 772fccc96f757c6165238e4041ce98c17c647880
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 073205b5bdc3f6de80bd7e347469c3f06aeb515b
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992301"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73098655"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>Esercitazione: inviare eventi a IoTHub
 
@@ -160,7 +160,9 @@ Aggiornare la route dell'hub perimetrale per inoltrare gli eventi della sottoscr
 
 ## <a name="setup-iot-hub-route"></a>Configurare la route dell'hub Internet
 
-Vedere l'esercitazione relativa al [routing](../../iot-hub/tutorial-routing.md) dell'hub Internet per la configurazione di una route dall'hub Internet per visualizzare gli eventi inoltrati dal modulo di griglia di eventi.
+Vedere l' [esercitazione](../../iot-hub/tutorial-routing.md) relativa al routing dell'hub Internet per la configurazione di una route dall'hub Internet per visualizzare gli eventi inoltrati dal modulo di griglia di eventi. Usare `true` per la query per semplificare l'esercitazione.  
+
+
 
 ## <a name="publish-an-event"></a>Pubblicare un evento
 
@@ -205,6 +207,7 @@ Per la procedura per visualizzare gli eventi, vedere l' [esercitazione sul routi
 
 In questa esercitazione sono stati creati un argomento di griglia di eventi, una sottoscrizione dell'Hub Edge e eventi pubblicati. Ora che si conoscono i passaggi di base per l'invio a un Hub Edge, vedere gli articoli seguenti:
 
+* Per risolvere i problemi relativi all'uso di griglia di eventi di Azure in IoT Edge, vedere [Guida alla risoluzione dei problemi](troubleshoot.md).
 * Usare i filtri di route dell' [Hub Edge](../../iot-edge/module-composition.md) per suddividere gli eventi
 * Configurare la persistenza del modulo di griglia di eventi in [Linux](persist-state-linux.md) o [Windows](persist-state-windows.md)
 * Segui la [documentazione](configure-client-auth.md) per configurare l'autenticazione client

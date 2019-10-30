@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 901542e2a69d2c7880825d76c1d69d3795713ed2
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 003cc54a07455118969a2dd497e9b963c03f68f2
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231166"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73099501"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3
 
@@ -73,7 +73,8 @@ In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi mul
     * Live Event sostituisce Channel.<br/>La fatturazione degli eventi live si basa sui contatori dei canali live. Per altre informazioni, vedere [fatturazione](live-event-states-billing.md) e [prezzi](https://azure.microsoft.com/pricing/details/media-services/).
     * Live Output sostituisce Program.
 * Gli output live iniziano al momento della creazione e terminano quando vengono eliminati. I programmi funzionano in modo diverso nelle API v2 e devono essere avviati dopo la creazione.
-*  Per ottenere informazioni su un processo, è necessario conoscere il nome della trasformazione in cui è stato creato il processo. 
+* Per ottenere informazioni su un processo, è necessario conoscere il nome della trasformazione in cui è stato creato il processo. 
+* Nella versione V2, i file di metadati di [input](../previous/media-services-input-metadata-schema.md) e [output](../previous/media-services-output-metadata-schema.md) XML vengono generati come risultato di un processo di codifica. In V3, il formato dei metadati è stato modificato da XML a JSON. 
 
 > [!NOTE]
 > Esaminare le convenzioni di denominazione applicate alle [risorse di servizi multimediali V3](media-services-apis-overview.md#naming-conventions). Esaminare anche i [BLOB di denominazione](assets-concept.md#naming-blobs).
@@ -104,7 +105,7 @@ La tabella seguente illustra le differenze a livello di codice tra v2 e v3 per s
 |---|---|---|
 |Creare un asset e caricare un file |[Esempio .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[Esempio .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Inviare un processo|[Esempio .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[Esempio .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Mostra come creare una trasformazione e quindi inviare un processo.|
-|Pubblicare un asset con crittografia AES |1. Creare ContentKeyAuthorizationPolicyOption<br/>2. Creare ContentKeyAuthorizationPolicy<br/>3. Creare AssetDeliveryPolicy<br/>4. Creare asset e caricare contenuto o inviare processi e usare asset di output<br/>5. Associare AssetDeliveryPolicy all'asset<br/>6. Creare ContentKey<br/>7. Collegare ContentKey all'asset<br/>8. Creare AccessPolicy<br/>9. Creare Locator<br/><br/>[Esempio .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Creare criteri di chiave simmetrica<br/>2. Creare asset<br/>3. Caricare contenuto o usare asset come JobOutput<br/>4. Creare il localizzatore di streaming<br/><br/>[Esempio .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|Pubblicare un asset con crittografia AES |1. creare ContentKeyAuthorizationPolicyOption<br/>2. creare ContentKeyAuthorizationPolicy<br/>3. creare AssetDeliveryPolicy<br/>4. creare asset e caricare il contenuto o inviare un processo e usare l'asset di output<br/>5. associare AssetDeliveryPolicy a Asset<br/>6. creare ContentKey<br/>7. connessione di ContentKey all'asset<br/>8. creare AccessPolicy<br/>9. creare un localizzatore<br/><br/>[Esempio .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. creare un criterio della chiave simmetrica<br/>2. crea asset<br/>3. caricare il contenuto o usare asset come JobOutput<br/>4. creare un localizzatore di streaming<br/><br/>[Esempio .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
 |Ottenere i dettagli del processo e gestire i processi |[Gestire i processi con V2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Gestire i processi con V3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
 
 ## <a name="known-issues"></a>Problemi noti
@@ -119,7 +120,7 @@ La tabella seguente illustra le differenze a livello di codice tra v2 e v3 per s
 > [!NOTE]
 > Questa pagina viene aggiornata man mano che il team di Servizi multimediali apporta costanti miglioramenti alle API v3 e colma le lacune tra le versioni.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback e ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

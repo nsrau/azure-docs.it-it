@@ -29,7 +29,7 @@
     - name: Registrarsi per la reimpostazione delle password
       href: active-directory-passwords-reset-register.md
     - name: Reimpostare la password
-      href: user-help-reset-password.md
+      href: active-directory-passwords-update-your-own-password.md
 - name: Guida all'app Microsoft Authenticator
   items:
     - name: Panoramica
