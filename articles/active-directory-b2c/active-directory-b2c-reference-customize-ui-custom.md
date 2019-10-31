@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7053f5b0211878d2f0b9d810fc3f4c0b9361e6f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7e4714de9868dbd540e2e662b22a22da6df6514b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509596"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147525"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizzare l'interfaccia utente di un percorso utente con criteri personalizzati
 
@@ -43,7 +43,7 @@ Rispetto alla precedente modalità tradizionale, in cui le pagine modello sono d
 > [!NOTE]
 > Per motivi di sicurezza non è attualmente possibile usare JavaScript per la personalizzazione. 
 
-In ogni modello HTML5/CSS si inserisce un elemento *anchor*, che corrisponde all'elemento `<div id=”api”>` necessario nella pagina HTML o contenuto, come illustrato più avanti. Azure AD B2C richiede che tutte le pagine contenuto abbiano questo specifico elemento div.
+In ogni modello HTML5/CSS si inserisce un elemento *anchor*, che corrisponde all'elemento `<div id="api">` necessario nella pagina HTML o contenuto, come illustrato più avanti. Azure AD B2C richiede che tutte le pagine contenuto abbiano questo specifico elemento div.
 
 ```
 <!DOCTYPE html>
@@ -119,14 +119,14 @@ La condivisione di risorse tra le origini (CORS) deve essere abilitata nell'endp
 
 Per verificare che CORS sia abilitato per la risorsa di archiviazione in cui si ospita il contenuto, procedere con i passaggi seguenti:
 
-1. Aprire una sessione del browser e passare alla pagina *unified.html* usando l'URL completo del percorso nell'account di archiviazione, `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Ad esempio: https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. Accedere a https://test-cors.org. Questo sito consente di verificare che CORS sia abilitato per la pagina in uso.  
+1. Aprire una sessione del browser e passare alla pagina *unified.html* usando l'URL completo del percorso nell'account di archiviazione, `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Ad esempio https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
+2. Passare a https://test-cors.org. Questo sito consente di verificare che la pagina in uso disponga di CORS abilitato.  
    <!--
    ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
    -->
 
 3. In **Remote URL** (URL remoto) immettere l'URL completo per il contenuto di unified.html e fare clic su **Send Request** (Invia richiesta).
-4. Verificare che l'output nella sezione **Results** (Risultati) contenga *XHR status: 200* (Stato XHR: 200), che indica che CORS è abilitato.
+4. Verificare che l'output nella sezione **Results** (Risultati) contenga *XHR status: 200* (Stato XHR: 200). Tale valore indica che CORS è abilitato.
    <!--
    ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
    -->
@@ -138,7 +138,7 @@ Per verificare che CORS sia abilitato per la risorsa di archiviazione in cui si 
 
 La tabella seguente descrive lo scopo delle pagine HTML5 precedenti.
 
-| Modello HTML5 | Descrizione |
+| Modello HTML5 | Description |
 |----------------|-------------|
 | *phonefactor.html* | Questa pagina può essere usata come modello per una pagina di autenticazione a più fattori. |
 | *resetpassword.html* | Questa pagina può essere usata come modello per una pagina Password dimenticata. |
@@ -150,11 +150,11 @@ La tabella seguente descrive lo scopo delle pagine HTML5 precedenti.
 
 Per aggiungere un collegamento ai modelli HTML5/CSS al percorso utente, è possibile modificare direttamente un criterio personalizzato.
 
-I modelli HTML5/CSS da usare nel percorso utente devono essere specificati in un elenco di definizioni del contenuto che possono essere usate in tali percorsi utente. A tale scopo, facoltativo  *\<ContentDefinitions >* elemento XML deve essere dichiarato con il  *\<BuildingBlocks >* sezione del file XML dei criteri personalizzati.
+I modelli HTML5/CSS da usare nel percorso utente devono essere specificati in un elenco di definizioni del contenuto che possono essere usate in tali percorsi utente. A tale scopo, è necessario dichiarare un elemento XML *\<ContentDefinitions >* facoltativo nella sezione *\<BuildingBlocks >* del file XML dei criteri personalizzato.
 
 La tabella seguente descrive il set di ID definizione del contenuto riconosciuti dal motore di esperienza di gestione delle identità di Azure AD B2C e il tipo di pagine correlate.
 
-| ID definizione del contenuto | Descrizione |
+| ID definizione del contenuto | Description |
 |-----------------------|-------------|
 | *api.error* | **Pagina di errore**. Questa pagina viene visualizzata quando viene rilevata un'eccezione o un errore. |
 | *api.idpselections* | **Pagina di selezione del provider di identità**. Questa pagina contiene un elenco dei provider di identità che l'utente può scegliere durante la procedura di accesso. Sono presenti provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali (basati su indirizzo di posta elettronica o nome utente). |
@@ -168,4 +168,4 @@ La tabella seguente descrive il set di ID definizione del contenuto riconosciuti
 | *api.signuporsignin* | **Pagina unificata per l'iscrizione o l'accesso**.  Questa pagina consente di gestire sia l'iscrizione che l'accesso degli utenti, che possono usare provider di identità aziendali, provider di identità basati su social network come Facebook o Google+ o account locali.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Informazioni di riferimento: conoscere il funzionamento dei criteri personalizzati con Identity Experience Framework in B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)
+[Informazioni di riferimento: conoscere il funzionamento dei criteri personalizzati con il framework di esperienza di gestione delle identità in B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)

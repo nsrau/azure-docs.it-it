@@ -4,21 +4,21 @@ description: Informazioni su come codificare l'aggiornamento asincrono tramite l
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: daa25ecd12cb4c3b6ba72164c36cef01001448cf
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 5fbb3f2cbc0e53ab1bc04d57b583802e26b92a60
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301172"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147358"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Aggiornamento asincrono con l'API REST
 
 È possibile eseguire operazioni di aggiornamento asincrono dei dati sui modelli tabulari di Azure Analysis Services usando qualsiasi linguaggio di programmazione che supporta le chiamate REST. È inclusa la sincronizzazione delle repliche di sola lettura per la scalabilità orizzontale delle query. 
 
-Le operazioni di aggiornamento dei dati possono richiedere tempo a causa di fattori diversi tra cui volume dei dati, livello di ottimizzazione nell'uso delle partizioni e così via. Queste operazioni erano chiamate in genere con metodi esistenti come l'uso di [TOM](https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), cmdlet di [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) o [TMSL](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). Tuttavia questi metodi possono richiedere spesso connessioni HTTP non affidabili e con esecuzione prolungata.
+Le operazioni di aggiornamento dei dati possono richiedere del tempo a seconda di diversi fattori, tra cui il volume dei dati, il livello di ottimizzazione mediante le partizioni e così via. Queste operazioni sono state tradizionalmente richiamate con i metodi esistenti, ad esempio l'uso di [Tom](https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), i cmdlet di [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) o [TMSL](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). Tuttavia questi metodi possono richiedere spesso connessioni HTTP non affidabili e con esecuzione prolungata.
 
 L'API REST per Azure Analysis Services consente di eseguire le operazioni di aggiornamento dei dati in modo asincrono. Se si usa l'API REST non sono necessarie connessioni HTTP con esecuzione prolungata dalle applicazioni client. Ci sono anche altre funzionalità integrate che garantiscono l'affidabilità, ad esempio i tentativi automatici e il commit in batch.
 
@@ -93,11 +93,11 @@ Il corpo dovrebbe essere simile al seguente:
 }
 ```
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
 Non è necessario specificare parametri. Viene applicato il valore predefinito.
 
-| NOME             | Type  | Descrizione  |Predefinito  |
+| name             | Type  | Description  |Predefinito  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | Il tipo di elaborazione da eseguire. I tipi sono allineati con i tipi del [comando refresh](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) di TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Il tipo add non è supportato.      |   automatic      |
 | `CommitMode`     | Enum  | Determina se verrà eseguito il commit degli oggetti in batch o solo al termine. Le modalità comprendono: default, transactional, partialBatch.  |  transactional       |
@@ -166,7 +166,7 @@ Per annullare un'operazione di aggiornamento in corso, usare il verbo DELETE sul
 
 ## <a name="post-sync"></a>POST /sync
 
-Dopo aver eseguito operazioni di aggiornamento, potrebbe essere necessario sincronizzare i nuovi dati con le repliche per la scalabilità orizzontale delle query. Per eseguire un'operazione di sincronizzazione per un modello, usare il verbo POST sulla funzione /sync. L'intestazione Location nella risposta include l'ID dell'operazione di aggiornamento.
+Dopo aver eseguito le operazioni di aggiornamento, potrebbe essere necessario sincronizzare i nuovi dati con le repliche per la scalabilità orizzontale delle query. Per eseguire un'operazione di sincronizzazione per un modello, usare il verbo POST sulla funzione/Sync. L'intestazione Location nella risposta include l'ID dell'operazione di aggiornamento.
 
 ## <a name="get-sync-status"></a>GET /sync status
 
@@ -187,8 +187,8 @@ Valori per `syncstate`:
 
 - 0: replica in corso. I file di database sono in fase di replica in una cartella di destinazione.
 - 1: riattivazione in corso. Il database è in fase di riattivazione su istanze del server di sola lettura.
-- 2: completato. L'operazione di sincronizzazione è stata completata correttamente.
-- 3: non riuscito. L'operazione di sincronizzazione non è riuscita.
+- 2: comokleto. L'operazione di sincronizzazione è stata completata correttamente.
+- 3: operazione non riuscita. L'operazione di sincronizzazione non è riuscita.
 - 4: finalizzazione in corso. L'operazione di sincronizzazione è stata completata ma è in corso la fase di pulizia.
 
 ## <a name="code-sample"></a>Esempio di codice
@@ -211,9 +211,9 @@ Vedere [Creare un'entità servizio - Portale di Azure](../active-directory/devel
 3.  Eseguire l'esempio.
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Esempi](analysis-services-samples.md)   
-[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

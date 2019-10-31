@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/08/2019
-ms.openlocfilehash: 63ddb329e37ea3da589e7d2eeaebabb42aa2b467
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 24a2b8a3c190ed440684ea3aa0ab35ebbf93fca0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555512"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161964"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Risoluzione dei problemi di Diagnostica di Azure
 Questo articolo contiene informazioni sulla risoluzione dei problemi relativi all'uso di Diagnostica di Azure. Per altre informazioni su Diagnostica di Azure, vedere la [panoramica di Diagnostica di Azure](diagnostics-extension-overview.md).
@@ -208,10 +208,10 @@ Questo codice genera quattro tabelle:
 
 | Event | Nome tabella |
 | --- | --- |
-| provider="prov1" &lt;Event id=v1" /&gt; |WADEvent+MD5(“prov1”)+”1” |
-| provider="prov1" &lt;Event id="2" eventDestination="dest1" /&gt; |WADdest1 |
-| provider="prov1" &lt;DefaultEvents /&gt; |WADDefault+MD5(“prov1”) |
-| provider="prov2" &lt;DefaultEvents eventDestination="dest2" /&gt; |WADdest2 |
+| provider = "ProV1" &lt;ID evento = "1"/&gt; |WADEvent + MD5 ("ProV1") + "1" |
+| provider = "ProV1" &lt;ID evento = "2" eventDestination = "DesT1"/&gt; |WADdest1 |
+| provider = "ProV1" &lt;DefaultEvents/&gt; |WADDefault + MD5 ("ProV1") |
+| provider = "prov2" &lt;DefaultEvents eventDestination = "Dest2"/&gt; |WADdest2 |
 
 ## <a name="references"></a>Riferimenti
 
