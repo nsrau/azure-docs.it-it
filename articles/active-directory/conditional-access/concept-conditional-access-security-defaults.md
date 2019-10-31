@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 502fb8b49770b4933c44aa1eb447abb746943c0d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: bde1741d12cc7ef181fb60bc7eecbec1fed8cbd0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554819"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151211"
 ---
 # <a name="what-are-security-defaults"></a>Che cosa sono le impostazioni predefinite della sicurezza?
 
@@ -32,7 +32,7 @@ Nel tenant verranno attivate le seguenti configurazioni di sicurezza.
 
 ## <a name="unified-multi-factor-authentication-registration"></a>Registrazione Multi-Factor Authentication unificata
 
-Tutti gli utenti nel tenant devono registrarsi per l'autenticazione a più fattori sotto forma di servizio Multi-Factor Authentication di Azure. Gli utenti hanno 14 giorni per la registrazione Multi-Factor Authentication usando l'app Microsoft Authenticator. Dopo la scadenza dei 14 giorni, l'utente non sarà in grado di accedere fino a quando non viene completata Multi-Factor Authentication registrazione.
+Tutti gli utenti nel tenant devono registrarsi per l'autenticazione a più fattori sotto forma di servizio Azure Multi-Factor Authentication. Gli utenti hanno 14 giorni per la registrazione Multi-Factor Authentication usando l'app Microsoft Authenticator. Dopo la scadenza dei 14 giorni, l'utente non sarà in grado di accedere fino a quando non viene completata Multi-Factor Authentication registrazione.
 
 Si è consapevoli che alcuni utenti potrebbero non essere in ufficio oppure non potranno accedere entro 14 giorni immediatamente dopo l'abilitazione delle impostazioni predefinite di sicurezza. Per assicurarsi che ogni utente abbia tempo sufficiente per la registrazione Multi-Factor Authentication, il periodo di 14 giorni è univoco per ogni utente. Il periodo di 14 giorni di un utente inizia dopo il primo accesso interattivo completato dopo l'abilitazione delle impostazioni predefinite di sicurezza.
 
@@ -113,6 +113,7 @@ Ecco alcune guide dettagliate su come usare l'accesso condizionale per configura
 - [Richiedi autenticazione a più fattori per gli amministratori](howto-conditional-access-policy-admin-mfa.md)
 - [Richiedi autenticazione a più fattori per la gestione di Azure](howto-conditional-access-policy-azure-management.md)
 - [Blocca autenticazione legacy](howto-conditional-access-policy-block-legacy.md)
+- [Richiedi autenticazione a più fattori per tutti gli utenti](howto-conditional-access-policy-all-users-mfa.md)
 
 ## <a name="enabling-security-defaults"></a>Abilitazione delle impostazioni predefinite di sicurezza
 

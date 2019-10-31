@@ -4,15 +4,15 @@ description: Informazioni su come creare entità servizio per l'automazione dell
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 94f1313825b21b3adf7173b56798fce22736ea87
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a590590faa422d47306e697a7c90bb635ea8c6e9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294573"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146352"
 ---
 # <a name="automation-with-service-principals"></a>Automazione con le entità servizio
 
@@ -48,9 +48,9 @@ L'ID app e la password o il certificato dell'entità servizio possono essere usa
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a>modulo <a name="azmodule" />Using AZ. AnalysisServices
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />uso del modulo AZ. AnalysisServices
 
-Quando si usa un'entità servizio per le operazioni di gestione delle risorse con il modulo [AZ. AnalysisServices](/powershell/module/az.analysisservices) , usare il cmdlet `Connect-AzAccount`. 
+Quando si usa un'entità servizio per le operazioni di gestione delle risorse con il modulo [AZ. AnalysisServices](/powershell/module/az.analysisservices) , usare `Connect-AzAccount` cmdlet. 
 
 Nell'esempio seguente vengono usati appID e una password per eseguire operazioni del piano di controllo per la sincronizzazione con le repliche di sola lettura e la scalabilità verticale/orizzontale:
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: darrine
 ROBOTS: NOINDEX
-ms.openlocfilehash: c300a6477daa5759a68d5d11d40b1a71b46bd808
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1d16668e2c0f52c0824016c977251e64c800c54d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793832"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161721"
 ---
 # <a name="paper-entity"></a>Entità Paper
 
@@ -55,14 +55,14 @@ name | Description
 --- | ---
 BT | Tipo di documento BibTex (' a': articolo Journal,' b ': Book,' c': Book Chapter,' p ': Conference Paper)
 BV | Nome della sede BibTex
-CC | Citation Contexts – elenco degli ID dei documenti referenziati e il relativo contesto nel documento (ad esempio [{123:["le volpi marroni sono famose per il loro salto, come indicato nel documento 123", "cani pigri rappresenta un termine storico improprio, come mostrato nel documento 123”]})
+CC | Contesti di citazione: elenco di ID carta di riferimento e contesto corrispondente nel documento (ad esempio, [{123: ["le volpi brune sono note per il salto come indicato nel documento 123" "," i cani Lazy sono un nome di stato cronologico, come illustrato nella carta 123 "]})
 DN | Titolo originale carta
 DOI | Digital Object Identifier - identificatore di oggetto digitale
 FP | Prima pagina di documento nella pubblicazione
 I | Problema di pubblicazione
 IA | Inverted Abstract - astratto invertito
 IA.IndexLength | Numero di elementi nell'indice (conteggio delle parole dell'astratto)
-IA.InvertedIndex | Elenco di parole dell'astratto e la relativa posizione nell'astratto originale (ad esempio, [{"la": [0, 15, 30]}, {"volpe": [1]}, {"marrone":[2]}])
+IA.InvertedIndex | Elenco di parole astratte e relativa posizione corrispondente nell'abstract originale, ad esempio [{"The": [0, 15, 30]}, {"Brown": [1]}, {"Fox": [2]}]
 LP | Ultima pagina di documento della pubblicazione
 PB | Editore
 S | Fonti - elenco di fonti web del documento, ordinate per pertinenza statica

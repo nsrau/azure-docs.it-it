@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 677ff7ffab22eebdace67151d703ba83c2146602
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 49abd9e5ecee8637d830604028463650071c0198
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998613"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163154"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Informazioni sul runtime di Azure IoT Edge e sulla relativa architettura
 
@@ -62,16 +62,16 @@ Per inviare i dati all'hub di IoT Edge, un modulo chiama il metodo SendEventAsyn
    ```csharp
    ModuleClient client = await ModuleClient.CreateFromEnvironmentAsync(transportSettings); 
    await client.OpenAsync(); 
-   await client.SendEventAsync(“output1”, message); 
+   await client.SendEventAsync("output1", message); 
    ```
 
 Per ricevere un messaggio, registrare un callback che elabori i messaggi in arrivo in un input specifico. Lo pseudocodice seguente registra la funzione messageProcessor da usare per l'elaborazione di tutti i messaggi ricevuti in **INPUT1**:
 
    ```csharp
-   await client.SetInputMessageHandlerAsync(“input1”, messageProcessor, userContext);
+   await client.SetInputMessageHandlerAsync("input1", messageProcessor, userContext);
    ```
 
-Per altre informazioni sulla classe ModuleClient e i relativi metodi di comunicazione, vedere le informazioni si riferimento sull'API per il linguaggio preferito per l'SDK: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)o [node. js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
+Per altre informazioni sulla classe ModuleClient e sui relativi metodi di comunicazione, vedere le informazioni di riferimento sulle API per il [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)linguaggio SDK preferito:, [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)o [node. js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
 Lo sviluppatore di soluzioni è responsabile della definizione delle regole che determinano il modo in cui l'hub di IoT Edge passa i messaggi tra i moduli. Le regole di routing sono definite nel cloud e propagate all'hub di IoT Edge nel dispositivo gemello. La stessa sintassi per le route dell'hub IoT viene usata per definire le route tra i moduli di Azure IoT Edge. Per ulteriori informazioni, vedere informazioni [su come distribuire moduli e definire route in IOT Edge](module-composition.md).   
 
@@ -88,16 +88,16 @@ Ogni elemento nel manifesto della distribuzione contiene informazioni specifiche
 * **settings.image**: l'immagine del contenitore usata dall'agente di IoT Edge per avviare il modulo. Se l'immagine è protetta da password, l'agente di IoT Edge deve essere configurato con le credenziali per il registro contenitori. È possibile configurare in remoto le credenziali per il registro contenitori usando il manifesto della distribuzione o aggiornando il file `config.yaml` nella cartella di programma IoT Edge del dispositivo IoT Edge.
 * **Settings. CreateOptions** : stringa passata direttamente al daemon del contenitore Moby all'avvio del contenitore del modulo. L'aggiunta di opzioni in questa proprietà consente configurazioni avanzate, ad esempio il porting o il montaggio di volumi in un contenitore del modulo.  
 * **status**: lo stato in cui l'agente di IoT Edge inserisce il modulo. In genere, questo valore è impostato su *in esecuzione* perché la maggior parte degli utenti desidera che l'agente di IOT Edge avvii immediatamente tutti i moduli nel dispositivo. È tuttavia possibile specificare lo stato iniziale di un modulo come stopped e attendere un secondo momento per indicare all'agente di IoT Edge di avviarlo. L'agente di IoT Edge segnala lo stato di ogni modulo al cloud nelle proprietà segnalate. Una differenza tra la proprietà desiderata e la proprietà segnalata è indicativa del comportamento errato di un dispositivo. Gli stati supportati sono:
-   * Download
-   * In esecuzione
+   * Download in corso
+   * Running
    * Non integro
    * Failed
-   * Arrestato
-* **restartPolicy**: la modalità in cui l'agente di IoT Edge riavvia un modulo. I valori possibili sono:
-   * `never`: L'agente di IoT Edge non riavvia mai il modulo.
-   * `on-failure`-Se il modulo si arresta in modo anomalo, l'agente di IoT Edge lo riavvia. Se il modulo viene chiuso correttamente, l'agente di IoT Edge non lo riavvia.
-   * `on-unhealthy`-Se il modulo si arresta in modo anomalo o viene considerato non integro, l'agente di IoT Edge lo riavvia.
-   * `always`-Se il modulo si arresta in modo anomalo, viene considerato non integro o si arresta in qualsiasi modo, l'agente IoT Edge lo riavvia. 
+   * Arrestata
+* **restartPolicy**: la modalità in cui l'agente di IoT Edge riavvia un modulo. Possibili valori:
+   * `never`: l'agente IoT Edge non riavvia mai il modulo.
+   * `on-failure`: se il modulo si arresta in modo anomalo, l'agente IoT Edge lo riavvia. Se il modulo viene chiuso correttamente, l'agente di IoT Edge non lo riavvia.
+   * `on-unhealthy`: se il modulo si arresta in modo anomalo o viene considerato non integro, l'agente IoT Edge lo riavvia.
+   * `always`: se il modulo si arresta in modo anomalo, viene considerato non integro o si arresta in qualsiasi modo, l'agente IoT Edge lo riavvia. 
 
 L'agente di IoT Edge invia la risposta runtime all'hub IoT. Ecco un elenco di risposte possibili:
   * 200 - OK
@@ -109,7 +109,7 @@ L'agente di IoT Edge invia la risposta runtime all'hub IoT. Ecco un elenco di ri
 
 Per ulteriori informazioni, vedere informazioni [su come distribuire moduli e definire route in IOT Edge](module-composition.md).   
 
-### <a name="security"></a>Security
+### <a name="security"></a>Sicurezza
 
 L'agente di IoT Edge svolge un ruolo fondamentale nella protezione di un dispositivo di IoT Edge. Ad esempio, esegue azioni come la verifica di un'immagine del modulo prima di avviarla. 
 

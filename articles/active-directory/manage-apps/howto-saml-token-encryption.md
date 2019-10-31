@@ -16,14 +16,14 @@ ms.date: 02/06/2019
 ms.author: mimart
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f8b785b8eadd21f1f94cf82fe137d6f747e738
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eafd209073b36265d24dbad4a66b3870d8f593db
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824761"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73148636"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Procedura: Configurare la crittografia dei token SAML di Azure AD (anteprima)
+# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Procedura: configurare Azure AD crittografia di token SAML (anteprima)
 
 > [!NOTE]
 > La crittografia dei token è una funzionalità Premium di Azure Active Directory (Azure AD). Per altre informazioni sulle edizioni, le funzionalità e i prezzi di Azure AD, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -131,7 +131,7 @@ Questa funzionalità sarà disponibile a breve.
 1. Set the token encryption settings using the **[Set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** command.
 
     ```
-    Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials “<KeyCredentialsObject>”  -TokenEncryptionKeyId <keyID>
+    Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
     ```
 
 1. Read the token encryption settings using the following commands.

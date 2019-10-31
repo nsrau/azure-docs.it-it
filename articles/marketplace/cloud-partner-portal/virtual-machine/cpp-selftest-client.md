@@ -1,5 +1,5 @@
 ---
-title: Verificano automatica di client pre-convalidare una macchina virtuale | Azure Marketplace
+title: Client di test automatico per la pre-convalida di una macchina virtuale | Azure Marketplace
 description: Come creare un client di verifica automatica per la convalida preliminare dell'immagine di una macchina virtuale per Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
 author: dan-wesley
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pabutler
-ms.openlocfilehash: 117249feea04381b34f8fc1d95f77c2c1a567dba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46923ecd33a054a36aa6900a415d0b563e5afff0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938714"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163266"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Creare un client di verifica automatica per la convalida preliminare dell'immagine di una macchina virtuale di Azure
 
@@ -46,8 +46,8 @@ L'API di verifica automatica include un unico endpoint in grado di supportare so
 ```
 Uri:             https://isvapp.azurewebsites.net/selftest-vm
 Method:          Post
-Request Header:  Content-Type: “application/json”
-Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
+Request Header:  Content-Type: "application/json"
+Authorization:   "Bearer xxxx-xxxx-xxxx-xxxxx"
 Request body:    The Request body parameters should use the following JSON format:
                  {
                    "DNSName":"XXXX.westus.cloudapp.azure.com",
@@ -62,13 +62,13 @@ Request body:    The Request body parameters should use the following JSON forma
 La tabella seguente descrive i campi dell'API.
 
 
-|      Campo         |    Descrizione    |
+|      Campo         |    Description    |
 |  ---------------   |  ---------------  |
 |  Authorization     |  La stringa "Bearer xxxx-xxxx-xxxx-xxxxx" contiene il token client di Azure Active Directory (AD), che può essere creato usando PowerShell.          |
 |  DNSName           |  Nome DNS della macchina virtuale da testare    |
 |  Utente              |  Nome utente per l'accesso alla macchina virtuale         |
 |  Password          |  Password per l'accesso alla macchina virtuale          |
-|  OS                |  Sistema operativo della macchina virtuale, ovvero `Linux` o `Windows`          |
+|  Sistema operativo                |  Sistema operativo della macchina virtuale, ovvero `Linux` o `Windows`          |
 |  PortNo            |  Numero della porta aperta per la connessione alla macchina virtuale. Il numero della porta in genere è `22` per Linux e `5986` per Windows.          |
 |  |  |
 
@@ -87,7 +87,7 @@ Per chiamare l'API in PowerShell, seguire questa procedura:
 L'esempio di codice seguente mostra una chiamata di PowerShell all'API.
 
 ```powershell
-$accesstoken = “Get token for your Client AAD App”
+$accesstoken = "Get token for your Client AAD App"
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer $accesstoken")
 $Body = @{
@@ -201,7 +201,7 @@ Per chiamare l'API con cURL, seguire questa procedura:
 
 ```
 CURL POST -H "Content-Type:application/json"
--H "Authorization: Bearer XXXXXX-Token-XXXXXXXX”
+-H "Authorization: Bearer XXXXXX-Token-XXXXXXXX"
 https://isvapp.azurewebsites.net/selftest-vm
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
 ```
@@ -247,9 +247,9 @@ Seguire questa procedura per registrare l'app client.
 
    - **Nome**: immettere un nome descrittivo per l'app. Ad esempio, "SelfTestClient".
    - **Tipo di applicazione**: selezionare **App Web/API**
-   - **URL Sign-on** – tipo di "https:\//isvapp.azurewebsites.net/selftest-vm"
+   - **URL di accesso** : digitare "https:\//isvapp.azurewebsites.NET/SELFTEST-VM"
 
-4. Selezionare **Create**.
+4. Selezionare **Create** (Crea).
 5. In **Registrazioni app** oppure **App registrata** copiare l'**ID applicazione**.
 
    ![Ottenere l'ID dell'applicazione](./media/stclient-app-id.png)
@@ -293,7 +293,7 @@ Seguire questa procedura per registrare l'app client.
 
 Per creare e ottenere un token tramite l'API REST di OAuth, è possibile usare uno qualsiasi dei programmi seguenti:
 
-- Postman
+- postman
 - cURL in Linux
 - C&#35;
 - PowerShell
@@ -350,7 +350,7 @@ La schermata seguente illustra un esempio dell'uso del comando curl per ottenere
 
 ### <a name="to-create-and-get-a-token-using-c35"></a>Per creare e ottenere un token tramite C&#35;
 
-Per richiedere i token per tutte le applicazioni autorizzate Auth0, eseguire un'operazione POST a https:\//soamtenant.auth0.com/oauth/token endpoint con un payload nel formato seguente:
+Per chiedere a Auth0 per i token per qualsiasi applicazione autorizzata, eseguire un'operazione POST sull'endpoint HTTPS:\//soamtenant.auth0.com/oauth/token con un payload nel formato seguente:
 
 ```csharp
 string clientId = "Your Application Id";
@@ -373,7 +373,7 @@ var token = JObject.Parse(content)["access_token"];
 
 ### <a name="to-create-and-get-a-token-using-powershell"></a>Per creare e ottenere un token tramite PowerShell
 
-Per richiedere i token per tutte le applicazioni autorizzate Auth0, eseguire un'operazione POST a https:\//soamtenant.auth0.com/oauth/token endpoint con un payload nel formato seguente:
+Per chiedere a Auth0 per i token per qualsiasi applicazione autorizzata, eseguire un'operazione POST sull'endpoint HTTPS:\//soamtenant.auth0.com/oauth/token con un payload nel formato seguente:
 
 ```powershell
 $clientId = "Application Id of AD Client APP";

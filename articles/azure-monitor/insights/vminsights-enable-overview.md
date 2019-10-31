@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 09/24/2019
-ms.openlocfilehash: 83c2264cd3aa3025e911db5079747930d1ae096b
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.date: 10/29/2019
+ms.openlocfilehash: 7e3dad5405289ee2d1f4ec8f7a586da70db9d56f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809466"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162251"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Panoramica di Enable Monitoraggio di Azure per le macchine virtuali (Preview)
 
@@ -37,14 +37,20 @@ Prima di iniziare, verificare di aver compreso quanto illustrato nelle sezioni s
 Monitoraggio di Azure per le macchine virtuali supporta un'area di lavoro Log Analytics nelle aree seguenti:
 
 - Stati Uniti centro-occidentali
+- Stati Uniti occidentali<sup>1</sup>
 - Stati Uniti occidentali 2<sup>1</sup>
+- Stati Uniti centro-meridionali<sup>1</sup>
 - Stati Uniti Orientali
 - Uniti Est<sup>1</sup>
+- Stati Uniti centrali<sup>1</sup>
+- Stati Uniti centro-settentrionali<sup>1</sup>
 - Canada centrale
 - Regno Unito meridionale
 - Europa settentrionale<sup>1</sup>
 - Europa occidentale
+- Asia orientale<sup>1</sup>
 - Asia sud-orientale
+- India centrale<sup>1</sup>
 - Giappone orientale<sup>1</sup>
 - Australia orientale<sup>1</sup>
 - Australia sudorientale<sup>1</sup>
@@ -199,6 +205,9 @@ Abilitare Monitoraggio di Azure per le macchine virtuali usando uno dei metodi d
 ## <a name="performance-counters-enabled"></a>Contatori delle prestazioni abilitati 
 
 Monitoraggio di Azure per le macchine virtuali configura un'area di lavoro Log Analytics per raccogliere i contatori delle prestazioni utilizzati. Nelle tabelle seguenti sono elencati gli oggetti e i contatori raccolti ogni 60 secondi.
+
+>[!NOTE]
+>Il seguente elenco di contatori delle prestazioni abilitato da Monitoraggio di Azure per le macchine virtuali non limita l'abilitazione di contatori aggiuntivi che è necessario raccogliere dalle macchine virtuali che inviano report all'area di lavoro. Inoltre, se si disabilitano questi contatori, il set di grafici delle prestazioni incluso con la funzionalità per le prestazioni non potrà visualizzare l'utilizzo delle risorse dalle macchine virtuali.
 
 ### <a name="windows-performance-counters"></a>Contatori delle prestazioni di Windows
 

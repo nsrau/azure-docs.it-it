@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 066c154c0ba3e62ac4f441e268c657dd5e991220
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 452dfcc04d9fc9048493222ad2a82a5bcc8b78f4
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102131"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162876"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Backup automatico v2 per macchine virtuali in Azure (Resource Manager)
 
@@ -61,7 +61,7 @@ Nella seguente tabella sono descritte le opzioni che possono essere configurate 
 
 ### <a name="basic-settings"></a>Basic Settings
 
-| Impostazione | Intervallo (impostazione predefinita) | Descrizione |
+| Impostazione | Intervallo (impostazione predefinita) | Description |
 | --- | --- | --- |
 | **Backup automatico** | Enable/Disable (disabilitato) | Abilita o disabilita il backup automatico per una macchina virtuale di Azure in cui viene eseguito SQL Server 2016/2017 Developer, Standard o Enterprise. |
 | **Periodo di conservazione** | 1-30 giorni (30 giorni) | Numero di giorni di conservazione dei backup. |
@@ -71,7 +71,7 @@ Nella seguente tabella sono descritte le opzioni che possono essere configurate 
 
 ### <a name="advanced-settings"></a>Impostazioni avanzate
 
-| Impostazione | Intervallo (impostazione predefinita) | Descrizione |
+| Impostazione | Intervallo (impostazione predefinita) | Description |
 | --- | --- | --- |
 | **Backup dei database di sistema** | Enable/Disable (disabilitato) | Quando abilitata, questa funzionalità esegue inoltre il backup dei database di sistema: Master, MSDB e Model. Per i database MSDB e Model, verificare che siano in modalità di ripristino completo se si desidera eseguire il backup dei log. Non vengono mai eseguiti backup di log per Master, né backup di alcun tipo per TempDB. |
 | **Pianificazione backup** | Manual/Automated (Automated) (Manuale/Automatizzato - Automatizzato) | Per impostazione predefinita, la pianificazione del backup è determinata automaticamente in base all'aumento delle dimensioni dei log. Una pianificazione manuale del backup consente all'utente di specificare l'intervallo di tempo per i backup. In questo caso, i backup viene eseguiti unicamente con la frequenza e nell'intervallo di tempo specificati per il giorno in questione. |
@@ -91,7 +91,7 @@ Il lunedì si abilita Backup automatico v2 con le seguenti impostazioni:
 - Pianificazione backup: **Manuale**
 - Frequenza backup completo: **Settimanale**
 - Ora di inizio backup completo: **01:00**
-- Intervallo di tempo per il backup completo: **1 ora**
+- Intervallo di tempo dei backup completi: **1 ora**
 
 Ciò significa che l'intervallo di tempo disponibile successivo per il backup sarà martedì alle ore 01:00 per 1 ora. In quel momento, Backup automatico inizia a eseguire il backup dei database, uno alla volta. In questo scenario, date le dimensioni dei database, il tempo è sufficiente per eseguire il backup dei primi due. Passata l'ora, tuttavia, il backup non è stato eseguito per tutti i database.
 
@@ -109,7 +109,7 @@ Il lunedì si abilita Backup automatico v2 con le seguenti impostazioni:
 - Pianificazione backup: Manuale
 - Frequenza backup completo: Ogni giorno
 - Ora di inizio backup completo: 22:00
-- Intervallo di tempo per il backup completo: 6 ore
+- Intervallo di tempo dei backup completi: 6 ore
 
 Ciò significa che l'intervallo di tempo disponibile successivo per il backup sarà lunedì alle ore 22:00 per 6 ore. In quel momento, Backup automatico inizia a eseguire il backup dei database, uno alla volta.
 
@@ -170,7 +170,7 @@ Se l'estensione Agente IaaS di SQL Server è installata, verrà visualizzata com
 Nel caso in cui l'estensione non sia installata o non ne sia stato eseguito il provisioning, è possibile installarla con il comando seguente. Oltre al nome della macchina virtuale e al gruppo di risorse, è necessario anche specificare l'area ( **$region**) in cui si trova la macchina virtuale.
 
 ```powershell
-$region = “EASTUS2”
+$region = "EASTUS2"
 Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
     -Version "1.2" -Location $region 
@@ -211,7 +211,7 @@ Se l'output indica che **Enable** è impostato su **False**, è necessario abili
 Per prima cosa, selezionare o creare un account di archiviazione per i file di backup. Lo script seguente consente di selezionare un account di archiviazione o di crearne uno.
 
 ```powershell
-$storage_accountname = “yourstorageaccount”
+$storage_accountname = "yourstorageaccount"
 $storage_resourcegroupname = $resourcegroupname
 
 $storage = Get-AzStorageAccount -ResourceGroupName $resourcegroupname `
@@ -276,8 +276,8 @@ Lo script seguente fornisce un set di variabili da personalizzare per abilitare 
 ```powershell
 $vmname = "yourvmname"
 $resourcegroupname = "vmresourcegroupname"
-$region = “Azure region name such as EASTUS2”
-$storage_accountname = “storageaccountname”
+$region = "Azure region name such as EASTUS2"
+$storage_accountname = "storageaccountname"
 $storage_resourcegroupname = $resourcegroupname
 $retentionperiod = 10
 $backupscheduletype = "Manual"
@@ -315,9 +315,9 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
-## <a name="monitoring"></a>Monitoraggio
+## <a name="monitoring"></a>Monitorare
 
-Per monitorare Backup automatico in SQL Server 2016/2017 esistono due opzioni principali. Poiché Backup automatico usa la funzionalità di Backup gestito di SQL Server, le stesse tecniche di monitoraggio sono valide per entrambi.
+Per monitorare Backup automatico in SQL Server 2016/2017 esistono due opzioni principali. Poiché il Backup automatizzato usa la funzionalità di Backup gestito di SQL Server, le stesse tecniche di monitoraggio sono valide per entrambi.
 
 In primo luogo, è possibile eseguire il polling dello stato chiamando [msdb.managed_backup.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). In alternativa, eseguire una query sulla funzione con valori di tabella [msdb. managed_backup. fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) .
 
@@ -332,7 +332,7 @@ In primo luogo, è possibile eseguire il polling dello stato chiamando [msdb.man
 ## <a name="next-steps"></a>Passaggi successivi
 Backup automatico v2 configura backup gestito in Macchine virtuali di Azure. Pertanto è importante [esaminare la documentazione per il backup gestito](https://msdn.microsoft.com/library/dn449496.aspx) per comprendere il comportamento e le implicazioni.
 
-È possibile trovare maggiori informazioni sul backup e sul ripristino per SQL Server in macchine virtuali di Azure nell'articolo seguente: [Backup e ripristino per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-backup-recovery.md).
+È possibile trovare maggiori informazioni sul backup e sul ripristino per SQL Server in macchine virtuali di Azure nell'articolo seguente: [Backup e ripristino per SQL Server in macchine virtuali di Azure](virtual-machines-windows-sql-backup-recovery.md).
 
 Per informazioni sulle altre attività di automazione disponibili, vedere [Estensione Agente IaaS di SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 

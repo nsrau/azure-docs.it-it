@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6996b6163c1d5a2a4747093743a937dfd9eb7d4f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5aab9d8c2b7993598c602ae6b730baff06d807e1
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933112"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151624"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Completare una distribuzione di autenticazione non con password
 
@@ -104,18 +104,27 @@ Le chiavi di sicurezza consentono l'accesso alle risorse ed è necessario pianif
 
 Per abilitare l'accesso a Windows 10 con le chiavi di sicurezza di FIDO2 è necessario abilitare la funzionalità del provider di credenziali in Windows 10. Abilitarla in uno dei due modi seguenti:
 
-- [Abilitare il provider di credenziali tramite la distribuzione di Intune di destinazione](howto-authentication-passwordless-security-key.md#enable-targeted-intune-deployment)
-   - La distribuzione di Intune è l'opzione consigliata per Azure Active Directory macchine unite in join.
-- [Abilitare il provider di credenziali tramite il pacchetto di provisioning](howto-authentication-passwordless-security-key.md#enable-credential-provider-via-provisioning-package)
+- [Abilitare il provider di credenziali con Intune](howto-authentication-passwordless-security-key-windows.md#enable-with-intune)
+   - La distribuzione di Intune è l'opzione consigliata.
+- [Abilitare il provider di credenziali con un pacchetto di provisioning](howto-authentication-passwordless-security-key-windows.md#enable-with-a-provisioning-package)
    - Se non è possibile eseguire la distribuzione di Intune, gli amministratori devono distribuire un pacchetto in ogni computer per abilitare la funzionalità del provider di credenziali. L'installazione del pacchetto può essere eseguita tramite una delle opzioni seguenti:
       - Criteri di gruppo o System Center Configuration Manager (SCCM)
       - Installazione locale in un computer Windows 10
+- [Abilita provider di credenziali con Criteri di gruppo](howto-authentication-passwordless-security-key-windows.md#enable-with-group-policy)
+   - Supportato solo per dispositivi ibridi Azure AD aggiunti.
+
+#### <a name="enable-on-premises-integration"></a>Abilitare l'integrazione locale
+
+Per abilitare l'accesso alle risorse locali, seguire la procedura illustrata nell'articolo [abilitare la chiave di sicurezza senza password accedi a risorse locali (anteprima)](howto-authentication-passwordless-security-key-on-premises.md) .
+
+> [!IMPORTANT]
+> Questi passaggi devono essere completati anche per i dispositivi ibridi Azure AD aggiunti per usare le chiavi di sicurezza FIDO2 per l'accesso a Windows 10.
 
 ### <a name="register-security-keys"></a>Registrare le chiavi di sicurezza
 
 Gli utenti devono registrare la propria chiave di sicurezza in ogni Azure Active Directory computer Windows 10 aggiunti.
 
-Per altre informazioni, vedere [registrazione e gestione degli utenti delle chiavi di sicurezza FIDO2](howto-authentication-passwordless-security-key.md).
+Per altre informazioni, vedere [registrazione e gestione degli utenti delle chiavi di sicurezza FIDO2](howto-authentication-passwordless-security-key.md#user-registration-and-management-of-fido2-security-keys).
 
 ### <a name="licensing-for-passwordless-authentication"></a>Gestione delle licenze per l'autenticazione con password
 
@@ -257,7 +266,7 @@ Seguire i passaggi descritti nell'articolo [abilitare l'accesso senza password c
 ### <a name="deploy-fido2-security-key-sign-in"></a>Distribuire l'accesso alla chiave di sicurezza FIDO2
 
 Seguire i passaggi descritti nell'articolo [abilitare l'accesso alla chiave di sicurezza senza password per Azure ad](howto-authentication-passwordless-security-key.md) abilitare le chiavi di sicurezza di FIDO2 come metodi di autenticazione senza password nell'organizzazione.
- 
+
 ### <a name="troubleshoot-phone-sign-in"></a>Risolvere i problemi di accesso telefonico
 
 | Scenario | Soluzione |

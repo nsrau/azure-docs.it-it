@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac59dbed0ba2766f3367e19c5fddeed52e250a5b
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: e17a99a522c6ab960c2ccd0cc2729076c54ed07f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880148"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151857"
 ---
 # <a name="passwordless-authentication-options"></a>Opzioni di autenticazione con password
 
@@ -28,13 +28,13 @@ Multi-factor authentication è un ottimo modo per proteggere l'organizzazione, m
 
 Ogni organizzazione ha esigenze diverse per quanto riguarda l'autenticazione. Microsoft offre tre opzioni di autenticazione con password:
 
-- Windows Hello for Business 
-- App Microsoft Authenticator 
+- Windows Hello for Business
+- App Microsoft Authenticator
 - Chiavi di sicurezza FIDO2
 
 ![Autenticazione: sicurezza e convenienza](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-## <a name="windows-hello-for-business"></a>Windows Hello for Business 
+## <a name="windows-hello-for-business"></a>Windows Hello for Business
 
 Windows Hello for business è ideale per gli Information Worker che dispongono di un proprio PC Windows designato. La biometria e il PIN sono direttamente collegati al PC dell'utente, che impedisce l'accesso da parte di utenti diversi dal proprietario. Con l'integrazione con l'infrastruttura a chiave pubblica e il supporto integrato per Single Sign-On (SSO), Windows Hello for business offre un metodo semplice e pratico per accedere facilmente alle risorse aziendali in locale e nel cloud.
 
@@ -52,7 +52,7 @@ Ogni telefono iOS o Android viene trasformato in una credenziale complessa e sen
 
 Le chiavi di sicurezza di FIDO2 sono un metodo di autenticazione senza password basato su standard unphishable che può provenire da qualsiasi fattore di forma. Fast Identity online (FIDO) è uno standard aperto per l'autenticazione con password. Consente a utenti e organizzazioni di sfruttare lo standard per accedere alle risorse senza nome utente o password usando una chiave di sicurezza esterna o una chiave della piattaforma incorporata in un dispositivo.
 
-Per la versione di anteprima pubblica, i dipendenti possono usare chiavi di sicurezza esterne per accedere ai computer Windows 10 con Azure Active Directory aggiunti (versione 1809 o successiva) e ottenere l'accesso Single Sign-on alle risorse cloud. Possono anche accedere ai browser supportati.
+Per la versione di anteprima pubblica, i dipendenti possono usare le chiavi di sicurezza per accedere ai dispositivi Azure AD o ibridi Azure AD aggiunti a dispositivi Windows 10 e ottenere l'accesso Single Sign-on alle risorse cloud e locali. Possono anche accedere ai browser supportati.
 
 ![Accedere a Microsoft Edge con una chiave di sicurezza](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -78,6 +78,9 @@ I provider seguenti offrono chiavi di sicurezza FIDO2 di diversi fattori di form
 | eWBM | [https://www.ewbm.com/page/sub1_5](https://www.ewbm.com/page/sub1_5) |
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 
+> [!NOTE]
+> Se si acquista e si prevede di usare le chiavi di sicurezza basate su NFC, sarà necessario un lettore NFC supportato.
+
 Se si è un fornitore e si desidera ottenere il dispositivo in questo elenco, contattare [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com).
 
 Le chiavi di sicurezza di FIDO2 sono un'ottima opzione per le aziende che hanno una sicurezza molto sensibile o hanno scenari o dipendenti che non sono disposti o in grado di usare il telefono come secondo fattore.
@@ -89,7 +92,7 @@ Le chiavi di sicurezza di FIDO2 sono un'ottima opzione per le aziende che hanno 
 - Gli utenti finali possono registrare e gestire questi metodi di autenticazione con password nel portale per gli account
 - Gli utenti finali possono accedere con questi metodi di autenticazione senza password
    - Microsoft Authenticator app: funzionerà in scenari in cui viene usata l'autenticazione Azure AD, inclusi tutti i browser, durante l'installazione di Windows 10 fuori programma (OOBE) e con app per dispositivi mobili integrate in qualsiasi sistema operativo.
-   - Chiavi di sicurezza: funzionerà sulla schermata di blocco per Windows 10 versione 1809 o successiva e il Web in browser supportati come Microsoft Edge.
+   - Chiavi di sicurezza: funzionerà sulla schermata di blocco per Windows 10 e il Web in browser supportati come Microsoft Edge.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

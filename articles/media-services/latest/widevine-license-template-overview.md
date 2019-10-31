@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: c6fc363a7ab9de215647e371a9d3c846f8688bd5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30e5daba56bb371aafa6d2636a0a9f641977e6fa
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466324"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162557"
 ---
 # <a name="widevine-license-template-overview"></a>Panoramica del modello di licenza Widevine 
 
@@ -54,13 +54,13 @@ Una richiesta per la licenza Widevine è formattata come messaggio JSON.
           "renewal_server_url":"<renewal server url>",
           "renewal_delay_seconds":<renewal delay>,
           "renewal_retry_interval_seconds":<renewal retry interval>,
-          "renew_with_usage”:<renew with usage>
+          "renew_with_usage":<renew with usage>
        }
     }
 
 ## <a name="json-message"></a>Messaggio JSON
 
-| NOME | Value | Descrizione |
+| name | Value | Description |
 | --- | --- | --- |
 | payload |Stringa con codifica Base64 |Richiesta di licenza inviata da un client. |
 | content_id |Stringa con codifica Base64 |Identificatore usato per derivare l'ID chiave e la chiave simmetrica per ogni content_key_specs.track_type. |
@@ -74,20 +74,20 @@ Una richiesta per la licenza Widevine è formattata come messaggio JSON.
 | parse_only |Booleano: true o false |La richiesta di licenza viene analizzata, ma la licenza non viene generata. Nella risposta, tuttavia, vengono restituiti i valori componenti la richiesta di licenza. |
 
 ## <a name="content-key-specs"></a>Specifiche della chiave simmetrica
-In presenza di criteri pre-esistenti, non è necessario specificare alcun valore nella specifica della chiave simmetrica. Il criterio pre-esistente associato a questo contenuto viene usato per determinare la protezione dell'output, ad esempio il sistema HDCP e il sistema CGMS. Se i criteri pre-esistenti non sono registrati con il server di licenze Widevine, il provider di contenuti può inserire i valori nella richiesta di licenza.   
+Se esiste già un criterio preesistente, non è necessario specificare alcun valore nella specifica della chiave simmetrica. Il criterio preesistente associato a questo contenuto viene usato per determinare la protezione dell'output, ad esempio High-bandwidth Digital protezione del contenuto (HDCP) e Copy General Management System (CGMS). Se i criteri pre-esistenti non sono registrati con il server di licenze Widevine, il provider di contenuti può inserire i valori nella richiesta di licenza.   
 
 Ogni valore content_key_specs deve essere specificato per tutte le singole tracce, indipendentemente dall'opzione use_policy_overrides_exclusively. 
 
-| NOME | Value | Descrizione |
+| name | Value | Description |
 | --- | --- | --- |
 | content_key_specs track_type |string |Nome di un tipo di traccia. Se nella richiesta di licenza è specificato un valore content_key_specs, assicurarsi di specificare esplicitamente tutti i tipi di traccia. In caso contrario, non possono essere riprodotti gli ultimi 10 secondi. |
 | content_key_specs  <br/> security_level |Valore UInt32 |Definisce i requisiti di affidabilità client per la riproduzione. <br/> - È richiesta una soluzione di crittografia white box basata su software. <br/> - Sono necessari una soluzione di crittografia software e un decodificatore offuscato. <br/> - Il materiale della chiave e le operazioni di crittografia devono essere eseguiti all'interno di un ambiente di esecuzione affidabile basato su hardware. <br/> - Le operazioni di crittografia e decodifica del contenuto devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.  <br/> - Le operazioni di crittografia, decodifica e l'intera gestione dei file multimediali (con e senza compressione) devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware. |
 | content_key_specs <br/> required_output_protection.hdc |Stringa, uno di HDCP_NONE, HDCP_V1, HDCP_V2 |Indica se è necessario il protocollo HDCP. |
-| content_key_specs <br/>key |Base64<br/>codifica Base64 |Chiave simmetrica da usare per la traccia. Se specificato, è necessario immettere il valore track_type o key_id Il provider di contenuti può usare questa opzione per inserire la chiave simmetrica della traccia ed evitare quindi che sia il server di licenze Widevine a generare o cercare una chiave. |
+| content_key_specs <br/>key |Base64<br/>codifica Base64 |Chiave simmetrica da usare per questa traccia. Se specificato, track_type o Key_ID è obbligatorio. Il provider di contenuti può usare questa opzione per inserire la chiave simmetrica della traccia ed evitare quindi che sia il server di licenze Widevine a generare o cercare una chiave. |
 | content_key_specs.key_id |Stringa binaria con codifica Base64, 16 byte |Identificatore univoco della chiave. |
 
 ## <a name="policy-overrides"></a>Override dei criteri
-| NOME | Value | Descrizione |
+| name | Value | Description |
 | --- | --- | --- |
 | policy_overrides&#46;can_play |Booleano: true o false |Indica che è consentita la riproduzione del contenuto. Il valore predefinito è false. |
 | policy_overrides&#46;can_persist |Booleano: true o false |Indica che la licenza può essere mantenuta in una memoria non volatile per l'uso offline. Il valore predefinito è false. |
@@ -102,7 +102,7 @@ Ogni valore content_key_specs deve essere specificato per tutte le singole tracc
 | policy_overrides&#46;renew_with_usage |Booleano: true o false |Indica che la licenza viene inviata per il rinnovo nel momento in cui si inizia a usarla. Questo campo viene usato solo se can_renew è true. |
 
 ## <a name="session-initialization"></a>Inizializzazione della sessione
-| Name | Value | Descrizione |
+| name | Value | Description |
 | --- | --- | --- |
 | provider_session_token |Stringa con codifica Base64 |Questo token di sessione viene restituito alla licenza e persiste nei rinnovi successivi, ma non in altre sessioni. |
 | provider_client_token |Stringa con codifica Base64 |Token client da restituire nella risposta di licenza. Se la richiesta di licenza contiene un token client, questo valore viene ignorato. Il token client persiste anche in altre sessioni della licenza. |

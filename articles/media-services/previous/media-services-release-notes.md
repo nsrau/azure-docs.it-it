@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 7684acbd26848bbccb09416df44a9669965dcfe9
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: f76a2eb098e2d96f617d19de089e56c7e8a497fd
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720131"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162759"
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
 
@@ -29,10 +29,10 @@ Nelle presenti note sulla versione per Servizi multimediali di Azure vengono rie
 
 Microsoft invita i clienti a segnalare eventuali problemi e si impegna a risolverli. Per segnalare un problema o rivolgere domande, pubblicare un post nel [forum MSDN su Servizi multimediali di Microsoft Azure]. 
 
-## <a name="a-idissuesknown-issues"></a><a id="issues"/>Problemi noti
+## <a name="a-idissuesknown-issues"></a>problemi noti di <a id="issues"/>
 ### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>Problemi generali di Servizi multimediali
 
-| Problema | Descrizione |
+| Problema | Description |
 | --- | --- |
 | Nell'API REST non sono disponibili alcune intestazioni HTTP comuni. |Se si sviluppano applicazioni di Servizi multimediali tramite l'API REST, alcuni campi di intestazione HTTP comuni, ad esempio CLIENT-REQUEST-ID, REQUEST-ID e RETURN-CLIENT-REQUEST-ID, non sono supportati. Le intestazioni verranno aggiunte in un futuro aggiornamento. |
 | La codifica percentuale non è consentita. |Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la generazione di URL per i contenuti in streaming (ad esempio, `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà Name non può contenere i [caratteri riservati per la codifica percentuale](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#[]". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.). |
@@ -46,7 +46,7 @@ Microsoft invita i clienti a segnalare eventuali problemi e si impegna a risolve
 ## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>Cronologia delle versioni dell'API REST
 Per informazioni sulla cronologia delle versioni dell'API REST di Servizi multimediali, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure].
 
-## <a name="september-2019"></a>2019 settembre
+## <a name="september-2019"></a>Settembre 2019
 
 ### <a name="deprecation-of-media-processors"></a>Deprecazione dei processori di contenuti multimediali
 
@@ -111,7 +111,7 @@ A partire dal 12 maggio 2018 i canali live non supporteranno più il protocollo 
     * Miglioramenti apportati al decodificatore H.264 usato nel codificatore Standard allo scopo di eliminare alcuni elementi rari. 
 
 #### <a name="media-analytics"></a>Analisi Servizi multimediali
-Disponibilità generale di Azure Media Redactor: questo processore di contenuti multimediali esegue l'anonimizzazione tramite la sfocatura dei visi di persone selezionate ed è ideale per l'uso in scenari multimediali di pubblica sicurezza e notizie. 
+Disponibilità generale di Azure Media Redactor - Questo processore di contenuti multimediali consente di rendere anonimi i video oscurando i volti delle persone selezionate. È quindi ideale in scenari multimediali di pubblica sicurezza e notiziari. 
 
 Per una panoramica di questo nuovo processore, vedere [questo post di blog](https://azure.microsoft.com/blog/azure-media-redactor/). Per informazioni sulla documentazione e le impostazioni, vedere [Offuscare i volti con Analisi Servizi multimediali di Azure](media-services-face-redaction.md).
 
@@ -206,7 +206,7 @@ Le unità riservate di codifica Basic, Standard e Premium sono state rinominate 
 ### <a name="azure-sdk-for-php"></a>Azure SDK per PHP
 Il team di Azure SDK ha pubblicato una nuova versione del pacchetto [Azure SDK per PHP](https://github.com/Azure/azure-sdk-for-php) che contiene aggiornamenti e nuove funzionalità per Servizi multimediali. In particolare, Media Services SDK per PHP supporta ora le funzioni più recenti di [protezione del contenuto](media-services-content-protection-overview.md). Queste funzioni sono la crittografia dinamica con AES e DRM (PlayReady e Widevine) con e senza restrizioni del token. Supporta anche il ridimensionamento delle [unità di codifica](media-services-dotnet-encoding-units.md).
 
-Per altre informazioni, vedere:
+Per scoprire di più, vedi:
 
 * Gli [esempi di codice](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) seguenti consentono di iniziare rapidamente:
   * **vodworkflow_aes.php**: questo file PHP illustra come usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi. Si basa sull'esempio .NET illustrato in [Use AES-128 dynamic encryption and the key delivery service](media-services-protect-with-aes128.md) (Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi).
@@ -219,9 +219,9 @@ Per altre informazioni, vedere:
 I servizi di distribuzione delle licenze Widevine forniti da Servizi multimediali sono in anteprima. Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ## <a id="oct_changes_15"></a>Versione di ottobre 2015
-Servizi multimediali di Microsoft Azure è ora disponibile nei seguenti data center: Brasile meridionale, India occidentale, India meridionale e India centrale. È ora possibile usare il portale di Azure per [creare account di Servizi multimediali](media-services-portal-create-account.md) ed eseguire diverse attività descritte nella [pagina Web sulla documentazione di Servizi multimediali](https://azure.microsoft.com/documentation/services/media-services/). In questi data center la codifica live non è abilitata. Inoltre, non sono disponibili tutti i tipi di unità riservate di codifica.
+Servizi multimediali è ora disponibile anche nei data center seguenti: Brasile meridionale, India occidentale, India meridionale e India centrale. È ora possibile usare il portale di Azure per [creare account di Servizi multimediali](media-services-portal-create-account.md) ed eseguire diverse attività descritte nella [pagina Web sulla documentazione di Servizi multimediali](https://azure.microsoft.com/documentation/services/media-services/). In questi data center la codifica live non è abilitata. Inoltre, non sono disponibili tutti i tipi di unità riservate di codifica.
 
-* Brasile meridionale:                                          sono disponibili solo unità riservate di codifica Standard e Basic.
+* Brasile meridionale:                                           sono disponibili solo unità riservate di codifica Standard e Basic.
 * India occidentale, India meridionale e India centrale:             sono disponibili solo unità riservate di codifica Basic.
 
 ## <a id="september_changes_15"></a>Versione di settembre 2015
@@ -245,7 +245,7 @@ Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/az
 Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 ## <a id="august_changes_15"></a>Versione di agosto 2015
-* Sono ora disponibili la versione 0.8.0 di Media Services SDK per Java e nuovi esempi. Per altre informazioni, vedere:
+* Sono ora disponibili la versione 0.8.0 di Media Services SDK per Java e nuovi esempi. Per scoprire di più, vedi:
     
 * Azure Media Player è stato aggiornato con il supporto per i flussi multi-audio. Per altre informazioni, vedere [questo post di blog](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
 
@@ -294,7 +294,7 @@ Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/20
 ### <a name="media-services-net-sdk-updates"></a>Aggiornamenti di Media Services .NET SDK
 Media Services .NET SDK è ora disponibile nella versione 3.2.0.0. Sono stati eseguiti gli aggiornamenti seguenti:
 
-* Modifica che causa un'interruzione: sono stati modificati TokenRestrictionTemplate.Issuer e TokenRestrictionTemplate.Audience in modo che siano di tipo string.
+* Modifica di rilievo: sono stati modificati TokenRestrictionTemplate.Issuer e TokenRestrictionTemplate.Audience in modo che siano di tipo string.
 * Sono stati eseguiti aggiornamenti per la creazione di criteri per i tentativi personalizzati.
 * Sono stati corretti bug correlati all'upload/download di file.
 * La classe MediaServicesCredentials accetta ora endpoint di controllo di accesso primari e secondari per l'autenticazione.
@@ -394,8 +394,8 @@ Quando si esegue la codifica di un asset, al termine del processo viene restitui
 ## <a id="july_changes_14"></a>Versione di luglio 2014
 Le seguenti correzioni di bug sono state introdotte per lo strumento per la creazione di pacchetti e il componente di crittografia di Servizi multimediali di Azure:
 
-* Quando un asset di archivio live viene trasmesso in HLS, viene riprodotto solo l'audio: Questo problema è stato risolto: adesso si possono riprodurre sia audio che video.
-* Quando un asset viene incluso nel pacchetto per la busta crittografica con HLS e AES a 128 bit, i flussi nei pacchetti non vengono riprodotti su dispositivi Android: questo bug è stato risolto e i flussi in pacchetti vengono riprodotti in dispositivi Android che supportano HLS.
+* Quando un asset di archivio live viene trasmesso ad HLS, viene riprodotto solo l'audio: questo problema è stato risolto e ora è possibile riprodurre sia l'audio che il video.
+* Quando si creano un pacchetto di un asset per HLS e si definisce una crittografia della busta AES a 128 bit, i flussi in pacchetti non vengono riprodotti in dispositivi Android. Questo bug è stato risolto e i flussi in pacchetti vengono riprodotti in dispositivi Android che supportano HLS.
 
 ## <a id="may_changes_14"></a>Versione di maggio 2014
 ### <a id="may_14_changes"></a>Aggiornamenti generali di Servizi multimediali
@@ -455,13 +455,13 @@ I seguenti cmdlet di PowerShell per Servizi multimediali sono stati inclusi negl
     Ad esempio: `Get-AzureMediaServicesAccount`
 * New-AzureMediaServicesAccount 
   
-    Ad esempio: `New-AzureMediaServicesAccount -Name “MediaAccountName” -Location “Region” -StorageAccountName “StorageAccountName”`
+    Ad esempio: `New-AzureMediaServicesAccount -Name "MediaAccountName" -Location "Region" -StorageAccountName "StorageAccountName"`
 * New-AzureMediaServicesKey 
   
-    Ad esempio: `New-AzureMediaServicesKey -Name “MediaAccountName” -KeyType Secondary -Force`
+    Ad esempio: `New-AzureMediaServicesKey -Name "MediaAccountName" -KeyType Secondary -Force`
 * Remove-AzureMediaServicesAccount 
   
-    Ad esempio: `Remove-AzureMediaServicesAccount -Name “MediaAccountName” -Force`
+    Ad esempio: `Remove-AzureMediaServicesAccount -Name "MediaAccountName" -Force`
 
 ## <a id="june_changes_13"></a>Versione di giugno 2013
 ### <a name="june_13_general_changes"></a>Modifiche a Servizi multimediali
@@ -509,7 +509,7 @@ Risoluzioni di problemi rilevati nell'SDK del novembre 2012:
 * IAsset.Locators.Count: questo valore è ora riportato in modo corretto nelle nuove interfacce IAsset dopo l'eliminazione di tutti i localizzatori.
 * IAssetFile.ContentFileSize: questo valore viene ora impostato correttamente dopo un caricamento da IAssetFile.Upload(filepath).
 * IAssetFile.ContentFileSize: questa proprietà ora può essere impostata quando si crea un file di asset, mentre in precedenza era di sola lettura.
-* IAssetFile.Upload(filepath): è stato risolto un problema quando il metodo di caricamento sincrono generava l'errore seguente durante il caricamento di più file nell'asset. L'errore era: "Autenticazione della richiesta non riuscita nel server. Verificare che il formato dell'intestazione Authorization, firma inclusa, sia corretto".
+* IAssetFile.Upload(filepath): è stato risolto un problema quando il metodo di caricamento sincrono generava l'errore seguente durante il caricamento di più file nell'asset. L'errore era: "Autenticazione della richiesta non riuscita nel server. Verificare che il formato dell'intestazione Authorization, firma inclusa, sia corretto"
 * IAssetFile.UploadAsync: è stato risolto un problema che limitava l'upload simultaneo a cinque file.
 * IAssetFile.UploadProgressChanged: questo evento è ora fornito dall'SDK.
 * IAssetFile.DownloadAsync(string, BlobTransferClient, ILocator, CancellationToken): questo overload del metodo è ora disponibile.
@@ -521,7 +521,7 @@ Risoluzioni di problemi rilevati nell'SDK del novembre 2012:
 ## <a id="november_changes_12"></a>Versione di novembre 2012
 Le modifiche citate in questa sezione sono aggiornamenti inclusi nell'SDK versione 2.0.0.0 di novembre 2012. Queste modifiche possono richiedere la riscrittura o la modifica di un codice scritto per la versione di anteprima di SDK di giugno 2012.
 
-* Asset
+* asset
   
     * IAsset.Create(assetName) è la *sola* funzione di creazione degli asset. IAsset.Create non carica più file come parte della chiamata al metodo. Usare IAssetFile per il caricamento.
     * Il metodo IAsset.Publish e il valore di enumerazione AssetState.Publish sono stati rimossi da Media Services SDK. Qualsiasi codice che si basa su questo valore deve essere riscritto.
@@ -555,7 +555,7 @@ Le funzionalità seguenti sono state introdotte nella versione di novembre dell'
   
     * A tutti i metodi è stato aggiunto il supporto asincrono.
 
-## <a name="provide-feedback"></a>Commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 <!-- Anchors. -->

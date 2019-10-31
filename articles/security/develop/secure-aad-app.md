@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: v-fehase
-ms.openlocfilehash: 87df7824a182e68d849fdf967f96b2974b7e0c16
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 88ef0874d760fb87700eac83c0d615be5887ddee
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71148172"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159844"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Sviluppare un'app sicura per un'app Azure AD
 ## <a name="overview"></a>Panoramica
@@ -39,7 +39,7 @@ Durante lo sviluppo e la distribuzione di questa app, si apprenderà come
 
 Dopo aver sviluppato e distribuito l'app, è necessario configurare l'app Web di esempio seguente insieme alle misure di configurazione e sicurezza descritte.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 L'app è una tipica applicazione a più livelli con tre livelli. Il front-end, il back-end e il livello di database con componenti di monitoraggio e di gestione segreta integrati sono illustrati di seguito:
 
 ![Architettura dell'app](./media/secure-aad-app/architecture.png)
@@ -83,7 +83,7 @@ Per distribuire le risorse dell'app di esempio, è necessaria una sottoscrizione
 
 Dopo l'installazione di questi strumenti, si è pronti per distribuire l'app in Azure.
 
-### <a name="implementation-guidance"></a>Indicazioni relative all'implementazione
+### <a name="implementation-guidance"></a>Linee guida di implementazione
 Lo script di distribuzione è uno script che può essere suddiviso in quattro fasi. Ogni fase distribuisce e configura una risorsa di Azure che si trova nel [diagramma dell'architettura](#architecture).
 
 Le quattro fasi sono
@@ -235,7 +235,7 @@ $trustedRootCert01 = New-AzApplicationGatewayTrustedRootCertificate -Name "test1
 
 #Configure the HTTP settings for the application gateway back end
 
-$poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name “setting01” -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
+$poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name "setting01" -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
 
 #Create a load-balancer routing rule that configures the load balancer
 
@@ -265,7 +265,7 @@ App Azure servizio ti permette di creare e ospitare app Web usando linguaggi com
     Write-Host "Configure a CNAME record that maps $fqdn to $webappname.azurewebsites.net"
     Read-Host "Press [Enter] key when ready ..."
 
-#### <a name="before-continuing-go-to-your-azure-domain-name-system-configuration-ui-for-your-custom-domain-and-follow-the-instructions-at-httpsakamsappservicecustomdns-to-configure-a-cname-record-for-the-hostname-www-and-point-it-your-web-apps-default-domain-name"></a>Prima di continuare, passare all'interfaccia utente di configurazione di Azure Domain Name System per il dominio personalizzato e seguire https://aka.ms/appservicecustomdns le istruzioni in per configurare un record CNAME per il nome host "www" e puntare al nome di dominio predefinito dell'app Web
+#### <a name="before-continuing-go-to-your-azure-domain-name-system-configuration-ui-for-your-custom-domain-and-follow-the-instructions-at-httpsakamsappservicecustomdns-to-configure-a-cname-record-for-the-hostname-www-and-point-it-your-web-apps-default-domain-name"></a>Prima di continuare, passare all'interfaccia utente di configurazione di Azure Domain Name System per il dominio personalizzato e seguire le istruzioni riportate in https://aka.ms/appservicecustomdns per configurare un record CNAME per il nome host "www" e puntare il nome di dominio predefinito dell'app Web
 
 #### <a name="upgrade-app-service-plan-to-shared-tier-minimum-required-by-custom-domains"></a>Aggiornare il piano di servizio app al livello condiviso (minimo richiesto dai domini personalizzati)
     Set-AzAppServicePlan -Name $webappname -ResourceGroupName $webappname -Tier Shared
@@ -320,7 +320,7 @@ Ora che è stata abilitata l'integrazione della rete virtuale, è possibile aggi
 
    *Configurare NSG*
 
-4. Nelle regole in uscita per il gateway NSG aggiungere una regola che consenta le connessioni in uscita all'istanza del servizio app creando una regola destinata al tag di servizio`AppService`
+4. Nelle regole in uscita per il gateway NSG aggiungere una regola che consenta le connessioni in uscita all'istanza del servizio app creando una regola destinata al tag di servizio `AppService`
 
    ![Aggiungere regole in uscita per NSG](./media/secure-web-app/nsg-outbound-allowappserviceout.png)
 
@@ -343,7 +343,7 @@ Ora che è stata abilitata l'integrazione della rete virtuale, è possibile aggi
     *Aggiungere regole per i probe di integrità dei servizi di Azure (solo ambiente del servizio app)*
 
 Per limitare la superficie di attacco, modificare le impostazioni di rete del servizio app per consentire solo al gateway applicazione di accedere all'applicazione.
-Per applicare le impostazioni, passare alla scheda rete del servizio app, selezionare la scheda **restrizioni IP** e creare una regola di autorizzazione che consenta solo all'indirizzo IP del gateway applicazione di accedere direttamente al servizio. È possibile recuperare l'indirizzo IP del gateway dalla relativa pagina di panoramica. Nella scheda **CIDR indirizzo IP** immettere l'indirizzo IP nel formato seguente: `<GATEWAY_IP_ADDRESS>/32`.
+Per applicare le impostazioni, passare alla scheda rete del servizio app, selezionare la scheda **restrizioni IP** e creare una regola di autorizzazione che consenta solo all'indirizzo IP del gateway applicazione di accedere direttamente al servizio. È possibile recuperare l'indirizzo IP del gateway dalla relativa pagina di panoramica. Nella scheda **CIDR indirizzo IP** immettere l'indirizzo IP nel formato: `<GATEWAY_IP_ADDRESS>/32`.
 
 ![Consenti solo il gateway](./media/secure-web-app/app-allow-gw-only.png)
 
@@ -352,13 +352,13 @@ Per applicare le impostazioni, passare alla scheda rete del servizio app, selezi
 ### <a name="azure-domain-name-system"></a>Domain Name System di Azure 
 Il Domain Name System di Azure, o Domain Name System di Azure, è responsabile della conversione (o risoluzione) del nome di un sito Web o di un nome di servizio nel relativo indirizzo IP. Azure Domain Name System (https://docs.microsoft.com/azure/dns/dns-overview) è un servizio di hosting per domini Domain Name System che fornisce la risoluzione dei nomi usando l'infrastruttura di Azure. Ospitando i domini in Azure, gli utenti possono gestire i record Domain Name System usando le stesse credenziali, le stesse API, gli strumenti e la fatturazione degli altri servizi di Azure. Azure Domain Name System supporta anche domini Domain Name System privati.
 
-### <a name="azure-disk-encryption"></a>Azure Disk Encryption
+### <a name="azure-disk-encryption"></a>Crittografia dischi di Azure
 Crittografia dischi di Azure sfrutta la funzionalità BitLocker di Windows per fornire la crittografia del volume per i dischi dati. La soluzione si integra con Azure Key Vault per semplificare il controllo e la gestione delle chiavi di crittografia dei dischi.
 
 ### <a name="identity-management"></a>Gestione delle identità
 Le tecnologie seguenti forniscono funzionalità per gestire l'accesso ai dati dei titolari di carte nell'ambiente Azure
 - Azure Active Directory è il servizio Microsoft di gestione di identità e Directory basato sul cloud multi-tenant. Tutti gli utenti per questa soluzione vengono creati in Azure Active Directory, inclusi gli utenti che accedono alla WebApp di Azure.
-- Il controllo degli accessi in base al ruolo di Azure consente agli amministratori di definire le autorizzazioni di accesso con granularità fine per concedere solo la quantità di accesso necessario agli utenti per eseguire i propri processi. Invece di concedere a ogni utente autorizzazioni senza limiti per le risorse di Azure, gli amministratori possono consentire solo determinate azioni per l'accesso ai dati dei possessori di carte. L'accesso alla sottoscrizione è limitato all'amministratore della sottoscrizione.
+- Il controllo degli accessi in base al ruolo di Azure consente agli amministratori di definire le autorizzazioni di accesso con granularità fine per concedere solo la quantità di accesso necessario agli utenti per eseguire i propri processi. Invece di concedere a ogni utente autorizzazioni senza limiti per le risorse di Azure, gli amministratori possono consentire solo determinate azioni per l'accesso ai dati dei possessori di carte. L'accesso alla sottoscrizione è limitato all'amministratore della sottoscrizione stessa.
 - Azure Active Directory Privileged Identity Management consente ai clienti di ridurre al minimo il numero di utenti che hanno accesso a determinate informazioni, ad esempio i dati di titolari di carte. Gli amministratori possono usare Azure Active Directory Privileged Identity Management per individuare, limitare e monitorare le identità con privilegi e il rispettivo accesso alle risorse. Questa funzionalità può essere usata anche per applicare l'accesso amministrativo on demand e Just-In-Time quando necessario.
 - Azure Active Directory Identity Protection rileva le potenziali vulnerabilità che interessano le identità di un'organizzazione, configura le risposte automatiche per rilevare azioni sospette correlate alle identità di un'organizzazione ed esamina sospette eventi imprevisti per eseguire le azioni appropriate per risolverli.
 ### <a name="secrets-management"></a>Gestione dei segreti
@@ -372,7 +372,7 @@ La soluzione USA Azure Key Vault per la gestione di chiavi e segreti. L'insieme 
    - Usare Key Vault per gestire i certificati TLS con il rinnovo automatico. 
    - I log di diagnostica per Key Vault sono abilitati con un periodo di conservazione di almeno 365 giorni
    - Le operazioni di crittografia consentite per le chiavi sono limitate a quelle necessarie.
-### <a name="azure-security-center"></a>Centro sicurezza di Azure
+### <a name="azure-security-center"></a>Centro sicurezza Azure
 Con il Centro sicurezza di Azure, i clienti possono applicare e gestire centralmente i criteri di sicurezza tra i carichi di lavoro, limitare l'esposizione alle minacce e rilevare e rispondere agli attacchi. Inoltre 
    - Il Centro sicurezza di Azure accede alle configurazioni esistenti dei servizi di Azure per fornire consigli per la configurazione e il servizio per migliorare le posture della sicurezza e proteggere i dati.
    - Il Centro sicurezza di Azure usa una serie di funzionalità di rilevamento per avvisare i clienti riguardo a potenziali attacchi contro gli ambienti in cui operano. Questi avvisi contengono informazioni importanti relative a cosa ha attivato l'avviso, alle risorse interessate e all'origine dell'attacco. Il Centro sicurezza di Azure include un set di avvisi di sicurezza predefiniti, che vengono attivati quando si verifica una minaccia o un'attività sospetta. Le regole di avviso personalizzate nel centro sicurezza di Azure consentono ai clienti di definire nuovi avvisi di sicurezza in base ai dati già raccolti dal proprio ambiente.
@@ -388,17 +388,17 @@ Con il Centro sicurezza di Azure, i clienti possono applicare e gestire centralm
    - Probe di integrità personalizzati.
    - Il Centro sicurezza di Azure e un Azure Advisor forniscono protezione e notifiche aggiuntive. Centro sicurezza di Azure mette a disposizione anche un sistema di reputazione.
 ### <a name="logging-and-auditing"></a>Registrazione e controllo
-I servizi di Azure registrano in modo completo le attività di sistema e degli utenti e l'integrità del sistema:
-   - Log attività: i [log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) offrono informazioni dettagliate sulle operazioni eseguite sulle risorse di una sottoscrizione. I log attività possono essere utili per determinare l'iniziatore di un'operazione, l'ora in cui si è verificata e lo stato.
-   - Log di diagnostica: i [log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) includono tutti i log generati da ogni risorsa. Questi log includono i registri eventi del sistema di Windows, i log di archiviazione di Azure, i log di controllo Key Vault e l'accesso del gateway applicazione e i log del firewall. Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. La conservazione può essere configurata dall'utente per un massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione.
+I servizi di Azure registrano in modo completo le attività di sistema e degli utenti, nonché dell'integrità del sistema:
+   - Log attività: i [log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) forniscono informazioni approfondite sulle operazioni eseguite sulle risorse in una sottoscrizione. I log attività possono essere utili per determinare l'iniziatore di un'operazione, l'ora in cui si è verificata e lo stato.
+   - Log di diagnostica: i [log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) includono tutti i log generati da ogni risorsa. Questi log includono i registri eventi del sistema di Windows, i log di archiviazione di Azure, i log di controllo Key Vault e l'accesso del gateway applicazione e i log del firewall. Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. La conservazione può essere configurata dall'utente per un periodo massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione.
 ### <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
    Questi log vengono consolidati nei [log di monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/) per l'elaborazione, l'archiviazione e la creazione di report del dashboard. Dopo la raccolta, i dati vengono organizzati in tabelle separate per tipo nelle aree di lavoro di Log Analytics, in modo che sia possibile analizzare tutti i dati insieme, indipendentemente dalla rispettiva origine. Il Centro sicurezza di Azure si integra inoltre con i log di monitoraggio di Azure, consentendo ai clienti di usare query kusto per accedere ai dati degli eventi di sicurezza e combinarli con i dati di altri servizi.
 
    Le soluzioni di [monitoraggio](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) di Azure seguenti sono incluse come parte di questa architettura
 
-   - [Valutazione Active Directory](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la soluzione Controllo integrità Active Directory valuta il rischio e l'integrità degli ambienti server a intervalli regolari e fornisce un elenco di elementi consigliati specifici per l'infrastruttura di server distribuita, classificati in ordine di priorità.
-   - [Integrità agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): La soluzione Integrità agente segnala il numero di agenti distribuiti e la relativa distribuzione geografica, nonché il numero di agenti che non rispondono e il numero di agenti, che inviano dati operativi.
-   - [Analisi log attività](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): la soluzione Analisi log attività offre assistenza per l'analisi dei log attività di Azure in tutte le sottoscrizioni di Azure per un cliente.
+   - [Valutazione Active Directory](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la soluzione Controllo integrità Active Directory valuta il rischio e l'integrità degli ambienti server a intervalli regolari e presenta un elenco classificato in ordine di priorità di elementi consigliati specifici per l'infrastruttura di server distribuita.
+   - [Integrità agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): la soluzione integrità agente segnala il numero di agenti distribuiti e la relativa distribuzione geografica, nonché il numero di agenti che non rispondono e il numero di agenti, che inviano dati operativi.
+   - [Analisi log attività](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): questa soluzione fornisce assistenza per l'analisi dei log attività di Azure in tutte le sottoscrizioni di Azure per un cliente.
 ### <a name="azure-monitor"></a>Monitoraggio di Azure
    [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)consente agli utenti di tenere traccia delle prestazioni, mantenere la sicurezza e identificare le tendenze consentendo alle organizzazioni di controllare, creare avvisi e archiviare dati, incluso il rilevamento delle chiamate API nelle risorse di Azure.
 ### <a name="application-insights"></a>Application Insights 
@@ -412,7 +412,7 @@ I servizi di Azure registrano in modo completo le attività di sistema e degli u
    - Chiave di accesso all'archiviazione dati
    - Stringa di connessione
    - Nome tabella dati
-   - Credenziali utente
+   - Credenziali dell'utente
    - I criteri di accesso avanzati vengono configurati in base alle necessità
    - I criteri di accesso Key Vault vengono definiti con le autorizzazioni minime necessarie per le chiavi e i segreti
    - Tutti i segreti e le chiavi in Key Vault hanno date di scadenza
@@ -443,7 +443,7 @@ I servizi di Azure registrano in modo completo le attività di sistema e degli u
 1.  Tornare al portale di Azure. Nel riquadro di spostamento a sinistra selezionare il servizio Azure Active Directory, quindi selezionare Registrazioni app.
 2.  Nella schermata risultante selezionare l'applicazione WebApp-OpenIDConnect-DotNet-code-V2.
 3.  Nella scheda autenticazione nella sezione URI di reindirizzamento selezionare Web nella casella combinata e aggiungere gli URI di reindirizzamento seguenti.
-    [https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net](https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net ) https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o nella sezione Impostazioni avanzate impostare Disconnetti URL su https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
+    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o nella sezione Impostazioni avanzate impostare l'URL di disconnessione su https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
 4.  Nella scheda personalizzazione o aggiornare l'URL della Home page all'indirizzo del servizio app, ad esempio https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net.
         o salvare la configurazione.
 5.  Se l'applicazione chiama un'API Web, assicurarsi di applicare le modifiche necessarie nel progetto appSettings. JSON, in modo che chiami l'URL dell'API pubblicata invece di localhost.
@@ -560,4 +560,4 @@ Per creare questa area di lavoro
 
 - [Progettazione](secure-design.md)
 - [Sviluppo](secure-develop.md)
-- [Distribuire](secure-deploy.md)
+- [Distribuzione](secure-deploy.md)

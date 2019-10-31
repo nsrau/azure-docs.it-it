@@ -1,10 +1,10 @@
 ---
 title: Isolamento nel cloud pubblico di Azure | Microsoft Docs
-description: Informazioni sui servizi di calcolo basati sul cloud che includono un'ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell'applicazione o dell'organizzazione.
+description: Scopri in che modo Azure fornisce l'isolamento contro utenti malintenzionati e non dannosi e offre diverse opzioni di isolamento agli architetti.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -13,38 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: a3e4a598446c0b59cd678e186906abc61d3d727d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 5e6910db7765c4cb8f151401a6803e6d4d3f998e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123063"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159749"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
-##  <a name="introduction"></a>Introduzione
-### <a name="overview"></a>Panoramica
-Per consentire ai clienti attuali e potenziali di Azure di comprendere e usare le diverse funzionalità correlate alla sicurezza disponibili nel contesto della piattaforma Azure, Microsoft ha sviluppato una serie di white paper, panoramiche sulla sicurezza, procedure consigliate ed elenchi di controllo.
-Gli argomenti variano per ampiezza e livello di approfondimento e vengono aggiornati periodicamente. Questo documento fa parte di tale serie come descritto nella sezione Sintesi di seguito.
+Azure consente di eseguire applicazioni e macchine virtuali (VM) in un'infrastruttura fisica condivisa. Uno dei motivi economici principali per l'esecuzione di applicazioni in un ambiente cloud è la possibilità di distribuire il costo delle risorse condivise tra più clienti. Questa pratica di multi-tenancy aumenta l'efficienza grazie al multiplexing delle risorse tra i diversi clienti a costi ridotti, ma introduce purtroppo i rischi correlati alla condivisione di server fisici e altre risorse dell'infrastruttura per l'esecuzione di applicazioni sensibili del cliente insieme a VM che possono appartenere a un utente qualsiasi, potenzialmente malintenzionato.
 
-### <a name="azure-platform"></a>Piattaforma Azure
-Azure è una piattaforma aperta e flessibile di servizi cloud che supporta la più ampia gamma di sistemi operativi, linguaggi di programmazione, framework, strumenti, database e dispositivi. Ad esempio, è possibile:
-- Eseguire contenitori Linux con l'integrazione Docker;
-- Compilare app con JavaScript, Python, .NET, PHP, Java e Node.js e
-- Compilare back-end per dispositivi iOS, Android e Windows.
-
-Microsoft Azure supporta le stesse tecnologie che milioni di sviluppatori e professionisti IT considerano affidabili e usano già.
-
-Quando si compilano asset IT o se ne esegue la migrazione in un provider di servizi di cloud pubblico, si dipende dalla capacità di tale organizzazione di proteggere le applicazioni e i dati con i servizi e i controlli offerti per gestire la sicurezza degli asset basati sul cloud.
-
-L'infrastruttura di Azure è stata progettata, dalla struttura fino alle applicazioni, per ospitare milioni di clienti contemporaneamente e fornisce alle aziende una solida base per poter soddisfare le esigenze di sicurezza. Azure offre anche un'ampia gamma di opzioni di sicurezza configurabili, con la possibilità di controllarle per poter personalizzare la sicurezza e soddisfare così i requisiti univoci di ogni distribuzione. Questo documento consente di soddisfare questi requisiti.
-
-### <a name="abstract"></a>Sunto
-
-Microsoft Azure consente di eseguire applicazioni e macchine virtuali (VM) in un'infrastruttura fisica condivisa. Uno dei motivi economici principali per l'esecuzione di applicazioni in un ambiente cloud è la possibilità di distribuire il costo delle risorse condivise tra più clienti. Questa pratica di multi-tenancy aumenta l'efficienza grazie al multiplexing delle risorse tra i diversi clienti a costi ridotti, ma introduce purtroppo i rischi correlati alla condivisione di server fisici e altre risorse dell'infrastruttura per l'esecuzione di applicazioni sensibili del cliente insieme a VM che possono appartenere a un utente qualsiasi, potenzialmente malintenzionato.
-
-Questo articolo illustra l'isolamento dagli utenti malintenzionati e non malintenzionati offerto da Microsoft Azure e funge da guida per la progettazione di soluzioni cloud, con diverse opzioni di isolamento per gli architetti. Questo white paper è incentrato sulla tecnologia della piattaforma Azure e sui controlli di sicurezza per i clienti e non tratta contratti di servizio, modelli tariffari e attività DevOps.
+Questo articolo illustra come Azure fornisce l'isolamento contro utenti malintenzionati e non dannosi e funge da guida per l'architettura di soluzioni cloud offrendo diverse opzioni di isolamento agli architetti.
 
 ## <a name="tenant-level-isolation"></a>Isolamento a livello di tenant
 Uno dei vantaggi principali del cloud computing è il concetto di un'infrastruttura comune condivisa tra numerosi clienti contemporaneamente, determinando economie di scala. Questo concetto è denominato "multi-tenancy". Microsoft lavora costantemente per garantire che l'architettura multi-tenant dei servizi cloud di Microsoft Azure supporti gli standard di sicurezza, riservatezza, privacy, integrità e disponibilità.
@@ -71,9 +52,9 @@ Gli utenti, i gruppi e le applicazioni da tale directory possono gestire le riso
 
 - Gli utenti di Azure AD non hanno accesso a posizioni o risorse fisiche e non possono quindi ignorare le verifiche dei criteri del controllo degli accessi in base al ruolo indicate di seguito.
 
-Per esigenze di diagnostica e manutenzione, è necessario e viene usato un modello operativo che impiega un sistema di elevazione dei privilegi just-in-time. Azure AD Privileged Identity Management (PIM) introduce il concetto di amministratore idoneo. Gli [amministratori idonei](../../active-directory/privileged-identity-management/pim-configure.md) devono essere utenti che necessitano dell'accesso con privilegi in modo occasionale, non con cadenza quotidiana. Il ruolo è inattivo fino a quando l'utente che necessita dell'accesso non completa un processo di attivazione e diventa amministratore attivo per un periodo di tempo predeterminato.
+Per esigenze di diagnostica e manutenzione, è necessario e viene usato un modello operativo che impiega un sistema di elevazione dei privilegi just-in-time. In Azure AD Privileged Identity Management (PIM) è stato introdotto il concetto di amministratore idoneo. Gli [amministratori idonei](../../active-directory/privileged-identity-management/pim-configure.md) devono essere utenti che necessitano di accesso con privilegi ora, ma non tutti i giorni. Il ruolo è inattivo fino a quando l'utente che necessita dell'accesso non completa un processo di attivazione e diventa amministratore attivo per un periodo di tempo predeterminato.
 
-![Azure AD Privileged Identity Management](./media/isolation-choices/azure-isolation-fig2.png)
+![Gestione identità con privilegi di Azure AD](./media/isolation-choices/azure-isolation-fig2.png)
 
 Azure Active Directory ospita ogni tenant nel relativo contenitore protetto, con i criteri e autorizzazioni per il contenitore e gli elementi al suo interno gestiti esclusivamente dal tenant che ne è anche proprietario.
 
@@ -284,7 +265,7 @@ Il database SQL è un servizio di database relazionale sul cloud Microsoft basat
 
 Il database di [Microsoft SQL Azure](../../sql-database/sql-database-single-database-get-started.md) è un servizio di database relazionale basato sul cloud che si avvale delle tecnologie SQL Server. Fornisce un servizio di database a disponibilità elevata, scalabile e multi-tenant ospitato da Microsoft nel cloud.
 
-Dal punto di vista dell'applicazione, SQL Azure fornisce la gerarchia seguente: Ogni livello ha una relazione di contenimento uno-a-molti per questi livelli.
+Dal punto di vista dell'applicazione, SQL Azure fornisce la gerarchia seguente. Ogni livello ha una relazione di contenimento uno-a-molti per questi livelli.
 
 ![Modello applicativo di SQL Azure](./media/isolation-choices/azure-isolation-fig10.png)
 
@@ -326,18 +307,18 @@ Il livello dietro il gateway è denominato "back-end". Qui vengono archiviati tu
 In genere, il sistema back-end non comunica in uscita con altri sistemi come misura di sicurezza. Questo tipo di comunicazione è riservata ai sistemi nel livello front-end (gateway). Le macchine di livello gateway hanno privilegi limitati per le macchine back-end per ridurre al minimo la superficie di attacco come meccanismo di difesa avanzata.
 
 ### <a name="isolation-by-machine-function-and-access"></a>Isolamento in base all'accesso e alla funzione della macchina
-SQL Azure è composto da servizi in esecuzione in funzioni differenti della macchina. È diviso in ambiente database cloud "back-end" e ambiente "front-end" (gateway/gestione), con il principio generale secondo cui il traffico è diretto al back-end e non all'esterno. L'ambiente front-end può comunicare con altri servizi esterni e in generale ha solo autorizzazioni limitate nel back-end, sufficienti a chiamare i punti di ingresso necessari.
+SQL Azure è composto da servizi in esecuzione in funzioni differenti della macchina. SQL Azure è suddiviso in ambienti di database cloud "back-end" e "front-end" (Gateway/gestione), con il principio generale di traffico che entra solo nel back-end e non in uscita. L'ambiente front-end può comunicare con il mondo esterno di altri servizi e, in generale, dispone solo di autorizzazioni limitate nel back-end (sufficiente per chiamare i punti di ingresso da richiamare).
 
 ## <a name="networking-isolation"></a>Isolamento della rete
 La distribuzione di Azure offre più livelli di isolamento della rete. Il diagramma seguente mostra i vari livelli di isolamento della rete che Azure offre ai clienti. Questi livelli sono costituiti sia da funzionalità native della piattaforma Azure, sia da funzionalità definite dal cliente. Per il traffico in ingresso da Internet, Azure DDoS fornisce l'isolamento da attacchi su larga scala contro Azure. Il livello di isolamento successivo è costituito da indirizzi IP pubblici (endpoint) definiti dall'utente, usati per determinare il traffico che può passare alla rete virtuale attraverso il servizio cloud. L'isolamento nativo della rete virtuale di Azure assicura l'isolamento completo da tutte le altre reti e il flusso di traffico solo tramite percorsi e metodi configurati dall'utente. Questi percorsi e metodi costituiscono il livello successivo, in cui è possibile usare NSG, UDR e appliance virtuali di rete per creare limiti di isolamento e proteggere le distribuzioni delle applicazioni nella rete protetta.
 
 ![Isolamento della rete](./media/isolation-choices/azure-isolation-fig13.png)
 
-**Isolamento del traffico:** una [rete virtuale](../../virtual-network/virtual-networks-overview.md) è il limite di isolamento del traffico nella piattaforma Azure. Le macchine virtuali (VM) in una rete virtuale non possono comunicare direttamente con le VM in una rete virtuale diversa, anche se entrambe le reti virtuali vengono create dallo stesso cliente. L'isolamento è una proprietà essenziale che assicura che le macchine virtuali e le comunicazioni dei clienti rimangano private entro una rete virtuale.
+**Isolamento del traffico**: una [rete virtuale](../../virtual-network/virtual-networks-overview.md) è il limite di isolamento del traffico nella piattaforma Azure. Le macchine virtuali (VM) in una rete virtuale non possono comunicare direttamente con le VM in una rete virtuale diversa, anche se entrambe le reti virtuali vengono create dallo stesso cliente. L'isolamento è una proprietà essenziale che assicura che le macchine virtuali e le comunicazioni dei clienti rimangano private entro una rete virtuale.
 
 La [subnet](../../virtual-network/virtual-networks-overview.md) offre un livello di isolamento aggiuntivo nella rete virtuale in base a un intervallo di indirizzi IP. È possibile suddividere la rete virtuale in più subnet per una maggiore organizzazione e sicurezza. Le VM e le istanze del ruolo PaaS distribuite nelle subnet (nella stessa o in diverse) in una rete virtuale possono comunicare tra loro senza nessuna configurazione aggiuntiva. È anche possibile configurare un [gruppo di sicurezza di rete (NSG)](../../virtual-network/virtual-networks-overview.md) per consentire o negare il traffico di rete verso un'istanza di macchina virtuale in base alle regole configurate nell'elenco di controllo di accesso (ACL) del gruppo di sicurezza di rete. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze VM in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le istanze di VM in tale subnet.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 - [Opzioni di isolamento della rete per le macchine nelle reti virtuali di Microsoft Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
 
@@ -350,4 +331,3 @@ Microsoft Azure offre numerosi servizi di calcolo basati sul cloud che includono
 - [Isolamento dell'archiviazione](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 
 Microsoft Azure separa tra loro il calcolo e l'archiviazione basati sulle VM. Questa separazione consente la scalabilità indipendente di calcolo e archiviazione, semplificando l'uso di multi-tenancy e isolamento. Il servizio Archiviazione di Azure viene quindi eseguito in hardware separato senza alcuna connettività di rete ai servizi di calcolo di Azure, ad eccezione di quella logica. Tutte le richieste vengono eseguite tramite HTTP o HTTPS in base alla scelta del cliente.
-

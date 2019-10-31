@@ -7,14 +7,14 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 240e0dadaebde6725974604b578328ede0b20652
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 13392644ebe5e163e946deceeec5fcab8f5085cc
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129065"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159728"
 ---
-# <a name="preview-create-an-azure-image-builder-template"></a>Anteprima: Creare un modello di generatore di immagini di Azure 
+# <a name="preview-create-an-azure-image-builder-template"></a>Anteprima: creare un modello di generatore di immagini di Azure 
 
 Azure Image Builder usa un file con estensione JSON per passare informazioni al servizio Image Builder. In questo articolo verranno esaminate le sezioni del file JSON, in modo che sia possibile crearne di personalizzate. Per visualizzare esempi di file con estensione JSON completi, vedere [Azure Image Builder GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
 
@@ -44,18 +44,18 @@ Questo è il formato di modello di base:
 
 ## <a name="type-and-api-version"></a>Tipo e versione API
 
-È il tipo di risorsa, che deve essere `"Microsoft.VirtualMachineImages/imageTemplates"`. `type` Il `apiVersion` cambierà nel tempo durante la modifica dell'API, ma dovrebbe `"2019-05-01-preview"` essere per l'anteprima.
+Il `type` è il tipo di risorsa, che deve essere `"Microsoft.VirtualMachineImages/imageTemplates"`. Il `apiVersion` cambierà nel tempo durante la modifica dell'API, ma dovrebbe essere `"2019-05-01-preview"` per l'anteprima.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
     "apiVersion": "2019-05-01-preview",
 ```
 
-## <a name="location"></a>Location
+## <a name="location"></a>Località
 
 Il percorso è l'area in cui verrà creata l'immagine personalizzata. Per l'anteprima di Image Builder sono supportate le aree seguenti:
 
-- East US
+- Stati Uniti Orientali
 - Stati Uniti orientali 2
 - Stati Uniti centro-occidentali
 - Stati Uniti occidentali
@@ -80,7 +80,7 @@ Questa sezione facoltativa può essere usata per garantire che le dipendenze ven
 
 Per altre informazioni, vedere [definire le dipendenze delle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson).
 
-## <a name="identity"></a>identità
+## <a name="identity"></a>Identità
 Per impostazione predefinita, Image Builder supporta l'uso di script o la copia di file da più posizioni, ad esempio GitHub e archiviazione di Azure. Per usarli, devono essere accessibili pubblicamente.
 
 È anche possibile usare un'identità gestita assegnata dall'utente di Azure, definita dall'utente, per consentire a Generatore di immagini di accedere ad archiviazione di Azure, purché all'identità sia stato concesso un minimo di "lettore dati BLOB di archiviazione" nell'account di archiviazione di Azure. Ciò significa che non è necessario rendere i BLOB di archiviazione accessibili esternamente o configurare i token SAS.
@@ -104,7 +104,7 @@ Per altre informazioni sulla distribuzione di questa funzionalità, vedere [conf
 
 ## <a name="properties-source"></a>Proprietà: origine
 
-La `source` sezione contiene informazioni sull'immagine di origine che verrà usata da Image Builder.
+La sezione `source` contiene informazioni sull'immagine di origine che verrà usata da Image Builder.
 
 L'API richiede un'SourceType ' che definisce l'origine per la compilazione dell'immagine, attualmente sono disponibili tre tipi:
 - ISO: usare questo valore se l'origine è un file ISO RHEL.
@@ -116,7 +116,7 @@ L'API richiede un'SourceType ' che definisce l'origine per la compilazione dell'
 
 Il generatore di immagini di Azure supporta solo l'uso di file ISO DVD binari pubblicati Red Hat Enterprise Linux 7. x per l'anteprima. Image Builder supporta:
 - RHEL 7.3 
-- RHEL 7.4 
+- RHEL 7,4 
 - RHEL 7.5 
  
 ```json
@@ -127,7 +127,7 @@ Il generatore di immagini di Azure supporta solo l'uso di file ISO DVD binari pu
 }
 ```
 
-Per ottenere i `sourceURI` valori `sha256Checksum` e, passare a `https://access.redhat.com/downloads` selezionare il prodotto **Red Hat Enterprise Linux**e una versione supportata. 
+Per ottenere i valori `sourceURI` e `sha256Checksum`, passare a `https://access.redhat.com/downloads` quindi selezionare il **Red Hat Enterprise Linux**del prodotto e una versione supportata. 
 
 Nell'elenco di **programmi di installazione e immagini per il Server Red Hat Enterprise Linux**, è necessario copiare il collegamento per Red Hat Enterprise Linux DVD binario 7. x e il checksum.
 
@@ -139,7 +139,7 @@ Azure Image Builder supporta le seguenti immagini di Azure Marketplace:
 * Ubuntu 18.04
 * Ubuntu 16.04
 * RHEL 7,6
-* CentOS 7.6
+* CentOS 7,6
 * Windows 2016
 * Windows 2019
 
@@ -174,7 +174,7 @@ Imposta l'immagine di origine come immagine gestita esistente di un disco rigido
         }
 ```
 
-`imageId` Deve essere il ResourceID dell'immagine gestita. Consente `az image list` di elencare le immagini disponibili.
+Il `imageId` deve essere il ResourceId dell'immagine gestita. Usare `az image list` per elencare le immagini disponibili.
 
 
 ### <a name="sharedimageversion-source"></a>Origine SharedImageVersion
@@ -187,7 +187,7 @@ Imposta l'immagine di origine in una versione di immagine esistente in una racco
    } 
 ```
 
-`imageVersionId` Deve essere ResourceId della versione dell'immagine. Usare [AZ sig Image-Version list](/cli/azure/sig/image-version#az-sig-image-version-list) per elencare le versioni delle immagini.
+Il `imageVersionId` deve essere ResourceId della versione dell'immagine. Usare [AZ sig Image-Version list](/cli/azure/sig/image-version#az-sig-image-version-list) per elencare le versioni delle immagini.
 
 ## <a name="properties-buildtimeoutinminutes"></a>Proprietà: buildTimeoutInMinutes
 
@@ -207,8 +207,8 @@ Se è necessario più tempo per il completamento delle personalizzazioni, impost
 
 Image Builder supporta più "personalizzatori". I personalizzatori sono funzioni usate per personalizzare l'immagine, ad esempio l'esecuzione di script o il riavvio dei server. 
 
-Quando si `customize`USA: 
-- È possibile usare più personalizzatori, ma devono avere un valore univoco `name`.
+Quando si usa `customize`: 
+- È possibile usare più personalizzatori, ma devono avere un `name`univoco.
 - I personalizzatori vengono eseguiti nell'ordine specificato nel modello.
 - Se un verbi ha esito negativo, l'intero componente di personalizzazione avrà esito negativo e segnalerà un errore.
 - Si consiglia vivamente di testare accuratamente lo script prima di utilizzarlo in un modello. Il debug dello script nella propria macchina virtuale sarà più semplice.
@@ -265,7 +265,7 @@ Personalizza proprietà:
 - **tipo** : Shell 
 - **nome** -nome per tenere traccia della personalizzazione 
 - **scriptUri** -URI per il percorso del file 
-- matrice inline di comandi della shell, separati da virgole.
+- matrice **inline** di comandi della shell, separati da virgole.
  
 > [!NOTE]
 > Quando si esegue la shell verbi con RHEL ISO source, è necessario assicurarsi che la prima Shell di personalizzazione gestisca la registrazione con un server di diritti di Red Hat prima che venga eseguita la personalizzazione. Al termine della personalizzazione, lo script deve annullare la registrazione con il server di diritti.
@@ -288,7 +288,7 @@ Personalizza proprietà:
 - **Tipo**: WindowsRestart
 - **restartCommand** : comando per eseguire il riavvio (facoltativo). Il valore predefinito è `'shutdown /r /f /t 0 /c \"packer restart\"'`.
 - **restartCheckCommand** : comando per verificare se il riavvio è stato completato (facoltativo). 
-- **restartTimeout** -timeout di riavvio specificato come stringa di grandezza e unità. Ad esempio, `5m` (5 minuti) o `2h` (2 ore). Il valore predefinito è: 5 minuti
+- **restartTimeout** -timeout di riavvio specificato come stringa di grandezza e unità. Ad esempio, `5m` (5 minuti) o `2h` (2 ore). Il valore predefinito è:' 5m '
 
 
 ### <a name="powershell-customizer"></a>Verbi di PowerShell 
@@ -349,7 +349,7 @@ Questa operazione è supportata da directory Windows e percorsi Linux, ma esisto
 Se si verifica un errore durante il tentativo di scaricare il file o inserirlo in una directory specificata, il passaggio di personalizzazione avrà esito negativo e sarà presente nel file customization. log.
 
 > [!NOTE]
-> Il file verbi è adatto solo per il download di file di piccole dimensioni, < 20MB. Per i download di file di grandi dimensioni usare uno script o un comando inline, usare il codice per scaricare i `wget` file `curl`, ad esempio `Invoke-WebRequest`, Linux o, Windows.
+> Il file verbi è adatto solo per il download di file di piccole dimensioni, < 20MB. Per i download di file di grandi dimensioni usare uno script o un comando inline, usare il codice per scaricare i file, ad esempio `wget` Linux o `curl`, Windows `Invoke-WebRequest`.
 
 I file nel file verbi possono essere scaricati dall'archiviazione di Azure tramite [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
@@ -383,7 +383,7 @@ while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Window
 Per eseguire l'override dei comandi, usare i provisioner di script PowerShell o Shell per creare i file di comando con il nome esatto del file e inserirli nelle directory corrette:
 
 * Windows: c:\DeprovisioningScript.ps1
-* Linux: /tmp/DeprovisioningScript.sh
+* Linux:/tmp/DeprovisioningScript.sh
 
 Il generatore di immagini leggerà questi comandi, che verranno scritti nei log AIB,' Customization. log '. Vedere [risoluzione dei problemi relativi](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-logs) alla procedura di raccolta dei log.
  
@@ -397,7 +397,7 @@ Azure Image Builder supporta tre destinazioni di distribuzione:
 
 È possibile distribuire un'immagine in entrambi i tipi di destinazione nella stessa configurazione. vedere gli [esempi](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
 
-Poiché è possibile avere più di una destinazione a cui distribuire, Image Builder mantiene uno stato per ogni destinazione di distribuzione a cui è possibile accedere eseguendo una `runOutputName`query su.  È `runOutputName` un oggetto di cui è possibile eseguire una query dopo la distribuzione per ottenere informazioni su tale distribuzione. Ad esempio, è possibile eseguire una query sul percorso del disco rigido virtuale o delle aree in cui è stata replicata la versione dell'immagine. Si tratta di una proprietà di ogni destinazione di distribuzione. Il `runOutputName` deve essere univoco per ogni destinazione di distribuzione.
+Poiché è possibile avere più di una destinazione a cui distribuire, Image Builder mantiene uno stato per ogni destinazione di distribuzione a cui è possibile accedere eseguendo una query sul `runOutputName`.  Il `runOutputName` è un oggetto di cui è possibile eseguire una query dopo la distribuzione per ottenere informazioni su tale distribuzione. Ad esempio, è possibile eseguire una query sul percorso del disco rigido virtuale o delle aree in cui è stata replicata la versione dell'immagine. Si tratta di una proprietà di ogni destinazione di distribuzione. Il `runOutputName` deve essere univoco per ogni destinazione di distribuzione.
  
 ### <a name="distribute-managedimage"></a>Distribuisci: managedImage
 
@@ -419,7 +419,7 @@ L'output dell'immagine sarà una risorsa immagine gestita.
  
 Distribuisci proprietà:
 - **tipo** : managedImage 
-- **imageId** : ID risorsa dell'immagine di destinazione, formato previsto:/subscriptions/\<SubscriptionId >/resourceGroups/\<destinationResourceGroupName >/providers/Microsoft.Compute/images/\< ImageName >
+- **imageId** : ID risorsa dell'immagine di destinazione, formato previsto:/subscriptions/\<SubscriptionId >/ResourceGroups/\<destinationResourceGroupName >/providers/Microsoft.Compute/images/\<imagename >
 - **location** : percorso dell'immagine gestita.  
 - **runOutputName** : nome univoco per l'identificazione della distribuzione.  
 - **artifactTags** : Tag della coppia di valori chiave specificati dall'utente facoltativo.
@@ -442,23 +442,24 @@ Prima di poter distribuire nella raccolta immagini, è necessario creare una rac
 
 ```json
 {
-     "type": "sharedImage",
-     "galleryImageId": “<resource ID>”,
-     "runOutputName": "<name>",
-     "artifactTags": {
-          "<name": "<value>",
-           "<name>": "<value>"
-             }
-     "replicationRegions": [
+    "type": "sharedImage",
+    "galleryImageId": "<resource ID>",
+    "runOutputName": "<name>",
+    "artifactTags": {
+        "<name>": "<value>",
+        "<name>": "<value>"
+    },
+    "replicationRegions": [
         "<region where the gallery is deployed>",
         "<region>"
-    ]}
+    ]
+}
 ``` 
 
 Distribuire le proprietà per le raccolte di immagini condivise:
 
 - **tipo** -sharedImage  
-- **galleryImageId** : ID della raccolta di immagini condivise. Il formato è:/subscriptions/\<SubscriptionId >/resourceGroups/\<resourceGroupName >/providers/Microsoft.Compute/Galleries/\<sharedImageGalleryName >/images/\< > imageGalleryName.
+- **galleryImageId** : ID della raccolta di immagini condivise. Il formato è:/subscriptions/\<subscriptionId >/resourceGroups/\<resourceGroupName >/providers/Microsoft.Compute/galleries/\<sharedImageGalleryName >/images/\<imageGalleryName >.
 - **runOutputName** : nome univoco per l'identificazione della distribuzione.  
 - **artifactTags** : Tag della coppia di valori chiave specificati dall'utente facoltativo.
 - **replicationRegions** : matrice di aree per la replica. Una delle aree deve essere l'area in cui è distribuita la raccolta.
@@ -466,18 +467,18 @@ Distribuire le proprietà per le raccolte di immagini condivise:
 > [!NOTE]
 > È possibile usare Azure Image Builder in un'area diversa per la raccolta, ma il servizio Generatore di immagini di Azure dovrà trasferire l'immagine tra i Data Center e questa operazione richiederà più tempo. Il generatore di immagini esegue automaticamente la versione dell'immagine, in base a un intero monotonico, non è possibile specificarla al momento. 
 
-### <a name="distribute-vhd"></a>Distribuire VHD  
+### <a name="distribute-vhd"></a>Distribuisci: VHD  
 È possibile eseguire l'output in un disco rigido virtuale. È quindi possibile copiare il disco rigido virtuale e usarlo per la pubblicazione in Azure MarketPlace oppure usare con Azure Stack.  
 
 ```json
- { 
-     "type": "VHD",
-     "runOutputName": "<VHD name>",
-     "tags": {
-          "<name": "<value>",
-           "<name>": "<value>"
-             }
- }
+{ 
+    "type": "VHD",
+    "runOutputName": "<VHD name>",
+    "tags": {
+        "<name": "<value>",
+        "<name>": "<value>"
+    }
+}
 ```
  
 Supporto del sistema operativo: Windows e Linux
@@ -488,7 +489,7 @@ Distribuisci parametri VHD:
 - **runOutputName** : nome univoco per l'identificazione della distribuzione.  
 - **tag** : Tag della coppia di valori chiave specificati dall'utente facoltativo.
  
-Azure Image Builder non consente all'utente di specificare un percorso dell'account di archiviazione, ma è possibile eseguire una query sullo `runOutputs` stato di per ottenere il percorso.  
+Azure Image Builder non consente all'utente di specificare un percorso dell'account di archiviazione, ma è possibile eseguire una query sullo stato del `runOutputs` per ottenere la posizione.  
 
 ```azurecli-interactive
 az resource show \

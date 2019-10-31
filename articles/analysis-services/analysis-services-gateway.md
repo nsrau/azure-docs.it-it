@@ -4,15 +4,15 @@ description: Un gateway locale è necessario se il server Analysis Services di A
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8d9df32070ff252dff791650788888d1d9a6ce84
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 35ffc7f3c97ca7ab14f94c3607560ffb6ea0b399
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294946"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146857"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Connessione a origini dati locali con gateway dati locale
 
@@ -31,7 +31,7 @@ Per Azure Analysis Services, il primo processo di configurazione con il gateway 
 ## <a name="how-it-works"> </a>Funzionamento
 Il gateway installato su un computer dell'organizzazione viene eseguito come servizio Windows, **Gateway dati locale**. Il servizio locale è registrato con il servizio Cloud Gateway tramite il bus di servizio di Azure. Si crea quindi una risorsa gateway dati locale per la sottoscrizione di Azure. I server di Azure Analysis Services vengono quindi connessi alla risorsa del gateway di Azure. Quando i modelli nel server devono connettersi ai dati locali di origine per le query o l'elaborazione, un flusso di dati e query attraversa la risorsa del gateway, il bus di servizio di Azure, il servizio gateway dati locale e le origini dati. 
 
-![Funzionamento](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
+![Come funziona](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
 Query e flusso di dati:
 
@@ -48,13 +48,13 @@ Quando si installa per un ambiente di Azure Analysis Services, è importante att
 
 ## <a name="ports-and-communication-settings"></a>Porte e impostazioni di comunicazione
 
-Il gateway crea una connessione in uscita al bus di servizio di Azure. La comunicazione avviene sulle porte in uscita: TCP 443 (impostazione predefinita), 5671, 5672, 9350 attraverso 9354.  Non sono richieste porte in ingresso.
+Il gateway crea una connessione in uscita al bus di servizio di Azure. Comunica sulle porte in uscita seguenti: TCP 443 (impostazione predefinita), 5671, 5672 e da 9350 a 9354.  Non sono richieste porte in ingresso.
 
-Potrebbe essere necessario inserire nell'elenco elementi consentiti gli indirizzi IP per l'area dati nel firewall. È possibile scaricare l'[elenco degli indirizzi IP dei data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). L'elenco viene aggiornato ogni settimana. Gli indirizzi IP inclusi nell'elenco degli indirizzi IP dei data center di Azure sono nella notazione CIDR. Per altre informazioni, vedere [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Potrebbe essere necessario includere indirizzi IP per l'area dati nel firewall. È possibile scaricare l'[elenco degli indirizzi IP dei data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). L'elenco viene aggiornato ogni settimana. Gli indirizzi IP inclusi nell'elenco degli indirizzi IP dei data center di Azure sono nella notazione CIDR. Per altre informazioni, vedere [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Di seguito sono riportati i nomi di dominio completi usati dal gateway.
 
-| Nomi di dominio | Porte in uscita | Descrizione |
+| Nomi di dominio | Porte in uscita | Description |
 | --- | --- | --- |
 | *.powerbi.com |80 |HTTP usato per scaricare il programma di installazione. |
 | *.powerbi.com |443 |HTTPS |
@@ -89,5 +89,5 @@ Gli articoli seguenti sono inclusi nel contenuto generale del gateway dati local
 * [Configurare le impostazioni proxy](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)   
 * [Modificare le impostazioni di comunicazione](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)   
 * [Configurare i file di log](https://docs.microsoft.com/data-integration/gateway/service-gateway-log-files)   
-* [Risolvere i problemi](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
+* [Risoluzione dei problemi](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
 * [Monitorare e ottimizzare le prestazioni del gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)

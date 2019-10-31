@@ -13,29 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2019
+ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9ed2d00d6f229d958e0df024c70381051840548c
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 7ad7a29a92d25556190b4cf44f4e48158a6f0952
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727010"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162757"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Panoramica su gestione e monitoraggio della sicurezza di Azure
 Questo articolo fornisce una panoramica dei servizi e delle funzionalità di sicurezza forniti da Azure per facilitare la gestione e il monitoraggio delle macchine virtuali e dei servizi cloud di Azure.
-
-## <a name="shared-responsibility"></a>Responsabilità condivisa
-
-La sicurezza dei servizi cloud Microsoft è una responsabilità condivisa tra l'utente e Microsoft. Microsoft è responsabile della piattaforma di Azure e della sicurezza fisica dei propri data center, tramite l'uso di meccanismi di sicurezza come porte con ingresso tramite badge, recinzioni e agenti di sicurezza. Azure offre elevati livelli di protezione cloud a livello di software che soddisfano le esigenze di sicurezza, privacy e conformità dei clienti.
-
-L'utente è proprietario dei dati e delle identità ed è responsabile della protezione di tali elementi, della sicurezza delle risorse locali, nonché della sicurezza dei componenti cloud di cui ha il controllo. Microsoft offre funzionalità e controlli di sicurezza che facilitano la protezione di dati e applicazioni. Il grado di responsabilità dell'utente per la sicurezza dipende dal tipo di servizio cloud.
-
-Nel grafico seguente vengono riepilogate le responsabilità di Microsoft e del cliente.
-
-![Responsabilità condivisa](./media/management-monitoring-overview/shared-responsibility.png)
-
-Per altre informazioni sulla gestione della sicurezza, vedere [Gestione della sicurezza in Azure](management.md).
 
 ## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
@@ -72,7 +60,7 @@ Multi-Factor Authentication permette di proteggere l'accesso ai dati e alle appl
 
 Altre informazioni:
 
-* [Autenticazione a più fattori](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
+* [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 * [Informazioni su Azure Multi-Factor Authentication](/azure/active-directory/authentication/multi-factor-authentication)
 * [Come funziona Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 
@@ -90,7 +78,7 @@ Altre informazioni:
 
 * [Panoramica tecnica relativa a ExpressRoute](../../expressroute/expressroute-introduction.md)
 
-## <a name="virtual-network-gateways"></a>Gateway di rete virtuali
+## <a name="virtual-network-gateways"></a>Gateway di rete virtuale
 
 I gateway VPN, anche detti gateway di rete virtuale di Azure, vengono usati per inviare traffico di rete tra reti virtuali e percorsi locali. Vengono inoltre usati per inviare il traffico tra più reti virtuali in Azure (da rete a rete). I gateway VPN offrono connettività cross-premise sicura tra Azure e l'infrastruttura locale.
 
@@ -112,7 +100,7 @@ Altre informazioni:
 * [Gestione identità con privilegi di Azure AD](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Introduzione ad Azure AD Privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md)
 
-## <a name="identity-protection"></a>Identity Protection
+## <a name="identity-protection"></a>Protezione delle identità
 
 Azure AD Identity Protection offre una visualizzazione consolidata delle attività di accesso sospette e delle potenziali vulnerabilità per garantire la protezione dell'organizzazione. Identity Protection rileva attività sospette per utenti e identità privilegiate (admin), sulla base di segnali come:
 
@@ -146,7 +134,11 @@ Altre informazioni:
 
 ## <a name="intelligent-security-graph"></a>Intelligent Security Graph
 
-Intelligent Security Graph offre protezione dalle minacce in tempo reale nei prodotti e servizi Microsoft. Questo sistema è basato su tecnologia di analisi avanzata che collega una notevole quantità di dati di sicurezza e intelligence sulle minacce per fornire informazioni dettagliate che possono rafforzare la sicurezza dell'organizzazione. Microsoft usa l'analisi avanzata, elaborando più di 450 miliardi di autenticazioni al mese, analizzando 400 miliardi di messaggi di posta elettronica alla ricerca di malware e phishing e aggiornando un miliardo di dispositivi, per fornire informazioni più dettagliate. Queste informazioni possono essere utili all'organizzazione per rilevare e rispondere rapidamente agli attacchi.
+Intelligent Security Graph offre protezione dalle minacce in tempo reale nei prodotti e servizi Microsoft. Questo sistema è basato su tecnologia di analisi avanzata che collega una notevole quantità di dati di sicurezza e intelligence sulle minacce per fornire informazioni dettagliate che possono rafforzare la sicurezza dell'organizzazione. Microsoft usa l'analisi avanzata, elaborando più di 450 miliardi di autenticazioni al mese, analizzando 400 miliardi di messaggi di posta elettronica alla ricerca di malware e phishing e aggiornando un miliardo di dispositivi, per fornire informazioni più dettagliate. Queste informazioni complete consentono alla tua azienda di rilevare gli attacchi e di reagire rapidamente.
 
 * [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
 
+## <a name="next-steps"></a>Fasi successive
+Informazioni sul [modello di responsabilità condivisa](shared-responsibility.md) e sulle attività di sicurezza gestite da Microsoft e sulle attività gestite dall'utente.
+
+Per altre informazioni sulla gestione della sicurezza, vedere [Gestione della sicurezza in Azure](management.md).

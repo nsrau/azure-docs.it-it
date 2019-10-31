@@ -11,12 +11,12 @@ manager: carmonm
 ms.topic: conceptual
 tags: connectors
 ms.date: 10/14/2019
-ms.openlocfilehash: 6c86ef26bbf7bd9dbce8aa77aef2213b14b57f5f
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 880ae4b661d247889815fc5b9ad08a759fe0aa5b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311994"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161662"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatizzare i flussi di lavoro per SQL Server o il database SQL di Azure usando app per la logica di Azure
 
@@ -24,7 +24,7 @@ Questo articolo illustra come accedere ai dati del database SQL da un'app per la
 
 È possibile creare app per la logica che vengono eseguite in seguito all'attivazione da eventi che si verificano nel database SQL o in altri sistemi, ad esempio Dynamics CRM Online. Le app per la logica possono anche ottenere, inserire ed eliminare i dati insieme all'esecuzione di query e stored procedure SQL. È ad esempio possibile compilare un'app per la logica che controlla automaticamente la presenza di nuovi record in Dynamics CRM Online, aggiunge elementi al database SQL per tutti i nuovi record e quindi invia avvisi di posta elettronica sugli elementi aggiunti.
 
-Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per informazioni tecniche specifiche del connettore, limitazioni e problemi noti, vedere la [pagina di riferimento del connettore SQL Server](https://docs.microsoft.com/connectors/sql/).
+Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per informazioni tecniche specifiche del connettore, limitazioni e problemi noti, vedere la [pagina di riferimento del connettore SQL Server](https://docs.microsoft.com/connectors/sql/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -68,7 +68,7 @@ In App per la logica di Azure, ogni app per la logica deve essere avviata con un
 
 1. Impostare le proprietà **Intervallo** e **Frequenza** per specificare la frequenza con cui l'app per la logica deve controllare la tabella.
 
-   Questo trigger restituisce solo una riga della tabella selezionata, nient'altro. Per eseguire altre attività, aggiungere altre azioni che eseguono le attività desiderate. Ad esempio, per visualizzare i dati in questa riga, è possibile aggiungere altre azioni per la creazione di un file che include i campi dalla riga restituita, quindi inviare avvisi di posta elettronica. Per informazioni sulle altre azioni disponibili per questo connettore, vedere la [pagina di riferimento del connettore](/connectors/sql/).
+   Questo trigger restituisce solo una riga della tabella selezionata, nient'altro. Per eseguire altre attività, aggiungere altre azioni che eseguono le attività desiderate. Ad esempio, per visualizzare i dati in questa riga, è possibile aggiungere altre azioni per la creazione di un file che include i campi dalla riga restituita, quindi inviare avvisi di posta elettronica. Per informazioni sulle altre azioni disponibili per questo connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/sql/).
 
 1. Al termine, fare clic su **Salva**nella barra degli strumenti della finestra di progettazione.
 
@@ -84,7 +84,7 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
 
 1. Nel trigger o nell'azione in cui si vuole aggiungere l'azione SQL selezionare **nuovo passaggio**.
 
-   ![Selezionare "nuovo passaggio"](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
+   ![Aggiungere un nuovo passaggio all'app per la logica](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
 
    Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. Selezionare il segno più ( **+** ) visualizzato, quindi selezionare **Aggiungi un'azione**.
 
@@ -92,13 +92,13 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
 
    Questo esempio usa l'azione **Ottieni riga** , che ottiene un singolo record.
 
-   ![Trovare e selezionare l'azione "Ottieni riga" di SQL](./media/connectors-create-api-sqlazure/select-sql-get-row.png)
+   ![Trovare e selezionare l'azione "Ottieni riga" di SQL](./media/connectors-create-api-sqlazure/find-select-sql-get-row-action.png)
 
-   Questa azione restituisce solo una riga della tabella selezionata, nient'altro. Per visualizzare i dati in questa riga, è possibile aggiungere altre azioni che consentono di creare un file che include i campi dalla riga restituita e archiviare il file in un account di archiviazione cloud. Per informazioni sulle altre azioni disponibili per questo connettore, vedere la [pagina di riferimento del connettore](/connectors/sql/).
+   Questa azione restituisce solo una riga della tabella selezionata, nient'altro. Per visualizzare i dati in questa riga, è possibile aggiungere altre azioni che consentono di creare un file che include i campi dalla riga restituita e archiviare il file in un account di archiviazione cloud. Per informazioni sulle altre azioni disponibili per questo connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/sql/).
 
 1. Se viene richiesto di creare una connessione, [creare ora la connessione SQL](#create-connection). Se la connessione esiste, selezionare un **nome di tabella**e immettere l' **ID di riga** per il record desiderato.
 
-   ![Immettere il nome della tabella e l'ID di riga](./media/connectors-create-api-sqlazure/table-row-id.png)
+   ![Immettere il nome della tabella e l'ID di riga](./media/connectors-create-api-sqlazure/specify-table-row-id-property-value.png)
 
 1. Al termine, fare clic su **Salva**nella barra degli strumenti della finestra di progettazione.
 
@@ -132,7 +132,7 @@ In alcuni casi, è necessario utilizzare i set di risultati in modo tale che il 
 
 ## <a name="connector-specific-details"></a>Dettagli specifici del connettore
 
-Per informazioni tecniche sui trigger, le azioni e i limiti di questo connettore, vedere la [pagina di riferimento del connettore](/connectors/sql/).
+Per informazioni tecniche sui trigger, le azioni e i limiti di questo connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/sql/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

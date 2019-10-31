@@ -7,16 +7,16 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8cf82ce9ed4a9dc701c016f15224d6adfa299736
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 95303ba51fd4133fc6e05be16d6448c8699c3a43
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263596"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162089"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>Creare e usare le regole personalizzate di web application firewall V2
 
-Applicazione Azure gateway web application firewall (WAF) v2 fornisce la protezione per le applicazioni Web. Questa protezione viene fornita dal set di regole di base Open Web Application Security Project (OWASP). In alcuni casi, potrebbe essere necessario creare regole personalizzate per soddisfare esigenze specifiche. Per ulteriori informazioni sulle regole personalizzate di WAF, vedere [Overview: Regole di web application firewall personalizzate @ no__t-0.
+Applicazione Azure gateway web application firewall (WAF) v2 fornisce la protezione per le applicazioni Web. Questa protezione viene fornita dal set di regole di base Open Web Application Security Project (OWASP). In alcuni casi, potrebbe essere necessario creare regole personalizzate per soddisfare esigenze specifiche. Per altre informazioni sulle regole personalizzate di WAF, vedere [Panoramica: regole di Web Application Firewall personalizzate](custom-waf-rules-overview.md).
 
 Questo articolo illustra alcune regole personalizzate di esempio che è possibile creare e usare con WAF V2. Per informazioni su come distribuire WAF con una regola personalizzata usando Azure PowerShell, vedere [Configure Web Application Firewall custom rules by using Azure PowerShell](configure-waf-custom-rules.md).
 
@@ -369,7 +369,7 @@ Ecco il codice JSON corrispondente:
       {
         "name": "myrule4",
         "ruleType": "MatchRule",
-        “priority”: 100
+        "priority": 100,
         "action": "block",
         "matchConditions": [
           {

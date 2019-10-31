@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: f74f9ba55f3593ed31994b83bb9bda1501445e0a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9949c389ad0511c3ed5923e0451bc96e7063621f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100659"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159736"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurare un gruppo di disponibilità AlwaysOn in macchine virtuali di Azure in aree diverse
 
@@ -130,7 +130,7 @@ Eseguire lo script PowerShell con il nome di rete cluster, l'indirizzo IP e la p
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
    $IPResourceName = "<IPResourceName>" # The cluster name for the new IP Address resource.
-   $ILBIP = “<n.n.n.n>” # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
+   $ILBIP = "<n.n.n.n>" # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
    [int]$ProbePort = <nnnnn> # The probe port you set on the ILB.
 
    Import-Module FailoverClusters
@@ -157,23 +157,23 @@ Per testare la connettività del listener all'area remota, è possibile effettua
 1. Fare clic su OK.
 1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul gruppo di disponibilità e scegliere **Mostra dashboard**.
 1. Nel dashboard verificare che la replica nel sito di ripristino di emergenza sia sincronizzata.
-1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul gruppo di disponibilità e scegliere **Failover**. SQL Server Management Studio apre una procedura guidata per il failover di SQL Server.  
+1. In **Esplora oggetti**fare clic con il pulsante destro del mouse sul gruppo di disponibilità e scegliere **failover.** SQL Server Management Studio apre una procedura guidata per eseguire il failover SQL Server.  
 1. Fare clic su **Avanti** e selezionare l'istanza di SQL Server nel sito del ripristino di emergenza. Fare di nuovo clic su **Avanti** .
 1. Connettersi all'istanza di SQL Server nel sito di ripristino di emergenza e fare clic su **Avanti**.
 1. Nella pagina **Riepilogo** verificare le impostazioni e fare clic su **Fine**.
 
 Dopo avere testato la connettività, spostare di nuovo la replica primaria nel data center primario e configurare di nuovo la modalità di disponibilità sulle normali impostazioni operative. La tabella seguente indica le normali impostazioni operative per l'architettura descritta in questo documento:
 
-| Location | Istanza del server | Role | Modalità di disponibilità | Modalità di failover
+| Località | Istanza del server | Ruolo | Modalità di disponibilità | Modalità di failover
 | ----- | ----- | ----- | ----- | -----
 | Data center primario | SQL-1 | Primario | Sincrono | Automatico
 | Data center primario | SQL-2 | Secondario | Sincrono | Automatico
-| Data center secondario o remoto | SQL-3 | Secondario | Asincrono | Manuale
+| Data center secondario o remoto | SQL-3 | Secondario | Asincrono | Manual
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>Altre informazioni sul failover manuale forzato e pianificato
 
-Per altre informazioni, vedere i seguenti argomenti:
+Per ulteriori informazioni, vedere gli argomenti seguenti:
 
 - [Eseguire un failover manuale pianificato di un gruppo di disponibilità (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
 - [Eseguire un failover manuale forzato di un gruppo di disponibilità (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 2e286854b9a38c1189ff85307f3e29454be46fb9
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 3877648723a8866ec7d9c5f1987ae3a276114d5e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898723"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152048"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Domande frequenti sul Catalogo dati di Azure
 Questo articolo fornisce le risposte alle domande frequenti relative al servizio Azure Data Catalog.
@@ -25,16 +25,16 @@ Data Catalog risolve la richiesta di individuazione dell'origine dati e dei cosi
 ## <a name="what-are-its-target-audiences"></a>A chi è destinato?
 Data Catalog è progettato per gli utenti tecnici e non tecnici, tra cui:
 
-* Sviluppatori di dati e professionisti di analisi e Business Intelligence: Persone responsabili della produzione di dati e contenuti analitici per l'utilizzo da altri utenti.
-* Amministratori dei dati: Utenti che conoscono i dati, cosa significa e come sono destinati a essere usati.
-* Consumer di dati: Utenti che devono essere in grado di individuare, comprendere e connettersi facilmente ai dati necessari per svolgere il proprio lavoro, usando lo strumento di propria scelta.
-* IT centrale: Persone che devono rendere individuabili centinaia di origini dati dagli utenti aziendali e che devono mantenere la supervisione della modalità d'uso dei dati e da chi.
+* Sviluppatori di dati e professionisti di analisi e business intelligence: persone responsabili della produzione di dati e contenuti di analisi a uso di altri utenti.
+* Amministratori dei dati: persone in possesso di informazioni relative ai dati, al significato dei dati e al metodo d'uso.
+* Consumer di dati: persone che devono riuscire a trovare, comprendere e connettersi con facilità ai dati necessari per svolgere il lavoro, usando uno strumento di propria scelta.
+* Team IT centrale: persone che necessitano di rendere individuabili centinaia di origini dati per gli utenti aziendali e che si occupano della supervisione della modalità d'uso dei dati e degli utenti che li usano.
 
 ## <a name="what-is-its-availability-by-region"></a>Qual è la disponibilità per area?
 Attualmente i servizi di Data Catalog sono disponibili nei data center seguenti:
 
 * Stati Uniti occidentali
-* East US
+* Stati Uniti Orientali
 * Europa occidentale
 * Europa settentrionale
 * Australia orientale
@@ -75,7 +75,7 @@ Per registrare i dati in Data Catalog:
 Le proprietà specifiche variano in base all'origine dati, ma in genere il servizio di pubblicazione di Data Catalog estrae le informazioni seguenti:
 
 * Nome dell’asset
-* Tipo di asset
+* Tipo di risorsa
 * Descrizione dell’asset
 * Nomi di colonna/attributo
 * Tipi di dati di colonna/attributo
@@ -87,7 +87,7 @@ Le proprietà specifiche variano in base all'origine dati, ma in genere il servi
 >
 
 > [!NOTE]
-> Per le origini dati come SQL Server Analysis Services che hanno una proprietà **Description** ottimale, lo strumento di registrazione dell'origine dati di Data Catalog estrae il valore della proprietà. Per i database relazionali di SQL Server, che non hanno una proprietà **Description** ottimale, lo strumento di registrazione dell'origine dati di Data Catalog estrae il valore dalla proprietà estesa **ms_description** per oggetti e colonne. Per altre informazioni, vedere [Uso di proprietà estese su oggetti di database](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> Per le origini dati come SQL Server Analysis Services che hanno una proprietà **Description** ottimale, lo strumento di registrazione dell'origine dati di Data Catalog estrae il valore della proprietà. Per i database relazionali SQL Server *locali* che non dispongono di una proprietà **Description** di prima classe, lo strumento di registrazione dell'origine dati Data Catalog estrae il valore dalla proprietà estesa **MS_Description** per oggetti e colonne. Per altre informazioni, vedere [Uso di proprietà estese su oggetti di database](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 

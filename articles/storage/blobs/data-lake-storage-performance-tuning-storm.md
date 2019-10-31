@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: ed13735b4da4818e969c4dddff68b55af6e71a15
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 108eeb03c0ed484e40b884372018bbbef686ee62
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855415"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159866"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Materiale sussidiario per l'ottimizzazione delle prestazioni di Storm in HDInsight e Azure Data Lake Storage Gen2
 
@@ -22,7 +22,7 @@ ms.locfileid: "68855415"
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account di Azure Data Lake Storage Gen2**. Per istruzioni su come crearne uno, vedere [Avvio rapido: Creare un account di archiviazione per l'analisi](data-lake-storage-quickstart-create-account.md).
+* **Un account di Azure Data Lake Storage Gen2**. Per istruzioni su come crearne uno, vedere [Guida introduttiva: creare un account di archiviazione per l'analisi](data-lake-storage-quickstart-create-account.md).
 * Un **cluster Azure HDInsight** con accesso a un account Data Lake Storage Gen2. Vedere [Usare Archiviazione Azure Data Lake Storage Gen2 con cluster Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Assicurarsi di abilitare il Desktop remoto per il cluster.
 * **Esecuzione di un cluster Storm in Data Lake Storage Gen2**. Per altre informazioni, vedere [Storm in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
 * **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2**.  Per informazioni sui concetti generali relativi alle prestazioni, vedere [Materiale sussidiario per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2](data-lake-storage-performance-tuning-guidance.md).   
@@ -99,7 +99,7 @@ Quando la topologia è in esecuzione, è possibile monitorarla nell'interfaccia 
 
 ## <a name="troubleshoot-common-problems"></a>Risolvere i problemi comuni
 Ecco alcuni scenari comuni per la risoluzione dei problemi.
-* **È in corso il timeout di diverse tuple.** Esaminare ogni nodo della topologia per trovare il collo di bottiglia. La causa più comune è che i bolt non riescono a rimanere aggiornati con gli spout, di conseguenza le tuple bloccano i buffer interni mentre sono in attesa di essere elaborate. Considerare l'aumento del valore di timeout o la riduzione dello spout massimo in sospeso.
+* **Si è verificata la scadenza di molte Tuple.** Esaminare ogni nodo della topologia per determinare dove si trova il collo di bottiglia. La causa più comune è che i bolt non riescono a rimanere aggiornati con gli spout, di conseguenza le tuple bloccano i buffer interni mentre sono in attesa di essere elaborate. Considerare l'aumento del valore di timeout o la riduzione dello spout massimo in sospeso.
 
 * **La latenza di esecuzione dei processi totale è elevata, ma la latenza dei processi bolt è bassa.** In questo caso è possibile che le tuple non siano riconosciute in modo sufficientemente veloce. Verificare che sia presente un numero sufficiente di elementi di acknowledgment. Un'altra possibilità è che rimangano in attesa nella coda per troppo tempo prima che i bolt inizino la loro elaborazione. Ridurre lo spout massimo in sospeso.
 
@@ -110,7 +110,7 @@ Se si raggiungono i limiti di larghezza di banda di Data Lake Storage Gen2, è p
 
 Per verificare la presenza di limitazioni, abilitare la registrazione di debug sul lato client:
 
-1. In **Ambari** > **Storm** > **Config** (Configurazione)  > **Advanced storm-worker-log4j** (Storm-worker-log4j avanzato), sostituire **&lt;root level="info"&gt;** con **&lt;root level="debug"&gt;** . Riavviare tutti i nodi o servizi per rendere effettiva la nuova configurazione.
+1. In **Ambari** > **storm** > **config** > **Advanced Storm-Worker-log4j**, modificare **&lt;root level = "info"&gt;** per&lt;**root level = "debug"&gt;** . Riavviare tutti i nodi o servizi per rendere effettiva la nuova configurazione.
 2. Monitorare i log della topologia Storm sui nodi di lavoro (in /var/log/storm/worker-artifacts/&lt;NomeTopologia&gt;/&lt;porta&gt;/worker.log) per le eccezioni alle limitazioni di Data Lake Storage Gen2.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,5 +1,5 @@
 ---
-title: "API Web protetta: configurazione del codice dell'app Active Directory"
+title: Verificare gli ambiti e i ruoli dell'app con l'API Web protetta
 titleSuffix: Microsoft identity platform
 description: Informazioni su come creare un'API Web protetta e configurare il codice dell'applicazione.
 services: active-directory
@@ -17,14 +17,14 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7044180c72f92b70e0c3a2085eca043f44da45f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4340d92bdfe871010021edcbefcde62ab8202462
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803639"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149229"
 ---
-# <a name="protected-web-api-adding-authorization-to-your-api"></a>API Web protetta: aggiunta dell'autorizzazione all'API
+# <a name="protected-web-api-verify-scopes-and-app-roles"></a>API Web protetta: verifica degli ambiti e dei ruoli dell'app
 
 Questo articolo descrive come è possibile aggiungere l'autorizzazione all'API Web. Questa protezione garantisce che l'API venga chiamata solo da:
 

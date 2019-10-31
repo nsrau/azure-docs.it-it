@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: fc0b447630b5e1ac360b1d84869cea02186672fc
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 74518fb891c5ecb25e818b9642d31e3daaf828de
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71036633"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162620"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>Incorporare Widget Video Indexer nelle applicazioni
 
@@ -253,7 +253,7 @@ ad esempio:
 
 Per impostazione predefinita, Video Indexer Player dispone di didascalie chiuse generate automaticamente, basate sulla trascrizione del video. La trascrizione viene estratta dal video con la lingua di origine selezionata al momento del caricamento del video.
 
-Se si vuole incorporare con una lingua diversa, è possibile aggiungere `&captions=< Language | ”all” | “false” >` all'URL di incorporamento del lettore. Se si desiderano didascalie in tutte le didascalie delle lingue disponibili, utilizzare il valore `all`. Se si vuole che i sottotitoli siano visualizzati per impostazione predefinita, è possibile passare `&showCaptions=true`.
+Se si vuole incorporare con una lingua diversa, è possibile aggiungere `&captions=< Language | "all" | "false" >` all'URL di incorporamento del lettore. Se si desiderano didascalie in tutte le didascalie delle lingue disponibili, utilizzare il valore `all`. Se si vuole che i sottotitoli siano visualizzati per impostazione predefinita, è possibile passare `&showCaptions=true`.
 
 L'URL di incorporamento sarà simile al seguente: 
 

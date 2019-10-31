@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4beb6709cafeb4160afcb01ad0b9d449e4f00f7b
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 834ac1d6e35169689a767a95bbef09673454c46a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887182"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73148881"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introduzione ad Azure Active Directory Identity Protection e a Microsoft Graph
 
@@ -150,7 +150,7 @@ Se la richiesta riesce, verrà restituito un token di autenticazione.
 Per chiamare l'API, creare un'intestazione con il parametro seguente:
 
 ```
-`Authorization`=”<token_type> <access_token>"
+`Authorization`="<token_type> <access_token>"
 ```
 
 Quando si esegue l'autenticazione, è possibile trovare il tipo di token e il token di accesso nel token restituito.

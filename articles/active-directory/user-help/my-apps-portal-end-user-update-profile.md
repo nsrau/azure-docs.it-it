@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14146be73de309a7119f5c7b416c4e02f3bb4285
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 40cf8e16e08db67c36009435758db36797518d96
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383090"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160758"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Aggiornare il profilo e le informazioni sull'account dal portale app personali
 
@@ -65,7 +65,7 @@ Aggiornare e gestire le informazioni sull'account aziendale o dell'Istituto di i
 
 - Disconnettersi da qualsiasi luogo.
 
-## <a name="change-your-password"></a>Modifica la password
+## <a name="change-your-password"></a>Modificare la password
 
 Se si vuole modificare la password per l'account aziendale o dell'Istituto di istruzione, è possibile selezionare **Cambia password** dall'area **Gestisci account** della pagina del **profilo** .
 
@@ -86,7 +86,7 @@ Se si vuole modificare la password per l'account aziendale o dell'Istituto di is
 Se la password è stata dimenticata, non è mai stata ottenuta dal supporto tecnico dell'azienda o è stata bloccata dall'account, è possibile reimpostare la password.
 
 >[!Important]
->L'amministratore deve attivare questa funzionalità ed è necessario registrarsi per partecipare. Per informazioni dettagliate su come eseguire la registrazione e su come reimpostare la password, vedere eseguire la [registrazione per la reimpostazione della password self-service](active-directory-passwords-reset-register.md) e reimpostare [la password aziendale o dell'Istituto di istruzione](user-help-reset-password.md).
+>L'amministratore deve attivare questa funzionalità ed è necessario registrarsi per partecipare. Per informazioni dettagliate su come eseguire la registrazione e su come reimpostare la password, vedere eseguire la [registrazione per la reimpostazione della password self-service](active-directory-passwords-reset-register.md) e [reimpostare la password aziendale o dell'Istituto di istruzione](active-directory-passwords-update-your-own-password.md).
 
 ## <a name="change-your-security-verification-information"></a>Modificare le informazioni di verifica di sicurezza
 
@@ -120,7 +120,7 @@ Per la verifica a due fattori è necessario usare due tipi di informazioni di ve
 
     ![Condizioni per l'utilizzo pagina dal portale app personali](media/my-apps-portal/my-apps-portal-tou-page.png)
 
-    Se l'organizzazione non ha condizioni d'uso, è possibile selezionare **Done** da restituire per il **profilo** pagina.
+    Se l'organizzazione non ha le condizioni per l'utilizzo, è possibile selezionare **fine** per tornare alla pagina del **profilo** .
 
 ## <a name="sign-out-of-everywhere"></a>Disconnettersi da qualsiasi luogo
 
@@ -128,7 +128,7 @@ Per la verifica a due fattori è necessario usare due tipi di informazioni di ve
 
 ### <a name="to-sign-out-of-everywhere"></a>Per disconnettersi da qualsiasi luogo
 
-1. Dall'area **Gestisci account** della pagina **profilo** Selezionare disconnettersi **ovunque**.
+1. Dall'area **Gestisci account** della pagina **profilo** Selezionare **disconnettersi ovunque**.
 
 2. Nella casella di conferma **disconnettersi ovunque** selezionare **Sì** per confermare che si vuole disconnettersi da tutte le sessioni e i dispositivi. Selezionare **No** se si cambia idea.
 

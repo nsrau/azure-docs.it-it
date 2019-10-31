@@ -4,15 +4,15 @@ description: Informazioni sull'autenticazione e le autorizzazioni utente in Azur
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dc66b34492b34a6e0f239d19ee10fbd79b683a14
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a48292b7600d8b9e400bf1e2d61aec313ce29f4b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294918"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146866"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticazione e autorizzazioni utente
 
@@ -28,15 +28,15 @@ Per connettersi a un server tutti gli strumenti e le applicazioni client usano u
 
 Queste tre librerie client supportano sia il flusso interattivo di Azure AD sia i metodi di autenticazione non interattivi. I due metodi di autenticazione integrata di Active Directory e della password di Active Directory non interattive possono essere usati nelle applicazioni che adottano AMOMD e MSOLAP. Questi due metodi non aprono mai finestre di dialogo popup.
 
-Applicazioni client quali Excel e Power BI Desktop e strumenti come SQL Server Management Studio (SSMS) e SQL Server Data Tools (SSDT) installano le versioni più recenti delle librerie quando vengono aggiornate alla versione più recente. Power BI Desktop, SQL Server Management Studio e SQL Server Data Tools vengono aggiornati ogni mese. Excel viene [aggiornato con Office 365](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Gli aggiornamenti di Office 365 sono meno frequenti e alcune organizzazioni usano il canale di aggiornamento Deferred Channel, che posticipa gli aggiornamenti di tre mesi.
+Le applicazioni client come Excel e Power BI Desktop e strumenti come SSMS e l'estensione dei progetti Analysis Services per Visual Studio installano le versioni più recenti delle librerie quando vengono aggiornate alla versione più recente. L'estensione di progetti Power BI Desktop, SSMS e Analysis Services viene aggiornata ogni mese. Excel viene [aggiornato con Office 365](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Gli aggiornamenti di Office 365 sono meno frequenti e alcune organizzazioni usano il canale di aggiornamento Deferred Channel, che posticipa gli aggiornamenti di tre mesi.
 
 A seconda dello strumento o dell'applicazione client in uso, il tipo di autenticazione e la modalità di accesso possono essere diverse. Ogni applicazione può supportare funzionalità diverse per la connessione ai servizi cloud quali Azure Analysis Services.
 
-Power BI Desktop, SSDT e SSMS supportano l'autenticazione universale di Active Directory, ovvero un metodo interattivo che supporta anche Azure Multi-Factor Authentication (MFA). Azure MFA consente di proteggere l'accesso ai dati e alle applicazioni, offrendo al tempo stesso una procedura di accesso semplice. MFA include funzionalità avanzate di autenticazione con varie opzioni di verifica (chiamata telefonica, SMS, smart card con PIN o notifica tramite app per dispositivi mobili). La convalida di MFA interattiva con Azure AD può avvenire attraverso una finestra popup. **È consigliata l'autenticazione universale**.
+Power BI Desktop, Visual Studio e SSMS supportano Active Directory autenticazione universale, un metodo interattivo che supporta anche Azure Multi-Factor Authentication (multi-factor authentication). Azure MFA consente di proteggere l'accesso ai dati e alle applicazioni, offrendo al tempo stesso una procedura di accesso semplice. MFA include funzionalità avanzate di autenticazione con varie opzioni di verifica (chiamata telefonica, SMS, smart card con PIN o notifica tramite app per dispositivi mobili). La convalida di MFA interattiva con Azure AD può avvenire attraverso una finestra popup. **È consigliata l'autenticazione universale**.
 
 Se si accede ad Azure con un account di Windows e l'autenticazione universale non è selezionata o disponibile (Excel), è richiesto [Active Directory Federation Services (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md). Con la federazione, Azure AD e gli utenti di Office 365 vengono autenticati usando credenziali locali e possono accedere alle risorse di Azure.
 
-### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
+### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio
 
 I server di Azure Analysis Services supportano connessioni da [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e versioni successive usando l'autenticazione di Windows, l'autenticazione della password di Active Directory e l'autenticazione universale di Active Directory. In generale, è consigliabile usare l'autenticazione universale di Active Directory per i motivi indicati di seguito:
 
@@ -46,9 +46,9 @@ I server di Azure Analysis Services supportano connessioni da [SSMS V17.1](https
 
 *  Supporta l'autenticazione a più fattori (Multi-Factor Authentication, MFA). Azure MFA agevola la protezione dell'accesso ai dati e alle applicazioni con una serie di semplici opzioni di verifica, tra cui: chiamata telefonica, SMS, smart card con pin o notifica tramite app per dispositivi mobili. La convalida di MFA interattiva con Azure AD può avvenire attraverso una finestra popup.
 
-### <a name="sql-server-data-tools-ssdt"></a>SQL Server Data Tools (SSDT)
+### <a name="visual-studio"></a>Visual Studio
 
-SSDT si connette ad Azure Analysis Services tramite l'autenticazione universale di Active Directory con supporto MFA. Agli utenti viene richiesto di accedere ad Azure alla prima distribuzione. Gli utenti devono accedere ad Azure con un account che disponga delle autorizzazioni di amministratore del server per il server nel quale stanno eseguendo la distribuzione. Al primo accesso ad Azure viene loro assegnato un token. SSDT memorizza il token nella cache per le connessioni future.
+Visual Studio si connette a Azure Analysis Services usando l'autenticazione universale Active Directory con supporto dell'autenticazione a più fattori. Agli utenti viene richiesto di accedere ad Azure alla prima distribuzione. Gli utenti devono accedere ad Azure con un account che disponga delle autorizzazioni di amministratore del server per il server nel quale stanno eseguendo la distribuzione. Al primo accesso ad Azure viene loro assegnato un token. Il token viene memorizzato nella cache in memoria per future riconnessioni.
 
 ### <a name="power-bi-desktop"></a>Power BI Desktop
 
@@ -60,7 +60,7 @@ Gli utenti di Excel possano connettersi a un server usando un account di Windows
 
 ## <a name="user-permissions"></a>Autorizzazioni utente
 
-Gli **amministratori del server** sono specifici di un'istanza del server Azure Analysis Services. Si connettono usando strumenti quali il portale di Azure, SQL Server Management Studio e SQL Server Data Tools per eseguire attività quali l'aggiunta di database e la gestione dei ruoli utente. Per impostazione predefinita, l'utente che crea il server viene automaticamente aggiunto come amministratore del server di Analysis Services. È possibile aggiungere altri amministratori tramite il portale di Azure o SSMS. Gli amministratori del server devono disporre di un account nel tenant di Azure AD nella stessa sottoscrizione. Per altre informazioni, vedere [Gestire gli amministratori del server](analysis-services-server-admins.md). 
+Gli **amministratori del server** sono specifici di un'istanza del server Azure Analysis Services. Si connettono con strumenti come portale di Azure, SSMS e Visual Studio per eseguire attività quali l'aggiunta di database e la gestione dei ruoli utente. Per impostazione predefinita, l'utente che crea il server viene automaticamente aggiunto come amministratore del server di Analysis Services. È possibile aggiungere altri amministratori tramite il portale di Azure o SSMS. Gli amministratori del server devono disporre di un account nel tenant di Azure AD nella stessa sottoscrizione. Per altre informazioni, vedere [Gestire gli amministratori del server](analysis-services-server-admins.md). 
 
 Gli **utenti del database** si connettono ai database modello tramite applicazioni client quali Excel o Power BI. Gli utenti devono essere aggiunti ai ruoli database. I ruoli database definiscono l'amministratore, il processo o le autorizzazioni di lettura per un database. È importante comprendere che gli utenti del database in un ruolo con autorizzazioni di amministratore sono diversi dagli amministratori di server. Per impostazione predefinita, tuttavia, gli amministratori del server sono anche amministratori del database. Per altre informazioni, vedere [Gestire ruoli e utenti del database](analysis-services-database-users.md).
 
@@ -74,11 +74,11 @@ I ruoli di questo livello si applicano agli utenti o agli account che devono ese
 
  I ruoli definiti per un modello tabulare sono ruoli del database, ovvero contengono membri costituiti da utenti di Azure AD e gruppi di sicurezza che dispongono di autorizzazioni specifiche che definiscono le azioni che tali membri possono eseguire su un database modello. Un ruolo del database viene creato come oggetto separato nel database e si applica solo al database in cui è stato creato.   
   
- Per impostazione predefinita, quando si crea un nuovo progetto di modello tabulare, esso non contiene alcun ruolo. È possibile definire i ruoli nella finestra di dialogo Gestione ruoli di SSDT. Se i ruoli vengono definiti durante la progettazione dei modelli di progetto, sono applicati solo ai database dell'area di lavoro del modello. Quando il modello viene distribuito, gli stessi ruoli vengono applicati al modello distribuito. Dopo la distribuzione di un modello, gli amministratori del server e del database possono gestire ruoli e membri tramite SSMS. Per altre informazioni, vedere [Gestire ruoli e utenti del database](analysis-services-database-users.md).
+ Per impostazione predefinita, quando si crea un nuovo progetto di modello tabulare, esso non contiene alcun ruolo. I ruoli possono essere definiti tramite la finestra di dialogo Gestione ruoli in Visual Studio. Se i ruoli vengono definiti durante la progettazione dei modelli di progetto, sono applicati solo ai database dell'area di lavoro del modello. Quando il modello viene distribuito, gli stessi ruoli vengono applicati al modello distribuito. Dopo la distribuzione di un modello, gli amministratori del server e del database possono gestire ruoli e membri tramite SSMS. Per altre informazioni, vedere [Gestire ruoli e utenti del database](analysis-services-database-users.md).
   
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Gestire l'accesso alle risorse tramite i gruppi di Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Gestire ruoli e utenti del database](analysis-services-database-users.md)  
 [Gestire gli amministratori di server](analysis-services-server-admins.md)  
-[Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md)  
+[Controllo di accesso in base al ruolo](../role-based-access-control/overview.md)  

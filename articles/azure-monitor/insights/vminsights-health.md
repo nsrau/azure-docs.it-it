@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: c9dfd3bfcacc1f50bb9be04c927bf3cbb4895f6d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: e19ba55e48c537974ad4136d40505514b92d387d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555268"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162285"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Informazioni sull'integrità delle macchine virtuali di Azure
 
@@ -339,7 +339,7 @@ Per identificare *monitorId* per criteri di integrità specifici, nell'esempio s
 2. Immettere il comando seguente per recuperare tutti i criteri di integrità attivi in una macchina virtuale specifica e identificare il valore per la proprietà *monitorId* :
 
     ```
-    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”
+    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview"
     ```
 
     Nell'esempio seguente viene illustrato l'output del comando *ARMCLIENT Get* . Prendere nota del valore di *MonitorId*. Questo valore è obbligatorio per il passaggio successivo, in cui è necessario specificare l'ID dei criteri di integrità e modificarne la proprietà per creare un avviso.

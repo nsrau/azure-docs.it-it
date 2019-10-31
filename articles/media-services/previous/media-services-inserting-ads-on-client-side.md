@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 49c836f5e9189104ba77e8f3d865f4db199c4060
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37ee600a2f7d621d3fefb2f70c26b6c29f738ea9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002982"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162695"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserimento di annunci sul lato client
 Questo articolo contiene informazioni su come inserire diversi tipi di annunci sul lato client.
@@ -332,7 +332,7 @@ L'elemento **trigger** contiene un elemento **startConditions** che specifica qu
 1. **type**: specifica il tipo di condizione, di evento o di proprietà.
 2. **name** - nome della proprietà o dell'evento da usare durante la valutazione.
 3. **value** – valore in base al quale sarà valutata una proprietà.
-4. **operator** - operazione da usare durante la valutazione: EQ (uguale), NEQ (diverso da), GTR (maggiore), GEQ (maggiore o uguale), LT (minore), LEQ (minore o uguale), MOD (modulo)
+4. **operator** : operazione da usare durante la valutazione: EQ (uguale), NEQ (diverso da), GTR (maggiore), GEQ (maggiore o uguale), LT (minore), LEQ (minore o uguale), MOD (modulo).
 
 **endConditions** contengono anche elementi `<condition>`. Quando una condizione restituisce true, il trigger viene reimpostato. L'elemento `<trigger>` contiene anche un elemento `<sources>`, che a sua volta contiene uno o più elementi `<source>`. Gli elementi `<source>` definiscono l'URI per la risposta annuncio e il tipo della risposta annuncio. In questo esempio si assegna un URI a una risposta VAST.
 
@@ -356,8 +356,8 @@ Un annuncio eseguibile è creato in codice che deve essere eseguito in un ambien
 
 ```xml
     <MediaFiles>
-       <MediaFile id="1" delivery="progressive" type=”application/x-shockwaveflash”
-                  width=”640” height=”480” apiFramework=”VPAID”>
+       <MediaFile id="1" delivery="progressive" type="application/x-shockwaveflash"
+                  width="640" height="480" apiFramework="VPAID">
            <!-- CDATA wrapped URI to executable ad -->
        </MediaFile>
     </MediaFiles>
@@ -586,7 +586,7 @@ Questo esempio usa l'elemento VmapSchedulerPlugin per pianificare annunci usando
 ```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>Implementazione di un lettore video iOS con supporto per gli annunci
-Microsoft Media Platform: Player Framework per iOS contiene una raccolta di applicazioni di esempio che illustrano come implementare un'applicazione per la lettura di video tramite il framework. È possibile scaricare Player Framework e i relativi esempi dalla pagina relativa a [Media Player Framework di Azure](https://github.com/Azure/azure-media-player-framework). La pagina di GitHub include un collegamento a una pagina Wiki che contiene informazioni aggiuntive su player framework e un'introduzione all'esempio del lettore, ovvero la pagina [Wiki su Azure Media Player](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+Microsoft Media Platform: Player Framework per iOS contiene una raccolta di applicazioni di esempio che illustrano come implementare un'applicazione per la lettura di video tramite il framework. È possibile scaricare Player Framework e i relativi esempi dalla pagina relativa a [Media Player Framework di Azure](https://github.com/Azure/azure-media-player-framework). La pagina GitHub include un collegamento a un wiki che contiene informazioni aggiuntive su Player Framework e un'introduzione all'esempio di Player: [Azure Media Player wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
 ### <a name="scheduling-ads-with-vmap"></a>Pianificazione di annunci con VMAP
 L'esempio seguente illustra come pianificare gli annunci usando un file VMAP.
@@ -846,7 +846,7 @@ L'esempio seguente illustra come pianificare un annuncio midroll sovrapposto.
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vedere anche

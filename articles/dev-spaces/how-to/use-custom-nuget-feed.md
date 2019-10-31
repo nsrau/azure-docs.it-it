@@ -10,12 +10,12 @@ ms.topic: conceptual
 description: Usare un feed NuGet personalizzato per accedere ai pacchetti NuGet e usarli in uno spazio Azure Dev Spaces.
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
 manager: gwallace
-ms.openlocfilehash: 9df095011c1ff66ff0c85993c7c85dffe62623b8
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 019335cd73e8eaf0ada6897f08c88ef2b8bbf631
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873262"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162792"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Usare un feed NuGet personalizzato in uno spazio Azure Dev Spaces
 
@@ -23,7 +23,7 @@ Un feed NuGet costituisce un modo semplice per includere le origini dei pacchett
 
 ## <a name="set-up-a-nuget-feed"></a>Configurare un feed NuGet
 
-Aggiungere un [riferimento al pacchetto](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) per la dipendenza nel `*.csproj` file `PackageReference` nel nodo. Esempio:
+Aggiungere un [riferimento al pacchetto](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) per la dipendenza nel file di `*.csproj` al di sotto del nodo `PackageReference`. ad esempio:
 
 ```xml
 <ItemGroup>
@@ -33,7 +33,7 @@ Aggiungere un [riferimento al pacchetto](https://docs.microsoft.com/nuget/consum
 </ItemGroup>
 ```
 
-Creare un file [NuGet. config](https://docs.microsoft.com/nuget/reference/nuget-config-file) nella cartella del progetto e impostare le `packageSources` sezioni `packageSourceCredentials` e per il feed NuGet. La `packageSources` sezione contiene l'URL del feed, che deve essere accessibile dal cluster AKS. `packageSourceCredentials` Sono le credenziali per l'accesso al feed. Ad esempio:
+Creare un file [NuGet. config](https://docs.microsoft.com/nuget/reference/nuget-config-file) nella cartella del progetto e impostare le sezioni `packageSources` e `packageSourceCredentials` per il feed NuGet. La sezione `packageSources` contiene l'URL del feed, che deve essere accessibile dal cluster AKS. Le `packageSourceCredentials` sono le credenziali per l'accesso al feed. ad esempio:
 
 ```xml
 <packageSources>
@@ -48,28 +48,28 @@ Creare un file [NuGet. config](https://docs.microsoft.com/nuget/reference/nuget-
 </packageSourceCredentials>
 ```
 
-Aggiornare il dockerfile per copiare il `NuGet.Config` file nell'immagine. Ad esempio:
+Aggiornare il Dockerfile per copiare il file di `NuGet.Config` nell'immagine. ad esempio:
 
 ```console
 COPY ["<project folder>/NuGet.Config", "./NuGet.Config"]
 ```
 
 > [!TIP]
-> In Windows, `NuGet.Config` `Nuget.Config`, e `nuget.config` funziona come nomi di file validi. In Linux è solo `NuGet.Config` un nome file valido per il file. Poiché Azure Dev Spaces USA Docker e Linux, questo file deve essere denominato `NuGet.Config`. È possibile correggere la denominazione manualmente o `dotnet restore --configfile nuget.config`eseguendo.
+> In Windows, `NuGet.Config`, `Nuget.Config`e `nuget.config` tutti funzionano come nomi file validi. In Linux solo `NuGet.Config` è un nome file valido per il file. Poiché Azure Dev Spaces USA Docker e Linux, questo file deve essere denominato `NuGet.Config`. È possibile correggere la denominazione manualmente o eseguendo `dotnet restore --configfile nuget.config`.
 
 
-Se si usa Git, non è necessario avere le credenziali per il feed NuGet nel controllo della versione. Aggiungere `NuGet.Config` `NuGet.Config` a per il progetto in modo che il file non venga aggiunto al controllo della versione. `.gitignore` Azure Dev Spaces sarà necessario questo file durante il processo di compilazione dell'immagine del contenitore, ma per impostazione predefinita rispetta le regole `.gitignore` definite `.dockerignore` in e durante la sincronizzazione. Per modificare il valore predefinito e consentire Azure Dev Spaces di sincronizzare `NuGet.Config` il file, aggiornare `azds.yaml` il file:
+Se si usa Git, non è necessario avere le credenziali per il feed NuGet nel controllo della versione. Aggiungere `NuGet.Config` al `.gitignore` per il progetto in modo che il file di `NuGet.Config` non venga aggiunto al controllo della versione. Azure Dev Spaces sarà necessario questo file durante il processo di compilazione dell'immagine del contenitore, ma per impostazione predefinita rispetta le regole definite in `.gitignore` e `.dockerignore` durante la sincronizzazione. Per modificare l'impostazione predefinita e consentire Azure Dev Spaces di sincronizzare il file di `NuGet.Config`, aggiornare il file di `azds.yaml`:
 
 ```yaml
 build:
 useGitIgnore: true
 ignore:
-- “!NuGet.Config”
+- "!NuGet.Config"
 ```
 
 Se non si usa Git, è possibile ignorare questo passaggio.
 
-La volta successiva che si `azds up` esegue o `F5` si raggiunge il Visual Studio Code o Visual Studio, Azure Dev Spaces Sincronizza `NuGet.Config` il file e lo usa per installare le dipendenze del pacchetto.
+La volta successiva che si esegue `azds up` o si raggiunge `F5` in Visual Studio Code o Visual Studio, Azure Dev Spaces sincronizza il file `NuGet.Config` lo usa per installare le dipendenze del pacchetto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

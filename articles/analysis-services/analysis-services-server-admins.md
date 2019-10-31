@@ -4,15 +4,15 @@ description: Informazioni su come gestire gli amministratori del server per un s
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fbb7d339c5c3c12990a49d6ebd53760e101f4eb7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f597bc9e34a606a6e40a57e5fc7af791d972c68e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301102"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146268"
 ---
 # <a name="manage-server-administrators"></a>Gestire gli amministratori del server
 
@@ -54,5 +54,5 @@ Usare [Aggiorna](https://docs.microsoft.com/rest/api/analysisservices/servers/up
 
 [Autenticazione e autorizzazioni utente](analysis-services-manage-users.md)  
 [Gestire ruoli e utenti del database](analysis-services-database-users.md)  
-[Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md)  
+[Controllo di accesso in base al ruolo](../role-based-access-control/overview.md)  
 

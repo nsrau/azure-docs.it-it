@@ -1,6 +1,6 @@
 ---
 title: Configurare ExpressRoute Direct -Interfaccia della riga di comando di Azure | Microsoft Docs
-description: Questo articolo consente di configurare ExpressRoute Direct tramite la CLI di Azure
+description: Questo articolo consente di configurare ExpressRoute Direct usando l'interfaccia della riga di comando di Azure
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: ebfe3db43de87e67ad05ed8cb9f5812b5ded04e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a879344fddd6d12ae8a50e109dcaf4a4bb2c1b68
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965916"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161560"
 ---
-# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurare ExpressRoute Direct tramite la CLI di Azure
+# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurare ExpressRoute Direct usando l'interfaccia della riga di comando di Azure
 
 ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete globale di Microsoft in località di peering distribuite in modo strategico in tutto il mondo. Per altre informazioni, vedere [Informazioni su ExpressRoute Direct Connect](expressroute-erdirect-about.md).
 
@@ -272,7 +272,7 @@ Usare questo processo per eseguire un test di livello 1. Assicurarsi che ogni Cr
    }
    ```
 
-   Usare la stessa procedura con `AdminState = “Disabled”` per rifiutare le porte.
+   Usare la stessa procedura con `AdminState = "Disabled"` per rifiutare le porte.
 
 ## <a name="circuit"></a>Creare un circuito
 
@@ -280,9 +280,9 @@ Per impostazione predefinita, è possibile creare dieci circuiti nella sottoscri
 
 È possibile usare altre larghezze di banda del circuito in ExpressRoute Direct solo per supportare gli scenari descritti in questo articolo. Le larghezze di banda sono 40 Gbps e 100 Gbps.
 
-**SkuTier** può essere locale, Standard o Premium.
+**SkuTier** può essere locale, standard o Premium.
 
-**SkuFamily** deve essere MeteredData solo come illimitato non è supportato su ExpressRoute Direct.
+**SkuFamily** deve essere MeteredData solo se illimitato non è supportato in ExpressRoute Direct.
 Creare un circuito nella risorsa di ExpressRoute Direct:
 
   ```azurecli

@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35a6ac955ade3eab77f01c4e234b35744f0a7be3
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: a50978b51fd1451cf65e33b38ca0699694cb115b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170099"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151183"
 ---
-# <a name="conditional-access-require-mfa-for-administrators"></a>Accesso condizionale: Richiedere l'autenticazione a più fattori per gli amministratori
+# <a name="conditional-access-require-mfa-for-administrators"></a>Accesso condizionale: Richiedi autenticazione a più fattori per gli amministratori
 
 Gli account a cui sono assegnati diritti amministrativi sono destinati da utenti malintenzionati. La richiesta di autenticazione a più fattori in questi account è un modo semplice per ridurre il rischio di compromissione di tali account.
 
@@ -50,7 +50,7 @@ I criteri di accesso condizionale sono strumenti avanzati, quindi è consigliabi
 La procedura seguente consente di creare un criterio di accesso condizionale per richiedere che i ruoli amministrativi assegnati eseguano la funzionalità di autenticazione a più fattori.
 
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
-1. Passare a **Azure Active Directory** **l'accesso condizionale** > .
+1. Passare a **Azure Active Directory** > **l'accesso condizionale**.
 1. Selezionare **Nuovi criteri**.
 1. Assegnare un nome al criterio. È consigliabile che le organizzazioni creino uno standard significativo per i nomi dei propri criteri.
 1. In **assegnazioni**selezionare **utenti e gruppi** .
@@ -66,8 +66,8 @@ La procedura seguente consente di creare un criterio di accesso condizionale per
       * Amministratore utenti
    1. In **Escludi**selezionare **utenti e gruppi** e scegliere l'accesso di emergenza dell'organizzazione o gli account break-Glass. 
    1. Selezionare **Operazione completata**.
-1. In **app Cloud o azioni** > **Includi**Selezionare **tutte le app Cloud**, quindi **fare**clic su fine.
-1. In **controlli di accesso**@no__t-**1 concedere**, selezionare **Concedi accesso**, **richiedere l'autenticazione**a più fattori e selezionare **Seleziona**.
+1. In **app Cloud o azioni** > **includere**, selezionare **tutte le app Cloud**e selezionare **fine**.
+1. In **controlli di accesso** > **concedere**Selezionare **Concedi accesso**, **Richiedi autenticazione**a più fattori e selezionare **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** **su on**.
 1. Selezionare **Crea** per creare per abilitare i criteri.
 

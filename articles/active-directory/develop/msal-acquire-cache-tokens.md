@@ -1,5 +1,5 @@
 ---
-title: Gestione dei token (Microsoft Authentication Library)
+title: Acquisire e memorizzare nella cache i token con MSAL
 titleSuffix: Microsoft identity platform
 description: Informazioni sull'acquisizione e la memorizzazione nella cache dei token tramite Microsoft Authentication Library (MSAL).
 services: active-directory
@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
+ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aaa6a939fce3eae8b1367c2d01e947e813fa5437
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 0d47fa92de8365ed3a5e0349b78899ff7fde1375
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803289"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150653"
 ---
-# <a name="acquiring-and-caching-tokens-using-msal"></a>Acquisizione e memorizzazione nella cache dei token tramite MSAL
+# <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Acquisire e memorizzare nella cache i token tramite Microsoft Authentication Library (MSAL)
+
 I [token di accesso](access-tokens.md) consentono ai client di chiamare in modo sicuro le API Web protette da Azure. Esistono diversi modi per acquisire un token usando Microsoft Authentication Library (MSAL). Alcuni modi richiedono interazioni dell'utente tramite un Web browser. Altri non richiedono alcuna interazione dell'utente. In generale, il modo per acquisire un token dipende dal fatto che l'applicazione sia un'applicazione client pubblica (app desktop o per dispositivi mobili) oppure un'applicazione client riservata (app Web, API Web o applicazione daemon, ad esempio un servizio di Windows).
 
 MSAL memorizza un token nella cache dopo che è stato acquisito.  Il codice dell'applicazione deve tentare di ottenere un token in modo automatico (dalla cache) prima di acquisire un token con altri mezzi.

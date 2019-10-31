@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c6043d9e18c364073ad1ea46e26335577e0ec3b2
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: cc47ff50aa7bb6dce58ed83f75f69fb600ad040b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512449"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146934"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -97,12 +97,12 @@ Durante la migrazione di un modello tabulare SQL Server Analysis Services locale
 
 **Per specificare un provider**
 
-1. In SSDT > **Esplora modelli tabulari** > **Origini dati** fare clic con il pulsante destro del mouse su una connessione a un'origine dati e scegliere **Modifica origine dati**.
+1. In Visual Studio > **Esplora modelli tabulari** > **origini dati**, fare clic con il pulsante destro del mouse su una connessione all'origine dati, quindi scegliere **Modifica origine dati**.
 2. In **Modifica connessione** fare clic su **Avanzate** per aprire la finestra Proprietà avanzate.
 3. Selezionare **Impostazione delle proprietà avanzate** > **Provider** e quindi scegliere il provider appropriato.
 
 ## <a name="impersonation"></a>Rappresentazione
-In alcuni casi può essere necessario specificare un account di rappresentazione differente. L'account di rappresentazione può essere specificato in Visual Studio (SSDT) o SSMS.
+In alcuni casi può essere necessario specificare un account di rappresentazione differente. L'account di rappresentazione può essere specificato in Visual Studio o SSMS.
 
 Per le origini dati locali:
 

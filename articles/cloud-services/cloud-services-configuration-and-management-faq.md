@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 0c694ffe6ccd23803fbe16001f54b7c1611635cd
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 704d6d4a12550507a8e38be4777e5abc7b57fe74
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154714"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161760"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per Servizi cloud di Azure: Domande frequenti (FAQ)
+# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per Servizi cloud di Azure: domande frequenti
 
 Questo articolo include le domande frequenti relative ai problemi di configurazione e gestione per [Servizi cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Per informazioni sulle dimensioni, vedere la pagina [Dimensioni dei servizi cloud](cloud-services-sizes-specs.md) .
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-**Certificati**
+**Certificates**
 
 - [Perché la catena di certificati del certificato SSL del servizio cloud non è completa?](#why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete)
 - [Qual è lo scopo del certificato di crittografia degli strumenti di Microsoft Azure per le estensioni?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
 - [Come è possibile generare una richiesta di firma del certificato senza usare RPD per l'istanza?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
-- [Qual è la procedura per rinnovare il certificato di gestione del servizio cloud in scadenza?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
+- [Il certificato di gestione dei servizi cloud sta per scadere. Come rinnovarla?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
 - [Come è possibile automatizzare l'installazione del certificato SSL principale (con estensione pfx) e del certificato intermedio (con estensione p7b)?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
 - [Qual è lo scopo del certificato "Microsoft Azure Service Management for MachineKey"?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
@@ -49,10 +49,10 @@ Questo articolo include le domande frequenti relative ai problemi di configurazi
 - [Quali sono le caratteristiche e le funzionalità fornite dai sistemi di base di rilevamento e prevenzione delle intrusioni e di prevenzione degli attacchi DDoS di Azure?](#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 - [Come è possibile abilitare HTTP/2 nella macchina virtuale di Servizi cloud di Microsoft Azure?](#how-to-enable-http2-on-cloud-services-vm)
 
-**Autorizzazioni**
+**autorizzazioni**
 
 - [I tecnici interni Microsoft possono usare desktop remoto per le istanze dei servizi cloud senza autorizzazione?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
-- [Non è possibile usare desktop remoto con la macchina virtuale del servizio cloud tramite il file RDP. Viene visualizzato l'errore seguente: Si è verificato un errore di autenticazione (codice: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
+- [Non è possibile usare desktop remoto per la macchina virtuale del servizio cloud tramite il file RDP. Si è verificato l'errore seguente: si è verificato un errore di autenticazione (codice: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
 **Ridimensionamento**
 
@@ -68,8 +68,8 @@ Questo articolo include le domande frequenti relative ai problemi di configurazi
 - [Come è possibile aggiungere un'estensione antimalware per Servizi cloud in modo automatico?](#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
 - [Come è possibile abilitare Indicazione nome server (SNI) per Servizi cloud?](#how-to-enable-server-name-indication-sni-for-cloud-services)
 - [Come è possibile aggiungere tag al servizio cloud di Azure?](#how-can-i-add-tags-to-my-azure-cloud-service)
-- [Il portale di Azure non visualizza la versione dell'SDK del servizio cloud. Come è possibile ottenerla?](#the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that)
-- [Se è necessario arrestare il servizio cloud per vari mesi, come è possibile ridurre i costi di fatturazione del servizio cloud senza perdere l'indirizzo IP?](#i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address)
+- [Il portale di Azure non Visualizza la versione dell'SDK del servizio cloud. Come posso ottenerla?](#the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that)
+- [Desidero arrestare il servizio cloud per diversi mesi. Come ridurre i costi di fatturazione del servizio cloud senza perdere l'indirizzo IP?](#i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address)
 
 
 ## <a name="certificates"></a>Certificati
@@ -90,7 +90,7 @@ Per indicazioni, vedere il documento seguente:
 
 [Obtaining a certificate for use with Windows Azure Web Sites (WAWS)](https://azure.microsoft.com/blog/obtaining-a-certificate-for-use-with-windows-azure-web-sites-waws/) (Ottenere un certificato per l'uso con Siti Web di Azure)
 
-La richiesta di firma del certificato è semplicemente un file di testo. Non è necessario che tale file venga creato dal computer in cui il certificato verrà usato. Anche se questo documento è scritto per un servizio app, la creazione della richiesta di firma del certificato è generica e si applica anche a Servizi cloud.
+La richiesta di firma del certificato è semplicemente un file di testo. Non è necessario che tale file venga creato dal computer in cui il certificato verrà usato. Sebbene questo documento sia scritto per un servizio app, la creazione di CSR è generica e si applica anche ai servizi cloud.
 
 ### <a name="my-cloud-service-management-certificate-is-expiring-how-to-renew-it"></a>Qual è la procedura per rinnovare il certificato di gestione del servizio cloud in scadenza?
 
@@ -148,7 +148,7 @@ Per altre informazioni, vedere i documenti seguenti:
 Per ottenere le impostazioni di Diagnostica di Microsoft Azure corrente del servizio cloud, è possibile usare il comando [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) di PowerShell oppure è possibile visualizzarle tramite il portale dal pannello "Servizi cloud --> Estensioni".
 
 
-## <a name="network-configuration"></a>Configurazione rete
+## <a name="network-configuration"></a>Configurazione di rete
 
 ### <a name="how-do-i-set-the-idle-timeout-for-azure-load-balancer"></a>Come si imposta il timeout di inattività per Azure Load Balancer?
 È possibile specificare il timeout nel file di definizione del servizio (con estensione csdef) analogo al seguente:
@@ -169,7 +169,7 @@ Per ottenere le impostazioni di Diagnostica di Microsoft Azure corrente del serv
     </Endpoints>
   </WorkerRole>
 ```
-Vedere [New: Configurable Idle Timeout for Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) (Novità: Timeout di inattività configurabile per Azure Load Balancer).
+Per altre informazioni, vedere [New: Configurable Idle Timeout for Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) (Novità: Timeout di inattività configurabile per Azure Load Balancer).
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Come si associa un indirizzo IP statico a un servizio cloud?
 Per configurare un indirizzo IP statico, è necessario creare un IP riservato. Questo indirizzo IP riservato può essere associato a un nuovo servizio cloud o a una distribuzione esistente. Vedere i documenti seguenti per informazioni dettagliate:
@@ -182,23 +182,23 @@ Per configurare un indirizzo IP statico, è necessario creare un IP riservato. Q
 ### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Quali sono le caratteristiche e le funzionalità fornite dai sistemi di base di rilevamento e prevenzione delle intrusioni e di prevenzione degli attacchi DDoS di Azure?
 Azure offre sistemi di rilevamento e prevenzione delle intrusioni nei server fisici dei data center per consentire la difesa dalle minacce. I clienti possono anche distribuire soluzioni di sicurezza di terze parti, ad esempio web application firewall, firewall di rete, antimalware, sistemi di rilevamento delle intrusioni, sistemi di prevenzione e altro ancora. Per altre informazioni, vedere [Protect your data and assets and comply with global security standards](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity) (Proteggere dati e asset e rispettare gli standard di sicurezza globali).
 
-Microsoft esegue un monitoraggio continuo di server, reti e applicazioni per rilevare le minacce. L'approccio di gestione delle minacce su più fronti adottato in Azure prevede l'uso di funzionalità di rilevamento delle intrusioni, prevenzione contro attacchi Distributed Denial of Service (DDoS), test di penetrazione, analisi comportamentali, rilevamento di anomalie e apprendimento automatico al fine di rafforzare continuamente le difese e ridurre i rischi. Microsoft Antimalware per Azure protegge i servizi cloud e le macchine virtuali di Azure. In aggiunta è possibile distribuire soluzioni di terze parti, come web application firewall, firewall di rete, antimalware, sistemi di rilevamento e prevenzione delle intrusioni e altro ancora.
+Microsoft monitora costantemente server, reti e applicazioni per rilevare i rischi. L'approccio di gestione delle minacce su più fronti adottato in Azure prevede l'uso di funzionalità di rilevamento delle intrusioni, prevenzione contro attacchi Distributed Denial of Service (DDoS), test di penetrazione, analisi comportamentali, rilevamento di anomalie e apprendimento automatico al fine di rafforzare continuamente le difese e ridurre i rischi. Microsoft Antimalware per Azure protegge i servizi cloud e le macchine virtuali di Azure. In aggiunta è possibile distribuire soluzioni di terze parti, come web application firewall, firewall di rete, antimalware, sistemi di rilevamento e prevenzione delle intrusioni e altro ancora.
 
 ### <a name="how-to-enable-http2-on-cloud-services-vm"></a>Come è possibile abilitare HTTP/2 nella macchina virtuale di Servizi cloud di Microsoft Azure?
 
 Windows 10 e Windows Server 2016 includono il supporto per HTTP/2 sia sul lato client sia sul lato server. Se il client (browser) si connette al server IIS mediante il protocollo TLS che negozia HTTP/2 tramite le estensioni TLS, non è necessario apportare modifiche sul lato server. Con il protocollo TLS infatti come impostazione predefinita viene inviata l'intestazione h2-14 che specifica l'utilizzo di HTTP/2. Se invece il client invia un'intestazione di aggiornamento per eseguire l'aggiornamento a HTTP/2, è necessario apportare la modifica di seguito sul lato server per garantire il funzionamento dell'aggiornamento e la disponibilità di una connessione HTTP/2. 
 
 1. Eseguire regedit.exe.
-2. Passare alla chiave del Registro di sistema: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
+2. Individuare la chiave del Registro di sistema: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
 3. Creare un nuovo valore DWORD denominato **DuoEnabled**.
 4. Impostare il relativo valore su 1.
 5. Riavviare il server.
 6. Passare al **sito Web predefinito** e in **Associazioni** creare una nuova associazione TLS con il certificato autofirmato appena creato. 
 
-Per altre informazioni, vedere:
+Per scoprire di più, vedi:
 
 - [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2) (HTTP/2 in IIS)
-- [Video: HTTP/2 in Windows 10: Browser, App e Server Web](https://channel9.msdn.com/Events/Build/2015/3-88)
+- [Video: HTTP/2 in Windows 10: Browser, Apps and Web Server](https://channel9.msdn.com/Events/Build/2015/3-88) (Video: HTTP/2 in Windows 10: Browser, app e server Web)
          
 
 È possibile automatizzare i passaggi precedenti tramite un'attività di avvio in modo che ogni volta che viene creata una nuova istanza PaaS, l'attività possa eseguire le modifiche indicate in precedenza nel Registro di sistema. Per altre informazioni, vedere [Come configurare ed eseguire attività di avvio per un servizio cloud](cloud-services-startup-tasks.md).
@@ -211,7 +211,7 @@ Dopo questa operazione è possibile verificare l'abilitazione del protocollo HTT
 
 Per altre informazioni, vedere [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2) (HTTP/2 in IIS).
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>autorizzazioni
 
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Come si implementa l'accesso in base al ruolo per Servizi cloud?
 Servizi cloud non supporta il modello di controllo degli accessi in base al ruolo, perché non è un servizio basato su Azure Resource Manager.
@@ -230,7 +230,7 @@ Questo errore può verificarsi se si usa il file RDP da un computer aggiunto ad 
 1. Fare clic con il pulsante destro del mouse sul file RDP scaricato e quindi scegliere **Modifica**.
 2. Aggiungere "&#92;" come prefisso prima del nome utente. Ad esempio, usare **.\nomeutente** invece di **nomeutente**.
 
-## <a name="scaling"></a>Ridimensionamento
+## <a name="scaling"></a>Scalabilità
 
 ### <a name="i-cannot-scale-beyond-x-instances"></a>Impossibile eseguire la scalabilità per un numero di istanze superiore a X
 La sottoscrizione di Azure presenta un limite al numero di memorie centrali che è possibile usare. Se vengono usate tutte le memorie centrali disponibili, la scalabilità non funziona. Ad esempio, se si dispone di un limite di 100 memorie centrali, vuol dire che è possibile avere 100 istanze di macchina virtuale con dimensioni A1 per il servizio cloud o 50 istanze di macchine virtuali con dimensioni A2.
@@ -281,7 +281,7 @@ Vedere [Limiti specifici del servizio](../azure-subscription-service-limits.md#s
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Perché l'unità della macchina virtuale del servizio cloud ha pochissimo spazio libero su disco?
 Questo comportamento è previsto e non dovrebbe causare alcun problema all'applicazione. L'inserimento nel giornale di registrazione è attivato per l'unità %approot% nelle macchine virtuali PaaS di Azure e ciò comporta essenzialmente l'utilizzo del doppio della quantità di spazio normalmente occupata dai file. Ci sono tuttavia alcuni aspetti da considerare che permettono di capire come questo non sia un vero problema.
 
-Le dimensioni dell'unità% AppRoot% vengono calcolate con \<dimensioni pari a. cspkg + max journal size + un margine di spazio libero > o 1,5 GB, a seconda del valore maggiore. Le dimensioni della VM non sono rilevanti per questo calcolo. Le dimensioni della VM influiscono solo sulle dimensioni del disco C temporaneo. 
+Le dimensioni dell'unità% AppRoot% vengono calcolate come \<dimensioni di. cspkg + max journal size + un margine di spazio libero > o 1,5 GB, a seconda del valore maggiore. Le dimensioni della VM non sono rilevanti per questo calcolo. Le dimensioni della VM influiscono solo sulle dimensioni del disco C temporaneo. 
 
 La scrittura nell'unità %approot% non è supportata. Se si scrive nella VM di Azure, è necessario farlo in una risorsa LocalStorage temporanea (o in un'altra posizione, ad esempio archiviazione BLOB, File di Azure e così via). La quantità di spazio disponibile nella cartella %approot% non è quindi significativa. Se non si è certi del fatto che l'applicazione scriva nell'unità %approot%, è possibile lasciare il servizio in esecuzione per alcuni giorni e quindi confrontare le dimensioni prima e dopo. 
 
@@ -313,9 +313,9 @@ Come descritto [qui](https://technet.microsoft.com/library/ee790567.aspx), $sslF
 |Value|Significato|
 ------|------
 |0|Nessuna indicazione nome server|
-|1|Indicazione nome server abilitata |
-|2 |Associazione non SNI che usa l'archivio certificati centrale|
-|3|Associazione SNI che usa l'archivio certificati centrale |
+|1|Indicazione nome server abilitata|
+|2|Associazione non SNI che usa l'archivio certificati centrale|
+|3|Associazione SNI che usa l'archivio certificati centrale|
  
 **Metodo 2: Usare il codice**
 
@@ -325,8 +325,8 @@ Come descritto [qui](https://technet.microsoft.com/library/ee790567.aspx), $sslF
     //<code snip> 
                     var serverManager = new ServerManager(); 
                     var site = serverManager.Sites[0]; 
-                    var binding = site.Bindings.Add(“:443:www.test1.com”, newCert.GetCertHash(), “My”); 
-                    binding.SetAttributeValue(“sslFlags”, 1); //enables the SNI 
+                    var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
+                    binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
                     serverManager.CommitChanges(); 
     //</code snip> 
     

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: eaf4ba303caa405a170322828add944487908365
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 6b64eb955476a8ab5307b7d508484c290fd7660a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968591"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162165"
 ---
 # <a name="tag-support-for-azure-resources"></a>Supporto dei tag per le risorse di Azure
 Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-using-tags.md). La colonna con etichetta **supporta i tag** indica se il tipo di risorsa ha una proprietà per il tag. La colonna etichetta **nel report dei costi** indica se il tipo di risorsa passa il tag al report dei costi.
@@ -1445,7 +1445,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | publicIPPrefixes | SÌ | SÌ |
 > | routeFilters | SÌ | SÌ |
 > | routeTables | SÌ | SÌ |
-> | secureGateways | SÌ | SÌ |
 > | serviceEndpointPolicies | SÌ | SÌ |
 > | trafficManagerGeographicHierarchies | No | No |
 > | trafficmanagerprofiles | SÌ | SÌ |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 0fec7234d18659051c61fda593b1ba0fb846c220
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9dcefb2d47b6862466b64b3568e1a530a2fdb8cb
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964254"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161591"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Come configurare ExpressRoute Direct
 
@@ -26,7 +26,7 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
    ```powershell
    Connect-AzAccount 
 
-   Select-AzSubscription -Subscription “<SubscriptionID or SubscriptionName>”
+   Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
 2. Elencare tutte le località in cui è supportato ExpressRoute Direct.
   
@@ -163,10 +163,10 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
    Links[0] è la porta primaria e Links[1] è la porta secondaria.
 
    ```powershell
-   $ERDirect.Links[0].AdminState = “Enabled”
+   $ERDirect.Links[0].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
-   $ERDirect.Links[1].AdminState = “Enabled”
+   $ERDirect.Links[1].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    ```
    **Output di esempio**:
@@ -218,17 +218,17 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
    Circuits                   : []
    ```
 
-   Utilizzare la stessa procedura con `AdminState = “Disabled”` per rifiutare le porte.
+   Utilizzare la stessa procedura con `AdminState = "Disabled"` per rifiutare le porte.
 
 ## <a name="circuit"></a>Creare un circuito
 
 Per impostazione predefinita, è possibile creare dieci circuiti nella sottoscrizione in cui si trova la risorsa di ExpressRoute Direct. Il limite può essere aumentato contattando il supporto tecnico. Si è responsabili del monitoraggio della larghezza di banda con provisioning e di quella utilizzata. La larghezza di banda con provisioning è la somma della larghezza di banda di tutti i circuiti della risorsa ExpressRoute Direct e la larghezza di banda utilizzata è l'utilizzo fisico delle interfacce fisiche sottostanti.
 
-Esistono altre larghezze di banda del circuito che è possibile utilizzare in ExpressRoute Direct solo per supportare gli scenari descritti in precedenza. Si tratta di: 40 Gbps e 100 Gbps.
+Esistono altre larghezze di banda del circuito che è possibile utilizzare in ExpressRoute Direct solo per supportare gli scenari descritti in precedenza. Sono: 40 Gbps e 100 Gbps.
 
-**SkuTier** può essere locale, Standard o Premium.
+**SkuTier** può essere locale, standard o Premium.
 
-**SkuFamily** deve essere MeteredData solo come illimitato non è supportato su ExpressRoute Direct.
+**SkuFamily** deve essere MeteredData solo se illimitato non è supportato in ExpressRoute Direct.
 
 Creare un circuito nella risorsa di ExpressRoute Direct.
 
@@ -236,7 +236,7 @@ Creare un circuito nella risorsa di ExpressRoute Direct.
   New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
   ```
 
-  Altre larghezze di banda sono 5.0, 10.0 e 40.0.
+  Altre larghezze di banda sono 5.0, 10.0 e 40.0
 
   **Output di esempio**:
 

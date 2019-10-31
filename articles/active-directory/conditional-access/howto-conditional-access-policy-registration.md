@@ -5,28 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f54ad6de21f05c76ca021e172a041563e3d688a8
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 771e4e0ecbda4baf1f38aacd1f39397875bbd0dc
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576563"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150771"
 ---
-# <a name="conditional-access-require-trusted-location-for-mfa-registration"></a>Accesso condizionale: Richiedi percorso attendibile per la registrazione con autenticazione a più fattori
+# <a name="conditional-access-require-trusted-location-for-mfa-registration"></a>Accesso condizionale: Richiedi un percorso attendibile per la registrazione a più fattori
 
-È ora possibile proteggere quando e come gli utenti registrano per Azure Multifactor Authentication e la reimpostazione della password self-service con le azioni dell'utente nei criteri di accesso condizionale. Questa funzionalità di anteprima è disponibile per le organizzazioni che hanno abilitato l' [anteprima della registrazione combinata](../authentication/concept-registration-mfa-sspr-combined.md). Questa funzionalità può essere abilitata nelle organizzazioni in cui si vuole che gli utenti registrino Azure Multifactor Authentication e SSPR da una posizione centrale, ad esempio un percorso di rete attendibile durante l'onboarding delle risorse umane. Per ulteriori informazioni sulla creazione di percorsi attendibili nell'accesso condizionale, vedere l'articolo [Qual è la condizione di posizione in Azure Active Directory l'accesso condizionale?](../conditional-access/location-condition.md#named-locations)
+È ora possibile proteggere quando e come gli utenti si registrano per Azure Multi-Factor Authentication e la reimpostazione della password self-service con le azioni dell'utente nei criteri di accesso condizionale. Questa funzionalità di anteprima è disponibile per le organizzazioni che hanno abilitato l' [anteprima della registrazione combinata](../authentication/concept-registration-mfa-sspr-combined.md). Questa funzionalità può essere abilitata nelle organizzazioni in cui si vuole che gli utenti si registrino per Multi-Factor Authentication di Azure e SSPR da una posizione centrale, ad esempio un percorso di rete attendibile durante l'onboarding delle risorse umane. Per ulteriori informazioni sulla creazione di percorsi attendibili nell'accesso condizionale, vedere l'articolo [Qual è la condizione di posizione in Azure Active Directory l'accesso condizionale?](../conditional-access/location-condition.md#named-locations)
 
 ## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Creare un criterio per richiedere la registrazione da un percorso attendibile
 
 I criteri seguenti si applicano a tutti gli utenti selezionati, che tentano di eseguire la registrazione usando l'esperienza di registrazione combinata e bloccano l'accesso a meno che non si connettano da un percorso contrassegnato come rete attendibile.
 
-1. Nella **portale di Azure**individuare **Azure Active Directory** > **accesso condizionale**.
+1. Nella **portale di Azure**individuare **Azure Active Directory** > **l'accesso condizionale**.
 1. Selezionare **Nuovi criteri**.
 1. In nome immettere un nome per il criterio. Ad esempio, la **registrazione delle informazioni di sicurezza combinata su reti attendibili**.
 1. In **assegnazioni**fare clic su **utenti e gruppi**e selezionare gli utenti e i gruppi a cui si desidera applicare questo criterio.
@@ -35,13 +35,13 @@ I criteri seguenti si applicano a tutti gli utenti selezionati, che tentano di e
    > Gli utenti devono essere abilitati per l' [anteprima della registrazione combinata](../authentication/howto-registration-mfa-sspr-combined.md).
 
 1. In **azioni o app Cloud**selezionare **azioni utente**, selezionare **registra informazioni di sicurezza (anteprima)** .
-1. In**posizioni**delle **condizioni** > .
+1. In **condizioni** > **località**.
    1. Configurare **Sì**.
    1. Includere **qualsiasi percorso**.
    1. Escludere **tutti i percorsi attendibili**.
    1. Fare clic su **fine** nel pannello percorsi.
    1. Fare clic su **fine** nel pannello condizioni.
-1. In **controllo** > di accesso**concedere**.
+1. In **Access controls** > **Grant**.
    1. Fare clic su **Blocca accesso**.
    1. Quindi fare clic su **Seleziona**.
 1. Impostare **Abilita criterio** **su on**.

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.openlocfilehash: 371ba46b477b5dba245a116d2ea9d21d2b732a97
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 41cb27096782f525a531f38efda539c065fa4c72
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337670"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163611"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernel per il notebook di Jupyter nei cluster Apache Spark in Azure HDInsight
 
@@ -53,13 +53,13 @@ Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato
 
 Ecco alcuni vantaggi associati all'uso dei nuovi kernel con il notebook di Jupyter nei cluster HDInsight Spark.
 
-- **Contesti predefiniti**. Con i kernel **PySpark**, **PySpark3** e **Spark** non è necessario impostare i contesti Spark o Hive in modo esplicito prima di iniziare a usare le applicazioni. I contesti sono disponibili per impostazione predefinita. Questi contesti sono:
+- **Contesti predefiniti**. Con **PySpark**, **PySpark3**o i kernel **Spark** , non è necessario impostare i contesti Spark o hive in modo esplicito prima di iniziare a lavorare con le applicazioni. I contesti sono disponibili per impostazione predefinita. Questi contesti sono:
 
-  * **sc** : per il contesto Spark
-  * **sqlContext** : per il contesto Hive
-   
+  - **sc** : per il contesto Spark
+  - **sqlContext** : per il contesto Hive
+
     Quindi non è necessario eseguire istruzioni simili alle seguenti per impostare i contesti:
-   
+
          sc = SparkContext('yarn-client')
          sqlContext = HiveContext(sc)
 
@@ -69,15 +69,15 @@ Ecco alcuni vantaggi associati all'uso dei nuovi kernel con il notebook di Jupyt
 
     La tabella seguente elenca i diversi magic disponibili tramite i kernel.
 
-   | Magic | Esempio | Descrizione |
+   | Magic | Esempio | Description |
    | --- | --- | --- |
-   | guida |`%%help` |Genera una tabella di tutti i magic disponibili con esempi e descrizioni |
-   | informazione |`%%info` |Visualizza informazioni sulla sessione per l'endpoint Livy corrente |
-   | configura |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configura i parametri per la creazione di una sessione. Il flag force (-f) è obbligatorio se è già stata creata una sessione, affinché tale sessione venga eliminata e ricreata. Visitare la pagina relativa al [corpo della richiesta POST/sessions di Livy](https://github.com/cloudera/livy#request-body) per un elenco dei parametri validi. I parametri devono essere passati come una stringa JSON e devono essere nella riga successiva al magic, come illustrato nella colonna di esempio. |
+   | help |`%%help` |Genera una tabella di tutti i magic disponibili con esempi e descrizioni |
+   | info |`%%info` |Visualizza informazioni sulla sessione per l'endpoint Livy corrente |
+   | CONFIGURA |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configura i parametri per la creazione di una sessione. Il flag force (-f) è obbligatorio se è già stata creata una sessione, affinché tale sessione venga eliminata e ricreata. Visitare la pagina relativa al [corpo della richiesta POST/sessions di Livy](https://github.com/cloudera/livy#request-body) per un elenco dei parametri validi. I parametri devono essere passati come una stringa JSON e devono essere nella riga successiva al magic, come illustrato nella colonna di esempio. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Esegue una query Hive su sqlContext. Se viene passato il parametro `-o` , il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati [Pandas](https://pandas.pydata.org/) . |
-   | locale |`%%local`<br>`a=1` |Tutto il codice presente nelle righe successive viene eseguito localmente. Deve trattarsi di codice Python2 valido indipendentemente dal kernel usato. Quindi, anche se si selezionano kernel **PySpark3** o **Spark** durante la creazione del notebook, se si usa la magia `%%local` in una cella, tale cella deve avere solo codice python2 valido. |
-   | logs |`%%logs` |Visualizza i log per la sessione Livy corrente. |
-   | delete |`%%delete -f -s <session number>` |Elimina una sessione specifica dell'endpoint Livy corrente. Non è possibile eliminare la sessione avviata dal kernel stesso. |
+   | local |`%%local`<br>`a=1` |Tutto il codice presente nelle righe successive viene eseguito localmente. Il codice deve essere un codice python2 valido anche indipendentemente dal kernel usato. Quindi, anche se si selezionano kernel **PySpark3** o **Spark** durante la creazione del notebook, se si usa il `%%local` Magic in una cella, tale cella deve avere solo codice python2 valido. |
+   | log |`%%logs` |Visualizza i log per la sessione Livy corrente. |
+   | delete |`%%delete -f -s <session number>` |Elimina una sessione specifica dell'endpoint Livy corrente. Non è possibile eliminare la sessione avviata per il kernel stesso. |
    | cleanup |`%%cleanup -f` |Elimina tutte le sessioni per l'endpoint Livy corrente, inclusa quella del notebook. Il flag di forzatura -f è obbligatorio. |
 
    > [!NOTE]  
@@ -89,13 +89,13 @@ Ecco alcuni vantaggi associati all'uso dei nuovi kernel con il notebook di Jupyt
 
 Il magic `%%sql` supporta parametri diversi che è possibile usare per controllare la tipologia di output che si riceve quando si eseguono query. La tabella seguente elenca l'output.
 
-| Parametro | Esempio | Descrizione |
+| Parametro | Esempio | Description |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |Usare questo parametro per salvare in modo permanente il risultato della query nel contesto Python %%local come frame di dati [Pandas](https://pandas.pydata.org/) . Il nome della variabile del frame di dati è il nome della variabile specificato. |
-| -q |`-q` |Consente di disattivare le visualizzazioni per la cella. Se non si vuole visualizzare in modo autonomo il contenuto di una cella e si vuole semplicemente acquisirlo come dataframe, usare `-q -o <VARIABLE>`. Se si vogliono disattivare le visualizzazioni senza acquisire i risultati, ad esempio per l'esecuzione di una query SQL come un'istruzione `CREATE TABLE`, usare `-q` senza specificare un argomento `-o`. |
+| -q |`-q` |Consente di disattivare le visualizzazioni per la cella. Se non si vuole visualizzare il contenuto di una cella e si vuole semplicemente acquisirla come frame di dati, usare `-q -o <VARIABLE>`. Se si vogliono disattivare le visualizzazioni senza acquisire i risultati, ad esempio per l'esecuzione di una query SQL come un'istruzione `CREATE TABLE`, usare `-q` senza specificare un argomento `-o`. |
 | -m |`-m <METHOD>` |Dove **METHOD** è **take** o **sample**. L'impostazione predefinita è **take**. Se il metodo è **take**, il kernel sceglie gli elementi dall'inizio del set di dati dei risultati specificato da MAXROWS, descritto più avanti in questa tabella. Se il metodo è **sample**, il kernel campiona in modo casuale gli elementi del set di dati in base al parametro `-r` descritto di seguito in questa tabella. |
 | -r |`-r <FRACTION>` |Qui **FRACTION** è un numero a virgola mobile compreso tra 0,0 e 1,0. Se il metodo di campionamento per la query SQL è `sample`, il kernel campiona automaticamente in modo casuale la frazione specificata degli elementi del set di risultati. Se si esegue una query SQL con gli argomenti `-m sample -r 0.01`, ad esempio, viene campionato in modo casuale l'1% delle righe dei risultati. |
-| -n |`-n <MAXROWS>` |**MAXROWS** è un valore intero. Il kernel limita il numero di righe di output a **MAXROWS**. Se **MAXROWS** è un numero negativo, ad esempio **-1**, il numero di righe nel set di risultati non è limitato. |
+| -n |`-n <MAXROWS>` |**MAXROWS** è un valore intero. Il kernel limita il numero di righe di output a **MAXROWS**. Se **MaxRows** è un numero negativo, ad esempio **-1**, il numero di righe nel set di risultati non è limitato. |
 
 **Esempio:**
 
@@ -104,14 +104,14 @@ Il magic `%%sql` supporta parametri diversi che è possibile usare per controlla
 
 L'istruzione precedente esegue le operazioni seguenti:
 
-* Seleziona tutti i record da **hivesampletable**.
-* Dal momento che si usa-q, disattiva la visualizzazione del grafico.
-* Dal momento che si usa `-m sample -r 0.1 -n 500` , campiona in modo casuale il 10% delle righe di hivesampletable e limita la dimensione del set di risultati a 500 righe.
-* Infine, poiché è stato usato `-o query2` , salva anche l'oputput in un frame di dati denominato **query2**.
+- Seleziona tutti i record da **hivesampletable**.
+- Dal momento che si usa-q, disattiva la visualizzazione del grafico.
+- Dal momento che si usa `-m sample -r 0.1 -n 500` , campiona in modo casuale il 10% delle righe di hivesampletable e limita la dimensione del set di risultati a 500 righe.
+- Infine, poiché è stato usato `-o query2` , salva anche l'oputput in un frame di dati denominato **query2**.
 
 ## <a name="considerations-while-using-the-new-kernels"></a>Considerazioni per l'uso dei nuovi kernel
 
-Indipendentemente dal kernel usato, se si lasciano i notebook in esecuzione vengono utilizzate risorse del cluster.  Con questi kernel, dato che i contesti sono preimpostati, uscendo semplicemente dal notebook non viene terminato il contesto e quindi le risorse del cluster restano in uso. Quando non è più necessario usare il notebook, è consigliabile scegliere l'opzione **Close and Halt** (Chiudi e interrompi) dal menu **File** del notebook, in modo da terminare il contesto e uscire quindi dal notebook.
+Indipendentemente dal kernel usato, se si lasciano i notebook in esecuzione vengono utilizzate risorse del cluster.  Con questi kernel, poiché i contesti sono preimpostati, la semplice chiusura dei notebook non termina il contesto e pertanto le risorse del cluster continuano a essere utilizzate. Una procedura consigliata consiste nell'usare l'opzione **Chiudi e Interrompi** dal menu **file** del notebook al termine dell'uso del notebook, che interrompe il contesto e quindi esce dal notebook.
 
 ## <a name="where-are-the-notebooks-stored"></a>Dove sono archiviati i notebook
 
@@ -138,29 +138,29 @@ I nuovi kernel sono ancora in una fase iniziale e si evolveranno nel tempo. Ques
 
 ## <a name="seealso"></a>Vedere anche
 
-* [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
+- [Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenari
 
-* [Apache Spark con BI: Eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](apache-spark-use-bi-tools.md)
-* [Apache Spark con Machine Learning: usare Spark in HDInsight per analizzare la temperatura di un edificio con dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark con apprendimento automatico: usare Spark in HDInsight per stimare i risultati di controllo degli alimenti](apache-spark-machine-learning-mllib-ipython.md)
-* [Analisi dei log del sito Web con Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
+- [Apache Spark con BI: eseguire l'analisi interattiva dei dati mediante Spark in HDInsight con strumenti di BI](apache-spark-use-bi-tools.md)
+- [Apache Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md) (Apache Spark con Machine Learning: usare Spark in HDInsight per analizzare la temperatura di un edificio usando dati HVAC)
+- [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](apache-spark-machine-learning-mllib-ipython.md)
+- [Analisi dei log del sito Web con Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Creare ed eseguire applicazioni
 
-* [Creare un'applicazione autonoma con Scala](apache-spark-create-standalone-application.md)
-* [Eseguire processi in modalità remota in un cluster Apache Spark usando Apache Livy](apache-spark-livy-rest-interface.md)
+- [Creare un'applicazione autonoma con Scala](apache-spark-create-standalone-application.md)
+- [Eseguire processi in modalità remota in un cluster Apache Spark usando Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Strumenti ed estensioni
 
-* [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](apache-spark-intellij-tool-plugin.md)
-* [Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Apache Spark in remoto](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Usare i notebook di Apache Zeppelin con un cluster Apache Spark in HDInsight](apache-spark-zeppelin-notebook.md)
-* [Usare pacchetti esterni con i notebook Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
-* [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](apache-spark-jupyter-notebook-install-locally.md)
+- [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark Scala](apache-spark-intellij-tool-plugin.md)
+- [Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Apache Spark in remoto](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+- [Usare i notebook di Apache Zeppelin con un cluster Apache Spark in HDInsight](apache-spark-zeppelin-notebook.md)
+- [Usare pacchetti esterni con i notebook Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
+- [Installare Jupyter nel computer e connetterlo a un cluster HDInsight Spark](apache-spark-jupyter-notebook-install-locally.md)
 
-### <a name="manage-resources"></a>Gestisci risorse
+### <a name="manage-resources"></a>Gestire risorse
 
-* [Gestire le risorse del cluster Apache Spark in Azure HDInsight](apache-spark-resource-manager.md)
-* [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](apache-spark-job-debugging.md)
+- [Gestire le risorse del cluster Apache Spark in Azure HDInsight](apache-spark-resource-manager.md)
+- [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](apache-spark-job-debugging.md)

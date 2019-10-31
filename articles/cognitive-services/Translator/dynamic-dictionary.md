@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: f586702350b38c6d546767f64a8e2f6115b59817
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: c268616c015c1c8735b2bdddc057f235d02cdc2a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595298"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161749"
 ---
 # <a name="how-to-use-a-dynamic-dictionary"></a>Come usare un dizionario dinamico
 
@@ -23,12 +23,12 @@ Se si conosce già la traduzione che si vuole applicare a una parola o una frase
 
 **Sintassi:**
 
-<mstrans:dictionary translation=”translation of phrase”>frase</mstrans:dictionary>
+< msTrans: Dictionary Translation = "translation of phrase" > phrase </msTrans: Dictionary >
 
 **Requisiti**
 
-* Le `From` lingue `To` e devono essere diverse. 
-* È necessario includere il `From` parametro nella richiesta di traduzione dell'API invece di usare la funzionalità di rilevamento automatico. 
+* Le lingue `From` e `To` devono essere diverse. 
+* È necessario includere il parametro `From` nella richiesta di traduzione dell'API invece di usare la funzionalità di rilevamento automatico. 
 
 **Esempio: en-de:**
 

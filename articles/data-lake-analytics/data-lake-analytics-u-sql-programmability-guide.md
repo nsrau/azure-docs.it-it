@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc55615d7a5c6ae9a393ed4fd5f49cd92aedc0f9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811608"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162572"
 ---
 # <a name="u-sql-programmability-guide"></a>Guida alla programmabilità di U-SQL
 
@@ -133,9 +133,9 @@ Come indicato in precedenza, U-SQL esegue il codice in un formato a 64 bit (x64)
 
 Ogni DLL di assembly e file di risorse caricato (ad esempio un diverso runtime, un assembly nativo o un file di configurazione) può essere al massimo di 400 MB. Le dimensioni totali delle risorse distribuite, tramite DEPLOY RESOURCE o riferimenti agli assembly e ai relativi file aggiuntivi, non possono superare 3 GB.
 
-Si noti infine che ogni database U-SQL può contenere solo una versione di un determinato assembly. Ad esempio, se è necessario sia versioni 7 e 8 della libreria NewtonSoft Json.NET, è necessario registrarli in due database diversi. Ogni script, inoltre, può fare riferimento a una sola versione di una determinata DLL di assembly. A tale riguardo, U-SQL segue la semantica di gestione e controllo delle versioni degli assembly di C#.
+Si noti infine che ogni database U-SQL può contenere solo una versione di un determinato assembly. Se, ad esempio, sono necessarie sia la versione 7 che la versione 8 della libreria NewtonSoft Json.NET, è necessario registrarle in due database diversi. Ogni script, inoltre, può fare riferimento a una sola versione di una determinata DLL di assembly. A tale riguardo, U-SQL segue la semantica di gestione e controllo delle versioni degli assembly di C#.
 
-## <a name="use-user-defined-functions-udf"></a>Usare funzioni definite dall'utente: UDF
+## <a name="use-user-defined-functions-udf"></a>Usare funzioni definite dall'utente (UDF)
 Le funzioni definite dall'utente (UDF) di U-SQL sono routine di programmazione che accettano parametri, eseguono un'azione, ad esempio un calcolo complesso, e restituiscono il risultato di tale azione come valore. Il valore restituito della funzione UDF può essere solo un valore scalare singolo. Una funzione UDF di U-SQL può essere chiamata nello script di base di U-SQL come qualsiasi altra funzione scalare di C#.
 
 È consigliabile inizializzare le funzioni definite dall'utente di U-SQL come **public** e **static**.
@@ -426,7 +426,7 @@ Il file di output è il seguente:
 
 Questo esempio illustra lo scenario di un caso d'uso più complesso in cui si usa una variabile globale in una sezione code-behind applicata all'intero set di righe della memoria.
 
-## <a name="use-user-defined-types-udt"></a>Usare tipi definiti dall'utente: UDT
+## <a name="use-user-defined-types-udt"></a>Usare tipi definiti dall'utente (UDT)
 I tipi definiti dall'utente (UDT) sono un'altra funzionalità di programmabilità di U-SQL. L'UDT U-SQL funziona come un normale tipo definito dall'utente C#. C# è un linguaggio fortemente tipizzato che consente l'uso di tipi incorporati e personalizzati definiti dall'utente.
 
 U-SQL non può serializzare o deserializzare implicitamente tipi definiti dall'utente arbitrari quando il tipo definito dall'utente viene passato tra i vertici nei set di righe. Di conseguenza, l'utente deve specificare un formattatore esplicito usando l'interfaccia IFormatter. Questo fornisce a U-SQL i metodi di serializzazione e deserializzazione per il tipo definito dall'utente.
@@ -504,7 +504,7 @@ Il costruttore della classe:
 
 * SqlUserDefinedTypeAttribute (formattatore di tipo)
 
-* Formattatore di tipo: parametro obbligatorio per definire un formattatore UDT. Nello specifico, il tipo dell'interfaccia `IFormatter` deve essere passato qui.
+* Formattatore di tipo: parametro obbligatorio per definire un formattatore UDT. Nello specifico, qui deve essere passato il tipo dell'interfaccia `IFormatter`.
 
 ```
 [SqlUserDefinedType(typeof(MyTypeFormatter))]
@@ -527,11 +527,11 @@ public class MyTypeFormatter : IFormatter<MyType>
 
 L'interfaccia `IFormatter` serializza e deserializza un oggetto grafico con il tipo radice \<typeparamref name="T">.
 
-\<typeparam name="T"&gt; il tipo radice per l'oggetto grafico da serializzare e deserializzare.
+\<typeparam name="T"> il tipo radice per l'oggetto grafico da serializzare e deserializzare.
 
-* **Deserialize**: deserializza i dati nel flusso fornito e ricostruisce il grafo di oggetti.
+* **Deserialize**: deserializza i dati nel flusso fornito e ricostruisce il grafico degli oggetti.
 
-* **Serialize**: serializza un oggetto o un grafo di oggetti con la radice specificata nel flusso fornito.
+* **Serialize**: serializza un oggetto o un grafico di oggetti con la radice specificata nel flusso fornito.
 
 `MyType` instance: istanza del tipo.  
 `IColumnWriter` writer/`IColumnReader` reader: flusso di colonna sottostante.  
@@ -895,7 +895,7 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-## <a name="use-user-defined-aggregates-udagg"></a>Usare aggregazioni definite dall'utente: UDAGG
+## <a name="use-user-defined-aggregates-udagg"></a>Usare aggregazioni definite dall'utente (UDAGG)
 Le aggregazioni definite dall'utente sono funzioni correlate all'aggregazione che non sono già incluse in U-SQL. Può trattarsi ad esempio di una funzione di aggregazione per eseguire calcoli matematici personalizzati, concatenazioni di stringa o modifiche con stringhe e così via.
 
 La definizione della classe base delle aggregazioni definite dall'utente è la seguente:
@@ -946,16 +946,16 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
 * T1: primo parametro per Accumulate
-* T2: secondo parametro per Accumulate
+* T2: secondo parametro da accumulare
 * TResult: tipo restituito di Terminate
 
-Ad esempio:
+ad esempio:
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>
 ```
 
-oppure
+Oppure
 
 ```
 public class GuidAggregate : IAggregate<string, string, string>
@@ -1025,7 +1025,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 
 Nello scenario di questo caso d'uso, vengono concatenati GUID di classe per gli utenti specifici.
 
-## <a name="use-user-defined-objects-udo"></a>Usare oggetti definiti dall'utente: UDO
+## <a name="use-user-defined-objects-udo"></a>Usare oggetti definiti dall'utente (UDO)
 U-SQL consente di definire oggetti di programmabilità personalizzati, denominati oggetti definiti dall'utente (UDO).
 
 Di seguito è riportato un elenco degli oggetti definiti dall'utente in U-SQL:
@@ -1057,7 +1057,7 @@ Un oggetto definito dall'utente viene in genere chiamato in modo esplicito negli
 
 * EXTRACT
 * OUTPUT
-* PROCESS
+* PROCESSO
 * COMBINE
 * REDUCE
 
@@ -1067,11 +1067,11 @@ Un oggetto definito dall'utente viene in genere chiamato in modo esplicito negli
 ## <a name="use-user-defined-extractors"></a>Usare estrattori definiti dall'utente
 U-SQL consente di importare dati esterni con un'istruzione EXTRACT. L'istruzione EXTRACT consente di usare estrattori UDO predefiniti.  
 
-* *Extractors.Text()* : consente di eseguire l'estrazione da file di testo delimitati di varie codifiche.
+* *Extractors.Text()* : consente di estrarre da file di testo delimitati di varie codifiche.
 
-* *Extractors.Csv()* : consente di eseguire l'estrazione da file di testo delimitati da virgole (con estensione csv) di varie codifiche.
+* *Extractors.Csv()* : consente di estrarre da file di testo delimitati da virgole (CSV) di varie codifiche.
 
-* *Extractors.Tsv()* : consente di eseguire l'estrazione da file di testo delimitati da tabulazioni (con estensione tsv) di varie codifiche.
+* *Extractors.Tsv()* : consente di estrarre da file di testo delimitati da tabulazioni (TSV) di varie codifiche.
 
 Può essere utile per sviluppare un estrattore personalizzato. Questo può essere opportuno durante un'importazione di dati, se si vuole eseguire una o più delle attività seguenti:
 
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>Usare outputter definiti dall'utente
 L'outputter definito dall'utente è un altro oggetto definito dall'utente di U-SQL che consente di estendere una funzionalità predefinita di U-SQL. Come per l'estrattore, esistono diversi outputter integrati.
 
-* *Outputters.Text()* : scrive i dati in file di testo delimitati di varie codifiche.
-* *Outputters.Csv()* : scrive i dati in file di testo delimitati da virgole (con estensione csv) di varie codifiche.
-* *Outputters.Tsv()* : scrive i dati in file di testo delimitati da tabulazioni (con estensione tsv) di varie codifiche.
+* *Outputters.Text()* : scrive i dati in file di testo delimitati di codifiche diverse.
+* *Outputters.Csv()* : scrive i dati in file di testo delimitati da virgole (CSV) di codifiche diverse.
+* *Outputters.Tsv()* : scrive i dati in file di testo delimitati da tabulazioni (TSV) di codifiche diverse.
 
 L'outputter personalizzato consente di scrivere i dati in un formato definito personalizzato. Questo può essere utile per le attività seguenti:
 
@@ -1788,13 +1788,13 @@ Si tratta di un normale file con valori delimitati da tabulazioni (TSV) con una 
 L'oggetto di applicazione definito dall'utente può essere chiamato come nuova istanza dell'oggetto di applicazione:
 
 ```
-CROSS APPLY new MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
+CROSS APPLY new MyNameSpace.MyApplier (parameter: "value") AS alias([columns types]…);
 ```
 
 In alternativa, è possibile usare la chiamata a un metodo factory wrapper:
 
 ```csharp
-    CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
+    CROSS APPLY MyNameSpace.MyApplier (parameter: "value") AS alias([columns types]…);
 ```
 
 ## <a name="use-user-defined-combiners"></a>Usare combinatori definiti dall'utente

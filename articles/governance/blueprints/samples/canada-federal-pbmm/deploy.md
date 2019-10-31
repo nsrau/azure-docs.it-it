@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: e2c061b69771214a770b3b42626d28672bd9fe77
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 22806f497283c1885446eadd5f444dacf3769c12
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72297819"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163333"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Distribuire gli esempi di progetto Federal PBMM per il Canada
 
@@ -38,9 +38,9 @@ Prima di tutto, implementare l'esempio di progetto creando un nuovo progetto nel
 1. Immettere le _informazioni di base_ dell'esempio di progetto:
 
    - **Nome progetto**: specificare un nome per la copia dell'esempio di progetto.
-   - **Posizione della definizione**: usare i puntini di sospensione e selezionare il gruppo di gestione in cui salvare la copia dell'esempio.
+   - **Percorso definizione**: usare i puntini di sospensione e selezionare il gruppo di gestione in cui salvare la copia dell'esempio.
 
-1. Selezionare la scheda _Artefatti_ nella parte superiore della pagina oppure **Avanti: Elementi** nella parte inferiore della pagina.
+1. Selezionare la scheda _elementi_ nella parte superiore della pagina o **Avanti: elementi** nella parte inferiore della pagina.
 
 1. Esaminare l'elenco degli artefatti che costituiscono l'esempio di progetto. Molti artefatti hanno parametri che verranno definiti in seguito. Una volta esaminato l'esempio di progetto, selezionare **Salva bozza**.
 
@@ -68,11 +68,11 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
    - Nozioni di base
 
-     - **Sottoscrizioni**: selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ciascuna usando i parametri immessi.
-     - **Nome dell'assegnazione**: il nome viene prepopolato in base al nome del progetto.
+     - **Sottoscrizioni**: selezionare una o più sottoscrizioni nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ognuna usando i parametri immessi.
+     - **Nome assegnazione**: il nome viene prepopolato automaticamente in base al nome del progetto.
        Cambiarlo, se necessario, o lasciarlo inalterato.
-     - **Località**: selezionare un'area in cui creare l'identità gestita. Azure Blueprint usa questa identità gestita per distribuire tutti gli elementi nel progetto assegnato. Per altre informazioni, vedere [Managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md) (Identità gestite per risorse di Azure).
-     - **Versione della definizione di progetto**: Scegliere una versione **pubblicata** della copia dell'esempio di progetto.
+     - **Località**: selezionare un'area per l'identità gestita da creare in. Azure Blueprint usa questa identità gestita per distribuire tutti gli elementi nel progetto assegnato. Per altre informazioni, vedere [Managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md) (Identità gestite per risorse di Azure).
+     - **Versione definizione progetto**: selezionare una versione **pubblicata** della copia dell'esempio di progetto.
 
    - Blocca assegnazione
 
@@ -95,19 +95,19 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
 La tabella seguente contiene un elenco dei parametri degli artefatti del progetto:
 
-Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
+Nome dell'artefatto|Tipo di artefatto|Nome parametro|Description|
 |-|-|-|-|
-|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione di criteri |Area di lavoro Log Analytics per le macchine virtuali Linux |Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione di criteri |Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Linux da aggiungere all'ambito |È possibile utilizzare una matrice vuota per indicare che non sono presenti parametri facoltativi: `[]` |
-|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione di criteri |Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Windows da aggiungere all'ambito |È possibile utilizzare una matrice vuota per indicare che non sono presenti parametri facoltativi: `[]` |
-|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione di criteri |Area di lavoro Log Analytics per le macchine virtuali Windows |Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Anteprima\]: Controllare i controlli PBMM federali del Canada e distribuire estensioni VM specifiche per supportare i requisiti di controllo |Assegnazione di criteri |ID dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate |Si tratta dell'ID (GUID) dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate. |
-|\[Anteprima\]: Controllare i controlli PBMM federali del Canada e distribuire estensioni VM specifiche per supportare i requisiti di controllo |Assegnazione di criteri |Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica |Elenco di tipi di risorse da controllare se l'impostazione del log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
-|\[Anteprima\]: Controllare i controlli PBMM federali del Canada e distribuire estensioni VM specifiche per supportare i requisiti di controllo |Assegnazione di criteri |Gruppo Administrators |Gruppo. Esempio: `Administrator; myUser1; myUser2` |
-|\[Anteprima\]: Controllare i controlli PBMM federali del Canada e distribuire estensioni VM specifiche per supportare i requisiti di controllo |Assegnazione di criteri |Elenco di utenti che devono essere inclusi nel gruppo Administrators della macchina virtuale Windows |Elenco delimitato da punto e virgola con i membri da includere nel gruppo locale Administrators. Esempio: `Administrator; myUser1; myUser2` |
+|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione di criteri |Area di lavoro Log Analytics per VM Linux |Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione di criteri |Facoltativo: elenco di immagini di VM con sistema operativo Linux supportato da aggiungere all'ambito |È possibile utilizzare una matrice vuota per indicare che non sono presenti parametri facoltativi: `[]` |
+|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione di criteri |Facoltativo: elenco di immagini di VM che hanno supportato il sistema operativo Windows da aggiungere all'ambito |È possibile utilizzare una matrice vuota per indicare che non sono presenti parametri facoltativi: `[]` |
+|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione di criteri |Area di lavoro Log Analytics per VM Windows |Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Preview\]: controllare i controlli PBMM federali del Canada e distribuire estensioni VM specifiche per supportare i requisiti di controllo |Assegnazione di criteri |ID dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate |Si tratta dell'ID (GUID) dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate. |
+|\[Preview\]: controllare i controlli PBMM federali del Canada e distribuire estensioni VM specifiche per supportare i requisiti di controllo |Assegnazione di criteri |Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica |Elenco di tipi di risorse da controllare se l'impostazione del log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
+|\[Preview\]: controllare i controlli PBMM federali del Canada e distribuire estensioni VM specifiche per supportare i requisiti di controllo |Assegnazione di criteri |Gruppo Administrators |Gruppo. Esempio: `Administrator; myUser1; myUser2` |
+|\[Preview\]: controllare i controlli PBMM federali del Canada e distribuire estensioni VM specifiche per supportare i requisiti di controllo |Assegnazione di criteri |Elenco di utenti che devono essere inclusi nel gruppo Administrators della macchina virtuale Windows |Elenco delimitato da punto e virgola con i membri da includere nel gruppo locale Administrators. Esempio: `Administrator; myUser1; myUser2` |
 |Distribuisci Advanced Threat Protection negli account di archiviazione |Assegnazione di criteri |Effetto |Per informazioni sugli effetti dei criteri, vedere [comprendere gli effetti dei criteri di Azure](../../../policy/concepts/effects.md). |
 |Distribuisci il controllo nei server SQL |Assegnazione di criteri |Valore in giorni del periodo di conservazione (0 indica conservazione illimitata) |Giorni di conservazione (facoltativo, _180_ giorni se non specificato) |
-|Distribuisci il controllo nei server SQL |Assegnazione di criteri |Nome del gruppo di risorse per l'account di archiviazione per il controllo del server SQL |Il controllo scrive gli eventi del database in un log di controllo nell'account di archiviazione di Azure. viene creato un account di archiviazione in ogni area in cui viene creata una SQL Server condivisa da tutti i server in tale area. Importante: per un corretto funzionamento del controllo, non eliminare o rinominare il gruppo di risorse o gli account di archiviazione. |
+|Distribuisci il controllo nei server SQL |Assegnazione di criteri |Nome gruppo di risorse per l'account di archiviazione per il controllo di SQL Server |Il controllo scrive gli eventi del database in un log di controllo nell'account di archiviazione di Azure. viene creato un account di archiviazione in ogni area in cui viene creata una SQL Server condivisa da tutti i server in tale area. Importante: per un corretto funzionamento del controllo, non eliminare o rinominare il gruppo di risorse o gli account di archiviazione. |
 |Distribuire le impostazioni di diagnostica per i gruppi di sicurezza di rete |Assegnazione di criteri |Prefisso dell'account di archiviazione per la diagnostica del gruppo di sicurezza di rete |Questo prefisso viene combinato con il percorso del gruppo di sicurezza di rete per formare il nome dell'account di archiviazione creato. |
 |Distribuire le impostazioni di diagnostica per i gruppi di sicurezza di rete |Assegnazione di criteri |Nome del gruppo di risorse per l'account di archiviazione per la diagnostica del gruppo di sicurezza di rete (deve esistere) |Gruppo di risorse in cui viene creato l'account di archiviazione. Questo gruppo di risorse deve già esistere. |
 
@@ -116,10 +116,10 @@ Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 Ora che sono stati esaminati i passaggi per distribuire l'esempio Canada Federal PBMM, vedere gli articoli seguenti per informazioni sulla panoramica e sul mapping dei controlli:
 
 > [!div class="nextstepaction"]
-> [Blueprints Federal PBMM per il Canada-panoramica](./index.md)
-> [Canada Federal PBMM Blueprints-controllo mapping](./control-mapping.md)
+> [Progetti PBMM federali del Canada-panoramica](./index.md)
+> [Canada Federal PBMM Blueprints-mapping dei controlli](./control-mapping.md)
 
-Altri articoli sui progetti e su come usarli:
+Articoli aggiuntivi sui progetti e su come usarli:
 
 - Informazioni sul [ciclo di vita del progetto](../../concepts/lifecycle.md).
 - Informazioni su come usare [parametri statici e dinamici](../../concepts/parameters.md).

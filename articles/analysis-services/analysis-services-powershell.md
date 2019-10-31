@@ -4,15 +4,15 @@ description: Gestione di Azure Analysis Services con PowerShell.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: reference
-ms.date: 07/01/2019
+ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bfe1bfc2828347e34fa92564c26d005998e14ece
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 329ea51895c45c8cdf50a323328fac3c580ffc16
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294743"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146232"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gestire Azure Analysis Services con PowerShell
 
@@ -22,7 +22,7 @@ Le attività di gestione delle risorse del server, ad esempio la creazione o l'e
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>autorizzazioni
 
 Per la maggior parte delle attività di PowerShell, sono necessari i privilegi di amministratore per il server Analysis Services gestito. Le attività di PowerShell pianificate sono operazioni automatiche. L'account o l'entità servizio che esegue l'utilità di pianificazione deve avere i privilegi di amministratore per il server Analysis Services. 
 
@@ -44,7 +44,7 @@ Documentazione-informazioni di [riferimento su SqlServer](/powershell/module/sql
 
 ### <a name="supported-cmdlets"></a>Cmdlet supportati
 
-|Cmdlet|Descrizione|
+|Cmdlet|Description|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Aggiunge un membro a un ruolo del database.| 
 |[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Esegue il backup di un database di Analysis Services.|  
