@@ -379,7 +379,11 @@
         - name: Disponibilità elevata
           href: manage-availability.md
         - name: Creare un gruppo di selezione host di prossimità
-          href: proximity-placement-groups.md
+          items:
+            - name: CLI
+              href: proximity-placement-groups.md
+            - name: Portale
+              href: ../windows/proximity-placement-groups-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Creare una macchina virtuale in una zona di disponibilità
           href: create-cli-availability-zone.md
     - name: Usare strumenti di automazione

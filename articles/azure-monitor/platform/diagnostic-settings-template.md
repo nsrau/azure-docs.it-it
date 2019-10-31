@@ -1,5 +1,5 @@
 ---
-title: Creare un'impostazione di diagnostica in Azure usando un modello di Gestione risorse | Microsoft Docs
+title: Creare un'impostazione di diagnostica in Azure usando Gestione risorse modello
 description: Creare impostazioni di diagnostica usando un modello di Gestione risorse per inviare i log della piattaforma Azure ai log di monitoraggio di Azure, archiviazione di Azure o hub eventi di Azure.
 author: bwren
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 303682a9d7b3c3fe8ba6c8dd6fe2a44741bcafce
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 0cb4cee732b1784de489d97769294c455cfd5efd
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597298"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200482"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Creare un'impostazione di diagnostica in Azure usando un modello di Gestione risorse
 I [log della piattaforma](platform-logs-overview.md) in Azure forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Questo articolo fornisce informazioni dettagliate sull'uso di un [modello di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) per configurare le impostazioni di diagnostica per raccogliere i log della piattaforma in destinazioni diverse. In questo modo è possibile iniziare a raccogliere automaticamente i log della piattaforma quando viene creata una risorsa.

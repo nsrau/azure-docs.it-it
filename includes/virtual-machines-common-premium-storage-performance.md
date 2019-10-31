@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 961f4595d60e85677d2c7c4a1abd97736d0180ec
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 289100afe825c14ce9964f39e3f583078f51da1d
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391680"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182237"
 ---
 ## <a name="application-performance-indicators"></a>Indicatori di prestazioni dell'applicazione
 
@@ -189,7 +189,7 @@ Si supponga, ad esempio, che i requisiti dell'applicazione siano pari a 4.000 IO
 *Costo operativo*  
 In molti casi è possibile che il costo operativo complessivo con l'Archiviazione Premium sia inferiore al costo dell'uso dell'Archiviazione Standard.
 
-Ad esempio, si consideri un'applicazione che richiede 16.000 IOPS. Per ottenere queste prestazioni, è necessaria una macchina virtuale di Azure IaaS standard @ no__t-0D14, che può fornire un numero massimo di IOPS di 16.000 usando i dischi da 1 TB di archiviazione standard 32. Ogni disco di archiviazione standard da 1 TB può ottenere un massimo di 500 IOPS. Il costo stimato di questa VM al mese sarà pari a $ 1.570. Il costo mensile di 32 dischi di archiviazione Standard sarà pari a $ 1.638. Il costo totale mensile stimato sarà pari a $ 3.208.
+Ad esempio, si consideri un'applicazione che richiede 16.000 IOPS. Per ottenere queste prestazioni, è necessario disporre di una macchina virtuale\_D14 di Azure IaaS standard, che può fornire un numero massimo di IOPS di 16.000 usando i dischi da 1 TB di archiviazione standard 32. Ogni disco di archiviazione standard da 1 TB può ottenere un massimo di 500 IOPS. Il costo stimato di questa VM al mese sarà pari a $ 1.570. Il costo mensile di 32 dischi di archiviazione Standard sarà pari a $ 1.638. Il costo totale mensile stimato sarà pari a $ 3.208.
 
 Se tuttavia la stessa applicazione è ospitata nell'Archiviazione Premium, sarà necessaria una dimensione di VM minore e saranno necessari meno dischi di Archiviazione Premium. Ciò consente una riduzione del costo complessivo. Una VM Standard\_StandardDS13 può soddisfare il requisito di 16.000 IOPS con quattro dischi P30. La VM DS13 offre un valore massimo di IOPS pari a 25.600 e ogni disco P30 ha un valore massimo di IOPS pari a 5.000. Questa configurazione consente complessivamente di ottenere 5.000 x 4 = 20.000 IOPS. Il costo stimato di questa VM al mese sarà pari a $ 1.003. Il costo mensile di quattro dischi di Archiviazione Premium P30 sarà pari a $ 544,34. Il costo totale mensile stimato sarà pari a $ 1.544.
 
@@ -298,12 +298,12 @@ Alcune versioni richiedono la versione più recente di Linux Integration Service
 | SUSE | SLES 12 o versione successiva| 3.12.36-38.1+ | suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 o versione successiva| 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0 + o versione successiva| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6,5, 6,6, 6,7, 7,0 o versione successiva| &nbsp; | [LIS4 richiesto](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Vedere la nota nella sezione successiva* |
-| CentOS | 7.1 + o versione successiva| 3.10.0-229.1.2.el7+ | [LIS4 consigliato](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Vedere la nota nella sezione successiva* |
+| CentOS | 6,5, 6,6, 6,7, 7,0 o versione successiva| &nbsp; | [LIS4 richiesto](https://www.microsoft.com/download/details.aspx?id=51612) <br> *Vedere la nota nella sezione successiva* |
+| CentOS | 7.1 + o versione successiva| 3.10.0-229.1.2.el7+ | [LIS4 consigliato](https://www.microsoft.com/download/details.aspx?id=51612) <br> *Vedere la nota nella sezione successiva* |
 | Red Hat Enterprise Linux (RHEL) | 6.8 +, 7,2 + o versione successiva | &nbsp; | &nbsp; |
 | Oracle | 6.0 +, 7,2 + o versione successiva | &nbsp; | UEK4 o RHCK |
-| Oracle | 7.0-7.1 o versione successiva | &nbsp; | UEK4 or RHCK con [LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 o versione successiva | &nbsp; | UEK4 or RHCK con [LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 o versione successiva | &nbsp; | UEK4 or RHCK con [LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
+| Oracle | 6.4-6.7 o versione successiva | &nbsp; | UEK4 or RHCK con [LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>Driver LIS per Openlogic CentOS
 

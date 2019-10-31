@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a073a476043fc6570a42cc142e01f2c6f98c7741
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: b88648ce68a7359a842ec975d8633d6200b1a507
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175914"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200120"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Come usare le cartelle di lavoro di monitoraggio di Azure per i report Azure Active Directory
 
@@ -64,7 +64,7 @@ Per utilizzare le cartelle di lavoro di monitoraggio, è necessario:
 
 - [Accesso](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) all'area di lavoro di log Analytics
 - Ruoli seguenti in Azure Active Directory (se si accede a Log Analytics tramite il portale di Azure Active Directory)
-    - Amministrazione della protezione
+    - Amministratore della sicurezza
     - Ruolo con autorizzazioni di lettura per la sicurezza
     - Lettore di report
     - Amministratore globale
@@ -72,11 +72,10 @@ Per utilizzare le cartelle di lavoro di monitoraggio, è necessario:
 ## <a name="roles"></a>Ruoli
 Per gestire le cartelle di lavoro di, è necessario disporre di uno dei ruoli seguenti, nonché accedere all'area di lavoro [log Analytics sottostante](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) :
 -   Amministratore globale
--   Amministrazione della protezione
+-   Amministratore della sicurezza
 -   Ruolo con autorizzazioni di lettura per la sicurezza
 -   Lettore di report
--   Amministratore applicazione
-
+-   Amministratore di applicazioni
 
 ## <a name="workbook-access"></a>Accesso alla cartella di lavoro 
 
@@ -84,16 +83,11 @@ Per accedere alle cartelle di lavoro:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nel riquadro di spostamento a sinistra selezionare **Azure Active Directory**.
+1. Passare a **Azure Active Directory** >  > **cartelle di lavoro**di **monitoraggio** . 
 
-3. Nella sezione **monitoraggio** selezionare cartelle di **lavoro**. 
+1. Selezionare un report o un modello oppure fare clic su **Apri**nella barra degli strumenti. 
 
-    ![Selezionare informazioni dettagliate](./media/howto-use-azure-monitor-workbooks/41.png)
-
-4. Selezionare un report o un modello oppure fare clic su **Apri**nella barra degli strumenti. 
-
-    ![Selezionare Apri](./media/howto-use-azure-monitor-workbooks/42.png)
-
+![Trovare le cartelle di lavoro di monitoraggio di Azure in Azure AD](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
 
 ## <a name="sign-in-analysis"></a>Analisi di accesso
 

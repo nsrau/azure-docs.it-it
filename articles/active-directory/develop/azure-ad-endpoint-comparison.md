@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 815ff980abdde7ab91861d8550030476312fb6d3
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 975c7f18da9797305b0af3f81b00acca1ba14a1a
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835172"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200323"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Perché eseguire l'aggiornamento a Microsoft Identity Platform (v 2.0)?
 
@@ -36,7 +36,7 @@ Quando si sviluppa una nuova applicazione, è importante comprendere le differen
 
 * L'endpoint v1.0 consente l'accesso all'applicazione (Azure AD) solo agli account aziendali e dell'istituto di istruzione
 * L'endpoint della piattaforma Microsoft Identity consente agli account aziendali e dell'Istituto di istruzione di Azure AD e personal account Microsoft (MSA), ad esempio hotmail.com, outlook.com e msn.com, di eseguire l'accesso.
-* Entrambi gli endpoint accettano anche gli accessi degli *[utenti Guest](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* di una directory Azure ad per le applicazioni configurate come *[tenant singolo](single-and-multi-tenant-apps.md)* o per le applicazioni *multi-tenant* configurate in modo da puntare`https://login.microsoftonline.com/{TenantId_or_Name}`all'endpoint specifico del tenant ().
+* Entrambi gli endpoint accettano anche gli accessi degli *[utenti Guest](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* di una directory Azure ad per le applicazioni configurate come *[tenant singolo](single-and-multi-tenant-apps.md)* o per le applicazioni *multi-tenant* configurate in modo da puntare all'endpoint specifico del tenant (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
 L'endpoint della piattaforma Microsoft Identity consente di scrivere app che accettano accessi da account Microsoft personali e account aziendali o dell'Istituto di istruzione. Questo consente di scrivere l'app senza tenere conto dell'account utilizzato per l'accesso. Se, ad esempio, l'app chiama [Microsoft Graph](https://graph.microsoft.io), per gli account aziendali saranno disponibili funzionalità e dati aggiuntivi, come i siti di SharePoint o i dati delle directory. Per numerose azioni, ad esempio la [lettura di un messaggio di posta elettronica dell'utente](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_messages), lo stesso codice può tuttavia accedere al messaggio di posta elettronica sia per gli account personali che per quelli aziendali e dell'istituto di istruzione.
 
@@ -89,17 +89,17 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Qui il parametro **scope** indica per quali risorse e autorizzazioni l'app richiede l'autorizzazione. La risorsa desiderata è ancora presente nella richiesta: è inclusa in ognuno dei valori del parametro di ambito. L'uso del parametro scope in questo modo consente all'endpoint della piattaforma di identità Microsoft di essere più conforme alla specifica OAuth 2,0 e si allinea più strettamente con le comuni procedure di settore. Consente inoltre alle app di eseguire [autorizzazioni incrementali](#incremental-and-dynamic-consent), richiedendo solo le autorizzazioni quando l'applicazione le richiede, anziché prima.
+Qui il parametro **scope** indica per quali risorse e autorizzazioni l'app richiede l'autorizzazione. La risorsa desiderata è ancora presente nella richiesta: è inclusa in ognuno dei valori del parametro di ambito. L'uso del parametro scope in questo modo consente all'endpoint della piattaforma di identità Microsoft di essere più conforme alla specifica OAuth 2,0 e si allinea più strettamente con le comuni procedure di settore. Consente inoltre alle app di eseguire autorizzazioni [incrementali](#incremental-and-dynamic-consent) , richiedendo solo le autorizzazioni quando l'applicazione le richiede, anziché prima.
 
 ## <a name="well-known-scopes"></a>Ambiti conosciuti
 
 ### <a name="offline-access"></a>Accesso offline
 
-Le app che usano l'endpoint della piattaforma Microsoft Identity possono richiedere l'uso di una nuova autorizzazione nota per le app `offline_access` : l'ambito. Tutte le app dovranno richiedere questa autorizzazione, se devono accedere alle risorse per conto di un utente per un periodo di tempo prolungato, anche se l'utente non sta usando attivamente l'app. L'ambito `offline_access` viene visualizzato all'utente in finestre di dialogo di consenso, come **Accedi ai dati personali in qualsiasi momento**, che l'utente deve accettare. La richiesta dell' `offline_access` autorizzazione consentirà all'app Web di ricevere OAuth 2,0 token dall'endpoint della piattaforma Microsoft Identity. I token di aggiornamento hanno una lunga durata e possono essere scambiati con i nuovi token di accesso di OAuth 2.0 per periodi prolungati di accesso.
+Le app che usano l'endpoint della piattaforma Microsoft Identity possono richiedere l'uso di una nuova autorizzazione nota per le app: l'ambito `offline_access`. Tutte le app dovranno richiedere questa autorizzazione, se devono accedere alle risorse per conto di un utente per un periodo di tempo prolungato, anche se l'utente non sta usando attivamente l'app. L'ambito `offline_access` viene visualizzato all'utente in finestre di dialogo di consenso, come **Accedi ai dati personali in qualsiasi momento**, che l'utente deve accettare. La richiesta dell'autorizzazione `offline_access` consentirà all'app Web di ricevere OAuth 2,0 token dall'endpoint della piattaforma di identità Microsoft. I token di aggiornamento hanno una lunga durata e possono essere scambiati con i nuovi token di accesso di OAuth 2.0 per periodi prolungati di accesso.
 
-Se l'app non richiede l' `offline_access` ambito, non riceverà i token di aggiornamento. Ciò significa che, quando si riscatta un codice di autorizzazione nel flusso del codice di autorizzazione OAuth 2.0, si riceve solo un token di accesso dall'endpoint `/token`. Tale token di accesso rimane valido per un breve periodo di tempo, in genere un'ora, poi scade. A questo punto, l'app deve reindirizzare l'utente all'endpoint `/authorize` per recuperare un nuovo codice di autorizzazione. Durante il reindirizzamento l'utente può o meno dover immettere nuovamente le proprie credenziali o fornire il consenso per le autorizzazioni, a seconda del tipo di app.
+Se l'app non richiede l'ambito `offline_access`, non riceverà i token di aggiornamento. Ciò significa che, quando si riscatta un codice di autorizzazione nel flusso del codice di autorizzazione OAuth 2.0, si riceve solo un token di accesso dall'endpoint `/token`. Tale token di accesso rimane valido per un breve periodo di tempo, in genere un'ora, poi scade. A questo punto, l'app deve reindirizzare l'utente all'endpoint `/authorize` per recuperare un nuovo codice di autorizzazione. Durante il reindirizzamento l'utente può o meno dover immettere nuovamente le proprie credenziali o fornire il consenso per le autorizzazioni, a seconda del tipo di app.
 
-Per ulteriori informazioni su OAuth 2,0, `refresh_tokens`e `access_tokens`, consultare il riferimento al [protocollo Microsoft Identity Platform](active-directory-v2-protocols.md).
+Per ulteriori informazioni su OAuth 2,0, `refresh_tokens`e `access_tokens`, vedere le informazioni di [riferimento sul protocollo Microsoft Identity Platform](active-directory-v2-protocols.md).
 
 ### <a name="openid-profile-and-email"></a>OpenID, profilo e indirizzo di posta elettronica
 
@@ -108,7 +108,7 @@ Storicamente, il flusso di accesso OpenID Connect più semplice con la piattafor
 Le informazioni a cui l'app ha accesso tramite l'ambito `openid` sono ora limitate. L'ambito `openid` consente all'app di far accedere l'utente e di ricevere un identificatore specifico dell'app per l'utente. Per ottenere dati personali sull'utente nell'app, questa deve richiedere autorizzazioni aggiuntive all'utente. Due nuovi ambiti, `email` e `profile`, consentiranno di richiedere autorizzazioni aggiuntive.
 
 * L'ambito `email` consente all'app di accedere all'indirizzo di posta elettronica primario dell'utente tramite l'attestazione `email` nell'id_token, ammesso che l'utente abbia un indirizzo e-mail utilizzabile.
-* L' `profile` ambito consente all'app di accedere a tutte le altre informazioni di base sull'utente, ad esempio il nome, il nome utente preferito, l'ID oggetto e così via, nella token ID.
+* L'ambito `profile` consente all'app di accedere a tutte le altre informazioni di base sull'utente, ad esempio il nome, il nome utente preferito, l'ID oggetto e così via, nella token ID.
 
 Questi ambiti permettono di creare il codice dell'app in modo che la divulgazione delle informazioni sia minima ed è possibile chiedere all'utente solo il set di informazioni di cui l'app ha bisogno per svolgere le sue funzioni. Per ulteriori informazioni su questi ambiti, vedere [il riferimento all'ambito della piattaforma Microsoft Identity](v2-permissions-and-consent.md).
 
@@ -117,7 +117,7 @@ Questi ambiti permettono di creare il codice dell'app in modo che la divulgazion
 Per impostazione predefinita, l'endpoint della piattaforma di identità Microsoft rilascia un set più piccolo di attestazioni nei token per evitare che i payload siano ridotti. Se sono presenti app e servizi che hanno una dipendenza da un'attestazione specifica in un token v 1.0 che non è più disponibile per impostazione predefinita in un token della piattaforma di identità Microsoft, è consigliabile usare la funzionalità di [attestazione facoltativa](active-directory-optional-claims.md) per includere tale attestazione.
 
 > [!IMPORTANT]
-> i token v 1.0 e v 2.0 possono essere emessi sia dagli endpoint v 1.0 che dalla versione 2.0. token ID corrisponde *sempre* all'endpoint da cui sono stati richiesti e i token di accesso corrispondono *sempre* al formato previsto dall'API Web che il client chiamerà usando tale token.  Quindi, se l'app usa la versione 2.0 uguale all'endpoint per ottenere un token per chiamare Microsoft Graph, che prevede i token di accesso in formato v 1.0, l'app riceverà un token nel formato v 1.0.  
+> i token v 1.0 e v 2.0 possono essere emessi sia dagli endpoint v 1.0 che dalla versione 2.0. token ID corrisponde *sempre* all'endpoint da cui sono stati richiesti e i token di accesso corrispondono *sempre* al formato previsto dall'API Web che il client chiamerà usando tale token.  Quindi, se l'app usa l'endpoint v 2.0 per ottenere un token per chiamare Microsoft Graph, che prevede i token di accesso in formato v 1.0, l'app riceverà un token nel formato v 1.0.  
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -183,7 +183,7 @@ Attualmente, il supporto delle librerie per l'endpoint della piattaforma Microso
 * Se si sta creando un'applicazione desktop o per dispositivi mobili, è possibile usare una delle librerie di autenticazione Microsoft (MSAL). Queste librerie sono disponibili a livello generale o in un'anteprima supportata in produzione, pertanto è possibile usarle in applicazioni di produzione. Per altre informazioni sui termini e condizioni dell'anteprima e sulle librerie disponibili, vedere le [informazioni di riferimento sulle librerie di autenticazione](reference-v2-libraries.md).
 * Per le piattaforme non coperte da Microsoft Libraries, è possibile eseguire l'integrazione con l'endpoint della piattaforma Microsoft Identity inviando e ricevendo direttamente i messaggi di protocollo nel codice dell'applicazione. I protocolli OpenID Connect e OAuth [sono documentati in modo esplicito](active-directory-v2-protocols.md) per facilitare l'integrazione.
 * Infine, è possibile usare OpenID Connect e librerie OAuth open source per l'integrazione con l'endpoint della piattaforma di identità Microsoft. L'endpoint della piattaforma di identità Microsoft dovrebbe essere compatibile con molte librerie di protocollo Open Source senza modifiche. La disponibilità di questi tipi di librerie varia in base a linguaggio e piattaforma. Nei siti Web di [OpenID Connect](https://openid.net/connect/) e [OAuth 2.0](https://oauth.net/2/) è disponibile un elenco delle implementazioni più diffuse. Per altre informazioni, vedere [Microsoft Identity Platform and Authentication Libraries](reference-v2-libraries.md)e l'elenco di librerie client open source ed esempi testati con l'endpoint della piattaforma di identità Microsoft.
-* Come riferimento, l' `.well-known` endpoint per l'endpoint comune Microsoft Identity Platform è `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. Sostituire `common` con l'ID tenant per ottenere i dati specifici del tenant.  
+* Come riferimento, l'endpoint `.well-known` per l'endpoint comune Microsoft Identity Platform è `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. Sostituire `common` con l'ID tenant per ottenere i dati specifici del tenant.  
 
 ### <a name="protocol-changes"></a>Modifiche al protocollo
 

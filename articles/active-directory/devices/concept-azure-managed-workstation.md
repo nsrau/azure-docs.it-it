@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00e5e4a9751a03fe961fe02fec28f41b49e5ba43
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: 2abc5434f11bf00c6872775b1336694c04972e95
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175168"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200210"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Informazioni sulle workstation sicure gestite da Azure
 
@@ -91,7 +91,7 @@ Questa guida fa riferimento a diversi profili e ruoli di sicurezza che consenton
 
 * **Sicurezza avanzata** : questa soluzione protetta a livello di voce è ideale per gli utenti privati, gli utenti di piccole imprese e gli sviluppatori generali.
 
-   La workstation avanzata è un modo basato sui criteri per aumentare la sicurezza del profilo di sicurezza basso. Offre un mezzo sicuro per lavorare con i dati del cliente, usando anche strumenti di produttività come la posta elettronica e l'esplorazione Web. È possibile usare i criteri di controllo e Intune per monitorare una workstation migliorata per il comportamento degli utenti e l'utilizzo del profilo. Il profilo workstation migliorato viene distribuito con lo script Windows10 (1809) e si avvale di Advanced Malware Protection con [Advanced Threat Protection (ATP)](https://docs.microsoft.com/office365/securitycompliance/office-365-atp).
+   La workstation avanzata è un modo basato sui criteri per aumentare la sicurezza del profilo di sicurezza basso. Offre un mezzo sicuro per lavorare con i dati del cliente, usando anche strumenti di produttività come la posta elettronica e l'esplorazione Web. È possibile usare i criteri di controllo e Intune per monitorare una workstation migliorata per il comportamento degli utenti e l'utilizzo del profilo. Il profilo workstation migliorato viene distribuito con lo script Windows10 (1809) e si avvale di Advanced Malware Protection con [Advanced Threat Protection (ATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
 
 * **Sicurezza elevata** : il modo più efficace per ridurre la superficie di attacco di una workstation consiste nel rimuovere la possibilità di amministrare autonomamente la workstation. La rimozione dei diritti amministrativi locali è un passaggio che migliora la sicurezza, ma può influisca sulla produttività se implementata in modo errato. Il profilo di sicurezza elevato si basa sul profilo di sicurezza avanzato con una modifica considerevole: la rimozione dell'amministratore locale. Questo profilo è progettato per gli utenti con profilo elevato: dirigenti, retribuzioni e utenti dati sensibili, responsabili approvazione per servizi e processi.
 

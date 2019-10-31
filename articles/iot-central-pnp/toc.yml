@@ -37,6 +37,10 @@
           href: ../iot-central/core/tutorial-define-edge-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         - name: Connettere un dispositivo IoT Edge
           href: ../iot-central/core/tutorial-add-edge-as-leaf-device.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - name: Rimanere connessi
+      items:
+        - name: Creare un gruppo di dispositivi
+          href: ../iot-central/core/tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - name: Trasformare
       items:
         - name: Creare una regola
@@ -71,8 +75,10 @@
           href: ../iot-central/core/howto-create-personal-dashboards.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         - name: Eseguire un processo
           href: ../iot-central/core/howto-run-a-job.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-        - name: Usare gruppi di dispositivi
-          href: ../iot-central/core/howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Creare una versione del modello del dispositivo
+          href: ../iot-central/core/howto-version-device-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - name: Monitoraggio e analisi
+      items:
         - name: Analizzare i dati del dispositivo
           href: ../iot-central/core/howto-create-analytics-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - name: Trasformare

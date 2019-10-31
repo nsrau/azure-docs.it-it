@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60f38b60b5fbf0166f25c423663d157cf8f13ee2
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b1b44a7df499dc0b6ce4370bf74ece35c99a4493
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860899"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200235"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi usando il portale di Azure
 
@@ -34,11 +34,11 @@ Il portale di Azure AD offre una posizione centralizzata per la gestione delle i
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
 2. Sulla barra di spostamento a sinistra fare clic su **Active Directory**.
 
-   ![Configura impostazioni dispositivo](./media/device-management-azure-portal/01.png)
+   ![Configurare le impostazioni dei dispositivi](./media/device-management-azure-portal/01.png)
 
 3. Nella sezione **Gestisci** fare clic su **Dispositivi**.
 
-   ![Configura impostazioni dispositivo](./media/device-management-azure-portal/74.png)
+   ![Configurare le impostazioni dei dispositivi](./media/device-management-azure-portal/74.png)
 
 La pagina **Dispositivi** consente di:
 
@@ -47,11 +47,11 @@ La pagina **Dispositivi** consente di:
 - Eseguire attività di gestione delle identità del dispositivo
 - Esaminare i log di controllo relativi al dispositivo  
   
-## <a name="configure-device-settings"></a>Configura impostazioni dispositivo
+## <a name="configure-device-settings"></a>Configurare le impostazioni dei dispositivi
 
 Per gestire le identità del dispositivo tramite il portale di Azure AD, è necessario che i dispositivi siano [registrati o aggiunti](overview.md) a Azure ad. Un amministratore può ottimizzare il processo di registrazione e aggiunta dei dispositivi configurando le relative impostazioni.
 
-![Configura impostazioni dispositivo](./media/device-management-azure-portal/22.png)
+![Configurare le impostazioni dei dispositivi](./media/device-management-azure-portal/22.png)
 
 La pagina delle impostazioni dei dispositivi consente di configurare:
 
@@ -136,6 +136,7 @@ Per abilitare o disabilitare un dispositivo, le opzioni disponibili sono due:
 
 - Per abilitare o disabilitare un dispositivo, è necessario essere un amministratore globale o un amministratore di dispositivi cloud in Azure AD. 
 - La disabilitazione di un dispositivo impedisce l'autenticazione del dispositivo con Azure AD, impedendo così al dispositivo di accedere alle risorse Azure AD sorvegliate dalla CA del dispositivo o usando le credenziali di WH4B.
+- La disabilitazione del dispositivo revocherà sia il token di aggiornamento primario (PRT) sia i token di aggiornamento (RT) nel dispositivo.
 
 ### <a name="delete-an-azure-ad-device"></a>Eliminare un dispositivo Azure AD
 
@@ -175,9 +176,9 @@ Per visualizzare o copiare le chiavi BitLocker, è necessario essere il propriet
 
 - Amministratore dispositivo cloud
 - Amministratore globale
-- Amministratore supporto tecnico
+- Amministratore del supporto tecnico
 - Amministratore del servizio Intune
-- Amministratore della protezione
+- Amministratore della sicurezza
 - Ruolo con autorizzazioni di lettura per la sicurezza
 
 > [!NOTE]
@@ -210,11 +211,11 @@ Per personalizzare la visualizzazione elenco, fare clic su **Colonne** nella bar
 
 Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dati di controllo usando i campi seguenti:
 
-- Category
+- Categoria
 - Activity resource type (Tipo di risorsa dell'attività)
 - Attività
 - Intervallo di date
-- Destinazione
+- Obiettivo
 - Azione avviata da (attore)
 
 Oltre a usare i filtri, è possibile cercare voci specifiche.

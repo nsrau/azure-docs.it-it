@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: c133431bb2b84525a8ea875dea94cec8595733bb
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: fd2b3a8a09ce69c07cc7d4715a4aaeacf64f0817
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273872"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200644"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Creare un'immagine gestita di una macchina virtuale generalizzata in Azure
 
@@ -50,12 +50,23 @@ Per generalizzare la VM Windows, seguire questa procedura:
    
 4. In **Opzioni di arresto** selezionare **Arresta il sistema**.
    
-5. Scegliere **OK**.
+5. Selezionare **OK**.
    
     ![Avvio di Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 
 6. Al termine, Sysprep arresta la VM. Non riavviare la VM.
 
+> [!TIP]
+> **Facoltativo** Usare [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) per ottimizzare l'immagine e ridurre il tempo di avvio della macchina virtuale.
+>
+> Per ottimizzare l'immagine, montare il disco rigido virtuale facendo doppio clic su di esso in Esplora risorse, quindi eseguire DISM con il parametro `/optimize-image`.
+>
+> ```cmd
+> DISM /image:D:\ /optimize-image /boot
+> ```
+> Dove D: è il percorso del disco rigido virtuale montato.
+>
+> L'esecuzione di `DISM /optimize-image` dovrebbe essere l'ultima modifica apportata al disco rigido virtuale. Se si apportano modifiche al disco rigido virtuale prima della distribuzione, è necessario eseguire di nuovo `DISM /optimize-image`.
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Creare un'immagine gestita nel portale 
 
@@ -207,7 +218,7 @@ Per creare un'immagine gestita da uno snapshot di una VM generalizzata, seguire 
 
 ## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>Creare un'immagine da una macchina virtuale che usa un account di archiviazione
 
-Per creare un'immagine gestita da una macchina virtuale che non usa Managed disks, è necessario l'URI del disco rigido virtuale del sistema operativo nell'account di archiviazione, nel formato seguente: https://*mystorageaccount*. blob.Core.Windows.NET/*vhdcontainer* /  *vhdfilename. vhd*. In questo esempio il disco rigido virtuale si trova in *mystorageaccount* in un contenitore denominato *vhdcontainer* e il nome file del disco rigido virtuale è *vhdfilename.vhd*.
+Per creare un'immagine gestita da una macchina virtuale che non usa Managed disks, è necessario l'URI del disco rigido virtuale del sistema operativo nell'account di archiviazione, nel formato seguente: https://*mystorageaccount*. blob.core.windows.net/*vhdcontainer*/*vhdfilename. vhd* . In questo esempio il disco rigido virtuale si trova in *mystorageaccount* in un contenitore denominato *vhdcontainer* e il nome file del disco rigido virtuale è *vhdfilename.vhd*.
 
 
 1.  Creare alcune variabili.

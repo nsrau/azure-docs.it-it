@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 17b68de4766aa8f995a88bd583a7a84e646b9325
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 31d7299b0c14b35aad7a29c875630d8a7fa4827e
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529161"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200597"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Pianificazione della capacità per cluster HDInsight
 
@@ -68,13 +68,7 @@ Ogni tipo di cluster contiene un set di tipi di nodo, a cui sono associate opzio
 
 Per determinare le dimensioni ottimali del cluster per il tipo di applicazione, è possibile effettuare un benchmark della capacità del cluster e aumentare le dimensioni in base a quanto specificato. È possibile, ad esempio, usare un carico di lavoro simulato o una *query canary*. Se si sceglie un carico di lavoro simulato, i carichi di lavoro previsti vengono eseguiti in cluster di varie dimensioni, aumentando progressivamente le dimensioni fino a quando non si raggiungono le prestazioni desiderate. Una query Canary può essere inserita periodicamente tra le altre query di produzione per indicare se il cluster dispone di risorse sufficienti.
 
-Il tipo e le dimensioni della macchina virtuale variano in base alla potenza di elaborazione della CPU, alle dimensioni della RAM e alla latenza di rete.
-
-* CPU: le dimensioni della macchina virtuale determinano il numero di core. Maggiore è il numero di core, più alto è il grado di calcolo parallelo che ogni nodo può raggiungere. Alcuni tipi di macchine virtuali hanno core più veloci.
-
-* RAM: le dimensioni della macchina virtuale determinano anche la quantità di RAM disponibile nella macchina virtuale. Per i carichi di lavoro che archiviano i dati in memoria per essere elaborati, anziché leggerli dal disco, accertarsi che i nodi di lavoro abbiano memoria sufficiente per contenere i dati.
-
-* Rete: per la maggior parte dei tipi di cluster, i dati elaborati dal cluster non si trovino in un disco locale, ma piuttosto in un servizio di archiviazione esterno, ad esempio Data Lake Storage o archiviazione di Azure. È necessario quindi tenere conto della larghezza di banda di rete e della velocità effettiva tra la macchina virtuale del nodo e il servizio di archiviazione. In genere, la larghezza di banda di rete disponibile per una macchina virtuale aumenta in caso di macchine di grandi dimensioni. Per informazioni dettagliate, vedere [Panoramica delle dimensioni di VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+Per altre informazioni su come scegliere la famiglia di VM appropriata per il carico di lavoro, vedere [selezione delle dimensioni della macchina virtuale corrette per il cluster](hdinsight-selecting-vm-size.md).
 
 ## <a name="choose-the-cluster-scale"></a>Scegliere la scalabilità del cluster
 
@@ -104,10 +98,11 @@ Dopo aver determinato il tipo, la dimensione e la scalabilità della macchina vi
 1. Selezionare **Guida e supporto** nel lato inferiore sinistro della pagina.
 1. Selezionare **Nuova richiesta di supporto**.
 1. Nella pagina **Nuova richiesta di supporto** selezionare le opzioni seguenti nella scheda **Informazioni di base**:
+
    - **Tipo di problema**: **limiti del servizio e della sottoscrizione (quote)**
    - **Sottoscrizione**: la sottoscrizione che si vuole modificare
    - **Tipo di quota**: **HDInsight**
-    
+
      ![Creare una richiesta di supporto per aumentare la quota di core HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
 1. Selezionare **Avanti: soluzioni > >** .

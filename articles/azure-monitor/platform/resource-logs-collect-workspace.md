@@ -1,5 +1,5 @@
 ---
-title: Raccogliere i log delle risorse di Azure nell'area di lavoro Log Analytics in monitoraggio di Azure
+title: Raccogliere i log delle risorse di Azure nell'area di lavoro Log Analytics
 description: Informazioni su come trasmettere i log delle risorse di Azure a un'area di lavoro Log Analytics in monitoraggio di Azure.
 author: bwren
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 2f5dba7c36ec04263f6d227d82b9fc50b82890a3
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 92de47041791c8b6c540844adb62391268b81c34
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262440"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200510"
 ---
 # <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>Raccogliere i log delle risorse di Azure nell'area di lavoro Log Analytics in monitoraggio di Azure
 I [log delle risorse](resource-logs-overview.md) in Azure forniscono dati avanzati e frequenti sul funzionamento interno di una risorsa di Azure. Questo articolo descrive come raccogliere i log delle risorse in un'area di lavoro Log Analytics che consente di analizzarli con altri dati di monitoraggio raccolti nei log di monitoraggio di Azure con potenti query di log e anche per sfruttare altre funzionalità di monitoraggio di Azure, ad esempio gli avvisi e Visualizzazioni. 
@@ -51,14 +51,14 @@ Si consideri l'esempio seguente in cui le impostazioni di diagnostica vengono ra
 
 La tabella AzureDiagnostics sarà simile alla seguente:  
 
-| ResourceProvider    | Category     | A  | B  | C  | D  | E  | V  | G  | H  | I  |
+| ResourceProvider    | Categoria     | A  | b  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| Microsoft. Service1 | Log di controllo    | X1 | Y1 | z1 |    |    |    |    |    |    |
-| Microsoft. Service1 | ErrorLogs    |    |    |    | q1 | W1 | E1 |    |    |    |
-| Microsoft. Service2 | Log di controllo    |    |    |    |    |    |    | j1 | k1 | L1 |
-| Microsoft. Service1 | ErrorLogs    |    |    |    | q2 | W2 | E2 |    |    |    |
-| Microsoft. Service2 | Log di controllo    |    |    |    |    |    |    | j3 | k3 | L3 |
-| Microsoft. Service1 | Log di controllo    | X5 | Y5 | z5 |    |    |    |    |    |    |
+| Microsoft. Service1 | AuditLogs    | X1 | Y1 | Z1 |    |    |    |    |    |    |
+| Microsoft. Service1 | ErrorLogs    |    |    |    | Q1 | W1 | E1 |    |    |    |
+| Microsoft. Service2 | AuditLogs    |    |    |    |    |    |    | J1 | K1 | L1 |
+| Microsoft. Service1 | ErrorLogs    |    |    |    | Q2 | W2 | E2 |    |    |    |
+| Microsoft. Service2 | AuditLogs    |    |    |    |    |    |    | J3 | K3 | L3 |
+| Microsoft. Service1 | AuditLogs    | X5 | Y5 | Z5 |    |    |    |    |    |    |
 | ... |
 
 ### <a name="resource-specific"></a>Specifico della risorsa
@@ -68,26 +68,26 @@ L'esempio precedente comporterebbe la creazione di tre tabelle:
  
 - Tabella *Service1AuditLogs* come segue:
 
-    | Provider di risorse | Category | A | B | C |
+    | Provider di risorse | Categoria | A | b | C |
     | -- | -- | -- | -- | -- |
-    | Service1 | Log di controllo | X1 | Y1 | z1 |
-    | Service1 | Log di controllo | X5 | Y5 | z5 |
+    | Service1 | AuditLogs | X1 | Y1 | Z1 |
+    | Service1 | AuditLogs | X5 | Y5 | Z5 |
     | ... |
 
 - Tabella *Service1ErrorLogs* come segue:  
 
-    | Provider di risorse | Category | D | E | V |
+    | Provider di risorse | Categoria | D | E | F |
     | -- | -- | -- | -- | -- | 
-    | Service1 | ErrorLogs |  q1 | W1 | E1 |
-    | Service1 | ErrorLogs |  q2 | W2 | E2 |
+    | Service1 | ErrorLogs |  Q1 | W1 | E1 |
+    | Service1 | ErrorLogs |  Q2 | W2 | E2 |
     | ... |
 
 - Tabella *Service2AuditLogs* come segue:  
 
-    | Provider di risorse | Category | G | H | I |
+    | Provider di risorse | Categoria | G | H | I |
     | -- | -- | -- | -- | -- |
-    | Service2 | Log di controllo | j1 | k1 | L1|
-    | Service2 | Log di controllo | j3 | k3 | L3|
+    | Service2 | AuditLogs | J1 | K1 | L1|
+    | Service2 | AuditLogs | J3 | K3 | L3|
     | ... |
 
 

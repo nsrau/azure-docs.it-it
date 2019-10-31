@@ -1,5 +1,5 @@
 ---
-title: Creare report interattivi con le cartelle di lavoro di monitoraggio di Azure | Microsoft Docs
+title: Creare report interattivi Monitoraggio di Azure per le macchine virtuali con cartelle di lavoro | Microsoft Docs
 description: Semplifica la creazione di report complessi con cartelle di lavoro predefinite e personalizzate con parametri per Monitoraggio di Azure per le macchine virtuali.
 ms.service: azure-monitor
 ms.subservice: ''
@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 47e2e5d80241ac093d136b45c853d94a9dd43cbe
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: dff5027f2ff9ff244f0fa04177a04e446e98465b
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553723"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200538"
 ---
-# <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Creare report interattivi con cartelle di lavoro di Monitoraggio di Azure
+# <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Creazione di report interattivi Monitoraggio di Azure per le macchine virtuali con cartelle di lavoro
 
 Le cartelle di lavoro combinano testo, [query di log](../log-query/query-language.md), metriche e parametri in report interattivi avanzati. Le cartelle di lavoro possono essere modificate da tutti gli altri membri del team che possono accedere alla stessa risorsa di Azure.
 
@@ -105,7 +105,7 @@ Per includere dati da altre aree di lavoro Log Analytics o da un'app Application
 
 ### <a name="advanced-analytic-query-settings"></a>Impostazioni avanzate per le query di analisi
 
-In ogni sezione sono disponibili impostazioni avanzate, accessibili tramite le impostazioni ![Workbooks sezione controlli di modifica ](media/vminsights-workbooks/006-settings.png) icona a destra del pulsante **Aggiungi parametri** .
+Ogni sezione dispone di impostazioni avanzate, accessibili tramite le impostazioni ![sezione cartelle di lavoro controlli di modifica](media/vminsights-workbooks/006-settings.png) icona a destra del pulsante **Aggiungi parametri** .
 
 ![Controlli di modifica della sezione cartelle di lavoro Monitoraggio di Azure per le macchine virtuali](media/vminsights-workbooks/007-settings-expanded.png)
 

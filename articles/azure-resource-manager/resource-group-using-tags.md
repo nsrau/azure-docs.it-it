@@ -4,14 +4,14 @@ description: Mostra come applicare i tag per organizzare le risorse Azure per la
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9bcbfe1bdb501cac6ff31156db5382d1174eb8ad
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: e7763889ecf69231b7a4daf31e6899b33f3e2b36
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146829"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199163"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Usare tag per organizzare le risorse di Azure
 
@@ -250,7 +250,7 @@ done
 
 ## <a name="templates"></a>Modelli
 
-Per contrassegnare una risorsa durante la distribuzione, `tags` aggiungere l'elemento alla risorsa che si sta distribuendo. e specificare il nome e il valore del tag.
+Per contrassegnare una risorsa durante la distribuzione, aggiungere l'elemento `tags` alla risorsa che si sta distribuendo. e specificare il nome e il valore del tag.
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>Applicare un valore letterale al nome del tag
 
@@ -361,7 +361,7 @@ Per memorizzare più valori in un singolo tag, è possibile applicare una string
 
 ### <a name="apply-tags-from-resource-group"></a>Applicare i tag dal gruppo di risorse
 
-Per applicare i tag da un gruppo di risorse a una risorsa, usare la funzione [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) . Quando si recupera il valore del tag, `tags.[tag-name]` usare la sintassi invece `tags.tag-name` della sintassi, perché alcuni caratteri non vengono analizzati correttamente nella notazione del punto.
+Per applicare i tag da un gruppo di risorse a una risorsa, usare la funzione [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) . Quando si recupera il valore del tag, usare la sintassi `tags.[tag-name]` invece della sintassi `tags.tag-name`, perché alcuni caratteri non vengono analizzati correttamente nella notazione del punto.
 
 ```json
 {
@@ -393,7 +393,7 @@ Per applicare i tag da un gruppo di risorse a una risorsa, usare la funzione [re
 }
 ```
 
-## <a name="portal"></a>Portale
+## <a name="portal"></a>di Microsoft Azure
 
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 

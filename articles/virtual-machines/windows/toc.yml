@@ -447,7 +447,11 @@
         - name: Disponibilità elevata
           href: manage-availability.md
         - name: Creare un gruppo di selezione host di prossimità
-          href: proximity-placement-groups.md
+          items:
+            - name: Portale
+              href: proximity-placement-groups-portal.md
+            - name: PowerShell
+              href: proximity-placement-groups.md
         - name: Aumento delle prestazioni
           items:
             - name: PowerShell

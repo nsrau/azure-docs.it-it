@@ -38,8 +38,6 @@
           href: ../core/howto-manage-devices-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Eseguire un processo
           href: ../core/howto-run-a-job.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
-        - name: Usare gruppi di dispositivi
-          href: ../core/howto-use-device-groups-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Creare una versione del modello del dispositivo
           href: ../core/howto-version-device-template-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
     - name: Monitoraggio e analisi

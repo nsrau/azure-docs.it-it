@@ -1,19 +1,19 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: include
-ms.date: 10/07/2019
+ms.date: 10/29/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 9c53aac47e965a6eba681008d6b6476142190ef8
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 1f6c65d6d8da275d6c52ac2802092dbb5e4e507d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72023084"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182230"
 ---
 ### <a name="what-is-expressroute-direct"></a>Che cos'è ExpressRoute Direct?
 
@@ -25,31 +25,7 @@ I clienti dovranno collaborare con i gestori telefonici locali e i provider di c
 
 ### <a name="what-locations-currently-support-expressroute-direct"></a>Quali percorsi attualmente supportano ExpressRoute Direct? 
 
-Le porte disponibili saranno dinamiche e saranno disponibili tramite PowerShell per visualizzare la capacità. Le località includono e *sono soggette a modifiche in base alla disponibilità*:
-
-* Amsterdam
-* Amsterdam2
-* Auckland 
-* Chicago
-* Dallas
-* Dublino
-* RAS di Hong Kong
-* Londra
-* Londra2
-* Melbourne
-* New York City
-* Perth
-* San Antonio
-* Seattle
-* Seul
-* Silicon Valley
-* Singapore2 
-* Sydney
-* Taipei
-* Tokyo
-* Toronto
-* Washington DC
-* Washington DC2
+Verificare la disponibilità nella [pagina percorso](../articles/expressroute/expressroute-locations-providers.md). 
 
 ### <a name="what-is-the-sla-for-expressroute-direct"></a>Qual è il contratto di servizio per ExpressRoute Direct?
 

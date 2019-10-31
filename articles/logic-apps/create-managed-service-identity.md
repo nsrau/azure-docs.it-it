@@ -9,16 +9,16 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 10/21/2019
-ms.openlocfilehash: fdc5340c9affa7137815577af842aa8b43a552a8
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 2d1dbde2499dbe793a895f894e5ae83c36c54449
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799551"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200618"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticare l'accesso alle risorse di Azure usando identità gestite in app per la logica di Azure
 
-Per accedere alle risorse in altri tenant di Azure Active Directory (Azure AD) e autenticare l'identità senza accedere, l'app per la logica può usare l' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) assegnata dal sistema (precedentemente nota come identità del servizio gestita o MSI), anziché credenziali o segreti. Azure gestisce questa identità per l'utente e consente di proteggere le proprie credenziali perché non è necessario fornire o ruotare i segreti. Questo articolo illustra come configurare e usare l'identità gestita assegnata dal sistema nell'app per la logica.
+Per accedere alle risorse in altri tenant di Azure Active Directory (Azure AD) e autenticare l'identità senza accedere, l'app per la logica può usare l' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) assegnata dal sistema (precedentemente nota come identità del servizio gestita o MSI), anziché credenziali o segreti. Azure gestisce questa identità per l'utente e consente di proteggere le proprie credenziali perché non è necessario fornire o ruotare i segreti. Questo articolo illustra come configurare e usare l'identità gestita assegnata dal sistema nell'app per la logica. Attualmente, le identità gestite funzionano solo con [trigger e azioni predefiniti specifici](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-to-outbound-calls), non con connessioni o connettori gestiti.
 
 Per altre informazioni, vedere gli argomenti seguenti:
 
@@ -155,7 +155,7 @@ Dopo aver configurato un'identità gestita per l'app per la logica, è possibile
 
 ## <a name="authenticate-access-with-managed-identity"></a>Autenticare l'accesso con identità gestita
 
-Dopo aver [abilitato l'identità gestita per l'app per la logica](#azure-portal-system-logic-app) e aver [dato a tale identità l'accesso alla risorsa di destinazione](#access-other-resources), è possibile usare tale identità in [trigger e azioni che supportano identità gestite](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+Dopo aver [abilitato l'identità gestita per l'app per la logica](#azure-portal-system-logic-app) e aver [dato a tale identità l'accesso alla risorsa o all'entità di destinazione](#access-other-resources), è possibile usare tale identità in [trigger e azioni che supportano le identità gestite](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
 > [!IMPORTANT]
 > Se si dispone di una funzione di Azure in cui si vuole usare l'identità assegnata dal sistema, [abilitare prima l'autenticazione per funzioni di Azure](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions).
@@ -164,27 +164,34 @@ Questi passaggi illustrano come usare l'identità gestita con un trigger o un'az
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 
-1. Se non è ancora stato fatto, aggiungere il trigger o l'azione [che supporta le identità gestite](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+1. Se non è ancora stato fatto, aggiungere il [trigger o l'azione che supporta le identità gestite](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
-   Si supponga, ad esempio, di voler eseguire l' [operazione snapshot BLOB](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob) su un BLOB nell'account di archiviazione di Azure in cui è stato precedentemente configurato l'accesso per l'identità, ma il [connettore di archiviazione BLOB di Azure](/connectors/azureblob/) attualmente non offre questa operazione. In alternativa, è possibile usare l' [azione http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) per eseguire l'operazione o qualsiasi altra operazione [API REST del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs). Per l'autenticazione, l'azione HTTP può usare l'identità assegnata dal sistema abilitata per l'app per la logica. L'azione HTTP usa anche queste proprietà per specificare la risorsa a cui si vuole accedere:
+   Ad esempio, il trigger o l'azione HTTP può usare l'identità assegnata dal sistema abilitata per l'app per la logica. In generale, il trigger o l'azione HTTP usa queste proprietà per specificare la risorsa o l'entità a cui si vuole accedere:
 
-   * La proprietà **URI** specifica l'URL dell'endpoint per accedere alla risorsa di Azure di destinazione. Questa sintassi URI include in genere l' [ID risorsa](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) per la risorsa o il servizio di Azure.
+   | Proprietà | Obbligatoria | Description |
+   |----------|----------|-------------|
+   | **Metodo** | SÌ | Metodo HTTP usato dall'operazione che si vuole eseguire |
+   | **URI** | SÌ | URL dell'endpoint per l'accesso alla risorsa o all'entità di Azure di destinazione. La sintassi dell'URI include in genere l' [ID risorsa](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) per la risorsa o il servizio di Azure. |
+   | **Intestazioni** | No | Eventuali valori di intestazione necessari o che si desidera includere nella richiesta in uscita, ad esempio il tipo di contenuto |
+   | **Query** | No | Tutti i parametri di query necessari o che si desidera includere nella richiesta, ad esempio il parametro per un'operazione specifica o la versione dell'API per l'operazione che si desidera eseguire |
+   | **Autenticazione** | SÌ | Tipo di autenticazione da usare per autenticare l'accesso alla risorsa o all'entità di destinazione |
+   ||||
 
-   * La proprietà **headers** specifica tutti i valori di intestazione necessari o che si desidera includere nella richiesta, ad esempio la versione dell'API per l'operazione che si desidera eseguire sulla risorsa di destinazione.
+   Come esempio specifico, si supponga di voler eseguire l' [operazione snapshot BLOB](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob) su un BLOB nell'account di archiviazione di Azure in cui è stato precedentemente configurato l'accesso per l'identità. Tuttavia, il [connettore di archiviazione BLOB di Azure](https://docs.microsoft.com/connectors/azureblob/) attualmente non offre questa operazione. In alternativa, è possibile eseguire questa operazione tramite l' [azione http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) o un'altra [operazione API REST del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs).
 
-   * La proprietà **Queries** specifica i parametri di query che è necessario includere nella richiesta, ad esempio il parametro per un'operazione specifica o una versione API specifica, quando necessario.
+   > [!IMPORTANT]
+   > Per accedere agli account di archiviazione di Azure dietro i firewall usando le richieste HTTP e le identità gestite, assicurarsi di configurare anche l'account di archiviazione con l' [eccezione che consente l'accesso da parte di servizi Microsoft attendibili](../connectors/connectors-create-api-azureblobstorage.md#access-trusted-service).
 
-   Quindi, per eseguire l' [operazione snapshot BLOB](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob), l'azione http specifica le proprietà seguenti:
+   Per eseguire l' [operazione snapshot BLOB](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob), l'azione http specifica le proprietà seguenti:
 
-   * **Metodo**: specifica l'operazione di `PUT`.
-
-   * **URI**: specifica l'ID di risorsa per un file di archiviazione BLOB di Azure nell'ambiente globale (pubblico) di Azure e usa questa sintassi:
-
-     `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}`
-
-   * **Headers**: specifica `x-ms-blob-type` come `BlockBlob` e `x-ms-version` come `2019-02-02` per l'operazione snapshot BLOB. Per altre informazioni, vedere [intestazioni di richiesta-snapshot BLOB](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) e [controllo delle versioni per i servizi di archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services).
-
-   * **Query**: specifica `comp` come nome del parametro di query e `snapshot` come valore del parametro.
+   | Proprietà | Obbligatoria | Valore di esempio | Description |
+   |----------|----------|---------------|-------------|
+   | **Metodo** | SÌ | `PUT`| Metodo HTTP usato dall'operazione BLOB di snapshot |
+   | **URI** | SÌ | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | ID risorsa per un file di archiviazione BLOB di Azure nell'ambiente globale (pubblico) di Azure, che usa questa sintassi |
+   | **Intestazioni** | Sì, per archiviazione di Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | I valori di intestazione `x-ms-blob-type` e `x-ms-version` richiesti per le operazioni di archiviazione di Azure. <p><p>**Importante**: nel trigger http in uscita e nelle richieste di azione per archiviazione di Azure, l'intestazione richiede la proprietà `x-ms-version` e la versione dell'API per l'operazione che si vuole eseguire. <p>Per altre informazioni, vedere gli argomenti seguenti: <p><p>[intestazioni di richiesta - -BLOB di snapshot](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>[controllo delle versioni di - per i servizi di archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **Query** | Sì, per questa operazione | `comp` = `snapshot` | Nome e valore del parametro di query per l'operazione snapshot BLOB. |
+   | **Autenticazione** | SÌ | `Managed Identity` | Tipo di autenticazione da usare per l'autenticazione dell'accesso al BLOB di Azure |
+   |||||
 
    Ecco l'azione HTTP di esempio che Mostra tutti i valori delle proprietà:
 

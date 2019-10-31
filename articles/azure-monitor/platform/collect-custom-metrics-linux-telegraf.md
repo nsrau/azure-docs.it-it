@@ -1,5 +1,5 @@
 ---
-title: Raccogliere metriche personalizzate per una VM Linux con l'agente InfluxData Telegraf
+title: Raccogliere metriche personalizzate per la VM Linux con l'agente Telegraf InfluxData
 description: Raccogliere metriche personalizzate per una VM Linux con l'agente InfluxData Telegraf
 author: anirudhcavale
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: e8164a111b9ad5ebcc67c248586e2576046334b0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 05cc1dcb2a6fa4e7790fa57cd2136d21d94b8a0b
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883235"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200530"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Raccogliere metriche personalizzate per una VM Linux con l'agente InfluxData Telegraf
 
@@ -37,7 +37,7 @@ Creare una nuova VM Linux:
 1. Cercare **Macchina virtuale**.  
 1. Selezionare **Ubuntu 16.04 LTS** e fare clic su **Crea**. 
 1. Specificare un nome di macchina virtuale come **MyTelegrafVM**.  
-1. Lasciare il tipo di disco come **SSD**. Specificare quindi un **nome utente**, adesempio azureuser. 
+1. Lasciare il tipo di disco come **SSD**. Specificare quindi un **nome utente**, ad esempio **azureuser**. 
 1. In **tipo di autenticazione**selezionare **password**. Quindi immettere una password da usare in un secondo momento per la connessione SSH in questa macchina virtuale. 
 1. Scegliere di **creare un nuovo gruppo di risorse**. Specificare quindi un nome, ad esempio **myResourceGroup**. Scegliere la **località**. Selezionare **OK**. 
 
@@ -47,13 +47,13 @@ Creare una nuova VM Linux:
 
     ![Panoramica delle dimensioni della macchina virtuale dell'agente Telegraf](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. Nella pagina **Impostazioni** del gruppo >  > di sicurezza di rete**selezionare porte in ingresso pubbliche**, selezionare http e **SSH (22)** . Accettare tutte le impostazioni predefinite e selezionare **OK**. 
+1. Nella pagina **Impostazioni** del **gruppo di sicurezza** di **rete > **  > **selezionare porte in ingresso pubbliche**, selezionare **http** e **SSH (22)** . Accettare tutte le impostazioni predefinite e selezionare **OK**. 
 
 1. Nella pagina di riepilogo selezionare **Crea** per avviare la distribuzione della macchina virtuale. 
 
 1. La macchina virtuale viene aggiunta al dashboard del portale di Azure. Una volta completata la distribuzione verrà automaticamente aperto il riepilogo della macchina virtuale. 
 
-1. Nel riquadro della macchina virtuale passare alla scheda **Identità**. Assicurarsi che la macchina virtuale abbia un'identità assegnata dal sistema impostata su **On** (Attivata). 
+1. Nel riquadro VM passare alla scheda Identity ( **identità** ). Assicurarsi che la macchina virtuale disponga di un'identità assegnata dal sistema impostata **su on**. 
  
     ![Anteprima dell'identità della VM Telegraf](./media/collect-custom-metrics-linux-telegraf/connect-to-VM.png)
  
@@ -81,7 +81,7 @@ wget https://dl.influxdata.com/telegraf/releases/telegraf_1.8.0~rc1-1_amd64.deb
 # install the package 
 sudo dpkg -i telegraf_1.8.0~rc1-1_amd64.deb
 ```
-Il file di configurazione di Telegraf definisce le operazioni Telegraf. Per impostazione predefinita, un file di configurazione di esempio viene installato nel percorso **/etc/telegraf/telegraf.conf**. Il file di configurazione di esempio elenca tutti i plug-in di input e output possibili. Si creerà tuttavia un file di configurazione personalizzato, che verrà usato dall'agente eseguendo i comandi seguenti: 
+Il file di configurazione di Telegraf definisce le operazioni Telegraf. Per impostazione predefinita, un file di configurazione di esempio viene installato nel percorso **/etc/telegraf/telegraf.conf**. Il file di configurazione di esempio elenca tutti i plug-in di input e di output possibili. Verrà tuttavia creato un file di configurazione personalizzato che verrà usato dall'agente eseguendo i comandi seguenti: 
 
 ```cmd
 # generate the new Telegraf config file in the current directory 
@@ -122,7 +122,7 @@ A questo punto l'agente raccoglierà le metriche da ogni plug-in di input specif
 
 ## <a name="additional-configuration"></a>Configurazione aggiuntiva 
 
-La procedura dettagliata precedente fornisce informazioni su come configurare l'agente Telegraf per la raccolta delle metriche da alcuni plug-in di input di base. L'agente Telegraf supporta più di 150 plug-in di input con alcune opzioni di configurazione aggiuntive. InfluxData ha pubblicato un [elenco di plug-in supportati](https://docs.influxdata.com/telegraf/v1.7/plugins/inputs/) e le istruzioni su [come configurarli](https://docs.influxdata.com/telegraf/v1.7/administration/configuration/).  
+Nella procedura dettagliata precedente vengono fornite informazioni su come configurare l'agente di Telegraf per raccogliere le metriche da alcuni plug-in di input di base. L'agente Telegraf dispone del supporto per oltre 150 plug-in di input, con alcuni supportano opzioni di configurazione aggiuntive. InfluxData ha pubblicato un [elenco di plug-in supportati](https://docs.influxdata.com/telegraf/v1.7/plugins/inputs/) e le istruzioni su [come configurarli](https://docs.influxdata.com/telegraf/v1.7/administration/configuration/).  
 
 Inoltre, questa procedura dettagliata ha consentito di usare l'agente Telegraf per generare metriche sulla macchina virtuale in cui è distribuito l'agente. L'agente Telegraf può essere usato anche come agente di raccolta e servizio di inoltro di metriche per altre risorse. Per informazioni su come configurare l'agente per la generazione di metriche per altre risorse di Azure, vedere [Azure Monitor Custom Metric Output for Telegraf](https://github.com/influxdata/telegraf/blob/fb704500386214655e2adb53b6eb6b15f7a6c694/plugins/outputs/azure_monitor/README.md) (Output di metriche personalizzate di Monitoraggio di Azure per Telegraf).  
 

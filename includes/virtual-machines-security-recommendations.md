@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/19/2019
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: d43860d71b14bdac275df51695c9206539529171
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e687fc071272e7a509b1dcfb0a417828a07aa7a9
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72511485"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182236"
 ---
-Questo articolo contiene raccomandazioni sulla sicurezza per le macchine virtuali di Azure. Seguire queste indicazioni per soddisfare gli obblighi di sicurezza descritti nel modello per la responsabilità condivisa. I consigli consentono inoltre di migliorare la sicurezza complessiva per le soluzioni di app Web. Per ulteriori informazioni sulle attività svolte da Microsoft per soddisfare le responsabilità del provider di servizi, vedere [responsabilità condivise per cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225237/1/Shared%20Responsibilities%20for%20Cloud%20Computing%20(2017-04-03).pdf).
+Questo articolo contiene raccomandazioni sulla sicurezza per le macchine virtuali di Azure. Seguire queste indicazioni per soddisfare gli obblighi di sicurezza descritti nel modello per la responsabilità condivisa. I consigli consentono inoltre di migliorare la sicurezza complessiva per le soluzioni di app Web. Per ulteriori informazioni sulle attività svolte da Microsoft per soddisfare le responsabilità del provider di servizi, vedere [responsabilità condivise per cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
 
 Alcune raccomandazioni di questo articolo possono essere automaticamente risolte dal centro sicurezza di Azure. Il Centro sicurezza di Azure è la prima linea di difesa per le risorse in Azure. Analizza periodicamente lo stato di sicurezza delle risorse di Azure per identificare le potenziali vulnerabilità di sicurezza. Viene quindi consigliata la modalità di risoluzione delle vulnerabilità. Per altre informazioni, vedere [raccomandazioni per la sicurezza nel centro sicurezza di Azure](../articles/security-center/security-center-recommendations.md).
 

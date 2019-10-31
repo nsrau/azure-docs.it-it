@@ -16,19 +16,19 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9efe76f15e2f07495a9d95f69b0c21d2bca4ea8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: 5a986c2032fc41bbd34230c5b0ead745f88b000f
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180550"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199834"
 ---
 # <a name="create-workspaces-on-the-my-apps-preview-portal"></a>Creare aree di lavoro nel portale app personali (anteprima)
 
 Gli utenti possono usare il portale app personali (anteprima) per visualizzare e avviare le applicazioni basate sul cloud a cui hanno accesso. Per impostazione predefinita, tutte le applicazioni a cui un utente può accedere sono elencate insieme in un'unica pagina. Per organizzare meglio questa pagina per gli utenti, se si dispone di una licenza Azure AD Premium P1 o P2 è possibile configurare le aree di lavoro. Con un'area di lavoro, è possibile raggruppare le applicazioni correlate, ad esempio per ruolo, attività o progetto, e visualizzarle in una scheda separata. Un'area di lavoro applica essenzialmente un filtro alle applicazioni a cui un utente può già accedere, in modo che l'utente veda solo le applicazioni nell'area di lavoro a cui sono state assegnate.
 
 > [!NOTE]
-> Questo articolo illustra come un amministratore può abilitare e creare aree di lavoro. Per informazioni sull'utente finale su come usare il portale e le aree di lavoro delle app personali, vedere [accedere e usare le aree di lavoro](https://docs.microsoft.com/azure/active-directory/user-help/).
+> Questo articolo illustra come un amministratore può abilitare e creare aree di lavoro. Per informazioni sull'utente finale su come usare il portale e le aree di lavoro delle app personali, vedere [accedere e usare le aree di lavoro](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
 
 ## <a name="enable-my-apps-preview-features"></a>Abilita le funzionalità di anteprima delle app personali
 

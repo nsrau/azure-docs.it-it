@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: cf384f29bcc82c80c94e1408f535c592b8b728cb
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 89fa06dda418f328b3bc07aada49aa347e35220a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285750"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182234"
 ---
 ## <a name="rootcert"></a>Creare un certificato radice autofirmato
 
@@ -58,7 +58,7 @@ Se si creano certificati client aggiuntivi o non si usa la stessa sessione di Po
 1. Identificare il certificato radice autofirmato che viene installato nel computer. Questo cmdlet restituisce un elenco dei certificati installati nel computer in uso.
 
    ```powershell
-   Get-ChildItem -Path “Cert:\CurrentUser\My”
+   Get-ChildItem -Path "Cert:\CurrentUser\My"
    ```
 2. Individuare il nome dell'oggetto nell'elenco restituito e quindi copiare in un file di testo l'identificazione personale che si trova accanto a esso. Nell'esempio seguente ci sono due certificati. Il nome CN è il nome del certificato radice autofirmato da cui si desidera generare un certificato figlio. In questo caso "P2SRootCert".
 
